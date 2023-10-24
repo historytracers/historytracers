@@ -1,0 +1,282 @@
+.side-bar-top {
+  position: relative;
+  height: 10%;
+  width: 100%;
+  float: left;
+}
+
+.side-bar-navigation {
+  position: relative;
+  height: 88%;
+  width: 100%;
+  float: left;
+}
+
+.side-bar {
+  position: fixed;
+  top: 0%;
+  width: 10%;
+  float: left;
+  height: 100%;
+}
+
+.main {
+  position: relative;
+  left: 12%;
+  width: 88%;
+  float: left;
+  height: 100%;
+}
+
+.main-data {
+  position: relative;
+  width: 100%;
+  float: left;
+  height: 100%;
+}
+
+.top-bar {
+  position: relative;
+  height: 10%;
+  width: 100%;
+  float: left;
+}
+
+.top-bar-left {
+  position: relative;
+  left: 12%;
+  height: 100%;
+  width: 90%;
+  float: left;
+}
+
+.top-bar-right {
+  position: relative;
+  height: 100%;
+  width: 10%;
+  float: left;
+}
+
+div.left-tree {
+  position: relative;
+  height: 100%;
+  width: 70%;
+  float: left;
+}
+
+div.right-tree {
+  position: fixed;
+  left: 76%;
+  height: 20%;
+  width: 22%;
+  float: left;
+  border: 3px solid black;
+}
+
+div.right-sources {
+  position: fixed;
+  left: 76%;
+  height: 100%;
+  width: 22%;
+  float: left;
+}
+
+div.right-tree-top {
+  position: absolute;
+  top: 10px;
+  height: 30%;
+  width: 100%;
+  float: left;
+}
+
+div.right-tree-bottom {
+  position: absolute;
+  height: 70%;
+  width: 100%;
+  float: left;
+  border: 3px solid black;
+}
+
+div.tree-grandparent-top {
+  position: absolute;
+  left: 67%;
+  top: 2%;
+  height: 20%;
+  width: 30%;
+  border: 1px solid black;
+}
+
+div.tree-grandmother-top {
+  position: absolute;
+  left: 67%;
+  top: 25%;
+  height: 20%;
+  width: 30%;
+  border: 1px solid black;
+}
+
+div.tree-grandparent-bottom {
+  position: absolute;
+  left: 67%;
+  bottom: 2%;
+  height: 20%;
+  width: 30%;
+  border: 1px solid black;
+}
+
+div.tree-grandmother-bottom {
+  position: absolute;
+  left: 67%;
+  bottom: 25%;
+  height: 20%;
+  width: 30%;
+  border: 1px solid black;
+}
+
+div.tree-parent-top {
+  position: absolute;
+  left: 35%;
+  top: 25%;
+  height: 20%;
+  width: 30%;
+  border: 1px solid black;
+}
+
+div.tree-mother-bottom {
+  position: absolute;
+  left: 35%;
+  bottom: 25%;
+  height: 20%;
+  width: 30%;
+  border: 1px solid black;
+}
+
+div.tree-child-center {
+  position: absolute;
+  left: 2%;
+  top: 40%;
+  height: 20%;
+  width: 30%;
+  border: 1px solid black;
+}
+
+.tree-text {
+  width: 95%;
+  font-size: 1.0em ;
+}
+
+.tree-introduction-text {
+  position: relative;
+  width: 95%;
+  font-size: 1.0em ;
+}
+
+.cited-text {
+  font-size: 0.85em ;
+}
+
+.tree-person-text {
+  position: relative;
+  font-size: 1.0em ;
+  left: 2%;
+}
+
+.tree-real-family-text {
+  position: relative;
+  font-size: 1.0em ;
+  left: 4%;
+}
+
+.tree-real-child-text {
+  position: relative;
+  font-size: 1.0em ;
+  width: 95%;
+  left: 4%;
+}
+
+.tree-hipothetical-family-text {
+  position: relative;
+  font-size: 1.0em ;
+  font-style: italic;
+  left: 4%;
+}
+
+.tree-hipothetical-child-text {
+  position: relative;
+  font-size: 1.0em ;
+  width: 95%;
+  font-style: italic;
+  left: 4%;
+}
+
+.tree-default-align {
+  position: relative;
+  font-size: 1.0em ;
+  width: 90%;
+  left: 2%;
+}
+
+h1 {
+    text-align: center
+}
+
+a:link {
+  color: blue;
+}
+
+a:active {
+  color: blue;
+}
+
+a:hover {
+  color: blue;
+}
+
+a:visited {
+  color: blue;
+}
+
+li.menu {
+    list-style: none;
+}
+
+li.menu::before{
+    content: "\00BB";
+}
+
+ul.sidebar-navigation {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.sidebar-all {
+  list-style-type: none;
+  margin: 0;
+  padding: 0%;
+}
+
+ul.sidebar-genealogy {
+  list-style-type: none;
+  margin: 0;
+  padding: 0%;
+}
+
+ul.citation {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 1;
+}
+
+ul.sidebar-indigenous {
+  list-style-type: none;
+  margin: 0;
+  padding: 0%;
+}
+
+ul {
+  margin: 0;
+  padding: 1;
+}
+

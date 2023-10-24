@@ -1,0 +1,74 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!DOCTYPE html>
+<head>
+  <link rel="shortcut icon" href="#">
+  <base href="./">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="keyword" content="Genealogy">
+  <title>&nbsp;</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <link rel="stylesheet" href="css/common.css"> 
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/common.js?nocache=16"></script>
+</head>
+
+<body class="dark-theme">
+  <script>
+      var indexUnixEpoch = Date.now();
+      var indexFile = document.createElement("script");
+      indexFile.setAttribute("src", "js/index.js?nocache="+indexUnixEpoch);
+      document.head.appendChild(indexFile);
+  </script>
+<div class="side-bar">
+    <div class="side-bar-top">
+        <h2> History<br /> Tracers </h2>
+    </div>
+    <ul class="sidebar-navigation">
+        <li> <b><label id="lblmain"></label></b>
+            <ul class="sidebar-all">
+                <li class="menu"> <a href="#"onclick="sgLoadPage('main','html', '', false); return false;" id="sbMain"></a></li>
+                <li class="menu"> <a href="#"onclick="sgLoadPage('license','html', '', false); return false;" id="sbLicense"></a></li>
+                <li class="menu"> <a href="#"onclick="sgLoadPage('under_construction','html', '', false); return false;" id="sbContact"></a></li>
+            </ul>
+        </li>
+
+        <li> <b><label id="lblgenealogy"></label></b>
+            <ul class="sidebar-genealogy">
+                <li class="menu"> <a href="#"onclick="sgLoadPage('first_steps','html', '', false); return false;" id="sbFirst"></a></li>
+                <li class="menu"> <a href="#"onclick="sgLoadPage('genealogical_faq','html', '', false); return false;" id="sbFAQ"></a></li>
+                <li class="menu"> <a href="#"onclick="sgLoadPage('genealogical_map','html', '', false); return false;" id="sbMAP"></a></li>
+                <li class="menu"> <a href="#"onclick="sgLoadPage('families','html', '', false); return false;" id="sbFamily"></a></li>
+                <li class="menu"> <a href="#"onclick="sgLoadPage('sources','html', '', false); return false;" id="sbSource"></a></li>
+            </ul>
+        </li>
+        <li> <b><label id="lblindigenous"></label></b>
+            <ul class="sidebar-indigenous">
+                <li class="menu"> <a href="#"onclick="sgLoadPage('under_construction','html', '', false); return false;" id="sbFAQ2"></a></li>
+            </ul>
+        </li>
+    </ul>
+    <input type="hidden" id="loading" value="" />
+    <input type="hidden" id="selector" value="" />
+    <input type="hidden" id="html_loaded" value="" />
+</div>
+<div class="top-bar">
+    <div class="top-bar-left">
+            <h1 id="header">&nbsp;</h1>
+    </div>
+    <div class="top-bar-right">
+        <select id="site_language">
+            <option value="pt-BR">Português - BR</option>
+        </select>
+    </div>
+</div>
+<div class="main">
+    <div id="messages"> </div>
+    <div class="main-data" id="genealogical_data">
+    </div>
+</div>
+</body>

@@ -1,0 +1,35 @@
+{
+    "title" : "People mapping",
+    "header" : "People mapping",
+    "sources" : [ "genealogical_map" ],
+    "content" : [
+        {
+            "id" : "introduction",
+            "value" : [ "<p>We are <i>Homo Sapiens</i> <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">(Stringer, Chris, 2016)</a> and we can extend a little bit more the knowledge about our specie family looking for the first common possible ancestor with <i>Homo neanderthalensis</i> <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">(Stringer, Chris, 2016)</a>. This looks like a big simplification, but it is an objective way to show that we are all the <b>same specie</b>.<p>The animal evolution needs a lot of time to happen, but sometimes there are explosions <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c6bc83e7-103d-44ea-8623-bafa1862860c'); return false;\">(Sperling, Erik A., et Richard G. Stockey, 2018, pp. 605-622)</a>, on the other hand, the language evolution <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f49430b6-ab85-4d19-8d2b-d0ce06126dc4'); return false;\">(Fitch, W.T., 2017, 3-33)</a> is quick and as direct consequence we can easily define and spread group of people, this also has the side effect that people are different.</p>" ],
+            "references" : [ "2119e27f-6337-4b83-a551-31deb737ee3d", "f49430b6-ab85-4d19-8d2b-d0ce06126dc4", "c6bc83e7-103d-44ea-8623-bafa1862860c" ]
+        },
+        {
+            "id" : "groups",
+            "desc" : "Group of people (families) studied:",
+            "target" : "people-group",
+            "value_type" : "group-list",
+            "value" : [
+                {
+                    "id": "f6e2710f-1e34-44df-9b6d-e9ee2d5e783b",
+                    "name": "American Indigenous",
+                    "desc": "People that lived in America millenniums before any European arrived."
+                },
+                {
+                    "id": "91eab659-f361-47e3-b573-48ccab3e29ce",
+                    "name": "Defamation like Jewish person",
+                    "desc": "The word 'defamation' has relationship with Inquisition times, and it should not be treated in the same way nowadays."
+                },
+                {
+                    "id": "c3ba1e63-6758-4feb-9c9f-1a3da73135bf",
+                    "name": "Slavery People",
+                    "desc": "Families that have at least an ancestor that was a slave."
+                }
+            ]
+        }
+    ]
+}

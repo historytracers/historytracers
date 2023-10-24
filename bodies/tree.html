@@ -1,0 +1,63 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+
+<script>
+    var treeUnixEpoch = Date.now();
+    var treeFile = document.createElement("script");
+    treeFile.setAttribute("src", "js/tree.js?nocache="+treeUnixEpoch);
+    document.head.appendChild(treeFile);
+</script>
+
+<div class="left-tree">
+    <div class="tree-introduction-text" id="introduction">
+    </div>
+
+    <h4 id="tree-common-lbl"></h4>
+    <div class="tree-introduction-text" id="common">
+    </div>
+
+    <div class="main-data" id="index"> <h4 id="index-identifier"></h4>
+        <ol id="index_list">
+        </ol>
+    </div>
+
+    <div class="tree-text" id="trees">
+    </div>
+</div>
+<div class="right-tree">
+    <div class="main-data" id="right-tree-top">
+        <div class="tree-grandparent-top" id="grandfather01">
+            Loading..
+        </div>
+        <div class="tree-grandmother-top" id="grandmother01">
+            Loading..
+        </div>
+
+        <div class="tree-grandparent-bottom" id="grandfather02">
+            Loading..
+        </div>
+        <div class="tree-grandmother-bottom" id="grandmother02">
+            Loading..
+        </div>
+
+        <div class="tree-parent-top" id="father">
+            Loading..
+        </div>
+        <div class="tree-mother-bottom" id="mother">
+            Loading..
+        </div>
+
+        <div class="tree-child-center" id="child">
+            Loading..
+        </div>
+    </div>
+    <div class="main-data" id="right-tree-bottom">
+        <h4 id="tree-sources-lbl"></h4>
+        <div id="tree-source" class="cited-text"></div>
+
+        <h4 id="tree-references-lbl"></h4>
+        <div id="tree-ref" class="cited-text"></div>
+
+        <h4 id="tree-holy_references-lbl"></h4>
+        <div id="tree-holy-ref" class="cited-text"></div>
+    </div>
+</div>

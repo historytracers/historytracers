@@ -1,0 +1,36 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+
+<script>
+    var fsUnixEpoch = Date.now();
+    var fsFile = document.createElement("script");
+    fsFile.setAttribute("src", "js/first_steps.js?nocache="+fsUnixEpoch);
+    document.head.appendChild(fsFile);
+</script>
+<div class="left-tree">
+    <div class="main-data" id="introduction">
+    </div>
+
+    <div class="main-data" id="family_talking">
+    </div>
+
+    <div class="main-data" id="documentation">
+    </div>
+
+    <div class="main-data" id="scientific_method">
+    </div>
+
+    <div class="main-data" id="software">
+    </div>
+</div>
+<div class="right-sources">
+    <p id ="tree-descripton"></p>
+    <h4 id="tree-sources-lbl"></h4>
+    <div id="tree-source" class="cited-text"></div>
+
+    <h4 id="tree-references-lbl"></h4>
+    <div id="tree-ref" class="cited-text"></div>
+
+    <h4 id="tree-holy_references-lbl"></h4>
+    <div id="tree-holy-ref" class="cited-text"></div>
+</div>
+

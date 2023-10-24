@@ -1,0 +1,3 @@
+# Why do we need another genealogical project?
+
+There are different genealogical projects that that help people to make their family tree, some of them are collaborative and people can work together to find their ancestors. This project does not have the goal to be more one website or software to make family trees and compete with them, the main goal is to help the people to use the scientific method and understand how their family knowledge grew during the centuries. This project does not treat only the people relationship, but we also work with different issues that make equal people to be different.
