@@ -18,13 +18,13 @@ const holyRefSourceMap = new Map();
 
 function sgLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
-    if (ext == "html" && page == "tree") {
+    if (ext == "html" && (page == "tree" || page == "genealogical_map_list")) {
         if (reload == true && lastTreeLoaded.arg.length > 0) {
             arg = lastTreeLoaded.arg;
+        } else {
+            lastTreeLoaded.page = page;
+            lastTreeLoaded.arg = arg;
         }
-
-        lastTreeLoaded.page = page;
-        lastTreeLoaded.arg = arg;
     }
 
     var pages = arg.split('&person_id=') ;
