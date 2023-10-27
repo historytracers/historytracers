@@ -313,7 +313,6 @@ function htFillFamilies(table) {
             $('html, body').scrollTop($("#name-"+destination).offset().top);
             fillTree(destination);
         }
-        $("#selector").val("");
     }
     sgLoadPage('tree','json', '', false);
     $("#loading_msg").hide();
