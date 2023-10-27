@@ -140,7 +140,7 @@ function htFillWebPage(data)
                     }
                     htFillMapList(data.content[i].value, data.content[i].target);
                 } else if (data.content[i].value_type == "subgroup") {
-                    htFillGenealogicalMapList(data.content[i].value, data.content[i].target);
+                    htFillScreenMapList(data.content[i].value, data.content[i].target);
                 }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].id != undefined) {
                 for (const j in data.content[i].value) {
@@ -228,13 +228,13 @@ function htFillFamilyList(table, target) {
 
 function htFillMapList(table, target) {
     for (const i in table) {
-        $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"#\" onclick=\"sgLoadPage('genealogical_map_list', 'html', '"+table[i].id+"', false);\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
+        $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"#\" onclick=\"sgLoadPage('genealogical_map_list', 'html', '"+table[i].id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
     }
 }
 
-function htFillGenealogicalMapList(table, target) {
+function htFillScreenMapList(table, target) {
     for (const i in table) {
-        $("#"+target).append("<li id=\""+i+"\"><a href=\"#\" onclick=\"sgLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false);\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
+        $("#"+target).append("<li id=\""+i+"\"><a href=\"#\" onclick=\"sgLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
     }
 }
 
