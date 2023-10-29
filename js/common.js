@@ -18,7 +18,7 @@ const holyRefSourceMap = new Map();
 
 function sgLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
-    if (ext == "html" && (page == "tree" || page == "genealogical_map_list")) {
+    if (ext == "html" && (page == "tree" || page == "genealogical_map_list" || page == "indigenous_who_content")) {
         if (reload == true && lastTreeLoaded.arg.length > 0) {
             arg = lastTreeLoaded.arg;
         } else {
@@ -138,9 +138,11 @@ function htFillWebPage(data)
                     if (data.content[i].id.length > 0 ) {
                         $("#"+data.content[i].id).html(data.content[i].desc);
                     }
-                    htFillMapList(data.content[i].value, data.content[i].target);
+                    htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page);
                 } else if (data.content[i].value_type == "subgroup") {
-                    htFillScreenMapList(data.content[i].value, data.content[i].target);
+                    htFillSubMapList(data.content[i].value, data.content[i].target);
+                } else if (data.content[i].value_type == "paper") {
+                    htFillPaperContent(data.content[i].value);
                 }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].id != undefined) {
                 for (const j in data.content[i].value) {
@@ -226,15 +228,28 @@ function htFillFamilyList(table, target) {
     }
 }
 
-function htFillMapList(table, target) {
+function htFillMapList(table, target, page) {
     for (const i in table) {
-        $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"#\" onclick=\"sgLoadPage('genealogical_map_list', 'html', '"+table[i].id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+        $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"#\" onclick=\"sgLoadPage('"+page+"', 'html', '"+table[i].id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
     }
 }
 
-function htFillScreenMapList(table, target) {
+function htFillSubMapList(table, target) {
     for (const i in table) {
         $("#"+target).append("<li id=\""+i+"\"><a href=\"#\" onclick=\"sgLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+    }
+}
+
+function htFillPaperContent(table) {
+    for (const i in table) {
+        var div = "<div id=\"paper-";
+        div += (table[i].id != undefined) ? table[i].id : i;
+        div += "\">";
+
+        div += table[i].text;
+
+        div += "</div>";
+        $("#paper").append(div);
     }
 }
 
