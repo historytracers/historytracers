@@ -669,8 +669,8 @@ function fillTree(personID)
         } else {
 
             type = (grandParentsId1[2] == 't') ? 'theory' : 'hypothetical';
-            var secgrandparents2 = htFillDivTree("#grandfather02", grandParentsId1[0], type);
-            var secgrandparents3 = htFillDivTree("#grandmother02", grandParentsId1[1], type);
+            var secgrandparents2 = htFillDivTree("#grandmother02", grandParentsId1[0], type);
+            var secgrandparents3 = htFillDivTree("#grandfather02", grandParentsId1[1], type);
         }
     }
 }
