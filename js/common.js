@@ -18,12 +18,20 @@ const holyRefSourceMap = new Map();
 
 function sgLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
-    if (ext == "html" && (page == "tree" || page == "genealogical_map_list" || page == "indigenous_who_content")) {
-        if (reload == true && lastTreeLoaded.arg.length > 0) {
-            arg = lastTreeLoaded.arg;
-        } else {
-            lastTreeLoaded.page = page;
-            lastTreeLoaded.arg = arg;
+    // append famly
+    if (ext == "html") {
+        if (page == "tree" || page == "genealogical_map_list" || page == "indigenous_who_content") {
+            if (reload == true && lastTreeLoaded.arg.length > 0) {
+                arg = lastTreeLoaded.arg;
+            } else {
+                lastTreeLoaded.page = page;
+                lastTreeLoaded.arg = arg;
+            }
+        } else if (page == "families") {
+            lastTreeLoaded.page = null;
+            lastTreeLoaded.arg = null
+            $("#loading").val("");
+            $("#selector").val("");
         }
     }
 
