@@ -18,7 +18,6 @@ const holyRefSourceMap = new Map();
 
 function sgLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
-    // append famly
     if (ext == "html") {
         if (page == "tree" || page == "genealogical_map_list" || page == "indigenous_who_content") {
             if (reload == true && lastTreeLoaded.arg.length > 0) {
