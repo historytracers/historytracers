@@ -7,14 +7,14 @@ var objectConstructor = ({}).constructor;
 let keywords = [ ];
 var lastTreeLoaded = { "page" : null, "arg" : '' };
 
-const personNameMap = new Map();
-const familyMap = new Map();
+var personNameMap = new Map();
+var familyMap = new Map();
 
-const contentMap = new Map();
+var contentMap = new Map();
 
-const primarySourceMap = new Map();
-const refSourceMap = new Map();
-const holyRefSourceMap = new Map();
+var primarySourceMap = new Map();
+var refSourceMap = new Map();
+var holyRefSourceMap = new Map();
 
 function sgLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
@@ -64,7 +64,7 @@ function sgLoadPage(page, ext, arg, reload) {
         }
     }
 
-    const unixEpoch = Date.now();
+    var unixEpoch = Date.now();
     if (ext != "json") {
         var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
         $("#genealogical_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
