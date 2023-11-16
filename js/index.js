@@ -1,9 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 $(document).ready(function(){
+    var lang = htDetectLanguage();
+    $('#site_language').val(lang);
+
     sgLoadPage('main','html', '', false);
     sgLoadPage('index','json', '', false);
-    sgLoadPage('language','json', '', false);
+    //sgLoadPage('language','json', '', false);
     sgLoadPage('tree_keywords','json', '', false);
 
     $('#site_language').on('change', function() {

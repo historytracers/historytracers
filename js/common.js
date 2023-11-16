@@ -53,15 +53,7 @@ function sgLoadPage(page, ext, arg, reload) {
     var lang = $("#site_language").val();
     // Use default language
     if (lang.length == 0) {
-        lang = navigator.language;
-        if (lang == undefined || lang.length == 0) {
-            lang = "en-US";
-        } else {
-            // address browsers that stores only lower case values.
-            var country = lang.substring(3,2).toUpperCase();
-            var llang =  lang.substring(0, 2)
-            lang = llang+'-'+country;
-        }
+        lang = htDetectLanguage();
     }
 
     var unixEpoch = Date.now();
@@ -98,6 +90,24 @@ function sgLoadPage(page, ext, arg, reload) {
             return false;
         },
     });
+}
+
+function htDetectLanguage()
+{
+    var lang = navigator.language || navigator.userLanguage;
+    if (lang == undefined || lang.length == 0) {
+        lang = "en-US";
+    } else {
+        if ($("#site_language option[value='"+lang+"']").length < 0) {
+            lang = "en-US";
+        }
+
+        // address browsers that stores only lower case values.
+        var country = lang.substring(3).toUpperCase();
+        var llang =  lang.substring(0, 2).toLowerCase();
+        lang = llang+'-'+country;
+    }
+    return lang;
 }
 
 function htFillWebPage(data)
