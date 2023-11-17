@@ -6,7 +6,7 @@ $(document).ready(function(){
 
     sgLoadPage('main','html', '', false);
     sgLoadPage('index','json', '', false);
-    //sgLoadPage('language','json', '', false);
+    sgLoadPage('language','json', '', false);
     sgLoadPage('tree_keywords','json', '', false);
 
     $('#site_language').on('change', function() {
