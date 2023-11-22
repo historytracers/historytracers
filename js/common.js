@@ -85,7 +85,7 @@ function sgLoadPage(page, ext, arg, reload) {
 
             htLoadSources(data, arg, page);
 
-            htFillWebPage(data);
+            htFillWebPage(page, data);
 
             return false;
         },
@@ -110,7 +110,7 @@ function htDetectLanguage()
     return lang;
 }
 
-function htFillWebPage(data)
+function htFillWebPage(page, data)
 {
     if (data.title != undefined && data.title.length > 0) {
         $(document).prop('title', data.title);
@@ -134,7 +134,7 @@ function htFillWebPage(data)
     }
     else if (data.families != undefined) {
 //-------------------- Load Families
-        htFillFamilies(data);
+        htFillFamilies(page, data);
 //-------------------- Load groups
     } else if (data.keywords != undefined) {
 //-------------------- Load Keywords
@@ -270,7 +270,7 @@ function htFillPaperContent(table) {
     }
 }
 
-function htFillFamilies(table) {
+function htFillFamilies(page, table) {
     if (table.title != undefined) {
         $(document).prop('title', table.title);
     }
@@ -313,7 +313,8 @@ function htFillFamilies(table) {
                    family_id,
                    undefined,
                    family.name,
-                   family);
+                   family,
+                   page);
 
         if (family.people == undefined) {
             continue;
@@ -334,7 +335,8 @@ function htFillFamilies(table) {
                        person_id,
                        family_id,
                        people[j].name,
-                       people[j]);
+                       people[j],
+                       page);
         }
     }
 
@@ -375,12 +377,33 @@ function htSetMapFamily(id, father, mother, type)
     familyMap.set(id, parent_idx);
 }
 
-function htAppendData(prefix, id, familyID, name, table) {
+function htCopyLink(familyID, id)
+{
+    var url = window.location.href;
+    var remove = url.search("#");
+    var userURL =  (remove > 0 )? url.substring(0, remove) : url;
+
+    userURL += "index.html?page=tree&arg="+familyID;
+
+    if (id != undefined) {
+        userURL += "&person_id=" + id;
+    }
+
+    var temp = $("<input>");
+    $("body").append(temp);
+    temp.val(userURL).select();
+    document.execCommand("copy");
+    temp.remove();
+
+    return false;
+}
+
+function htAppendData(prefix, id, familyID, name, table, page) {
     var history = table.history;
     var parents = table.parents;
     if (history != undefined) {
         var title = (parents == undefined) ? keywords[8] : keywords[9];
-        $("#"+prefix+"-"+id).append("<p><h4 id=\"name-"+id+"\" onclick=\"fillTree('"+id+"');\">"+title + " : " +name+"</h4></p>");
+        $("#"+prefix+"-"+id).append("<p><h4 id=\"name-"+id+"\" onclick=\"fillTree('"+id+"');\">"+title + " : " +name+"  (<a href=\"#\" onclick=\"htCopyLink('"+page+"', '"+id+"'); return false;\" >"+keywords[26]+"</a>)</h4></p>");
     }
 
     var primary_source = table.primary_source;
