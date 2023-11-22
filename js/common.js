@@ -253,7 +253,7 @@ function htFillMapList(table, target, page) {
 
 function htFillSubMapList(table, target) {
     for (const i in table) {
-        $("#"+target).append("<li id=\""+i+"\"><a href=\"#\" onclick=\"sgLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+        $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"\" onclick=\"sgLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
     }
 }
 
@@ -408,7 +408,7 @@ function htAppendData(prefix, id, familyID, name, table) {
                     if (name != undefined) {
                         parentsLink += "<a href=\"#name-"+couple.father+"\" onclick=\"fillTree('"+couple.father+"');\">" +name+"</a> ";
                     } else if (couple.father_name != undefined && couple.father_family != undefined && couple.father_family != familyID) {
-                        parentsLink += "<a href=\"#\" onclick=\"sgLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+couple.father+"', false);\">"+couple.father_name+"</a> & ";
+                        parentsLink += "<a href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+couple.father+"\" onclick=\"sgLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+couple.father+"', false);\">"+couple.father_name+"</a> & ";
                     }
                 }
                 parents_id += "-";
@@ -422,13 +422,13 @@ function htAppendData(prefix, id, familyID, name, table) {
                             if (couple.mother_family == familyID) {
                                 parentsLink += " & <a href=\"#name-"+couple.mother+"\" onclick=\"fillTree('"+couple.mother+"');\">" +name+"</a>";
                             } else {
-                                parentsLink += "<a href=\"#\" onclick=\"sgLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false);\">"+name+"</a>";
+                                parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"\" onclick=\"sgLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false);\">"+name+"</a>";
                             }
                         } else {
                             parentsLink += " & " +name;
                         }
                     } else if (couple.mother_name != undefined && couple.mother_family != undefined && couple.mother_family != familyID) {
-                        parentsLink += "<a href=\"#\" onclick=\"sgLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false);\">"+couple.mother_name+"</a>";
+                        parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"\" onclick=\"sgLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false);\">"+couple.mother_name+"</a>";
                     }
                 }
 
@@ -475,7 +475,7 @@ function htAppendData(prefix, id, familyID, name, table) {
                 } else if (familyID == marriage.family_id) {
                     marriageLink = "<a href=\"#name-"+marriage.id+"\">"+marriage.name+"</a>";
                 } else {
-                    marriageLink = "<a href=\"#\" onclick=\"sgLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false);\">"+marriage.name+"</a>";
+                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"\" onclick=\"sgLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false);\">"+marriage.name+"</a>";
                 }
 
                 $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b>: "+marriageLink+".</p></div>");
@@ -517,7 +517,7 @@ function htAppendData(prefix, id, familyID, name, table) {
             } else if (familyID == child.family_id) {
                 childLink = "<a href=\"#name-"+child.id+"\"  onclick=\"fillTree('"+child.id+"');\">"+child.name+"</a>";
             } else { 
-                childLink = "<a href=\"#\" onclick=\"sgLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child.name+"</a>";
+                childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"\" onclick=\"sgLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child.name+"</a>";
             }
 
             $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+child_keyword+"</b>: </p></div>");
