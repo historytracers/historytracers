@@ -40,9 +40,11 @@ $(document).ready(function(){
                 sgLoadPage(page,'html', '', false);
                 break;
             case 'tree':
+            case 'genealogical_map_list':
+            case 'indigenous_who_content':
                 var larg = (urlParams.has('arg')) ? urlParams.get('arg'): "";
                 var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
-                sgLoadPage('tree','html', larg+'&person_id='+lperson, false);
+                sgLoadPage(page,'html', larg+'&person_id='+lperson, false);
                 break;
             default:
                 $( "#messages" ).html( "Error requesting page " +  urlParams.get('page'));

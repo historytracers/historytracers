@@ -239,7 +239,7 @@ function htFillFamilyList(table, target) {
             var rows = table[i].value;
             $("#bottom"+table[i].id).append("<ul id=\"bottomList"+table[i].id+"\"></ul>");
             for (const k in rows) {
-                $("#bottomList"+table[i].id).append("<li id=\""+rows[k].id+"\"><a href=\"#\" onclick=\"sgLoadPage('tree', 'html', '"+rows[k].id+"', false);\" >"+rows[k].value+"</a></li>");
+                $("#bottomList"+table[i].id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"\" onclick=\"sgLoadPage('tree', 'html', '"+rows[k].id+"', false);\" >"+rows[k].value+"</a></li>");
             }
         }
     }
@@ -247,7 +247,7 @@ function htFillFamilyList(table, target) {
 
 function htFillMapList(table, target, page) {
     for (const i in table) {
-        $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"#\" onclick=\"sgLoadPage('"+page+"', 'html', '"+table[i].id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+        $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"\" onclick=\"sgLoadPage('"+page+"', 'html', '"+table[i].id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
     }
 }
 
