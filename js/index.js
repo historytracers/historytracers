@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
     var lang = "";
+    var first = true;
 
     var urlParams = new URLSearchParams(window.location.search);
     const myState = { additionalInformation: 'Updated the URL with JS, avoiding wrong click action' };
@@ -23,15 +24,17 @@ $(document).ready(function(){
     sgLoadPage('tree_keywords','json', '', false);
 
     $('#site_language').on('change', function() {
-        var lastLoaded = $("#html_loaded").val();
-        if (lastLoaded.lenght == 0 ) {
-            lastLoaded = 'main';
-        }
+        if (!first) {
+            var lastLoaded = $("#html_loaded").val();
+            if (lastLoaded.lenght == 0 ) {
+                lastLoaded = 'main';
+            }
 
-        sgLoadPage('index','json', '', true);
-        sgLoadPage('language','json', '', true);
-        sgLoadPage('tree_keywords','json', '', true);
-        sgLoadPage(lastLoaded, 'html', '', true);
+            sgLoadPage('index','json', '', true);
+            sgLoadPage('language','json', '', true);
+            sgLoadPage('tree_keywords','json', '', true);
+            sgLoadPage(lastLoaded, 'html', '', true);
+        }
     });
 
     if (urlParams.has('page')) {
@@ -54,8 +57,10 @@ $(document).ready(function(){
             case 'genealogical_map_list':
             case 'indigenous_who_content':
                 var larg = (urlParams.has('arg')) ? urlParams.get('arg'): "";
-                var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
-                sgLoadPage(page,'html', larg+'&person_id='+lperson, false);
+                if (larg.length > 0 ) {
+                    var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
+                    sgLoadPage(page,'html', larg+'&person_id='+lperson, false);
+                }
                 break;
             default:
                 $( "#messages" ).html( "Error requesting page " +  urlParams.get('page'));
@@ -63,6 +68,7 @@ $(document).ready(function(){
     } else {
         sgLoadPage('main','html', '', false);
     }
+    first = false;
 });
 
 // http://api.jquery.com/ajaxerror/
