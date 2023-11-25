@@ -98,13 +98,18 @@ function htDetectLanguage()
     if (lang == undefined || lang.length == 0) {
         lang = "en-US";
     } else {
+        var llang =  lang.substring(0, 2).toLowerCase();
         if ($("#site_language option[value='"+lang+"']").length < 0) {
-            lang = "en-US";
+            if (llang == "pt") {
+                lang = "pt-BR";
+            } else {
+                lang = "en-US";
+            }
         }
 
         // address browsers that stores only lower case values.
         var country = lang.substring(3).toUpperCase();
-        var llang =  lang.substring(0, 2).toLowerCase();
+        llang =  lang.substring(0, 2).toLowerCase();
         lang = llang+'-'+country;
     }
     return lang;
