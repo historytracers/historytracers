@@ -20,7 +20,7 @@ function sgLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
     if (ext == "html") {
         if (page == "tree" || page == "genealogical_map_list" || page == "indigenous_who_content") {
-            if (reload == true && lastTreeLoaded.arg.length > 0) {
+            if (reload == true && lastTreeLoaded.arg != null && lastTreeLoaded.arg.length > 0) {
                 arg = lastTreeLoaded.arg;
             } else {
                 lastTreeLoaded.page = page;
@@ -46,13 +46,13 @@ function sgLoadPage(page, ext, arg, reload) {
         }
     }
 
-    if (ext.length > 0 &&  ext == "html") {
+    if (ext.length != null && ext.length > 0 &&  ext == "html") {
         $("#html_loaded").val(page);
     }
 
     var lang = $("#site_language").val();
     // Use default language
-    if (lang.length == 0) {
+    if (lang == null || lang == undefined) {
         lang = htDetectLanguage();
     }
 
@@ -95,7 +95,7 @@ function sgLoadPage(page, ext, arg, reload) {
 function htDetectLanguage()
 {
     var lang = navigator.language || navigator.userLanguage;
-    if (lang == undefined || lang.length == 0) {
+    if (lang == undefined || lang == null || lang.length == 0) {
         lang = "en-US";
     } else {
         var llang =  lang.substring(0, 2).toLowerCase();
@@ -117,15 +117,15 @@ function htDetectLanguage()
 
 function htFillWebPage(page, data)
 {
-    if (data.title != undefined && data.title.length > 0) {
+    if (data.title != undefined && data.title != null && data.title.length > 0) {
         $(document).prop('title', data.title);
     }
 
-    if (data.header != undefined && data.header.length > 0) {
+    if (data.header != undefined && data.header != null && data.header.length > 0) {
         $("#header").html(data.header);
     }
 
-    if (data.common != undefined && data.common.length > 0) {
+    if (data.common != undefined && data.common != null && data.common.length > 0) {
         for (const i in data.common) {
             $("#common").append(data.common[i]);
         }
@@ -157,7 +157,7 @@ function htFillWebPage(page, data)
                     var table = data.content[i].value;
                     htFillFamilyList(table, data.content[i].target);
                 } else if (data.content[i].value_type == "group-list") {
-                    if (data.content[i].id.length > 0 ) {
+                    if (data.content[i].id != undefined && data.content[i].id != null && data.content[i].id.length > 0 ) {
                         $("#"+data.content[i].id).html(data.content[i].desc);
                     }
                     htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page);
@@ -346,7 +346,7 @@ function htFillFamilies(page, table) {
     }
 
     var destination = $("#selector").val();
-    if (destination.length > 1) {
+    if (destination != undefined && destination != null && destination.length > 1) {
         var localObject = $("#name-"+destination).val();
         if (localObject != undefined) {
             $('html, body').scrollTop($("#name-"+destination).offset().top);
@@ -622,11 +622,11 @@ function htFillSource(divID, sourceMap, id)
     var src = sourceMap.get(id);
     if (src != undefined) {
         var dateValue = "";
-        if (src.date != undefined && src.date.length > 0) {
+        if (src.date != undefined && src.date != null && src.date.length > 0) {
             dateValue = ". [ "+keywords[22]+" "+src.date+" ].";
         }
         var urlValue = "";
-        if (src.url != undefined && src.url.length > 0) {
+        if (src.url != undefined && src.url != null && src.url.length > 0) {
             urlValue = keywords[23]+" <a target=\"_blank\" href=\""+src.url+"\"> "+src.url+"</a>";
         }
         $(divID).append("<p>"+src.citation+" "+dateValue +" "+urlValue+"</p>");

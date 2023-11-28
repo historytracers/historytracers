@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
     var loadSite = $("#loading").val();
-    if (loadSite.length > 0) {
+    if (loadSite != undefined && loadSite != null && loadSite.length > 0) {
         sgLoadPage(loadSite, 'json', '', false);
     }
 });
