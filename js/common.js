@@ -99,7 +99,7 @@ function htDetectLanguage()
         lang = "en-US";
     } else {
         var llang =  lang.substring(0, 2).toLowerCase();
-        if ($("#site_language option[value='"+lang+"']").length < 0) {
+        if (($("#site_language option[value='"+lang+"']").length > 0) == false) {
             if (llang == "pt") {
                 lang = "pt-BR";
             } else {
