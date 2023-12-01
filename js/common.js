@@ -61,9 +61,15 @@ function sgLoadPage(page, ext, arg, reload) {
         var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
         $("#genealogical_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 
-        if (page == 'tree' && reload == true) {
-            sgLoadPage('tree','json', arg, false);
-            sgLoadPage($("#loading").val(),'json', '', false);
+        if (page == 'tree') {
+            if (reload == true) {
+                sgLoadPage('tree','json', arg, false);
+                sgLoadPage($("#loading").val(),'json', '', false);
+            }
+
+            if (additional.length == 0) {
+                return false;
+            }
         }
 
         return false;
