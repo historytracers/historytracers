@@ -58,6 +58,9 @@ function sgLoadPage(page, ext, arg, reload) {
 
     var unixEpoch = Date.now();
     if (ext != "json") {
+        if (appendPage.length == 0 && ((page == "tree" ) || (page == "genealogical_map_list") || (page == "indigenous_who_content") ))
+            return false;
+
         var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
         $("#genealogical_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 
@@ -65,10 +68,6 @@ function sgLoadPage(page, ext, arg, reload) {
             if (reload == true) {
                 sgLoadPage('tree','json', arg, false);
                 sgLoadPage($("#loading").val(),'json', '', false);
-            }
-
-            if (additional.length == 0) {
-                return false;
             }
         }
 

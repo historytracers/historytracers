@@ -57,7 +57,7 @@ $(document).ready(function(){
             case 'genealogical_map_list':
             case 'indigenous_who_content':
                 var larg = (urlParams.has('arg')) ? urlParams.get('arg'): "";
-                if (larg.length > 0 ) {
+                if (larg != null && larg != undefined && larg.length > 5 ) {
                     var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
                     sgLoadPage(page,'html', larg+'&person_id='+lperson, false);
                 }
