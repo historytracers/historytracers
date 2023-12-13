@@ -478,6 +478,9 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     use_class = "tree-hipothetical-family-text";
                 }
 
+                if (parentsLink.length == 0) {
+                    parentsLink += couple.father_name+" & "+couple.mother_name;
+                }
                 $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\""+use_class+"\"><p><b>"+use_keyword + "</b>: " +parentsLink+"</p></div>");
             }
         }
