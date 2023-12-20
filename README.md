@@ -10,3 +10,14 @@ This project has a design to avoid page reload, and it does not have a unique fi
 
 We have on our horizon the goal to bring a simple web server that will allow you to access the data locally, while this does not happen, you have different options available like [Simple Web Server](https://simplewebserver.org/) or a [python web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server). After to install one of them, you can extract the project content inside the selected web server and access it through your browser.
 
+## How to add a new language?
+
+To add a new language for the project, firstly you need to create a directory, and after this, run a script that creates all files for you:
+
+```sh
+$ mkdir lang/es-ES
+$ cd lang
+$ bash create_language.sh --path "es-ES" --msg "Aguardando traducción"
+```
+
+Finally, you can add content in another language. It is suggested to start working with files that name are not [Universal Unique Identifier](https://developer.mozilla.org/en-US/docs/Glossary/UUID).

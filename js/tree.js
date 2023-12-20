@@ -3,7 +3,7 @@
 $(document).ready(function(){
     var loadSite = $("#loading").val();
     if (loadSite != undefined && loadSite != null && loadSite.length > 0) {
-        sgLoadPage(loadSite, 'json', '', false);
+        htLoadPage(loadSite, 'json', '', false);
     }
 });
 

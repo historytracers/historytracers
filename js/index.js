@@ -19,9 +19,9 @@ $(document).ready(function(){
     }
 
     $('#site_language').val(lang);
-    sgLoadPage('index','json', '', false);
-    sgLoadPage('language','json', '', false);
-    sgLoadPage('tree_keywords','json', '', false);
+    htLoadPage('index','json', '', false);
+    htLoadPage('language','json', '', false);
+    htLoadPage('tree_keywords','json', '', false);
 
     $('#site_language').on('change', function() {
         if (!first) {
@@ -30,10 +30,10 @@ $(document).ready(function(){
                 lastLoaded = 'main';
             }
 
-            sgLoadPage('index','json', '', true);
-            sgLoadPage('language','json', '', true);
-            sgLoadPage('tree_keywords','json', '', true);
-            sgLoadPage(lastLoaded, 'html', '', true);
+            htLoadPage('index','json', '', true);
+            htLoadPage('language','json', '', true);
+            htLoadPage('tree_keywords','json', '', true);
+            htLoadPage(lastLoaded, 'html', '', true);
         }
     });
 
@@ -51,7 +51,7 @@ $(document).ready(function(){
             case 'indigenous_who':
             case 'acknowledgement':
             case 'release':
-                sgLoadPage(page,'html', '', false);
+                htLoadPage(page,'html', '', false);
                 break;
             case 'tree':
             case 'genealogical_map_list':
@@ -59,14 +59,14 @@ $(document).ready(function(){
                 var larg = (urlParams.has('arg')) ? urlParams.get('arg'): "";
                 if (larg != null && larg != undefined && larg.length > 5 ) {
                     var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
-                    sgLoadPage(page,'html', larg+'&person_id='+lperson, false);
+                    htLoadPage(page,'html', larg+'&person_id='+lperson, false);
                 }
                 break;
             default:
                 $( "#messages" ).html( "Error requesting page " +  urlParams.get('page'));
         }
     } else {
-        sgLoadPage('main','html', '', false);
+        htLoadPage('main','html', '', false);
     }
     first = false;
 });
