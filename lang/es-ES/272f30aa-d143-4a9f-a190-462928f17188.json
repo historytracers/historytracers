@@ -1,1 +1,34 @@
-{ "nothing" : "Aguardando traducción" }
+{
+    "title" : "Musulmanes",
+    "header" : "Musulmanes",
+    "sources" : [ "16th_century" ],
+    "common" : [ "En esta página tenemos las familias con por lo menos un ancestro musulmano:" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "content" : [
+        {
+            "id" : "families",
+            "target" : "group_list",
+            "value_type" : "subgroup",
+            "value" : [
+                {
+                    "family_id" : "41dcb632-07d5-464c-9f24-6b740e284909",
+                    "person_id" : "c59e2e5b-45ca-4199-ad10-f41956ec89f4",
+                    "name" : "Maia",
+                    "desc" : "antigua familia portuguesa con origen en Aboazar Lovezendes, que supuestamente posee ancestros árabes."
+                },
+                {
+                    "family_id" : "9cd69f67-2f4e-43f2-a5b9-355ea760dc8e",
+                    "person_id" : "98837ea6-1aba-4748-a99a-94897d31c41e",
+                    "name" : "Qasi",
+                    "desc" : "son descendientes del conde Qasi, que se convirtió al Islam, tan pronto los árabes empezaron la conquista de la península Ibérica."
+                },
+                {
+                    "family_id" : "7009e04e-9093-4447-a18c-ca65c2bf5faa",
+                    "person_id" : "8b13ce67-cf44-4a85-97ef-aa9ad61546e3",
+                    "name" : "Oméia",
+                    "desc" : "es la dinastía que extendió su imperio desde la Pérsia hasta Portugal. En esta familia se encuentra la supuesta ancestral de los señores de la Maia."
+                }
+            ]
+        }
+    ]
+}
