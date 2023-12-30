@@ -1,1 +1,28 @@
-{ "nothing" : "Aguardando traducción" }
+{
+    "title" : "Fuentes",
+    "header" : "Fuentes trabajadas en las investigaciones",
+    "sources" : [ "sources" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "content" : [
+        {
+            "id" : "introduction",
+            "value" : [ "<p>Cuando hacemos un árbol genealógico es necesario estudiar distintas fuentes que pueden tener informaciones de nuestros [posibles] ancestros. Hicimos la organización de esas fuentes en tres grupos distintos en este proyecto: fuentes primarias, referencias bibliográficas e referencias religiosas, las cuales son descritas abajo.</p>" ],
+            "references" : null
+        },
+        {
+            "id" : "primary-source",
+            "value" : [ "<p>Llamamos fuentes primarias los documentos originales y objetos creados en el tiempo estudiado <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0eff7270-c6b4-4bab-b685-67d3c2970a93'); return false;\">(Library of Congress)</a>. Para la genealogía son ejemplos de fuentes primarias:</p>", "<p><ul><li>Documentos personales - son documentos hechos por las personas o por sus ancestros cercanos, como: cédula de identidad, partidas (nacimiento, matrimonio), certificado de defunción, inventarios y testamentos. En algunas naciones documentos no forzaban personas a cargar tu nombre durante toda la vida, en el Brasil, por ejemplo, es común tener cambios de nombres antes del decreto que hice reglamentación de los registros en el año de 1939 <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('788267b1-c89e-44b5-84b5-e4fab7be0dac'); return false;\">(Câmara dos Deputados)</a>.</li><li>Fuentes religiosas - son documentos creados en las iglesias y en algunos casos en diócesis. En naciones donde no había separación entre iglesia y estado, los registros personales fueron hechos en iglesias y conventos. Es posible encontrar en estas instituciones: bautismo, matrimonio, óbito, testamento, y de genere et mobirus.</li><li>Documentos gubernamentales - son documentos emitidos por el gobierno, son ejemplos de estos documentos: <ul><li>Cartas de \"sesmarias\": Documento que pasaban una región a una persona.</li><li>Documentos regios - son documentos del período donde los gobernantes de una región fueron reyes <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('a0fb89b0-34b3-485c-bd96-ec5c9b20d922'); return false;\">(Torre do Tombo, Chancelaria Régia)</a>. Un ejemplo de estos documentos son las cartas de armas, las cuales hacemos la resalta que en algunas fueron omitidos las mujeres, pues había la necesidad de crear un lineaje solamente con hombres.</li></ul> <li>Documentos legales - estos documentos pueden tener nombres de los ancestros, principalmente los documentos de los tempos de la inquisición.</li><li>Crónicas - son textos con detalles históricos de una región.</li></ul><p></p><p>Fuentes primarias no necesitan ser escritas en los años de vida del personaje estudiado. Ejemplos de fuentes primarias escritas después del fallecimiento de una persona son diligencias para familiar de la Inquisición, para orden Tercera, y para Hermandad de la misericordia. En estos documentos, de acuerdo con padre Joseph Mascarenhas, había una investigación en varias generaciones de las personas que deseaban adentrar en las órdenes (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('baab6f07-714e-40ca-abea-775fb55e1968'); return false;\">(Torre do Tombo, Tribunal do Santo Ofício: Conselho Geral, Habilitações, Pedro, mç. 25, doc. 476, img. 49)</a>. Es importante añadir que cuando hay distanciamiento temporal, solo es posible aceptar que un documento hace mención a una persona cuando la persona es nombrada en él (Observación: Por más obvia que puede ser esta última sentencia, esta lógica fue olvidada por 'genealogistas' recién.).</p>" ],
+            "references" : [ "0eff7270-c6b4-4bab-b685-67d3c2970a93", "788267b1-c89e-44b5-84b5-e4fab7be0dac", "a0fb89b0-34b3-485c-bd96-ec5c9b20d922", "baab6f07-714e-40ca-abea-775fb55e1968" ]
+        },
+        {
+            "id" : "reference",
+            "value" : [ "<p>En este proyecto tratamos como referencias a todas las fuentes secundarias, o terciarias, las cuales no sirven como prueba de conexiones. Ellas acá son trabajadas como referencias por hacer mención a fuentes primarias, o por lo menos presentaren algún indicio de posibles conexiones.</p>" ],
+            "references" : null
+        },
+        {
+            "id" : "religiuos-reference",
+            "value" : [ "<p>Debido creencias personales, el tratamiento de fuentes religiosas no es sencillo, pues cuando personas creen en alguna cosa, ella es una fuente incuestionable. Como este es um proyecto de divulgación científica, donde hay el entendimiento que los modelos pueden y deben tener cuestionamiento y cuando posible mejorados, hacemos la separación de las fuentes religiosas, pero vamos a hacerla respetuosamente fuentes primarias cuando escritas en el tiempo de las personas estudiadas.</p>" ],
+            "references" : null
+        }
+    ]
+}
