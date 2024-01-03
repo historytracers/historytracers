@@ -1,0 +1,35 @@
+{
+    "title" : "Os números em nossa vida",
+    "header" : "Os números em nossa vida",
+    "sources" : [ "number_life" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "content" : [
+        {
+            "id" : "families",
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "introduction",
+                    "text" : "<p><h3>Como começamos a contar?</h3>Para entendermos melhor a necessidade de contar, convida-se o leitor a um exercício. Imagine-se vivendo em um tempo onde as ferramentas mais avançadas são feitas de pedras, não existindo ainda internet, televisão, ou qualquer ferramenta feita com metais. Este é o ambiente que nossos ancestrais mais antigos viviam, e que levou-os a descobrir soluções que utilizamos ainda hoje.</p><p>Agora que retrocedemos no tempo, não temos como armazenar alimentos por muito tempo. Diante deste cenário, responda estas perguntas de maneira simples antes de prosseguir: <ol> <li>Suponha que você irá trazer frutas para a família, como você contaria as frutas para seu pai, sua mãe, seu irmão e você?</li><li>Você acha que outra família vivendo em outro local poderia ter a mesma ideia?</li></ol></p>"
+                },
+                {
+                    "id" : "first_answers",
+                    "text" : "<p><h3>Observar para responder</h3>Muitas das descobertas que realizamos começam por observação. As respostas para as duas perguntas anteriores também pode ser obtida pela observação. Ao observar sua mão, você poderá concluir, que os dedos podem auxiliar na contagem das pessoas, para isto, levante um dedo para cada pessoa que vive contigo. Com relação a segunda pergunta, podemos concluir que outras pessoas também possam chegar a mesma conclusão usando seus dedos.</p>"
+                },
+                {
+                    "id" : "logic_begin",
+                    "text" : "<p><h3>Expandindo a lógica</h3>Vamos a mais uma reflexão. Para contar uma família que tinha pai, mãe, seu irmão e você, foi possível fazer com uma mão. Suponha que seus avós paternos e maternos decidem fazer uma visita juntos a sua família, e novamente tens que buscar as frutas, ainda seria possível contá-los, mas agora usando as duas mãos. Vamos imaginar um encontro maior, como contarias um número de pessoas maior que os dedos de suas mãos?</p>"
+                },
+                {
+                    "id" : "logic_end",
+                    "text" : "<p><h3>Hora de começar a abstrair</h3>Nossa lógica de usar os dedos se provou eficiente, mas esbarramos em um <b>limite</b>, o qual deve ser respeitado. Vejamos como aprimorar: <ul><li>Uma solução seria usar os dedos dos pés com o das mãos, mas apenas aumentamos o <b>limite</b>, não solucionando o problema.</li><li>Outra possível solução, seria pedir ajuda. Com mais pessoa para comer, mais pessoas poderiam ajudar a enumerar e buscar as frutas. Da mesma maneira que quando finalizamos a contagem com uma mão, e começamos a contar com a outra no lado oposto do corpo. Nossos visitantes poderiam ficar ao nosso lado e usar suas mãos como já fizemos. Isto poderia ajudar no caso de uma refeição, mas para realizar uma colheita maior, novamente poderíamos esbarrar no problema do <b>limite</b> de dedos.</li><li>Usando o raciocínio que bastaria colocar mãos ou pessoas lado a lado para contar mais, poderíamos representar nossos dedos de alguma maneira, por exemplo, com círculos, ou traços.</li></ul></p><p>A descoberta da maneira de contar que apresenta-se aqui foi inspirada no trabalho de Francisco A. González Redondo <i>et al.</i> sobre a pré-história da matemática e a mente moderna (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a4f22e25-5839-407f-a1aa-634521d52b42'); return false;\">González Redondo, Francisco A., et al., 2010</a>), neste trabalho mostra-se que na África e na Europa desenvolveram-se sistemas de contagem, milênios antes que a escrita fosse criada em algum lugar do planeta.</p>" 
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : "<p><h3>Conclusão</h3>Nesta aula, estudou-se que a lógica de contar surgiu a milênios em diferentes locais, provavelmente, tendo como base nosso corpo. A pesar de listarmos apenas dois casos de contagem nesta aula, outros devem ter surgido no tempo.</p><p>Na próxima aula, apresentam-se alguns sistemas de contagem que estão sendo usados nos últimos séculos.</p>"
+                }
+            ]
+        }
+    ]
+}

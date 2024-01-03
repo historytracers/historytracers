@@ -19,7 +19,7 @@ var holyRefSourceMap = new Map();
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
     if (ext == "html") {
-        if (page == "tree" || page == "genealogical_map_list" || page == "indigenous_who_content") {
+        if (page == "tree" || page == "genealogical_map_list" || page == "indigenous_who_content" || page == "class_content") {
             if (reload == true && lastTreeLoaded.arg != null && lastTreeLoaded.arg.length > 0) {
                 arg = lastTreeLoaded.arg;
             } else {
@@ -57,10 +57,7 @@ function htLoadPage(page, ext, arg, reload) {
     }
 
     var unixEpoch = Date.now();
-    if (ext != "json") {
-        if (appendPage.length == 0 && ((page == "tree" ) || (page == "genealogical_map_list") || (page == "indigenous_who_content") ))
-            return false;
-
+    if (ext == "html") {
         var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
         $("#genealogical_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 
@@ -72,7 +69,7 @@ function htLoadPage(page, ext, arg, reload) {
         }
 
         return false;
-    } 
+    }
 
     $("#loading_msg").show();
     $.ajax({
@@ -257,7 +254,7 @@ function htFillFamilyList(table, target) {
             var rows = table[i].value;
             $("#bottom"+table[i].id).append("<ul id=\"bottomList"+table[i].id+"\"></ul>");
             for (const k in rows) {
-                $("#bottomList"+table[i].id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+rows[k].id+"', false);\" >"+rows[k].value+"</a></li>");
+                $("#bottomList"+table[i].id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+rows[k].id+"', false); return false;\" >"+rows[k].value+"</a></li>");
             }
         }
     }
@@ -265,13 +262,13 @@ function htFillFamilyList(table, target) {
 
 function htFillMapList(table, target, page) {
     for (const i in table) {
-        $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+        $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
     }
 }
 
 function htFillSubMapList(table, target) {
     for (const i in table) {
-        $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false);\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+        $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
     }
 }
 
@@ -451,7 +448,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     if (name != undefined) {
                         parentsLink += "<a href=\"#name-"+couple.father+"\" onclick=\"fillTree('"+couple.father+"');\">" +name+"</a> ";
                     } else if (couple.father_name != undefined && couple.father_family != undefined && couple.father_family != familyID) {
-                        parentsLink += "<a href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+couple.father+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+couple.father+"', false);\">"+couple.father_name+"</a> & ";
+                        parentsLink += "<a href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+couple.father+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+couple.father+"', false); return false;\">"+couple.father_name+"</a> & ";
                     }
                 }
                 parents_id += "-";
@@ -465,13 +462,13 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                             if (couple.mother_family == familyID) {
                                 parentsLink += " & <a href=\"#name-"+couple.mother+"\" onclick=\"fillTree('"+couple.mother+"');\">" +name+"</a>";
                             } else {
-                                parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false);\">"+name+"</a>";
+                                parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false); return false;\">"+name+"</a>";
                             }
                         } else {
                             parentsLink += " & " +name;
                         }
                     } else if (couple.mother_name != undefined && couple.mother_family != undefined && couple.mother_family != familyID) {
-                        parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false);\">"+couple.mother_name+"</a>";
+                        parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false); return false;\">"+couple.mother_name+"</a>";
                     }
                 }
 
@@ -521,7 +518,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                 } else if (familyID == marriage.family_id) {
                     marriageLink = "<a href=\"#name-"+marriage.id+"\">"+marriage.name+"</a>";
                 } else {
-                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false);\">"+marriage.name+"</a>";
+                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>";
                 }
 
                 $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b>: "+marriageLink+".</p></div>");

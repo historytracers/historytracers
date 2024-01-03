@@ -1,0 +1,26 @@
+{
+    "title" : "Ciencias",
+    "header" : "Ciencias",
+    "sources" : [ "science" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "content" : [
+        {
+            "id" : "introduction",
+            "value" : [ "<p>Para hacer mejor exploración de los asuntos, las clases de ciencias tienen separación en sus áreas (Física, Historia, Biologia, Química). Este proyecto está de acuerdo con esta idea, pero dependiendo como los contenidos son enseñados, pueden llevar los alumnos a la idea que las ciencias son independientes. Para ayudar los alumnos a hacer remoción de esta barrería, que trae dificultad para el aprendizaje, en esta sección enseñamos las ciencias juntas.</p><p>Los textos en este proyecto deben ser usados de acuerdo con <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('ec895dc4-ba65-4278-ac67-ce75e7589d7f'); return false;\">CC BY-NC 4.0 DEED</a>.</p" ]
+        },
+        {
+            "id" : "groups",
+            "desc" : "Clases:",
+            "target" : "class-group",
+            "page" : "class_content",
+            "value_type" : "group-list",
+            "value" : [
+                {
+                    "id": "95db4334-2e79-48ed-990f-cd8cdae96808",
+                    "name": "La numeración en nuestra vida:",
+                    "desc": "en esta clase desarrollase un raciocinio para el lector entender la necesidad de contar."
+                }
+            ]
+        }
+    ]
+}

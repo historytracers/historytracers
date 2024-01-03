@@ -43,6 +43,7 @@ $(document).ready(function(){
             case 'main':
             case 'license':
             case 'contact':
+            case 'science':
             case 'first_steps':
             case 'genealogical_faq':
             case 'genealogical_map':
@@ -55,7 +56,7 @@ $(document).ready(function(){
                 break;
             case 'tree':
             case 'genealogical_map_list':
-            case 'indigenous_who_content':
+            case 'class_content':
                 var larg = (urlParams.has('arg')) ? urlParams.get('arg'): "";
                 if (larg != null && larg != undefined && larg.length > 5 ) {
                     var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";

@@ -1,0 +1,26 @@
+{
+    "title" : "Ciências",
+    "header" : "Ciências",
+    "sources" : [ "science" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "content" : [
+        {
+            "id" : "introduction",
+            "value" : [ "<p>Para poder explorar melhor os assuntos, as aulas de ciências são separadas em suas áreas (Física, História, Biologia, Química). Este projeto esá e acordo com esta ideia, entretanto devido à forma que assuntos podem ser ensinados, isto pode levar alunos a ideia que as ciências são independentes. Para ajudar os alunos a remover esta barreira, que dificulta o aprendizado, nesta seção ensinamos as ciências juntas.</p><p>Os textos devem ser usados de acordo com <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('ec895dc4-ba65-4278-ac67-ce75e7589d7f'); return false;\">CC BY-NC 4.0 DEED</a>.</p" ]
+        },
+        {
+            "id" : "groups",
+            "desc" : "Aulas:",
+            "target" : "class-group",
+            "page" : "class_content",
+            "value_type" : "group-list",
+            "value" : [
+                {
+                    "id": "95db4334-2e79-48ed-990f-cd8cdae96808",
+                    "name": "Os números em nossa vida:",
+                    "desc": "nesta aula desenvolve-se uma linha de raciocínio para o leitor entender a necessidade de contar."
+                }
+            ]
+        }
+    ]
+}

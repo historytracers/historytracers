@@ -1,0 +1,26 @@
+{
+    "title" : "Sciences",
+    "header" : "Sciences",
+    "sources" : [ "science" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "content" : [
+        {
+            "id" : "introduction",
+            "value" : [ "<p>To explore better some subjects, the science classes are split in their areas (Physics, History, Biology Chemical). This project agrees with this idea, but sometimes the way a subject is taught, this can conduct students to the idea the sciences are independent. To help students to remove this barrier, that creates difficult to learn, on this section we teach the sciences together.</p><p>The texts must be used according to <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('ec895dc4-ba65-4278-ac67-ce75e7589d7f'); return false;\">CC BY-NC 4.0 DEED</a>.</p" ]
+        },
+        {
+            "id" : "groups",
+            "desc" : "Classes:",
+            "target" : "class-group",
+            "page" : "class_content",
+            "value_type" : "group-list",
+            "value" : [
+                {
+                    "id": "95db4334-2e79-48ed-990f-cd8cdae96808",
+                    "name": "The numbers in our life:",
+                    "desc": "in this class, it is shown for the reader the logic behind the necessity to count."
+                }
+            ]
+        }
+    ]
+}
