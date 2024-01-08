@@ -1,3 +1,7 @@
+html {
+    font-family: "verdana", "arial", "Helvetica"
+}
+
 .side-bar-top {
   position: relative;
   height: 10%;
@@ -280,3 +284,27 @@ ul {
   padding: 1;
 }
 
+table.numbers {
+    width: 100%;
+}
+
+table.numbers th, tr, td{
+    padding-left: 5px;
+}
+
+table.numbers td:nth-child(1){
+    text-align: right;
+}
+
+.imgcenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.desc {
+    width: 100%;
+    text-align: center;
+    font-size: 70%;
+}
