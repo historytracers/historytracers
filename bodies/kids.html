@@ -1,0 +1,29 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+
+<script>
+    var gmUnixEpoch = Date.now();
+    var gmFile = document.createElement("script");
+    gmFile.setAttribute("src", "js/kids.js?nocache="+gmUnixEpoch);
+    document.head.appendChild(gmFile);
+</script>
+<div class="left-tree">
+    <div class="main-data" id="introduction">
+    </div>
+
+    <div class="main-data" id="group-map">
+        <h4 id="groups"> </h4>
+        <ul id="class-group">
+        </ul>
+    </div>
+</div>
+<div class="right-sources">
+    <p id ="tree-descripton"></p>
+    <h4 id="tree-sources-lbl"></h4>
+    <div id="tree-source" class="cited-text"></div>
+
+    <h4 id="tree-references-lbl"></h4>
+    <div id="tree-ref" class="cited-text"></div>
+
+    <h4 id="tree-holy_references-lbl"></h4>
+    <div id="tree-holy-ref" class="cited-text"></div>
+</div>
