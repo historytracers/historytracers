@@ -1,0 +1,44 @@
+{
+    "title" : "O céu é o limite",
+    "header" : "O céu é o limite",
+    "sources" : [ "sky_limit" ],
+    "scripts" : [ "5ed14806-e80e-43ed-8f0e-adba2fc409a9" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "content" : [
+        {
+            "id" : "families",
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation_top",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td>Anterior</td> <td> Topo </td> <td>Próxima</td></tr><tr><td><a href=\"index.html?page=class_content&arg=95db4334-2e79-48ed-990f-cd8cdae96808\" onclick=\"htLoadPage('class_content', 'html', '02aa3242-b06a-492f-b7b9-baaf8c041616', false); return false;\">Criando padrões</a></td> <td><a href=\"index.html?page=class_content&arg=95db4334-2e79-48ed-990f-cd8cdae96808\" onclick=\"htLoadPage('science','html', '', false); return false;\">Índice</a></td><td>A lógica dos nomes (introdução aos grupos)</td></tr></table></p>"
+                },
+                {
+                    "id" : "introduction",
+                    "text" : "<p><h3>Números decimais grandes</h3>Na primeira aula, foi informado que <i>\"bastaria colocar mãos ou pessoas lado a lado para contar mais\"</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('12384bfb-595f-4845-b69e-68f91d1923f1'); return false;\">History Tracers, 2024</a>), entretanto esta ideia tem a barreia do número de pessoas. Na segunda aula, apresentamos uma solução para o problema, representar quantidades com símbolos que chamamos <b>números</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, 2024</a>). Para representar quantidade com números, trabalhamos da seguinte maneira: <ul><li>Continue trabalhando com os números (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) como se fossem os dedos de suas mãos, logo você não pode representar mais que o total de dedos que possuí, pois são seu <b>limite</b>.</li><li>Começamos a representar (contar) a partir do 0, ou seja, assumimos não ter algo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, 2014, pp. 46 - 48</a>).</li><li>Seguimos a sequência dos números de 0 até 9, mudando um a um.</li><li>Quando atingimos o <b>limite</b>, ou seja, o 9, mudamos o número do lado respeitando a sequência, e voltamos o número que atingiu o 9 para 0 (o vazio). Quando não há números do lado, sempre começamos do 1, pois não ter número, significa estar vazio.</li></ul></p>"
+                },
+                {
+                    "id" : "example",
+                    "text" : "<p><h3>Sequenciando</h3>Vamos aplicar a explicação para eliminar qualquer possível dúvida que ainda permaneça: <ul><li>Sobre o vazio: como <b>0</b> representa não ter algo, escrever um <b>0</b> é equivalente a escrever <b>00</b>, ou <b>0000</b>.</li><li>Ao se chegar ao número <b>9</b>, o próximo número é <b>10</b>. Após, segue-se a sequência até <b>19</b>, quando novamente modifica-se o próximo número, <b>20</b>, respeitando a sequência.</li><li>O sequenciamento de dois números prossegue até <b>99</b>, quando altera-se para <b>100</b>.</li><li>Quando trabalhamos com números maiores, a regra se repete. Olhamos número por número, altera-se o que estamos, e em seguida o próximo, sempre respeitando a sequência de <b>0</b> a <b>9</b>: <ul><li>Após o número <b>1799</b> vem o número <b>1800</b>.</li><li>O número após <b>256789</b> é <b>256790</b></li><li>O número após <b>999999999</b> é <b>1000000000</b>.</li></ul></li></ul></p>"
+                },
+                {
+                    "id" : "limit",
+                    "text" : "<p><h3>Qual é o maior número?</h3>Nos exemplos que apresentamos, o maior número utilizado foi <b>1000000000</b>, mas ele não é o maior número que pode ser escrito. Ao contrário das nossas mãos que só podemos levantar os dedos que temos, não há regra que bloqueie continuar adicionando números ao lado do outro. Diante disto, vamos expandir o conceito de <b>limite</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, 2024</a>) que estávamos usando. Para este caso específico de um número inatingível, ao invés de falar que vamos em direção a um <b>máximo</b>, informamos que a medida que os números aumentam, eles tendem ao infinito (<b>∞</b>), que é um conceito de algo muito grande. A ideia de <b>tender a algum número</b>, também pode ser aplicada a <b>grupos</b> pequenos, por exemplo, a medida que levantamos nossos dedos, eles <b>tendem ao número 5</b>. Quando vamos fechando os dedos, nós também <b>tendemos ao número 0</b>.</p>"
+                },
+                {
+                    "id" : "exercise",
+                    "text" : "<p><h3>Exercícios</h3>Complete a sequência numérica: <ol><li><input type=\"number\" value=\"\" id=\"seq0\" class=\"inputRight\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq1\" />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq2\" readonly /> Sua resposta está <spam id=\"answer0\"></span></li><li><input type=\"number\" value=\"\" id=\"seq3\" class=\"inputRight\" />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq4\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq5\" readonly /> Sua resposta está <spam id=\"answer1\"></span></li><li><input type=\"number\" value=\"\" id=\"seq6\" class=\"inputRight\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq7\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq8\" /> Sua resposta está <spam id=\"answer2\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
+                },
+                {
+                    "id" : "indigenous",
+                    "text" : "<p><h3>Sequenciamento com números indígenas na América/<i>Abya Yala</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, pp. 39-43</a>)</h3>A lógica para o sequenciamento através dos sistemas numéricos americanos é a mesma do apresentado anteriormente, a única diferença é a ordem que os números crescem. Ao invés de termos expansão numérica na horizontal, eles crescem na vertical. <table class=\"numbers\"><tr><th>Símbolo</th><th>Representação com números Indo-Arábico</th></tr><tr><td><img src=\"images/Maya_6.png\" /></td><td>6</td> </tr><tr><td><img src=\"images/Maya_5.png\" /></td><td>5</td> </tr></tr></table></p>"
+                },
+                {
+                    "id" : "navigation_bottom",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td>Anterior</td> <td> Topo </td> <td>Próxima</td></tr><tr><td><a href=\"index.html?page=class_content&arg=95db4334-2e79-48ed-990f-cd8cdae96808\" onclick=\"htLoadPage('class_content', 'html', '02aa3242-b06a-492f-b7b9-baaf8c041616', false); return false;\">Criando padrões</a></td> <td><a href=\"index.html?page=class_content&arg=95db4334-2e79-48ed-990f-cd8cdae96808\" onclick=\"htLoadPage('science','html', '', false); return false;\">Índice</a></td><td>A lógica dos nomes (introdução aos grupos)</td></tr></table></p>"
+                }
+            ]
+        }
+    ]
+}

@@ -127,6 +127,25 @@ function htFillWebPage(page, data)
         return;
     }
 
+    if (data.scripts != undefined && data.scripts != null) {
+        for (const i in data.scripts) {
+            var jsURL = "js/" + data.scripts[i] + ".js";
+            $.getScript( jsURL, function() {
+                htLoadExercise();
+
+                $( "#btncheck" ).on( "click", function() {
+                    htCheckAnswers();
+                    return false;
+                });
+
+                $( "#btnnew" ).on( "click", function() {
+                    htLoadExercise();
+                    return false;
+                });
+            });
+        }
+    }
+
     if (data.title != undefined && data.title != null && data.title.length > 0) {
         $(document).prop('title', data.title);
     }
