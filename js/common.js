@@ -177,6 +177,10 @@ function htFillWebPage(page, data)
     } else {
 //-------------------- Normal content
         for (const i in data.content) {
+            if (data.content[i].value == undefined || data.content[i].value == null) {
+                continue;
+            }
+
             if (data.content[i].value.constructor === stringConstructor) {
                 $("#"+data.content[i].id).html(data.content[i].value);
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].target != undefined) {
