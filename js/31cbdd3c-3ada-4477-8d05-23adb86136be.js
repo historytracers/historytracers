@@ -12,6 +12,9 @@ function htLoadExercise() {
     $("#answer0").text("");
     $("#answer1").text("");
     $("#answer2").text("");
+    $("input[name=exercise0]").prop("checked", false);
+    $("input[name=exercise1]").prop("checked", false);
+    $("input[name=exercise2]").prop("checked", false);
 
     return false;
 }
