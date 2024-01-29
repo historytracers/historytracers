@@ -50,15 +50,28 @@ html {
   position: relative;
   left: 12%;
   height: 100%;
-  width: 90%;
+  width: 80%;
   float: left;
 }
 
 .top-bar-right {
   position: relative;
   height: 100%;
-  width: 10%;
+  width: 20%;
   float: left;
+  vertical-align: top;
+}
+
+.top-bar-right-lang {
+  width: 40%;
+  float: left;
+  vertical-align: top;
+}
+
+.top-bar-right-child {
+  width: 60%;
+  float: left;
+  vertical-align: top;
 }
 
 div.left-tree {
