@@ -1,20 +1,20 @@
 {
     "title" : "Ciências",
     "header" : "Ciências",
-    "sources" : [ "science" ],
+    "sources" : null,
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "content" : [
         {
             "id" : "introduction",
-            "value" : [ "<p>Para poder explorar melhor os assuntos, as aulas de ciências são separadas em suas áreas (Física, História, Biologia, Química). Este projeto esá e acordo com esta ideia, entretanto devido à forma que assuntos podem ser ensinados, isto pode levar alunos a ideia que as ciências são independentes. Para ajudar os alunos a remover esta barreira, que dificulta o aprendizado, nesta seção ensinamos as ciências juntas.</p><p>Os textos devem ser usados de acordo com <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('ec895dc4-ba65-4278-ac67-ce75e7589d7f'); return false;\">CC BY-NC 4.0 DEED</a>.</p" ]
+            "value" : [ "<p>Para poder explorar melhor os assuntos, as aulas de ciências são separadas em suas áreas (Física, História, Biologia, Química). Este projeto esá e acordo com esta ideia, entretanto devido à forma que assuntos podem ser ensinados, isto pode levar alunos a ideia que as ciências são independentes. Para ajudar os alunos a remover esta barreira, que dificulta o aprendizado, nesta seção ensinamos as ciências juntas.</p>" ]
         },
         {
             "id" : "initial_title",
-            "value" : "Introdução as ciências"
+            "value" : "Capítulo 1: Introdução as ciências"
         },
         {
             "id" : "groups",
-            "desc" : "Aulas:",
+            "desc" : "Livro:",
             "target" : "class-group",
             "page" : "class_content",
             "value_type" : "group-list",
@@ -53,6 +53,11 @@
                     "id": "a86f373e-c908-4796-8a96-427ba5d4c889",
                     "name": "Método científico:",
                     "desc": "descrever (hipóteses), classificar (investigação), e concluir."
+                },
+                {
+                    "id": "95beb030-6030-4515-95f0-9a87ba759609",
+                    "name": "Resumo:",
+                    "desc": "uma revisão das ideias ensinadas no capítulo."
                 }
             ]
         }

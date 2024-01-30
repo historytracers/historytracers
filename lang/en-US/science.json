@@ -1,20 +1,20 @@
 {
     "title" : "Sciences",
     "header" : "Sciences",
-    "sources" : [ "science" ],
+    "sources" : null,
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "content" : [
         {
             "id" : "introduction",
-            "value" : [ "<p>To explore better some subjects, the science classes are split in their areas (Physics, History, Biology Chemical). This project agrees with this idea, but sometimes the way a subject is taught, this can conduct students to the idea the sciences are independent. To help students to remove this barrier, that creates difficult to learn, on this section we teach the sciences together.</p><p>The texts must be used according to <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('ec895dc4-ba65-4278-ac67-ce75e7589d7f'); return false;\">CC BY-NC 4.0 DEED</a>.</p" ]
+            "value" : [ "<p>To explore better some subjects, the science classes are split in their areas (Physics, History, Biology Chemical). This project agrees with this idea, but sometimes the way a subject is taught, this can conduct students to the idea the sciences are independent. To help students to remove this barrier, that creates difficult to learn, on this section we teach the sciences together.</p>" ]
         },
         {
             "id" : "initial_title",
-            "value" : "Introduction to sciences"
+            "value" : "Chapter 1: Introduction to sciences"
         },
         {
             "id" : "groups",
-            "desc" : "Classes:",
+            "desc" : "Book:",
             "target" : "class-group",
             "page" : "class_content",
             "value_type" : "group-list",
@@ -53,6 +53,11 @@
                     "id": "a86f373e-c908-4796-8a96-427ba5d4c889",
                     "name": "Scientific method:",
                     "desc": "describe (hyphotesis), classify (research), and conclude."
+                },
+                {
+                    "id": "95beb030-6030-4515-95f0-9a87ba759609",
+                    "name": "Summary:",
+                    "desc": "a revision of ideas taught in the chapter."
                 }
             ]
         }
