@@ -2,7 +2,9 @@
 
 ## Why do we need another genealogical project?
 
-There are different genealogical projects that that help people to make their family tree, some of them are collaborative and people can work together to find their ancestors. This project does not have the goal to be more one website or software to make family trees and compete with them, the main goal is to help the people to use the scientific method and understand how their family knowledge grew during the centuries. This project does not treat only the people relationship, but we also work with different issues that make equal people to be different.
+There are different genealogical projects that that help people to make their family tree, some of them are collaborative and people can work together to find their ancestors. This project does not have the goal to be more one website or software to make family trees and compete with them, the main goal is to help the people to use the scientific method and understand how their family knowledge grew during the centuries. We also show family participation in historical moments.
+
+In addition to family relationships, the project works on logic, through teaching different sciences together, in order to understand not only ourselves and our family, but the universe as a whole.
 
 ## Why cannot access the site locally?
 
@@ -20,4 +22,4 @@ $ cd lang
 $ bash create_language.sh --path "es-ES" --msg "Aguardando traducción"
 ```
 
-Finally, you can add content in another language. It is suggested to start working with files that name are not [Universal Unique Identifier](https://developer.mozilla.org/en-US/docs/Glossary/UUID).
+Finally, you can add content in another language. It is suggested to start working with files that name does not have [Universal Unique Identifier](https://developer.mozilla.org/en-US/docs/Glossary/UUID) format.
