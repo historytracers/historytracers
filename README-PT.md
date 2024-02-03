@@ -10,7 +10,14 @@ Além das relações familiares, o projeto trabalha a parte de lógica, através
 
 Este projeto tem uma estrutura para evitar recarregamento de página, e ele não tem um único arquivo com todo seu código-fonte. Quando tentas abrir o arquivo `index.html` localmente, ele precisa carregar outros arquivos `javascript`, e seu navegador entende a requisição como um [CORS request](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp?utm_source=devtools&utm_medium=firefox-cors-errors&utm_campaign=default), bloqueando-o.
 
-Um dos nossos objetivos é trazer um servidor web que permitirá acessar os dados localmente, enquanto isto não acontece, você tem diferentes opções como [Simple Web Server](https://simplewebserver.org/) ou a [python web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server). Após instalá-lo, poderás extrair o conteúdo do projeto num servidor e acessá-lo através de seu navegador.
+Para permitir acesso do conteúdo do projeto localmente, escrevemos um servidor web usando [python web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server). Após instalar o Python `3.x` ou superior no seu computador, poderás acessar o conteúdo rodando:
+
+```sh
+$ python3 historytracers.py
+Access http://localhost:12345
+```
+
+e após isto, abrindo um navegador e acessando `http://localhost:12345`.
 
 ## Como adicionar um novo idioma?
 

@@ -10,7 +10,14 @@ In addition to family relationships, the project works on logic, through teachin
 
 This project has a design to avoid page reload, and it does not have a unique file with all the code. When you try to open file `index.html` locally, it needs to load other `javascript` files, and your browser understands this as a [CORS request](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp?utm_source=devtools&utm_medium=firefox-cors-errors&utm_campaign=default), blocking it.
 
-We have on our horizon the goal to bring a simple web server that will allow you to access the data locally, while this does not happen, you have different options available like [Simple Web Server](https://simplewebserver.org/) or a [python web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server). After to install one of them, you can extract the project content inside the selected web server and access it through your browser.
+To allow users to access content, we wrote a simple web server using  [python web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server). After to install Python `3.x` or later on your host, you can run the following command:
+
+```sh
+$ python3 historytracers.py
+Access http://localhost:12345
+```
+
+and after this, you can open your browser and access `http://localhost:12345`.
 
 ## How to add a new language?
 
