@@ -1,0 +1,28 @@
+{
+    "title" : "Name to be displayed on title bar.",
+    "header" : "Name to be displayed on top of the page.",
+    "sources" : [ "File with all sources (primary, religious, referrences) used in the text." ],
+    "scripts" : [ "A JS file used with this content. Normally a file that fill and correct exercise." ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "content" : [
+        {
+            "id" : "families",
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation_top",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td>Anterior</td> <td> Topo </td> <td>Próxima</td></tr><tr><td><a href=\"index.html?page=class_content&arg=\" onclick=\"htLoadPage('class_content', 'html', '', false); return false;\"> </a></td> <td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\">Índice</a></td><td><a href=\"index.html?page=class_content&arg=\" onclick=\"htLoadPage('class_content', 'html', '', false); return false;\"> </a></td></tr></table></p>"
+                },
+                {
+                    "id" : "NAME",
+                    "text" : "<p><h3> </h3></p>"
+                },
+                {
+                    "id" : "navigation_bottom",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td>Anterior</td> <td> Topo </td> <td>Próxima</td></tr><tr><td><a href=\"index.html?page=class_content&arg=\" onclick=\"htLoadPage('class_content', 'html', '', false); return false;\"> </a></td> <td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\">Índice</a></td><td><a href=\"index.html?page=class_content&arg=\" onclick=\"htLoadPage('class_content', 'html', '', false); return false;\"> </a></td></tr></table></p>"
+                }
+            ]
+        }
+    ]
+} 
