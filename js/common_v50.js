@@ -61,13 +61,6 @@ function htLoadPage(page, ext, arg, reload) {
         var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
         $("#genealogical_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 
-        if (page == 'tree') {
-            if (reload == true) {
-                htLoadPage('tree','json', arg, false);
-                htLoadPage($("#loading").val(),'json', '', false);
-            }
-        }
-
         return false;
     }
 
