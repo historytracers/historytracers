@@ -1,0 +1,51 @@
+{
+    "title" : "Name to be displayed on title bar and on top of the page.",
+    "sources" : [ "Vector with files where sources are defined" ],
+    "scripts" : [ "A vector with JS scripts that will be loaded." ],
+    "common" : [ "A common history of the family origin" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "families" : [
+        {
+            "id" : "Family unique identifier.",
+            "name": "Name that appears on top of the page.",
+            "history": [ "History or any generic information about the family.", "We use array to write multi-line texts." ],
+            "people" : [
+                {
+                    "id" : "The person unique identifier.",
+                    "name": "Person name",
+                    "history" : [ "Details about person history" ],
+                    "parents" :  [
+                        {
+                            "type" : "theory or hypothesis",
+                            "father_family" : "father's family unique identifier. It is expected to use the same family ID here.",
+                            "father" : "The person's unique identifier.",
+                            "father_name" : "The father name",
+                            "mother_family" : "Mother's family unique identifier.",
+                            "mother" : "The person's unique identifier.",
+                            "mother_name" : "The mother name"
+                        }
+                    ],
+                    "marriages" : [
+                        {
+                            "type" : "theory or hypothesis",
+                            "id": "The person unique identifier",
+                            "family_id": "The family's unique identifier.",
+                            "name" : "The wife/husband name.",
+                            "history" : [ "Details about person history and how marriage happened." ]
+                        }
+                    ],
+                    "children" : [
+                        {
+                            "type" : "theory or hypothesis",
+                            "id": "The person's unique identifier",
+                            "marriage_id": "The mother/father's unique identifier.",
+                            "name" : "The child name.",
+                            "family_id": "The family's unique identifier. This is used when a child make a new family.",
+                            "history" : [ "Short details about person history. The whole history should be written in people.history object." ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
