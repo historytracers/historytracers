@@ -1,0 +1,35 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+
+<script>
+    var gmUnixEpoch = Date.now();
+    var gmFile = document.createElement("script");
+    gmFile.setAttribute("src", "js/indigenous_time.js?nocache="+gmUnixEpoch);
+    document.head.appendChild(gmFile);
+</script>
+<div class="left-tree">
+    <div class="main-data" id="introduction">
+    </div>
+
+    <div class="main-data" id="issues_3period">
+    </div>
+
+    <div class="main-data" id="issues_middleage">
+    </div>
+
+    <div class="main-data" id="american_period">
+    </div>
+
+    <div class="main-data" id="conclusion">
+    </div>
+</div>
+<div class="right-sources">
+    <p id ="tree-descripton"></p>
+    <h4 id="tree-sources-lbl"></h4>
+    <div id="tree-source" class="cited-text"></div>
+
+    <h4 id="tree-references-lbl"></h4>
+    <div id="tree-ref" class="cited-text"></div>
+
+    <h4 id="tree-holy_references-lbl"></h4>
+    <div id="tree-holy-ref" class="cited-text"></div>
+</div>

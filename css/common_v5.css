@@ -326,7 +326,38 @@ table.book_navigation {
 
 table.book_navigation th, tr, td{
     padding-left: 5px;
-    font-weight: bold
+    font-weight: bold;
+}
+
+table.indigenous_period {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+table.indigenous_period tr, td{
+    padding-left: 5px;
+    text-align: center;
+    font-weight: normal;
+    background: ghostwhite;
+    border: 1px solid black;
+}
+
+table.indigenous_period tr:nth-child(1){
+    text-align: center;
+    background: tan;
+}
+
+table.indigenous_period tr:nth-child(1){
+    text-align: center;
+    font-weight: bold;
+}
+
+table.indigenous_period td:nth-child(1){
+    text-align: center;
+    font-weight: bold;
+    background: darkgray;
 }
 
 .imgcenter {
@@ -363,6 +394,15 @@ table.draw {
     text-align: center;
     margin: auto;
     background-color: lightgray;
+}
+
+.reflexion {
+    border-style: solid;
+    border-radius: 25px;
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    background-color: lightyellow;
 }
 
 .fa {

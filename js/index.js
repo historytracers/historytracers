@@ -50,6 +50,7 @@ $(document).ready(function(){
             case 'families':
             case 'sources':
             case 'indigenous_who':
+            case 'indigenous_time':
             case 'acknowledgement':
             case 'release':
                 htLoadPage(page,'html', '', false);
