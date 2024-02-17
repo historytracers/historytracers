@@ -120,6 +120,7 @@ div.tree-grandparent-top {
   top: 2%;
   height: 20%;
   width: 30%;
+  font-size: 70%;
   border: 1px solid black;
 }
 
@@ -129,6 +130,7 @@ div.tree-grandmother-top {
   top: 25%;
   height: 20%;
   width: 30%;
+  font-size: 70%;
   border: 1px solid black;
 }
 
@@ -138,6 +140,7 @@ div.tree-grandparent-bottom {
   bottom: 2%;
   height: 20%;
   width: 30%;
+  font-size: 70%;
   border: 1px solid black;
 }
 
@@ -147,6 +150,7 @@ div.tree-grandmother-bottom {
   bottom: 25%;
   height: 20%;
   width: 30%;
+  font-size: 70%;
   border: 1px solid black;
 }
 
@@ -156,6 +160,7 @@ div.tree-parent-top {
   top: 25%;
   height: 20%;
   width: 30%;
+  font-size: 70%;
   border: 1px solid black;
 }
 
@@ -165,6 +170,7 @@ div.tree-mother-bottom {
   bottom: 25%;
   height: 20%;
   width: 30%;
+  font-size: 70%;
   border: 1px solid black;
 }
 
@@ -174,6 +180,7 @@ div.tree-child-center {
   top: 40%;
   height: 20%;
   width: 30%;
+  font-size: 70%;
   border: 1px solid black;
 }
 
@@ -298,50 +305,50 @@ ul {
 }
 
 table.numbers {
-    width: 100%;
+  width: 100%;
 }
 
 table.numbers th, tr, td{
-    padding-left: 5px;
+  padding-left: 5px;
 }
 
 table.numbers tr:nth-child(1){
-    text-align: center;
+  text-align: center;
 }
 
 table.numbers td:nth-child(1){
-    text-align: right;
+  text-align: right;
 }
 
 table.numbers td:nth-child(2){
-    text-align: left;
+  text-align: left;
 }
 
 table.book_navigation {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 table.book_navigation th, tr, td{
-    padding-left: 5px;
-    font-weight: bold;
+  padding-left: 5px;
+  font-weight: bold;
 }
 
 table.indigenous_period {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 table.indigenous_period tr, td{
-    padding-left: 5px;
-    text-align: center;
-    font-weight: normal;
-    background: ghostwhite;
-    border: 1px solid black;
+  padding-left: 5px;
+  text-align: center;
+  font-weight: normal;
+  background: ghostwhite;
+  border: 1px solid black;
 }
 
 table.indigenous_period tr:nth-child(1){
@@ -350,69 +357,69 @@ table.indigenous_period tr:nth-child(1){
 }
 
 table.indigenous_period tr:nth-child(1){
-    text-align: center;
-    font-weight: bold;
+  text-align: center;
+  font-weight: bold;
 }
 
 table.indigenous_period td:nth-child(1){
-    text-align: center;
-    font-weight: bold;
-    background: darkgray;
+  text-align: center;
+  font-weight: bold;
+  background: darkgray;
 }
 
 .imgcenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .desc {
-    width: 100%;
-    text-align: center;
-    font-size: 70%;
+  width: 100%;
+  text-align: center;
+  font-size: 70%;
 }
 
 table.draw {
-    border: 1px solid black;
-    table-layout: fixed;
-    width: 80%;
-    height: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  border: 1px solid black;
+  table-layout: fixed;
+  width: 80%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .inputRight { 
-    text-align: right; 
+  text-align: right; 
 }
 
 .lab {
-    border-style: solid;
-    border-radius: 25px;
-    width: 60%;
-    text-align: center;
-    margin: auto;
-    background-color: lightgray;
+  border-style: solid;
+  border-radius: 25px;
+  width: 60%;
+  text-align: center;
+  margin: auto;
+  background-color: lightgray;
 }
 
 .reflexion {
-    border-style: solid;
-    border-radius: 25px;
-    width: 60%;
-    text-align: center;
-    margin: auto;
-    background-color: lightyellow;
+  border-style: solid;
+  border-radius: 25px;
+  width: 60%;
+  text-align: center;
+  margin: auto;
+  background-color: lightyellow;
 }
 
 .fa {
-    opacity: 0.7;
-    font-size: 30px;
-    text-decoration: none;
+  opacity: 0.7;
+  font-size: 30px;
+  text-decoration: none;
 }
 
 .fa-brands {
-    opacity: 0.7;
-    font-size: 30px;
-    text-decoration: none;
+  opacity: 0.7;
+  font-size: 30px;
+  text-decoration: none;
 }

@@ -308,8 +308,9 @@ function htFillFamilies(page, table) {
 
     if (table.common != undefined) {
         $("#tree-common-lbl").html(keywords[25]);
+        $("#common").html("");
         for (const i in table.common) {
-            $("#common").html(table.common[i]);
+            $("#common").append("<div id=\"hist-comm-"+i+"\">"+table.common[i]+"</div>");
         }
     }
 
@@ -764,9 +765,9 @@ function htFillDivTree(divID, personID, type)
     }
 
     $(divID).html("");
-    var value = name.split(' ');
+    var value = name;
     
-    $(divID).append((value.length > 0) ? value[0].substring(0,14) : value.substring(0,14));
+    $(divID).append(value.substring(0,32));
     if (type == "theory") {
         $(divID).css('border-style', 'solid');
         $(divID).css('font-style', 'normal');
