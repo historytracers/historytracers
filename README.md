@@ -25,7 +25,7 @@ To add a new language for the project, firstly you need to create a directory, a
 
 ```sh
 $ mkdir lang/es-ES
-$ cd lang
+$ cd scripts
 $ bash create_language.sh --path "es-ES" --msg "Aguardando traducción"
 ```
 

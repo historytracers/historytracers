@@ -4,6 +4,7 @@ DST=""
 MESSAGE=""
 
 ht_copy_files() {
+    cd '../lang' || exit
     for i in "en-US"/*.json; do
         FILENAME=$(echo "$i" | cut -d/ -f2 )
         if [ -f "$1$FILENAME" ]; then
@@ -15,7 +16,7 @@ ht_copy_files() {
 }
 ANOTHERLANG
             )"
-            echo $payload > "$1$FILENAME"
+            echo "$payload" > "$1$FILENAME"
         fi
     done
 }
@@ -51,7 +52,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 LENGTH=${#DST}
-if [ ${LENGTH} -eq 0 ]; then
+if [ "${LENGTH}" -eq 0 ]; then
     ht_usage;
     exit 0;
 fi
