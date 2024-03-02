@@ -169,6 +169,11 @@ function htFillWebPage(page, data)
         $("#loading_msg").hide();
     } else {
 //-------------------- Normal content
+        var last_update = 0;
+        if (data.last_update != undefined && data.last_update != null) {
+            last_update = data.last_update;
+        }
+
         for (const i in data.content) {
             if (data.content[i].value == undefined || data.content[i].value == null) {
                 continue;
@@ -190,7 +195,7 @@ function htFillWebPage(page, data)
                 } else if (data.content[i].value_type == "subgroup") {
                     htFillSubMapList(data.content[i].value, data.content[i].target);
                 } else if (data.content[i].value_type == "paper") {
-                    htFillPaperContent(data.content[i].value);
+                    htFillPaperContent(data.content[i].value, last_update);
                 }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].id != undefined) {
                 for (const j in data.content[i].value) {
@@ -288,8 +293,29 @@ function htFillSubMapList(table, target) {
     }
 }
 
-function htFillPaperContent(table) {
+function htFillDivDateContent(last_update) {
+    if (last_update <= 0) {
+        return;
+    }
+
+    var ct = new Date(0);
+    ct.setUTCSeconds(parseInt(last_update));
+
+    var dateDiv = "<div id=\"paper-date\">";
+    var local_lang = $("#site_language").val();
+    var text = new Intl.DateTimeFormat(local_lang, { dateStyle: 'full' }).format(ct);
+    dateDiv += keywords[33] + " : " + text;
+    dateDiv += "</div>";
+
+    $("#paper").append(dateDiv);
+}
+
+function htFillPaperContent(table, last_update) {
     for (const i in table) {
+        if (i == 1) {
+            htFillDivDateContent(last_update);
+        }
+
         var div = "<div id=\"paper-";
         div += (table[i].id != undefined) ? table[i].id : i;
         div += "\">";
