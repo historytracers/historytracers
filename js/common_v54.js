@@ -310,21 +310,28 @@ function htFillDivDateContent(last_update) {
     $("#paper").append(dateDiv);
 }
 
+function htAddPaperDivs(id, text)
+{
+    var div = "<div id=\"paper-";
+    div += (id != undefined) ? id : i;
+    div += "\">";
+
+    div += text;
+
+    div += "</div>";
+    $("#paper").append(div);
+}
+
 function htFillPaperContent(table, last_update) {
     for (const i in table) {
         if (i == 1) {
             htFillDivDateContent(last_update);
         }
 
-        var div = "<div id=\"paper-";
-        div += (table[i].id != undefined) ? table[i].id : i;
-        div += "\">";
-
-        div += table[i].text;
-
-        div += "</div>";
-        $("#paper").append(div);
+        htAddPaperDivs(table[i].id, table[i].text);
     }
+
+    htAddPaperDivs("repeat-index", table[0].text);
 }
 
 function htFillFamilies(page, table) {

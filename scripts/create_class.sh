@@ -9,7 +9,8 @@ ht_create_source_file () {
 }
 
 ht_create_class_files () {
-    find ./* \( -name "??-??" \) -exec bash -c 'cp ../templates/json/class_template.json "$1/$2".json; sed -i "s/File with all sources used in the text./$2/g" "$1/$2".json; sed -i "s/A JS file used with this content. Normally a file that fill and correct exercise./$2/g" "$1/$2".json' shell {} "$1" \;
+    CT=$(date +%s)
+    find ./* \( -name "??-??" \) -exec bash -c 'cp ../templates/json/class_template.json "$1/$2".json; sed -i "s/File with all sources used in the text./$2/g" "$1/$2".json; sed -i "s/A JS file used with this content. Normally a file that fill and correct exercise./$2/g" "$1/$2".json ; sed -i "s/Time in Unix Epoch showing last file update./$3/g" "$1/$2".json' shell {} "$1" "$CT" \;
 }
 
 ht_create_files() {
