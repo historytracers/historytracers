@@ -34,7 +34,7 @@ function htCheckExercise(val0, val1, answer) {
 
 function htCheckAnswers()
 {
-    var vector = [0, 1, 1, 1, 0, 0, 0, 1, 1];
+    var vector = [0, 1, 0, 1, 0, 0, 1, 0, 1];
     for (let i = 0; i < vector.length; i++) {
         htCheckExercise("exercise"+i, vector[i], "#answer"+i);
     }

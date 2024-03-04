@@ -375,6 +375,39 @@ ul {
   background: darkgray;
 }
 
+.taxonomy {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-collapse: collapse;
+  background: ghostwhite;
+}
+
+.taxonomy tr:nth-child(1){
+  text-align: center;
+  font-weight: normal;
+  background: tan;
+}
+
+.taxonomy td:nth-child(1){
+  text-align: center;
+  background: darkgray;
+  width: 10%;
+}
+
+.taxonomy td:nth-child(2){
+  text-align: center;
+  font-weight: normal;
+  width: 10%;
+}
+
+.taxonomy td:nth-child(3){
+  text-align: left;
+  font-weight: normal;
+  width: 80%;
+}
+
 .imgcenter {
   display: block;
   margin-left: auto;
