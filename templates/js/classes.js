@@ -8,7 +8,7 @@ function htLoadExercise() {
         $("#lblans"+(i+1)).text(keywords[32]);
     }
 
-    for (let i = 0; i < 9; i ++) {
+    for (let i = 0; i < 9; i++) {
         $("#answer"+i).text("");
         $("input[name=exercise"+i+"]").prop("checked", false);
     }

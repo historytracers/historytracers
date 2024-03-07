@@ -1,5 +1,4 @@
 function htLoadExercise() {
-    /*
     $("#btncheck").val(keywords[29]);
     $("#btnnew").val(keywords[30]);
 
@@ -8,16 +7,18 @@ function htLoadExercise() {
         $("#lblans"+(i+1)).text(keywords[32]);
     }
 
-    for (let i = 0; i < 9; i ++) {
+    for (let i = 0; i < 9; i++) {
         $("#answer"+i).text("");
         $("input[name=exercise"+i+"]").prop("checked", false);
     }
-    */
+
+    var useValue = getRandomArbitrary(2, 8);
+    $("#seq0").html(useValue);
+    $("#seq1").html(useValue + 1);
 
     return false;
 }
 
-/*
 function htCheckExercise(val0, val1, answer) {
     var ans = parseInt($("input[name="+val0+"]:checked").val());
     var text = "";
@@ -34,14 +35,11 @@ function htCheckExercise(val0, val1, answer) {
 
     return false;
 }
-*/
 
 function htCheckAnswers()
 {
-    /*
-    var vector = [ 1, 0, 1, 0, 1, 1, 1, 1, 0];
+    var vector = [ 1, 1, 0, 0, 0, 1, 0, 1, 1];
     for (let i = 0; i < vector.length; i++) {
         htCheckExercise("exercise"+i, vector[i], "#answer"+i);
     }
-    */
 }
