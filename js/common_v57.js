@@ -336,7 +336,9 @@ function htFillPaperContent(table, last_update) {
         htAddPaperDivs(table[i].id, table[i].text);
     }
 
-    htAddPaperDivs("repeat-index", table[0].text);
+    if (table[0].id == "navigation" ) {
+        htAddPaperDivs("repeat-index", table[0].text);
+    }
 }
 
 function htFillFamilies(page, table) {
