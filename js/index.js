@@ -44,6 +44,7 @@ $(document).ready(function(){
             case 'license':
             case 'contact':
             case 'science':
+            case 'history':
             case 'first_steps':
             case 'genealogical_faq':
             case 'genealogical_map':

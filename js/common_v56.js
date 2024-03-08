@@ -16,6 +16,24 @@ var primarySourceMap = new Map();
 var refSourceMap = new Map();
 var holyRefSourceMap = new Map();
 
+function htFillDivDateContent(last_update) {
+    if (last_update <= 0) {
+        return;
+    }
+
+    var ct = new Date(0);
+    ct.setUTCSeconds(parseInt(last_update));
+
+    var dateDiv = "<div id=\"paper-date\">";
+    var local_lang = $("#site_language").val();
+    var text = new Intl.DateTimeFormat(local_lang, { dateStyle: 'full' }).format(ct);
+    dateDiv += keywords[33] + " : " + text;
+    dateDiv += "</div>";
+
+    $("#paper").append(dateDiv);
+}
+
+
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
     if (ext == "html") {
@@ -153,6 +171,15 @@ function htFillWebPage(page, data)
         }
     }
 
+    var last_update = 0;
+    if (data.last_update != undefined && data.last_update != null) {
+        last_update = data.last_update;
+    }
+
+    if ($("#paper").length > 0 && last_update > 0) {
+        htFillDivDateContent(last_update);
+    }
+
     if (data.languages != undefined) {
 //-------------------- Load languages
         htFillLanguageSelector(data.languages, "#site_language");
@@ -169,11 +196,6 @@ function htFillWebPage(page, data)
         $("#loading_msg").hide();
     } else {
 //-------------------- Normal content
-        var last_update = 0;
-        if (data.last_update != undefined && data.last_update != null) {
-            last_update = data.last_update;
-        }
-
         for (const i in data.content) {
             if (data.content[i].value == undefined || data.content[i].value == null) {
                 continue;
@@ -291,23 +313,6 @@ function htFillSubMapList(table, target) {
     for (const i in table) {
         $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
     }
-}
-
-function htFillDivDateContent(last_update) {
-    if (last_update <= 0) {
-        return;
-    }
-
-    var ct = new Date(0);
-    ct.setUTCSeconds(parseInt(last_update));
-
-    var dateDiv = "<div id=\"paper-date\">";
-    var local_lang = $("#site_language").val();
-    var text = new Intl.DateTimeFormat(local_lang, { dateStyle: 'full' }).format(ct);
-    dateDiv += keywords[33] + " : " + text;
-    dateDiv += "</div>";
-
-    $("#paper").append(dateDiv);
 }
 
 function htAddPaperDivs(id, text)
