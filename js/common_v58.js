@@ -16,7 +16,7 @@ var primarySourceMap = new Map();
 var refSourceMap = new Map();
 var holyRefSourceMap = new Map();
 
-function htFillDivDateContent(last_update) {
+function htFillDivDateContent(target, last_update) {
     if (last_update <= 0) {
         return;
     }
@@ -30,7 +30,7 @@ function htFillDivDateContent(last_update) {
     dateDiv += keywords[33] + " : " + text;
     dateDiv += "</div>";
 
-    $("#paper").append(dateDiv);
+    $(target).append(dateDiv);
 }
 
 
@@ -176,8 +176,8 @@ function htFillWebPage(page, data)
         last_update = data.last_update;
     }
 
-    if ($("#paper").length > 0 && last_update > 0) {
-        htFillDivDateContent(last_update);
+    if ($("#extpaper").length > 0 && last_update > 0) {
+        htFillDivDateContent("#extpaper", last_update);
     }
 
     if (data.languages != undefined) {
@@ -330,7 +330,7 @@ function htAddPaperDivs(id, text)
 function htFillPaperContent(table, last_update) {
     for (const i in table) {
         if (i == 1) {
-            htFillDivDateContent(last_update);
+            htFillDivDateContent("#paper", last_update);
         }
 
         htAddPaperDivs(table[i].id, table[i].text);
