@@ -315,29 +315,30 @@ function htFillSubMapList(table, target) {
     }
 }
 
-function htAddPaperDivs(id, text)
+function htAddPaperDivs(id, text, before, later)
 {
-    var div = "<div id=\"paper-";
+    var div = before + "<div id=\"paper-";
     div += (id != undefined) ? id : i;
     div += "\">";
 
     div += text;
 
-    div += "</div>";
+    div += "</div>" + later;
     $("#paper").append(div);
 }
 
 function htFillPaperContent(table, last_update) {
     for (const i in table) {
         if (i == 1) {
-            htFillDivDateContent("#paper", last_update);
+            htFillDivDateContent("#paper", last_update, "", "");
         }
 
-        htAddPaperDivs(table[i].id, table[i].text);
+        var later = (i == 0) ? "<hr class=\"limit\" />" : "";
+        htAddPaperDivs(table[i].id, table[i].text, "", later);
     }
 
     if (table[0].id == "navigation" ) {
-        htAddPaperDivs("repeat-index", table[0].text);
+        htAddPaperDivs("repeat-index", table[0].text, "<hr class=\"limit\" />", "");
     }
 }
 

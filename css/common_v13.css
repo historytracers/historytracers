@@ -2,6 +2,11 @@ html {
     font-family: "verdana", "arial", "Helvetica"
 }
 
+.hr {
+  border: none;
+  height: 1px;
+}
+
 .side-bar-top {
   position: relative;
   height: 10%;
@@ -476,7 +481,6 @@ ul {
 }
 
 .reflection {
-  border-style: solid;
   border-radius: 25px;
   width: 60%;
   text-align: center;
