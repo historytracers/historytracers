@@ -334,7 +334,14 @@ function htFillPaperContent(table, last_update) {
         }
 
         var later = (i == 0) ? "<hr class=\"limit\" />" : "";
-        htAddPaperDivs(table[i].id, table[i].text, "", later);
+
+        if (table[i].text.constructor === stringConstructor) {
+            htAddPaperDivs(table[i].id, table[i].text, "", later);
+        } else if (table[i].text.constructor === vectorConstructor) {
+            for (const j in table[i].text) {
+                htAddPaperDivs(table[i].id + "_"+j, table[i].text[j], "", later);
+            }
+        }
     }
 
     if (table[0].id == "navigation" ) {
