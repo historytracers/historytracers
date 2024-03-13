@@ -21,6 +21,10 @@ function htFillDivDateContent(target, last_update) {
         return;
     }
 
+    if ($("#paper-date").length > 0) {
+        return;
+    }
+
     var ct = new Date(0);
     ct.setUTCSeconds(parseInt(last_update));
 
