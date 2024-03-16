@@ -75,12 +75,13 @@ html {
 
 .top-bar-right {
   position: fixed;
-  height: 100%;
+  height: 10%;
   width: 20%;
   top: 1%;
   right: 1%;
   float: right;
   vertical-align: top;
+  z-index: 100;
 }
 
 .top-bar-right-lang {
@@ -109,6 +110,7 @@ div.right-tree {
   width: 22%;
   float: left;
   border: 3px solid black;
+  z-index: 100;
 }
 
 div.right-sources {
