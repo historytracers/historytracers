@@ -2,10 +2,12 @@
     "title" : "Familias",
     "header" : "Historias de las familias",
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "sources" : [ "families" ],
+    "last_update" : [ "1710688103" ],
     "content" : [
         {
             "id" : "introduction",
-            "value" : "<p>En esta página las personas están agrupados por su ancestro más longevo a firmar el apellido o tener un patronímico.</p><p>El facto de una persona firmar un apellido, actualmente, no es una conexión con el ancestro más lejos a firmarlo o mismo tener alguno blasón concedido a la familia.</p>"
+            "value" : "<p>En esta página, las personas están agrupadas según su ancestro más remoto que llevó el apellido o tuvo un patronímico.</p><p>Es importante tener en cuenta que el hecho de que una persona lleve un apellido no implica necesariamente una conexión directa con el ancestro más antiguo que lo llevó, ni confiere automáticamente algún derecho a un blasón concedido a la familia. Para obtener una comprensión más amplia de los diversos conceptos de familia, consulta el texto en la sección de ciencias de History Tracers (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c725eea-183b-405c-adb2-977ef18c813a'); return false;\">History Tracers, 2024: Família</a>).</p><p>Para una comprensión más amplia de las limitaciones de los registros históricos en relación con nuestro árbol genealógico, así como una estimación del número de generaciones esperadas para una persona en los últimos 250,000 años, consulta el texto en la sección de historia de History Tracers (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('61414247-8989-434b-9617-9933d19e61ad'); return false;\">History Tracers, 2024: Origem</a>).</p>"
         },
         {
             "id" : "families",
@@ -13,16 +15,6 @@
             "target" : "family-alphabet",
             "value_type" : "family-list",
             "value" : [
-                { 
-                    "id": "0",
-                    "target": "family-list",
-                    "value": [ 
-                        {
-                            "id" : "3bf12a92-5093-4f67-8ef6-8794b996779d",
-                            "value" : "Origen - Nuestros ancestros prehistóricos"
-                        }
-                    ]
-                },
                 { 
                     "id": "B",
                     "target": "family-list",
