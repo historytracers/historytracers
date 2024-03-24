@@ -16,7 +16,7 @@ var primarySourceMap = new Map();
 var refSourceMap = new Map();
 var holyRefSourceMap = new Map();
 
-function htFillDivDateContent(target, last_update) {
+function htFillDivAuthorsContent(target, last_update, authors) {
     if (last_update <= 0) {
         return;
     }
@@ -28,9 +28,14 @@ function htFillDivDateContent(target, last_update) {
     var ct = new Date(0);
     ct.setUTCSeconds(parseInt(last_update));
 
-    var dateDiv = "<div id=\"paper-date\">";
+    var dateDiv = "<div id=\"paper-date\" class=\"paper-date-style\">";
     var local_lang = $("#site_language").val();
     var text = new Intl.DateTimeFormat(local_lang, { dateStyle: 'full' }).format(ct);
+
+    if (keywords.length > 33) {
+        dateDiv += keywords[34] + " : " + authors + ".<br />";
+    }
+
     dateDiv += keywords[33] + " : " + text;
     dateDiv += "</div>";
 
@@ -81,7 +86,7 @@ function htLoadPage(page, ext, arg, reload) {
     var unixEpoch = Date.now();
     if (ext == "html") {
         var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
-        $("#genealogical_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
+        $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 
         return false;
     }
@@ -180,8 +185,13 @@ function htFillWebPage(page, data)
         last_update = data.last_update;
     }
 
+    var page_authors = (keywords.length > 34 ) ? keywords[35] : "Editors of History Tracers";
+    if (data.authors != undefined && data.authors != null) {
+        page_authors = data.authors;
+    }
+
     if ($("#extpaper").length > 0 && last_update > 0) {
-        htFillDivDateContent("#extpaper", last_update);
+        htFillDivAuthorsContent("#extpaper", last_update, page_authors);
     }
 
     if (data.languages != undefined) {
@@ -221,7 +231,7 @@ function htFillWebPage(page, data)
                 } else if (data.content[i].value_type == "subgroup") {
                     htFillSubMapList(data.content[i].value, data.content[i].target);
                 } else if (data.content[i].value_type == "paper") {
-                    htFillPaperContent(data.content[i].value, last_update);
+                    htFillPaperContent(data.content[i].value, last_update, page_authors);
                 }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].id != undefined) {
                 for (const j in data.content[i].value) {
@@ -331,13 +341,13 @@ function htAddPaperDivs(id, text, before, later)
     $("#paper").append(div);
 }
 
-function htFillPaperContent(table, last_update) {
+function htFillPaperContent(table, last_update, page_authors) {
     for (const i in table) {
         if (i == 1) {
-            htFillDivDateContent("#paper", last_update, "", "");
+            htFillDivAuthorsContent("#paper", last_update, page_authors);
         }
 
-        var later = (i == 0) ? "<hr class=\"limit\" />" : "";
+        var later = (i == 0 && last_update > 0) ? "<hr class=\"limit\" />" : "";
 
         if (table[i].text.constructor === stringConstructor) {
             htAddPaperDivs(table[i].id, table[i].text, "", later);
