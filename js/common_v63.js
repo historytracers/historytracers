@@ -16,6 +16,19 @@ var primarySourceMap = new Map();
 var refSourceMap = new Map();
 var holyRefSourceMap = new Map();
 
+function htPrintContent(header, body)
+{
+    // Code inspired by https://jsfiddle.net/gFtUY/
+    var pageHeader = $(header).html();
+    var pageBody = $(body).html();
+    var printMe = "<p><h1><center>" + pageHeader + "</center></h1></p><p>" + pageBody + "</p>";
+    var printScreen = window.open('about:blank');
+
+    printScreen.document.write(printMe);
+    printScreen.window.print();
+    printScreen.window.close();
+}
+
 function htFillDivAuthorsContent(target, last_update, authors) {
     if (last_update <= 0) {
         return;
@@ -28,7 +41,7 @@ function htFillDivAuthorsContent(target, last_update, authors) {
     var ct = new Date(0);
     ct.setUTCSeconds(parseInt(last_update));
 
-    var dateDiv = "<div id=\"paper-date\" class=\"paper-date-style\">";
+    var dateDiv = "<div id=\"paper-title\" class=\"paper-title-style\"><div id=\"paper-date\" class=\"paper-date-style\">";
     var local_lang = $("#site_language").val();
     var text = new Intl.DateTimeFormat(local_lang, { dateStyle: 'full' }).format(ct);
 
@@ -37,11 +50,10 @@ function htFillDivAuthorsContent(target, last_update, authors) {
     }
 
     dateDiv += keywords[33] + " : " + text;
-    dateDiv += "</div>";
+    dateDiv += "</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div>";
 
     $(target).append(dateDiv);
 }
-
 
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");

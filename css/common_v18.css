@@ -264,7 +264,7 @@ div.tree-child-center {
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 a:link {
@@ -648,7 +648,24 @@ ul {
   top: 20%;
 }
 
+.paper-title-style {
+  width: 100%;
+  padding: 10px;
+}
+
 .paper-date-style {
+  position: absolute;
+  width: 90%;
   font-size: 70%;
+  text-align: left;
+}
+
+.paper-print-style {
+  position: absolute;
+  width: 10%;
+  left: 90%;
+  top: 0%;
+  font-size: 100%;
+  text-align: right;
 }
 
