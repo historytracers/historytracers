@@ -22,11 +22,13 @@ function htPrintContent(header, body)
     var pageHeader = $(header).html();
     var pageBody = $(body).html();
     var printMe = "<p><h1><center>" + pageHeader + "</center></h1></p><p>" + pageBody + "</p>";
-    var printScreen = window.open('about:blank');
+    var printScreen = window.open('', 'PRINT');
 
     printScreen.document.write(printMe);
+    printScreen.document.close();
+
+    printScreen.window.focus();
     printScreen.window.print();
-    printScreen.window.close();
 }
 
 function htFillDivAuthorsContent(target, last_update, authors) {
