@@ -16,15 +16,44 @@ var primarySourceMap = new Map();
 var refSourceMap = new Map();
 var holyRefSourceMap = new Map();
 
+function htFillSourceContentToPrint(text, map, id)
+{
+    if (map.size == 0 || text.size == 0) {
+        return text;
+    }
+
+    var mention = "";
+    for (let [key, value] of map) {
+        var dateValue = "";
+        if (value.date != undefined && value.date != null && value.date.length > 0) {
+            dateValue = ". [ "+keywords[22]+" "+value.date+" ].";
+        }
+        var urlValue = "";
+        if (value.url != undefined && value.url != null && value.url.length > 0) {
+            urlValue = keywords[23]+"  "+value.url;
+        }
+        mention += "<p>"+value.citation+" "+dateValue +" "+urlValue+"</p>";
+    }
+
+    text = text.replace("<div id=\""+id+"\" class=\"cited-text\"></div>", "<div id=\""+id+"\" class=\"cited-text\">"+mention+"</div>");
+    return text;
+}
+
 function htPrintContent(header, body)
 {
     // Code inspired by https://jsfiddle.net/gFtUY/
     var pageHeader = $(header).html();
     var pageBody = $(body).html();
+
+    pageBody = htFillSourceContentToPrint(pageBody, primarySourceMap, 'tree-source');
+    pageBody = htFillSourceContentToPrint(pageBody, refSourceMap, 'tree-ref');
+    pageBody = htFillSourceContentToPrint(pageBody, holyRefSourceMap, 'tree-holy-ref');
+
     var printMe = "<p><h1><center>" + pageHeader + "</center></h1></p><p>" + pageBody + "</p>";
     var printScreen = window.open('', 'PRINT');
 
     printScreen.document.write(printMe);
+
     printScreen.document.close();
 
     printScreen.window.focus();
@@ -282,6 +311,10 @@ function htLoadSources(data, arg, page)
         if (arg != 'source') {
             return true;
         }
+
+        primarySourceMap.clear();
+        refSourceMap.clear();
+        holyRefSourceMap.clear();
 
         htFillMapSource(primarySourceMap, data.primary_sources)
         htFillMapSource(refSourceMap, data.reference_sources)
