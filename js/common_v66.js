@@ -128,6 +128,10 @@ function htLoadPage(page, ext, arg, reload) {
 
     var unixEpoch = Date.now();
     if (ext == "html") {
+        primarySourceMap.clear();
+        refSourceMap.clear();
+        holyRefSourceMap.clear();
+
         var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
         $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 
@@ -311,10 +315,6 @@ function htLoadSources(data, arg, page)
         if (arg != 'source') {
             return true;
         }
-
-        primarySourceMap.clear();
-        refSourceMap.clear();
-        holyRefSourceMap.clear();
 
         htFillMapSource(primarySourceMap, data.primary_sources)
         htFillMapSource(refSourceMap, data.reference_sources)
