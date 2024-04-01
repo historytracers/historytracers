@@ -14,12 +14,33 @@ function htLoadExercise() {
         $("input[name=exercise"+i+"]").prop("checked", false);
     }
 
-
     if (first) {
-        htPlotPoemChart('chart0', 10);
-        htPlotPoemChart('chart1', 7);
+        htPlotPoemChart('chart2', 5);
+        htPlotPoemChart('chart3', 10);
+        htPlotPoemChart('chart4', [5, 10]);
+        var year = new Date().getFullYear() ;
+        htFillYupanaDecimalValues(year, 5, 6);
+        htFillMesoamericanVigesimalValues(year, 5, 3);
         first = false;
     }
+
+    $("#ia2yupana").on("keyup", function() {
+        var value = $(this).val();
+        if (value < 0 || value > 99999) {
+            $(this).val(0);
+        }
+    });
+
+    $("#ia2mesoamerica").on("keyup", function() {
+        var value = $(this).val();
+        if (value < 0 || value > 3199999) {
+            $(this).val(0);
+        }
+    });
+
+    var last = getRandomArbitrary(10000, 99999);
+    $("#seq0").html(last);
+    htSplitDecimalDigit("#seq", 5, last, 10);
 
     return false;
 }
@@ -43,7 +64,7 @@ function htCheckExercise(val0, val1, answer) {
 
 function htCheckAnswers()
 {
-    var vector = [ 1, 1, 1, 1, 1, 1, 1 ];
+    var vector = [ 1, 1, 0, 0, 0, 1, 1];
     for (let i = 0; i < vector.length; i++) {
         htCheckExercise("exercise"+i, vector[i], "#answer"+i);
     }

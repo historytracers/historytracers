@@ -188,29 +188,11 @@ function htDetectLanguage()
 
 function htFillWebPage(page, data)
 {
+    // Used when a new language has been added
     if (data.nothing != undefined && data.nothing != null && data.nothing.length > 0) {
         $(document).prop('title', data.nothing);
         $("#header").html(data.nothing);
         return;
-    }
-
-    if (data.scripts != undefined && data.scripts != null) {
-        for (const i in data.scripts) {
-            var jsURL = "js/" + data.scripts[i] + ".js";
-            $.getScript( jsURL, function() {
-                htLoadExercise();
-
-                $( "#btncheck" ).on( "click", function() {
-                    htCheckAnswers();
-                    return false;
-                });
-
-                $( "#btnnew" ).on( "click", function() {
-                    htLoadExercise();
-                    return false;
-                });
-            });
-        }
     }
 
     if (data.title != undefined && data.title != null && data.title.length > 0) {
@@ -303,6 +285,26 @@ function htFillWebPage(page, data)
             $("#tree-descripton").html(keywords[24]);
         }
     }
+
+    if (data.scripts != undefined && data.scripts != null) {
+        for (const i in data.scripts) {
+            var jsURL = "js/" + data.scripts[i] + ".js";
+            $.getScript( jsURL, function() {
+                htLoadExercise();
+
+                $( "#btncheck" ).on( "click", function() {
+                    htCheckAnswers();
+                    return false;
+                });
+
+                $( "#btnnew" ).on( "click", function() {
+                    htLoadExercise();
+                    return false;
+                });
+            });
+        }
+    }
+
 }
 
 function htLoadSources(data, arg, page)
@@ -896,3 +898,35 @@ function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+function htPlotPoemChartElement(value)
+{
+    return {
+               data: [{
+                     x: 1,
+                     y: value,
+                     z: 20
+                  },
+                  {
+                     x: 2,
+                     y: value,
+                     z: 20
+                  },
+                  {
+                     x: 3,
+                     y: value,
+                     z: 20
+                  },
+                  {
+                     x: 4,
+                     y: value,
+                     z: 20
+                  },
+                  {
+                     x: 5,
+                     y: value,
+                     z: 20
+                  }
+               ],
+               radius: 8,
+            };
+}
