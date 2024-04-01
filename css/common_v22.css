@@ -105,6 +105,7 @@ div.left-tree {
 
 div.right-tree {
   position: fixed;
+  top: 50%;
   left: 76%;
   height: 20%;
   width: 22%;
@@ -115,6 +116,7 @@ div.right-tree {
 
 div.right-sources {
   position: fixed;
+  top: 12%;
   left: 76%;
   height: 100%;
   width: 22%;
@@ -753,7 +755,7 @@ ul {
 
 .paper-title-style {
   width: 100%;
-  padding: 20px;
+  padding: 30px;
 }
 
 .paper-date-style {

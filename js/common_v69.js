@@ -44,12 +44,13 @@ function htPrintContent(header, body)
     // Code inspired by https://jsfiddle.net/gFtUY/
     var pageHeader = $(header).html();
     var pageBody = $(body).html();
+    var pageCitation = $(".right-sources").html();
 
-    pageBody = htFillSourceContentToPrint(pageBody, primarySourceMap, 'tree-source');
-    pageBody = htFillSourceContentToPrint(pageBody, refSourceMap, 'tree-ref');
-    pageBody = htFillSourceContentToPrint(pageBody, holyRefSourceMap, 'tree-holy-ref');
+    pageCitation = htFillSourceContentToPrint(pageCitation, primarySourceMap, 'tree-source');
+    pageCitation = htFillSourceContentToPrint(pageCitation, refSourceMap, 'tree-ref');
+    pageCitation = htFillSourceContentToPrint(pageCitation, holyRefSourceMap, 'tree-holy-ref');
 
-    var printMe = "<p><h1><center>" + pageHeader + "</center></h1></p><p>" + pageBody + "</p>";
+    var printMe = "<p><h1><center>" + pageHeader + "</center></h1></p><p>" + pageBody + "</p><p>" + pageCitation + "</p>";
     var printScreen = window.open('', 'PRINT');
 
     printScreen.document.write(printMe);
@@ -60,7 +61,7 @@ function htPrintContent(header, body)
     printScreen.window.print();
 }
 
-function htFillDivAuthorsContent(target, last_update, authors) {
+function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
     if (last_update <= 0) {
         return;
     }
@@ -80,7 +81,12 @@ function htFillDivAuthorsContent(target, last_update, authors) {
         dateDiv += keywords[34] + " : " + authors + ".<br />";
     }
 
+    if (keywords.length > 35) {
+        dateDiv += keywords[36] + " : " + reviewers + ".<br />";
+    }
     dateDiv += keywords[33] + " : " + text;
+    dateDiv += ". "+keywords[38];
+
     dateDiv += "</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div>";
 
     $(target).append(dateDiv);
@@ -102,6 +108,10 @@ function htLoadPage(page, ext, arg, reload) {
             $("#loading").val("");
             $("#selector").val("");
         }
+
+        $("#tree-source").html("");
+        $("#tree-ref").html("");
+        $("#tree-holy-ref").html("");
     }
 
     var pages = arg.split('&person_id=') ;
@@ -215,12 +225,17 @@ function htFillWebPage(page, data)
     }
 
     var page_authors = (keywords.length > 34 ) ? keywords[35] : "Editors of History Tracers";
+    var page_reviewers = (keywords.length > 36 ) ? keywords[37] : "Reviewers of History Tracers";
     if (data.authors != undefined && data.authors != null) {
         page_authors = data.authors;
     }
 
+    if (data.reviewers != undefined && data.reviewers != null) {
+        page_reviewers = data.reviewers;
+    }
+
     if ($("#extpaper").length > 0 && last_update > 0) {
-        htFillDivAuthorsContent("#extpaper", last_update, page_authors);
+        htFillDivAuthorsContent("#extpaper", last_update, page_authors, page_reviewers);
     }
 
     if (data.languages != undefined) {
@@ -260,7 +275,7 @@ function htFillWebPage(page, data)
                 } else if (data.content[i].value_type == "subgroup") {
                     htFillSubMapList(data.content[i].value, data.content[i].target);
                 } else if (data.content[i].value_type == "paper") {
-                    htFillPaperContent(data.content[i].value, last_update, page_authors);
+                    htFillPaperContent(data.content[i].value, last_update, page_authors, page_reviewers);
                 }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].id != undefined) {
                 for (const j in data.content[i].value) {
@@ -281,8 +296,8 @@ function htFillWebPage(page, data)
             $("#tree-holy_references-lbl").html(keywords[7]);
         }
 
-        if ($("#tree-descripton").length > 0) {
-            $("#tree-descripton").html(keywords[24]);
+        if ($("#tree-description").length > 0) {
+            $("#tree-description").html(keywords[24]+" "+keywords[38]);
         }
     }
 
@@ -390,10 +405,10 @@ function htAddPaperDivs(id, text, before, later)
     $("#paper").append(div);
 }
 
-function htFillPaperContent(table, last_update, page_authors) {
+function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
     for (const i in table) {
         if (i == 1) {
-            htFillDivAuthorsContent("#paper", last_update, page_authors);
+            htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
         }
 
         var later = (i == 0 && last_update > 0) ? "<hr class=\"limit\" />" : "";
