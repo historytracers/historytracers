@@ -21,7 +21,8 @@ $(document).ready(function(){
     $('#site_language').val(lang);
     htLoadPage('index','json', '', false);
     htLoadPage('language','json', '', false);
-    htLoadPage('tree_keywords','json', '', false);
+    htLoadPage('common_keywords','json', '', false);
+    htLoadPage('math_keywords','json', '', false);
 
     $('#site_language').on('change', function() {
         if (!first) {
@@ -32,7 +33,8 @@ $(document).ready(function(){
 
             htLoadPage('index','json', '', true);
             htLoadPage('language','json', '', true);
-            htLoadPage('tree_keywords','json', '', true);
+            htLoadPage('common_keywords','json', '', true);
+            htLoadPage('math_keywords','json', '', true);
             htLoadPage(lastLoaded, 'html', '', true);
         }
     });

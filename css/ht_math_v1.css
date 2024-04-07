@@ -78,6 +78,12 @@
   background: lightyellow;
 }
 
+.tawapukllay th {
+  border-collapse: collapse;
+  background: ghostwhite;
+  border: 1px solid black;
+}
+
 .tawapukllay td:nth-child(-n+4) {
   position: relative;
   font-weight: normal;
@@ -112,8 +118,8 @@
 
 .dot {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: black;
 }
@@ -124,47 +130,54 @@
   top: 40%;
 }
 
-.red_dot_center_up {
+.red_dot_right_up {
   position: absolute;
   right: 5%;
-  top: 5%;
+  top: 2%;
   background-color: red;
 }
 
+.blue_dot_right_bottom {
+  position: absolute;
+  right: 5%;
+  top: 80%;
+  background-color: blue;
+}
+
 .two_dot_bottom {
   position: absolute;
   left: 45%;
-  top: 20%;
+  top: 30%;
 }
 
 .two_dot_up {
   position: absolute;
   left: 45%;
-  top: 60%;
+  top: 55%;
 }
 
 .three_dot_bottom {
   position: absolute;
   left: 35%;
-  top: 60%;
+  top: 55%;
 }
 
 .three_dot_up {
   position: absolute;
   left: 35%;
-  top: 20%;
+  top: 30%;
 }
 
 .three_dot_center {
   position: absolute;
   left: 55%;
-  top: 40%;
+  top: 45%;
 }
 
 .five_dot_c1_bottom {
   position: absolute;
   left: 35%;
-  top: 70%;
+  top: 60%;
 }
 
 .five_dot_c1_center {
@@ -194,25 +207,25 @@
 .two_dot_bottom {
   position: absolute;
   left: 45%;
-  top: 20%;
+  top: 30%;
 }
 
 .two_dot_up {
   position: absolute;
   left: 45%;
-  top: 60%;
+  top: 55%;
 }
 
 .three_dot_bottom {
   position: absolute;
   left: 35%;
-  top: 60%;
+  top: 55%;
 }
 
 .three_dot_up {
   position: absolute;
   left: 35%;
-  top: 20%;
+  top: 30%;
 }
 
 .three_dot_center {
@@ -224,30 +237,30 @@
 .five_dot_c1_bottom {
   position: absolute;
   left: 35%;
-  top: 70%;
+  top: 63%;
 }
 
 .five_dot_c1_center {
   position: absolute;
   left: 35%;
-  top: 40%;
+  top: 41%;
 }
 
 .five_dot_c1_up {
   position: absolute;
   left: 35%;
-  top: 10%;
+  top: 18%;
 }
 
 .five_dot_c2_bottom {
   position: absolute;
-  left: 55%;
-  top: 60%;
+  left: 60%;
+  top: 50%;
 }
 
 .five_dot_c2_up {
   position: absolute;
-  left: 55%;
-  top: 20%;
+  left: 60%;
+  top: 25%;
 }
 

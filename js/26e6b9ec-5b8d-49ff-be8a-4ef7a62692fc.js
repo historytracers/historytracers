@@ -20,7 +20,7 @@ function htLoadExercise() {
         htPlotPoemChart('chart3', 10);
         htPlotPoemChart('chart4', [5, 10]);
         var year = new Date().getFullYear() ;
-        htFillYupanaDecimalValues(year, 5, 6);
+        htFillYupanaValues('#yupana0', year, 5, '#tc6f', 'red_dot_right_up');
         htFillMesoamericanVigesimalValues(year, 5, 3);
         first = false;
     }

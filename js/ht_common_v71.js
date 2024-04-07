@@ -5,6 +5,7 @@ var stringConstructor = "gth".constructor;
 var vectorConstructor = [].constructor;
 var objectConstructor = ({}).constructor;
 let keywords = [ ];
+let mathKeywords = [ ];
 var lastTreeLoaded = { "page" : null, "arg" : '' };
 
 var personNameMap = new Map();
@@ -248,21 +249,19 @@ function htFillWebPage(page, data)
     }
 
     if (data.languages != undefined) {
-//-------------------- Load languages
         htFillLanguageSelector(data.languages, "#site_language");
         $("#loading_msg").hide();
         $(':focus').blur()
     }
     else if (data.families != undefined) {
-//-------------------- Load Families
         htFillFamilies(page, data);
-//-------------------- Load groups
     } else if (data.keywords != undefined) {
-//-------------------- Load Keywords
         htFillKeywords(data.keywords);
         $("#loading_msg").hide();
+    } else if (data.math_keywords != undefined) {
+        htFillMathKeywords(data.math_keywords);
+        $("#loading_msg").hide();
     } else {
-//-------------------- Normal content
         for (const i in data.content) {
             if (data.content[i].value == undefined || data.content[i].value == null) {
                 continue;
@@ -369,6 +368,14 @@ function htFillKeywords(table) {
     // Fill keyword
     for (const i in table) {
         keywords.push(table[i]);
+    }
+}
+
+function htFillMathKeywords(table) {
+    mathKeywords = [];
+    // Fill keyword
+    for (const i in table) {
+        mathKeywords.push(table[i]);
     }
 }
 
