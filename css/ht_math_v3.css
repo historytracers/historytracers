@@ -12,6 +12,12 @@
   vertical-align: bottom;
 }
 
+.mathexample_right {
+  font-weight: normal;
+  vertical-align: bottom;
+  text-align: right;
+}
+
 .mathexample tr:nth-child(1){
   text-align: center;
   background: tan;
@@ -70,7 +76,7 @@
 }
 
 .tawapukllay {
-  width: 70%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -88,7 +94,7 @@
   position: relative;
   font-weight: normal;
   width: 9.8%;
-  height: 90px;
+  height: 120px;
   border: 1px solid black;
 }
 
@@ -112,7 +118,7 @@
   text-align: center;
   font-weight: bold;
   background: white;
-  width: 7%;
+  width: 17%;
   border: 1px solid black;
 }
 
@@ -134,6 +140,69 @@
   position: absolute;
   right: 5%;
   top: 2%;
+  background-color: red;
+}
+
+.red_dot_right_up_1 {
+  position: absolute;
+  right: 25%;
+  top: 2%;
+  background-color: red;
+}
+
+.red_dot_right_up_2 {
+  position: absolute;
+  right: 45%;
+  top: 2%;
+  background-color: red;
+}
+
+.red_dot_right_up_3 {
+  position: absolute;
+  right: 65%;
+  top: 2%;
+  background-color: red;
+}
+
+.red_dot_right_up_4 {
+  position: absolute;
+  right: 85%;
+  top: 2%;
+  background-color: red;
+}
+
+.red_dot_right_bottom {
+  position: absolute;
+  right: 5%;
+  top: 80%;
+  background-color: red;
+}
+
+.red_dot_right_bottom_1 {
+  position: absolute;
+  right: 25%;
+  top: 80%;
+  background-color: red;
+}
+
+.red_dot_right_bottom_2 {
+  position: absolute;
+  right: 45%;
+  top: 80%;
+  background-color: red;
+}
+
+.red_dot_right_bottom_3 {
+  position: absolute;
+  right: 65%;
+  top: 80%;
+  background-color: red;
+}
+
+.red_dot_right_bottom_4 {
+  position: absolute;
+  right: 85%;
+  top: 80%;
   background-color: red;
 }
 

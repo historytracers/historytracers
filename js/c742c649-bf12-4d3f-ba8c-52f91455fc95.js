@@ -1,5 +1,19 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+var rvalues = [];
+var lvalues = []
+var sumFirstTime = true;
+
+function htFillCurrentYupanaSum()
+{
+    lvalues = htFillYupanaDecimalValues('#yupana0', $('#ia2yupana0').val(), 5, 'red_dot_right_up');
+    rvalues = htFillYupanaDecimalValues('#yupana0', $('#ia2yupana1').val(), 5, 'blue_dot_right_bottom');
+    if (sumFirstTime) {
+        htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', lvalues);
+        htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', rvalues);
+    }
+}
+
 function htLoadExercise() {
     $("#btncheck").val(keywords[29]);
     $("#btnnew").val(keywords[30]);
@@ -14,25 +28,32 @@ function htLoadExercise() {
         $("input[name=exercise"+i+"]").prop("checked", false);
     }
 
-    var lvalues = htFillYupanaDecimalValues('#yupana0', $('#ia2yupana0').val(), 5, 'red_dot_right_up');
-    htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', lvalues);
-    var rvalues = htFillYupanaDecimalValues('#yupana0', $('#ia2yupana1').val(), 5, 'blue_dot_right_bottom');
-    htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', rvalues);
 
-    $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
-        $("input[name='yupanaradio']").prop("checked", false);
-    });
+    if (sumFirstTime) {
+        $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
+            $("input[name='yupanaradio']").prop("checked", false);
+            var value = $(this).val();
+            if (value < 0 || value > 99999) {
+                $(this).val(0);
+            }
+        });
 
-    $( "#ia2yupana1" ).bind( "keyup mouseup", function() {
-        $("input[name='yupanaradio']").prop("checked", false);
-    });
+        $( "#ia2yupana1" ).bind( "keyup mouseup", function() {
+            $("input[name='yupanaradio']").prop("checked", false);
+            var value = $(this).val();
+            if (value < 0 || value > 99999) {
+                $(this).val(0);
+            }
+        });
+        htFillCurrentYupanaSum();
+        sumFirstTime = false;
+    }
 
     $( "input[name='yupanaradio']" ).on( "change", function() {
         var value = $(this).val();
         htCleanYupanaDecimalValues('#yupana0', 5);
 
-        lvalues = htFillYupanaDecimalValues('#yupana0', $('#ia2yupana0').val(), 5, 'red_dot_right_up');
-        rvalues = htFillYupanaDecimalValues('#yupana0', $('#ia2yupana1').val(), 5, 'blue_dot_right_bottom');
+        htFillCurrentYupanaSum();
         if (value == "values") {
             htCleanYupanaAdditionalColumn('#yupana0', 5, '#tc6f');
             htCleanYupanaAdditionalColumn('#yupana0', 5, '#tc7f');
