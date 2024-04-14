@@ -433,7 +433,7 @@ function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
             htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
         }
 
-        var later = (i == 0 && last_update > 0) ? "<hr class=\"limit\" />" : "";
+        var later = (i == 0 && last_update > 0 && table[i].id == "navigation") ? "<hr class=\"limit\" />" : "";
 
         if (table[i].text.constructor === stringConstructor) {
             htAddPaperDivs("#paper", table[i].id, table[i].text, "", later, i);
@@ -444,7 +444,7 @@ function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
         }
     }
 
-    if (table[0].id == "navigation" ) {
+    if (table[0].id == "navigation") {
         htAddPaperDivs("#paper", "repeat-index", table[0].text, "<hr class=\"limit\" />", "", 100000);
     }
 }
