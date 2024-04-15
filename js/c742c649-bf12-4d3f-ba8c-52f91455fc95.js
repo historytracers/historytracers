@@ -56,7 +56,7 @@ function htLoadExercise() {
         htFillCurrentYupanaSum();
         if (value == "values") {
             htCleanYupanaAdditionalColumn('#yupana0', 5, '#tc6f');
-            htCleanYupanaAdditionalColumn('#yupana0', 5, '#tc7f');
+            $('#tc7f1').html("");
             htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', lvalues);
             htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', rvalues);
         } else {
@@ -64,7 +64,7 @@ function htLoadExercise() {
             htCleanYupanaDecimalValues('#yupana0', 5);
             htFillYupanaDecimalValues('#yupana0', totals, 5, 'red_dot_right_up');
             htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana0', totals);
-            htWriteYupanaMovement(lvalues, rvalues, '#yupana0', 5, '#tc7f');
+            htWriteYupanaSumMovement(lvalues, rvalues, '#yupana0', 5, '#tc7f1');
         }
     });
 

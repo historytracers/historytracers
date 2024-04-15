@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var multFirstTime = true;
 var rValues = [];
 var lValues = [];
 
@@ -11,20 +10,6 @@ function htFillYupanaMultYupana0(value, times)
     htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', lValues);
     rValues[0] = times;
     htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', rValues);
-}
-
-function htFillYupana1Sum()
-{
-    var LocalLeftValues = htFillYupanaDecimalValues('#yupana1', 5555, 5, 'red_dot_right_up');
-    var LocalRightValues = htFillYupanaDecimalValues('#yupana1', 5555, 5, 'blue_dot_right_bottom');
-
-    var totals = htSumYupanaVectors(LocalLeftValues, LocalRightValues);
-    htCleanYupanaDecimalValues('#yupana1', 5);
-    htFillYupanaDecimalValues('#yupana1', totals, 5, 'red_dot_right_up');
-    htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', LocalLeftValues);
-    htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', LocalRightValues);
-    htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana1', totals);
-    htWriteYupanaMovement(LocalLeftValues, LocalRightValues, '#yupana1', 5, '#tc7f');
 }
 
 function htLoadExercise() {
@@ -43,10 +28,6 @@ function htLoadExercise() {
 
     var times = $("#ia2yupana1").val();
     var value = $("#ia2yupana0").val();
-    if (multFirstTime) {
-        htFillYupana1Sum();
-        multFirstTime = false;
-    }
 
     $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
         $("input[name='yupanaradio']").prop("checked", false);
