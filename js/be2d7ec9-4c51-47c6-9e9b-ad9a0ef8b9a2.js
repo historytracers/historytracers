@@ -16,12 +16,17 @@ function htLoadExercise() {
     $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
         $("input[name='yupanaradio']").prop("checked", false);
         var value = $(this).val();
+
+        htCleanYupanaDecimalValues('#yupana0', 5);
         lValues = htFillYupanaDecimalValues('#yupana0', value, 5, 'red_dot_right_up');
+        rValues = htFillYupanaDecimalValues('#yupana0', $("#ia2yupana1").val(), 5, 'blue_dot_right_bottom');
     });
 
     $( "#ia2yupana1" ).bind( "keyup mouseup", function() {
         $("input[name='yupanaradio']").prop("checked", false);
         var value = $(this).val();
+        htCleanYupanaDecimalValues('#yupana0', 5);
+        lValues = htFillYupanaDecimalValues('#yupana0', $("#ia2yupana0").val(), 5, 'red_dot_right_up');
         rValues = htFillYupanaDecimalValues('#yupana0', value, 5, 'blue_dot_right_bottom');
     });
 
