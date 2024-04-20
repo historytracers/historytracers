@@ -29,6 +29,15 @@ function htAddPaperDivs(generalID, id, text, before, later, i)
     $(generalID).append(div);
 }
 
+function htUpdateCurrentDateOnIndex()
+{
+    var current_time = Math.floor(Date.now()/1000);
+    var local_lang = $("#site_language").val();
+    var local_calendar = $("#site_calendar").val();
+    var text = htConvertDate(local_calendar, local_lang, current_time);
+    $("#current_day").html(keywords[42]+" "+text);
+}
+
 function htFillSourceContentToPrint(text, map, id)
 {
     if (map.size == 0 || text.size == 0) {
@@ -74,6 +83,50 @@ function htPrintContent(header, body)
     printScreen.window.print();
 }
 
+function htConvertDate(test, locale, epoch)
+{
+    var ct = new Date(0);
+    var intEpoch = parseInt(epoch);
+    var jd = calcUnixTime(intEpoch);
+    var julianDays = gregorian_to_jd(jd[0], jd[1], jd[2]);
+
+    var text = "";
+    switch(test) {
+        case "gregory":
+        case "hebrew":
+        case "islamic":
+        case "persian":
+            break;
+        case "julian":
+            text = julianDays + " " + keywords[41];
+            return text;
+        case "mesoamerican":
+            var mesoamericanPeriod = jd_to_mayan_count(julianDays);
+            var haab = jd_to_mayan_haab(julianDays);
+            var tzolkin = jd_to_mayan_tzolkin(julianDays);
+            text = mesoamericanPeriod[0] + "." + mesoamericanPeriod[1]+ "." + mesoamericanPeriod[2]+ "." + mesoamericanPeriod[3]+ "." + mesoamericanPeriod[4] + " ( Haab: " +haab[1]+ " "+MAYAN_HAAB_MONTHS[haab[0] - 1] + ", Tzolkin: "+tzolkin[1] + " " + MAYAN_TZOLKIN_MONTHS[tzolkin[0] - 1]+ " )";
+            return text;
+        case "french":
+            var frCals = jd_to_french_revolutionary(julianDays);
+            text = "Année " + frCals[0] + " Mois "+frMonth[frCals[1]]+ " Décade "+frDecade[frCals[2]]+" Jour "+ frDay[((frCals[1] <= 12) ? frCals[3] : (frCals[3] + 11))];
+            return text;
+        case "shaka":
+            var indianCal = jd_to_indian_civil(julianDays);
+            text = indianCal[2] + "."+indianMonths[indianCal[1]]+ "."+indianCal[0];
+            return text;
+        case "hispanic":
+            intEpoch += 1199145600;
+        default:
+            test = "gregory";
+            break;
+    }
+
+    ct.setUTCSeconds(intEpoch);
+    text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: test }).format(ct);
+
+    return text;
+}
+
 function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
     if (last_update <= 0) {
         return;
@@ -83,12 +136,10 @@ function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
         return;
     }
 
-    var ct = new Date(0);
-    ct.setUTCSeconds(parseInt(last_update));
-
     var dateDiv = "<p><div id=\"paper-title\" class=\"paper-title-style\"><div id=\"paper-date\" class=\"paper-date-style\">";
     var local_lang = $("#site_language").val();
-    var text = new Intl.DateTimeFormat(local_lang, { dateStyle: 'full' }).format(ct);
+    var local_calendar = $("#site_calendar").val();
+    var text = htConvertDate(local_calendar, local_lang, last_update);
 
     if (keywords.length > 33) {
         dateDiv += keywords[34] + " : " + authors + ".<br />";
@@ -267,7 +318,12 @@ function htFillWebPage(page, data)
     }
 
     if (data.languages != undefined) {
-        htFillLanguageSelector(data.languages, "#site_language");
+        htFillIndexSelector(data.languages, "#site_language");
+        $("#loading_msg").hide();
+        $(':focus').blur()
+    }
+    else if (data.calendars != undefined) {
+        htFillIndexSelector(data.calendars, "#site_calendar");
         $("#loading_msg").hide();
         $(':focus').blur()
     }
@@ -371,14 +427,17 @@ function htLoadSources(data, arg, page)
     return true;
 }
 
-function htFillLanguageSelector(table, target) {
+function htFillIndexSelector(table, target) {
     // Avoid duplication
+    var current = $(target).val();
     $(target).find("option").remove();
 
     // Fill selector
     for (const i in table) {
         $(target).append(new Option(table[i].text, table[i].dir));
     }
+
+    $(target).val(current);
 }
 
 function htFillKeywords(table) {
@@ -387,6 +446,12 @@ function htFillKeywords(table) {
     for (const i in table) {
         keywords.push(table[i]);
     }
+    if (keywords.length < 40)
+        return;
+
+    $("#index_lang").html(keywords[39]);
+    $("#index_calendar").html(keywords[40]);
+    htUpdateCurrentDateOnIndex();
 }
 
 function htFillMathKeywords(table) {
@@ -409,7 +474,7 @@ function htFillFamilyList(table, target) {
             var rows = table[i].value;
             $("#bottom"+table[i].id).append("<ul id=\"bottomList"+table[i].id+"\"></ul>");
             for (const k in rows) {
-                $("#bottomList"+table[i].id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+rows[k].id+"', false); return false;\" >"+rows[k].value+"</a></li>");
+                $("#bottomList"+table[i].id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+rows[k].id+"', false); return false;\" >"+rows[k].value+"</a></li>");
             }
         }
     }
@@ -417,13 +482,13 @@ function htFillFamilyList(table, target) {
 
 function htFillMapList(table, target, page) {
     for (const i in table) {
-        $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+        $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
     }
 }
 
 function htFillSubMapList(table, target) {
     for (const i in table) {
-        $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+        $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
     }
 }
 
@@ -569,7 +634,7 @@ function htCopyLink(familyID, id)
         userURL += "&person_id=" + id;
     }
 
-    userURL += "&lang="+$('#site_language').val();
+    userURL += "&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val();
 
     var temp = $("<input>");
     $("body").append(temp);
@@ -613,7 +678,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     if (name != undefined) {
                         parentsLink += "<a href=\"#name-"+couple.father+"\" onclick=\"fillTree('"+couple.father+"');\">" +name+"</a> ";
                     } else if (couple.father_name != undefined && couple.father_family != undefined && couple.father_family != familyID) {
-                        parentsLink += "<a href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+couple.father+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+couple.father+"', false); return false;\">"+couple.father_name+"</a> & ";
+                        parentsLink += "<a href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+couple.father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+couple.father+"', false); return false;\">"+couple.father_name+"</a> & ";
                     }
                 }
                 parents_id += "-";
@@ -627,13 +692,13 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                             if (couple.mother_family == familyID) {
                                 parentsLink += " & <a href=\"#name-"+couple.mother+"\" onclick=\"fillTree('"+couple.mother+"');\">" +name+"</a>";
                             } else {
-                                parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false); return false;\">"+name+"</a>";
+                                parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false); return false;\">"+name+"</a>";
                             }
                         } else {
                             parentsLink += " & " +name;
                         }
                     } else if (couple.mother_name != undefined && couple.mother_family != undefined && couple.mother_family != familyID) {
-                        parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false); return false;\">"+couple.mother_name+"</a>";
+                        parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false); return false;\">"+couple.mother_name+"</a>";
                     }
                 }
 
@@ -683,7 +748,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                 } else if (familyID == marriage.family_id) {
                     marriageLink = "<a href=\"#name-"+marriage.id+"\">"+marriage.name+"</a>";
                 } else {
-                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>";
+                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>";
                 }
 
                 $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b>: "+marriageLink+".</p></div>");
@@ -725,7 +790,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             } else if (familyID == child.family_id) {
                 childLink = "<a href=\"#name-"+child.id+"\"  onclick=\"fillTree('"+child.id+"');\">"+child.name+"</a>";
             } else { 
-                childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child.name+"</a>";
+                childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child.name+"</a>";
             }
 
             $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+child_keyword+"</b>: </p></div>");

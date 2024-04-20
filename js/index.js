@@ -1,7 +1,25 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+function htReloadCurrentPage(first)
+{
+    if (!first) {
+        var lastLoaded = $("#html_loaded").val();
+        if (lastLoaded.lenght == 0 ) {
+            lastLoaded = 'main';
+        }
+
+        htLoadPage('index','json', '', true);
+        htLoadPage('language','json', '', true);
+        htLoadPage('calendars','json', '', true);
+        htLoadPage('common_keywords','json', '', true);
+        htLoadPage('math_keywords','json', '', true);
+        htLoadPage(lastLoaded, 'html', '', true);
+    }
+}
+
 $(document).ready(function(){
     var lang = "";
+    var cal = "";
     var first = true;
 
     var urlParams = new URLSearchParams(window.location.search);
@@ -18,25 +36,31 @@ $(document).ready(function(){
         lang = htDetectLanguage();
     }
 
+    if (urlParams.has('cal')) {
+        var selCalendar = urlParams.get('cal');
+        if ($("#site_calendar option[value='"+selCalendar+"']").length < 0) {
+            cal = "gregory";
+        } else {
+            cal = selCalendar;
+        }
+    } else {
+        cal = "gregory";
+    }
+
     $('#site_language').val(lang);
+    $('#site_calendar').val(cal);
     htLoadPage('index','json', '', false);
     htLoadPage('language','json', '', false);
+    htLoadPage('calendars','json', '', false);
     htLoadPage('common_keywords','json', '', false);
     htLoadPage('math_keywords','json', '', false);
 
     $('#site_language').on('change', function() {
-        if (!first) {
-            var lastLoaded = $("#html_loaded").val();
-            if (lastLoaded.lenght == 0 ) {
-                lastLoaded = 'main';
-            }
+        htReloadCurrentPage(first);
+    });
 
-            htLoadPage('index','json', '', true);
-            htLoadPage('language','json', '', true);
-            htLoadPage('common_keywords','json', '', true);
-            htLoadPage('math_keywords','json', '', true);
-            htLoadPage(lastLoaded, 'html', '', true);
-        }
+    $('#site_calendar').on('change', function() {
+        htReloadCurrentPage(first);
     });
 
     if (urlParams.has('page')) {

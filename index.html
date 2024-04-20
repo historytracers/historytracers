@@ -12,14 +12,16 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
-  <link rel="stylesheet" href="css/ht_common_v26.css?v=4b211505-372d-4cee-8a53-5e9e73bdc80d"> 
+  <link rel="stylesheet" href="css/ht_common_v27.css?v=8c64c0db-4af1-4d6f-baa7-9a5c0a5a290e"> 
   <link rel="stylesheet" href="css/ht_math_v4.css?v=bb7aa57e-fe8d-4884-aae5-1826d8a04e8b"> 
 
   <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
-  <script type="text/javascript" src="js/ht_common_v73.js?v=0458cf8e-0b8d-444a-ad76-df727a67fb82"></script>
+  <script type="text/javascript" src="js/ht_common_v74.js?v=60dcf350-5473-4918-897e-cf6d4b678c00"></script>
   <script type="text/javascript" src="js/ht_math_v3.js?v=2df04ce8-1b1c-4ad0-9bd8-572bc33e39f1"></script>
   <script type="text/javascript" src="js/chart_4_4_2.js?v=9ecdf470-2063-4cdf-b5a3-c53503fafde9"></script>
   <script type="text/javascript" src="js/ht_chart_v0.js?v=495ddf41-45f1-4781-bb4a-434c08850a9e"></script>
+  <script type="text/javascript" src="js/astro.js?v=a560bbae-0ac0-4bcf-9dcb-e9f2dba9ab98"></script>
+  <script type="text/javascript" src="js/calendar.js?v=750ecce5-1ae0-4cdd-857f-9273ed54f33f"></script>
   <!-- From font-awesome free. If there is issue, try: https://www.w3schools.com/icons/fontawesome_icons_intro.asp -->
   <script type="text/javascript" src="js/78dfbe9fef.js" crossorigin="anonymous"></script>
 </head>
@@ -87,10 +89,23 @@
     </div>
     <div class="top-bar-right">
         <div class="top-bar-right-lang">
+        <span id="index_lang" class="topdesc">Idioma:</span> 
         <select id="site_language">
             <option value="pt-BR">Português - BR</option>
             <option value="en-US">English - USA</option>
             <option value="es-ES">Español - ES</option>
+        </select> <br />
+        <span id="index_calendar" class="topdesc">Formato de data:</span> 
+        <select id="site_calendar">
+            <option value="gregory">Gregoriano</option>
+            <option value="hebrew">Hebreu</option>
+            <option value="hispanic">Hispânica</option>
+            <option value="islamic">Islâmico</option>
+            <option value="julian">Juliano</option>
+            <option value="mesoamerican">Mesoamericano</option>
+            <option value="persian">Persa</option>
+            <option value="french">Rev. Francesa</option>
+            <option value="shaka">Shaka</option>
         </select>
         </div>
         <div class="top-bar-right-child">
@@ -98,7 +113,7 @@
             <a href="https://www.facebook.com/groups/1141076993937832" class="fa fa-facebook" target="_blank"></a>
             <a href="https://www.instagram.com/historytracers/" class="fa-brands fa-instagram" target="_blank"></a>
             <a href="https://www.patreon.com/bePatron?u=104667333" class="fa-brands fa-patreon" target="_blank"></a> <br />
-            <span id="slogan"></span>     
+            <span id="slogan"></span><br />     
        </div>
     </div>
 </div>
@@ -108,6 +123,7 @@
     </div>
 </div>
 <div class="right-sources">
+    <b><p id ="current_day">&nbsp;</p></b>
     <p id ="tree-description"></p>
     <h4 id="tree-sources-lbl"></h4>
     <div id="tree-source" class="cited-text"></div>
