@@ -48,7 +48,9 @@ function htFillSourceContentToPrint(text, map, id)
     for (let [key, value] of map) {
         var dateValue = "";
         if (value.date != undefined && value.date != null && value.date.length > 0) {
-            dateValue = ". [ "+keywords[22]+" "+value.date+" ].";
+            var dateVector = value.date.split("-");
+            var textDate = htFillHTDate(dateVector);
+            dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
         }
         var urlValue = "";
         if (value.url != undefined && value.url != null && value.url.length > 0) {
@@ -106,7 +108,7 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
     var julianDays = gregorian_to_jd(jd[0], jd[1], jd[2]);
 
     var text = "";
-    var year = " a.E.";
+    var year = " "+keywords[43];
     switch(test) {
         case "gregory":
         case "hebrew":
@@ -124,7 +126,7 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
             return text;
         case "french":
             var frCals = jd_to_french_revolutionary(julianDays);
-            year = (frCals[0] < 0 ) ? mod(frCals[0]) + year : frCals[0]; 
+            year = (frCals[0] < 0 ) ? mod(frCals[0]) + keywords[43] : frCals[0]; 
 
             text = "Année " + year + " Mois "+frMonth[frCals[1]]+ " Décade "+frDecade[frCals[2]]+" Jour "+ frDay[((frCals[1] <= 12) ? frCals[3] : (frCals[3] + 11))];
             return text;
@@ -136,6 +138,7 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
             return text;
         case "hispanic":
             intEpoch += 1199145600;
+            ct.setUTCSeconds(intEpoch);
         default:
             test = "gregory";
             break;
@@ -146,6 +149,63 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
     return text;
 }
 
+function htConvertGregorianYear(test, gregoryYear)
+{
+    var year = parseInt(gregoryYear);
+    var jd = gregorian_to_jd(gregoryYear, 1, 1);
+    var text = "";
+    if (test == "gregory")  {
+        text += gregoryYear;
+    } else {
+        var coverted = undefined;
+        switch(test) {
+            case "hebrew":
+                converted = jd_to_hebrew(jd);
+                break;
+            case "islamic":
+                converted = jd_to_islamic(jd);
+                break;
+            case "persian":
+                converted = jd_to_persian(jd);
+                break;
+            case "julian":
+                text = jd + " " + keywords[41];
+                return text;
+            case "mesoamerican":
+                var mesoamericanPeriod = jd_to_mayan_count(jd);
+                var haab = jd_to_mayan_haab(jd);
+                var tzolkin = jd_to_mayan_tzolkin(jd);
+                text = mesoamericanPeriod[0] + "." + mesoamericanPeriod[1]+ "." + mesoamericanPeriod[2]+ "." + mesoamericanPeriod[3]+ "." + mesoamericanPeriod[4] + " ( Haab: " +haab[1]+ " "+MAYAN_HAAB_MONTHS[haab[0] - 1] + ", Tzolkin: "+tzolkin[1] + " " + MAYAN_TZOLKIN_MONTHS[tzolkin[0] - 1]+ " )";
+                return text;
+            case "french":
+                var frCals = jd_to_french_revolutionary(jd);
+                year = (frCals[0] < 0 ) ? mod(frCals[0]) + keywords[43] : frCals[0]; 
+    
+                text = "Année " + year;
+                return text;
+            case "shaka":
+                var indianCal = jd_to_indian_civil(jd);
+                year = (indianCal[0] < 0 ) ? mod(indianCal[0]) + year : indianCal[0]; 
+    
+                text = year;
+                return text;
+            case "hispanic":
+                converted = new Array(""+(parseInt(gregoryYear) + 38));
+                break;
+            default:
+                return undefined;
+        }
+        text += converted[0];
+    }
+    return text;
+}
+
+function htConvertGregorianDate(test, locale, year, month, day)
+{
+    var dateArr = new Array(year, month, day);
+    return htConvertDate(test, locale, undefined, undefined, dateArr);
+}
+
 function htConvertUnixDate(test, locale, unixEpoch)
 {
     return htConvertDate(test, locale, unixEpoch, undefined, undefined);
@@ -154,12 +214,6 @@ function htConvertUnixDate(test, locale, unixEpoch)
 function htConvertJulianDate(test, locale, julianEpoch)
 {
     return htConvertDate(test, locale, undefined, julianEpoch, undefined);
-}
-
-function htConvertGregorianDate(test, locale, year, month, day)
-{
-    var dateArr = new Array(year, month, day);
-    return htConvertDate(test, locale, undefined, undefined, dateArr);
 }
 
 function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
@@ -310,6 +364,32 @@ function htDetectLanguage()
     return lang;
 }
 
+function htFillHTDate(vector)
+{
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
+    for (const j in vector.value) {
+        var w = vector.value[j];
+        var updateText = "";
+        switch (w.type) {
+            case "gregory":
+                if (w.day > 0 ) {
+                    updateText = htConvertGregorianDate(localCalendar, localLang, w.year, w.month, w.day);
+                } else {
+                    updateText = htConvertGregorianYear(localCalendar, w.year);
+                }
+                break;
+            case "unix":
+                updateText = htConvertUnixDate(localCalendar, localLang, w.epoch);
+                break;
+            case "julian":
+                updateText = htConvertJulianDate(localCalendar, localLang, w.day);
+                break;
+        }
+        $("#htdate"+j).html(updateText);
+    }
+}
+
 function htFillWebPage(page, data)
 {
     // Used when a new language has been added
@@ -400,25 +480,8 @@ function htFillWebPage(page, data)
                         $("#"+data.content[i].id).append(data.content[i].value[j]);
                     }
                 } else {
-                    if (data.content[i].value.constructor === objectConstructor) {
-                        var localLang = $("#site_language").val();
-                        var localCalendar = $("#site_calendar").val();
-                        for (const j in data.content[i].value) {
-                            var w = data.content[i].value[j];
-                            var updateText = "";
-                            switch (w.type) {
-                                case "gregorian":
-                                    updateText = htConvertGregorianDate(localCalendar, localLang, w.year, w.month, w.day);
-                                    break;
-                                case "unix":
-                                    updateText = htConvertUnixDate(localCalendar, localLang, w.epoch);
-                                    break;
-                                case "julian":
-                                    updateText = htConvertJulianDate(localCalendar, localLang, w.day);
-                                    break;
-                            }
-                            $("#htdate"+j).html(updateText);
-                        }
+                    if (data.content[i].value.constructor === vectorConstructor) {
+                        htFillHTDate(data.content[i]);
                     }
                 }
             }
@@ -876,13 +939,14 @@ function htFillMapSource(myMap, data)
     }
 
     var currentLanguage = $("#site_language").val();
+    var currentCalendar = $("#site_calendar").val();
     for (const i in data) {
         var ids = myMap.has(data[i].id);
         if (ids == false) {
             var finalDate = "";
             if (data[i].date != undefined ) {
-                var ct = data[i].date.split('-');
-                finalDate = (currentLanguage == "en-US" ) ? ct[1]+"/"+ct[2]+"/"+ct[0] : ct[2]+"/"+ct[1]+"/"+ct[0];
+                var dateVector = data[i].date.split('-');
+                finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
             }
             myMap.set(data[i].id, {"citation" : data[i].citation, "date" : finalDate, "url" : data[i].url});
         }
