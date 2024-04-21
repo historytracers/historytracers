@@ -19,7 +19,7 @@ function htLoadExercise() {
     var current_time = Math.floor(Date.now()/1000);
     var local_lang = $("#site_language").val();
     var local_calendar = $("#site_calendar").val();
-    var todayText = htConvertDate(local_calendar, local_lang, current_time);
+    var todayText = htConvertUnixDate(local_calendar, local_lang, current_time);
     if (d7d99844FirstTime) {
         var current_time = Math.floor(Date.now()/1000);
         var jd = calcUnixTime(current_time);

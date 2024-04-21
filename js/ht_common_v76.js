@@ -34,7 +34,7 @@ function htUpdateCurrentDateOnIndex()
     var current_time = Math.floor(Date.now()/1000);
     var local_lang = $("#site_language").val();
     var local_calendar = $("#site_calendar").val();
-    var text = htConvertDate(local_calendar, local_lang, current_time);
+    var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined);
     $("#current_day").html(keywords[42]+" "+text);
 }
 
@@ -83,11 +83,26 @@ function htPrintContent(header, body)
     printScreen.window.print();
 }
 
-function htConvertDate(test, locale, epoch)
+function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
 {
-    var ct = new Date(0);
-    var intEpoch = parseInt(epoch);
-    var jd = calcUnixTime(intEpoch);
+    var ct = undefined;
+    var intEpoch = undefined;
+    var jd = undefined;
+    if (unixEpoch != undefined) {
+        intEpoch = parseInt(unixEpoch);
+        ct = new Date(0);
+        ct.setUTCSeconds(intEpoch);
+        jd = calcUnixTime(intEpoch);
+    } else if (julianEpoch != undefined) {
+        intEpoch = parseInt(julianEpoch);
+        jd = calcJulian(julianEpoch);
+        ct = new Date(jd[0], jd[1], jd[2]);
+    } else {
+        intEpoch = gregorian_to_jd(gregorianDate[0], gregorianDate[1], gregorianDate[2]);
+        jd = calcJulian(intEpoch);
+        ct = new Date(gregorianDate[0], gregorianDate[1] - 1, gregorianDate[2], 0, 0, 0);
+    }
+    ct.toLocaleString(locale, { timeZone: 'UTC' })
     var julianDays = gregorian_to_jd(jd[0], jd[1], jd[2]);
 
     var text = "";
@@ -126,10 +141,25 @@ function htConvertDate(test, locale, epoch)
             break;
     }
 
-    ct.setUTCSeconds(intEpoch);
     text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: test }).format(ct);
 
     return text;
+}
+
+function htConvertUnixDate(test, locale, unixEpoch)
+{
+    return htConvertDate(test, locale, unixEpoch, undefined, undefined);
+}
+
+function htConvertJulianDate(test, locale, julianEpoch)
+{
+    return htConvertDate(test, locale, undefined, julianEpoch, undefined);
+}
+
+function htConvertGregorianDate(test, locale, year, month, day)
+{
+    var dateArr = new Array(year, month, day);
+    return htConvertDate(test, locale, undefined, undefined, dateArr);
 }
 
 function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
@@ -144,7 +174,7 @@ function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
     var dateDiv = "<p><div id=\"paper-title\" class=\"paper-title-style\"><div id=\"paper-date\" class=\"paper-date-style\">";
     var local_lang = $("#site_language").val();
     var local_calendar = $("#site_calendar").val();
-    var text = htConvertDate(local_calendar, local_lang, last_update);
+    var text = htConvertDate(local_calendar, local_lang, last_update, undefined, undefined);
 
     if (keywords.length > 33) {
         dateDiv += keywords[34] + " : " + authors + ".<br />";
@@ -365,8 +395,10 @@ function htFillWebPage(page, data)
                     htFillPaperContent(data.content[i].value, last_update, page_authors, page_reviewers);
                 }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].id != undefined) {
-                for (const j in data.content[i].value) {
-                    $("#"+data.content[i].id).append(data.content[i].value[j]);
+                if (data.content[i].id != "fill_dates") {
+                    for (const j in data.content[i].value) {
+                        $("#"+data.content[i].id).append(data.content[i].value[j]);
+                    }
                 }
             }
         }
