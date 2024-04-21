@@ -109,13 +109,13 @@ function htConvertDate(test, locale, epoch)
             return text;
         case "french":
             var frCals = jd_to_french_revolutionary(julianDays);
-            year = (frCals[0] < 0 ) ? mod(frCals[0]) + year : frCals; 
+            year = (frCals[0] < 0 ) ? mod(frCals[0]) + year : frCals[0]; 
 
             text = "Année " + year + " Mois "+frMonth[frCals[1]]+ " Décade "+frDecade[frCals[2]]+" Jour "+ frDay[((frCals[1] <= 12) ? frCals[3] : (frCals[3] + 11))];
             return text;
         case "shaka":
             var indianCal = jd_to_indian_civil(julianDays);
-            year = (indianCal[0] < 0 ) ? mod(indianCal[0]) + year : indianCal; 
+            year = (indianCal[0] < 0 ) ? mod(indianCal[0]) + year : indianCal[0]; 
 
             text = indianCal[2] + "."+indianMonths[indianCal[1]]+ "."+year;
             return text;

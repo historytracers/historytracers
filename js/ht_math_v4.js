@@ -342,6 +342,14 @@ function htMultMakeMultiplicationTableText(lValue, times, tableID, cellID)
     $(tableID+" "+cellID).html(text);
 }
 
+function htFillMesoamericanCalendar(periods, outputColumn)
+{
+    for (let i = 0, top2bottom = 1; i < periods.length; i++, top2bottom++) {
+        $("#tmc"+outputColumn+"l"+top2bottom).html(periods[i]);
+        $("#tmc1l"+top2bottom).attr('src', 'images/Maya_'+periods[i]+'.png');
+    }
+}
+
 function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn)
 {
     if (dividend > 3199999 || dividend < 0) {
@@ -362,7 +370,6 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn)
         var rest = dividend % 20;
         dividend = Math.trunc(dividend / 20);
         $("#tmc"+outputColumn+"l"+bottom2top).html(rest);
-
         $("#tmc1l"+bottom2top).attr('src', 'images/Maya_'+rest+'.png');
         
         bottom2top--;

@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+var d7d99844FirstTime = true;
 function htLoadExercise() {
     /*
     $("#btncheck").val(keywords[29]);
@@ -15,6 +16,21 @@ function htLoadExercise() {
         $("input[name=exercise"+i+"]").prop("checked", false);
     }
     */
+    var current_time = Math.floor(Date.now()/1000);
+    var local_lang = $("#site_language").val();
+    var local_calendar = $("#site_calendar").val();
+    var todayText = htConvertDate(local_calendar, local_lang, current_time);
+    if (d7d99844FirstTime) {
+        var current_time = Math.floor(Date.now()/1000);
+        var jd = calcUnixTime(current_time);
+        var julianDays = gregorian_to_jd(jd[0], jd[1], jd[2]);
+        var mesoamericanPeriod = jd_to_mayan_count(julianDays);
+
+        htFillMesoamericanCalendar(mesoamericanPeriod, 1);
+
+        d7d99844FirstTime = false;
+    }
+    $("#htdate2").html(todayText);
 
     return false;
 }
