@@ -399,6 +399,27 @@ function htFillWebPage(page, data)
                     for (const j in data.content[i].value) {
                         $("#"+data.content[i].id).append(data.content[i].value[j]);
                     }
+                } else {
+                    if (data.content[i].value.constructor === objectConstructor) {
+                        var localLang = $("#site_language").val();
+                        var localCalendar = $("#site_calendar").val();
+                        for (const j in data.content[i].value) {
+                            var w = data.content[i].value[j];
+                            var updateText = "";
+                            switch (w.type) {
+                                case "gregorian":
+                                    updateText = htConvertGregorianDate(localCalendar, localLang, w.year, w.month, w.day);
+                                    break;
+                                case "unix":
+                                    updateText = htConvertUnixDate(localCalendar, localLang, w.epoch);
+                                    break;
+                                case "julian":
+                                    updateText = htConvertJulianDate(localCalendar, localLang, w.day);
+                                    break;
+                            }
+                            $("#htdate"+j).html(updateText);
+                        }
+                    }
                 }
             }
         }
