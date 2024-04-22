@@ -4,7 +4,7 @@
     "sources" : [ "5ed14806-e80e-43ed-8f0e-adba2fc409a9" ],
     "scripts" : [ "5ed14806-e80e-43ed-8f0e-adba2fc409a9" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1709898424" ],
+    "last_update" : [ "1713749107" ],
     "content" : [
         {
             "id" : "families",
@@ -17,7 +17,7 @@
                 },
                 {
                     "id" : "introduction",
-                    "text" : "<p><h3>Números decimais grandes</h3>Na primeira página, discutimos a ideia de que <i>\"bastaria colocar mãos ou pessoas lado a lado para contar mais\"</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('12384bfb-595f-4845-b69e-68f91d1923f1'); return false;\">History Tracers, 2024</a>). No entanto, essa abordagem esbarra no limite imposto pelo número de pessoas disponíveis. Na segunda página, apresentamos uma solução para esse problema: a representação de quantidades por meio de símbolos que denominamos <b>números</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, 2024</a>).  Para representar quantidades usando números, seguimos os seguintes passos: <ul><li>Continuamos a trabalhar com os números (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)  como se fossem os dedos das nossas mãos, reconhecendo que só podemos representar até o total de dedos que possuímos, pois este é o nosso <b>limite</b>.</li><li>Começamos a contar a partir do 0, indicando a ausência de algo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, 2014, pp. 46 - 48</a>).</li><li>Seguimos a sequência dos números de 0 a 9, avançando para o próximo número na sequência após cada contagem.</li><li>Ao atingirmos o <b>limite</b>, ou seja, o número 9, avançamos para o próximo número na sequência, e resetamos o número 9 para 0 (indicando vazio). Se não houver números à esquerda, começamos a contagem a partir do 1.</li></ul></p>"
+                    "text" : "<p><h3>Números decimais grandes</h3>Na primeira página, discutimos a ideia de que <i>\"bastaria colocar mãos ou pessoas lado a lado para contar mais\"</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('12384bfb-595f-4845-b69e-68f91d1923f1'); return false;\">History Tracers, <span id=\"htdate0\"></span></a>). No entanto, essa abordagem esbarra no limite imposto pelo número de pessoas disponíveis. Na segunda página, apresentamos uma solução para esse problema: a representação de quantidades por meio de símbolos que denominamos <b>números</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, <span id=\"htdate1\"></span></a>).  Para representar quantidades usando números, seguimos os seguintes passos: <ul><li>Continuamos a trabalhar com os números (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)  como se fossem os dedos das nossas mãos, reconhecendo que só podemos representar até o total de dedos que possuímos, pois este é o nosso <b>limite</b>.</li><li>Começamos a contar a partir do 0, indicando a ausência de algo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, <span id=\"htdate2\"></span>, pp. 46 - 48</a>).</li><li>Seguimos a sequência dos números de 0 a 9, avançando para o próximo número na sequência após cada contagem.</li><li>Ao atingirmos o <b>limite</b>, ou seja, o número 9, avançamos para o próximo número na sequência, e resetamos o número 9 para 0 (indicando vazio). Se não houver números à esquerda, começamos a contagem a partir do 1.</li></ul></p>"
                 },
                 {
                     "id" : "example",
@@ -25,7 +25,7 @@
                 },
                 {
                     "id" : "limit",
-                    "text" : "<p><h3>Qual é o maior número possível?</h3>Nos exemplos apresentados, o maior número utilizado foi <b>1000000000</b>, porém este não representa o limite máximo de números que podem ser escritos ou expressos. Ao contrário de nossas mãos, onde só podemos levantar os dedos que possuímos, não existe uma regra que impeça a adição contínua de números, um ao lado do outro.</p><p class=\"reflection\"><b>Reflexão 1: Sobre o maior número</b><br />Existiria um último número possível?</p><p>Como não há um número final, é necessário expandir o conceito de <b>limite</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, 2024</a>) que estávamos utilizando. Para este caso específico de um número inatingível, em vez de falarmos de um máximo absoluto, é mais apropriado afirmar que quando os números aumentam, eles tendem ao infinito (<b>∞</b>), que é um conceito de algo muito grande. A ideia de <b>tender a algum número</b>, também pode ser aplicada a <b>grupos</b> pequenos, por exemplo, a medida que levantamos nossos dedos, eles <b>tendem ao número 5</b>. Quando vamos fechando os dedos, nós também <b>tendemos ao número 0</b>.</p>"
+                    "text" : "<p><h3>Qual é o maior número possível?</h3>Nos exemplos apresentados, o maior número utilizado foi <b>1000000000</b>, porém este não representa o limite máximo de números que podem ser escritos ou expressos. Ao contrário de nossas mãos, onde só podemos levantar os dedos que possuímos, não existe uma regra que impeça a adição contínua de números, um ao lado do outro.</p><p class=\"reflection\"><b>Reflexão 1: Sobre o maior número</b><br />Existiria um último número possível?</p><p>Como não há um número final, é necessário expandir o conceito de <b>limite</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, <span id=\"htdate3\"></span></a>) que estávamos utilizando. Para este caso específico de um número inatingível, em vez de falarmos de um máximo absoluto, é mais apropriado afirmar que quando os números aumentam, eles tendem ao infinito (<b>∞</b>), que é um conceito de algo muito grande. A ideia de <b>tender a algum número</b>, também pode ser aplicada a <b>grupos</b> pequenos, por exemplo, a medida que levantamos nossos dedos, eles <b>tendem ao número 5</b>. Quando vamos fechando os dedos, nós também <b>tendemos ao número 0</b>.</p>"
                 },
                 {
                     "id" : "exercise",
@@ -34,6 +34,15 @@
                 {
                     "id" : "conclusion",
                     "text" : "<p><h3>Sequenciamento com números indígenas na América/<i>Abya Yala</i></h3>A lógica para o sequenciamento dos sistemas numéricos indígenas é a mesma, com a única diferença sendo a direção na qual os números aumentam. Em vez de uma expansão numérica horizontal, eles crescem verticalmente. <table class=\"numbers\"><tr><th>Símbolo</th><th>Representação com números Indo-Arábico</th></tr><tr><td><img src=\"images/Maya_6.png\" /></td><td style=\"text-align: center;\">6</td> </tr><tr><td><img src=\"images/Maya_5.png\" /></td><td style=\"text-align: center;\">5</td> </tr></tr></table></p>"
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+                    ]
                 }
             ]
         }

@@ -4,7 +4,7 @@
     "sources" : [ "5ed14806-e80e-43ed-8f0e-adba2fc409a9" ],
     "scripts" : [ "5ed14806-e80e-43ed-8f0e-adba2fc409a9" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1709898424" ],
+    "last_update" : [ "1713749107" ],
     "content" : [
         {
             "id" : "families",
@@ -17,7 +17,7 @@
                 },
                 {
                     "id" : "introduction",
-                    "text" : "<p><h3>Large decimal numbers</h3>On the first page, we discussed how <i>\"we only need to put hands or people side to side to enumerate more\"</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('12384bfb-595f-4845-b69e-68f91d1923f1'); return false;\">History Tracers, 2024</a>). However, this approach is hindered by the limitation of the number of people available. On the second page, we presented a solution to this issue: representing samples with symbols called <b>numbers</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, 2024</a>). To represent a sample with numbers, we follow these steps:: <ul><li>Work with numbers (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) as if they were your fingers, thus you cannot represent more fingers than you have, as they constitute your <b>limit</b>.</li><li>We start counting from 0, in other words, we assume to have empty samples (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, 2014, pp. 46 - 48</a>).</li><li>We continue sequencing the numbers from 0 to 9, moving from one number to the next immediate subsequent number.</li><li>Upon reaching the <b>limit</b>, denoted by 9, we transition the adjacent number while maintaining the sequence, and reset the number that reached 9 to 0 (the empty scenario). If there is no number adjacent to the current one, we begin with 1, as the absence of a number implies emptiness.</li></ul></p>"
+                    "text" : "<p><h3>Large decimal numbers</h3>On the first page, we discussed how <i>\"we only need to put hands or people side to side to enumerate more\"</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('12384bfb-595f-4845-b69e-68f91d1923f1'); return false;\">History Tracers, <span id=\"htdate0\"></span></a>). However, this approach is hindered by the limitation of the number of people available. On the second page, we presented a solution to this issue: representing samples with symbols called <b>numbers</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, <span id=\"htdate1\"></span></a>). To represent a sample with numbers, we follow these steps:: <ul><li>Work with numbers (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) as if they were your fingers, thus you cannot represent more fingers than you have, as they constitute your <b>limit</b>.</li><li>We start counting from 0, in other words, we assume to have empty samples (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, <span id=\"htdate2\"></span>, pp. 46 - 48</a>).</li><li>We continue sequencing the numbers from 0 to 9, moving from one number to the next immediate subsequent number.</li><li>Upon reaching the <b>limit</b>, denoted by 9, we transition the adjacent number while maintaining the sequence, and reset the number that reached 9 to 0 (the empty scenario). If there is no number adjacent to the current one, we begin with 1, as the absence of a number implies emptiness.</li></ul></p>"
                 },
                 {
                     "id" : "example",
@@ -25,7 +25,7 @@
                 },
                 {
                     "id" : "limit",
-                    "text" : "<p><h3>What is the largest number?</h3>In the examples provided, the largest number used was <b>1000000000</b>, yet it is not the maximum attainable number. Unlike the constraint posed by the number of fingers on our hands, numbers themselves have no such limitation; we can endlessly write numbers without cessation.</p><p class=\"reflection\"><b>Reflection 1: Exploring the concept of the last number</b><br />Is there a definitive last number?</p><p>There exists no definitive final number, prompting us to expand upon the notion of <b>limitation</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, 2024</a>) reviously discussed. When considering an unattainable number, rather than aiming for a <b>maximum</b> value, we acknowledge that as values increase, they tend towards infinity (<b>∞</b>), representing a concept of boundlessness. The idea of <b>tending to some number</b>, can also be observed in smaller <b>groups</b>; for instance, as we begin to raise our fingers, they approach the number <b>5</b>. Similarly, as we lower our fingers, they tend towards <b>0</b>.</p>"
+                    "text" : "<p><h3>What is the largest number?</h3>In the examples provided, the largest number used was <b>1000000000</b>, yet it is not the maximum attainable number. Unlike the constraint posed by the number of fingers on our hands, numbers themselves have no such limitation; we can endlessly write numbers without cessation.</p><p class=\"reflection\"><b>Reflection 1: Exploring the concept of the last number</b><br />Is there a definitive last number?</p><p>There exists no definitive final number, prompting us to expand upon the notion of <b>limitation</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, <span id=\"htdate3\"></span></a>) reviously discussed. When considering an unattainable number, rather than aiming for a <b>maximum</b> value, we acknowledge that as values increase, they tend towards infinity (<b>∞</b>), representing a concept of boundlessness. The idea of <b>tending to some number</b>, can also be observed in smaller <b>groups</b>; for instance, as we begin to raise our fingers, they approach the number <b>5</b>. Similarly, as we lower our fingers, they tend towards <b>0</b>.</p>"
                 },
                 {
                     "id" : "exercise",
@@ -34,6 +34,15 @@
                 {
                     "id" : "indigenous",
                     "text" : "<p><h3>Numerical sequence in America/<i>Abya Yala</i></h3>The logic behind creating a sequence using American Indigenous systems remains consistent with what was previously explained. The only distinction lies in the direction of number progression: rather than being written horizontally, they ascend vertically. <table class=\"numbers\"><tr><th>Symbol</th><th>Representation with Hindu-Arábic numeral system</th></tr><tr><td><img src=\"images/Maya_6.png\" /></td><td style=\"text-align: center;\">6</td> </tr><tr><td><img src=\"images/Maya_5.png\" /></td><td style=\"text-align: center;\">5</td> </tr></tr></table></p>"
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+                    ]
                 }
             ]
         }
