@@ -20,6 +20,25 @@
                 {
                     "id" : "NAME",
                     "text" : [ "<p><h3> </h3></p>" ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {
+                            "type" : "gregory",
+                            "year" : "2010",
+                            "month" : "-1",
+                            "day" : "-1"
+                        },
+                        {
+                            "type" : "unix",
+                            "epoch" : "0"
+                        },
+                        {
+                            "type" : "julian",
+                            "epoch" : "0"
+                        }
+                    ]
                 }
             ]
         }
