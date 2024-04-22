@@ -93,7 +93,6 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
     if (unixEpoch != undefined) {
         intEpoch = parseInt(unixEpoch);
         ct = new Date(0);
-        ct.setUTCSeconds(intEpoch);
         jd = calcUnixTime(intEpoch);
     } else if (julianEpoch != undefined) {
         intEpoch = parseInt(julianEpoch);
@@ -137,11 +136,14 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
             text = indianCal[2] + "."+indianMonths[indianCal[1]]+ "."+year;
             return text;
         case "hispanic":
-            intEpoch += 1199145600;
-            ct.setUTCSeconds(intEpoch);
+            intEpoch += 1199188800;
         default:
             test = "gregory";
             break;
+    }
+
+    if (unixEpoch != undefined) {
+        ct.setUTCSeconds(intEpoch);
     }
 
     text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: test }).format(ct);
@@ -368,8 +370,8 @@ function htFillHTDate(vector)
 {
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
-    for (const j in vector.value) {
-        var w = vector.value[j];
+    for (const j in vector) {
+        var w = vector[j];
         var updateText = "";
         switch (w.type) {
             case "gregory":
@@ -481,7 +483,7 @@ function htFillWebPage(page, data)
                     }
                 } else {
                     if (data.content[i].value.constructor === vectorConstructor) {
-                        htFillHTDate(data.content[i]);
+                        htFillHTDate(data.content[i].value);
                     }
                 }
             }
@@ -624,8 +626,12 @@ function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
         if (table[i].text.constructor === stringConstructor) {
             htAddPaperDivs("#paper", table[i].id, table[i].text, "", later, i);
         } else if (table[i].text.constructor === vectorConstructor) {
-            for (const j in table[i].text) {
-                htAddPaperDivs("#paper", table[i].id + "_"+j, table[i].text[j], "", later, i);
+            if (table[i].id != "fill_dates") {
+                for (const j in table[i].text) {
+                    htAddPaperDivs("#paper", table[i].id + "_"+j, table[i].text[j], "", later, i);
+                }
+            } else {
+                htFillHTDate(table[i].text);
             }
         }
     }
