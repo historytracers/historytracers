@@ -1,5 +1,40 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-var first = true;
+var firstRereading = true;
+
+function htFillRereadingDates()
+{
+    var gregoryYear = new Date().getFullYear() ;
+    var localCalendar = $("#site_calendar").val();
+    var yupanaYear = 0;
+    var mesoamericaYear = 0;
+    if (localCalendar == "gregory")  {
+        yupanaYear = gregoryYear;
+        mesoamericaYear = gregoryYear;
+    } else {
+        switch(localCalendar) {
+            case "julian":
+            case "mesoamerican":
+                yupanaYear = 99999;
+                mesoamericaYear = parseInt(htConvertGregorianYearToJD(gregoryYear));
+                break;
+            case "hebrew":
+            case "islamic":
+            case "persian":
+            case "hispanic":
+            case "shaka":
+            case "french":
+            default:
+                yupanaYear = htConvertGregorianYear(localCalendar, gregoryYear);
+                mesoamericaYear = yupanaYear;
+                break;
+        }
+    }
+
+    $("#ia2yupana").val(yupanaYear);
+    $("#ia2mesoamerica").val(mesoamericaYear);
+    htFillYupanaValues('#yupana0', yupanaYear, 5, '#tc6f', 'red_dot_right_up');
+    htFillMesoamericanVigesimalValues(mesoamericaYear, 5, 3);
+}
 
 function htLoadExercise() {
     $("#btncheck").val(keywords[29]);
@@ -15,14 +50,13 @@ function htLoadExercise() {
         $("input[name=exercise"+i+"]").prop("checked", false);
     }
 
-    if (first) {
+    if (firstRereading) {
         htPlotPoemChart('chart2', 5);
         htPlotPoemChart('chart3', 10);
         htPlotPoemChart('chart4', [5, 10]);
-        var year = new Date().getFullYear() ;
-        htFillYupanaValues('#yupana0', year, 5, '#tc6f', 'red_dot_right_up');
-        htFillMesoamericanVigesimalValues(year, 5, 3);
-        first = false;
+
+        firstRereading = false;
+        htFillRereadingDates();
     }
 
     $("#ia2yupana").on("keyup", function() {

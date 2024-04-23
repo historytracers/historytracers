@@ -151,10 +151,19 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
     return text;
 }
 
+function htConvertGregorianYearToJD(gregoryYear)
+{
+    var year = parseInt(gregoryYear);
+    var ct = new Date();
+    ct.setYear(year);
+    // gregorian to jd will subtract an year before to convert
+    return gregorian_to_jd(gregoryYear, ct.getMonth(), ct.getDate());
+}
+
 function htConvertGregorianYear(test, gregoryYear)
 {
     var year = parseInt(gregoryYear);
-    var jd = gregorian_to_jd(gregoryYear, 1, 1);
+    var jd = htConvertGregorianYearToJD(year);
     var text = "";
     if (test == "gregory")  {
         text += gregoryYear;
@@ -183,16 +192,16 @@ function htConvertGregorianYear(test, gregoryYear)
                 var frCals = jd_to_french_revolutionary(jd);
                 year = (frCals[0] < 0 ) ? mod(frCals[0]) + keywords[43] : frCals[0]; 
     
-                text = "Année " + year;
+                text = "" + year;
                 return text;
             case "shaka":
                 var indianCal = jd_to_indian_civil(jd);
                 year = (indianCal[0] < 0 ) ? mod(indianCal[0]) + year : indianCal[0]; 
     
-                text = year;
+                text = ""+year;
                 return text;
             case "hispanic":
-                converted = new Array(""+(parseInt(gregoryYear) + 38));
+                converted = new Array(""+(parseInt(year) + 38));
                 break;
             default:
                 return undefined;
@@ -204,6 +213,15 @@ function htConvertGregorianYear(test, gregoryYear)
 
 function htConvertGregorianDate(test, locale, year, month, day)
 {
+    // Pass month index
+    month = parseInt(month);
+    if (month < 0) {
+        month = 0;
+    } else if (month >= 12) {
+        month = 11;
+    } else {
+        month -= 1;
+    }
     var dateArr = new Array(year, month, day);
     return htConvertDate(test, locale, undefined, undefined, dateArr);
 }
