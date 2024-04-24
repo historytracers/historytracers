@@ -30,7 +30,7 @@ function htLoadExercise() {
 
         d7d99844FirstTime = false;
     }
-    $("#htdate2").html(todayText);
+    $("#htexampledate0").html(todayText);
 
     return false;
 }
