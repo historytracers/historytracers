@@ -85,6 +85,18 @@ function htPrintContent(header, body)
     printScreen.window.print();
 }
 
+function htAdjustGregorianZeroYear(text)
+{
+    var parsed = text.split(" ");
+    var finalText = parsed[0] +" ";
+    var end = parsed.length - 1;
+    for (let i = 1; i < end; i++) {
+        finalText += parsed[i] +" ";
+    }
+
+    return finalText + "0";
+}
+
 function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
 {
     var ct = undefined;
@@ -101,13 +113,17 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
     } else {
         intEpoch = gregorian_to_jd(gregorianDate[0], gregorianDate[1], gregorianDate[2]);
         jd = calcJulian(intEpoch);
+        // Pass month index instead index
         ct = new Date(gregorianDate[0], gregorianDate[1] - 1, gregorianDate[2], 0, 0, 0);
+        // reset to avoid wrong values
+        ct.setFullYear(gregorianDate[0], gregorianDate[1] - 1, gregorianDate[2]);
     }
     ct.toLocaleString(locale, { timeZone: 'UTC' })
     var julianDays = gregorian_to_jd(jd[0], jd[1], jd[2]);
 
     var text = "";
     var year = " "+keywords[43];
+    var mesoamericanPeriod = 0;
     switch(test) {
         case "gregory":
         case "hebrew":
@@ -117,11 +133,15 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
         case "julian":
             text = julianDays + " " + keywords[41];
             return text;
+        case "emesoamerican":
+            mesoamericanPeriod = jd_to_extended_mayan_count(julianDays);
         case "mesoamerican":
-            var mesoamericanPeriod = jd_to_mayan_count(julianDays);
+            if (mesoamericanPeriod == 0) {
+                mesoamericanPeriod = jd_to_mayan_count(julianDays);
+            }
             var haab = jd_to_mayan_haab(julianDays);
             var tzolkin = jd_to_mayan_tzolkin(julianDays);
-            text = mesoamericanPeriod[0] + "." + mesoamericanPeriod[1]+ "." + mesoamericanPeriod[2]+ "." + mesoamericanPeriod[3]+ "." + mesoamericanPeriod[4] + " ( Haab: " +haab[1]+ " "+MAYAN_HAAB_MONTHS[haab[0] - 1] + ", Tzolkin: "+tzolkin[1] + " " + MAYAN_TZOLKIN_MONTHS[tzolkin[0] - 1]+ " )";
+            text = mesoamericanPeriod[0] + "." + mesoamericanPeriod[1]+ "." + mesoamericanPeriod[2]+ "." + mesoamericanPeriod[3]+ "." + mesoamericanPeriod[4]+ "." + mesoamericanPeriod[5]+ "." + mesoamericanPeriod[6]+ "." + mesoamericanPeriod[7] + " ( Haab: " +haab[1]+ " "+MAYAN_HAAB_MONTHS[haab[0] - 1] + ", Tzolkin: "+tzolkin[1] + " " + MAYAN_TZOLKIN_MONTHS[tzolkin[0] - 1]+ " )";
             return text;
         case "french":
             var frCals = jd_to_french_revolutionary(julianDays);
@@ -148,6 +168,15 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
 
     text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: test }).format(ct);
 
+    if (test == "gregory") { 
+        var yearValue = ct.getFullYear();
+        if (yearValue < 0) {
+            text += " "+keywords[43];
+        } else if (yearValue == 0) {
+            text = htAdjustGregorianZeroYear(text);
+        }
+    }
+
     return text;
 }
 
@@ -169,6 +198,7 @@ function htConvertGregorianYear(test, gregoryYear)
         text += gregoryYear;
     } else {
         var coverted = undefined;
+        var mesoamericanPeriod = 0;
         switch(test) {
             case "hebrew":
                 converted = jd_to_hebrew(jd);
@@ -182,11 +212,16 @@ function htConvertGregorianYear(test, gregoryYear)
             case "julian":
                 text = jd + " " + keywords[41];
                 return text;
+            case "emesoamerican":
+                mesoamericanPeriod = jd_to_extended_mayan_count(julianDays);
             case "mesoamerican":
-                var mesoamericanPeriod = jd_to_mayan_count(jd);
+                if (mesoamericanPeriod == 0) {
+                    var mesoamericanPeriod = jd_to_mayan_count(jd);
+                }
+
                 var haab = jd_to_mayan_haab(jd);
                 var tzolkin = jd_to_mayan_tzolkin(jd);
-                text = mesoamericanPeriod[0] + "." + mesoamericanPeriod[1]+ "." + mesoamericanPeriod[2]+ "." + mesoamericanPeriod[3]+ "." + mesoamericanPeriod[4] + " ( Haab: " +haab[1]+ " "+MAYAN_HAAB_MONTHS[haab[0] - 1] + ", Tzolkin: "+tzolkin[1] + " " + MAYAN_TZOLKIN_MONTHS[tzolkin[0] - 1]+ " )";
+                text = mesoamericanPeriod[0] + "." + mesoamericanPeriod[1]+ "." + mesoamericanPeriod[2]+ "." + mesoamericanPeriod[3]+ "." + mesoamericanPeriod[4]+ "." + mesoamericanPeriod[5]+ "." + mesoamericanPeriod[6]+ "." + mesoamericanPeriod[7] + " ( Haab: " +haab[1]+ " "+MAYAN_HAAB_MONTHS[haab[0] - 1] + ", Tzolkin: "+tzolkin[1] + " " + MAYAN_TZOLKIN_MONTHS[tzolkin[0] - 1]+ " )";
                 return text;
             case "french":
                 var frCals = jd_to_french_revolutionary(jd);
@@ -213,15 +248,6 @@ function htConvertGregorianYear(test, gregoryYear)
 
 function htConvertGregorianDate(test, locale, year, month, day)
 {
-    // Pass month index
-    month = parseInt(month);
-    if (month < 0) {
-        month = 0;
-    } else if (month >= 12) {
-        month = 11;
-    } else {
-        month -= 1;
-    }
     var dateArr = new Array(year, month, day);
     return htConvertDate(test, locale, undefined, undefined, dateArr);
 }

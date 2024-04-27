@@ -762,13 +762,54 @@ function mayan_count_to_jd(baktun, katun, tun, uinal, kin)
            kin;
 }
 
+function extended_mayan_count_to_jd(kinchiltun, calabtun, pictun, baktun, katun, tun, uinal, kin)
+{
+    var common = mayan_count_to_jd(baktun, katun, tun, uinal, kin);
+    if (kinchiltun == 0 && calabtun == 0 && pictun  == 0) {
+        return common;
+    }
+
+    var excess = (kinchiltun * 1152000000) + (calabtun * 57600000) + (pictun * 2880000);
+
+    // Date must be negative, because it is before JD epoch
+    return  common - excess;
+}
+
 //  JD_TO_MAYAN_COUNT  --  Calculate Mayan long count from Julian day
+
+function jd_to_extended_mayan_count(jd)
+{
+    var d, kinchiltun, calabtun, pictun, baktun, katun, tun, uinal, kin;
+    d = parseInt(jd);
+
+    kinchiltun = Math.floor(d / 1152000000);
+    d = mod(d, 1152000000);
+    calabtun = Math.floor(d / 57600000);
+    d = mod(d, 57600000);
+    pictun = Math.floor(d / 2880000);
+    d = mod(d, 2880000);
+    baktun = Math.floor(d / 144000);
+    d = mod(d, 144000);
+    katun = Math.floor(d / 7200);
+    d = mod(d, 7200);
+    tun = Math.floor(d / 360);
+    d = mod(d, 360);
+    uinal = Math.floor(d / 20);
+    kin = mod(d, 20);
+
+    return new Array(kinchiltun, calabtun, pictun, baktun, katun, tun, uinal, kin);
+}
 
 function jd_to_mayan_count(jd)
 {
     var d, baktun, katun, tun, uinal, kin;
 
     jd = Math.floor(jd) + 0.5;
+
+    if (jd < MAYAN_COUNT_EPOCH) {
+        return jd_to_extended_mayan_count(jd);
+    }
+
     d = jd - MAYAN_COUNT_EPOCH;
     baktun = Math.floor(d / 144000);
     d = mod(d, 144000);
@@ -779,7 +820,8 @@ function jd_to_mayan_count(jd)
     uinal = Math.floor(d / 20);
     kin = mod(d, 20);
 
-    return new Array(baktun, katun, tun, uinal, kin);
+    return new Array(0, 0, 0, baktun, katun, tun, uinal, kin);
+    //return new Array(baktun, katun, tun, uinal, kin);
 }
 
 //  JD_TO_MAYAN_HAAB  --  Determine Mayan Haab "month" and day from Julian day

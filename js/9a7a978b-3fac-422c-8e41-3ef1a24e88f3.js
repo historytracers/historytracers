@@ -16,12 +16,12 @@ function htLoadExercise() {
     $("#btncheck").val(keywords[29]);
     $("#btnnew").val(keywords[30]);
 
-    for (let i = 0; i < 17; i += 2) {
+    for (let i = 0; i < 10; i += 2) {
         $("#lblans"+i).text(keywords[31]);
         $("#lblans"+(i+1)).text(keywords[32]);
     }
 
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 5; i++) {
         $("#answer"+i).text("");
         $("input[name=exercise"+i+"]").prop("checked", false);
     }

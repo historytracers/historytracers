@@ -342,6 +342,20 @@ function htMultMakeMultiplicationTableText(lValue, times, tableID, cellID)
     $(tableID+" "+cellID).html(text);
 }
 
+function htCompleteMesoamericanCalendar(vector)
+{
+    var len = 8 - vector.length;
+    if (len < 0) {
+        return vector;
+    }
+
+    for (let i = 0 ; i < len; i++) {
+        vector.unshift(0);
+    }
+
+    return vector;
+}
+
 function htFillMesoamericanCalendar(periods, outputColumn)
 {
     for (let i = 0, top2bottom = 1; i < periods.length; i++, top2bottom++) {
