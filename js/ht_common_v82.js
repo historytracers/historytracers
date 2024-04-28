@@ -145,15 +145,15 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
             return text;
         case "french":
             var frCals = jd_to_french_revolutionary(julianDays);
-            year = (frCals[0] < 0 ) ? mod(frCals[0]) + keywords[43] : frCals[0]; 
+            year = (frCals[0] < 0 ) ? Math.abs(frCals[0]) + " "+ keywords[43] : frCals[0]; 
 
-            text = "Année " + year + " Mois "+frMonth[frCals[1]]+ " Décade "+frDecade[frCals[2]]+" Jour "+ frDay[((frCals[1] <= 12) ? frCals[3] : (frCals[3] + 11))];
+            text = "Année " + year + " Mois "+frMonth[frCals[1] - 1]+ " Décade "+frDecade[frCals[2] - 1]+" Jour "+ frDay[((frCals[1] <= 12) ? frCals[3] : (frCals[3] + 11))];
             return text;
         case "shaka":
             var indianCal = jd_to_indian_civil(julianDays);
-            year = (indianCal[0] < 0 ) ? mod(indianCal[0]) + year : indianCal[0]; 
+            year = (indianCal[0] < 0 ) ? Math.abs(indianCal[0]) + " "+ keywords[43]  : indianCal[0]; 
 
-            text = indianCal[2] + "."+indianMonths[indianCal[1]]+ "."+year;
+            text = indianCal[2] + "."+indianMonths[indianCal[1] - 1]+ "."+year;
             return text;
         case "hispanic":
             intEpoch += 1199188800;
@@ -213,7 +213,7 @@ function htConvertGregorianYear(test, gregoryYear)
                 text = jd + " " + keywords[41];
                 return text;
             case "emesoamerican":
-                mesoamericanPeriod = jd_to_extended_mayan_count(julianDays);
+                mesoamericanPeriod = jd_to_extended_mayan_count(jd);
             case "mesoamerican":
                 if (mesoamericanPeriod == 0) {
                     var mesoamericanPeriod = jd_to_mayan_count(jd);
