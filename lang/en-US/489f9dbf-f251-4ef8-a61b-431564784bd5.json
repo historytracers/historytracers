@@ -3,7 +3,7 @@
     "header" : "Our sides are equal",
     "sources" : [ "kids_symmetry" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1710688103" ],
+    "last_update" : [ "1714408787" ],
     "content" : [
         {
             "id" : "families",
@@ -20,7 +20,7 @@
                 },
                 {
                     "id" : "hands",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td>Left hand</td><td>Right hand</td></tr><tr><td><img src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Hands reprsentation. The source codes are available in project GitHub (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, 2024</a>)</td></tr></table></p><p>Now, bring your hands together with palms facing and examine your fingers. Do they possess identical sizes? What about your hands—are they also of the same size?</p>"
+                    "text" : "<p><table class=\"book_navigation\"><tr><td>Left hand</td><td>Right hand</td></tr><tr><td><img src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Hands reprsentation. The source codes are available in project GitHub (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span id=\"htdate0\"></span>, Source code</a>)</td></tr></table></p><p>Now, bring your hands together with palms facing and examine your fingers. Do they possess identical sizes? What about your hands—are they also of the same size?</p>"
                 },
                 {
                     "id" : "draw_hands",
@@ -33,6 +33,12 @@
                 {
                     "id" : "conclusion",
                     "text" : "<p><h3>Conclusion and practice</h3>Our bodies are unique, with symmetrical sides. And we're not alone—many other organisms exhibit similar symmetry. Explore leaves of plants and observe other animals to confirm their symmetrical features.</p>"
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+                    ]
                 }
             ]
         }
