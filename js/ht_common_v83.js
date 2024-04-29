@@ -195,7 +195,11 @@ function htConvertGregorianYear(test, gregoryYear)
     var jd = htConvertGregorianYearToJD(year);
     var text = "";
     if (test == "gregory")  {
-        text += gregoryYear;
+        if (year >= 0) {
+            text += gregoryYear;
+        } else {
+            text += Math.abs(year)+" "+keywords[43];
+        }
     } else {
         var coverted = undefined;
         var mesoamericanPeriod = 0;
@@ -241,7 +245,11 @@ function htConvertGregorianYear(test, gregoryYear)
             default:
                 return undefined;
         }
-        text += converted[0];
+        if (converted[0] >= 0) {
+            text += converted[0];
+        } else {
+            text += Math.abs(converted[0])+" "+keywords[43];
+        }
     }
     return text;
 }
