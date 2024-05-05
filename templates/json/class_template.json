@@ -18,26 +18,25 @@
                     "text" : "<p><table class=\"book_navigation\"><tr><td>Previous</td> <td> Top </td> <td>Next</td></tr><tr><td><a href=\"index.html?page=class_content&arg=\" onclick=\"htLoadPage('class_content', 'html', '', false); return false;\"> </a></td> <td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\">Index</a></td><td><a href=\"index.html?page=class_content&arg=\" onclick=\"htLoadPage('class_content', 'html', '', false); return false;\"> </a></td></tr></table></p>"
                 },
                 {
-                    "id" : "NAME",
+                    "id" : "SECTION_NAME",
                     "text" : [ "<p><h3> </h3></p>" ]
+                },
+                {
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "WRITE A QUESTION",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "The correct answer is Yes, because ..."
+                        }
+                    ]
                 },
                 {
                     "id": "fill_dates",
                     "text": [
-                        {
-                            "type" : "gregory",
-                            "year" : "2010",
-                            "month" : "-1",
-                            "day" : "-1"
-                        },
-                        {
-                            "type" : "unix",
-                            "epoch" : "0"
-                        },
-                        {
-                            "type" : "julian",
-                            "epoch" : "0"
-                        }
+                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                        {"type" : "unix", "epoch" : "0" },
+                        {"type" : "julian",  "epoch" : "0" }
                     ]
                 }
             ]

@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-var first = true;
 
 function htLoadExercise() {
     $("#btncheck").val(keywords[29]);
@@ -16,11 +15,8 @@ function htLoadExercise() {
     }
 
 
-    if (first) {
-        htPlotPoemChart('chart0', 10);
-        htPlotPoemChart('chart1', 7);
-        first = false;
-    }
+    htPlotConstantChart('chart0', 10, keywords[44], keywords[45]);
+    htPlotConstantChart('chart1', 7, keywords[44], keywords[45]);
 
     return false;
 }

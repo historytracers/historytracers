@@ -110,13 +110,15 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
         intEpoch = parseInt(julianEpoch);
         jd = calcJulian(julianEpoch);
         ct = new Date(jd[0], jd[1], jd[2]);
-    } else {
+    } else if (gregorianDate != undefined) {
         intEpoch = gregorian_to_jd(gregorianDate[0], gregorianDate[1], gregorianDate[2]);
         jd = calcJulian(intEpoch);
         // Pass month index instead index
         ct = new Date(gregorianDate[0], gregorianDate[1] - 1, gregorianDate[2], 0, 0, 0);
         // reset to avoid wrong values
         ct.setFullYear(gregorianDate[0], gregorianDate[1] - 1, gregorianDate[2]);
+    } else {
+        return;
     }
     ct.toLocaleString(locale, { timeZone: 'UTC' })
     var julianDays = gregorian_to_jd(jd[0], jd[1], jd[2]);
@@ -440,7 +442,9 @@ function htFillHTDate(vector)
                 updateText = htConvertJulianDate(localCalendar, localLang, w.day);
                 break;
         }
-        $("#htdate"+j).html(updateText);
+        if ($("#htdate"+j).length > 0) {
+            $("#htdate"+j).html(updateText);
+        }
     }
 }
 
@@ -533,6 +537,7 @@ function htFillWebPage(page, data)
                     for (const j in data.content[i].value) {
                         $("#"+data.content[i].id).append(data.content[i].value[j]);
                     }
+                
                 } else {
                     if (data.content[i].value.constructor === vectorConstructor) {
                         htFillHTDate(data.content[i].value);
@@ -667,6 +672,82 @@ function htFillSubMapList(table, target) {
     }
 }
 
+function htCheckExerciseAnswer(val0, val1, answer, explanation) {
+    var ans = parseInt($("input[name="+val0+"]:checked").val());
+    var text = "";
+    var format = "";
+    if (ans == val1) {
+        text = keywords[27];
+        format = "green";
+    } else {
+        text = keywords[28];
+        format = "red";
+    }
+
+    if ($(answer).length > 0) {
+        $(answer).text(text);
+        $(answer).css("color", format);
+    }
+
+    if ($(explanation).length > 0) {
+        $(explanation).css("color", format);
+        $(explanation).css("display","block");
+        $(explanation).css("visibility","visible");
+    }
+
+    return false;
+}
+
+function htResetAnswers(vector)
+{
+    for (let i = 0; i < vector.length; i++) {
+        $("#answer"+i).text("");
+        $("input[name=exercise"+i+"]").prop("checked", false);
+
+        $("#explanation"+i).css("display","none");
+        $("#explanation"+i).css("visibility","hidden");
+    }
+}
+
+function htWriteQuestions(table, later, idx)
+{
+    var questions = "<p><h3>"+keywords[50]+"</h3><ol>";
+    var tmpAnswers = "<p class=\"ht_description\"><span id=\"htAnswersToBeUsed\">";
+    var total = 0;
+    for (const i in table) {
+        questions += "<li>"+table[i].question+" <input type=\"radio\" id=\"ans"+i+"yes\" name=\"exercise"+i+"\" value=\"1\" /> <b><label>"+keywords[31]+"</label></b> <input type=\"radio\" id=\"ans"+i+"no\" name=\"exercise"+i+"\" value=\"0\" /> <b><label>"+keywords[32]+"</label></b>. <span class=\"ht_description\" id=\"explanation"+i+"\"><span id=\"answer"+i+"\"></span> "+table[i].additionalInfo+"</span></li>";
+        tmpAnswers += (table[i].yesNoAnswer == "Yes") ? 1+";" : 0+";";
+        total = i;
+    }
+    if (total > 0) {
+        total++;
+    }
+    questions += "</ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\""+keywords[29]+"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\""+keywords[30]+"\" /></p>";
+    tmpAnswers += "</span><span id=\"htTotalQuestions\">"+total+"</span></p>";
+
+    htAddPaperDivs("#paper", "exercises0", questions, "", later, idx);
+    htAddPaperDivs("#paper", "exercises1", tmpAnswers, "", later, idx+1000);
+}
+
+function htLoadAnswersFromExercise()
+{
+    var ret = [];
+    var end = parseInt($("#htTotalQuestions").html());
+
+    if (end == undefined) {
+        return end;
+    }
+
+    var htmlValues = $("#htAnswersToBeUsed").html();
+    var values = htmlValues.split(";");
+    for (let i = 0; i < end; i++) {
+        ret.push(parseInt(values[i]));
+    }
+
+    $("#htAnswersToBeUsed").html("");
+    return ret;
+}
+
 function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
     for (const i in table) {
         if (i == 1) {
@@ -678,7 +759,9 @@ function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
         if (table[i].text.constructor === stringConstructor) {
             htAddPaperDivs("#paper", table[i].id, table[i].text, "", later, i);
         } else if (table[i].text.constructor === vectorConstructor) {
-            if (table[i].id != "fill_dates") {
+            if (table[i].id == "exercise_v2") {
+                htWriteQuestions(table[i].text, later, i);
+            } else if (table[i].id != "fill_dates") {
                 for (const j in table[i].text) {
                     htAddPaperDivs("#paper", table[i].id + "_"+j, table[i].text[j], "", later, i);
                 }
@@ -1180,35 +1263,3 @@ function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-function htPlotPoemChartElement(value)
-{
-    return {
-               data: [{
-                     x: 1,
-                     y: value,
-                     z: 20
-                  },
-                  {
-                     x: 2,
-                     y: value,
-                     z: 20
-                  },
-                  {
-                     x: 3,
-                     y: value,
-                     z: 20
-                  },
-                  {
-                     x: 4,
-                     y: value,
-                     z: 20
-                  },
-                  {
-                     x: 5,
-                     y: value,
-                     z: 20
-                  }
-               ],
-               radius: 8,
-            };
-}

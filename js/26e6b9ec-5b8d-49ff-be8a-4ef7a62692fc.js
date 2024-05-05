@@ -51,9 +51,9 @@ function htLoadExercise() {
     }
 
     if (firstRereading) {
-        htPlotPoemChart('chart2', 5);
-        htPlotPoemChart('chart3', 10);
-        htPlotPoemChart('chart4', [5, 10]);
+        htPlotConstantChart('chart2', 5, keywords[44], keywords[45]);
+        htPlotConstantChart('chart3', 10, keywords[44], keywords[45]);
+        htPlotConstantChart('chart4', [5, 10], keywords[44], keywords[45]);
 
         firstRereading = false;
         htFillRereadingDates();
