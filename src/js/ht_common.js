@@ -511,6 +511,9 @@ function htFillWebPage(page, data)
     } else {
         for (const i in data.content) {
             if (data.content[i].value == undefined || data.content[i].value == null) {
+                if (data.content[i].id != undefined && data.content[i].id == "fill_dates") {
+                    htFillHTDate(data.content[i].text);
+                }
                 continue;
             }
 
