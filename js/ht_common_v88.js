@@ -147,7 +147,8 @@ function htFillHistorySources(divId,histID,history,primary_source,references,hol
 {if(history!=undefined){for(const i in history){$(histID).append("<p class=\""+useClass+"\" onclick=\"fillTree('"+personID+"'); \">"+history[i]+"</p>");}}}
 function htFillMapSource(myMap,data)
 {if(data==undefined){return;}
-var currentLanguage=$("#site_language").val();var currentCalendar=$("#site_calendar").val();for(const i in data){var ids=myMap.has(data[i].id);if(ids==false){var finalDate="";if(data[i].date!=undefined){var dateVector=data[i].date.split('-');finalDate=htConvertGregorianDate(currentCalendar,currentLanguage,dateVector[0],dateVector[1],dateVector[2]);}
+var currentLanguage=$("#site_language").val();var currentCalendar=$("#site_calendar").val();for(const i in data){var ids=myMap.has(data[i].id);if(ids==false){var finalDate="";if(data[i].date!=undefined){var dateVector=data[i].date.split('-');if(dateVector.length!=3){continue;}
+finalDate=htConvertGregorianDate(currentCalendar,currentLanguage,dateVector[0],dateVector[1],dateVector[2]);}
 myMap.set(data[i].id,{"citation":data[i].citation,"date":finalDate,"url":data[i].url});}}}
 function htLoadSource(divID,sourceMap,listMap,theID)
 {$(divID).html("");var ps=listMap.has(theID);if(ps){var localMap=listMap.get(theID);var arr=localMap.split(';');if(arr.length>0){for(let i=0;i<arr.length;i++){htFillSource(divID,sourceMap,arr[i]);}}}}
