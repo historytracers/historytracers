@@ -24,7 +24,8 @@ function htLoadExercise() {
         "yType" : "linear",
         "xVector" : xVector1,
         "xLable": keywords[49],
-        "xType" : "linear"
+        "xType" : "linear",
+        "datasetFill" : false
     };
     htPlotConstantContinuousChart(chart1Options);
 
@@ -38,7 +39,8 @@ function htLoadExercise() {
         "yType" : "linear",
         "xVector" : xVector2,
         "xLable": keywords[49],
-        "xType" : "logarithmic"
+        "xType" : "logarithmic",
+        "datasetFill" : false
     };
     htPlotConstantContinuousChart(chart2Options);
 
