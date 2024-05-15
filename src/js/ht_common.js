@@ -1101,6 +1101,9 @@ function htFillMapSource(myMap, data)
             var finalDate = "";
             if (data[i].date != undefined ) {
                 var dateVector = data[i].date.split('-');
+                if (dateVector.length != 3) {
+                    continue;
+                }
                 finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
             }
             myMap.set(data[i].id, {"citation" : data[i].citation, "date" : finalDate, "url" : data[i].url});

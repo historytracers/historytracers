@@ -1,0 +1,77 @@
+{
+    "title" : "Understanding the nature (one dimension)",
+    "header" : "Understanding the nature (one dimension)",
+    "sources" : [ "13ba52a9-dc60-438f-8f4a-fed5f554138c" ],
+    "scripts" : [ "13ba52a9-dc60-438f-8f4a-fed5f554138c" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1715659145" ],
+    "authors" : null,
+    "reviewers" : null,
+    "content" : [
+        {
+            "id" : "families",
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td>Previous</td> <td> Top </td> <td>Next</td></tr><tr><td><a href=\"index.html?page=class_content&arg=883098fb-d406-42be-a4d8-304873b908c8\" onclick=\"htLoadPage('class_content', 'html', '883098fb-d406-42be-a4d8-304873b908c8', false); return false;\">Understanding the time</a></td> <td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\">Index</a></td><td>Understanding the nature (two dimensions)</td></tr></table></p>"
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ "<p><h3>Introduction</h3>The connection between temporal and spatial continuity plays a vital role in our understanding of history. In this text, we delve deeper into this relationship and its significance.</p>" ]
+                },
+                {
+                    "id" : "discrete",
+                    "text" : [ "<p><h3>A tool to sum</h3>With the introduction of real numbers ℝ, we expanded our understanding beyond natural numbers, incorporating a  <b>Fracional</b> part with numbers tending towards infinity (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e3a43e25-184d-4c9e-bb6c-a5423f224609'); return false;\">History Tracers, <span id=\"htdate0\"></span>), Understanding time continuity</a>). Thus, we bridged the gap in natural numbers, enabling us to grasp continuity. It's essential to comprehend how this idea evolved.</p>", "<p>Consider the Sun \"Pyramid\" <b>(Image 1)</b>, perpetually fixed in its position as days pass by. Below, we present a chart depicting five consecutive days of observations:</p>", "<p class=\"desc\"><table><tr><td><img src=\"images/TeotihuacanMountains.jpg\" class=\"imgcenter\"/></td><td><canvas  aria-label=\"chart\" id=\"chart0\" class=\"htChart\"></canvas></td></tr><tr><td class=\"desc\">Image 1: The Sun \"Pyramid\" at Teotihuacan, viewed from the Moon \"pyramid\".<br />Photograph taken on <span id=\"htdate1\"></span> during a site visit..</td><td class=\"desc\">Chart 1: Position of an object over time.<br />Chart created using the open-source library 'Chart JS' (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>).</td></tr></table></p>", "<p>We've already explored how the sum of identical values can be transformed into a distinct operation called multiplication (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a0849584-b676-4886-89d7-686a03131737'); return false;\">History Tracers, <span id=\"htdate2\"></span>, Music and poem </a>), However, this isn't the only method to represent the sum of values in mathematics. We also employ the Greek letter sigma Σ (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('02d92672-278d-4d43-b8e3-9457fb8ebaa9'); return false;\">Khan Academy: Sum notation</span></a>) to denote the sum of values. For instance, our observations over five days can be expressed as:</p>", "<p class=\"center_notation\"><math><munderover> <mo>&sum;</mo> <mn>d = 1</mn><mn>5</mn></munderover> <mi>1</mi> </math></p>", "<p class=\"desc\">Formula 1: Summation of intervals over five days, from the initial day to the fifth day.</p>", "<p>The index <b>d</b> in the <b>Formula 1</b> represents the observed days, ranging from the integer value 1 (the first day) to 5 (the last). Preceding the summation symbol, we add the constant 1 to represent the days on the chart. However, this definition isn't fixed; we can adjust the upper limit <b>(5)</b> to larger or smaller values. Upon expanding <b>Formula 1</b> according to the specified limits, we arrive at the final result:</p>", "<p class=\"center_notation\"><math><munderover> <mo>&sum;</mo> <mn>d = 1</mn><mn>5</mn></munderover> <mi>1 = </mi> <mi>1+1+1+1+1</mi> <mo>= 5<mo></math></p>", "<p class=\"desc\">Calculation 1: Summation of five intervals, each representing one day.</p>", "<p>By employing the summation notation to count days, following the models of Mesoamerican or Julian calendars (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('75f9c1d6-8510-4ce6-8561-02f376645005'); return false;\">History Tracers, <span id=\"htdate3\"></span>, Understanding the time</a>), we assume time passing in large intervals. However, as we've learned, time doesn't flow discretely (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e3a43e25-184d-4c9e-bb6c-a5423f224609'); return false;\">History Tracers, <span id=\"htdate4\"></span>, Understanding the time continuity</a>). To achieve a more accurate representation of time, we must generalize this concept, moving away from larger time intervals counted with natural numbers towards something closer to continuous reality.</p>" ]
+                },
+                {
+                    "id" : "d1time",
+                    "text" : [ "<p><h3>Representing Continuity Mathematically</h3>Let's begin by revising the index used for summation. Instead of using <b>d</b> to denote the day, let's introduce a more general representation of time, denoted by the letter <b>t</b>.</p>", "<p>Next, we divide the time period <b>t</b> into smaller intervals. These subdivisions represent intervals of time so minute that we term them <b>infinitesimal periods of time</b>, denoted by the abbreviation <b>dt</b> (diminutive time). But, what exactly is the magnitude of <b>dt</b>?  It should ideally tend (approach) zero (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('56edfb31-7b84-4fbf-aab4-e56be105af5f'); return false;\">History Tracers, <span id=\"htdate5\"></span>, The sky is the limit</a>), as infinitesimally small as possible, in order to encompass any potential event.</p>", "<p class=\"desc\"><img src=\"images/line.jpg\" class=\"imgcenter\"/>Image 2: Illustration of time  <b>t</b> and its infinitesimal elements <b>dt</b>, expanded. Python script source code available on the project's GitHub page (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span id=\"htdate6\"></span>, Source code</a>).</p>", "<p>The <b>Image 2</b>, which portrays time <b>t</b> as a whole, with <b>dt</b> depicted as expanded points. To compute the total time <b>t</b>, we must sum all infinitesimal elements <b>dt</b> in a process known as integration (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('a2aed8f7-7fe2-4552-9282-bfd9b3392a12'); return false;\">Cambridge Dictionary: \"integration\"</a>), symbolized by \"<b>&int;</b>\".  For instance, to integrate the time intervals depicted in <b>Image 2</b>, we utilize integration, expressed as:</p>", "<p class=\"center_notation\"><math><mi>t</mi> = <munderover><mo>&int;</mo><mn>0</mn><mn>4</mn></munderover><mi>dt</mi></math></p>", "<p class=\"desc\">Formula 2: Representation of the summation of infinitesimal time elements from <b>0</b> to <b>4</b>.</p>", "<p>The absence of values between the integral symbol and the smallest time increment <b>dt</b> signifies multiplication by 1. Consequently, when measuring a time interval from time zero, we invariably obtain the most recent time measured. For <b>Image 2</b>, this would be:</p>", "<p class=\"center_notation\"><math><mo>t = </mo><munderover><mo>&int;</mo><mn>0</mn><mn>4</mn></munderover><mi>dt</mi> <mo>= 4</mo></math></p>", "<p class=\"desc\">Calculation 2: Measurement of time from the starting point <b>0</b> to the endpoint <b>4</b>.</p>" ]
+                },
+                {
+                    "id" : "d1space",
+                    "text" : [ "<p><h3>Spatial Continuity</h3>Another natural quantity exhibiting continuity is space. To illustrate this, consider a quipu:</p>", "<p class=\"desc\"><img src=\"images/Andes_Quipu.png\" class=\"imgcenter\"/>Image 3: Illustration of a quipu. Source code available on the project's GitHub page (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span id=\"htdate7\"></span>, Source code</a>).</p>", "<p>For the following exercise, use a ruler as depicted in <b>Image 4</b>. If a quipu is unavailable, any straight object smaller than the ruler will suffice.</p>", "<p class=\"desc\"><img src=\"images/RuleQuipu.jpg\" class=\"imgcenter\"/>Image 4: Illustration of a ruler measuring a quipu. Source code available on the project's GitHub page (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span id=\"htdate8\"></span>, Source code</a>).</p>", "<p>Now, let's work on an exercise together:</p>", "<p class=\"lab\"><b>Practice 1: Measuring length</b><br />Position one end of the object at the zero mark on the ruler and extend it as needed. Observe where the other end of the object reaches. This represents the length of your object.</p>", "<p><b>Image 4</b> demonstrates measuring a quipu with a length of <b>10 cm</b>. But what exactly does <b>Image 4</b> depict? When we place an object at the zero mark of a ruler, we sum each of the smallest possible elements with length <b>dx</b> (diminutive x) to obtain a total length <b>x</b>. Mathematically, we can express this as:", "<p class=\"center_notation\"><math><mo>x = </mo><munderover><mo>&int;</mo><mn>0</mn><mn>10</mn></munderover><mi>dx</mi> <mo>=</mo> <mn>10</mn></math></p>", "<p class=\"desc\">Calculation 3: Measurement of the length of an object, <b>10</b> cm.</p>", "<p>While instruments like rulers or clocks typically focus on endpoints to determine object size, the concept of integration (summation) is broader and will be further explored in the next chapter.</p>" ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ "<p><h3>Conclusion</h3>While it may be uncommon to encounter integrals (sums) applied to concepts or facts in humanities texts, a straightforward analysis reveals that ideas and events occurring within a space and over time exhibit continuity. By simplifying historical events into a single dimension, we can comprehend that events in our lives, denoted by <b>e</b>, are continuous and can be described by infinitesimal moments <b>de</b> (diminutive event). In essence, the continuity of events in our lives can be expressed as:</p>", "<p class=\"center_notation\"><math><mo>e =</mo> <munderover><mo>&int;</mo><mn>0</mn><mn>N</mn></munderover><mi>de</mi> <mo> = N</mo></math></p>", "<p class=\"desc\">Formula 3: Representation of the summation of infinitesimal elements in our lives, from birth (<b>0</b>) to the present moment <b>N</b>.</p>" ]
+                },
+                {
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "When an object's position remains unchanged over time, does the chart depict a straight line?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "If something remains stationary, it implies that for each infinitesimal period of time <b>dt</b>, its positional value remains constant."
+                        },
+                        {
+                            "question" : "Consider this scenario: If we integrate (sum) infinitesimal time elements <b>dt</b> over an interval of 4 seconds (<math><mi>t =</mi> <munderover><mo>&int;</mo><mn>0</mn><mn>4</mn></munderover><mi>dt</mi></math>) and then repeat the same operation for a longer period of 8 seconds (<math><mi>t =</mi> <munderover><mo>&int;</mo><mn>0</mn><mn>8</mn></munderover><mi>dt</mi></math>), can we disregard the first measurement and solely rely on the second?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "The second time measurement encompasses the first because time is continuous, thereby rendering the first redundant."
+                        },
+                        {
+                            "question" : "In a study titled <b>changing the history</b>, facts from only 1-second intervals (<math><mi>t =</mi> <munderover><mo>&int;</mo><mn>0</mn><mn>1</mn></munderover><mi>dt</mi></math>) of a day are used to describe the entire day, while another study, <b>understanding the facts</b>, incorporates all time intervals in seconds (<math><mi>t =</mi> <munderover><mo>&int;</mo><mn>0</mn><mn>86400</mn></munderover><mi>dt</mi></math>). Can we infer that the <b>Changing history</b> study aligns with the scientific method?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "By isolating facts to achieve a desired outcome rather than examining all available information, this research demonstrates unfairness both to the facts themselves and to the subjects under study. Considering both examples, the only research aligned with the scientific method is <b>understanding the facts</b>."
+                        }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "20" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+                    ]
+                }
+            ]
+        }
+    ]
+} 

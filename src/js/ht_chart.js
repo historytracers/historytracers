@@ -113,7 +113,7 @@ function htPlotConstantContinuousChart(options)
                     {
                         data : options.yVector,
                         label : options.yLable,
-                        fill : false
+                        fill : options.datasetFill
                     }],
                     radius: 4
         },
