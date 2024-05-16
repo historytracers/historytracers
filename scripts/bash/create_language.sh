@@ -4,7 +4,7 @@ DST=""
 MESSAGE=""
 
 ht_copy_files() {
-    cd '../lang' || exit
+    cd '../../lang' || exit
     for i in "en-US"/*.json; do
         FILENAME=$(echo "$i" | cut -d/ -f2 )
         if [ -f "$1$FILENAME" ]; then
