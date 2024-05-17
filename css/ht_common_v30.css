@@ -409,10 +409,6 @@ ul {
 .indigenous_period tr:nth-child(1){
   text-align: center;
   background: tan;
-}
-
-.indigenous_period tr:nth-child(1){
-  text-align: center;
   font-weight: bold;
 }
 
@@ -420,6 +416,41 @@ ul {
   text-align: center;
   font-weight: bold;
   background: darkgray;
+}
+
+.comparison_3D {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-collapse: collapse;
+  background: ghostwhite;
+  border: 1px solid black;
+}
+
+.comparison_3D td {
+  font-weight: normal;
+  border: 1px solid black;
+  width: 25%;
+}
+
+.comparison_3D tr:nth-child(1){
+  text-align: center;
+  background: tan;
+  font-weight: bold;
+}
+
+.comparison_3D td:nth-child(1){
+  text-align: center;
+  font-weight: bold;
+  background: darkgray;
+}
+
+.comparison_3D td:nth-child(n + 2){
+  text-align: center;
+  font-weight: bold;
+  background: white;
+  width: 25%;
 }
 
 .taxonomy {

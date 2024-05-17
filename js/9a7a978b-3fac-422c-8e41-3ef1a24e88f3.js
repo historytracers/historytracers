@@ -64,6 +64,17 @@ function htLoadExercise() {
         }
     });
 
+    var rvalues = [];
+    var lvalues = [];
+
+    htCleanYupanaDecimalValues('#yupana1', 5);
+    lvalues = htFillYupanaDecimalValues('#yupana1', "55555", 5, 'red_dot_right_up');
+    rvalues = htFillYupanaDecimalValues('#yupana10', "55555", 5, 'blue_dot_right_bottom');
+    var totals = htSumYupanaVectors(lvalues, rvalues);
+    htFillYupanaDecimalValues('#yupana1', totals, 5, 'red_dot_right_up');
+    htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana1', totals);
+    htWriteYupanaSumMovement(lvalues, rvalues, '#yupana1', 5, '#tc7f1');
+
     return false;
 }
 
