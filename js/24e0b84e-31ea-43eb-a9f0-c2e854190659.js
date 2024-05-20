@@ -6,7 +6,7 @@ function htLoadExercise() {
     if (localAnswerVector24e0b84e == undefined) {
         localAnswerVector24e0b84e = htLoadAnswersFromExercise();
     } else {
-        htResetAnswers();
+        htResetAnswers(localAnswerVector24e0b84e);
     }
 
     return false;

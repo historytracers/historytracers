@@ -6,7 +6,7 @@ function htLoadExercise() {
     if (localAnswerVector13ba52a9 == undefined) {
         localAnswerVector13ba52a9 = htLoadAnswersFromExercise();
     } else {
-        htResetAnswers();
+        htResetAnswers(localAnswerVector13ba52a9);
     }
 
     htPlotConstantChart('chart0', 0, keywords[46], keywords[48]);

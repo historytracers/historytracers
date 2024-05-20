@@ -6,7 +6,7 @@ function htLoadExercise() {
     if (localAnswerVectorde3d4fb3 == undefined) {
         localAnswerVectorde3d4fb3 = htLoadAnswersFromExercise();
     } else {
-        htResetAnswers();
+        htResetAnswers(localAnswerVectorde3d4fb3);
     }
 
     var gregoryYear = new Date().getFullYear() ;

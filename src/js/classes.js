@@ -6,7 +6,7 @@ function htLoadExercise() {
     if (localAnswerVector == undefined) {
         localAnswerVector = htLoadAnswersFromExercise();
     } else {
-        htResetAnswers();
+        htResetAnswers(localAnswerVector);
     }
 
     return false;
