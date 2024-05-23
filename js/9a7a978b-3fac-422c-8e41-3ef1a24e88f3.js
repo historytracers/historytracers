@@ -75,6 +75,9 @@ function htLoadExercise() {
     htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana1', totals);
     htWriteYupanaSumMovement(lvalues, rvalues, '#yupana1', 5, '#tc7f1');
 
+    htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', lvalues);
+    htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', rvalues);
+
     return false;
 }
 
