@@ -25,9 +25,8 @@ RUN_GREP="$(command -v grep)"
 
 for i in ../../src/js/ht_*.js; do
     # Get current script
-    NAME=$(echo "$i" | cut -d/ -f4 | cut -d. -f1)
+    NAME=$(echo "$i" | cut -d/ -f5 | cut -d. -f1)
     CURR_SCRIPT=$(${RUN_GREP} "$NAME" ../../index.html| grep script)
-
     # Parse values
     FULL_NAME=$(echo "${CURR_SCRIPT}" | cut -d/ -f3 | cut -d? -f1)
     VERSION=$(echo "${CURR_SCRIPT}" | cut -d_ -f3 | cut -dv -f2 | cut -d. -f1)

@@ -77,7 +77,7 @@ htFillMapList(data.content[i].value,data.content[i].target,data.content[i].page)
 if($("#tree-sources-lbl").length>0){$("#tree-sources-lbl").html(keywords[5]);}
 if($("#tree-references-lbl").length>0){$("#tree-references-lbl").html(keywords[6]);}
 if($("#tree-holy_references-lbl").length>0){$("#tree-holy_references-lbl").html(keywords[7]);}
-if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "+keywords[38]);}}
+if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "+keywords[38]+" "+keywords[52]);}}
 if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){htLoadExercise();$("#btncheck").on("click",function(){htCheckAnswers();return false;});$("#btnnew").on("click",function(){htLoadExercise();return false;});});}}}
 function htLoadSources(data,arg,page)
 {if(data.sources!=undefined){for(const i in data.sources){htLoadPage(data.sources[i],'json','source',false);}}else{if(arg!='source'){return true;}

@@ -562,7 +562,7 @@ function htFillWebPage(page, data)
         }
 
         if ($("#tree-description").length > 0) {
-            $("#tree-description").html(keywords[24]+" "+keywords[38]);
+            $("#tree-description").html(keywords[24]+" "+keywords[38]+" "+keywords[52]);
         }
     }
 
