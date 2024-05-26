@@ -4,7 +4,7 @@
     "sources" : [ "5ed14806-e80e-43ed-8f0e-adba2fc409a9" ],
     "scripts" : [ "5ed14806-e80e-43ed-8f0e-adba2fc409a9" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1713749107" ],
+    "last_update" : [ "1716717828" ],
     "content" : [
         {
             "id" : "families",
@@ -28,12 +28,12 @@
                     "text" : "<p><h3>What is the largest number?</h3>In the examples provided, the largest number used was <b>1000000000</b>, yet it is not the maximum attainable number. Unlike the constraint posed by the number of fingers on our hands, numbers themselves have no such limitation; we can endlessly write numbers without cessation.</p><p class=\"reflection\"><b>Reflection 1: Exploring the concept of the last number</b><br />Is there a definitive last number?</p><p>There exists no definitive final number, prompting us to expand upon the notion of <b>limitation</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, <span id=\"htdate3\"></span></a>) reviously discussed. When considering an unattainable number, rather than aiming for a <b>maximum</b> value, we acknowledge that as values increase, they tend towards infinity (<b>∞</b>), representing a concept of boundlessness. The idea of <b>tending to some number</b>, can also be observed in smaller <b>groups</b>; for instance, as we begin to raise our fingers, they approach the number <b>5</b>. Similarly, as we lower our fingers, they tend towards <b>0</b>.</p>"
                 },
                 {
-                    "id" : "exercise",
-                    "text" : "<p><h3>Exercise</h3>Complete the numerical sequence: <ol><li><input type=\"number\" value=\"\" id=\"seq0\" class=\"inputRight\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq1\" />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq2\" readonly /> <spam id=\"answer0\"></span></li><li><input type=\"number\" value=\"\" id=\"seq3\" class=\"inputRight\" />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq4\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq5\" readonly /> <spam id=\"answer1\"></span></li><li><input type=\"number\" value=\"\" id=\"seq6\" class=\"inputRight\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq7\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq8\" /> <spam id=\"answer2\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
+                    "id" : "indigenous",
+                    "text" : [ "<p><h3>Numerical sequence in America/<i>Abya Yala</i></h3>The logic behind creating a sequence using American Indigenous systems remains consistent with what was previously explained. The only distinction lies in the direction of number progression: rather than being written horizontally, they ascend vertically.</p>", "<p><table class=\"numbers\"><tr><th>Symbol</th><th>Representation with Hindu-Arábic numeral system</th></tr><tr><td><img src=\"images/Maya_6.png\" /></td><td style=\"text-align: center;\">6</td> </tr><tr><td><img src=\"images/Maya_5.png\" /></td><td style=\"text-align: center;\">5</td> </tr></tr></table></p>", "<p class=\"desc\">Tabel 1: Mesoamerican numbers. Source code available on GitHub project (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span id=\"htdate4\"></span>, Scripts</a>)</p>", "<p class=\"desc\">Tabela 1: Números mesoamericanos. Código-fonte disponível no repositório GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span id=\"htdate4\"></span>, Imagens</a>)</p>", "<p>The numbers used in Mesoamerica also do not have a final defined value. Francisco Barriga Puente, citing Vicente Pineda, reports the discovery of the Tzeltal term <i>muk’ulman</i>, which represents the number <b>10,240,000,000,000</b>. Additionally, Francisco Barriga Puente mentions a period of time longer than the estimated age of the universe (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francico Barriga, <span id=\"htdate5\"></span>, pp. 34 - 35 </a>).</p>" ]
                 },
                 {
-                    "id" : "indigenous",
-                    "text" : "<p><h3>Numerical sequence in America/<i>Abya Yala</i></h3>The logic behind creating a sequence using American Indigenous systems remains consistent with what was previously explained. The only distinction lies in the direction of number progression: rather than being written horizontally, they ascend vertically. <table class=\"numbers\"><tr><th>Symbol</th><th>Representation with Hindu-Arábic numeral system</th></tr><tr><td><img src=\"images/Maya_6.png\" /></td><td style=\"text-align: center;\">6</td> </tr><tr><td><img src=\"images/Maya_5.png\" /></td><td style=\"text-align: center;\">5</td> </tr></tr></table></p>"
+                    "id" : "exercise",
+                    "text" : "<p><h3>Exercise</h3>Complete the numerical sequence: <ol><li><input type=\"number\" value=\"\" id=\"seq0\" class=\"inputRight\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq1\" />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq2\" readonly /> <spam id=\"answer0\"></span></li><li><input type=\"number\" value=\"\" id=\"seq3\" class=\"inputRight\" />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq4\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq5\" readonly /> <spam id=\"answer1\"></span></li><li><input type=\"number\" value=\"\" id=\"seq6\" class=\"inputRight\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq7\" readonly />, <input type=\"number\" value=\"\" class=\"inputRight\" id=\"seq8\" /> <spam id=\"answer2\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
                 },
                 {
                     "id": "fill_dates",
@@ -41,7 +41,9 @@
                         {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" }
                     ]
                 }
             ]
