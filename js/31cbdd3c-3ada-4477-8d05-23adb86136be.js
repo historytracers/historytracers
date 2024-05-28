@@ -9,7 +9,6 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector31cbdd3c);
     }
 
-
     return false;
 }
 
