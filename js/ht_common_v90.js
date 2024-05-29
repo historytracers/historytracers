@@ -109,7 +109,8 @@ if(total>0){total++;}
 questions+="</ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\""+keywords[29]+"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\""+keywords[30]+"\" /></p>";tmpAnswers+="</span><span id=\"htTotalQuestions\">"+total+"</span></p>";htAddPaperDivs("#paper","exercises0",questions,"",later,idx);htAddPaperDivs("#paper","exercises1",tmpAnswers,"",later,idx+1000);}
 function htLoadAnswersFromExercise()
 {var ret=[];var end=parseInt($("#htTotalQuestions").html());if(end==undefined){return end;}
-var htmlValues=$("#htAnswersToBeUsed").html();var values=htmlValues.split(";");for(let i=0;i<end;i++){ret.push(parseInt(values[i]));}
+var htmlValues=$("#htAnswersToBeUsed").html();if(htmlValues==undefined){return end;}
+var values=htmlValues.split(";");for(let i=0;i<end;i++){ret.push(parseInt(values[i]));}
 $("#htAnswersToBeUsed").html("");return ret;}
 function htFillPaperContent(table,last_update,page_authors,page_reviewers){for(const i in table){if(i==1){htFillDivAuthorsContent("#paper",last_update,page_authors,page_reviewers);}
 var later=(i==0&&last_update>0&&table[i].id=="navigation")?"<hr class=\"limit\" />":"";if(table[i].text.constructor===stringConstructor){htAddPaperDivs("#paper",table[i].id,table[i].text,"",later,i);}else if(table[i].text.constructor===vectorConstructor){if(table[i].id=="exercise_v2"){htWriteQuestions(table[i].text,later,i);}else if(table[i].id!="fill_dates"){for(const j in table[i].text){htAddPaperDivs("#paper",table[i].id+"_"+j,table[i].text[j],"",later,i);}}else{htFillHTDate(table[i].text);}}}
