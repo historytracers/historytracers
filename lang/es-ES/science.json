@@ -3,11 +3,11 @@
     "header" : "Ciencias",
     "sources" : [ "science" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1716252380" ],
+    "last_update" : [ "1716909266" ],
     "content" : [
         {
             "id" : "introduction",
-            "value" : [ "<p>Para una exploración más completa de los temas, las clases de ciencias se dividen en diferentes áreas (Física, Historia, Biología, Química). Aunque History Tracers está de acuerdo con esta estructura, dependiendo de cómo se enseñen los contenidos, los estudiantes pueden percibir las ciencias como independientes entre sí, lo que podría crear una barrera para el conocimiento. Con el objetivo de ayudar a los estudiantes a superar esta barrera, esta sección enseña las ciencias de manera integrada.</p>", "<p>La abordaje utilizada en esta sección tiene en cuenta dos factores: primero, no hay problema en añadir más conocimiento, pues, como dijo Sócrates,  \"I neither know nor think that I know\" [ \"solo sé que nada sé\" ] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3b95809f-e017-4f2c-9c30-bc3db69ce7c5'); return false;\">Plato, <span id=\"htdate0\"></span>, pp. 15</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ae49cb80-7652-4fe9-b18a-0de1c4c8321a'); return false;\">Luiz Felipe Pondé, <span id=\"htdate1\"></span></a>); segundo, hay diferentes tipos de inteligencia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2696b05e-fabc-4818-909a-8fc833c3cd19'); return false;\">Şener, S., & Çokçalışkan, A., <span id=\"htdate2\"></span></a>).</p>" ]
+            "value" : [ "<p><h3>Reflexión</h3>Alguna vez te has preguntado algo como: ¿por qué necesito estudiar esto? o ¿qué puedo hacer para evitar las matemáticas?</p>", "<p>¿Has afirmado \"esto es muy difícil\" sin siquiera intentarlo? ¿O has dicho \"esto es solo una teoría\" sin tener la menor idea de qué se trata?</p>", "<p>Si alguna vez has hecho preguntas o afirmaciones como estas, es probable que hayas aprendido por memorización en lugar de entender la lógica detrás de las conclusiones. En esta sección de History Tracers, buscamos exponer la lógica y las ideas contradictorias detrás de los conceptos que se nos presentan, pero que no siempre comprendemos.</p>" ]
         },
         {
             "id" : "initial_title",
@@ -20,6 +20,11 @@
             "page" : "class_content",
             "value_type" : "group-list",
             "value" : [
+                {
+                    "id": "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5",
+                    "name": "Conocimiento:",
+                    "desc": "¿es posible aislar un área del conocimiento de otra?"
+                },
                 {
                     "id": "95db4334-2e79-48ed-990f-cd8cdae96808",
                     "name": "La numeración en nuestra vida:",
@@ -143,14 +148,6 @@
                     "name": "Compreendendo la naturaleza (tres dimensiones):",
                     "desc": "En este texto, exploramos más a fondo la realidad mediante la construcción de montañas sagradas y pirámides."
                 }
-            ]
-        },
-        {
-            "id": "fill_dates",
-            "text": [
-                {  "type" : "gregory", "year" : "1899", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }
             ]
         }
     ]

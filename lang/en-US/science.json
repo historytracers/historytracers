@@ -3,11 +3,11 @@
     "header" : "Sciences",
     "sources" : [ "science" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1716252380" ],
+    "last_update" : [ "1716909266" ],
     "content" : [
         {
             "id" : "introduction",
-            "value" : [ "<p>To delve deeper into certain topics, science classes are divided into distinct disciplines (Physics, History, Biology, Chemistry). While History Tracers aligns with this approach, the manner in which subjects are taught can sometimes lead students to perceive the sciences as isolated entities, thus creating barriers to understanding. To help students overcome this obstacle, this section of the curriculum integrates the sciences.</p>", "<p>The methodology used in this section considers two factors: first, there is no issue in acquiring more knowledge, because as Socrates said, \"I neither know nor think that I know\" [\"I know that I know nothing\"] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3b95809f-e017-4f2c-9c30-bc3db69ce7c5'); return false;\">Plato, <span id=\"htdate0\"></span>, pp. 15</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ae49cb80-7652-4fe9-b18a-0de1c4c8321a'); return false;\">Luiz Felipe Pondé, <span id=\"htdate1\"></span></a>); second, there are different types of intelligence (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2696b05e-fabc-4818-909a-8fc833c3cd19'); return false;\">Şener, S., & Çokçalışkan, A., <span id=\"htdate2\"></span></a>).</p>" ]
+            "value" : [ "<p><h3>Reflection</h3>Have you ever asked yourself something like: \"Why do I need to study this?\" or \"What can I do to avoid math?\"</p>", "<p>Have you ever said, \"This is too difficult\" without even trying? Or, \"This is just a theory\" without having the slightest idea what it's about?</p>", "<p>If you have asked questions or made statements like these, it's possible that you have learned to memorize rather than to understand the underlying logic. In this section of History Tracers, we aim to expose the logic and the contradictory ideas behind the concepts we are presented with but do not always comprehend.</p>" ]
         },
         {
             "id" : "initial_title",
@@ -20,6 +20,11 @@
             "page" : "class_content",
             "value_type" : "group-list",
             "value" : [
+                {
+                    "id": "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5",
+                    "name": "Knowledge:",
+                    "desc": "is it possible to isolate one area of knowledge from another?"
+                },
                 {
                     "id": "95db4334-2e79-48ed-990f-cd8cdae96808",
                     "name": "The numbers in our life:",
@@ -143,14 +148,6 @@
                     "name": "Understanding nature (three dimensions):",
                     "desc": "In this text, we get closer to reality by exploring the construction of sacred mountains and pyramids."
                 }
-            ]
-        },
-        {
-            "id": "fill_dates",
-            "text": [
-                {  "type" : "gregory", "year" : "1899", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }
             ]
         }
     ]
