@@ -753,6 +753,10 @@ function htLoadAnswersFromExercise()
     }
 
     var htmlValues = $("#htAnswersToBeUsed").html();
+    if (htmlValues == undefined) {
+        return end;
+    }
+
     var values = htmlValues.split(";");
     for (let i = 0; i < end; i++) {
         ret.push(parseInt(values[i]));
