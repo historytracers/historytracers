@@ -1,11 +1,3 @@
 ## Update file rule
 
-Every time that `ht_common_vXX.css` or `ht_math_vXX.css` is updated, the file must be renamed according to the following rule:
-
-- Filename must be `ht_common_vXX.css` where `XX` is a number.
-- If a file is named with number `XX`, next file name will be `common_v(XX +1).css`.
-
-## Update index
-
-After to rename the CSS file, it will be necessary to update its reference in `index.html`.
-
+To update files with the prefix `ht_`, you must first modify the files inside `src/css/`, and then run the script `scripts/bash/update_js_css.sh`. Any manual updates may cause issues for users accessing the History Tracers page
