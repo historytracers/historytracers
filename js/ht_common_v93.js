@@ -50,8 +50,7 @@ if(ext.length!=null&&ext.length>0&&ext=="html"){$("#html_loaded").val(page);}
 var lang=$("#site_language").val();if(lang==null||lang==undefined){lang=htDetectLanguage();}
 var unixEpoch=Date.now();if(ext=="html"){primarySourceMap.clear();refSourceMap.clear();holyRefSourceMap.clear();var additional=(appendPage.length==0)?'&':appendPage+'&';$("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);return false;}
 $("#loading_msg").show();$.ajax({type:'GET',url:(arg!='source')?"lang/"+lang+"/"+page+".json":"lang/sources/"+page+".json",contentType:'application/json; charset=utf-8',data:'nocache='+unixEpoch,async:true,dataType:'json',success:function(data){if(data.length==0){$("#loading_msg").hide();return false;}
-htLoadSources(data,arg,page);htFillWebPage(page,data);if(page=="main"){for(const i in data.content){htAddPaperDivs("#ht_description",data.content[i].id,data.content[i].value,"","",i);}}
-return false;},});}
+htLoadSources(data,arg,page);htFillWebPage(page,data);return false;},});}
 function htDetectLanguage()
 {var lang=navigator.language||navigator.userLanguage;if(lang==undefined||lang==null||lang.length==0){lang="en-US";}else{var llang=lang.substring(0,2).toLowerCase();if(($("#site_language option[value='"+lang+"']").length>0)==false){if(llang=="pt"){lang="pt-BR";}else if(llang=="es"){lang="es-ES";}else{lang="en-US";}}
 var country=lang.substring(3).toUpperCase();llang=lang.substring(0,2).toLowerCase();lang=llang+'-'+country;}
@@ -61,9 +60,8 @@ function htFillHTDate(vector)
 break;case"unix":updateText=htConvertUnixDate(localCalendar,localLang,w.epoch);break;case"julian":updateText=htConvertJulianDate(localCalendar,localLang,w.day);break;}
 if($("#htdate"+j).length>0){$("#htdate"+j).html(updateText);}}}
 function htFillWebPage(page,data)
-{if(data.nothing!=undefined&&data.nothing!=null&&data.nothing.length>0){$(document).prop('title',data.nothing);$("#header").html(data.nothing);return;}
-if(data.title!=undefined&&data.title!=null&&data.title.length>0){$(document).prop('title',data.title);}
-if(data.header!=undefined&&data.header!=null&&data.header.length>0){$("#header").html(data.header);}
+{if(data.title!=undefined&&data.title!=null&&data.title.length>0){$(document).prop('title',data.title);}
+if(data.header!=undefined&&data.header!=null&&data.header.length>0){$("#header").html(data.header);}else if(data.nothing!=undefined&&data.nothing!=null&&data.nothing.length>0){$(document).prop('title',data.nothing);$("#header").html(data.nothing);return;}
 if(data.common!=undefined&&data.common!=null&&data.common.length>0){for(const i in data.common){$("#common").append(data.common[i]);}}
 var last_update=0;if(data.last_update!=undefined&&data.last_update!=null){last_update=data.last_update;}
 var page_authors=(keywords.length>34)?keywords[35]:"Editors of History Tracers";var page_reviewers=(keywords.length>36)?keywords[37]:"Reviewers of History Tracers";if(data.authors!=undefined&&data.authors!=null){page_authors=data.authors;}
@@ -97,7 +95,8 @@ function htFillFamilyList(table,target){for(const i in table){if(table[i].target
 continue;}
 $("#"+target).append("<a href=\"#bottom"+table[i].id+"\">"+table[i].id+"</a> ");$("#"+table[i].target).append("<div id=\"bottom"+table[i].id+"\"><h4>"+table[i].id+"</h4></div>");if(table[i].value.constructor===vectorConstructor){var rows=table[i].value;$("#bottom"+table[i].id).append("<ul id=\"bottomList"+table[i].id+"\"></ul>");for(const k in rows){$("#bottomList"+table[i].id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+rows[k].id+"', false); return false;\" >"+rows[k].value+"</a></li>");}}}}
 function htFillMapList(table,target,page){for(const i in table){if(table[i].id!="fill_dates"){$("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");}else{if(table[i].text.constructor===vectorConstructor){htFillHTDate(table[i].text);}}}}
-function htFillSubMapList(table,target){for(const i in table){switch(table[i].page){case"class_content":$("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");break;case"tree":default:$("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");}}}
+function htFillSubMapList(table,target){for(const i in table){switch(table[i].page){case"class_content":if(table[i].id!=undefined&&table[i].name!=undefined&&table[i].desc!=undefined){$("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");}
+break;case"tree":default:if(table[i].person_id!=undefined&&table[i].family_id!=undefined&&table[i].name!=undefined&&table[i].desc!=undefined){$("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");}}}}
 function htCheckExerciseAnswer(val0,val1,answer,explanation){var ans=parseInt($("input[name="+val0+"]:checked").val());var text="";var format="";if(ans==val1){text=keywords[27];format="green";}else{text=keywords[28];format="red";}
 if($(answer).length>0){$(answer).text(text);$(answer).css("color",format);}
 if($(explanation).length>0){$(explanation).css("color",format);$(explanation).css("display","block");$(explanation).css("visibility","visible");}
@@ -131,7 +130,7 @@ if(mother!=undefined&&mother!=null){parent_idx+="&"+mother;}else{parent_idx+="&n
 parent_idx+=(type=="theory")?"&t":"&h";familyMap.set(id,parent_idx);}
 function htMountCurrentLinkBasis(familyID,id)
 {var url=window.location.href;var remove=url.search("#");if(remove<0){remove=url.search("\\?");}
-var userURL=(remove>0)?url.substring(0,remove):url;userURL+="?page=tree&arg="+familyID;if(id!=undefined){userURL+="&person_id="+id;}
+var userURL=(remove>0)?url.substring(0,remove):url;userURL+="?page=tree&arg="+familyID;if(id!=undefined){var myTree=url.search("page=tree");if(myTree>=0){userURL+="&person_id="+id;}}
 return userURL;}
 function htSetCurrentLinkBasis(familyID,id,finalURL)
 {var myURL=(finalURL==undefined)?htMountCurrentLinkBasis(familyID,id):finalURL;window.history.replaceState(null,null,myURL);return false;}

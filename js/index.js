@@ -87,7 +87,8 @@ $(document).ready(function(){
                 var larg = (urlParams.has('arg')) ? urlParams.get('arg'): "";
                 if (larg != null && larg != undefined && larg.length > 5 ) {
                     var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
-                    htLoadPage(page,'html', larg+'&person_id='+lperson, false);
+                    var finalArg = (lperson.length == 0) ? larg : larg+'&person_id='+lperson;
+                    htLoadPage(page,'html', finalArg, false);
                 }
                 break;
             default:
