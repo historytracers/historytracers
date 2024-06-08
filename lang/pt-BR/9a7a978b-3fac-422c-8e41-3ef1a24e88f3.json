@@ -4,7 +4,7 @@
     "sources" : [ "9a7a978b-3fac-422c-8e41-3ef1a24e88f3" ],
     "scripts" : [ "9a7a978b-3fac-422c-8e41-3ef1a24e88f3" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1715990375" ],
+    "last_update" : [ "1717871770" ],
     "authors" : null,
     "reviewers" : null,
     "content" : [
@@ -38,8 +38,38 @@
                     "text" : [ "<p><h3>Conclusão</h3>Conforme observado, há distintas maneiras de se chegar a um mesmo resultado, tal qual na vida humana. É por isso que recorremos à matemática para modelar o mundo ao nosso redor.</p>", "<p>Muito provavelmente o \"avanço\" mencionado anteriormente parece ter sido criado por qualquer número somado a zero resultar no mesmo número. No entanto, essa simplificação omite a lógica, que é sempre essencial na nossa vida.</p>", "<p>Portanto, sugerimos aos leitores que busquem sempre uma abordagem lógica ao selecionar seu caminho.</p>" ]
                 },
                 {
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "A multiplicação pode ser entendida como somas repetidas de um valor?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Podemos concluir que a multiplicação é uma forma de somar repetidamente o mesmo valor, ou seja, não estamos lidando com algo totalmente novo."
+                        },
+                        {
+                            "question" : "Assim como na adição, o método <i>\"Yupana Inka Tawa Pukllay\"</i> segue as regras da matemática convencional para a multiplicação?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "O método <i>\"Yupana Inka Tawa Pukllay\"</i> não inventa uma nova maneira de realizar operações; ao contrário, mostra que os Incas desenvolveram um raciocínio sofisticado para executar operações matemáticas."
+                        },
+                        {
+                            "question" : "A principal diferença entre multiplicar por um número pequeno e por um número grande reside na quantidade de etapas que realizamos?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Existe apenas um ato de multiplicar. Quando multiplicamos por números maiores, seguimos rigorosamente o mesmo princípio de multiplicar dois números. A diferença básica é que teremos mais etapas até atingir o resultado desejado."
+                        },
+                        {
+                            "question" : "O resultado da operação <b>10 x 5</b> é igual a somar <b>10 + 10 + 10 + 10 + 10</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Esta pergunta é um complemento à primeira. Nela, fica evidente que, ao escrever a multiplicação, estamos representando a soma de forma mais compacta."
+                        },
+                        {
+                            "question" : "A operação demonstrada na <b>Tabela 8</b> abaixo está incorreta?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "A operação está correta. A grande diferença, em comparação com o que geralmente vemos em livros e na escola, é que ela explicita todas as etapas do cálculo."
+                        }
+                    ]
+                },
+                {
                     "id" : "exercise",
-                    "text" : [ "<p><h3>Perguntas</h3><ol><li>A multiplicação pode ser entendida como somas repetidas de um valor? <input type=\"radio\" id=\"ans0yes\" name=\"exercise0\" value=\"1\" /> <b><label id=\"lblans0\" for=\"ans0yes\"></label></b> <input type=\"radio\" id=\"ans0no\" name=\"exercise0\" value=\"0\" /> <b><label id=\"lblans1\" for=\"ans1no\"></label></b>. <spam id=\"answer0\"></span></li><li>Assim como na adição, o método <i>\"Yupana Inka Tawa Pukllay\"</i> segue as regras da matemática convencional para a multiplicação? <input type=\"radio\" id=\"ans1yes\" name=\"exercise1\" value=\"1\" /> <b><label id=\"lblans2\" for=\"ans1yes\"></label></b> <input type=\"radio\" id=\"ans1no\" name=\"exercise1\" value=\"0\" /> <b><label id=\"lblans3\" for=\"ans1no\"></label></b>. <spam id=\"answer1\"></span></li><li>A principal diferença entre multiplicar por um número pequeno e por um número grande reside na quantidade de etapas que realizamos? <input type=\"radio\" id=\"ans2yes\" name=\"exercise2\" value=\"1\" /> <b><label id=\"lblans4\" for=\"ans2yes\"></label></b> <input type=\"radio\" id=\"ans2no\" name=\"exercise2\" value=\"0\" /> <b><label id=\"lblans5\" for=\"ans2no\"></label></b>. <spam id=\"answer2\"></span></li><li>O resultado da operação <b>10 x 5</b> é igual a somar <b>10 + 10 + 10 + 10 + 10</b>? <input type=\"radio\" id=\"ans3yes\" name=\"exercise3\" value=\"1\" /> <b><label id=\"lblans6\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans3no\" name=\"exercise3\" value=\"0\" /> <b><label id=\"lblans7\" for=\"ans3no\"></label></b>. <spam id=\"answer3\"></span></li><li>A operação demonstrada na <b>Tabela 8</b> abaixo está incorreta? <input type=\"radio\" id=\"ans4yes\" name=\"exercise4\" value=\"1\" /> <b><label id=\"lblans8\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans4no\" name=\"exercise4\" value=\"0\" /> <b><label id=\"lblans9\" for=\"ans4no\"></label></b>. <spam id=\"answer4\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>", "<p><table class=\"mathexample\"><tr><th>Etapas do cálculo</th><th>Valores</th></tr> <tr><td>1) Escrevemos os valores</td><td rowspan=\"7\" class=\"mathexample_right\">12345 <br />x 111<br />________________<br/>12345<br /> (12345 x 1) x 10<br /> + (12345 x 1) x 100<br />________________<br/>12345<br />+ 123450<br />1234500<br />________________<br/>1370295</td></tr> <tr><td>2) Multiplicamos: 12345 x 1 = 12345</td></tr><tr><td>3) Multiplicamos: 12345 x 1 = 1</td></tr><tr><td>4) Multiplicamos pelo fator: 12345 x 10 = 123450</td></tr><tr><td>5) Multiplicamos: 12345 x 1 = 12345</td></tr><tr><td>6) Multiplicamos pelo fator: 12345 x 100 = 1234500</td></tr><tr><td>7) Somamos os resultados das multiplicações: 12345 + 123450 +  123500= 1370295</td></tr></table></p>", "<p class=\"desc\">Tabela 8: Multiplicação de 12345 por 111.</p>" ]
+                    "text" : [ "<p><table class=\"mathexample\"><tr><th>Etapas do cálculo</th><th>Valores</th></tr> <tr><td>1) Escrevemos os valores</td><td rowspan=\"7\" class=\"mathexample_right\">12345 <br />x 111<br />________________<br/>12345<br /> (12345 x 1) x 10<br /> + (12345 x 1) x 100<br />________________<br/>12345<br />+ 123450<br />1234500<br />________________<br/>1370295</td></tr> <tr><td>2) Multiplicamos: 12345 x 1 = 12345</td></tr><tr><td>3) Multiplicamos: 12345 x 1 = 1</td></tr><tr><td>4) Multiplicamos pelo fator: 12345 x 10 = 123450</td></tr><tr><td>5) Multiplicamos: 12345 x 1 = 12345</td></tr><tr><td>6) Multiplicamos pelo fator: 12345 x 100 = 1234500</td></tr><tr><td>7) Somamos os resultados das multiplicações: 12345 + 123450 +  123500= 1370295</td></tr></table></p>", "<p class=\"desc\">Tabela 8: Multiplicação de 12345 por 111.</p>" ]
                 },
                 {
                     "id": "fill_dates",
