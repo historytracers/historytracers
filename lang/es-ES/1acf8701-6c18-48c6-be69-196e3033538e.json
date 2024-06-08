@@ -4,7 +4,7 @@
     "sources" : [ "1acf8701-6c18-48c6-be69-196e3033538e" ],
     "scripts" : [ "1acf8701-6c18-48c6-be69-196e3033538e" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1716162056" ],
+    "last_update" : [ "1717804966" ],
     "content" : [
         {
             "id" : "families",
@@ -40,8 +40,54 @@
                     "text" : [ "<p><h3>Resumiendo</h3>En el proceso de memorización, es frecuente recurrir a símbolos que faciliten la retención de información. La adopción del alfabeto podría considerarse un gran avance en esta práctica.</p>", "<p>En el ámbito científico, las matemáticas sirven como un lenguaje universal que permite establecer relaciones entre grupos mediante fórmulas, ofreciendo explicaciones concisas sobre la naturaleza. Veamos cómo se pueden expresar algunas ideas sobre el alfabeto utilizando la notación matemática: <ul><li>Para simplificar la sentencia <i>\" Si escribimos la palabra \"clase\", en este lugar, y otra persona en cualquier parte del mundo también escribe \"clase\"\"</i>, podemos introducir un símbolo de igualdad, '=', y escribir matemáticamente: <b>\"clase\" = \"clase\"</b>. Aunque más conciso, esta comparación conduce a la misma conclusión que la afirmación original.</li><li>Asimismo, la idea de que las vocales son un subgrupo del alfabeto puede ser expresada con símbolos matemáticos. Cuando queremos indicar que un conjunto más pequeño forma parte de uno más grande, usamos el símbolo '⊂' para denotar inclusión. Por lo tanto, podríamos escribir <b>vocales</b> ⊂ <b>alfabeto</b>, transmitiendo la noción de que las vocales son un subconjunto del alfabeto.</li></ul></p>", "<p>Aunque es común encontrar en los libros el tratamiento de grupos como conjuntos, hemos optado por utilizar exclusivamente el término \"grupos\" para facilitar la comprensión.</p>" ]
                 },
                 {
-                    "id" : "exercise1",
-                    "text" : "<p><h3>Preguntas</h3><ol>Conteste las preguntas: <li>¿La criación de la escrita dividió el estudio de nuestra especie en historia y prehistoria? <input type=\"radio\" id=\"ans0yes\" name=\"exercise0\" value=\"1\" /> <b><label id=\"lblans0\" for=\"ans0yes\"></label></b> <input type=\"radio\" id=\"ans0no\" name=\"exercise0\" value=\"0\" /> <b><label id=\"lblans1\" for=\"ans1no\"></label></b>. <spam id=\"answer0\"></span></li><li>¿No hubo ninguna escrita en América/<i>Abya Yala</i> antes de la llegada de los europeos? <input type=\"radio\" id=\"ans1yes\" name=\"exercise1\" value=\"1\" /> <b><label id=\"lblans2\" for=\"ans1yes\"></label></b> <input type=\"radio\" id=\"ans1no\" name=\"exercise1\" value=\"0\" /> <b><label id=\"lblans3\" for=\"ans1no\"></label></b>. <spam id=\"answer1\"></span></li><li>¿El alfabeto latino es un grupo que puede ser dividido en dos subgrupos (vocales y consonantes)? <input type=\"radio\" id=\"ans2yes\" name=\"exercise2\" value=\"1\" /> <b><label id=\"lblans4\" for=\"ans2yes\"></label></b> <input type=\"radio\" id=\"ans2no\" name=\"exercise2\" value=\"0\" /> <b><label id=\"lblans5\" for=\"ans2no\"></label></b>. <spam id=\"answer2\"></span></li><li>¿Consonantes y vocales poseen los mismos caracteres, o sea, vocales = consonantes? <input type=\"radio\" id=\"ans3yes\" name=\"exercise3\" value=\"1\" /> <b><label id=\"lblans6\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans3no\" name=\"exercise3\" value=\"0\" /> <b><label id=\"lblans7\" for=\"ans3no\"></label></b>. <spam id=\"answer3\"></span></li><li>Vamos a considerar los números del sistema decimal como un grupo nombrado <b>A</b>, que hacemos representación como <b>A</b> = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}. ¿Es correcto afirmar que 5 está contenido en <b>A</b>, o <b>5</b> ⊂ <b>A</b>? <input type=\"radio\" id=\"ans4yes\" name=\"exercise4\" value=\"1\" /> <b><label id=\"lblans8\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans4no\" name=\"exercise4\" value=\"0\" /> <b><label id=\"lblans9\" for=\"ans4no\"></label></b>. <spam id=\"answer4\"></span></li><li>Considere la palabra <b>constitución</b>, un grupo de algunas consonantes y vocales. ¿Es correcto afirmar que <b>ción</b> ⊂ <b>constitución</b>? <input type=\"radio\" id=\"ans5yes\" name=\"exercise5\" value=\"1\" /> <b><label id=\"lblans10\" for=\"ans5yes\"></label></b> <input type=\"radio\" id=\"ans5no\" name=\"exercise5\" value=\"0\" /> <b><label id=\"lblans11\" for=\"ans5no\"></label></b>. <spam id=\"answer5\"></span></li><li>Sea el grupo de vocales definido como <b>V</b> = {a, e, i, o, u}. ¿Es correcto afirmar sobre el subgrupo <b>S</b> = {i, o} que <b>S</b> ⊂ <b>V</b>? <input type=\"radio\" id=\"ans6yes\" name=\"exercise6\" value=\"1\" /> <b><label id=\"lblans12\" for=\"ans6yes\"></label></b> <input type=\"radio\" id=\"ans6no\" name=\"exercise6\" value=\"0\" /> <b><label id=\"lblans13\" for=\"ans6no\"></label></b>. <spam id=\"answer6\"></span></li><li>Sea el grupo <b>K</b> = {0, 1, 2, 3, 4}. ¿Es correcto afirmar sobre el subgrupo <b>M</b> = {1,4} que <b>M</b> ⊂ <b>K</b>? <input type=\"radio\" id=\"ans7yes\" name=\"exercise7\" value=\"1\" /> <b><label id=\"lblans14\" for=\"ans7yes\"></label></b> <input type=\"radio\" id=\"ans7no\" name=\"exercise7\" value=\"0\" /> <b><label id=\"lblans15\" for=\"ans7no\"></label></b>. <spam id=\"answer7\"></span></li><li>Sea el grupo <b>I</b> = {0, 1, 2, 3, 4}. ¿Es correcto afirmar sobre el grupo <b>J</b> = {5, 6, 7, 8, 9} que <b>I</b> ⊂ <b>J</b> o <b>I</b> = <b>J</b>? <input type=\"radio\" id=\"ans8yes\" name=\"exercise8\" value=\"1\" /> <b><label id=\"lblans16\" for=\"ans8yes\"></label></b> <input type=\"radio\" id=\"ans8no\" name=\"exercise8\" value=\"0\" /> <b><label id=\"lblans17\" for=\"ans8no\"></label></b>. <spam id=\"answer8\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "¿La criación de la escrita dividió el estudio de nuestra especie en historia y prehistoria?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Este es nuestro entendimiento: a partir del momento en que es posible registrar eventos a través de la escritura, pasamos a tener historia. Todo lo que precede a esto se conoce como \"prehistoria\"."
+                        },
+                        {
+                            "question" : "¿No hubo ninguna escrita en América (<i>Abya Yala</i>) antes de la llegada de los europeos?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Es posible afirmar que hubo escritura en Mesoamérica y existen indicios de que también había algún tipo de escritura en los Andes."
+                        },
+                        {
+                            "question" : "¿El alfabeto latino es un grupo que puede ser dividido en dos subgrupos (vocales y consonantes)?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Así como las vocales y las consonantes son partes del alfabeto, podemos considerar al alfabeto como un grupo y a las vocales y consonantes como subgrupos."
+                        },
+                        {
+                            "question" : "¿Consonantes y vocales poseen los mismos caracteres, o sea, vocales = consonantes?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Vocales y consonantes, como se expone en el texto, no son el mismo grupo; por lo tanto, son grupos distintos."
+                        },
+                        {
+                            "question" : "Vamos a considerar los números del sistema decimal como un grupo nombrado <b>A</b>, que hacemos representación como <b>A</b> = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}. ¿Es correcto afirmar que 5 está contenido en <b>A</b>, o <b>5</b> ⊂ <b>A</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Cuando decimos que algo está \"contenido\" en un lugar, estamos diciendo que forma parte de ese lugar, que está presente en él. Por ejemplo, el número 5 forma parte de los números decimales, por lo que está contenido en el grupo <b>A</b>."
+                        },
+                        {
+                            "question" : "Considere la palabra <b>constitución</b>, un grupo de algunas consonantes y vocales. ¿Es correcto afirmar que <b>ción</b> ⊂ <b>constitución</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Observe que la sílaba \"ción\" es parte de la palabra \"constitución\"; por lo tanto, la sílaba está contenida en la palabra."
+                        },
+                        {
+                            "question" : "Sea el grupo de vocales definido como <b>V</b> = {a, e, i, o, u}. ¿Es correcto afirmar sobre el subgrupo <b>S</b> = {i, o} que <b>S</b> ⊂ <b>V</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Este ejercicio es idéntico a los dos anteriores, solo que cambia los grupos. Note que las dos vocales de <b>S</b> forman parte del grupo total <b>V</b>; por lo tanto, se entiende que el subgrupo <b>S</b> está contenido en <b>V</b>."
+                        },
+                        {
+                            "question" : "Sea el grupo <b>K</b> = {0, 1, 2, 3, 4}. ¿Es correcto afirmar sobre el subgrupo <b>M</b> = {1,4} que <b>M</b> ⊂ <b>K</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Para dejar aún más clara la relación de inclusión en este ejercicio para los lectores, sustituimos las letras por números. Pero, tal como en el ejemplo anterior, el subgrupo <b>M</b> posee números que están presentes en el grupo <b>K</b>."
+                        },
+                        {
+                            "question" : "Sea el grupo <b>I</b> = {0, 1, 2, 3, 4}. ¿Es correcto afirmar sobre el grupo <b>J</b> = {5, 6, 7, 8, 9} que <b>I</b> ⊂ <b>J</b> o <b>I</b> = <b>J</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Ninguna de las comparaciones es correcta, ya que ambos grupos son diferentes; por lo tanto, un grupo no puede estar contenido en el otro, y mucho menos ser igual al otro."
+                        }
+                    ]
                 },
                 {
                     "id": "fill_dates",

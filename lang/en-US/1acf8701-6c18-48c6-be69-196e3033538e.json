@@ -4,7 +4,7 @@
     "sources" : [ "1acf8701-6c18-48c6-be69-196e3033538e" ],
     "scripts" : [ "1acf8701-6c18-48c6-be69-196e3033538e" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1716162056" ],
+    "last_update" : [ "1717804966" ],
     "content" : [
         {
             "id" : "families",
@@ -40,8 +40,54 @@
                     "text" : [ "<p><h3>Summarizing</h3>The utilization of the alphabet likely marked a significant advancement in the tradition to memorize relationship.</p>", "<p>In the realm of science, mathematics serves as a language through which we express relationships between groups using formulas, encapsulating our comprehension of nature in concise terms. For instance, let's consider how we could represent certain descriptions of the alphabet using mathematical notation: <ul><li>Instead, of stating, <i>\"... when someone writes the word \"class\", on this platform and another person in a different part of the world also writes \"class\", we have identical groups ...\"</i>, we could introduce a symbol to denote equality and comparison. If we designate the symbol '=' to represent equality, mathematically we would express this as: <b>\"class\" = \"class\"</b>. Though simpler in form, this comparison yields an analogous conclusion to the original sentence.</li><li>Similarly, the assertion made earlier that <i>vowels <b>are contained</b> in the alphabet</i>, illustrating a subgroup within a larger group, can also be translated into mathematical language. When expressing that a smaller group is a subset of a larger one, we employ the symbol '⊂' to signify inclusion. Hence, we could write <b>vowels</b> ⊂ <b>alphabet</b>, signifying that vowels are a part of the alphabet.</li></ul></p>", "<p>While it's common in literature for groups to be depicted as sets, we have chosen to represent them solely as groups to enhance comprehension.</p>" ]
                 },
                 {
-                    "id" : "exercise1",
-                    "text" : "<p><h3>Questions</h3><ol>Answer next questions: <li>Do the writing system creation split our knowledge about our specie in history and prehistory? <input type=\"radio\" id=\"ans0yes\" name=\"exercise0\" value=\"1\" /> <b><label id=\"lblans0\" for=\"ans0yes\"></label></b> <input type=\"radio\" id=\"ans0no\" name=\"exercise0\" value=\"0\" /> <b><label id=\"lblans1\" for=\"ans1no\"></label></b>. <spam id=\"answer0\"></span></li><li>Wasn't there any writing system in América/<i>Abya Yala</i> before European people arrive? <input type=\"radio\" id=\"ans1yes\" name=\"exercise1\" value=\"1\" /> <b><label id=\"lblans2\" for=\"ans1yes\"></label></b> <input type=\"radio\" id=\"ans1no\" name=\"exercise1\" value=\"0\" /> <b><label id=\"lblans3\" for=\"ans1no\"></label></b>. <spam id=\"answer1\"></span></li><li>Can we split Latin alphabet in two subgroups (vowels e consonants)? <input type=\"radio\" id=\"ans2yes\" name=\"exercise2\" value=\"1\" /> <b><label id=\"lblans4\" for=\"ans2yes\"></label></b> <input type=\"radio\" id=\"ans2no\" name=\"exercise2\" value=\"0\" /> <b><label id=\"lblans5\" for=\"ans2no\"></label></b>. <spam id=\"answer2\"></span></li><li>Do consonants and vowels have the same characters, this means, vowels = consonants? <input type=\"radio\" id=\"ans3yes\" name=\"exercise3\" value=\"1\" /> <b><label id=\"lblans6\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans3no\" name=\"exercise3\" value=\"0\" /> <b><label id=\"lblans7\" for=\"ans3no\"></label></b>. <spam id=\"answer3\"></span></li><li>Let us consider the numbers of decimal system as a group named <b>A</b>, that we represent as <b>A</b> = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}. Is it correct to say that 5 is contained in <b>A</b>, or <b>5</b> ⊂ <b>A</b>? <input type=\"radio\" id=\"ans4yes\" name=\"exercise4\" value=\"1\" /> <b><label id=\"lblans8\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans4no\" name=\"exercise4\" value=\"0\" /> <b><label id=\"lblans9\" for=\"ans4no\"></label></b>. <spam id=\"answer4\"></span></li><li>Consider the word <b>constitution</b>, a group of some consonants and vowels. Is it correct to say that <b>tion</b> ⊂ <b>constitution</b>? <input type=\"radio\" id=\"ans5yes\" name=\"exercise5\" value=\"1\" /> <b><label id=\"lblans10\" for=\"ans5yes\"></label></b> <input type=\"radio\" id=\"ans5no\" name=\"exercise5\" value=\"0\" /> <b><label id=\"lblans11\" for=\"ans5no\"></label></b>. <spam id=\"answer5\"></span></li><li>Be the group of vowels defined as <bV</b> = {a, e, i, o, u}. Is it correct to write about the subgroup S = {i, o}:  <b>S</b> ⊂ <b>V</b>? <input type=\"radio\" id=\"ans6yes\" name=\"exercise6\" value=\"1\" /> <b><label id=\"lblans12\" for=\"ans6yes\"></label></b> <input type=\"radio\" id=\"ans6no\" name=\"exercise6\" value=\"0\" /> <b><label id=\"lblans13\" for=\"ans6no\"></label></b>. <spam id=\"answer6\"></span></li><li>Be the group <bK</b> = {0, 1, 2, 3, 4}. Is it correct to write about subgroup M = {1,4} that <b>M</b> ⊂ <b>K</b>? <input type=\"radio\" id=\"ans7yes\" name=\"exercise7\" value=\"1\" /> <b><label id=\"lblans14\" for=\"ans7yes\"></label></b> <input type=\"radio\" id=\"ans7no\" name=\"exercise7\" value=\"0\" /> <b><label id=\"lblans15\" for=\"ans7no\"></label></b>. <spam id=\"answer7\"></span></li><li>Be the group <bI</b> = {0, 1, 2, 3, 4}. Is it correct to write about group J = {5, 6, 7, 8, 9} that <b>I</b> ⊂ <b>J</b> ou <b>I</b> = <b>J</b>? <input type=\"radio\" id=\"ans8yes\" name=\"exercise8\" value=\"1\" /> <b><label id=\"lblans16\" for=\"ans8yes\"></label></b> <input type=\"radio\" id=\"ans8no\" name=\"exercise8\" value=\"0\" /> <b><label id=\"lblans17\" for=\"ans8no\"></label></b>. <spam id=\"answer8\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Do the writing system creation split our knowledge about our specie in history and prehistory?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "This is our understanding: from the moment we began to record events using writing systems, we entered the realm of history. Everything that happened before this is known as \"prehistory\"."
+                        },
+                        {
+                            "question" : "Wasn't there any writing system in América/<i>Abya Yala</i> before European people arrive?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "It is possible to state that there were writing systems in Mesoamerica, and there is also strong evidence that there was a form of writing in the Andes."
+                        },
+                        {
+                            "question" : "Can we split Latin alphabet in two subgroups (vowels and consonants)?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Both vowels and consonants are parts of the alphabet, so we can consider the alphabet as a larger group, with vowels and consonants as subgroups."
+                        },
+                        {
+                            "question" : "Do consonants and vowels have the same characters, this means, vowels = consonants?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Vowels and consonants, as explained in the text, are not the same group; therefore, they are distinct groups."
+                        },
+                        {
+                            "question" : "Let us consider the numbers of decimal system as a group named <b>A</b>, that we represent as <b>A</b> = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}. Is it correct to say that 5 is contained in <b>A</b>, or <b>5</b> ⊂ <b>A</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "When we say something is \"contained\" in a place, we mean that it is part of that place, it is present in it. For example, the number <b>5</b> is part of the decimal system, so it is contained within the group <b>A</b>."
+                        },
+                        {
+                            "question" : "Consider the word <b>constitution</b>, a group of some consonants and vowels. Is it correct to say that <b>tion</b> ⊂ <b>constitution</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Observe that the syllable \"tion\" is part of the word \"constitution\"; thus, the syllable is contained within the word."
+                        },
+                        {
+                            "question" : "Be the group of vowels defined as <bV</b> = {a, e, i, o, u}. Is it correct to write about the subgroup S = {i, o}: <b>S</b> ⊂ <b>V</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "This exercise is identical to the previous two, only changing the groups. Note that the two vowels in <b>S</b> are part of the total group <b>V</b>; thus, it is understood that the subgroup <b>S</b> is contained within <b>V</b>."
+                        },
+                        {
+                            "question" : "Be the group <bK</b> = {0, 1, 2, 3, 4}. Is it correct to write about subgroup M = {1,4} that <b>M</b> ⊂ <b>K</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "To make the inclusion relationship in this exercise even clearer for readers, we replaced letters with numbers. However, as in the previous example, the subgroup <b>M</b> contains numbers that are present in the group <b>K</b>."
+                        },
+                        {
+                            "question" : "Be the group <bI</b> = {0, 1, 2, 3, 4}. Is it correct to write about group J = {5, 6, 7, 8, 9} that <b>I</b> ⊂ <b>J</b> ou <b>I</b> = <b>J</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Neither comparison is correct, because the groups are different; therefore, one group cannot be contained within the other, and of course, they cannot be equal."
+                        }
+                    ]
                 },
                 {
                     "id": "fill_dates",
