@@ -14,20 +14,14 @@ function htFillCurrentYupanaSum()
     }
 }
 
+var localAnswerVectorc742c649 = undefined;
+
 function htLoadExercise() {
-    $("#btncheck").val(keywords[29]);
-    $("#btnnew").val(keywords[30]);
-
-    for (let i = 0; i < 10; i += 2) {
-        $("#lblans"+i).text(keywords[31]);
-        $("#lblans"+(i+1)).text(keywords[32]);
+    if (localAnswerVectorc742c649 == undefined) {
+        localAnswerVectorc742c649 = htLoadAnswersFromExercise();
+    } else {
+        htResetAnswers(localAnswerVectorc742c649);
     }
-
-    for (let i = 0; i < 5; i++) {
-        $("#answer"+i).text("");
-        $("input[name=exercise"+i+"]").prop("checked", false);
-    }
-
 
     if (sumFirstTime) {
         $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
@@ -71,27 +65,12 @@ function htLoadExercise() {
     return false;
 }
 
-function htCheckExercise(val0, val1, answer) {
-    var ans = parseInt($("input[name="+val0+"]:checked").val());
-    var text = "";
-    var format = "";
-    if (ans == val1) {
-        text = keywords[27];
-        format = "green";
-    } else {
-        text = keywords[28];
-        format = "red";
-    }
-    $(answer).text(text);
-    $(answer).css("color", format);
-
-    return false;
-}
-
 function htCheckAnswers()
 {
-    var vector = [ 1, 0, 1, 1, 1];
-    for (let i = 0; i < vector.length; i++) {
-        htCheckExercise("exercise"+i, vector[i], "#answer"+i);
+    if (localAnswerVectorc742c649 != undefined) {
+        for (let i = 0; i < localAnswerVectorc742c649.length; i++) {
+            htCheckExerciseAnswer("exercise"+i, localAnswerVectorc742c649[i], "#answer"+i, "#explanation"+i);
+        }
     }
 }
+

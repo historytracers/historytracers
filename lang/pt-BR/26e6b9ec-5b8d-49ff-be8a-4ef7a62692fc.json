@@ -4,7 +4,7 @@
     "sources" : [ "26e6b9ec-5b8d-49ff-be8a-4ef7a62692fc" ],
     "scripts" : [ "26e6b9ec-5b8d-49ff-be8a-4ef7a62692fc" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1713923456" ],
+    "last_update" : [ "1717892875" ],
     "authors" : null,
     "content" : [
         {
@@ -37,8 +37,44 @@
                     "text" : [ "<p><h3>Sistema vigesimal</h3>Em qualquer sistema numérico, os números podem ser representados em várias ordens. O sistema mesoamericano (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">History Tracers, <span id=\"htdate8\"></span>, Criando padrões</a>), por exemplo, utiliza uma base vigesimal, onde os números são expressos como múltiplos de <b>20</b>. Ao avançar entre as ordens, multiplicamos o fator da ordem anterior por <b>20</b>. Seguindo uma estrutura semelhante ao método <i>\"Yupana Inka Tawa Pukllay\"</i>, os números de menor ordem são posicionados na parte inferior, enquanto os de maior ordem ocupam a parte superior. Embora pareça lógico aplicar essa estrutura a um sistema indígena, é importante notar que os mesoamericanos podem não ter interpretado seus números dessa maneira (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span id=\"htdate9\"></span>, pp. 26 - 29 (ResearchGate)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span id=\"htdate10\"></span>, pp. 26 - 29 (Revista)</a>).</p>", "<p>No entanto, ao explorarmos essa abordagem, buscamos aprofundar nossa compreensão da lógica indo-arábica. No exemplo a seguir, apresentamos a representação do ano atual, de acordo com formato de data selecionado, utilizando números mesoamericanos, sem suas respectivas personificações (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span id=\"htdate11\"></span>, pp. 31 (ResearchGate)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span id=\"htdate12\"></span>, pp. 31 (Revista)</a>). Convidamos o leitor a modificar o valor do exemplo, inserindo qualquer número entre <b>0</b> e <b>3.199.999</b> e, em seguida, clicando em <b>visualizar</b>: <input type=\"number\" min=\"0\" max=\"3199999\" id=\"ia2mesoamerica\" /> <input type=\"button\" value=\"visualizar\" onclick=\"htCleanMesoamericanVigesimalValues(5, 1); htFillMesoamericanVigesimalValues($('#ia2mesoamerica').val(), 5, 3); return false;\" /></p>", "<p><table class=\"mesoamerican\"><tr><th>Número Mesoamericano</th><th>Ordem</th><th>Número decimal</th></tr> <tr><td><img src=\"\" id=\"tmc1l1\" /></td><td>160.000</td><td id=\"tmc3l1\">&nbsp;</td></tr> <tr><td><img src=\"\" id=\"tmc1l2\" /></td><td>8.000</td><td id=\"tmc3l2\">&nbsp;</td></tr> <tr><td><img src=\"\" id=\"tmc1l3\" /></td><td>400</td><td id=\"tmc3l3\">&nbsp;</td></tr> <tr><td><img src=\"\" id=\"tmc1l4\" /></td><td>20</td><td id=\"tmc3l4\">&nbsp;</td></tr> <tr><td><img src=\"\" id=\"tmc1l5\" /></td><td>1</td><td id=\"tmc3l5\">&nbsp;</td></tr></table></p>", "<p class=\"desc\">Tabela 6: Utilização do sistema vigesimal mesoamericano de acordo com padrões indo-arábicos.<br /> Código-fonte presente no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span id=\"htdate13\"></span>, Código-fonte</a>).</p>" ]
                 },
                 {
-                    "id" : "exercise",
-                    "text" : [ "<p><h3>Perguntas</h3><ol><li>Ao multiplicarmos uma função por uma constante, todos os termos da função são afetados? <input type=\"radio\" id=\"ans0yes\" name=\"exercise0\" value=\"1\" /> <b><label id=\"lblans0\" for=\"ans0yes\"></label></b> <input type=\"radio\" id=\"ans0no\" name=\"exercise0\" value=\"0\" /> <b><label id=\"lblans1\" for=\"ans1no\"></label></b>. <spam id=\"answer0\"></span></li><li>Ao escrevermos um número em qualquer sistema numérico, há implicitamente operações de soma e multiplicação envolvidas? <input type=\"radio\" id=\"ans1yes\" name=\"exercise1\" value=\"1\" /> <b><label id=\"lblans2\" for=\"ans1yes\"></label></b> <input type=\"radio\" id=\"ans1no\" name=\"exercise1\" value=\"0\" /> <b><label id=\"lblans3\" for=\"ans1no\"></label></b>. <spam id=\"answer1\"></span></li><li>O sistema vigesimal é igual ao decimal? <input type=\"radio\" id=\"ans2yes\" name=\"exercise2\" value=\"1\" /> <b><label id=\"lblans4\" for=\"ans2yes\"></label></b> <input type=\"radio\" id=\"ans2no\" name=\"exercise2\" value=\"0\" /> <b><label id=\"lblans5\" for=\"ans2no\"></label></b>. <spam id=\"answer2\"></span></li><li>No método <i>\"Yupana Inka Tawa Pukllay\"</i>, os números são representados horizontalmente? <input type=\"radio\" id=\"ans3yes\" name=\"exercise3\" value=\"1\" /> <b><label id=\"lblans6\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans3no\" name=\"exercise3\" value=\"0\" /> <b><label id=\"lblans7\" for=\"ans3no\"></label></b>. <spam id=\"answer3\"></span></li><li>Podemos afirmar com certeza que os mesoamericanos empregavam uma lógica idêntica à dos indo-arábicos? <input type=\"radio\" id=\"ans4yes\" name=\"exercise4\" value=\"1\" /> <b><label id=\"lblans8\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans4no\" name=\"exercise4\" value=\"0\" /> <b><label id=\"lblans9\" for=\"ans4no\"></label></b>. <spam id=\"answer4\"></span></li><li>Podemos expressar a relação entre as funções <b>F(x) = 10</b> e <b>y(x) = 100</b> como <b>y(x) = 10 x F(X) = 100</b>? <input type=\"radio\" id=\"ans5yes\" name=\"exercise5\" value=\"1\" /> <b><label id=\"lblans10\" for=\"ans5yes\"></label></b> <input type=\"radio\" id=\"ans5no\" name=\"exercise5\" value=\"0\" /> <b><label id=\"lblans11\" for=\"ans5no\"></label></b>. <spam id=\"answer5\"></span></li><li>O número <b><spam id=\"seq0\"></spam></b> pode ser representado como <b> <spam id=\"seq1\"></spam> x 10000 + <spam id=\"seq2\"></spam> x 1000 + <spam id=\"seq3\"></spam> x 100 + <spam id=\"seq4\"></spam> x 10 +  <spam id=\"seq5\"></spam></b> ? <input type=\"radio\" id=\"ans6yes\" name=\"exercise6\" value=\"1\" /> <b><label id=\"lblans12\" for=\"ans6yes\"></label></b> <input type=\"radio\" id=\"ans6no\" name=\"exercise6\" value=\"0\" /> <b><label id=\"lblans13\" for=\"ans6no\"></label></b>. <spam id=\"answer6\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>" ]
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Ao multiplicarmos uma função por uma constante, todos os termos da função são afetados?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Ao multiplicar uma função (relação entre valores), é necessário multiplicar todos os valores para manter a relação."
+                        },
+                        {
+                            "question" : "Ao escrevermos um número em qualquer sistema numérico, há implicitamente operações de soma e multiplicação envolvidas?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "A posição dos números indicam grandezas, o que implica sempre em soma e multiplicação na representação numérica."
+                        },
+                        {
+                            "question" : "O sistema vigesimal é rigorosamente igual ao decimal?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Embora as regras de cálculo sejam as mesmas, existem diferenças entre os cálculos devido às suas bases distintas (10 e 20)."
+                        },
+                        {
+                            "question" : "No método <i>\"Yupana Inka Tawa Pukllay\"</i>, os números são representados horizontalmente?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Diferentemente dos sistemas que usamos atualmente, os números nesse método são representados na vertical."
+                        },
+                        {
+                            "question" : "Podemos afirmar com certeza que os mesoamericanos empregavam uma lógica idêntica à dos indo-arábicos?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Sabemos que os números eram utilizados na Mesoamérica para contagem de datas, mas ainda não há evidências suficientes para afirmar que o uso dos números era idêntico ao nosso."
+                        },
+                        {
+                            "question" : "Podemos expressar a relação entre as funções <b>F(x) = 10</b> e <b>y(x) = 100</b> como <b>y(x) = 10 x F(X) = 100</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Analisando os valores das duas funções constantes, podemos concluir que a diferença entre elas é a multiplicação pela constante 10."
+                        },
+                        {
+                            "question" : "O número <b><spam id=\"seq0\"></spam></b> pode ser representado como <b> <spam id=\"seq1\"></spam> x 10000 + <spam id=\"seq2\"></spam> x 1000 + <spam id=\"seq3\"></spam> x 100 + <spam id=\"seq4\"></spam> x 10 +  <spam id=\"seq5\"></spam></b> ?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Esta pergunta complementa a pergunta 2, onde vemos que o número foi claramente decomposto."
+                        }
+                    ]
                 },
                 {
                     "id": "fill_dates",

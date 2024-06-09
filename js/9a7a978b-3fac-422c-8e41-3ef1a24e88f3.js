@@ -3,7 +3,7 @@
 var rValues = [];
 var lValues = [];
 
-var localAnswerVector = undefined;
+var localAnswerVector9a7a978b = undefined;
 
 function htFillYupanaMultYupana0(value, times)
 {
@@ -15,10 +15,10 @@ function htFillYupanaMultYupana0(value, times)
 }
 
 function htLoadExercise() {
-    if (localAnswerVector == undefined) {
-        localAnswerVector = htLoadAnswersFromExercise();
+    if (localAnswerVector9a7a978b == undefined) {
+        localAnswerVector9a7a978b = htLoadAnswersFromExercise();
     } else {
-        htResetAnswers(localAnswerVector);
+        htResetAnswers(localAnswerVector9a7a978b);
     }
 
     var times = $("#ia2yupana1").val();
@@ -78,9 +78,9 @@ function htLoadExercise() {
 
 function htCheckAnswers()
 {
-    if (localAnswerVector != undefined) {
-        for (let i = 0; i < localAnswerVector.length; i++) {
-            htCheckExerciseAnswer("exercise"+i, localAnswerVector[i], "#answer"+i, "#explanation"+i);
+    if (localAnswerVector9a7a978b != undefined) {
+        for (let i = 0; i < localAnswerVector9a7a978b.length; i++) {
+            htCheckExerciseAnswer("exercise"+i, localAnswerVector9a7a978b[i], "#answer"+i, "#explanation"+i);
         }
     }
 }
