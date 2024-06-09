@@ -4,7 +4,7 @@
     "sources" : [ "81390684-a159-4e77-a636-c324d46a2994" ],
     "scripts" : [ "81390684-a159-4e77-a636-c324d46a2994" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1713923456" ],
+    "last_update" : [ "1717946731" ],
     "content" : [
         {
             "id" : "families",
@@ -32,8 +32,54 @@
                     "text" : "<p><h3>Conclusión</h3>El tratamiento de familias de una manera abstracta, permite trabajar con todos los tipos de familias como se fuera solamente un único tipo, trabajando con personas de manera igual, tal cual la naturaleza. Esto no es una barrería para crear otros grupos, que ayuden entender la sociedad humana.</p>"
                 },
                 {
-                    "id" : "exercise1",
-                    "text" : "<p><h3>Preguntas</h3><ol><li>¿Obtendríamos resultados diferentes al iniciar la abstracción con una 'kinship' en lugar de una familia cristiana? <input type=\"radio\" id=\"ans0yes\" name=\"exercise0\" value=\"1\" /> <b><label id=\"lblans0\" for=\"ans0yes\"></label></b> <input type=\"radio\" id=\"ans0no\" name=\"exercise0\" value=\"0\" /> <b><label id=\"lblans1\" for=\"ans1no\"></label></b>. <spam id=\"answer0\"></span></li><li>¿Los núcleos familiares, compuestos por padre, madre e hijos, forman parte de un grupo más amplio llamado familia, que incluye todos los ancestros de los hijos? <input type=\"radio\" id=\"ans1yes\" name=\"exercise1\" value=\"1\" /> <b><label id=\"lblans2\" for=\"ans1yes\"></label></b> <input type=\"radio\" id=\"ans1no\" name=\"exercise1\" value=\"0\" /> <b><label id=\"lblans3\" for=\"ans1no\"></label></b>. <spam id=\"answer1\"></span></li><li>¿La unión de dos grupos siempre resulta en los elementos que son comunes a ambos? <input type=\"radio\" id=\"ans2yes\" name=\"exercise2\" value=\"1\" /> <b><label id=\"lblans4\" for=\"ans2yes\"></label></b> <input type=\"radio\" id=\"ans2no\" name=\"exercise2\" value=\"0\" /> <b><label id=\"lblans5\" for=\"ans2no\"></label></b>. <spam id=\"answer2\"></span></li><li>¿La intersección entre dos grupos siempre genera un grupo que contiene únicamente los elementos presentes en ambos? <input type=\"radio\" id=\"ans3yes\" name=\"exercise3\" value=\"1\" /> <b><label id=\"lblans6\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans3no\" name=\"exercise3\" value=\"0\" /> <b><label id=\"lblans7\" for=\"ans3no\"></label></b>. <spam id=\"answer3\"></span></li><li>¿Es correcta la afirmación de que las familias no son grupos? <input type=\"radio\" id=\"ans4yes\" name=\"exercise4\" value=\"1\" /> <b><label id=\"lblans8\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans4no\" name=\"exercise4\" value=\"0\" /> <b><label id=\"lblans9\" for=\"ans4no\"></label></b>. <spam id=\"answer4\"></span></li><li>¿La unión de los conjuntos <b>N = {0, 1, 2}</b> y <b>M = {9, 8, 7}</b> resulta en el grupo <b>K = {0, 1, 2, 9, 8}</b>? <input type=\"radio\" id=\"ans5yes\" name=\"exercise5\" value=\"1\" /> <b><label id=\"lblans10\" for=\"ans5yes\"></label></b> <input type=\"radio\" id=\"ans5no\" name=\"exercise5\" value=\"0\" /> <b><label id=\"lblans11\" for=\"ans5no\"></label></b>. <spam id=\"answer5\"></span></li><li>¿El subgrupo <b>P = {1, 2}</b> pertenece (está contenido) en el grupo <b>Q = { 1, 2, 3, 4}</b>? <input type=\"radio\" id=\"ans6yes\" name=\"exercise6\" value=\"1\" /> <b><label id=\"lblans12\" for=\"ans6yes\"></label></b> <input type=\"radio\" id=\"ans6no\" name=\"exercise6\" value=\"0\" /> <b><label id=\"lblans13\" for=\"ans6no\"></label></b>. <spam id=\"answer6\"></span></li><li>¿La familia <b>FF = {Fulano, Beltrano, Ciclano}</b> es la misma família <b>AlphaBeta = {Alpha, Beta, Gama}</b>? <input type=\"radio\" id=\"ans7yes\" name=\"exercise7\" value=\"1\" /> <b><label id=\"lblans14\" for=\"ans7yes\"></label></b> <input type=\"radio\" id=\"ans7no\" name=\"exercise7\" value=\"0\" /> <b><label id=\"lblans15\" for=\"ans7no\"></label></b>. <spam id=\"answer7\"></span></li><li>¿La intercesión de los grupos <b>U = {A, B, C, D}</b> y <b>V = { A, X, Z, D}</b> es igual al grupo <b>X = {A, D}</b>? <input type=\"radio\" id=\"ans8yes\" name=\"exercise8\" value=\"1\" /> <b><label id=\"lblans16\" for=\"ans8yes\"></label></b> <input type=\"radio\" id=\"ans8no\" name=\"exercise8\" value=\"0\" /> <b><label id=\"lblans17\" for=\"ans8no\"></label></b>. <spam id=\"answer8\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "¿Obtendríamos resultados diferentes al iniciar la abstracción con una 'kinship' en lugar de una familia cristiana?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "El hecho de ser una familia cristiana no interfiere en la lógica; por lo tanto, obtendríamos resultados similares trabajando con otro tipo de familia."
+                        },
+                        {
+                            "question" : "¿Los núcleos familiares, compuestos por padre, madre e hijos, forman parte de un grupo más amplio llamado familia, que incluye todos los ancestros de los hijos?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Podemos entender a las personas como subgrupos, y la persona más joven siempre tendrá como ancestros a los grupos (familias) a los que pertenecen sus antepasados."
+                        },
+                        {
+                            "question" : "¿La unión de dos grupos siempre resulta en los elementos que son comunes a ambos?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "La pregunta describe la intersección de dos grupos. Cuando unimos dos grupos, tenemos todos los elementos de ambos grupos unidos."
+                        },
+                        {
+                            "question" : "¿La intersección entre dos grupos siempre genera un grupo que contiene únicamente los elementos presentes en ambos?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Esta afirmación es precisa, pues el objetivo de la intersección es reunir lo que es común entre los grupos."
+                        },
+                        {
+                            "question" : "¿Es correcta la afirmación de que las familias no son grupos?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Las familias son grupos de personas, como hemos demostrado en el texto."
+                        },
+                        {
+                            "question" : "¿La unión de los conjuntos <b>N = {0, 1, 2}</b> y <b>M = {9, 8, 7}</b> resulta en el grupo <b>K = {0, 1, 2, 9, 8}</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "La operación realizada en la pregunta es incorrecta, pues el número '7' no se encuentra presente en 'K'."
+                        },
+                        {
+                            "question" : "¿El subgrupo <b>P = {1, 2}</b> pertenece (está contenido) en el grupo <b>Q = { 1, 2, 3, 4}</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Como los números de 'P' están presentes en 'Q', entonces 'P' es un subgrupo de 'Q'."
+                        },
+                        {
+                            "question" : "¿La familia <b>FF = {Fulano, Beltrano, Ciclano}</b> es la misma família <b>AlphaBeta = {Alpha, Beta, Gama}</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Dado que los grupos son diferentes, las familias también son diferentes."
+                        },
+                        {
+                            "question" : "¿La intercesión de los grupos <b>U = {A, B, C, D}</b> y <b>V = { A, X, Z, D}</b> es igual al grupo <b>X = {A, D}</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "El grupo 'X' contiene únicamente los elementos comunes de los grupos 'U' y 'V'."
+                        }
+                    ]
                 },
                 {
                     "id": "fill_dates",

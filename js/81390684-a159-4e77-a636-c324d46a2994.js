@@ -1,42 +1,24 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
+
+var localAnswerVector81390684 = undefined;
+
 function htLoadExercise() {
-    $("#btncheck").val(keywords[29]);
-    $("#btnnew").val(keywords[30]);
-
-    for (let i = 0; i < 17; i += 2) {
-        $("#lblans"+i).text(keywords[31]);
-        $("#lblans"+(i+1)).text(keywords[32]);
-    }
-
-    for (let i = 0; i < 9; i ++) {
-        $("#answer"+i).text("");
-        $("input[name=exercise"+i+"]").prop("checked", false);
-    }
-
-    return false;
-}
-
-function htCheckExercise(val0, val1, answer) {
-    var ans = parseInt($("input[name="+val0+"]:checked").val());
-    var text = "";
-    var format = "";
-    if (ans == val1) {
-        text = keywords[27];
-        format = "green";
+    if (localAnswerVector81390684 == undefined) {
+        localAnswerVector81390684 = htLoadAnswersFromExercise();
     } else {
-        text = keywords[28];
-        format = "red";
+        htResetAnswers(localAnswerVector81390684);
     }
-    $(answer).text(text);
-    $(answer).css("color", format);
 
     return false;
 }
 
 function htCheckAnswers()
 {
-    var vector = [0, 1, 0, 1, 0, 0, 1, 0, 1];
-    for (let i = 0; i < vector.length; i++) {
-        htCheckExercise("exercise"+i, vector[i], "#answer"+i);
+    //var vector = [0, 1, 0, 1, 0, 0, 1, 0, 1];
+    if (localAnswerVector81390684 != undefined) {
+        for (let i = 0; i < localAnswerVector81390684.length; i++) {
+            htCheckExerciseAnswer("exercise"+i, localAnswerVector81390684[i], "#answer"+i, "#explanation"+i);
+        }
     }
 }
+

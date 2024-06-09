@@ -4,7 +4,7 @@
     "sources" : [ "81390684-a159-4e77-a636-c324d46a2994" ],
     "scripts" : [ "81390684-a159-4e77-a636-c324d46a2994" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1713923456" ],
+    "last_update" : [ "1717946731" ],
     "content" : [
         {
             "id" : "families",
@@ -32,8 +32,54 @@
                     "text" : "<p><h3>Conclusion</h3>When we work with families doing abstraction, this allows us to work with only one kind of family doing all people equal. This does not mean we cannot create other groups to understand the human society.</p>"
                 },
                 {
-                    "id" : "exercise1",
-                    "text" : "<p><h3>Questions</h3><ol><li>Would we obtain different results if we were to start with a 'kinship' instead of beginning with a Christian family? <input type=\"radio\" id=\"ans0yes\" name=\"exercise0\" value=\"1\" /> <b><label id=\"lblans0\" for=\"ans0yes\"></label></b> <input type=\"radio\" id=\"ans0no\" name=\"exercise0\" value=\"0\" /> <b><label id=\"lblans1\" for=\"ans1no\"></label></b>. <spam id=\"answer0\"></span></li><li>Is a nuclear family, consisting of a father, mother, and children, part of a larger group, which encompasses the children's family? <input type=\"radio\" id=\"ans1yes\" name=\"exercise1\" value=\"1\" /> <b><label id=\"lblans2\" for=\"ans1yes\"></label></b> <input type=\"radio\" id=\"ans1no\" name=\"exercise1\" value=\"0\" /> <b><label id=\"lblans3\" for=\"ans1no\"></label></b>. <spam id=\"answer1\"></span></li><li>Does the union of two groups always result in a group containing elements common to both? <input type=\"radio\" id=\"ans2yes\" name=\"exercise2\" value=\"1\" /> <b><label id=\"lblans4\" for=\"ans2yes\"></label></b> <input type=\"radio\" id=\"ans2no\" name=\"exercise2\" value=\"0\" /> <b><label id=\"lblans5\" for=\"ans2no\"></label></b>. <spam id=\"answer2\"></span></li><li>Does the intersection of two groups always produce a new group consisting only of elements common to both? <input type=\"radio\" id=\"ans3yes\" name=\"exercise3\" value=\"1\" /> <b><label id=\"lblans6\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans3no\" name=\"exercise3\" value=\"0\" /> <b><label id=\"lblans7\" for=\"ans3no\"></label></b>. <spam id=\"answer3\"></span></li><li>Families are not considered groups; is this statement correct? <input type=\"radio\" id=\"ans4yes\" name=\"exercise4\" value=\"1\" /> <b><label id=\"lblans8\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans4no\" name=\"exercise4\" value=\"0\" /> <b><label id=\"lblans9\" for=\"ans4no\"></label></b>. <spam id=\"answer4\"></span></li><li>Is the union of the groups <b>N = {0, 1, 2}</b> and <b>M = {9, 8, 7}</b> equal to the group <b>K = {0, 1, 2, 9, 8}</b>? <input type=\"radio\" id=\"ans5yes\" name=\"exercise5\" value=\"1\" /> <b><label id=\"lblans10\" for=\"ans5yes\"></label></b> <input type=\"radio\" id=\"ans5no\" name=\"exercise5\" value=\"0\" /> <b><label id=\"lblans11\" for=\"ans5no\"></label></b>. <spam id=\"answer5\"></span></li><li>Is the subgroup <b>P = {1, 2}</b> a subgroup of group <b>Q = { 1, 2, 3, 4}</b>? <input type=\"radio\" id=\"ans6yes\" name=\"exercise6\" value=\"1\" /> <b><label id=\"lblans12\" for=\"ans6yes\"></label></b> <input type=\"radio\" id=\"ans6no\" name=\"exercise6\" value=\"0\" /> <b><label id=\"lblans13\" for=\"ans6no\"></label></b>. <spam id=\"answer6\"></span></li><li>Are the families <b>FF = {Fulano, Beltrano, Ciclano}</b> and <b>AlphaBeta = {Alpha, Beta, Gama}</b> the same? <input type=\"radio\" id=\"ans7yes\" name=\"exercise7\" value=\"1\" /> <b><label id=\"lblans14\" for=\"ans7yes\"></label></b> <input type=\"radio\" id=\"ans7no\" name=\"exercise7\" value=\"0\" /> <b><label id=\"lblans15\" for=\"ans7no\"></label></b>. <spam id=\"answer7\"></span></li><li>Is the intersection of the groups <b>U = {A, B, C, D}</b> and <b>V = { A, X, Z, D}</b> equal to group <b>X = {A, D}</b>? <input type=\"radio\" id=\"ans8yes\" name=\"exercise8\" value=\"1\" /> <b><label id=\"lblans16\" for=\"ans8yes\"></label></b> <input type=\"radio\" id=\"ans8no\" name=\"exercise8\" value=\"0\" /> <b><label id=\"lblans17\" for=\"ans8no\"></label></b>. <spam id=\"answer8\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Would we obtain different results if we were to start with a 'kinship' instead of beginning with a Christian family?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "The fact that it is a Christian family does not affect the logic; thus, we would have similar results using another type of family."
+                        },
+                        {
+                            "question" : "Is a nuclear family, consisting of a father, mother, and children, part of a larger group, which encompasses the children's family?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "We can understand people as subgroups, with the youngest person always having as ancestors the groups (families) to which their ancestors belong."
+                        },
+                        {
+                            "question" : "Does the union of two groups always result in a group containing elements common to both?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "The question describes the intersection of two groups. When we unify two groups, the final result is a group containing all the elements from both groups."
+                        },
+                        {
+                            "question" : "Does the intersection of two groups always produce a new group consisting only of elements common to both?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "This statement is accurate because the goal of intersection is to collect what is common among the groups."
+                        },
+                        {
+                            "question" : "Families are not considered groups; is this statement correct?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Families are part of a group, as we have shown in the text."
+                        },
+                        {
+                            "question" : "Is the union of the groups <b>N = {0, 1, 2}</b> and <b>M = {9, 8, 7}</b> equal to the group <b>K = {0, 1, 2, 9, 8}</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "The operation described in the question is incorrect because the number '7' is not present in 'K'."
+                        },
+                        {
+                            "question" : "Is the subgroup <b>P = {1, 2}</b> a subgroup of group <b>Q = { 1, 2, 3, 4}</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "The numbers present in 'P' are also present in 'Q', thus 'P' is a subgroup of 'Q'."
+                        },
+                        {
+                            "question" : "Are the families <b>FF = {Fulano, Beltrano, Ciclano}</b> and <b>AlphaBeta = {Alpha, Beta, Gama}</b> the same?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "The groups are different, so the families are not the same."
+                        },
+                        {
+                            "question" : "Is the intersection of the groups <b>U = {A, B, C, D}</b> and <b>V = { A, X, Z, D}</b> equal to group <b>X = {A, D}</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "The group 'X' contains only the elements that are common to both groups 'U' and 'V'."
+                        }
+                    ]
                 },
                 {
                     "id": "fill_dates",

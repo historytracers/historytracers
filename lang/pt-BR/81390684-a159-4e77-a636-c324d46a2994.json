@@ -4,7 +4,7 @@
     "sources" : [ "81390684-a159-4e77-a636-c324d46a2994" ],
     "scripts" : [ "81390684-a159-4e77-a636-c324d46a2994" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1713923456" ],
+    "last_update" : [ "1717946731" ],
     "content" : [
         {
             "id" : "families",
@@ -32,8 +32,54 @@
                     "text" : "<p><h3>Conclusão</h3>O tratamento de famílias de uma maneira abstrata, permite trabalhar com todos os tipos de famílias como se fossem somente um único tipo, tratando pessoas de maneira igual. Isso não significa que não podemos criar outros grupos, para entender melhor a sociedade humana.</p>"
                 },
                 {
-                    "id" : "exercise1",
-                    "text" : "<p><h3>Perguntas</h3><ol><li>Apesar de começarmos com uma abstração a partir de uma família cristã, obteríamos resultados distintos ao iniciar com uma 'kinship' [parental]? <input type=\"radio\" id=\"ans0yes\" name=\"exercise0\" value=\"1\" /> <b><label id=\"lblans0\" for=\"ans0yes\"></label></b> <input type=\"radio\" id=\"ans0no\" name=\"exercise0\" value=\"0\" /> <b><label id=\"lblans1\" for=\"ans1no\"></label></b>. <spam id=\"answer0\"></span></li><li>Os núcleos familiares compostos por pai, mãe e filhos fazem parte de um grupo maior chamado família, que abrange todos os ancestrais dos filhos? <input type=\"radio\" id=\"ans1yes\" name=\"exercise1\" value=\"1\" /> <b><label id=\"lblans2\" for=\"ans1yes\"></label></b> <input type=\"radio\" id=\"ans1no\" name=\"exercise1\" value=\"0\" /> <b><label id=\"lblans3\" for=\"ans1no\"></label></b>. <spam id=\"answer1\"></span></li><li>A união de dois grupos sempre resulta apenas nos elementos que são comuns a ambos? <input type=\"radio\" id=\"ans2yes\" name=\"exercise2\" value=\"1\" /> <b><label id=\"lblans4\" for=\"ans2yes\"></label></b> <input type=\"radio\" id=\"ans2no\" name=\"exercise2\" value=\"0\" /> <b><label id=\"lblans5\" for=\"ans2no\"></label></b>. <spam id=\"answer2\"></span></li><li>A interseção entre dois grupos sempre resulta em um grupo que contém apenas os elementos presentes em ambos os grupos? <input type=\"radio\" id=\"ans3yes\" name=\"exercise3\" value=\"1\" /> <b><label id=\"lblans6\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans3no\" name=\"exercise3\" value=\"0\" /> <b><label id=\"lblans7\" for=\"ans3no\"></label></b>. <spam id=\"answer3\"></span></li><li>É correto afirmar que famílias não são consideradas grupos? <input type=\"radio\" id=\"ans4yes\" name=\"exercise4\" value=\"1\" /> <b><label id=\"lblans8\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans4no\" name=\"exercise4\" value=\"0\" /> <b><label id=\"lblans9\" for=\"ans4no\"></label></b>. <spam id=\"answer4\"></span></li><li>A união dos grupos <b>N = {0, 1, 2}</b> e <b>M = {9, 8, 7}</b> resulta no grupo <b>K = {0, 1, 2, 9, 8}</b>? <input type=\"radio\" id=\"ans5yes\" name=\"exercise5\" value=\"1\" /> <b><label id=\"lblans10\" for=\"ans5yes\"></label></b> <input type=\"radio\" id=\"ans5no\" name=\"exercise5\" value=\"0\" /> <b><label id=\"lblans11\" for=\"ans5no\"></label></b>. <spam id=\"answer5\"></span></li><li>O subgrupo <b>P = {1, 2}</b> pertence (está contido) no grupo <b>Q = { 1, 2, 3, 4}</b>? <input type=\"radio\" id=\"ans6yes\" name=\"exercise6\" value=\"1\" /> <b><label id=\"lblans12\" for=\"ans6yes\"></label></b> <input type=\"radio\" id=\"ans6no\" name=\"exercise6\" value=\"0\" /> <b><label id=\"lblans13\" for=\"ans6no\"></label></b>. <spam id=\"answer6\"></span></li><li>A família de <b>FF = {Fulano, Beltrano, Ciclano}</b> é a mesma que <b>AlphaBeta = {Alpha, Beta, Gama}</b>? <input type=\"radio\" id=\"ans7yes\" name=\"exercise7\" value=\"1\" /> <b><label id=\"lblans14\" for=\"ans7yes\"></label></b> <input type=\"radio\" id=\"ans7no\" name=\"exercise7\" value=\"0\" /> <b><label id=\"lblans15\" for=\"ans7no\"></label></b>. <spam id=\"answer7\"></span></li><li>A interseção dos grupos <b>U = {A, B, C, D}</b> e <b>V = { A, X, Z, D}</b> é igual ao grupo <b>X = {A, D}</b>? <input type=\"radio\" id=\"ans8yes\" name=\"exercise8\" value=\"1\" /> <b><label id=\"lblans16\" for=\"ans8yes\"></label></b> <input type=\"radio\" id=\"ans8no\" name=\"exercise8\" value=\"0\" /> <b><label id=\"lblans17\" for=\"ans8no\"></label></b>. <spam id=\"answer8\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Apesar de começarmos com uma abstração a partir de uma família cristã, obteríamos resultados distintos ao iniciar com uma 'kinship' [parental]?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "O fato de ser uma família cristã não interfere na lógica; assim, para qualquer tipo de família já estudado, teríamos resultados semelhantes."
+                        },
+                        {
+                            "question" : "Os núcleos familiares compostos por pai, mãe e filhos fazem parte de um grupo maior chamado família, que abrange todos os ancestrais dos filhos?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Podemos entender as pessoas como subgrupos, e a pessoa mais nova sempre terá como ancestrais os grupos (famílias) aos quais seus ancestrais pertencem."
+                        },
+                        {
+                            "question" : "A união de dois grupos sempre resulta apenas nos elementos que são comuns a ambos?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "A pergunta descreve a interseção de dois grupos. Quando unimos dois grupos, temos todos os elementos dos grupos unidos."
+                        },
+                        {
+                            "question" : "A interseção entre dois grupos sempre resulta em um grupo que contém apenas os elementos presentes em ambos os grupos?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Esta afirmação está correta, pois o objetivo da interseção é coletar o que é comum entre os grupos."
+                        },
+                        {
+                            "question" : "É correto afirmar que famílias não são consideradas grupos?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Famílias são grupos de pessoas, como mostramos no texto."
+                        },
+                        {
+                            "question" : "A união dos grupos <b>N = {0, 1, 2}</b> e <b>M = {9, 8, 7}</b> resulta no grupo <b>K = {0, 1, 2, 9, 8}</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "A operação realizada na pergunta está errada, pois o número '7' não está presente em 'K'."
+                        },
+                        {
+                            "question" : "O subgrupo <b>P = {1, 2}</b> pertence (está contido) no grupo <b>Q = { 1, 2, 3, 4}</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Como os números de 'P' estão presentes em 'Q', então 'P' é um subgrupo de 'Q'."
+                        },
+                        {
+                            "question" : "A família de <b>FF = {Fulano, Beltrano, Ciclano}</b> é a mesma que <b>AlphaBeta = {Alpha, Beta, Gama}</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Como os grupos são diferentes, as famílias são diferentes."
+                        },
+                        {
+                            "question" : "A interseção dos grupos <b>U = {A, B, C, D}</b> e <b>V = { A, X, Z, D}</b> é igual ao grupo <b>X = {A, D}</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "O grupo 'X' contém exatamente os mesmos elementos dos grupos 'U' e 'V'."
+                        }
+                    ]
                 },
                 {
                     "id": "fill_dates",
