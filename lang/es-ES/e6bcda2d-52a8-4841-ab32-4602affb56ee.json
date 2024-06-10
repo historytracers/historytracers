@@ -4,7 +4,7 @@
     "sources" : [ "e6bcda2d-52a8-4841-ab32-4602affb56ee" ],
     "scripts" : [ "e6bcda2d-52a8-4841-ab32-4602affb56ee" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1716240279" ],
+    "last_update" : [ "1717974539" ],
     "content" : [
         {
             "id" : "families",
@@ -32,8 +32,54 @@
                     "text" : "<p><h3>Resumindo con las matemáticas</h3>La matemática ofrece otra forma de representar las relaciones entre grupos, conocida como gráficos. En este texto, nos centraremos en los ejes de los gráficos. La <b>figura 1</b> muestra un eje horizontal:</p><p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Figura 1: Representación de un  eixo conteniendo números naturales. Las fuentes usados para montar la imagen CSS están en (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('27a217a8-59b5-414b-b676-78db48214614'); return false;\">Gravelle, Rob</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>).</p><p>Bajo los ejes, colocamos números igualmente espaciados para representar las cantidades estudiadas. La flecha al final del eje indica que los números continuarán tendiendo el infinito (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('56edfb31-7b84-4fbf-aab4-e56be105af5f'); return false;\">History Tracers, <span id=\"htdate14\"></span>, El cielo es el limite</a>).</p><p>Los ejes representados en la <b>Figura 1</b> pueden aplicarse a diversos contextos, como los pasos en un camino o el número de personas en una familia.</p><p>En la sección anterior, exploramos conceptos de suma que pueden simplificarse. Por ejemplo, la suma de cero a cualquier número puede representarse como <b>A + 0 = A</b>, donde <b>A</b> puede ser cualquier número. Del mismo modo, podemos expresar <b>A + 1 = B</b>, donde <b>A</b> es cualquier número natural y <b>B</b> es el siguiente número en la secuencia.</p><p>Finalmente, es fundamental profundizar en la comprensión de cómo manejar los conceptos de adición e igualdad en matemáticas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6831d5da-9bf9-4512-9231-09a2816980a6'); return false;\">History Tracers, <span id=\"htdate15\"></span>, La escritura</a>). Cuando realizamos una operación de suma, como se presenta en <b>A + 1 = B</b>, seguimos etapas específicas. Por ejemplo, al sumar uno (1) al número dos (2):</p><p><ol><li>Comenzamos con una igualdad: <b>2 = 2</b>.</li><li>Al realizar la operación, debemos mantener la igualdad, por lo que modificamos ambos lados de manera equivalente: <b>2 + 1 = 2 + 1</b></li><li>Llegamos al resultado: <b>3 = 3</b></li></ol></p><p>Al realizar operaciones en la <b>Tabla 1</b>, omitimos un lado de la igualdad, que se explica aquí. Estas etapas pueden parecer simples, pero más adelante veremos que son fundamentales para una comprensión sólida de las matemáticas, en contraposición a las operaciones de \"mágica\".</p>"
                 },
                 {
-                    "id" : "exercise1",
-                    "text" : "<p><h3>Preguntas</h3><ol><li>¿Los indígenas crearon diferentes caminos en sus territorios antes de la llegada de portugueses y españois? <input type=\"radio\" id=\"ans0yes\" name=\"exercise0\" value=\"1\" /> <b><label id=\"lblans0\" for=\"ans0yes\"></label></b> <input type=\"radio\" id=\"ans0no\" name=\"exercise0\" value=\"0\" /> <b><label id=\"lblans1\" for=\"ans1no\"></label></b>. <spam id=\"answer0\"></span></li><li>¿Los numeros naturales también se conocen como números positivos? <input type=\"radio\" id=\"ans1yes\" name=\"exercise1\" value=\"1\" /> <b><label id=\"lblans2\" for=\"ans1yes\"></label></b> <input type=\"radio\" id=\"ans1no\" name=\"exercise1\" value=\"0\" /> <b><label id=\"lblans3\" for=\"ans1no\"></label></b>. <spam id=\"answer1\"></span></li><li>Al analisar las dimensiones, ¿es imposible identificar errores? <input type=\"radio\" id=\"ans2yes\" name=\"exercise2\" value=\"1\" /> <b><label id=\"lblans4\" for=\"ans2yes\"></label></b> <input type=\"radio\" id=\"ans2no\" name=\"exercise2\" value=\"0\" /> <b><label id=\"lblans5\" for=\"ans2no\"></label></b>. <spam id=\"answer2\"></span></li><li>¿Cualquier número sumado a cero (0) tiene como resultado otro número? <input type=\"radio\" id=\"ans3yes\" name=\"exercise3\" value=\"1\" /> <b><label id=\"lblans6\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans3no\" name=\"exercise3\" value=\"0\" /> <b><label id=\"lblans7\" for=\"ans3no\"></label></b>. <spam id=\"answer3\"></span></li><li>¿Cuando sumamos uno (1) a cualquier número, regresamos al número anterior? <input type=\"radio\" id=\"ans4yes\" name=\"exercise4\" value=\"1\" /> <b><label id=\"lblans8\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans4no\" name=\"exercise4\" value=\"0\" /> <b><label id=\"lblans9\" for=\"ans4no\"></label></b>. <spam id=\"answer4\"></span></li><li>¿Cuando realizamos una operación matemática con el signo de igual, siempre modificamos ambos lados para mantener la igualdad? <input type=\"radio\" id=\"ans5yes\" name=\"exercise5\" value=\"1\" /> <b><label id=\"lblans10\" for=\"ans5yes\"></label></b> <input type=\"radio\" id=\"ans5no\" name=\"exercise5\" value=\"0\" /> <b><label id=\"lblans11\" for=\"ans5no\"></label></b>. <spam id=\"answer5\"></span></li><li>¿Para que la relación <b>5 + A = 6</b> sea verdad, <b>A</b> debe ser cero (0)? <input type=\"radio\" id=\"ans6yes\" name=\"exercise6\" value=\"1\" /> <b><label id=\"lblans12\" for=\"ans6yes\"></label></b> <input type=\"radio\" id=\"ans6no\" name=\"exercise6\" value=\"0\" /> <b><label id=\"lblans13\" for=\"ans6no\"></label></b>. <spam id=\"answer6\"></span></li><li>¿La relación <b>A + 2 = B + 2</b> solo seguirá siendo verdad, si <b>A</b> y <b>B</b> son los mismos números, o sea, <b>A = B</b>? <input type=\"radio\" id=\"ans7yes\" name=\"exercise7\" value=\"1\" /> <b><label id=\"lblans14\" for=\"ans7yes\"></label></b> <input type=\"radio\" id=\"ans7no\" name=\"exercise7\" value=\"0\" /> <b><label id=\"lblans15\" for=\"ans7no\"></label></b>. <spam id=\"answer7\"></span></li><li>¿Sumar el número 1 a <spam id=\"seq0\"></spam> resulta en <spam id=\"seq1\"></spam>? <input type=\"radio\" id=\"ans8yes\" name=\"exercise8\" value=\"1\" /> <b><label id=\"lblans16\" for=\"ans8yes\"></label></b> <input type=\"radio\" id=\"ans8no\" name=\"exercise8\" value=\"0\" /> <b><label id=\"lblans17\" for=\"ans8no\"></label></b>. <spam id=\"answer8\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "¿Los indígenas crearon diferentes caminos en sus territorios antes de la llegada de portugueses y españois?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Antes de la llegada de los europeos, los indígenas ya habían trazado diferentes caminos que llegaban a miles de kilómetros."
+                        },
+                        {
+                            "question" : "¿Los numeros naturales también se conocen como números positivos?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Por incluir valores mayores o iguales a cero, también se utilizan estas nomenclaturas."
+                        },
+                        {
+                            "question" : "Al analisar las dimensiones, ¿es imposible identificar errores?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Las dimensiones no garantizan que un resultado sea correcto, pero pueden indicar que algo está equivocado."
+                        },
+                        {
+                            "question" : "¿Cualquier número sumado a cero (0) tiene como resultado otro número?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Como el cero es un elemento neutral, siempre que lo sumamos a un número, el resultado es el propio número."
+                        },
+                        {
+                            "question" : "¿Cuando sumamos uno (1) a cualquier número, regresamos al número anterior?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Tenemos el caso contrario: al sumar 1 a un número natural, obtenemos el siguiente número."
+                        },
+                        {
+                            "question" : "¿Cuando realizamos una operación matemática con el signo de igual, siempre modificamos ambos lados para mantener la igualdad?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Debemos alterar ambos lados, ya que cualquier modificación en un solo lado rompe la igualdad."
+                        },
+                        {
+                            "question" : "¿Para que la relación <b>5 + A = 6</b> sea verdad, <b>A</b> debe ser cero (0)?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Esta pregunta es un complemento de las anteriores, de donde podemos concluir que debemos sumar uno (1) para que el resultado sea verdadero."
+                        },
+                        {
+                            "question" : "¿La relación <b>A + 2 = B + 2</b> solo seguirá siendo verdad, si <b>A</b> y <b>B</b> son los mismos números, o sea, <b>A = B</b>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Como el número dos (2) siempre estará presente en el cálculo, solo podremos mantener la igualdad cuando las otras constantes tengan el mismo valor, independientemente del valor que asuman."
+                        },
+                        {
+                            "question" : "¿Sumar el número 1 a <spam id=\"seq0\"></spam> resulta en <spam id=\"seq1\"></spam>?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "El resultado es el próximo número en la secuencia de los naturales."
+                        }
+                    ]
                 },
                 {
                     "id": "fill_dates",

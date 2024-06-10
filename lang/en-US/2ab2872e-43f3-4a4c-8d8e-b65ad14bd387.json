@@ -4,7 +4,7 @@
     "sources" : [ "2ab2872e-43f3-4a4c-8d8e-b65ad14bd387" ],
     "scripts" : [ "2ab2872e-43f3-4a4c-8d8e-b65ad14bd387" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1713838577" ],
+    "last_update" : [ "1717974539" ],
     "content" : [
         {
             "id" : "families",
@@ -32,8 +32,54 @@
                     "text" : [ "<p><h3>The poems and the multiplication</h3>The relationship between poetry and mathematics extends to understanding fundamental operations like multiplication. In the poem 'The Lusiads', each verse consists of ten syllables. Exploring this metric, let's engage in some mathematical operations:</p>", "<p><ul> <li>When we sum two verses results in a total of twenty syllables: 10 + 10 = 20.</li><li>Adding another verse increases the syllable count to thirty: 20 + 10 = 30.</li></ul></p>", "<p>It's worth noting that each addition introduces ten more syllables, maintaining a consistent increment. In situations where samples remain constant, multiplication becomes a preferred method. Multiplication, denoted by symbols like \"×\" or \"·\", or still another notation to be presented on next pages. Let us simplify the addition operations using multiplications:</p>", "<ul><li>With a single ten-syllable verse, the total syllables amount to: 10 × 1 = 10.</li><li>For two ten-syllable verses: 10 × 2 = 20.</li><li>And for three verses: 10 × 3 = 30.</li></ul></p>", "To determine the total count of ten-syllable verses, as depicted in 'The Lusiadas', we multiply the number of syllables per verse by the total number of verses:", "<p><table class=\"mathexample\"> <tr><th>Math steps</th><th>Values</th><th>Dimensional analisis</th></tr> <tr><td>Write the values</td> <td colspan=\"2\">10 syllables/verse × 8816 verses</td></tr>  <tr><td>We isolate numbers from dimensions</td> <td>10 × 8816</td> <td> syllables/<s>verse</s> × <s>verse</s></td></tr> <tr><td>Perform mathematical operations</td> <td> 88160</td> <td>syllables</td></tr><tr><td>Integration of results</td> <td colspan=\"2\"> 88160 syllables</td></tr></table></p><p class=\"desc\">Equation 1: Calc of the number of syllables of poem 'Os Lusíadas' wit data available in Raquel T. Oliveira's work (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0aa99dfd-5b86-4153-9aa1-e226e38f351c'); return false;\">OLIVEIRA, Raquel T., <span id=\"htdate18\"></span>, pp. 14</a>).</p>" ]
                 },
                 {
-                    "id" : "exercise1",
-                    "text" : "<p><h3>Questions</h3><ol><li>Is the following sentence correct: 'Music is not an artistic expression'? <input type=\"radio\" id=\"ans0yes\" name=\"exercise0\" value=\"1\" /> <b><label id=\"lblans0\" for=\"ans0yes\"></label></b> <input type=\"radio\" id=\"ans0no\" name=\"exercise0\" value=\"0\" /> <b><label id=\"lblans1\" for=\"ans1no\"></label></b>. <spam id=\"answer0\"></span></li><li>Do the indigenous cultures use the same musical instruments? <input type=\"radio\" id=\"ans1yes\" name=\"exercise1\" value=\"1\" /> <b><label id=\"lblans2\" for=\"ans1yes\"></label></b> <input type=\"radio\" id=\"ans1no\" name=\"exercise1\" value=\"0\" /> <b><label id=\"lblans3\" for=\"ans1no\"></label></b>. <spam id=\"answer1\"></span></li><li>Do Indigenous music share common characteristics? <input type=\"radio\" id=\"ans2yes\" name=\"exercise2\" value=\"1\" /> <b><label id=\"lblans4\" for=\"ans2yes\"></label></b> <input type=\"radio\" id=\"ans2no\" name=\"exercise2\" value=\"0\" /> <b><label id=\"lblans5\" for=\"ans2no\"></label></b>. <spam id=\"answer2\"></span></li><li>Is Indigenous music a form of poetry? <input type=\"radio\" id=\"ans3yes\" name=\"exercise3\" value=\"1\" /> <b><label id=\"lblans6\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans3no\" name=\"exercise3\" value=\"0\" /> <b><label id=\"lblans7\" for=\"ans3no\"></label></b>. <spam id=\"answer3\"></span></li><li>Can we use multiplication to count the number of syllables in 'The Odyssey' by Homer? <input type=\"radio\" id=\"ans4yes\" name=\"exercise4\" value=\"1\" /> <b><label id=\"lblans8\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans4no\" name=\"exercise4\" value=\"0\" /> <b><label id=\"lblans9\" for=\"ans4no\"></label></b>. <spam id=\"answer4\"></span></li><li>When we multiply the number of fingers on one hand by two, do we get the total number of fingers on a hand? <input type=\"radio\" id=\"ans5yes\" name=\"exercise5\" value=\"1\" /> <b><label id=\"lblans10\" for=\"ans5yes\"></label></b> <input type=\"radio\" id=\"ans5no\" name=\"exercise5\" value=\"0\" /> <b><label id=\"lblans11\" for=\"ans5no\"></label></b>. <spam id=\"answer5\"></span></li><li>Does multiplying the number of fingers on one hand by one equal the total number of fingers on that hand? <input type=\"radio\" id=\"ans6yes\" name=\"exercise6\" value=\"1\" /> <b><label id=\"lblans12\" for=\"ans6yes\"></label></b> <input type=\"radio\" id=\"ans6no\" name=\"exercise6\" value=\"0\" /> <b><label id=\"lblans13\" for=\"ans6no\"></label></b>. <spam id=\"answer6\"></span></li><li>Is every number multiplied by one equal to itself? <input type=\"radio\" id=\"ans7yes\" name=\"exercise7\" value=\"1\" /> <b><label id=\"lblans14\" for=\"ans7yes\"></label></b> <input type=\"radio\" id=\"ans7no\" name=\"exercise7\" value=\"0\" /> <b><label id=\"lblans15\" for=\"ans7no\"></label></b>. <spam id=\"answer7\"></span></li><li>If N represents any number, can we express its multiplication by one as: N × 1 = N? <input type=\"radio\" id=\"ans8yes\" name=\"exercise8\" value=\"1\" /> <b><label id=\"lblans16\" for=\"ans8yes\"></label></b> <input type=\"radio\" id=\"ans8no\" name=\"exercise8\" value=\"0\" /> <b><label id=\"lblans17\" for=\"ans8no\"></label></b>. <spam id=\"answer8\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Is the following sentence correct: 'Music is not an artistic expression'?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "The reverse holds true; music is indeed an artistic expression."
+                        },
+                        {
+                            "question" : "Do the indigenous cultures use the same musical instruments?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Across various regions of the American (<i>Abya Ayala</i>) continent, indigenous communities crafted diverse musical instruments."
+                        },
+                        {
+                            "question" : "Do Indigenous music share common characteristics?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "According to our studies, there are at least three shared elements among these musical traditions."
+                        },
+                        {
+                            "question" : "Is Indigenous music a form of poetry?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "This represents our precise understanding."
+                        },
+                        {
+                            "question" : "Can we use multiplication to count the number of syllables in 'The Odyssey' by Homer?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Since the verses consist of an equal number of syllables, we can employ multiplication to tally them."
+                        },
+                        {
+                            "question" : "When we multiply the number of fingers on one hand by two, do we get the total number of fingers on a hand?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "In this scenario, we arrive at twice the number of fingers."
+                        },
+                        {
+                            "question" : "Does multiplying the number of fingers on one hand by one equal the total number of fingers on that hand?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Each time we multiply by one (1), the result remains unchanged."
+                        },
+                        {
+                            "question" : "Is every number multiplied by one equal to itself?Is every number multiplied by one equal to itself?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "This question serves as a complement to the previous one."
+                        },
+                        {
+                            "question" : "If N represents any number, can we express its multiplication by one as: N × 1 = N?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "It exemplifies the multiplication of any value by 1."
+                        }
+                    ]
                 },
                 {
                     "id": "fill_dates",

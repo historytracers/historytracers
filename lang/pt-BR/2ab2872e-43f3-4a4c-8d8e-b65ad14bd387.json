@@ -4,7 +4,7 @@
     "sources" : [ "2ab2872e-43f3-4a4c-8d8e-b65ad14bd387" ],
     "scripts" : [ "2ab2872e-43f3-4a4c-8d8e-b65ad14bd387" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1713838577" ],
+    "last_update" : [ "1717974539" ],
     "content" : [
         {
             "id" : "families",
@@ -32,8 +32,54 @@
                     "text" : [ "<p><h3>Os poemas e a multiplicação</h3>Os poemas nos auxiliam a enteder outra operação fundamental da matemática: a multiplicação. No poema 'Os Lusíadas', cada verso decassílabo possui 10 sílabas métricas, como indicado no Dicionário da Língua Portuguesa (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5632ce7e-b619-48f6-9bed-73999e4d2dee'); return false;\">\"decassilábico\", Dicionário da Língua Portuguesa</a>). Antes de conhecermos a multiplicação, vamos realizar algumas operações de soma com estas sílabas:</p>", "<p><ul> <li>Ao somarmos as sílabas de dois versos, obtemos um total de 20 sílabas métricas: 10 + 10 = 20.</li><li>Se adicionarmos mais sílabas de outro verso aos dois anteriores, teremos 30 sílabas métricas: 20 + 10 = 30</li></ul></p>", "<p>É importante notar que, nesse exemplo, sempre estamos adicionando 10 sílabas por verso. Para situações como essa, onde as quantidades possuem o mesmo tamanho, recorremos à multiplicação, que consiste em aumentar, em número, quantidades iguais, conforme definido no Dicionário da Língua Portuguesa (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('c02feda5-3a0f-47ae-8a85-4c5909f42acc'); return false;\">\"multiplicação\", Dicionário da Língua Portuguesa</a>). Quando realizamos a multiplicação, normalmente usamos o símbolo \"×\" ou \"·\", ou ainda outra notação que será apresentada adiante. Vejamos como podemos simplificar as operações de adição por meio da multiplicação:</p>", "<ul><li>Trabalhando apenas com um verso decassílabo, temos um total de: 10 × 1 = 10.</li><li>Para 2 versos decassílabos, temos: 10 × 2 = 20.</li><li>Da mesma forma, para 3 versos, temos: 10 × 3 = 30.</li></ul></p>", "Podemos deduzir que, nos versos decassílabos de 'Os Lusíadas', o número total de sílabas é obtido multiplicando o número total de versos pelo número de sílabas por verso:", "<p><table class=\"mathexample\"> <tr><th>Etapas do cálculo</th><th>Valores</th><th>Análise dimensional</th></tr> <tr><td>Escrever os valores</td> <td colspan=\"2\">10 sílabas/verso × 8816 versos</td></tr>  <tr><td>Isolamos números das dimensões</td> <td>10 × 8816</td> <td> sílabas/<s>verso</s> × <s>verso</s></td></tr> <tr><td>Realizamos o cálculo e análise dimensional</td> <td> 88160</td> <td>sílabas</td></tr><tr><td>Unificamos o resultado</td> <td colspan=\"2\"> 88160 sílabas</td></tr></table></p><p class=\"desc\">Equação 1: Cálculo do número de sílabas do poema 'Os Lusíadas' com dados do trabalho de Raquel T. Oliveira (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0aa99dfd-5b86-4153-9aa1-e226e38f351c'); return false;\">OLIVEIRA, Raquel T., <span id=\"htdate18\"></span>, pp. 14</a>).</p>" ]
                 },
                 {
-                    "id" : "exercise1",
-                    "text" : "<p><h3>Perguntas</h3><ol><li>Música não é uma expressão artística? <input type=\"radio\" id=\"ans0yes\" name=\"exercise0\" value=\"1\" /> <b><label id=\"lblans0\" for=\"ans0yes\"></label></b> <input type=\"radio\" id=\"ans0no\" name=\"exercise0\" value=\"0\" /> <b><label id=\"lblans1\" for=\"ans1no\"></label></b>. <spam id=\"answer0\"></span></li><li>Os indígenas usavam os mesmos instrumentos musicais? <input type=\"radio\" id=\"ans1yes\" name=\"exercise1\" value=\"1\" /> <b><label id=\"lblans2\" for=\"ans1yes\"></label></b> <input type=\"radio\" id=\"ans1no\" name=\"exercise1\" value=\"0\" /> <b><label id=\"lblans3\" for=\"ans1no\"></label></b>. <spam id=\"answer1\"></span></li><li>Há características comuns entre as músicas indígenas? <input type=\"radio\" id=\"ans2yes\" name=\"exercise2\" value=\"1\" /> <b><label id=\"lblans4\" for=\"ans2yes\"></label></b> <input type=\"radio\" id=\"ans2no\" name=\"exercise2\" value=\"0\" /> <b><label id=\"lblans5\" for=\"ans2no\"></label></b>. <spam id=\"answer2\"></span></li><li>Os sons indígenas são uma espécie de poesia? <input type=\"radio\" id=\"ans3yes\" name=\"exercise3\" value=\"1\" /> <b><label id=\"lblans6\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans3no\" name=\"exercise3\" value=\"0\" /> <b><label id=\"lblans7\" for=\"ans3no\"></label></b>. <spam id=\"answer3\"></span></li><li>Podemos usar multiplicação para contar as sílabas da 'Odisséia' de Homero? <input type=\"radio\" id=\"ans4yes\" name=\"exercise4\" value=\"1\" /> <b><label id=\"lblans8\" for=\"ans3yes\"></label></b> <input type=\"radio\" id=\"ans4no\" name=\"exercise4\" value=\"0\" /> <b><label id=\"lblans9\" for=\"ans4no\"></label></b>. <spam id=\"answer4\"></span></li><li>Quando multiplicamos o número de dedos de uma mão por 2, temos como resultado o total de dedos de uma mão? <input type=\"radio\" id=\"ans5yes\" name=\"exercise5\" value=\"1\" /> <b><label id=\"lblans10\" for=\"ans5yes\"></label></b> <input type=\"radio\" id=\"ans5no\" name=\"exercise5\" value=\"0\" /> <b><label id=\"lblans11\" for=\"ans5no\"></label></b>. <spam id=\"answer5\"></span></li><li>O número de dedos de uma mão multiplicados por um (1) é igual o número de dedos da mão? <input type=\"radio\" id=\"ans6yes\" name=\"exercise6\" value=\"1\" /> <b><label id=\"lblans12\" for=\"ans6yes\"></label></b> <input type=\"radio\" id=\"ans6no\" name=\"exercise6\" value=\"0\" /> <b><label id=\"lblans13\" for=\"ans6no\"></label></b>. <spam id=\"answer6\"></span></li><li>Todo número multiplicado por um (1) é igual a ele mesmo? <input type=\"radio\" id=\"ans7yes\" name=\"exercise7\" value=\"1\" /> <b><label id=\"lblans14\" for=\"ans7yes\"></label></b> <input type=\"radio\" id=\"ans7no\" name=\"exercise7\" value=\"0\" /> <b><label id=\"lblans15\" for=\"ans7no\"></label></b>. <spam id=\"answer7\"></span></li><li>Seja N qualquer número. Podemos representar a sua multiplicação por 1 como: N × 1 = N? <input type=\"radio\" id=\"ans8yes\" name=\"exercise8\" value=\"1\" /> <b><label id=\"lblans16\" for=\"ans8yes\"></label></b> <input type=\"radio\" id=\"ans8no\" name=\"exercise8\" value=\"0\" /> <b><label id=\"lblans17\" for=\"ans8no\"></label></b>. <spam id=\"answer8\"></span></li></ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\"\" /></p>"
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Música não é uma expressão artística?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Ao contrário do que se pergunta, a música é uma expressão artística."
+                        },
+                        {
+                            "question" : "Os indígenas usavam os mesmos instrumentos musicais?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Em diferentes áreas do continente americano (<i>Abya Ayala</i>), os indígenas criaram diversos instrumentos."
+                        },
+                        {
+                            "question" : "Há características comuns entre as músicas indígenas?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Conforme estudado, existem pelo menos três pontos comuns entre as músicas indígenas."
+                        },
+                        {
+                            "question" : "Os sons indígenas são uma espécie de poesia?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Este é exatamente o entendimento."
+                        },
+                        {
+                            "question" : "Podemos usar multiplicação para contar as sílabas da 'Odisséia' de Homero?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Como os versos possuem a mesma quantidade de sílabas, é possível usar a multiplicação."
+                        },
+                        {
+                            "question" : "Quando multiplicamos o número de dedos de uma mão por 2, temos como resultado o total de dedos de uma mão?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Neste caso, temos duas vezes o número de dedos da mão multiplicados."
+                        },
+                        {
+                            "question" : "O número de dedos de uma mão multiplicados por um (1) é igual o número de dedos da mão?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Toda vez que multiplicamos por um (1), o resultado é o próprio número."
+                        },
+                        {
+                            "question" : "Todo número multiplicado por um (1) é igual a ele mesmo?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Esta pergunta é um complemento para a anterior."
+                        },
+                        {
+                            "question" : "Seja N qualquer número. Podemos representar a sua multiplicação por 1 como: N × 1 = N?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Esta é a representação da multiplicação de qualquer valor por 1."
+                        }
+                    ]
                 },
                 {
                     "id": "fill_dates",
