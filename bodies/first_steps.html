@@ -1,10 +1,10 @@
 <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 
 <script>
-    var fsUnixEpoch = Date.now();
-    var fsFile = document.createElement("script");
-    fsFile.setAttribute("src", "js/first_steps.js?nocache="+fsUnixEpoch);
-    document.head.appendChild(fsFile);
+    var gmUnixEpoch = Date.now();
+    var gmFile = document.createElement("script");
+    gmFile.setAttribute("src", "js/first_steps.js?nocache="+gmUnixEpoch);
+    document.head.appendChild(gmFile);
 </script>
 <div class="left-tree">
     <div class="main-data" id="extpaper">
@@ -13,18 +13,15 @@
     <div class="main-data" id="introduction">
     </div>
 
-    <div class="main-data" id="family_talking">
-    </div>
-
-    <div class="main-data" id="documentation">
-    </div>
-
-    <div class="main-data" id="scientific_method">
-    </div>
-
-    <div class="main-data" id="software">
-    </div>
-
-    <div class="main-data" id="blog">
+    <div class="main-data" id="group-map">
+        <h4 id="groups"> </h4>
+        <ul><b><span id="initial_title"> </span></b>
+            <ol id="class-group">
+            </ol>
+        </ul><br />
+        <ul><b><span id="function_group"> </span></b>
+            <ol id="class-function-group">
+            </ol>
+        </ul>
     </div>
 </div>
