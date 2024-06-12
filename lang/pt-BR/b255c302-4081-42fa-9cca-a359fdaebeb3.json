@@ -1,0 +1,47 @@
+{
+    "title" : "Contando",
+    "header" : "Contando",
+    "sources" : [ "b255c302-4081-42fa-9cca-a359fdaebeb3" ],
+    "scripts" : null,
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1718158374" ],
+    "authors" : null,
+    "reviewers" : null,
+    "content" : [
+        {
+            "id" : "families",
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td>Anterior</td> <td> Topo </td> <td>Próximo</td></tr><tr><td><a href=\"index.html?page=class_content&arg=489f9dbf-f251-4ef8-a61b-431564784bd5\" onclick=\"htLoadPage('class_content', 'html', '489f9dbf-f251-4ef8-a61b-431564784bd5', false); return false;\">Nossos lados são iguais</a></td> <td><a href=\"index.html?page=kids&arg=\" onclick=\"htLoadPage('kids','html', '', false); return false;\">Index</a></td><td><a href=\"index.html?page=class_content&arg=7fe341a9-420e-4318-be3e-c7c201d821a8\" onclick=\"htLoadPage('class_content', 'html', '7fe341a9-420e-4318-be3e-c7c201d821a8', false); return false;\">Além dos dedos</a></td></tr></table></p>"
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ "<p><h3>Necessitamos contar</h3>Na vida, sempre temos algo para contar, seja nossa idade, nossos amigos ou nossos brinquedos. Observe a <b>Figura 1</b> com instrumentos musicais indígenas da Costa Rica:</p>", "<p class=\"desc\"> <img src=\"images/MusicCR.jpg\" class=\"imgcenter\" />Figura 1: Instrumentos musicais expostos no Museo Nacional de Costa Rica (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3e4dc8f8-8c2b-491e-9e2b-0b3adb927c70'); return false;\">Museo Nacional de Costa Rica</a>). Foto tirada durante uma visita ao museu em <span id=\"htdate0\"></span></p>", "<p><center><div class=\"kidsreflection_parent\"><div class=\"kidsreflection question_mark\">?</div><div class=\"kidsreflection\"><b>Reflexão 1: Contando com nosso corpo</b><br />Na página anterior, começamos a conhecer nosso corpo. Agora, pense: há alguma parte dele que podemos usar para contar?</div></div></center></p>" ]
+                },
+                {
+                    "id" : "hands",
+                    "text" : [ "<p><h3>Contando com as mãos</h3>Podemos resolver nosso problema inicial usando cada dedo da mão para contar um único objeto:</p>", "<p><table class=\"book_navigation\"><tr><td>Mão esquerda</td><td>Mão direita</td></tr><tr><td><img src=\"images/Hand_Grape.jpg\" class=\"imgcenter\"/></td><td><img src=\"images/RHand_Grape.jpg\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 2: Representação das mãos. Código-fonte presente no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span id=\"htdate1\"></span>, Código Fonte</a>)</td></tr></table></p>" ]
+                },
+                {
+                    "id" : "testing",
+                    "text" : [ "<p><h3>Um de cada vez</h3>A <b>Figura 1</b> possui menos instrumentos de sopro do que normalmente temos dedos nas mãos. Como contamos poucas coisas? O primeiro passo é conhecer nossos dedos:</p>", "<p class=\"desc\"><img src=\"images/Hand_Finger.png\" class=\"imgcenter\"/>Figura 3: Dedos da mão esquerda: <b>A</b> - Polegar, <b>B</b> - Indicador, <b>C</b> - médio, <b>D</b> - anelar, <b>E</b> - mínimo. Código-fonte presente no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span id=\"htdate2\"></span>, Código-fonte</a>).</p>", "Agora que conhecemos nossos dedos, levantaremos um dedo de cada vez para fazer a contagem:</p>", "<table class=\"tawapukllay\"><tr><th>Mão esquerda</th><th>Descrição</th><th>Mão direita</th></tr> <tr><td><img src=\"images/0Left_Hand_Small.png\" /></td><td style=\"text-align: center;\">Todos os dedos da mão fechados.</td><td><img src=\"images/0Right_Hand_Small.png\" /></td></tr> <tr><td><img src=\"images/0Left_Hand_Small.png\" /></td><td style=\"text-align: center;\">Dedo indicador direito levantado.</td><td><img src=\"images/1Right_Hand_Small.png\" /></td></tr> <tr><td><img src=\"images/0Left_Hand_Small.png\" /></td><td style=\"text-align: center;\">Indicador e médio da mão direita levantados.</td><td><img src=\"images/2Right_Hand_Small.png\" /></td></tr> <tr><td><img src=\"images/0Left_Hand_Small.png\" /></td><td style=\"text-align: center;\" style=\"text-align: center;\">Indicador, médio e anelar da mão direita levantados.</td><td><img src=\"images/3Right_Hand_Small.png\" /></td></tr> <tr><td><img src=\"images/0Left_Hand_Small.png\" /></td><td style=\"text-align: center;\">Indicador, médio, anelar e mínimo da mão direita levantados.</td><td><img src=\"images/4Right_Hand_Small.png\" /></td></tr> <tr><td><img src=\"images/0Left_Hand_Small.png\" /></td><td style=\"text-align: center;\">Todos os dedos da mão direita levantados.</td><td><img src=\"images/5Right_Hand_Small.png\" /></td></tr> <tr><td><img src=\"images/1Left_Hand_Small.png\" /></td><td style=\"text-align: center;\">Todos os dedos da mão direita levantados, com o indicador da mão esquerda levantados.</td><td><img src=\"images/5Right_Hand_Small.png\" /></td></tr> <tr><td><img src=\"images/2Left_Hand_Small.png\" /></td><td style=\"text-align: center;\">Todos os dedos da mão direita levantados, com indicador e médio da mão esquerda levantados.</td><td><img src=\"images/5Right_Hand_Small.png\" /></td></tr> <tr><td><img src=\"images/3Left_Hand_Small.png\" /></td><td style=\"text-align: center;\">Todos os dedos da mão direita levantados, com indicador, médio e anelar da mão esquerda levantados.</td><td><img src=\"images/5Right_Hand_Small.png\" /></td></tr> <tr><td><img src=\"images/4Left_Hand_Small.png\" /></td><td style=\"text-align: center;\" style=\"text-align: center;\">Todos os dedos da mão direita levantados, com indicador, médio, anelar e mínimo da mão esquerda levantados.</td><td><img src=\"images/5Right_Hand_Small.png\" /></td></tr> <tr><td><img src=\"images/5Left_Hand_Small.png\" /></td><td style=\"text-align: center;\">Todos os dedos das duas mãos levantados.</td><td><img src=\"images/5Right_Hand_Small.png\" /></td></tr> </table>", "<p class=\"desc\">Tabela 1: Contagem de objetos com os dedos.</p>" ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ "<p><h3>Conclusão</h3>Ao contar todos os instrumentos musicais acima do pássaro na <b>Figura 1</b>, nossos dedos ficarão assim:</p>", "<table class=\"tawapukllay\"><tr><th>Mão esquerda</th><th>Descrição</th><th>Mão direita</th></tr>  <tr><td><img src=\"images/1Left_Hand_Small.png\" /></td><td style=\"text-align: center;\">Todos os dedos da mão direita levantados, com o indicador da mão esquerda levantados.</td><td><img src=\"images/5Right_Hand_Small.png\" /></td></tr></table>", "<p class=\"desc\">Tabela 2: Contagem instrumentos musicais da <b>Figura 1</b>.</p>", "<p class=\"lab\"><b>Prática 1: Contando ao redor</b><br />Usando seus dedos, conte alguns objetos que estão próximos a você.</p>", "<p>Como vimos, nossas mãos nos ajudam a contar, mas como podemos contar algo maior que nossos dedos? Vamos explorar isso no próximo texto.</p>" ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2017", "month" : "10", "day" : "17" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+                    ]
+                }
+            ]
+        }
+    ]
+} 
