@@ -372,6 +372,12 @@ ul {
   text-align: center;
 }
 
+.question_mark {
+  font-size: 300%;
+  font-weight: bold;
+  color: red;
+}
+
 .tawapukllay td:nth-child(-n+4) {
   border: 1px solid black;
 }
@@ -531,6 +537,21 @@ ul {
   width: 60%;
   text-align: center;
   margin: auto;
+  background-color: lightyellow;
+}
+
+.first_steps_reflection_parent {
+  margin-left: auto;
+  width: 90%;
+  margin-right: auto;
+  background-color: lightyellow;
+}
+
+.first_steps_reflection {
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
   background-color: lightyellow;
 }
 

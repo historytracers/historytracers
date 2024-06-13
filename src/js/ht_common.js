@@ -395,11 +395,11 @@ function htLoadPage(page, ext, arg, reload) {
 
             htFillWebPage(page, data);
 
-            if (page == "main") {
+            /* if (page == "main") {
                 for (const i in data.content) {
                     htAddPaperDivs("#ht_description", data.content[i].id, data.content[i].value, "", "", i);
                 }
-            }
+            } */
 
             return false;
         },
@@ -461,19 +461,17 @@ function htFillHTDate(vector)
 
 function htFillWebPage(page, data)
 {
-    // Used when a new language has been added
-    if (data.nothing != undefined && data.nothing != null && data.nothing.length > 0) {
-        $(document).prop('title', data.nothing);
-        $("#header").html(data.nothing);
-        return;
-    }
-
     if (data.title != undefined && data.title != null && data.title.length > 0) {
         $(document).prop('title', data.title);
     }
 
     if (data.header != undefined && data.header != null && data.header.length > 0) {
         $("#header").html(data.header);
+    } else  if (data.nothing != undefined && data.nothing != null && data.nothing.length > 0) {
+        // Used when a new language has been added
+        $(document).prop('title', data.nothing);
+        $("#header").html(data.nothing);
+        return;
     }
 
     if (data.common != undefined && data.common != null && data.common.length > 0) {
@@ -693,7 +691,18 @@ function htFillMapList(table, target, page) {
 
 function htFillSubMapList(table, target) {
     for (const i in table) {
-        $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+        switch(table[i].page) {
+            case "class_content":
+                if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
+                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>"); 
+                }
+                break;
+            case "tree":
+            default:
+                if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].name != undefined && table[i].desc != undefined) {
+                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+                }
+        }
     }
 }
 
@@ -926,7 +935,10 @@ function htMountCurrentLinkBasis(familyID, id)
     userURL += "?page=tree&arg="+familyID;
 
     if (id != undefined) {
-        userURL += "&person_id=" + id;
+        var myTree = url.search("page=tree");
+        if (myTree >= 0) {
+            userURL += "&person_id=" + id;
+        }
     }
 
     return userURL;
