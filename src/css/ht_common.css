@@ -304,11 +304,12 @@ a:visited {
 }
 
 li.menu {
-    list-style: none;
+  list-style: none;
+  font-size: 0.9vw;
 }
 
 li.menu::before{
-    content: "\00BB";
+  content: "\00BB";
 }
 
 ul.sidebar-navigation {
@@ -536,7 +537,11 @@ ul {
   text-align: center;
   margin: auto;
   background-color: lightgray;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
 
 .reflection {
@@ -545,7 +550,11 @@ ul {
   text-align: center;
   margin: auto;
   background-color: lightyellow;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
 
 .first_steps_reflection_parent {
@@ -553,7 +562,11 @@ ul {
   width: 90%;
   margin-right: auto;
   background-color: lightyellow;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
 
 .first_steps_reflection {
