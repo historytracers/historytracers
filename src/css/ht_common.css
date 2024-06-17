@@ -12,6 +12,9 @@ html {
   height: 10%;
   width: 100%;
   float: left;
+  font-size: 2vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .side-bar-navigation {
@@ -64,6 +67,8 @@ html {
   height: 100%;
   width: 87%;
   float: left;
+  font-size: 3vw;
+  text-align: center;
 }
 
 .top-bar-inside-right {
@@ -94,6 +99,7 @@ html {
   width: 60%;
   float: left;
   vertical-align: top;
+  font-size: 1vw;
 }
 
 div.left-tree {
@@ -530,6 +536,7 @@ ul {
   text-align: center;
   margin: auto;
   background-color: lightgray;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .reflection {
@@ -538,6 +545,7 @@ ul {
   text-align: center;
   margin: auto;
   background-color: lightyellow;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .first_steps_reflection_parent {
@@ -545,6 +553,7 @@ ul {
   width: 90%;
   margin-right: auto;
   background-color: lightyellow;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .first_steps_reflection {
