@@ -69,7 +69,7 @@ $(document).ready(function(){
             case 'contact':
             case 'science':
             case 'history':
-            case 'first_steps':
+            case 'genealogical_first_steps':
             case 'genealogical_faq':
             case 'genealogical_map':
             case 'families':
@@ -79,7 +79,7 @@ $(document).ready(function(){
             case 'indigenous_time':
             case 'acknowledgement':
             case 'release':
-                htLoadPage(page,'html', '', false);
+                htLoadPage(page, 'html', '', false);
                 break;
             case 'tree':
             case 'genealogical_map_list':

@@ -17,6 +17,13 @@ var primarySourceMap = new Map();
 var refSourceMap = new Map();
 var holyRefSourceMap = new Map();
 
+function htAddTreeReflection(id)
+{
+    if ($(id).length > 0) {
+        $(id).html(keywords[55]);
+    }
+}
+
 function htAddPaperDivs(generalID, id, text, before, later, i)
 {
     var div = before + "<div id=\"paper-";
@@ -503,13 +510,16 @@ function htFillWebPage(page, data)
         htFillIndexSelector(data.languages, "#site_language");
         $("#loading_msg").hide();
         $(':focus').blur()
+        return;
     }
     else if (data.calendars != undefined) {
         htFillIndexSelector(data.calendars, "#site_calendar");
         $("#loading_msg").hide();
         $(':focus').blur()
+        return;
     }
-    else if (data.families != undefined) {
+
+    if (data.families != undefined) {
         htFillFamilies(page, data);
     } else if (data.keywords != undefined) {
         htFillKeywords(data.keywords);
@@ -571,7 +581,7 @@ function htFillWebPage(page, data)
         }
 
         if ($("#tree-description").length > 0) {
-            $("#tree-description").html(keywords[24]+" "+keywords[38]+" "+keywords[52]);
+            $("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");
         }
     }
 
@@ -594,6 +604,9 @@ function htFillWebPage(page, data)
         }
     }
 
+    if (page == "families" && $("#family_common_sn").length > 0) {
+        $("#family_common_sn").html(keywords[52]);
+    }
 }
 
 function htLoadSources(data, arg, page)
@@ -665,8 +678,7 @@ function htFillFamilyList(table, target) {
             continue;
         }
 
-        $("#"+target).append("<a href=\"#bottom"+table[i].id+"\">"+table[i].id+"</a> ");
-        $("#"+table[i].target).append("<div id=\"bottom"+table[i].id+"\"><h4>"+table[i].id+"</h4></div>");
+        $("#"+table[i].target).append("<div id=\"bottom"+table[i].id+"\"><h3>"+table[i].id+"</h3></div>");
         if (table[i].value.constructor === vectorConstructor) {
             var rows = table[i].value;
             $("#bottom"+table[i].id).append("<ul id=\"bottomList"+table[i].id+"\"></ul>");
@@ -827,6 +839,23 @@ function htFillFamilies(page, table) {
         }
     }
 
+    if (table.documentsInfo != undefined && table.documentsInfo != null && $("#overallInfo").length > 0) {
+        $("#overallInfo").html("<p><h3>"+keywords[53]+"</h3>"+table.documentsInfo+"</p>");
+    }
+
+    if (table.prerequisites != undefined && table.prerequisites != null && $("#pre_requisites").length > 0) {
+        var preRequisites = "";
+        for (const i in table.prerequisites) {
+            preRequisites += (i == 0) ? "<p><ul><li>"+table.prerequisites[i] + "</li>" :  "<li>"+ table.prerequisites[i] + "</li>";
+        }
+        preRequisites += "</ul></p>";
+        $("#pre_requisites").html(preRequisites);
+    }
+
+    if ($("#contribution").length > 0) {
+        $("#contribution").html(keywords[54]);
+    }
+
     $("#sources-lbl").html(keywords[5]);
     $("#tree-sources-lbl").html(keywords[5]);
     $("#tree-references-lbl").html(keywords[6]);
@@ -849,7 +878,7 @@ function htFillFamilies(page, table) {
         }
 
         var family_id = table.families[i].id;
-        $("#index_list").append("<li id=\"lnk-"+family_id+"\"><a href=\"#hist-"+family_id+"\">"+keywords[8] + " : " +table.families[i].name+"</a></li>");
+        $("#index_list").append("<li id=\"lnk-"+family_id+"\"><a href=\"javascript:void(0);\" onclick=\"htScroolTree('#hist-"+family_id+"');\">"+keywords[8] + " : " +table.families[i].name+"</a></li>");
 
         $("#trees").append("<div id=\"hist-"+family_id+"\"></div>");
 
@@ -894,6 +923,16 @@ function htFillFamilies(page, table) {
         }
     }
     htLoadPage('tree','json', '', false);
+ 
+    if (table.exercise_v2 != undefined && table.exercise_v2.constructor === vectorConstructor) {
+        htWriteQuestions(table.exercise_v2, "", 0);
+    }
+
+    if (table.fill_dates != undefined && table.fill_dates.constructor === vectorConstructor) {
+        htFillHTDate(table.fill_dates);
+    }
+
+    // ADD FILL DATE AND EXERCISES HERE, ADD PREREQUISITES ABOVE
     $("#loading_msg").hide();
 }
 
@@ -971,9 +1010,19 @@ function htCopyLink(familyID, id)
 function htAppendData(prefix, id, familyID, name, table, page) {
     var history = table.history;
     var parents = table.parents;
+    var marriages = table.marriages;
+
     if (history != undefined) {
-        var title = (parents == undefined) ? keywords[8] : keywords[9];
-        $("#"+prefix+"-"+id).append("<p><h4 id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+familyID+"', '"+id+"',"+undefined+");\">"+title + " : " +name+"  (<a href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"'); return false;\" >"+keywords[26]+"</a>)</h4></p>");
+        var title;
+        var localHeader;
+        if (parents == undefined || marriages == undefined) {
+            title = keywords[8];
+            localHeader = "3";
+        } else {
+            title = keywords[9];
+            localHeader = "4";
+        }
+        $("#"+prefix+"-"+id).append("<p><h"+localHeader+" id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+page+"', '"+id+"',"+undefined+");\">"+title + " : " +name+" (<a href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"'); return false;\" >"+keywords[26]+"</a>)</h"+localHeader+"></p>");
     }
 
     var primary_source = table.primary_source;
@@ -999,7 +1048,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
 
                     name = personNameMap.get(couple.father);
                     if (name != undefined) {
-                        parentsLink += "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('"+couple.father+"'); htFillTree('"+couple.father+"'); htSetCurrentLinkBasis('"+familyID+"', '"+couple.father+"',"+undefined+");\">" +name+"</a> ";
+                        parentsLink += "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+couple.father+"'); htFillTree('"+couple.father+"'); htSetCurrentLinkBasis('"+page+"', '"+couple.father+"',"+undefined+");\">" +name+"</a> ";
                     } else if (couple.father_name != undefined && couple.father_family != undefined && couple.father_family != familyID) {
                         parentsLink += "<a href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+couple.father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+couple.father+"', false); return false;\">"+couple.father_name+"</a> & ";
                     }
@@ -1013,7 +1062,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     if (name != undefined) {
                         if (couple.mother_family != undefined) {
                             if (couple.mother_family == familyID) {
-                                parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScroolTree('"+couple.mother+"'); htFillTree('"+couple.mother+"'); htSetCurrentLinkBasis('"+familyID+"', '"+couple.mother+"',"+undefined+");\">" +name+"</a>";
+                                parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+couple.mother+"'); htFillTree('"+couple.mother+"'); htSetCurrentLinkBasis('"+page+"', '"+couple.mother+"',"+undefined+");\">" +name+"</a>";
                             } else {
                                 parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+couple.mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+couple.mother+"', false); return false;\">"+name+"</a>";
                             }
@@ -1044,7 +1093,6 @@ function htAppendData(prefix, id, familyID, name, table, page) {
         }
     }
 
-    var marriages = table.marriages;
     if (marriages != undefined) {
         for (const i in marriages) {
             var marriage = marriages[i];
@@ -1068,7 +1116,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                 if (marriage.family_id == undefined) {
                     marriageLink = marriage.name;
                 } else if (familyID == marriage.family_id) {
-                    marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+familyID+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>";
+                    marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>";
                 } else {
                     marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>";
                 }
@@ -1110,7 +1158,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             if (child.family_id == undefined) {
                 childLink = child.name ;
             } else if (familyID == child.family_id) {
-                childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+familyID+"', '"+child.id+"',"+undefined+");\">"+child.name+"</a>";
+                childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child.name+"</a>";
             } else { 
                 childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child.name+"</a>";
             }
@@ -1242,9 +1290,9 @@ function htHideTree(level, grandpaLevel) {
 
 function htScroolTree(id)
 {
-    var destination = $("#name-"+id).val();
+    var destination = $(id).val();
     if (destination != undefined) {
-        $('html, body').scrollTop($("#name-"+id).offset().top);
+        $('html, body').scrollTop($(id).offset().top);
     }
 }
 

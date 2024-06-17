@@ -3,11 +3,15 @@
     "header" : "Histórias das famílias",
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "sources" : [ "families" ],
-    "last_update" : [ "1715040382" ],
+    "last_update" : [ "1718274496" ],
     "content" : [
         {
+            "id" : "prerequisites",
+            "value" : "<p><h3>Pré-requisitos</h3>Estudar genealogia envolve o conhecimento de várias ciências. Para uma compreensão mais aprofundada dos textos, sugerimos que você primeiro estude as seguintes seções:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b5efc8f9-c268-430f-9681-7a43848ee48e'); return false;\">Primeiros passos:</a>  alguns textos da seção Ciências são reescritos aqui de maneira mais lúdica, incluindo fundamentos essenciais para o entendimento completo da seção Ciências.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('bf994053-16ee-4e7a-aec6-7eddf1d57026'); return false;\">Ciências:</a> Esta seção aborda o estudo de diferentes ciências com o objetivo de remover possíveis barreiras de aprendizado que os leitores possam ter.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('867968ea-62d6-4a8a-b3a0-8b82c76d86bf'); return false;\">História:</a> O estudo da história é complexo e, muitas vezes, a falta de entendimento de diferentes povos cria a ilusão de que a civilização começou em um único lugar. Aqui, apresentamos textos que mostram que somos uma única espécie.</li></ul></p><p>Sempre que acessar uma família, no topo da página haverá uma indicação dos textos mais relevantes a serem estudados para compreender completamente a História da Família.</p>"
+        },
+        {
             "id" : "introduction",
-            "value" : "<p>Nesta página organizamos pessoas de acordo com seu ancestral mais antigo identificado.</p><p>É importante ressaltar que o fato de as pessoas compartilharem um sobrenome não implica que sejam descendentes diretas da primeira pessoa que o adotou, nem que tenham direito a qualquer brasão de armas associado à família. Para uma compreensão mais aprofundada dos diferentes conceitos de família, consulte o texto na seção de ciências do History Tracers (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c725eea-183b-405c-adb2-977ef18c813a'); return false;\">History Tracers, <span id=\"htdate0\"></span>, Família</a>).</p><p>Para um estudo mais detalhada das limitações dos registros históricos em relação à nossa árvore genealógica, bem como uma estimativa do número de gerações esperadas para uma pessoa nos últimos 250.000 anos, consulte o texto na seção de história do History Tracers (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('61414247-8989-434b-9617-9933d19e61ad'); return false;\">History Tracers, <span id=\"htdate1\"></span>, Origem</a>).</p><p><b>Famílias marcadas com um asterisco (*) já passaram por revisão gramatical, porém ainda precisam ajustes para aceitar todos os formatos de datas. Enquanto as famílias marcadas com dois asteriscos (**) necessitam de uma revisão completa.</b></p>"
+            "value" : "<p><h3>Introdução</h3>Nesta página, organizamos pessoas de acordo com seu ancestral mais antigo identificado. É importante ressaltar que o fato de as pessoas compartilharem um sobrenome não implica que sejam descendentes diretos da primeira pessoa que o adotou, nem que tenham direito a qualquer brasão de armas associado à família.</p><p>Os calendários atualmente em uso nem sempre foram os mesmos usados em documentações passadas. Na seção de pré-requisitos de cada família, expomos os calendários utilizados nas documentações.</p><p><b>Famílias marcadas com um asterisco (*) já passaram por revisão gramatical, mas ainda precisam de ajustes para aceitar todos os formatos de datas. Famílias marcadas com dois asteriscos (**) necessitam de uma revisão completa. As famílias sem asteriscos já passaram pelas revisões, mas podem ser atualizadas a qualquer momento devido a novas pesquisas. <span id=\"family_common_sn\"></span></b></p>"
         },
         {
             "id" : "families",
@@ -46,16 +50,6 @@
                         {
                             "id" : "630ec64f-bab4-4d40-b1c8-658ddb6b47fd",
                             "value" : "Fernandes**"
-                        }
-                    ]
-                },
-                { 
-                    "id": "G",
-                    "target": "family-list",
-                    "value": [ 
-                        {
-                            "id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
-                            "value" : "Godos**"
                         }
                     ]
                 },
@@ -155,6 +149,16 @@
                         }
                     ]
                 },
+                { 
+                    "id": "V",
+                    "target": "family-list",
+                    "value": [ 
+                        {
+                            "id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
+                            "value" : "Visigodos (<span id=\"htdate0\"></span> - <span id=\"htdate1\"></span>)."
+                        }
+                    ]
+                },
                 {
                     "id": "W",
                     "target": "family-list",
@@ -168,8 +172,8 @@
                 {
                     "id": "fill_dates",
                     "text": [
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+                        {  "type" : "gregory", "year" : "531", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "711", "month" : "-1", "day" : "-1" }
                     ]
                 }
             ]

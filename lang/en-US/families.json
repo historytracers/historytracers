@@ -6,8 +6,12 @@
     "last_update" : [ "1715040382" ],
     "content" : [
         {
+            "id" : "prerequisites",
+            "value" : "<p><h3>Prerequisites</h3>Studying genealogy requires knowledge from various sciences. To gain a deeper understanding of all texts, we suggest first studying the following sections:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b5efc8f9-c268-430f-9681-7a43848ee48e'); return false;\">First steps:</a> some texts from the Science section are rewritten here in a more engaging way. This section also contains the fundamentals necessary for a complete understanding of the Science section.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('bf994053-16ee-4e7a-aec6-7eddf1d57026'); return false;\">Science:</a> we study different sciences together with the main goal of removing possible barriers that readers may face due to their learning processes.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('867968ea-62d6-4a8a-b3a0-8b82c76d86bf'); return false;\">History:</a> studying history is complex, and often we cannot fully understand different peoples, leading to the illusion that there was only one \"civilization\" from a single place. Here we present various texts to help readers understand that we are one species.</li></ul></p><p>Each time you access a family page, at the top, you will find a 'Prerequisite Section' where we will highlight important texts necessary for understanding that family's history.</p>"
+        },
+        {
             "id" : "introduction",
-            "value" : "<p>On this page, individuals are grouped based on the earliest known ancestor who adopted a surname or had a patronymic.</p><p>It's important to understand that the act of signing a surname today does not necessarily indicate direct descent from the first person to use that surname, nor does it imply ownership of a family coat of arms. For a comprehensive exploration of various family concepts, refer to the science section of History Tracers (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c725eea-183b-405c-adb2-977ef18c813a'); return false;\">History Tracers, <span id=\"htdate0\"></span>, Family</a>).</p><p>For a thorough examination of the limitations inherent in historical data regarding our family tree, as well as an estimation of the number of generations over the past 250,000 years, consult the historical section of History Tracers (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('61414247-8989-434b-9617-9933d19e61ad'); return false;\">History Tracers, <span id=\"htdate1\"></span>, Origem</a>)</p><p><b>Families marked with an asterisk (*) have already undergone grammatical review, but they still require adjustments to accommodate all date formats. Meanwhile, families marked with two asterisks (**) require a comprehensive review.</b></p>"
+            "value" : "<p><h3>Introduction</h3>On this page, individuals are grouped based on the earliest known ancestor who adopted a surname or had a patronymic.</p><p>It's important to understand that bearing a surname today does not necessarily indicate direct descent from the first person to use that surname, nor does it imply ownership of a family coat of arms.</p><p><b>The calendars currently in use were not always the ones used in past documentation. In the prerequisites of each family, we detail the calendars used in their documentation. <span id=\"family_common_sn\"></span></b></p>"
         },
         {
             "id" : "families",
@@ -46,16 +50,6 @@
                         {
                             "id" : "630ec64f-bab4-4d40-b1c8-658ddb6b47fd",
                             "value" : "Fernandes**"
-                        }
-                    ]
-                },
-                { 
-                    "id": "G",
-                    "target": "family-list",
-                    "value": [ 
-                        {
-                            "id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
-                            "value" : "Goths**"
                         }
                     ]
                 },
@@ -155,6 +149,16 @@
                         }
                     ]
                 },
+                { 
+                    "id": "V",
+                    "target": "family-list",
+                    "value": [ 
+                        {
+                            "id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
+                            "value" : "Visigoths (<span id=\"htdate0\"></span> - <span id=\"htdate1\"></span>)."
+                        }
+                    ]
+                },
                 {
                     "id": "W",
                     "target": "family-list",
@@ -168,8 +172,8 @@
                 {
                     "id": "fill_dates",
                     "text": [
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+                        {  "type" : "gregory", "year" : "531", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "711", "month" : "-1", "day" : "-1" }
                     ]
                 }
             ]

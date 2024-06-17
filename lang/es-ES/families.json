@@ -6,8 +6,12 @@
     "last_update" : [ "1715040382" ],
     "content" : [
         {
+            "id" : "prerequisites",
+            "value" : "<p><h3>Pre-requisitos</h3>Estudiar genealogía implica el conocimiento de diversas ciencias. Para una comprensión más amplia de los textos, sugerimos primero estudiar las siguientes secciones:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b5efc8f9-c268-430f-9681-7a43848ee48e'); return false;\">Primeros pasos:</a> algunos textos de la sección \"Ciencias\" se reescriben aquí de manera más lúdica. También contiene fundamentos para el completo entendimiento de la sección \"Ciencias\".</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('bf994053-16ee-4e7a-aec6-7eddf1d57026'); return false;\">Ciencias:</a> estudio de diferentes ciencias con el objetivo de eliminar posibles barreras que los lectores puedan tener en su aprendizaje.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('867968ea-62d6-4a8a-b3a0-8b82c76d86bf'); return false;\">Historia:</a> El estudio de la historia es complejo y muchas veces no permite una comprensión completa de diferentes pueblos, lo que crea la ilusión de que solo hubo \"civilización\" en un lugar específico. Aquí exponemos textos que muestran que somos una sola especie.</li></ul></p><p>Siempre que se acceda a una familia, en la parte superior habrá una indicación de los textos más relevantes que deben ser estudiados para comprender completamente la Historia de la Familia.</p>"
+        },
+        {
             "id" : "introduction",
-            "value" : "<p>En esta página, las personas están agrupadas según su ancestro más remoto que llevó el apellido o tuvo un patronímico.</p><p>Es importante tener en cuenta que el hecho de que una persona lleve un apellido no implica necesariamente una conexión directa con el ancestro más antiguo que lo llevó, ni confiere automáticamente algún derecho a un blasón concedido a la familia. Para obtener una comprensión más amplia de los diversos conceptos de familia, consulta el texto en la sección de ciencias de History Tracers (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c725eea-183b-405c-adb2-977ef18c813a'); return false;\">History Tracers, <span id=\"htdate0\"></span>, Família</a>).</p><p>Para una comprensión más amplia de las limitaciones de los registros históricos en relación con nuestro árbol genealógico, así como una estimación del número de generaciones esperadas para una persona en los últimos 250,000 años, consulta el texto en la sección de historia de History Tracers (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('61414247-8989-434b-9617-9933d19e61ad'); return false;\">History Tracers, <span id=\"htdate1\"></span>, Origem</a>).</p><p><b>Las familias marcadas con un asterisco (*) ya han pasado por revisión gramatical, pero aún requieren ajustes para aceptar todos los formatos de fechas. Mientras que aquellas marcadas con dos asteriscos (**) necesitan una revisión completa.</b></p>"
+            "value" : "<p><h3>Introducción</h3>En esta página, las personas están agrupadas según su ancestro más remoto que llevó el apellido o tuvo un patronímico.</p><p>Es importante tener en cuenta que el hecho de que una persona lleve un apellido no implica necesariamente una conexión directa con el ancestro más antiguo que lo llevó, ni confiere automáticamente algún derecho a un blasón concedido a la familia.</p><p>Los calendarios que se usan actualmente no siempre fueron los mismos que se utilizaron en la documentación pasada. En la sección de pre-requisitos de cada familia, se exponen los calendarios usados en sus documentaciones.</p><p><b>Las familias marcadas con un asterisco (*) ya han pasado por revisión gramatical, pero aún requieren ajustes para aceptar todos los formatos de fechas. Mientras que aquellas marcadas con dos asteriscos (**) necesitan una revisión completa. Las famílias que no poseen ningun asterísco ya pasaron por las revisiones, pero pueden ser actualizadas a cualquier momiento debido a nuevas investigaciones. <span id=\"family_common_sn\"></span> </b></p>"
         },
         {
             "id" : "families",
@@ -46,16 +50,6 @@
                         {
                             "id" : "630ec64f-bab4-4d40-b1c8-658ddb6b47fd",
                             "value" : "Fernandes**"
-                        }
-                    ]
-                },
-                { 
-                    "id": "G",
-                    "target": "family-list",
-                    "value": [ 
-                        {
-                            "id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
-                            "value" : "Godos**"
                         }
                     ]
                 },
@@ -155,6 +149,16 @@
                         }
                     ]
                 },
+                { 
+                    "id": "V",
+                    "target": "family-list",
+                    "value": [ 
+                        {
+                            "id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
+                            "value" : "Visigodos (<span id=\"htdate0\"></span> - <span id=\"htdate1\"></span>)."
+                        }
+                    ]
+                },
                 {
                     "id": "W",
                     "target": "family-list",
@@ -168,8 +172,8 @@
                 {
                     "id": "fill_dates",
                     "text": [
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+                        {  "type" : "gregory", "year" : "531", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "711", "month" : "-1", "day" : "-1" }
                     ]
                 }
             ]

@@ -7,6 +7,8 @@
     "last_update" : [ "Time in Unix Epoch showing last file update." ],
     "authors" : "Name of people that edited text.",
     "reviewers" : "Name of people that review the text.",
+    "documentsInfo" : [ "A short information about document format and calendars used with them." ],
+    "prerequisites" : [ "List necessary prerequisites to understand the text." ],
     "families" : [
         {
             "id" : "Family unique identifier.",
@@ -50,5 +52,18 @@
                 }
             ]
         }
+    ],
+    "exercise_v2" : [ 
+        {
+            "question" : "WRITE A QUESTION",
+            "yesNoAnswer" : "Yes",
+            "additionalInfo" : "The correct answer is Yes, because ..."
+        }
+    ],
+    "fill_dates" : [
+        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+        {"type" : "unix", "epoch" : "0" },
+        {"type" : "julian",  "epoch" : "0" }
     ]
 }
+
