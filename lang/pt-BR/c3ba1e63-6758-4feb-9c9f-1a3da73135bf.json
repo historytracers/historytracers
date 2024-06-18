@@ -1,9 +1,12 @@
 {
     "title" : "Escravizados",
-    "header" : "Lista de familias com pessoas escravizadas",
+    "header" : "Escravizados",
     "sources" : null,
-    "common" : [ "Nesta página listamos famílias que possuíram ao menos uma pessoa escravizada:" ],
+    "common" : [ "<h3>Descrição</h3>Nesta página, listamos eventos históricos onde pessoas foram reportadas como escravizadas." ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update": [ "1718661613" ],
+    "authors": null,
+    "reviewers": null,
     "content" : [
         {
             "id" : "families",
@@ -13,14 +16,23 @@
                 {
                     "family_id" : "9cd69f67-2f4e-43f2-a5b9-355ea760dc8e",
                     "person_id" : "4533fd2a-9151-4c8b-a686-c09502f61d2a",
-                    "name" : "Banu Qasi",
-                    "desc" : "poderiam possuir uma escravizada em sua linhagem, pois Lubb ibn Musa recebeu Ayab que foi escravizada pelos \"Mayus\" (Vikings), não afirmo de maneira categórica, pois não eram monogâmicos."
+                    "page" : "tree",
+                    "name" : "Banu Qasi:",
+                    "desc" : "É possível que esta linhagem possuísse uma escravizada, pois Lubb ibn Musa recebeu Ayab, que foi escravizada pelos \"Mayus\" (Vikings). No entanto, isso não pode ser afirmado categoricamente devido à prática da poligamia entre eles."
+                },
+                {
+                    "family_id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
+                    "person_id" : "b790586a-f995-49da-9846-e92fa334a5c0",
+                    "page" : "tree",
+                    "name" : "Os Visigodos (Egica):",
+                    "desc" : "O Concílio XVI de Toledo, realizado sob o governo de Egica, descreve a situação de algumas pessoas escravizadas durante esse período."
                 },
                 {
                     "family_id" : "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228",
                     "person_id" : "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228",
-                    "name" : "Joaquina \"Cabra\"",
-                    "desc" : "foi uma pessoa que ainda vivia como escravizada no início do século XIX com ao menos uma filha, a qual possuía a mesma posição social."
+                    "page" : "tree",
+                    "name" : "Joaquina \"Cabra\":",
+                    "desc" : "Foi uma pessoa que ainda vivia como escravizada no início do século XIX, juntamente com sua filha, que também era mantida na mesma condição social."
                 }
             ]
         }

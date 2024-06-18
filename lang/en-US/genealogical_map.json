@@ -1,50 +1,50 @@
 {
-    "title" : "Group",
-    "header" : "Group",
+    "title" : "Historical events",
+    "header" : "Historical events",
     "sources" : [ "genealogical_map" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1715040382" ],
+    "last_update" : [ "1718665911" ],
     "content" : [
         {
             "id" : "introduction",
-            "value" : [ "<p>We are all Homo sapiens <i>Homo Sapiens</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate0\"></span></a>) and by exploring the search for our earliest common ancestor with <i>Homo neanderthalensis</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate1\"></span></a>)  we can deepen our understanding of our species' family tree. While this may seem like a simplification, it provides a clear demonstration of our shared humanity.</p><p>While animal evolution unfolds over vast stretches of time, punctuated by occasional bursts of rapid change (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c6bc83e7-103d-44ea-8623-bafa1862860c'); return false;\">Sperling, Erik A., et Richard G. Stockey, <span id=\"htdate2\"></span>, pp. 605-622</a>),  the evolution of language (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f49430b6-ab85-4d19-8d2b-d0ce06126dc4'); return false;\">Fitch, W.T., <span id=\"htdate3\"></span>, 3-33</a>) progresses swiftly. This rapid linguistic evolution enables us to categorize and label groups of people, inadvertently fostering the perception of differences among us.</p>" ]
+            "value" : [ "<p><h3>Description</h3>We are all <i>Homo sapiens</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate0\"></span></a>). By exploring our search for the earliest common ancestor with <i>Homo neanderthalensis</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate1\"></span></a>), we can deepen our understanding of our species' family tree. While this may seem like a simplification, it clearly demonstrates our shared humanity.</p><p>Animal evolution unfolds over vast stretches of time, punctuated by occasional bursts of rapid change (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c6bc83e7-103d-44ea-8623-bafa1862860c'); return false;\">Sperling, Erik A., et Richard G. Stockey, <span id=\"htdate2\"></span>, pp. 605-622</a>). In contrast, the evolution of language progresses swiftly (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f49430b6-ab85-4d19-8d2b-d0ce06126dc4'); return false;\">Fitch, W.T., <span id=\"htdate3\"></span>, 3-33</a>). This rapid linguistic evolution enables us to categorize and label groups of people and events, inadvertently fostering the perception of differences among us.</p>" ]
         },
         {
             "id" : "groups",
-            "desc" : "Here are the groups of people (families) studied",
+            "desc" : "Historical events:",
             "target" : "people-group",
             "page" : "genealogical_map_list",
             "value_type" : "group-list",
             "value" : [
                 {
                     "id": "f6e2710f-1e34-44df-9b6d-e9ee2d5e783b",
-                    "name": "American Indigenous",
+                    "name": "American Indigenous:",
                     "desc": "These are individuals who inhabited the Americas for millennia before the arrival of Europeans."
                 },
                 {
                     "id": "cb99b613-eb70-416b-b283-c8dc8c3d3ef6",
-                    "name": "Holy Office Familiar",
+                    "name": "Holy Office Familiar:",
                     "desc": "These individuals enjoyed various privileges and constituted a sort of \"third order\" within the Inquisition (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d960f232-9cfe-4cb3-8ba2-23af2207799f'); return false;\">Saraiva, Antonio José, <span id=\"htdate4\"></span>, pp. 240 - 243</a>). This section lists those who applied to become Familiars and underwent thorough familial investigations before being accepted or rejected."
                 },
                 {
                     "id": "272f30aa-d143-4a9f-a190-462928f17188",
-                    "name": "Mussulman",
-                    "desc": "These are families that [supposedly] have Muslim ancestors"
+                    "name": "Muslims:",
+                    "desc": "These are families that have Muslim ancestors."
                 },
                 {
                     "id": "91eab659-f361-47e3-b573-48ccab3e29ce",
-                    "name": "People defamed as Jews",
-                    "desc": "This refers to individuals who lacked recent Jewish ancestry but were nonetheless labeled as Jews by others. The term <b>defamation</b> harkens back to the era of the Inquisition and should not be applied in the same manner today."
+                    "name": "People defamed as Jews:",
+                    "desc": "This refers to individuals who lacked recent Jewish ancestry but were nonetheless labeled as Jews by others. The term \"defamation\" harks back to the era of the Inquisition and should not be applied in the same manner today."
                 },
                 {
                     "id": "c3ba1e63-6758-4feb-9c9f-1a3da73135bf",
-                    "name": "Slavery people",
-                    "desc": "These families have at least one ancestor who was enslaved."
+                    "name": "Enslaved people:",
+                    "desc": "These events have at least one person who was enslaved."
                 },
                 {
                     "id": "18a43a9e-eb2b-4320-b05a-c9a75e88fb27",
-                    "name": "Persecution of Jew",
-                    "desc": "This link provides insight into various instances of persecution throughout history."
+                    "name": "Persecution of Jew:",
+                    "desc": "This section provides insight into various instances of persecution throughout history."
                 },
                 {
                     "id": "fill_dates",

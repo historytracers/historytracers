@@ -1,9 +1,12 @@
 {
-    "title" : "Slavery people",
-    "header" : "Slavery people",
+    "title" : "Enslaved people",
+    "header" : "Enslaved people",
     "sources" : null,
-    "common" : [ "This page has a list of families with at least one slave person:" ],
+    "common" : [ "<h3>Description</h3>On this page, we list events where people were reported as enslaved." ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update": [ "1718661613" ],
+    "authors": null,
+    "reviewers": null,
     "content" : [
         {
             "id" : "families",
@@ -13,14 +16,23 @@
                 {
                     "family_id" : "9cd69f67-2f4e-43f2-a5b9-355ea760dc8e",
                     "person_id" : "4533fd2a-9151-4c8b-a686-c09502f61d2a",
-                    "name" : "The Banu Qasi",
-                    "desc" : "could have a slave person in their lineage, because Lubb ibn Musa had a marriage with Ayab that was a slave of \"Mayus\" (Vikings), but I cannot say this really happened, because they were not monogamous."
+                    "page" : "tree",
+                    "name" : "The Banu Qasi:",
+                    "desc" : "They could have had an enslaved person in their lineage because Lubb ibn Musa married Ayab, who had been enslaved by the \"Mayus\" (Vikings). However, this cannot be confirmed definitively due to their non-monogamous practices."
+                },
+                {
+                    "family_id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
+                    "person_id" : "b790586a-f995-49da-9846-e92fa334a5c0",
+                    "page" : "tree",
+                    "name" : "Os Visigodos (Egica):",
+                    "desc" : "The 16th Council of Toledo, held during the reign of Egica, describes the situation of some enslaved individuals."
                 },
                 {
                     "family_id" : "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228",
                     "person_id" : "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228",
-                    "name" : "Joaquina \"Cabra\"",
-                    "desc" : "was still a slave in the beginning of the 19th century. She gave birth to at least one child that had her social status."
+                    "page" : "tree",
+                    "name" : "Joaquina \"Cabra\":",
+                    "desc" : "She was still enslaved at the beginning of the 19th century and had at least one child who inherited her social status."
                 }
             ]
         }
