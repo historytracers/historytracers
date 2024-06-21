@@ -398,3 +398,41 @@ function htCleanMesoamericanVigesimalValues(rows, outputColumn)
     }
 }
 
+function htModifyArrow(classObj, value)
+{
+    if (value < 0 || value > 9) {
+        $(classObj).css('display','none');
+        $(classObj).css('visibility','hidden');
+    } else {
+        $(classObj).css('display','block');
+        $(classObj).css('visibility','visible');
+    }
+
+    if (value < 0)
+        value = 0;
+    else if (value > 9)
+        value = 9;
+
+    return value;
+}
+
+function htSetImageForDigits(leftHand, rightHand, value)
+{
+    if (value > 10) {
+        return;
+    }
+
+    var leftValue;
+    var rightValue;
+    if (value > 5) {
+        rightValue = 5;
+        leftValue = value - rightValue;
+    } else {
+        rightValue = value;
+        leftValue = 0;
+    }
+
+    $(leftHand).attr('src', 'images/'+leftValue+'Left_Hand_Small.png');
+    $(rightHand).attr('src', 'images/'+rightValue+'Right_Hand_Small.png');
+}
+

@@ -338,3 +338,93 @@
   top: 25%;
 }
 
+.htTwoGeometricalRectangle {
+  margin: auto;
+  width: 20%;
+}
+
+.htFirstGeometrical {
+  float: left;
+  width: 50%;
+}
+
+.htSecondGeometrical {
+  width: 50%;
+  height: 80px;
+  margin-left: 50%;
+}
+
+.htVerticalRectangle {
+  background-color: pink;
+  width: 40px;
+  height: 80px;
+}
+
+.htHorizontalRectangle {
+  background-color: #ADD8E0;
+  width: 80px;
+  height: 40px;
+}
+
+.htSquare {
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+
+.htColorSoftYellow {
+  background-color: #fbffa0;
+}
+
+.htColorSoftRed {
+  background-color: #ff9bab;
+}
+
+.htCircle {
+  height: 50px;
+  width: 50px;
+  background-color: #66cc90;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.htEye {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border: solid 1px #000;
+  border-radius:  75% 5%;
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.htEye:before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: solid 1px #000;
+  border-radius: 50%;
+  left: 10px;
+  top: 12px;
+}
+
+.htUpArrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid #0f0;
+}
+
+.htDownArrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 50px solid #00f;    
+}
+

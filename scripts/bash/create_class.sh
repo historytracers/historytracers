@@ -29,12 +29,12 @@ ht_create_files() {
 }
 
 if [ $# -ne 1 ]; then
-    echo "Please specify the class type: science, history, or kids."
+    echo "Please specify the class type: science, history, or first_steps."
     exit 1;
 fi
 
-if [ "${1}" != "science" ] && [ "${1}" != "history" ] && [ "${1}" != "kids" ] ; then
-    echo "Invalid argument. Please use one of the following: science, history, or kids."
+if [ "${1}" != "science" ] && [ "${1}" != "history" ] && [ "${1}" != "first_steps" ] ; then
+    echo "Invalid argument. Please use one of the following: science, history, or first_steps."
     exit 1;
 fi
 

@@ -73,7 +73,7 @@ $(document).ready(function(){
             case 'genealogical_faq':
             case 'genealogical_map':
             case 'families':
-            case 'first_step':
+            case 'first_steps':
             case 'sources':
             case 'indigenous_who':
             case 'indigenous_time':
