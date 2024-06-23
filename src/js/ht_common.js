@@ -839,7 +839,7 @@ function htFillFamilies(page, table) {
     }
 
     if (table.common != undefined) {
-        $("#tree-common-lbl").html(keywords[25]);
+        $("#tree-common-lbl").html("<h3>"+keywords[25]+"</h3>");
         $("#common").html("");
         for (const i in table.common) {
             $("#common").append("<div id=\"hist-comm-"+i+"\">"+table.common[i]+"</div>");
@@ -847,7 +847,16 @@ function htFillFamilies(page, table) {
     }
 
     if (table.documentsInfo != undefined && table.documentsInfo != null && $("#overallInfo").length > 0) {
-        $("#overallInfo").html("<p><h3>"+keywords[53]+"</h3>"+table.documentsInfo+"</p>");
+        var dIText = "<p><h3>"+keywords[53]+"</h3>"+keywords[59]+"</p>";
+        if (table.documentsInfo.length == 4) {
+            dIText += table.documentsInfo[3];
+        }
+
+        $("#overallInfo").html(dIText);
+
+        if ($("#documentsInfoLang").length > 0) { $("#documentsInfoLang").html(table.documentsInfo[0]); }
+        if ($("#documentsInfoCalendarName").length > 0) { $("#documentsInfoCalendarName").html(table.documentsInfo[1]); }
+        if ($("#documentsInfoCalendarVisibleOption").length > 0) { $("#documentsInfoCalendarVisibleOption").html(table.documentsInfo[2]); }
     }
 
     if (table.prerequisites != undefined && table.prerequisites != null && $("#pre_requisites").length > 0) {
@@ -939,7 +948,6 @@ function htFillFamilies(page, table) {
         htFillHTDate(table.fill_dates);
     }
 
-    // ADD FILL DATE AND EXERCISES HERE, ADD PREREQUISITES ABOVE
     $("#loading_msg").hide();
 }
 

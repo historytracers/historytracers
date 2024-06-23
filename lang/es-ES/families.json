@@ -3,7 +3,7 @@
     "header" : "Historias de las familias",
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "sources" : [ "families" ],
-    "last_update" : [ "1715040382" ],
+    "last_update" : [ "1719015331" ],
     "content" : [
         {
             "id" : "prerequisites",
@@ -73,7 +73,7 @@
                     "value": [ 
                         {
                             "id" : "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228",
-                            "value" : "Familia de Joaquina \"Cabra\"**"
+                            "value" : "Familia de Joaquina \"Cabra\" (<span id=\"htdate0\"></span> - <span id=\"htdate1\"></span>)"
                         }
                     ]
                 },
@@ -155,7 +155,7 @@
                     "value": [ 
                         {
                             "id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
-                            "value" : "Visigodos (<span id=\"htdate0\"></span> - <span id=\"htdate1\"></span>)."
+                            "value" : "Visigodos (<span id=\"htdate2\"></span> - <span id=\"htdate3\"></span>)."
                         }
                     ]
                 },
@@ -172,6 +172,8 @@
                 {
                     "id": "fill_dates",
                     "text": [
+                        {  "type" : "gregory", "year" : "1815", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1847", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "531", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "711", "month" : "-1", "day" : "-1" }
                     ]
