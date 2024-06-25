@@ -58,30 +58,35 @@ html {
   position: relative;
   left: 12%;
   height: 100%;
-  width: 77%;
+  width: 76%;
   float: left;
 }
 
 .top-bar-inside-left {
-  position: relative;
+  position: absolute;
   height: 100%;
-  width: 87%;
+  width: 80%;
   float: left;
-  font-size: 3vw;
+  font-size: 2vw;
   text-align: center;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  overflow-wrap: break-word;
 }
 
 .top-bar-inside-right {
   position: relative;
   height: 100%;
-  width: 17%;
+  width: 13%;
   float: left;
 }
 
 .top-bar-right {
   position: fixed;
   height: 10%;
-  width: 23%;
+  width: 24%;
   top: 1%;
   right: 1%;
   float: right;
