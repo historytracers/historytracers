@@ -82,10 +82,10 @@ if($("#tree-references-lbl").length>0){$("#tree-references-lbl").html(keywords[6
 if($("#tree-holy_references-lbl").length>0){$("#tree-holy_references-lbl").html(keywords[7]);}
 if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");}}
 if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){htLoadExercise();$("#btncheck").on("click",function(){htCheckAnswers();return false;});$("#btnnew").on("click",function(){htLoadExercise();return false;});});}}
-if($("#prevText").length>0){$("#prevText").html(keywords[56]);}
-if($("#topText").length>0){$("#topText").html(keywords[57]);}
-if($("#nextText").length>0){$("#nextText").html(keywords[58]);}
-if($("#indexText").length>0){$("#indexText").html(keywords[60]);}
+if($("#htPrevText").length>0){$("#htPrevText").html(keywords[56]);}
+if($("#htTopText").length>0){$("#htTopText").html(keywords[57]);}
+if($("#htNextText").length>0){$("#htNextText").html(keywords[58]);}
+if($("#htIndexText").length>0){$("#htIndexText").html(keywords[60]);}
 if(page=="families"&&$("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}}
 function htLoadSources(data,arg,page)
 {if(data.sources!=undefined){for(const i in data.sources){htLoadPage(data.sources[i],'json','source',false);}}else{if(arg!='source'){return true;}

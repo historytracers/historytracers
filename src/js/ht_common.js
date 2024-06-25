@@ -604,13 +604,13 @@ function htFillWebPage(page, data)
         }
     }
 
-    if ($("#prevText").length > 0) { $("#prevText").html(keywords[56]); }
+    if ($("#htPrevText").length > 0) { $("#htPrevText").html(keywords[56]); }
 
-    if ($("#topText").length > 0) {  $("#topText").html(keywords[57]);  }
+    if ($("#htTopText").length > 0) {  $("#htTopText").html(keywords[57]);  }
 
-    if ($("#nextText").length > 0) { $("#nextText").html(keywords[58]); }
+    if ($("#htNextText").length > 0) { $("#htNextText").html(keywords[58]); }
 
-    if ($("#indexText").length > 0) { $("#indexText").html(keywords[60]); }
+    if ($("#htIndexText").length > 0) { $("#htIndexText").html(keywords[60]); }
 
     if (page == "families" && $("#family_common_sn").length > 0) {
         $("#family_common_sn").html(keywords[52]);
