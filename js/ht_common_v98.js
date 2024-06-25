@@ -85,6 +85,7 @@ if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var
 if($("#prevText").length>0){$("#prevText").html(keywords[56]);}
 if($("#topText").length>0){$("#topText").html(keywords[57]);}
 if($("#nextText").length>0){$("#nextText").html(keywords[58]);}
+if($("#indexText").length>0){$("#indexText").html(keywords[60]);}
 if(page=="families"&&$("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}}
 function htLoadSources(data,arg,page)
 {if(data.sources!=undefined){for(const i in data.sources){htLoadPage(data.sources[i],'json','source',false);}}else{if(arg!='source'){return true;}
