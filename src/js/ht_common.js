@@ -413,6 +413,11 @@ function htLoadPage(page, ext, arg, reload) {
     });
 }
 
+function htFillClassWithText(className, text)
+{
+    $(className).each(function() { $(this).html( text ); });
+}
+
 function htDetectLanguage()
 {
     var lang = navigator.language || navigator.userLanguage;
@@ -604,13 +609,10 @@ function htFillWebPage(page, data)
         }
     }
 
-    if ($("#htPrevText").length > 0) { $("#htPrevText").html(keywords[56]); }
-
-    if ($("#htTopText").length > 0) {  $("#htTopText").html(keywords[57]);  }
-
-    if ($("#htNextText").length > 0) { $("#htNextText").html(keywords[58]); }
-
-    if ($("#htIndexText").length > 0) { $("#htIndexText").html(keywords[60]); }
+    htFillClassWithText(".htPrevText", keywords[56]);
+    htFillClassWithText(".htTopText", keywords[57]);
+    htFillClassWithText(".htNextText", keywords[58]);
+    htFillClassWithText(".htIndexText", keywords[60]);
 
     if (page == "families" && $("#family_common_sn").length > 0) {
         $("#family_common_sn").html(keywords[52]);

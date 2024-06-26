@@ -53,6 +53,8 @@ var lang=$("#site_language").val();if(lang==null||lang==undefined){lang=htDetect
 var unixEpoch=Date.now();if(ext=="html"){primarySourceMap.clear();refSourceMap.clear();holyRefSourceMap.clear();var additional=(appendPage.length==0)?'&':appendPage+'&';$("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);return false;}
 $("#loading_msg").show();$.ajax({type:'GET',url:(arg!='source')?"lang/"+lang+"/"+page+".json":"lang/sources/"+page+".json",contentType:'application/json; charset=utf-8',data:'nocache='+unixEpoch,async:true,dataType:'json',success:function(data){if(data.length==0){$("#loading_msg").hide();return false;}
 htLoadSources(data,arg,page);htFillWebPage(page,data);return false;},});}
+function htFillClassWithText(className,text)
+{$(className).each(function(){$(this).html(text);});}
 function htDetectLanguage()
 {var lang=navigator.language||navigator.userLanguage;if(lang==undefined||lang==null||lang.length==0){lang="en-US";}else{var llang=lang.substring(0,2).toLowerCase();if(($("#site_language option[value='"+lang+"']").length>0)==false){if(llang=="pt"){lang="pt-BR";}else if(llang=="es"){lang="es-ES";}else{lang="en-US";}}
 var country=lang.substring(3).toUpperCase();llang=lang.substring(0,2).toLowerCase();lang=llang+'-'+country;}
@@ -82,11 +84,7 @@ if($("#tree-references-lbl").length>0){$("#tree-references-lbl").html(keywords[6
 if($("#tree-holy_references-lbl").length>0){$("#tree-holy_references-lbl").html(keywords[7]);}
 if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");}}
 if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){htLoadExercise();$("#btncheck").on("click",function(){htCheckAnswers();return false;});$("#btnnew").on("click",function(){htLoadExercise();return false;});});}}
-if($("#htPrevText").length>0){$("#htPrevText").html(keywords[56]);}
-if($("#htTopText").length>0){$("#htTopText").html(keywords[57]);}
-if($("#htNextText").length>0){$("#htNextText").html(keywords[58]);}
-if($("#htIndexText").length>0){$("#htIndexText").html(keywords[60]);}
-if(page=="families"&&$("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}}
+htFillClassWithText(".htPrevText",keywords[56]);htFillClassWithText(".htTopText",keywords[57]);htFillClassWithText(".htNextText",keywords[58]);htFillClassWithText(".htIndexText",keywords[60]);if(page=="families"&&$("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}}
 function htLoadSources(data,arg,page)
 {if(data.sources!=undefined){for(const i in data.sources){htLoadPage(data.sources[i],'json','source',false);}}else{if(arg!='source'){return true;}
 htFillMapSource(primarySourceMap,data.primary_sources)
