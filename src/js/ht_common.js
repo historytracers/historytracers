@@ -1380,8 +1380,9 @@ function htFillDivTree(divID, personID, type)
 
     $(divID).html("");
     var value = name;
+    var idx = name.search("\\(");
     
-    $(divID).append(value.substring(0,32));
+    $(divID).append(value.substring(0, (idx != -1)? idx : 32));
     if (type == "theory") {
         $(divID).css('border-style', 'solid');
         $(divID).css('font-style', 'normal');

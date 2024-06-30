@@ -204,6 +204,6 @@ var grandparents1=htFillDivTree("#mother",parentsId[1],type);if(grandparents1==u
 function htFillDivTree(divID,personID,type)
 {if(personID==undefined||personID=="null"){$(divID).hide();return undefined;}
 var name=personNameMap.get(personID);if(name==undefined){return undefined;}
-$(divID).html("");var value=name;$(divID).append(value.substring(0,32));if(type=="theory"){$(divID).css('border-style','solid');$(divID).css('font-style','normal');}else{$(divID).css('border-style','dashed');$(divID).css('font-style','italic');}
+$(divID).html("");var value=name;var idx=name.search("\\(");$(divID).append(value.substring(0,(idx!=-1)?idx:32));if(type=="theory"){$(divID).css('border-style','solid');$(divID).css('font-style','normal');}else{$(divID).css('border-style','dashed');$(divID).css('font-style','italic');}
 $(divID).show();return familyMap.get(personID);}
 function getRandomArbitrary(min,max){min=Math.ceil(min);max=Math.floor(max);return Math.floor(Math.random()*(max-min)+min);}
