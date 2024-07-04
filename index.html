@@ -5,28 +5,30 @@
   <base href="./">
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="keyword" content="Genealogy; Sciences">
+  <meta name="keyword" content="Genealogy; Sciences; Games">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History Tracers</title>
 
   <meta http-equiv="Cache-Control" content="max-age=0, no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
-  <link rel="stylesheet" href="css/ht_common_v39.css?v=fdcda695-ba83-4b0c-96b8-5ddde9801e7d">
+
+  <link rel="stylesheet" href="css/ht_common_v40.css?v=b4c82604-0dd5-4f6e-a688-2f4d4ffc7b36">
   <link rel="stylesheet" href="css/ht_math_v6.css?v=e333faa0-8888-4b8f-bfee-e14c87e55966">
   <!-- https://docs.fontawesome.com/v5/web/setup/host-font-awesome-yourself -->
   <link rel="stylesheet" href="css/fa_6_5_2.min.css?v=bb7aa57e-fe8d-4884-aae5-1826d8a04e8b">
 
   <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
-  <script type="text/javascript" src="js/ht_common_v101.js?v=20110c94-e7f2-4a81-812e-bc65b9703fd0"></script>
-  <script type="text/javascript" src="js/ht_math_v7.js?v=f5751e18-b66a-4d80-b66b-ce66eed179ce"></script>
+  <script type="text/javascript" src="js/ht_common_v102.js?v=2a621e70-4399-49e2-b3f7-b35a7f4977a3"></script>
+  <script type="text/javascript" src="js/ht_math_v8.js?v=91fc94d0-5455-4063-b846-585923805c08"></script>
   <script type="text/javascript" src="js/chart_4_4_3.js?v=1bca72d0-3c29-4776-8e72-223676651de6"></script>
   <script type="text/javascript" src="js/ht_chart_v3.js?v=773c1ad0-72ff-4b20-afc7-ae0a51b5bf7c"></script>
   <script type="text/javascript" src="js/astro.js?v=a560bbae-0ac0-4bcf-9dcb-e9f2dba9ab98"></script>
   <script type="text/javascript" src="js/calendar.js?v=750ecce5-1ae0-4cdd-857f-9273ed54f33f"></script>
 </head>
 
-<body class="dark-theme">
+<body>
   <script>
       // Avoid wrong click
       var indexUnixEpoch = Date.now();
@@ -39,7 +41,7 @@
         History<br /> Tracers
     </div>
     <ul class="sidebar-navigation">
-        <li> <b><label id="lblmain"></label></b>
+        <li> <b><label id="lblmain" class="menu-title"></label></b>
             <ul class="sidebar-all">
                 <li class="menu"> <a href="index.html?page=main" onclick="htLoadPage('main','html', '', false); return false;" id="sbMain"></a></li>
                 <li class="menu"> <a href="index.html?page=license" onclick="htLoadPage('license','html', '', false); return false;" id="sbLicense"></a></li>
@@ -49,14 +51,15 @@
             </ul>
         </li>
 
-        <li> <b><label id="lblclass"></label></b>
+        <li> <b><label id="lblclass" class="menu-title"></label></b>
             <ul class="sidebar-all">
                 <li class="menu"> <a href="index.html?page=first_steps" onclick="htLoadPage('first_steps','html', '', false); return false;" id="sbKidsClass"></a></li>
                 <li class="menu"> <a href="index.html?page=science" onclick="htLoadPage('science','html', '', false); return false;" id="sbGeneralClass"></a></li>
+                <li class="menu"> <a href="index.html?class_content&arg=7ec87720-69a7-46f4-ac64-b9c560b02739" onclick="htLoadPage('class_content', 'html', '7ec87720-69a7-46f4-ac64-b9c560b02739', false); return false;" id="sbClassGame"></a></li>
             </ul>
         </li>
 
-        <li> <b><label id="lblgenealogy"></label></b>
+        <li> <b><label id="lblgenealogy" class="menu-title"></label></b>
             <ul class="sidebar-genealogy">
                 <li class="menu"> <a href="index.html?page=genealogical_first_steps" onclick="htLoadPage('genealogical_first_steps','html', '', false); return false;" id="sbFirst"></a></li>
                 <li class="menu"> <a href="index.html?page=sources" onclick="htLoadPage('sources','html', '', false); return false;" id="sbSource"></a></li>
@@ -66,7 +69,7 @@
                 <li class="menu"> <a href="index.html?page=genealogical_faq" onclick="htLoadPage('genealogical_faq','html', '', false); return false;" id="sbFAQ"></a></li>
             </ul>
         </li>
-        <li> <b><label id="lblindigenous"></label></b>
+        <li> <b><label id="lblindigenous" class="menu-title"></label></b>
             <ul class="sidebar-indigenous">
                 <li class="menu"> <a href="index.html?class_content&arg=c5492aa1-67c3-4794-95f3-c7ff05bac191" onclick="htLoadPage('class_content', 'html', 'c5492aa1-67c3-4794-95f3-c7ff05bac191', false); return false;" id="sbIndigenousTime"></a></li>
                 <li class="menu"> <a href="index.html?page=genealogical_map_list&arg=f6e2710f-1e34-44df-9b6d-e9ee2d5e783b" onclick="htLoadPage('genealogical_map_list', 'html', 'f6e2710f-1e34-44df-9b6d-e9ee2d5e783b', false); return false;" id="sbIndigenousGenealogy"></a></li>
@@ -119,8 +122,8 @@
     </div>
 </div>
 <div class="right-sources">
-    <b><p id ="current_day">&nbsp;</p></b>
-    <p id ="tree-description"></p>
+    <b><p id ="current_day" class="cited-text">&nbsp;</p></b>
+    <p id ="tree-description" class="cited-text"></p>
     <h4 id="tree-sources-lbl"></h4>
     <div id="tree-source" class="cited-text"></div>
 
@@ -161,7 +164,7 @@
     </div>
 </div>
 
-<!-- div id="ht_desc" class="ht_description">
-</div -->
+<div id="ht_games" class="ht_description">
+</div>
 
 </body>

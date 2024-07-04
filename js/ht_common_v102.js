@@ -83,7 +83,8 @@ if($("#tree-sources-lbl").length>0){$("#tree-sources-lbl").html(keywords[5]);}
 if($("#tree-references-lbl").length>0){$("#tree-references-lbl").html(keywords[6]);}
 if($("#tree-holy_references-lbl").length>0){$("#tree-holy_references-lbl").html(keywords[7]);}
 if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");}}
-if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){htLoadExercise();$("#btncheck").on("click",function(){htCheckAnswers();return false;});$("#btnnew").on("click",function(){htLoadExercise();return false;});});}}
+if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){htLoadExercise();if($("#btncheck").length>0){$("#btncheck").on("click",function(){htCheckAnswers();return false;});}
+if($("#btnnew").length>0){$("#btnnew").on("click",function(){htLoadExercise();return false;});}});}}
 htFillClassWithText(".htPrevText",keywords[56]);htFillClassWithText(".htTopText",keywords[57]);htFillClassWithText(".htNextText",keywords[58]);htFillClassWithText(".htIndexText",keywords[60]);if(page=="families"&&$("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}}
 function htLoadSources(data,arg,page)
 {if(data.sources!=undefined){for(const i in data.sources){htLoadPage(data.sources[i],'json','source',false);}}else{if(arg!='source'){return true;}
@@ -110,17 +111,25 @@ if($(explanation).length>0){$(explanation).css("color",format);$(explanation).cs
 return false;}
 function htResetAnswers(vector)
 {for(let i=0;i<vector.length;i++){$("#answer"+i).text("");$("input[name=exercise"+i+"]").prop("checked",false);$("#explanation"+i).css("display","none");$("#explanation"+i).css("visibility","hidden");}}
+function htWriteGame(table,later,idx)
+{var tmpData="<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";var total=0;for(const i in table){tmpData+=table[i].imageDesc+"|";total++;}
+tmpData+="</span><span id=\"htTotalGameData\">"+total+"</span></p>";htAddPaperDivs("#paper","game1",tmpData,"",later,idx+1000);}
 function htWriteQuestions(table,later,idx)
 {var questions="<p><h3>"+keywords[50]+"</h3><ol>";var tmpAnswers="<p class=\"ht_description\"><span id=\"htAnswersToBeUsed\">";var total=0;for(const i in table){questions+="<li>"+table[i].question+" <input type=\"radio\" id=\"ans"+i+"yes\" name=\"exercise"+i+"\" value=\"1\" /> <b><label>"+keywords[31]+"</label></b> <input type=\"radio\" id=\"ans"+i+"no\" name=\"exercise"+i+"\" value=\"0\" /> <b><label>"+keywords[32]+"</label></b>. <span class=\"ht_description\" id=\"explanation"+i+"\"><span id=\"answer"+i+"\"></span> "+table[i].additionalInfo+"</span></li>";tmpAnswers+=(table[i].yesNoAnswer=="Yes")?1+";":0+";";total=i;}
 if(total>0){total++;}
 questions+="</ol><input id=\"btncheck\" type=\"button\" onclick=\"return false;\" value=\""+keywords[29]+"\" /> <input id=\"btnnew\" type=\"button\" onclick=\"return false;\" value=\""+keywords[30]+"\" /></p>";tmpAnswers+="</span><span id=\"htTotalQuestions\">"+total+"</span></p>";htAddPaperDivs("#paper","exercises0",questions,"",later,idx);htAddPaperDivs("#paper","exercises1",tmpAnswers,"",later,idx+1000);}
+function htLoadGameData()
+{var ret=[];var tmpData="<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";var end=parseInt($("#htTotalGameData").html());if(end==undefined){return end;}
+var htmlValues=$("#htGameDataToBeUsed").html();if(htmlValues==undefined){return end;}
+var values=htmlValues.split("|");for(let i=0;i<end;i++){ret.push({"imageDesc":values[i]});}
+$("#htAnswersToBeUsed").html("");return ret;}
 function htLoadAnswersFromExercise()
 {var ret=[];var end=parseInt($("#htTotalQuestions").html());if(end==undefined){return end;}
 var htmlValues=$("#htAnswersToBeUsed").html();if(htmlValues==undefined){return end;}
 var values=htmlValues.split(";");for(let i=0;i<end;i++){ret.push(parseInt(values[i]));}
 $("#htAnswersToBeUsed").html("");return ret;}
 function htFillPaperContent(table,last_update,page_authors,page_reviewers){for(const i in table){if(i==1){htFillDivAuthorsContent("#paper",last_update,page_authors,page_reviewers);}
-var later=(i==0&&last_update>0&&table[i].id=="navigation")?"<hr class=\"limit\" />":"";if(table[i].text.constructor===stringConstructor){htAddPaperDivs("#paper",table[i].id,table[i].text,"",later,i);}else if(table[i].text.constructor===vectorConstructor){if(table[i].id=="exercise_v2"){htWriteQuestions(table[i].text,later,i);}else if(table[i].id!="fill_dates"){for(const j in table[i].text){htAddPaperDivs("#paper",table[i].id+"_"+j,table[i].text[j],"",later,i);}}else{htFillHTDate(table[i].text);}}}
+var later=(i==0&&last_update>0&&table[i].id=="navigation")?"<hr class=\"limit\" />":"";if(table[i].text.constructor===stringConstructor){htAddPaperDivs("#paper",table[i].id,table[i].text,"",later,i);}else if(table[i].text.constructor===vectorConstructor){if(table[i].id=="exercise_v2"){htWriteQuestions(table[i].text,later,i);}else if(table[i].id=="game_v1"){htWriteGame(table[i].text,later,i);}else if(table[i].id!="fill_dates"){for(const j in table[i].text){htAddPaperDivs("#paper",table[i].id+"_"+j,table[i].text[j],"",later,i);}}else{htFillHTDate(table[i].text);}}}
 if(table[0].id=="navigation"){htAddPaperDivs("#paper","repeat-index",table[0].text,"<hr class=\"limit\" />","",100000);}}
 function htFillFamilies(page,table){if(table.title!=undefined){$(document).prop('title',table.title);}
 if(table.common!=undefined){$("#tree-common-lbl").html("<h3>"+keywords[25]+"</h3>");$("#common").html("");for(const i in table.common){$("#common").append("<div id=\"hist-comm-"+i+"\">"+table.common[i]+"</div>");}}
@@ -137,6 +146,7 @@ var people=family.people;for(const j in people){if(people[j].id==undefined||peop
 var person_id=people[j].id;$("#hist-"+family_id).append("<div id=\"tree-"+person_id+"\" class=\"tree-person-text\"></div>");personNameMap.set(people[j].id,people[j].name);htAppendData("tree",person_id,family_id,people[j].name,people[j],page);}}
 var destination=$("#selector").val();if(destination!=undefined&&destination!=null&&destination.length>1){var localObject=$("#name-"+destination).val();if(localObject!=undefined){$('html, body').scrollTop($("#name-"+destination).offset().top);htFillTree(destination);}}
 htLoadPage('tree','json','',false);if(table.exercise_v2!=undefined&&table.exercise_v2.constructor===vectorConstructor){htWriteQuestions(table.exercise_v2,"",0);}
+if(table.game_v1!=undefined&&table.game_v1.constructor===vectorConstructor){htWriteGame(table.game_v1,"",1);}
 if(table.fill_dates!=undefined&&table.fill_dates.constructor===vectorConstructor){htFillHTDate(table.fill_dates);}
 $("#loading_msg").hide();}
 function htSetMapFamily(id,father,mother,type)
@@ -207,3 +217,5 @@ var name=personNameMap.get(personID);if(name==undefined){return undefined;}
 $(divID).html("");var value=name;var idx=name.search("\\(");$(divID).append(value.substring(0,(idx!=-1)?idx:32));if(type=="theory"){$(divID).css('border-style','solid');$(divID).css('font-style','normal');}else{$(divID).css('border-style','dashed');$(divID).css('font-style','italic');}
 $(divID).show();return familyMap.get(personID);}
 function getRandomArbitrary(min,max){min=Math.ceil(min);max=Math.floor(max);return Math.floor(Math.random()*(max-min)+min);}
+function htInsertNumberField(id,min,max)
+{return"<div class=\"number-input\" id=\""+id+"\"><div class=\"htDownArrow\" name=\"numberDown"+id+"\"></div><input id=\"numberField"+id+"\" type=\"number\" min=\""+min+"\" max=\""+max+"\" readonly /><div class=\"htUpArrow\" name=\"numberUp"+id+"\"></div></div>";}

@@ -67,6 +67,14 @@ return ret;}
 function htMultMakeMultiplicationTableText(lValue,times,tableID,cellID)
 {var text="";if(lValue==0||times==0){text=lValue+" x "+times+": <br />"+mathKeywords[5]+"<br />";}else{var ret=[];var cValue=parseInt(0);for(let i=1;i<=times;i++){var result=lValue*i;text+=i+") "+cValue+" + "+lValue+" = "+result+":<br />";text+=htWriteSumOnYupana(cValue,lValue,result);cValue+=parseInt(lValue);}}
 $(tableID+" "+cellID).html(text);}
+function htYupanaDrawFirstSquare()
+{return"<span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span>";}
+function htYupanaDrawSecondSquare()
+{return"<span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span>";}
+function htYupanaDrawThirdSquare()
+{return"<span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span>";}
+function htYupanaDrawFourthSquare()
+{return"<span class=\"dot dot_center\"></span>";}
 function htCompleteMesoamericanCalendar(vector)
 {var len=8-vector.length;if(len<0){return vector;}
 for(let i=0;i<len;i++){vector.unshift(0);}

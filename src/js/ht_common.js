@@ -596,15 +596,19 @@ function htFillWebPage(page, data)
             $.getScript( jsURL, function() {
                 htLoadExercise();
 
-                $( "#btncheck" ).on( "click", function() {
-                    htCheckAnswers();
-                    return false;
-                });
+                if ($("#btncheck").length > 0) {
+                    $("#btncheck").on( "click", function() {
+                        htCheckAnswers();
+                        return false;
+                    });
+                }
 
-                $( "#btnnew" ).on( "click", function() {
-                    htLoadExercise();
-                    return false;
-                });
+                if ($("#btnnew").length > 0) {
+                    $("#btnnew").on( "click", function() {
+                        htLoadExercise();
+                            return false;
+                    });
+                }
             });
         }
     }
@@ -766,6 +770,19 @@ function htResetAnswers(vector)
     }
 }
 
+function htWriteGame(table, later, idx)
+{
+    var tmpData = "<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";
+    var total = 0;
+    for (const i in table) {
+        tmpData += table[i].imageDesc+"|";
+        total++;
+    }
+
+    tmpData += "</span><span id=\"htTotalGameData\">"+total+"</span></p>";
+    htAddPaperDivs("#paper", "game1", tmpData, "", later, idx+1000);
+}
+
 function htWriteQuestions(table, later, idx)
 {
     var questions = "<p><h3>"+keywords[50]+"</h3><ol>";
@@ -784,6 +801,30 @@ function htWriteQuestions(table, later, idx)
 
     htAddPaperDivs("#paper", "exercises0", questions, "", later, idx);
     htAddPaperDivs("#paper", "exercises1", tmpAnswers, "", later, idx+1000);
+}
+
+function htLoadGameData()
+{
+    var ret = [];
+    var tmpData = "<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";
+    var end = parseInt($("#htTotalGameData").html());
+
+    if (end == undefined) {
+        return end;
+    }
+
+    var htmlValues = $("#htGameDataToBeUsed").html();
+    if (htmlValues == undefined) {
+        return end;
+    }
+
+    var values = htmlValues.split("|");
+    for (let i = 0; i < end; i++) {
+        ret.push( { "imageDesc" : values[i] });
+    }
+
+    $("#htAnswersToBeUsed").html("");
+    return ret;
 }
 
 function htLoadAnswersFromExercise()
@@ -822,6 +863,8 @@ function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
         } else if (table[i].text.constructor === vectorConstructor) {
             if (table[i].id == "exercise_v2") {
                 htWriteQuestions(table[i].text, later, i);
+            } else if (table[i].id == "game_v1") {
+                htWriteGame(table[i].text, later, i);
             } else if (table[i].id != "fill_dates") {
                 for (const j in table[i].text) {
                     htAddPaperDivs("#paper", table[i].id + "_"+j, table[i].text[j], "", later, i);
@@ -946,6 +989,10 @@ function htFillFamilies(page, table) {
  
     if (table.exercise_v2 != undefined && table.exercise_v2.constructor === vectorConstructor) {
         htWriteQuestions(table.exercise_v2, "", 0);
+    }
+
+    if (table.game_v1 != undefined && table.game_v1.constructor === vectorConstructor) {
+        htWriteGame(table.game_v1, "", 1);
     }
 
     if (table.fill_dates != undefined && table.fill_dates.constructor === vectorConstructor) {
@@ -1400,5 +1447,10 @@ function getRandomArbitrary(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
+}
+
+function htInsertNumberField(id, min, max)
+{
+    return "<div class=\"number-input\" id=\""+id+"\"><div class=\"htDownArrow\" name=\"numberDown"+id+"\"></div><input id=\"numberField"+id+"\" type=\"number\" min=\""+min+"\" max=\""+max+"\" readonly /><div class=\"htUpArrow\" name=\"numberUp"+id+"\"></div></div>";
 }
 

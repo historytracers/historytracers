@@ -1,0 +1,81 @@
+{
+    "title" : "Juegos de traducción",
+    "header" : "Juegos de traducción",
+    "sources" : [ "7ec87720-69a7-46f4-ac64-b9c560b02739" ],
+    "scripts" : [ "7ec87720-69a7-46f4-ac64-b9c560b02739" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1719864190" ],
+    "authors" : null,
+    "reviewers" : null,
+    "content" : [
+        {
+            "id" : "families",
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=b88b8566-9b25-4cef-adeb-0e5c8697f81a\" onclick=\"htLoadPage('class_content', 'html', 'b88b8566-9b25-4cef-adeb-0e5c8697f81a', false); return false;\">Nuestros números actuales</a></td> <td><a href=\"index.html?page=first_steps\" onclick=\"htLoadPage('first_steps','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><h3>Prerequisitos</h3>El juego de esta página tiene como objetivo reforzar los conocimientos relacionados con los sistemas numéricos indígenas y los que usamos actualmente. Antes de empezar, se sugiere estudiar las siguientes páginas:</p>", "<p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('20b14681-88c0-438a-a273-a0902ae5db38'); return false;\">Nuestros lados son similares</a>: en este texto vas a conocer que su cuerpo tiene \"dos lados\".</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3874d1e8-0f76-4432-9ee2-d8c8c9dccf53'); return false;\">Contando</a>: introducimos la idea de contar a partir del propio cuerpo.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">Más allá de los dedos</a>: explorando las Limitaciones y la necesidad de nuevas herramientas para contar.</li></ul></p>" ]
+                },
+                {
+                    "id" : "trainee",
+                    "text" : [ "<p><h3>Fase de entrenamiento</h3><b>Objetivo:</b> Existe una relación entre nuestros dedos y los símbolos que usamos para contar. En esta etapa del entrenamiento de traductor, tu misión es completar la secuencia de conteo con diferentes modelos. Este entrenamiento te ayudará a fijar el aprendizaje.</p>", "<p><b>Reglas:</b> Elige la manera de representar una cuenta. La mitad de los valores se cargarán automáticamente y la otra mitad deberás completarla usando las flechas al lado. Al terminar, podrás reiniciar el entrenamiento haciendo clic en el botón \"Jugar nuevamente\".</p>", "<p>Modelo de contaje: <input type=\"radio\" value=\"ha\" name=\"selModel\" /> <b><span id=\"firstMethod\"></span></b> <input type=\"radio\" value=\"indigenous\" name=\"selModel\" /> <b><span id=\"secondMethod\"></span></b> <input id=\"playButton\" type=\"button\" /></p>", "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Traduza la segunda línea usando las setas al lado.</th><th>Aumentar</th><th>Diminuir</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\">&nbsp;</td> <td id=\"tc2f1\">&nbsp;</td> <td id=\"tc3f1\">&nbsp;</td> <td id=\"tc4f1\">&nbsp;</td><td id=\"tc5f1\" rowspan=\"3\"><div class=\"htUpArrow\" name=\"traineeUp\"></div> </td><td id=\"tc6f1\" rowspan=\"3\"><div class=\"htDownArrow\" name=\"traineeDown\"></div></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\">&nbsp;</td> <td id=\"tc2f2\">&nbsp;</td> <td id=\"tc3f2\">&nbsp;</td> <td id=\"tc4f2\">&nbsp;</td></tr> <tr><td colspan=\"4\"><span id=\"gameMessage\"></span></td></tr> </table>" ]
+                },
+                {
+                    "id" : "game",
+                    "text" : [ "<p><h3>Descubriendo América</h3><b>Objetivo y reglas:</b> Nuestro objetivo es traducir la numeración indígena que aparecerá, ya sea en la <i>Yupana</i> o en el formato Mesoamericano. A cada valor que traduzcas, se te presentará una región indígena de América (<i>Abya Ayala</i>). Podrás avanzar a la próxima misión haciendo clic en <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>. Al final, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) por tu trabajo.</p>", "<p><b>Recordación:</b> Para leer un número en la <i>Yupana</i>, debemos observar los cuatro cuadrados. En cambio, los números mesoamericanos se muestran en un solo cuadrado.</p>", "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Traduce la primera línea y descubre construcciones indígenas.</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\">&nbsp;</td> <td id=\"tc2f1\">&nbsp;</td> <td id=\"tc3f1\">&nbsp;</td> <td id=\"tc4f1\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\">&nbsp;</div></td> <td id=\"tc2f2\">&nbsp;</td> <td id=\"tc3f2\">&nbsp;</td> <td id=\"tc4f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td colspan=\"3\" id=\"tc1f3\"><span id=\"gameImage\"></span></td><td id=\"tc4f3\"><div id=\"descImage\"></div> <span style=\"font-size: 3em; color: Tomato;\"><i id=\"nextLevel\" class=\"fa-solid fa-play\"></i></span></td></tr> </table>" ]
+                },
+                {
+                    "id": "game_v1",
+                    "text": [
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate0\"></span> durante una visita al sítio de Machu Picchu, Perú." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate1\"></span> durante una visita al sítio de Xunantunich, Belize." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate2\"></span> durante una visita al sítio de Teotihuacan, México." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate3\"></span> durante una visita al sítio de Teotihuacan, México." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate4\"></span> durante una visita al sítio de Caral, Peru (©ZonaArqueólogicaCaral: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span id=\"htdate5\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span id=\"htdate6\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a7abe0b7-b3bf-44d6-ab4d-e7d32d2586ad'); return false;\">Legado Ancestral, <span id=\"htdate7\"></span>, Caral La Civilizacion más Antigua de America</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d76a60c6-1eaa-4e1e-9b72-2135509101c1'); return false;\">Legado Ancestral, <span id=\"htdate8\"></span>, Caral parte 2 - Tecnología en el año 4.000 A.C.</a>)." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate9\"></span> durante una visita a ciudad de Cusco, Perú." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate10\"></span> durante una visita al sítio de Copán, Honduras." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate11\"></span> durante una visita al sítio de Cahal Pech, Belize." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate12\"></span> durante una visita al sítio de Caracol, Belize." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate13\"></span> durante una visita al sítio de Joya de Cerén, El Salvador." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate14\"></span> durante una visita al sítio de San Andres, El Salvador." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate15\"></span> durante una visita al sítio de Kaminaljuyu, Guatemala." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate16\"></span> durante una visita al sítio de Tikal, Guatemala." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate17\"></span> durante una visita al sítio de Tula, México." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate18\"></span> durante una visita al sítio de Huaca Pucllana, Perú." },
+                        {"imageDesc" : "Foto tomada en <span id=\"htdate19\"></span> durante uma visita al complejo turístico de Mi Pueblito, Panama." }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2017", "month" : "8", "day" : "16" },
+                        {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "22" },
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" },
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" },
+                        {"type" : "gregory", "year" : "2017", "month" : "5", "day" : "17" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2017", "month" : "8", "day" : "17" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "19" },
+                        {"type" : "gregory", "year" : "2017", "month" : "7", "day" : "23" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "24" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "24" },
+                        {"type" : "gregory", "year" : "2014", "month" : "10", "day" : "19" },
+                        {"type" : "gregory", "year" : "2015", "month" : "10", "day" : "22" },
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "18" },
+                        {"type" : "gregory", "year" : "2018", "month" : "4", "day" : "28" },
+                        {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "17" }
+                    ]
+                }
+            ]
+        }
+    ]
+} 

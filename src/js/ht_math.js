@@ -342,6 +342,26 @@ function htMultMakeMultiplicationTableText(lValue, times, tableID, cellID)
     $(tableID+" "+cellID).html(text);
 }
 
+function htYupanaDrawFirstSquare()
+{
+    return "<span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span>";
+}
+
+function htYupanaDrawSecondSquare()
+{
+    return "<span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span>";
+}
+
+function htYupanaDrawThirdSquare()
+{
+    return "<span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span>";
+}
+
+function htYupanaDrawFourthSquare()
+{
+    return "<span class=\"dot dot_center\"></span>";
+}
+
 function htCompleteMesoamericanCalendar(vector)
 {
     var len = 8 - vector.length;
