@@ -89,6 +89,8 @@ $(document).ready(function(){
                     var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
                     var finalArg = (lperson.length == 0) ? larg : larg+'&person_id='+lperson;
                     htLoadPage(page,'html', finalArg, false);
+                } else {
+                    htLoadPage(page,'html', '', false);
                 }
                 break;
             default:
