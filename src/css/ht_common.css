@@ -115,13 +115,11 @@ div.left-tree {
 }
 
 div.right-tree {
+  position: relative;
   display: none;  
   visibility: hidden;
-  position: fixed;
-  bottom: 15%;
-  left: 76%;
-  height: 20%;
-  width: 22%;
+  height: 20vh;
+  width: 42vh;
   float: left;
   border: 3px solid black;
   z-index: 100;
@@ -139,15 +137,15 @@ div.right-sources {
 div.right-tree-top {
   position: absolute;
   top: 10px;
-  height: 30%;
-  width: 100%;
+  height: 30vh;
+  width: 100vh;
   float: left;
 }
 
 div.right-tree-bottom {
   position: absolute;
-  height: 70%;
-  width: 100%;
+  height: 70vh;
+  width: 100vh;
   float: left;
   border: 3px solid black;
 }
@@ -166,8 +164,8 @@ div.tree-grandmother-top {
   position: absolute;
   left: 67%;
   top: 25%;
-  height: 20%;
-  width: 30%;
+  height: 4vh;
+  width: 12.5vh;
   font-size: 70%;
   border: 1px solid black;
 }
@@ -176,8 +174,8 @@ div.tree-grandparent-bottom {
   position: absolute;
   left: 67%;
   bottom: 2%;
-  height: 20%;
-  width: 30%;
+  height: 4vh;
+  width: 12.5vh;
   font-size: 70%;
   border: 1px solid black;
 }
@@ -186,8 +184,8 @@ div.tree-grandmother-bottom {
   position: absolute;
   left: 67%;
   bottom: 25%;
-  height: 20%;
-  width: 30%;
+  height: 4vh;
+  width: 12.5vh;
   font-size: 70%;
   border: 1px solid black;
 }
@@ -196,8 +194,8 @@ div.tree-parent-top {
   position: absolute;
   left: 35%;
   top: 25%;
-  height: 20%;
-  width: 30%;
+  height: 4vh;
+  width: 12.5vh;
   font-size: 70%;
   border: 1px solid black;
 }
@@ -206,8 +204,8 @@ div.tree-mother-bottom {
   position: absolute;
   left: 35%;
   bottom: 25%;
-  height: 20%;
-  width: 30%;
+  height: 4vh;
+  width: 12.5vh;
   font-size: 70%;
   border: 1px solid black;
 }
@@ -216,8 +214,8 @@ div.tree-child-center {
   position: absolute;
   left: 2%;
   top: 40%;
-  height: 20%;
-  width: 30%;
+  height: 4vh;
+  width: 12.5vh;
   font-size: 70%;
   border: 1px solid black;
 }
