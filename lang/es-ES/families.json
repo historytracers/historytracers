@@ -3,7 +3,7 @@
     "header" : "Historias de las familias",
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "sources" : [ "families" ],
-    "last_update" : [ "1719585089" ],
+    "last_update" : [ "1720140787" ],
     "content" : [
         {
             "id" : "prerequisites",
@@ -40,12 +40,22 @@
                     ]
                 },
                 { 
+                    "id": "R",
+                    "target": "family-list",
+                    "value": [ 
+                        {
+                            "id" : "588c52dc-7b48-490d-acb4-044f07314444",
+                            "value" : "Reyes de Leon (<span id=\"htdate4\"></span> - <span id=\"htdate5\"></span>)"
+                        }
+                    ]
+                },
+                { 
                     "id": "V",
                     "target": "family-list",
                     "value": [ 
                         {
                             "id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
-                            "value" : "Visigodos (<span id=\"htdate4\"></span> - <span id=\"htdate5\"></span>)."
+                            "value" : "Visigodos (<span id=\"htdate6\"></span> - <span id=\"htdate7\"></span>)."
                         }
                     ]
                 },
@@ -67,11 +77,11 @@
                         },
                         {
                             "id" : "2097ecb4-8f27-4205-8455-dc527e833f88",
-                            "value" : "Indígenas de São Vicente"
+                            "value" : "Indígenas de San Vicente"
                         },
                         {
                             "id" : "4149b25a-3a8f-4bb2-b663-4dab5a5d885b",
-                            "value" : "Incas (Tawantinsuyu)**"
+                            "value" : "Incas (Tawantinsuyu)"
                         },
                         {
                             "id" : "aecace20-d583-4f39-99ea-ba1d610cad61",
@@ -83,11 +93,11 @@
                         },
                         {
                             "id" : "7009e04e-9093-4447-a18c-ca65c2bf5faa",
-                            "value" : "Oméia (Emir)"
+                            "value" : "Omeia (Emir)"
                         },
                         {
                             "id" : "588c52dc-7b48-490d-acb4-044f07314444",
-                            "value" : "Reis de Leão"
+                            "value" : "Reyes de Leão"
                         },
                         {
                             "id" : "3365076d-85e3-4532-9c99-beb1b2482f15",
@@ -103,7 +113,7 @@
                         },
                         {
                             "id" : "376a5f3c-c598-40ee-95ad-5db9046ab8e2",
-                            "value" : "Sumérios, Lista dos Reis, os mitos"
+                            "value" : "Sumérios, Lista de los Reyes, los mitos"
                         },
                         {
                             "id" : "7154c223-f330-40ce-ac2c-c7093351554d",
@@ -122,6 +132,8 @@
                         {  "type" : "gregory", "year" : "875", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "1815", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "1847", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "914", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1037", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "531", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "711", "month" : "-1", "day" : "-1" }
                     ]

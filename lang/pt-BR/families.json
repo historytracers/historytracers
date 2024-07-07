@@ -3,7 +3,7 @@
     "header" : "Histórias das famílias",
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "sources" : [ "families" ],
-    "last_update" : [ "1719585089" ],
+    "last_update" : [ "1720140787" ],
     "content" : [
         {
             "id" : "prerequisites",
@@ -40,12 +40,22 @@
                     ]
                 },
                 { 
+                    "id": "R",
+                    "target": "family-list",
+                    "value": [ 
+                        {
+                            "id" : "588c52dc-7b48-490d-acb4-044f07314444",
+                            "value" : "Reis de Leão (<span id=\"htdate4\"></span> - <span id=\"htdate5\"></span>)"
+                        }
+                    ]
+                },
+                { 
                     "id": "V",
                     "target": "family-list",
                     "value": [ 
                         {
                             "id" : "3c463a57-284b-4f4a-a52e-033124b389d0",
-                            "value" : "Visigodos (<span id=\"htdate4\"></span> - <span id=\"htdate5\"></span>)."
+                            "value" : "Visigodos (<span id=\"htdate6\"></span> - <span id=\"htdate7\"></span>)."
                         }
                     ]
                 },
@@ -86,10 +96,6 @@
                             "value" : "Oméia (Emir)"
                         },
                         {
-                            "id" : "588c52dc-7b48-490d-acb4-044f07314444",
-                            "value" : "Reis de Leão"
-                        },
-                        {
                             "id" : "3365076d-85e3-4532-9c99-beb1b2482f15",
                             "value" : "Rodrigues"
                         },
@@ -122,6 +128,8 @@
                         {  "type" : "gregory", "year" : "875", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "1815", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "1847", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "914", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1037", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "531", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "711", "month" : "-1", "day" : "-1" }
                     ]
