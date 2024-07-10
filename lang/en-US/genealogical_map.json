@@ -3,11 +3,11 @@
     "header" : "Historical events",
     "sources" : [ "genealogical_map" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1719843989" ],
+    "last_update" : [ "1720629679" ],
     "content" : [
         {
             "id" : "introduction",
-            "value" : [ "<p><h3>Description</h3>We are all <i>Homo sapiens</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate0\"></span></a>). By exploring our search for the earliest common ancestor with <i>Homo neanderthalensis</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate1\"></span></a>), we can deepen our understanding of our species' family tree. While this may seem like a simplification, it clearly demonstrates our shared humanity.</p><p>Animal evolution unfolds over vast stretches of time, punctuated by occasional bursts of rapid change (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c6bc83e7-103d-44ea-8623-bafa1862860c'); return false;\">Sperling, Erik A., et Richard G. Stockey, <span id=\"htdate2\"></span>, pp. 605-622</a>). In contrast, the evolution of language progresses swiftly (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f49430b6-ab85-4d19-8d2b-d0ce06126dc4'); return false;\">Fitch, W.T., <span id=\"htdate3\"></span>, 3-33</a>). This rapid linguistic evolution enables us to categorize and label groups of people and events, inadvertently fostering the perception of differences among us.</p>" ]
+            "value" : [ "<p><h3>Description</h3>We are all <i>Homo sapiens</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate0\"></span></a>). By exploring our search for the earliest common ancestor with <i>Homo neanderthalensis</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate1\"></span></a>), we can deepen our understanding of our species' family tree. While this may seem like a simplification, it clearly demonstrates our shared humanity.</p><p>Animal evolution unfolds over vast stretches of time, punctuated by occasional bursts of rapid change (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c6bc83e7-103d-44ea-8623-bafa1862860c'); return false;\">Sperling, Erik A., et Richard G. Stockey, <span id=\"htdate2\"></span>, pp. 605-622</a>). In contrast, the evolution of language progresses swiftly (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f49430b6-ab85-4d19-8d2b-d0ce06126dc4'); return false;\">Fitch, W.T., <span id=\"htdate3\"></span>, 3-33</a>). This rapid linguistic evolution enables us to categorize and label groups of people and events, inadvertently fostering the perception of differences among us.</p>", "<b><p>The events in the 'Review' section do not follow the pattern used in other sections and need a grammatical review.</p><p>The events can be updated or added at any time based on new research. <span id=\"family_common_sn\"></span></p></b>" ]
         },
         {
             "id" : "groups",
@@ -17,14 +17,23 @@
             "value_type" : "group-list",
             "value" : [
                 {
-                    "id": "f6e2710f-1e34-44df-9b6d-e9ee2d5e783b",
-                    "name": "American Indigenous:",
-                    "desc": "Individuals who inhabited the Americas for millennia before the arrival of Europeans."
-                },
-                {
                     "id": "c3ba1e63-6758-4feb-9c9f-1a3da73135bf",
                     "name": "Enslaved people:",
                     "desc": "Study of the slavery system across different centuries."
+                }
+            ]
+        },
+        {
+            "id" : "review",
+            "desc" : "Review:",
+            "target" : "review-people-group",
+            "page" : "genealogical_map_list",
+            "value_type" : "group-list",
+            "value" : [
+                {
+                    "id": "f6e2710f-1e34-44df-9b6d-e9ee2d5e783b",
+                    "name": "American Indigenous:",
+                    "desc": "Individuals who inhabited the Americas for millennia before the arrival of Europeans."
                 },
                 {
                     "id": "cb99b613-eb70-416b-b283-c8dc8c3d3ef6",

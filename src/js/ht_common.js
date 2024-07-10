@@ -17,6 +17,8 @@ var primarySourceMap = new Map();
 var refSourceMap = new Map();
 var holyRefSourceMap = new Map();
 
+var genealogicalStats = { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
+
 function htAddTreeReflection(id)
 {
     if ($(id).length > 0) {
@@ -312,8 +314,8 @@ function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
     if (ext == "html") {
         if (page != "tree") {
-           $('.right-tree').css('display','none');
-           $('.right-tree').css('visibility','hidden');
+            $('.right-tree').css('display','none');
+            $('.right-tree').css('visibility','hidden');
         }
         switch(page) {
             case "tree":
@@ -332,6 +334,13 @@ function htLoadPage(page, ext, arg, reload) {
                 }
 
                 var myURL = (arg != undefined && arg != null) ? 'index.html?page='+page+'&arg='+arg : 'index.html?page='+page;
+                genealogicalStats.primary_src = 0;
+                genealogicalStats.reference_src = 0;
+                genealogicalStats.holy_src = 0;
+                genealogicalStats.families = 0;
+                genealogicalStats.people = 0;
+                genealogicalStats.marriages = 0;
+                genealogicalStats.children = 0;
 
                 window.history.replaceState(null, null, myURL);
                 break;
@@ -618,7 +627,7 @@ function htFillWebPage(page, data)
     htFillClassWithText(".htNextText", keywords[58]);
     htFillClassWithText(".htIndexText", keywords[60]);
 
-    if (page == "families" && $("#family_common_sn").length > 0) {
+    if ($("#family_common_sn").length > 0) {
         $("#family_common_sn").html(keywords[52]);
     }
 }
@@ -634,9 +643,15 @@ function htLoadSources(data, arg, page)
             return true;
         }
 
-        htFillMapSource(primarySourceMap, data.primary_sources)
-        htFillMapSource(refSourceMap, data.reference_sources)
-        htFillMapSource(holyRefSourceMap, data.religious_sources)
+        htFillMapSource(primarySourceMap, data.primary_sources);
+        htFillMapSource(refSourceMap, data.reference_sources);
+        htFillMapSource(holyRefSourceMap, data.religious_sources);
+
+        if (page.length == 36) {
+            genealogicalStats.primary_src = (data.primary_sources != undefined) ? data.primary_sources.length : 0;
+            genealogicalStats.reference_src = (data.reference_sources != undefined) ? data.reference_sources.length : 0;
+            genealogicalStats.holy_src =  (data.religious_sources != undefined) ? data.religious_sources.length : 0;
+        }
 
         if (page == 'tree') {
             $("#loading_msg").hide();
@@ -934,6 +949,8 @@ function htFillFamilies(page, table) {
     $("#grandfather02").html(keywords[13]);
     $("#grandmother02").html(keywords[14]);
 
+    genealogicalStats.families = (table.families != undefined) ? table.families.length : 0;
+    var totalPeople = 0;
     for (const i in table.families) {
         if (table.families[i].id == undefined ||
             table.families[i].name == undefined) {
@@ -958,6 +975,7 @@ function htFillFamilies(page, table) {
         }
 
         var people = family.people;
+        totalPeople += people.length;
         for (const j in people) {
             if (people[j].id == undefined ||
                 people[j].name == undefined) {
@@ -976,6 +994,8 @@ function htFillFamilies(page, table) {
                        page);
         }
     }
+    genealogicalStats.people = totalPeople;
+
 
     var destination = $("#selector").val();
     if (destination != undefined && destination != null && destination.length > 1) {
@@ -1160,6 +1180,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
     }
 
     if (marriages != undefined) {
+        genealogicalStats.marriages += marriages.length;
         for (const i in marriages) {
             var marriage = marriages[i];
             var rel_id = prefix+"-relationship-"+marriage.id;
@@ -1201,6 +1222,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
 
     var children = table.children;
     if (children != undefined) {
+        genealogicalStats.children += children.length;
         for (const i in children) {
             var child = children[i];
             var child_id = prefix+"-children-"+child.id;
@@ -1284,13 +1306,6 @@ function htLoadSource(divID, sourceMap, listMap, theID)
             }
         }
     }
-}
-
-function loadSources(personID)
-{
-    htLoadSource("#tree-source", primarySourceMap, personPrimarySourceMap, personID);
-    htLoadSource("#tree-ref", refSourceMap, personRefSourceMap, personID);
-    htLoadSource("#tree-holy-ref", holyRefSourceMap, personHolyRefSourceMap, personID);
 }
 
 function htCleanSources()

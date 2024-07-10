@@ -3,11 +3,11 @@
     "header" : "Eventos históricos",
     "sources" : [ "genealogical_map" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1719145454" ],
+    "last_update" : [ "1720629679" ],
     "content" : [
         {
             "id" : "introduction",
-            "value" : [ "<p><h3>Descrição</h3>Todos nós pertencemos à espécie <i>Homo Sapiens</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate0\"></span></a>), e podemos ampliar nosso entendimento sobre nossa linhagem ao considerarmos uma perspectiva evolutiva, buscando o primeiro ancestral comum entre nós e o <i>Homo neanderthalensis</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate1\"></span></a>). Embora possa parecer uma simplificação, essa abordagem oferece uma maneira acessível de compreendermos nossa igualdade.</p> <p>Enquanto a evolução dos animais ocorre ao longo de vastos períodos de tempo, com algumas explosões notáveis (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c6bc83e7-103d-44ea-8623-bafa1862860c'); return false;\">Sperling, Erik A., et Richard G. Stockey, <span id=\"htdate2\"></span>, pp. 605-622</a>), a evolução da linguagem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f49430b6-ab85-4d19-8d2b-d0ce06126dc4'); return false;\">Fitch, W.T., <span id=\"htdate3\"></span>, 3-33</a>) é notavelmente mais rápida. Isso leva à rápida criação e disseminação de nomes para grupos de pessoas, o que às vezes cria a ilusão de diferenças substanciais entre nós.</p>" ]
+            "value" : [ "<p><h3>Descrição</h3>Todos nós pertencemos à espécie <i>Homo Sapiens</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate0\"></span></a>), e podemos ampliar nosso entendimento sobre nossa linhagem ao considerarmos uma perspectiva evolutiva, buscando o primeiro ancestral comum entre nós e o <i>Homo neanderthalensis</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span id=\"htdate1\"></span></a>). Embora possa parecer uma simplificação, essa abordagem oferece uma maneira acessível de compreendermos nossa igualdade.</p> <p>Enquanto a evolução dos animais ocorre ao longo de vastos períodos de tempo, com algumas explosões notáveis (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c6bc83e7-103d-44ea-8623-bafa1862860c'); return false;\">Sperling, Erik A., et Richard G. Stockey, <span id=\"htdate2\"></span>, pp. 605-622</a>), a evolução da linguagem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f49430b6-ab85-4d19-8d2b-d0ce06126dc4'); return false;\">Fitch, W.T., <span id=\"htdate3\"></span>, 3-33</a>) é notavelmente mais rápida. Isso leva à rápida criação e disseminação de nomes para grupos de pessoas, o que às vezes cria a ilusão de diferenças substanciais entre nós.</p>", "<b><p>Os eventos na seção 'Rever' não estão padronizadas com as demais e necessitam de uma revisão gramatical.</p><p>Os eventos podem ser atualizados e criados a qualquer momento devido a novas pesquisas. <span id=\"family_common_sn\"></span></p></b>" ]
         },
         {
             "id" : "groups",
@@ -17,14 +17,23 @@
             "value_type" : "group-list",
             "value" : [
                 {
-                    "id": "91eab659-f361-47e3-b573-48ccab3e29ce",
-                    "name": "Difamados de judeus:",
-                    "desc": "Indivíduos rotulados como judeus, embora não possuam ancestrais judeus nas últimas três gerações. O uso do termo \"difamação\" remonta aos tempos da Inquisição, mas não é apropriado nos dias atuais."
-                },
-                {
                     "id": "c3ba1e63-6758-4feb-9c9f-1a3da73135bf",
                     "name": "Escravizados:",
                     "desc": "Estudo sobre a escravidão de pessoas ao longo de diferentes séculos."
+                }
+            ]
+        },
+        {
+            "id" : "review",
+            "desc" : "Rever:",
+            "target" : "review-people-group",
+            "page" : "genealogical_map_list",
+            "value_type" : "group-list",
+            "value" : [
+                {
+                    "id": "91eab659-f361-47e3-b573-48ccab3e29ce",
+                    "name": "Difamados de judeus:",
+                    "desc": "Indivíduos rotulados como judeus, embora não possuam ancestrais judeus nas últimas três gerações. O uso do termo \"difamação\" remonta aos tempos da Inquisição, mas não é apropriado nos dias atuais."
                 },
                 {
                     "id": "cb99b613-eb70-416b-b283-c8dc8c3d3ef6",
