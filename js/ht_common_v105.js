@@ -86,7 +86,7 @@ if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "
 if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){htLoadExercise();if($("#btncheck").length>0){$("#btncheck").on("click",function(){htCheckAnswers();return false;});}
 if($("#btnnew").length>0){$("#btnnew").on("click",function(){htLoadExercise();return false;});}});}}
 htFillClassWithText(".htPrevText",keywords[56]);htFillClassWithText(".htTopText",keywords[57]);htFillClassWithText(".htNextText",keywords[58]);htFillClassWithText(".htIndexText",keywords[60]);if($("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}
-if($("#tree-common-stats").length>0){return false;}
+if($("#tree-common-stats").length<=0){return false;}
 var htmlFields=["#tree-common-stats","#statsDescription","#genStatRow00","#genStatRow01","#genStatRow10","#genStatRow20","#genStatRow30","#genStatRow40","#genStatRow50","#genStatRow60","#genStatRow70"];var labelIndexes=[61,62,63,64,5,6,7,65,66,67,68,69];for(let i=0;i<htmlFields.length;i++){$(htmlFields[i]).html(keywords[labelIndexes[i]]);}
 var htmlValues=["#genStatRow11","#genStatRow21","#genStatRow31","#genStatRow41","#genStatRow51","#genStatRow61","#genStatRow71"];var counter=0;Object.values(genealogicalStats).forEach(val=>{$(htmlValues[counter++]).html(val);});}
 function htLoadSources(data,arg,page)

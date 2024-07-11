@@ -632,7 +632,7 @@ function htFillWebPage(page, data)
     }
 
 
-    if ($("#tree-common-stats").length > 0) {
+    if ($("#tree-common-stats").length <= 0) {
         return false;
     }
 
