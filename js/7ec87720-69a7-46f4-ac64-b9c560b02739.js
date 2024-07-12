@@ -161,7 +161,7 @@ function htTranslationCheckRandomAnswer() {
     if (htGameTranslationCurrentLevel < 9) { 
         var imgName = htGameUseTranslationImages[idx];
         var obj = localGameUseVector7ec87720[idx];
-        $("#gameImage").html("<img src=\"images/"+imgName+"\" width=\"600\" height=\"400\"/><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
+        $("#gameImage").html("<img class=\"imgGameSize\"  src=\"images/"+imgName+"\"/><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
 
         htGameUseTranslationImages.splice(idx, 1);
         localGameUseVector7ec87720.splice(idx, 1);
