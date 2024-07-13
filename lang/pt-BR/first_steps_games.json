@@ -1,0 +1,36 @@
+{
+    "title" : "Jogos",
+    "header" : "Jogos",
+    "sources" : null,
+    "last_update" : [ "1720905281" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "content" : [
+        {
+            "id" : "introduction",
+            "value" : [ "<p>Ensinar vai além de apenas apresentar informações para memorização. Com o objetivo de auxiliar nessa missão, esta página oferece jogos educativos gratuitos.</p>" ]
+        },
+        {
+          "id": "initial_title",
+          "value": "Contando: Estes jogos têm como objetivo reforçar o aprendizado dos números decimais de diferentes culturas."
+        },
+        {
+            "id" : "groups",
+            "desc" : "Jogos:",
+            "target" : "class-group",
+            "page" : "class_content",
+            "value_type" : "group-list",
+            "value" : [
+                {
+                    "id": "7ec87720-69a7-46f4-ac64-b9c560b02739",
+                    "name": "Jogo de tradução:",
+                    "desc": "Neste jogo, oferecemos a oportunidade de traduzir números de diferentes culturas."
+                },
+                {
+                    "id": "52dc6a73-a5e9-4b07-ad32-0482c305a6f8",
+                    "name": "Jogo de memória:",
+                    "desc": "Apresentamos um jogo de memória para ajudar a reforçar a ordem dos números."
+                }
+            ]
+        }
+    ]
+}
