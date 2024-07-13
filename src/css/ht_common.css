@@ -723,3 +723,45 @@ input[type=number]::-webkit-outer-spin-button {
   max-width: 30vw;
   max-height: 20vw;
 }
+
+.scene {
+  display: inline-block;
+  width: 8vh;
+  height: 8vh;
+  perspective: 16vh;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.cardFace {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 4vw;
+  backface-visibility: hidden;
+}
+
+.cardFaceFront {
+  background: #ff7b6b;
+}
+
+.cardFaceBack {
+  background: #ff7b6b;
+  transform: rotateY(180deg);
+}
+
