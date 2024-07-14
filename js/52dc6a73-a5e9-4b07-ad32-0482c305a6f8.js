@@ -39,7 +39,7 @@ function htSelectValue(selector)
             return ""+value;
     }
 
-    ret = "<img src=\"images/Maya_"+value+".png\" />";
+    ret = "<img src=\"images/Maya_"+value+".png\" style=\"width:60%;height:auto;\"/>";
 
     return ret;
 }
