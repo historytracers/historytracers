@@ -73,6 +73,7 @@ $(document).ready(function(){
             case 'genealogical_faq':
             case 'genealogical_map':
             case 'families':
+            case 'myths_believes':
             case 'first_steps':
             case 'sources':
             case 'indigenous_who':
