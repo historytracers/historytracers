@@ -2,8 +2,11 @@ var stringConstructor="gth".constructor;var vectorConstructor=[].constructor;var
 {if($(id).length>0){$(id).html(keywords[55]);}}
 function htAddPaperDivs(generalID,id,text,before,later,i)
 {var div=before+"<div id=\"paper-";div+=(id!=undefined)?id:i;div+="\">";div+=text;div+="</div>"+later;$(generalID).append(div);}
+function htShowDateRef()
+{var src="John Walker - Fourmilab . [ Accessed on Apr 26, 2024 ]. Retrieved from <a href=\"https://www.fourmilab.ch/documents/calendar/\" target=\"_blank\">https://www.fourmilab.ch/documents/calendar/</a>"
+$("#tree-ref").html(src);}
 function htUpdateCurrentDateOnIndex()
-{var current_time=Math.floor(Date.now()/1000);var local_lang=$("#site_language").val();var local_calendar=$("#site_calendar").val();var text=htConvertDate(local_calendar,local_lang,current_time,undefined,undefined);$("#current_day").html(keywords[42]+" "+text);}
+{var current_time=Math.floor(Date.now()/1000);var local_lang=$("#site_language").val();var local_calendar=$("#site_calendar").val();var text=htConvertDate(local_calendar,local_lang,current_time,undefined,undefined);$("#current_day").html(keywords[42]+" "+text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");}
 function htFillSourceContentToPrint(text,map,id)
 {if(map.size==0||text.size==0){return text;}
 var mention="";for(let[key,value]of map){var dateValue="";if(value.date!=undefined&&value.date!=null&&value.date.length>0){var dateVector=value.date.split("-");var textDate=htFillHTDate(dateVector);dateValue=". [ "+keywords[22]+" "+textDate+" ].";}

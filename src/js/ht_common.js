@@ -38,13 +38,19 @@ function htAddPaperDivs(generalID, id, text, before, later, i)
     $(generalID).append(div);
 }
 
+function htShowDateRef()
+{
+    var src = "John Walker - Fourmilab . [ Accessed on Apr 26, 2024 ]. Retrieved from <a href=\"https://www.fourmilab.ch/documents/calendar/\" target=\"_blank\">https://www.fourmilab.ch/documents/calendar/</a>"
+    $("#tree-ref").html(src);
+}
+
 function htUpdateCurrentDateOnIndex()
 {
     var current_time = Math.floor(Date.now()/1000);
     var local_lang = $("#site_language").val();
     var local_calendar = $("#site_calendar").val();
     var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined);
-    $("#current_day").html(keywords[42]+" "+text);
+    $("#current_day").html(keywords[42]+" "+text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
 }
 
 function htFillSourceContentToPrint(text, map, id)
