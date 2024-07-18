@@ -1489,6 +1489,6 @@ function getRandomArbitrary(min, max) {
 
 function htInsertNumberField(id, min, max)
 {
-    return "<div class=\"number-input\" id=\""+id+"\"><div class=\"htDownArrow\" name=\"numberDown"+id+"\"></div><input id=\"numberField"+id+"\" type=\"number\" min=\""+min+"\" max=\""+max+"\" readonly /><div class=\"htUpArrow\" name=\"numberUp"+id+"\"></div></div>";
+    return "<div class=\"number-input\" id=\""+id+"\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"numberDown"+id+"\"></i><input id=\"numberField"+id+"\" type=\"number\" min=\""+min+"\" max=\""+max+"\" readonly /><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"numberUp"+id+"\"></i></div>";
 }
 

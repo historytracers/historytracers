@@ -220,4 +220,4 @@ $(divID).html("");var value=name;var idx=name.search("\\(");$(divID).append(valu
 $(divID).show();return familyMap.get(personID);}
 function getRandomArbitrary(min,max){min=Math.ceil(min);max=Math.floor(max);return Math.floor(Math.random()*(max-min)+min);}
 function htInsertNumberField(id,min,max)
-{return"<div class=\"number-input\" id=\""+id+"\"><div class=\"htDownArrow\" name=\"numberDown"+id+"\"></div><input id=\"numberField"+id+"\" type=\"number\" min=\""+min+"\" max=\""+max+"\" readonly /><div class=\"htUpArrow\" name=\"numberUp"+id+"\"></div></div>";}
+{return"<div class=\"number-input\" id=\""+id+"\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"numberDown"+id+"\"></i><input id=\"numberField"+id+"\" type=\"number\" min=\""+min+"\" max=\""+max+"\" readonly /><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"numberUp"+id+"\"></i></div>";}

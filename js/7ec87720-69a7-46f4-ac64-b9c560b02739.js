@@ -266,7 +266,7 @@ function htLoadExercise() {
         htGameEnd = false;
     });
 
-    $(".htUpArrow").on("click", function() {
+    $(".upArrowWithFA").on("click", function() {
         var name = $(this).attr('name');
         if (name == "traineeUp") {
             if (htGameEnd == false ) {
@@ -293,7 +293,7 @@ function htLoadExercise() {
         }
     });
 
-    $(".htDownArrow").on("click", function() {
+    $(".downArrowWithFA").on("click", function() {
         if (htGameTranslationCurrentValue == -1){
             htGameTranslationCurrentValue = 10;
         }
@@ -336,11 +336,6 @@ function htLoadExercise() {
 
     htLoadRandomTranslation();
 
-    return false;
-}
-
-function htCheckAnswers()
-{
     return false;
 }
 
