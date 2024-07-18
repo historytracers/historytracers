@@ -456,3 +456,22 @@ function htSetImageForDigits(leftHand, rightHand, value)
     $(rightHand).attr('src', 'images/'+rightValue+'Right_Hand_Small.png');
 }
 
+function htFillTableHandsFeet(id) {
+    var leftHand = 0;
+    var rightHand = 0;
+    var leftFoot = 0;
+    var rightFoot = 0;
+    for (let i = 0; i < 20; i++ ) {
+        if (i < 6) {
+            rightHand = i;
+        } else if (i < 11) {
+            leftHand = i - 5;
+        } else if (i < 16) {
+            rightFoot = i - 10;
+        } else {
+            leftFoot = i - 15;
+        }
+        $(id+" tr:last").after("<tr><td><img src=\"images/"+leftHand+"Left_Hand_Small.png\" /></td><td><img src=\"images/"+rightHand+"Right_Hand_Small.png\"/></td><td><img src=\"images/"+leftFoot+"LeftFoot.png\" class=\"smallFeet\" /></td><td><img src=\"images/"+rightFoot+"RightFoot.png\" class=\"smallFeet\" /></td><td><img src=\"images/Maya_"+i+".png\"/></td><td><span class=\"text_to_paint\">"+i+"</span></td></tr>");
+    }
+}
+

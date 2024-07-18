@@ -91,7 +91,7 @@ function htMemorySetRepresentation(value)
 
     $("#tc6f2").html("<img src=\"images/Maya_"+value+".png\" />");
 
-    $("#tc6f4").html("<span class=\"text_to_paint\">"+value+"<span>");
+    $("#tc6f4").html("<span class=\"text_to_paint\">"+value+"</span>");
 }
 
 function htMemoryClickEvents() {
