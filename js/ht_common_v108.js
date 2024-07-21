@@ -1,5 +1,7 @@
 var stringConstructor="gth".constructor;var vectorConstructor=[].constructor;var objectConstructor=({}).constructor;let keywords=[];let mathKeywords=[];var lastTreeLoaded={"page":null,"arg":''};var personNameMap=new Map();var familyMap=new Map();var contentMap=new Map();var primarySourceMap=new Map();var refSourceMap=new Map();var holyRefSourceMap=new Map();var genealogicalStats={"primary_src":0,"reference_src":0,"holy_src":0,"families":0,"people":0,"marriages":0,"children":0};function htAddTreeReflection(id)
-{if($(id).length>0){$(id).html(keywords[55]);}}
+{if($(id).length>0&&keywords.length>54){$(id).html(keywords[55]);}}
+function htAddReligionReflection(id)
+{if($(id).length>0&&keywords.length>68){$(id).html(keywords[69]);}}
 function htAddPaperDivs(generalID,id,text,before,later,i)
 {var div=before+"<div id=\"paper-";div+=(id!=undefined)?id:i;div+="\">";div+=text;div+="</div>"+later;$(generalID).append(div);}
 function htShowDateRef()

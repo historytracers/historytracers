@@ -21,8 +21,15 @@ var genealogicalStats = { "primary_src" : 0, "reference_src" : 0, "holy_src": 0,
 
 function htAddTreeReflection(id)
 {
-    if ($(id).length > 0) {
+    if ($(id).length > 0 && keywords.length > 54) {
         $(id).html(keywords[55]);
+    }
+}
+
+function htAddReligionReflection(id)
+{
+    if ($(id).length > 0 && keywords.length > 68) {
+        $(id).html(keywords[69]);
     }
 }
 
