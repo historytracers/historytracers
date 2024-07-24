@@ -418,3 +418,36 @@
   top: 12px;
 }
 
+.tableTen {
+  width: 90vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.tableTen th {
+  border-collapse: collapse;
+  background: ghostwhite;
+  border: 1px solid black;
+}
+
+.tableTen td {
+  position: relative;
+  font-weight: normal;
+  width: 9vh;
+  border: 1px solid black;
+}
+
+.tableTenBgBlue {
+  background: #b1dae7;
+}
+
+.num_to_paint {
+  font-size: 2em;
+  color: white;
+  margin: 1;
+  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+  -webkit-text-stroke: 2px white;
+}
+

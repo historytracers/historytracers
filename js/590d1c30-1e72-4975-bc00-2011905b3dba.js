@@ -58,7 +58,7 @@ function htLoadExercise() {
     $("#yupana1 #tc6f1").html("<span class=\"text_to_paint\">"+localCounter590d1c30b+"</span>");
     htSetImageForDigits('#leftHandImg1', '#rightHandImg1', 0);
     htSetImageForDigits('#leftHandImg2', '#rightHandImg2', 0);
-    htFillTableHandsFeet("#yupana2");
+    htFillTableHandsFeet("#yupana2", 0, 20);
 
     $("#traineeUp0").on("click", function() {
         localCounter590d1c30++;

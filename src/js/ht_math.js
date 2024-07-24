@@ -456,12 +456,15 @@ function htSetImageForDigits(leftHand, rightHand, value)
     $(rightHand).attr('src', 'images/'+rightValue+'Right_Hand_Small.png');
 }
 
-function htFillTableHandsFeet(id) {
+function htFillTableHandsFeet(id, min, max) {
+    if ($(id).length == 0) {
+        return;
+    }
     var leftHand = 0;
     var rightHand = 0;
     var leftFoot = 0;
     var rightFoot = 0;
-    for (let i = 0; i < 20; i++ ) {
+    for (let i = min; i < max; i++ ) {
         if (i < 6) {
             rightHand = i;
         } else if (i < 11) {
@@ -475,3 +478,13 @@ function htFillTableHandsFeet(id) {
     }
 }
 
+function htFillSequenceTable(id, min, max) {
+    let i = min;
+    while (i <= max) {
+        var value = "<tr>";
+        for (let j =0 ; j < 10; j++, i++) {
+            value += "<td><span class=\"num_to_paint\">"+i+"</span></td>";
+        }
+        $(id+" tr:last").after(value+"</tr>");
+    }
+}
