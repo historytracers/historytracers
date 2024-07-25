@@ -1,0 +1,25 @@
+{
+    "sources" : [ "File with all sources used in the text." ],
+    "scripts" : [ "A JS file used with this content. Normally a file that fill and correct exercise." ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "Time in Unix Epoch showing last file update." ],
+    "authors" : "Name of people that edited text.",
+    "reviewers" : "Name of people that review the text.",
+    "version" : 1,
+    "type" : "sm_game",
+    "content" : [
+        {
+            "id" : "SECTION_NAME",
+            "text" : [ "<p> </p>" ],
+            "next" : "id of next section",
+            "prev" : "id of previous section",
+            "jumpTo" : "id of the section I can jump",
+            "score" : "score to be given when reader reaches the goal."
+        }
+    ],
+    "fill_dates" : [
+        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+        {"type" : "unix", "epoch" : "0" },
+        {"type" : "julian",  "epoch" : "0" }
+    ]
+} 
