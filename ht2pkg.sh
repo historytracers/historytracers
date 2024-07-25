@@ -75,6 +75,10 @@ cd scripts/bash/ || exit 1
 bash update_js_css.sh
 cd ../.. || exit 2
 
+if [ ! -d artifacts ]; then
+    mkdir artifacts;
+fi
+
 ht_copy_initial_files
 
 ht_create_directories
