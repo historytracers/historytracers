@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 #!/bin/bash
 
 if ! command -v python3 >/dev/null 2>&1; then    
