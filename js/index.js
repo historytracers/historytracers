@@ -79,6 +79,7 @@ $(document).ready(function(){
             case 'indigenous_who':
             case 'indigenous_time':
             case 'acknowledgement':
+            case 'first_steps_games':
             case 'release':
                 htLoadPage(page, 'html', '', false);
                 break;
