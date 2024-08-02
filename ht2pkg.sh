@@ -34,7 +34,7 @@ ht_create_directories () {
     mkdir artifacts/lang/sources
 
     cd lang || exit
-    find ./* \( -name "??-??" \) -exec bash -c 'mkdir "../artifacts/lang/$1"' shell {} \;
+    find ./* \( -name "??-??" \) -exec bash -c 'mkdir -p "../artifacts/lang/$1/smGame/"' shell {} \;
     cd .. || exit
 }
 
@@ -57,13 +57,26 @@ ht_compress_js () {
 ht_compress_json_specific_dir () {
     for i in ${1}/*.json ; do
         NAME=$(echo "$i" | cut -d/ -f3)
-        "${RUN_PYTHON}" -mrcssmin < "$i" > "artifacts/${1}/${NAME}"
+        TEST=$(echo "$i" | grep "smGame")
+        if [ ${#TEST} -eq 0 ] ; then
+            "${RUN_PYTHON}" -mrcssmin < "$i" > "artifacts/${1}/${NAME}"
+        fi
+    done
+
+    for i in ${1}/smGame/*.json ; do
+        NAME=$(echo "$i" | cut -d/ -f4)
+        if [ ${#NAME} -gt 36 ] ; then
+            if [ -f "${i}" ]; then
+                "${RUN_PYTHON}" -mrcssmin < "$i" > "artifacts/${1}/smGame/${NAME}"
+            fi
+        fi
     done
 }
 
 ht_compress_json_dir () {
     for i in lang/* ; do
-        ht_compress_json_specific_dir $i
+        ht_compress_json_specific_dir "$i"
+        ht_compress_json_specific_dir "$i/smGame"
     done
 }
 
@@ -77,6 +90,8 @@ cd ../.. || exit 2
 
 if [ ! -d artifacts ]; then
     mkdir artifacts;
+else
+    rm -rf artifacts/*
 fi
 
 ht_copy_initial_files
