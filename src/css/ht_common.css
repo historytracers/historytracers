@@ -1,5 +1,6 @@
 html {
-    font-family: "verdana", "arial", "Helvetica"
+  font-family: "verdana", "arial", "Helvetica";
+  font-size: 0.9vw;
 }
 
 .hr {
@@ -107,6 +108,11 @@ html {
   float: right;
   vertical-align: top;
   font-size: 0.90vw;
+}
+
+.license {
+  width: 70%;
+  float: left;
 }
 
 div.left-tree {

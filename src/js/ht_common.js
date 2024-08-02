@@ -17,7 +17,7 @@ var primarySourceMap = new Map();
 var refSourceMap = new Map();
 var holyRefSourceMap = new Map();
 
-var genealogicalStats = { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
+var genealogicalStats = {};
 
 let bookSections = [ ];
 
@@ -26,6 +26,10 @@ var smGameTimeoutID = 0;
 
 var htGameImages = [ "MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren.jpg", "SanAndres.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito.jpg", "CopanAltarGenealogy0.jpg", "CopanAltarGenealogy1.jpg", "CopanAltarGenealogy2.jpg", "CopanAltarGenealogy3.jpg", "TeotihuacanMountains.jpg", "CopanWholeTextStelaAltar.png", "StelaACopan.jpg", "Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
+
+function htResetGenealogicalStats() {
+    return { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
+}
 
 function htAddTreeReflection(id)
 {
@@ -485,10 +489,78 @@ function htProccessData(data, optional) {
 
 }
 
+/*
+ * page, arg
+ */
+function htLoadHTML(page, ext, arg, reload) {
+    var unixEpoch = Date.now();
+    var appendPage = "";
+    var loadSelector = arg.split('&person_id=') ;
+    if (loadSelector.length != 2) {
+        $("#loading").val(arg);
+    } else {
+        appendPage = loadSelector[0];
+    }
+    if (page != "tree") {
+        $('.right-tree').css('display','none');
+        $('.right-tree').css('visibility','hidden');
+    }
+    switch(page) {
+        case "tree":
+        case "genealogical_map_list":
+        case "class_content":
+            if (reload == true && lastTreeLoaded.arg != null && lastTreeLoaded.arg.length > 0) {
+                arg = lastTreeLoaded.arg;
+            } else {
+                lastTreeLoaded.page = page;
+                lastTreeLoaded.arg = arg;
+            }
+
+            if (page == "tree") {
+                $('.right-tree').css('display','block');
+                $('.right-tree').css('visibility','visible');
+            }
+
+            var myURL = (arg != undefined && arg != null) ? 'index.html?page='+page+'&arg='+arg : 'index.html?page='+page;
+            genealogicalStats = htResetGenealogicalStats();
+
+            window.history.replaceState(null, null, myURL);
+            break;
+        case "families":
+            lastTreeLoaded.page = null;
+            lastTreeLoaded.arg = null
+            $("#loading").val("");
+            $("#selector").val("");
+        default:
+            window.history.replaceState(null, null, 'index.html?page='+page);
+            break;
+    }
+
+    $("#tree-source").html("");
+    $("#tree-ref").html("");
+    $("#tree-holy-ref").html("");
+
+    $("#html_loaded").val(page);
+
+    primarySourceMap.clear();
+    refSourceMap.clear();
+    holyRefSourceMap.clear();
+
+    $("#loading").val(loadSelector[0]);
+    $("#selector").val(loadSelector[1]);
+
+    var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
+    $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
+}
+
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     $("#messages").html("&nbsp;");
 
     $("#loading_msg").show();
+    if (ext.length != null && ext.length > 0 &&  ext == "html") {
+        htLoadHTML(page, ext, arg, reload);
+        return false;
+    }
 
     var URL = htLoadPageMountURL(page, arg, dir);
     var unixEpoch = Date.now();
@@ -518,80 +590,12 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     });
 }
 
-
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
-    if (ext == "html") {
-        if (page != "tree") {
-            $('.right-tree').css('display','none');
-            $('.right-tree').css('visibility','hidden');
-        }
-        switch(page) {
-            case "tree":
-            case "genealogical_map_list":
-            case "class_content":
-                if (reload == true && lastTreeLoaded.arg != null && lastTreeLoaded.arg.length > 0) {
-                    arg = lastTreeLoaded.arg;
-                } else {
-                    lastTreeLoaded.page = page;
-                    lastTreeLoaded.arg = arg;
-                }
-
-                if (page == "tree") {
-                   $('.right-tree').css('display','block');
-                   $('.right-tree').css('visibility','visible');
-                }
-
-                var myURL = (arg != undefined && arg != null) ? 'index.html?page='+page+'&arg='+arg : 'index.html?page='+page;
-                genealogicalStats.primary_src = 0;
-                genealogicalStats.reference_src = 0;
-                genealogicalStats.holy_src = 0;
-                genealogicalStats.families = 0;
-                genealogicalStats.people = 0;
-                genealogicalStats.marriages = 0;
-                genealogicalStats.children = 0;
-
-                window.history.replaceState(null, null, myURL);
-                break;
-            case "families":
-                lastTreeLoaded.page = null;
-                lastTreeLoaded.arg = null
-                $("#loading").val("");
-                $("#selector").val("");
-            default:
-                window.history.replaceState(null, null, 'index.html?page='+page);
-                break;
-        }
-
-        $("#tree-source").html("");
-        $("#tree-ref").html("");
-        $("#tree-holy-ref").html("");
-    }
-
-    var pages = arg.split('&person_id=') ;
-    var appendPage = "";
-    if (pages.length != 2) {
-        $("#loading").val(arg);
-    } else {
-        appendPage = pages[0];
-        if (ext == "html") {
-            $("#loading").val(pages[0]);
-            $("#selector").val(pages[1]);
-        }
-    }
-
-    if (ext.length != null && ext.length > 0 &&  ext == "html") {
-        $("#html_loaded").val(page);
-    }
 
     var unixEpoch = Date.now();
-    if (ext == "html") {
-        primarySourceMap.clear();
-        refSourceMap.clear();
-        holyRefSourceMap.clear();
-
-        var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
-        $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
+    if (ext.length != null && ext.length > 0 &&  ext == "html") {
+        htLoadHTML(page, ext, arg, reload);
 
         return false;
     }
