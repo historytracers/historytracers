@@ -1,0 +1,35 @@
+{
+    "title" : "Método científico - el juego",
+    "header" : "Método científico - el juego",
+    "sources" : [ "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0" ],
+    "scripts" : [ "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1721886814" ],
+    "authors" : null,
+    "reviewers" : null,
+    "content" : [
+        {
+            "id" : "families",
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=6d519d82-2de9-41cf-a740-2efe63326043\" onclick=\"htLoadPage('class_content', 'html', '6d519d82-2de9-41cf-a740-2efe63326043', false); return false;\">Comprendiendo Contextos (Parte II)</a></td> <td><a href=\"index.html?page=science\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ "<p><h3>Introducción</h3>Este juego tiene como objetivo ayudar a reforzar el conocimiento. En cada nivel, habrá enlaces a las áreas que se están trabajando; accede a ellos cuando sea necesario. La puntuación del juego está diseñada para mostrar dónde puedes mejorar tus habilidades, y no para juzgar si una persona es buena o mala. A cada parte del juego que accender, ganará un punto, pues la aprendizaje añadida no podrá ser descartada.</p>" ]
+                },
+                {
+                    "id" : "rules",
+                    "text" : [ "<p><h3>Control</h3>Durante el juego, tendrás los siguientes controles a tu disposición::</p>", "<p><ul><li><b>Avanzar (<i class=\"fa-solid fa-chevron-right\"></i>)</b>: Avanza a la siguiente pantalla. Sin embargo, en pantallas con preguntas, no podrás avanzar hasta que la pregunta sea contestada.</li><li><b>Volver (<i class=\"fa-solid fa-chevron-left\"></i>)</b>: Regresa a la pantalla anterior. Esta opción está disponible hasta que comience la etapa de resolución del problema, permitiéndote reforzar tus conocimientos.</li><li><b>Saltar (<i class=\"fa-solid fa-angle-double-right\"></i>)</b>: Disponible en la introducción del juego, permite ir directamente al menú principal.</li><li><b>De acuerdo (<i class=\"fa-solid fa-thumbs-up\" style=\"color:green;\"></i>)</b>: Aparece solo en pantallas con preguntas, indicando que consideras correcto la pregunta presentada.</li><li><b>No estoy de acuerdo (<i class=\"fa-solid fa-thumbs-down\" style=\"color:red;\"></i>)</b>: Aparece solo en pantallas con preguntas, indicando que consideras incorrecto la pregunta presentada.</li></ul></p>" ]
+                },
+                {
+                    "id" : "game",
+                    "text" : [ "<p><h3>El juego</h3>El juego comienza con una introducción en la que cada pantalla se mostrará durante 6 segundos antes de cambiar automáticamente a la siguiente. Para comenzar el juego, haz clic en el botón <i class=\"fa-solid fa-play\" style=\"color:red;font-size:1.0vw;\">.</i></p>", "<p><div class=\"htSlidesGame\"></div></p>" ]
+                }
+            ]
+        }
+    ]
+} 

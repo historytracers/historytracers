@@ -19,6 +19,14 @@ var holyRefSourceMap = new Map();
 
 var genealogicalStats = { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
 
+let bookSections = [ ];
+
+var smGame = [];
+var smGameTimeoutID = 0;
+
+var htGameImages = [ "MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren.jpg", "SanAndres.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito.jpg", "CopanAltarGenealogy0.jpg", "CopanAltarGenealogy1.jpg", "CopanAltarGenealogy2.jpg", "CopanAltarGenealogy3.jpg", "TeotihuacanMountains.jpg", "CopanWholeTextStelaAltar.png", "StelaACopan.jpg", "Kaminaljuyu.jpg" ];
+var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
+
 function htAddTreeReflection(id)
 {
     if ($(id).length > 0 && keywords.length > 54) {
@@ -323,6 +331,190 @@ function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
     $(target).append(dateDiv);
 }
 
+function htLoadPageMountURL(page, arg, dir)
+{
+    var url = "lang/"; 
+
+    var lang = $("#site_language").val();
+    // Use default language
+    if (lang == null || lang == undefined) {
+        lang = htDetectLanguage();
+    }
+
+    if (arg == "source") {
+        url += arg+"s/";
+    } else {
+        url  += lang+"/";
+    }
+
+    if (dir.length != 0) {
+        url += dir+"/";
+    }
+
+    url += page+".json";
+
+    return url;
+}
+
+function htFillSMGameData(data) {
+    if (data == undefined || data.content.length == 0) { 
+        return;
+    }
+
+    var x = document.getElementsByClassName("htSlide");
+    if (x.length != 0) {
+        $(".htSlide").remove();
+    }
+
+    var requestType = opt0ac0098b.requestType;
+    var table = data.levels;
+    if (table != undefined && requestType == "splash" && $("#smGameMenu").length == 0) {
+        $(opt0ac0098b.target).append("<div class=\"htSlideGameMenu htSlideGameMenuHidden\" id=\"smGameMenu\"></div> <div id=\"smGameScore\" class=\"htSlideGameScore htSlideGameMenuHidden\"><b>"+keywords[70]+"<span id=\"currentSMScore\">0</span></b></div> <div class=\"htSlideGameTextBottom smGameTextSize htSlideGameMenuHidden\" id=\"smGameDesc\"></div> <div id=\"smGamePlay\"><i class=\"fa-solid fa-play htSlidePlayGame\" onclick=\"htStartSMGame();\"></i></div>");
+        for (const i in table) {
+            if (table[i].type == undefined) {
+                continue;
+            } else if (table[i].type == "topLevel") {
+                $("#smGameMenu").append("<p class=\"smGameTextSize\"><b>"+table[i].name+"</b>: "+table[i].desc+"</p><p><ul id=\""+table[i].id+"\"></ul></p>");
+            } else if (table[i].type == "level") {
+                if ($("#"+table[i].target).length > 0) {
+                    $("#"+table[i].target).append("<li class=\"menu\"> <span class=\" smGameTextSize\"><a href=\"javascript:void(0);\" onclick=\"htLoadPageV1('"+table[i].loadID+"', 'json', '', 'false', 'smGame', '');\">"+table[i].name+"</a>: "+table[i].desc+"</span></li>");
+                }
+            }
+        }
+
+        var imgIndex = getRandomArbitrary(0, htGameImages.length - 5);
+        $(opt0ac0098b.target).append("<p class=\"desc\"><img class=\"imgGameSizeWithOpacity\" src=\"images/"+htGameImages[imgIndex]+"\">"+keywords[71]+" "+htGameImagesLocation[imgIndex]+".</p>");
+    }
+
+    smGame = [];
+    var table = data.content;
+    var extClassText = (requestType == "splash") ? "htSlideGameTextCenter": "htSlideGameTextTopCenter";
+    var counter = -1;
+    for (const i in table) {
+        var classText;
+        if (table[i].position != undefined) {
+            switch (table[i].position) {
+                case "center":
+                    classText = "htSlideGameTextCenter";
+                    break;
+                case "topCenter":
+                    classText = "htSlideGameTextTopCenter";
+                    break;
+                default:
+                    classText = "htSlideGameTextTop";
+            }
+        } else {
+            classText = extClassText;
+        }
+
+        var useText = "";
+        if (table[i].text != undefined) {
+            if (table[i].text.constructor === vectorConstructor) {
+                var rows = table[i].text;
+                for (const j in rows) {
+                    useText += rows[j];
+                }
+            } else {
+                useText = table[i].text;
+            }
+        }
+
+        var useDesc = null;
+        if (table[i].desc != undefined) {
+            if (table[i].desc.constructor === vectorConstructor) {
+                var rows = table[i].desc;
+                useDesc = "";
+                for (const j in rows) {
+                    useDesc += rows[j];
+                }
+            } else {
+                useDesc = table[i].desc;
+            }
+        }
+
+        smGame.push({"desc" : useDesc, "prev" : table[i].prev, "next" : table[i].next, "jumpTo" : table[i].jumpTo, "score" : table[i].score, "answer" : table[i].answer, "played": false});
+        $(opt0ac0098b.target).append("<div class=\"htSlide\" id=\""+table[i].id+"\"><div class='"+classText+"'>"+useText+"</div>");
+        counter++;
+    }
+    opt0ac0098b.maxID = counter;
+
+    x = document.getElementsByClassName("htSlide");
+    if (requestType != "splash") {
+        if ($("#smGameNext").length == 0) {
+            $(opt0ac0098b.target).append("<div id=\"smGameNext\"><i class=\"fa-solid fa-chevron-right htSlideNextGame\" onclick=\"htPlusSMGameDivs(1);\"></i></div> <div id=\"smGamePrev\"><i class=\"fa-solid fa-chevron-left htSlidePrevGame htSlideGameMenuHidden\" onclick=\"htPlusSMGameDivs(-1);\"></i></div> <div id=\"smGameLike\"><i class=\"fa-solid fa-thumbs-up htSlideLikeGame\" onclick=\"htSMCheckAnswer(1);\"></i></div> <div id=\"smGameUnlike\"><i class=\"fa-solid fa-thumbs-down htSlideUnlikeGame\" onclick=\"htSMCheckAnswer(0);\"></i></div>");
+            $("#smGameLike").addClass("htSlideGameMenuHidden");
+            $("#smGameUnlike").addClass("htSlideGameMenuHidden");
+            $("#currentSMScore").html(totalSMScore);
+        } else { 
+            $("#smGameNext").removeClass("htSlideGameMenuHidden");
+            $("#smGamePrev").removeClass("htSlideGameMenuHidden");
+        }
+        $("#smGameMenu").addClass("htSlideGameMenuHidden");
+
+        if ($("#smGameScore").hasClass("htSlideGameMenuHidden")) {
+            $("#smGameScore").removeClass("htSlideGameMenuHidden");
+        }
+
+        htShowSlideDivs(x, 0);
+    } else {
+        if (smGameTimeoutID != 0) {
+            clearTimeout(smGameTimeoutID);
+            smGameTimeoutID = 0;
+        }
+    }
+}
+
+function htProccessData(data, optional) {
+    if (data.type == undefined) {
+        return false;
+    }
+
+    switch (data.type) {
+        case "sm_game":
+            htFillSMGameData(data);
+            break;
+    }
+
+    if (data.fill_dates != undefined && data.fill_dates.constructor === vectorConstructor) {
+        htFillHTDate(data.fill_dates);
+    }
+
+}
+
+function htLoadPageV1(page, ext, arg, reload, dir, optional) {
+    $("#messages").html("&nbsp;");
+
+    $("#loading_msg").show();
+
+    var URL = htLoadPageMountURL(page, arg, dir);
+    var unixEpoch = Date.now();
+    $.ajax({
+        type: 'GET',
+        url: URL,
+        contentType: 'application/json; charset=utf-8',
+        data: 'nocache='+unixEpoch,
+        async: true,
+        dataType: 'json',
+        success: function(data) {
+            if (data.length == 0) {
+                $("#loading_msg").hide();
+                return false;
+            }
+
+            if (data.version == undefined || data.version == null) {
+                return false;
+            }
+
+            htLoadSources(data, arg, page);
+
+            htProccessData(data, optional);
+
+            return false;
+        },
+    });
+}
+
+
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
     if (ext == "html") {
@@ -388,12 +580,6 @@ function htLoadPage(page, ext, arg, reload) {
         $("#html_loaded").val(page);
     }
 
-    var lang = $("#site_language").val();
-    // Use default language
-    if (lang == null || lang == undefined) {
-        lang = htDetectLanguage();
-    }
-
     var unixEpoch = Date.now();
     if (ext == "html") {
         primarySourceMap.clear();
@@ -406,10 +592,12 @@ function htLoadPage(page, ext, arg, reload) {
         return false;
     }
 
+    var URL = htLoadPageMountURL(page, arg, "");
+
     $("#loading_msg").show();
     $.ajax({
         type: 'GET',
-        url: (arg != 'source' ) ?"lang/"+lang+"/"+page+".json" : "lang/sources/"+page+".json",
+        url: URL,
         contentType: 'application/json; charset=utf-8',
         data: 'nocache='+unixEpoch,
         async: true,
@@ -555,6 +743,16 @@ function htFillWebPage(page, data)
         htFillMathKeywords(data.math_keywords);
         $("#loading_msg").hide();
     } else {
+        switch (page) {
+            case "science":
+            case "first_steps":
+            case "history":
+                bookSections = [ ];
+                bookSections.push({"name": page, "id": null});
+                break;
+            default:
+                break;
+        }
         for (const i in data.content) {
             if (data.content[i].value == undefined || data.content[i].value == null) {
                 if (data.content[i].id != undefined && data.content[i].id == "fill_dates") {
@@ -727,7 +925,6 @@ function htFillMathKeywords(table) {
 }
 
 function htFillFamilyList(table, target) {
-
     for (const i in table) {
         if (table[i].target == undefined) {
             if (table[i].id != undefined && table[i].id == "fill_dates") {
@@ -766,6 +963,7 @@ function htFillSubMapList(table, target) {
         switch(table[i].page) {
             case "class_content":
                 if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
+                    bookSections.push({"name": table[i].name, "id": table[i].id});
                     $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>"); 
                 }
                 break;
@@ -1497,5 +1695,40 @@ function getRandomArbitrary(min, max) {
 function htInsertNumberField(id, min, max)
 {
     return "<div class=\"number-input\" id=\""+id+"\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"numberDown"+id+"\"></i><input id=\"numberField"+id+"\" type=\"number\" min=\""+min+"\" max=\""+max+"\" readonly /><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"numberUp"+id+"\"></i></div>";
+}
+
+function htShowSlideDivs(x, index) {
+    if (x == undefined) {
+        return;
+    }
+
+    for (let i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[index].style.display = "block";
+}
+
+function htShowSlideDivsAuto(x, index, stopMax) {
+    if (x == undefined) {
+        return;
+    }
+
+    for (let i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[index].style.display = "block";
+
+    ++index;
+    if (stopMax == true && index == x.length) {
+        return 0;
+    }
+
+    if (index == x.length) {
+        index = 0;
+    } else if (index < 0) {
+        index = x.length - 1;
+    }
+
+    return setTimeout(() => { smGameTimeoutID = htShowSlideDivsAuto(x, index, stopMax) }, 6000);
 }
 

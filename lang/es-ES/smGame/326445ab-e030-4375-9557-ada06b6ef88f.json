@@ -1,0 +1,105 @@
+{
+    "sources" : [ "326445ab-e030-4375-9557-ada06b6ef88f" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1722281882" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "sm_game",
+    "content" : [
+        {
+            "id" : "0b8aee44",
+            "text" : [ "<p class=\"smGameTextSize\">En esta fase, tu objetivo es encontrar una respuesta y comprender las etapas del método científico (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span id=\"htdate0\"></span>): Scientific Method</a>).</p>", "<p class=\"smGameTextSize\">En ciencias, cuando tenemos una idea, debemos ponerla a prueba para verificar si realmente explica algo. La ciencia no consiste en aceptar sin cuestionar, ni en creer ciegamente y desestimar lo contrario. La ciencia es un proceso continuo de aprendizaje diario.</p>" ],
+            "desc": null,
+            "next" : "fdeb3ea4",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "fdeb3ea4",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Presentación</span><p class=\"smGameTextSize\">Nuestro objetivo es verificar si las figuras que se muestran a continuación, que tienen las mismas longitudes y alturas, son iguales.</p>", "<p class=\"smGameTextSize\"><table class=\"tawapukllay\" style=\"width: 50%;\"><tr><th>Cuadrado</th><th>Círculo</th></tr> <tr><td><div class=\"square\" style=\"background-color:lightblue;width:5.5vw;height:5.5vw\"></div></td> <td><i class=\"fa-solid fa-circle\" style=\"color:#FFCCCB;font-size:6vw;\"></i></td></tr></table></p>" ],
+            "desc": null,
+            "next" : "d90fb213",
+            "prev" : "0b8aee44",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "d90fb213",
+            "text" : [ "<p class=\"smGameTextSize\">Nuestro primer paso es formular la pregunta que deseamos responder:</p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><b>Sobre la igualdad</b><br />¿Son iguales un cuadrado y un círculo?</div></div></p>"  ],
+            "desc": null,
+            "next" : "ddbe5fc2",
+            "prev" : "fdeb3ea4",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "ddbe5fc2",
+            "text" : [ "<p class=\"smGameTextSize\">Ahora, definimos las hipótesis (posibles respuestas) que vamos a poner a prueba:</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESIS 1</b>: Son iguales.</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESIS 2</b>: Son diferentes.</p>", "<p class=\"smGameTextSize\">Realicemos algunos experimentos para obtener una <b>teoria</b> (la respuesta que buscamos) (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span id=\"htdate1\"></span>): Scientific Method</a>).</p>"],
+            "desc": null,
+            "next" : "ad817f54",
+            "prev" : "d90fb213",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "ad817f54",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Comparando partes</span><p class=\"smGameTextSize\">Coloquemos una parte del círculo sobre una parte del cuadrado:</p>", "<p class=\"smGameTextSize\"><div class=\"desc\"><div class=\"square\" style=\"width:3vw;height:3vw;background-color:lightblue;\"><div class=\"quartercircle\" style=\"width:3vw;height:3vw;background-color:#FFCCCB;\"></div></div></div></p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><b>Las partes</b><br />¿La parte del círculo cubre completamente la parte del cuadrado?</div></div></p>"  ],
+            "desc": [ "Al colocar solo una parte del círculo sobre el cuadrado, es posible ver parte del cuadrado." ],
+            "next" : "1fbddce8",
+            "prev" : "ddbe5fc2",
+            "jumpTo" : null,
+            "answer": 0,
+            "score" : 2,
+            "position": "topCenter"
+        },
+        {
+            "id" : "1fbddce8",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Comparando las figuras</span><p class=\"smGameTextSize\">Tenemos indicios de que las figuras son diferentes. Para confirmarlo, coloquemos las figuras completas una sobre la otra:</p>", "<p class=\"smGameTextSize\"><div class=\"desc\"><div class=\"square\" style=\"width:6vw;height:6vw;background-color:lightblue;\"><div class=\"circle\" style=\"width:6vw;height:6vw;background-color:#FFCCCB;\"></div></div></div></p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><b>El todo</b><br />¿El círculo cubre completamente el cuadrado?</div></div></p>"  ],
+            "desc": [ "Al colocar las figuras completas, nuevamente es posible ver parte del cuadrado detrás." ],
+            "next" : "3a59cb22",
+            "prev" : "ad817f54",
+            "jumpTo" : null,
+            "answer": 0,
+            "score" : 2,
+            "position": "topCenter"
+        },
+        {
+            "id" : "3a59cb22",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Tabulación</span><p class=\"smGameTextSize\">Después de los experimentos, podemos organizar los resultados en una tabla para compararlos:</p>", "<p class=\"smGameTextSize\"><table class=\"indigenous_period\"><tr><th>Experimientos</th><th>Figuras iguales</th><th>Figuras diferentes</th></tr> <tr><th>Partes de las figuras</th><td>&nbsp;</td><td><b>X</b></td></tr> <tr><th>Figuras completas</th><td>&nbsp;</td><td><b>X</b></td></tr> </table>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><b>Sobre los resultados</b><br />¿Podemos decir que las figuras son diferentes?</div></div></p>"  ],
+            "desc": [ "Comparando los resultados, podemos afirmar que las figuras son diferentes." ],
+            "next" : "a7b28774",
+            "prev" : "1fbddce8",
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 2,
+            "position": "topCenter"
+        },
+        {
+            "id" : "a7b28774",
+            "text" : [ "<span class=\"smGameTextTitleSize\">La teoria</span><p class=\"smGameTextSize\">Al inicio, teníamos dos hipótesis:</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESIS 1</b>: Son iguales.</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESIS 2</b>: Son diferentes.</p>", "<p class=\"smGameTextSize\">Después de realizar los experimentos, podemos descartar la <b>HIPÓTESIS 1</b> y formular una <b>teoria</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span id=\"htdate2\"></span>): Scientific Method</a>): un cuadrado es diferente de un círculo.</p>" ],
+            "desc": null,
+            "next" : null,
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 2,
+            "position": "center"
+        }
+    ],
+    "levels": null,
+    "fill_dates" : [
+        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+    ]
+} 

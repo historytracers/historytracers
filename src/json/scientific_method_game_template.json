@@ -1,6 +1,5 @@
 {
     "sources" : [ "File with all sources used in the text." ],
-    "scripts" : [ "A JS file used with this content. Normally a file that fill and correct exercise." ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "last_update" : [ "Time in Unix Epoch showing last file update." ],
     "authors" : "Name of people that edited text.",
@@ -9,12 +8,31 @@
     "type" : "sm_game",
     "content" : [
         {
-            "id" : "SECTION_NAME",
+            "id" : "An ID for the current section.",
             "text" : [ "<p> </p>" ],
-            "next" : "id of next section",
-            "prev" : "id of previous section",
-            "jumpTo" : "id of the section I can jump",
-            "score" : "score to be given when reader reaches the goal."
+            "desc": [ "Additional description for text shown on screen."],
+            "next" : "ID of next section",
+            "prev" : "ID of previous section",
+            "jumpTo" : "ID of the section I can jump",
+            "answer": "A value defining the answer to be selected.",
+            "score" : "A numeric value to be given when reader reaches the goal. We strongly suggest to give at least one point for reader, because life is a learning process.",
+            "position": "top/center/topCenter"
+        }
+    ],
+    "levels": [
+        {
+            "type": "topLevel",
+            "id": "Unique ID of the level",
+            "name": "Name to be displayed on screen",
+            "desc": "A description of the Top level"
+        },
+        {
+            "type": "level",
+            "id": "Unique ID of the level",
+            "name": "Name to be displayed on screen",
+            "desc": "A description of the level",
+            "target" : "A topLevel ID.",
+            "loadID": ""
         }
     ],
     "fill_dates" : [

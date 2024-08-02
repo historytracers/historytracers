@@ -20,7 +20,7 @@ ht_create_source_file () {
 ht_create_class_files () {
     CT=$(date +%s)
     cd ../../lang || exit
-    find ./* \( -name "??-??" \) -exec bash -c 'cp ../src/json/class_template.json "$1/$2".json; sed -i "s/File with all sources used in the text./$2/g" "$1/$2".json; sed -i "s/A JS file used with this content. Normally a file that fill and correct exercise./$2/g" "$1/$2".json ; sed -i "s/Time in Unix Epoch showing last file update./$3/g" "$1/$2".json ; sed -i "s/UPDATE_INDEX/$4/g" "$1/$2".json' shell {} "$1" "$CT" "$2" \;
+    find ./* \( -name "??-??" \) -exec bash -c 'cp ../src/json/class_template.json "$1/$2.json"; sed -i "s/File with all sources used in the text./$2/g" "$1/$2.json"; sed -i "s/A JS file used with this content. Normally a file that fill and correct exercise./$2/g" "$1/$2.json" ; sed -i "s/Time in Unix Epoch showing last file update./$3/g" "$1/$2.json" ; sed -i "s/UPDATE_INDEX/$4/g" "$1/$2".json' shell {} "$1" "$CT" "$2" \;
 }
 
 ht_create_files() {
@@ -43,7 +43,7 @@ UUID=$(${RUN_UUID})
 
 LENGTH=${#UUID}
 if [ "${LENGTH}" -eq 0 ]; then
-    echo "Script cannot run \"uuidgen\""
+    echo "Unexpected output from \"uuidgen\""
     exit 1;
 fi
 

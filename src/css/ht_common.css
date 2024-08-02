@@ -7,6 +7,14 @@ html {
   height: 1px;
 }
 
+.selSize {
+  width: 5vw;
+}
+
+.htSlogan {
+  font-size: 1.0vw;
+}
+
 .side-bar-top {
   position: relative;
   height: 10%;
@@ -26,6 +34,7 @@ html {
 
 .side-bar {
   position: fixed;
+  background-color: lightyellow;
   top: 0%;
   width: 10%;
   float: left;
@@ -109,7 +118,7 @@ div.left-tree {
 
 div.right-tree {
   position: relative;
-  display: none;  
+  display: none;
   visibility: hidden;
   height: 20vh;
   width: 42vh;
@@ -324,22 +333,10 @@ ul.sidebar-all {
   padding: 0%;
 }
 
-ul.sidebar-genealogy {
-  list-style-type: none;
-  margin: 0;
-  padding: 0%;
-}
-
 ul.citation {
   list-style-type: none;
   text-align: center;
   margin: 0;
-}
-
-ul.sidebar-indigenous {
-  list-style-type: none;
-  margin: 0;
-  padding: 0%;
 }
 
 ul {
@@ -523,8 +520,8 @@ ul {
   text-align: center;
 }
 
-.inputRight { 
-  text-align: right; 
+.inputRight {
+  text-align: right;
 }
 
 .lab {
@@ -641,13 +638,11 @@ ul {
 }
 
 .ht_description {
-  display: none;  
+  display: none;
   visibility: hidden;
 }
 
 .square {
-  width: 100px;
-  height: 100px;
   border: 1px solid black;
   display: inline-flex;
   justify-content: center;
@@ -656,20 +651,26 @@ ul {
 }
 
 .circle {
-  background-color: black;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
   display: block;
   margin: auto;
+}
+
+.quartercircle {
+  border-top-left-radius: 100px;
+  border: 10px solid 0;
+  border-right: 0;
+  border-bottom: 0;
+    
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .circle2 {
   background-color: white;
   border: 1px solid black;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
   display: block;
   margin: auto;
 }
@@ -729,8 +730,18 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .imgGameSize {
-  max-width: 30vw;
-  max-height: 20vw;
+  max-width: 35vw;
+  max-height: 30vw;
+}
+
+.imgGameSizeWithOpacity {
+  position: relative;
+  z-index: -999999;
+  width: 33vw;
+  height: 60vh;
+  opacity: 0.2;
+  left: 0;
+  top: 0;
 }
 
 .scene {
@@ -793,7 +804,14 @@ input[type=number]::-webkit-outer-spin-button {
   position: relative;
   margin-left : auto;
   margin-right : auto;
-  width: 50%;
+  width: 60%;
+}
+
+.htSlidesGame {
+  position: relative;
+  margin-left : auto;
+  margin-right : auto;
+  width: 55%;
 }
 
 .htSlide {
@@ -822,9 +840,66 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: rgba(255,255,255, 1.0);
 }
 
+.htSlidePrevGame {
+  position : absolute;
+  bottom : 3em;
+  left : 0%;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 2.5vh;
+}
+
+.htSlideNextGame {
+  position:absolute;
+  bottom : 3em;
+  right: 0%;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 2.5vh;
+}
+
+.htSlideLikeGame {
+  position:absolute;
+  bottom : 3em;
+  left: 25%;
+  color: green;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 2.5vh;
+}
+
+.htSlideUnlikeGame {
+  position:absolute;
+  bottom : 3em;
+  left: 75%;
+  color: red;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 2.5vh;
+}
+
+.htSlideJumpGame {
+  position:absolute;
+  bottom : 3em;
+  left: 50%;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 2.5vh;
+}
+
+.htSlidePlayGame {
+  position:absolute;
+  color:red;
+  top: 50%;
+  left: 45%;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 5.0vh;
+}
+
 .htSlideCounter {
   top: 0%;
-  padding: 0.8vw 1.2vw;
+  padding: 0.8vw 0.2vh;
   position: absolute;
   font-weight: bold;
 }
@@ -836,5 +911,69 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
   font-weight: bold;
   font-size: 0.8vw;
+}
+
+.htSlideGameTextCenter {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.htSlideGameTextTopCenter {
+  vertical-align: middle;
+  position: absolute;
+  top: 39%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.htSlideGameTextTop {
+  vertical-align: middle;
+  position: absolute;
+  top: 0%;
+}
+
+.htSlideGameTextBottom {
+  position: absolute;
+  font-size: 1.0vw;
+  bottom: 3em;
+  left: 55%;
+  background-color: lightyellow;
+  border-radius: 25px;
+  width: 60%;
+  text-align: center;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.htSlideGameMenuHidden {
+  display : none;
+}
+
+.htSlideGameMenu {
+  position: absolute;
+  text-align: left;
+  top: 0%;
+  left: 0%;
+}
+
+.htSlideGameScore {
+  position: absolute;
+  top: 0%;
+  left: 80%;
+  font-size: 0.8vw;
+}
+
+.smGameTextSize {
+  font-size: 1.1vw;
+}
+
+.smGameTextTitleSize {
+  font-size: 2.0vw;
 }
 

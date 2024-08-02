@@ -1,0 +1,35 @@
+{
+    "title" : "Scientific method - the game",
+    "header" : "Scientific method - the game",
+    "sources" : [ "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0" ],
+    "scripts" : [ "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1721886814" ],
+    "authors" : null,
+    "reviewers" : null,
+    "content" : [
+        {
+            "id" : "families",
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=6d519d82-2de9-41cf-a740-2efe63326043\" onclick=\"htLoadPage('class_content', 'html', '6d519d82-2de9-41cf-a740-2efe63326043', false); return false;\">Understanding contexts (parte II)</a></td> <td><a href=\"index.html?page=science\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ "<p><h3>Introduction</h3>The main goal of this game is to help people reinforce their knowledge. In each level, you will find links to other areas of the project that can assist you; feel free to access them whenever necessary. The game score is solely intended to indicate where you can improve your skills, not to judge if a person is good or bad. Each part of the game that you access, your score will increase, because the learning received cannot be discarded.</p>" ]
+                },
+                {
+                    "id" : "rules",
+                    "text" : [ "<p><h3>Controls</h3>During the game, you will have the following controls available:</p>", "<p><ul><li><b>Next (<i class=\"fa-solid fa-chevron-right\"></i>)</b>:  Moves to the next screen. However, if a question screen appears, it will be skipped until an answer is provided.</li><li><b>Previous (<i class=\"fa-solid fa-chevron-left\"></i>)</b>: Returns to the previous screen. This option is available until the problem-solving stage begins, allowing you to reinforce your knowledge.</li><li><b>Skip (<i class=\"fa-solid fa-angle-double-right\"></i>)</b>: Available during the game’s introduction, enabling you to jump directly to the main screen.</li><li><b>Agree (<i class=\"fa-solid fa-thumbs-up\" style=\"color:green;\"></i>)</b>: Appears only on question screens, indicating that you agree with the question.</li><li><b>Disagree (<i class=\"fa-solid fa-thumbs-down\" style=\"color:red;\"></i>)</b>: Appears only on question screens, indicating that you believe the statement is incorrect.</li></ul></p>" ]
+                },
+                {
+                    "id" : "game",
+                    "text" : [ "<p><h3>The game</h3>The game starts with an introduction where each screen is displayed for 6 seconds before automatically advancing to the next. To begin the game, click the button <i class=\"fa-solid fa-play\" style=\"color:red;font-size:1.0vw;\">.</i></p>", "<p><div class=\"htSlidesGame\"></div></p>" ]
+                }
+            ]
+        }
+    ]
+} 

@@ -11,7 +11,6 @@ var htGameTranslationRandomVector = [];
 var htGameTranslationCurrentLevel = -1;
 var htGameRandomEnd = false;
 
-var htGameTranslationImages = [ "MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "TeotihuacanMountains.jpg", "CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CopanWholeTextStelaAltar.png", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren.jpg", "SanAndres.jpg", "Kaminaljuyu.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito.jpg" ];
 var htGameUseTranslationImages = [];
 
 var localGameVector7ec87720 = [];
@@ -172,7 +171,7 @@ function htTranslationCheckRandomAnswer() {
 
 
     if (htGameUseTranslationImages.length == 0) {
-        htGameUseTranslationImages = [].concat(htGameTranslationImages);
+        htGameUseTranslationImages = [].concat(htGameImages);
         localGameUseVector7ec87720 = [].concat(localGameVector7ec87720);
     }
 
@@ -331,7 +330,7 @@ function htLoadExercise() {
     });
 
     localGameVector7ec87720 = htLoadGameData();
-    htGameUseTranslationImages = [].concat(htGameTranslationImages);
+    htGameUseTranslationImages = [].concat(htGameImages);
     localGameUseVector7ec87720 = [].concat(localGameVector7ec87720);
 
     htLoadRandomTranslation();

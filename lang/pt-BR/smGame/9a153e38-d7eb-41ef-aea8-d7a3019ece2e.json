@@ -1,0 +1,85 @@
+{
+    "sources" : [ "9a153e38-d7eb-41ef-aea8-d7a3019ece2e" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1722000821" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "sm_game",
+    "content" : [
+        {
+            "id" : "b4b88e00",
+            "text" : [ "<p style=\"font-size:1.5vw;\">Você já se fez uma pergunta alguma vez?</p>" ],
+            "desc": null,
+            "next" : "c88e8c4c",
+            "prev" : null,
+            "jumpTo" : "smGameLevels",
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "c88e8c4c",
+            "text" : [ "<p style=\"font-size:1.5vw;\">Já comparou cores, comidas, roupas ou qualquer outros dois objetos?</p>" ],
+            "desc": null,
+            "next" : "ac120fc2",
+            "prev" : null,
+            "jumpTo" : "smGameLevels",
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "ac120fc2",
+            "text" : [ "<p style=\"font-size:1.5vw;\">Na vida, muitas vezes precisamos fazer escolhas, e uma boa maneira de fazer isso é fazendo perguntas.</p>" ],
+            "desc": null,
+            "next" : "fb8e75b9",
+            "prev" : null,
+            "jumpTo" : "smGameLevels",
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "fb8e75b9",
+            "text" : [ "<p style=\"font-size:1.5vw;\">Se você já se perguntou ou comparou algo, está preparado para novas descobertas com o...</p>" ],
+            "desc": null,
+            "next" : "9848036a",
+            "prev" : null,
+            "jumpTo" : "smGameLevels",
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "9848036a",
+            "text" : [ "<p style=\"font-size:3.0vw;\">MÉTODO CIENTÍFICO</p>", "<p style=\"font-size:1.5vw;\"> Clique em <i class=\"fa-solid fa-angle-double-right\"></i> para começar.</p>" ],
+            "desc": null,
+            "next" : null,
+            "prev" : "ac120fc2",
+            "jumpTo" : "smGameLevels",
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        }
+    ],
+    "levels" : [
+        {
+            "type": "topLevel",
+            "id": "f7379046",
+            "name": "Treinamento",
+            "desc": "Fase de aprendizado onde exploramos o método científico em diferentes situações de nossas vidas."
+        },
+        {
+            "type": "level",
+            "id": "477e32ea",
+            "name": "Figuras",
+            "desc": "Utilização de figuras geométricas para aplicar o método científico.",
+            "target" : "f7379046",
+            "loadID": "326445ab-e030-4375-9557-ada06b6ef88f"
+        }
+    ],
+    "fill_dates" : [
+        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }
+    ]
+} 

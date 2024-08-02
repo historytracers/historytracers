@@ -2,22 +2,16 @@
 
 var slideIndex9d4c7f85 = 0;
 
-function htShowDivs(n) {
-  var x = document.getElementsByClassName("htSlide");
-  if (n == x.length) {
-      slideIndex9d4c7f85 = 0;
-  } else if (n < 0) {
-      slideIndex9d4c7f85 = x.length - 1;
-  }
-
-  for (let i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  x[slideIndex9d4c7f85].style.display = "block";
-}
-
 function htPlusDivs(n) {
-  htShowDivs(slideIndex9d4c7f85 += n);
+    var x = document.getElementsByClassName("htSlide");
+    slideIndex9d4c7f85 += n;
+    if (slideIndex9d4c7f85 == x.length) {
+        slideIndex9d4c7f85 = 0;
+    } else if (slideIndex9d4c7f85 < 0) {
+        slideIndex9d4c7f85 = x.length - 1;
+    }
+
+    htShowSlideDivs(x, slideIndex9d4c7f85);
 }
 
 function htAddAlterQImages(id)
@@ -28,7 +22,7 @@ function htAddAlterQImages(id)
         $(id).append("<div class=\"htSlide\"> <div class=\"htSlideCounter\">"+(i + 1)+" / 4</div> <img class=\"imgGameSize\" src=\"images/CopanAltarGenealogy"+i+".jpg\"><div class=\"htSlideCaption\">"+kingOrder[i]+"</div></div>");
     }
     $(id).append("<i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i> <i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i>");
-    htShowDivs(slideIndex9d4c7f85);
+    htPlusDivs(0);
 }
 
 function htLoadExercise() {
