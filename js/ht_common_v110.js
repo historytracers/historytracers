@@ -64,7 +64,8 @@ $("#smGameMenu").addClass("htSlideGameMenuHidden");if($("#smGameScore").hasClass
 htShowSlideDivs(x,0);}else{if(smGameTimeoutID!=0){clearTimeout(smGameTimeoutID);smGameTimeoutID=0;}}}
 function htProccessData(data,optional){if(data.type==undefined){return false;}
 switch(data.type){case"sm_game":htFillSMGameData(data);break;}
-if(data.fill_dates!=undefined&&data.fill_dates.constructor===vectorConstructor){htFillHTDate(data.fill_dates);}}
+if(data.fill_dates!=undefined&&data.fill_dates.constructor===vectorConstructor){htFillHTDate(data.fill_dates);}
+if($("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}}
 function htLoadPageV1(page,ext,arg,reload,dir,optional){$("#messages").html("&nbsp;");$("#loading_msg").show();var URL=htLoadPageMountURL(page,arg,dir);var unixEpoch=Date.now();$.ajax({type:'GET',url:URL,contentType:'application/json; charset=utf-8',data:'nocache='+unixEpoch,async:true,dataType:'json',success:function(data){if(data.length==0){$("#loading_msg").hide();return false;}
 if(data.version==undefined||data.version==null){return false;}
 htLoadSources(data,arg,page);htProccessData(data,optional);return false;},});}

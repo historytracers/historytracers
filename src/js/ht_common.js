@@ -479,6 +479,10 @@ function htProccessData(data, optional) {
         htFillHTDate(data.fill_dates);
     }
 
+    if ($("#family_common_sn").length > 0) {
+        $("#family_common_sn").html(keywords[52]);
+    }
+
 }
 
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {
@@ -841,7 +845,6 @@ function htFillWebPage(page, data)
     if ($("#family_common_sn").length > 0) {
         $("#family_common_sn").html(keywords[52]);
     }
-
 
     if ($("#tree-common-stats").length <= 0) {
         return false;
