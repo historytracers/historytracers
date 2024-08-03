@@ -620,12 +620,6 @@ function htLoadPage(page, ext, arg, reload) {
 
             htFillWebPage(page, data);
 
-            /* if (page == "main") {
-                for (const i in data.content) {
-                    htAddPaperDivs("#ht_description", data.content[i].id, data.content[i].value, "", "", i);
-                }
-            } */
-
             return false;
         },
     });
@@ -689,7 +683,7 @@ function htFillHTDate(vector)
     }
 }
 
-function htFillWebPage(page, data)
+function htFillWebPageCommon(data, last_update, page_authors, page_reviewers)
 {
     if (data.title != undefined && data.title != null && data.title.length > 0) {
         $(document).prop('title', data.title);
@@ -697,11 +691,6 @@ function htFillWebPage(page, data)
 
     if (data.header != undefined && data.header != null && data.header.length > 0) {
         $("#header").html(data.header);
-    } else  if (data.nothing != undefined && data.nothing != null && data.nothing.length > 0) {
-        // Used when a new language has been added
-        $(document).prop('title', data.nothing);
-        $("#header").html(data.nothing);
-        return;
     }
 
     if (data.common != undefined && data.common != null && data.common.length > 0) {
@@ -710,13 +699,6 @@ function htFillWebPage(page, data)
         }
     }
 
-    var last_update = 0;
-    if (data.last_update != undefined && data.last_update != null) {
-        last_update = data.last_update;
-    }
-
-    var page_authors = (keywords.length > 34 ) ? keywords[35] : "Editors of History Tracers";
-    var page_reviewers = (keywords.length > 36 ) ? keywords[37] : "Reviewers of History Tracers";
     if (data.authors != undefined && data.authors != null) {
         page_authors = data.authors;
     }
@@ -728,20 +710,32 @@ function htFillWebPage(page, data)
     if ($("#extpaper").length > 0 && last_update > 0) {
         htFillDivAuthorsContent("#extpaper", last_update, page_authors, page_reviewers);
     }
+}
 
-    if (data.languages != undefined) {
+function htFillWebPageShouldStop(data)
+{
+    if (data.nothing != undefined && data.nothing != null && data.nothing.length > 0) {
+        // Used when a new language has been added
+        $(document).prop('title', data.nothing);
+        $("#header").html(data.nothing);
+        return true;
+    } else if (data.languages != undefined) {
         htFillIndexSelector(data.languages, "#site_language");
         $("#loading_msg").hide();
         $(':focus').blur()
-        return;
+        return true;
     }
     else if (data.calendars != undefined) {
         htFillIndexSelector(data.calendars, "#site_calendar");
         $("#loading_msg").hide();
         $(':focus').blur()
-        return;
+        return true;
     }
 
+    return false;
+}
+
+function htFillWebContent(page, data, last_update, page_authors, page_reviewers) {
     if (data.families != undefined) {
         htFillFamilies(page, data);
     } else if (data.keywords != undefined) {
@@ -817,30 +811,36 @@ function htFillWebPage(page, data)
             $("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");
         }
     }
+}
 
-    if (data.scripts != undefined && data.scripts != null) {
-        for (const i in data.scripts) {
-            var jsURL = "js/" + data.scripts[i] + ".js";
-            $.getScript( jsURL, function() {
-                htLoadExercise();
-
-                if ($("#btncheck").length > 0) {
-                    $("#btncheck").on( "click", function() {
-                        htCheckAnswers();
-                        return false;
-                    });
-                }
-
-                if ($("#btnnew").length > 0) {
-                    $("#btnnew").on( "click", function() {
-                        htLoadExercise();
-                            return false;
-                    });
-                }
-            });
-        }
+function htLoadScript(data) {
+    if (data.scripts == undefined || data.scripts == null) {
+        return;
     }
 
+    for (const i in data.scripts) {
+        var jsURL = "js/" + data.scripts[i] + ".js";
+        $.getScript( jsURL, function() {
+            htLoadExercise();
+
+            if ($("#btncheck").length > 0) {
+                $("#btncheck").on( "click", function() {
+                    htCheckAnswers();
+                    return false;
+                });
+            }
+
+            if ($("#btnnew").length > 0) {
+                $("#btnnew").on( "click", function() {
+                    htLoadExercise();
+                 return false;
+                });
+            }
+        });
+    }
+}
+
+function htFillWebEnd(data) {
     htFillClassWithText(".htPrevText", keywords[56]);
     htFillClassWithText(".htTopText", keywords[57]);
     htFillClassWithText(".htNextText", keywords[58]);
@@ -865,6 +865,27 @@ function htFillWebPage(page, data)
     Object.values(genealogicalStats).forEach(val => {
         $(htmlValues[counter++]).html(val);
     });
+}
+
+function htFillWebPage(page, data)
+{
+    if (htFillWebPageShouldStop(data)) {
+        return;
+    }
+
+    var page_authors = (keywords.length > 34 ) ? keywords[35] : "Editors of History Tracers";
+    var page_reviewers = (keywords.length > 36 ) ? keywords[37] : "Reviewers of History Tracers";
+    var last_update = 0;
+    if (data.last_update != undefined && data.last_update != null) {
+        last_update = data.last_update;
+    }
+
+    htFillWebPageCommon(data, last_update, page_authors, page_reviewers);
+
+    htFillWebContent(page, data, last_update, page_authors, page_reviewers);
+
+    htLoadScript(data);
+    htFillWebEnd(data);
 }
 
 function htLoadSources(data, arg, page)
@@ -954,9 +975,14 @@ function htFillFamilyList(table, target) {
 }
 
 function htFillMapList(table, target, page) {
+    let length = bookSections.length;
+    var fnctBase = "htLoadPage('"+page+"', 'html', '";
     for (const i in table) {
         if (table[i].id != "fill_dates") {
-            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+            bookSections.push({"name": table[i].name, "id": table[i].id});
+            var fcntCall = fnctBase + table[i].id+"', false);";
+            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"&idx="+length+"\" onclick=\""+fcntCall+"; return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+            length++;
         } else {
             if (table[i].text.constructor === vectorConstructor) {
                 htFillHTDate(table[i].text);

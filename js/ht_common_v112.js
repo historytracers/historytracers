@@ -91,19 +91,20 @@ function htFillHTDate(vector)
 {var localLang=$("#site_language").val();var localCalendar=$("#site_calendar").val();for(const j in vector){var w=vector[j];var updateText="";switch(w.type){case"gregory":if(w.day>0){updateText=htConvertGregorianDate(localCalendar,localLang,w.year,w.month,w.day);}else{updateText=htConvertGregorianYear(localCalendar,w.year);}
 break;case"unix":updateText=htConvertUnixDate(localCalendar,localLang,w.epoch);break;case"julian":updateText=htConvertJulianDate(localCalendar,localLang,w.day);break;}
 if($("#htdate"+j).length>0){$("#htdate"+j).html(updateText);}}}
-function htFillWebPage(page,data)
+function htFillWebPageCommon(data,last_update,page_authors,page_reviewers)
 {if(data.title!=undefined&&data.title!=null&&data.title.length>0){$(document).prop('title',data.title);}
-if(data.header!=undefined&&data.header!=null&&data.header.length>0){$("#header").html(data.header);}else if(data.nothing!=undefined&&data.nothing!=null&&data.nothing.length>0){$(document).prop('title',data.nothing);$("#header").html(data.nothing);return;}
+if(data.header!=undefined&&data.header!=null&&data.header.length>0){$("#header").html(data.header);}
 if(data.common!=undefined&&data.common!=null&&data.common.length>0){for(const i in data.common){$("#common").append(data.common[i]);}}
-var last_update=0;if(data.last_update!=undefined&&data.last_update!=null){last_update=data.last_update;}
-var page_authors=(keywords.length>34)?keywords[35]:"Editors of History Tracers";var page_reviewers=(keywords.length>36)?keywords[37]:"Reviewers of History Tracers";if(data.authors!=undefined&&data.authors!=null){page_authors=data.authors;}
+if(data.authors!=undefined&&data.authors!=null){page_authors=data.authors;}
 if(data.reviewers!=undefined&&data.reviewers!=null){page_reviewers=data.reviewers;}
-if($("#extpaper").length>0&&last_update>0){htFillDivAuthorsContent("#extpaper",last_update,page_authors,page_reviewers);}
-if(data.languages!=undefined){htFillIndexSelector(data.languages,"#site_language");$("#loading_msg").hide();$(':focus').blur()
-return;}
+if($("#extpaper").length>0&&last_update>0){htFillDivAuthorsContent("#extpaper",last_update,page_authors,page_reviewers);}}
+function htFillWebPageShouldStop(data)
+{if(data.nothing!=undefined&&data.nothing!=null&&data.nothing.length>0){$(document).prop('title',data.nothing);$("#header").html(data.nothing);return true;}else if(data.languages!=undefined){htFillIndexSelector(data.languages,"#site_language");$("#loading_msg").hide();$(':focus').blur()
+return true;}
 else if(data.calendars!=undefined){htFillIndexSelector(data.calendars,"#site_calendar");$("#loading_msg").hide();$(':focus').blur()
-return;}
-if(data.families!=undefined){htFillFamilies(page,data);}else if(data.keywords!=undefined){htFillKeywords(data.keywords);$("#loading_msg").hide();}else if(data.math_keywords!=undefined){htFillMathKeywords(data.math_keywords);$("#loading_msg").hide();}else{switch(page){case"science":case"first_steps":case"history":bookSections=[];bookSections.push({"name":page,"id":null});break;default:break;}
+return true;}
+return false;}
+function htFillWebContent(page,data,last_update,page_authors,page_reviewers){if(data.families!=undefined){htFillFamilies(page,data);}else if(data.keywords!=undefined){htFillKeywords(data.keywords);$("#loading_msg").hide();}else if(data.math_keywords!=undefined){htFillMathKeywords(data.math_keywords);$("#loading_msg").hide();}else{switch(page){case"science":case"first_steps":case"history":bookSections=[];bookSections.push({"name":page,"id":null});break;default:break;}
 for(const i in data.content){if(data.content[i].value==undefined||data.content[i].value==null){if(data.content[i].id!=undefined&&data.content[i].id=="fill_dates"){htFillHTDate(data.content[i].text);}
 continue;}
 if(data.content[i].value.constructor===stringConstructor){$("#"+data.content[i].id).html(data.content[i].value);}else if(data.content[i].value.constructor===vectorConstructor&&data.content[i].target!=undefined){if(data.content[i].value_type==undefined){continue;}else if(data.content[i].value_type=="family-list"){var table=data.content[i].value;htFillFamilyList(table,data.content[i].target);}else if(data.content[i].value_type=="group-list"){if(data.content[i].id!=undefined&&data.content[i].id!=null&&data.content[i].id.length>0&&data.content[i].desc!=undefined&&data.content[i].desc.length>0){$("#"+data.content[i].id).html(data.content[i].desc);}
@@ -111,13 +112,18 @@ htFillMapList(data.content[i].value,data.content[i].target,data.content[i].page)
 if($("#tree-sources-lbl").length>0){$("#tree-sources-lbl").html(keywords[5]);}
 if($("#tree-references-lbl").length>0){$("#tree-references-lbl").html(keywords[6]);}
 if($("#tree-holy_references-lbl").length>0){$("#tree-holy_references-lbl").html(keywords[7]);}
-if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");}}
-if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){htLoadExercise();if($("#btncheck").length>0){$("#btncheck").on("click",function(){htCheckAnswers();return false;});}
+if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");}}}
+function htLoadScript(data){if(data.scripts==undefined||data.scripts==null){return;}
+for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){htLoadExercise();if($("#btncheck").length>0){$("#btncheck").on("click",function(){htCheckAnswers();return false;});}
 if($("#btnnew").length>0){$("#btnnew").on("click",function(){htLoadExercise();return false;});}});}}
-htFillClassWithText(".htPrevText",keywords[56]);htFillClassWithText(".htTopText",keywords[57]);htFillClassWithText(".htNextText",keywords[58]);htFillClassWithText(".htIndexText",keywords[60]);if($("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}
+function htFillWebEnd(data){htFillClassWithText(".htPrevText",keywords[56]);htFillClassWithText(".htTopText",keywords[57]);htFillClassWithText(".htNextText",keywords[58]);htFillClassWithText(".htIndexText",keywords[60]);if($("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}
 if($("#tree-common-stats").length<=0){return false;}
 var htmlFields=["#tree-common-stats","#statsDescription","#genStatRow00","#genStatRow01","#genStatRow10","#genStatRow20","#genStatRow30","#genStatRow40","#genStatRow50","#genStatRow60","#genStatRow70"];var labelIndexes=[61,62,63,64,5,6,7,65,66,67,68,69];for(let i=0;i<htmlFields.length;i++){$(htmlFields[i]).html(keywords[labelIndexes[i]]);}
 var htmlValues=["#genStatRow11","#genStatRow21","#genStatRow31","#genStatRow41","#genStatRow51","#genStatRow61","#genStatRow71"];var counter=0;Object.values(genealogicalStats).forEach(val=>{$(htmlValues[counter++]).html(val);});}
+function htFillWebPage(page,data)
+{if(htFillWebPageShouldStop(data)){return;}
+var page_authors=(keywords.length>34)?keywords[35]:"Editors of History Tracers";var page_reviewers=(keywords.length>36)?keywords[37]:"Reviewers of History Tracers";var last_update=0;if(data.last_update!=undefined&&data.last_update!=null){last_update=data.last_update;}
+htFillWebPageCommon(data,last_update,page_authors,page_reviewers);htFillWebContent(page,data,last_update,page_authors,page_reviewers);htLoadScript(data);htFillWebEnd(data);}
 function htLoadSources(data,arg,page)
 {if(data.sources!=undefined){for(const i in data.sources){htLoadPage(data.sources[i],'json','source',false);}}else{if(arg!='source'){return true;}
 htFillMapSource(primarySourceMap,data.primary_sources);htFillMapSource(refSourceMap,data.reference_sources);htFillMapSource(holyRefSourceMap,data.religious_sources);if(page.length==36){genealogicalStats.primary_src=(data.primary_sources!=undefined)?data.primary_sources.length:0;genealogicalStats.reference_src=(data.reference_sources!=undefined)?data.reference_sources.length:0;genealogicalStats.holy_src=(data.religious_sources!=undefined)?data.religious_sources.length:0;}
@@ -132,7 +138,7 @@ function htFillMathKeywords(table){mathKeywords=[];for(const i in table){mathKey
 function htFillFamilyList(table,target){for(const i in table){if(table[i].target==undefined){if(table[i].id!=undefined&&table[i].id=="fill_dates"){if(table[i].text.constructor===vectorConstructor){htFillHTDate(table[i].text);}}
 continue;}
 $("#"+table[i].target).append("<div id=\"bottom"+table[i].id+"\"><h3>"+table[i].id+"</h3></div>");if(table[i].value.constructor===vectorConstructor){var rows=table[i].value;$("#bottom"+table[i].id).append("<ul id=\"bottomList"+table[i].id+"\"></ul>");for(const k in rows){$("#bottomList"+table[i].id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+rows[k].id+"', false); return false;\" >"+rows[k].value+"</a></li>");}}}}
-function htFillMapList(table,target,page){for(const i in table){if(table[i].id!="fill_dates"){$("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");}else{if(table[i].text.constructor===vectorConstructor){htFillHTDate(table[i].text);}}}}
+function htFillMapList(table,target,page){let length=bookSections.length;var fnctBase="htLoadPage('"+page+"', 'html', '";for(const i in table){if(table[i].id!="fill_dates"){bookSections.push({"name":table[i].name,"id":table[i].id});var fcntCall=fnctBase+table[i].id+"', false);";$("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"&idx="+length+"\" onclick=\""+fcntCall+"; return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");length++;}else{if(table[i].text.constructor===vectorConstructor){htFillHTDate(table[i].text);}}}}
 function htFillSubMapList(table,target){for(const i in table){switch(table[i].page){case"class_content":if(table[i].id!=undefined&&table[i].name!=undefined&&table[i].desc!=undefined){bookSections.push({"name":table[i].name,"id":table[i].id});$("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");}
 break;case"tree":default:if(table[i].person_id!=undefined&&table[i].family_id!=undefined&&table[i].name!=undefined&&table[i].desc!=undefined){$("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");}}}}
 function htCheckExerciseAnswer(val0,val1,answer,explanation){var ans=parseInt($("input[name="+val0+"]:checked").val());var text="";var format="";if(ans==val1){text=keywords[27];format="green";}else{text=keywords[28];format="red";}
