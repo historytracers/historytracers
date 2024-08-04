@@ -489,78 +489,10 @@ function htProccessData(data, optional) {
 
 }
 
-/*
- * page, arg
- */
-function htLoadHTML(page, ext, arg, reload) {
-    var unixEpoch = Date.now();
-    var appendPage = "";
-    var loadSelector = arg.split('&person_id=') ;
-    if (loadSelector.length != 2) {
-        $("#loading").val(arg);
-    } else {
-        appendPage = loadSelector[0];
-    }
-    if (page != "tree") {
-        $('.right-tree').css('display','none');
-        $('.right-tree').css('visibility','hidden');
-    }
-    switch(page) {
-        case "tree":
-        case "genealogical_map_list":
-        case "class_content":
-            if (reload == true && lastTreeLoaded.arg != null && lastTreeLoaded.arg.length > 0) {
-                arg = lastTreeLoaded.arg;
-            } else {
-                lastTreeLoaded.page = page;
-                lastTreeLoaded.arg = arg;
-            }
-
-            if (page == "tree") {
-                $('.right-tree').css('display','block');
-                $('.right-tree').css('visibility','visible');
-            }
-
-            var myURL = (arg != undefined && arg != null) ? 'index.html?page='+page+'&arg='+arg : 'index.html?page='+page;
-            genealogicalStats = htResetGenealogicalStats();
-
-            window.history.replaceState(null, null, myURL);
-            break;
-        case "families":
-            lastTreeLoaded.page = null;
-            lastTreeLoaded.arg = null
-            $("#loading").val("");
-            $("#selector").val("");
-        default:
-            window.history.replaceState(null, null, 'index.html?page='+page);
-            break;
-    }
-
-    $("#tree-source").html("");
-    $("#tree-ref").html("");
-    $("#tree-holy-ref").html("");
-
-    $("#html_loaded").val(page);
-
-    primarySourceMap.clear();
-    refSourceMap.clear();
-    holyRefSourceMap.clear();
-
-    $("#loading").val(loadSelector[0]);
-    $("#selector").val(loadSelector[1]);
-
-    var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
-    $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
-}
-
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     $("#messages").html("&nbsp;");
 
     $("#loading_msg").show();
-    if (ext.length != null && ext.length > 0 &&  ext == "html") {
-        htLoadHTML(page, ext, arg, reload);
-        return false;
-    }
 
     var URL = htLoadPageMountURL(page, arg, dir);
     var unixEpoch = Date.now();
@@ -590,12 +522,74 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     });
 }
 
+
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
+    if (ext == "html") {
+        if (page != "tree") {
+            $('.right-tree').css('display','none');
+            $('.right-tree').css('visibility','hidden');
+        }
+        switch(page) {
+            case "tree":
+            case "genealogical_map_list":
+            case "class_content":
+                if (reload == true && lastTreeLoaded.arg != null && lastTreeLoaded.arg.length > 0) {
+                    arg = lastTreeLoaded.arg;
+                } else {
+                    lastTreeLoaded.page = page;
+                    lastTreeLoaded.arg = arg;
+                }
+
+                if (page == "tree") {
+                   $('.right-tree').css('display','block');
+                   $('.right-tree').css('visibility','visible');
+                }
+
+                var myURL = (arg != undefined && arg != null) ? 'index.html?page='+page+'&arg='+arg : 'index.html?page='+page;
+                genealogicalStats = htResetGenealogicalStats();
+
+                window.history.replaceState(null, null, myURL);
+                break;
+            case "families":
+                lastTreeLoaded.page = null;
+                lastTreeLoaded.arg = null
+                $("#loading").val("");
+                $("#selector").val("");
+            default:
+                window.history.replaceState(null, null, 'index.html?page='+page);
+                break;
+        }
+
+        $("#tree-source").html("");
+        $("#tree-ref").html("");
+        $("#tree-holy-ref").html("");
+    }
+
+    var pages = arg.split('&person_id=') ;
+    var appendPage = "";
+    if (pages.length != 2) {
+        $("#loading").val(arg);
+    } else {
+        appendPage = pages[0];
+        if (ext == "html") {
+            $("#loading").val(pages[0]);
+            $("#selector").val(pages[1]);
+        }
+    }
+
+    if (ext.length != null && ext.length > 0 &&  ext == "html") {
+        $("#html_loaded").val(page);
+    }
 
     var unixEpoch = Date.now();
-    if (ext.length != null && ext.length > 0 &&  ext == "html") {
-        htLoadHTML(page, ext, arg, reload);
+    if (ext == "html") {
+        primarySourceMap.clear();
+        refSourceMap.clear();
+        holyRefSourceMap.clear();
+
+        var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
+        $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 
         return false;
     }
@@ -619,6 +613,12 @@ function htLoadPage(page, ext, arg, reload) {
             htLoadSources(data, arg, page);
 
             htFillWebPage(page, data);
+
+            /* if (page == "main") {
+                for (const i in data.content) {
+                    htAddPaperDivs("#ht_description", data.content[i].id, data.content[i].value, "", "", i);
+                }
+            } */
 
             return false;
         },
@@ -683,7 +683,7 @@ function htFillHTDate(vector)
     }
 }
 
-function htFillWebPageCommon(data, last_update, page_authors, page_reviewers)
+function htFillWebPage(page, data)
 {
     if (data.title != undefined && data.title != null && data.title.length > 0) {
         $(document).prop('title', data.title);
@@ -691,6 +691,11 @@ function htFillWebPageCommon(data, last_update, page_authors, page_reviewers)
 
     if (data.header != undefined && data.header != null && data.header.length > 0) {
         $("#header").html(data.header);
+    } else  if (data.nothing != undefined && data.nothing != null && data.nothing.length > 0) {
+        // Used when a new language has been added
+        $(document).prop('title', data.nothing);
+        $("#header").html(data.nothing);
+        return;
     }
 
     if (data.common != undefined && data.common != null && data.common.length > 0) {
@@ -699,6 +704,13 @@ function htFillWebPageCommon(data, last_update, page_authors, page_reviewers)
         }
     }
 
+    var last_update = 0;
+    if (data.last_update != undefined && data.last_update != null) {
+        last_update = data.last_update;
+    }
+
+    var page_authors = (keywords.length > 34 ) ? keywords[35] : "Editors of History Tracers";
+    var page_reviewers = (keywords.length > 36 ) ? keywords[37] : "Reviewers of History Tracers";
     if (data.authors != undefined && data.authors != null) {
         page_authors = data.authors;
     }
@@ -710,32 +722,20 @@ function htFillWebPageCommon(data, last_update, page_authors, page_reviewers)
     if ($("#extpaper").length > 0 && last_update > 0) {
         htFillDivAuthorsContent("#extpaper", last_update, page_authors, page_reviewers);
     }
-}
 
-function htFillWebPageShouldStop(data)
-{
-    if (data.nothing != undefined && data.nothing != null && data.nothing.length > 0) {
-        // Used when a new language has been added
-        $(document).prop('title', data.nothing);
-        $("#header").html(data.nothing);
-        return true;
-    } else if (data.languages != undefined) {
+    if (data.languages != undefined) {
         htFillIndexSelector(data.languages, "#site_language");
         $("#loading_msg").hide();
         $(':focus').blur()
-        return true;
+        return;
     }
     else if (data.calendars != undefined) {
         htFillIndexSelector(data.calendars, "#site_calendar");
         $("#loading_msg").hide();
         $(':focus').blur()
-        return true;
+        return;
     }
 
-    return false;
-}
-
-function htFillWebContent(page, data, last_update, page_authors, page_reviewers) {
     if (data.families != undefined) {
         htFillFamilies(page, data);
     } else if (data.keywords != undefined) {
@@ -811,36 +811,30 @@ function htFillWebContent(page, data, last_update, page_authors, page_reviewers)
             $("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");
         }
     }
-}
 
-function htLoadScript(data) {
-    if (data.scripts == undefined || data.scripts == null) {
-        return;
+    if (data.scripts != undefined && data.scripts != null) {
+        for (const i in data.scripts) {
+            var jsURL = "js/" + data.scripts[i] + ".js";
+            $.getScript( jsURL, function() {
+                htLoadExercise();
+
+                if ($("#btncheck").length > 0) {
+                    $("#btncheck").on( "click", function() {
+                        htCheckAnswers();
+                        return false;
+                    });
+                }
+
+                if ($("#btnnew").length > 0) {
+                    $("#btnnew").on( "click", function() {
+                        htLoadExercise();
+                            return false;
+                    });
+                }
+            });
+        }
     }
 
-    for (const i in data.scripts) {
-        var jsURL = "js/" + data.scripts[i] + ".js";
-        $.getScript( jsURL, function() {
-            htLoadExercise();
-
-            if ($("#btncheck").length > 0) {
-                $("#btncheck").on( "click", function() {
-                    htCheckAnswers();
-                    return false;
-                });
-            }
-
-            if ($("#btnnew").length > 0) {
-                $("#btnnew").on( "click", function() {
-                    htLoadExercise();
-                 return false;
-                });
-            }
-        });
-    }
-}
-
-function htFillWebEnd(data) {
     htFillClassWithText(".htPrevText", keywords[56]);
     htFillClassWithText(".htTopText", keywords[57]);
     htFillClassWithText(".htNextText", keywords[58]);
@@ -865,27 +859,6 @@ function htFillWebEnd(data) {
     Object.values(genealogicalStats).forEach(val => {
         $(htmlValues[counter++]).html(val);
     });
-}
-
-function htFillWebPage(page, data)
-{
-    if (htFillWebPageShouldStop(data)) {
-        return;
-    }
-
-    var page_authors = (keywords.length > 34 ) ? keywords[35] : "Editors of History Tracers";
-    var page_reviewers = (keywords.length > 36 ) ? keywords[37] : "Reviewers of History Tracers";
-    var last_update = 0;
-    if (data.last_update != undefined && data.last_update != null) {
-        last_update = data.last_update;
-    }
-
-    htFillWebPageCommon(data, last_update, page_authors, page_reviewers);
-
-    htFillWebContent(page, data, last_update, page_authors, page_reviewers);
-
-    htLoadScript(data);
-    htFillWebEnd(data);
 }
 
 function htLoadSources(data, arg, page)
@@ -975,14 +948,9 @@ function htFillFamilyList(table, target) {
 }
 
 function htFillMapList(table, target, page) {
-    let length = bookSections.length;
-    var fnctBase = "htLoadPage('"+page+"', 'html', '";
     for (const i in table) {
         if (table[i].id != "fill_dates") {
-            bookSections.push({"name": table[i].name, "id": table[i].id});
-            var fcntCall = fnctBase + table[i].id+"', false);";
-            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"&idx="+length+"\" onclick=\""+fcntCall+"; return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
-            length++;
+            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
         } else {
             if (table[i].text.constructor === vectorConstructor) {
                 htFillHTDate(table[i].text);
