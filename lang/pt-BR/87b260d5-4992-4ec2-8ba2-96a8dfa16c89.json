@@ -1,0 +1,72 @@
+{
+    "title" : "Mudança de direção",
+    "header" : "Mudança de direção",
+    "sources" : [ "87b260d5-4992-4ec2-8ba2-96a8dfa16c89" ],
+    "scripts" : [ "87b260d5-4992-4ec2-8ba2-96a8dfa16c89" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1722982575" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=9d4c7f85-0e69-4795-a738-0acb54f2011d\" onclick=\"htLoadPage('class_content', 'html', '9d4c7f85-0e69-4795-a738-0acb54f2011d', false); return false;\">Famílias numéricas</a></td> <td><a href=\"index.html?page=first_steps\" onclick=\"htLoadPage('first_steps','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><h3>Pré-requisitos</h3>Neste texto, exploramos como o corpo humano inspirou o desenvolvimento de sistemas numéricos. Para uma compreensão mais detalhada, recomendamos primeiramente a leitura de:</p>", "<p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9618a83e-f232-49db-84f6-fc3455a3f1d1'); return false;\">Desenhando para contar</a>: Uma análise de como substituímos nossos dedos por figuras geométricas.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('00f3ab60-2017-420a-99dc-56de384243e8'); return false;\">Famílias numéricas</a>: Mostra-se ao leitor uma possível relação entre nossos ancestrais e os números.</li></ul></p>" ]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ "<p><h3>Crescimento</h3>Quando falamos de crescimento, geralmente pensamos primeiro na nossa altura. No entanto, entre os povos indígenas, o conceito de crescimento é compreendido de forma mais ampla, abrangendo diversas áreas da vida e do desenvolvimento pessoal.</p>" ]
+                },
+                {
+                    "id" : "mountain",
+                    "text" : [ "<p><h3>Montanhas sagradas</h3>Ao visitar um sítio arqueológico na Mesoamérica, é possível observar montanhas sagradas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('960e3a8e-3a60-4ee4-9df4-e2187489e3b9'); return false;\">García Capistrán, H., <span id=\"htdate0\"></span>, pp. 144</a>). Muitas dessas montanhas também \"cresceram\" ao longo do tempo:</p>", "<p class=\"desc\"><img src=\"images/Temple16Copan.png\" class=\"imgcenter\"/>Figura 1: Cartaz presente no sítio de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span id=\"htdate1\"></span></a>). Foto tirada em <span id=\"htdate2\"></span> em uma visita ao sitio.</p>", "<p>Na <b>Figura 1</b>, vemos as diversas fases de reconstrução que ocorreram antes da construção do Templo 16 em Copán, Honduras. Para uma análise detalhada dessa estrutura, recomendamos a leitura do trabalho de Luiz Tuarez, que oferece diferentes perspectivas sobre o templo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('daae87a2-5fa9-43d1-88fb-6713b25d50d5'); return false;\">García Capistrán, H., <span id=\"htdate3\"></span>, pp. 120 - 128</a>). </p>" ]
+                },
+                {
+                    "id" : "mesoamerica",
+                    "text" : [ "<p><h3>Números Mesoamericanos</h3>O sistema numérico mesoamericano é vigesimal, ou seja, temos 20 diferentes símbolos para representar os números (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span id=\"htdate4\"></span>, pp. 26 - 29 (ResearchGate)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span id=\"htdate5\"></span>, pp. 26 - 29 (Revista)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francico Barriga, <span id=\"htdate6\"></span>, pp. 32, 34</a>), o que significa que a contagem avança para a próxima  \"geração\" numérica após o número 19 (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('00f3ab60-2017-420a-99dc-56de384243e8'); return false;\">History Traces, <span id=\"htdate7\"></span>, Famílias numéricas</a>). Abaixo, você pode explorar a representação dos números de 0 a 99 nesse sistema indígena, utilizando as setas para navegar:</p>", "<p><table class=\"mesoamerican\"><tr><th>Número Mesoamericano</th><th>Número decimal</th><th>Controles</th></tr> <tr><td><img src=\"\" id=\"tmc1l1\" /></td><td id=\"tmc2l1\" rowspan=\"2\"><span class=\"text_to_paint\" id=\"mesoIndoArabic\">0</span></td><td><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"mesoUp\"></i></td></tr> <tr><td><img src=\"\" id=\"tmc1l2\" /></td><td><i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"mesoDown\"></i></td></tr></table></p>", "<p class=\"desc\">Tabela 1: Relação dos primeiros 99 números mesoamericanos com indo-arábico.</p>" ]
+                },
+                {
+                    "id" : "andes",
+                    "text" : [ "<p><h3>Numeração Andina</h3><h4>Quipus</h4>O sistema dos quipus, ou nós, desenvolvido nos Andes, remonta a tempos antigos, possivelmente originando-se na cidade sagrada de Caral, no Peru (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span id=\"htdate8\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span id=\"htdate9\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a7abe0b7-b3bf-44d6-ab4d-e7d32d2586ad'); return false;\">Legado Ancestral, <span id=\"htdate10\"></span>, Caral La Civilizacion más Antigua de America</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d76a60c6-1eaa-4e1e-9b72-2135509101c1'); return false;\">Legado Ancestral, <span id=\"htdate11\"></span>, Caral parte 2 - Tecnología en el año 4.000 A.C.</a>):</p>", "<p class=\"desc\"><img src=\"images/QuipuPanel.png\" class=\"imgcenter\"/>Figura 2: Painel presente no sítio arqueológico de Caral, ©ZonaArqueólogicaCaral, (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span id=\"htdate12\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span id=\"htdate13\"></span></a>). Foto tirada em <span id=\"htdate14\"></span> durante uma visita ao sítio.</p>", "<p>Nesse sistema, a ausência de um nó representa o número zero (0), e cada número adicional é indicado por um nó, ou volta, até o limite de nove (9). Quando esse limite é alcançado, os nós são feitos em uma posição superior. (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6e9bef8c-6ec5-4c04-b583-aea8e6bbec5b'); return false;\">Quesada, Eugenio de, <span id=\"htdate15\"></span></a>):</p>", "<p class=\"desc\"><img src=\"images/Andes_Quipu.png\" class=\"imgcenter\"/>Figura 3: Representação de um quipu. Código-fonte presente no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span id=\"htdate16\"></span>, Código-fonte</a>).</p>", "<p><h4>A Yuapana</h4>O método <i>\"Yupana Inka Tawa Pukllay\"</i>, utilizado nesta página, foi desenvolvido e publicado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) da Associação Yupanki (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span id=\"htdate17\"></span>, pp. 354 - 363</a>). Esse método segue o modelo vertical da <i>Yupana</i>, conforme apresentado no trabalho de Felipe Guaman Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <span id=\"htdate18\"></span>, pp. 361 - 362</a>). Quando o limite de nove (9) é atingido, os valores começam a ser registrados na linha superior:</p>", "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Número indo-arábico</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\" rowspan=\"2\"><span class=\"text_to_paint\" id=\"andesIndoArabic\">0</span></td><td id=\"tc6f1\" rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"yupanaUp\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" name=\"yupanaDown\"></td></tr>  <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td></tr></table>" ]
+                },
+                {
+                    "id" : "conclusion",
+                        "text" : [ "<p><h3>Conclusão</h3>Independentemente da direção em que escrevemos números maiores, é fundamental respeitar os limites máximos e mínimos do sistema numérico utilizado. Neste texto, exploramos como diferentes povos indígenas desenvolveram sistemas numéricos semelhantes, inspirados possivelmente pela observação de seu crescimento, das árvores e da natureza em geral.</p>" ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
+                        {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2016", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" }
+                    ]
+                }
+            ]
+        }
+    ]
+} 

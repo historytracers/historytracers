@@ -393,7 +393,9 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn)
     var start = 20 ** (rows - 1);
     var top2bottom = 1;
     while (start > dividend) {
-        $("#tmc"+outputColumn+"l"+top2bottom).html("0");
+        if (outputColumn != null) {
+            $("#tmc"+outputColumn+"l"+top2bottom).html("0");
+        }
         $("#tmc1l"+top2bottom).attr('src', 'images/Maya_0.png');
         start /= 20;
         top2bottom++;
@@ -403,7 +405,9 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn)
     while (dividend != 0) {
         var rest = dividend % 20;
         dividend = Math.trunc(dividend / 20);
-        $("#tmc"+outputColumn+"l"+bottom2top).html(rest);
+        if (outputColumn != null) {
+            $("#tmc"+outputColumn+"l"+bottom2top).html(rest);
+        }
         $("#tmc1l"+bottom2top).attr('src', 'images/Maya_'+rest+'.png');
         
         bottom2top--;
@@ -413,7 +417,9 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn)
 function htCleanMesoamericanVigesimalValues(rows, outputColumn)
 {
     for (let i = 1; i <= rows; i++) {
-        $("#tmc"+outputColumn+"l"+i).html(" ");
+        if (outputColumn != null) {
+            $("#tmc"+outputColumn+"l"+i).html(" ");
+        }
         $("#tmc1l"+i).attr('src', '');
     }
 }
