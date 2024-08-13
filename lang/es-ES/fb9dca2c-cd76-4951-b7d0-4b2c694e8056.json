@@ -1,0 +1,66 @@
+{
+    "title" : "Los números son...",
+    "header" : "Los números son...",
+    "sources" : [ "fb9dca2c-cd76-4951-b7d0-4b2c694e8056" ],
+    "scripts" : [ "fb9dca2c-cd76-4951-b7d0-4b2c694e8056" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1723536047" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=87b260d5-4992-4ec2-8ba2-96a8dfa16c89\" onclick=\"htLoadPage('class_content', 'html', '87b260d5-4992-4ec2-8ba2-96a8dfa16c89', false); return false;\">Cambio de dirección</a></td> <td><a href=\"index.html?page=first_steps\" onclick=\"htLoadPage('first_steps','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><h3>Prerrequisitos</h3>En este juego, reforzamos el conocimiento de los sistemas numéricos. Para obtener más detalles, sugerimos leer primero:</p>", "<p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9618a83e-f232-49db-84f6-fc3455a3f1d1'); return false;\">Dibujando para contar</a>: Se muestra cómo sustituimos nuestros dedos por figuras geométricas.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('00f3ab60-2017-420a-99dc-56de384243e8'); return false;\">Familias numéricas</a>: La posible relación entre nuestros ancestros y los números.</li></ul></p>" ]
+                },
+                {
+                    "id" : "rules",
+                    "text" : [ "<p><h3>Reglas</h3>El objetivo del juego es completar secuencias numéricas respetando los límites máximos y mínimos de cada sistema numérico. Antes de empezar a jugar, deberás elegir el sistema numérico que deseas utilizar. En cada etapa, se te presentarán dos números y deberás completar el tercero usando los controles. Con cada acierto, se revelará una herramienta indígena. Al finalizar una fase, presiona el botón \"Avanzar\" (<i class=\"fa-solid fa-chevron-right\" style=\"font-size:1.0vw;\"></i>), para continuar. Al completar las 10 etapas, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p>", "<p>Los sistemas numéricos Indo-arábigo y Mesoamericano se presentan en forma de tabla, mientras que en el modo Yupana se realizan comparaciones entre diferentes tablas.</p>" ]
+                },
+                {
+                    "id" : "game",
+                    "text" : [ "<p><h3>El juego</h3>Elige un sistema numérico: <input type=\"radio\" name=\"htNumericalSystem\" value=\"ha\" /> Indo-arábigo <input type=\"radio\" name=\"htNumericalSystem\" value=\"yupana\" /> <i>Yupana</i> <input type=\"radio\" name=\"htNumericalSystem\" value=\"mesoamerican\" /> Mesoamericano</p>", "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete la secuencia</th><th colspan=\"2\">Controles</th></tr> </table></p>", "<p class=\"htSequenceGame\" id=\"cmp1\"><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete la secuencia</th><th colspan=\"2\">Controles</th></tr> </table></p>", "<p class=\"htSequenceGame\" id=\"cmp2\"><table id=\"yupana2\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete la secuencia</th><th colspan=\"2\">Controles</th></tr> </table></p>", "<p class=\"desc\">Trabajamos con la <i>Yupana</i> utilizando el método <i>\"Yupana Inka Tawa Pukllay\"</i>, desarrollado y publicado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) de la Asociación Yupanki (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span id=\"htdate0\"></span></a>).<br />El uso de los números mesoamericanos se basa en el trabajo de Orlando Josué Casares Contreras, José M. Gamboa Cetina y Venus Sarahí Estrella Cabrera (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span id=\"htdate1\"></span>, (ResearchGate)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span id=\"htdate2\"></span>, (Revista)</a>). Además, incorporamos las contribuciones de Francico Barriga Puente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francico Barriga, <span id=\"htdate3\"></span></a>).<br />Finalmente, empleamos diversos métodos de conteo inspirados por el trabajo de Francisco A. González Redondo <i>et al.</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a4f22e25-5839-407f-a1aa-634521d52b42'); return false;\">González Redondo, Francisco A., et al., <span id=\"htdate4\"></span></a>)." ]
+                },
+                {
+                    "id": "game_v1",
+                    "text": [
+                        {"imageDesc" : "Figura 1: Cerámicas andinas del periodo formativo. Foto tomada en <span id=\"htdate5\"></span> durante una visita al Museo de Antropologia em Lima, Perú." },
+                        {"imageDesc" : "Figura 2: Pote de cerâmica mesoamericano. Foto tomada en <span id=\"htdate6\"></span> durante una visita al sítio arqueológico de Cahal Pech, Belize." },
+                        {"imageDesc" : "Figura 3: Estela Maya. Foto tomada en <span id=\"htdate7\"></span> durante una visita al Museo de Antropologia de Ciudad de Guatemala, Guatemala." },
+                        {"imageDesc" : "Figura 4: Estela Maya. Foto tomada en <span id=\"htdate8\"></span> durante una visita al sítio arqueológico de Kaminaljuyu, Guatemala." },
+                        {"imageDesc" : "Figura 5: Texto Maya. Foto tomada en <span id=\"htdate9\"></span> durante una visita al Museo de Jade de San José, Costa Rica." },
+                        {"imageDesc" : "Figura 6: Metate para moler maíz. Foto tomada en <span id=\"htdate10\"></span> durante una visita al sítio arqueológico de Teotihuacan, Mexico." },
+                        {"imageDesc" : "Figura 7: Metate para moler maíz - Pós-classicotomada enrada em <span id=\"htdate11\"></span> durante una visita al Museo de Antropologia de San José, Costa Rica." },
+                        {"imageDesc" : "Figura 8: Metate para moler maíz - Posclassico. Foto tomada en <span id=\"htdate12\"></span> durante una visita al Museo de Antropologia de San Salvador, El Salvador." },
+                        {"imageDesc" : "Figura 9: Estela 'A' Maya. Foto tomada en <span id=\"htdate13\"></span> durante una visita al sítio arqueológico de Copan, Honduras." },
+                        {"imageDesc" : "Figura 10: Instrumentos musicales. Foto tomada en <span id=\"htdate14\"></span> durante una visita al Museo de Antropologia de San José, Costa Rica." }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2017", "month" : "5", "day" : "28" },
+                        {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "19" },
+                        {"type" : "gregory", "year" : "2014", "month" : "10", "day" : "21" },
+                        {"type" : "gregory", "year" : "2014", "month" : "10", "day" : "19" },
+                        {"type" : "gregory", "year" : "2016", "month" : "2", "day" : "6" },
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" },
+                        {"type" : "gregory", "year" : "2015", "month" : "10", "day" : "17" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "25" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "10", "day" : "17" }
+                    ]
+                }
+            ]
+        }
+    ]
+} 
