@@ -853,6 +853,7 @@ input[type=number]::-webkit-outer-spin-button {
   transform:translate(0%,-50%);
   -ms-transform:translate(-0%,-50%);
   font-size: 2.5vh;
+  z-index: 100;
 }
 
 .htSlideNextGame {
@@ -862,6 +863,7 @@ input[type=number]::-webkit-outer-spin-button {
   transform:translate(0%,-50%);
   -ms-transform:translate(-0%,-50%);
   font-size: 2.5vh;
+  z-index: 100;
 }
 
 .htSlideLikeGame {
@@ -872,6 +874,7 @@ input[type=number]::-webkit-outer-spin-button {
   transform:translate(0%,-50%);
   -ms-transform:translate(-0%,-50%);
   font-size: 2.5vh;
+  z-index: 100;
 }
 
 .htSlideUnlikeGame {
@@ -882,6 +885,7 @@ input[type=number]::-webkit-outer-spin-button {
   transform:translate(0%,-50%);
   -ms-transform:translate(-0%,-50%);
   font-size: 2.5vh;
+  z-index: 100;
 }
 
 .htSlideJumpGame {
@@ -891,6 +895,7 @@ input[type=number]::-webkit-outer-spin-button {
   transform:translate(0%,-50%);
   -ms-transform:translate(-0%,-50%);
   font-size: 2.5vh;
+  z-index: 100;
 }
 
 .htSlidePlayGame {
@@ -917,6 +922,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
   font-weight: bold;
   font-size: 0.8vw;
+  z-index: 98;
 }
 
 .htSlideGameTextCenter {
