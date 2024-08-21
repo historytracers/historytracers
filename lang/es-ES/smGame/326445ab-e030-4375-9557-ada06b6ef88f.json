@@ -1,7 +1,7 @@
 {
     "sources" : [ "326445ab-e030-4375-9557-ada06b6ef88f" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1722281882" ],
+    "last_update" : [ "1724198672" ],
     "authors" : null,
     "reviewers" : null,
     "version" : 1,
@@ -86,13 +86,24 @@
         },
         {
             "id" : "a7b28774",
-            "text" : [ "<span class=\"smGameTextTitleSize\">La teoria</span><p class=\"smGameTextSize\">Al inicio, teníamos dos hipótesis:</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESIS 1</b>: Son iguales.</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESIS 2</b>: Son diferentes.</p>", "<p class=\"smGameTextSize\">Después de realizar los experimentos, podemos descartar la <b>HIPÓTESIS 1</b> y formular una <b>teoria</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span id=\"htdate2\"></span>): Scientific Method</a>): un cuadrado es diferente de un círculo.</p>" ],
+            "text" : [ "<span class=\"smGameTextTitleSize\">La teoria (1/2)</span><p class=\"smGameTextSize\">Al inicio, teníamos dos hipótesis:</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESIS 1</b>: Son iguales.</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESIS 2</b>: Son diferentes.</p>" ],
+            "desc": null,
+            "next" : "832d6882",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "832d6882",
+            "text" : [ "<span class=\"smGameTextTitleSize\">La teoria (2/2)</span><p class=\"smGameTextSize\">Después de realizar los experimentos, podemos descartar la <b>HIPÓTESIS 1</b> y formular una <b>teoria</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span id=\"htdate2\"></span>): Scientific Method</a>): un cuadrado es diferente de un círculo.</p>", "<p class=\"smGameTextSize\"><center><i class=\"fa-solid fa-medal\" style=\"color:gold; font-size: 5vw\"></i></center></p>" ],
             "desc": null,
             "next" : null,
             "prev" : null,
             "jumpTo" : null,
             "answer": 1,
-            "score" : 2,
+            "score" : 1,
             "position": "center"
         }
     ],
