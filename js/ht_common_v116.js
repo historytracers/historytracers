@@ -88,9 +88,10 @@ function htDetectLanguage()
 var country=lang.substring(3).toUpperCase();llang=lang.substring(0,2).toLowerCase();lang=llang+'-'+country;}
 return lang;}
 function htFillHTDate(vector)
-{var localLang=$("#site_language").val();var localCalendar=$("#site_calendar").val();for(const j in vector){var w=vector[j];var updateText="";switch(w.type){case"gregory":if(w.day>0){updateText=htConvertGregorianDate(localCalendar,localLang,w.year,w.month,w.day);}else{updateText=htConvertGregorianYear(localCalendar,w.year);}
+{var localLang=$("#site_language").val();var localCalendar=$("#site_calendar").val();var j=0;$(".htdate").each(function(){if(j==vector.length){return;}
+var w=vector[j++];var updateText="";switch(w.type){case"gregory":if(w.day>0){updateText=htConvertGregorianDate(localCalendar,localLang,w.year,w.month,w.day);}else{updateText=htConvertGregorianYear(localCalendar,w.year);}
 break;case"unix":updateText=htConvertUnixDate(localCalendar,localLang,w.epoch);break;case"julian":updateText=htConvertJulianDate(localCalendar,localLang,w.day);break;}
-if($("#htdate"+j).length>0){$("#htdate"+j).html(updateText);}}}
+$(this).html(updateText);});}
 function htFillWebPage(page,data)
 {if(data.title!=undefined&&data.title!=null&&data.title.length>0){$(document).prop('title',data.title);}
 if(data.header!=undefined&&data.header!=null&&data.header.length>0){$("#header").html(data.header);}else if(data.nothing!=undefined&&data.nothing!=null&&data.nothing.length>0){$(document).prop('title',data.nothing);$("#header").html(data.nothing);return;}

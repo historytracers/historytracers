@@ -18,7 +18,7 @@ function htSetValue87b260d5(val, n)
 function htUpdateMesoScreen87b260d5(n) {
     mesoValue87b260d5 = htSetValue87b260d5(mesoValue87b260d5, n);
     htCleanMesoamericanVigesimalValues(2, null);
-    htFillMesoamericanVigesimalValues(mesoValue87b260d5, 2, null);
+    htFillMesoamericanVigesimalValues(mesoValue87b260d5, 2, 1, undefined);
     $("#mesoIndoArabic").html(mesoValue87b260d5);
 }
 

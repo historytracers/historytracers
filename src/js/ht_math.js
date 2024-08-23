@@ -384,7 +384,7 @@ function htFillMesoamericanCalendar(periods, outputColumn)
     }
 }
 
-function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn)
+function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimalColumn)
 {
     if (dividend > 3199999 || dividend < 0) {
         dividend = 0;
@@ -393,8 +393,8 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn)
     var start = 20 ** (rows - 1);
     var top2bottom = 1;
     while (start > dividend) {
-        if (outputColumn != null) {
-            $("#tmc"+outputColumn+"l"+top2bottom).html("0");
+        if (decimalColumn != undefined) {
+            $("#tmc"+decimalColumn+"l"+top2bottom).html(0);
         }
         $("#tmc"+outputColumn+"l"+top2bottom).attr('src', 'images/Maya_0.png');
         start /= 20;
@@ -405,8 +405,8 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn)
     while (dividend != 0) {
         var rest = dividend % 20;
         dividend = Math.trunc(dividend / 20);
-        if (outputColumn != null) {
-            $("#tmc"+outputColumn+"l"+bottom2top).html(rest);
+        if (decimalColumn != undefined) {
+            $("#tmc"+decimalColumn+"l"+bottom2top).html(rest);
         }
         $("#tmc"+outputColumn+"l"+bottom2top).attr('src', 'images/Maya_'+rest+'.png');
         

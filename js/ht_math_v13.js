@@ -81,11 +81,11 @@ for(let i=0;i<len;i++){vector.unshift(0);}
 return vector;}
 function htFillMesoamericanCalendar(periods,outputColumn)
 {for(let i=0,top2bottom=1;i<periods.length;i++,top2bottom++){$("#tmc"+outputColumn+"l"+top2bottom).html(periods[i]);$("#tmc1l"+top2bottom).attr('src','images/Maya_'+periods[i]+'.png');}}
-function htFillMesoamericanVigesimalValues(dividend,rows,outputColumn)
+function htFillMesoamericanVigesimalValues(dividend,rows,outputColumn,decimalColumn)
 {if(dividend>3199999||dividend<0){dividend=0;}
-var start=20**(rows-1);var top2bottom=1;while(start>dividend){if(outputColumn!=null){$("#tmc"+outputColumn+"l"+top2bottom).html("0");}
+var start=20**(rows-1);var top2bottom=1;while(start>dividend){if(decimalColumn!=undefined){$("#tmc"+decimalColumn+"l"+top2bottom).html(0);}
 $("#tmc"+outputColumn+"l"+top2bottom).attr('src','images/Maya_0.png');start/=20;top2bottom++;}
-var bottom2top=rows;while(dividend!=0){var rest=dividend%20;dividend=Math.trunc(dividend/20);if(outputColumn!=null){$("#tmc"+outputColumn+"l"+bottom2top).html(rest);}
+var bottom2top=rows;while(dividend!=0){var rest=dividend%20;dividend=Math.trunc(dividend/20);if(decimalColumn!=undefined){$("#tmc"+decimalColumn+"l"+bottom2top).html(rest);}
 $("#tmc"+outputColumn+"l"+bottom2top).attr('src','images/Maya_'+rest+'.png');bottom2top--;}}
 function htCleanMesoamericanVigesimalValues(rows,outputColumn)
 {for(let i=1;i<=rows;i++){if(outputColumn!=null){$("#tmc"+outputColumn+"l"+i).html(" ");}

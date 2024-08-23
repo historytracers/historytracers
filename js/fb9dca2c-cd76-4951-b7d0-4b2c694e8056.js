@@ -20,7 +20,7 @@ function htSequenceSetBegin(n)
     if (currentSelector == "ha") {
         $("#tc"+updatingIdx+"f1").html("<span class=\"text_to_paint\">"+value+"</span>");
     } else if (currentSelector == "mesoamerican") {
-        htFillMesoamericanVigesimalValues(value, 2, updatingIdx);
+        htFillMesoamericanVigesimalValues(value, 2, updatingIdx, undefined);
     } else {
         htCleanYupanaDecimalValues('#yupana'+updatingIdx, 2);
         htFillYupanaDecimalValues('#yupana'+updatingIdx, value, 2, 'red_dot_right_up');
@@ -34,7 +34,7 @@ function htSequenceSetCurrValue(again)
     if (currentSelector == "ha") {
         $("#tc"+updatingIdx+"f1").html("<span class=\"text_to_paint\">"+workingValue+"</span>");
     } else if (currentSelector == "mesoamerican") {
-        htFillMesoamericanVigesimalValues(workingValue, 2, updatingIdx);
+        htFillMesoamericanVigesimalValues(workingValue, 2, updatingIdx, undefined);
     } else {
         imgIdx = updatingIdx;
         htCleanYupanaDecimalValues('#yupana'+updatingIdx, 2);
@@ -122,7 +122,7 @@ function htUpdateMesoamericanValues()
             continue;
         }
 
-        htFillMesoamericanVigesimalValues(j, 2, i);
+        htFillMesoamericanVigesimalValues(j, 2, i, undefined);
     }
     workingValue = currentStartPoint;
 }

@@ -33,7 +33,7 @@ function htFillRereadingDates()
     $("#ia2yupana").val(yupanaYear);
     $("#ia2mesoamerica").val(mesoamericaYear);
     htFillYupanaValues('#yupana0', yupanaYear, 5, '#tc6f', 'red_dot_right_up');
-    htFillMesoamericanVigesimalValues(mesoamericaYear, 5, 3);
+    htFillMesoamericanVigesimalValues(mesoamericaYear, 5, 1, 3);
 }
 
 var localAnswerVector26e6b9ec = undefined;

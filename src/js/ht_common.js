@@ -662,8 +662,12 @@ function htFillHTDate(vector)
 {
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
-    for (const j in vector) {
-        var w = vector[j];
+    var j = 0;
+    $(".htdate").each(function() {
+        if (j == vector.length) {
+            return;
+        }
+        var w = vector[j++];
         var updateText = "";
         switch (w.type) {
             case "gregory":
@@ -680,10 +684,8 @@ function htFillHTDate(vector)
                 updateText = htConvertJulianDate(localCalendar, localLang, w.day);
                 break;
         }
-        if ($("#htdate"+j).length > 0) {
-            $("#htdate"+j).html(updateText);
-        }
-    }
+        $(this).html(updateText);
+    });
 }
 
 function htFillWebPage(page, data)
