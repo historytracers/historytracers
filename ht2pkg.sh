@@ -58,7 +58,8 @@ ht_compress_json_specific_dir () {
     for i in ${1}/*.json ; do
         NAME=$(echo "$i" | cut -d/ -f3)
         TEST=$(echo "$i" | grep "smGame")
-        if [ ${#TEST} -eq 0 ] ; then
+        TEST1=$(echo "$i" | grep "README")
+        if [ ${#TEST} -eq 0 ] && [ ${#TEST1} -eq 0 ] ; then
             "${RUN_PYTHON}" -mrcssmin < "$i" > "artifacts/${1}/${NAME}"
         fi
     done
