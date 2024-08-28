@@ -9,7 +9,7 @@ function htFillYupanaDecimalValues(tableID,dividend,rows,dotClass)
 {var ret=[]
 if(dividend==undefined){return undefined;}
 if(dividend.constructor===chartVectorConstructor){yupanArr=[];var multiplier=1;var total=0;for(let i=0;i<dividend.length;i++){total+=dividend[i]*multiplier;multiplier*=10;}
-dividend=total;}else{if(dividend>99999||dividend<0){dividend=0;}
+dividend=total;}else{var localMax=10**rows;if(dividend>localMax||dividend<0){dividend=0;}
 if(dividend>0){var start=10**(rows-1);var fillzero=0;while(start>dividend){start/=10;fillzero++;}}else{fillzero=rows;}}
 var bottom2top=rows;var dots=yupanArr.length;while(dividend!=0){var rest=dividend%10;dividend=Math.trunc(dividend/10);ret.push(rest);for(let sel=rest;sel<30;sel+=10){if(yupanaSelectors[sel]<0){continue;}
 var idx=yupanaSelectors[sel];$(tableID+" #tc"+idx+"f"+bottom2top).append("<span id=\"marktc"+dots+"\" class=\"dot "+dotClass+"\"></span>");yupanArr.push(dots);dots++;}
@@ -75,6 +75,8 @@ function htYupanaDrawThirdSquare()
 {return"<span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span>";}
 function htYupanaDrawFourthSquare()
 {return"<span class=\"dot dot_center\"></span>";}
+function htYupanaAddRow(row)
+{return"<tr id=\"tf"+row+"\"><td id=\"tc1f"+row+"\">"+htYupanaDrawFirstSquare()+"</td> <td id=\"tc2f"+row+"\">"+htYupanaDrawSecondSquare()+"</td> <td id=\"tc3f"+row+"\">"+htYupanaDrawThirdSquare()+"</td> <td id=\"tc4f"+row+"\">"+htYupanaDrawFourthSquare()+"</td></tr>";}
 function htCompleteMesoamericanCalendar(vector)
 {var len=8-vector.length;if(len<0){return vector;}
 for(let i=0;i<len;i++){vector.unshift(0);}
@@ -82,7 +84,7 @@ return vector;}
 function htFillMesoamericanCalendar(periods,outputColumn)
 {for(let i=0,top2bottom=1;i<periods.length;i++,top2bottom++){$("#tmc"+outputColumn+"l"+top2bottom).html(periods[i]);$("#tmc1l"+top2bottom).attr('src','images/Maya_'+periods[i]+'.png');}}
 function htFillMesoamericanVigesimalValues(dividend,rows,outputColumn,decimalColumn)
-{if(dividend>3199999||dividend<0){dividend=0;}
+{var localMax=20**rows;if(dividend>localMax||dividend<0){dividend=0;}
 var start=20**(rows-1);var top2bottom=1;while(start>dividend){if(decimalColumn!=undefined){$("#tmc"+decimalColumn+"l"+top2bottom).html(0);}
 $("#tmc"+outputColumn+"l"+top2bottom).attr('src','images/Maya_0.png');start/=20;top2bottom++;}
 var bottom2top=rows;while(dividend!=0){var rest=dividend%20;dividend=Math.trunc(dividend/20);if(decimalColumn!=undefined){$("#tmc"+decimalColumn+"l"+bottom2top).html(rest);}
@@ -104,3 +106,4 @@ var leftHand=0;var rightHand=0;var leftFoot=0;var rightFoot=0;for(let i=min;i<ma
 $(id+" tr:last").after("<tr><td><img src=\"images/"+leftHand+"Left_Hand_Small.png\" /></td><td><img src=\"images/"+rightHand+"Right_Hand_Small.png\"/></td><td><img src=\"images/"+leftFoot+"LeftFoot.png\" class=\"smallFeet\" /></td><td><img src=\"images/"+rightFoot+"RightFoot.png\" class=\"smallFeet\" /></td><td><img src=\"images/Maya_"+i+".png\"/></td><td><span class=\"text_to_paint\">"+i+"</span></td></tr>");}}
 function htFillSequenceTable(id,min,max){let i=min;while(i<=max){var value="<tr>";for(let j=0;j<10;j++,i++){value+="<td><span class=\"num_to_paint\">"+i+"</span></td>";}
 $(id+" tr:last").after(value+"</tr>");}}
+function htIsNumeric(n){return!isNaN(parseFloat(n))&&isFinite(n);}

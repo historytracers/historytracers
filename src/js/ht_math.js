@@ -55,7 +55,8 @@ function htFillYupanaDecimalValues(tableID, dividend, rows, dotClass)
         }
         dividend = total;
     } else {
-        if (dividend > 99999 || dividend < 0) {
+        var localMax = 10**rows;
+        if (dividend > localMax || dividend < 0) {
             dividend = 0;
         }
 
@@ -362,6 +363,11 @@ function htYupanaDrawFourthSquare()
     return "<span class=\"dot dot_center\"></span>";
 }
 
+function htYupanaAddRow(row)
+{
+    return "<tr id=\"tf"+row+"\"><td id=\"tc1f"+row+"\">"+htYupanaDrawFirstSquare()+"</td> <td id=\"tc2f"+row+"\">"+htYupanaDrawSecondSquare()+"</td> <td id=\"tc3f"+row+"\">"+htYupanaDrawThirdSquare()+"</td> <td id=\"tc4f"+row+"\">"+htYupanaDrawFourthSquare()+"</td></tr>";
+}
+
 function htCompleteMesoamericanCalendar(vector)
 {
     var len = 8 - vector.length;
@@ -386,7 +392,8 @@ function htFillMesoamericanCalendar(periods, outputColumn)
 
 function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimalColumn)
 {
-    if (dividend > 3199999 || dividend < 0) {
+    var localMax = 20**rows;
+    if (dividend > localMax || dividend < 0) {
         dividend = 0;
     }
 
@@ -494,3 +501,9 @@ function htFillSequenceTable(id, min, max) {
         $(id+" tr:last").after(value+"</tr>");
     }
 }
+
+//https://stackoverflow.com/questions/18082/validate-decimal-numbers-in-javascript-isnumeric/174921#174921
+function htIsNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
