@@ -9,6 +9,7 @@ var currentEndPoint = 0;
 var stopValue = 0;
 var gameBegin = true;
 var localGameVectorfb9dca2c = [];
+var factor = 1;
 
 function htSequenceRemoveRows() {
     $(".trCanBeRemoved").remove();
@@ -204,7 +205,7 @@ function htLoadTest(opt)
     }
 
     gameBegin = true;
-    var min = currentLevel * 10;
+    var min = currentLevel * factor;
     var max = min + 9;
     workingValue = getRandomArbitrary(min, max);
     currentStartPoint = min;
@@ -233,6 +234,11 @@ function htLoadExercise() {
     });
 
     localGameVectorfb9dca2c = htLoadGameData();
+
+    if ($("#sequenceOrder").length == 0) {
+        factor = 10;
+    }
+
     return false;
 }
 
