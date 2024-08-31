@@ -15,14 +15,18 @@ function htUpdateMesoScreen323c97e8(n) {
     n = htSetValue323c97e8(n, 0, 10239999999999);
     htCleanMesoamericanVigesimalValues(10, null);
     htFillMesoamericanVigesimalValues(n, 10, 1, undefined);
-    $("#mesoIndoArabic").html(n);
+    var localLang = $("#site_language").val();
+    var valueFormat = new Intl.NumberFormat(localLang).format(n);
+    $("#mesoIndoArabic").html(valueFormat);
 }
 
 function htUpdateYupanaScreen323c97e8(n) {
     n = htSetValue323c97e8(n, 0, 999999999999);
     htCleanYupanaDecimalValues('#yupana1', 10);
     htFillYupanaDecimalValues('#yupana1', n, 10, 'red_dot_right_up');
-    $("#andesIndoArabic").html(n);
+    var localLang = $("#site_language").val();
+    var valueFormat = new Intl.NumberFormat(localLang).format(n);
+    $("#andesIndoArabic").html(valueFormat);
 }
 
 function htLoadExercise() {

@@ -689,6 +689,14 @@ ul {
   -webkit-text-stroke: 2px white;
 }
 
+.text_to_paint_small {
+  font-size: 2em;
+  color: white;
+  margin: 1;
+  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+  -webkit-text-stroke: 2px white;
+}
+
 input[type="number"] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;

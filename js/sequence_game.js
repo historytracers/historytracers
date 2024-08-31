@@ -9,22 +9,44 @@ var currentEndPoint = 0;
 var stopValue = 0;
 var gameBegin = true;
 var localGameVectorfb9dca2c = [];
-var factor = 1;
 
-function htSequenceRemoveRows() {
+var width = 1;
+var startValue = 1;
+var currentSelection = 1;
+
+function htSequenceRemoveRows()
+{
     $(".trCanBeRemoved").remove();
+}
+
+function htSequenceSetFactor()
+{
+    if ($("#sequenceOrder").length != 0) {
+        var range = $("#sequenceOrder").val();
+        var arr = range.split(":");
+        startValue = parseInt(arr[1]);
+        width = (startValue == 0) ? 10 : startValue;
+        currentSelection = parseInt(arr[0]);
+    } else {
+        currentSelection = 2;
+        startValue = 0;
+        width = 10;
+    }
 }
 
 function htSequenceSetBegin(n)
 {
     var value = (n > 0) ? workingValue : currentEndPoint;
     if (currentSelector == "ha") {
-        $("#tc"+updatingIdx+"f1").html("<span class=\"text_to_paint\">"+value+"</span>");
+        var useClass = (currentSelection < 4) ? "text_to_paint" : "text_to_paint_small";
+        var localLang = $("#site_language").val();
+        var valueFormat = new Intl.NumberFormat(localLang).format(value);
+        $("#tc"+updatingIdx+"f1").html("<span class=\""+useClass+"\">"+valueFormat+"</span>");
     } else if (currentSelector == "mesoamerican") {
-        htFillMesoamericanVigesimalValues(value, 2, updatingIdx, undefined);
+        htFillMesoamericanVigesimalValues(value, currentSelection, updatingIdx, undefined);
     } else {
-        htCleanYupanaDecimalValues('#yupana'+updatingIdx, 2);
-        htFillYupanaDecimalValues('#yupana'+updatingIdx, value, 2, 'red_dot_right_up');
+        htCleanYupanaDecimalValues('#yupana'+updatingIdx, currentSelection);
+        htFillYupanaDecimalValues('#yupana'+updatingIdx, value, currentSelection, 'red_dot_right_up');
     }
     workingValue = value;
 }
@@ -33,13 +55,16 @@ function htSequenceSetCurrValue(again)
 {
     var imgIdx = 0;
     if (currentSelector == "ha") {
-        $("#tc"+updatingIdx+"f1").html("<span class=\"text_to_paint\">"+workingValue+"</span>");
+        var useClass = (currentSelection < 4) ? "text_to_paint" : "text_to_paint_small";
+        var localLang = $("#site_language").val();
+        var valueFormat = new Intl.NumberFormat(localLang).format(workingValue);
+        $("#tc"+updatingIdx+"f1").html("<span class=\""+useClass+"\">"+valueFormat+"</span>");
     } else if (currentSelector == "mesoamerican") {
-        htFillMesoamericanVigesimalValues(workingValue, 2, updatingIdx, undefined);
+        htFillMesoamericanVigesimalValues(workingValue, currentSelection, updatingIdx, undefined);
     } else {
         imgIdx = updatingIdx;
-        htCleanYupanaDecimalValues('#yupana'+updatingIdx, 2);
-        htFillYupanaDecimalValues('#yupana'+updatingIdx, workingValue, 2, 'red_dot_right_up');
+        htCleanYupanaDecimalValues('#yupana'+updatingIdx, currentSelection);
+        htFillYupanaDecimalValues('#yupana'+updatingIdx, workingValue, currentSelection, 'red_dot_right_up');
     }
 
     if (workingValue == stopValue && again == 0) {
@@ -81,40 +106,64 @@ function htSequenceUpdateValue(n)
     return false;
 }
 
-function htSequenceGoNext() {
+function htSequenceGoNext()
+{
     if (workingValue == stopValue && gameBegin == false) {
         htLoadTest(currentSelector);
     }
 }
 
-function htSequenceAddCommonTable(id)
+function htSelectRows()
 {
-    $("#yupana"+id+" tr:last").after("<tr id=\"tf1\" class=\"trCanBeRemoved\"><td id=\"tc1f1\">&nbsp;</td> <td id=\"tc2f1\">&nbsp;</td> <td id=\"tc3f1\">&nbsp;</td> <td id=\"tc4f1\">&nbsp;</td><td id=\"tc5f1\" rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp"+id+"\" onclick=\"htSequenceUpdateValue(+1);\"></i> </td><td id=\"tc6f1\" rowspan=\"2\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown"+id+"\" onclick=\"htSequenceUpdateValue(-1);\"></i></td></tr> <tr id=\"tf2\" class=\"trCanBeRemoved\"><td id=\"tc1f2\">&nbsp;</td> <td id=\"tc2f2\">&nbsp;</td> <td id=\"tc3f2\">&nbsp;</td> <td id=\"tc4f2\">&nbsp;</td></tr>");
+    var selected = $("input[name='htNumericalSystem']:checked").val();
+    if (selected == "ha") {
+        return 1;
+    }
+
+    return currentSelection;
 }
 
-function htSequenceAddImageRow(id)
+function htSequenceAddCommonTable(id, hasLevels, isHA)
 {
-    $("#yupana"+id+" tr:last").after("<tr id=\"tf3\" class=\"trCanBeRemoved\"><td id=\"tc1f3\" colspan=\"4\"><span id=\"gameImage"+id+"\"></span></td><td id=\"tc5f3\" style=\"background-color: white;\" colspan=\"2\"><i class=\"fa-solid fa-chevron-right\" style=\"font-size:3.0em;\" onclick=\"htSequenceGoNext();\"></i></td></tr>");
+    var end = htSelectRows();
+    for (let i =1; i <= end; i++) {
+        var controls = "";
+        if (i == 1) {
+            controls = "<td id=\"tc5f"+i+"\" rowspan=\""+end+"\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp"+id+"\" onclick=\"htSequenceUpdateValue(+1);\"></i> </td><td id=\"tc6f"+i+"\" rowspan=\""+end+"\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown"+id+"\" onclick=\"htSequenceUpdateValue(-1);\"></i></td>";
+        }
+        $("#yupana"+id+" tr:last").after("<tr id=\"tf"+i+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+i+"\">&nbsp;</td> <td id=\"tc2f"+i+"\">&nbsp;</td> <td id=\"tc3f"+i+"\">&nbsp;</td> <td id=\"tc4f"+i+"\">&nbsp;</td>"+controls+"</tr>");
+    }
+}
+
+function htSequenceAddImageRow(id, hasLevels)
+{
+    var imgID = htSelectRows() + 1;
+    $("#yupana"+id+" tr:last").after("<tr id=\"tf"+imgID+"\" class=\"trCanBeRemoved\"><td id=\"tc1f"+imgID+"\" colspan=\"4\"><span id=\"gameImage"+id+"\"></span></td><td id=\"tc5f"+imgID+"\" style=\"background-color: white;\" colspan=\"2\"><i class=\"fa-solid fa-chevron-right\" style=\"font-size:3.0em;\" onclick=\"htSequenceGoNext();\"></i></td></tr>");
 }
 
 function htUpdateHAValues()
 {
+    var localLang = $("#site_language").val();
+    var useClass = (currentSelection < 4) ? "text_to_paint" : "text_to_paint_small";
     for (let i = 1, j = workingValue; i < 4; i++, j++) {
         if (i == updatingIdx) {
             stopValue = j;
             continue;
         }
 
-        $("#tc"+i+"f1").html("<span class=\"text_to_paint\">"+j+"</span>");
+        var valueFormat = new Intl.NumberFormat(localLang).format(j);
+        $("#tc"+i+"f1").html("<span class=\""+useClass+"\">"+valueFormat+"</span>");
     }
     workingValue = currentStartPoint;
 }
 
 function htUpdateMesoamericanValues()
 {
+    var rows = htSelectRows();
     for (let i = 1; i < 4; i++) {
-        $("#tc"+i+"f1").html("<img src=\"\" id=\"tmc"+i+"l1\" />");
-        $("#tc"+i+"f2").html("<img src=\"\" id=\"tmc"+i+"l2\" />");
+        for (let j = 1; j <= rows; j++) {
+            $("#tc"+i+"f"+j).html("<img src=\"\" id=\"tmc"+i+"l"+j+"\" />");
+        }
     }
 
     for (let i = 1, j = workingValue; i < 4; i++, j++) {
@@ -123,34 +172,40 @@ function htUpdateMesoamericanValues()
             continue;
         }
 
-        htFillMesoamericanVigesimalValues(j, 2, i, undefined);
+        htFillMesoamericanVigesimalValues(j, rows, i, undefined);
     }
     workingValue = currentStartPoint;
 }
 
 function htUpdateYupanaValues()
 {
-    for (let i = 0, j = workingValue; i < 3; i++, j++) {
+    var end = currentSelection + 1;
+    for (let i = end - 1, j = workingValue; i >= 0; i--, j++) {
         if (i == updatingIdx) {
             stopValue = j;
             continue;
         }
 
-        htCleanYupanaDecimalValues('#yupana'+i, 2);
-        htFillYupanaDecimalValues('#yupana'+i, j, 2, 'red_dot_right_up');
+        htCleanYupanaDecimalValues('#yupana'+i, currentSelection);
+        htFillYupanaDecimalValues('#yupana'+i, j, currentSelection, 'red_dot_right_up');
         $("#yupana"+i+" #tc5f1").html("");
         $("#yupana"+i+" #tc6f1").html("");
-        $("#yupana"+i+" #tf3").remove();
+        $("#yupana"+i+" #tf"+end).remove();
     }
     workingValue = currentStartPoint;
 }
 
-function htSequenceFillHAMesoamerican() {
+function htSequenceFillHAMesoamerican()
+{
     htSequenceRemoveRows();
     $("#yupana1").addClass("htSlideGameMenuHidden");
     $("#yupana2").addClass("htSlideGameMenuHidden");
-    htSequenceAddCommonTable(0);
-    htSequenceAddImageRow(0);
+
+    var hasLevel = ($("#sequenceOrder").length > 0) ? true: false;
+    var selected = $("input[name='htNumericalSystem']:checked").val();
+    var isHA = (selected == "ha");
+    htSequenceAddCommonTable(0, hasLevel, isHA);
+    htSequenceAddImageRow(0, hasLevel, isHA);
 
     if (currentSelector == "ha") {
         htUpdateHAValues();
@@ -159,21 +214,24 @@ function htSequenceFillHAMesoamerican() {
     }
 }
 
-function htSequenceFillYupana() {
+function htSequenceFillYupana()
+{
     htSequenceRemoveRows();
     $("#yupana1").removeClass("htSlideGameMenuHidden");
     $("#yupana2").removeClass("htSlideGameMenuHidden");
 
+    var hasLevel = ($("#sequenceOrder").length > 0) ? true: false;
+    var end = currentSelection + 1;
     for (let i = 0; i < 3; i++) {
-        htSequenceAddCommonTable(i);
-        for (let j = 1; j < 3; j++) {
+        htSequenceAddCommonTable(i, hasLevel, false);
+        for (let j = 1; j <= end; j++) {
             $("#yupana"+i+" #tc1f"+j).html(htYupanaDrawFirstSquare());
             $("#yupana"+i+" #tc2f"+j).html(htYupanaDrawSecondSquare());
             $("#yupana"+i+" #tc3f"+j).html(htYupanaDrawThirdSquare());
             $("#yupana"+i+" #tc4f"+j).html(htYupanaDrawFourthSquare());
         }
 
-        htSequenceAddImageRow(i);
+        htSequenceAddImageRow(i, hasLevel, false);
     }
     htUpdateYupanaValues();
 }
@@ -205,13 +263,15 @@ function htLoadTest(opt)
     }
 
     gameBegin = true;
-    var min = currentLevel * factor;
-    var max = min + 9;
+    var min = startValue + currentLevel * width;
+    var max = min + width;
     workingValue = getRandomArbitrary(min, max);
-    currentStartPoint = min;
-    currentEndPoint = max;
 
-    if (workingValue > (max - 2)) {
+    var adjust = workingValue % 10;
+    currentStartPoint = workingValue - adjust;
+    currentEndPoint = currentStartPoint + 10;
+
+    if (workingValue > (currentEndPoint - 2)) {
         workingValue -= 2;
     }
 
@@ -222,9 +282,30 @@ function htLoadTest(opt)
         htSetUpdateIdx(0, 2);
         htSequenceFillYupana();
     }
+
 }
 
-function htLoadExercise() {
+function htUpdateSequenceOrder()
+{
+    if ($("#sequenceOrder").length != 0) {
+        var begin = 0
+        var end = 99;
+        var localLang = $("#site_language").val();
+        for (let i = 1; i < 10; i++) {
+            var tBegin = new Intl.NumberFormat(localLang).format(begin);
+            var tEnd = new Intl.NumberFormat(localLang).format(end);
+            $("#sequenceOrder").append($('<option>', {
+                value: (i + 1)+":"+begin,
+                text: tBegin+" - "+tEnd 
+            }));
+            begin = end + 1;
+            end = 10**(i + 2) - 1;
+        }
+    }
+}
+
+function htLoadExercise()
+{
 
     $("input[name='htNumericalSystem']").on( "change", function() {
         var sel = $(this).val();
@@ -235,8 +316,19 @@ function htLoadExercise() {
 
     localGameVectorfb9dca2c = htLoadGameData();
 
-    if ($("#sequenceOrder").length == 0) {
-        factor = 10;
+    htUpdateSequenceOrder();
+    htSequenceSetFactor();
+
+    if ($("#sequenceOrder").length != 0) {
+        $("#sequenceOrder").on( "change", function() {
+            var sel = $("input[name='htNumericalSystem']:checked").val();
+            if (sel != undefined) {
+                currentSelector = sel;
+                currentLevel = 0;
+                htSequenceSetFactor();
+                htLoadTest(sel);
+            }
+        });
     }
 
     return false;
