@@ -1,5 +1,5 @@
 {
-    "info" : "General information about sources.",
+    "info" : "General information about the sources used.",
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "last_update" : [ "The time of the last file update, represented as Unix Epoch time." ],
     "authors" : "Names of the individuals who contributed to editing the text.",
@@ -8,26 +8,26 @@
     "type" : "sources",
     "primary_sources" : [
        {
-           "id" : "Unique indentifier for specific primary source",
-           "citation" : "The primary source.",
-           "date": "Date that link was accessed",
-           "url": "External link to access paper/book"
+           "id" : "Unique identifier for the specific primary source.",
+           "citation" : "Citation for the primary source.",
+           "date": "Date when the link was accessed.",
+           "url": "External link to access the paper/book."
        }
     ],
     "reference_sources" : [
        {
-           "id" : "Unique indentifier for specific primary source",
-           "citation" : "The reference talking about a primary source or a person.",
-           "date": "Date that link was accessed",
-           "url": "External link to access paper/book"
+           "id" : "Unique identifier for the specific reference source.",
+           "citation" : "Citation for the reference that discusses a primary source or person.",
+           "date": "Date when the link was accessed.",
+           "url": "External link to access the paper/book."
        }
     ],
     "religious_sources" : [
        {
-           "id" : "Unique indentifier for specific primary source",
-           "citation" : "The religious source talking about a person.",
-           "date": "Date that link was accessed",
-           "url": "External link to access paper/book"
+           "id" : "Unique identifier for the specific religious source.",
+           "citation" : "Citation for the religious source that discusses a person.",
+           "date": "Date when the link was accessed.",
+           "url": "External link to access the paper/book."
        }
     ]
 }
