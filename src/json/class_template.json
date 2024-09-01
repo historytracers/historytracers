@@ -1,12 +1,12 @@
 {
-    "title" : "Name to be displayed on title bar.",
-    "header" : "Name to be displayed on top of the page.",
-    "sources" : [ "File with all sources used in the text." ],
-    "scripts" : [ "A JS file used with this content. Normally a file that fill and correct exercise." ],
+    "title" : "The name displayed on the title bar of the application or page.",
+    "header" : "The name shown at the top of the page or section.",
+    "sources" : [ "A file containing all the sources referenced in the text." ],
+    "scripts" : [ "JavaScript files associated with this content, typically used for filling and correcting exercises." ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "Time in Unix Epoch showing last file update." ],
-    "authors" : "Name of people that edited text.",
-    "reviewers" : "Name of people that review the text.",
+    "last_update" : [ "The time of the last file update, represented as Unix Epoch time." ],
+    "authors" : "Names of the individuals who contributed to editing the text.",
+    "reviewers" : "Names of the individuals who reviewed the text.",
     "version" : 1,
     "type" : "class",
     "content" : [
@@ -32,7 +32,7 @@
                         {
                             "question" : "WRITE A QUESTION",
                             "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "The correct answer is Yes, because ..."
+                            "additionalInfo" : "The correct answer is 'Yes' because ..."
                         }
                     ]
                 },
