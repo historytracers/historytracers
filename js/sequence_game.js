@@ -2,6 +2,7 @@
 
 var currentSelector = "";
 var currentLevel = 0;
+var maxLevel = 9;
 var updatingIdx = -1;
 var workingValue = 0;
 var currentStartPoint = 0;
@@ -27,10 +28,12 @@ function htSequenceSetFactor()
         startValue = parseInt(arr[1]);
         width = (startValue == 0) ? 10 : startValue;
         currentSelection = parseInt(arr[0]);
+        maxLevel = (startValue == 0) ? 9 : 8;
     } else {
         currentSelection = 2;
         startValue = 0;
         width = 10;
+        maxLevel = 9;
     }
 }
 
@@ -250,7 +253,7 @@ function htSetUpdateIdx(min, max)
 
 function htLoadTest(opt)
 {
-    if (currentLevel > 9) {
+    if (currentLevel > maxLevel) {
         var imgIdx = 0;
         if (currentSelector == "ha" || currentSelector == "mesoamerican") {
             imgIdx = 0;
@@ -306,18 +309,17 @@ function htUpdateSequenceOrder()
 
 function htLoadExercise()
 {
-
     $("input[name='htNumericalSystem']").on( "change", function() {
         var sel = $(this).val();
         currentSelector = sel;
         currentLevel = 0;
+        htSequenceSetFactor();
         htLoadTest(sel);
     });
 
     localGameVectorfb9dca2c = htLoadGameData();
 
     htUpdateSequenceOrder();
-    htSequenceSetFactor();
 
     if ($("#sequenceOrder").length != 0) {
         $("#sequenceOrder").on( "change", function() {
@@ -329,6 +331,8 @@ function htLoadExercise()
                 htLoadTest(sel);
             }
         });
+    } else {
+        htSequenceSetFactor();
     }
 
     return false;
