@@ -449,7 +449,7 @@ function htModifyArrow(classObj, value)
     return value;
 }
 
-function htSetImageForDigits(leftHand, rightHand, value)
+function htSetImageForMembers(leftMember, leftImgSuffix, rightMember, rightImgSuffix, value)
 {
     if (value > 10) {
         return;
@@ -465,8 +465,8 @@ function htSetImageForDigits(leftHand, rightHand, value)
         leftValue = 0;
     }
 
-    $(leftHand).attr('src', 'images/'+leftValue+'Left_Hand_Small.png');
-    $(rightHand).attr('src', 'images/'+rightValue+'Right_Hand_Small.png');
+    $(leftMember).attr('src', 'images/'+leftValue+leftImgSuffix);
+    $(rightMember).attr('src', 'images/'+rightValue+rightImgSuffix);
 }
 
 function htFillTableHandsFeet(id, min, max) {

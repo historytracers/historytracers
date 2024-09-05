@@ -97,10 +97,10 @@ function htModifyArrow(classObj,value)
 if(value<0)
 value=0;else if(value>9)
 value=9;return value;}
-function htSetImageForDigits(leftHand,rightHand,value)
+function htSetImageForMembers(leftMember,leftImgSuffix,rightMember,rightImgSuffix,value)
 {if(value>10){return;}
 var leftValue;var rightValue;if(value>5){rightValue=5;leftValue=value-rightValue;}else{rightValue=value;leftValue=0;}
-$(leftHand).attr('src','images/'+leftValue+'Left_Hand_Small.png');$(rightHand).attr('src','images/'+rightValue+'Right_Hand_Small.png');}
+$(leftMember).attr('src','images/'+leftValue+leftImgSuffix);$(rightMember).attr('src','images/'+rightValue+rightImgSuffix);}
 function htFillTableHandsFeet(id,min,max){if($(id).length==0){return;}
 var leftHand=0;var rightHand=0;var leftFoot=0;var rightFoot=0;for(let i=min;i<max;i++){if(i<6){rightHand=i;}else if(i<11){leftHand=i-5;}else if(i<16){rightFoot=i-10;}else{leftFoot=i-15;}
 $(id+" tr:last").after("<tr><td><img src=\"images/"+leftHand+"Left_Hand_Small.png\" /></td><td><img src=\"images/"+rightHand+"Right_Hand_Small.png\"/></td><td><img src=\"images/"+leftFoot+"LeftFoot.png\" class=\"smallFeet\" /></td><td><img src=\"images/"+rightFoot+"RightFoot.png\" class=\"smallFeet\" /></td><td><img src=\"images/Maya_"+i+".png\"/></td><td><span class=\"text_to_paint\">"+i+"</span></td></tr>");}}

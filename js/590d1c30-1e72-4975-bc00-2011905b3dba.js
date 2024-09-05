@@ -3,19 +3,19 @@
 var localCounter590d1c30 = 0;
 var localCounter590d1c30b = 0;
 
-function htShowtrainee0() {
+function htShowTrainee0() {
     if (localCounter590d1c30 > 9) {
         localCounter590d1c30 = 9;
     } else if (localCounter590d1c30 < 0) {
         localCounter590d1c30 = 0;
     }
     $("#tc7f1").html("<span class=\"text_to_paint\">"+localCounter590d1c30+"</span>");
-    htSetImageForDigits('#leftHandImg0', '#rightHandImg0', localCounter590d1c30);
+    htSetImageForMembers('#leftHandImg0', 'Left_Hand_Small.png', '#rightHandImg0', 'Right_Hand_Small.png', localCounter590d1c30);
     htCleanYupanaDecimalValues('#yupana0', 5);
     htFillYupanaDecimalValues('#yupana0', localCounter590d1c30, 1, 'red_dot_right_up');
 }
 
-function htShowtrainee1() {
+function htShowTrainee1() {
     if (localCounter590d1c30b > 19) {
         localCounter590d1c30b = 19;
     } else if (localCounter590d1c30b < 0) {
@@ -37,11 +37,11 @@ function htShowtrainee1() {
     $("#yupana1 #tc6f1").html("<span class=\"text_to_paint\">"+unit+"</span>");
     $("#yupana1 #tc5f1").html("<span class=\"text_to_paint\">"+decene+"</span>");
     if (localCounter590d1c30b < 10 ) {
-        htSetImageForDigits('#leftHandImg1', '#rightHandImg1', unit);
-        htSetImageForDigits('#leftHandImg2', '#rightHandImg2', decene);
+        htSetImageForMembers('#leftHandImg1', 'Left_Hand_Small.png', '#rightHandImg1', 'Right_Hand_Small.png', unit);
+        htSetImageForMembers('#leftHandImg2', 'Left_Hand_Small.png', '#rightHandImg2', 'Right_Hand_Small.png', decene);
     } else {
-        htSetImageForDigits('#leftHandImg1', '#rightHandImg1', 10);
-        htSetImageForDigits('#leftHandImg2', '#rightHandImg2', unit);
+        htSetImageForMembers('#leftHandImg1', 'Left_Hand_Small.png', '#rightHandImg1', 'Right_Hand_Small.png', 10);
+        htSetImageForMembers('#leftHandImg2', 'Left_Hand_Small.png', '#rightHandImg2', 'Right_Hand_Small.png', unit);
     }
 }
 
@@ -56,35 +56,30 @@ function htLoadExercise() {
 
     $("#yupana1 #tc5f1").html("<span class=\"text_to_paint\">"+localCounter590d1c30b+"</span>");
     $("#yupana1 #tc6f1").html("<span class=\"text_to_paint\">"+localCounter590d1c30b+"</span>");
-    htSetImageForDigits('#leftHandImg1', '#rightHandImg1', 0);
-    htSetImageForDigits('#leftHandImg2', '#rightHandImg2', 0);
+    htSetImageForMembers('#leftHandImg1', 'Left_Hand_Small.png', '#rightHandImg1', 'Right_Hand_Small.png', 0);
+    htSetImageForMembers('#leftHandImg2', 'Left_Hand_Small.png', '#rightHandImg2', 'Right_Hand_Small.png', 0);
     htFillTableHandsFeet("#yupana2", 0, 20);
 
     $("#traineeUp0").on("click", function() {
         localCounter590d1c30++;
-        htShowtrainee0();
+        htShowTrainee0();
     });
 
     $("#traineeUp1").on("click", function() {
         localCounter590d1c30b++;
-        htShowtrainee1();
+        htShowTrainee1();
     });
 
     $("#traineeDown0").on("click", function() {
         localCounter590d1c30--;
-        htShowtrainee0();
+        htShowTrainee0();
     });
 
     $("#traineeDown1").on("click", function() {
         localCounter590d1c30b--;
-        htShowtrainee1();
+        htShowTrainee1();
     });
 
-    return false;
-}
-
-function htCheckAnswers()
-{
     return false;
 }
 
