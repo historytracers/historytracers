@@ -9,7 +9,8 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector9cd69f67);
     }
 
-    htAddTreeReflection("#myFirstReflection");
+    htAddTreeReflection("#myFirstReflection", 55);
+    htAddTreeReflection("#GenealogicalLimit", 72);
 
     return false;
 }

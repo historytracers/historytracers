@@ -9,7 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector3c463a57);
     }
 
-    htAddTreeReflection("#myFirstReflection");
+    htAddTreeReflection("#myFirstReflection", 55);
 
     return false;
 }
