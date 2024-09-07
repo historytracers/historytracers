@@ -10,6 +10,8 @@ function htLoadExercise() {
     }
 
     htAddTreeReflection("#myFirstReflection", 55);
+    htAddTreeReflection("#GenealogicalLimit", 72);
+    htAddTreeReflection("#GenealogicalZero", 73);
 
     return false;
 }
