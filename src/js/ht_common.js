@@ -740,6 +740,11 @@ function htFillWebPage(page, data)
         $(':focus').blur()
         return;
     }
+    else if (data.themes != undefined) {
+        htFillIndexSelector(data.themes, "#site_theme");
+        $("#loading_msg").hide();
+        $(':focus').blur()
+    }
 
     if (data.families != undefined) {
         htFillFamilies(page, data);
@@ -919,6 +924,7 @@ function htFillKeywords(table) {
 
     $("#index_lang").html(keywords[39]);
     $("#index_calendar").html(keywords[40]);
+    $("#index_theme").html(keywords[74]);
     htUpdateCurrentDateOnIndex();
 }
 

@@ -104,6 +104,7 @@ if(data.languages!=undefined){htFillIndexSelector(data.languages,"#site_language
 return;}
 else if(data.calendars!=undefined){htFillIndexSelector(data.calendars,"#site_calendar");$("#loading_msg").hide();$(':focus').blur()
 return;}
+else if(data.themes!=undefined){htFillIndexSelector(data.themes,"#site_theme");$("#loading_msg").hide();$(':focus').blur()}
 if(data.families!=undefined){htFillFamilies(page,data);}else if(data.keywords!=undefined){htFillKeywords(data.keywords);$("#loading_msg").hide();}else if(data.math_keywords!=undefined){htFillMathKeywords(data.math_keywords);$("#loading_msg").hide();}else{switch(page){case"science":case"first_steps":case"history":bookSections=[];bookSections.push({"name":page,"id":null});break;default:break;}
 for(const i in data.content){if(data.content[i].value==undefined||data.content[i].value==null){if(data.content[i].id!=undefined&&data.content[i].id=="fill_dates"){htFillHTDate(data.content[i].text);}
 continue;}
@@ -128,7 +129,7 @@ function htFillIndexSelector(table,target){var current=$(target).val();$(target)
 $(target).val(current);}
 function htFillKeywords(table){keywords=[];for(const i in table){keywords.push(table[i]);}
 if(keywords.length<40)
-return;$("#index_lang").html(keywords[39]);$("#index_calendar").html(keywords[40]);htUpdateCurrentDateOnIndex();}
+return;$("#index_lang").html(keywords[39]);$("#index_calendar").html(keywords[40]);$("#index_theme").html(keywords[74]);htUpdateCurrentDateOnIndex();}
 function htFillMathKeywords(table){mathKeywords=[];for(const i in table){mathKeywords.push(table[i]);}}
 function htFillFamilyList(table,target){for(const i in table){if(table[i].target==undefined){if(table[i].id!=undefined&&table[i].id=="fill_dates"){if(table[i].text.constructor===vectorConstructor){htFillHTDate(table[i].text);}}
 continue;}

@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-function htReloadCurrentPage(first)
+var firstIndexTime = true;
+
+function htReloadCurrentPage()
 {
-    if (!first) {
+    if (!firstIndexTime) {
         var lastLoaded = $("#html_loaded").val();
         if (lastLoaded.lenght == 0 ) {
             lastLoaded = 'main';
@@ -11,6 +13,7 @@ function htReloadCurrentPage(first)
         htLoadPage('index','json', '', true);
         htLoadPage('language','json', '', true);
         htLoadPage('calendars','json', '', true);
+        htLoadPage('theme','json', '', true);
         htLoadPage('common_keywords','json', '', true);
         htLoadPage('math_keywords','json', '', true);
         htLoadPage(lastLoaded, 'html', '', true);
@@ -20,7 +23,6 @@ function htReloadCurrentPage(first)
 $(document).ready(function(){
     var lang = "";
     var cal = "";
-    var first = true;
 
     var urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('lang')) {
@@ -52,13 +54,14 @@ $(document).ready(function(){
     htLoadPage('calendars','json', '', false);
     htLoadPage('common_keywords','json', '', false);
     htLoadPage('math_keywords','json', '', false);
+    htLoadPage('theme','json', '', false);
 
     $('#site_language').on('change', function() {
-        htReloadCurrentPage(first);
+        htReloadCurrentPage();
     });
 
     $('#site_calendar').on('change', function() {
-        htReloadCurrentPage(first);
+        htReloadCurrentPage();
     });
 
     if (urlParams.has('page')) {
@@ -101,7 +104,7 @@ $(document).ready(function(){
     } else {
         htLoadPage('main','html', '', false);
     }
-    first = false;
+    firstIndexTime = false;
 });
 
 // http://api.jquery.com/ajaxerror/
