@@ -16,6 +16,7 @@ var contentMap = new Map();
 var primarySourceMap = new Map();
 var refSourceMap = new Map();
 var holyRefSourceMap = new Map();
+var smSourceMap = new Map();
 
 var genealogicalStats = {};
 
@@ -110,6 +111,7 @@ function htPrintContent(header, body)
     pageCitation = htFillSourceContentToPrint(pageCitation, primarySourceMap, 'tree-source');
     pageCitation = htFillSourceContentToPrint(pageCitation, refSourceMap, 'tree-ref');
     pageCitation = htFillSourceContentToPrint(pageCitation, holyRefSourceMap, 'tree-holy-ref');
+    pageCitation = htFillSourceContentToPrint(pageCitation, smSourceMap, 'tree-sm-ref');
 
     var printMe = "<p><h1><center>" + pageHeader + "</center></h1></p><p>" + pageBody + "</p><p>" + pageCitation + "</p>";
     var printScreen = window.open('', 'PRINT');
@@ -590,6 +592,7 @@ function htLoadPage(page, ext, arg, reload) {
         primarySourceMap.clear();
         refSourceMap.clear();
         holyRefSourceMap.clear();
+        smSourceMap.clear();
 
         var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
         $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
@@ -885,6 +888,7 @@ function htLoadSources(data, arg, page)
         htFillMapSource(primarySourceMap, data.primary_sources);
         htFillMapSource(refSourceMap, data.reference_sources);
         htFillMapSource(holyRefSourceMap, data.religious_sources);
+        htFillMapSource(smSourceMap, data.social_media_sources);
 
         if (page.length == 36) {
             genealogicalStats.primary_src = (data.primary_sources != undefined) ? data.primary_sources.length : 0;
@@ -1180,6 +1184,8 @@ function htFillFamilies(page, table) {
     $("#references-lbl").html(keywords[6]);
     $("#tree-holy_references-lbl").html(keywords[7]);
     $("#holy_references-lbl").html(keywords[7]);
+    $("#tree-sm-references-lbl").html(keywords[75]);
+    $("#tree-sm-lbl").html(keywords[75]);
 
     $("#child").html(keywords[9]);
     $("#father").html(keywords[2]);
@@ -1553,6 +1559,7 @@ function htCleanSources()
     $("#tree-source").html("");
     $("#tree-ref").html("");
     $("#tree-holy-ref").html("");
+    $("#tree-sm-ref").html("");
 }
 
 function htFillSource(divID, sourceMap, id)
@@ -1584,6 +1591,11 @@ function htFillReferenceSource(id)
 function htFillHolySource(id)
 {
     htFillSource("#tree-holy-ref", holyRefSourceMap, id);
+}
+
+function htFillSMSource(id)
+{
+    htFillSource("#tree-sm-ref", smSourceMap, id);
 }
 
 function htHideTree(level, grandpaLevel) {
