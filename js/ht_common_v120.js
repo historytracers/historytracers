@@ -113,6 +113,7 @@ htFillMapList(data.content[i].value,data.content[i].target,data.content[i].page)
 if($("#tree-sources-lbl").length>0){$("#tree-sources-lbl").html(keywords[5]);}
 if($("#tree-references-lbl").length>0){$("#tree-references-lbl").html(keywords[6]);}
 if($("#tree-holy_references-lbl").length>0){$("#tree-holy_references-lbl").html(keywords[7]);}
+if($("#tree-sm-lbl").length>0){$("#tree-sm-lbl").html(keywords[75]);}
 if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");}}
 if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){htLoadExercise();if($("#btncheck").length>0){$("#btncheck").on("click",function(){htCheckAnswers();return false;});}
 if($("#btnnew").length>0){$("#btnnew").on("click",function(){htLoadExercise();return false;});}});}}
