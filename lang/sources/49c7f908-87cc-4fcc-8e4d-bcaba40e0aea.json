@@ -1,0 +1,41 @@
+{
+    "info" : "General information about the sources used.",
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "The time of the last file update, represented as Unix Epoch time." ],
+    "authors" : "Names of the individuals who contributed to editing the text.",
+    "reviewers" : "Names of the individuals who reviewed the text.",
+    "version" : 1,
+    "type" : "sources",
+    "primary_sources" : [
+       {
+           "id" : "Unique identifier for the specific primary source.",
+           "citation" : "Citation for the primary source.",
+           "date": "Date when the link was accessed.",
+           "url": "External link to access the paper/book."
+       }
+    ],
+    "reference_sources" : [
+       {
+           "id" : "Unique identifier for the specific reference source.",
+           "citation" : "Citation for the reference that discusses a primary source or person.",
+           "date": "Date when the link was accessed.",
+           "url": "External link to access the paper/book."
+       }
+    ],
+    "religious_sources" : [
+       {
+           "id" : "Unique identifier for the specific religious source.",
+           "citation" : "Citation for the religious source.",
+           "date": "Date when the link was accessed.",
+           "url": "External link to access the paper/book."
+       }
+    ],
+    "social_media_sources" : [
+       {
+           "id" : "Unique identifier for the specific Social Network source.",
+           "citation" : "Citation for the Social Network source.",
+           "date": "Date when the link was accessed.",
+           "url": "External link to access the Social Network."
+       }
+    ]
+}

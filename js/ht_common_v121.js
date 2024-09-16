@@ -80,7 +80,7 @@ var pages=arg.split('&person_id=');var appendPage="";if(pages.length!=2){$("#loa
 if(ext.length!=null&&ext.length>0&&ext=="html"){$("#html_loaded").val(page);}
 var unixEpoch=Date.now();if(ext=="html"){primarySourceMap.clear();refSourceMap.clear();holyRefSourceMap.clear();smSourceMap.clear();var additional=(appendPage.length==0)?'&':appendPage+'&';$("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);return false;}
 var URL=htLoadPageMountURL(page,arg,"");$("#loading_msg").show();$.ajax({type:'GET',url:URL,contentType:'application/json; charset=utf-8',data:'nocache='+unixEpoch,async:true,dataType:'json',success:function(data){if(data.length==0){$("#loading_msg").hide();return false;}
-htLoadSources(data,arg,page);htFillWebPage(page,data);return false;},});}
+htLoadSources(data,arg,page);htFillWebPage(page,data);return false;},});return false;}
 function htFillClassWithText(className,text)
 {$(className).each(function(){$(this).html(text);});}
 function htDetectLanguage()
@@ -115,8 +115,11 @@ if($("#tree-references-lbl").length>0){$("#tree-references-lbl").html(keywords[6
 if($("#tree-holy_references-lbl").length>0){$("#tree-holy_references-lbl").html(keywords[7]);}
 if($("#tree-sm-lbl").length>0){$("#tree-sm-lbl").html(keywords[75]);}
 if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");}}
-if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){htLoadExercise();if($("#btncheck").length>0){$("#btncheck").on("click",function(){htCheckAnswers();return false;});}
-if($("#btnnew").length>0){$("#btnnew").on("click",function(){htLoadExercise();return false;});}});}}
+if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){if(typeof htLoadExercise!=="undefined"){htLoadExercise();}
+if($("#btncheck").length>0){$("#btncheck").on("click",function(){if(typeof htCheckAnswers!=="undefined"){htCheckAnswers();}
+return false;});}
+if($("#btnnew").length>0){$("#btnnew").on("click",function(){if(typeof htLoadExercise!=="undefined"){htLoadExercise();}
+return false;});}});}}
 htFillClassWithText(".htPrevText",keywords[56]);htFillClassWithText(".htTopText",keywords[57]);htFillClassWithText(".htNextText",keywords[58]);htFillClassWithText(".htIndexText",keywords[60]);if($("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}
 if($("#tree-common-stats").length<=0){return false;}
 var htmlFields=["#tree-common-stats","#statsDescription","#genStatRow00","#genStatRow01","#genStatRow10","#genStatRow20","#genStatRow30","#genStatRow40","#genStatRow50","#genStatRow60","#genStatRow70"];var labelIndexes=[61,62,63,64,5,6,7,65,66,67,68,69];for(let i=0;i<htmlFields.length;i++){$(htmlFields[i]).html(keywords[labelIndexes[i]]);}

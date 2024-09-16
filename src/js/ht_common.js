@@ -629,6 +629,8 @@ function htLoadPage(page, ext, arg, reload) {
             return false;
         },
     });
+
+    return false;
 }
 
 function htFillClassWithText(className, text)
@@ -833,19 +835,25 @@ function htFillWebPage(page, data)
         for (const i in data.scripts) {
             var jsURL = "js/" + data.scripts[i] + ".js";
             $.getScript( jsURL, function() {
-                htLoadExercise();
+                if (typeof htLoadExercise !== "undefined") {
+                    htLoadExercise();
+                }
 
                 if ($("#btncheck").length > 0) {
                     $("#btncheck").on( "click", function() {
-                        htCheckAnswers();
+                        if (typeof htCheckAnswers !== "undefined") {
+                            htCheckAnswers();
+                        }
                         return false;
                     });
                 }
 
                 if ($("#btnnew").length > 0) {
                     $("#btnnew").on( "click", function() {
-                        htLoadExercise();
-                            return false;
+                        if (typeof htLoadExercise !== "undefined") {
+                            htLoadExercise();
+                        }
+                        return false;
                     });
                 }
             });
