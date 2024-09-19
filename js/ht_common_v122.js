@@ -173,6 +173,8 @@ if(table.documentsInfo!=undefined&&table.documentsInfo!=null&&$("#overallInfo").
 $("#overallInfo").html(dIText);if($("#documentsInfoLang").length>0){$("#documentsInfoLang").html(table.documentsInfo[0]);}
 if($("#documentsInfoCalendarName").length>0){$("#documentsInfoCalendarName").html(table.documentsInfo[1]);}
 if($("#documentsInfoCalendarVisibleOption").length>0){$("#documentsInfoCalendarVisibleOption").html(table.documentsInfo[2]);}}
+if(table.periodOfTime!=undefined&&table.periodOfTime!=null&&$("#periodOfTime").length>0){if(table.periodOfTime.length==2){var pOTText="<p><h3>"+keywords[76]+"</h3>"+keywords[77]+"</p>";$("#periodOfTime").html(pOTText);if($("#documentsPeriodOrigin").length>0){$("#documentsPeriodOrigin").html(table.periodOfTime[0]);}
+if($("#documentsPeriodTime").length>0){$("#documentsPeriodTime").html(table.periodOfTime[1]);}}}
 if(table.prerequisites!=undefined&&table.prerequisites!=null&&$("#pre_requisites").length>0){var preRequisites="";for(const i in table.prerequisites){preRequisites+=(i==0)?"<p><ul><li>"+table.prerequisites[i]+"</li>":"<li>"+table.prerequisites[i]+"</li>";}
 preRequisites+="</ul></p>";$("#pre_requisites").html(preRequisites);}
 if($("#contribution").length>0){$("#contribution").html(keywords[54]);}

@@ -1177,6 +1177,17 @@ function htFillFamilies(page, table) {
         if ($("#documentsInfoCalendarVisibleOption").length > 0) { $("#documentsInfoCalendarVisibleOption").html(table.documentsInfo[2]); }
     }
 
+    if (table.periodOfTime != undefined && table.periodOfTime != null && $("#periodOfTime").length > 0) {
+        if (table.periodOfTime.length == 2) {
+            var pOTText = "<p><h3>"+keywords[76]+"</h3>"+keywords[77]+"</p>";
+
+            $("#periodOfTime").html(pOTText);
+
+            if ($("#documentsPeriodOrigin").length > 0) { $("#documentsPeriodOrigin").html(table.periodOfTime[0]); }
+            if ($("#documentsPeriodTime").length > 0) { $("#documentsPeriodTime").html(table.periodOfTime[1]); }
+        }
+    }
+
     if (table.prerequisites != undefined && table.prerequisites != null && $("#pre_requisites").length > 0) {
         var preRequisites = "";
         for (const i in table.prerequisites) {
