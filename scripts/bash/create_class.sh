@@ -30,7 +30,7 @@ ht_create_files() {
 }
 
 if [ $# -ne 1 ]; then
-    echo "Please specify the class type: science, history, or first_steps."
+    echo "Please specify the class type: science, history, indigenous_who, or first_steps."
     exit 1;
 fi
 
