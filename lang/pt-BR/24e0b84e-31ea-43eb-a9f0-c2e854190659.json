@@ -4,18 +4,23 @@
     "sources" : [ "24e0b84e-31ea-43eb-a9f0-c2e854190659" ],
     "scripts" : [ "24e0b84e-31ea-43eb-a9f0-c2e854190659" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1724294539" ],
+    "last_update" : [ "1726938912" ],
     "authors" : null,
     "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
     "content" : [
         {
-            "id" : "families",
             "target" : "group_list",
             "value_type" : "paper",
             "value" : [
                 {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=7f25f2e7-abc4-4b18-8198-9e3b6d7da42b\" onclick=\"htLoadPage('class_content', 'html', '7f25f2e7-abc4-4b18-8198-9e3b6d7da42b', false); return false;\">Quem disse que os indígenas são diferentes?</a></td> <td><a href=\"index.html?page=indigenous_who\" onclick=\"htLoadPage('indigenous_who','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td><a href=\"index.html?page=class_content&arg=be2d7ec9-4c51-47c6-9e9b-ad9a0ef8b9a2\" onclick=\"htLoadPage('class_content', 'html', 'be2d7ec9-4c51-47c6-9e9b-ad9a0ef8b9a2', false); return false;\">Quem disse que indígenas não trabalhavam com matemática?</a></td></tr></table></p>"
+                },
+                {
                     "id" : "introduction",
-                    "text" : [ "<p><h3>Introdução</h3>Antes de avançar, gostaria de lhe propor uma pergunta intrigante: quem realmente descobriu América (<i>Abya Yala</i>) (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, pp. 39 - 43</a>)?</p>", "<p>Responder a perguntas desafiadoras com respostas simples pode ser tentador, mas frequentemente nos leva a conclusões equivocadas. Por exemplo, em salas de aula, é comum que os alunos aprendam que a história começa com a chegada de uma única pessoa, ignorando o contexto prévio. Nesta página, exploramos brevemente o conceito de \"descoberta\" de América (<i>Abya Yala</i>), mas deixamos espaço para considerações mais aprofundadas. Para uma análise mais detalhada de diferentes perspectivas sobre descobertas, recomendo a obra de Stuart C. Brown (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('47cfc7a1-a884-4bb4-80a8-376f8cca122b'); return false;\">Brown, Stuart C., <span class=\"htdate\"></span></a>).</p>", "<p>Este texto faz parte da etapa \"<b>O(s) descobridor(es)</b>\" no jogo <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('96f3d3af-15c3-4c37-9d0e-e4b7db0db1db'); return false;\">Método Científico</a> do History Tracers. Recomendamos ao leitor que jogue pelo menos esta fase para observar a aplicação prática do método.</p>" ]
+                    "text" : [ "<p class=\"topdesc\"><i>Além de utilizar o nome América, também faremos referência ao continente como <i>Abya Yala</i>, nome pelo qual é reconhecido pelos povos originários do continente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i></p>", "<p>Este texto faz parte da etapa \"<b>O(s) descobridor(es)</b>\" no jogo <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('96f3d3af-15c3-4c37-9d0e-e4b7db0db1db'); return false;\">Método Científico</a> do History Tracers. Recomendamos ao leitor que jogue pelo menos esta fase para observar a aplicação prática do método.</p>", "<p><h3>Introdução</h3>Antes de avançar, gostaria de lhe propor uma pergunta intrigante: quem realmente descobriu América?</p>", "<p>Responder a perguntas desafiadoras com respostas simples pode ser tentador, mas frequentemente nos leva a conclusões equivocadas. Por exemplo, em salas de aula, é comum que os alunos aprendam que a história começa com a chegada de uma única pessoa, ignorando o contexto prévio. Nesta página, exploramos brevemente o conceito de \"descoberta\" de América (<i>Abya Yala</i>), mas deixamos espaço para considerações mais aprofundadas. Para uma análise mais detalhada de diferentes perspectivas sobre descobertas, recomendo a obra de Stuart C. Brown (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('47cfc7a1-a884-4bb4-80a8-376f8cca122b'); return false;\">Brown, Stuart C., <span class=\"htdate\"></span></a>).</p>" ]
                 },
                 {
                     "id" : "word",
@@ -35,7 +40,7 @@
                 },
                 {
                     "id" : "end",
-                    "text" : "<h3>Conclusão</h3><p>A conclusão baseada nas descobertas científicas pode causar desconforto ao remover a certeza absoluta. No entanto, essa perspectiva de incerteza nos convida à reflexão sobre a necessidade de certezas: <ul><li>Por que sentimos a necessidade de conhecer tudo? Seria essa busca uma barreira para novas aprendizagens?</li><li>É possível que as respostas \"seguras\" tenham omitido fatos? Em outras palavras, os descobridores nas perspectivas apresentadas não foram os primeiros a pisar ou avistar o continente.</li><li>Após a leitura deste texto, sua ideia sobre o conceito de \"descoberta\" permanece a mesma? E quanto às descobertas em sua própria vida que outros já fizeram antes de você?</li><li>Sua visão sobre \"Quem descobriu América (<i>Abya Yala</i>)?\" coincide com a perspectiva científica, ou você sente a necessidade de atribuir a descoberta a um único descobridor?</li></ul></p>"
+                    "text" : [ "<h3>Conclusão</h3><p>A conclusão baseada nas descobertas científicas pode causar desconforto ao remover a certeza absoluta. No entanto, essa perspectiva de incerteza nos convida à reflexão sobre a necessidade de certezas:</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre o conhecimento</b><br /><br />Será que assumir que sabemos tudo pode se tornar uma barreira para novas aprendizagens?<br />As respostas que consideramos \"seguras\" podem ter deixado de lado fatos importantes?<br />Após a leitura deste texto, sua visão sobre o conceito de \"descoberta\" permanece a mesma?<br />Quanto à questão de \"Quem descobriu América (<i>Abya Yala</i>)?\", sua perspectiva está alinhada com o conhecimento científico atual, ou você sente a necessidade de atribuir essa descoberta a uma única pessoa?</div></div></center></p>", "<p><center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Matemática na História</b><br /><br />Quando falamos sobre quem \"descobriu\" uma região, geralmente somos levados a pensar no primeiro, no \"número 1\". No entanto, ao examinarmos melhor os relatos, percebemos que essas pessoas muitas vezes não estavam sozinhas.<br /><br />Os relatos dos colonizadores europeus, que descrevem interações com os povos indígenas, sugerem que havia outros \"números 1\" antes deles.<br /><br />Com base em achados arqueológicos e estudos genéticos que mostram a presença de povos anteriores aos chamados descobridores, seria mais apropriado utilizar o conceito de grupo para definir os descobridores de cada região.</div></div></center></p>" ]
                 },
                 {
                     "id" : "exercise_v2",
@@ -55,6 +60,7 @@
                 {
                     "id": "fill_dates",
                     "text": [
+                        {  "type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "1993", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "2021", "month" : "-1", "day" : "-1" },
