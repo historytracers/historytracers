@@ -4,38 +4,53 @@ import http.server
 import json
 import socketserver
 
-PORT = 12345
 htOptions = None
 
 class htHandler(http.server.SimpleHTTPRequestHandler):
-    def _htJsonHeaders(self):
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
+    def _htHeaders(self, code, contentType, contentLength):
+        #
+        #  code: The response code (200, 404)
+        #  contentyType: The document type delivered ('application/json', 'text/html')
+        #  contentLength: The content length
+        #
+        self.send_response(code)
+        self.send_header('Content-type', contentType)
+        self.send_header('Content-length', contentLength)
         self.end_headers()
 
-    def _htErrorHeaders(self):
-        self.send_response(404)
-        self.send_header('Content-type', 'application/json')
-        self.end_headers()
+    def _htUnauthorizedResponse(self):
+        errorText = '<html><body>You do not have permissions to access it.</body></html>'
+        self._htHeaders(401, 'text/html', len(errorText))
+        self.wfile.write(errorText)
 
     def _htScience(self):
-        self._htJson_headers(self)
-        self.wfile.write(json.dumps({'msg': 'Science content'}))
+        dumpText = json.dumps({'msg': 'Science content'})
+        self._htHeaders(200, 'application/json', len(dumpText))
+        self.wfile.write(dumpText)
 
     def _htHistorical(self):
-        self._htJsonHeaders(self)
-        self.wfile.write(json.dumps({'msg': 'Historical content'}))
+        dumpText = json.dumps({'msg': 'Historical content'})
+        self._htHeaders(200, 'application/json', len(dumpText))
+        self.wfile.write()
 
     def _htFirstSteps(self):
-        self._htJsonHeaders(self)
-        self.wfile.write(json.dumps({'msg': 'Historical content'}))
-        print("First Steps content")
+        dumpText = json.dumps({'msg': 'Historical content'})
+        self._htHeaders(200, 'application/json', len(dumpText))
+        self.wfile.write()
 
     def _htSMGame(self):
-        self._htJsonHeaders(self)
-        self.wfile.write(json.dumps({'msg': 'Scientific Game content'}))
+        dumpText = json.dumps({'msg': 'Scientific Game content'})
+        self._htHeaders(200, 'application/json', len(dumpText))
+        self.wfile.write(dumpText)
 
     def do_GET(self):
+        devString = self.path.find("src")
+        if htOptions["devmode"] == False and devString != -1:
+            self._htUnauthorizedResponse()
+            return
+
+        # TODO: Should we avoid directory listening?
+
         http.server.SimpleHTTPRequestHandler.do_GET(self)
 
     def do_POST(self):
