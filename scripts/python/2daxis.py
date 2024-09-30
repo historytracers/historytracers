@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Example from https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html
 import matplotlib.pyplot as plt
 import numpy as np
