@@ -1,0 +1,147 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!DOCTYPE html>
+<head>
+  <link rel="shortcut icon" href="#">
+  <base href="./">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="keyword" content="Genealogy; Sciences; Games">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History Tracers</title>
+
+  <meta http-equiv="Cache-Control" content="max-age=0, no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+
+  <link rel="stylesheet" href="css/ht_common.css?v=d561cee0-430e-4a49-884e-5a95dd46c8df">
+  <link rel="stylesheet" href="css/ht_math.css?v=ddd81ede-9c8e-453c-a745-de9cd991735d">
+  <!-- https://docs.fontawesome.com/v5/web/setup/host-font-awesome-yourself -->
+  <link rel="stylesheet" href="../css/fa_6_5_2.min.css?v=bb7aa57e-fe8d-4884-aae5-1826d8a04e8b">
+
+  <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="js/ht_common.js?v=25f0fd4d-2988-42a0-b4e5-8a9a1b31b3aa"></script>
+  <script type="text/javascript" src="js/ht_math.js?v=c55a11e7-c76b-4af8-af97-69170db25c37"></script>
+  <script type="text/javascript" src="../js/chart_4_4_4.js?v=3ff81dfa-5beb-46dd-96eb-b4413cbdd290"></script>
+  <script type="text/javascript" src="../js/ht_chart_v3.js?v=773c1ad0-72ff-4b20-afc7-ae0a51b5bf7c"></script>
+  <script type="text/javascript" src="../js/astro.js?v=a560bbae-0ac0-4bcf-9dcb-e9f2dba9ab98"></script>
+  <script type="text/javascript" src="../js/calendar.js?v=750ecce5-1ae0-4cdd-857f-9273ed54f33f"></script>
+</head>
+
+<body>
+  <script>
+      // Avoid wrong click
+      var indexUnixEpoch = Date.now();
+      var indexFile = document.createElement("script");
+      indexFile.setAttribute("src", "../js/index.js?nocache="+indexUnixEpoch);
+      document.head.appendChild(indexFile);
+  </script>
+<div class="side-bar">
+    <div class="side-bar-top">
+        DEVELOPMENT
+    </div>
+    <ul class="sidebar-navigation">
+        <li> <b><label id="lblmain" class="menu-title"></label></b>
+            <ul class="sidebar-all">
+                <li class="menu"> <a href="index.html?page=main" onclick="htLoadPage('main','html', '', false); return false;" id="sbMain"></a></li>
+            </ul>
+        </li>
+
+    <input type="hidden" id="loading" value="" />
+    <input type="hidden" id="selector" value="" />
+    <input type="hidden" id="html_loaded" value="" />
+</div>
+<div class="top-bar">
+    <div class="top-bar-left">
+        <div class="top-bar-inside-left" id="header">
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div id="messages"> </div>
+    <div class="main-data" id="page_data">
+    </div>
+</div>
+<div class="right-sources">
+    <p>
+    <div class="top-bar-right">
+        <div class="top-bar-right-lang">
+        <span id="index_lang" class="topdesc">Language:</span> 
+        <select id="site_language" class="selSize">
+            <option value="pt-BR">Português - BR</option>
+            <option value="en-US">English - USA</option>
+            <option value="es-ES">Español - ES</option>
+        </select> <br />
+        <span id="index_calendar" class="topdesc">Date Format:</span> 
+        <select id="site_calendar" class="selSize">
+            <option value="gregory">Gregoriano</option>
+            <option value="hebrew">Hebreu</option>
+            <option value="hispanic">Hispânica</option>
+            <option value="islamic">Islâmico</option>
+            <option value="julian">Juliano</option>
+            <option value="mesoamerican">Mesoamericano</option>
+            <option value="emesoamerican">Mesoamericano (Est.)</option>
+            <option value="persian">Persa</option>
+            <option value="french">Rev. Francesa</option>
+            <option value="shaka">Shaka</option>
+        </select> <br />
+        <span id="index_theme" class="topdesc">Theme:</span> 
+        <select id="site_theme" class="selSize">
+            <option value="aIndigenous">American Indigenous</option>
+        </select>
+        </div>
+        <div class="top-bar-right-child">
+            <span id="slogan" class="htSlogan"></span><br />     
+       </div>
+    </div>
+    </p>
+    <p id="current_day" class="htSlogan">&nbsp;</p>
+    <p id ="tree-description" class="cited-text"></p>
+    <h4 id="tree-sources-lbl"></h4>
+    <div id="tree-source" class="cited-text"></div>
+
+    <h4 id="tree-references-lbl"></h4>
+    <div id="tree-ref" class="cited-text"></div>
+
+    <h4 id="tree-holy_references-lbl"></h4>
+    <div id="tree-holy-ref" class="cited-text"></div>
+
+    <h4 id="tree-sm-lbl"></h4>
+    <div id="tree-sm-ref" class="cited-text"></div>
+
+    <div class="right-tree">
+        <div class="main-data" id="right-tree-top">
+            <div class="tree-grandparent-top" id="grandfather01">
+            Loading..
+            </div>
+            <div class="tree-grandmother-top" id="grandmother01">
+                Loading..
+            </div>
+
+            <div class="tree-grandparent-bottom" id="grandfather02">
+                Loading..
+            </div>
+            <div class="tree-grandmother-bottom" id="grandmother02">
+                Loading..
+            </div>
+
+            <div class="tree-parent-top" id="father">
+                Loading..
+            </div>
+            <div class="tree-mother-bottom" id="mother">
+                Loading..
+            </div>
+
+            <div class="tree-child-center" id="child">
+                Loading..
+            </div>
+        </div>
+        <div class="main-data" id="right-tree-bottom">
+        </div>
+    </div>
+</div>
+
+<div id="ht_games" class="ht_description">
+</div>
+
+</body>

@@ -1,0 +1,15 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+
+<script>
+    var mainUnixEpoch = Date.now();
+    var mainFile = document.createElement("script");
+    mainFile.setAttribute("src", "js/main.js?nocache="+mainUnixEpoch);
+    document.head.appendChild(mainFile);
+</script>
+<div class="left-tree">
+    <div class="main-data" id="extpaper">
+    </div>
+
+    <div class="main-data" id="content">
+    </div>
+</div>
