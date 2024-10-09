@@ -6,6 +6,7 @@ var htGameTranslationModify = -1;
 var htGameTranslationCurrentValue = -1;
 var htGameTranslationModel = "";
 var htGameEnd = false;
+var htGameChecking = false;
 
 var htGameTranslationRandomVector = [];
 var htGameTranslationCurrentLevel = -1;
@@ -176,6 +177,7 @@ function htTranslationCheckRandomAnswer() {
     }
 
     htGameRandomEnd = true;
+    htGameChecking = true;
     $("#nextLevel").show();
 }
 
@@ -273,7 +275,8 @@ function htLoadExercise() {
                 htTranslationSetFirstStepValues(maxValue);
             }
         } else {
-            if (htGameRandomEnd == false ) {
+            if (htGameRandomEnd == false && htGameChecking == false) {
+                htGameChecking = true;
                 var fieldName = "#numberFieldnum"+name[11];
                 var value = $(fieldName).val();
                 if (value.length == 0) {
@@ -288,6 +291,7 @@ function htLoadExercise() {
 
                 $(fieldName).val(value);
                 htTranslationCheckRandomAnswer();
+                htGameChecking = false;
             }
         }
     });
@@ -304,7 +308,8 @@ function htLoadExercise() {
                 htTranslationSetFirstStepValues(maxValue);
             }
         } else {
-            if (htGameRandomEnd == false ) {
+            if (htGameRandomEnd == false && htGameChecking == false) {
+                htGameChecking = true;
                 var fieldName = "#numberFieldnum"+name[13];
                 var value = $(fieldName).val();
                 if (value.length == 0) {
@@ -319,6 +324,7 @@ function htLoadExercise() {
 
                 $(fieldName).val(value);
                 htTranslationCheckRandomAnswer();
+                htGameChecking = false;
             }
         }
     });
@@ -327,6 +333,7 @@ function htLoadExercise() {
         $("#nextLevel").hide();
         htLoadRandomTranslation();
         htGameRandomEnd = false;
+        htGameChecking = false;
     });
 
     localGameVector7ec87720 = htLoadGameData();
