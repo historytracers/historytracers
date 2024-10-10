@@ -14,7 +14,7 @@
   <meta http-equiv="Expires" content="0" />
 
 
-  <link rel="stylesheet" href="css/ht_common_v55.css?v=d561cee0-430e-4a49-884e-5a95dd46c8df">
+  <link rel="stylesheet" href="css/ht_common_v56.css?v=5268f40b-3908-44a5-9e53-0827da17409b">
   <link rel="stylesheet" href="css/ht_math_v11.css?v=ddd81ede-9c8e-453c-a745-de9cd991735d">
   <!-- https://docs.fontawesome.com/v5/web/setup/host-font-awesome-yourself -->
   <link rel="stylesheet" href="css/fa_6_5_2.min.css?v=bb7aa57e-fe8d-4884-aae5-1826d8a04e8b">
@@ -40,6 +40,7 @@
     <div class="side-bar-top">
         History<br /> Tracers
     </div>
+    <span id="slogan" class="cited-text"></span><br />     
     <ul class="sidebar-navigation">
         <li> <b><label id="lblmain" class="menu-title"></label></b>
             <ul class="sidebar-all">
@@ -103,13 +104,13 @@
     <p>
     <div class="top-bar-right">
         <div class="top-bar-right-lang">
-        <span id="index_lang" class="topdesc">Language:</span> 
+        <span id="index_lang" class="toplabel">Language:</span> 
         <select id="site_language" class="selSize">
             <option value="pt-BR">Português - BR</option>
             <option value="en-US">English - USA</option>
             <option value="es-ES">Español - ES</option>
         </select> <br />
-        <span id="index_calendar" class="topdesc">Date Format:</span> 
+        <span id="index_calendar" class="toplabel">Date Format:</span> 
         <select id="site_calendar" class="selSize">
             <option value="gregory">Gregoriano</option>
             <option value="hebrew">Hebreu</option>
@@ -121,18 +122,20 @@
             <option value="persian">Persa</option>
             <option value="french">Rev. Francesa</option>
             <option value="shaka">Shaka</option>
-        </select> <br />
-        <span id="index_theme" class="topdesc">Theme:</span> 
-        <select id="site_theme" class="selSize">
-            <option value="aIndigenous">American Indigenous</option>
         </select>
         </div>
         <div class="top-bar-right-child">
-            <span id="slogan" class="htSlogan"></span><br />     
+            <span id="index_theme" class="toplabel">Theme:</span> 
+            <select id="site_theme" class="selSize">
+                <option value="aIndigenous">American Indigenous</option>
+            </select> <br />
+            <span id="current_day" class="htSlogan">&nbsp;</span>
        </div>
     </div>
     </p>
-    <p id="current_day" class="htSlogan">&nbsp;</p>
+
+    <p>
+    <div class="righttext">
     <p id ="tree-description" class="cited-text"></p>
     <h4 id="tree-sources-lbl"></h4>
     <div id="tree-source" class="cited-text"></div>
@@ -145,6 +148,7 @@
 
     <h4 id="tree-sm-lbl"></h4>
     <div id="tree-sm-ref" class="cited-text"></div>
+    </div>
 
     <div class="right-tree">
         <div class="main-data" id="right-tree-top">
@@ -176,6 +180,7 @@
         <div class="main-data" id="right-tree-bottom">
         </div>
     </div>
+    </p>
 </div>
 
 <div id="ht_games" class="ht_description">
