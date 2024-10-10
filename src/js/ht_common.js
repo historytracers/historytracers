@@ -335,7 +335,7 @@ function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
     dateDiv += keywords[33] + " : " + text;
     dateDiv += ". "+keywords[38];
 
-    dateDiv += "</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div></p>";
+    dateDiv += "</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div><br /></p>";
 
     $(target).append(dateDiv);
 }

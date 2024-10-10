@@ -46,7 +46,7 @@ function htFillDivAuthorsContent(target,last_update,authors,reviewers){if(last_u
 if($("#paper-date").length>0){return;}
 var dateDiv="<p><div id=\"paper-title\" class=\"paper-title-style\"><div id=\"paper-date\" class=\"paper-date-style\">";var local_lang=$("#site_language").val();var local_calendar=$("#site_calendar").val();var text=htConvertDate(local_calendar,local_lang,last_update,undefined,undefined);if(keywords.length>33){dateDiv+=keywords[34]+" : "+authors+".<br />";}
 if(keywords.length>35){dateDiv+=keywords[36]+" : "+reviewers+".<br />";}
-dateDiv+=keywords[33]+" : "+text;dateDiv+=". "+keywords[38];dateDiv+="</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div></p>";$(target).append(dateDiv);}
+dateDiv+=keywords[33]+" : "+text;dateDiv+=". "+keywords[38];dateDiv+="</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div><br /></p>";$(target).append(dateDiv);}
 function htLoadPageMountURL(page,arg,dir)
 {var url="lang/";var lang=$("#site_language").val();if(lang==null||lang==undefined){lang=htDetectLanguage();}
 if(arg=="source"){url+=arg+"s/";}else{url+=lang+"/";}
