@@ -3,17 +3,23 @@ html {
   font-size: 1.1em;
 }
 
+@media only screen and (max-width: 600px) {
+  .right-tree {
+    visibility: hidden;
+  }
+}
+
 .hr {
   border: none;
   height: 1px;
 }
 
 .selSize {
-  width: 7em;
+  width: 7vw;
 }
 
 .htSlogan {
-  font-size: 1.0em;
+  font-size: 0.9em;
   z-index: 110;
 }
 
@@ -90,7 +96,7 @@ html {
 
 .top-bar-right {
   position: fixed;
-  height: 10%;
+  height: 10vw;
   width: 24%;
   top: 1%;
   right: 1%;
@@ -323,12 +329,15 @@ a:visited {
 }
 
 .menu-title {
-  font-size: 0.9vw;
+  font-size: 0.9em;
+  overflow: hidden;
 }
 
 li.menu {
   list-style: none;
-  font-size: 0.9vw;
+  font-size: 0.9em;
+  overflow:hidden;
+  z-index: 0;
 }
 
 li.menu::before{
