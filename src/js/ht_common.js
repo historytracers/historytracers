@@ -1471,7 +1471,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                 var marriageLink = "";
                 if (marriage.family_id == undefined) {
                     marriageLink = marriage.name;
-                } else if (familyID == marriage.family_id) {
+                } else if (familyID == marriage.family_id || (marriage.external_family_file != undefined && marriage.external_family_file == false)) {
                     marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>";
                 } else {
                     marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>";
@@ -1514,7 +1514,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             var childLink = "";
             if (child.family_id == undefined) {
                 childLink = child.name ;
-            } else if (familyID == child.family_id) {
+            } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
                 childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child.name+"</a>";
             } else { 
                 childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child.name+"</a>";
