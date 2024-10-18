@@ -4,7 +4,7 @@
     "sources" : [ "3c463a57-284b-4f4a-a52e-033124b389d0" ],
     "scripts" : [ "3c463a57-284b-4f4a-a52e-033124b389d0" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1726345162" ],
+    "last_update" : [ "1729291083" ],
     "authors" : null,
     "reviewers" : null,
     "common" : [ "<p>In works such as Manuel José da C. Felgueiras Gaio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras Gaio, Manuel J da C. <span class=\"htdate\"></span>, Souzas, pp. 13</a>) and Salazar y Castro (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ac77aeaf-c513-4e30-9a27-0c613de5859f'); return false;\">Salazar y Castro, Luis de, <span class=\"htdate\"></span>, Vol. I, pp. 45</a>), references can be found regarding purported descendants of Visigoth kings following the dissolution of the kingdom. However, <b>there exists no singular document that definitively confirms these connections. Therefore, such claims are \"probably owes more to the imagination of later writers\"</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>). In light of this, we treat these connections as hypothetical, in line with the principles of the scientific method (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers, <span class=\"htdate\"></span>, <i>Scientific method</i></a>).</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\" id=\"myFirstReflection\"></div></div></center></p>", "<p><center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" id=\"GenealogicalLimit\" style=\"background-color: #D7FFE4;\"></div></div></center></p>", "<p>Knowledge never stops, and here we are not presenting the entire history of the Visigoth kings. To learn more about them, in addition to the chronicles and papers we mention, we suggest visiting the sites Medieval Lands and World History Encyclopedia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7300a93d-26be-4f3a-bf26-dac18b16d6a7'); return false;\">Mark, J. J., <span class=\"htdate\"></span>, <i>Visigoth</i></a>).</p>" ],
@@ -14,7 +14,7 @@
     "families" : [
         {
             "id" : "c52784cc-63c7-4c58-9e7f-a272e4b1ea3f",
-            "name": "Sisebuto's family",
+            "name": "Descendants of Sisebuto",
             "history": [ "Due to the lack of information available from the period under study, Sisebuto's parentage and potential grandchildren remain unknown. The only confirmed detail is that he had a son who passed away a few months after birth (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)." ],
             "people" : [
                 {
@@ -25,10 +25,10 @@
                         {
                             "type" : "theory",
                             "father_family" : null,
-                            "father" : "fd0bcd42-67d3-45fe-b0e7-e0f69b4047bc",
+                            "father_id" : "fd0bcd42-67d3-45fe-b0e7-e0f69b4047bc",
                             "father_name" : "Unknown",
                             "mother_family" : null,
-                            "mother" : "d9de2541-2174-4174-b696-e8d48c7bae63",
+                            "mother_id" : "d9de2541-2174-4174-b696-e8d48c7bae63",
                             "mother_name" : "Unknown"
                         }
                     ],
@@ -37,6 +37,7 @@
                             "type" : "theory",
                             "id": "a7c71700-41c6-4a22-8470-2e5b21d5a093",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Unknown"
                         }
                     ],
@@ -47,6 +48,7 @@
                             "marriage_id": "a7c71700-41c6-4a22-8470-2e5b21d5a093",
                             "name" : "Recaredo",
                             "family_id": "c52784cc-63c7-4c58-9e7f-a272e4b1ea3f",
+                            "external_family_file" : false,
                             "history" : [ "According to Saint Isidoro of Seville (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b'); return false;\">Florez, Henriques, <span class=\"htdate\"></span>, Trat. 6, Ap. XII, pp. 494</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)," ]
                         },
                         {
@@ -55,6 +57,7 @@
                             "marriage_id": "a7c71700-41c6-4a22-8470-2e5b21d5a093",
                             "name" : "Theodora",
                             "family_id": "c52784cc-63c7-4c58-9e7f-a272e4b1ea3f",
+                            "external_family_file" : false,
                             "history" : [ "According to Salazar y Castro ( <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ac77aeaf-c513-4e30-9a27-0c613de5859f'); return false;\">Salazar y Castro, Luis de, <span class=\"htdate\"></span>, Vol. I, pp. 45</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)." ]
                         }
                     ]
@@ -67,10 +70,10 @@
                         {
                             "type" : "theory",
                             "father_family" : "3c463a57-284b-4f4a-a52e-033124b389d0",
-                            "father" : "4e3faaab-1761-4d6e-b15f-b49d82b17a0d",
+                            "father_id" : "4e3faaab-1761-4d6e-b15f-b49d82b17a0d",
                             "father_name" : "Sisebuto",
                             "mother_family" : null,
-                            "mother" : "a7c71700-41c6-4a22-8470-2e5b21d5a093",
+                            "mother_id" : "a7c71700-41c6-4a22-8470-2e5b21d5a093",
                             "mother_name" : "Unknown"
                         }
                     ],
@@ -79,6 +82,7 @@
                             "type" : "theory",
                             "id": "779bd840-7c7c-4487-97a4-9b9dd0c4ce16",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Unknown",
                             "history" : null
                         }
@@ -92,10 +96,10 @@
                         {
                             "type" : "hypothesis",
                             "father_family" : "3c463a57-284b-4f4a-a52e-033124b389d0",
-                            "father" : "4e3faaab-1761-4d6e-b15f-b49d82b17a0d",
+                            "father_id" : "4e3faaab-1761-4d6e-b15f-b49d82b17a0d",
                             "father_name" : "Sisebuto",
                             "mother_family" : null,
-                            "mother" : "a7c71700-41c6-4a22-8470-2e5b21d5a093",
+                            "mother_id" : "a7c71700-41c6-4a22-8470-2e5b21d5a093",
                             "father_name" : "Unknown"
                         }
                     ],
@@ -104,6 +108,7 @@
                             "type" : "theory",
                             "id": "779bd840-7c7c-4487-97a4-9b9dd0c4ce16",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Suintila",
                             "history" : null
                         }
@@ -113,7 +118,7 @@
         },
         {
             "id" : "bf1d06d2-4983-47b1-a6d6-ddf380508b25",
-            "name": "Egica's family",
+            "name": "Descendants of Egica",
             "history": [ "This family also lacks sufficient data. We have only identified a few of his grandchildren." ],
             "people" : [
                 {
@@ -124,10 +129,10 @@
                         {
                             "type" : "theory",
                             "father_family" : null,
-                            "father" : "7ff10666-1f46-498c-8335-c5fc1e2ff14f",
+                            "father_id" : "7ff10666-1f46-498c-8335-c5fc1e2ff14f",
                             "father_name" : "Unknown",
                             "mother_family" : null,
-                            "mother" : "151ae400-33e3-4eac-90b7-fda337b2e88f",
+                            "mother_id" : "151ae400-33e3-4eac-90b7-fda337b2e88f",
                             "mother_name" : "Unknown"
                         }
                     ],
@@ -136,6 +141,7 @@
                             "type" : "theory",
                             "id": "e2f89d58-df8c-4dd8-b0db-f6b6aac064b1",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Cixilo",
                             "history" : [ "According to Alfonso III's chronicle (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Dom Alfonso III, <span class=\"htdate\"></span>, pp. 18</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)." ]
                         }
@@ -147,6 +153,7 @@
                             "marriage_id": "e2f89d58-df8c-4dd8-b0db-f6b6aac064b1",
                             "name" : "Witiza",
                             "family_id": "bf1d06d2-4983-47b1-a6d6-ddf380508b25",
+                            "external_family_file" : false,
                             "history" : [ "According to Alfonso III's chronicle (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Dom Alfonso III, <span class=\"htdate\"></span>, pp. 19</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1eaf98d9-1945-4895-b5b0-acfb4bd28f42'); return false;\">Bronisch, Alexander, <span class=\"htdate\"></span>, pp. 47 - 51</a>)." ]
                         },
                         {
@@ -155,6 +162,7 @@
                             "marriage_id": "e2f89d58-df8c-4dd8-b0db-f6b6aac064b1",
                             "name" : "Oppa",
                             "family_id": "bf1d06d2-4983-47b1-a6d6-ddf380508b25",
+                            "external_family_file" : false,
                             "history" : [ "According to chronicle 754 (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1eaf98d9-1945-4895-b5b0-acfb4bd28f42'); return false;\">Bronisch, Alexander, <span class=\"htdate\"></span>, pp. 49</a>)." ]
                         }
                     ]
@@ -167,10 +175,10 @@
                         {
                             "type" : "theory",
                             "father_family" : "3c463a57-284b-4f4a-a52e-033124b389d0",
-                            "father" : "b790586a-f995-49da-9846-e92fa334a5c0",
+                            "father_id" : "b790586a-f995-49da-9846-e92fa334a5c0",
                             "father_name" : "Egica",
                             "mother_family" : null,
-                            "mother" : "e2f89d58-df8c-4dd8-b0db-f6b6aac064b1",
+                            "mother_id" : "e2f89d58-df8c-4dd8-b0db-f6b6aac064b1",
                             "mother_name" : "Cixilo"
                         }
                     ],
@@ -179,6 +187,7 @@
                             "type" : "theory",
                             "id": "a0cff0d8-7e1b-4d0d-b4ee-06be13a79b5d",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Unknown",
                             "history" : null
                         }
@@ -190,6 +199,7 @@
                             "marriage_id": "a0cff0d8-7e1b-4d0d-b4ee-06be13a79b5d",
                             "name" : "Akila",
                             "family_id": "3c463a57-284b-4f4a-a52e-033124b389d0",
+                            "external_family_file" : false,
                             "history" : [ "According to Ibn El-Kouthya (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 3</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)." ]
                         },
                         {
@@ -198,6 +208,7 @@
                             "marriage_id": "a0cff0d8-7e1b-4d0d-b4ee-06be13a79b5d",
                             "name" : "Olmundo",
                             "family_id": "3c463a57-284b-4f4a-a52e-033124b389d0",
+                            "external_family_file" : false,
                             "history" : [ "According to Ibn El-Kouthya (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 3</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)." ]
                         },
                         {
@@ -206,6 +217,7 @@
                             "marriage_id": "a0cff0d8-7e1b-4d0d-b4ee-06be13a79b5d",
                             "name" : "Ardabasto",
                             "family_id": "3c463a57-284b-4f4a-a52e-033124b389d0",
+                            "external_family_file" : false,
                             "history" : [ "According to Ibn El-Kouthya (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 3</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)." ]
                         },
                         {
@@ -214,6 +226,7 @@
                             "marriage_id": "a0cff0d8-7e1b-4d0d-b4ee-06be13a79b5d",
                             "name" : "Sisebuto",
                             "family_id": "3c463a57-284b-4f4a-a52e-033124b389d0",
+                            "external_family_file" : false,
                             "history" : [ "According to Manuel José da C. Felgueiras Gaio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras, Gaio, Manuel J da C., <span class=\"htdate\"></span>, Souzas, pp. 13</a>)." ]
                         }
                     ]
@@ -226,10 +239,10 @@
                         {
                             "type" : "hypothesis",
                             "father_family" : "3c463a57-284b-4f4a-a52e-033124b389d0",
-                            "father" : "547673e8-6c58-44f4-837e-920c3c90652c",
+                            "father_id" : "547673e8-6c58-44f4-837e-920c3c90652c",
                             "father_name" : "Witiza",
                             "mother_family" : null,
-                            "mother" : "76b65524-ff49-4bd1-aa40-2174f303f3d0",
+                            "mother_id" : "76b65524-ff49-4bd1-aa40-2174f303f3d0",
                             "mother_name" : "Unknown"
                         }
                     ],
@@ -238,6 +251,7 @@
                             "type" : "hypothesis",
                             "id": "c69f7c23-ff56-457f-a7c5-2c8bc7e46e03",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Unknown",
                             "history" : null
                         }
@@ -249,6 +263,7 @@
                             "marriage_id": "c69f7c23-ff56-457f-a7c5-2c8bc7e46e03",
                             "name" : "Menaia Ribeiro",
                             "family_id": "3c463a57-284b-4f4a-a52e-033124b389d0",
+                            "external_family_file" : false,
                             "history" : [ "According to Manuel José da C. Felgueiras Gaio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras, Gaio, Manuel J da C., <span class=\"htdate\"></span>, Souzas, pp. 13</a>)." ]
                         }
                     ]
@@ -257,11 +272,23 @@
                     "id" : "63f2220e-5f04-4669-9ecf-c94274d29cbb",
                     "name": "Menaia Ribeiro",
                     "history" : [ "According to Manuel José da C. Felgueiras Gaio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras, Gaio, Manuel J da C., <span class=\"htdate\"></span>, Souzas, pp. 13</a>), Menaia Ribeiro is purportedly a descendant through the male line of Sisebuto, [allegedly] a son of Witiza. However, there is no documentation confirming this claim (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 3</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)." ],
+                    "parents" :  [
+                        {
+                            "type" : "hypothesis",
+                            "father_family" : "3c463a57-284b-4f4a-a52e-033124b389d0",
+                            "father_id" : "9caa2e55-dd47-4906-a6d7-1a4f379e720e",
+                            "father_name": "Sisebuto",
+                            "mother_family" : null,
+                            "mother_id": "c69f7c23-ff56-457f-a7c5-2c8bc7e46e03",
+                            "mother_name" : "Unknown"
+                        }
+                    ],
                     "marriages" : [
                         {
                             "type" : "hypothesis",
                             "id": "88b48e88-e577-4755-986c-8471e4657560",
-                            "family_id": "f83bd80e-7912-4e62-9509-148de8b0bb05",
+                            "family_id": null,
+                            "external_family_file" : true,
                             "name" : "Soeiro Belfager",
                             "history" : [ "According to Dom Pedro and Manuel José da C. Felgueiras Gaio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94cddc67-cec8-414a-9885-6d3e7ee952ba'); return false;\">Sousa, Manuel. et all, <span class=\"htdate\"></span>, Dom Pedro, pp. 133</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras, Gaio, Manuel J da C., <span class=\"htdate\"></span>, Souzas, pp. 13</a>)." ]
                         }

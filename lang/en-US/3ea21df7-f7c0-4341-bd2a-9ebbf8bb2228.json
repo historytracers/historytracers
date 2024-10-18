@@ -3,7 +3,7 @@
     "sources" : [ "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228" ],
     "scripts" : [ "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1725668584" ],
+    "last_update" : [ "1729291083" ],
     "authors" : null,
     "reviewers" : null,
     "common" : [ "<p>Researching enslaved ancestors in Brazil presents unique challenges, as we are dealing with individuals who were marginalized.</p>", "<p>In this research, we have utilized documents that survived because they were part of church records or ancient official documents from the province of Minas Gerais. Thanks to this, they were not burned due to Ruy Barbosa understanding that <i>\"a República está obrigada a destruir esses vestígios por honra da Pátrica\"</i> [translation: the Republic is obligated to destroy these traces out of honor for the Homeland] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b8046a44-1105-4934-a520-31d8985726cf'); return false;\">Lacombe, Américo Jacobina <i>et. all</i>, <span class=\"htdate\"></span>, pp. 114</a>).</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>About memory</b><br />Is it honorable to rewrite or hide the past to achieve a desired result?</div></div></center></p>" ],
@@ -23,10 +23,10 @@
                         {
                             "type" : "theory",
                             "father_family" : null,
-                            "father" : "f89b01aa-a964-437b-aba1-fa555af363ad",
+                            "father_id" : "f89b01aa-a964-437b-aba1-fa555af363ad",
                             "father_name" : "Unknown",
                             "mother_family" : null,
-                            "mother" : "8c69e3ff-4cee-445f-a2cf-1a844c559e48",
+                            "mother_id" : "8c69e3ff-4cee-445f-a2cf-1a844c559e48",
                             "mother_name" : "Unknown"
                         }
                     ],
@@ -35,6 +35,7 @@
                             "type" : "theory",
                             "id": "d491cad7-214a-4c0c-983e-e6c3d0af0897",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Unknown",
                             "history" : null
                         }
@@ -46,6 +47,7 @@
                             "marriage_id": "d491cad7-214a-4c0c-983e-e6c3d0af0897",
                             "name" : "Anastacia",
                             "family_id": "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228",
+                            "external_family_file" : false,
                             "history" : [ "According to her daughter's baptism (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('e22c0cda-295d-42b6-b10b-5b2afa7640fd'); return false;\">Arquivo Eclesiástico da Arquidiocese de Mariana</a>)." ]
                         }
                     ]
@@ -58,10 +60,10 @@
                         {
                             "type" : "theory",
                             "father_family" : null,
-                            "father" : "72c70f19-765a-4268-8c2e-3df4a9da4872",
+                            "father_id" : "72c70f19-765a-4268-8c2e-3df4a9da4872",
                             "father_name" : "Unknown",
                             "mother_family" : "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228",
-                            "mother" : "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228",
+                            "mother_id" : "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228",
                             "mother_name" : "Joaquina \"Cabra\""
                         }
                     ],
@@ -69,7 +71,8 @@
                         {
                             "type" : "theory",
                             "id": "7c09fce0-4d93-466a-b441-d30312e28f4a",
-                            "family_id": "c84262d5-20e4-41af-b7be-ea73911fb3e6",
+                            "family_id": null,
+                            "external_family_file" : true,
                             "name" : "Bento Dias",
                             "history" : [ "According to her son's baptism (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('ec0d218f-77e2-4acf-bef6-922e534e3974'); return false;\">Paróquia Nossa Senhora de Nazaré, <span class=\"htdate\"></span></a>)." ] 
                         }
