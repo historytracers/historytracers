@@ -16,7 +16,10 @@
         {
             "id" : "Unique identifier for the family.",
             "name": "Name displayed at the top of the page.",
-            "history": [ "<p>Background or general information about the family.</p>", "<p>Use an array for multi-line texts.</p>" ],
+            "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
+                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.", "uuid":  "Unique identifier (UUID) for the current citation.", "text": "The accompanying text that will be displayed with the citation." } ]
+                          },
+                          "<p>A detailed description of the person's life history and marital status.</p>" ],
             "people" : [
                 {
                     "id" : "Unique identifier for the person.",
@@ -40,7 +43,10 @@
                             "family_id": "Unique identifier for the family.",
                             "external_family_file" : "Boolean used to identify the file in which the family is listed.",
                             "name" : "Name of the spouse.",
-                            "history" : [ "<p>Details about the person's history and the marriage.</p>" ]
+                            "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
+                                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.", "uuid":  "Unique identifier (UUID) for the current citation.", "text": "The accompanying text that will be displayed with the citation." } ]
+                                          },
+                                "<p>A detailed description of the person's life history and marital status.</p>" ]
                         }
                     ],
                     "children" : [
@@ -51,7 +57,10 @@
                             "name" : "Name of the child.",
                             "family_id": "Unique identifier for the child's family, used if the child establishes a new family.",
                             "external_family_file" : "Boolean used to identify the file in which the family is listed.",
-                            "history" : [ "<p>Brief details about the child's history. Comprehensive history should be included in the person's history object.</p>" ]
+                            "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
+                                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.", "uuid":  "Unique identifier (UUID) for the current citation.", "text": "The accompanying text that will be displayed with the citation." } ]
+                                          },
+                                "<p>A detailed description of the person's life history and marital status.</p>" ]
                         }
                     ]
                 }

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 // https://stackoverflow.com/questions/11182924/how-to-check-if-javascript-object-is-json
-var stringConstructor = "gth".constructor;
+var stringConstructor = "HT".constructor;
 var vectorConstructor = [].constructor;
 var objectConstructor = ({}).constructor;
 let keywords = [ ];
@@ -1390,7 +1390,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
     var primary_source = table.primary_source;
     var references = table.references;
     var holy_references = table.holy_references;
-    htFillHistorySources(id, "#"+prefix+"-"+id, history, primary_source, references, holy_references, "tree-default-align", id);
+    htFillHistorySources(id, "#"+prefix+"-"+id, history, "tree-default-align", id);
 
     var global_father = null;
     if (parents != undefined) {
@@ -1487,7 +1487,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                 }
 
                 $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b>: "+marriageLink+".</p></div>");
-               htFillHistorySources(marriage.id, "#"+rel_id, marriage.history, marriage.primary_source, marriage.references, marriage.holy_references, "tree-default-align", marriage.id);
+               htFillHistorySources(marriage.id, "#"+rel_id, marriage.history, "tree-default-align", marriage.id);
 
                 var showTree = personNameMap.has(marriage.id);
                 if (showTree == false) {
@@ -1531,18 +1531,55 @@ function htAppendData(prefix, id, familyID, name, table, page) {
 
             $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+child_keyword+"</b>: </p></div>");
             $("#"+child_id).append("<div id=\"with-parent-"+child.id+"\" class=\""+child_class+"\"><p><b>"+childLink+"</b>: </p></div>");
-            htFillHistorySources("parent-"+child.id, "#with-parent-"+child.id, child.history, child.primary_source, child.references, child.holy_references, "", child.id);
+            htFillHistorySources("parent-"+child.id, "#with-parent-"+child.id, child.history, "", child.id);
             htSetMapFamily(child.id, id, child.marriage_id, child.type);
             personNameMap.set(child.id, child.name);
         }
     }
 }
 
-function htFillHistorySources(divId, histID, history, primary_source, references, holy_references, useClass, personID)
+function htFillHistorySourcesSelectFunction(id)
+{
+    switch (id) {
+        case 0:
+            return "htFillPrimarySource";
+        case 1:
+            return "htFillReferenceSource";
+        case 2:
+            return "htFillHolySource";
+        case 3:
+        default:
+            return "htFillSMSource";
+    }
+}
+
+function htFillHistorySources(divId, histID, history, useClass, personID)
 {
     if (history != undefined) {
         for (const i in history) {
-            $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+history[i]+"</p>");
+            var localObj = history[i];
+            var text = "";
+            if (localObj.text != undefined && localObj.source != undefined) {
+                text += "<p>"+localObj.text;
+
+                if (localObj.source != null) {
+                    var sources = localObj.source;
+                    text += " (";
+                    for (const i in sources) { 
+                        if (i != 0) {
+                            text += " ; ";
+                        }
+                        var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
+                        text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\">"+sources[i].text+"</a>";
+                    }
+                    text += ").";
+                }
+
+                text += "</p>";
+            } else {
+                text = "<p>"+localObj+"</p>";
+            }
+            $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");
         }
     }
 }
