@@ -3,7 +3,7 @@
     "sources" : [ "9cd69f67-2f4e-43f2-a5b9-355ea760dc8e" ],
     "scripts" : [ "9cd69f67-2f4e-43f2-a5b9-355ea760dc8e" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1725738822" ],
+    "last_update" : [ "1729301991" ],
     "authors" : null,
     "reviewers" : null,
     "common" : [ "<p><h1>بنو قسي</h1></p><p class=\"desc\">El nombre de la família Banu Qasi en árabe.</p><p>Los Banu Qasi, descendientes de Qasi, tienen su origen en los visigodos (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Fernández, Juan G., <span class=\"htdate\"></span>, pp. 9, 16</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C.,  <span class=\"htdate\"></span>, pp. 6-7</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, Moorish Spain</a>) y controlaron una región después de la caída de los reyes visigodos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8389be3c-29ce-4d64-8577-7ed6d3f09a2b'); return false;\">History Tracers, <span class=\"htdate\"></span>, Visigodos</a>).  A diferencia de los reyes visigodos, existen documentos que registran las relaciones de los Banu Qasi con los reyes de la península ibérica, aunque también se mencionan algunas hipótesis no comprobadas a continuación.</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\" id=\"myFirstReflection\"></div></div></center></p>", "<p><center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" id=\"GenealogicalLimit\" style=\"background-color: #D7FFE4;\"></div></div></center></p>", "<p>El conocimiento jamás se detiene, y aquí no estamos exponiendo toda la historia de los Banu Qasi. Para conocer más, además de estudiar las crónicas y trabajos que mencionamos, sugerimos el sitio Medieval Lands (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, Moorish Spain</a>).</p>", "<p>Este texto forma parte de la etapa \"<b>El nombre es...</b>\" en el juego <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('96f3d3af-15c3-4c37-9d0e-e4b7db0db1db'); return false;\">Método Científico</a> de History Tracers. Recomendamos al lector jugar al menos esta fase para observar la aplicación práctica del método.</p>" ],
@@ -24,9 +24,9 @@
                         {
                             "type" : "theory",
                             "father_family" : "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "father" : null,
+                            "father_id" : null,
                             "mother_family" : null,
-                            "mother" : null
+                            "mother_id" : null
                         }
                     ],
                     "marriages" : [
@@ -34,6 +34,7 @@
                             "type" : "theory",
                             "id": "687f8bea-09d0-4448-8d5f-22e2d6a4f2fc",
                             "family_id" : null,
+                            "external_family_file" : false,
                             "name" : "Desconocida",
                             "history" : null
                         }
@@ -45,7 +46,8 @@
                             "marriage_id": "687f8bea-09d0-4448-8d5f-22e2d6a4f2fc",
                             "name" : "Fortún ibn Qasi (antes de *<span class=\"htdate\"></span>)",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -53,7 +55,8 @@
                             "marriage_id": "687f8bea-09d0-4448-8d5f-22e2d6a4f2fc",
                             "name" : "Abu Tawr",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -61,7 +64,8 @@
                             "marriage_id": "687f8bea-09d0-4448-8d5f-22e2d6a4f2fc",
                             "name" : "Abu Salama",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -69,7 +73,8 @@
                             "marriage_id": "687f8bea-09d0-4448-8d5f-22e2d6a4f2fc",
                             "name" : "Yunus",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -77,7 +82,8 @@
                             "marriage_id": "687f8bea-09d0-4448-8d5f-22e2d6a4f2fc",
                             "name" : "Yahya",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         }
                     ]
                 },
@@ -89,10 +95,10 @@
                         {
                             "type" : "theory",
                             "father_family" : "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "father" : "a4d44e43-7b35-4d20-898f-bf09c2020224",
+                            "father_id" : "a4d44e43-7b35-4d20-898f-bf09c2020224",
                             "father_name" : "Qasi",
                             "mother_family" : null,
-                            "mother" : "687f8bea-09d0-4448-8d5f-22e2d6a4f2fc",
+                            "mother_id" : "687f8bea-09d0-4448-8d5f-22e2d6a4f2fc",
                             "mother_name" : "Desconocida"
                         }
                     ],
@@ -101,13 +107,15 @@
                             "type" : "theory",
                             "id": "4e9f1cbf-75bf-4e2d-8a8a-af086d2ddc91",
                             "family_id" : null,
+                            "external_family_file" : false,
                             "name" : "Desconocida",
                             "history" : null
                         },
                         {
                             "type" : "hypothesis",
                             "id": "2452ecba-960f-4553-96e6-36736bea46b9",
-                            "family_id" : "68ad71a6-9a1d-4a9b-83c4-70f8c696ae49",
+                            "family_id" : null,
+                            "external_family_file" : true,
                             "name" : "Aisha bint Abd al-Aziz",
                             "history" : ["A pesar de no existir documentación o crónicas contemporáneas a los eventos que mencionen esposa(s) para Fortún ibn Qasi, es posible encontrar en grupos de discusión (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('11695f90-8893-4247-9f4e-79485d19b21d'); return false;\">Google Groups, <span class=\"htdate\"></span></a>) y artículos en plataformas (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('717d54f3-b9c5-4bdd-aa4e-7de63715c8e9'); return false;\">Wikipedia, <span class=\"htdate\"></span>, Fortún ibn Qasi</a>) referencias a estas hipotéticas conexiones."]
                         }
@@ -119,7 +127,8 @@
                             "marriage_id": "4e9f1cbf-75bf-4e2d-8a8a-af086d2ddc91",
                             "name" : "Musa ibn Fortún",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -127,7 +136,8 @@
                             "marriage_id": "4e9f1cbf-75bf-4e2d-8a8a-af086d2ddc91",
                             "name" : "Zahir",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         }
                     ]
                 },
@@ -139,10 +149,10 @@
                         {
                             "type" : "theory",
                             "father_family" : "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "father" : "d5c23863-5e23-4d24-b323-e02f73bc095b",
+                            "father_id" : "d5c23863-5e23-4d24-b323-e02f73bc095b",
                             "father_name" : "Fortún ibn Qasi",
                             "mother_family" : null,
-                            "mother" : "4e9f1cbf-75bf-4e2d-8a8a-af086d2ddc91",
+                            "mother_id" : "4e9f1cbf-75bf-4e2d-8a8a-af086d2ddc91",
                             "mother_name" : "Desconocida"
                         }
                     ],
@@ -151,8 +161,9 @@
                             "type" : "theory",
                             "id": "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Desconocida",
-                            "history" : [ "De acuerdo con Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 469</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "history" : [ "Según Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 469</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         }
                     ],
                     "children" : [
@@ -162,7 +173,8 @@
                             "marriage_id": "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
                             "name" : "Musa ibn Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
                         },
                         {
                             "type" : "theory",
@@ -170,7 +182,8 @@
                             "marriage_id": "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
                             "name" : "Mutarrif ibn Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
                         },
                         {
                             "type" : "theory",
@@ -178,7 +191,8 @@
                             "marriage_id": "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
                             "name" : "Yunus ibn Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
                         },
                         {
                             "type" : "theory",
@@ -186,7 +200,8 @@
                             "marriage_id": "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
                             "name" : "Yuwartas ibn Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
                         },
                         {
                             "type" : "theory",
@@ -194,7 +209,8 @@
                             "marriage_id": "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
                             "name" : "Lubb ibn Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
                         },
                         {
                             "type" : "theory",
@@ -202,7 +218,8 @@
                             "marriage_id": "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
                             "name" : "Garsiya ibn Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
                         }
                     ]
                 },
@@ -214,10 +231,10 @@
                         {
                             "type" : "theory",
                             "father_family" : "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "father" : "8a44d448-af25-400b-aff8-731e8a08b041",
+                            "father_id" : "8a44d448-af25-400b-aff8-731e8a08b041",
                             "father_name" : "Musa ibn Fortún",
                             "mother_family" : null,
-                            "mother" : "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
+                            "mother_id" : "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
                             "mother_name" : "Desconocida"
                         }
                     ],
@@ -226,15 +243,17 @@
                             "type" : "theory",
                             "id": "9a04bd92-39b0-4384-8e6d-4139057a632a",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Assona Iñiguez",
-                            "history" : [ "De acuerdo con el Códice Roda (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('652569a1-a629-402f-936c-34e4ad7b098d'); return false;\">Lacarra, José M., <span class=\"htdate\"></span>, pp. 229</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
+                            "history" : [ "Según el Códice Roda (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('652569a1-a629-402f-936c-34e4ad7b098d'); return false;\">Lacarra, José M., <span class=\"htdate\"></span>, pp. 229</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
                         },
                         {
                             "type" : "theory",
                             "id": "ed975f05-8b2e-471a-8606-61a1338faa5d",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Desconhecida",
-                            "history" : [ "De acuerdo con el Medieval Lands (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
+                            "history" : [ "Según el Medieval Lands (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)" ]
                         }
                     ],
                     "children" : [
@@ -244,7 +263,8 @@
                             "marriage_id": "ed975f05-8b2e-471a-8606-61a1338faa5d",
                             "name" : "Lubb ibn Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -252,7 +272,8 @@
                             "marriage_id": "ed975f05-8b2e-471a-8606-61a1338faa5d",
                             "name" : "Mutarrif ibn Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -260,7 +281,8 @@
                             "marriage_id": "ed975f05-8b2e-471a-8606-61a1338faa5d",
                             "name" : "Fortun ibn Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -268,7 +290,8 @@
                             "marriage_id": "ed975f05-8b2e-471a-8606-61a1338faa5d",
                             "name" : "Ismail ibn Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -276,7 +299,8 @@
                             "marriage_id": "ed975f05-8b2e-471a-8606-61a1338faa5d",
                             "name" : "Awriya bint Musa",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -284,7 +308,8 @@
                             "marriage_id": "ed975f05-8b2e-471a-8606-61a1338faa5d",
                             "name" : "Not Known",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 471</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según el Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 471</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         }
                     ]
                 },
@@ -296,10 +321,10 @@
                         {
                             "type" : "theory",
                             "father_family" : "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "father" : "5a731099-2535-4f31-b160-04384a9d999e",
+                            "father_id" : "5a731099-2535-4f31-b160-04384a9d999e",
                             "father_name" : "Musa ibn Musa",
                             "mother_family" : null,
-                            "mother" : "ed975f05-8b2e-471a-8606-61a1338faa5d",
+                            "mother_id" : "ed975f05-8b2e-471a-8606-61a1338faa5d",
                             "mother_name" : "Desconhecida"
                         }
                     ],
@@ -308,8 +333,9 @@
                             "type" : "theory",
                             "id": "efc079ac-f43a-4831-ab4a-ad8534e1f2ae",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Ayab",
-                            "history" : [ "De acuerdo con Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 473</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "history" : [ "Según Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 473</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         }
                     ],
                     "children" : [
@@ -319,7 +345,8 @@
                             "marriage_id": "efc079ac-f43a-4831-ab4a-ad8534e1f2ae",
                             "name" : "Aurea",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con citacitaciones foruns (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('11695f90-8893-4247-9f4e-79485d19b21d'); return false;\">Google Groups, <span class=\"htdate\"></span></a>; <a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('717d54f3-b9c5-4bdd-aa4e-7de63715c8e9'); return false;\">Wikipedia, <span class=\"htdate\"></span>, Fortún ibn Qasi</a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según citacitaciones foruns (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('11695f90-8893-4247-9f4e-79485d19b21d'); return false;\">Google Groups, <span class=\"htdate\"></span></a>; <a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('717d54f3-b9c5-4bdd-aa4e-7de63715c8e9'); return false;\">Wikipedia, <span class=\"htdate\"></span>, Fortún ibn Qasi</a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -327,7 +354,8 @@
                             "marriage_id": "efc079ac-f43a-4831-ab4a-ad8534e1f2ae",
                             "name" : "Muhammad ibn Lubb",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         }
                     ]
                 },
@@ -339,10 +367,10 @@
                         {
                             "type" : "hypothesis",
                             "father_family" : "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "father" : "4533fd2a-9151-4c8b-a686-c09502f61d2a",
+                            "father_id" : "4533fd2a-9151-4c8b-a686-c09502f61d2a",
                             "father_name" : "Lubb ibn Musa",
                             "mother_family" : null,
-                            "mother" : "efc079ac-f43a-4831-ab4a-ad8534e1f2ae",
+                            "mother_id" : "efc079ac-f43a-4831-ab4a-ad8534e1f2ae",
                             "mother_name" : "Ayab"
                         }
                     ],
@@ -351,6 +379,7 @@
                             "type" : "hypothesis",
                             "id": "4f42f68e-d04f-4cf5-8cc2-7a4c7d82a173",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Fortún Garcia",
                             "history" : null
                         }
@@ -364,10 +393,10 @@
                         {
                             "type" : "theory",
                             "father_family" : "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "father" : "4533fd2a-9151-4c8b-a686-c09502f61d2a",
+                            "father_id" : "4533fd2a-9151-4c8b-a686-c09502f61d2a",
                             "father_name" : "Lubb ibn Musa",
                             "mother_family" : null,
-                            "mother" : "efc079ac-f43a-4831-ab4a-ad8534e1f2ae",
+                            "mother_id" : "efc079ac-f43a-4831-ab4a-ad8534e1f2ae",
                             "mother_name" : "Ayab"
                         }
                     ],
@@ -376,6 +405,7 @@
                             "type" : "hypothesis",
                             "id": "738ab82e-6127-4cc7-b2c1-54a575c5c2f8",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Desconocida",
                             "history" : null
                         }
@@ -387,7 +417,8 @@
                             "marriage_id": "738ab82e-6127-4cc7-b2c1-54a575c5c2f8",
                             "name" : "Lubb ibn Muhammad",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -395,7 +426,8 @@
                             "marriage_id": "738ab82e-6127-4cc7-b2c1-54a575c5c2f8",
                             "name" : "Musa ibn Muhammad",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -403,7 +435,8 @@
                             "marriage_id": "738ab82e-6127-4cc7-b2c1-54a575c5c2f8",
                             "name" : "Yusuf ibn Muhammad",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -411,7 +444,8 @@
                             "marriage_id": "738ab82e-6127-4cc7-b2c1-54a575c5c2f8",
                             "name" : "Abd Allah ibn Muhammad",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -419,7 +453,8 @@
                             "marriage_id": "738ab82e-6127-4cc7-b2c1-54a575c5c2f8",
                             "name" : "Yunus ibn Muhammad",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -427,7 +462,8 @@
                             "marriage_id": "738ab82e-6127-4cc7-b2c1-54a575c5c2f8",
                             "name" : "Mutarif ibn Muhammad",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -435,7 +471,8 @@
                             "marriage_id": "738ab82e-6127-4cc7-b2c1-54a575c5c2f8",
                             "name" : "Muhammad ibn Muhammad",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con investigaciones de J. Lorenzo Jiménez mencionada en el sitio Medieval Lands (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según investigaciones de J. Lorenzo Jiménez mencionada en el sitio Medieval Lands (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         }
                     ]
                 },
@@ -447,10 +484,10 @@
                         {
                             "type" : "theory",
                             "father_family" : "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "father" : "8a44d448-af25-400b-aff8-731e8a08b041",
+                            "father_id" : "8a44d448-af25-400b-aff8-731e8a08b041",
                             "father_name" : "Musa ibn Fortún",
                             "mother_family" : null,
-                            "mother" : "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
+                            "mother_id" : "1a1bad0b-9f2a-46cc-8efe-486b17a618b2",
                             "mother_name" : "Desconocida"
                         }
                     ],
@@ -459,6 +496,7 @@
                             "type" : "theory",
                             "id": "bee536be-452c-4879-b977-b1a550323fef",
                             "family_id": null,
+                            "external_family_file" : false,
                             "name" : "Desconocida",
                             "history" : null
                         }
@@ -470,7 +508,8 @@
                             "marriage_id": "bee536be-452c-4879-b977-b1a550323fef",
                             "name" : "Desconocida",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         },
                         {
                             "type" : "theory",
@@ -478,7 +517,8 @@
                             "marriage_id": "bee536be-452c-4879-b977-b1a550323fef",
                             "name" : "Desconocida",
                             "family_id": "98837ea6-1aba-4748-a99a-94897d31c41e",
-                            "history" : [ "De acuerdo con Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
+                            "external_family_file" : false,
+                            "history" : [ "Según Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)." ]
                         }
                     ]
                 }
