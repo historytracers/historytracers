@@ -1125,6 +1125,41 @@ function htLoadAnswersFromExercise()
     return ret;
 }
 
+function htFillHistorySourcesSelectFunction(id)
+{
+    switch (id) {
+        case 0:
+            return "htFillPrimarySource";
+        case 1:
+            return "htFillReferenceSource";
+        case 2:
+            return "htFillHolySource";
+        case 3:
+        default:
+            return "htFillSMSource";
+    }
+}
+
+function htParagraphFromObject(localObj) {
+    var text = "<p>"+localObj.text;
+
+    if (localObj.source != null) {
+        var sources = localObj.source;
+        text += " (";
+        for (const i in sources) { 
+            if (i != 0) {
+                text += " ; ";
+            }
+            var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
+            text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\">"+sources[i].text+"</a>";
+        }
+        text += ").";
+    }
+
+    text += "</p>";
+    return text;
+}
+
 function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
     for (const i in table) {
         if (i == 1) {
@@ -1142,7 +1177,9 @@ function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
                 htWriteGame(table[i].text, later, i);
             } else if (table[i].id != "fill_dates") {
                 for (const j in table[i].text) {
-                    htAddPaperDivs("#paper", table[i].id + "_"+j, table[i].text[j], "", later, i);
+                    var localObj = table[i].text[j];
+                    var text = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj) : localObj;
+                    htAddPaperDivs("#paper", table[i].id + "_"+j, text, "", later, i);
                 }
             } else {
                 htFillHTDate(table[i].text);
@@ -1538,47 +1575,12 @@ function htAppendData(prefix, id, familyID, name, table, page) {
     }
 }
 
-function htFillHistorySourcesSelectFunction(id)
-{
-    switch (id) {
-        case 0:
-            return "htFillPrimarySource";
-        case 1:
-            return "htFillReferenceSource";
-        case 2:
-            return "htFillHolySource";
-        case 3:
-        default:
-            return "htFillSMSource";
-    }
-}
-
 function htFillHistorySources(divId, histID, history, useClass, personID)
 {
     if (history != undefined) {
         for (const i in history) {
             var localObj = history[i];
-            var text = "";
-            if (localObj.text != undefined && localObj.source != undefined) {
-                text += "<p>"+localObj.text;
-
-                if (localObj.source != null) {
-                    var sources = localObj.source;
-                    text += " (";
-                    for (const i in sources) { 
-                        if (i != 0) {
-                            text += " ; ";
-                        }
-                        var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-                        text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\">"+sources[i].text+"</a>";
-                    }
-                    text += ").";
-                }
-
-                text += "</p>";
-            } else {
-                text = "<p>"+localObj+"</p>";
-            }
+            var text = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj) : "<p>"+localObj+"</p>";
             $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");
         }
     }

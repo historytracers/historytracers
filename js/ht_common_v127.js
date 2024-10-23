@@ -165,8 +165,14 @@ function htLoadAnswersFromExercise()
 var htmlValues=$("#htAnswersToBeUsed").html();if(htmlValues==undefined){return end;}
 var values=htmlValues.split(";");for(let i=0;i<end;i++){ret.push(parseInt(values[i]));}
 $("#htAnswersToBeUsed").html("");return ret;}
+function htFillHistorySourcesSelectFunction(id)
+{switch(id){case 0:return"htFillPrimarySource";case 1:return"htFillReferenceSource";case 2:return"htFillHolySource";case 3:default:return"htFillSMSource";}}
+function htParagraphFromObject(localObj){var text="<p>"+localObj.text;if(localObj.source!=null){var sources=localObj.source;text+=" (";for(const i in sources){if(i!=0){text+=" ; ";}
+var fcnt=htFillHistorySourcesSelectFunction(sources[i].type);text+="<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\">"+sources[i].text+"</a>";}
+text+=").";}
+text+="</p>";return text;}
 function htFillPaperContent(table,last_update,page_authors,page_reviewers){for(const i in table){if(i==1){htFillDivAuthorsContent("#paper",last_update,page_authors,page_reviewers);}
-var later=(i==0&&last_update>0&&table[i].id=="navigation")?"<hr class=\"limit\" />":"";if(table[i].text.constructor===stringConstructor){htAddPaperDivs("#paper",table[i].id,table[i].text,"",later,i);}else if(table[i].text.constructor===vectorConstructor){if(table[i].id=="exercise_v2"){htWriteQuestions(table[i].text,later,i);}else if(table[i].id=="game_v1"){htWriteGame(table[i].text,later,i);}else if(table[i].id!="fill_dates"){for(const j in table[i].text){htAddPaperDivs("#paper",table[i].id+"_"+j,table[i].text[j],"",later,i);}}else{htFillHTDate(table[i].text);}}}
+var later=(i==0&&last_update>0&&table[i].id=="navigation")?"<hr class=\"limit\" />":"";if(table[i].text.constructor===stringConstructor){htAddPaperDivs("#paper",table[i].id,table[i].text,"",later,i);}else if(table[i].text.constructor===vectorConstructor){if(table[i].id=="exercise_v2"){htWriteQuestions(table[i].text,later,i);}else if(table[i].id=="game_v1"){htWriteGame(table[i].text,later,i);}else if(table[i].id!="fill_dates"){for(const j in table[i].text){var localObj=table[i].text[j];var text=(localObj.text!=undefined&&localObj.source!=undefined)?htParagraphFromObject(localObj):localObj;htAddPaperDivs("#paper",table[i].id+"_"+j,text,"",later,i);}}else{htFillHTDate(table[i].text);}}}
 if(table[0].id=="navigation"){htAddPaperDivs("#paper","repeat-index",table[0].text,"<hr class=\"limit\" />","",100000);}}
 function htFillFamilies(page,table){if(table.title!=undefined){$(document).prop('title',table.title);}
 if(table.common!=undefined){$("#tree-common-lbl").html("<h3>"+keywords[25]+"</h3>");$("#common").html("");for(const i in table.common){$("#common").append("<div id=\"hist-comm-"+i+"\">"+table.common[i]+"</div>");}}
@@ -215,14 +221,8 @@ var children=table.children;if(children!=undefined){genealogicalStats.children+=
 var child_class;var type=child.type;var child_keyword;if(type=="theory"){child_class="tree-real-child-text";child_keyword=keywords[20];}else{child_class="tree-hipothetical-child-text";child_keyword=keywords[21];}
 var childLink="";if(child.family_id==undefined){childLink=child.name;}else if(familyID==child.family_id||(child.external_family_file!=undefined&&child.external_family_file==false)){childLink="<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child.name+"</a>";}else{childLink="<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child.name+"</a>";}
 $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+child_keyword+"</b>: </p></div>");$("#"+child_id).append("<div id=\"with-parent-"+child.id+"\" class=\""+child_class+"\"><p><b>"+childLink+"</b>: </p></div>");htFillHistorySources("parent-"+child.id,"#with-parent-"+child.id,child.history,"",child.id);htSetMapFamily(child.id,id,child.marriage_id,child.type);personNameMap.set(child.id,child.name);}}}
-function htFillHistorySourcesSelectFunction(id)
-{switch(id){case 0:return"htFillPrimarySource";case 1:return"htFillReferenceSource";case 2:return"htFillHolySource";case 3:default:return"htFillSMSource";}}
 function htFillHistorySources(divId,histID,history,useClass,personID)
-{if(history!=undefined){for(const i in history){var localObj=history[i];var text="";if(localObj.text!=undefined&&localObj.source!=undefined){text+="<p>"+localObj.text;if(localObj.source!=null){var sources=localObj.source;text+=" (";for(const i in sources){if(i!=0){text+=" ; ";}
-var fcnt=htFillHistorySourcesSelectFunction(sources[i].type);text+="<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\">"+sources[i].text+"</a>";}
-text+=").";}
-text+="</p>";}else{text="<p>"+localObj+"</p>";}
-$(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");}}}
+{if(history!=undefined){for(const i in history){var localObj=history[i];var text=(localObj.text!=undefined&&localObj.source!=undefined)?htParagraphFromObject(localObj):"<p>"+localObj+"</p>";$(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");}}}
 function htFillMapSource(myMap,data)
 {if(data==undefined){return;}
 var currentLanguage=$("#site_language").val();var currentCalendar=$("#site_calendar").val();for(const i in data){var ids=myMap.has(data[i].id);if(ids==false){var finalDate="";if(data[i].date!=undefined){var dateVector=data[i].date.split('-');if(dateVector.length!=3){continue;}

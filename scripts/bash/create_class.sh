@@ -14,7 +14,9 @@ ht_create_js_file () {
 }
 
 ht_create_source_file () {
+    CT=$(date +%s)
     cp "../../src/json/sources_template.json" "../../lang/sources/$1.json" || exit
+    sed -i "s/The time of the last file update, represented as Unix Epoch time./$CT/g" "../../lang/sources/$1.json"
 }
 
 ht_create_class_files () {

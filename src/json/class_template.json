@@ -20,11 +20,21 @@
                 },
                 {
                     "id" : "prerequisites",
-                    "text" : [ "<p><h3> </h3></p>" ]
+                    "text" : [ { "text" : "<h3> </h3>",
+                                 "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                                "uuid": "Unique identifier (UUID) for the current citation.",
+                                                "text": "The accompanying text that will be displayed with the citation." } ]
+                               },
+                                "<p><h3> </h3></p>"]
                 },
                 {
                     "id" : "SECTION_NAME",
-                    "text" : [ "<p><h3> </h3></p>" ]
+                    "text" : [ { "text" : "<h3> </h3>",
+                                 "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                                "uuid": "Unique identifier (UUID) for the current citation.",
+                                                "text": "The accompanying text that will be displayed with the citation." } ]
+                               },
+                                "<p><h3> </h3></p>" ]
                 },
                 {
                     "id" : "exercise_v2",
