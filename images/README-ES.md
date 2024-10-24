@@ -12,4 +12,5 @@ respetando los derechos de autor.
 Los siguientes subdirectorios están presentes en este directorio:
 
 -  `mapswire`: Imágenes originales o modificadas del proyecto [Mapswire](http://mapswire.com/).
+-  `USGS`: Imágenes originales del proyecto [United State Geological Survey](https://www.usgs.gov/media/images/water-cycle-png).
 
