@@ -182,6 +182,9 @@ if($("#documentsInfoCalendarName").length>0){$("#documentsInfoCalendarName").htm
 if($("#documentsInfoCalendarVisibleOption").length>0){$("#documentsInfoCalendarVisibleOption").html(table.documentsInfo[2]);}}
 if(table.periodOfTime!=undefined&&table.periodOfTime!=null&&$("#periodOfTime").length>0){if(table.periodOfTime.length==2){var pOTText="<p><h3>"+keywords[76]+"</h3>"+keywords[77]+"</p>";$("#periodOfTime").html(pOTText);if($("#documentsPeriodOrigin").length>0){$("#documentsPeriodOrigin").html(table.periodOfTime[0]);}
 if($("#documentsPeriodTime").length>0){$("#documentsPeriodTime").html(table.periodOfTime[1]);}}}
+if(table.maps!=undefined&&table.maps!=null&&$("#maps").length>0){var textMap="<p><h3>"+keywords[79]+"</h3>"+keywords[80]+"</p>";for(const i in table.maps){var currMap=table.maps[i];if(currMap.text==undefined||currMap.img==undefined){continue;}
+textMap+="<p class=\"desc\"><img src=\""+currMap.img+"\" class=\"imgcenterlarge\"/>"+keywords[81]+" "+currMap.order+": "+currMap.text+" "+keywords[82]+"</p>";}
+if($("#maps").length>0){$("#maps").html(textMap);}}
 if(table.prerequisites!=undefined&&table.prerequisites!=null&&$("#pre_requisites").length>0){var preRequisites="";for(const i in table.prerequisites){preRequisites+=(i==0)?"<p><ul><li>"+table.prerequisites[i]+"</li>":"<li>"+table.prerequisites[i]+"</li>";}
 preRequisites+="</ul></p>";$("#pre_requisites").html(preRequisites);}
 if($("#contribution").length>0){$("#contribution").html(keywords[54]);}

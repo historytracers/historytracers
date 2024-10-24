@@ -1229,6 +1229,21 @@ function htFillFamilies(page, table) {
         }
     }
 
+    if (table.maps != undefined && table.maps != null && $("#maps").length > 0) {
+        var textMap = "<p><h3>"+keywords[79]+"</h3>"+keywords[80]+"</p>";
+
+        for (const i in table.maps) {
+            var currMap = table.maps[i];
+            if (currMap.text == undefined || currMap.img == undefined) {
+                continue;
+            }
+
+            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" class=\"imgcenterlarge\"/>"+keywords[81]+" "+currMap.order+": "+currMap.text+" "+keywords[82]+"</p>";
+        }
+
+        if ($("#maps").length > 0) { $("#maps").html(textMap); }
+    }
+
     if (table.prerequisites != undefined && table.prerequisites != null && $("#pre_requisites").length > 0) {
         var preRequisites = "";
         for (const i in table.prerequisites) {
