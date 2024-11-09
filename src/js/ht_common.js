@@ -25,6 +25,8 @@ let bookSections = [ ];
 var smGame = [];
 var smGameTimeoutID = 0;
 
+var htAtlas = [];
+
 var htGameImages = [ "MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren.jpg", "SanAndres.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito.jpg", "CopanAltarGenealogy0.jpg", "CopanAltarGenealogy1.jpg", "CopanAltarGenealogy2.jpg", "CopanAltarGenealogy3.jpg", "TeotihuacanMountains.jpg", "CopanWholeTextStelaAltar.png", "StelaACopan.jpg", "Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
 
@@ -369,6 +371,41 @@ function htLoadPageMountURL(page, arg, dir)
     return url;
 }
 
+function htOverwriteHTDateWithText(text, localDate, localLang, localCalendar) {
+    if (localDate == undefined  || localDate.length == 0) {
+        return text;
+    }
+
+    var ret = text;
+    for (const i in localDate) {
+        var changed = ret.replace("<htdate"+i+">", htMountSpecificDate(localDate[i], localLang, localCalendar));
+        ret = changed;
+    }
+
+    return ret;
+}
+
+function htParagraphFromObject(localObj, localLang, localCalendar) {
+    var text = "<p>"+localObj.text;
+
+    if (localObj.source != null) {
+        var sources = localObj.source;
+        text += " (";
+        for (const i in sources) { 
+            if (i != 0) {
+                text += " ; ";
+            }
+            var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
+            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+            text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\">"+sources[i].text+" "+dateText+"</a>";
+        }
+        text += ").";
+    }
+
+    text += "</p>";
+    return text;
+}
+
 function htFillSMGameData(data) {
     if (data == undefined || data.content.length == 0) { 
         return;
@@ -475,6 +512,72 @@ function htFillSMGameData(data) {
             smGameTimeoutID = 0;
         }
     }
+}
+
+function htImageZoom(id) {
+    var name = $("#"+id).prop("name");
+    if (name.length == 0) {
+        $("#"+id).attr("name", "zoomin");
+        $("#"+id).css("transform", "scale(2.7)");
+    } else {
+        $("#"+id).attr("name", "");
+        $("#"+id).css("transform", "scale(1)");
+    }
+}
+
+function htModifyAtlasIndexMap(id) {
+    var next = id + 1;
+    $("#atlasindex option[value="+next+"]").prop('selected', true);
+}
+
+function htSelectAtlasMap(id) {
+    if (htAtlas.length < id) {
+        return;
+    }
+
+    var vector = htAtlas[id];
+    var author = (vector.author != null) ? vector.author : "";
+    if (author == "HTMW") {
+        author = keywords[82];
+    }
+    var text = (vector.image != null) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg')\" />"+author+". "+keywords[83]+"</p>"+vector.text : vector.text;
+    var prevIdx = id - 1;
+    var nextIdx = id + 1;
+    var prevText = (prevIdx >= 0) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+prevIdx+"); htModifyAtlasIndexMap("+prevIdx+");\">"+htAtlas[prevIdx].name+"</a>" : "&nbsp;";
+    var nextText = (nextIdx < htAtlas.length) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+nextIdx+"); htModifyAtlasIndexMap("+nextIdx+");\">"+htAtlas[nextIdx].name+"</a>" : "&nbsp;";
+    text += "<p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p>";
+    $("#rightcontent").html(text);
+}
+
+function htFillAtlas(data) {
+    htAtlas = [];
+
+    if (data.atlas.length == 0) {
+        return;
+    }
+
+    var localAtlas = data.atlas;
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
+    for (i in localAtlas) {
+        var text = "";
+        for (const j in localAtlas[i].text) {
+            var localObj = localAtlas[i].text[j];
+            var localtext = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
+            if (localObj.fill_dates != undefined) {
+                localtext = htOverwriteHTDateWithText(localtext, localObj.fill_dates, localLang, localCalendar);
+            }
+            text += localtext;
+        }
+        var author = (localAtlas[i].author != undefined) ? localAtlas[i].author : null ;
+        htAtlas.push({"name": localAtlas[i].name, "image" : localAtlas[i].image, "author": author, "text" : text});
+
+        var showIdx = parseInt(i) + 1;
+        var o = new Option(showIdx+". "+localAtlas[i].name, showIdx);
+        $("#atlasindex").append(o);
+    }
+
+    htSelectAtlasMap(0);
 }
 
 function htProccessData(data, optional) {
@@ -667,6 +770,26 @@ function htDetectLanguage()
     return lang;
 }
 
+function htMountSpecificDate(dateObj, localLang, localCalendar)
+{
+    switch (dateObj.type) {
+        case "gregory":
+            if (dateObj.day > 0 ) {
+                updateText = htConvertGregorianDate(localCalendar, localLang, dateObj.year, dateObj.month, dateObj.day);
+            } else {
+                updateText = htConvertGregorianYear(localCalendar, dateObj.year);
+            }
+            break;
+        case "unix":
+            updateText = htConvertUnixDate(localCalendar, localLang, dateObj.epoch);
+            break;
+        case "julian":
+            updateText = htConvertJulianDate(localCalendar, localLang, dateObj.day);
+            break;
+    }
+    return updateText;
+}
+
 function htFillHTDate(vector)
 {
     var localLang = $("#site_language").val();
@@ -677,22 +800,7 @@ function htFillHTDate(vector)
             return;
         }
         var w = vector[j++];
-        var updateText = "";
-        switch (w.type) {
-            case "gregory":
-                if (w.day > 0 ) {
-                    updateText = htConvertGregorianDate(localCalendar, localLang, w.year, w.month, w.day);
-                } else {
-                    updateText = htConvertGregorianYear(localCalendar, w.year);
-                }
-                break;
-            case "unix":
-                updateText = htConvertUnixDate(localCalendar, localLang, w.epoch);
-                break;
-            case "julian":
-                updateText = htConvertJulianDate(localCalendar, localLang, w.day);
-                break;
-        }
+        var updateText = htMountSpecificDate(w, localLang, localCalendar);
         $(this).html(updateText);
     });
 }
@@ -812,6 +920,10 @@ function htFillWebPage(page, data)
                     }
                 }
             }
+        }
+
+        if (data.atlas != undefined) {
+            htFillAtlas(data);
         }
 
         if ($("#tree-sources-lbl").length > 0) {
@@ -1140,27 +1252,9 @@ function htFillHistorySourcesSelectFunction(id)
     }
 }
 
-function htParagraphFromObject(localObj) {
-    var text = "<p>"+localObj.text;
-
-    if (localObj.source != null) {
-        var sources = localObj.source;
-        text += " (";
-        for (const i in sources) { 
-            if (i != 0) {
-                text += " ; ";
-            }
-            var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\">"+sources[i].text+"</a>";
-        }
-        text += ").";
-    }
-
-    text += "</p>";
-    return text;
-}
-
 function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
     for (const i in table) {
         if (i == 1) {
             htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
@@ -1178,7 +1272,7 @@ function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
             } else if (table[i].id != "fill_dates") {
                 for (const j in table[i].text) {
                     var localObj = table[i].text[j];
-                    var text = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj) : localObj;
+                    var text = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
                     htAddPaperDivs("#paper", table[i].id + "_"+j, text, "", later, i);
                 }
             } else {
@@ -1238,7 +1332,7 @@ function htFillFamilies(page, table) {
                 continue;
             }
 
-            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" class=\"imgcenterlarge\"/>"+keywords[81]+" "+currMap.order+": "+currMap.text+" "+keywords[82]+"</p>";
+            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" class=\"imgcenterlarge\"/>"+keywords[81]+" "+currMap.order+": "+currMap.text+" "+keywords[82]+" "+keywords[83]+"</p>";
         }
 
         if ($("#maps").length > 0) { $("#maps").html(textMap); }
@@ -1592,10 +1686,12 @@ function htAppendData(prefix, id, familyID, name, table, page) {
 
 function htFillHistorySources(divId, histID, history, useClass, personID)
 {
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
     if (history != undefined) {
         for (const i in history) {
             var localObj = history[i];
-            var text = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj) : "<p>"+localObj+"</p>";
+            var text = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : "<p>"+localObj+"</p>";
             $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");
         }
     }
