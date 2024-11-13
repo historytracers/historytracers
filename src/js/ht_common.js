@@ -519,9 +519,11 @@ function htImageZoom(id) {
     if (name.length == 0) {
         $("#"+id).attr("name", "zoomin");
         $("#"+id).css("transform", "scale(2.7)");
+        $("#"+id).css("translate", "-35%");
     } else {
         $("#"+id).attr("name", "");
         $("#"+id).css("transform", "scale(1)");
+        $("#"+id).css("translate", "0%");
     }
 }
 
@@ -540,12 +542,12 @@ function htSelectAtlasMap(id) {
     if (author == "HTMW") {
         author = keywords[82];
     }
-    var text = (vector.image != null) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg')\" />"+author+". "+keywords[83]+"</p>"+vector.text : vector.text;
+    var text = (vector.image != null) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg')\" />"+keywords[81]+" 1: "+author+". "+keywords[83]+"</p>"+vector.text : vector.text;
     var prevIdx = id - 1;
     var nextIdx = id + 1;
     var prevText = (prevIdx >= 0) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+prevIdx+"); htModifyAtlasIndexMap("+prevIdx+");\">"+htAtlas[prevIdx].name+"</a>" : "&nbsp;";
     var nextText = (nextIdx < htAtlas.length) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+nextIdx+"); htModifyAtlasIndexMap("+nextIdx+");\">"+htAtlas[nextIdx].name+"</a>" : "&nbsp;";
-    text += "<p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p>";
+    text += "<p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p><p>&nbsp;</p>";
     $("#rightcontent").html(text);
 }
 

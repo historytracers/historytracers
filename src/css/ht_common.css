@@ -1,6 +1,6 @@
 html {
   font-family: "verdana", "arial", "Helvetica";
-  font-size: 1.1em;
+  font-size: 1.0rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -18,8 +18,12 @@ html {
   width: 7vw;
 }
 
+.AtlasSelSize {
+  width: 14vw;
+}
+
 .htSlogan {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   z-index: 110;
 }
 
@@ -28,7 +32,7 @@ html {
   height: 10%;
   width: 100%;
   float: left;
-  font-size: 2vw;
+  font-size: 2rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -85,7 +89,7 @@ html {
   height: 100%;
   width: 80%;
   float: left;
-  font-size: 2em;
+  font-size: 2rem;
   text-align: center;
   padding-top: 10px;
   padding-right: 10px;
@@ -115,7 +119,7 @@ html {
   width: 50%;
   float: right;
   vertical-align: top;
-  font-size: 0.9em;
+  font-size: 0.9vw;
 }
 
 .license {
@@ -244,48 +248,48 @@ div.tree-child-center {
 
 .tree-text {
   width: 95%;
-  font-size: 1.0em ;
+  font-size: 1.0vw ;
 }
 
 .tree-introduction-text {
   position: relative;
   width: 95%;
-  font-size: 1.0em ;
+  font-size: 1.0rem ;
 }
 
 .cited-text {
-  font-size: 0.85em ;
+  font-size: 1.0rem ;
 }
 
 .tree-person-text {
   position: relative;
-  font-size: 1.0em ;
+  font-size: 1.0rem ;
   left: 2%;
 }
 
 .tree-real-family-text {
   position: relative;
-  font-size: 1.0em ;
+  font-size: 1.0vw ;
   left: 4%;
 }
 
 .tree-real-child-text {
   position: relative;
-  font-size: 1.0em ;
+  font-size: 1.0rem ;
   width: 95%;
   left: 4%;
 }
 
 .tree-hipothetical-family-text {
   position: relative;
-  font-size: 1.0em ;
+  font-size: 1.0rem ;
   font-style: italic;
   left: 4%;
 }
 
 .tree-hipothetical-child-text {
   position: relative;
-  font-size: 1.0em ;
+  font-size: 1.0rem ;
   width: 95%;
   font-style: italic;
   left: 4%;
@@ -293,7 +297,7 @@ div.tree-child-center {
 
 .tree-default-align {
   position: relative;
-  font-size: 1.0em ;
+  font-size: 1.0rem ;
   width: 90%;
   left: 2%;
 }
@@ -329,13 +333,13 @@ a:visited {
 }
 
 .menu-title {
-  font-size: 0.9em;
+  font-size: 0.9vw;
   overflow: hidden;
 }
 
 li.menu {
   list-style: none;
-  font-size: 0.9em;
+  font-size: 0.9vw;
   overflow:hidden;
   z-index: 0;
 }
@@ -521,7 +525,7 @@ ul {
 
 .toplabel {
   font-weight: normal;
-  font-size: 85%;
+  font-size: 0.85vw;
 }
 
 .imgcenter {

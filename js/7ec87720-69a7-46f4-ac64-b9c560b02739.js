@@ -156,7 +156,7 @@ function htTranslationCheckRandomAnswer() {
         return;
     }
 
-    var idx = Math.floor(getRandomArbitrary(0, htGameUseTranslationImages.length -1));
+    var idx = Math.floor(getRandomArbitrary(0, localGameUseVector7ec87720.length -1));
                   
     if (htGameTranslationCurrentLevel < 9) { 
         var imgName = htGameUseTranslationImages[idx];

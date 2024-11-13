@@ -84,6 +84,7 @@ $(document).ready(function(){
             case 'acknowledgement':
             case 'first_steps_games':
             case 'release':
+            case 'atlas':
                 htLoadPage(page, 'html', '', false);
                 break;
             case 'tree':

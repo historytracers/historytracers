@@ -14,10 +14,10 @@
     <div class="tree-introduction-text" id="paper">
     </div>
 
-    <div class="width: 100%; display: table; margin-left: auto; margin-right: auto;" id="content">
-        <div style="display: table-row">
-            <div class="htAtlasScroll" id="leftcontent"></div>
-            <div style="width: 65%; display: table-cell;" id="rightcontent"></div>
-        </div>
+    <div style="width: 25%; float: left;" id="leftcontent">
+        <select name="atlasindex" id="atlasindex" size="10" class="AtlasSelSize"></select>
+        <i class="fa-solid fa-caret-up upArrowWithFA" id="traineeUp0" onclick="htSelectAtlas(-1);"></i>
+        <i class="fa-solid fa-caret-down downArrowWithFA" id="traineeDown0" onclick="htSelectAtlas(+1);"></i>
     </div>
+    <div style="width: 75%; float: right;" id="rightcontent"></div>
 </div>
