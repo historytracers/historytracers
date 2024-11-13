@@ -530,6 +530,10 @@ function htImageZoom(id) {
 function htModifyAtlasIndexMap(id) {
     var next = id + 1;
     $("#atlasindex option[value="+next+"]").prop('selected', true);
+
+    var myURL = 'index.html?page=atlas&atlas_page='+next;
+    window.history.replaceState(null, null, myURL);
+    $("#atlas").val(next);
 }
 
 function htSelectAtlasMap(id) {
@@ -579,7 +583,9 @@ function htFillAtlas(data) {
         $("#atlasindex").append(o);
     }
 
-    htSelectAtlasMap(0);
+    var idx = ($("#atlas").length > 0 ) ? parseInt($("#atlas").val()): 0;
+    if (idx > 0) { idx -= 1; }
+    htSelectAtlasMap(idx);
 }
 
 function htProccessData(data, optional) {

@@ -47,6 +47,11 @@ $(document).ready(function(){
         cal = "gregory";
     }
 
+    if (urlParams.has('atlas_page')) {
+        var selAtlas = urlParams.get('atlas_page');
+        $("#atlas").val(selAtlas);
+    }
+
     $('#site_language').val(lang);
     $('#site_calendar').val(cal);
     htLoadPage('index','json', '', false);

@@ -72,7 +72,7 @@ opt0ac0098b.maxID=counter;x=document.getElementsByClassName("htSlide");if(reques
 $("#smGameMenu").addClass("htSlideGameMenuHidden");if($("#smGameScore").hasClass("htSlideGameMenuHidden")){$("#smGameScore").removeClass("htSlideGameMenuHidden");}
 htShowSlideDivs(x,0);}else{if(smGameTimeoutID!=0){clearTimeout(smGameTimeoutID);smGameTimeoutID=0;}}}
 function htImageZoom(id){var name=$("#"+id).prop("name");if(name.length==0){$("#"+id).attr("name","zoomin");$("#"+id).css("transform","scale(2.7)");$("#"+id).css("translate","-35%");}else{$("#"+id).attr("name","");$("#"+id).css("transform","scale(1)");$("#"+id).css("translate","0%");}}
-function htModifyAtlasIndexMap(id){var next=id+1;$("#atlasindex option[value="+next+"]").prop('selected',true);}
+function htModifyAtlasIndexMap(id){var next=id+1;$("#atlasindex option[value="+next+"]").prop('selected',true);var myURL='index.html?page=atlas&atlas_page='+next;window.history.replaceState(null,null,myURL);$("#atlas").val(next);}
 function htSelectAtlasMap(id){if(htAtlas.length<id){return;}
 var vector=htAtlas[id];var author=(vector.author!=null)?vector.author:"";if(author=="HTMW"){author=keywords[82];}
 var text=(vector.image!=null)?"<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg')\" />"+keywords[81]+" 1: "+author+". "+keywords[83]+"</p>"+vector.text:vector.text;var prevIdx=id-1;var nextIdx=id+1;var prevText=(prevIdx>=0)?"<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+prevIdx+"); htModifyAtlasIndexMap("+prevIdx+");\">"+htAtlas[prevIdx].name+"</a>":"&nbsp;";var nextText=(nextIdx<htAtlas.length)?"<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+nextIdx+"); htModifyAtlasIndexMap("+nextIdx+");\">"+htAtlas[nextIdx].name+"</a>":"&nbsp;";text+="<p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p><p>&nbsp;</p>";$("#rightcontent").html(text);}
@@ -80,7 +80,8 @@ function htFillAtlas(data){htAtlas=[];if(data.atlas.length==0){return;}
 var localAtlas=data.atlas;var localLang=$("#site_language").val();var localCalendar=$("#site_calendar").val();for(i in localAtlas){var text="";for(const j in localAtlas[i].text){var localObj=localAtlas[i].text[j];var localtext=(localObj.text!=undefined&&localObj.source!=undefined)?htParagraphFromObject(localObj,localLang,localCalendar):localObj;if(localObj.fill_dates!=undefined){localtext=htOverwriteHTDateWithText(localtext,localObj.fill_dates,localLang,localCalendar);}
 text+=localtext;}
 var author=(localAtlas[i].author!=undefined)?localAtlas[i].author:null;htAtlas.push({"name":localAtlas[i].name,"image":localAtlas[i].image,"author":author,"text":text});var showIdx=parseInt(i)+1;var o=new Option(showIdx+". "+localAtlas[i].name,showIdx);$("#atlasindex").append(o);}
-htSelectAtlasMap(0);}
+var idx=($("#atlas").length>0)?parseInt($("#atlas").val()):0;if(idx>0){idx-=1;}
+htSelectAtlasMap(idx);}
 function htProccessData(data,optional){if(data.type==undefined){return false;}
 switch(data.type){case"sm_game":htFillSMGameData(data);break;}
 if(data.fill_dates!=undefined&&data.fill_dates.constructor===vectorConstructor){htFillHTDate(data.fill_dates);}
