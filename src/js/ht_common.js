@@ -537,7 +537,7 @@ function htModifyAtlasIndexMap(id) {
 }
 
 function htSelectAtlasMap(id) {
-    if (htAtlas.length < id) {
+    if (htAtlas.length < id || id < 0) {
         return;
     }
 
@@ -584,7 +584,11 @@ function htFillAtlas(data) {
     }
 
     var idx = ($("#atlas").length > 0 ) ? parseInt($("#atlas").val()): 0;
-    if (idx > 0) { idx -= 1; }
+    if (idx > 0) {
+        idx -= 1;
+    } else if (isNaN(idx)) {
+        idx = 1;
+    }
     htSelectAtlasMap(idx);
 }
 
