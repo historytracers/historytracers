@@ -4,7 +4,7 @@
     "sources" : [ "49c7f908-87cc-4fcc-8e4d-bcaba40e0aea" ],
     "scripts" : [ "49c7f908-87cc-4fcc-8e4d-bcaba40e0aea" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1726451890" ],
+    "last_update" : [ "1731625077" ],
     "authors" : null,
     "reviewers" : null,
     "version" : 1,
@@ -21,6 +21,33 @@
                 {
                     "id" : "introduction",
                     "text" : [ "<h3>Introdução</h3><p>Nesta página do History Tracers, optamos por não mencionar nomes de pessoas, pois estamos lidando com pré-história (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('82e6d089-0970-4454-b4e9-ec688dd0ada2'); return false;\">History Tracers, <span class=\"htdate\"></span>, Ciências: A escrita</a>), e, portanto, não há registros textuais que permitam referenciá-las. Em vez disso, recorremos a estudos científicos que nos permitem estimar gerações desde nossas origens.</p>" ]
+                },
+                {
+                    "id": "dispersion",
+                    "text" : [ "<h3>Migração Humana</h3><p class=\"desc\"><img id=\"originmigration\" src=\"images/mapswire/mapswire-world-political-white-equal_earth_journey.png\" class=\"imgcenter\" onclick=\"htImageZoom('originmigration', '0%')\" />Figura 1: Mapa da migração humana <span id=\"OriginHTMW\"></span></p>", 
+                               {"text" : "Nossa espécie surgiu em algum local no Leste da África entre 350.000 e 200.000 anos atrás, conforme indicado pelos fósseis encontrados. No entanto, a saída do continente africano não ocorreu de imediato. Aproximadamente entre 70.000 e 50.000 anos atrás, Homo sapiens começou a migrar para diversas regiões da Ásia. Fósseis também indicam outro grande período migratório entre 45.000 e 35.000 anos atrás, em direção ao continente europeu e ao nordeste asiático.",
+                       "source" : [ { "type": 1,
+                                      "uuid": "2be849f1-551b-44eb-8fc6-87027dbf8a68",
+                                      "text": "Mounier, A., & Mirazón Lahr, M.",
+                                      "date": { "type": "gregory", "year": "2019", "month": "-1", "day": "-1" }},
+                                    { "type": 1,
+                                      "uuid": "ed998d95-1afb-4021-9181-2c81d1d9ecd5",
+                                      "text": "Arango-Isaza, E., <i>et al</i>",
+                                      "date": { "type": "gregory", "year": "2023", "month": "-1", "day": "-1" }},
+                                    { "type": 1,
+                                      "uuid": "064c3691-1f4c-491b-b643-150c011b4525",
+                                      "text": "Goebel, Ted, et al.",
+                                      "date": { "type": "gregory", "year": "2008", "month": "-1", "day": "-1" }},
+                                    { "type": 1,
+                                      "uuid": "cff99ec5-cb25-40ef-b2ee-410a75e73a6e",
+                                      "text": "National Geographic Education"},
+                                    { "type": 1,
+                                      "uuid": "27864fd8-e7f7-4a2f-85c7-e1453e3c5234",
+                                      "text": "Abdul Karim Khan",
+                                      "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" }}
+                           ]
+                      },
+                   "A Figura 1 mostra como nossa espécie se espalhou pelo planeta. Você pode ampliá-la clicando sobre a imagem e retornar ao tamanho original clicando novamente." ]
                 },
                 {
                     "id": "genetic",

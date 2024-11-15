@@ -514,12 +514,12 @@ function htFillSMGameData(data) {
     }
 }
 
-function htImageZoom(id) {
+function htImageZoom(id, translate) {
     var name = $("#"+id).prop("name");
     if (name.length == 0) {
         $("#"+id).attr("name", "zoomin");
         $("#"+id).css("transform", "scale(2.7)");
-        $("#"+id).css("translate", "-35%");
+        $("#"+id).css("translate", translate);
     } else {
         $("#"+id).attr("name", "");
         $("#"+id).css("transform", "scale(1)");
@@ -546,7 +546,7 @@ function htSelectAtlasMap(id) {
     if (author == "HTMW") {
         author = keywords[82];
     }
-    var text = (vector.image != null) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg')\" />"+keywords[81]+" 1: "+author+". "+keywords[83]+"</p>"+vector.text : vector.text;
+    var text = (vector.image != null) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+". "+keywords[82]+"</p>"+vector.text : vector.text;
     var prevIdx = id - 1;
     var nextIdx = id + 1;
     var prevText = (prevIdx >= 0) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+prevIdx+"); htModifyAtlasIndexMap("+prevIdx+");\">"+htAtlas[prevIdx].name+"</a>" : "&nbsp;";
