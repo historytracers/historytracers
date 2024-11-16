@@ -338,10 +338,9 @@ function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
     if (keywords.length > 35) {
         dateDiv += keywords[36] + " : " + reviewers + ".<br />";
     }
-    dateDiv += keywords[33] + " : " + text;
-    dateDiv += ". "+keywords[38];
+    dateDiv += keywords[33] + " : " + text+ ".";
 
-    dateDiv += "</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div><br /></p>";
+    dateDiv += "</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div><br /><i>"+keywords[24]+" "+keywords[38]+"</i></p>";
 
     $(target).append(dateDiv);
 }
@@ -386,7 +385,9 @@ function htOverwriteHTDateWithText(text, localDate, localLang, localCalendar) {
 }
 
 function htParagraphFromObject(localObj, localLang, localCalendar) {
-    var text = "<p>"+localObj.text;
+    var format = (localObj.format == undefined) ? "html" : localObj.format;
+    var formattedText = htFormatText(localObj.text, );
+    var text = formattedText;
 
     if (localObj.source != null) {
         var sources = localObj.source;
@@ -401,9 +402,8 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
         }
         text += ").";
     }
-
-    text += "</p>";
-    return text;
+    return (localObj.format == "html") ? "<p>"+text+"</p>" : text;
+    
 }
 
 function htFillSMGameData(data) {
@@ -536,6 +536,17 @@ function htModifyAtlasIndexMap(id) {
     $("#atlas").val(next);
 }
 
+function htFormatText(text, format) {
+    if (format == "html") {
+        return text;
+    }
+
+    var converter = new showdown.Converter();
+    var html      = converter.makeHtml(text);
+
+    return html;
+}
+
 function htSelectAtlasMap(id) {
     if (htAtlas.length < id || id < 0) {
         return;
@@ -546,7 +557,8 @@ function htSelectAtlasMap(id) {
     if (author == "HTMW") {
         author = keywords[82];
     }
-    var text = (vector.image != null) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+". "+keywords[82]+"</p>"+vector.text : vector.text;
+    var formattedText = htFormatText(vector.text, vector.format);
+    var text = (vector.image != null) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+". "+keywords[82]+"</p>"+formattedText : formattedText;
     var prevIdx = id - 1;
     var nextIdx = id + 1;
     var prevText = (prevIdx >= 0) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+prevIdx+"); htModifyAtlasIndexMap("+prevIdx+");\">"+htAtlas[prevIdx].name+"</a>" : "&nbsp;";
@@ -576,7 +588,8 @@ function htFillAtlas(data) {
             text += localtext;
         }
         var author = (localAtlas[i].author != undefined) ? localAtlas[i].author : null ;
-        htAtlas.push({"name": localAtlas[i].name, "image" : localAtlas[i].image, "author": author, "text" : text});
+        var format = (localAtlas[i].format != undefined) ? localAtlas[i].format : "html" ;
+        htAtlas.push({"name": localAtlas[i].name, "image" : localAtlas[i].image, "author": author, "text" : text, "format": format});
 
         var showIdx = parseInt(i) + 1;
         var o = new Option(showIdx+". "+localAtlas[i].name, showIdx);
@@ -955,7 +968,7 @@ function htFillWebPage(page, data)
         }
 
         if ($("#tree-description").length > 0) {
-            $("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");
+            $("#tree-description").html(" <p>"+keywords[52]+"</p>");
         }
     }
 
@@ -995,6 +1008,14 @@ function htFillWebPage(page, data)
 
     if ($("#family_common_sn").length > 0) {
         $("#family_common_sn").html(keywords[52]);
+    }
+
+    if ($("#htZoomImageMsg").length > 0) {
+        $("#htZoomImageMsg").html(keywords[84]);
+    }
+
+    if ($("#htAmericaAbyaYalaMsg").length > 0) {
+        $("#htAmericaAbyaYalaMsg").html(keywords[85]);
     }
 
     if ($("#tree-common-stats").length <= 0) {

@@ -18,7 +18,13 @@
             "id" : "Unique identifier for the family.",
             "name": "Name displayed at the top of the page.",
             "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
-                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.", "uuid":  "Unique identifier (UUID) for the current citation.", "text": "The accompanying text that will be displayed with the citation." } ]
+                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.", "uuid":  "Unique identifier (UUID) for the current citation.", "text": "The accompanying text that will be displayed with the citation." } ],
+                                           "fill_dates" : [
+                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                               {"type" : "unix", "epoch" : "0" },
+                                               {"type" : "julian",  "epoch" : "0" }
+                                           ],
+                                           "format" : "html or markdown"
                           },
                           "<p>A detailed description of the person's life history and marital status.</p>" ],
             "people" : [
@@ -45,7 +51,13 @@
                             "external_family_file" : "Boolean used to identify the file in which the family is listed.",
                             "name" : "Name of the spouse.",
                             "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
-                                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.", "uuid":  "Unique identifier (UUID) for the current citation.", "text": "The accompanying text that will be displayed with the citation." } ]
+                                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.", "uuid":  "Unique identifier (UUID) for the current citation.", "text": "The accompanying text that will be displayed with the citation." } ],
+                                           "fill_dates" : [
+                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                               {"type" : "unix", "epoch" : "0" },
+                                               {"type" : "julian",  "epoch" : "0" }
+                                           ],
+                                           "format" : "html or markdown"
                                           },
                                 "<p>A detailed description of the person's life history and marital status.</p>" ]
                         }
@@ -59,7 +71,13 @@
                             "family_id": "Unique identifier for the child's family, used if the child establishes a new family.",
                             "external_family_file" : "Boolean used to identify the file in which the family is listed.",
                             "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
-                                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.", "uuid":  "Unique identifier (UUID) for the current citation.", "text": "The accompanying text that will be displayed with the citation." } ]
+                                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.", "uuid":  "Unique identifier (UUID) for the current citation.", "text": "The accompanying text that will be displayed with the citation." } ],
+                                           "fill_dates" : [
+                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                               {"type" : "unix", "epoch" : "0" },
+                                               {"type" : "julian",  "epoch" : "0" }
+                                           ],
+                                           "format" : "html or markdown"
                                           },
                                 "<p>A detailed description of the person's life history and marital status.</p>" ]
                         }

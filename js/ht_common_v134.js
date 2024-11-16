@@ -47,7 +47,7 @@ function htFillDivAuthorsContent(target,last_update,authors,reviewers){if(last_u
 if($("#paper-date").length>0){return;}
 var dateDiv="<p><div id=\"paper-title\" class=\"paper-title-style\"><div id=\"paper-date\" class=\"paper-date-style\">";var local_lang=$("#site_language").val();var local_calendar=$("#site_calendar").val();var text=htConvertDate(local_calendar,local_lang,last_update,undefined,undefined);if(keywords.length>33){dateDiv+=keywords[34]+" : "+authors+".<br />";}
 if(keywords.length>35){dateDiv+=keywords[36]+" : "+reviewers+".<br />";}
-dateDiv+=keywords[33]+" : "+text;dateDiv+=". "+keywords[38];dateDiv+="</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div><br /></p>";$(target).append(dateDiv);}
+dateDiv+=keywords[33]+" : "+text+".";dateDiv+="</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div><br /><i>"+keywords[24]+" "+keywords[38]+"</i></p>";$(target).append(dateDiv);}
 function htLoadPageMountURL(page,arg,dir)
 {var url="lang/";var lang=$("#site_language").val();if(lang==null||lang==undefined){lang=htDetectLanguage();}
 if(arg=="source"){url+=arg+"s/";}else{url+=lang+"/";}
@@ -56,10 +56,10 @@ url+=page+".json";return url;}
 function htOverwriteHTDateWithText(text,localDate,localLang,localCalendar){if(localDate==undefined||localDate.length==0){return text;}
 var ret=text;for(const i in localDate){var changed=ret.replace("<htdate"+i+">",htMountSpecificDate(localDate[i],localLang,localCalendar));ret=changed;}
 return ret;}
-function htParagraphFromObject(localObj,localLang,localCalendar){var text="<p>"+localObj.text;if(localObj.source!=null){var sources=localObj.source;text+=" (";for(const i in sources){if(i!=0){text+=" ; ";}
+function htParagraphFromObject(localObj,localLang,localCalendar){var format=(localObj.format==undefined)?"html":localObj.format;var formattedText=htFormatText(localObj.text,);var text=formattedText;if(localObj.source!=null){var sources=localObj.source;text+=" (";for(const i in sources){if(i!=0){text+=" ; ";}
 var fcnt=htFillHistorySourcesSelectFunction(sources[i].type);var dateText=(sources[i].date!=undefined)?", "+htMountSpecificDate(sources[i].date,localLang,localCalendar):"";text+="<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\">"+sources[i].text+" "+dateText+"</a>";}
 text+=").";}
-text+="</p>";return text;}
+return(localObj.format=="html")?"<p>"+text+"</p>":text;}
 function htFillSMGameData(data){if(data==undefined||data.content.length==0){return;}
 var x=document.getElementsByClassName("htSlide");if(x.length!=0){$(".htSlide").remove();}
 var requestType=opt0ac0098b.requestType;var table=data.levels;if(table!=undefined&&requestType=="splash"&&$("#smGameMenu").length==0){$(opt0ac0098b.target).append("<div class=\"htSlideGameMenu htSlideGameMenuHidden\" id=\"smGameMenu\"></div> <div id=\"smGameScore\" class=\"htSlideGameScore htSlideGameMenuHidden\"><b>"+keywords[70]+"<span id=\"currentSMScore\">0</span></b></div> <div class=\"htSlideGameTextBottom smGameTextSize htSlideGameMenuHidden\" id=\"smGameDesc\"></div> <div id=\"smGamePlay\"><i class=\"fa-solid fa-play htSlidePlayGame\" onclick=\"htStartSMGame();\"></i></div>");for(const i in table){if(table[i].type==undefined){continue;}else if(table[i].type=="topLevel"){$("#smGameMenu").append("<p class=\"smGameTextSize\"><b>"+table[i].name+"</b>: "+table[i].desc+"</p><p><ul id=\""+table[i].id+"\"></ul></p>");}else if(table[i].type=="level"){if($("#"+table[i].target).length>0){$("#"+table[i].target).append("<li class=\"menu\"> <span class=\" smGameTextSize\"><a href=\"javascript:void(0);\" onclick=\"htLoadPageV1('"+table[i].loadID+"', 'json', '', 'false', 'smGame', '');\">"+table[i].name+"</a>: "+table[i].desc+"</span></li>");}}}
@@ -73,13 +73,15 @@ $("#smGameMenu").addClass("htSlideGameMenuHidden");if($("#smGameScore").hasClass
 htShowSlideDivs(x,0);}else{if(smGameTimeoutID!=0){clearTimeout(smGameTimeoutID);smGameTimeoutID=0;}}}
 function htImageZoom(id,translate){var name=$("#"+id).prop("name");if(name.length==0){$("#"+id).attr("name","zoomin");$("#"+id).css("transform","scale(2.7)");$("#"+id).css("translate",translate);}else{$("#"+id).attr("name","");$("#"+id).css("transform","scale(1)");$("#"+id).css("translate","0%");}}
 function htModifyAtlasIndexMap(id){var next=id+1;$("#atlasindex option[value="+next+"]").prop('selected',true);var myURL='index.html?page=atlas&atlas_page='+next;window.history.replaceState(null,null,myURL);$("#atlas").val(next);}
+function htFormatText(text,format){if(format=="html"){return text;}
+var converter=new showdown.Converter();var html=converter.makeHtml(text);return html;}
 function htSelectAtlasMap(id){if(htAtlas.length<id||id<0){return;}
 var vector=htAtlas[id];var author=(vector.author!=null)?vector.author:"";if(author=="HTMW"){author=keywords[82];}
-var text=(vector.image!=null)?"<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+". "+keywords[82]+"</p>"+vector.text:vector.text;var prevIdx=id-1;var nextIdx=id+1;var prevText=(prevIdx>=0)?"<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+prevIdx+"); htModifyAtlasIndexMap("+prevIdx+");\">"+htAtlas[prevIdx].name+"</a>":"&nbsp;";var nextText=(nextIdx<htAtlas.length)?"<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+nextIdx+"); htModifyAtlasIndexMap("+nextIdx+");\">"+htAtlas[nextIdx].name+"</a>":"&nbsp;";text+="<p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p><p>&nbsp;</p>";$("#rightcontent").html(text);}
+var formattedText=htFormatText(vector.text,vector.format);var text=(vector.image!=null)?"<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+". "+keywords[82]+"</p>"+formattedText:formattedText;var prevIdx=id-1;var nextIdx=id+1;var prevText=(prevIdx>=0)?"<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+prevIdx+"); htModifyAtlasIndexMap("+prevIdx+");\">"+htAtlas[prevIdx].name+"</a>":"&nbsp;";var nextText=(nextIdx<htAtlas.length)?"<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+nextIdx+"); htModifyAtlasIndexMap("+nextIdx+");\">"+htAtlas[nextIdx].name+"</a>":"&nbsp;";text+="<p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p><p>&nbsp;</p>";$("#rightcontent").html(text);}
 function htFillAtlas(data){htAtlas=[];if(data.atlas.length==0){return;}
 var localAtlas=data.atlas;var localLang=$("#site_language").val();var localCalendar=$("#site_calendar").val();for(i in localAtlas){var text="";for(const j in localAtlas[i].text){var localObj=localAtlas[i].text[j];var localtext=(localObj.text!=undefined&&localObj.source!=undefined)?htParagraphFromObject(localObj,localLang,localCalendar):localObj;if(localObj.fill_dates!=undefined){localtext=htOverwriteHTDateWithText(localtext,localObj.fill_dates,localLang,localCalendar);}
 text+=localtext;}
-var author=(localAtlas[i].author!=undefined)?localAtlas[i].author:null;htAtlas.push({"name":localAtlas[i].name,"image":localAtlas[i].image,"author":author,"text":text});var showIdx=parseInt(i)+1;var o=new Option(showIdx+". "+localAtlas[i].name,showIdx);$("#atlasindex").append(o);}
+var author=(localAtlas[i].author!=undefined)?localAtlas[i].author:null;var format=(localAtlas[i].format!=undefined)?localAtlas[i].format:"html";htAtlas.push({"name":localAtlas[i].name,"image":localAtlas[i].image,"author":author,"text":text,"format":format});var showIdx=parseInt(i)+1;var o=new Option(showIdx+". "+localAtlas[i].name,showIdx);$("#atlasindex").append(o);}
 var idx=($("#atlas").length>0)?parseInt($("#atlas").val()):0;if(idx>0){idx-=1;}else if(isNaN(idx)){idx=1;}
 htSelectAtlasMap(idx);}
 function htProccessData(data,optional){if(data.type==undefined){return false;}
@@ -136,13 +138,15 @@ if($("#tree-sources-lbl").length>0){$("#tree-sources-lbl").html(keywords[5]);}
 if($("#tree-references-lbl").length>0){$("#tree-references-lbl").html(keywords[6]);}
 if($("#tree-holy_references-lbl").length>0){$("#tree-holy_references-lbl").html(keywords[7]);}
 if($("#tree-sm-lbl").length>0){$("#tree-sm-lbl").html(keywords[75]);}
-if($("#tree-description").length>0){$("#tree-description").html(keywords[24]+" "+keywords[38]+" <p>"+keywords[52]+"</p>");}}
+if($("#tree-description").length>0){$("#tree-description").html(" <p>"+keywords[52]+"</p>");}}
 if(data.scripts!=undefined&&data.scripts!=null){for(const i in data.scripts){var jsURL="js/"+data.scripts[i]+".js";$.getScript(jsURL,function(){if(typeof htLoadExercise!=="undefined"){htLoadExercise();}
 if($("#btncheck").length>0){$("#btncheck").on("click",function(){if(typeof htCheckAnswers!=="undefined"){htCheckAnswers();}
 return false;});}
 if($("#btnnew").length>0){$("#btnnew").on("click",function(){if(typeof htLoadExercise!=="undefined"){htLoadExercise();}
 return false;});}});}}
 htFillClassWithText(".htPrevText",keywords[56]);htFillClassWithText(".htTopText",keywords[57]);htFillClassWithText(".htNextText",keywords[58]);htFillClassWithText(".htIndexText",keywords[60]);if($("#family_common_sn").length>0){$("#family_common_sn").html(keywords[52]);}
+if($("#htZoomImageMsg").length>0){$("#htZoomImageMsg").html(keywords[84]);}
+if($("#htAmericaAbyaYalaMsg").length>0){$("#htAmericaAbyaYalaMsg").html(keywords[85]);}
 if($("#tree-common-stats").length<=0){return false;}
 var htmlFields=["#tree-common-stats","#statsDescription","#genStatRow00","#genStatRow01","#genStatRow10","#genStatRow20","#genStatRow30","#genStatRow40","#genStatRow50","#genStatRow60","#genStatRow70"];var labelIndexes=[61,62,63,64,5,6,7,65,66,67,68,69];for(let i=0;i<htmlFields.length;i++){$(htmlFields[i]).html(keywords[labelIndexes[i]]);}
 var htmlValues=["#genStatRow11","#genStatRow21","#genStatRow31","#genStatRow41","#genStatRow51","#genStatRow61","#genStatRow71"];var counter=0;Object.values(genealogicalStats).forEach(val=>{$(htmlValues[counter++]).html(val);});}

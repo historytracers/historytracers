@@ -16,7 +16,9 @@
             "value" : [
                 {
                     "id" : "prerequisites",
-                    "text" : [ { "text" : "<i>Além de utilizar o nome América, também faremos referência ao continente como <i>Abya Yala</i>, nome pelo qual é reconhecido pelos povos originários do continente</i>",
+                    "text" : [ 
+                               "<p><span id=\"htZoomImageMsg\"></span></p>",
+                               { "text" : "<span id=\"htAmericaAbyaYalaMsg\"></span>",
                                  "source" : [ { "type": 1,
                                                 "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
                                                 "text": "Porto-Gonçalves, Carlos Walter, pp. 39-43",
@@ -27,11 +29,10 @@
                                  "source" : [ { "type": 0,
                                                 "uuid": "b5e0b575-280f-485f-971e-6702e6c7bc19",
                                                 "text": "\"atlas\". <i>Dicionário da Língua Portuguesa. Academia das Ciências de Lisboa</i>" } ]
-                               },
-                                "<p>Para uma melhor visualização, clique no mapa para ampliá-lo e, clicando novamente, ele retornará ao seu tamanho original.</p>"
+                               }
                                ,
-                                "<p><h3>Atlas do History Tracers</h3>Esta seção é organizada como um livro. Você pode acessar um mapa diretamente clicando no seu nome ou utilizando as setas de navegação.</p>",
-                                "<p><b>O Atlas pode ser atualizado a qualquer momento com base em novas pesquisas. <span id=\"atlas_sn\"></span> </b></p>"
+                               "<p><h3>Atlas do History Tracers</h3>Esta seção é organizada como um livro. Você pode acessar um mapa diretamente clicando no seu nome ou utilizando as setas de navegação.</p>",
+                               "<p><b>O Atlas pode ser atualizado a qualquer momento com base em novas pesquisas. <span id=\"atlas_sn\"></span> </b></p>"
                     ]
                 }
             ]
