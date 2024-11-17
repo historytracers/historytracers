@@ -50,6 +50,8 @@ $(document).ready(function(){
     if (urlParams.has('atlas_page')) {
         var selAtlas = urlParams.get('atlas_page');
         $("#atlas").val(selAtlas);
+    } else {
+        $("#atlas").val(1);
     }
 
     $('#site_language').val(lang);

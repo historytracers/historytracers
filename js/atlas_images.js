@@ -30,19 +30,12 @@ function htLoadExercise() {
         $("#atlas").val(id);
         window.history.replaceState(null, null, myURL);
     } );
-    $("#atlasindex option[value=\"1\"]").prop('selected', true);
 
     $("#atlas_sn").html(keywords[52]);
 
-    if ($("#atlas").length > 0) {
-        var id = parseInt($("#atlas").val());
-        if (!isNaN(id)) { 
-            if (id > 0 && id < htAtlas.length) {
-                htModifyAtlasIndexMap(id - 1);
-            } else {
-                htModifyAtlasIndexMap(1);
-            }
-        }
+    var id = $("#atlas").val();
+    if (!isNaN(id)) { 
+        $("#atlasindex option[value=\""+id+"\"]").prop('selected', true);
     }
 
     return false;

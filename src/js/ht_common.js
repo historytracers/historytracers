@@ -386,8 +386,8 @@ function htOverwriteHTDateWithText(text, localDate, localLang, localCalendar) {
 
 function htParagraphFromObject(localObj, localLang, localCalendar) {
     var format = (localObj.format == undefined) ? "html" : localObj.format;
-    var formattedText = htFormatText(localObj.text, );
-    var text = formattedText;
+    var text = (format == "html") ? "<p>" : ""; 
+    text += htFormatText(localObj.text, format);
 
     if (localObj.source != null) {
         var sources = localObj.source;
@@ -402,8 +402,7 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
         }
         text += ").";
     }
-    return (localObj.format == "html") ? "<p>"+text+"</p>" : text;
-    
+    return text+"</p>";
 }
 
 function htFillSMGameData(data) {
@@ -528,7 +527,7 @@ function htImageZoom(id, translate) {
 }
 
 function htModifyAtlasIndexMap(id) {
-    var next = id + 1;
+    var next = parseInt(id) + 1;
     $("#atlasindex option[value="+next+"]").prop('selected', true);
 
     var myURL = 'index.html?page=atlas&atlas_page='+next;
@@ -544,7 +543,12 @@ function htFormatText(text, format) {
     var converter = new showdown.Converter();
     var html      = converter.makeHtml(text);
 
-    return html;
+    if (html.length < 4 ) {
+        return html;
+    }
+    var htmlTest = html.substring(html.length - 4);
+
+    return (htmlTest == "</p>") ? html.substring(0, html.length - 4 ) : html;
 }
 
 function htSelectAtlasMap(id) {
@@ -553,12 +557,24 @@ function htSelectAtlasMap(id) {
     }
 
     var vector = htAtlas[id];
-    var author = (vector.author != null) ? vector.author : "";
-    if (author == "HTMW") {
-        author = keywords[82];
+    var author = "";
+    if (vector.author != null) {
+        if (vector.author == "HTMW") {
+            author = keywords[82];
+        } else {
+            author = vector.author;
+        }
     }
+
     var formattedText = htFormatText(vector.text, vector.format);
-    var text = (vector.image != null) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+". "+keywords[82]+"</p>"+formattedText : formattedText;
+
+    if (vector.format == undefined || vector.format == "html") {
+        formattedText = "<p>"+formattedText+"</p>";
+    } else {
+        formattedText += "</p>";
+    }
+
+    var text = (vector.image != null) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+".</p>"+formattedText : formattedText;
     var prevIdx = id - 1;
     var nextIdx = id + 1;
     var prevText = (prevIdx >= 0) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+prevIdx+"); htModifyAtlasIndexMap("+prevIdx+");\">"+htAtlas[prevIdx].name+"</a>" : "&nbsp;";
@@ -596,11 +612,13 @@ function htFillAtlas(data) {
         $("#atlasindex").append(o);
     }
 
-    var idx = ($("#atlas").length > 0 ) ? parseInt($("#atlas").val()): 0;
-    if (idx > 0) {
-        idx -= 1;
-    } else if (isNaN(idx)) {
+    var idx = ($("#atlas").length > 0 ) ? $("#atlas").val() : 0;
+    if (isNaN(idx) || idx.length == 0) {
+        htModifyAtlasIndexMap(1);
         idx = 1;
+    } else {
+        idx -= 1;
+        htModifyAtlasIndexMap(idx);
     }
     htSelectAtlasMap(idx);
 }

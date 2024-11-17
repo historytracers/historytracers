@@ -4,7 +4,7 @@
     "sources" : [ "atlas" ],
     "scripts" : [ "atlas_images" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1729883356" ],
+    "last_update" : [ "1731864119" ],
     "authors" : null,
     "reviewers" : null,
     "version" : 1,
@@ -310,7 +310,18 @@
             "image" : "images/mapswire/continent_an-where-is-antarctica.png",
             "author" : "HTMW",
             "name" : "Continente: Antártica",
-            "text" :[ {"text" : "<h3>Continente: Antártica</h3>Neste mapa, a Antártida aparece em sua localização no extremo sul da Terra, com as regiões da América do Sul (<i>Abya Yala</i>), África e Austrália também visíveis. © Mapswire",
+            "text" :[ {"text" : "<h3>Continente: Antártica</h3>Neste mapa, a Antártida aparece em sua localização no extremo sul da Terra, com as regiões da América do Sul (<i>Abya Yala</i>), África e Austrália também visíveis",
+                       "source" : [ { "type": 1,
+                                      "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                                      "text": "<i>Mapswire</i>" } ]
+                      }
+            ]
+        },
+        {
+            "image" : "images/mapswire/continent_af-where-is-africa.png",
+            "author" : "HTMW",
+            "name" : "Continente: África",
+            "text" :[ {"text" : "<h3>Continente: África</h3>Neste mapa, a África aparece em destaque, com as regiões da América do Sul (<i>Abya Yala</i>), Antártica, Europa e Ásia também visíveis",
                        "source" : [ { "type": 1,
                                       "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
                                       "text": "<i>Mapswire</i>" } ]
@@ -321,7 +332,7 @@
             "image" : "images/mapswire/continent_as-where-is-asia.png",
             "author" : "HTMW",
             "name" : "Continente: Ásia",
-            "text" :[ {"text" : "<h3>Continente: Ásia</h3>Neste mapa, a Ásia ocupa o destaque, enquanto as regiões da América do Norte (<i>Abya Yala</i>), África, Europa e Austrália também estão representadas. © Mapswire",
+            "text" :[ {"text" : "<h3>Continente: Ásia</h3>Neste mapa, a Ásia ocupa o destaque, enquanto as regiões da América do Norte (<i>Abya Yala</i>), África, Europa e Austrália também estão representadas",
                        "source" : [ { "type": 1,
                                       "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
                                       "text": "<i>Mapswire</i>" } ]
@@ -332,7 +343,7 @@
             "image" : "images/mapswire/continent_sa-where-is-south-america.png",
             "author" : "HTMW",
             "name" : "Subcontinente: Sul-americano",
-            "text" :[ {"text" : "<h3>Subcontinente: Sul-americano</h3>Neste mapa, o subcontinente sul-americano se destaca, com as regiões da América Centra (<i>Abya Yala</i>)l, América do Norte (<i>Abya Yala</i>), África, Europa e Antártica também representadas. © Mapswire",
+            "text" :[ {"text" : "<h3>Subcontinente: Sul-americano</h3>Neste mapa, o subcontinente sul-americano se destaca, com as regiões da América Centra (<i>Abya Yala</i>)l, América do Norte (<i>Abya Yala</i>), África, Europa e Antártica também representadas",
                        "source" : [ { "type": 1,
                                       "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
                                       "text": "<i>Mapswire</i>" } ]
@@ -342,8 +353,8 @@
         {
             "image" : "images/mapswire/continent_na-where-is-north-america.png",
             "author" : "HTMW",
-                "name" : "Subcontinente: Norte-americano",
-                "text" :[ {"text" : "<h3>Subcontinente: Norte-americano</h3>Neste mapa, o subcontinente norte-americano é destacado, enquanto as regiões da América do Sul (<i>Abya Yala</i>), Ásia e Europa também estão representadas. Nota-se que América Central (<i>Abya Yala</i>) e América do Norte (<i>Abya Yala</i>) aparecem unificadas como um único subcontinente, embora alguns estudos as tratem separadamente. © Mapswire",
+            "name" : "Subcontinente: Norte-americano",
+            "text" :[ {"text" : "<h3>Subcontinente: Norte-americano</h3>Neste mapa, o subcontinente norte-americano é destacado, enquanto as regiões da América do Sul (<i>Abya Yala</i>), Ásia e Europa também estão representadas. Nota-se que América Central (<i>Abya Yala</i>) e América do Norte (<i>Abya Yala</i>) aparecem unificadas como um único subcontinente, embora alguns estudos as tratem separadamente",
                            "source" : [ { "type": 1,
                                           "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
                                           "text": "<i>Mapswire</i>" },
@@ -359,7 +370,7 @@
             "image" : "images/mapswire/continent_eu-where-is-europe.png",
             "author" : "HTMW",
             "name" : "Continente: Europa",
-            "text" :[ {"text" : "<h3>Continente: Europa</h3>Neste mapa, o continente europeu se destaca, enquanto as regiões da América (<i>Abya Yala</i>), África e Ásia também estão representadas. © Mapswire",
+            "text" :[ {"text" : "<h3>Continente: Europa</h3>Neste mapa, o continente europeu se destaca, enquanto as regiões da América (<i>Abya Yala</i>), África e Ásia também estão representadas",
                        "source" : [ { "type": 1,
                                       "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
                                       "text": "<i>Mapswire</i>" } ]
@@ -369,7 +380,7 @@
         {
             "image" : "images/mapswire/continent_oc-where-is-australia-oceania.png",
             "name" : "Continente: Oceania",
-            "text" :[ {"text" : "<h3>Continente: Oceania</h3>Neste mapa, o continente da Oceania se destaca, enquanto as regiões da América do Norte (<i>Abya Yala</i>), Antártica e Ásia também estão representadas. © Mapswire",
+            "text" :[ {"text" : "<h3>Continente: Oceania</h3>Neste mapa, o continente da Oceania se destaca, enquanto as regiões da América do Norte (<i>Abya Yala</i>), Antártica e Ásia também estão representadas",
                        "source" : [ { "type": 1,
                                       "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
                                       "text": "<i>Mapswire</i>" } ]
@@ -1173,6 +1184,36 @@
                                       "uuid": "ffc2d22b-dfcc-4a5d-be17-d28c10d5d49f",
                                       "text": "Carrato, José F."}
                        ]
+                      }
+                 ]
+        },
+        {
+            "image" : "images/mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica1.jpg",
+            "author" : "HTMW",
+            "name" : "Mesoamérica: O Início",
+            "text" :[ 
+                      {"text" : "### Mesoamérica: O Início\n\nMapas como apresentados na seção *Continente: África* refletem divisões históricas que moldaram fronteiras como as conhecemos hoje. No entanto, nem todo mapa criado pelo ser humano tem como objetivo delimitar fronteiras. Por exemplo, o mapa desta seção destaca a região chamada Mesoamérica. Esse conceito não foi criado pelos povos indígenas da área, mas surgiu séculos depois, definido pelo antropólogo Paul Kirchhoff. Ele utilizou esse termo para englobar culturas que compartilhavam características em uma região específica",
+                       "source" : [ { "type": 1,
+                                      "uuid": "2d720f02-051c-4469-b425-7d020f2c2f9b",
+                                      "text": "Creamer, W., pp. 35 - 37",
+                                      "date": { "type": "gregory", "year": "1987", "month": "-1", "day": "-1" }}
+                       ],
+                       "format" : "markdown"
+                      }
+                 ]
+        },
+        {
+            "image" : "images/mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica2.jpg",
+            "author" : "HTMW",
+            "name" : "Mesoamérica: Outras Fronteiras",
+            "text" :[ 
+                      {"text" : "### Mesoamérica: Outras Fronteiras\n\nNas páginas seguintes de seu trabalho, Winifred Creamer explora outros estudos que, ao incorporar fatores como sistemas tecnológicos, ampliam e redefinem a região inicial de Mesoamérica de Paul Kirchhoff. O mapa apresentado nesta seção ilustra a região mais abrangente, conforme descrito nos estudos analisados por Creamer",
+                       "source" : [ { "type": 1,
+                                      "uuid": "2d720f02-051c-4469-b425-7d020f2c2f9b",
+                                      "text": "Creamer, W., pp. 37 - 55",
+                                      "date": { "type": "gregory", "year": "1987", "month": "-1", "day": "-1" }}
+                       ],
+                       "format" : "markdown"
                       }
                  ]
         }
