@@ -424,6 +424,33 @@ ul {
   border: none;
 }
 
+.three_table_bg {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-collapse: collapse;
+  background: ghostwhite;
+  border: 1px solid black;
+}
+
+.three_table_bg td {
+  font-weight: normal;
+  border: 1px solid black;
+}
+
+.three_table_bg th {
+  text-align: center;
+  background: tan;
+  font-weight: bold;
+}
+
+.three_table_bg td:nth-child(1){
+  text-align: center;
+  font-weight: bold;
+  background: darkgray;
+}
+
 .indigenous_period {
   width: 75%;
   margin-left: auto;

@@ -386,10 +386,16 @@ function htOverwriteHTDateWithText(text, localDate, localLang, localCalendar) {
 
 function htParagraphFromObject(localObj, localLang, localCalendar) {
     var format = (localObj.format == undefined) ? "html" : localObj.format;
+    var originalText = "";
+    if (localObj.fill_dates != undefined) {
+        originalText = htOverwriteHTDateWithText(localObj.text, localObj.fill_dates, localLang, localCalendar);
+    } else {
+        originalText = localObj.text;
+    }
     var text = (format == "html") ? "<p>" : ""; 
-    text += htFormatText(localObj.text, format);
+    text += htFormatText(originalText, format, localObj.isTable);
 
-    if (localObj.source != null) {
+    if (localObj.source != undefined && localObj.source != null) {
         var sources = localObj.source;
         text += " (";
         for (const i in sources) { 
@@ -535,12 +541,15 @@ function htModifyAtlasIndexMap(id) {
     $("#atlas").val(next);
 }
 
-function htFormatText(text, format) {
+function htFormatText(text, format, table) {
     if (format == "html") {
         return text;
     }
 
     var converter = new showdown.Converter();
+    if (table != undefined && table == 1) {
+        converter.setOption('tables', true);
+    }
     var html      = converter.makeHtml(text);
 
     if (html.length < 4 ) {
@@ -566,7 +575,7 @@ function htSelectAtlasMap(id) {
         }
     }
 
-    var formattedText = htFormatText(vector.text, vector.format);
+    var formattedText = htFormatText(vector.text, vector.format, vector.isTable);
 
     if (vector.format == undefined || vector.format == "html") {
         formattedText = "<p>"+formattedText+"</p>";
@@ -598,14 +607,12 @@ function htFillAtlas(data) {
         for (const j in localAtlas[i].text) {
             var localObj = localAtlas[i].text[j];
             var localtext = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
-            if (localObj.fill_dates != undefined) {
-                localtext = htOverwriteHTDateWithText(localtext, localObj.fill_dates, localLang, localCalendar);
-            }
             text += localtext;
         }
         var author = (localAtlas[i].author != undefined) ? localAtlas[i].author : null ;
+        var isTable = (localAtlas[i].isTable != undefined) ? localAtlas[i].isTable : 0 ;
         var format = (localAtlas[i].format != undefined) ? localAtlas[i].format : "html" ;
-        htAtlas.push({"name": localAtlas[i].name, "image" : localAtlas[i].image, "author": author, "text" : text, "format": format});
+        htAtlas.push({"name": localAtlas[i].name, "image" : localAtlas[i].image, "author": author, "text" : text, "format": format, "isTable": isTable});
 
         var showIdx = parseInt(i) + 1;
         var o = new Option(showIdx+". "+localAtlas[i].name, showIdx);
@@ -1323,7 +1330,7 @@ function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
             } else if (table[i].id != "fill_dates") {
                 for (const j in table[i].text) {
                     var localObj = table[i].text[j];
-                    var text = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
+                    var text = (localObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
                     htAddPaperDivs("#paper", table[i].id + "_"+j, text, "", later, i);
                 }
             } else {
