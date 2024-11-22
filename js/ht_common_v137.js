@@ -121,7 +121,8 @@ var w=vector[j++];var updateText=htMountSpecificDate(w,localLang,localCalendar);
 function htFillWebPage(page,data)
 {if(data.title!=undefined&&data.title!=null&&data.title.length>0){$(document).prop('title',data.title);}
 if(data.header!=undefined&&data.header!=null&&data.header.length>0){$("#header").html(data.header);}else if(data.nothing!=undefined&&data.nothing!=null&&data.nothing.length>0){$(document).prop('title',data.nothing);$("#header").html(data.nothing);return;}
-if(data.common!=undefined&&data.common!=null&&data.common.length>0){for(const i in data.common){$("#common").append(data.common[i]);}}
+if(data.common!=undefined&&data.common!=null&&data.common.length>0){var localLang=$("#site_language").val();var localCalendar=$("#site_calendar").val();for(const i in data.common){var commonObj=data.common[i];var commonText="";if(commonObj.constructor===stringConstructor){commonText=commonObj;}else{commonText=(commonObj.text!=undefined)?htParagraphFromObject(localObj,localLang,localCalendar):localObj;}
+$("#common").append(commonText);}}
 var last_update=0;if(data.last_update!=undefined&&data.last_update!=null){last_update=data.last_update;}
 var page_authors=(keywords.length>34)?keywords[35]:"Editors of History Tracers";var page_reviewers=(keywords.length>36)?keywords[37]:"Reviewers of History Tracers";if(data.authors!=undefined&&data.authors!=null){page_authors=data.authors;}
 if(data.reviewers!=undefined&&data.reviewers!=null){page_reviewers=data.reviewers;}
@@ -207,7 +208,7 @@ if($("#documentsInfoCalendarVisibleOption").length>0){$("#documentsInfoCalendarV
 if(table.periodOfTime!=undefined&&table.periodOfTime!=null&&$("#periodOfTime").length>0){if(table.periodOfTime.length==2){var pOTText="<p><h3>"+keywords[76]+"</h3>"+keywords[77]+"</p>";$("#periodOfTime").html(pOTText);if($("#documentsPeriodOrigin").length>0){$("#documentsPeriodOrigin").html(table.periodOfTime[0]);}
 if($("#documentsPeriodTime").length>0){$("#documentsPeriodTime").html(table.periodOfTime[1]);}}}
 if(table.maps!=undefined&&table.maps!=null&&$("#maps").length>0){var textMap="<p><h3>"+keywords[79]+"</h3>"+keywords[80]+"</p>";for(const i in table.maps){var currMap=table.maps[i];if(currMap.text==undefined||currMap.img==undefined){continue;}
-textMap+="<p class=\"desc\"><img src=\""+currMap.img+"\" class=\"imgcenterlarge\"/>"+keywords[81]+" "+currMap.order+": "+currMap.text+" "+keywords[82]+" "+keywords[83]+"</p>";}
+textMap+="<p class=\"desc\"><img src=\""+currMap.img+"\" id=\"imgFamilyMap\" onclick=\"htImageZoom('imgFamilyMap', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+currMap.text+" "+keywords[82]+" "+keywords[83]+"</p>";}
 if($("#maps").length>0){$("#maps").html(textMap);}}
 if(table.prerequisites!=undefined&&table.prerequisites!=null&&$("#pre_requisites").length>0){var preRequisites="";for(const i in table.prerequisites){preRequisites+=(i==0)?"<p><ul><li>"+table.prerequisites[i]+"</li>":"<li>"+table.prerequisites[i]+"</li>";}
 preRequisites+="</ul></p>";$("#pre_requisites").html(preRequisites);}

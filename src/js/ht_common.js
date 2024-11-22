@@ -871,8 +871,18 @@ function htFillWebPage(page, data)
     }
 
     if (data.common != undefined && data.common != null && data.common.length > 0) {
+        var localLang = $("#site_language").val();
+        var localCalendar = $("#site_calendar").val();
         for (const i in data.common) {
-            $("#common").append(data.common[i]);
+            var commonObj = data.common[i];
+            var commonText = "";
+            if (commonObj.constructor === stringConstructor) { 
+                commonText = commonObj;
+            } else {
+                commonText = (commonObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
+            }
+
+            $("#common").append(commonText);
         }
     }
 
@@ -1390,7 +1400,7 @@ function htFillFamilies(page, table) {
                 continue;
             }
 
-            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" class=\"imgcenterlarge\"/>"+keywords[81]+" "+currMap.order+": "+currMap.text+" "+keywords[82]+" "+keywords[83]+"</p>";
+            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" id=\"imgFamilyMap\" onclick=\"htImageZoom('imgFamilyMap', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+currMap.text+" "+keywords[82]+" "+keywords[83]+"</p>";
         }
 
         if ($("#maps").length > 0) { $("#maps").html(textMap); }

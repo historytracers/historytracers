@@ -2,7 +2,18 @@
     "title" : "Name to be displayed on the title bar and at the top of the page.",
     "sources" : [ "Array of files where sources are defined." ],
     "scripts" : [ "Array of JavaScript files that will be loaded." ],
-    "common" : [ "Common history of the family's origin." ],
+    "common" : [ "Common history of the family's origin.",
+                 { "text" : "A detailed description of the person's life history and marital status.",
+                   "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.", "uuid":  "Unique identifier (UUID) for the current citation.", "text": "The accompanying text that will be displayed with the citation." } ],
+                                  "fill_dates" : [
+                                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                        {"type" : "unix", "epoch" : "0" },
+                                        {"type" : "julian",  "epoch" : "0" }
+                                  ],
+                                  "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
+                                  "format" : "markdown or html"
+                  }
+                ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "last_update" : [ "The time of the last file update, represented as Unix Epoch time." ],
     "authors" : "Names of the individuals who contributed to editing the text.",
@@ -24,6 +35,7 @@
                                                {"type" : "unix", "epoch" : "0" },
                                                {"type" : "julian",  "epoch" : "0" }
                                            ],
+                                            "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
                                            "format" : "markdown or html"
                           },
                           "<p>A detailed description of the person's life history and marital status.</p>" ],
@@ -57,9 +69,10 @@
                                                {"type" : "unix", "epoch" : "0" },
                                                {"type" : "julian",  "epoch" : "0" }
                                            ],
+                                            "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
                                            "format" : "markdown or html"
                                           },
-                                "<p>A detailed description of the person's life history and marital status.</p>" ]
+                                          "<p>A detailed description of the person's life history and marital status.</p>" ]
                         }
                     ],
                     "children" : [
@@ -77,9 +90,10 @@
                                                {"type" : "unix", "epoch" : "0" },
                                                {"type" : "julian",  "epoch" : "0" }
                                            ],
+                                           "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
                                            "format" : "markdown or html"
                                           },
-                                "<p>A detailed description of the person's life history and marital status.</p>" ]
+                                          "<p>A detailed description of the person's life history and marital status.</p>" ]
                         }
                     ]
                 }
