@@ -121,7 +121,7 @@ var w=vector[j++];var updateText=htMountSpecificDate(w,localLang,localCalendar);
 function htFillWebPage(page,data)
 {if(data.title!=undefined&&data.title!=null&&data.title.length>0){$(document).prop('title',data.title);}
 if(data.header!=undefined&&data.header!=null&&data.header.length>0){$("#header").html(data.header);}else if(data.nothing!=undefined&&data.nothing!=null&&data.nothing.length>0){$(document).prop('title',data.nothing);$("#header").html(data.nothing);return;}
-if(data.common!=undefined&&data.common!=null&&data.common.length>0){var localLang=$("#site_language").val();var localCalendar=$("#site_calendar").val();for(const i in data.common){var commonObj=data.common[i];var commonText="";if(commonObj.constructor===stringConstructor){commonText=commonObj;}else{commonText=(commonObj.text!=undefined)?htParagraphFromObject(localObj,localLang,localCalendar):localObj;}
+if(data.common!=undefined&&data.common!=null&&data.common.length>0){var localLang=$("#site_language").val();var localCalendar=$("#site_calendar").val();for(const i in data.common){var commonObj=data.common[i];var commonText="";if(commonObj.constructor===stringConstructor){commonText=commonObj;}else{commonText=(commonObj.text!=undefined)?htParagraphFromObject(commonObj,localLang,localCalendar):commonObj;}
 $("#common").append(commonText);}}
 var last_update=0;if(data.last_update!=undefined&&data.last_update!=null){last_update=data.last_update;}
 var page_authors=(keywords.length>34)?keywords[35]:"Editors of History Tracers";var page_reviewers=(keywords.length>36)?keywords[37]:"Reviewers of History Tracers";if(data.authors!=undefined&&data.authors!=null){page_authors=data.authors;}
