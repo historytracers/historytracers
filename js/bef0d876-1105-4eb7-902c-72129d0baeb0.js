@@ -9,6 +9,8 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVectorbef0d876);
     }
 
+    htAddTreeReflection("#myFirstReflection", 55);
+
     return false;
 }
 

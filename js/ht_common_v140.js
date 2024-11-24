@@ -121,8 +121,7 @@ var w=vector[j++];var updateText=htMountSpecificDate(w,localLang,localCalendar);
 function htFillWebPage(page,data)
 {if(data.title!=undefined&&data.title!=null&&data.title.length>0){$(document).prop('title',data.title);}
 if(data.header!=undefined&&data.header!=null&&data.header.length>0){$("#header").html(data.header);}else if(data.nothing!=undefined&&data.nothing!=null&&data.nothing.length>0){$(document).prop('title',data.nothing);$("#header").html(data.nothing);return;}
-if(data.common!=undefined&&data.common!=null&&data.common.length>0){var localLang=$("#site_language").val();var localCalendar=$("#site_calendar").val();for(const i in data.common){var commonObj=data.common[i];var commonText="";if(commonObj.constructor===stringConstructor){commonText=commonObj;}else{commonText=(commonObj.text!=undefined)?htParagraphFromObject(commonObj,localLang,localCalendar):commonObj;}
-$("#common").append(commonText);}}
+if(data.common!=undefined&&data.common!=null&&data.common.length>0){var localLang=$("#site_language").val();var localCalendar=$("#site_calendar").val();for(const i in data.common){var commonObj=data.common[i];var commonText=(commonObj.constructor===stringConstructor)?commonObj:htParagraphFromObject(commonObj,localLang,localCalendar);$("#common").append(commonText);}}
 var last_update=0;if(data.last_update!=undefined&&data.last_update!=null){last_update=data.last_update;}
 var page_authors=(keywords.length>34)?keywords[35]:"Editors of History Tracers";var page_reviewers=(keywords.length>36)?keywords[37]:"Reviewers of History Tracers";if(data.authors!=undefined&&data.authors!=null){page_authors=data.authors;}
 if(data.reviewers!=undefined&&data.reviewers!=null){page_reviewers=data.reviewers;}
@@ -200,7 +199,6 @@ function htFillPaperContent(table,last_update,page_authors,page_reviewers){var l
 var later=(i==0&&last_update>0&&table[i].id=="navigation")?"<hr class=\"limit\" />":"";if(table[i].text.constructor===stringConstructor){htAddPaperDivs("#paper",table[i].id,table[i].text,"",later,i);}else if(table[i].text.constructor===vectorConstructor){if(table[i].id=="exercise_v2"){htWriteQuestions(table[i].text,later,i);}else if(table[i].id=="game_v1"){htWriteGame(table[i].text,later,i);}else if(table[i].id!="fill_dates"){for(const j in table[i].text){var localObj=table[i].text[j];var text=(localObj.text!=undefined)?htParagraphFromObject(localObj,localLang,localCalendar):localObj;htAddPaperDivs("#paper",table[i].id+"_"+j,text,"",later,i);}}else{htFillHTDate(table[i].text);}}}
 if(table[0].id=="navigation"){htAddPaperDivs("#paper","repeat-index",table[0].text,"<hr class=\"limit\" />","",100000);}}
 function htFillFamilies(page,table){if(table.title!=undefined){$(document).prop('title',table.title);}
-if(table.common!=undefined){$("#tree-common-lbl").html("<h3>"+keywords[25]+"</h3>");$("#common").html("");for(const i in table.common){$("#common").append("<div id=\"hist-comm-"+i+"\">"+table.common[i]+"</div>");}}
 if(table.documentsInfo!=undefined&&table.documentsInfo!=null&&$("#overallInfo").length>0){var dIText="<p><h3>"+keywords[53]+"</h3>"+keywords[59]+"</p>";if(table.documentsInfo.length==4){dIText+=table.documentsInfo[3];}
 $("#overallInfo").html(dIText);if($("#documentsInfoLang").length>0){$("#documentsInfoLang").html(table.documentsInfo[0]);}
 if($("#documentsInfoCalendarName").length>0){$("#documentsInfoCalendarName").html(table.documentsInfo[1]);}

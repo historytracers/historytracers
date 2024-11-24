@@ -875,12 +875,7 @@ function htFillWebPage(page, data)
         var localCalendar = $("#site_calendar").val();
         for (const i in data.common) {
             var commonObj = data.common[i];
-            var commonText = "";
-            if (commonObj.constructor === stringConstructor) { 
-                commonText = commonObj;
-            } else {
-                commonText = (commonObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
-            }
+            var commonText = (commonObj.constructor === stringConstructor) ? commonObj : htParagraphFromObject(commonObj, localLang, localCalendar);
 
             $("#common").append(commonText);
         }
@@ -1359,14 +1354,6 @@ function htFillFamilies(page, table) {
         $(document).prop('title', table.title);
     }
 
-    if (table.common != undefined) {
-        $("#tree-common-lbl").html("<h3>"+keywords[25]+"</h3>");
-        $("#common").html("");
-        for (const i in table.common) {
-            $("#common").append("<div id=\"hist-comm-"+i+"\">"+table.common[i]+"</div>");
-        }
-    }
-
     if (table.documentsInfo != undefined && table.documentsInfo != null && $("#overallInfo").length > 0) {
         var dIText = "<p><h3>"+keywords[53]+"</h3>"+keywords[59]+"</p>";
         if (table.documentsInfo.length == 4) {
@@ -1654,7 +1641,6 @@ function htAppendData(prefix, id, familyID, name, table, page) {
 
                 var use_keyword;
                 var use_class;
-                //var type = couple.type;
                 if (couple.type == "theory") {
                     use_keyword = keywords[0];
                     use_class = "tree-real-family-text";
