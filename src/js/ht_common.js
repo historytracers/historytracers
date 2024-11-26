@@ -1318,6 +1318,9 @@ function htFillHistorySourcesSelectFunction(id)
 function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
+
+    $("#paper").html("<i>"+keywords[87]+"</i>");
+
     for (const i in table) {
         if (i == 1) {
             htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
@@ -1576,7 +1579,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
         var title;
         var localHeader;
         var goToTop;
-        if (parents == undefined || marriages == undefined) {
+        if ((parents == undefined || marriages == undefined) && (prefix != "tree")) {
             title = keywords[8];
             localHeader = "3";
             goToTop ="<a href=\"javascript:void(0);\" onclick=\"htScroolToID('#index_list');\">"+keywords[78]+"</a>";
@@ -1626,7 +1629,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     name = personNameMap.get(mother);
                     if (name != undefined) {
                         if (couple.mother_family != undefined) {
-                            if (couple.mother_family == familyID) {
+                            if (couple.mother_family == familyID || (couple.mother_external_family_file != undefined && couple.mother_external_family_file == false)) {
                                 parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+mother+"'); htFillTree('"+mother+"'); htSetCurrentLinkBasis('"+page+"', '"+mother+"',"+undefined+");\">" +name+"</a>";
                             } else {
                                 parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+name+"</a>";
@@ -1665,18 +1668,23 @@ function htAppendData(prefix, id, familyID, name, table, page) {
 
             var marriage_class;
             var type = marriage.type; 
+            var official = marriage.official; 
             var marriage_keyword;
-            if (type == "theory") {
-                marriage_class = "tree-real-family-text";
-                marriage_keyword = keywords[17];
-            } else {
-                marriage_class = "tree-hipothetical-family-text";
-                marriage_keyword = keywords[18];
-            }
 
             if (marriage.id == undefined) {
-                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+keywords[17]+"</b>: "+keywords[19]+"</p></div>");
+                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[17]+"</b>: "+keywords[19]+"</p></div>");
             } else {
+                if (type == "theory") {
+                    marriage_class = "tree-real-family-text";
+                    marriage_keyword = keywords[17];
+                } else {
+                    marriage_class = "tree-hipothetical-family-text";
+                    marriage_keyword = keywords[18];
+                }
+
+                if (official != undefined && official == false) {
+                    marriage_keyword = keywords[86];
+                }
                 var marriageLink = "";
                 if (marriage.family_id == undefined) {
                     marriageLink = marriage.name;

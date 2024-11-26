@@ -4,15 +4,17 @@
     "scripts" : [ "Array of JavaScript files that will be loaded." ],
     "common" : [ "Common history of the family's origin.",
                  { "text" : "A detailed description of the person's life history and marital status.",
-                   "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                   "source" : [ 
+                                 { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
                                   "uuid":  "Unique identifier (UUID) for the current citation.",
                                   "text": "The accompanying text that will be displayed with the citation.",
-                                  "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} ],
+                                  "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                   ],
                                   "fill_dates" : [
                                         {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                         {"type" : "unix", "epoch" : "0" },
                                         {"type" : "julian",  "epoch" : "0" }
-                                  ],
+                                   ],
                     "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
                     "format" : "markdown or html"
                   }
@@ -32,10 +34,12 @@
             "id" : "Unique identifier for the family.",
             "name": "Name displayed at the top of the page.",
             "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
-                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
-                                           "uuid":  "Unique identifier (UUID) for the current citation.",
-                                           "text": "The accompanying text that will be displayed with the citation.",
-                                           "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} ],
+                            "source" : [
+                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                  "uuid": "Unique identifier (UUID) for the current citation.",
+                                  "text": "The accompanying text that will be displayed with the citation.",
+                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                            ],
                             "fill_dates" : [
                                 {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                 {"type" : "unix", "epoch" : "0" },
@@ -51,10 +55,12 @@
                     "id" : "Unique identifier for the person.",
                     "name": "Name of the person.",
                     "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
-                                    "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
-                                                    "uuid":  "Unique identifier (UUID) for the current citation.",
-                                                    "text": "The accompanying text that will be displayed with the citation.",
-                                                    "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} ],
+                                    "source" : [
+                                        { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                          "uuid": "Unique identifier (UUID) for the current citation.",
+                                          "text": "The accompanying text that will be displayed with the citation.",
+                                          "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                    ],
                                      "fill_dates" : [
                                         {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                         {"type" : "unix", "epoch" : "0" },
@@ -68,9 +74,11 @@
                     "parents" :  [
                         {
                             "type" : "theory or hypothesis",
+                            "father_external_family_file" : "Boolean used to identify the file in which the family is listed.",
                             "father_family" : "Unique identifier for the father's family. It should match the family ID used here.",
                             "father_id" : "Unique identifier for the father.",
                             "father_name" : "Name of the father.",
+                            "mother_external_family_file" : "Boolean used to identify the file in which the family is listed.",
                             "mother_family" : "Unique identifier for the mother's family.",
                             "mother_id" : "Unique identifier for the mother.",
                             "mother_name" : "Name of the mother."
@@ -80,14 +88,17 @@
                         {
                             "type" : "theory or hypothesis",
                             "id": "Unique identifier for the person.",
+                            "official" : "A Boolean value indicating whether this was an official marriage (true) or not (false).",
                             "family_id": "Unique identifier for the family.",
                             "external_family_file" : "Boolean used to identify the file in which the family is listed.",
                             "name" : "Name of the spouse.",
                             "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
-                                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
-                                                           "uuid":  "Unique identifier (UUID) for the current citation.",
-                                                           "text": "The accompanying text that will be displayed with the citation.",
-                                                           "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} ],
+                                            "source" : [
+                                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                                  "uuid": "Unique identifier (UUID) for the current citation.",
+                                                  "text": "The accompanying text that will be displayed with the citation.",
+                                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                            ],
                                            "fill_dates" : [
                                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                                {"type" : "unix", "epoch" : "0" },
@@ -109,10 +120,12 @@
                             "family_id": "Unique identifier for the child's family, used if the child establishes a new family.",
                             "external_family_file" : "Boolean used to identify the file in which the family is listed.",
                             "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
-                                            "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
-                                                           "uuid":  "Unique identifier (UUID) for the current citation.",
-                                                           "text": "The accompanying text that will be displayed with the citation.",
-                                                           "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}  ],
+                                            "source" : [
+                                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                                  "uuid": "Unique identifier (UUID) for the current citation.",
+                                                  "text": "The accompanying text that will be displayed with the citation.",
+                                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                                            ],
                                            "fill_dates" : [
                                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                                {"type" : "unix", "epoch" : "0" },
