@@ -547,7 +547,7 @@ function htFormatText(text, format, table) {
     }
 
     var converter = new showdown.Converter();
-    if (table != undefined && table == 1) {
+    if (table != undefined && table == true || table == 1) {
         converter.setOption('tables', true);
     }
     var html      = converter.makeHtml(text);
@@ -610,7 +610,7 @@ function htFillAtlas(data) {
             text += localtext;
         }
         var author = (localAtlas[i].author != undefined) ? localAtlas[i].author : null ;
-        var isTable = (localAtlas[i].isTable != undefined) ? localAtlas[i].isTable : 0 ;
+        var isTable = (localAtlas[i].isTable != undefined) ? localAtlas[i].isTable : false ;
         var format = (localAtlas[i].format != undefined) ? localAtlas[i].format : "html" ;
         htAtlas.push({"name": localAtlas[i].name, "image" : localAtlas[i].image, "author": author, "text" : text, "format": format, "isTable": isTable});
 

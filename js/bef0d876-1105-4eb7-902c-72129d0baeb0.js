@@ -10,6 +10,10 @@ function htLoadExercise() {
     }
 
     htAddTreeReflection("#myFirstReflection", 55);
+    $("#bndPortugal").html(keywords[88]);
+    $("#ANTTPortugal1").html(keywords[89]);
+    $("#ANTTPortugal2").html(keywords[89]);
+    $("#ANTTPortugal3").html(keywords[89]);
 
     return false;
 }
