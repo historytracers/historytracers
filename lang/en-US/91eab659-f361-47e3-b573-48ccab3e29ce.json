@@ -1,9 +1,11 @@
 {
-    "title" : "Defamation like Jewish people",
-    "header" : "Defamation",
-    "sources" : null,
-    "common" : [ "On this page we list families that were classified as Jewish to create persecution, or mistakes during researchs. ", "All families that had defamation as Jewish in São Paulo by Camargo's family during civil war (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e70decfc-aa42-4c00-9e28-e41f5d1cff58'); return false;\">Taunay, Affonso d'E., 1953, 36-68</a>) are identified with \"(Pires X Camargo)\".", " The word <b>defamation</b> has a relationship with Inquisition times, and it should not be treated in the same way nowadays." ],
+    "title" : "People Defamed as Jews",
+    "header" : "People Defamed as Jews",
+    "sources" : [ "17th_century" ],
+    "common" : [ "<p>On this page, we list families that were labeled as Jewish, either to incite persecution or due to errors in research. All families that were defamed as Jewish in São Paulo by the Camargo family during the civil war are identified with \"(Pires x Camargo)\" (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e70decfc-aa42-4c00-9e28-e41f5d1cff58'); return false;\">Taunay, Affonso d'E., <span class=\"htdate\"></span>, 36-68</a>).</p>",
+        "<p>The term \"defamation\" is closely linked to the Inquisition era, and it should not be used in the same context today.</p>" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1732831778" ],
     "content" : [
         {
             "id" : "families",
@@ -11,47 +13,17 @@
             "value_type" : "subgroup",
             "value" : [
                 {
-                    "family_id" : "f02d04cc-5389-4964-8142-f8b8ac0c3f66",
-                    "person_id" : "ce06647c-fce4-46a4-acc4-b0a421b76bc8",
-                    "name" : "The Bettinck/Betting/Betim: (Pires X Camargo)",
-                    "desc" : "described here are descendants of Gerhart Bettinck. It was not found defamation directly connected to him, but he had a marriage with a Fernandes woman, and his family received defamation in consequence."
-                },
-                {
-                    "family_id" : "c84262d5-20e4-41af-b7be-ea73911fb3e6",
-                    "person_id" : "a559e6f5-66c0-43f4-b879-7f155af8605b",
-                    "name" : "The Dias (Pires X Camargo)",
-                    "desc" : "of Lopo Dias did not have any defamation as Jewish, but a partial primary source was used to do him a Jewish in the 19th century."
-                },
-                {
-                    "family_id" : "630ec64f-bab4-4d40-b1c8-658ddb6b47fd",
-                    "person_id" : "b5e13ef1-863b-4312-8fae-6ad72a61ce99",
-                    "name" : "The Fernandes: (Pires X Camargo)",
-                    "desc" : "that we work here are descendants of Manuel Fernandes Ramos, that had the family declared Jewish by Francisco Camargo, \"o tigre\", but this was removed years later. He was again declared a Jewish person in the 19th century, when a partial primary source of a descendant was used to reach this goal."
-                },
-                {
-                    "family_id" : "aecace20-d583-4f39-99ea-ba1d610cad61",
-                    "person_id" : "f0f2c7cb-390c-43f0-929b-9f6e3ee1a1d1",
-                    "name" : "The Leme:",
-                    "desc" : "\"became\" Jewish when a false lineage was used to connect them to supposed Jewish people."
-                },
-                {
-                    "family_id" : "aecace20-d583-4f39-99ea-ba1d610cad61",
+                    "family_id" : "bef0d876-1105-4eb7-902c-72129d0baeb0",
                     "person_id" : "85507c9e-ace0-40f2-babc-7bc79cf7d6f1",
-                    "name" : "The Leme: (Pires X Camargo)",
-                    "desc" : "\"became\" Jewish during a civil war, because Fernão Dias Paes had a marriage with a Betim."
-                },
-                {
-                    "family_id" : "3365076d-85e3-4532-9c99-beb1b2482f15",
-                    "person_id" : "5e24e958-f729-492d-8021-10f8ce8de4ff",
-                    "name" : "The Rodrigues (Pires x Camargo)",
-                    "desc" : "\"became\" a Jewish family of Gonçalo Rodrigues Velho, Custódia Dias's husband, for his actions during the Paulista civil war, after these events, research using a partial documentation of a descendant tried to do him a Jewish person again."
-                },
-                {
-                    "family_id" : "7154c223-f330-40ce-ac2c-c7093351554d",
-                    "person_id" : "d33b97c7-0de2-4f3a-8687-3e6430bfae1f",
-                    "name" : "The Tavares - São Paulo",
-                    "desc" : "\"became\" a Jewish family when Fernão Vieira Tavares' sister-in-law had a marriage with \"Fulano Zurarte\", that had fame to be Jewish."
+                    "name" : "The Leme (Pires X Camargo):",
+                    "desc" : "This family was \"labeled\" as Jewish during the civil war due to Fernão Dias Paes marrying a Betim."
                 }
+            ]
+        },
+        {
+            "id": "fill_dates",
+            "text": [
+                {"type" : "gregory", "year" : "1953", "month" : "-1", "day" : "-1" }
             ]
         }
     ]

@@ -1,9 +1,11 @@
 {
     "title" : "Difamados de judíos",
-    "header" : "Famílias que tuvieron 'conversión' al judaísmo.",
+    "header" : "Difamados de judíos",
     "sources" : [ "17th_century" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "common" : [ "En esta página tenemos familias que fueron llamadas judías o por sus enemigos para crear una persecución contra ellos, o por errores de investigación.", " Todas las familias que tuvieron 'conversión' al judaísmo en San Paolo por la familia Camargo durante la guerra civil (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e70decfc-aa42-4c00-9e28-e41f5d1cff58'); return false;\">Taunay, Affonso d'E., 1953, 36-68</a>) poseen la identificación \"(Pires x Camargo)\".", " La palabra <b>difamación</b> tiene conexión con tempos de la Inquisición, no debiendo ser tratada de la misma forma en el día de hoy." ],
+    "common" : [ "<p>En esta página se presentan familias que fueron etiquetadas como judías, ya sea por sus enemigos para fomentar una persecución en su contra, o por errores de investigación. Todas las familias que fueron \"convertidas\" al judaísmo en São Paulo por la familia Camargo durante la guerra civil están identificadas como \"(Pires x Camargo)\" (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e70decfc-aa42-4c00-9e28-e41f5d1cff58'); return false;\">Taunay, Affonso d'E., <span class=\"htdate\"></span>, 36-68</a>).</p>",
+        "<p>El término \"difamación\" está relacionado con los tiempos de la Inquisición y no debe ser tratado de la misma manera en la actualidad.</p>" ],
+    "last_update" : [ "1732831778" ],
     "content" : [
         {
             "id" : "families",
@@ -11,47 +13,17 @@
             "value_type" : "subgroup",
             "value" : [
                 {
-                    "family_id" : "f02d04cc-5389-4964-8142-f8b8ac0c3f66",
-                    "person_id" : "ce06647c-fce4-46a4-acc4-b0a421b76bc8",
-                    "name" : "Los Bettinck/Betting/Betim (Pires X Camargo)",
-                    "desc" : "que tenemos acá son descendientes de Gerhart Bettinck. No fueron encontradas difamaciones contra su persona, pero como tuvo matrimonio con una Fernandes, sus descendentes también fue difamada."
-                },
-                {
-                    "family_id" : "c84262d5-20e4-41af-b7be-ea73911fb3e6",
-                    "person_id" : "a559e6f5-66c0-43f4-b879-7f155af8605b",
-                    "name" : "Los Días (Pires x Camargo)",
-                    "desc" : "descendientes de Lopo Días, no fue directamente difamados, pero una fuente primaria parcial de un descendiente fue usada para hacerlo judío en el siglo XIX."
-                },
-                {
-                    "family_id" : "630ec64f-bab4-4d40-b1c8-658ddb6b47fd",
-                    "person_id" : "b5e13ef1-863b-4312-8fae-6ad72a61ce99",
-                    "name" : "Los Fernandes: (Pires X Camargo)",
-                    "desc" : "que se trabaja acá, son descendientes de Manuel Fernandes Ramos, que tuve la familia 'convertida' al judaísmo por Francisco Camargo, el tigre, pero esta posición fue cambiada años después por el difamador, Francisco de Camargo. En el siglo XIX volvió a ser convertido por una documentación parcial de su descendiente."
-                },
-                {
-                    "family_id" : "aecace20-d583-4f39-99ea-ba1d610cad61",
-                    "person_id" : "f0f2c7cb-390c-43f0-929b-9f6e3ee1a1d1",
-                    "name" : "Los Leme:",
-                    "desc" : "fueron convertidos a judíos cuando un falso linaje hizo un investigador suponer una falsa conexión con [supuestos] judíos."
-                },
-                {
-                    "family_id" : "aecace20-d583-4f39-99ea-ba1d610cad61",
+                    "family_id" : "bef0d876-1105-4eb7-902c-72129d0baeb0",
                     "person_id" : "85507c9e-ace0-40f2-babc-7bc79cf7d6f1",
-                    "name" : "Los Leme: (Pires X Camargo)",
-                    "desc" : "fueron convertidos a judíos en la guerra civil por Fernão Dias Paes tener un matrimonio con una Betim."
-                },
-                {
-                    "family_id" : "3365076d-85e3-4532-9c99-beb1b2482f15",
-                    "person_id" : "5e24e958-f729-492d-8021-10f8ce8de4ff",
-                    "name" : "Los Rodrigues (Pires x Camargo)",
-                    "desc" : "fueron \"convertidos\" por actitudes de Gonçalo Rodrigues Velho, esposo de Custódia Dias, en la guerra civil paulista, después de las guerras, una investigación usando una fuente primaria parcial de un descendiente lo convirtió nuevamente."
-                },
-                {
-                    "family_id" : "7154c223-f330-40ce-ac2c-c7093351554d",
-                    "person_id" : "d33b97c7-0de2-4f3a-8687-3e6430bfae1f",
-                    "name" : "Los Tavares - São Paulo",
-                    "desc" : "fueron \"convertidos\" por la cuñada de Fernão Vieira Tavares tener un matrimonio con \"Fulano Zurarte\", que fue afamado de judío."
+                    "name" : "Los Leme (Pires X Camargo):",
+                    "desc" : "Fueron etiquetados como judíos durante la guerra civil, debido a que Fernão Dias Paes se casó con una Betim."
                 }
+            ]
+        },
+        {
+            "id": "fill_dates",
+            "text": [
+                {"type" : "gregory", "year" : "1953", "month" : "-1", "day" : "-1" }
             ]
         }
     ]
