@@ -229,21 +229,29 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
 
 function htConvertGregorianYearToJD(gregoryYear)
 {
-    var year = parseInt(gregoryYear);
     var ct = new Date();
-    ct.setYear(year);
+    if (gregoryYear != "now") {
+        var year = parseInt(gregoryYear);
+        ct.setYear(year);
+    }
     // gregorian to jd will subtract an year before to convert
     return gregorian_to_jd(gregoryYear, ct.getMonth(), ct.getDate());
 }
 
 function htConvertGregorianYear(test, gregoryYear)
 {
-    var year = parseInt(gregoryYear);
+    var year = 0;
+    if (gregoryYear != "now") {
+        year = parseInt(gregoryYear);
+    } else {
+        var ct = new Date();
+        year = ct.getFullYear();
+    }
     var jd = htConvertGregorianYearToJD(year);
     var text = "";
     if (test == "gregory")  {
         if (year >= 0) {
-            text += gregoryYear;
+            text += year;
         } else {
             text += Math.abs(year)+" "+keywords[43];
         }
@@ -303,7 +311,14 @@ function htConvertGregorianYear(test, gregoryYear)
 
 function htConvertGregorianDate(test, locale, year, month, day)
 {
-    var dateArr = new Array(year, month, day);
+    var useYear = "";
+    if (year != "now") {
+        useYear = parseInt(year);
+    } else {
+        var ct = new Date();
+        useYear = ct.getFullYear();
+    }
+    var dateArr = new Array(useYear, month, day);
     return htConvertDate(test, locale, undefined, undefined, dateArr);
 }
 
