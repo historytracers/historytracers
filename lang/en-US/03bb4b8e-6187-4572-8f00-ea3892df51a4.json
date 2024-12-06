@@ -1,0 +1,224 @@
+{
+    "title" : "Bigger or Smaller",
+    "header" : "Bigger or Smaller",
+    "sources" : [ "03bb4b8e-6187-4572-8f00-ea3892df51a4" ],
+    "scripts" : [ "03bb4b8e-6187-4572-8f00-ea3892df51a4" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1733338127" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=9b824032-42e6-4d2b-89f4-26cc94762d25\" onclick=\"htLoadPage('class_content', 'html', '9b824032-42e6-4d2b-89f4-26cc94762d25', false); return false;\">Are we trully equal?</a> </td> <td><a href=\"index.html?page=first_steps\" onclick=\"htLoadPage('first_steps','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p class=\"topdesc\"><i>In addition to using the name America, we will also refer to the continent as <i>Abya Yala</i>, a term used by the indigenous peoples of the continent (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i></p>",
+                        { "text" : "### Prerequisites\n\nBefore continuing with this text, we recommend reviewing the previous material on equality and limits",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "82544083-aaad-4760-963b-f433bd3e8729",
+                                                "text": "History Tracers Team, Equality",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                                                "text": "History Tracers Team, Limits",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }} ],
+                                  "fill_dates" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown"
+                               }]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ { "text" : "### Introduction\n\nIn the previous texts, we introduced the concept of equality. Logically, when something is not equal, it is automatically considered different. However, merely stating that something is different does not provide details about the extent of those differences. Therefore, it becomes necessary to quantify the differences between objects.",
+                                 "source" : null,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               } ]
+                },
+                {
+                    "id" : "numbers",
+                    "text" : [ "<h3>Numerical Relationship</h3><p class=\"desc\"><img id=\"imgMeter\" src=\"images/HistoryTracers/Meter.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" />Figure 1: Representation of a centesimal scale.</p>",
+                               { "text" : "Observing Figure 1, we can note that the numbers studied previously are arranged in sequence. When a number is positioned after another, we say it is a **greater** number. Mathematically, we use the symbol (>) to express this relationship. For example: *21 > 20*",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                                                "text": "Weisstein, Eric W."} ],
+                                 "isTable" : false,
+                                 "fill_dates": null,
+                                 "format" : "markdown"
+                               },
+                               { "text" : "Similarly, when a number appears before another, we say it is **smaller**. To represent this, we use the symbol (<). For example: *20 < 21*",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                                                "text": "Weisstein, Eric W."} ],
+                                 "isTable" : false,
+                                 "fill_dates": null,
+                                 "format" : "markdown"
+                               },
+                               { "text" : "It is important to highlight that the opening of the comparison symbol, whether greater (>) or less (<), always points towards the larger number.\n\nAnother important point is that when working with significantly larger numbers, we use the symbol (&#8811;). Similarly, for significantly smaller numbers, we use the symbol (&#8810;)",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                                                "text": "Weisstein, Eric W."},
+                                              { "type": 1,
+                                                "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                                                "text": "Weisstein, Eric W."} ],
+                                 "isTable" : false,
+                                 "fill_dates": null,
+                                 "format" : "markdown"
+                               },
+                               {
+                                    "id" : "practice",
+                                    "text" : [ "<p><h4>Practice</h4>When we establish a mathematical inequality, it’s essential to remember that once defined, it must remain consistent. In other words, if we change one side of the equation, we must make a corresponding change to the other side to maintain balance. Let's do a simple exercise with numbers and our hands, using arrows to illustrate:</p>", "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equação</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" src=\"images/1Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table>", "<p class=\"desc\">Tabela 1: Mantendo a desigualdade.</p>" ]
+                              }
+                    ]
+                },
+                {
+                    "id" : "building",
+                    "text" : [ { "text" : "### The Smaller as a Basis\n\nNature began by building small structures, known as elementary particles, such as electrons. Over time, these particles grouped together to form atoms, which in turn united to create molecules. Gradually, molecules combined, giving rise to larger structures, including ourselves",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "6dfe4b3b-8338-46ab-8149-2e073414907e",
+                                                "text": "<i>NASA</i>"},
+                                              { "type": 1,
+                                                "uuid": "27ff155c-c38d-4619-a435-4d95fd55071d",
+                                                "text": "Pirula",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "822840ab-a8dd-4f6a-b53e-ca5ab8d159ca",
+                                                "text": "Pirula",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               "<p><table><tr><th>Quantum atom</th><th>DNA molecule</th><th>Living Beings</th></tr><tr><td><img id=\"imgQA\" onclick=\"htImageZoom('imgQA', '0%')\" src=\"images/Atom_Quantum.png\" /></td><td><img id=\"imgDNA\" onclick=\"htImageZoom('imgDNA', '0%')\" src=\"images/DNA.png\" /></td><td><img id=\"img2Cat\" onclick=\"htImageZoom('img2Cat', '0%')\" src=\"images/HistoryTracers/CatsCirusUrraca.jpg\" style=\"width:70%;\"></td></tr><tr><td colspan=\"3\" style=\"text-align: center; font-size: 70%;\">Figure 2: Simplified representation of a hydrogen atom on the left, a DNA molecule in the center, and living beings on the right.</td></tr></table></p>",
+                               { "text" : "#### Superposition\n\nJust like nature, humans also build structures by combining smaller parts. An example of this is **Temple 16 of Copán**, in Honduras, which underwent various construction phases over a span of approximately 400 years. As shown in Figure 3, the first phase involved the construction of a small structure. Over time, additional layers were added, eventually resulting in the larger structure we see today",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "daae87a2-5fa9-43d1-88fb-6713b25d50d5",
+                                                "text": "Tuarez Mejia, L. F., pp. 120-128",
+                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }} ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\" src=\"images/HistoryTracers/Temple16Copan.png\" class=\"imgcenter\"/>Figure 3: Poster at the archaeological site of Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span class=\"htdate\"></span></a>). Photo taken on <span class=\"htdate\"></span>, during a visit to the site.</p>"
+                    ]
+                },
+                {
+                    "id" : "example",
+                    "text" : [ { "text" : "### Beginning Small\n\nWhen observing giant structures, such as the pyramids found in the Americas (<i>Abya Yala</i>), it becomes evident that the mountains near these archaeological sites served as inspiration for their design. These structures feature wide bases that gradually narrow as they ascend to the top, as illustrated in **Figure 4**.\n\nIn addition to this natural inspiration, recent discoveries have revealed the use of small maquettes as models to guide the construction of the sacred city of Caral in Peru",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "720f6dfd-4b86-4e07-a887-1010e1041a4d",
+                                                "text": "Ruta Caral",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "03c3743c-d268-4730-ba8e-d36b5c49e781",
+                                                "text": "Caral Perú Oficial",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "3b18a263-71e9-4c61-a7fe-c23cbce65624",
+                                                "text": "Zona Caral",
+                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "9", "day" : "28" }},
+                                              { "type": 1,
+                                                "uuid": "b9af756b-558a-4292-b71b-d9b3cc47d570",
+                                                "text": "de la Morena, Raquel",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                                "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figure 4: Pyramid H1 in the archaeological site of Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span class=\"htdate\"></span></a>). Photo taken on <span class=\"htdate\"></span> during a visit to the site.</p>" ]
+                },
+                {
+                    "id" : "limits",
+                    "text" : [ { "text" : "### Limits\n\nThe concepts of \"greater\" and \"less\" are essential for defining limits. In our previous discussion, we examined how limits relate to maximum and minimum values. Additionally, we explored how limits can also be interpreted as an approximation of a specific value. In this text, we delve further into how \"greater\" and \"less\" can be applied to define limits",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                                                "text": "History Tracers Team, Limits",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }} ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p>",
+                                "<p class=\"desc\">Figure 5: Círcle with radius 75.</p>",
+                               { "text" : "#### Upper Limit\n\nAn upper limit represents the largest possible value within a given context. For example, in **Figure 5**,  we observe a circle with a radius (the distance from the center to the circumference) of 75. Since the circle is a closed geometric shape, the maximum allowable value for the radius can be mathematically expressed as *r < 75*",
+                                 "source" :[ { "type": 1,
+                                               "uuid": "e58ad730-899f-49b6-aaf8-53cb39c31f0e",
+                                               "text": "Weisstein, Eric W."} ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               { "text" : "#### Lower Limit\n\nSimilarly, a lower limit corresponds to the smallest permissible value. Returning to **Figure 5**, consider the radius measured from the circumference toward the center. For the radius to exist, it must have a value greater than zero. Thus, the smallest allowable value for the radius can be expressed mathematically as *r > 0*",
+                                 "source" :[ { "type": 1,
+                                               "uuid": "61b6b478-d49a-40ec-a68d-52767ebbb6cc",
+                                               "text": "Weisstein, Eric W."} ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               { "text" : "#### Biological Limits\n\nLimits also play a crucial role in biology. For example, Alan R. Templeton’s research established clear criteria for identifying genetic boundaries within populations. To avoid classifying populations as distinct races, genetic differences (*d*) must fall between a minimum value of 0 and a maximum of 25, expressed mathematically as *0 < d <25*.",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                                                "text": "Templeton A. R., pp. 7 - 8",
+                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
+                                                { "type": 1,
+                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                                                "text": "Templeton A. R.",
+                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               { "text" : "Templeton also highlighted that genetic variation among humans is less than *5*, a value well within the proposed range (*0 < 5 < 25*)",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                                                "text": "Templeton A. R., pp. 7 - 8",
+                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
+                                                { "type": 1,
+                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                                                "text": "Templeton A. R.",
+                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               }
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusion\n\nIn this text, we analyzed how the concepts of \"greater\" and \"less\" can be used to establish inequalities. Furthermore, we demonstrated that these concepts have broader applications, allowing for a deeper understanding of the limits discussed in the previous chapter",
+                                 "source" : [ 
+                                              { "type": 1,
+                                                "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               } ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2017", "month" : "6", "day" : "13" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,225 @@
+{
+    "title" : "Maior ou menor",
+    "header" : "Maior ou menor",
+    "sources" : [ "03bb4b8e-6187-4572-8f00-ea3892df51a4" ],
+    "scripts" : [ "03bb4b8e-6187-4572-8f00-ea3892df51a4" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1733338127" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=9b824032-42e6-4d2b-89f4-26cc94762d25\" onclick=\"htLoadPage('class_content', 'html', '9b824032-42e6-4d2b-89f4-26cc94762d25', false); return false;\">Somos todos iguais?</a> </td> <td><a href=\"index.html?page=first_steps\" onclick=\"htLoadPage('first_steps','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p class=\"topdesc\"><i>Além de utilizar o nome América, também faremos referência ao continente como <i>Abya Yala</i>, nome pelo qual é reconhecido pelos povos originários do continente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i></p>",
+                               { "text" : "### Pré-requisito\n\nAntes de prosseguir com a leitura deste texto, recomendamos que você estude os materiais anteriores sobre igualdades e limites",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "82544083-aaad-4760-963b-f433bd3e8729",
+                                                "text": "History Tracers Team, Igualdades",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                                                "text": "History Tracers Team, Limites",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                  "fill_dates" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown"
+                               }]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ { "text" : "### Introdução\n\nNos textos anteriores, apresentamos as ideias relacionadas à igualdade. Pela lógica, quando algo não é igual, automaticamente torna-se diferente. No entanto, simplesmente afirmar que algo é diferente não fornece detalhes sobre o grau dessa diferença. Diante desse contexto, surge a necessidade de quantificar as diferenças entre os objetos.",
+                                 "source" : null,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               } ]
+                },
+                {
+                    "id" : "numbers",
+                    "text" : [ "<h3>Relação numérica</h3><p class=\"desc\"><img id=\"imgMeter\" src=\"images/HistoryTracers/Meter.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" />Figura 1: Representação de escala centesimal.</p>",
+                               { "text" : "Ao observarmos a Figura 1, podemos perceber que os números estudados previamente estão dispostos em sequência. Quando um número está posicionado depois de outro, ele é chamado de **maior**. Matematicamente, utilizamos o símbolo (>) para expressar essa relação. Por exemplo, *21 > 20*",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                                                "text": "Weisstein, Eric W."} ],
+                                 "isTable" : false,
+                                 "fill_dates": null,
+                                 "format" : "markdown"
+                               },
+                               { "text" : "Da mesma forma, quando um número aparece antes de outro, dizemos que ele é menor. Para isso, usamos o símbolo (<). Assim, podemos escrever *20 < 21*",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                                                "text": "Weisstein, Eric W."} ],
+                                 "isTable" : false,
+                                 "fill_dates": null,
+                                 "format" : "markdown"
+                               },
+                               { "text" : "É importante notar que a abertura do símbolo de comparação, seja ele o de maior (>) ou o de menor (<), sempre aponta na direção do número maior.\n\nOutro ponto importante a ser destacado é que, ao lidarmos com números significativamente maiores, utilizamos o símbolo (&#8811;). Da mesma forma, para números significativamente menores, empregamos o símbolo (&#8810;)",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "c47a586f-6053-4b8e-8f9b-828cd6220110",
+                                                "text": "Weisstein, Eric W."},
+                                              { "type": 1,
+                                                "uuid": "4e3c3945-0bf4-4040-9735-546541b27a50",
+                                                "text": "Weisstein, Eric W."} ],
+                                 "isTable" : false,
+                                 "fill_dates": null,
+                                 "format" : "markdown"
+                               },
+                               {
+                                    "id" : "practice",
+                                    "text" : [ "<p><h4>Prática</h4>Ao definir uma relação matemática, é importante lembrar que, uma vez estabelecida, ela deve ser mantida. Isso significa que, se alterarmos um dos lados da equação, o outro também deverá ser alterado da mesma maneira. Vamos fazer um exercício com números e nossas mãos, usando setas para exemplificar:</p>", "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equação</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">&lt;</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">1</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" src=\"images/1Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table>", "<p class=\"desc\">Tabela 1: Mantendo a desigualdade.</p>" ]
+                              }
+                    ]
+                },
+                {
+                    "id" : "building",
+                    "text" : [ { "text" : "### O Menor como Base\n\nA natureza construiu primeiramente estruturas pequenas, como partículas elementares, por exemplo, os elétrons. Em seguida, essas partículas se agruparam para formar os átomos, que posteriormente deram origem às moléculas. Gradualmente, as moléculas se combinaram, formando estruturas maiores, inclusive nós mesmos",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "6dfe4b3b-8338-46ab-8149-2e073414907e",
+                                                "text": "<i>NASA</i>"},
+                                              { "type": 1,
+                                                "uuid": "27ff155c-c38d-4619-a435-4d95fd55071d",
+                                                "text": "Pirula",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "822840ab-a8dd-4f6a-b53e-ca5ab8d159ca",
+                                                "text": "Pirula",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               "<p><table><tr><th>Átomo quântico</th><th>Molécula de DNA</th><th>Seres Vivos</th></tr><tr><td><img id=\"imgQA\" onclick=\"htImageZoom('imgQA', '0%')\" src=\"images/Atom_Quantum.png\" /></td><td><img id=\"imgDNA\" onclick=\"htImageZoom('imgDNA', '0%')\" src=\"images/DNA.png\" /></td><td><img id=\"img2Cat\" onclick=\"htImageZoom('img2Cat', '0%')\" src=\"images/HistoryTracers/CatsCirusUrraca.jpg\" style=\"width:70%;\"></td></tr><tr><td colspan=\"3\" style=\"text-align: center; font-size: 70%;\">Figura 2: Representação simplificada de um átomo de hidrogênio à esquerda, uma molécula de DNA ao centro, e seres vivos à direita.</td></tr></table></p>",
+                               { "text" : "#### Sobreposição\n\nAssim como na natureza, os humanos também constroem estruturas a partir da junção de partes menores. Um exemplo disso é o **Templo 16 de Copán**, em Honduras, que passou por diferentes etapas construtivas ao longo de aproximadamente 400 anos. Como demonstrado na Figura 3, na primeira etapa foi construída uma estrutura menor, e, à medida que novas camadas foram adicionadas sobre as anteriores, a construção alcançou dimensões maiores",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "daae87a2-5fa9-43d1-88fb-6713b25d50d5",
+                                                "text": "Tuarez Mejia, L. F., pp. 120-128",
+                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }} ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\" src=\"images/HistoryTracers/Temple16Copan.png\" class=\"imgcenter\"/>Figura 3: Cartaz no sítio arqueológico de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span class=\"htdate\"></span></a>). Foto tirada em <span class=\"htdate\"></span> em uma visita ao sitio.</p>"
+                    ]
+                },
+                {
+                    "id" : "example",
+                    "text" : [ { "text" : "### Começando Pequeno\n\nAo observarmos as grandes construções, como as pirâmides presentes no continente Americano (<i>Abya Yala</i>), fica evidente que as montanhas próximas a esses sítios arqueológicos serviram de inspiração para elas. Essas estruturas apresentam bases amplas que se estreitam gradualmente até atingir o topo, como ilustrado na **Figura 4**.\n\nAlém desse modelo natural, descobertas recentes revelaram pequenas maquetes utilizadas como referência para a construção da cidade sagrada de Caral, no Peru",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "720f6dfd-4b86-4e07-a887-1010e1041a4d",
+                                                "text": "Ruta Caral",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "03c3743c-d268-4730-ba8e-d36b5c49e781",
+                                                "text": "Caral Perú Oficial",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "3b18a263-71e9-4c61-a7fe-c23cbce65624",
+                                                "text": "Zona Caral",
+                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "9", "day" : "28" }},
+                                              { "type": 1,
+                                                "uuid": "b9af756b-558a-4292-b71b-d9b3cc47d570",
+                                                "text": "de la Morena, Raquel",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                                "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figura 4: Pirâmide H1 no sítio arqueológico de Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span class=\"htdate\"></span></a>). Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio.</p>" ]
+                },
+                {
+                    "id" : "limits",
+                    "text" : [ { "text" : "### Limites\n\nA relação entre maior e menor também é usada para definir os limites. Em nosso texto anterior, mencionamos que os limites são determinados por valores máximos e mínimos. Além disso, discutimos que o limite pode ser interpretado como uma aproximação de um determinado valor. A seguir, exploraremos como aplicar os conceitos de maior e menor para definir limites",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                                                "text": "History Tracers Team, Limites",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }} ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"135\" cy=\"75\" r=\"70\"></circle> <line x1=\"140\" y1=\"75\" x2=\"205\" y2=\"75\" stroke=\"black\" /> <text x=\"135\" y=\"85\">O</text>  <text x=\"175\" y=\"85\">r</text> </svg></p>",
+                                "<p class=\"desc\">Figura 5: Circulo com raio 75.</p>",
+                               { "text" : "#### Limite Superior\n\nO limite superior é o maior valor possível dentro de um determinado contexto. Por exemplo, na **Figura 5**, vemos um círculo com raio (distância do centro até a borda) de valor 75. Como o círculo é uma figura geométrica fechada, o maior valor possível para o raio neste círculo pode ser representado matematicamente como *r < 75*",
+                                 "source" :[ { "type": 1,
+                                               "uuid": "e58ad730-899f-49b6-aaf8-53cb39c31f0e",
+                                               "text": "Weisstein, Eric W."} ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               { "text" : "#### Limite Inferior\n\nAnalogamente, o limite inferior é o menor valor admissível. Retomando o exemplo da **Figura 5**, consideremos o percurso da borda em direção ao centro. Para que exista um raio, ele deve ser maior que zero. Assim, o menor valor para o raio pode ser expresso como *r > 0*",
+                                 "source" :[ { "type": 1,
+                                               "uuid": "61b6b478-d49a-40ec-a68d-52767ebbb6cc",
+                                               "text": "Weisstein, Eric W."} ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               { "text" : "#### Limites na Biologia\n\nOs limites também são fundamentais na Biologia. No trabalho de Alan R. Templeton, por exemplo, identificou-se um critério claro para definir a existência de uma espécie ao comparar o DNA de populações. Para que não sejam consideradas raças diferentes, as diferenças genéticas (d) devem estar entre um valor mínimo de 0 e um valor máximo de 25. Isso pode ser expresso matematicamente como *0 < d <25*.",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                                                "text": "Templeton A. R., pp. 7 - 8",
+                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
+                                                { "type": 1,
+                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                                                "text": "Templeton A. R.",
+                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               },
+                               { "text" : "Além disso, Templeton destacou que a variação genética entre humanos foi inferior a *5*, o que está dentro do intervalo proposto (*0 < 5 < 25*).",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                                                "text": "Templeton A. R., pp. 7 - 8",
+                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
+                                                { "type": 1,
+                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                                                "text": "Templeton A. R.",
+                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               }
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusão\n\nNeste texto, exploramos como os conceitos de \"maior\" e \"menor\" podem ser usados para estabelecer desigualdades. Além disso, percebemos que esses conceitos possuem um alcance mais amplo, permitindo aprofundar e refinar a definição de limites apresentada no final do capítulo anterior",
+                                 "source" : [ 
+                                              { "type": 1,
+                                                "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown"
+                               } ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2017", "month" : "6", "day" : "13" }
+                    ]
+                }
+            ]
+        }
+    ]
+}
