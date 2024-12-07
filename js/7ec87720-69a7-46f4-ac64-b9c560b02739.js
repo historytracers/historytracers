@@ -43,7 +43,7 @@ function htTranslationLoadHA(tableID, field, selector, value)
 
 function htTranslationLoadIndigenous(tableID, field, selector, value)
 {
-   $(tableID+" "+field).html((selector > 50) ? "<img src=\"images/Maya_"+value+".png\" />" : "&nbsp;");
+   $(tableID+" "+field).html((selector > 50) ? "<img id=\"imgMIMG"+value+"\" onclick=\"htImageZoom('imgMIMG"+value+"', '0%')\" src=\"images/HistoryTracers/Maya_"+value+".png\" />" : "&nbsp;");
 }
 
 function htTranslationFillData(type, max)
@@ -161,7 +161,7 @@ function htTranslationCheckRandomAnswer() {
     if (htGameTranslationCurrentLevel < 9) { 
         var imgName = htGameUseTranslationImages[idx];
         var obj = localGameUseVector7ec87720[idx];
-        $("#gameImage").html("<img class=\"imgGameSize\"  src=\"images/"+imgName+"\"/><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
+        $("#gameImage").html("<img class=\"imgGameSize\" id=\"imgCorrect\" onclick=\"htImageZoom('imgCorrect', '0%')\" src=\"images/"+imgName+"\"/><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
 
         htGameUseTranslationImages.splice(idx, 1);
         localGameUseVector7ec87720.splice(idx, 1);

@@ -386,7 +386,7 @@ function htFillMesoamericanCalendar(periods, outputColumn)
 {
     for (let i = 0, top2bottom = 1; i < periods.length; i++, top2bottom++) {
         $("#tmc"+outputColumn+"l"+top2bottom).html(periods[i]);
-        $("#tmc1l"+top2bottom).attr('src', 'images/Maya_'+periods[i]+'.png');
+        $("#tmc1l"+top2bottom).attr('src', 'images/HistoryTracers/Maya_'+periods[i]+'.png');
     }
 }
 
@@ -403,7 +403,7 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimal
         if (decimalColumn != undefined) {
             $("#tmc"+decimalColumn+"l"+top2bottom).html(0);
         }
-        $("#tmc"+outputColumn+"l"+top2bottom).attr('src', 'images/Maya_0.png');
+        $("#tmc"+outputColumn+"l"+top2bottom).attr('src', 'images/HistoryTracers/Maya_0.png');
         start /= 20;
         top2bottom++;
     }
@@ -415,7 +415,7 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimal
         if (decimalColumn != undefined) {
             $("#tmc"+decimalColumn+"l"+bottom2top).html(rest);
         }
-        $("#tmc"+outputColumn+"l"+bottom2top).attr('src', 'images/Maya_'+rest+'.png');
+        $("#tmc"+outputColumn+"l"+bottom2top).attr('src', 'images/HistoryTracers/Maya_'+rest+'.png');
         
         bottom2top--;
     }
@@ -487,7 +487,7 @@ function htFillTableHandsFeet(id, min, max) {
         } else {
             leftFoot = i - 15;
         }
-        $(id+" tr:last").after("<tr><td><img src=\"images/"+leftHand+"Left_Hand_Small.png\" /></td><td><img src=\"images/"+rightHand+"Right_Hand_Small.png\"/></td><td><img src=\"images/"+leftFoot+"LeftFoot.png\" class=\"smallFeet\" /></td><td><img src=\"images/"+rightFoot+"RightFoot.png\" class=\"smallFeet\" /></td><td><img src=\"images/Maya_"+i+".png\"/></td><td><span class=\"text_to_paint\">"+i+"</span></td></tr>");
+        $(id+" tr:last").after("<tr><td><img src=\"images/"+leftHand+"Left_Hand_Small.png\" /></td><td><img src=\"images/"+rightHand+"Right_Hand_Small.png\"/></td><td><img src=\"images/"+leftFoot+"LeftFoot.png\" class=\"smallFeet\" /></td><td><img src=\"images/"+rightFoot+"RightFoot.png\" class=\"smallFeet\" /></td><td><img id=\"imgFTHF\" onclick=\"htImageZoom('imgFTHF', '0%')\" src=\"images/HistoryTracers/Maya_"+i+".png\"/></td><td><span class=\"text_to_paint\">"+i+"</span></td></tr>");
     }
 }
 
