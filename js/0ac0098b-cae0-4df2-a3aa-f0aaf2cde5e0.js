@@ -4,6 +4,13 @@ var index0ac0098b = 0;
 var opt0ac0098b = { "requestType" : "splash", "target" : ".htSlidesGame", "maxID": 0 };
 var totalSMScore = 0;
 
+var recognizedLevels =  [
+    { "id": "326445ab-e030-4375-9557-ada06b6ef88f" },
+    { "id": "f866455d-713d-4e3c-b25a-c151f1a05296" },
+    { "id": "f952fb69-fcf9-4980-9b31-38be2ecfe971" },
+    { "id": "c450185c-7bcf-45c4-b93c-9f5ae10a126a" }
+] ;
+
 function htSMUpdateScore(val) {
     totalSMScore += val;
 
@@ -107,8 +114,22 @@ function htStartSMGame() {
     $(opt0ac0098b.target).append("<div id=\"smGameJump\"><i class=\"fa-solid fa-angle-double-right htSlideJumpGame\" onclick=\"htJumpSMGame();\"></i></div>");
 }
 
+function htSMLoadID()
+{
+    var localID = $("#ScientificGameLevel").val();
+    if (localID.length > 0) {
+        var sel = recognizedLevels.findIndex(x => x.id === localID);
+        if (sel != undefined) {
+            return localID;
+        }
+    }
+
+    return "9a153e38-d7eb-41ef-aea8-d7a3019ece2e";
+}
+
 function htLoadExercise() {
-    htLoadPageV1("9a153e38-d7eb-41ef-aea8-d7a3019ece2e", "json", "", false, "smGame", opt0ac0098b);
+    var loadID = htSMLoadID();
+    htLoadPageV1(loadID, "json", "", false, "smGame", opt0ac0098b);
     return false;
 }
 

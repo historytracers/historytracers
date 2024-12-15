@@ -421,8 +421,9 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
             var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
             text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\">"+sources[i].text+" "+dateText+"</a>";
         }
-        text += ").";
+        text += ")";
     }
+    text += (localObj.PostMention != undefined && localObj.PostMention != null) ? localObj.PostMention : ".";
     return text+"</p>";
 }
 
@@ -453,7 +454,7 @@ function htFillSMGameData(data) {
         }
 
         var imgIndex = getRandomArbitrary(0, htGameImages.length - 5);
-        $(opt0ac0098b.target).append("<p class=\"desc\"><img class=\"imgGameSizeWithOpacity\" src=\"images/"+htGameImages[imgIndex]+"\">"+keywords[71]+" "+htGameImagesLocation[imgIndex]+".</p>");
+        $(opt0ac0098b.target).append("<p class=\"desc\"><img class=\"imgGameSizeWithOpacity\" src=\"images/"+htGameImages[imgIndex]+"\"><br />"+keywords[71]+" "+htGameImagesLocation[imgIndex]+".</p>");
     }
 
     smGame = [];
@@ -478,11 +479,17 @@ function htFillSMGameData(data) {
         }
 
         var useText = "";
+        var localLang = $("#site_language").val();
+        var localCalendar = $("#site_calendar").val();
         if (table[i].text != undefined) {
             if (table[i].text.constructor === vectorConstructor) {
                 var rows = table[i].text;
                 for (const j in rows) {
-                    useText += rows[j];
+                    var commonText = (rows[j].constructor === stringConstructor) ? rows[j] : htParagraphFromObject(rows[j], localLang, localCalendar);
+                    if (table[i].paragraphClass != undefined) {
+                        commonText = commonText.replace(/<p>/g, "<p class=\""+table[i].paragraphClass+"\">");
+                    }
+                    useText += commonText;
                 }
             } else {
                 useText = table[i].text;

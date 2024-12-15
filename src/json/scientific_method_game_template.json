@@ -9,7 +9,24 @@
     "content" : [
         {
             "id" : "Unique identifier for the current section.",
-            "text" : [ "<p> </p>" ],
+            "text" : [ { "text" : "A text to be written on game screen.",
+                         "source" : [
+                            { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                  "uuid": "Unique identifier (UUID) for the current citation.",
+                                  "text": "The accompanying text that will be displayed with the citation.",
+                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                            ],
+                            "fill_dates" : [
+                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                {"type" : "unix", "epoch" : "0" },
+                                {"type" : "julian",  "epoch" : "0" }
+                            ],
+                            "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
+                            "format" : "markdown or html",
+                            "PostMention": "A character used after a mention to include citations."
+                       },
+                       "<p>A text to be written on game screen.</p>"
+            ],
             "desc": [ "Additional description for the text displayed on screen."],
             "next" : "ID of the next section.",
             "prev" : "ID of the previous section",
