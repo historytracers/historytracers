@@ -570,6 +570,13 @@ ul {
   width: 50%;
 }
 
+.imgcenterGame {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
 .imgcenterlarge {
   display: block;
   margin-left: auto;
@@ -888,13 +895,6 @@ input[type=number]::-webkit-outer-spin-button {
   width: 60%;
 }
 
-.htSlidesGame {
-  position: relative;
-  margin-left : auto;
-  margin-right : auto;
-  width: 55%;
-}
-
 .htSlide {
   display : none;
 }
@@ -921,68 +921,6 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: rgba(255,255,255, 1.0);
 }
 
-.htSlidePrevGame {
-  position : absolute;
-  bottom : 3em;
-  left : 0%;
-  transform:translate(0%,-50%);
-  -ms-transform:translate(-0%,-50%);
-  font-size: 2.5vh;
-  z-index: 100;
-}
-
-.htSlideNextGame {
-  position:absolute;
-  bottom : 3em;
-  right: 0%;
-  transform:translate(0%,-50%);
-  -ms-transform:translate(-0%,-50%);
-  font-size: 2.5vh;
-  z-index: 100;
-}
-
-.htSlideLikeGame {
-  position:absolute;
-  bottom : 3em;
-  left: 25%;
-  color: green;
-  transform:translate(0%,-50%);
-  -ms-transform:translate(-0%,-50%);
-  font-size: 2.5vh;
-  z-index: 100;
-}
-
-.htSlideUnlikeGame {
-  position:absolute;
-  bottom : 3em;
-  left: 75%;
-  color: red;
-  transform:translate(0%,-50%);
-  -ms-transform:translate(-0%,-50%);
-  font-size: 2.5vh;
-  z-index: 100;
-}
-
-.htSlideJumpGame {
-  position:absolute;
-  bottom : 3em;
-  left: 50%;
-  transform:translate(0%,-50%);
-  -ms-transform:translate(-0%,-50%);
-  font-size: 2.5vh;
-  z-index: 100;
-}
-
-.htSlidePlayGame {
-  position:absolute;
-  color:red;
-  top: 50%;
-  left: 45%;
-  transform:translate(0%,-50%);
-  -ms-transform:translate(-0%,-50%);
-  font-size: 5.0vh;
-}
-
 .htSlideCounter {
   top: 0%;
   padding: 0.8vw 0.2vh;
@@ -1000,11 +938,80 @@ input[type=number]::-webkit-outer-spin-button {
   z-index: 98;
 }
 
+.htSlidesGame {
+  position: relative;
+  margin-left : auto;
+  margin-right : auto;
+  width: 60%;
+}
+
+.htSlidePrevGame {
+  position : absolute;
+  bottom : 1em;
+  left : 3%;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 2.5vh;
+  z-index: 100;
+}
+
+.htSlideNextGame {
+  position:absolute;
+  bottom : 1em;
+  right: 3%;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 2.5vh;
+  z-index: 100;
+}
+
+.htSlideLikeGame {
+  position:absolute;
+  bottom : 1em;
+  left: 25%;
+  color: green;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 5vh;
+  z-index: 100;
+}
+
+.htSlideUnlikeGame {
+  position:absolute;
+  bottom : 1em;
+  left: 75%;
+  color: red;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 5vh;
+  z-index: 100;
+}
+
+.htSlideJumpGame {
+  position:absolute;
+  bottom : 1em;
+  left: 50%;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 2.5vh;
+  z-index: 100;
+}
+
+.htSlidePlayGame {
+  position:absolute;
+  color:red;
+  top: 50%;
+  left: 45%;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+  font-size: 10.0vh;
+}
+
 .htSlideGameTextCenter {
   position: absolute;
   top: 50%;
-  left: 55%;
-  width: 70%;
+  left: 50%;
+  width: 80%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
@@ -1023,16 +1030,18 @@ input[type=number]::-webkit-outer-spin-button {
   vertical-align: middle;
   position: absolute;
   top: 0%;
+  left: 5%;
+  width: 90%;
 }
 
 .htSlideGameTextBottom {
   position: absolute;
   font-size: 0.9vw;
-  bottom: 0%;
+  bottom: 5%;
   left: 50%;
   background-color: lightyellow;
   border-radius: 25px;
-  width: 92%;
+  width: 90%;
   text-align: center;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
   transform: translate(-50%, -50%);
@@ -1048,7 +1057,8 @@ input[type=number]::-webkit-outer-spin-button {
   position: absolute;
   text-align: left;
   top: 0%;
-  left: 0%;
+  left: 5%;
+  width: 92%;
 }
 
 .htSlideGameScore {

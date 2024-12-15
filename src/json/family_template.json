@@ -16,7 +16,8 @@
                                         {"type" : "julian",  "epoch" : "0" }
                                    ],
                     "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
-                    "format" : "markdown or html"
+                    "format" : "markdown or html",
+                    "PostMention": "A character used after a mention to include citations."
                   }
                 ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
@@ -46,7 +47,8 @@
                                 {"type" : "julian",  "epoch" : "0" }
                             ],
                             "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
-                            "format" : "markdown or html"
+                            "format" : "markdown or html",
+                            "PostMention": "A character used after a mention to include citations."
                           },
                           "<p>A detailed description of the person's life history and marital status.</p>" 
             ],
@@ -67,7 +69,8 @@
                                         {"type" : "julian",  "epoch" : "0" }
                                      ],
                                      "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
-                                     "format" : "markdown or html"
+                                     "format" : "markdown or html",
+                                     "PostMention": "A character used after a mention to include citations."
                                     },
                                     "<p>Details about the person's history.</p>"
                                ],
@@ -104,8 +107,9 @@
                                                {"type" : "unix", "epoch" : "0" },
                                                {"type" : "julian",  "epoch" : "0" }
                                            ],
-                                            "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
-                                           "format" : "markdown or html"
+                                           "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
+                                           "format" : "markdown or html",
+                                           "PostMention": "A character used after a mention to include citations."
                                           },
                                           "<p>A detailed description of the person's life history and marital status.</p>"
                             ]
@@ -132,7 +136,8 @@
                                                {"type" : "julian",  "epoch" : "0" }
                                            ],
                                            "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
-                                           "format" : "markdown or html"
+                                           "format" : "markdown or html",
+                                           "PostMention": "A character used after a mention to include citations."
                                           },
                                           "<p>A detailed description of the person's life history and marital status.</p>"
                             ]
