@@ -539,6 +539,12 @@ function htFillSMGameData(data) {
             smGameTimeoutID = 0;
         }
     }
+
+    $('table').each(function() {
+        if (!$(this).hasClass('book_navigation')) {
+            $(this).addClass('three_table_bg');
+        }
+    });
 }
 
 function htImageZoom(id, translate) {
