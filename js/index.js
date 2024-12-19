@@ -54,12 +54,14 @@ $(document).ready(function(){
         $("#atlas").val(1);
     }
 
+    /*
     if (urlParams.has('sm_level')) {
         var selLevel = urlParams.get('sm_level');
         $("#ScientificGameLevel").val(selLevel);
     } else {
         $("#ScientificGameLevel").val("9a153e38-d7eb-41ef-aea8-d7a3019ece2e");
     }
+    */
 
     $('#site_language').val(lang);
     $('#site_calendar').val(cal);
