@@ -31,14 +31,17 @@ ht_create_files() {
     ht_create_class_files "${1}" "${2}"
 }
 
-if [ $# -ne 1 ]; then
-    echo "Please specify the class type: science, history, indigenous_who, or first_steps."
+ht_error() {
+    echo "Please specify the class type: science, history, indigenous_who, first_steps, or literature."
     exit 1;
+}
+
+if [ $# -ne 1 ]; then
+    ht_error
 fi
 
-if [ "${1}" != "science" ] && [ "${1}" != "history" ] && [ "${1}" != "first_steps" ] ; then
-    echo "Invalid argument. Please use one of the following: science, history, or first_steps."
-    exit 1;
+if [ "${1}" != "science" ] && [ "${1}" != "history" ] && [ "${1}" != "first_steps" ] && [ "${1}" != "indigenous_who" ] && [ "${1}" != "literature" ] ; then
+    ht_error
 fi
 
 UUID=$(${RUN_UUID})
