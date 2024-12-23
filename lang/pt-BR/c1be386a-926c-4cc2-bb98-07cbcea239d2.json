@@ -1,0 +1,229 @@
+{
+    "title" : "Fracionando Textos",
+    "header" : "Fracionando Textos",
+    "sources" : [ "c1be386a-926c-4cc2-bb98-07cbcea239d2" ],
+    "scripts" : null,
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1734874856" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=5af3e4fc-04a0-446c-b96a-71909e2203e2\" onclick=\"htLoadPage('class_content','html', '5af3e4fc-04a0-446c-b96a-71909e2203e2', false); return false;\">Agrupando textos</a></td> <td><a href=\"index.html?page=literature\" onclick=\"htLoadPage('literature','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
+                               { "text" : "### Pré-requisitos\n\nEste texto é uma continuação do anterior sobre agrupamento de textos, portanto, sugerimos que seja lido antes",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "adf8b39a-130a-4bcb-ba91-ca8c89f88efb",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }} ],
+                                  "fill_dates" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ { "text" : "### Introdução\n\nNo texto anterior, trabalhamos com a divisão de grupos de textos maiores, sem nos aprofundarmos nos textos propriamente ditos. No entanto, a abordagem utilizada pode ser aplicada também ao interior dos textos, com o objetivo de entender melhor o conteúdo que estamos lendo.\n\nNeste texto, vamos fracionar os textos em grupos ainda menores e explorar como textos são estruturados",
+                                 "source" : null,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               } ]
+                },
+                {
+                    "id" : "pattern",
+                    "text" : [ { "text" : "### O que fracionar?\n\nNovos aprendizados são construídos sobre aprendizados anteriores. Por isso, responta a seguinte pergunta antes de prosseguirmos",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                                "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Localizando</b><br /><br />O que você procuraria primeiro para começar a dividir um texto?</div></div></center></p>",
+                               { "text" : "Se, durante sua reflexão, você tentou localizar algo no texto, isso indica que está diante de um aprendizado completamente novo. Por outro lado, se decidiu verificar quando o texto foi escrito, terá a oportunidade de aprofundar e reforçar seu conhecimento.\n\n#### 1. Quando foi escrito?\n\nIdentificar a época em que um texto foi escrito é essencial para compreender o estilo da época e o significado das palavras, evitando dois equívocos mencionados adiante nesta seção.\n\nAo analisar um texto de milhares de anos atrás com base nos significados atuais das palavras, há uma chance de interpretá-lo equivocadamente. Isto ocorre porque o significado das palavras pode mudar ao longo do tempo, um fenômeno conhecido como **alteração semântica**",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "79ea767b-924d-43e3-9bea-a8195b536dde",
+                                                "text": "Sabino, Marilei A.",
+                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" }} ],
+                                 "fill_dates" : null,
+                                 "isTable" : false,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Outro equívoco comum é o **anacronismo**, que ocorre ao atribuir um conceito a um período anterior ou posterior ao que ele realmente pertence. Por exemplo, afirmar que textos mencionam o DNA como material genético antes de seu entendimento como material genético por volta dos anos <htdate0> seria anacrônico",
+                                 "source" : [ { "type": 0,
+                                                "uuid": "695971c4-45fc-4108-86b7-25ea7ab60c65",
+                                                "text": "Dicionário da Língua Portuguesa",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "3ce506ac-8895-40dd-89f7-57f80517aba4",
+                                                "text": "Alberts B, Johnson A, Lewis J, <i>et al.</i>",
+                                                "date" :  {"type" : "gregory", "year" : "2002", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "fill_dates" : [
+                                    {"type" : "gregory", "year" : "1950", "month" : "-1", "day" : "-1" }
+                                 ],
+                                 "isTable" : false,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### 2. Onde foi escrito?\n\nNão apenas o momento histórico é relevante, mas também o lugar onde o texto foi produzido. Sabemos que o espaço e tempo estão interligados. Assim, para compreender um texto em sua totalidade, é necessário considerar tanto o período em que foi escrito quanto o local e a influência cultural da região",
+                                 "source" : [ 
+                                              { "type": 1,
+                                                "uuid": "5d8aaf88-d206-4576-8587-e3dc7403d259",
+                                                "text": "Pontzen, Andrew and Whyntie, Tom"},
+                                              { "type": 1,
+                                                "uuid": "d4212894-96ca-4ab2-9458-24ff2a8c5024",
+                                                "text": "Pontzen, Andrew and Whyntie, Tom"},
+                                              { "type": 1,
+                                                 "uuid": "c632d8ab-7347-4df4-825f-d2bc6f5cbd0b",
+                                                 "text": "Pontzen, Andrew and Whyntie, Tom"},
+                                              { "type": 1,
+                                                "uuid": "79ea767b-924d-43e3-9bea-a8195b536dde",
+                                                "text": "Sabino, Marilei A.",
+                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" }} ],
+                                 "fill_dates" : [
+                                    {"type" : "gregory", "year" : "now", "month" : "-1", "day" : "-1" }
+                                 ],
+                                 "isTable" : false,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img id=\"imgMWPWEEC\" onclick=\"htImageZoom('imgMWPWEEC', '0%')\" src=\"images/mapswire/mapswire-world-political-white-equal_earth_cradle.png\" class=\"imgcenterlarge\"/>Figura 1: Berços civilizatórios. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Compartilhado sob a licença <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</p>",
+                               { "text" : "#### 3. Como foi escrito?\n\nAntes de dividir o texto, é essencial observar a forma como ele foi escrito. Dr. Irving Finkel, ao abordar a evolução da escrita na Mesopotâmia, explica que os sumérios inicialmente utilizavam pictogramas. Com o tempo, passaram a representar palavras inteiras com um único sinal. Mais tarde, na Babilônia e na Síria, textos começaram a ser escritos de forma silábica",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "73c1fc70-769e-47cb-a7b4-597a73d21a93",
+                                                "text": "Dr. Irving Finkel, 00:07:10",
+                                                "date" :  {"type" : "gregory", "year" : "2019", "month" : "-1", "day" : "-1" }} ],
+                                 "isTable" : false,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "A complexidade aumenta porque, em sistemas como o cuneiforme, um mesmo sinal pode representar diferentes sons, exigindo complementos fonéticos para determinar a pronúncia e o significado. Da mesma forma, um único som pode ser escrito de várias maneiras. Além disso, os textos cuneiformes antigos não apresentavam separação entre palavras, como pode ser visto na *Figura 2*, até que os persas introduziram essa prática",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "73c1fc70-769e-47cb-a7b4-597a73d21a93",
+                                                "text": "Dr. Irving Finkel, 00:20:28",
+                                                "date" :  {"type" : "gregory", "year" : "2019", "month" : "-1", "day" : "-1" }} ],
+                                 "isTable" : false,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                                "<p class=\"desc\"><img id=\"imgKingList\" onclick=\"htImageZoom('imgKingList', '0%')\" src=\"images/Ashmolean/KingList.jpg\" class=\"imgcenter\"/>Figura 2: Lista dos Reis Sumérios. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4d0b579d-57af-45e1-87b0-d402dd778968'); return false;\">Ashmolean Image Library</a>).</p>",
+                              { "text" : "Ao lidar com hieróglifos, há particularidades que não podem ser ignoradas. Por exemplo, os símbolos maias podiam ser fonéticos (seguindo padrões como CV – consoante-vogal), logogramas (representando raízes de palavras, como CVC ou CVCVC) ou notações numéricas. A *Figura 3* ilustra a Estela 'A' em Copán, Honduras, é um exemplo destes hieróglifos",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "89ccdc7b-d2eb-4819-8987-23b0ab0178d8",
+                                                "text": "Davletshin, A.",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "0b674e01-8ed9-4d93-a414-b5cb47dda926",
+                                                "text": "Marcus, J.",
+                                                "date" :  {"type" : "gregory", "year" : "1973", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "517428b4-5fe7-48c6-a207-08d5a5bf24d1",
+                                                "text": "Marcus, J.",
+                                                "date" :  {"type" : "gregory", "year" : "1973", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                                "<p class=\"desc\"><img id=\"imgCopanA\" onclick=\"htImageZoom('imgCopanA', '0%')\" src=\"images/StelaACopan.jpg\" class=\"imgcenter\"/>Figura 3: Stela A no museu do sítio de Copán. Foto tirada em <span class=\"htdate\"></span>.</p>"
+                    ]
+                },
+                {
+                    "id" : "internal",
+                    "text" : [ { "text" : "### Divisão Interna dos Textos\n\nO que foi observado sobre textos antigos também se aplica aos textos recentes. É essencial compreender o tempo e o local em que foram produzidos, além de estudar se utilizam caracteres, como na China, ou alfabetos como o latino, grego, hebraico ou árabe.\n\n#### A Estrutura do Texto\n\nVamos a um exemplo prático. Tomemos o primeiro capítulo da seção \"**Interpretação de Textos**\" do <i>History Tracers</i>. Este capítulo (C) contém diferentes textos (T), que sãi subdivididos en parágrafos (P), compostos por palavras (W). Cada elemento descrito constitui un grupo: o capítulo (C) é o maior de todos, enquanto as palavras são os menores, como ilustrado na *Figura 4*",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"145\" cy=\"75\" r=\"74\"></circle> <text x=\"140\" y=\"15\" font-size=\"1.4em\">C</text> <circle cx=\"145\" cy=\"75\" r=\"55\"></circle>  <text x=\"140\" y=\"35\" font-size=\"1.4em\">T</text> <circle cx=\"145\" cy=\"75\" r=\"35\"></circle>  <text x=\"140\" y=\"55\" font-size=\"1.4em\">P</text> <circle cx=\"145\" cy=\"75\" r=\"15\"></circle>  <text x=\"140\" y=\"77\" font-size=\"1.4em\">W</text>  </svg></p>",
+                              "<p class=\"desc\">Figura 4: Representação dos subgrupos da seção Interpretação de Textos.</p>",
+                              { "text" : "#### Os textos\n\nEste é o terceiro texto do capítulo \"Introdução aos Textos\". Durante o planejamento deste capítulo, este tema foi incluído junto aos outros dois por ser parte de um contexto introdutório à interpretação de textos e matemática.\n\nComo possui rigorosamente a mesma estrutura interna dos textos anteriores, podemos tratá-los como subgrupos que contêm parágrafos e palavras. Ao uni-los, formamos um grupo maior: os capítulos (C). Essa relação é representada na *Figura 5*, onde cada número indica a ordem dos textos no capítulo",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                                "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"145\" cy=\"75\" r=\"70\"></circle> <text x=\"140\" y=\"80\" font-size=\"2em\">C</text> <circle cx=\"110\" cy=\"50\" r=\"10\"></circle>  <text x=\"105\" y=\"55\" font-size=\"1.4em\">1</text> <circle cx=\"148\" cy=\"30\" r=\"10\"></circle>  <text x=\"142\" y=\"35\" font-size=\"1.4em\">2</text>  <circle cx=\"185\" cy=\"50\" r=\"10\"></circle>  <text x=\"180\" y=\"55\" font-size=\"1.4em\">3</text></svg></p>",
+                                "<p class=\"desc\">Figura 5: Representação dos textos de um capítulo como subgrupos.</p>",
+                                { "text" : "#### Os parágrafos\n\nQuando analisamos cada texto, percebemos que eles não são contínuos e sem divisões, como nos tempos sumérios. Com a evolução dos sistemas de escrita, os textos adquiriram uma organização mais estruturada, embora continuem sendo textos.\n\nPara facilitar a compreensão e tornar a organização mais clara aos leitores, as partes dos textos passaram a ser denominadas parágrafos. Estes são definidos como uma sequência de frases que seguem uma lógica comum",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "51b407c2-ffa8-4d94-95d6-2b6945bd3e16",
+                                                "text": "Dicionário da Língua Portuguesa",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "A representação de subgrupos, já aplicada aos textos e capítulo, também pode ser utilizada para os parágrafos dentro de um texto. Por exemplo, em um texto com seis parágrafos, podemos representá-los e numerá-los para identificação",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                                "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"145\" cy=\"75\" r=\"70\"></circle> <text x=\"140\" y=\"80\" font-size=\"2em\">T</text> <circle cx=\"110\" cy=\"50\" r=\"10\"></circle>  <text x=\"105\" y=\"55\" font-size=\"1.4em\">6</text> <circle cx=\"148\" cy=\"30\" r=\"10\"></circle>  <text x=\"142\" y=\"35\" font-size=\"1.4em\">1</text>  <circle cx=\"185\" cy=\"50\" r=\"10\"></circle>  <text x=\"180\" y=\"55\" font-size=\"1.4em\">2</text> <circle cx=\"110\" cy=\"90\" r=\"10\"></circle>  <text x=\"105\" y=\"95\" font-size=\"1.4em\">5</text> <circle cx=\"148\" cy=\"120\" r=\"10\"></circle>  <text x=\"146\" y=\"125\" font-size=\"1.4em\">4</text>  <circle cx=\"185\" cy=\"90\" r=\"10\"></circle>  <text x=\"180\" y=\"95\" font-size=\"1.4em\">3</text> </svg></p>",
+                                "<p class=\"desc\">Figura 6: Representação dos paragrafos de um texto como subgrupos.</p>",
+                                "<p><center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-dna\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Biologia na Literatura</b><br /><br />Somos seres vivos, e o que nos torna uma espécie diferente das demais são as mudanças genéticas que ocorreram ao longo da história de nossos ancestrais. Essa mesma lei natural se aplica a outros seres vivos, como animais, plantas, fungos e bactérias. Chamamos essas transformações genéticas de evolução (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6ebf58d7-2f1d-47b6-84ac-07d1430c2981'); return false;\">DNA and Mutations, Berkeley</a>).<br /><br />Como seres vivos, tendemos a aprender e imitar a natureza, o que é evidente nos textos. Quando usamos a palavra <b>evolução</b> para descrever mudanças nos textos, não estamos dizendo que textos antigos são inferiores aos atuais. Eles apenas possuem estruturas diferentes, mas, em essência, todos são textos.</div></div></center></p>",
+                               { "text" : "#### As palavras\n\nA relação das palavras com os parágrafos segue a mesma lógica dos outros grupos estudados. No entanto, representar palavras graficamente requeriria círculos pequenos para cada palavra e um círculo maior para o parágrafo, o que seria impraticável.\n\nAlém das mudanças estruturais, os sistemas de escrita também evoluem com a adição de novas palavras e símbolos. Para representar grupos de palavras em um parágrafo <b>P</b>, utilizamos chaves ({ }) para agrupar seus elementos. Por exemplo, um parágrafo com várias palavras pode ser representado como",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "8dc0df59-57af-40bb-a884-56e096657dcf",
+                                                "text": "rowland, todd"}
+                                 ],
+                                 "istable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><ul class=\"citation\"><li><b>P = {1, 2, 3,...},</i></li></ul></p>",
+                               { "text" : "onde cada número, representa uma palavra dentro do parágrafo.",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "8dc0df59-57af-40bb-a884-56e096657dcf",
+                                                "text": "rowland, todd"}
+                                 ],
+                                 "istable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "postmention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusão\n\nNeste texto, aprendemos que compreender um texto exige, primeiramente, uma análise externa para localizar sua época e lugar de origem, o que facilita a interpretação do vocabulário e das ideias do autor. Em seguida, exploramos os grupos e subgrupos que compõem um livro, tomando como exemplo a seção que estamos estudando.\n\nNo próximo texto, analisaremos em mais detalhes as sílabas e o alfabeto",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" }
+                    ]
+                }
+            ]
+        }
+    ]
+}
