@@ -1,0 +1,282 @@
+{
+    "title" : "Agrupando las Fracciones",
+    "header" : "Agrupando las Fracciones",
+    "sources" : [ "40b55697-5f55-445d-9e33-db474a10b179" ],
+    "scripts" : null,
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1734976304" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=c1be386a-926c-4cc2-bb98-07cbcea239d2\" onclick=\"htLoadPage('class_content', 'html', 'c1be386a-926c-4cc2-bb98-07cbcea239d2', false); return false;\">Fraccionando textos</a> </td> <td><a href=\"index.html?page=literature\" onclick=\"htLoadPage('literature','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
+                               { "text" : "### Prerrequisitos\n\nEste texto continúa el análisis presentado en el anterior sobre el agrupamiento de textos, por lo que se recomienda leerlo antes de este. Además, utilizaremos conceptos de conteo y escalas abordados en los dos primeros capítulos de la sección \"Primeros Pasos\"",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "8f59ce99-2e92-4df4-a15f-d6c45387e36f",
+                                                "text": "History Tracers Team, Fraccionando Textos",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                                                "text": "<i>History Tracers Editors. Primeros Passos</i>",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                  "fill_dates" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ { "text" : "En el texto anterior, trabajamos con la organización de los textos en grupos como Capítulos (C), Textos (T), Párrafos (P) y Palabras (W). Es decir, estudiamos los textos comenzando desde los grupos mayores hacia los menores, con el objetivo de explicitar la relación entre ellos. En este texto, exploraremos dos nuevos grupos: las sílabas (S) y el alfabeto (A), pero esta vez en el orden inverso, del menor al mayor",
+                                 "source" : [ 
+                                                { "type": 1,
+                                                "uuid": "8f59ce99-2e92-4df4-a15f-d6c45387e36f",
+                                                "text": "History Tracers Team, Fracionando Textos",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                                "<p>La Figura 1 ilustra la relación entre los dos nuevos grupos y los grupos anteriores de palabras (W) y párrafos (P)</p>",
+                               "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"145\" cy=\"75\" r=\"74\"></circle> <text x=\"140\" y=\"15\" font-size=\"1.4em\">P</text> <circle cx=\"145\" cy=\"75\" r=\"55\"></circle>  <text x=\"140\" y=\"35\" font-size=\"1.4em\">W</text> <circle cx=\"145\" cy=\"75\" r=\"35\"></circle>  <text x=\"140\" y=\"55\" font-size=\"1.4em\">S</text> <circle cx=\"145\" cy=\"75\" r=\"15\"></circle>  <text x=\"140\" y=\"77\" font-size=\"1.4em\">A</text>  </svg></p>",
+                              "<p class=\"desc\">Figura 1: Representación de los grupos a estudiar en este texto.</p>"
+                    ]
+                },
+                {
+                    "id" : "alphabet",
+                    "text" : [ { "text" : "### Alfabeto\n\n#### Origen\n\nLa invención del alfabeto se atribuye ampliamente a los fenicios, quienes lo transmitieron a otras culturas. Sin embargo, algunos estudios sugieren que su origen podría situarse en Egipto",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "f2865e84-bedf-4ad0-8059-c2e97f875946",
+                                                "text": "Olson, D. R. and Diringer, D.",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "04a47abe-5803-4db3-b2e8-2ce869c86fd9",
+                                                "text": "Herraiz, Elena",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "7523664f-6b9d-496a-b105-8acfe943367c",
+                                                "text": "Gardiner, A. H.",
+                                                "date" :  {"type" : "gregory", "year" : "1916", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### Las Letras\n\nEn este proyecto, nos enfocaremos inicialmente en el alfabeto latino, aunque todo lo presentado puede aplicarse a otros alfabetos.\n\nEl alfabeto latino se compone de letras que se agrupan en dos subgrupos claramente definidos: **consonantes** y **vocales**, como se muestra a continuación",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "f2865e84-bedf-4ad0-8059-c2e97f875946",
+                                                "text": "Olson, D. R. and Diringer, D.",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "bdbeea86-dc81-42e2-9a99-b8b2109f986f",
+                                                "text": "Britannica, T. Editors of Encyclopaedia",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "245e6b4f-5c94-4acd-8e88-8247b0719263",
+                                                "text": "Britannica, T. Editors of Encyclopaedia",
+                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<ul class=\"citation\"></li><li><b>Consonantes = </b> {b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, y, z}</li><li><b>Vocales</b>= {a, e, i, o, u}</ul></p>",
+                               { "text" : "Estos dos subgrupos reciben sus nombres según la forma en que se producen sus sonidos. Las **vocales** se pronuncian sin obstrucciones significativas en el flujo de aire, mientras que las **consonantes**, aunque poseen sonidos propios, se denominan así porque \"suenan junto\" con las vocales, creando lo que se conoce como consonancia",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "78048d38-8ddc-4fd9-b5cc-8a0542e26a88",
+                                                "text": "<i>Real Academia Española</i>, vocal"},
+                                              { "type": 0,
+                                                "uuid": "438f74f2-2aa4-4f5a-9b82-bf2a2c10c55e",
+                                                "text": "<i>Real Academia Española</i>, consonante"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p>Al combinar elementos de estos dos subgrupos, podemos comprender mejor la formación de palabras, un tema que se abordará en la siguiente sección.</p>"
+                    ]
+                },
+                {
+                    "id" : "combination",
+                    "text" : [ { "text" : "### Creando Fonemas\n\n#### Los Límites\n\nAl agrupar las letras del alfabeto, formamos sílabas, que son unidades fonéticas caracterizadas por un único sonido. Estas sílabas pueden combinarse para formar palabras, que son conjuntos con significado propio",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "82ce6b9b-510e-4320-9e68-38579f07a79b",
+                                                "text": "<i>Dicionário da Língua Portuguesa</i>, sílaba"},
+                                              { "type": 0,
+                                                "uuid": "f5d2538e-3546-446c-b3ee-718e945c7c7a",
+                                                "text": "<i>Dicionário da Língua Portuguesa</i>, palavra"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "La definición de palabras nos lleva a una reflexión",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Sobre los Límites</b><br /><br />Si el sentido no fuera una condición, ¿qué impediría a alguien colocar letras una al lado de la otra indefinidamente?</div></div></center></p>",
+                              { "text" : "La respuesta es que, además del sentido, no habría otro limitador. Esto marca una diferencia fundamental entre números y palabras: mientras que los números pueden sumarse o concatenarse infinitamente manteniendo su significado, las palabras, por definición, forman un grupo cerrado",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### Las Sílabas\n\nLa definición de sílaba exige que el sonido sea pronunciado de una vez. Para profundizar en este concepto, analicemos el grupo de sílabas formadas por la combinación de la consonante 'b' con las vocales",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"center_notation\"><math><mi>SílabaB</mi> <mo>=</mo> <mo>{</mo> <mi>ba</mi><mo>,</mo> <mi>be</mi><mo>,</mo> <mi>bi</mi><mo>,</mo> <mi>bo</mi><mo>,</mo> <mi>bu</mi> <mo>}</mo> </math></p>",
+                               "<p class=\"desc\">Fórmula 1: Grupo de sílabas formado por la consonante 'b' y las vocales.</p>",
+                               { "text" : "Ahora, considere la siguiente pregunta",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Total</b><br /><br />¿Por qué la combinación de la consonante 'b' con las vocales produce exactamente cinco sílabas?</div></div></center></p>",
+                               { "text" : "Aunque la respuesta pueda parecer obvia, los detalles de estas conexiones son fundamentales para comprender las palabras.\n\n#### Un Análisis Combinatorio\n\nPodemos combinar una consonante con cada vocal de manera independiente porque su escritura no es mutuamente excluyente. Este principio permite que todas las combinaciones sean posibles. Matemáticamente, esto se describe mediante la Regla del Producto, que determina el número total de combinaciones (T) posibles",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0b1ac73a-7e75-4952-aa4f-4a0e4d2118f7",
+                                                "text": "Joy Morris. <i>LibreTexts</i>"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"center_notation\"><math><mi>T</mi> <mo>=</mo> <mo>(</mo> <mi>1 consoante</mi> <mo>)</mo>  <mo>(</mo> <mi>5 vogais</mi> <mo>)</mo> <mo>=</mo> <mi>1 x 5</mi> <mo>=</mo> <mi>5</mi> </math></p>",
+                               "<p class=\"desc\">Fórmula 2: Total de combinaciones entre una consonante y las vocales.</p>",
+                               { "text" : "#### La Naturaleza del Alfabeto y los Axiomas\n\nLas letras del alfabeto son constantes en su representación escrita y sonora. Esto permite que puedan asociarse libremente. Por ejemplo, al combinar la consonante 'b' con las vocales, usamos el axioma asociativo para formar el grupo SílabaB",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                                                "text": "Dana Ernst. <i>LibreTexts</i>"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"center_notation\"><math><mi>Vogais</mi> <mo>=</mo> <mo>{</mo> <mi>a</mi><mo>,</mo> <mi>e</mi><mo>,</mo> <mi>i</mi><mo>,</mo> <mi>o</mi><mo>,</mo> <mi>u</mi> <mo>}</mo> </math></p>",
+                               "<p class=\"center_notation\"><math><mi>b</mi><mi>Vogais</mi> <mo>=</mo> <mo>{</mo> <mi>ba</mi><mo>,</mo> <mi>be</mi><mo>,</mo> <mi>bi</mi><mo>,</mo> <mi>bo</mi><mo>,</mo> <mi>bu</mi> <mo>}</mo> </math></p>",
+                               "<p class=\"center_notation\"><math><mi>SílabaB</mi> <mo>=</mo> <mo>{</mo> <mi>ba</mi><mo>,</mo> <mi>be</mi><mo>,</mo> <mi>bi</mi><mo>,</mo> <mi>bo</mi><mo>,</mo> <mi>bu</mi> <mo>}</mo> </math></p>",
+                               "<p class=\"desc\">Fórmula 3: Asociación de consonantes y vocales como elementos naturales.</p>",
+                               { "text" : "La Fórmula 3 refleja el mismo grupo descrito en la Fórmula 1, lo que nos lleva a una reflexión",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>¿Sabías esto?</b><br /><br />Cuando memorizamos conceptos sin comprenderlos, muchos detalles pasan desapercibidos. La definición de sílabas, vocales y consonantes está profundamente conectada a la biología y la física del habla. Estas conexiones se reflejan en el alfabeto.<br /><br />Antes de leer este texto, ¿estas conexiones te resultaban evidentes?</div></div></center></p>",
+                               { "text" : "#### Entendiendo \"Un Solo Sonido\"\n\nPasemos ahora a una cuestión práctica: ¿es contradictorio hablar de \"un solo sonido\" formado por dos letras? Exploremos esta idea",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica</b><br />Pronuncie la letra 'a'. Luego, pronuncie la letra 'b'. Finalmente, pronuncie la sílaba 'ba'.<br /><br /></p>",
+                               { "text" : "El sonido de la sílaba es diferente al de las letras aisladas. Para representar ambos sonidos como uno solo, usamos una analogía con números racionales (fracciones)",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0836cb37-3574-4ca8-9efa-d3fd158b0805",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"center_notation\"><math><mi>Letra</mi> <mo>=</mo> <mfrac><mi>1</mi><mi>Total de Letras na Sílaba</mi></mfrac></math></p>",
+                               "<p class=\"desc\">Fórmula 4: Representación de las letras de una sílaba como fracción.</p>",
+                               { "text" : "Por ejemplo, para la sílaba 'ba', que tiene dos letras, aplicamos la regla algebraica de la suma",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0836cb37-3574-4ca8-9efa-d3fd158b0805",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"center_notation\"><math> <mi>ba</mi> <mo>=</mo> <mfrac><mi>1</mi><mi>2</mi></mfrac> <mo>+</mo> <mfrac><mi>1</mi><mi>2</mi></mfrac> <mo>=</mo> <mfrac><mi>1 + 1</mi><mi>2</mi></mfrac> <mo>=</mo> <mfrac><mi>2</mi><mi>2</mi></mfrac> <mo>=</mo> <mi>1</mi> </math></p>",
+                               "<p class=\"desc\">Fórmula 5: Unificación de los sonidos de una sílaba.</p>",
+                               { "text" : "#### Reuniendo Todo\n\nAntes de avanzar hacia las palabras, revisemos los conceptos presentados:\n\n1. El alfabeto podría usarse como un sistema numérico, sin restricciones para la combinación de letras.\n2. Sin embargo, la definición de sílabas y palabras introduce límites, exigiendo sentido y significado.\n3. Las sílabas pueden analizarse mediante álgebra (como entidades constantes) y combinatoria (para calcular agrupaciones).\n4. Los sonidos de las sílabas derivan de los sonidos de las letras y pueden modelarse como fracciones",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "words",
+                    "text" : [ { "text" : "### Creando Palabras\n\nLa creación de palabras es una generalización del proceso de formación de sílabas, ya que las palabras están compuestas por una o más sílabas. Sin embargo, existe una particularidad importante que es necesario destacar.\n\n#### Análisis Combinatorio\n\nCuando trabajamos con palabras formadas por sílabas distintas, el orden de estas sílabas puede alterar completamente el significado de la palabra. Por ejemplo, las palabras \"casa\" y \"saca\" contienen las mismas sílabas, pero en un orden diferente, lo que da lugar a significados completamente distintos.\n\nPor esta razón, para palabras con sílabas diferentes, la combinación se calcula utilizando la *Regra de la Suma*",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "1585002d-90b0-4f2e-9acc-1df265384a12",
+                                                "text": "Joy Morris. <i>LibreTexts</i>"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"center_notation\"><math><mi>T</mi> <mo>=</mo> <mo>(</mo> <mi>1 sílaba</mi> <mo>)</mo>  <mo>+</mo>  <mo>(</mo> <mi>1 sílaba</mi> <mo>)</mo> <mo>=</mo>  <mi>2 sílabas</mi> </math></p>",
+                               "<p class=\"desc\">Fórmula 6: Total de combinaciones entre dos sílabas distintas.</p>"
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                        "text" : [ { "text" : "### Conclusión\n\nEn este texto, hemos explorado la conexión entre la biología, la física y la formación de sílabas y palabras. Además, destacamos la aplicación de axiomas y teoremas matemáticos en el proceso de escritura.\n\nAún queda mucho por explorar en el estudio de la formación de textos, pero hemos decidido detenernos aquí, reconociendo que el conocimiento se adquiere mejor de manera gradual y por etapas",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -21,10 +21,12 @@
                 {
                     "id" : "prerequisites",
                     "text" : [ { "text" : " ",
-                                 "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                 "source" : [ 
+                                              { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
                                                 "uuid": "Unique identifier (UUID) for the current citation.",
                                                 "text": "The accompanying text that will be displayed with the citation.",
-                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} ],
+                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                 ],
                                   "fill_dates" : [
                                                     {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                                     {"type" : "unix", "epoch" : "0" },
@@ -39,10 +41,12 @@
                 {
                     "id" : "SECTION_NAME",
                     "text" : [ { "text" : " ",
-                                 "source" : [ { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                 "source" : [
+                                              { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
                                                 "uuid": "Unique identifier (UUID) for the current citation.",
                                                 "text": "The accompanying text that will be displayed with the citation.",
-                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} ],
+                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                 ],
                                  "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
                                  "fill_dates" : [
                                     {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
@@ -52,7 +56,8 @@
                                  "format" : "markdown or html",
                                  "PostMention": "A character used after a mention to include citations."
                                },
-                                "<p><h3> </h3></p>" ]
+                                "<p><h3> </h3></p>"
+                    ]
                 },
                 {
                     "id" : "exercise_v2",
