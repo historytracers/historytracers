@@ -3,7 +3,7 @@
     "header" : "Nuestros lados son iguales",
     "sources" : [ "489f9dbf-f251-4ef8-a61b-431564784bd5" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1718023555" ],
+    "last_update" : [ "1735128478" ],
     "content" : [
         {
             "id" : "families",
@@ -16,11 +16,11 @@
                 },
                 {
                     "id" : "introduction",
-                    "text" : "<p><h3>Mi cuerpo tiene dos lados</h3>Coloque sus dos manos sobre una mesa. ¿Son similares? ¿Qué diferencias nota entre ellas?</p>"
+                    "text" : "<p><span id=\"htZoomImageMsg\"></span></p><p><h3>Mi cuerpo tiene dos lados</h3>Coloque sus dos manos sobre una mesa. ¿Son similares? ¿Qué diferencias nota entre ellas?</p>"
                 },
                 {
                     "id" : "hands",
-                    "text" : [ "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representación de las manos. Código fuente disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span class=\"htdate\"></span>, La Fuente</a>)</td></tr></table></p>", "<p>Ahora junte las manos y observe los dedos. ¿Tienen el mismo tamaño? ¿Y las manos, también son del mismo tamaño?</p>" ]
+                    "text" : [ "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representación de las manos. Código fuente disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <span class=\"htdate\"></span>, La Fuente</a>)</td></tr></table></p>", "<p>Ahora junte las manos y observe los dedos. ¿Tienen el mismo tamaño? ¿Y las manos, también son del mismo tamaño?</p>" ]
                 },
                 {
                     "id" : "draw_hands",
