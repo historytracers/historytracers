@@ -3,7 +3,7 @@
     "header" : "Our sides are equal",
     "sources" : [ "489f9dbf-f251-4ef8-a61b-431564784bd5" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1718023555" ],
+    "last_update" : [ "1735128478" ],
     "content" : [
         {
             "id" : "families",
@@ -16,11 +16,11 @@
                 },
                 {
                     "id" : "introduction",
-                    "text" : "<p><h3>My body has two sides</h3>Place your hands on the table. Do they appear similar? Can you identify any differences between them?</p>"
+                    "text" : "<p><span id=\"htZoomImageMsg\"></span></p><p><h3>My body has two sides</h3>Place your hands on the table. Do they appear similar? Can you identify any differences between them?</p>"
                 },
                 {
                     "id" : "hands",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td>Left hand</td><td>Right hand</td></tr><tr><td><img src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Hands reprsentation. The source codes are available in project GitHub (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span class=\"htdate\"></span>, Source code</a>)</td></tr></table></p><p>Now, bring your hands together with palms facing and examine your fingers. Do they possess identical sizes? What about your hands—are they also of the same size?</p>"
+                    "text" : "<p><table class=\"book_navigation\"><tr><td>Left hand</td><td>Right hand</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Hands reprsentation. The source codes are available in project GitHub (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <span class=\"htdate\"></span>, Source code</a>)</td></tr></table></p><p>Now, bring your hands together with palms facing and examine your fingers. Do they possess identical sizes? What about your hands—are they also of the same size?</p>"
                 },
                 {
                     "id" : "draw_hands",
