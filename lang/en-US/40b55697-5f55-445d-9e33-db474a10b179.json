@@ -1,0 +1,282 @@
+{
+    "title" : "Grouping Fractions",
+    "header" : "Grouping Fractions",
+    "sources" : [ "40b55697-5f55-445d-9e33-db474a10b179" ],
+    "scripts" : null,
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1734976304" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=c1be386a-926c-4cc2-bb98-07cbcea239d2\" onclick=\"htLoadPage('class_content', 'html', 'c1be386a-926c-4cc2-bb98-07cbcea239d2', false); return false;\">Fractionating Texts</a> </td> <td><a href=\"index.html?page=literature\" onclick=\"htLoadPage('literature','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
+                               { "text" : "### Prerequisites\n\nThis text continues the analysis presented in the previous texts about text grouping; therefore, it is recommended to read them beforehand. Additionally, we will use concepts of counting and scales introduced in the first chapters of the section \"First Steps\"",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "8f59ce99-2e92-4df4-a15f-d6c45387e36f",
+                                                "text": "History Tracers Team, Fraccionando Textos",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                                                "text": "<i>History Tracers Editors. First Steps</i>",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                  "fill_dates" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ { "text" : "In the previous text, we worked with the organization of texts into groups such as Chapters (C), Texts (T), Paragraphs (P), and Words (W). In other words, we studied the texts starting from the larger groups and moving to the smaller ones, with the goal of clarifying the relationships among them. In this text, we will explore two new groups: Syllables (S) and the Alphabet (A), but this time in reverse order, from the smallest to the largest",
+                                 "source" : [ 
+                                                { "type": 1,
+                                                "uuid": "8f59ce99-2e92-4df4-a15f-d6c45387e36f",
+                                                "text": "History Tracers Team, Fracionando Textos",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                                "<p>Figure 1 illustrates the relationship between the two new groups and the previous ones, Words (W) and Paragraphs (P).</p>",
+                               "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"145\" cy=\"75\" r=\"74\"></circle> <text x=\"140\" y=\"15\" font-size=\"1.4em\">P</text> <circle cx=\"145\" cy=\"75\" r=\"55\"></circle>  <text x=\"140\" y=\"35\" font-size=\"1.4em\">W</text> <circle cx=\"145\" cy=\"75\" r=\"35\"></circle>  <text x=\"140\" y=\"55\" font-size=\"1.4em\">S</text> <circle cx=\"145\" cy=\"75\" r=\"15\"></circle>  <text x=\"140\" y=\"77\" font-size=\"1.4em\">A</text>  </svg></p>",
+                              "<p class=\"desc\">Figure 1: Representation of the groups to be studied in this text.</p>"
+                    ]
+                },
+                {
+                    "id" : "alphabet",
+                    "text" : [ { "text" : "### Alphabet\n\n#### Origin\n\nThe invention of the alphabet is widely attributed to the Phoenicians, who transmitted it to other cultures. However, some research also suggests its origin may lie in Egypt",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "f2865e84-bedf-4ad0-8059-c2e97f875946",
+                                                "text": "Olson, D. R. and Diringer, D.",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "04a47abe-5803-4db3-b2e8-2ce869c86fd9",
+                                                "text": "Herraiz, Elena",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "7523664f-6b9d-496a-b105-8acfe943367c",
+                                                "text": "Gardiner, A. H.",
+                                                "date" :  {"type" : "gregory", "year" : "1916", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### The Letters\n\nIn this project, we will initially focus on the Latin alphabet. However, the concepts presented here can also be applied to other alphabets.\n\nThe Latin alphabet consists of letters grouped into two well-defined subgroups: **consonants** and **vowels**, as shown below",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "f2865e84-bedf-4ad0-8059-c2e97f875946",
+                                                "text": "Olson, D. R. and Diringer, D.",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "bdbeea86-dc81-42e2-9a99-b8b2109f986f",
+                                                "text": "Britannica, T. Editors of Encyclopaedia",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "245e6b4f-5c94-4acd-8e88-8247b0719263",
+                                                "text": "Britannica, T. Editors of Encyclopaedia",
+                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<ul class=\"citation\"></li><li><b>Consonants = </b> {b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, y, z}</li><li><b>Vowels</b>= {a, e, i, o, u}</ul></p>",
+                               { "text" : "These two subgroups are named based on how their respective sounds are produced. **Vowels** are pronounced without significant obstruction of airflow, whereas **consonants** involve some degree of airflow blockage. Additionally, consonants are often described as \"sounding together\" with vowels to create consonance",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "5aeda7ac-8796-4932-b94d-78c97cdd7a60",
+                                                "text": "Cambridge Dictionary, vowel"},
+                                              { "type": 0,
+                                                "uuid": "1004b8be-33b5-4c98-9302-df48760e3e9a",
+                                                "text": "Cambridge Dictionary, consonant"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p>By combining elements from these two subgroups, we can better understand the formation of words. This topic will be explored in the next section.</p>"
+                    ]
+                },
+                {
+                    "id" : "combination",
+                    "text" : [ { "text" : "### Creating Phonemes\n\n#### The Limits\n\nWhen we group letters of the alphabet, we form syllables, which are phonetic units characterized by a single sound. These syllables can be combined to form words, which are sets of letters that carry specific meanings",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "82ce6b9b-510e-4320-9e68-38579f07a79b",
+                                                "text": "<i>Dicionário da Língua Portuguesa</i>, sílaba"},
+                                              { "type": 0,
+                                                "uuid": "f5d2538e-3546-446c-b3ee-718e945c7c7a",
+                                                "text": "<i>Dicionário da Língua Portuguesa</i>, palavra"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "The definition of a word leads us to an important reflection",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>On Limits</b><br /><br />If meaning were not a requirement, what would prevent someone from endlessly stringing letters together?</div></div></center></p>",
+                              { "text" : "The answer is that, aside from meaning, there would be no other limitation. This reveals a fundamental difference between numbers and words: while numbers can be concatenated infinitely while retaining their meaning, words, by definition, form a closed system",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### Syllables\n\nThe definition of a syllable requires it to be spoken as a single, unified sound. To delve deeper into this concept, let’s analyze the group of syllables formed by combining the consonant ‘b’ with vowels",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"center_notation\"><math><mi>SyllableB</mi> <mo>=</mo> <mo>{</mo> <mi>ba</mi><mo>,</mo> <mi>be</mi><mo>,</mo> <mi>bi</mi><mo>,</mo> <mi>bo</mi><mo>,</mo> <mi>bu</mi> <mo>}</mo> </math></p>",
+                               "<p class=\"desc\">Formula 1: Group of syllables formed by the consonant 'b' and the vowels.</p>",
+                               { "text" : "Now consider the following question",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Total</b><br /><br />Why does combining the consonant 'b' with vowels produce exactly five syllables?</div></div></center></p>",
+                               { "text" : "While the answer may seem obvious, the details of this connection are fundamental to understanding words.\n\n#### A Combinatorial Analysis\n\nWe can combine a consonant with each vowel independently because their written forms are not mutually exclusive. This principle allows for all possible combinations. Mathematically, this is described by the Product Rule, which determines the total number of possible combinations (T)",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0b1ac73a-7e75-4952-aa4f-4a0e4d2118f7",
+                                                "text": "Joy Morris. <i>LibreTexts</i>"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"center_notation\"><math><mi>T</mi> <mo>=</mo> <mo>(</mo> <mi>1 consoant</mi> <mo>)</mo>  <mo>(</mo> <mi>5 vowels</mi> <mo>)</mo> <mo>=</mo> <mi>1 x 5</mi> <mo>=</mo> <mi>5</mi> </math></p>",
+                               "<p class=\"desc\">Formula 2: Total combinations of one consonant and five vowels.</p>",
+                               { "text" : "#### The Nature of the Alphabet and Axioms\n\nThe letters of the alphabet are constant in their representation and sound. This consistency allows us to freely associate them. For instance, by combining the consonant 'b' with vowels, we use the associative axiom to form the group <b>SyllableB</b>",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                                                "text": "Dana Ernst. <i>LibreTexts</i>"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"center_notation\"><math><mi>Vowels</mi> <mo>=</mo> <mo>{</mo> <mi>a</mi><mo>,</mo> <mi>e</mi><mo>,</mo> <mi>i</mi><mo>,</mo> <mi>o</mi><mo>,</mo> <mi>u</mi> <mo>}</mo> </math></p>",
+                               "<p class=\"center_notation\"><math><mi>b</mi><mi>Vowels</mi> <mo>=</mo> <mo>{</mo> <mi>ba</mi><mo>,</mo> <mi>be</mi><mo>,</mo> <mi>bi</mi><mo>,</mo> <mi>bo</mi><mo>,</mo> <mi>bu</mi> <mo>}</mo> </math></p>",
+                               "<p class=\"center_notation\"><math><mi>SyllableB</mi> <mo>=</mo> <mo>{</mo> <mi>ba</mi><mo>,</mo> <mi>be</mi><mo>,</mo> <mi>bi</mi><mo>,</mo> <mi>bo</mi><mo>,</mo> <mi>bu</mi> <mo>}</mo> </math></p>",
+                               "<p class=\"desc\">Formula 3: Association of consonants and vowels as natural elements.</p>",
+                               { "text" : "Formula 3 reflects the same group described in Formula 1, which leads us to a reflection",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Did You Know?</b><br /><br />When we memorize concepts without fully understanding them, many details can go unnoticed. The definitions of syllables, vowels, and consonants are deeply intertwined with the biology and physics of speech. These connections are directly reflected in the alphabet.<br /><br />Before reading this, were these connections clear to you?</div></div></center></p>",
+                               { "text" : "#### Understanding \"A Single Sound\"\n\nNow, let’s move to a practical question: is it contradictory to talk about \"a single sound\" formed by two letters? Let’s explore this idea",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice</b><br />Pronounce the letter ‘a.’ Now pronounce the letter ‘b.’ Finally, pronounce the syllable ‘ba.’<br /><br /></p>",
+                               { "text" : "The sound of the syllable differs from the sounds of the individual letters. To represent both sounds as a unified whole, we use an analogy with rational numbers (fractions)",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0836cb37-3574-4ca8-9efa-d3fd158b0805",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"center_notation\"><math><mi>Letter</mi> <mo>=</mo> <mfrac><mi>1</mi><mi>Total Letters in a Syllable</mi></mfrac></math></p>",
+                               "<p class=\"desc\">Formula 4: Representation of the letters in a syllable as fractions.</p>",
+                               { "text" : "For example, in the syllable ‘ba,’ which consists of two letters, we apply the algebraic rule of addition",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0836cb37-3574-4ca8-9efa-d3fd158b0805",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"center_notation\"><math> <mi>ba</mi> <mo>=</mo> <mfrac><mi>1</mi><mi>2</mi></mfrac> <mo>+</mo> <mfrac><mi>1</mi><mi>2</mi></mfrac> <mo>=</mo> <mfrac><mi>1 + 1</mi><mi>2</mi></mfrac> <mo>=</mo> <mfrac><mi>2</mi><mi>2</mi></mfrac> <mo>=</mo> <mi>1</mi> </math></p>",
+                               "<p class=\"desc\">Formula 5: Unification of the sounds in a syllable.</p>",
+                               { "text" : "#### Bringing It All Together\n\nBefore advancing to the concept of words, let’s review the key points presented:\n\n1. The alphabet can theoretically be used as a numerical system, without restrictions on letter combinations.\n2. However, the definitions of syllables and words introduce limitations, requiring meaning and structure.\n3. Syllables can be analyzed algebraically (as constant entities) and combinatorially (to calculate possible groups).\n4. The sounds of syllables originate from the sounds of letters and can be modeled using fractions.\n\nWith these foundations established, we’re ready to delve into the concept of words.",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "words",
+                    "text" : [ { "text" : "### Creating Words\n\nThe process of creating words is a generalization of forming syllables since words are composed of one or more syllables. However, there is an important nuance that needs to be highlighted.\n\n#### Combinatorial Analysis\n\nWhen constructing words from different syllables, the order in which the syllables are arranged can completely change the meaning of the word. For example, the words \"passover\" and \"overpass\" contain the same syllables but in a different sequence, resulting in distinct meanings.\n\nFor this reason, when dealing with words formed from different syllables, combinations are calculated using the *Sum Rule*",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "1585002d-90b0-4f2e-9acc-1df265384a12",
+                                                "text": "Joy Morris. <i>LibreTexts</i>"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"center_notation\"><math><mi>T</mi> <mo>=</mo> <mo>(</mo> <mi>1 syllable</mi> <mo>)</mo>  <mo>+</mo>  <mo>(</mo> <mi>1 syllable</mi> <mo>)</mo>  <mo>+</mo>  <mo>(</mo> <mi>1 syllable</mi> <mo>)</mo> <mo>=</mo>  <mi>3 syllables</mi> </math></p>",
+                               "<p class=\"desc\">Formula 6: Total combinations among three syllables.</p>"
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                        "text" : [ { "text" : "### Conclusion\n\nIn this text, we have explored the relationship between biology, physics, and the formation of syllables and words. Additionally, we emphasized the application of mathematical axioms and theorems in writing systems.\n\nWhile there is much more to uncover about text formation, we will pause here, acknowledging that knowledge is best absorbed gradually and in stages",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                }
+            ]
+        }
+    ]
+}
