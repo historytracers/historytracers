@@ -1,0 +1,237 @@
+{
+    "title" : "Texts like vectors",
+    "header" : "Texts like vectors",
+    "sources" : [ "3cbf2fbf-2cbb-401c-a880-49c05a23d770" ],
+    "scripts" : null,
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1735151828" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=40b55697-5f55-445d-9e33-db474a10b179\" onclick=\"htLoadPage('class_content','html', '40b55697-5f55-445d-9e33-db474a10b179', false); return false;\">Grouping Fractions</a></td> <td><a href=\"index.html?page=literature\" onclick=\"htLoadPage('literature','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ { "text" : "### Prerequisites\n\nThis text continues the analysis presented in the previous texts about text grouping; therefore, it is recommended to read them beforehand. Additionally, we will use concepts of counting and scales introduced in the first chapters of the section \"First Steps\"",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "846ec33f-3360-4fd1-b446-5e254ef13712",
+                                                "text": "History Tracers Team, Grouping Fractions",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                                                "text": "<i>History Tracers Editors. First Steps</i>",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                  "fill_dates" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ { "text" : "### Introduction\n\nWhen we open a physics book focused on Mechanics — typically the first topic taught in Brazilian schools — we encounter the concept of vectors as early as the first chapters. At this stage, since students are still developing their mathematical understanding having a *protomathematics*, vectors are introduced with two fundamental characteristics: magnitude (length) and direction (sense)",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "86c912ce-4205-4d25-957e-4438d8476200",
+                                                "text": "Mendes Guimarães, Luiz A. e Fonte Boa, Marcelo C., <i>Livro 1, Cap. 6, pp. 75 </i>",
+                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "70fde2da-6b60-4d69-9cb7-525291ee09ff",
+                                                "text": "Weisstein, Eric W."},
+                                              { "type": 1,
+                                                "uuid": "696e5833-e134-4b57-ad3f-8438fe0ec495",
+                                                "text": "González Redondo, Francisco A., 00:07:50",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                                "<p>In this text, we will explore these concepts and their analogy to text analysis.</p>"
+                    ]
+                },
+                {
+                    "id" : "magnitud",
+                    "text" : [ { "text" : "### Magnitude\n\nWhen we talk about magnitude, we generally think of dimensions such as length, measured with a meter, as illustrated in Figure Figure 1",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img id=\"imgMeter\" src=\"images/HistoryTracers/Meter.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" />Figure 1: Representation of a metric scale divided into 100 centimeters.</p>",
+                               { "text" : "In the case of texts, magnitude is measured differently. Let’s explore some examples:\n\n#### Physical Measures\n\nWe define *physical measures* as visible characteristics that can be observed without in-depth analysis of the text, such as the number of pages, columns, or lines that make up a book or document.",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### Measuring the Verses\n\nWhen working with poems, we notice the presence of metrics, which group or classify verses according to their syllable count. A classic example of well-defined verses can be found in Homer’s *The Odyssey*. Below, we transcribe an excerpt",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "efabdc04-882c-4c3c-8ad3-9afc3c3547d1",
+                                                "text": "Real Academia Española"},
+                                              { "type": 1,
+                                                "uuid": "56c54c06-24c8-4216-9275-3b58390947c6",
+                                                "text": "Homer",
+                                                "date" : {"type" : "gregory", "year" : "1805", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<ul class=\"citation\"><li><i>\"And Pallas now, to raise the rivals’ fires,</i></li> <li><i>With her own art Penelope inspires.</i></li> <li><i>Who now can bend Ulysses’ bow, and wing</i></li> <li><i>The well-aim’d arrow through the distant ring,</i></li> <li><i>Shall end the strife, and win th’ imperial dame;\"</i></li> </ul>",
+                               { "text" : "#### Subjective Measures\n\nThe subjective aspect is one of the most challenging for readers, as, by definition, it cannot be measured with tangible tools",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "d5f9b2da-5e87-4459-bbc6-3e70607f48be",
+                                                "text": "Real Academia Española"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "This becomes evident when readers interpret a text literally, even though words can change their meaning over time. Authors also have the freedom to use figures of speech that alter meanings",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "12aa8e68-7b53-4917-98c6-cdfb23b1a358",
+                                                "text": "Real Academia Española, <i>figura, n. 5</i>"},
+                                              { "type": 1,
+                                                "uuid": "79ea767b-924d-43e3-9bea-a8195b536dde",
+                                                "text": "Sabino, Marilei A.",
+                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "0c59c0de-f385-4bf2-8190-166d53e158b5",
+                                                "text": "Portuese, Ludovico & Pallavidini, Marta",
+                                                "date" :  {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "The complexity increases when statistical data contradict expectations or when historical facts are fabricated. A notable example is the \"Jew factory\" of the Portuguese Inquisition, described by Antonio José Saraiva. The Inquisition produced false documents to condemn Christians",
+                                 "source" : [
+                                                { "type": 1,
+                                                  "uuid": "d960f232-9cfe-4cb3-8ba2-23af2207799f",
+                                                  "text": "Saraiva, Antonio José",
+                                                  "date": {"type" : "gregory", "year" : "1969", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Measuring...</b><br /><br />Have you already understood what we are measuring?</div></div></center></p>",
+                               { "text" : "This explanation aims to demonstrate that measuring the distance between a physical or historical event and its textual description is not simple. This difficulty arises because, while a text may have a connection to the facts, the way it is written can completely distort the actual dimensions of the events.\n\nIn summary, we are measuring the magnitude of the distance between facts and texts",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "direction",
+                    "text" : [ { "text" : "### Writing Direction (Sense)\n\nThe writing direction is closely related to the writing system used, as we will explore in this section",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### Starting from...\n\nWhen studying a text, the first aspect to consider is the reading direction. Depending on the culture and writing system, readers may be accustomed to reading text in different orientations. For example, in writing systems using the Latin alphabet, reading is typically from left to right. In contrast, in the Arabic script, reading is from right to left.\n\nAn illustrative example is the transcription of the name Muhammad in both writing systems",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<table  class=\"tawapukllay\"> <tr><th>English</th><th>Arabic</th> <tr><td rowspan=\"2\">Muhammad</td><td>محمد</td></tr> <tr><td>dmhM</td></tr> </table>",
+                               "<p class=\"desc\">Table 1: The name Muhammad written in different languages, respecting the writing direction.</p>",
+                               { "text" : "In the table above, we observe that the Arabic version does not explicitly show short vowels or repeated phonemes. This omission has historically made it challenging to translate and understand texts. In modern Arabic, however, short vowels and additional phonemes are often included, as seen in the form **مُحَمَّد** (Muhammad)",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Regardless of the writing system, both horizontal directions share a common feature: when reaching the end of a line, the text continues onto the next line, following a vertical direction from top to bottom.\n\nSome writing systems, such as Mongolian and Mesoamerican hieroglyphs, adopt a vertical direction from top to bottom. An example of this can be seen in the stele shown in Figure 1",
+                                 "source" : [
+                                                { "type": 1,
+                                                  "uuid": "584c8615-81f9-44c7-bf73-12cd92d43bbd",
+                                                  "text": "Erdenechimeg, M. and Moore, R., pp. 2 - 4",
+                                                  "date": {"type" : "gregory", "year" : "1997", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img id=\"imgEstela\" onclick=\"htImageZoom('imgEstela', '0%')\" src=\"images/EstelaAntropologiaGuatemala.jpg\" class=\"imgcenter\"/>Figure 1: Stele in the Museo de Antropología de Ciudad de Guatemala, Guatemala. Photo taken on <span class=\"htdate\"></span></p>",
+                               { "text" : "#### Three-Dimensional Direction of Writing\n\nWriting systems are not limited to a flat surface; texts also have depth and context that influence the ideas and perspectives of the time in which they were created. Thus, the direction and sense of a text extend beyond its physical arrangement.\n\nThe depth of the text is crucial for building narratives. Texts based on isolated fragments or taken out of context often lack important details, which can lead to misinterpretations. In contrast, texts that provide detailed documentation and are the result of years of research tend to be more complex and nuanced. The *Scientific Method* Game in *History Tracers* explores this difference, illustrating practical cases from different historical moments",
+                                 "source" : [
+                                                { "type": 1,
+                                                  "uuid": "96f3d3af-15c3-4c37-9d0e-e4b7db0db1db",
+                                                  "text": "History Tracers, Método Científico"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2014", "month" : "10", "day" : "21" }
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusion\n\nIn this text, we examined characteristics of vectors that can be analogously applied to texts. A more detailed study on coordinates can be found in the *History Tracers* atlas, from which we extracted the image shown in Figure 2",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "f140d8d6-80cc-4d82-b9f7-c3ba06bf2ed3",
+                                                "text": "History Tracers Team"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img id=\"imgCoord\" src=\"images/mapswire/continent_af-where-is-africa_coordinates.png\" class=\"imgcenter\" onclick=\"htImageZoom('imgCoord', '0%')\" />Figure 2: Geographical coordinates with vectors represented on the Earth's surface.</p>",
+                               { "text" : "Although we did not delve into the components of a vector in this text—such as those observed in geographical coordinates defined by radius, colatitude, and longitude—we propose that texts could also be analyzed using analogous components. This concept will be explored in future chapters.\n\nWe highlighted that texts have measurable magnitudes, as well as distances that relate them to historical events. Furthermore, just as vectors have magnitude, direction, and sense, these concepts can be applied to understand external influences on authors and their impact on the final text.\n\nFinally, we emphasize that this text does not aim to transform texts into mathematical vectors. Instead, it illustrates how ideas can be interconnected, enhancing the understanding of both texts and mathematical concepts",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2014", "month" : "10", "day" : "21" }
+                    ]
+                }
+            ]
+        }
+    ]
+}
