@@ -10,11 +10,11 @@ Beyond delineating family connections, our project integrates logical reasoning 
 
 Our project is designed to minimize page reloads and does not consolidate all its code into a single file. Consequently, attempting to open the `index.html` file locally triggers the need to load additional JavaScript files, resulting in your browser interpreting it as a [CORS request](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp?utm_source=devtools&utm_medium=firefox-cors-errors&utm_campaign=default), and blocking access.
 
-To enable local access to the content, we have developed a simple web server using [Python](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server). After installing Python `3.x` or later on your host machine, you can execute the following command:
+To enable local access to the content, we have developed a simple web server using [GO](https://go.dev/). After installing GO on your host machine, you can execute the following command:
 
 ```sh
-$ python3 historytracers.py
-Access http://localhost:12345
+$ go run src/history_tracers.go
+Listening Port 12345 without devmode content /
 ```
 
 Once you've completed these steps, you can open your web browser and navigate to `http://localhost:12345`.

@@ -10,11 +10,11 @@ Além das relações familiares, o projeto aborda a lógica através do ensino d
 
 Este projeto possui uma estrutura para evitar recarregamentos de página e não possui um único arquivo contendo todo o seu código-fonte. Ao tentar abrir o arquivo `index.html` localmente, é necessário carregar outros arquivos `javascript`, o que faz com que o navegador interprete a solicitação como uma requisição [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp?utm_source=devtools&utm_medium=firefox-cors-errors&utm_campaign=default), bloqueando o acesso.
 
-Para permitir o acesso ao conteúdo do projeto localmente, desenvolvemos um servidor web utilizando o [python web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server). Após instalar o Python `3.x` ou uma versão mais recente em seu computador, você poderá acessar o conteúdo executando o seguinte comando:
+Para permitir o acesso ao conteúdo do projeto localmente, desenvolvemos um servidor web utilizando [GO](https://go.dev/). Após instalar o GO em seu computador, você poderá acessar o conteúdo executando o seguinte comando:
 
 ```sh
-$ python3 historytracers.py
-Access http://localhost:12345
+$ go run src/history_tracers.go
+Listening Port 12345 without devmode content /
 ```
 
 E depois disso, abra um navegador e acesse `http://localhost:12345`.
