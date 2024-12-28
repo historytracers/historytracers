@@ -10,11 +10,11 @@ Además de explorar las relaciones familiares, nuestro proyecto aborda la lógic
 
 Nuestro proyecto ha sido diseñado para evitar recargas constantes de la página y no alberga todo su código en un único archivo. Al intentar abrir el archivo `index.html` en tu computadora, este necesita cargar otros archivos `javascript`, lo que tu navegador interpreta como una solicitud [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp?utm_source=devtools&utm_medium=firefox-cors-errors&utm_campaign=default) y la bloquea.
 
-Para que las personas puedan acceder al contenido localmente, hemos desarrollado un servidor web sencillo utilizando [Python web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server).  Una vez que hayas instalado Python `3.x` o una versión posterior en tu computadora, puedes ejecutar el siguiente comando:
+Para que las personas puedan acceder al contenido localmente, hemos desarrollado un servidor web sencillo utilizando[GO](https://go.dev/). Una vez que hayas instalado GO en tu computadora, puedes ejecutar el siguiente comando:
 
 ```sh
-$ python3 historytracers.py
-Access http://localhost:12345
+$ go run src/history_tracers.go
+Listening Port 12345 without devmode content /
 ```
 
 Después de eso, podrás acceder al contenido a través de `http://localhost:12345`.
