@@ -85,6 +85,7 @@ ht_copy_css () {
     cp css/* artifacts/css
 }
 
+echo "Formating and publishing content"
 cd scripts/bash/ || exit 1
 bash update_js_css.sh
 cd ../.. || exit 2
