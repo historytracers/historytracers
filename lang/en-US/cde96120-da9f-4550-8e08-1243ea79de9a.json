@@ -1,0 +1,307 @@
+{
+    "title" : "Texts with Sciences (Part I)",
+    "header" : "Texts with Sciences (Part I)",
+    "sources" : [ "cde96120-da9f-4550-8e08-1243ea79de9a" ],
+    "scripts" : [ "cde96120-da9f-4550-8e08-1243ea79de9a" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1735311603" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=3cbf2fbf-2cbb-401c-a880-49c05a23d770\" onclick=\"htLoadPage('class_content', 'html', '3cbf2fbf-2cbb-401c-a880-49c05a23d770', false); return false;\">Texts like vectors</a> </td> <td><a href=\"index.html?page=literature\" onclick=\"htLoadPage('literature','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</a></td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
+                              { "text" : "### Pre-requisites\n\nThis text builds on all the concepts presented in the previous five texts. Additionally, we will use the concepts of counting and scales discussed in the first two chapters of the \"*First steps*\"",
+                                 "source" : [ 
+                                              { "type": 1,
+                                                "uuid": "2806b294-0d2a-4ca2-8008-b2b82791427a",
+                                                "text": "History Tracers Team, Understanding texts",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                                                "text": "<i>History Tracers Editors. First steps</i>",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                  "fill_dates" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ { "text" : "### Introduction\n\nThe goal of this text, as well as the following ones, is to study the earliest dynasties listed in the *Sumerian King List*, exhibited at the Ashmolean Museum in Oxford and shown in Figure 1 with the museum's authorization",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "72b8a10d-1a15-4a10-aff6-1210b7bd94fc",
+                                                "text": "Ashmolean Museum Oxford. Sumerian King List"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img src=\"images/Ashmolean/KingList.jpg\" id=\"imgKL\" onclick=\"htImageZoom('imgKL', '0%')\" class=\"imgcenter\"/>Figure 1: Sumerian King List. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4d0b579d-57af-45e1-87b0-d402dd778968'); return false;\">Ashmolean Image Library</a>).</p>",
+                               "<p>Let us begin with a reflection:</p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div></div></center></p>"
+                    ]
+                },
+                {
+                    "id" : "firstkings",
+                    "text" : [ { "text" : "### The First Eight Kings\n\nThe data regarding the first eight kings were detailed in the genealogical section of  *History Tracers*. In this text, we will focus on interpreting this information",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "45740c63-f48a-42e6-973f-f41654116415",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "During this period, the Sumerian kings were not described as emperors. The texts suggest that kingship descended from heaven and established itself in Eridug. As cities fell, kingship moved to other locations. After the fall of Eridug, kingship was transferred, in sequence, to Bad-tibira, Larag, Zimbir (Sippar), and Curuppag",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "d19faa1d-a1ff-4e69-883f-df6cb5c36b88",
+                                                "text": "Black, J.A. <i>et al.</i>",
+                                                "date" :  {"type" : "gregory", "year" : "1998", "month" : "-1", "day" : "-1" }},
+                                              { "type": 0,
+                                                "uuid": "ba2ae680-3a26-40ac-aa58-57643c407b1a",
+                                                "text": "Black, J.A. <i>et al.</i>",
+                                                "date" :  {"type" : "gregory", "year" : "1998", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "f4f9c247-4a7e-4277-8691-99659cf2c240",
+                                                "text": "Cy",
+                                                "date" :  {"type" : "gregory", "year" : "2021", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "45740c63-f48a-42e6-973f-f41654116415",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "In this text, we will explore two central aspects of the opening lines in the king list:\n\n1. The claimed heavenly origin of kingship.\n2. The period of 241,200 years attributed to the reigns of just eight kings.\n\nBefore diving deeper into the sciences needed to analyze these topics, let us take a moment for reflection",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Precipitated Conclusions</b><br /><br />What is simpler: to assert that something written millennia ago is completely accurate and build conspiracies around it, or to dedicate days, months, or years to studying various sciences to understand what was written?</div></div></center></p>"
+                    ]
+                },
+                {
+                    "id" : "knowledge",
+                    "text" : [ { "text" : "### The Heavens as the Origin\n\nWhen Socrates claimed, \"I only know that I know nothing,\" he precisely captured the state of human knowledge—not only in the 5th century BCE, according to the Gregorian calendar, but also in our modern era. Knowledge continuously evolves through new studies and discoveries. This invites us to explore how humanity has expanded its understanding of the Earth and the sky, and to examine how ancient Sumerians perceived the world they inhabited",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "3b95809f-e017-4f2c-9c30-bc3db69ce7c5",
+                                                "text": "Plato, pp. 15",
+                                                "date" :  {"type" : "gregory", "year" : "1899", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "ae49cb80-7652-4fe9-b18a-0de1c4c8321a",
+                                                "text": "Pondé, Luiz Felipe",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                              { "text" : "|Discovery|Description|Sources|\n|------------|------------|--------------|\n|Size of the Universe (<htdate0>)|Updated to 94 billion light-years.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|Size of the Universe (<htdate1>)|Updated to 30 billion light-years.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|Size of the Universe (<htdate2>)|Updated to 25 billion light-years.| <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('5b09c6fb-15a0-40fb-aa5a-9f345798d0c3'); return false;\">Sandage, A.</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|CMB (<htdate3>)|Confirmation of the first radiation in the universe.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('587cdba4-cefb-4df9-8514-2e50ccf88739'); return false;\">Penzias, A. A., & Wilson, R. W.</a>|\n|Size of the Universe (<htdate4>)|Updated to 4 billion light-years.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2a2f2904-55ef-4cf9-8a8b-9d03ed7ee6ce'); return false;\">Burbidge, G.</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|Expanding Universe (<htdate5>)|Evidence that the universe is not static.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1af85131-52aa-49ee-8f9b-2409eb806900'); return false;\">Hubble, Edwin</a>|\n|Size of the Universe (<htdate6>)|Updated to 280 million light-years.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|Size of the Universe (<htdate7>)|Updated to 300,000 light-years.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|Theory of Relativity (<htdate8>)|Revolutionized the perception of space, time, and gravity.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('902815ac-30e7-46d2-8883-57ad754c1630'); return false;\">Einstein Relativity Easy</a>|\n|Why the Sky is Blue (<htdate9>)|Light scattering in the atmosphere creates the perception of a blue sky.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8e339159-05c7-45ef-8e39-4d3220a69be2'); return false;\">Rayleigh, Lord</a>|\n|Observation of a Nebula (<htdate10>)|First observation of a stellar nursery.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1d58022f-5492-4c44-bb12-0693dd2d10a9'); return false;\">Mathis, John S.</a>|\n|Planetary Motion (<htdate11>)|Explanation of planetary movements.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee'); return false;\">Newton, Isaac, pp. 401 - 510</a>|\n|Earth Is Not the Center (<htdate12>)|Demonstrated that Earth is not at the center of the universe.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ce58b238-5908-4b41-a22d-2df0a84d6c88'); return false;\">Copernicus, Nicolaus</a>|\n|Earth’s Size Confirmed (<htdate13> - <htdate14>)|Accurate calculation of Earth’s size through empirical measurement.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('bd3c511d-a7c6-4720-9956-b863578fe58b'); return false;\">Sparavigna, Amelia C.</a>|\n|Earth is Spherical (<htdate15>)|Demonstrated Earth’s spherical shape.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7b82ec3f-a292-48b4-8945-58e2d154f499'); return false;\">Brown, Cynthia S. </a>|\n|Heaven as a Superior Level (<htdate16> - <htdate17>)|Sumerian texts describe heaven as an inhabitable region.|<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('e3614e8e-76cd-4b64-8937-0c31c5e85fc3'); return false;\">Gilgamesh and the Bull of Heaven</a> ;<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('8455e820-845c-456a-9501-813017930fe2'); return false;\">Gilgamesh and the Bull of Heaven</a> ;  <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('a2464929-5908-4aa6-b016-802d4650c573'); return false;\">Épico Gilgamesh, Tablet VI</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1d0101a9-6ea3-4634-b8a2-e09af7838ea7'); return false;\">Mark, J. J. <htdate18> <i>World History Encyclopedia</i> </a>|",
+                                 "source" : null,
+                                 "isTable" : true,
+                                 "fill_dates" : [
+                                    {"type" : "gregory", "year" : "2006", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1993", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1965", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1955", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1955", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1929", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1929", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1919", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1915", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1899", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1686", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1610", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1543", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "973", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "1048", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "-240", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "-2047", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "-1750", "month" : "-1", "day" : "-1" },
+                                    {"type" : "gregory", "year" : "2022", "month" : "12", "day" : "21" }
+                                 ],
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\">Table 1: The Evolution of Human Knowledge about the Earth and the Sky.</p>",
+                               { "text" : "First, it is essential to clarify the concept of a light-year, which is used in Table 1. A light-year represents the distance that light travels in the vacuum of space in one year, 9.46 trillion kilometers",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "5411c3c2-c429-4a01-94ee-644b55fe4849",
+                                                "text": "NASA",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "istable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "postmention": "."
+                               },
+                               { "text" : "Table 1 reflects how humanity has progressively built its understanding of the universe over time. During the Sumerian era, the heavens and the Earth were often described as levels of a building—a view exemplified by texts like the *Gilgamesh Epic*, represent in Figure 2.\n\nWith advancements in measurement techniques and the development of scientific knowledge, humanity moved beyond static conceptions of the universe, reaching an understanding of its vastness, dynamism, and constant state of change",
+                                 "source" : null,
+                                 "istable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "postmention": "."
+                               },
+                               "<p class=\"desc\"><img src=\"images/BritshMuseum/mid_00107404_001.jpg\" id=\"imgGilgamesh\" onclick=\"htImageZoom('imgGilgamesh', '0%')\" class=\"imgcenter\"/>Figura 2: The Flood tablet. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('bab0a6a1-d2a4-46b3-8d86-f33e3ad035d6'); return false;\">The British Museum</a>).</p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>To Be or Not to Be...</b><br /><br />Were the Sumerians wrong in their conception of the world?</div></div></center></p>",
+                               { "text" : "Classifying ideas as simply right or wrong would be an oversimplification. We might make the mistake of interpreting millennia-old texts literally, when they were often written using metaphors",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0c59c0de-f385-4bf2-8190-166d53e158b5",
+                                                "text": "Portuese, Ludovico & Pallavidini, Marta",
+                                                "date" :  {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "istable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "postmention": "."
+                               },
+                               { "text" : "If we consider these texts as metaphorical, what were their authors attempting to convey? Dr. Abdul Karim Khan, in his lectures on monsoons in Asia, highlights the need for strong leadership during times of adversity. In those days, the heavens were considered an unattainable realm, and rains brought devastating floods. It was logical to think that a leader originating from the \"source of the storms\" would possess the knowledge to manage these disasters and guide the people",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "e420d700-53c6-44cb-b9d7-270719f86c47",
+                                                "text": "Abdul Karim Khan",
+                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "istable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "postmention": "."
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: On Knowledge</b><br /><br />In Sumerian times, science as we know it today did not exist. However, there was a strong desire to understand and explain natural phenomena. Can we appreciate the considerable strides they made, despite their limited tools and resources?</div></div></center></p>",
+                               { "text" : "In conclusion: Were the Sumerians wrong in their conception of the world? Not entirely. While they lacked the precision and data available to us today, their metaphors and conceptions were significant foundational steps toward a greater understanding of the universe. Though imprecise, their ideas cannot simply be dismissed as wrong",
+                                 "source" : null,
+                                 "istable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "postmention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "lifetime",
+                    "text" : [ 
+                                { "text" : "### Long Life\n\nWhen we study the *Sumerian King List*, we find accounts of individuals purportedly living for centuries or even millennia. These narratives invite us to reflect",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 4: On Longevity</b><br /><br />How many people do you know who have lived to be 200 years old? And have you ever encountered someone claiming to have lived 10,000 years?</div></div></center></p>",
+                               { "text" : "Christopher Metcalf, in his analysis of ancient Mesopotamian and Greek poetry, identified the use of hyperbole in Mesopotamian narratives. Could the descriptions of millennia-long reigns also reflect the use of hyperbole? Or could there be something more behind these claims? ",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "d5222bef-4c75-475d-9242-097fe3501e15",
+                                                "text": "Metcalf, C., pp. 48 - 54, 89 - 96 ",
+                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "istable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "postmention": "?"
+                               },
+                               { "text" : "Before answering, it is essential to examine the biological and mathematical limits of human life",
+                                 "source" : null,
+                                 "istable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "postmention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-dna\" style=\"font-size: 1em;\"></i> <i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Biology and Mathematics in History</b><br /><br />The beginning of life is universally accepted as zero days, but the other extreme—death—depends on various factors. Research shows that, over the past century, life expectancy has increased significantly, with more people living beyond the age of 50. However, few individuals reach or surpass 100 years due to the high mortality rate associated with advanced age (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6d2b628b-34d8-423c-b3f3-95576d0314ef'); return false;\">Eileen M. Crimmins, <span class=\"htdate\"></span></a>).<br /><br />One factor determining longevity is the relationship between telomeres and human aging (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('66c80cb5-4531-44f7-bbd4-3dd0ac7110e9'); return false;\">Steenstrup, Troels, et al.,  <span class=\"htdate\"></span></a>). Despite recent advances in understanding longevity, the descriptions of millennia-long lifespans in Sumerian texts remain incompatible with human biology.<br /><br />Moreover, the limited genetic variation among humans, as explained by A. R. Templeton, makes such extreme longevity highly improbable. Genes enabling extraordinary longevity would likely confer evolutionary advantages and become widespread—a phenomenon not observed in human populations (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2659babf-36dc-480f-a3d9-d37b8c4e1159'); return false;\">Templeton A. R., <span class=\"htdate\"></span></a>).<br /><br />Based on this evidence, the biological limits of human life are far shorter than those suggested by ancient texts.</div></div></center></p>",
+                               { "text" : "With this information in mind, we can revisit the initial questions. It is possible that the Sumerians, recognizing the disparity between human lifespans and the monumental events they sought to describe, employed hyperbole as a narrative device. In an era of limited understanding of the universe, exaggerating lifespans could have been a way to emphasize the magnitude of achievements and the significance of their rulers.\n\nFurthermore, our concept of time has evolved significantly. Today, we understand that the universe is billions of years old, while Sumerian texts describe a much shorter timeline. Interestingly, the base-60 system we use to measure time is a legacy inherited from them",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "887692dd-c3d3-406c-9c96-e8ea6c577d11",
+                                                "text": "Gontier, N.",
+                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "f89f8dc6-2f4a-4c46-9180-8ed522be1181",
+                                                "text": "Gontier, N.",
+                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "istable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "postmention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusion\n\nLet us conclude with one final reflection",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 5: Figures of Speech</b><br /><br />Do you recall learning about figures of speech in school? Were hyperboles and metaphors presented as features exclusive to modern languages? Their presence in ancient texts can lead to misunderstandings if interpreted literally.</div></div></center></p>",
+                               { "text" : "In this discussion, we have seen that the use of figurative language transcends modern literature, appearing even in Sumerian writings. Additionally, we have explored how ancient perceptions of the world, so different from our current understanding, influenced how these texts were crafted.\n\nIn the next installment, we will delve deeper into these narratives, investigating the accounts of floods and what they reveal about the Sumerian worldview",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : false,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Has our understanding of the universe remained constant throughout history?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Our understanding of the universe has advanced significantly thanks to scientific research. We have shifted from viewing the sky as a static entity, like a building’s ceiling, to understanding it as a vast and constantly expanding cosmos, with an extension of 94 billion light-years."
+                        },
+                        {
+                            "question" : "Should ancient texts be interpreted literally?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "To interpret something as literal, it is essential to have genetic, archaeological or genealogical evidence that corroborates what was written. In the absence of such evidence confirming the extreme longevity described in these texts, we can conclude that the analyzed texts employ figures of speech."
+                        },
+                        {
+                            "question" : "Are the quality of life reduced over the years?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "If the Sumerian texts were meant to be taken literally, the question might have been accepted as fact. However, research indicates the opposite: people today tend to live longer than those in the past."
+                        }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2015", "month" : "11", "day" : "10" },
+                        {"type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

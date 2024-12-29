@@ -39,7 +39,7 @@ ht_create_directories () {
 }
 
 ht_copy_initial_files () {
-    cp -R index.html bodies historytracers.py images webfonts artifacts/
+    cp -R index.html bodies images webfonts artifacts/
 }
 
 ht_compress_js () {
