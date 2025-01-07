@@ -356,6 +356,22 @@ li.menu::before{
   content: "\00BB";
 }
 
+.submenu-title {
+  font-size: 0.8vw;
+  overflow: hidden;
+}
+
+li.submenu {
+  list-style: none;
+  font-size: 0.8vw;
+  overflow:hidden;
+  z-index: 0;
+}
+
+li.submenu::before{
+  content: "\00BB";
+}
+
 ul.sidebar-navigation {
   list-style-type: none;
   margin: 0;
