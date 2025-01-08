@@ -6,8 +6,8 @@ pkg:
 	bash ./ht2pkg.sh
 
 dev:
-	go fmt src/history_tracers.go
-	go run src/history_tracers.go
+	go fmt src/webserver/*.go
+	go run src/webserver/*.go
 
 clean:
 	rm -rf artifacts/*
