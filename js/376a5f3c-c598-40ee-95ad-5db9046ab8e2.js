@@ -10,6 +10,7 @@ function htLoadExercise() {
     }
 
     htAddReligionReflection("#htReligiousReflection");
+    $("#SumerianKingListDesc").html(keywords[90]);
 
     return false;
 }
