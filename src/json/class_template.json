@@ -3,6 +3,7 @@
     "header" : "The name shown at the top of the page or section.",
     "sources" : [ "A file containing all the sources referenced in the text." ],
     "scripts" : [ "JavaScript files associated with this content, typically used for filling and correcting exercises." ],
+    "index" : [ "A file containing all files of the section." ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "last_update" : [ "The time of the last file update, represented as Unix Epoch time." ],
     "authors" : "Names of the individuals who contributed to editing the text.",
@@ -14,10 +15,6 @@
             "target" : "group_list",
             "value_type" : "paper",
             "value" : [
-                {
-                    "id" : "navigation",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=\" onclick=\"htLoadPage('class_content', 'html', '', false); return false;\"> </a></td> <td><a href=\"index.html?page=UPDATE_INDEX\" onclick=\"htLoadPage('UPDATE_INDEX','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td><a href=\"index.html?page=class_content&arg=\" onclick=\"htLoadPage('class_content', 'html', '', false); return false;\"> </a></td></tr></table></p>"
-                },
                 {
                     "id" : "prerequisites",
                     "text" : [ { "text" : " ",
