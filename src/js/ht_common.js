@@ -27,6 +27,10 @@ var smGameTimeoutID = 0;
 
 var htAtlas = [];
 
+var htHistoryIdx = new Map();
+var htLiteratureIdx = new Map();
+var htFirstStepsIdx = new Map();
+
 var htGameImages = [ "MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren.jpg", "SanAndres.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito.jpg", "CopanAltarGenealogy0.jpg", "CopanAltarGenealogy1.jpg", "CopanAltarGenealogy2.jpg", "CopanAltarGenealogy3.jpg", "TeotihuacanMountains.jpg", "CopanWholeTextStelaAltar.png", "StelaACopan.jpg", "Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
 
@@ -703,6 +707,8 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
                 return false;
             }
 
+            htLoadIndex(data, arg, page);
+
             htLoadSources(data, arg, page);
 
             htProccessData(data, optional);
@@ -726,6 +732,9 @@ function htLoadPage(page, ext, arg, reload) {
             case "class_content":
                 if (reload == true && lastTreeLoaded.arg != null && lastTreeLoaded.arg.length > 0) {
                     arg = lastTreeLoaded.arg;
+                    htHistoryIdx.clear();
+                    htLiteratureIdx.clear();
+                    htFirstStepsIdx.clear();
                 } else {
                     lastTreeLoaded.page = page;
                     lastTreeLoaded.arg = arg;
@@ -800,6 +809,8 @@ function htLoadPage(page, ext, arg, reload) {
                 $("#loading_msg").hide();
                 return false;
             }
+
+            htLoadIndex(data, arg, page);
 
             htLoadSources(data, arg, page);
 
@@ -989,7 +1000,7 @@ function htFillWebPage(page, data)
                 } else if (data.content[i].value_type == "subgroup") {
                     htFillSubMapList(data.content[i].value, data.content[i].target);
                 } else if (data.content[i].value_type == "paper") {
-                    htFillPaperContent(data.content[i].value, last_update, page_authors, page_reviewers);
+                    htFillPaperContent(data.content[i].value, last_update, page_authors, page_reviewers, data.index);
                 }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].id != undefined) {
                 if (data.content[i].id != "fill_dates") {
@@ -1090,6 +1101,142 @@ function htFillWebPage(page, data)
     var counter = 0;
     Object.values(genealogicalStats).forEach(val => {
         $(htmlValues[counter++]).html(val);
+    });
+}
+
+function htFillHistorySourcesSelectFunction(id)
+{
+    switch (id) {
+        case 0:
+            return "htFillPrimarySource";
+        case 1:
+            return "htFillReferenceSource";
+        case 2:
+            return "htFillHolySource";
+        case 3:
+        default:
+            return "htFillSMSource";
+    }
+}
+
+function htSelectIndexMap(index)
+{
+    if (index == "history") {
+        return htHistoryIdx;
+    } else if (index == "literature") {
+        return htLiteratureIdx;
+    } else if (index == "first_steps") {
+        return htFirstStepsIdx;
+    }
+
+    return undefined;
+}
+
+function htBuildNavigation(index)
+{
+    var urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('arg')) {
+        return null;
+    }
+
+    var arg = urlParams.get('arg');
+
+    var idx = htSelectIndexMap(index);
+
+    var ptr = idx.get(arg);
+    if (ptr == undefined) {
+        return null;
+    }
+
+    var prev = "";
+    if (ptr.prev == index) {
+        prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+"</span></a>";
+    } else {
+        var prevPtr = idx.get(ptr.prev);
+        prev = "<a href=\"index.html?page=class_content&arg="+ptr.prev+"\" onclick=\"htLoadPage('class_content', 'html', '"+ptr.prev+"', false); return false;\">"+prevPtr.name+"</a>";
+    }
+
+    var next = "";
+    if (ptr.next == undefined) {
+        next = "&nbsp;";
+    } else {
+        var nextPtr = idx.get(ptr.next);
+        next = "<a href=\"index.html?page=class_content&arg="+ptr.next+"\" onclick=\"htLoadPage('class_content', 'html', '"+ptr.next+"', false); return false;\">"+nextPtr.name+"</a>";
+    }
+
+    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr><tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+"</span></td><td>"+next+"</td></tr></table></p>";
+
+    return navigation;
+}
+
+function htWriteNavigation(index) 
+{
+    var navigation = htBuildNavigation(index);
+    $(".dynamicNavigation").each(function() {
+        $(this).html(navigation);
+    });
+}
+
+function htFillTopIdx(idx, data, first)
+{
+    for (const i in data.content) {
+        if (data.content[i].value.constructor !== vectorConstructor || data.content[i].page == undefined) {
+            continue;
+        }
+
+        var table = data.content[i].value;
+        var prev = first;
+        idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57]});
+        for (const j in table) {
+            var fillNext = idx.get(prev);
+            if (fillNext != undefined) {
+                fillNext.next = table[j].id;
+            }
+            idx.set(table[j].id, {"prev" : prev, "next" : undefined, "name" : table[j].name.substring(0, table[j].name.length - 1)});
+            prev = table[j].id;
+        }
+    }
+}
+
+function htLoadIndex(data, arg, page)
+{
+    if (data.content == undefined) {
+        return;
+    }
+
+    if (page == "history" && htHistoryIdx.has("history") == false) {
+        htFillTopIdx(htHistoryIdx, data, "history");
+        return;
+    } else if (page == "first_steps" && htFirstStepsIdx.has("first_steps") == false) {
+        htFillTopIdx(htFirstStepsIdx, data, "first_steps");
+        return;
+    } else if (page == "literature" && htLiteratureIdx.has("literature") == false) {
+        htFillTopIdx(htLiteratureIdx, data, "literature");
+        return;
+    }
+
+    if (data.index == undefined) {
+        return;
+    }
+
+    var URL = htLoadPageMountURL(data.index, data.index, "");
+    var unixEpoch = Date.now();
+    $.ajax({
+        type: 'GET',
+        url: URL,
+        contentType: 'application/json; charset=utf-8',
+        data: 'nocache='+unixEpoch,
+        async: true,
+        dataType: 'json',
+        success: function(d) {
+            if (d.length == 0) {
+                return false;
+            }
+
+            htLoadIndex(d, arg, data.index);
+
+            return false;
+        },
     });
 }
 
@@ -1328,55 +1475,55 @@ function htLoadAnswersFromExercise()
     return ret;
 }
 
-function htFillHistorySourcesSelectFunction(id)
-{
-    switch (id) {
-        case 0:
-            return "htFillPrimarySource";
-        case 1:
-            return "htFillReferenceSource";
-        case 2:
-            return "htFillHolySource";
-        case 3:
-        default:
-            return "htFillSMSource";
-    }
-}
-
-function htFillPaperContent(table, last_update, page_authors, page_reviewers) {
+function htFillPaperContent(table, last_update, page_authors, page_reviewers, index) {
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
 
     $("#paper").html("<i>"+keywords[87]+"</i>");
 
+    var navigationPage = table[0].text;
+    var idx = 0;
+    var later = "";
     for (const i in table) {
         if (i == 1) {
             htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
         }
 
-        var later = (i == 0 && last_update > 0 && table[i].id == "navigation") ? "<hr class=\"limit\" />" : "";
+        if (index && i == 0) {
+            navigationPage = "<p class=\"dynamicNavigation\"></p>";
+            htAddPaperDivs("#paper", "indexTop", navigationPage, "", "<hr class=\"limit\" />", idx);
+            idx++;
+            later = "";
+        } else {
+            //TODO: REMOVE THESE LINE AFTER TO UPDATE ALL CHILDPAGES
+            if (table[i].id == "navigation") {
+                navigationPage = table[0].text;
+            }
+            later = (i == 0 && last_update > 0 && table[i].id == "navigation") ? "<hr class=\"limit\" />" : "";
+        }
 
         if (table[i].text.constructor === stringConstructor) {
-            htAddPaperDivs("#paper", table[i].id, table[i].text, "", later, i);
+            htAddPaperDivs("#paper", table[i].id, table[i].text, "", later, idx);
         } else if (table[i].text.constructor === vectorConstructor) {
             if (table[i].id == "exercise_v2") {
-                htWriteQuestions(table[i].text, later, i);
+                htWriteQuestions(table[i].text, later, idx);
             } else if (table[i].id == "game_v1") {
-                htWriteGame(table[i].text, later, i);
+                htWriteGame(table[i].text, later, idx);
             } else if (table[i].id != "fill_dates") {
                 for (const j in table[i].text) {
                     var localObj = table[i].text[j];
                     var text = (localObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
-                    htAddPaperDivs("#paper", table[i].id + "_"+j, text, "", later, i);
+                    htAddPaperDivs("#paper", table[i].id + "_"+j, text, "", later, idx);
                 }
             } else {
                 htFillHTDate(table[i].text);
             }
         }
+        idx++;
     }
 
-    if (table[0].id == "navigation") {
-        htAddPaperDivs("#paper", "repeat-index", table[0].text, "<hr class=\"limit\" />", "", 100000);
+    if (navigationPage.length > 0) {
+        htAddPaperDivs("#paper", "repeat-index", navigationPage, "<hr class=\"limit\" />", "", 100000);
     }
 }
 

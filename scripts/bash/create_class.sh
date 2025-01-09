@@ -22,7 +22,7 @@ ht_create_source_file () {
 ht_create_class_files () {
     CT=$(date +%s)
     cd ../../lang || exit
-    find ./* \( -name "??-??" \) -exec bash -c 'cp ../src/json/class_template.json "$1/$2.json"; sed -i "s/A file containing all the sources referenced in the text./$2/g" "$1/$2.json"; sed -i "s/JavaScript files associated with this content, typically used for filling and correcting exercises./$2/g" "$1/$2.json" ; sed -i "s/The time of the last file update, represented as Unix Epoch time./$3/g" "$1/$2.json" ; sed -i "s/UPDATE_INDEX/$4/g" "$1/$2".json' shell {} "$1" "$CT" "$2" \;
+    find ./* \( -name "??-??" \) -exec bash -c 'cp ../src/json/class_template.json "$1/$2.json"; sed -i "s/A file containing all the sources referenced in the text./$2/g" "$1/$2.json"; sed -i "s/JavaScript files associated with this content, typically used for filling and correcting exercises./$2/g" "$1/$2.json" ; sed -i "s/The time of the last file update, represented as Unix Epoch time./$3/g" "$1/$2.json" ; sed -i "s/A file containing all files of the section./$4/g" "$1/$2".json' shell {} "$1" "$CT" "$2" \;
 }
 
 ht_create_files() {
