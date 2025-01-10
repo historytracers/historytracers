@@ -2,7 +2,8 @@
     "title" : "Agrupando las Fracciones",
     "header" : "Agrupando las Fracciones",
     "sources" : [ "40b55697-5f55-445d-9e33-db474a10b179" ],
-    "scripts" : null,
+    "scripts" : [ "40b55697-5f55-445d-9e33-db474a10b179" ],
+    "index" : [ "literature" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "last_update" : [ "1735137883" ],
     "authors" : null,
@@ -14,10 +15,6 @@
             "target" : "group_list",
             "value_type" : "paper",
             "value" : [
-                {
-                    "id" : "navigation",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=c1be386a-926c-4cc2-bb98-07cbcea239d2\" onclick=\"htLoadPage('class_content', 'html', 'c1be386a-926c-4cc2-bb98-07cbcea239d2', false); return false;\">Fraccionando textos</a> </td> <td><a href=\"index.html?page=literature\" onclick=\"htLoadPage('literature','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td><a href=\"index.html?page=class_content&arg=3cbf2fbf-2cbb-401c-a880-49c05a23d770\" onclick=\"htLoadPage('class_content', 'html', '3cbf2fbf-2cbb-401c-a880-49c05a23d770', false); return false;\">Textos como vectores</a></td></tr></table></p>"
-                },
                 {
                     "id" : "prerequisites",
                     "text" : [ { "text" : "### Prerrequisitos\n\nEste texto continúa el análisis presentado en el anterior sobre el agrupamiento de textos, por lo que se recomienda leerlo antes de este. Además, utilizaremos conceptos de conteo y escalas abordados en los dos primeros capítulos de la sección \"Primeros Pasos\"",
