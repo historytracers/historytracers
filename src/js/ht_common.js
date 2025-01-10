@@ -423,7 +423,7 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
             }
             var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
             var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
-            text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\">"+sources[i].text+" "+dateText+"</a>";
+            text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
         }
         text += ")";
     }
@@ -1179,14 +1179,14 @@ function htWriteNavigation(index)
 
 function htFillTopIdx(idx, data, first)
 {
+    var prev = first;
+    idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57]});
     for (const i in data.content) {
         if (data.content[i].value.constructor !== vectorConstructor || data.content[i].page == undefined) {
             continue;
         }
 
         var table = data.content[i].value;
-        var prev = first;
-        idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57]});
         for (const j in table) {
             var fillNext = idx.get(prev);
             if (fillNext != undefined) {
