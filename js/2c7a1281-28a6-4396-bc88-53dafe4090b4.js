@@ -10,6 +10,7 @@ function htLoadExercise() {
     }
 
     var applied = 0;
+    htWriteNavigation("literature");
     $('table').each(function() {
         if (!$(this).hasClass('book_navigation') && applied == 0) {
             $(this).addClass('three_table_bg');
