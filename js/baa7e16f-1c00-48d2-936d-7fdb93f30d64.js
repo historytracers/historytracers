@@ -9,6 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVectorbaa7e16f);
     }
 
+    htWriteNavigation("literature");
     htAddReligionReflection("#htReligiousReflection");
 
     return false;
