@@ -21,6 +21,8 @@ var healthy int32
 
 type key int
 
+var cfg *htConfig
+
 const (
 	htRequestIDKey key = 0
 )
@@ -71,7 +73,7 @@ func htLogging(logger *log.Logger) func(http.Handler) http.Handler {
 }
 
 func main() {
-	cfg := HTLoadCondig()
+	cfg = HTLoadCondig()
 	logger := log.New(os.Stdout, "HT HTTP (DAEMON): ", log.LstdFlags)
 
 	devM := "with"
@@ -82,6 +84,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", htCommonHandler)
+	http.HandleFunc("/edit", htIsEditionEnabled)
 	http.HandleFunc("GET /healthz", htHealthCheck)
 
 	server := HTNewServer(cfg, logger)

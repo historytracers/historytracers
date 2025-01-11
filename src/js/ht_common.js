@@ -37,6 +37,50 @@ var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teo
 var htSequenceGame = [ "CeramicaAntropologiaPeru.jpg", "ChocolatPotCahalPech.jpg", "EstelaAntropologiaGuatemala.jpg", "Kaminaljuyu.jpg", "MayaCRJade.jpg", "MetateTeotihuacan.jpg", "SanJoseCRAntropologia.jpg", "SanSalvadorESAntropologia.jpg", "StelaACopan.jpg", "MusicCR.jpg" ];
 var htSequenceGameLocation = [ "Lima, Peru", "Cahal Pech, Belize", "Ciudad de Guatemala, Guatemala", "Kaminaljuyu - Ciudad de Guatemala, Guatemala", "San Jose, Costa Rica", "Teotihuacan, Mexico", "San Jose, Costa Rica", "San Salvador, El Salvador", "Copan, Honduras", "San Jose, Costa Rica" ];
 
+var htEditable = undefined;
+var htEditableCheck = true;
+
+function htEnableEdition() {
+    if (htEditableCheck == false || htEditable != undefined) {
+        return;
+    }
+    htEditableCheck = false;
+
+    $("#loading_msg").hide();
+    $("#messages").hide();
+    var unixEpoch = Date.now();
+    $.ajax({
+        type: 'GET',
+        url: '/edit',
+        contentType: 'application/json; charset=utf-8',
+        data: 'nocache='+unixEpoch,
+        async: true,
+        dataType: 'json',
+        success: function(data) {
+            if (data.length == 0) {
+                $("#loading_msg").hide();
+                return false;
+            }
+
+            if (data.editable != undefined) {
+                htEditable = data.editable;
+                htEditableCheck = true;
+
+                $(".htEditor").each(function() {
+                    $(this).css('visibility','visible');
+                });
+            }
+
+            return false;
+        },
+        error: function(data) {
+            $(".htEditor").each(function() {
+                $(this).css('visibility','hidden');
+            });
+        },
+    });
+}
+
 function htScroolToID(id) {
     $('html, body').scrollTop($(id).offset().top);
 }
@@ -713,6 +757,10 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
 
             htProccessData(data, optional);
 
+            if (arg != source) {
+                htEnableEdition();
+            }
+
             return false;
         },
     });
@@ -816,11 +864,9 @@ function htLoadPage(page, ext, arg, reload) {
 
             htFillWebPage(page, data);
 
-            /* if (page == "main") {
-                for (const i in data.content) {
-                    htAddPaperDivs("#ht_description", data.content[i].id, data.content[i].value, "", "", i);
-                }
-            } */
+            if (arg != "source") {
+                htEnableEdition();
+            }
 
             return false;
         },

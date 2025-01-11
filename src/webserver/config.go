@@ -15,11 +15,11 @@ type htConfig struct {
 }
 
 func NewHTConfig() *htConfig {
-	return &htConfig{DevMode: false, Port: 12345, Path: "/"}
+	return &htConfig{DevMode: false, Port: 12345, Path: "./"}
 }
 
 func HTLoadCondig() *htConfig {
-	jsonFile, err := os.Open("users.json")
+	jsonFile, err := os.Open(".options.json")
 	if err != nil {
 		ret := NewHTConfig()
 		return ret
