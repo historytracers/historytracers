@@ -15,6 +15,8 @@ function htLoadExercise() {
     $("#ANTTPortugal2").html(keywords[89]);
     $("#ANTTPortugal3").html(keywords[89]);
 
+    htWriteNavigation("families");
+
     return false;
 }
 
