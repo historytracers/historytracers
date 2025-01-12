@@ -12,6 +12,8 @@ function htLoadExercise() {
     htAddTreeReflection("#myFirstReflection", 55);
     htAddTreeReflection("#GenealogicalLimit", 72);
 
+    htWriteNavigation("families");
+
     return false;
 }
 

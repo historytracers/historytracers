@@ -9,6 +9,8 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector3ea21df7);
     }
 
+    htWriteNavigation("families");
+
     return false;
 }
 
