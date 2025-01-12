@@ -84,7 +84,6 @@ func main() {
 	}
 
 	http.HandleFunc("/", htCommonHandler)
-	http.HandleFunc("/edit", htIsEditionEnabled)
 	http.HandleFunc("GET /healthz", htHealthCheck)
 
 	server := HTNewServer(cfg, logger)

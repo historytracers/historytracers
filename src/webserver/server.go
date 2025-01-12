@@ -9,6 +9,7 @@ import (
 	"os"
 	"regexp"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/google/uuid"
@@ -46,6 +47,12 @@ var validURL = regexp.MustCompile("^/|^/bodies/*$|^/css/*$|^/images/*$|^/js/*.js
 func htCommonHandler(w http.ResponseWriter, r *http.Request) {
 	htOUT := log.New(os.Stdout, "HT HTTP (INFO): ", log.LstdFlags)
 	htERR := log.New(os.Stderr, "HT HTTP (ERROR): ", log.LstdFlags)
+
+	if strings.Contains(r.URL.Path, "edit") {
+		htIsEditionEnabled(w, r)
+		return
+	}
+
 	m := validURL.FindStringSubmatch(r.URL.Path)
 	if m == nil {
 		http.NotFound(w, r)
