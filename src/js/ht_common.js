@@ -20,8 +20,6 @@ var smSourceMap = new Map();
 
 var genealogicalStats = {};
 
-let bookSections = [ ];
-
 var smGame = [];
 var smGameTimeoutID = 0;
 
@@ -30,6 +28,7 @@ var htAtlas = [];
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
+var htFamilyIdx = new Map();
 
 var htGameImages = [ "MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren.jpg", "SanAndres.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito.jpg", "CopanAltarGenealogy0.jpg", "CopanAltarGenealogy1.jpg", "CopanAltarGenealogy2.jpg", "CopanAltarGenealogy3.jpg", "TeotihuacanMountains.jpg", "CopanWholeTextStelaAltar.png", "StelaACopan.jpg", "Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
@@ -51,7 +50,7 @@ function htEnableEdition() {
     var unixEpoch = Date.now();
     $.ajax({
         type: 'GET',
-        url: '/edit',
+        url: 'edit/',
         contentType: 'application/json; charset=utf-8',
         data: 'nocache='+unixEpoch,
         async: true,
@@ -783,6 +782,7 @@ function htLoadPage(page, ext, arg, reload) {
                     htHistoryIdx.clear();
                     htLiteratureIdx.clear();
                     htFirstStepsIdx.clear();
+                    htFamilyIdx.clear();
                 } else {
                     lastTreeLoaded.page = page;
                     lastTreeLoaded.arg = arg;
@@ -1012,16 +1012,6 @@ function htFillWebPage(page, data)
         htFillMathKeywords(data.math_keywords);
         $("#loading_msg").hide();
     } else {
-        switch (page) {
-            case "science":
-            case "first_steps":
-            case "history":
-                bookSections = [ ];
-                bookSections.push({"name": page, "id": null});
-                break;
-            default:
-                break;
-        }
         for (const i in data.content) {
             if (data.content[i].value == undefined || data.content[i].value == null) {
                 if (data.content[i].id != undefined && data.content[i].id == "fill_dates") {
@@ -1031,7 +1021,11 @@ function htFillWebPage(page, data)
             }
 
             if (data.content[i].value.constructor === stringConstructor) {
-                $("#"+data.content[i].id).html(data.content[i].value);
+                if ($("#"+data.content[i].id).length > 0) {
+                    $("#"+data.content[i].id).html(data.content[i].value);
+                } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps") && (data.content[i].target != undefined)) {
+                    $("#group-map").append("<ul><b><span id=\""+data.content[i].id+"\">"+data.content[i].value+"</span></b><ol id=\""+data.content[i].target+"\"></ol></ul><br />");
+                }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].target != undefined) {
                 if (data.content[i].value_type == undefined) {
                     continue;
@@ -1173,6 +1167,8 @@ function htSelectIndexMap(index)
         return htLiteratureIdx;
     } else if (index == "first_steps") {
         return htFirstStepsIdx;
+    } else if (index == "families") {
+        return htFamilyIdx;
     }
 
     return undefined;
@@ -1194,12 +1190,14 @@ function htBuildNavigation(index)
         return null;
     }
 
+    var pageName = (index == "families") ? "tree" : "class_content";
+
     var prev = "";
     if (ptr.prev == index) {
         prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+"</span></a>";
     } else {
         var prevPtr = idx.get(ptr.prev);
-        prev = "<a href=\"index.html?page=class_content&arg="+ptr.prev+"\" onclick=\"htLoadPage('class_content', 'html', '"+ptr.prev+"', false); return false;\">"+prevPtr.name+"</a>";
+        prev = "<a href=\"index.html?page="+pageName+"&arg="+ptr.prev+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+ptr.prev+"', false); return false;\">"+prevPtr.name+"</a>";
     }
 
     var next = "";
@@ -1207,7 +1205,7 @@ function htBuildNavigation(index)
         next = "&nbsp;";
     } else {
         var nextPtr = idx.get(ptr.next);
-        next = "<a href=\"index.html?page=class_content&arg="+ptr.next+"\" onclick=\"htLoadPage('class_content', 'html', '"+ptr.next+"', false); return false;\">"+nextPtr.name+"</a>";
+        next = "<a href=\"index.html?page="+pageName+"&arg="+ptr.next+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+ptr.next+"', false); return false;\">"+nextPtr.name+"</a>";
     }
 
     var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr><tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+"</span></td><td>"+next+"</td></tr></table></p>";
@@ -1233,12 +1231,20 @@ function htFillTopIdx(idx, data, first)
         }
 
         var table = data.content[i].value;
+        var name = "";
         for (const j in table) {
             var fillNext = idx.get(prev);
             if (fillNext != undefined) {
                 fillNext.next = table[j].id;
             }
-            idx.set(table[j].id, {"prev" : prev, "next" : undefined, "name" : table[j].name.substring(0, table[j].name.length - 1)});
+            var pos = table[j].name.length - 1;
+            if (first == "families") {
+                var testing = table[j].name.search("\\(<span");
+                if (testing > 0) {
+                    pos = testing;
+                }
+            }
+            idx.set(table[j].id, {"prev" : prev, "next" : undefined, "name" : table[j].name.substring(0, pos - 1) });
             prev = table[j].id;
         }
     }
@@ -1246,7 +1252,7 @@ function htFillTopIdx(idx, data, first)
 
 function htLoadIndex(data, arg, page)
 {
-    if (data.content == undefined) {
+    if (data.content == undefined && data.families == undefined) {
         return;
     }
 
@@ -1258,6 +1264,9 @@ function htLoadIndex(data, arg, page)
         return;
     } else if (page == "literature" && htLiteratureIdx.has("literature") == false) {
         htFillTopIdx(htLiteratureIdx, data, "literature");
+        return;
+    } else if (page == "families" && htFamilyIdx.has("families") == false) {
+        htFillTopIdx(htFamilyIdx, data, "families");
         return;
     }
 
@@ -1391,7 +1400,6 @@ function htFillSubMapList(table, target) {
         switch(table[i].page) {
             case "class_content":
                 if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
-                    bookSections.push({"name": table[i].name, "id": table[i].id});
                     $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>"); 
                 }
                 break;

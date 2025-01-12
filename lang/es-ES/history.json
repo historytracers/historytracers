@@ -15,7 +15,8 @@
         },
         {
             "id" : "initial_title",
-            "value" : "Capítulo 1: Introducción a la historia"
+            "value" : "Capítulo 1: Introducción a la historia",
+            "target": "class-group"
         },
         {
             "id" : "groups",
@@ -48,12 +49,13 @@
         },
         {
             "id" : "appendix",
-            "value" : "Apéndice I: Registros Históricos"
+            "value" : "Apéndice I: Registros Históricos",
+            "target": "class-appendixI"
         },
         {
             "id" : "groups",
             "desc" : null,
-            "target" : "class-appendix-game",
+            "target": "class-appendixI",
             "page" : "class_content",
             "value_type" : "group-list",
             "value" : [
