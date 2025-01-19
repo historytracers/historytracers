@@ -1,7 +1,9 @@
 {
     "title" : "Name to be displayed on the title bar and at the top of the page.",
+    "header" : "The name shown at the top of the page or section.",
     "sources" : [ "Array of files where sources are defined." ],
     "scripts" : [ "Array of JavaScript files that will be loaded." ],
+    "index" : [ "families" ],
     "common" : [ "Common history of the family's origin.",
                  { "text" : "A detailed description of the person's life history and marital status.",
                    "source" : [ 
@@ -10,11 +12,11 @@
                                   "text": "The accompanying text that will be displayed with the citation.",
                                   "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
                    ],
-                                  "fill_dates" : [
-                                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                                        {"type" : "unix", "epoch" : "0" },
-                                        {"type" : "julian",  "epoch" : "0" }
-                                   ],
+                   "fill_dates" : [
+                         {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                         {"type" : "unix", "epoch" : "0" },
+                         {"type" : "julian",  "epoch" : "0" }
+                    ],
                     "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
                     "format" : "markdown or html",
                     "PostMention": "A character used after a mention to include citations."
@@ -28,6 +30,7 @@
     "periodOfTime" : [ "Family origin (European, American, Asian, African..).", "A period of time (Middle Ages, Litic, Classic...)" ],
     "maps" : [ { "text": "Description or information to be displayed alongside the map.", "img" : "File path to the map image.", "order" : "Number that specifies the position of the image on the screen." } ],
     "prerequisites" : [ "List of prerequisites needed to understand the text." ],
+    "gedcom" : [ "The name of the GEDCOM file." ],
     "version" : 1,
     "type" : "family_tree",
     "families" : [
@@ -56,6 +59,8 @@
                 {
                     "id" : "Unique identifier for the person.",
                     "name": "Name of the person.",
+                    "sex": "The biological classification of a person.",
+                    "gender": "The gender identity or social role adopted by a person.",
                     "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
                                     "source" : [
                                         { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
@@ -112,7 +117,17 @@
                                            "PostMention": "A character used after a mention to include citations."
                                           },
                                           "<p>A detailed description of the person's life history and marital status.</p>"
-                            ]
+                            ],
+                            "marriage_date" : [
+                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                               {"type" : "unix", "epoch" : "0" },
+                                               {"type" : "julian",  "epoch" : "0" }
+                                           ],
+                            "marriage_address" : "The address where the marriage took place.",
+                            "marriage_city" : "The city where the marriage occurred.",
+                            "marriage_state" : "The state where the marriage took place.",
+                            "marriage_pc" : "The postal code of the marriage location.",
+                            "marriage_country" : "The country where the marriage occurred."
                         }
                     ],
                     "children" : [
@@ -140,7 +155,18 @@
                                            "PostMention": "A character used after a mention to include citations."
                                           },
                                           "<p>A detailed description of the person's life history and marital status.</p>"
-                            ]
+                            ],
+                            "birth_date" : [
+                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                               {"type" : "unix", "epoch" : "0" },
+                                               {"type" : "julian",  "epoch" : "0" }
+                                           ],
+                            "birth_address" : "The address where the marriage took place.",
+                            "birth_city" : "The city where the marriage occurred.",
+                            "birth_state" : "The state where the marriage took place.",
+                            "birth_pc" : "The postal code of the marriage location.",
+                            "birth_country" : "The country where the marriage occurred.",
+                            "child_adopted" : "A boolean value indicating whether the child is adopted."
                         }
                     ]
                 }
