@@ -5,6 +5,7 @@ package main
 import (
 	"encoding/json"
 	"flag"
+	"fmt"
 	"io/ioutil"
 	"os"
 )
@@ -28,12 +29,12 @@ var (
 func HTParseArg() {
 	CFG = NewHTConfig()
 
-	flag.BoolVar(&CFG.DevMode, "devmode", devFlag, "Is the software running in development mode? Default: false")
-	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on. Default: 12345")
-	flag.StringVar(&CFG.srcPath, "src", srcPath, "Directory containing all source files. Default: /var/www/historytracers/")
-	flag.StringVar(&CFG.contentPath, "www", contentPath, "Directory for user-facing content. Default: /var/www/historytracers/www/")
+	flag.BoolVar(&CFG.DevMode, "devmode", devFlag, "Is the software running in development mode? (default: false)")
+	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
 
-	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration file. Default: /etc/historytracers/")
+	flag.StringVar(&CFG.srcPath, "src", srcPath, "Directory containing all source files")
+	flag.StringVar(&CFG.contentPath, "www", contentPath, "Directory for user-facing content")
+	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration file.")
 
 	flag.Parse()
 }
@@ -61,7 +62,8 @@ func htUpdateConfig(cfg *htConfig) {
 }
 
 func HTLoadConfig() {
-	jsonFile, err := os.Open(".options.json")
+	fileName := fmt.Sprintf("%s/historytracers.conf", confPath)
+	jsonFile, err := os.Open(fileName)
 	if err != nil {
 		return
 	}
