@@ -20,11 +20,10 @@ type HTServer struct {
 }
 
 // TODO: CHANGE FROM CURRENT bool TO STRING MAPPING REQUEST TO UUID
-//
 var validMaps map[string]bool
 
-func HTNewServer(cfg *htConfig, logger *log.Logger) *HTServer {
-	useAddr := ":" + strconv.Itoa(cfg.Port)
+func HTNewServer(logger *log.Logger) *HTServer {
+	useAddr := ":" + strconv.Itoa(CFG.Port)
 
 	nextRequestID := func() string {
 		return strconv.FormatInt(time.Now().UnixNano(), 10)
@@ -66,7 +65,7 @@ func htCommonHandler(w http.ResponseWriter, r *http.Request) {
 func htIsEditionEnabled(w http.ResponseWriter, r *http.Request) {
 	htOUT := log.New(os.Stdout, "HT HTTP (INFO): ", log.LstdFlags)
 	htERR := log.New(os.Stderr, "HT HTTP (ERROR): ", log.LstdFlags)
-	if cfg.DevMode == false {
+	if CFG.DevMode == false {
 		http.NotFound(w, r)
 		htERR.Printf("Blocked request: %s %s from %s, because devmode is disabled", r.Method, r.URL.Path, r.RemoteAddr)
 		return
