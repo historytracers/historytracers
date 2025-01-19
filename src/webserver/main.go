@@ -21,8 +21,6 @@ var healthy int32
 
 type key int
 
-var cfg *htConfig
-
 const (
 	htRequestIDKey key = 0
 )
@@ -73,11 +71,12 @@ func htLogging(logger *log.Logger) func(http.Handler) http.Handler {
 }
 
 func main() {
-	cfg = HTLoadCondig()
+	HTParseArg()
+	HTLoadConfig()
 	logger := log.New(os.Stdout, "HT HTTP (DAEMON): ", log.LstdFlags)
 
 	devM := "with"
-	if cfg.DevMode == false {
+	if CFG.DevMode == false {
 		devM += "out"
 	} else {
 		http.HandleFunc("/save", htSaveHandler)
@@ -86,7 +85,7 @@ func main() {
 	http.HandleFunc("/", htCommonHandler)
 	http.HandleFunc("GET /healthz", htHealthCheck)
 
-	server := HTNewServer(cfg, logger)
+	server := HTNewServer(logger)
 
 	done := make(chan bool)
 	quit := make(chan os.Signal, 1)
@@ -109,10 +108,10 @@ func main() {
 		close(done)
 	}()
 
-	logger.Println("Ready to run listening port", cfg.Port, devM, "devmode")
+	logger.Println("Ready to run listening port", CFG.Port, devM, "devmode")
 
 	if err := server.hServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-		logger.Fatalf("Listening Port", cfg.Port, devM, "devmode", "content", cfg.Path)
+		logger.Fatalf("Listening Port", CFG.Port, devM, "devmode", "content", CFG.contentPath)
 	}
 	<-done
 	logger.Println("Good bye!")

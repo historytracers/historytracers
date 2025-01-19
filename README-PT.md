@@ -1,5 +1,11 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
+## Por que precisamos de mais um projeto de educação?
+
+Quanto à educação, reconhecemos a diversidade de métodos de ensino e buscamos promover um entendimento mais amplo das ciências, adaptando-nos às necessidades individuais e evitando desigualdades.
+
+A matemática é apresentada de forma simples, não focando na memorização de fórmulas, mas sim no desenvolvimento do raciocínio que leva a elas, utilizando o corpo e a natureza como ferramentas de aprendizado
+
 ## Por que precisamos de mais um projeto de genealogia?
 
 Existem diversos projetos de genealogia disponíveis para ajudar as pessoas a construir sua árvore genealógica. Alguns desses projetos são colaborativos, permitindo que as pessoas trabalhem em conjunto para descobrir seus ancestrais. Nosso projeto não tem a intenção de ser apenas mais um software ou site de árvores genealógicas para competir com os outros. O principal objetivo do projeto é auxiliar as pessoas a utilizar o método científico e compreender como o conhecimento sobre as famílias se desenvolve ao longo do tempo. Além disso, destacamos a participação das famílias em momentos históricos significativos.

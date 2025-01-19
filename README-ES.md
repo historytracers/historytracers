@@ -1,5 +1,11 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
+## ¿Por qué otro proyecto de educación?
+
+Existen muchos buenos libros sobre educación que ayudan a las personas en la escuela, pero entendemos que no hay una sola forma de enseñar; lo que es fácil para uno puede no serlo para otros. El uso de un único método de enseñanza para toda una población puede crear barreras en lugar de facilitar el aprendizaje. Por eso, tenemos un proyecto que ayuda a las personas a reflexionar y comprender las ciencias, partiendo de sí mismas, sin crear diferencias, ya que todos somos *Homo sapiens*.
+
+Las matemáticas se presentan de manera sencilla, evitando la memorización de fórmulas y enfocándonos en desarrollar el razonamiento que conduce a ellas, utilizando nuestro cuerpo y la naturaleza como herramientas de aprendizaje.
+
 ## ¿Por qué la necesidad de más proyectos de genealogía?
 
 Existen diversos proyectos de genealogía destinados a ayudar a las personas a trazar su árbol genealógico. Algunos de ellos fomentan la colaboración, permitiendo que las personas trabajen juntas para descubrir a sus ancestros. Nuestro proyecto no busca competir con otros programas o sitios web para la creación de árboles genealógicos; su principal objetivo es ayudar a las personas a aplicar el método científico y comprender cómo ha evolucionado el conocimiento sobre las familias a lo largo del tiempo. Además, se destaca la participación de las familias en momentos históricos.

@@ -1,5 +1,11 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
+## Why Another Educational Project?
+
+Although there are undoubtedly excellent books available for educating people, it is crucial to recognize that there are multiple approaches to teaching. What may be simple for one person may not be for another. Employing a singular teaching methodology for an entire population can erect barriers instead of fostering progress. Our reflective project aims to cultivate understanding of science from an individual perspective, mitigating inequality. After all, we are all part of the same species, *Homo sapiens*.
+
+Math is presented in a simple way, focusing not on memorizing formulas, but on developing the reasoning needed to understand them, using our body and nature as tools for learning.
+
 ## Why do we need another genealogical project?
 
 Various genealogical projects exist to assist individuals in constructing their family trees. Some of these projects encourage collaboration, enabling people to work together to trace their ancestors. The primary objective of our project is not to compete with existing websites or software for family tree creation, but rather to facilitate the application of the scientific method, aiding individuals in comprehending the growth of their family knowledge over centuries. Additionally, we highlight familial participation in significant historical events.
