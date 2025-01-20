@@ -97,6 +97,7 @@ func main() {
 
 	if minifyFlag {
 		HTMinifyAllFiles()
+		return
 	}
 
 	devM := "with"
