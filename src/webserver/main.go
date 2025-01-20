@@ -59,15 +59,19 @@ func htTracing(nextReuestID func() string) func(http.Handler) http.Handler {
 	}
 }
 
-func htOpenLogs(name string) *log.Logger {
-	if stat, err := os.Stat(CFG.logPath); err != nil {
-		e := os.Mkdir(CFG.logPath, 0755)
+func htCreateDirectories(name string) {
+	if stat, err := os.Stat(name); err != nil {
+		e := os.Mkdir(name, 0755)
 		if e != nil {
 			panic(e)
 		}
 	} else if stat.IsDir() == false {
 		panic("This is not a directory")
 	}
+}
+
+func htOpenLogs(name string) *log.Logger {
+	htCreateDirectories(CFG.logPath)
 
 	fileName := fmt.Sprintf("%s/%s", CFG.logPath, name)
 	if _, err := os.Stat(fileName); os.IsNotExist(err) {
@@ -90,6 +94,11 @@ func main() {
 	HTLoadConfig()
 	DaemonLog := htOpenLogs("daemon.log")
 	AccessLog := htOpenLogs("access.log")
+
+	if minifyFlag {
+		HTMinifyAllFiles()
+		return
+	}
 
 	devM := "with"
 	if CFG.DevMode == false {
