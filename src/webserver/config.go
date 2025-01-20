@@ -20,6 +20,7 @@ type htConfig struct {
 
 var (
 	devFlag     bool   = false
+	minifyFlag  bool   = false
 	portFlag    int    = 12345
 	confPath    string = "/etc/historytracers/"
 	srcPath     string = "/var/www/historytracers/"
@@ -32,6 +33,7 @@ func HTParseArg() {
 	CFG = NewHTConfig()
 
 	flag.BoolVar(&CFG.DevMode, "devmode", devFlag, "Is the software running in development mode? (default: false)")
+	flag.BoolVar(&CFG.DevMode, "minify", minifyFlag, "Do not start the server, instead, minify all files. (default: false)")
 	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
 
 	flag.StringVar(&CFG.srcPath, "src", srcPath, "Directory containing all source files")
