@@ -28,6 +28,7 @@ function htAddAlterQImages(id)
 function htLoadExercise() {
     htAddAlterQImages(".htSlides");
     htFillSequenceTable("#sequenceNum", 0, 99);
+    htWriteNavigation("first_steps");
 
     return false;
 }
