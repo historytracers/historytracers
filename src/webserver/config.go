@@ -15,6 +15,7 @@ type htConfig struct {
 	Port        int    `json:"port"`
 	srcPath     string `json:"src"`
 	contentPath string `json:"content"`
+	logPath     string `json:"log"`
 }
 
 var (
@@ -22,6 +23,7 @@ var (
 	portFlag    int    = 12345
 	confPath    string = "/etc/historytracers/"
 	srcPath     string = "/var/www/historytracers/"
+	logPath     string = "/var/log/historytracers/"
 	contentPath string = "/var/www/historytracers/www/"
 	CFG         *htConfig
 )
@@ -33,6 +35,7 @@ func HTParseArg() {
 	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
 
 	flag.StringVar(&CFG.srcPath, "src", srcPath, "Directory containing all source files")
+	flag.StringVar(&CFG.logPath, "log", logPath, "Directory containing all log files")
 	flag.StringVar(&CFG.contentPath, "www", contentPath, "Directory for user-facing content")
 	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration file.")
 
@@ -54,6 +57,10 @@ func htUpdateConfig(cfg *htConfig) {
 
 	if CFG.srcPath == srcPath {
 		CFG.srcPath = cfg.srcPath
+	}
+
+	if CFG.logPath == logPath {
+		CFG.logPath = cfg.logPath
 	}
 
 	if CFG.contentPath == contentPath {
