@@ -341,6 +341,7 @@ function htLoadExercise() {
     localGameUseVector7ec87720 = [].concat(localGameVector7ec87720);
 
     htLoadRandomTranslation();
+    htWriteNavigation("first_steps");
 
     return false;
 }

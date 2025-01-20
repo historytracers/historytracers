@@ -79,6 +79,7 @@ function htLoadExercise() {
         localCounter590d1c30b--;
         htShowTrainee1();
     });
+    htWriteNavigation("first_steps");
 
     return false;
 }
