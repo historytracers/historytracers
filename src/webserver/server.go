@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -19,11 +18,15 @@ type HTServer struct {
 	hServer *http.Server
 }
 
+var ErrorLog *log.Logger = nil
+
 // TODO: CHANGE FROM CURRENT bool TO STRING MAPPING REQUEST TO UUID
 var validMaps map[string]bool
 
 func HTNewServer(logger *log.Logger) *HTServer {
 	useAddr := ":" + strconv.Itoa(CFG.Port)
+
+	ErrorLog = htOpenLogs("error.log")
 
 	nextRequestID := func() string {
 		return strconv.FormatInt(time.Now().UnixNano(), 10)
@@ -40,13 +43,26 @@ func HTNewServer(logger *log.Logger) *HTServer {
 	return &HTServer{hServer: server}
 }
 
+func htLogging(logger *log.Logger) func(http.Handler) http.Handler {
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			defer func() {
+				requestID, ok := r.Context().Value(htRequestIDKey).(string)
+				if !ok {
+					requestID = "unknown"
+				}
+
+				logger.Println(requestID, r.Method, r.URL.Path, r.RemoteAddr, r.UserAgent())
+			}()
+			next.ServeHTTP(w, r)
+		})
+	}
+}
+
 // Normal URL when we are not developing
 var validURL = regexp.MustCompile("^/|^/bodies/*$|^/css/*$|^/images/*$|^/js/*.js$|^/lang*$|^/webfonts/*$|^/*.html$|")
 
 func htCommonHandler(w http.ResponseWriter, r *http.Request) {
-	htOUT := log.New(os.Stdout, "HT HTTP (INFO): ", log.LstdFlags)
-	htERR := log.New(os.Stderr, "HT HTTP (ERROR): ", log.LstdFlags)
-
 	if strings.Contains(r.URL.Path, "edit") {
 		htIsEditionEnabled(w, r)
 		return
@@ -55,22 +71,18 @@ func htCommonHandler(w http.ResponseWriter, r *http.Request) {
 	m := validURL.FindStringSubmatch(r.URL.Path)
 	if m == nil {
 		http.NotFound(w, r)
-		htERR.Printf("Blocked request: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
+		ErrorLog.Printf("Blocked request: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
 		return
 	}
-	htOUT.Printf("Received request: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
 	http.ServeFile(w, r, r.URL.Path[1:])
 }
 
 func htIsEditionEnabled(w http.ResponseWriter, r *http.Request) {
-	htOUT := log.New(os.Stdout, "HT HTTP (INFO): ", log.LstdFlags)
-	htERR := log.New(os.Stderr, "HT HTTP (ERROR): ", log.LstdFlags)
 	if CFG.DevMode == false {
 		http.NotFound(w, r)
-		htERR.Printf("Blocked request: %s %s from %s, because devmode is disabled", r.Method, r.URL.Path, r.RemoteAddr)
+		ErrorLog.Printf("Blocked request: %s %s from %s, because devmode is disabled", r.Method, r.URL.Path, r.RemoteAddr)
 		return
 	}
-	htOUT.Printf("Received request: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)

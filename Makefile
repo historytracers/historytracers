@@ -13,4 +13,4 @@ dev:
 	./historytracers
 
 clean:
-	rm -rf artifacts/*
+	rm -rf historytracers

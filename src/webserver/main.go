@@ -8,6 +8,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -17,7 +18,11 @@ import (
 	"time"
 )
 
-var healthy int32
+var (
+	AccessLog *log.Logger
+	DaemonLog *log.Logger
+	healthy   int32
+)
 
 type key int
 
@@ -54,26 +59,37 @@ func htTracing(nextReuestID func() string) func(http.Handler) http.Handler {
 	}
 }
 
-func htLogging(logger *log.Logger) func(http.Handler) http.Handler {
-	return func(next http.Handler) http.Handler {
-		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			defer func() {
-				requestID, ok := r.Context().Value(htRequestIDKey).(string)
-				if !ok {
-					requestID = "unknown"
-				}
+func htOpenLogs(name string) *log.Logger {
+	if stat, err := os.Stat(CFG.logPath); err != nil {
+		e := os.Mkdir(CFG.logPath, 0755)
+		if e != nil {
+			panic(e)
+		}
+	} else if stat.IsDir() == false {
+		panic("This is not a directory")
+	}
 
-				logger.Println(requestID, r.Method, r.URL.Path, r.RemoteAddr, r.UserAgent())
-			}()
-			next.ServeHTTP(w, r)
-		})
+	fileName := fmt.Sprintf("%s/%s", CFG.logPath, name)
+	if _, err := os.Stat(fileName); os.IsNotExist(err) {
+		fp, err := os.Create(fileName)
+		if err != nil {
+			panic(err)
+		}
+		return log.New(fp, "", log.LstdFlags)
+	} else {
+		fp, err := os.OpenFile(fileName, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0640)
+		if err != nil {
+			panic(err)
+		}
+		return log.New(fp, "", log.LstdFlags)
 	}
 }
 
 func main() {
 	HTParseArg()
 	HTLoadConfig()
-	logger := log.New(os.Stdout, "HT HTTP (DAEMON): ", log.LstdFlags)
+	DaemonLog := htOpenLogs("daemon.log")
+	AccessLog := htOpenLogs("access.log")
 
 	devM := "with"
 	if CFG.DevMode == false {
@@ -85,7 +101,7 @@ func main() {
 	http.HandleFunc("/", htCommonHandler)
 	http.HandleFunc("GET /healthz", htHealthCheck)
 
-	server := HTNewServer(logger)
+	server := HTNewServer(AccessLog)
 
 	done := make(chan bool)
 	quit := make(chan os.Signal, 1)
@@ -95,7 +111,7 @@ func main() {
 
 	go func() {
 		<-quit
-		logger.Println("Server is shutting down...")
+		DaemonLog.Println("INFO: Server is shutting down...")
 		atomic.StoreInt32(&healthy, 0)
 
 		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
@@ -103,16 +119,16 @@ func main() {
 
 		server.hServer.SetKeepAlivesEnabled(false)
 		if err := server.hServer.Shutdown(ctx); err != nil {
-			logger.Fatalf("I could not gracefully shutdown the server: %v\n", err)
+			DaemonLog.Fatalf("ERROR: I could not gracefully shutdown the server: %v\n", err)
 		}
 		close(done)
 	}()
 
-	logger.Println("Ready to run listening port", CFG.Port, devM, "devmode")
+	DaemonLog.Println("INFO: Ready to run listening port", CFG.Port, devM, "devmode")
 
 	if err := server.hServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-		logger.Fatalf("Listening Port", CFG.Port, devM, "devmode", "content", CFG.contentPath)
+		DaemonLog.Fatalf("ERROR: Listening Port", CFG.Port, devM, "devmode", "content", CFG.contentPath)
 	}
 	<-done
-	logger.Println("Good bye!")
+	DaemonLog.Println("INFO: Good bye!")
 }
