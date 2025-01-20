@@ -183,11 +183,8 @@ function htLoadExercise() {
         htMonitoring = false;
         htMemoryClickEvents();
     });
-    return false;
-}
+    htWriteNavigation("first_steps");
 
-function htCheckAnswers()
-{
     return false;
 }
 
