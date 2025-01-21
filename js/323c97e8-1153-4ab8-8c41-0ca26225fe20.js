@@ -68,6 +68,7 @@ function htLoadExercise() {
         }
     });
     htUpdateYupanaScreen323c97e8(9876543210);
+    htWriteNavigation("first_steps");
 
     return false;
 }
