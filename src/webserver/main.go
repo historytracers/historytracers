@@ -59,7 +59,7 @@ func htTracing(nextReuestID func() string) func(http.Handler) http.Handler {
 	}
 }
 
-func htCreateDirectories(name string) {
+func htCreateDirectory(name string) {
 	if stat, err := os.Stat(name); err != nil {
 		e := os.Mkdir(name, 0755)
 		if e != nil {
@@ -71,7 +71,7 @@ func htCreateDirectories(name string) {
 }
 
 func htOpenLogs(name string) *log.Logger {
-	htCreateDirectories(CFG.logPath)
+	htCreateDirectory(CFG.logPath)
 
 	fileName := fmt.Sprintf("%s/%s", CFG.logPath, name)
 	if _, err := os.Stat(fileName); os.IsNotExist(err) {
