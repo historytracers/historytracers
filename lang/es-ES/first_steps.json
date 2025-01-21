@@ -2,7 +2,7 @@
     "title" : "Primeros pasos",
     "header" : "Primeros pasos",
     "sources" : null,
-    "last_update" : [ "1733338237" ],
+    "last_update" : [ "1737491121" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "version" : 1,
     "content" : [
@@ -16,7 +16,7 @@
           "target": "class-group"
         },
         {
-            "id" : "groups",
+            "id" : "counting",
             "desc" : "Clases:",
             "target" : "class-group",
             "page" : "class_content",
@@ -100,7 +100,7 @@
             ]
         },
         {
-          "id": "function_group",
+          "id": "compare",
           "value": "Capítulo 2: Ser o no ser...",
           "target": "class-function-group"
         },
@@ -129,6 +129,24 @@
                     "id": "03bb4b8e-6187-4572-8f00-ea3892df51a4",
                     "name": "Mayor o menor :",
                     "desc": "Finalizando las comparaciones, analizamos la relación entre objetos y los clasificamos como mayores o menores."
+                }
+            ]
+        },
+        {
+          "id": "sum_mult",
+          "value": "Capítulo 3: Movimiento",
+          "target": "class-sum_mult"
+        },
+        {
+            "id" : "sum_mult_group",
+            "target" : "class-sum_mult",
+            "page" : "class_content",
+            "value_type" : "group-list",
+            "value" : [
+                {
+                    "id": "1ae03186-6cd0-451d-ae10-d5107cbe9651",
+                    "name": "Caminando entre los números :",
+                    "desc": "En este texto, exploraremos las relaciones entre los números interos."
                 }
             ]
         }

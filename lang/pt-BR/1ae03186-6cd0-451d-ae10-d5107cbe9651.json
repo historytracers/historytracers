@@ -1,0 +1,81 @@
+{
+    "title" : "Caminhando entre os números",
+    "header" : "Caminhando entre os números",
+    "sources" : [ "1ae03186-6cd0-451d-ae10-d5107cbe9651" ],
+    "scripts" : [ "1ae03186-6cd0-451d-ae10-d5107cbe9651" ],
+    "index" : [ "first_steps" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1737488750" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "prerequisites",
+                    "text" : [ { "text" : "Nos dois primeiros capítulos desta seção, primeiramente estudamos como começamos a contar e organizar os números, além de entender o conceito inicial de limite. Na sequência, estudamos as comparações. Esta capítulo",
+                                 "source" : [ 
+                                              { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                                "uuid": "Unique identifier (UUID) for the current citation.",
+                                                "text": "The accompanying text that will be displayed with the citation.",
+                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                  "fill_dates" : [
+                                                    {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                                    {"type" : "unix", "epoch" : "0" },
+                                                    {"type" : "julian",  "epoch" : "0" }
+                                  ],
+                                  "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
+                                  "format" : "markdown or html",
+                                  "PostMention": "A character used after a mention to include citations."
+                               },
+                                "<p><h3> </h3></p>"
+                    ]
+                },
+                {
+                    "id" : "SECTION_NAME",
+                    "text" : [ { "text" : " ",
+                                 "source" : [
+                                              { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                                "uuid": "Unique identifier (UUID) for the current citation.",
+                                                "text": "The accompanying text that will be displayed with the citation.",
+                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
+                                 "fill_dates" : [
+                                    {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                    {"type" : "unix", "epoch" : "0" },
+                                    {"type" : "julian",  "epoch" : "0" }
+                                 ],
+                                 "format" : "markdown or html",
+                                 "PostMention": "A character used after a mention to include citations."
+                               },
+                                "<p><h3> </h3></p>"
+                    ]
+                },
+                {
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "WRITE A QUESTION",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "The correct answer is 'Yes' because ..."
+                        }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                        {"type" : "unix", "epoch" : "0" },
+                        {"type" : "julian",  "epoch" : "0" }
+                    ]
+                }
+            ]
+        }
+    ]
+}
