@@ -17,44 +17,29 @@
             "value" : [
                 {
                     "id" : "prerequisites",
-                    "text" : [ { "text" : "Nos dois primeiros capítulos desta seção, primeiramente estudamos como começamos a contar e organizar os números, além de entender o conceito inicial de limite. Na sequência, estudamos as comparações. Esta capítulo",
+                    "text" : [ { "text" : "### Pré-requisitos\n\nNos dois primeiros capítulos desta seção, abordamos os fundamentos para a contagem e organização dos números, além do conceito inicial de limite. Em seguida, exploramos os princípios das comparações. Neste capítulo, daremos início ao estudo sobre como é possível transitar entre esses números. Por isso, recomendamos que os dois capítulos anteriores sejam estudados antes de prosseguir com este",
                                  "source" : [ 
-                                              { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
-                                                "uuid": "Unique identifier (UUID) for the current citation.",
-                                                "text": "The accompanying text that will be displayed with the citation.",
-                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                              { "type": 1,
+                                                "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
                                  ],
-                                  "fill_dates" : [
-                                                    {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                                                    {"type" : "unix", "epoch" : "0" },
-                                                    {"type" : "julian",  "epoch" : "0" }
-                                  ],
-                                  "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
-                                  "format" : "markdown or html",
-                                  "PostMention": "A character used after a mention to include citations."
-                               },
-                                "<p><h3> </h3></p>"
+                                  "fill_dates" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }
                     ]
                 },
                 {
-                    "id" : "SECTION_NAME",
-                    "text" : [ { "text" : " ",
-                                 "source" : [
-                                              { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
-                                                "uuid": "Unique identifier (UUID) for the current citation.",
-                                                "text": "The accompanying text that will be displayed with the citation.",
-                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                                    {"type" : "unix", "epoch" : "0" },
-                                    {"type" : "julian",  "epoch" : "0" }
-                                 ],
-                                 "format" : "markdown or html",
-                                 "PostMention": "A character used after a mention to include citations."
-                               },
-                                "<p><h3> </h3></p>"
+                    "id" : "introduction",
+                    "text" : [ { "text" : "### Introdução\n\nAo nascer, ainda não temos condições de caminhar e precisamos ser carregados nos braços. Com o tempo, começamos a engatinhar, damos os primeiros passos e, por fim, aprendemos a correr. O aprendizado dos números segue um percurso semelhante: começamos com etapas iniciais e gradualmente avançamos para conceitos mais complexos. Neste texto, exploraremos a jornada inicial da soma",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
                     ]
                 },
                 {
@@ -70,9 +55,7 @@
                 {
                     "id": "fill_dates",
                     "text": [
-                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                        {"type" : "unix", "epoch" : "0" },
-                        {"type" : "julian",  "epoch" : "0" }
+                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }
                     ]
                 }
             ]
