@@ -48,19 +48,78 @@
                     ]
                 },
                 {
-                    "id" : "exercise_v2",
-                    "text" : [ 
-                        {
-                            "question" : "WRITE A QUESTION",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "The correct answer is 'Yes' because ..."
-                        }
+                    "id" : "sum_body",
+                    "text" : [ { "text" : "### Relectura del Orden de los Números\n\nAntes de comprender la lógica detrás de la suma, es importante revisar una tabla presentada en el texto *Dibujando para Contar*. Esta tabla utiliza el método *\"Yupana Inka Tawa Pukllay\"*, desarrollado y publicado por Dhavit Prem, de la Asociación Yupanki. Este método está basado en la *Yupana* descrita por Felipe Guaman Poma de Ayala",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                                                "text": "Poma de Ayala, Felipe Guaman,  pp. 361 - 362",
+                                                "date" :  {"type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 354 - 363",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit"},
+                                              { "type": 1,
+                                                "uuid": "9618a83e-f232-49db-84f6-fc3455a3f1d1",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mano izquierda</th><th>Mano derecha</th><th>Flechas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\" src=\"images/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table>",
+                               "<p class=\"desc\">Tabla 1: Representación de una línea de la <i>Yupana</i> según Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 361 - 362</a>). CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p>",
+                                { "text" : "Al utilizar las flechas a la derecha, observamos que los dedos se levantan uno a uno, representando los números del 0 al 9 de manera secuencial. Además, se añaden círculos en la Yupana para ilustrar los mismos números",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                                                "text": "Poma de Ayala, Felipe Guaman,  pp. 361 - 362",
+                                                "date" :  {"type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 354 - 363",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Este movimiento ascendente de los dedos, empleado para realizar el conteo, puede interpretarse como algo más que una simple ordenación. Cada vez que se levanta un dedo, se puede afirmar que estamos transitando entre los números al añadir uno más. El proceso de adición se puede visualizar con el símbolo \"+\" de la siguiente manera",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>0</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>1</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>1</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>2</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>2</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>3</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>3</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>4</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>5</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>6</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>6</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>7</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>7</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>8</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>8</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>9</mn> </math></p>",
+                               "<p class=\"desc\">Cálculo 1: Conteo de los números mediante la suma de 1.</p>"
                     ]
                 },
                 {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Podemos entender a sequência dos números como o número seguinte, sendo o anterior somado mais 1?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "A contagem dos números é feita de maneira sequencial, sendo separados pelo valor do número 1. Desta forma podemos entender a sequência, como sempre somar o número um (1) para obter o próximo."
+                        }
                     ]
                 }
             ]
