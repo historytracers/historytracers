@@ -48,6 +48,55 @@
                     ]
                 },
                 {
+                    "id" : "rules",
+                    "text" : [ { "text" : "### Caminhos\n\nA Figura 1 apresenta um trecho do sítio arqueológico de Teotihuacan, no México",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"images/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figura 1: Vista geral de Teotihuacan. Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio.</p>",
+                               { "text" : "Os indígenas americanos (de *Abya Yala*) não apenas criaram cidades com caminhos internos, mas também projetaram vias que conectavam diferentes regiões. Por exemplo, os Maias construíram os **sacbes** (plural: **sacbeob**), caminhos brancos que facilitavam o trânsito entre centros populacionais",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "19ea1063-0ddd-4468-ad3e-2635675ca68d",
+                                                "text": "LaRocque, A., Leblon, B., Ek, J., and Folan, W. J.",
+                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "Já no sul do continente, os Incas desenvolveram a rota de 39.000 quilômetros chamada **Qhapaq Ñan**, que conectava vastas áreas. Parte dessa rota foi construída por civilizações anteriores, como os Wari",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0bc6455e-7fdb-49cd-bf29-c3675aca4d4f",
+                                                "text": "Jurado, L. R. C. V., pp. 1270 - 1271",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: Os caminhos</b><br /><br />Os caminhos não são exclusividade das civilizações indígenas americanas. Ainda hoje, criamos ruas, estradas e rotas que desempenham funções semelhantes, facilitando o deslocamento e conectando diferentes pontos.<br /><br />Além disso, os rios, que seguem seu curso de forma natural, também foram e continuam sendo utilizados como caminhos por várias culturas.<br /><br />Os caminhos artificiais, construídos a partir de materiais naturais, são frutos da engenharia humana. Por outro lado, a natureza também forma seus próprios caminhos, como os rios e os cursos d'água, que podem ser descritos por meio da linguagem da matemática.<br /><br />Com base no que foi estudado até agora, é possível perceber conexões entre os números e os caminhos?</div></div></center></p>",
+                               { "text" : "Na matemática, os caminhos podem ser representados por **eixos**. Nesses eixos, os números indicam medidas ou posições, como os passos dados ao percorrer um caminho",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "3918f1d9-8d7f-439f-8f76-e5c4ef741b5e",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                                "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Gráfico 1: Representação de um eixo contendo números. Os números estão dispostos abaixo da linha, e uma seta na extremidade indica a direção do crescimento dos valores. Os códigos-fontes usados para montar a imagem CSS estão em (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('27a217a8-59b5-414b-b676-78db48214614'); return false;\">Gravelle, Rob</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>).</p>"
+                    ]
+                },
+                {
                     "id" : "sum_body",
                     "text" : [ { "text" : "### Releitura da Ordem dos Números\n\nAntes de compreendermos a lógica por trás da soma, é importante revisitar uma tabela apresentada no texto *Desenhando para contar*. Essa tabela utiliza o método *\"Yupana Inka Tawa Pukllay\"*, desenvolvido e publicado por Dhavit Prem, da *Associação Yupanki*. O método é baseado na *Yupana* descrita por Felipe Guaman Poma de Ayala",
                                  "source" : [
@@ -114,7 +163,7 @@
                 },
                 {
                     "id" : "rules",
-                    "text" : [ { "text" : "### Regras da soma\n\nAo estudarmos o que chamamos de famílias numéricas, aprendemos que, ao contarmos, ao chegarmos no número nove (9), a posição do número máximo no sistema numérico, o nove, retorna ao menor valor possível, o zero (0), e incrementamos o número à esquerda. Esse conceito também se aplica à soma",
+                    "text" : [ { "text" : "### Regras da soma\n\nAo estudarmos o que chamamos de famílias numéricas, aprendemos que, ao contarmos, ao chegarmos no número nove (9), a posição do número máximo no sistema numérico, o nove, retorna ao menor valor possível, o zero (0), e incrementamos o número à esquerda. Pela soma ser uma maneira de se movimentar entre os números, esse conceito também se aplica à soma",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
@@ -124,9 +173,9 @@
                                  "isTable" : false,
                                  "fill_dates" : null,
                                  "format" : "markdown",
-                                 "PostMention": "."
+                                 "PostMention": ":"
                                },
-                                "<p><h3> </h3></p>"
+                               "<p id=\"firstSum\"></p>"
                     ]
                 },
                 {
@@ -137,6 +186,12 @@
                             "yesNoAnswer" : "Yes",
                             "additionalInfo" : "A contagem dos números é feita de maneira sequencial, sendo separados pelo valor do número 1. Desta forma podemos entender a sequência, como sempre somar o número um (1) para obter o próximo."
                         }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" }
                     ]
                 }
             ]
