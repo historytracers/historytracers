@@ -163,12 +163,15 @@
                 },
                 {
                     "id" : "rules",
-                    "text" : [ { "text" : "### Regras da soma\n\nAo estudarmos as famílias numéricas, aprendemos que, ao contarmos, ao alcançarmos o número nove (9) — a posição mais alta no sistema decimal — retornamos ao menor valor possível, o zero (0), e incrementamos o dígito à esquerda. Como a soma é uma maneira de nos movimentarmos entre os números, esse conceito também se aplica a ela. Podemos representar essa mudança utilizando a operação no formato vertical",
+                    "text" : [ { "text" : "### Um axioma da soma\n\nAo estudarmos as famílias numéricas, aprendemos que, ao contarmos, ao alcançarmos o número nove (9) — a posição mais alta no sistema decimal — retornamos ao menor valor possível, o zero (0), e incrementamos o dígito à esquerda. Como a soma é uma maneira de nos movimentarmos entre os números, esse conceito também se aplica a ela. Podemos representar essa mudança utilizando a operação no formato vertical",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
                                                 "text": "History Tracers Team",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
+                                                "text": "Weisstein, Eric W."}
                                  ],
                                  "isTable" : false,
                                  "fill_dates" : null,
@@ -182,7 +185,10 @@
                                               { "type": 1,
                                                 "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
                                                 "text": "Musa, Auwalu, 46 - 48",
-                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }}
+                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
+                                                "text": "Weisstein, Eric W."}
                                  ],
                                  "isTable" : false,
                                  "fill_dates" : null,
@@ -191,7 +197,46 @@
                                },
                                "<p style=\"text-align=center\"><center>&nbsp;1&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;0 9<br />+&nbsp;&nbsp;0 1<br />____________<br />&nbsp;&nbsp;1 0</center></p>",
                                "<p class=\"desc\">Cálculo 3: Contagem dos números representada pela soma de 1 no formato vertical com o 0 explícito.</p>",
-                               { "text" : "A partir do Cálculo 3, podemos concluir que o número 1 não foi simplesmente deslocado para a linha de resultado. O que realmente acontece é que a soma de 9 + 1 força a substituição pelo número 0, enquanto o 1 da sequência é somado aos zeros que estavam à esquerda, embora não fossem explicitamente visíveis. Por isso, o 1 aparece ao final do cálculo, representando a nova unidade à esquerda",
+                               { "text" : "No Cálculo 3, podemos concluir que o número 1 não é simplesmente deslocado para a linha de resultado. O que realmente ocorre é que a soma de 9 + 1 resulta em 10. No entanto, como não podemos representar números diferentes entre 0 e 9 em um único dígito, o número que excede o maior valor possível (nove) é transferido para a linha superior, onde é somado aos números subsequentes. Quando não há nenhum número visível na linha superior, entendemos que há um zero implícito nessa posição",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Na descrição da operação no Cálculo 3, utilizamos, sem explicitamente mencionar, um importante axioma matemático conhecido como **identidade aditiva**. Mas afinal, o que é um axioma? E qual deles foi aplicado aqui?\n\nUm axioma é uma proposição aceita como autoevidente, sem necessidade de prova. Caso isso pareça abstrato, vamos simplificar explicando a **identidade aditiva** com um exemplo prático",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                                                "text": "Ernst, Dana.",
+                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "d26564d2-f3d4-41fa-bfd7-3e555cf6cb8f",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<ul class=\"citation\"><li><i><b>Identidade aditiva:</b> Existe um número zero (0), que para qualquer número (a) que somamos a ele, teremos como resultado o mesmo número (a):<br /> a + 0 = a</i></li></ul></p>",
+                               { "text" : "Esse conceito pode ser facilmente ilustrado com as mãos. Ao deixarmos todos os dedos da mão esquerda abaixados, representamos o número zero (0). Quando levantamos os dedos da mão direita, é como se somássemos os dedos levantados da mão direita com o \"zero\" da mão esquerda, resultando apenas no número de dedos erguidos da mão direita.\n\nEssa ideia também pode ser visualizada na Tabela 1 apresentada acima, tornando o conceito mais tangível e intuitivo.",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               }
+
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusão\n\nNeste texto, exploramos a relação entre os números e a operação de soma. Também introduzimos o conceito de axioma, especificamente a **identidade aditiva**, que afirma que qualquer número somado a zero resulta no próprio número.\n\nNo próximo texto, aprofundaremos essa analogia, dando passos mais largos.",
                                  "source" : null,
                                  "isTable" : false,
                                  "fill_dates" : null,
@@ -204,14 +249,14 @@
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "Podemos entender a sequência dos números como o número seguinte, sendo o anterior somado mais 1?",
+                            "question" : "Podemos entender que a sequência dos números é formada pelo número anterior somado a 1?",
                             "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "A contagem dos números é feita de maneira sequencial, sendo separados pelo valor do número 1. Desta forma podemos entender a sequência, como sempre somar o número um (1) para obter o próximo."
+                            "additionalInfo" : "A contagem dos números é realizada de forma sequencial, com cada número separado do anterior pelo valor de 1. Assim, podemos entender a sequência como o processo de somar o número 1 para obter o próximo número."
                         },
                         {
-                            "question" : "Pelo número zero (0) representar o vazio, podemos sempre ocultá-lo quando está a esquerda?",
+                            "question" : "Considerando que o número zero (0) representa o vazio, podemos sempre ocultá-lo quando está à esquerda?",
                             "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Sim, a definição do zero em sí permite omití-lo a esquerda, mas não a direita. O número 01, é a mesma coisa que escrever 1. Por outro lado, o número 10 é um número completamente diferente."
+                            "additionalInfo" : "A definição do zero permite que ele seja omitido à esquerda de um número, mas não à direita. Por exemplo, escrever \"01\" é equivalente a escrever \"1\". Por outro lado, o número \"10\" é completamente diferente, pois representa um valor distinto."
                         }
                     ]
                 },
