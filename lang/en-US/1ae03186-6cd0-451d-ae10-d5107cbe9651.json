@@ -48,6 +48,55 @@
                     ]
                 },
                 {
+                    "id" : "road",
+                    "text" : [ { "text" : "### Roads\n\nFigure 1 depicts a section of the archaeological site of Teotihuacan in Mexico",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"images/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figure 1: General view of Teotihuacan. Photograph taken on <span class=\"htdate\"></span>, during a visit to the site.</p>",
+                               { "text" : "The indigenous peoples of the Americas (*Abya Yala*) not only built roads within their cities but also developed extensive networks connecting different regions. For example, the Mayas constructed **sacbes** (plural: **sacbeob**), which were white roads designed to simplify movement between cities",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "19ea1063-0ddd-4468-ad3e-2635675ca68d",
+                                                "text": "LaRocque, A., Leblon, B., Ek, J., and Folan, W. J.",
+                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "In the southern part of the continent, the Incas created an impressive network of routes spanning 39,000 kilometers, known as the **Qhapaq Ñan**, which linked diverse regions. Portions of these routes were originally built by earlier civilizations, such as the Wari",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0bc6455e-7fdb-49cd-bf29-c3675aca4d4f",
+                                                "text": "Jurado, L. R. C. V., pp. 1270 - 1271",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: On Roads</b><br /><br />Roads are not exclusive to the indigenous peoples of the Americas (<i>Abya Yala</i>). Even today, we continue to build streets, highways, and routes that serve similar purposes—facilitating movement and connection between cities.<br /><br />Additionally, rivers, which follow natural courses, have been and continue to be used as pathways by various cultures around the world.<br /><br />Artificial roads, constructed using natural materials, are a product of human engineering. Meanwhile, nature itself creates its own pathways, such as rivers and watercourses, both of which can be described using the language of nature—mathematics.<br /><br />Based on what we have studied so far, can we identify any connections between numbers and roads?</div></div></center></p>",
+                               { "text" : "In mathematics, roads can be represented as **axes**. Along these axes, numbers indicate measures or positions, much like the steps we take when traveling a road",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "3918f1d9-8d7f-439f-8f76-e5c4ef741b5e",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                                "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Graph 1: Representation of an axis with numbers. The numbers are placed below the line, and an arrow on the right end indicates the direction in which the values increase. The source code used to generate the CSS-based image is available on <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>"
+                    ]
+                },
+                {
                     "id" : "sum_body",
                     "text" : [ { "text" : "### Rereading the Order of Numbers\n\nBefore understanding the logic behind addition, it is important to review a table presented in the text *Drawing to Count*. This table uses the method *\"Yupana Inka Tawa Pukllay,\"* developed and published by Dhavit Prem from the *Yupanki Association*. The method is based on the *Yupana* described by Felipe Guaman Poma de Ayala",
                                  "source" : [
@@ -120,6 +169,12 @@
                             "yesNoAnswer" : "Yes",
                             "additionalInfo" : "A contagem dos números é feita de maneira sequencial, sendo separados pelo valor do número 1. Desta forma podemos entender a sequência, como sempre somar o número um (1) para obter o próximo."
                         }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" }
                     ]
                 }
             ]

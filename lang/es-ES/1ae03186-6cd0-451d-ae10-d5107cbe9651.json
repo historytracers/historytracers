@@ -48,6 +48,55 @@
                     ]
                 },
                 {
+                    "id" : "road",
+                    "text" : [ { "text" : "### Caminos\n\nLa Figura 1 muestra una parte del sitio arqueológico de Teotihuacan, en México",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"images/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figura 1: Vista general de Teotihuacan. Fotografía tomada el <span class=\"htdate\"></span>, durante una visita al sitio.</p>",
+                               { "text" : "Los pueblos indígenas de América (*Abya Yala*) no solo construyeron ciudades con caminos internos, sino que también diseñaron vías que conectaban diferentes regiones. Por ejemplo, los mayas construyeron los **sacbes** (plural: **sacbeob**), caminos blancos que facilitaban el tránsito entre centros poblacionales",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "19ea1063-0ddd-4468-ad3e-2635675ca68d",
+                                                "text": "LaRocque, A., Leblon, B., Ek, J., and Folan, W. J.",
+                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "En el sur del continente, los incas desarrollaron una ruta de 39.000 kilómetros conocida como **Qhapaq Ñan**, que conectaba amplias áreas. Parte de esta ruta fue creada por civilizaciones anteriores, como los Wari",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0bc6455e-7fdb-49cd-bf29-c3675aca4d4f",
+                                                "text": "Jurado, L. R. C. V., pp. 1270 - 1271",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: Los Caminos</b><br /><br />Los caminos no son exclusivos de las civilizaciones indígenas americanas. Hoy en día, seguimos creando calles, carreteras y rutas que cumplen funciones similares, facilitando el desplazamiento y la conexión entre distintos puntos.<br /><br />Además, los ríos, que siguen su curso de manera natural, también han sido y continúan siendo utilizados como vías de transporte por diversas culturas.<br /><br />Los caminos artificiales, construidos con materiales naturales, son producto de la ingeniería humana. Por otro lado, la naturaleza también crea sus propios caminos, como los ríos y los cursos de agua, que pueden describirse mediante el lenguaje de las matemáticas.<br /><br />Con base en lo que hemos estudiado hasta ahora, ¿es posible identificar conexiones entre los números y los caminos?</div></div></center></p>",
+                               { "text" : "En matemáticas, los caminos pueden representarse mediante **ejes**. En estos ejes, los números indican medidas o posiciones, como los pasos que damos al recorrer un camino",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "3918f1d9-8d7f-439f-8f76-e5c4ef741b5e",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                                "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Gráfico 1:Representación de un eje con números. Los números están dispuestos debajo de la línea, y una flecha en su extremo indica la dirección de crecimiento de los valores. Los códigos fuente utilizados para generar la imagen en CSS están disponibles en <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>"
+                    ]
+                },
+                {
                     "id" : "sum_body",
                     "text" : [ { "text" : "### Relectura del Orden de los Números\n\nAntes de comprender la lógica detrás de la suma, es importante revisar una tabla presentada en el texto *Dibujando para Contar*. Esta tabla utiliza el método *\"Yupana Inka Tawa Pukllay\"*, desarrollado y publicado por Dhavit Prem, de la Asociación Yupanki. Este método está basado en la *Yupana* descrita por Felipe Guaman Poma de Ayala",
                                  "source" : [
@@ -120,6 +169,12 @@
                             "yesNoAnswer" : "Yes",
                             "additionalInfo" : "A contagem dos números é feita de maneira sequencial, sendo separados pelo valor do número 1. Desta forma podemos entender a sequência, como sempre somar o número um (1) para obter o próximo."
                         }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" }
                     ]
                 }
             ]

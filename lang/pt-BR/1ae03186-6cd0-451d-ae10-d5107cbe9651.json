@@ -48,7 +48,7 @@
                     ]
                 },
                 {
-                    "id" : "rules",
+                    "id" : "road",
                     "text" : [ { "text" : "### Caminhos\n\nA Figura 1 apresenta um trecho do sítio arqueológico de Teotihuacan, no México",
                                  "source" : null,
                                  "isTable" : false,
@@ -93,7 +93,7 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                                "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Gráfico 1: Representação de um eixo contendo números. Os números estão dispostos abaixo da linha, e uma seta na extremidade indica a direção do crescimento dos valores. Os códigos-fontes usados para montar a imagem CSS estão em (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('27a217a8-59b5-414b-b676-78db48214614'); return false;\">Gravelle, Rob</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>).</p>"
+                                "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Gráfico 1: Representação de um eixo contendo números. Os números estão dispostos abaixo da linha, e uma seta na extremidade indica a direção do crescimento dos valores. Os códigos-fontes usados para montar a imagem CSS estão em <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>"
                     ]
                 },
                 {
@@ -163,7 +163,7 @@
                 },
                 {
                     "id" : "rules",
-                    "text" : [ { "text" : "### Regras da soma\n\nAo estudarmos o que chamamos de famílias numéricas, aprendemos que, ao contarmos, ao chegarmos no número nove (9), a posição do número máximo no sistema numérico, o nove, retorna ao menor valor possível, o zero (0), e incrementamos o número à esquerda. Pela soma ser uma maneira de se movimentar entre os números, esse conceito também se aplica à soma",
+                    "text" : [ { "text" : "### Regras da soma\n\nAo estudarmos as famílias numéricas, aprendemos que, ao contarmos, ao alcançarmos o número nove (9) — a posição mais alta no sistema decimal — retornamos ao menor valor possível, o zero (0), e incrementamos o dígito à esquerda. Como a soma é uma maneira de nos movimentarmos entre os números, esse conceito também se aplica a ela. Podemos representar essa mudança utilizando a operação no formato vertical",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
@@ -175,7 +175,29 @@
                                  "format" : "markdown",
                                  "PostMention": ":"
                                },
-                               "<p id=\"firstSum\"></p>"
+                               "<p style=\"text-align=center\"><center>&nbsp;1&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;9<br />+&nbsp;&nbsp;&nbsp;1<br />____________<br />&nbsp;&nbsp;1 0</center></p>",
+                               "<p class=\"desc\">Cálculo 2: Contagem dos números representada pela soma de 1 no formato vertical.</p>",
+                               { "text" : "No entanto, o Cálculo 2, como está escrito, omite algumas partes importantes do raciocínio matemático. O número 1, no topo, parece estar \"isolado\" e simplesmente \"cair\" para a linha do resultado. Contudo, o zero (0), que representa o vazio, é normalmente omitido à esquerda dos números. Nada, porém, nos impede de explicitá-lo. Assim, podemos reescrever o Cálculo 2 da seguinte forma",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
+                                                "text": "Musa, Auwalu, 46 - 48",
+                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p style=\"text-align=center\"><center>&nbsp;1&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;0 9<br />+&nbsp;&nbsp;0 1<br />____________<br />&nbsp;&nbsp;1 0</center></p>",
+                               "<p class=\"desc\">Cálculo 3: Contagem dos números representada pela soma de 1 no formato vertical com o 0 explícito.</p>",
+                               { "text" : "A partir do Cálculo 3, podemos concluir que o número 1 não foi simplesmente deslocado para a linha de resultado. O que realmente acontece é que a soma de 9 + 1 força a substituição pelo número 0, enquanto o 1 da sequência é somado aos zeros que estavam à esquerda, embora não fossem explicitamente visíveis. Por isso, o 1 aparece ao final do cálculo, representando a nova unidade à esquerda",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
                     ]
                 },
                 {
@@ -185,6 +207,11 @@
                             "question" : "Podemos entender a sequência dos números como o número seguinte, sendo o anterior somado mais 1?",
                             "yesNoAnswer" : "Yes",
                             "additionalInfo" : "A contagem dos números é feita de maneira sequencial, sendo separados pelo valor do número 1. Desta forma podemos entender a sequência, como sempre somar o número um (1) para obter o próximo."
+                        },
+                        {
+                            "question" : "Pelo número zero (0) representar o vazio, podemos sempre ocultá-lo quando está a esquerda?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "Sim, a definição do zero em sí permite omití-lo a esquerda, mas não a direita. O número 01, é a mesma coisa que escrever 1. Por outro lado, o número 10 é um número completamente diferente."
                         }
                     ]
                 },
