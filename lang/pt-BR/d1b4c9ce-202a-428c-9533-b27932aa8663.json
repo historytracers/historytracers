@@ -13,7 +13,7 @@
        "<p>Atualmente, o local onde Uruk floresceu faz parte do sítio arqueológico de Ahwar (<i><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8d563cb1-9d27-4a11-b3ac-4d35c12a8c35'); return false;\">UNESCO, Ahwar</a></i>).</p>"
          ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1736696494" ],
+    "last_update" : [ "1737907551" ],
     "authors" : null,
     "reviewers" : null,
     "periodOfTime" : [ "sumérias", "Idade dos Metais" ],
@@ -52,6 +52,7 @@
                     "name": "Utu",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "Esta personagem não é descrita como um rei, mas apenas mencionada como o pai de um rei",
                                     "source" : [
                                             { "type": 0,
@@ -179,6 +180,7 @@
                     "name": "Mec-ki-aj-gacer",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "*Mec-ki-aj-gacer* foi o primeiro rei registrado da região de *Eanna*, governando por 324 anos. Segundo a Estela dos Reis Sumérios, ele teria desaparecido no mar",
                                     "source" : [
                                                 { "type": 0,
@@ -198,7 +200,7 @@
                                ],
                     "parents" :  [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "father_external_family_file" : false,
                             "father_family" : "d26fa58d-d7c1-4dcd-a908-931afd6bb570",
                             "father_id" : "ba211464-ac59-41ea-a072-7b93aa11b57b",
@@ -228,7 +230,7 @@
                     ],
                     "children" : [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "id": "cfe35bd7-5fe6-4aa7-8d28-3855e75537c9",
                             "marriage_id": "92e7f846-383e-4bcc-9bf9-f80241710afd",
                             "name" : "Enmerkar",
@@ -266,6 +268,7 @@
                     "name": "Enmerkar",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "Embora a presença humana e um certo grau de complexidade cultural possam ser observados na região mesopotâmica desde o sexto milênio A.E.C., foi apenas no quarto milênio A.E.C. que esses elementos se consolidaram na região de Uruk. A fundação da cidade é estimada em torno de <htdate0> ",
                                     "source" : [
                                         { "type": 1,
@@ -364,6 +367,7 @@
                     "name": "Lugalbanda",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "Ancestral de *Gilgamesh*, segundo o *Épico de Gilgamesh*. No entanto, na Estela dos Reis, o pai de *Gilgamesh* é descrito como um \"fantasma\" (*phantom*), e não há menção direta a Lugalbanda como seu pai. Seguimos aqui a análise de J. J. Mark",
                                     "source" : [
                                            { "type": 0,
@@ -449,7 +453,7 @@
                     ],
                     "marriages" : [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "id": "813ed616-0f3b-4047-a814-455cd344663a",
                             "official" : true,
                             "family_id": null,
@@ -494,7 +498,7 @@
                     ],
                     "children" : [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "id": "e7c6b5bb-b573-4a13-9834-757e779a8417",
                             "marriage_id": "813ed616-0f3b-4047-a814-455cd344663a",
                             "name" : "Gilgamesh",
@@ -532,6 +536,7 @@
                     "name": "Gilgamesh",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "É muito provável que este rei seja o mesmo mencionado como protagonista no *Épico de Gigalmesh*, o que situaria sua existência no terceiro milênio A.E.C., de acordo com o calendário gregoriano",
                                     "source" : [
                                                { "type": 1,
@@ -702,7 +707,7 @@
                     ],
                     "children" : [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "id": "13869aa9-e328-4411-a0bb-8a3172a41683",
                             "marriage_id": "2fd224f3-6d63-4159-bcf6-5fc3bea78ebb",
                             "name" : "Ur-Nungal",
@@ -740,6 +745,7 @@
                     "name": "Ur-Nungal",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "De acordo com a *Lista dos Reis Sumérios*, ele é mencionado como filho de Gilgamesh. No entanto, esse não é o único ponto relevante sobre ele na lista. É o primeiro rei a ser citado com um tempo de vida compatível com a expectativa humana: 30 anos",
                                     "source" : [
                                             { "type": 0,
@@ -760,7 +766,7 @@
                                ],
                     "parents" :  [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "father_external_family_file" : false,
                             "father_family" : "e527799f-8f3f-439a-97fb-e717ab524b8d",
                             "father_id" : "e7c6b5bb-b573-4a13-9834-757e779a8417",
@@ -790,7 +796,7 @@
                     ],
                     "children" : [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "id": "bc83e1a3-9b94-464a-870f-faf7c110765b",
                             "marriage_id": "62278eb3-7d84-4fb1-a48f-b58a26492e68",
                             "name" : "Udul-kalama",
@@ -828,6 +834,7 @@
                     "name": "Udul-kalama",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "Neto de Gilgamesh, segundo a *Lista dos Reis Sumérios*, e o último rei associado à linhagem de Lugalbanda. A partir de seu reinado, há menções a outros reis, mas sem qualquer referência a uma conexão genealógica entre eles. Governou durante 15 anos",
                                     "source" : [
                                             { "type": 0,
@@ -848,7 +855,7 @@
 
                     "parents" :  [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "father_external_family_file" : false,
                             "father_family" : "e527799f-8f3f-439a-97fb-e717ab524b8d",
                             "father_id" : "13869aa9-e328-4411-a0bb-8a3172a41683",
@@ -891,6 +898,7 @@
                     "name": "Dumuzid",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "O reinado de Dumuzid, o Pescador, é interpretado de maneiras variadas ao longo do tempo, de acordo com as informações disponíveis. Inicialmente, houve incerteza sobre sua natureza – se ele seria uma figura divina ou humana. Outra questão surgiu a partir da interpretação dos eventos narrados em traduções da *Lista dos Reis Sumérios*. Em uma tradução inicial, acreditava-se que Dumuzid havia capturado Enmebaragesi. Contudo, há traduções mais recentes apontam o contrário: Enmebaragesi teria capturado Dumuzid. Essa revisão é reforçada pelo fato de que Dumuzid não possui sucessores mencionados na lista",
                                     "source" : [
                                             { "type": 0,
@@ -972,6 +980,7 @@
                     "name": "La-ba'cum",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "Governou durante 9 anos",
                                     "source" : [
                                             { "type": 0,
@@ -1033,6 +1042,7 @@
                     "name": "En-nun-tarah-ana",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "Reinou durante 8 anos",
                                     "source" : [
                                             { "type": 0,
@@ -1094,6 +1104,7 @@
                     "name": "Mec-he",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "Governou durante 36 anos",
                                     "source" : [
                                             { "type": 0,
@@ -1155,6 +1166,7 @@
                     "name": "Melem-ana",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "Governou durante 6 anos",
                                     "source" : [
                                             { "type": 0,
@@ -1216,6 +1228,7 @@
                     "name": "Lugal-kitun",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "Governou durante 36 anos",
                                     "source" : [
                                             { "type": 0,

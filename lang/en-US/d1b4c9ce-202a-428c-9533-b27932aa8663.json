@@ -13,7 +13,7 @@
         "Currently, the site where Uruk once thrived is part of the Ahwar archaeological site (<i><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8d563cb1-9d27-4a11-b3ac-4d35c12a8c35'); return false;\">UNESCO, Ahwar</a></i>).</p>"
          ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1736696494" ],
+    "last_update" : [ "1737907551" ],
     "authors" : null,
     "reviewers" : null,
     "periodOfTime" : [ "Sumerian", "Metal Ages" ],
@@ -52,6 +52,7 @@
                     "name": "Utu",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "This individual is not described as a king, but rather as the father of a king",
                                     "source" : [
                                             { "type": 0,
@@ -179,6 +180,7 @@
                     "name": "Mec-ki-aj-gacer",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "*Mec-ki-aj-gacer* was the first king recorded in the region of *Eanna*, ruling for 324 years. According to the *Sumerian King List*, he is said to have disappeared into the sea",
                                     "source" : [
                                                 { "type": 0,
@@ -198,7 +200,7 @@
                                ],
                     "parents" :  [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "father_external_family_file" : false,
                             "father_family" : "d26fa58d-d7c1-4dcd-a908-931afd6bb570",
                             "father_id" : "ba211464-ac59-41ea-a072-7b93aa11b57b",
@@ -228,7 +230,7 @@
                     ],
                     "children" : [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "id": "cfe35bd7-5fe6-4aa7-8d28-3855e75537c9",
                             "marriage_id": "92e7f846-383e-4bcc-9bf9-f80241710afd",
                             "name" : "Enmerkar",
@@ -266,6 +268,7 @@
                     "name": "Enmerkar",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "In the Mesopotamian region, evidence of human presence and cultural complexity can be observed as far back as the 6th millennium BCE. However, it was only during the 4th millennium BCE that these elements became more consolidated, particularly in the region of Uruk. The foundation of the city is estimated to have occurred around <htdate0> ",
                                     "source" : [
                                         { "type": 1,
@@ -364,6 +367,7 @@
                     "name": "Lugalbanda",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "*Lugalbanda* is mentioned as an ancestor of *Gilgamesh* according to the *Epic of Gilgamesh*. However, in the *Sumerian King List*, *Gilgamesh*'s father is only referenced as a phantom, leaving *Lugalbanda*'s direct connection as his progenitor ambiguous. This analysis follows the interpretation of J.J. Mark",
                                     "source" : [
                                            { "type": 0,
@@ -449,7 +453,7 @@
                     ],
                     "marriages" : [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "id": "813ed616-0f3b-4047-a814-455cd344663a",
                             "official" : true,
                             "family_id": null,
@@ -494,7 +498,7 @@
                     ],
                     "children" : [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "id": "e7c6b5bb-b573-4a13-9834-757e779a8417",
                             "marriage_id": "813ed616-0f3b-4047-a814-455cd344663a",
                             "name" : "Gilgamesh",
@@ -532,6 +536,7 @@
                     "name": "Gilgamesh",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "It is possible that this king is the same one mentioned in the Epic of Gilgamesh, which would place his existence around the 3rd millennium BCE, according to the Gregorian calendar",
                                     "source" : [
                                                { "type": 1,
@@ -702,7 +707,7 @@
                     ],
                     "children" : [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "id": "13869aa9-e328-4411-a0bb-8a3172a41683",
                             "marriage_id": "2fd224f3-6d63-4159-bcf6-5fc3bea78ebb",
                             "name" : "Ur-Nungal",
@@ -740,6 +745,7 @@
                     "name": "Ur-Nungal",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "According to the *Sumerian King List*, this person is mentioned as the son of Gilgamesh. However, this is not the only significant detail about him in the list. He is the first king to be recorded with a reign compatible with the lifespan of a human being: 30 years",
                                     "source" : [
                                             { "type": 0,
@@ -760,7 +766,7 @@
                                ],
                     "parents" :  [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "father_external_family_file" : false,
                             "father_family" : "e527799f-8f3f-439a-97fb-e717ab524b8d",
                             "father_id" : "e7c6b5bb-b573-4a13-9834-757e779a8417",
@@ -790,7 +796,7 @@
                     ],
                     "children" : [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "id": "bc83e1a3-9b94-464a-870f-faf7c110765b",
                             "marriage_id": "62278eb3-7d84-4fb1-a48f-b58a26492e68",
                             "name" : "Udul-kalama",
@@ -828,6 +834,7 @@
                     "name": "Udul-kalama",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "According to the *Sumerian King List*, he was the grandson of Gilgamesh and the last king associated with the lineage of Lugalbanda. After his reign, other kings are mentioned, but no genealogical connections between them are recorded. He ruled for 15 years",
                                     "source" : [
                                             { "type": 0,
@@ -848,7 +855,7 @@
 
                     "parents" :  [
                         {
-                            "type" : "theory",
+                            "type" : "hypothesis",
                             "father_external_family_file" : false,
                             "father_family" : "e527799f-8f3f-439a-97fb-e717ab524b8d",
                             "father_id" : "13869aa9-e328-4411-a0bb-8a3172a41683",
@@ -891,6 +898,7 @@
                     "name": "Dumuzid",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "The reign of Dumuzid, the Fisherman, has been interpreted in various ways over time based on the available information. Initially, there was uncertainty about his nature—whether he was a divine or human figure. Another issue arose from early translations of the *Sumerian King List*. In the initial interpretation, it was believed that Dumuzid captured Enmebaragesi. However, more recent translations suggest the opposite: Enmebaragesi captured Dumuzid. This revised interpretation is further supported by the fact that Dumuzid has no successors mentioned in the list ",
                                     "source" : [
                                             { "type": 0,
@@ -972,6 +980,7 @@
                     "name": "La-ba'cum",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "He ruled for 9 years",
                                     "source" : [
                                             { "type": 0,
@@ -1033,6 +1042,7 @@
                     "name": "En-nun-tarah-ana",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "He ruled for 8 years",
                                     "source" : [
                                             { "type": 0,
@@ -1094,6 +1104,7 @@
                     "name": "Mec-he",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "He ruled for 36 years",
                                     "source" : [
                                             { "type": 0,
@@ -1155,6 +1166,7 @@
                     "name": "Melem-ana",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "He ruled for 6 years",
                                     "source" : [
                                             { "type": 0,
@@ -1216,6 +1228,7 @@
                     "name": "Lugal-kitun",
                     "sex": "male",
                     "gender": "male",
+                    "haplogroup" : null,
                     "history" : [ { "text" : "Ruled for 36 year",
                                     "source" : [
                                             { "type": 0,
