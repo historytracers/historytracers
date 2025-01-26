@@ -11,13 +11,19 @@ import (
 	//"github.com/tdewolff/minify/v2/css"
 	"github.com/tdewolff/minify/v2/html"
 	"github.com/tdewolff/minify/v2/js"
-	//"github.com/tdewolff/minify/v2/json"
+	"github.com/tdewolff/minify/v2/json"
 	//"github.com/tdewolff/minify/v2/svg"
 	// "github.com/tdewolff/minify/v2/xml"
 )
 
-// DIRECTORIES
+// COMMON
 var htDirectories [13]string
+
+var readmePattern = regexp.MustCompile("^README")
+var htPattern = regexp.MustCompile("^ht_")
+var chartPattern = regexp.MustCompile("^chart_")
+var jqueryPattern = regexp.MustCompile("^jquery-")
+var showdownPattern = regexp.MustCompile("^showdown.")
 
 func htMififyFillDirectories() {
 	htDirectories = [13]string{"bodies", "css", "images", "js", "lang", "lang/sources", "lang/en-US", "lang/en-US/smGame", "lang/es-ES", "lang/es-ES/smGame", "lang/pt-BR", "lang/pt-BR/smGame", "webfonts"}
@@ -41,7 +47,6 @@ func htMinifyRemoveOldContent() {
 	}
 }
 
-// common
 func htMinifyCommonFile(m *minify.M, minifyType string, inFile string, outFile string) error {
 	r, err1 := os.Open(inFile)
 	if err1 != nil {
@@ -65,17 +70,61 @@ func htMinifyCommonFile(m *minify.M, minifyType string, inFile string, outFile s
 	return nil
 }
 
+// JSON
+func htParseJSON(fileName string) bool {
+	switch fileName {
+	case "smGame":
+		return false
+	default:
+		return true
+	}
+	return true
+}
+
+func htMinifyJSONFile(m *minify.M, inFile string, outFile string) error {
+	fmt.Println("Minifying JSON", inFile)
+	return htMinifyCommonFile(m, "application/json", inFile, outFile)
+}
+
+func htMinifyJSON() error {
+	var outFile string
+	var inFile string
+	var err error
+
+	m := minify.New()
+	m.AddFunc("application/json", json.Minify)
+
+	for i := 5; i < 12; i++ {
+		outBodies := fmt.Sprintf("%s%s/", CFG.ContentPath, htDirectories[i])
+		inBodies := fmt.Sprintf("%s%s/", CFG.SrcPath, htDirectories[i])
+		entries, err1 := os.ReadDir(inBodies)
+		if err1 != nil {
+			return err1
+		}
+
+		for _, fileName := range entries {
+			if htParseJSON(fileName.Name()) == false {
+				htMinifyInternalJS(fileName.Name())
+				continue
+			}
+
+			outFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
+			inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
+			err = htMinifyJSONFile(m, inFile, outFile)
+			if err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+}
+
 // JS
 func htMinifyJSFile(m *minify.M, inFile string, outFile string) error {
 	fmt.Println("Minifying JS", inFile)
 	return htMinifyCommonFile(m, "application/javascript", inFile, outFile)
 }
-
-var readmePattern = regexp.MustCompile("^README")
-var htPattern = regexp.MustCompile("^ht_")
-var chartPattern = regexp.MustCompile("^chart_")
-var jqueryPattern = regexp.MustCompile("^jquery-")
-var showdownPattern = regexp.MustCompile("^showdown.")
 
 func htParseJS(fileName string) bool {
 	if readmePattern.MatchString(fileName) ||
@@ -112,6 +161,7 @@ func htMinifyJS() error {
 	var inFile string
 
 	m := minify.New()
+	var err error
 	m.AddFunc("application/javascript", js.Minify)
 
 	outBodies := fmt.Sprintf("%sjs/", CFG.ContentPath)
@@ -129,9 +179,9 @@ func htMinifyJS() error {
 
 		outFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
 		inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
-		err2 := htMinifyJSFile(m, inFile, outFile)
-		if err2 != nil {
-			return err2
+		err = htMinifyJSFile(m, inFile, outFile)
+		if err != nil {
+			return err
 		}
 	}
 
@@ -152,6 +202,7 @@ func htMinifyHTML() error {
 	inFile = fmt.Sprintf("%sindex.html", CFG.SrcPath)
 
 	m := minify.New()
+	var err error
 	m.AddFunc("text/html", html.Minify)
 
 	err0 := htMinifyHTMLFile(m, inFile, outFile)
@@ -169,9 +220,9 @@ func htMinifyHTML() error {
 	for _, fileName := range entries {
 		outFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
 		inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
-		err2 := htMinifyHTMLFile(m, inFile, outFile)
-		if err2 != nil {
-			return err2
+		err = htMinifyHTMLFile(m, inFile, outFile)
+		if err != nil {
+			return err
 		}
 	}
 
@@ -189,14 +240,21 @@ func HTMinifyAllFiles() {
 	htMinifyCreateDirectories()
 
 	// Conver JS files
-	js := htMinifyJS()
-	if js != nil {
-		panic(js)
+	var err error
+	err = htMinifyJS()
+	if err != nil {
+		panic(err)
+	}
+
+	// Conver JSON files
+	err = htMinifyJSON()
+	if err != nil {
+		panic(err)
 	}
 
 	// Convert HTML files
-	html := htMinifyHTML()
-	if html != nil {
-		panic(html)
+	err = htMinifyHTML()
+	if err != nil {
+		panic(err)
 	}
 }
