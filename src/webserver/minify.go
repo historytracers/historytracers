@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"regexp"
 
@@ -229,7 +230,60 @@ func htMinifyHTML() error {
 	return nil
 }
 
-// MAIN FUNCTIONS
+// COPY FILES WITHOUT CHANGES
+func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
+	srcStat, err := os.Stat(srcFile)
+	if err != nil {
+		return err
+	}
+
+	if !srcStat.Mode().IsRegular() {
+		return nil
+	}
+
+	sfp, err := os.Open(srcFile)
+	if err != nil {
+		return err
+	}
+	defer sfp.Close()
+
+	dfp, err := os.Create(dstFile)
+	if err != nil {
+		return err
+	}
+	defer dfp.Close()
+	bytes, err := io.Copy(dfp, sfp)
+	if bytes == 0 || err != nil {
+		return err
+	}
+	fmt.Println("Copying file", srcFile)
+	return nil
+}
+
+func htCopyWebFonts() {
+	var outFile string
+	var inFile string
+	var err error
+
+	outBodies := fmt.Sprintf("%swebfonts/", CFG.ContentPath)
+	inBodies := fmt.Sprintf("%swebfonts/", CFG.SrcPath)
+
+	entries, err1 := os.ReadDir(inBodies)
+	if err1 != nil {
+		panic(err1)
+	}
+
+	for _, fileName := range entries {
+		outFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
+		inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
+		err = HTCopyFilesWithoutChanges(outFile, inFile)
+		if err != nil {
+			panic(err)
+		}
+	}
+}
+
+// MAIN FUNCTION
 
 func HTMinifyAllFiles() {
 	// Remove Previous Content
@@ -257,4 +311,6 @@ func HTMinifyAllFiles() {
 	if err != nil {
 		panic(err)
 	}
+
+	htCopyWebFonts()
 }
