@@ -3,19 +3,19 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"github.com/BurntSushi/toml"
+	"log"
 	"os"
 )
 
 type htConfig struct {
-	DevMode     bool   `json:"devmode"`
-	Port        int    `json:"port"`
-	srcPath     string `json:"src"`
-	contentPath string `json:"content"`
-	logPath     string `json:"log"`
+	DevMode     bool
+	Port        int
+	SrcPath     string
+	ContentPath string
+	LogPath     string
 }
 
 var (
@@ -36,52 +36,62 @@ func HTParseArg() {
 	flag.BoolVar(&minifyFlag, "minify", minifyFlag, "Do not start the server, instead, minify all files. (default: false)")
 	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
 
-	flag.StringVar(&CFG.srcPath, "src", srcPath, "Directory containing all source files")
-	flag.StringVar(&CFG.logPath, "log", logPath, "Directory containing all log files")
-	flag.StringVar(&CFG.contentPath, "www", contentPath, "Directory for user-facing content")
+	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files")
+	flag.StringVar(&CFG.LogPath, "log", logPath, "Directory containing all log files")
+	flag.StringVar(&CFG.ContentPath, "www", contentPath, "Directory for user-facing content")
 	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration file.")
 
 	flag.Parse()
 }
 
 func NewHTConfig() *htConfig {
-	return &htConfig{DevMode: devFlag, Port: portFlag, srcPath: srcPath, contentPath: contentPath}
+	return &htConfig{DevMode: devFlag, Port: portFlag, SrcPath: srcPath, ContentPath: contentPath}
 }
 
 func htUpdateConfig(cfg *htConfig) {
-	if CFG.DevMode == devFlag {
+	if cfg.DevMode != devFlag {
 		CFG.DevMode = cfg.DevMode
 	}
 
-	if CFG.Port == portFlag {
+	if cfg.Port != portFlag {
 		CFG.Port = cfg.Port
 	}
 
-	if CFG.srcPath == srcPath {
-		CFG.srcPath = cfg.srcPath
+	if cfg.SrcPath != srcPath {
+		CFG.SrcPath = cfg.SrcPath
 	}
 
-	if CFG.logPath == logPath {
-		CFG.logPath = cfg.logPath
+	if cfg.LogPath != logPath {
+		CFG.LogPath = cfg.LogPath
 	}
 
-	if CFG.contentPath == contentPath {
-		CFG.contentPath = cfg.contentPath
+	if cfg.ContentPath != contentPath {
+		CFG.ContentPath = cfg.ContentPath
 	}
+}
+
+func htPrintOptions() {
+	if CFG.DevMode == false {
+		return
+	}
+
+	fmt.Println("Config Dir:", confPath, "Dev Mode:", CFG.DevMode, "Port:", CFG.Port, "Source Path:", CFG.SrcPath, "Content Path:", CFG.ContentPath, "Log Path:", CFG.LogPath)
 }
 
 func HTLoadConfig() {
 	fileName := fmt.Sprintf("%s/historytracers.conf", confPath)
-	jsonFile, err := os.Open(fileName)
+	_, err := os.Stat(fileName)
 	if err != nil {
 		return
 	}
-	defer jsonFile.Close()
 
-	byteValue, _ := ioutil.ReadAll(jsonFile)
+	var cfg htConfig
 
-	cfg := NewHTConfig()
+	if _, err := toml.DecodeFile(fileName, &cfg); err != nil {
+		log.Fatalf("Error: %s", err)
+		return
+	}
 
-	json.Unmarshal(byteValue, cfg)
-	htUpdateConfig(cfg)
+	htUpdateConfig(&cfg)
+	htPrintOptions()
 }
