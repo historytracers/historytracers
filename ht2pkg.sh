@@ -28,18 +28,18 @@ fi
 RUN_GREP="$(command -v grep)"
 
 ht_create_directories () {
-    mkdir artifacts/js
-    mkdir artifacts/css
-    mkdir artifacts/lang
-    mkdir artifacts/lang/sources
+    mkdir www/js
+    mkdir www/css
+    mkdir www/lang
+    mkdir www/lang/sources
 
     cd lang || exit
-    find ./* \( -name "??-??" \) -exec bash -c 'mkdir -p "../artifacts/lang/$1/smGame/"' shell {} \;
+    find ./* \( -name "??-??" \) -exec bash -c 'mkdir -p "../www/lang/$1/smGame/"' shell {} \;
     cd .. || exit
 }
 
 ht_copy_initial_files () {
-    cp -R index.html bodies images webfonts artifacts/
+    cp -R index.html bodies images webfonts www/
 }
 
 ht_compress_js () {
@@ -47,10 +47,10 @@ ht_compress_js () {
         NAME=$(echo "$i" | cut -d/ -f2)
         # WITHOUT THIS TEST WE WILL HAVE AN ERROR
         if [ "${NAME}" = "calendar.js" ]; then
-            cp $i "artifacts/js/"
+            cp $i "www/js/"
             continue;
         fi
-        "${RUN_PYTHON}" -mrjsmin < "$i" > "artifacts/js/$NAME"
+        "${RUN_PYTHON}" -mrjsmin < "$i" > "www/js/$NAME"
     done
 }
 
@@ -60,7 +60,7 @@ ht_compress_json_specific_dir () {
         TEST=$(echo "$i" | grep "smGame")
         TEST1=$(echo "$i" | grep "README")
         if [ ${#TEST} -eq 0 ] && [ ${#TEST1} -eq 0 ] ; then
-            "${RUN_PYTHON}" -mrcssmin < "$i" > "artifacts/${1}/${NAME}"
+            "${RUN_PYTHON}" -mrcssmin < "$i" > "www/${1}/${NAME}"
         fi
     done
 
@@ -68,7 +68,7 @@ ht_compress_json_specific_dir () {
         NAME=$(echo "$i" | cut -d/ -f4)
         if [ ${#NAME} -gt 36 ] ; then
             if [ -f "${i}" ]; then
-                "${RUN_PYTHON}" -mrcssmin < "$i" > "artifacts/${1}/smGame/${NAME}"
+                "${RUN_PYTHON}" -mrcssmin < "$i" > "www/${1}/smGame/${NAME}"
             fi
         fi
     done
@@ -82,7 +82,7 @@ ht_compress_json_dir () {
 }
 
 ht_copy_css () {
-    cp css/* artifacts/css
+    cp css/* www/css
 }
 
 echo "Formating and publishing content"
@@ -90,10 +90,10 @@ cd scripts/bash/ || exit 1
 bash update_js_css.sh
 cd ../.. || exit 2
 
-if [ ! -d artifacts ]; then
-    mkdir artifacts;
+if [ ! -d www ]; then
+    mkdir www;
 else
-    rm -rf artifacts/*
+    rm -rf www/*
 fi
 
 ht_copy_initial_files

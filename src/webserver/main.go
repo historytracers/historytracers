@@ -71,9 +71,9 @@ func htCreateDirectory(name string) {
 }
 
 func htOpenLogs(name string) *log.Logger {
-	htCreateDirectory(CFG.logPath)
+	htCreateDirectory(CFG.LogPath)
 
-	fileName := fmt.Sprintf("%s/%s", CFG.logPath, name)
+	fileName := fmt.Sprintf("%s/%s", CFG.LogPath, name)
 	if _, err := os.Stat(fileName); os.IsNotExist(err) {
 		fp, err := os.Create(fileName)
 		if err != nil {
@@ -136,7 +136,7 @@ func main() {
 	DaemonLog.Println("INFO: Ready to run listening port", CFG.Port, devM, "devmode")
 
 	if err := server.hServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-		DaemonLog.Fatalf("ERROR: Listening Port", CFG.Port, devM, "devmode", "content", CFG.contentPath)
+		DaemonLog.Fatalf("ERROR: Listening Port", CFG.Port, devM, "devmode", "content", CFG.ContentPath)
 	}
 	<-done
 	DaemonLog.Println("INFO: Good bye!")

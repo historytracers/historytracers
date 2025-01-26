@@ -6,15 +6,16 @@ import (
 	"flag"
 	"fmt"
 	"github.com/BurntSushi/toml"
+	"log"
 	"os"
 )
 
 type htConfig struct {
 	DevMode     bool
 	Port        int
-	srcPath     string
-	contentPath string
-	logPath     string
+	SrcPath     string
+	ContentPath string
+	LogPath     string
 }
 
 var (
@@ -35,38 +36,46 @@ func HTParseArg() {
 	flag.BoolVar(&minifyFlag, "minify", minifyFlag, "Do not start the server, instead, minify all files. (default: false)")
 	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
 
-	flag.StringVar(&CFG.srcPath, "src", srcPath, "Directory containing all source files")
-	flag.StringVar(&CFG.logPath, "log", logPath, "Directory containing all log files")
-	flag.StringVar(&CFG.contentPath, "www", contentPath, "Directory for user-facing content")
+	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files")
+	flag.StringVar(&CFG.LogPath, "log", logPath, "Directory containing all log files")
+	flag.StringVar(&CFG.ContentPath, "www", contentPath, "Directory for user-facing content")
 	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration file.")
 
 	flag.Parse()
 }
 
 func NewHTConfig() *htConfig {
-	return &htConfig{DevMode: devFlag, Port: portFlag, srcPath: srcPath, contentPath: contentPath}
+	return &htConfig{DevMode: devFlag, Port: portFlag, SrcPath: srcPath, ContentPath: contentPath}
 }
 
 func htUpdateConfig(cfg *htConfig) {
-	if CFG.DevMode == devFlag {
+	if cfg.DevMode != devFlag {
 		CFG.DevMode = cfg.DevMode
 	}
 
-	if CFG.Port == portFlag {
+	if cfg.Port != portFlag {
 		CFG.Port = cfg.Port
 	}
 
-	if CFG.srcPath == srcPath {
-		CFG.srcPath = cfg.srcPath
+	if cfg.SrcPath != srcPath {
+		CFG.SrcPath = cfg.SrcPath
 	}
 
-	if CFG.logPath == logPath {
-		CFG.logPath = cfg.logPath
+	if cfg.LogPath != logPath {
+		CFG.LogPath = cfg.LogPath
 	}
 
-	if CFG.contentPath == contentPath {
-		CFG.contentPath = cfg.contentPath
+	if cfg.ContentPath != contentPath {
+		CFG.ContentPath = cfg.ContentPath
 	}
+}
+
+func htPrintOptions() {
+	if CFG.DevMode == false {
+		return
+	}
+
+	fmt.Println("Config Dir:", confPath, "Dev Mode:", CFG.DevMode, "Port:", CFG.Port, "Source Path:", CFG.SrcPath, "Content Path:", CFG.ContentPath, "Log Path:", CFG.LogPath)
 }
 
 func HTLoadConfig() {
@@ -76,11 +85,13 @@ func HTLoadConfig() {
 		return
 	}
 
-	cfg := NewHTConfig()
+	var cfg htConfig
 
-	if _, err := toml.DecodeFile(fileName, cfg); err != nil {
+	if _, err := toml.DecodeFile(fileName, &cfg); err != nil {
+		log.Fatalf("Error: %s", err)
 		return
 	}
 
-	htUpdateConfig(cfg)
+	htUpdateConfig(&cfg)
+	htPrintOptions()
 }

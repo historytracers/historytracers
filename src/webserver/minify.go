@@ -24,18 +24,18 @@ func htMififyFillDirectories() {
 }
 
 func htMinifyCreateDirectories() {
-	htCreateDirectory(CFG.contentPath)
+	htCreateDirectory(CFG.ContentPath)
 	var localPath string
 
 	for i := 0; i < len(htDirectories); i++ {
-		localPath = fmt.Sprintf("%s%s", CFG.contentPath, htDirectories[i])
+		localPath = fmt.Sprintf("%s%s", CFG.ContentPath, htDirectories[i])
 		fmt.Println("Creating directory", localPath)
 		htCreateDirectory(localPath)
 	}
 }
 
 func htMinifyRemoveOldContent() {
-	err := os.RemoveAll(CFG.contentPath)
+	err := os.RemoveAll(CFG.ContentPath)
 	if err != nil {
 		panic(err)
 	}
@@ -114,8 +114,8 @@ func htMinifyJS() error {
 	m := minify.New()
 	m.AddFunc("application/javascript", js.Minify)
 
-	outBodies := fmt.Sprintf("%sjs/", CFG.contentPath)
-	inBodies := fmt.Sprintf("%sjs/", CFG.srcPath)
+	outBodies := fmt.Sprintf("%sjs/", CFG.ContentPath)
+	inBodies := fmt.Sprintf("%sjs/", CFG.SrcPath)
 	entries, err1 := os.ReadDir(inBodies)
 	if err1 != nil {
 		return err1
@@ -148,8 +148,8 @@ func htMinifyHTML() error {
 	var outFile string
 	var inFile string
 
-	outFile = fmt.Sprintf("%sindex.html", CFG.contentPath)
-	inFile = fmt.Sprintf("%sindex.html", CFG.srcPath)
+	outFile = fmt.Sprintf("%sindex.html", CFG.ContentPath)
+	inFile = fmt.Sprintf("%sindex.html", CFG.SrcPath)
 
 	m := minify.New()
 	m.AddFunc("text/html", html.Minify)
@@ -159,8 +159,8 @@ func htMinifyHTML() error {
 		return err0
 	}
 
-	outBodies := fmt.Sprintf("%sbodies/", CFG.contentPath)
-	inBodies := fmt.Sprintf("%sbodies/", CFG.srcPath)
+	outBodies := fmt.Sprintf("%sbodies/", CFG.ContentPath)
+	inBodies := fmt.Sprintf("%sbodies/", CFG.SrcPath)
 	entries, err1 := os.ReadDir(inBodies)
 	if err1 != nil {
 		return err1
