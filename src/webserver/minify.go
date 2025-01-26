@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"regexp"
 
@@ -12,8 +13,6 @@ import (
 	"github.com/tdewolff/minify/v2/html"
 	"github.com/tdewolff/minify/v2/js"
 	"github.com/tdewolff/minify/v2/json"
-	//"github.com/tdewolff/minify/v2/svg"
-	// "github.com/tdewolff/minify/v2/xml"
 )
 
 // COMMON
@@ -229,7 +228,101 @@ func htMinifyHTML() error {
 	return nil
 }
 
-// MAIN FUNCTIONS
+// COPY FILES WITHOUT CHANGES
+func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
+	srcStat, err := os.Stat(srcFile)
+	if err != nil {
+		return err
+	}
+
+	if !srcStat.Mode().IsRegular() {
+		return nil
+	}
+
+	sfp, err := os.Open(srcFile)
+	if err != nil {
+		return err
+	}
+	defer sfp.Close()
+
+	dfp, err := os.Create(dstFile)
+	if err != nil {
+		return err
+	}
+	defer dfp.Close()
+	bytes, err := io.Copy(dfp, sfp)
+	if bytes == 0 || err != nil {
+		return err
+	}
+	fmt.Println("Copying file", srcFile)
+	return nil
+}
+
+func htCopyWebFonts() {
+	var outFile string
+	var inFile string
+	var err error
+
+	outWebFonts := fmt.Sprintf("%swebfonts/", CFG.ContentPath)
+	inWebFonts := fmt.Sprintf("%swebfonts/", CFG.SrcPath)
+
+	entries, err1 := os.ReadDir(inWebFonts)
+	if err1 != nil {
+		panic(err1)
+	}
+
+	for _, fileName := range entries {
+		outFile = fmt.Sprintf("%s%s", outWebFonts, fileName.Name())
+		inFile = fmt.Sprintf("%s%s", inWebFonts, fileName.Name())
+		err = HTCopyFilesWithoutChanges(outFile, inFile)
+		if err != nil {
+			panic(err)
+		}
+	}
+}
+
+func htCopyImagesSpecificDir(outImages string, inImages string) {
+	var outFile string
+	var inFile string
+	var err error
+
+	entries, err1 := os.ReadDir(inImages)
+	if err1 != nil {
+		panic(err1)
+	}
+
+	for _, fileName := range entries {
+		outFile = fmt.Sprintf("%s%s", outImages, fileName.Name())
+		inFile = fmt.Sprintf("%s%s", inImages, fileName.Name())
+		err = HTCopyFilesWithoutChanges(outFile, inFile)
+		if err != nil {
+			panic(err)
+		}
+	}
+}
+
+func htCopyImages() {
+	var outImages string
+	var inImages string
+
+	htImgDirs := []string{"ANTT", "Ashmolean", "BibliotecaNacionalDigital", "BritshMuseum", "CreativeCommons", "HistoryTracers", "UNESCO", "USGS", "mapswire"}
+
+	outImages = fmt.Sprintf("%simages/", CFG.ContentPath)
+	inImages = fmt.Sprintf("%simages/", CFG.SrcPath)
+
+	htCopyImagesSpecificDir(outImages, inImages)
+
+	for i := 0; i < len(htImgDirs); i++ {
+		outImages = fmt.Sprintf("%simages/%s/", CFG.ContentPath, htImgDirs[i])
+		inImages = fmt.Sprintf("%simages/%s/", CFG.SrcPath, htImgDirs[i])
+
+		htCreateDirectory(outImages)
+
+		htCopyImagesSpecificDir(outImages, inImages)
+	}
+}
+
+// MAIN FUNCTION
 
 func HTMinifyAllFiles() {
 	// Remove Previous Content
@@ -257,4 +350,7 @@ func HTMinifyAllFiles() {
 	if err != nil {
 		panic(err)
 	}
+
+	htCopyWebFonts()
+	htCopyImages()
 }
