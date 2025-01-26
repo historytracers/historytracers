@@ -162,12 +162,101 @@
                     ]
                 },
                 {
+                    "id" : "rules",
+                    "text" : [ { "text" : "### An Axiom of Addition\n\nWhen studying numerical families, we learn that in the decimal system, counting progresses until reaching the number nine (9), the highest position. At this point, we return to the smallest value, zero (0), and increment the digit to the left. Since addition is a way to move between numbers, this concept also applies to addition operations. We can represent this process using the vertical format for calculations",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p style=\"text-align=center\"><center>&nbsp;1&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;9<br />+&nbsp;&nbsp;&nbsp;1<br />____________<br />&nbsp;&nbsp;1 0</center></p>",
+                               "<p class=\"desc\">Calculation 2: Representation of addition by adding 1 in vertical format.</p>",
+                               { "text" : "However, Calculation 2, as written, hides some important aspects of the mathematical reasoning behind it. At first glance, the number 1 above appears \"isolated\" and seems to simply \"drop\" to the result line. However, the zero (0), which represents the empty or null value, is typically omitted on the left side of a number. That said, there’s nothing stopping us from making it explicit. Thus, we can rewrite Calculation 2 as follows",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
+                                                "text": "Musa, Auwalu, 46 - 48",
+                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p style=\"text-align=center\"><center>&nbsp;1&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;0 9<br />+&nbsp;&nbsp;0 1<br />____________<br />&nbsp;&nbsp;1 0</center></p>",
+                               "<p class=\"desc\">Calculation 3: Representation of addition in vertical format, explicitly showing the hidden zero.</p>",
+                               { "text" : "In Calculation 3, we can conclude that the number 1 is not merely carried to the result line. What truly happens is that the sum of 9 + 1 equals 10. Since numbers outside the range of 0 to 9 cannot be represented as a single digit, the value exceeding the highest allowed number (nine) is carried to the line above, where it is added to the next numbers. When no number is visible on the left side, we understand that implicit zeros are present in that position",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "In the explanation of Calculation 3, we used an important mathematical axiom—**the identity property of addition**—without explicitly mentioning it. But what is an axiom, and which one applies here?\n\nAn axiom is a proposition accepted as self-evident, requiring no proof. If this definition seems abstract, we can simplify it with an example of the **addition identity**",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                                                "text": "Ernst, Dana.",
+                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "d26564d2-f3d4-41fa-bfd7-3e555cf6cb8f",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<ul class=\"citation\"><li><i><b>Addition Identity:</b> There exists a number, zero (0), such that when added to any number *a*, the result is the number *a* itself:<br /> a + 0 = a</i></li></ul></p>",
+                               { "text" : "This concept can be easily illustrated using our hands. When we keep all the fingers of our left hand down, we represent the number zero (0). By raising the fingers on our right hand, we effectively add them to the \"zero\" of the left hand, resulting only in the number of fingers raised on the right hand.\n\nThis idea can also be visualized in Table 1 above, making the concept more intuitive and accessible",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusion\n\nIn this text, we explored the relationship between numbers and addition, emphasizing how numerical sequences are constructed. Furthermore, we introduced the concept of an axiom, specifically the **addition identity**, which states that any number added to zero results in the number itself.\n\nIn the next text, we will expand on this analogy, taking significant steps forward in our journey of understanding mathematical concepts",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "Podemos entender a sequência dos números como o número seguinte, sendo o anterior somado mais 1?",
+                            "question" : "Can we understand a number sequence as being formed by adding 1 to the previous number?",
                             "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "A contagem dos números é feita de maneira sequencial, sendo separados pelo valor do número 1. Desta forma podemos entender a sequência, como sempre somar o número um (1) para obter o próximo."
+                            "additionalInfo" : "The counting of numbers is done sequentially, where each number is separated from the next by 1. In this way, we can understand the sequence as a process of adding 1 to obtain the next number."
+                        },
+                        {
+                            "question" : "Since the number zero (0) represents emptiness, can it always be hidden when it appears on the left?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "The definition of zero allows us to omit it when it appears on the left side of a number, but this cannot happen on the right side. For example, writing \"01\" is equivalent to writing \"1.\" However, the number \"10\" is completely different, as it represents a distinct value."
                         }
                     ]
                 },
