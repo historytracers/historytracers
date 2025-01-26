@@ -2,7 +2,7 @@
     "title" : "First steps",
     "header" : "First steps",
     "sources" : null,
-    "last_update" : [ "1733338237" ],
+    "last_update" : [ "1737491121" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "version" : 1,
     "content" : [
@@ -16,7 +16,7 @@
           "target": "class-group"
         },
         {
-            "id" : "groups",
+            "id" : "counting",
             "desc" : "Classes:",
             "target" : "class-group",
             "page" : "class_content",
@@ -100,7 +100,7 @@
             ]
         },
         {
-          "id": "function_group",
+          "id": "compare",
           "value": "Chapter 2: To be or not to be...",
           "target": "class-function-group"
         },
@@ -129,6 +129,24 @@
                     "id": "03bb4b8e-6187-4572-8f00-ea3892df51a4",
                     "name": "Bigger or Smaller :",
                     "desc": "Concluding the comparisons, we analyze the relationship between objects by classifying them as bigger or smaller."
+                }
+            ]
+        },
+        {
+          "id": "sum_mult",
+          "value": "Chapter 3: Movements",
+          "target": "class-sum_mult"
+        },
+        {
+            "id" : "sum_mult_group",
+            "target" : "class-sum_mult",
+            "page" : "class_content",
+            "value_type" : "group-list",
+            "value" : [
+                {
+                    "id": "1ae03186-6cd0-451d-ae10-d5107cbe9651",
+                    "name": "Walking Among the Numbers :",
+                    "desc": "In this text, we explore the relationships between integers."
                 }
             ]
         }
