@@ -6,7 +6,7 @@ pkg:
 	bash ./ht2pkg.sh
 
 install_modules:
-	cd src/webserver && go get github.com/google/uuid && go get -u github.com/tdewolff/minify/v2
+	cd src/webserver && go get github.com/google/uuid && go get -u github.com/tdewolff/minify/v2 && go get github.com/BurntSushi/toml@latest
 
 clean:
 	rm -rf historytracers

@@ -3,19 +3,18 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"github.com/BurntSushi/toml"
 	"os"
 )
 
 type htConfig struct {
-	DevMode     bool   `json:"devmode"`
-	Port        int    `json:"port"`
-	srcPath     string `json:"src"`
-	contentPath string `json:"content"`
-	logPath     string `json:"log"`
+	DevMode     bool
+	Port        int
+	srcPath     string
+	contentPath string
+	logPath     string
 }
 
 var (
@@ -72,16 +71,16 @@ func htUpdateConfig(cfg *htConfig) {
 
 func HTLoadConfig() {
 	fileName := fmt.Sprintf("%s/historytracers.conf", confPath)
-	jsonFile, err := os.Open(fileName)
+	_, err := os.Stat(fileName)
 	if err != nil {
 		return
 	}
-	defer jsonFile.Close()
-
-	byteValue, _ := ioutil.ReadAll(jsonFile)
 
 	cfg := NewHTConfig()
 
-	json.Unmarshal(byteValue, cfg)
+	if _, err := toml.DecodeFile(fileName, cfg); err != nil {
+		return
+	}
+
 	htUpdateConfig(cfg)
 }
