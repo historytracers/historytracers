@@ -9,7 +9,7 @@ import (
 	"regexp"
 
 	"github.com/tdewolff/minify/v2"
-	//"github.com/tdewolff/minify/v2/css"
+	"github.com/tdewolff/minify/v2/css"
 	"github.com/tdewolff/minify/v2/html"
 	"github.com/tdewolff/minify/v2/js"
 	"github.com/tdewolff/minify/v2/json"
@@ -20,6 +20,7 @@ var htDirectories [13]string
 
 var readmePattern = regexp.MustCompile("^README")
 var htPattern = regexp.MustCompile("^ht_")
+var faPattern = regexp.MustCompile("^fa_")
 var chartPattern = regexp.MustCompile("^chart_")
 var jqueryPattern = regexp.MustCompile("^jquery-")
 var showdownPattern = regexp.MustCompile("^showdown.")
@@ -64,6 +65,77 @@ func htMinifyCommonFile(m *minify.M, minifyType string, inFile string, outFile s
 	err4 := w.Close()
 	if err4 != nil {
 		return err4
+	}
+
+	return nil
+}
+
+func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
+	srcStat, err := os.Stat(srcFile)
+	if err != nil {
+		return err
+	}
+
+	if !srcStat.Mode().IsRegular() {
+		return nil
+	}
+
+	sfp, err := os.Open(srcFile)
+	if err != nil {
+		return err
+	}
+	defer sfp.Close()
+
+	dfp, err := os.Create(dstFile)
+	if err != nil {
+		return err
+	}
+	defer dfp.Close()
+	bytes, err := io.Copy(dfp, sfp)
+	if bytes == 0 || err != nil {
+		return err
+	}
+	fmt.Println("Copying file", srcFile)
+	return nil
+}
+
+// CSS
+func htParseCSS(fileName string) bool {
+	if faPattern.MatchString(fileName) {
+		return true
+	}
+	return false
+}
+
+func htMinifyCSSFile(m *minify.M, inFile string, outFile string) error {
+	fmt.Println("Minifying CSS", inFile)
+	return htMinifyCommonFile(m, "text/css", inFile, outFile)
+}
+
+func htMinifyCSS() error {
+	var outFile string
+	var inFile string
+	//var err error
+
+	m := minify.New()
+	m.AddFunc("text/css", css.Minify)
+
+	// Copy only Font Awesome
+	outBodies := fmt.Sprintf("%scss/", CFG.ContentPath)
+	inBodies := fmt.Sprintf("%scss/", CFG.SrcPath)
+	entries, err1 := os.ReadDir(inBodies)
+	if err1 != nil {
+		return err1
+	}
+
+	for _, fileName := range entries {
+		if htParseCSS(fileName.Name()) == true {
+			outFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
+			inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
+			HTCopyFilesWithoutChanges(outFile, inFile)
+			continue
+		}
+//func HTAreFilesEqual(fFile string, sFile string) (bool, error) {
 	}
 
 	return nil
@@ -228,36 +300,6 @@ func htMinifyHTML() error {
 	return nil
 }
 
-// COPY FILES WITHOUT CHANGES
-func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
-	srcStat, err := os.Stat(srcFile)
-	if err != nil {
-		return err
-	}
-
-	if !srcStat.Mode().IsRegular() {
-		return nil
-	}
-
-	sfp, err := os.Open(srcFile)
-	if err != nil {
-		return err
-	}
-	defer sfp.Close()
-
-	dfp, err := os.Create(dstFile)
-	if err != nil {
-		return err
-	}
-	defer dfp.Close()
-	bytes, err := io.Copy(dfp, sfp)
-	if bytes == 0 || err != nil {
-		return err
-	}
-	fmt.Println("Copying file", srcFile)
-	return nil
-}
-
 func htCopyWebFonts() {
 	var outFile string
 	var inFile string
@@ -332,20 +374,22 @@ func HTMinifyAllFiles() {
 	htMififyFillDirectories()
 	htMinifyCreateDirectories()
 
-	// Conver JS files
 	var err error
 	err = htMinifyJS()
 	if err != nil {
 		panic(err)
 	}
 
-	// Conver JSON files
 	err = htMinifyJSON()
 	if err != nil {
 		panic(err)
 	}
 
-	// Convert HTML files
+	err = htMinifyCSS()
+	if err != nil {
+		panic(err)
+	}
+
 	err = htMinifyHTML()
 	if err != nil {
 		panic(err)
