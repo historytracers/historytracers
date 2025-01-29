@@ -9,9 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector004fb419);
     }
 
-    // htWriteNavigation("history");
-    // htWriteNavigation("literature");
-    // htWriteNavigation("first_steps");
+    htWriteNavigation("literature");
 
     return false;
 }
