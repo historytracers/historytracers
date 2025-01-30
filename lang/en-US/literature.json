@@ -2,7 +2,7 @@
     "title" : "Understanding texts",
     "header" : "Understanding texts",
     "sources" : null,
-    "last_update" : [ "1737977522" ],
+    "last_update" : [ "1738202180" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "version" : 1,
     "content" : [
@@ -28,6 +28,24 @@
                     "desc": "More than just a tool for daily use, the writing system is a milestone that allows us to divide human history into prehistory and recorded events."
                 },
                 {
+                    "id": "004fb419-c3cc-41c2-8e28-d746e714191d",
+                    "name": "Walking Among the letters :",
+                    "desc": "In this text, we explore the relationships between integers and texts."
+                }
+            ]
+        },
+        {
+          "id": "sum_mult",
+          "value": "Chapter 2: Parts of the text",
+          "target": "class-sum_mult"
+        },
+        {
+            "id" : "sum_mult_group",
+            "target" : "class-sum_mult",
+            "page" : "class_content",
+            "value_type" : "group-list",
+            "value" : [
+                {
                     "id": "5af3e4fc-04a0-446c-b96a-71909e2203e2",
                     "name": "Grouping texts :",
                     "desc": "A text is more than just a sequence of words. In this study, we begin to examine ancient texts in detail, aiming to understand the elements that compose them."
@@ -46,7 +64,20 @@
                     "id": "3cbf2fbf-2cbb-401c-a880-49c05a23d770",
                     "name": "Texts like vectors :",
                     "desc": "In this content, we will explore how vectors can help us better understand the information and structures present in texts."
-                },
+                }
+            ]
+        },
+        {
+          "id": "appendixI",
+          "value": "Appendix I: Flood",
+          "target": "appendix-rain"
+        },
+        {
+            "id" : "sum_mult_group",
+            "target" : "appendix-rain",
+            "page" : "class_content",
+            "value_type" : "group-list",
+            "value" : [
                 {
                     "id": "cde96120-da9f-4550-8e08-1243ea79de9a",
                     "name": "Texts with Sciences (Part I) :",
@@ -66,24 +97,6 @@
                     "id": "2c7a1281-28a6-4396-bc88-53dafe4090b4",
                     "name": "Texts with Sciences (Conclusion) :",
                     "desc": "After understanding the water cycle, it is time to investigate catastrophic events linked to this essential resource."
-                }
-            ]
-        },
-        {
-          "id": "sum_mult",
-          "value": "Chapter 2: Movements",
-          "target": "class-sum_mult"
-        },
-        {
-            "id" : "sum_mult_group",
-            "target" : "class-sum_mult",
-            "page" : "class_content",
-            "value_type" : "group-list",
-            "value" : [
-                {
-                    "id": "004fb419-c3cc-41c2-8e28-d746e714191d",
-                    "name": "Walking Among the letters :",
-                    "desc": "In this text, we explore the relationships between integers and texts."
                 }
             ]
         }
