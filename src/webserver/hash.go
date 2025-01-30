@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 )
 
 func HTAreFilesEqual(fFile string, sFile string) (bool, error) {
@@ -35,7 +36,7 @@ func HTAreFilesEqual(fFile string, sFile string) (bool, error) {
 	fstr := fmt.Sprintf("%x", hf.Sum(nil))
 	sstr := fmt.Sprintf("%x", hs.Sum(nil))
 
-	if fstr == sstr {
+	if strings.Compare(fstr, sstr) == 0 {
 		return true, nil
 	}
 

@@ -17,6 +17,12 @@ import (
 
 // COMMON
 var htDirectories [13]string
+var HTCSS [2]string
+
+const (
+	HTCSSCommon = iota
+	HTCSSMath
+)
 
 var readmePattern = regexp.MustCompile("^README")
 var htPattern = regexp.MustCompile("^ht_")
@@ -99,6 +105,57 @@ func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
 	return nil
 }
 
+func htUpdateHTCSS() error {
+	var finalFile string
+	var outFile string
+	var inFile string
+
+	m := minify.New()
+	m.AddFunc("text/css", css.Minify)
+
+	srcBodies := fmt.Sprintf("%ssrc/css/", CFG.SrcPath)
+	entries, err := os.ReadDir(srcBodies)
+	if err != nil {
+		return err
+	}
+
+	inBodies := fmt.Sprintf("%scss/", CFG.SrcPath)
+	outBodies := fmt.Sprintf("%scss/", CFG.ContentPath)
+
+	tmpFile := fmt.Sprintf("%stmp", srcBodies)
+	for _, fileName := range entries {
+		inFile = fmt.Sprintf("%s%s", srcBodies, fileName.Name())
+
+		htMinifyCSSFile(m, inFile, tmpFile)
+
+		if fileName.Name() == "ht_math.css" {
+			outFile = fmt.Sprintf("%s%s", inBodies, HTCSS[HTCSSMath])
+			finalFile = fmt.Sprintf("%s%s", outBodies, HTCSS[HTCSSMath])
+		} else {
+			outFile = fmt.Sprintf("%s%s", inBodies, HTCSS[HTCSSCommon])
+			finalFile = fmt.Sprintf("%s%s", outBodies, HTCSS[HTCSSCommon])
+		}
+
+		test, err := HTAreFilesEqual(tmpFile, outFile)
+		if err != nil {
+			return err
+		}
+		if test == false {
+			fmt.Println(test, tmpFile, outFile, finalFile)
+			HTCopyFilesWithoutChanges(finalFile, tmpFile)
+		}
+
+		HTCopyFilesWithoutChanges(outFile, finalFile)
+	}
+
+	err = os.Remove(tmpFile)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // CSS
 func htParseCSS(fileName string) bool {
 	if faPattern.MatchString(fileName) {
@@ -115,7 +172,6 @@ func htMinifyCSSFile(m *minify.M, inFile string, outFile string) error {
 func htMinifyCSS() error {
 	var outFile string
 	var inFile string
-	//var err error
 
 	m := minify.New()
 	m.AddFunc("text/css", css.Minify)
@@ -123,19 +179,30 @@ func htMinifyCSS() error {
 	// Copy only Font Awesome
 	outBodies := fmt.Sprintf("%scss/", CFG.ContentPath)
 	inBodies := fmt.Sprintf("%scss/", CFG.SrcPath)
-	entries, err1 := os.ReadDir(inBodies)
-	if err1 != nil {
-		return err1
+	entries, err := os.ReadDir(inBodies)
+	if err != nil {
+		return err
 	}
 
 	for _, fileName := range entries {
-		if htParseCSS(fileName.Name()) == true {
-			outFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
-			inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
-			HTCopyFilesWithoutChanges(outFile, inFile)
+		if htParseCSS(fileName.Name()) == false {
+			test := fileName.Name()
+			ht := test[:3]
+			if ht == "ht_" {
+				math := test[:7]
+				fmt.Println("MATH", math)
+				if math == "ht_math" {
+					HTCSS[HTCSSMath] = fileName.Name()
+				} else {
+					HTCSS[HTCSSCommon] = fileName.Name()
+				}
+			}
 			continue
 		}
-//func HTAreFilesEqual(fFile string, sFile string) (bool, error) {
+
+		outFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
+		inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
+		HTCopyFilesWithoutChanges(outFile, inFile)
 	}
 
 	return nil
@@ -389,6 +456,8 @@ func HTMinifyAllFiles() {
 	if err != nil {
 		panic(err)
 	}
+
+	htUpdateHTCSS()
 
 	err = htMinifyHTML()
 	if err != nil {
