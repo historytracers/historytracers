@@ -18,10 +18,17 @@ import (
 // COMMON
 var htDirectories [13]string
 var HTCSS [2]string
+var HTJS [3]string
 
 const (
 	HTCSSCommon = iota
 	HTCSSMath
+)
+
+const (
+	HTJSCommon = iota
+	HTJSMath
+	HTJSChart
 )
 
 var readmePattern = regexp.MustCompile("^README")
@@ -116,6 +123,7 @@ func htUpdateHTCSS() error {
 	srcBodies := fmt.Sprintf("%ssrc/css/", CFG.SrcPath)
 	entries, err := os.ReadDir(srcBodies)
 	if err != nil {
+		fmt.Println("ERROR", err)
 		return err
 	}
 
@@ -138,10 +146,74 @@ func htUpdateHTCSS() error {
 
 		test, err := HTAreFilesEqual(tmpFile, outFile)
 		if err != nil {
+			fmt.Println("ERROR", err)
 			return err
 		}
 		if test == false {
-			fmt.Println(test, tmpFile, outFile, finalFile)
+			HTCopyFilesWithoutChanges(finalFile, tmpFile)
+		}
+
+		HTCopyFilesWithoutChanges(outFile, finalFile)
+	}
+
+	err = os.Remove(tmpFile)
+	if err != nil {
+		fmt.Println("ERROR", err)
+		return err
+	}
+
+	return nil
+}
+
+func htUpdateHTJS() error {
+	var finalFile string
+	var outFile string
+	var inFile string
+
+	m := minify.New()
+	m.AddFunc("application/javascript", js.Minify)
+
+	srcBodies := fmt.Sprintf("%ssrc/js/", CFG.SrcPath)
+	entries, err := os.ReadDir(srcBodies)
+	if err != nil {
+		fmt.Println("ERROR", err)
+		return err
+	}
+
+	inBodies := fmt.Sprintf("%sjs/", CFG.SrcPath)
+	outBodies := fmt.Sprintf("%sjs/", CFG.ContentPath)
+
+	tmpFile := fmt.Sprintf("%stmp", srcBodies)
+	for _, fileName := range entries {
+		if htPattern.MatchString(fileName.Name()) == false {
+			continue
+		}
+		inFile = fmt.Sprintf("%s%s", srcBodies, fileName.Name())
+
+		err := htMinifyJSFile(m, inFile, tmpFile)
+		if err != nil {
+			fmt.Println("ERROR", err)
+			return err
+		}
+
+		if fileName.Name() == "ht_math.js" {
+			outFile = fmt.Sprintf("%s%s", inBodies, HTJS[HTJSMath])
+			finalFile = fmt.Sprintf("%s%s", outBodies, HTJS[HTJSMath])
+		} else if fileName.Name() == "ht_chart.js" {
+			outFile = fmt.Sprintf("%s%s", inBodies, HTJS[HTJSChart])
+			finalFile = fmt.Sprintf("%s%s", outBodies, HTJS[HTJSChart])
+		} else {
+			outFile = fmt.Sprintf("%s%s", inBodies, HTJS[HTJSCommon])
+			finalFile = fmt.Sprintf("%s%s", outBodies, HTJS[HTJSCommon])
+		}
+
+		test, err := HTAreFilesEqual(tmpFile, outFile)
+		if err != nil {
+			fmt.Println("ERROR", err)
+			return err
+		}
+		fmt.Println(test, finalFile, tmpFile, outFile, inFile)
+		if test == false {
 			HTCopyFilesWithoutChanges(finalFile, tmpFile)
 		}
 
@@ -190,7 +262,6 @@ func htMinifyCSS() error {
 			ht := test[:3]
 			if ht == "ht_" {
 				math := test[:7]
-				fmt.Println("MATH", math)
 				if math == "ht_math" {
 					HTCSS[HTCSSMath] = fileName.Name()
 				} else {
@@ -242,7 +313,6 @@ func htMinifyJSON() error {
 
 		for _, fileName := range entries {
 			if htParseJSON(fileName.Name()) == false {
-				htMinifyInternalJS(fileName.Name())
 				continue
 			}
 
@@ -284,11 +354,18 @@ func htParseJS(fileName string) bool {
 }
 
 func htMinifyInternalJS(fileName string) error {
-	// TODO: Add a function to only copy files
-	//	 Add checksum to verify necessity to change the file
-	//       Modiy index.html
 	if htPattern.MatchString(fileName) == false {
 		return nil
+	}
+
+	test := fileName
+	math := test[:7]
+	if math == "ht_math" {
+		HTJS[HTJSMath] = fileName
+	} else if math == "ht_char" {
+		HTJS[HTJSChart] = fileName
+	} else {
+		HTJS[HTJSCommon] = fileName
 	}
 
 	return nil
@@ -446,6 +523,8 @@ func HTMinifyAllFiles() {
 	if err != nil {
 		panic(err)
 	}
+
+	htUpdateHTJS()
 
 	err = htMinifyJSON()
 	if err != nil {
