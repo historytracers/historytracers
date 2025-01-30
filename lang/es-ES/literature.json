@@ -2,7 +2,7 @@
     "title" : "Interpretación de textos",
     "header" : "Interpretación de textos",
     "sources" : null,
-    "last_update" : [ "1737977522" ],
+    "last_update" : [ "1738202180" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "version" : 1,
     "content" : [
@@ -28,6 +28,24 @@
                     "desc": "Mucho más que una herramienta cotidiana, la escritura es un hito que nos permite dividir la historia de la humanidad entre la prehistoria y la historia registrada."
                 },
                 {
+                    "id": "004fb419-c3cc-41c2-8e28-d746e714191d",
+                    "name": "Caminando entre las letras :",
+                    "desc": "En este texto, exploraremos las relaciones entre los números interos con los textos."
+                }
+            ]
+        },
+        {
+          "id": "sum_mult",
+          "value": "Capítulo 2: Partes del texto",
+          "target": "class-sum_mult"
+        },
+        {
+            "id" : "sum_mult_group",
+            "target" : "class-sum_mult",
+            "page" : "class_content",
+            "value_type" : "group-list",
+            "value" : [
+                {
                     "id": "5af3e4fc-04a0-446c-b96a-71909e2203e2",
                     "name": "Agrupando textos :",
                     "desc": "Un texto es más que una simple secuencia de palabras. En este estudio, comenzamos a analizar más detalladamente los textos antiguos, con el objetivo de entender los elementos que los componen."
@@ -46,7 +64,20 @@
                     "id": "3cbf2fbf-2cbb-401c-a880-49c05a23d770",
                     "name": "Textos como vectores :",
                     "desc": "En este contenido, exploramos cómo los vectores pueden ayudarnos a comprender mejor la información y las estructuras presentes en los textos."
-                },
+                }
+            ]
+        },
+        {
+          "id": "appendixI",
+          "value": "Apéndice I: Diluvios",
+          "target": "appendix-rain"
+        },
+        {
+            "id" : "sum_mult_group",
+            "target" : "appendix-rain",
+            "page" : "class_content",
+            "value_type" : "group-list",
+            "value" : [
                 {
                     "id": "cde96120-da9f-4550-8e08-1243ea79de9a",
                     "name": "Textos con Ciencias (Parte I) :",
@@ -66,24 +97,6 @@
                     "id": "2c7a1281-28a6-4396-bc88-53dafe4090b4",
                     "name": "Textos con Ciencias (Conclusión) :",
                     "desc": "Tras comprender el ciclo del agua, llega el momento de investigar los eventos catastróficos relacionados con este recurso esencial."
-                }
-            ]
-        },
-        {
-          "id": "sum_mult",
-          "value": "Capítulo 3: Movimiento",
-          "target": "class-sum_mult"
-        },
-        {
-            "id" : "sum_mult_group",
-            "target" : "class-sum_mult",
-            "page" : "class_content",
-            "value_type" : "group-list",
-            "value" : [
-                {
-                    "id": "004fb419-c3cc-41c2-8e28-d746e714191d",
-                    "name": "Caminando entre las letras :",
-                    "desc": "En este texto, exploraremos las relaciones entre los números interos con los textos."
                 }
             ]
         }
