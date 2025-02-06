@@ -17,7 +17,7 @@
             "value" : [
                 {
                     "id" : "prerequisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
+                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p class=\"topdesc\"><i>In addition to using the name America, we will also refer to the continent as <i>Abya Yala</i>, a term used by the indigenous peoples of the continent (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i></p>",
                         { "text" : "### Pre-requisites\n\nThis texto is a continuation of the previous texts of this section, **General History**. With this, we suggest to study them before to proceed with it",
                                  "source" : [ 
                                               { "type": 1,
@@ -108,6 +108,83 @@
                     ]
                 },
                 {
+                    "id" : "culture",
+                    "text" : [ { "text" : "### Culture vs. Civilization\n\nThere are various definitions of the concept of culture. Even today, many still refer to the classical definition formulated in the 19th century, according to the Gregorian calendar, by the anthropologist Edward Burnett Tylor",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                                                "text": "White, L. A.",
+                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<ul class=\"citation\"><li><i>\"Culture . . . is that complex whole which includes knowledge, belief, art, morals, law, custom, and any other capabilities and habits acquired by man as a member of society.\"</i></li> </ul>",
+                               { "text" : "However, this definition has been refined through further research. In <htdate0>, for instance, A. L. Kroeber and Clyde Kluckhohn identified 164 different definitions of the term. This multiplicity of interpretations highlights the complexity of culture and its relationship with civilization",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                                                "text": "White, L. A.",
+                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : [
+                                    {"type" : "gregory", "year" : "1952", "month" : "-1", "day" : "-1" }
+                                 ],
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Thorsten Botz-Bornstein draws attention to the confusion between the terms \"culture\" and \"civilization,\" which has persisted for more than 250 years. While some scholars have considered them distinct, Tylor rejected this distinction, dismissing the idea that culture is inferior to civilization",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
+                                                "text": "Botz-Bornstein, Thorsten, pp. 11 - 13",
+                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : [
+                                    {"type" : "gregory", "year" : "1952", "month" : "-1", "day" : "-1" }
+                                 ],
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Nevertheless, as Botz-Bornstein points out in his work, treating culture and civilization as equivalent is not a universal rule. The supposed distinction between the two concepts has often been used to justify conflicts, particularly during the world wars of the 20th century, according to the Gregorian calendar",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
+                                                "text": "Botz-Bornstein, Thorsten, pp. 13 - 25",
+                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : [
+                                    {"type" : "gregory", "year" : "1952", "month" : "-1", "day" : "-1" }
+                                 ],
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Both Leslie A. White and Thorsten Botz-Bornstein make it clear that culture cannot exist without civilization. Since the earliest human societies, thousands of years ago, these two concepts have been intrinsically linked to our species, despite repeated attempts to separate them",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                                                "text": "White, L. A.",
+                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }},
+                                              { "type": 1,
+                                                "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
+                                                "text": "Botz-Bornstein, Thorsten",
+                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : [
+                                    {"type" : "gregory", "year" : "1952", "month" : "-1", "day" : "-1" }
+                                 ],
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
                     "id" : "selfdeclaration",
                     "text" : [ { "text" : "### Self-Declaration of Superiority\n\nDue to the lack of comprehensive documentation for all populations worldwide, we will focus on two well-known cases. It is important to note that the examples presented here are likely not the only instances of this phenomenon in history.\n\n#### Greeks\n\nOne of the most well-known examples of the Western world is ancient Greece. As highlighted by Hyun Jin Kim, between the late 6th century B.C.E. and the early 5th century B.C.E. (according to the Gregorian calendar), the Ionians developed the antithesis between Greeks and barbarians. This concept was later adopted by the rest of Greece",
                                  "source" : [
@@ -159,7 +236,19 @@
                                  "format" : "markdown",
                                  "postmention": ":"
                                },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: On Knowledge</b><br /><br />Did you know that the Greeks and Chinese independently developed the idea of their own superiority?<br /><br />Do you know everything about these cultures?<br /><br />Could misunderstandings about other cultures lead to incorrect conclusions?<br /><br />Let’s shift away from the topic of culture for a moment but maintain the same line of reasoning: Have you ever believed a food was unappetizing, only to change your opinion after trying it?</div></div></center></p>"
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: On Knowledge</b><br /><br />Did you know that the Greeks and Chinese independently developed the idea of their own superiority?<br /><br />Do you know everything about these cultures?<br /><br />Could misunderstandings about other cultures lead to incorrect conclusions?<br /><br />Let’s shift away from the topic of culture for a moment but maintain the same line of reasoning: Have you ever believed a food was unappetizing, only to change your opinion after trying it?</div></div></center></p>",
+                               { "text" : "We would like to conclude this subsection with a statement mentioned by Leslie A. White from her article, which encapsulates the dynamic relationship between cultures: \"Culture is contagious\" ",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                                                "text": "White, L. A.",
+                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
                     ]
                 },
                 {
@@ -173,7 +262,7 @@
                                               { "type": 1,
                                                 "uuid": "977bd44c-ed89-4a56-8a69-348549b68f44",
                                                 "text": "Thamis",
-                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }}
                                  ],
                                  "isTable" : false,
                                  "fill_dates" : null,
@@ -219,24 +308,104 @@
                     ]
                 },
                 {
-                    "id" : "exercise_v2",
-                    "text" : [ 
-                        {
-                            "question" : "Fatores genéticos mostram que grupos de pessoas são superiores a outros?",
-                            "yesNoAnswer" : "No",
-                            "additionalInfo" : "Na realidade o que temos é o oposto. As diferentes genéticas de nossa espécie são tão pequenas, que não é possível dizer que haveria pessoas melhores."
-                        },
-                        {
-                            "question" : "Gregos criaram uma cultura independente das demais?",
-                            "yesNoAnswer" : "No",
-                            "additionalInfo" : "Dados arqueológicos vem nos mostrando que os gregos absorveram conhecimentos e aspectos culturais de outros povos. Da mesma forma, outros povos adotaram dos gregos. Em alguns casos, por estudos, em outros, lamentavelmente, por imposição."
-                        }
+                    "id" : "misunderstanding",
+                    "text" : [ { "text" : "### Misunderstanding\n\nDespite the vast knowledge we possess today, it is still common to encounter misunderstandings in social networks or daily conversations that highlight the impact of the issues discussed in this text. In this section, we will analyze some common errors that lead to misinterpretations of cultural origins and the perpetuation of false beliefs in cultural superiority.\n\n#### Technology and Cultural Origins\n\nThe misuse or misunderstanding of technologies used to study ancient cultures can lead to incorrect conclusions. A clear example of this is the Eurocentric perspective that diminishes the achievements of Indigenous civilizations in the Americas (*Abya Yala*), often portraying them as societies that \"lived in the Stone Age.\" This viewpoint overlooks the technological and cultural advancements of these civilizations, as well as the lack of understanding in fields like anthropology and archaeology. As highlighted in the *Chronology* text, different regions have distinct archaeological timelines, and there is evidence of advanced metalworking in South America (*Abya Yala*)",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "cff9edbf-cd50-44cd-8ef7-54197d68c82b",
+                                                "text": "History Tracers Team. Cronologia",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "During the early colonization period, ethnocentrism—the practice of judging other cultures based on one’s own cultural standards—led to flawed classifications of societies that Europeans had never encountered before",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                                                "text": "White, L. A.",
+                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### Supposed Origins\n\nThe **Figure 1**, located at the top of this page, is based on scientific research conducted over centuries. Thanks to these advancements, we now know that all human populations share a common origin in Africa but were separated for millennia. This isolation was only broken a few centuries ago, which explains the existence of distinct cradles of civilization that developed independently, as discussed in previous sections of this text",
+                                 "source" : [{ "type": 1,
+                                               "uuid": "2be849f1-551b-44eb-8fc6-87027dbf8a68",
+                                               "text": "Mounier, A., & Mirazón Lahr, M.",
+                                               "date": { "type": "gregory", "year": "2019", "month": "-1", "day": "-1" }},
+                                              { "type": 1,
+                                                "uuid": "867968ea-62d6-4a8a-b3a0-8b82c76d86bf",
+                                                "text": "History Tracers Team. História Geral",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
+                                                "text": "González Redondo, Francisco A., 00:41:51",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                                "<p class=\"desc\"><img id=\"imgMWPWEEC\" onclick=\"htImageZoom('imgMWPWEEC', '0%')\" src=\"images/mapswire/mapswire-world-political-white-equal_earth_cradle.png\" class=\"imgcenterlarge\"/>Figure 4: Cradles of Civilization. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Shared under <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.</p>",
+                               { "text" : "However, some people continue to draw connections between different societies without any archaeological or genetic evidence, relying solely on superficial comparisons. For example, while the pyramids found in the Americas and Egypt share visual similarities, they do not share any historical or cultural connections",
+                                 "source" : [ 
+                                              { "type": 1,
+                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                                                "text": "White, L. A.",
+                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figure 5: Pyramid H1 at the archaeological site of Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span class=\"htdate\"></span></a>). Photo taken on <span class=\"htdate\"></span> during a visit to the site.</p>",
+                               { "text" : "Some of the topics discussed in this subsection have already been addressed in the *Origins* text and the first appendix of the *Understanding Texts* section. These errors often arise from reading ancient texts without considering their historical and cultural contexts, particularly Mediterranean texts. This can lead to baseless generalizations about events that were specific to local contexts",
+                                 "source" : [{ "type": 1,
+                                               "uuid": "2806b294-0d2a-4ca2-8008-b2b82791427a",
+                                               "text": "History Tracers Team. Understanding texts",
+                                               "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" }},
+                                              { "type": 1,
+                                                "uuid": "eda6e242-751a-46b3-b5f7-0c4489d9b374",
+                                                "text": "History Tracers Team. Origens",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### Domination\n\nAmong the many issues stemming from cultural misunderstandings, the most severe is the justification of war. Claiming that a group of people is inferior can lead to their dehumanization, making them easier targets for aggression and domination. This phenomenon was widely observed during the colonization of the Americas (*Abya Yala*)",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
+                                                "text": "Botz-Bornstein, Thorsten, pp. 20 - 21",
+                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "e46a809d-bea1-4107-8b21-86a87b3fbaaa",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
                     ]
                 },
                 {
                     "id": "fill_dates",
                     "text": [
-                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }
+                        {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2017", "month" : "6", "day" : "13" }
                     ]
                 }
             ]
