@@ -61,12 +61,65 @@
                     ]
                 },
                 {
+                    "id" : "axiom",
+                    "text" : [ { "text" : "### The Sum Order\n\nThe sum operation has a fundamental property, which is also an axiom. While we have not yet fully explored it, this property will be essential in guiding our studies. Let’s revisit the representation of a numerical axis",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                                "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Graph 1: Representation of an axis with numbers. The numbers are placed below the line, and an arrow on the right end indicates the direction in which the values increase. The source code used to generate the CSS-based image is available on <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>",
+                               { "text" : "Based on what we have learned previously, let’s begin by working with the number 5. On the axis shown above, we can interpret a person standing on the number 5 as being five units to the right of the origin. This means the person has taken five steps from zero (0). Additionally, we know that adding zero (0) to any number leaves the number unchanged. For example",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>5</mn> <mo>+</mo> <mn>0</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<ul class=\"citation\"><li><i><b>Calculation 1:</b> Summing zero (0) and five (5).</i></li></ul></p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: On Inversion</b><br /><br />Would the result be the same if, instead of calculating <b>5 + 0</b>, we calculated <b>0 + 5</b>?</div></div></center></p>",
+                               { "text" : "From the axiom we learned earlier, we know that adding zero to any number results in the same number. Therefore, both **0 + 5** and **5 + 0**, yield the same result, as we are simply adding zero (0) to the number 5 in both cases.\n\nThis principle applies to other numbers as well. For example, if we add four (4) and one (1), and then reverse the order by adding one (1) and four (4), the result remains the same",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>1</mn> <mo>+</mo> <mn>4</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<ul class=\"citation\"><li><i><b>Calculation 2:</b> Sum of integer numbers.</i></li></ul></p>",
+                               { "text" : "We can visualize these calculations using the numerical axis in **Chart 1**. In the first case, we start at position four (4) and advance one (1) step to reach position five (5). In the second case, we start at position one (1) and advance four (4) steps, again reaching position five (5).\n\nBased on these observations, we can define the **Commutative Axiom**",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<ul class=\"citation\"><li><i><b>Commutative Axiom:</b> For any numbers <b>a</b> and <b>b</b>, the order of addition does not change the result:<br /> a + b = b + a</i></li></ul></p>",
+                               { "text" : "To conclude this section, let’s apply the Commutative Axiom to Calculation 2",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>1</mn> +  <mn>4</mn> </math></p>"
+                    ]
+                },
+                {
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "WRITE A QUESTION",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "The correct answer is 'Yes' because ..."
+                            "question" : "Se eu somar <b>5 + 4</b>, terei um resultado diferente de somar <b>4 + 5</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Como mencionado no <b>Axioma da Comutatividade</b>, a ordem que somamos um número, não altera o resultado."
                         }
                     ]
                 },
