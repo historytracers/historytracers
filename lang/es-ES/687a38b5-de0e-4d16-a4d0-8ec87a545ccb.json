@@ -50,8 +50,60 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: Sobre axiomas</b><br /><br />Si existe un axioma para la suma con cero, ¿también habrá axiomas para la suma con otros números?</div></div></center></p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre axiomas</b><br /><br />Si existe un axioma para la suma con cero, ¿también habrá axiomas para la suma con otros números?</div></div></center></p>",
                                { "text" : "En este texto, exploraremos más a fondo la adición y cómo podemos desplazarnos aún más rápidamente por los ejes numéricos",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "axiom",
+                    "text" : [ { "text" : "### La Orden de la Suma\n\nLa suma posee una propiedad fundamental, que también es un axioma. Aunque aún no la hemos explorado, será esencial para guiar nuestros estudios. Observemos nuevamente la representación de un eje numérico",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                                "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Gráfico 1:Representación de un eje con números. Los números están dispuestos debajo de la línea, y una flecha en su extremo indica la dirección de crecimiento de los valores. Los códigos fuente utilizados para generar la imagen en CSS están disponibles en <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>",
+                               { "text" : "Basándonos en lo aprendido en el texto anterior, trabajemos con el número 5. En el eje mostrado, podemos interpretar que una persona ubicada en el número cinco (5) está cinco unidades a la derecha del origen, es decir, ha recorrido cinco (5) pasos desde el cero (0). Además, sabemos que, al sumar cero (0), el resultado sigue siendo cinco (5), ya que no hubo desplazamiento adicional",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>5</mn> <mo>+</mo> <mn>0</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<ul class=\"citation\"><li><i><b>Cálculo 1:</b> Suma de cero (0) y cinco (5).</i></li></ul></p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Sobre la inversión</b><br /><br />¿Obtenemos un resultado diferente si, en lugar de sumar <b>5 + 0</b>, sumamos <b>0 + 5</b>?</div></div></center></p>",
+                               { "text" : "A partir del axioma aprendido anteriormente, sabemos que sumar cero a cualquier número da como resultado el propio número. Por lo tanto, tanto **0 + 5** o **5 + 0**, nos llevan al mismo resultado, ya que en ambas operaciones simplemente estamos añadiendo cero (0) al número 5.\n\nEl mismo principio se aplica a otros números. Por ejemplo, si sumamos cuatro (4) y uno (1), y luego invertimos el orden, sumando uno (1) y cuatro (4), el resultado sigue siendo el mismo",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>1</mn> <mo>+</mo> <mn>4</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<ul class=\"citation\"><li><i><b>Cálculo 2:</b> Suma de dos números enteros.</i></li></ul></p>",
+                               { "text" : "Podemos visualizar este cálculo en el eje numérico del **Gráfico 1**. En el primer caso, partimos de la posición cuatro (4) y avanzamos uno (1), llegando a la posición cinco (5). En el segundo caso, comenzamos en la posición uno (1) y avanzamos cuatro (4), alcanzando nuevamente la posición cinco (5).\n\nBasándonos en estos cálculos, podemos definir el **Axioma de la Conmutatividad**",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<ul class=\"citation\"><li><i><b>Conmutatividad:</b> Para cualquier número <b>a</b> y <b>b</b>, el orden de la suma no altera el resultado:<br /> a + b = b + a</i></li></ul></p>",
+                               { "text" : "Para finalizar esta subsección, podemos hacer una analogía con los desplazamientos. Si una persona parte de la posición uno (1) y camina cuatro (4) pasos, llega a la posición cinco (5). De la misma manera, alguien que ya se encuentra más cerca, en la posición cuatro (4), al dar un (1) paso más, también alcanzará la misma posición. Esto ilustra que, independientemente del orden de los desplazamientos, la distancia recorrida y el destino final son los mismos",
                                  "source" : null,
                                  "isTable" : false,
                                  "fill_dates" : null,
@@ -64,9 +116,9 @@
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "WRITE A QUESTION",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "The correct answer is 'Yes' because ..."
+                            "question" : "Se eu somar <b>5 + 4</b>, terei um resultado diferente de somar <b>4 + 5</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Como mencionado no <b>Axioma da Comutatividade</b>, a ordem que somamos um número, não altera o resultado."
                         }
                     ]
                 },

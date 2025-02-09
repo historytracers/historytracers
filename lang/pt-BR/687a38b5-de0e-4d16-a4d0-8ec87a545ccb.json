@@ -50,8 +50,60 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: Sobre axiomas</b><br /><br />Se existe um axioma para a soma com zero, será que também há axiomas para a soma com outros números?</div></div></center></p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre axiomas</b><br /><br />Se existe um axioma para a soma com zero, será que também há axiomas para a soma com outros números?</div></div></center></p>",
                                { "text" : "Neste texto, exploraremos mais a fundo a adição e como podemos nos deslocar ainda mais rapidamente pelos eixos numéricos",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "axiom",
+                    "text" : [ { "text" : "### A Ordem da Soma\n\nA soma possui uma propriedade fundamental, que também é um axioma, ainda não explorado, mas que será essencial para guiar nossos estudos. Vamos observar novamente a representação de um eixo numérico",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                                "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Gráfico 1: Representação de um eixo contendo números. Os números estão dispostos abaixo da linha, e uma seta na extremidade indica a direção do crescimento dos valores. Os códigos-fontes usados para montar a imagem CSS estão em <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>",
+                               { "text" : "Com base no que aprendemos no texto anterior, vamos trabalhar com o número 5. No eixo acima, podemos interpretar que uma pessoa posicionada no número cinco (5) está a cinco (5) unidades de distância da origem, ou seja, percorreu cinco (5) passos a partir do zero (0). Além disso, sabemos que, ao adicionar zero (0), o resultado continua sendo cinco (5), pois não houve deslocamento adicional",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>5</mn> <mo>+</mo> <mn>0</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<ul class=\"citation\"><li><i><b>Cálculo 1:</b> Soma de zero (0) e cinco (5).</i></li></ul></p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Sobre a inversão</b><br /><br />Será que teríamos um resultado diferente se, em vez de somarmos <b>5 + 0</b>, fizéssemos <b>0 + 5</b>?</div></div></center></p>",
+                               { "text" : "Partindo do axioma aprendido anteriormente, sabemos que somar zero a qualquer número resulta no próprio número. Assim, seja **0 + 5** ou **5 + 0**, resultado será sempre o mesmo, pois em ambas as operações estamos apenas adicionando zero (0) ao número 5.\n\nO mesmo princípio se aplica a outros números. Por exemplo, ao somarmos quatro (4) e um (1), e depois invertermos a ordem, somando um (1) e quatro (4), o resultado continua o mesmo",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>1</mn> <mo>+</mo> <mn>4</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<ul class=\"citation\"><li><i><b>Cálculo 2:</b> Soma de dois inteiros.</i></li></ul></p>",
+                               { "text" : "Podemos visualizar esse cálculo no eixo numérico do **Gráfico 1**. No primeiro caso, partimos da posição quatro (4) e avançamos um (1), chegando à posição cinco (5). No segundo caso, começamos na posição um (1) e avançamos quatro (4), chegando novamente à posição cinco (5).\n\nCom base nesses cálculos, podemos definir o **Axioma da Comutatividade**",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<ul class=\"citation\"><li><i><b>Comutatividade:</b> Para qualquer número <b>a</b> e <b>b</b>, a ordem da soma não altera o resultado:<br /> a + b = b + a</i></li></ul></p>",
+                               { "text" : "Para finalizar esta subseção, podemos fazer uma nova analogia com deslocamentos. Se uma pessoa parte da posição um (1) e caminha quatro (4) passos, ela chega à posição cinco (5). Da mesma forma, alguém que já está mais próximo, na posição quatro (4), ao dar mais um (1) passo, também chegará à mesma posição. Isso ilustra que, independentemente da ordem dos deslocamentos, a distância percorrida e o destino final são os mesmos",
                                  "source" : null,
                                  "isTable" : false,
                                  "fill_dates" : null,
@@ -64,9 +116,9 @@
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "WRITE A QUESTION",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "The correct answer is 'Yes' because ..."
+                            "question" : "Se eu somar <b>5 + 4</b>, terei um resultado diferente de somar <b>4 + 5</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Como mencionado no <b>Axioma da Comutatividade</b>, a ordem que somamos um número, não altera o resultado."
                         }
                     ]
                 },
