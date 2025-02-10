@@ -4,105 +4,39 @@
 #
 # Script used to generate History Tracers package
 
-if ! command -v python3 >/dev/null 2>&1; then    
-    if ! command -v python >/dev/null 2>&1; then    
-        echo "You must install \"python\" to use this script"
-        exit 1
-    else
-        RUN_PYTHON="$(command -v python)"
-    fi
-else
-    RUN_PYTHON="$(command -v python3)"
+if ! command -v go >/dev/null 2>&1; then    
+    echo "You must install \"go\" to use this script"
+    exit 1
 fi
-
-if ! command -v diff >/dev/null 2>&1; then    
-    echo "You must install \"diff\" to use this script"
-    exit 2
-fi
-RUN_DIFF="$(command -v diff)"
-
-if ! command -v grep >/dev/null 2>&1; then    
-    echo "You must install \"grep\" to use this script"
-    exit 2
-fi
-RUN_GREP="$(command -v grep)"
 
 ht_create_directories () {
-    mkdir www/js
-    mkdir www/css
-    mkdir www/lang
-    mkdir www/lang/sources
-
-    cd lang || exit
-    find ./* \( -name "??-??" \) -exec bash -c 'mkdir -p "../www/lang/$1/smGame/"' shell {} \;
-    cd .. || exit
+    mkdir -p artifacts/usr/bin/
+    mkdir -p artifacts/etc/historytracers/
+    mkdir -p artifacts/var/www/htdocs/historytracers/www
 }
 
-ht_copy_initial_files () {
-    cp -R index.html bodies images webfonts www/
-}
-
-ht_compress_js () {
-    for i in js/*.js ; do
-        NAME=$(echo "$i" | cut -d/ -f2)
-        # WITHOUT THIS TEST WE WILL HAVE AN ERROR
-        if [ "${NAME}" = "calendar.js" ]; then
-            cp $i "www/js/"
-            continue;
-        fi
-        "${RUN_PYTHON}" -mrjsmin < "$i" > "www/js/$NAME"
-    done
-}
-
-ht_compress_json_specific_dir () {
-    for i in ${1}/*.json ; do
-        NAME=$(echo "$i" | cut -d/ -f3)
-        TEST=$(echo "$i" | grep "smGame")
-        TEST1=$(echo "$i" | grep "README")
-        if [ ${#TEST} -eq 0 ] && [ ${#TEST1} -eq 0 ] ; then
-            "${RUN_PYTHON}" -mrcssmin < "$i" > "www/${1}/${NAME}"
-        fi
-    done
-
-    for i in ${1}/smGame/*.json ; do
-        NAME=$(echo "$i" | cut -d/ -f4)
-        if [ ${#NAME} -gt 36 ] ; then
-            if [ -f "${i}" ]; then
-                "${RUN_PYTHON}" -mrcssmin < "$i" > "www/${1}/smGame/${NAME}"
-            fi
-        fi
-    done
-}
-
-ht_compress_json_dir () {
-    for i in lang/* ; do
-        ht_compress_json_specific_dir "$i"
-        ht_compress_json_specific_dir "$i/smGame"
-    done
-}
-
-ht_copy_css () {
-    cp css/* www/css
+ht_copy_files () {
+    cp historytracers artifacts/usr/bin/
+    cp src/conf/historytracers.conf artifacts/etc/historytracers/
+    cp -r www/* artifacts/var/www/htdocs/historytracers/www
+    cp -r index.html bodies css images images_src js lang webfonts artifacts/var/www/htdocs/historytracers/
 }
 
 echo "Formating and publishing content"
-cd scripts/bash/ || exit 1
-bash update_js_css.sh
-cd ../.. || exit 2
 
-if [ ! -d www ]; then
-    mkdir www;
+if [ ! -d artifacts ]; then
+    mkdir artifacts;
 else
-    rm -rf www/*
+    rm -rf artifacts/*
 fi
-
-ht_copy_initial_files
 
 ht_create_directories
 
-ht_compress_js
+# Compile history tracers
+make
 
-ht_compress_json_dir
+# Run History Tracers
+./historytracers -minify=true
 
-ht_copy_css
+ht_copy_files
 
