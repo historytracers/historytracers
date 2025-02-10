@@ -1,0 +1,219 @@
+{
+    "title" : "Correndo entre os números",
+    "header" : "Correndo entre os números",
+    "sources" : [ "687a38b5-de0e-4d16-a4d0-8ec87a545ccb" ],
+    "scripts" : [ "687a38b5-de0e-4d16-a4d0-8ec87a545ccb" ],
+    "index" : [ "first_steps" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1738958281" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
+                               { "text" : "### Pré-requisitos\n\nRecomendamos que o leitor estude o texto anterior e seus pré-requisitos antes de prosseguir com este",
+                                 "source" : [ 
+                                              { "type": 1,
+                                                "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                  "fill_dates" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ { "text" : "### Introdução\n\nNo texto anterior, aprendemos um axioma que afirma que qualquer valor adicionando a zero (0) é igual a ele mesmo (Identidade Aditiva). Além disso, vimos que ao passar de um número para o próximo em sequência, estamos adicionando um (1) ao número anterior",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                                                "text": "Ernst, Dana.",
+                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre axiomas</b><br /><br />Se existe um axioma para a adição com zero, será que também há axiomas para a adição com outros números?</div></div></center></p>",
+                               { "text" : "Neste texto, exploraremos mais a fundo a adição e como podemos nos deslocar ainda mais rapidamente pelos eixos numéricos",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "axiom",
+                    "text" : [ { "text" : "### A Ordem da Adição\n\nA adição possui uma propriedade fundamental, que também é um axioma, ainda não explorado, mas que será essencial para guiar nossos estudos. Vamos observar novamente a representação de um eixo numérico",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                                "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Gráfico 1: Representação de um eixo contendo números. Os números estão dispostos abaixo da linha, e uma seta na extremidade indica a direção do crescimento dos valores. Os códigos-fontes usados para montar a imagem CSS estão em <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>",
+                               { "text" : "Com base no que aprendemos no texto anterior, vamos trabalhar com o número 5. No eixo acima, podemos interpretar que uma pessoa posicionada no número cinco (5) está a cinco (5) unidades de distância da origem, ou seja, percorreu cinco (5) passos a partir do zero (0). Além disso, sabemos que, ao adicionar zero (0), o resultado continua sendo cinco (5), pois não houve deslocamento adicional",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                                                "text": "History Tracers Team",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>5</mn> <mo>+</mo> <mn>0</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<ul class=\"citation\"><li><i><b>Cálculo 1:</b> Adição de zero (0) e cinco (5).</i></li></ul></p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Sobre a inversão</b><br /><br />Será que teríamos um resultado diferente se, em vez de adicionarmos <b>5 + 0</b>, fizéssemos <b>0 + 5</b>?</div></div></center></p>",
+                               { "text" : "Partindo do axioma aprendido anteriormente, sabemos que adicionar zero a qualquer número resulta no próprio número. Assim, seja **0 + 5** ou **5 + 0**, resultado será sempre o mesmo, pois em ambas as operações estamos apenas adicionando zero (0) ao número 5.\n\nO mesmo princípio se aplica a outros números. Por exemplo, ao adicionarmos quatro (4) e um (1), e depois invertermos a ordem, adicionando um (1) e quatro (4), o resultado continua o mesmo",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>1</mn> <mo>+</mo> <mn>4</mn> <mo>=</mo> <mn>5</mn> </math></p>",
+                               "<ul class=\"citation\"><li><i><b>Cálculo 2:</b> Adição de dois inteiros.</i></li></ul></p>",
+                               { "text" : "Podemos visualizar esse cálculo no eixo numérico do **Gráfico 1**. No primeiro caso, partimos da posição quatro (4) e avançamos um (1), chegando à posição cinco (5). No segundo caso, começamos na posição um (1) e avançamos quatro (4), chegando novamente à posição cinco (5).\n\nCom base nesses cálculos, podemos definir o **Axioma da Comutatividade**",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<ul class=\"citation\"><li><i><b>Comutatividade:</b> Para qualquer número <b>a</b> e <b>b</b>, a ordem da adição não altera o resultado:<br /> a + b = b + a</i></li></ul></p>",
+                               { "text" : "Para finalizar esta subseção, vamos aplicar o Axioma da Comutatividade ao Cálculo 2",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>1</mn> +  <mn>4</mn> </math></p>"
+                    ]
+                },
+                {
+                    "id" : "growing",
+                    "text" : [ { "text" : "### Adições como Reconstrução\n\nAs construções humanas seguem padrões que também podem ser observados nas adições numéricas. Vamos relembrar o Templo 16 de Copán, que, após várias etapas de reconstrução, hoje atinge mais de 30 metros de altura. No entanto, em suas primeiras fases de construção, sua estrutura era significativamente menor",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "daae87a2-5fa9-43d1-88fb-6713b25d50d5",
+                                                "text": "Tuarez Mejia, L. F.",
+                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\" src=\"images/HistoryTracers/Temple16Copan.png\" class=\"imgcenter\"/>Figura 1: Cartaz no sítio arqueológico de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span class=\"htdate\"></span></a>). Foto tirada em <span class=\"htdate\"></span> em uma visita ao sitio.</p>",
+                               { "text" : "O processo de reconstrução mesoamericano geralmente ocorria em etapas sucessivas e sem grandes espaços entre elas. No entanto, o Templo 16 apresenta uma exceção: após a reconstrução que sucedeu a Rosalila, um espaço foi deixado, permitindo que se possa entrar nessa área, como ilustrado na Figura 2",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"desc\"><img id=\"imgCopanTemple2\" onclick=\"htImageZoom('imgCopanTemple2', '0%')\" src=\"images/Copan/Templo16Inside.jpg\" class=\"imgcenter\" style=\"width:40%;\"/>Figura 2: Vista interna do Templo 16 de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span class=\"htdate\"></span></a>). Foto tirada em <span class=\"htdate\"></span> em uma visita ao sitio.</p>",
+                               { "text" : "A adição de números pode ser comparada a essas reconstruções indígenas. Quando realizamos uma adição, sempre partimos dos valores menores e avançamos em direção aos maiores. Além disso, com base nos dois axiomas que já exploramos, podemos concluir que as adições ocorrem em pares de números, representados nos axiomas como *a* e *b*, até chegar ao resultado final.\n\nNa próxima subseção, apresentaremos um passo a passo para realizar cálculos com números maiores",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "calculation",
+                    "text" : [ { "text" : "### Adição de Grandes Números\n\nPara somar números com mais de um dígito, seguimos um processo repetitivo: realizamos a soma em pares, sempre da direita para a esquerda, garantindo que cada posição do resultado contenha apenas um único dígito.\n\nComo exemplo, vamos somar os números <b>654321</b> e <b>543210</b>",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p style=\"text-align=center\"><center>&nbsp;<span class=\"sumexample1\" id=\"cmoc6\">1 </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmtc6\">6 </span><span class=\"sumexample1\" id=\"cmtc5\">5 </span><span class=\"sumexample1\" id=\"cmtc4\">4 </span><span class=\"sumexample1\" id=\"cmtc3\">3 </span><span class=\"sumexample1\" id=\"cmtc2\">2 </span><span class=\"sumexample1\" id=\"cmtc1\">1 </span> <br />+&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmbc6\">5 </span><span class=\"sumexample1\" id=\"cmbc5\">4 </span><span class=\"sumexample1\" id=\"cmbc4\">3 </span><span class=\"sumexample1\" id=\"cmbc3\">2 </span><span class=\"sumexample1\" id=\"cmbc2\">1 </span><span class=\"sumexample1\" id=\"cmbc1\">0 </span><br />____________<br />&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmrc6\">1 1 </span><span class=\"sumexample1\" id=\"cmrc5\">9 </span><span class=\"sumexample1\" id=\"cmrc4\">7 </span><span class=\"sumexample1\" id=\"cmrc3\">5 </span><span class=\"sumexample1\" id=\"cmrc2\">3 </span><span class=\"sumexample1\" id=\"cmrc1\">1 </span></center></p>",
+                               "<p class=\"desc\">Cálculo 3: Adição dos números 654321 e 543210</p>",
+                               { "text" : "Neste cálculo, você pode posicionar o mouse sobre cada coluna para visualizar os números envolvidos na soma. Aqui estão alguns pontos importantes:\n\n- **Identidade aditiva**: Na primeira coluna, somamos 0 e 1. Como qualquer número somado a zero permanece inalterado, o resultado é 1.\n- **Comutatividade**: A ordem dos números na soma não altera o resultado. Poderíamos ter colocado 543210 em cima e 654321 embaixo, e a soma permaneceria a mesma.\n- **Limite de soma sem transporte**: Se ambos os números somados em uma coluna forem menores que 5, o resultado nunca ultrapassará 9.\n- **Transporte**: Quando a soma em uma coluna for maior que 9, transportamos 1 para a próxima coluna e escrevemos o valor maior que 9 no resultado",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": " "
+                               },
+                               { "text" : "#### Praticando\n\nA leitura de um texto pode parecer suficiente, mas a prática é essencial para o entendimento completo. Na tabela a seguir, propomos a soma de dois números. Antes de utilizar as setas laterais para conferir o resultado, tente calculá-la.\n\nAo concluir, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) e poderá fazer um novo cálculo clicando no botão correspondente (<i class=\"fa-solid fa-chevron-right\"></i>)",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Some os números</th><th colspan=\"2\">Controles</th></tr> </table></p>",
+                               "<p class=\"desc\">Tabela 1: Exercício de soma de dois números.</p>" 
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusão\n\nNeste texto, vimos que o processo de adição de números grandes envolve a repetição dos mesmos passos usados para somar apenas dois números, quantas vezes for necessário. Portanto, não se assuste com o tamanho dos números! Basta seguir as etapas de soma, coluna por coluna, para chegar ao resultado corretamente.\n\nAlém da parte matemática, também compreendemos um pouco mais sobre como funcionava o processo de reconstrução na Mesoamérica",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Se eu adicionar <b>5 + 4</b>, o resultado será diferente de adicionar <b>4 + 5</b>?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Como mencionado no <b>Axioma da Comutatividade</b>, a ordem em que somamos os números não altera o resultado."
+                        },
+                        {
+                            "question" : "A maior diferença entre somar dois números de <b>um dígito</b> e dois números de <b>dez dígitos</b> é o <b>tempo</b> necessário para realizar a operação?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "De fato, a regra para somar números pequenos é exatamente a mesma para números grandes. A única diferença é que, para números maiores, precisamos repetir as mesmas etapas mais vezes, o que exige mais tempo para realizar a operação."
+                        }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" }
+                    ]
+                }
+            ]
+        }
+    ]
+}
