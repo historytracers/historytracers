@@ -146,12 +146,61 @@
                     ]
                 },
                 {
+                    "id" : "calculation",
+                    "text" : [ { "text" : "### Adición de Grandes Números\n\nPara sumar números con más de un dígito, seguimos un proceso repetitivo: realizamos la suma en pares, siempre de derecha a izquierda, garantizando que cada posición del resultado contenga un único dígito.\n\nComo ejemplo, sumemos los números <b>654321</b> y <b>543210</b>",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p style=\"text-align=center\"><center>&nbsp;<span class=\"sumexample1\" id=\"cmoc6\">1 </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmtc6\">6 </span><span class=\"sumexample1\" id=\"cmtc5\">5 </span><span class=\"sumexample1\" id=\"cmtc4\">4 </span><span class=\"sumexample1\" id=\"cmtc3\">3 </span><span class=\"sumexample1\" id=\"cmtc2\">2 </span><span class=\"sumexample1\" id=\"cmtc1\">1 </span> <br />+&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmbc6\">5 </span><span class=\"sumexample1\" id=\"cmbc5\">4 </span><span class=\"sumexample1\" id=\"cmbc4\">3 </span><span class=\"sumexample1\" id=\"cmbc3\">2 </span><span class=\"sumexample1\" id=\"cmbc2\">1 </span><span class=\"sumexample1\" id=\"cmbc1\">0 </span><br />____________<br />&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmrc6\">1 1 </span><span class=\"sumexample1\" id=\"cmrc5\">9 </span><span class=\"sumexample1\" id=\"cmrc4\">7 </span><span class=\"sumexample1\" id=\"cmrc3\">5 </span><span class=\"sumexample1\" id=\"cmrc2\">3 </span><span class=\"sumexample1\" id=\"cmrc1\">1 </span></center></p>",
+                               "<p class=\"desc\">Cálculo 3: Adición de los números 654321 y 543210</p>",
+                               { "text" : "En este cálculo, puedes posicionar el mouse sobre cada columna para visualizar los números involucrados en la suma. A continuación, algunos puntos clave:\n\n- **Identidad aditiva**: En la primera columna, sumamos 0 y 1. Como cualquier número sumado a cero permanece inalterado, el resultado es 1.\n- **Conmutatividad**: El orden de los números en la suma no altera el resultado. Podríamos colocar 543210 arriba y 654321 abajo, y la suma seguiría siendo la misma.\n- **Límite de suma sin transporte**: Si ambos números en una columna son menores que 5, el resultado jamás superará 9.\n- **Transporte**: Cuando la suma en una columna es mayor que 9, llevamos 1 a la siguiente columna y escribimos el dígito restante en el resultado",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": " "
+                               },
+                               { "text" : "#### Practicando\n\nLeer un texto puede parecer suficiente, pero la práctica es esencial para una comprensión completa. En la siguiente tabla, te proponemos la suma de dos números. Antes de usar las flechas laterales para verificar el resultado, intenta calcularlo por tu cuenta.\n\nAl finalizar, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y podrás realizar un nuevo cálculo haciendo clic en el botón correspondiente (<i class=\"fa-solid fa-chevron-right\"></i>)",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Suma de números</th><th colspan=\"2\">Controles</th></tr> </table></p>",
+                               "<p class=\"desc\">Tabela 1: Ejercicio de suma de dos números..</p>" 
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusión\n\nEn este texto, vimos que el proceso de adición de números grandes implica la repetición de los mismos pasos utilizados para sumar solo dos números, tantas veces como sea necesario. Por lo tanto, ¡no te preocupes por el tamaño de los números! Basta con seguir las etapas de la suma, columna por columna, hasta obtener el resultado correcto.\n\nAdemás de la parte matemática, también comprendimos un poco más sobre cómo funcionaba el proceso de reconstrucción en Mesoamérica",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "Se eu somar <b>5 + 4</b>, terei um resultado diferente de somar <b>4 + 5</b>?",
+                            "question" : "Si sumo <b>5 + 4</b>, ¿el resultado será diferente de sumar <b>4 + 5</b>?",
                             "yesNoAnswer" : "No",
-                            "additionalInfo" : "Como mencionado no <b>Axioma da Comutatividade</b>, a ordem que somamos um número, não altera o resultado."
+                            "additionalInfo" : "Como se menciona en el <b>Axioma de la Comutatividad</b>, el orden en que sumamos los números no altera el resultado."
+                        },
+                        {
+                            "question" : "¿La mayor diferencia entre sumar dos números de <b>un dígito</b> y dos números de <b>diez dígitos</b> es el <b>tiempo</b> necesario para realizar la operación?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "De hecho, la regla para sumar números pequeños es exactamente la misma que para números grandes. La única diferencia es que, en el caso de números mayores, debemos repetir las mismas etapas más veces, lo que requiere más tiempo para completar la operación."
                         }
                     ]
                 },

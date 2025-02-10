@@ -147,7 +147,7 @@
                 },
                 {
                     "id" : "calculation",
-                    "text" : [ { "text" : "### Adição de Grandes Números\n\nPara somar números grandes, seguimos um processo estruturado: realizamos a soma em pares, sempre da direita para a esquerda, garantindo que cada posição do resultado contenha apenas um único dígito.\n\nComo exemplo, vamos somar os números <b>654321</b> e <b>543210</b>",
+                    "text" : [ { "text" : "### Adição de Grandes Números\n\nPara somar números com mais de um dígito, seguimos um processo repetitivo: realizamos a soma em pares, sempre da direita para a esquerda, garantindo que cada posição do resultado contenha apenas um único dígito.\n\nComo exemplo, vamos somar os números <b>654321</b> e <b>543210</b>",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
@@ -174,21 +174,33 @@
                                  "format" : "markdown",
                                  "PostMention": ":"
                                },
-                               "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Some os números</th><th colspan=\"2\">Controles</th></tr> </table></p>", "<p class=\"desc\">Tabela 1: Exercício de soma de dois números.</p>" 
+                               "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Some os números</th><th colspan=\"2\">Controles</th></tr> </table></p>",
+                               "<p class=\"desc\">Tabela 1: Exercício de soma de dois números.</p>" 
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusão\n\nNeste texto, vimos que o processo de adição de números grandes envolve a repetição dos mesmos passos usados para somar apenas dois números, quantas vezes for necessário. Portanto, não se assuste com o tamanho dos números! Basta seguir as etapas de soma, coluna por coluna, para chegar ao resultado corretamente.\n\nAlém da parte matemática, também compreendemos um pouco mais sobre como funcionava o processo de reconstrução na Mesoamérica",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
                     ]
                 },
                 {
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "Se eu adicionar <b>5 + 4</b>, terei um resultado diferente de adicionar <b>4 + 5</b>?",
+                            "question" : "Se eu adicionar <b>5 + 4</b>, o resultado será diferente de adicionar <b>4 + 5</b>?",
                             "yesNoAnswer" : "No",
-                            "additionalInfo" : "Como mencionado no <b>Axioma da Comutatividade</b>, a ordem que adicionamos um número, não altera o resultado."
+                            "additionalInfo" : "Como mencionado no <b>Axioma da Comutatividade</b>, a ordem em que somamos os números não altera o resultado."
                         },
                         {
-                            "question" : "A maior diferença entre somar 2 números de um dígito e 2 números de 10 dígitos é o tempo?",
+                            "question" : "A maior diferença entre somar dois números de <b>um dígito</b> e dois números de <b>dez dígitos</b> é o <b>tempo</b> necessário para realizar a operação?",
                             "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "De fato a regra para se somar um número pequeno é rigorosamente a mesma para se somar números grandes. Como para números maiores, é necessário se realizar as mesmas etapas mais vezes, então necessitamos de mais tempo."
+                            "additionalInfo" : "De fato, a regra para somar números pequenos é exatamente a mesma para números grandes. A única diferença é que, para números maiores, precisamos repetir as mesmas etapas mais vezes, o que exige mais tempo para realizar a operação."
                         }
                     ]
                 },

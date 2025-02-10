@@ -146,12 +146,61 @@
                     ]
                 },
                 {
+                    "id" : "calculation",
+                    "text" : [ { "text" : "### Adding Large Numbers\n\nTo add numbers with more than one digit, we follow a repetitive process: we add the numbers column by column, starting from the rightmost digit and moving to the left. This ensures that each digit in the result is a single digit, and any excess is carried over to the next column.\n\nAs an example, let’s add the numbers <b>654321</b> and <b>543210</b>",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p style=\"text-align=center\"><center>&nbsp;<span class=\"sumexample1\" id=\"cmoc6\">1 </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmtc6\">6 </span><span class=\"sumexample1\" id=\"cmtc5\">5 </span><span class=\"sumexample1\" id=\"cmtc4\">4 </span><span class=\"sumexample1\" id=\"cmtc3\">3 </span><span class=\"sumexample1\" id=\"cmtc2\">2 </span><span class=\"sumexample1\" id=\"cmtc1\">1 </span> <br />+&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmbc6\">5 </span><span class=\"sumexample1\" id=\"cmbc5\">4 </span><span class=\"sumexample1\" id=\"cmbc4\">3 </span><span class=\"sumexample1\" id=\"cmbc3\">2 </span><span class=\"sumexample1\" id=\"cmbc2\">1 </span><span class=\"sumexample1\" id=\"cmbc1\">0 </span><br />____________<br />&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmrc6\">1 1 </span><span class=\"sumexample1\" id=\"cmrc5\">9 </span><span class=\"sumexample1\" id=\"cmrc4\">7 </span><span class=\"sumexample1\" id=\"cmrc3\">5 </span><span class=\"sumexample1\" id=\"cmrc2\">3 </span><span class=\"sumexample1\" id=\"cmrc1\">1 </span></center></p>",
+                               "<p class=\"desc\">Calculation 3: Addition of 654321 and 543210</p>",
+                               { "text" : "In this calculation, you can hover your mouse over each column to see the numbers being added. Below are some key points to note:\n\n- **Additive Identity**: In the first column, we add 0 and 1. Since any number added to zero remains unchanged, the result is 1.\n- **Commutativity**: The order of the numbers does not affect the result. For example, if we were to write 543,210 on top and 654,321 below, the result would still be the same.\n- **Sum Limit Without Carrying**: If both digits in a column are less than 5, their sum will never exceed 9, so no carrying is needed.\n- **Carrying**: When the sum of a column exceeds 9, we carry over 1 to the next column and write the remaining digit in the result",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": " "
+                               },
+                               { "text" : "#### Practice Exercise\n\nReading about addition is helpful, but practice is essential for full understanding. Below is a table with an addition problem. Before using the controls to check the result, try solving it on your own.\n\nWhen you finish the calculation, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can proceed to another problem by clicking the button (<i class=\"fa-solid fa-chevron-right\"></i>) below",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Sum of Numbers</th><th colspan=\"2\">Controls</th></tr> </table></p>",
+                               "<p class=\"desc\">Table 1: Exercise for Adding Two Numbers.</p>" 
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusion\n\nIn this text, we explored how the addition of large numbers involves repeating the same steps used to add two numbers, as many times as necessary. Therefore, don’t be intimidated by the size of the numbers! Simply follow the steps to add column by column, and you will arrive at the correct result.\n\nIn addition to the mathematical process, we also gained some insight into how the Mesoamerican people approached reconstruction",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "Se eu somar <b>5 + 4</b>, terei um resultado diferente de somar <b>4 + 5</b>?",
+                            "question" : "If I calculate <b>5 + 4</b>, would the result be different from <b>4 + 5</b>?",
                             "yesNoAnswer" : "No",
-                            "additionalInfo" : "Como mencionado no <b>Axioma da Comutatividade</b>, a ordem que somamos um número, não altera o resultado."
+                            "additionalInfo" : "As mentioned in the <b>Commutative Axiom of Addition</b>, the order in which we add numbers does not change the final result."
+                        },
+                        {
+                            "question" : "Is the main difference between adding two single-digit numbers and two ten-digit numbers the time required to perform the operation?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "In fact, the rule for adding small numbers is exactly the same as the rule for adding large numbers. The only difference is that, in the case of large numbers, we need to repeat the same steps multiple times, which requires more time to complete the operation."
                         }
                     ]
                 },
