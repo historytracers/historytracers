@@ -1237,14 +1237,14 @@ function htFillTopIdx(idx, data, first)
             if (fillNext != undefined) {
                 fillNext.next = table[j].id;
             }
-            var pos = table[j].name.length - 1;
+            var pos = table[j].name.length;
             if (first == "families") {
                 var testing = table[j].name.search("\\(<span");
                 if (testing > 0) {
                     pos = testing;
                 }
             }
-            idx.set(table[j].id, {"prev" : prev, "next" : undefined, "name" : table[j].name.substring(0, pos - 1) });
+            idx.set(table[j].id, {"prev" : prev, "next" : undefined, "name" : table[j].name.substring(0, pos) });
             prev = table[j].id;
         }
     }
@@ -1386,7 +1386,7 @@ function htFillFamilyList(table, target) {
 function htFillMapList(table, target, page) {
     for (const i in table) {
         if (table[i].id != "fill_dates") {
-            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
         } else {
             if (table[i].text.constructor === vectorConstructor) {
                 htFillHTDate(table[i].text);
@@ -1400,13 +1400,13 @@ function htFillSubMapList(table, target) {
         switch(table[i].page) {
             case "class_content":
                 if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
-                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>"); 
+                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>"); 
                 }
                 break;
             case "tree":
             default:
                 if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].name != undefined && table[i].desc != undefined) {
-                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a> "+table[i].desc+"</li>");
+                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
                 }
         }
     }
