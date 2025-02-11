@@ -940,6 +940,31 @@ function htFillHTDate(vector)
     });
 }
 
+function htFillStringOnPage(data, idx, page)
+{
+    if (data.content[idx].html_value != undefined && data.content[idx].target == undefined) {
+        $("#"+data.content[idx].id).append(data.content[idx].html_value);
+    } else if (data.content[idx].id != undefined && data.content[idx].id == "fill_dates") {
+        htFillHTDate(data.content[idx].text);
+        return;
+    }
+
+    var text = "";
+    if (data.content[idx].html_value != undefined) {
+        text = data.content[idx].html_value;
+    } else if (data.content[idx].value != undefined) {
+        text = data.content[idx].value;
+    } else {
+        return;
+    }
+
+    if ($("#"+data.content[idx].id).length > 0) {
+        $("#"+data.content[idx].id).html(text);
+    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps") && (data.content[idx].target != undefined)) {
+        $("#group-map").append("<ul><b><span id=\""+data.content[idx].id+"\">"+text+"</span></b><ol id=\""+data.content[idx].target+"\"></ol></ul><br />");
+    }
+}
+
 function htFillWebPage(page, data)
 {
     if (data.title != undefined && data.title != null && data.title.length > 0) {
@@ -1014,18 +1039,12 @@ function htFillWebPage(page, data)
     } else {
         for (const i in data.content) {
             if (data.content[i].value == undefined || data.content[i].value == null) {
-                if (data.content[i].id != undefined && data.content[i].id == "fill_dates") {
-                    htFillHTDate(data.content[i].text);
-                }
+                htFillStringOnPage(data, i, page);
                 continue;
             }
 
             if (data.content[i].value.constructor === stringConstructor) {
-                if ($("#"+data.content[i].id).length > 0) {
-                    $("#"+data.content[i].id).html(data.content[i].value);
-                } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps") && (data.content[i].target != undefined)) {
-                    $("#group-map").append("<ul><b><span id=\""+data.content[i].id+"\">"+data.content[i].value+"</span></b><ol id=\""+data.content[i].target+"\"></ol></ul><br />");
-                }
+                htFillStringOnPage(data, i, page);
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].target != undefined) {
                 if (data.content[i].value_type == undefined) {
                     continue;
@@ -1226,7 +1245,7 @@ function htFillTopIdx(idx, data, first)
     var prev = first;
     idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57]});
     for (const i in data.content) {
-        if (data.content[i].value.constructor !== vectorConstructor || data.content[i].page == undefined) {
+        if (data.content[i].html_value != undefined || data.content[i].value.constructor !== vectorConstructor || data.content[i].page == undefined) {
             continue;
         }
 

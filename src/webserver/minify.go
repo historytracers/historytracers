@@ -33,7 +33,7 @@ const (
 	HTLastFile
 )
 
-var htDirectories [13]string
+var htDirectories [14]string
 var htFiles [HTLastFile]string
 
 var readmePattern = regexp.MustCompile("^README")
@@ -44,7 +44,7 @@ var jqueryPattern = regexp.MustCompile("^jquery-")
 var showdownPattern = regexp.MustCompile("^showdown.")
 
 func htMinifyFillVectors() {
-	htDirectories = [13]string{"bodies", "css", "images", "js", "lang", "lang/sources", "lang/en-US", "lang/en-US/smGame", "lang/es-ES", "lang/es-ES/smGame", "lang/pt-BR", "lang/pt-BR/smGame", "webfonts"}
+	htDirectories = [14]string{"bodies", "css", "gedcom", "images", "js", "lang", "lang/sources", "lang/en-US", "lang/en-US/smGame", "lang/es-ES", "lang/es-ES/smGame", "lang/pt-BR", "lang/pt-BR/smGame", "webfonts"}
 	htFiles = [HTLastFile]string{"ht_common.css", "ht_math.css", "ht_common.js", "ht_math.js", "ht_chart.js"}
 }
 
@@ -201,6 +201,10 @@ func htMinifyCSS() error {
 
 // JSON
 func htParseJSON(fileName string) bool {
+	if readmePattern.MatchString(fileName) {
+		return false
+	}
+
 	switch fileName {
 	case "smGame":
 		return false
@@ -223,7 +227,7 @@ func htMinifyJSON() error {
 	m := minify.New()
 	m.AddFunc("application/json", json.Minify)
 
-	for i := 5; i < 12; i++ {
+	for i := 6; i < 13; i++ {
 		outBodies := fmt.Sprintf("%s%s/", CFG.ContentPath, htDirectories[i])
 		inBodies := fmt.Sprintf("%s%s/", CFG.SrcPath, htDirectories[i])
 		entries, err1 := os.ReadDir(inBodies)

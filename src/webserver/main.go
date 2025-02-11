@@ -100,6 +100,11 @@ func main() {
 		return
 	}
 
+	if gedcomFlag {
+		htCreateGEDCOM()
+		return
+	}
+
 	devM := "with"
 	if CFG.DevMode == false {
 		devM += "out"
