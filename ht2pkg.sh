@@ -19,7 +19,7 @@ ht_copy_files () {
     cp historytracers artifacts/usr/bin/
     cp src/conf/historytracers.conf artifacts/etc/historytracers/
     cp -r www/* artifacts/var/www/htdocs/historytracers/www
-    cp -r index.html bodies css images images_src js lang webfonts artifacts/var/www/htdocs/historytracers/
+    cp -r index.html bodies css gedcom images images_src js lang webfonts artifacts/var/www/htdocs/historytracers/
 }
 
 echo "Formating and publishing content"

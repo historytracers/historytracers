@@ -21,6 +21,7 @@ type htConfig struct {
 var (
 	devFlag     bool   = false
 	minifyFlag  bool   = false
+	gedcomFlag  bool   = false
 	portFlag    int    = 12345
 	confPath    string = "/etc/historytracers/"
 	srcPath     string = "/var/www/historytracers/"
@@ -34,6 +35,7 @@ func HTParseArg() {
 
 	flag.BoolVar(&CFG.DevMode, "devmode", devFlag, "Is the software running in development mode? (default: false)")
 	flag.BoolVar(&minifyFlag, "minify", minifyFlag, "Do not start the server, instead, minify all files. (default: false)")
+	flag.BoolVar(&gedcomFlag, "gedcom", gedcomFlag, "Do not start the server, instead, generate all gedcom files. (default: false)")
 	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
 
 	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files")
