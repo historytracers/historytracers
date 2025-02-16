@@ -41,7 +41,7 @@
                 },
                 {
                     "id" : "introduction",
-                    "text" : [ { "text" : "### Introducción\n\nEn el texto anterior, exploramos los sonidos de las letras y cómo la unión de vocales puede generar nuevas palabras, como en las interjecciones. Además de las vocales, el alfabeto también contiene consonantes, que aún no han sido abordadas. En este texto, las estudiaremos con más detalle",
+                    "text" : [ { "text" : "### Introducción\n\nEn el texto anterior, exploramos los sonidos de las letras y cómo la combinación de vocales puede generar nuevas palabras, como en las interjecciones. Sin embargo, además de las letras, las palabras también están formadas por sílabas. En este texto, analizaremos este concepto con más detalle",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "7510e065-7fba-42a5-baed-c67061158b01",
@@ -111,18 +111,83 @@
                     ]
                 },
                 {
+                    "id" : "brick",
+                    "text" : [ { "text" : "### Los fundamentos de la construcción\n\nAntes de volver a los textos, profundicemos un poco más en el sitio arqueológico de Copán, en Honduras. Al fondo de la Figura 3, podemos observar un texto maya escrito en jeroglíficos. Una particularidad de este texto, relacionada con la construcción, es que está dispuesto en forma de escalinata",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img id=\"imgCopanWholeTextSA\" onclick=\"htImageZoom('imgCopanWholeTextSA', '0%')\" src=\"images/CopanWholeTextStelaAltar.png\" class=\"imgcenter\"/>Figura 3: Altar, estela y el mayor texto jeroglífico existente en el sitio de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span class=\"htdate\"></span></a>). Foto tomada el <span class=\"htdate\"></span>, durante una visita al sitio.</p>",
+                               { "text" : "Al igual que el texto maya, la fachada externa del Templo 16 también está compuesta por elementos más pequeños dentro de su estructura, como se muestra en la Figura 4",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img id=\"imgCopanTemple3\" onclick=\"htImageZoom('imgCopanTemple3', '0%')\" src=\"images/Copan/Temple16External.jpg\" class=\"imgcenter\" style=\"width:40%;\"/>Figura 4: Vista externa del Templo 16 de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span class=\"htdate\"></span></a>). Foto tomada el <span class=\"htdate\"></span>, durante una visita al sitio.</p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre los fundamentos</b><br /><br />En esta analogía entre la fachada externa del Templo 16 y un texto escrito, sería impreciso afirmar que las rocas que componen las paredes del templo corresponden a las letras, ya que su tamaño es significativamente mayor.<br /><br />Ante esto, ¿cuál sería la mejor analogía entre las rocas exteriores y los elementos de un texto?</div></div></center></p>"
+                    ]
+                },
+                {
+                    "id" : "syllable",
+                    "text" : [ { "text" : "### Sílabas\n\nObservando que las rocas están separadas por espacios en la Figura 4, podemos compararlas con las palabras en un texto.\n\nSin embargo, limitar esa comparación solo a las palabras omite algunos detalles importantes. Las palabras están formadas por letras, pero esa no es la única manera de dividirlas. También poseen sílabas, que se definen como",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "f8ce80a7-705a-4f36-83c2-422dcfc55192",
+                                                "text": "Real Academia Española"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                                "<p><ul class=\"citation\"><li><i>\"Unidad de la lengua compuesta por uno o más sonidos articulados que se agrupan en torno al de mayor sonoridad, que por lo común es una vocal.\"</i></li> </ul></p>",
+                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Pronunciación</b><br />Pronuncie la palabra en negrita: <b>como</b>.<br /><br />Ahora, pronúnciela separando sus sílabas: <b>co - mo</b><br /><br />Cambiemos una sílaba y repitamos el ejercicio con la palabra <b>tomo</b>, que se divide en: <b>to - mo</b></div></div></p>",
+                                { "text" : "Esta práctica nos permite observar que, al hablar una palabra, la pronunciamos en etapas: las sílabas, que al unirse forman la palabra completa",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusión\n\nEn este texto, discutimos la existencia de las sílabas y su relación con las palabras.\n\nAdemás, establecimos una analogía entre las palabras y las construcciones, tomando como referencia el Templo 16 de Copán, en Honduras",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "Existe uma lógica nos textos?",
+                            "question" : "¿Los textos se construyen por etapas?",
                             "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Tal qual cálculos matemáticos, que realizamos por etapas, os textos também são construídos em etapas havendo uma lógica entre estas etapas."
+                            "additionalInfo" : "Así como en los cálculos matemáticos, que realizamos por etapas, los textos también se construyen de forma gradual, siguiendo una lógica entre esas etapas."
+                        },
+                        {
+                            "question" : "¿Las palabras se dividen solo en letras?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Además de las letras, las palabras también están formadas por sílabas. Estas divisiones tienen el objetivo de ayudarnos a comprender mejor lo que decimos, y no de hacer las cosas más complejas."
                         }
                     ]
                 },
                 {
                     "id": "fill_dates",
                     "text": [
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
                         {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
                         {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
                         {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },

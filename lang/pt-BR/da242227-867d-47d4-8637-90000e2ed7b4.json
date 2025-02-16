@@ -41,7 +41,7 @@
                 },
                 {
                     "id" : "introduction",
-                    "text" : [ { "text" : "### Introdução\n\nNo texto anterior, exploramos os sons das letras e como a união de vogais pode formar novas palavras, como nas interjeições. Além das vogais, o alfabeto também contém consoantes, que ainda não foram abordadas. Neste texto, vamos estudá-las em mais detalhes",
+                    "text" : [ { "text" : "### Introdução\n\nNo texto anterior, exploramos os sons das letras e como a combinação de vogais pode formar novas palavras, como ocorre nas interjeições. No entanto, além das letras, as palavras também são compostas por sílabas. Neste texto, vamos estudá-las em mais detalhes",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "7510e065-7fba-42a5-baed-c67061158b01",
@@ -111,18 +111,83 @@
                     ]
                 },
                 {
+                    "id" : "brick",
+                    "text" : [ { "text" : "### Os fundamentos da construção\n\nAntes de voltarmos aos textos, vamos nos aprofundar um pouco mais no sítio arqueológico de Copán, em Honduras. Ao fundo da Figura 3, podemos observar um texto maia escrito em hieróglifos. Uma particularidade desse texto, que se relaciona com construções, é que ele está disposto no formato de uma escadaria",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img id=\"imgCopanWholeTextSA\" onclick=\"htImageZoom('imgCopanWholeTextSA', '0%')\" src=\"images/CopanWholeTextStelaAltar.png\" class=\"imgcenter\"/>Figura 3: Altar, estela, e o maior texto hieróglifico existente no sítio de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span class=\"htdate\"></span></a>). Foto tirada em <span class=\"htdate\"></span> em uma visita ao sitio.</p>",
+                               { "text" : "Assim como o texto maia, a fachada externa do Templo 16 também é composta por elementos menores em sua estrutura, como demonstrado na Figura 4",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p class=\"desc\"><img id=\"imgCopanTemple3\" onclick=\"htImageZoom('imgCopanTemple3', '0%')\" src=\"images/Copan/Temple16External.jpg\" class=\"imgcenter\" style=\"width:40%;\"/>Figura 4: Vista externa do Templo 16 de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span class=\"htdate\"></span></a>). Foto tirada em <span class=\"htdate\"></span> em uma visita ao sitio.</p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre os Fundamentos</b><br /><br />Nesta analogia entre a fachada externa do Templo 16 e um texto escrito, seria impreciso afirmar que as rochas que compõem as paredes do templo correspondem a letras, pois seu tamanho é significativamente maior.<br /><br />Diante disso, qual seria a melhor analogia entre as rochas exteriores e os elementos de um texto?</div></div></center></p>"
+                    ]
+                },
+                {
+                    "id" : "syllable",
+                    "text" : [ { "text" : "### Sílabas\n\nObservando que as rochas estão separadas por espaços na Figura 4, podemos compará-las a palavras em um texto.\n\nNo entanto, limitar essa comparação apenas às palavras omite alguns detalhes importantes. As palavras são formadas por letras, mas essa não é a única maneira de dividi-las. Elas também possuem sílabas, que são definidas como",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "1d8fe122-894d-49c0-b825-e3488a224173",
+                                                "text": "Dicionário da Língua Portuguesa"}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                                "<p><ul class=\"citation\"><li><i>\"...fonemas de uma palavra que se pronunciam numa só emissão de voz.\"</i></li> </ul></p>",
+                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Fala</b><br />Pronuncie a palavra em negrito: <b>como</b>.<br /><br />Agora, pronuncie-a separando suas sílabas: <b>co - mo</b><br /><br />Vamos modificar uma sílaba e repetir o exercício com a palavra <b>tomo</b>, que se divide em: <b>to - mo</b></div></div></p>",
+                                { "text" : "Essa prática nos permite observar que, ao falar uma palavra, a pronunciamos em etapas – as sílabas – que, quando unidas, formam a palavra completa",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusão\n\nNeste texto, discutimos a existência das sílabas e sua relação com as palavras.\n\nAlém disso, exploramos uma analogia entre palavras e construções, utilizando como referência o Templo 16 de Copán, em Honduras",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "Existe uma lógica nos textos?",
+                            "question" : "Textos são construídos por etapas?",
                             "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Tal qual cálculos matemáticos, que realizamos por etapas, os textos também são construídos em etapas havendo uma lógica entre estas etapas."
+                            "additionalInfo" : "Assim como nos cálculos matemáticos, que realizamos por etapas, os textos também são construídos de forma gradual, seguindo uma lógica entre essas etapas."
+                        },
+                        {
+                            "question" : "As palavras são divididas apenas em letras?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Além das letras, as palavras também são compostas por sílabas. Essas divisões têm o objetivo de nos ajudar a compreender melhor o que estamos dizendo, e não de tornar as coisas mais complexas."
                         }
                     ]
                 },
                 {
                     "id": "fill_dates",
                     "text": [
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
                         {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
                         {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
                         {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
