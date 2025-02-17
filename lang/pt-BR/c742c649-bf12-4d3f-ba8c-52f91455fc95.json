@@ -1,10 +1,11 @@
 {
-    "title" : "Yupana (soma)",
-    "header" : "<i>Yupana</i> (soma)",
+    "title" : "Yupana (Adição)",
+    "header" : "<i>Yupana</i> (Adição)",
     "sources" : [ "c742c649-bf12-4d3f-ba8c-52f91455fc95" ],
     "scripts" : [ "c742c649-bf12-4d3f-ba8c-52f91455fc95" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1717892875" ],
+    "last_update" : [ "1739809306" ],
+    "index" : [ "first_steps" ],
     "authors" : null,
     "reviewers" : "Dhavit Prem",
     "content" : [
@@ -14,12 +15,48 @@
             "value_type" : "paper",
             "value" : [
                 {
-                    "id" : "navigation",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=26e6b9ec-5b8d-49ff-be8a-4ef7a62692fc\" onclick=\"htLoadPage('class_content', 'html', '26e6b9ec-5b8d-49ff-be8a-4ef7a62692fc', false); return false;\">Releitura</a></td> <td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td><a href=\"index.html?page=class_content&arg=9a7a978b-3fac-422c-8e41-3ef1a24e88f3\" onclick=\"htLoadPage('class_content', 'html', '9a7a978b-3fac-422c-8e41-3ef1a24e88f3', false); return false;\"><i>Yupana</i> (multiplicação)</a></td></tr></table></p>"
+                    "id" : "prerequisites",
+                    "text" : [ { "text" : "### Pré-requisitos\n\nRecomenda-se que o leitor estude primeiro o texto *Desenhando para contar*, para relembrar como os números são representados na *Yupana*. Além disso, sugerimos o estudo dos dois textos anteriores deste capítulo",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "9618a83e-f232-49db-84f6-fc3455a3f1d1",
+                                                "text": "History Tracers Team. Desenhando para Contar",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                                                "text": "History Tracers Team. Caminhando entre os números",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "cf2853c5-db17-4793-a5f9-110b71eae84d",
+                                                "text": "History Tracers Team. Correndo entre os números",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
                 },
                 {
                     "id" : "introduction",
-                    "text" : [ "<p><h3>Introdução</h3>Conforme temos explorado, diversas civilizações desenvolveram sistemas numéricos distintos. Além disso, alguns avançaram ainda mais, criando ferramentas que simplificam os cálculos. Nesta página, aprofundamos nosso estudo no método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) da Associação Yupanki (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 354 - 363</a>).</p>" ]
+                    "text" : [ { "text" : "### Introdução\n\nAo longo da história, diversas civilizações desenvolveram seus próprios sistemas numéricos. Algumas delas foram além, criando ferramentas para facilitar cálculos. Nesta página, aprofundamos o estudo do método *\"Yupana Inka Tawa Pukllay\"*, desenvolvido e publicado por Dhavit Prem",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 354 - 363",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit, Pessoal",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
                 },
                 {
                     "id" : "algorithm",

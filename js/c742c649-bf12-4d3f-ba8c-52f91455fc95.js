@@ -23,6 +23,8 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVectorc742c649);
     }
 
+    htWriteNavigation("first_steps");
+
     if (sumFirstTime) {
         $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
             $("input[name='yupanaradio']").prop("checked", false);
