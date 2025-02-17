@@ -4,7 +4,6 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"os"
 	"regexp"
 	"strings"
@@ -15,6 +14,8 @@ import (
 	"github.com/tdewolff/minify/v2/html"
 	"github.com/tdewolff/minify/v2/js"
 	"github.com/tdewolff/minify/v2/json"
+
+	"github.com/google/uuid"
 )
 
 type HTFileChanged struct {
@@ -89,35 +90,6 @@ func htMinifyCommonFile(m *minify.M, minifyType string, inFile string, outFile s
 	return nil
 }
 
-func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
-	srcStat, err := os.Stat(srcFile)
-	if err != nil {
-		return err
-	}
-
-	if !srcStat.Mode().IsRegular() {
-		return nil
-	}
-
-	sfp, err := os.Open(srcFile)
-	if err != nil {
-		return err
-	}
-	defer sfp.Close()
-
-	dfp, err := os.Create(dstFile)
-	if err != nil {
-		return err
-	}
-	defer dfp.Close()
-	bytes, err := io.Copy(dfp, sfp)
-	if bytes == 0 || err != nil {
-		return err
-	}
-	fmt.Println("Copying file", srcFile)
-	return nil
-}
-
 func htUpdateHTCSS() error {
 	var finalFile string
 	var outFile string
@@ -136,7 +108,10 @@ func htUpdateHTCSS() error {
 	inBodies := fmt.Sprintf("%scss/", CFG.SrcPath)
 	outBodies := fmt.Sprintf("%scss/", CFG.ContentPath)
 
-	tmpFile := fmt.Sprintf("%stmp", srcBodies)
+	id := uuid.New()
+	strID := id.String()
+
+	tmpFile := fmt.Sprintf("%s%s", srcBodies, strID)
 	for _, fileName := range entries {
 		inFile = fmt.Sprintf("%s%s", srcBodies, fileName.Name())
 

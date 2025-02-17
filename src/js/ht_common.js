@@ -1075,6 +1075,10 @@ function htFillWebPage(page, data)
             }
         }
 
+        if (data.date_time != undefined) {
+            htFillHTDate(data.date_time);
+        }
+
         if (data.atlas != undefined) {
             htFillAtlas(data);
         }
