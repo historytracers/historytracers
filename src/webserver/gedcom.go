@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"time"
 
 	"github.com/google/uuid"
 )
@@ -48,12 +47,6 @@ func htParseFamilySetGedCOM(families *Family, lang string) {
 
 	families.GEDCOM = fmt.Sprintf("gedcom/families-%s.ged", lang)
 	fmt.Println("Setting GEDCOM file to: ", families.GEDCOM)
-}
-
-func htParseFamilySetTimestamp(families *Family) {
-	newStr := fmt.Sprintf("%d", time.Now().Unix())
-
-	families.LastUpdate[0] = newStr
 }
 
 func htWriteFamilyFile(lang string, families *Family) (string, error) {
@@ -101,7 +94,7 @@ func htParseFamilyFile(fileName string, lang string) error {
 	for i := 0; i < len(families.Contents); i++ {
 	}
 
-	htParseFamilySetTimestamp(&families)
+	families.LastUpdate[0] = htUpdateTimestamp()
 
 	newFile, err := htWriteFamilyFile(lang, &families)
 	if err != nil {

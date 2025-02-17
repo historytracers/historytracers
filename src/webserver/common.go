@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"time"
 )
 
 // Common date type
@@ -14,6 +15,12 @@ type HTDate struct {
 	Year     string `json:"year"`
 	Month    string `json:"month"`
 	Day      string `json:"day"`
+}
+
+func htUpdateTimestamp() string {
+	newStr := fmt.Sprintf("%d", time.Now().Unix())
+
+	return newStr
 }
 
 func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
