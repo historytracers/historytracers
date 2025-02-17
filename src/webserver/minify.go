@@ -292,6 +292,52 @@ func htMinifyJS() error {
 	return nil
 }
 
+func htUpdateHTJS() error {
+	var finalFile string
+	var outFile string
+	var inFile string
+
+	m := minify.New()
+	m.AddFunc("application/javascript", js.Minify)
+
+	srcBodies := fmt.Sprintf("%ssrc/js/", CFG.SrcPath)
+	entries, err := os.ReadDir(srcBodies)
+	if err != nil {
+		fmt.Println("ERROR", err)
+		return err
+	}
+
+	inBodies := fmt.Sprintf("%sjs/", CFG.SrcPath)
+	outBodies := fmt.Sprintf("%sjs/", CFG.ContentPath)
+
+	id := uuid.New()
+	strID := id.String()
+
+	tmpFile := fmt.Sprintf("%s%s", srcBodies, strID)
+	for _, fileName := range entries {
+		if htPattern.MatchString(fileName.Name()) == false {
+			continue
+		}
+		inFile = fmt.Sprintf("%s%s", srcBodies, fileName.Name())
+
+		htMinifyJSFile(m, inFile, tmpFile)
+
+		outFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
+		finalFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
+
+		HTCopyFilesWithoutChanges(finalFile, tmpFile)
+		HTCopyFilesWithoutChanges(outFile, finalFile)
+	}
+
+	err = os.Remove(tmpFile)
+	if err != nil {
+		fmt.Println("ERROR", err)
+		return err
+	}
+
+	return nil
+}
+
 // HTML
 func htUpdateIndex() {
 	var searchFile string
@@ -446,6 +492,8 @@ func HTMinifyAllFiles() {
 	if err != nil {
 		panic(err)
 	}
+
+	htUpdateHTJS()
 
 	err = htMinifyJSON()
 	if err != nil {
