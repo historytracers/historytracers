@@ -4,13 +4,15 @@ var rvalues = [];
 var lvalues = []
 var sumFirstTime = true;
 
+var localCounterc742c649 = 0;
+
 function htFillCurrentYupanaSum()
 {
-    lvalues = htFillYupanaDecimalValues('#yupana0', $('#ia2yupana0').val(), 5, 'red_dot_right_up');
-    rvalues = htFillYupanaDecimalValues('#yupana0', $('#ia2yupana1').val(), 5, 'blue_dot_right_bottom');
+    lvalues = htFillYupanaDecimalValues('#yupana1', $('#ia2yupana1').val(), 5, 'red_dot_right_up');
+    rvalues = htFillYupanaDecimalValues('#yupana1', $('#ia2yupana1').val(), 5, 'blue_dot_right_bottom');
     if (sumFirstTime) {
-        htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', lvalues);
-        htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', rvalues);
+        htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', lvalues);
+        htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', rvalues);
     }
 }
 
@@ -25,8 +27,32 @@ function htLoadExercise() {
 
     htWriteNavigation("first_steps");
 
+    localCounterc742c649 = 0;
+    localCounterc742c649 = htModifyArrow('.htUpArrow', localCounterc742c649);
+    localCounterc742c649 = htModifyArrow('.htDownArrow', localCounterc742c649);
+
+    $("#traineeUp0").on("click", function() {
+        localCounterc742c649++;
+        localCounterc742c649 = htModifyArrow('.htUpArrow', localCounterc742c649);
+        localCounterc742c649 = htModifyArrow('.htDownArrow', localCounterc742c649);
+
+        htSetImageForMembers('#leftHandImg', 'Left_Hand_Small.png', '#rightHandImg', 'Right_Hand_Small.png', localCounterc742c649);
+        htCleanYupanaDecimalValues('#yupana0', 5);
+        htFillYupanaDecimalValues('#yupana0', localCounterc742c649, 1, 'red_dot_right_up');
+    });
+
+    $("#traineeDown0").on("click", function() {
+        localCounterc742c649--;
+        localCounterc742c649 = htModifyArrow('.htDownArrow', localCounterc742c649);
+        localCounterc742c649 = htModifyArrow('.htUpArrow', localCounterc742c649);
+
+        htSetImageForMembers('#leftHandImg', 'Left_Hand_Small.png', '#rightHandImg', 'Right_Hand_Small.png', localCounterc742c649);
+        htCleanYupanaDecimalValues('#yupana0', 5);
+        htFillYupanaDecimalValues('#yupana0', localCounterc742c649, 1, 'red_dot_right_up');
+    });
+
     if (sumFirstTime) {
-        $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
+        $( "#ia2yupana1" ).bind( "keyup mouseup", function() {
             $("input[name='yupanaradio']").prop("checked", false);
             var value = $(this).val();
             if (value < 0 || value > 99999) {
@@ -47,20 +73,20 @@ function htLoadExercise() {
 
     $( "input[name='yupanaradio']" ).on( "change", function() {
         var value = $(this).val();
-        htCleanYupanaDecimalValues('#yupana0', 5);
+        htCleanYupanaDecimalValues('#yupana1', 5);
 
         htFillCurrentYupanaSum();
         if (value == "values") {
-            htCleanYupanaAdditionalColumn('#yupana0', 5, '#tc6f');
+            htCleanYupanaAdditionalColumn('#yupana1', 5, '#tc6f');
             $('#tc7f1').html("");
-            htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', lvalues);
-            htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', rvalues);
+            htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', lvalues);
+            htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', rvalues);
         } else {
             var totals = htSumYupanaVectors(lvalues, rvalues);
-            htCleanYupanaDecimalValues('#yupana0', 5);
-            htFillYupanaDecimalValues('#yupana0', totals, 5, 'red_dot_right_up');
-            htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana0', totals);
-            htWriteYupanaSumMovement(lvalues, rvalues, '#yupana0', 5, '#tc7f1');
+            htCleanYupanaDecimalValues('#yupana1', 5);
+            htFillYupanaDecimalValues('#yupana1', totals, 5, 'red_dot_right_up');
+            htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana1', totals);
+            htWriteYupanaSumMovement(lvalues, rvalues, '#yupana1', 5, '#tc7f1');
         }
     });
 
