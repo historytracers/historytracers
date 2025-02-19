@@ -1,1 +1,497 @@
-var yupanaSelectors=[-1,4,3,2,4,1,1,1,1,1,-1,-1,-1,-1,2,-1,4,3,2,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,4],yupanaClasses=["red_dot_right_up","red_dot_right_up_1","red_dot_right_up_2","red_dot_right_up_3","red_dot_right_up_4","red_dot_right_bottom","red_dot_right_bottom_1","red_dot_right_bottom_2","red_dot_right_bottom_3","red_dot_right_bottom_4"],yupanArr=[],mathVectorConstructor=[].constructor;function htSplitDecimalDigit(e,t,n,s){for(;n!=0;){var o=n%s;n=Math.trunc(n/s),$(e+""+t).html(o),t--}}function htWriteYupanaValuesOnHTMLTable(e,t,n){if(n==null)return;for(let s=0,o=n.length;s<n.length;s++,o--)$(t+" "+e+o).html(n[s])}function htFillYupanaDecimalOperator(e,t,n,s){for(let o=1;o<=n;o++)$(e+" "+t+o).html(s)}function htFillYupanaDecimalValues(e,t,n,s){var o,i,r,c,l,d,u,h,m,a=[];if(t==null)return void 0;if(t.constructor===chartVectorConstructor){yupanArr=[],r=1,c=0;for(let e=0;e<t.length;e++)c+=t[e]*r,r*=10;t=c}else if(h=10**n,(t>h||t<0)&&(t=0),t>0)for(l=10**(n-1),o=0;l>t;)l/=10,o++;else o=n;for(d=n,i=yupanArr.length;t!=0;){u=t%10,t=Math.trunc(t/10),a.push(u);for(let t=u;t<30;t+=10){if(yupanaSelectors[t]<0)continue;m=yupanaSelectors[t],$(e+" #tc"+m+"f"+d).append('<span id="marktc'+i+'" class="dot '+s+'"></span>'),yupanArr.push(i),i++}d--}for(let e=0;e<o;e++)a.push(0);return a}function htFillYupanaValues(e,t,n,s,o){var i=htFillYupanaDecimalValues(e,t,n,o);htWriteYupanaValuesOnHTMLTable(s,e,i)}function htCleanYupanaAdditionalColumn(e,t,n){for(let s=1;s<=t;s++)$(e+" "+n+s).html(" ")}function htCleanYupanaDecimalValues(e){for(let t=0;t<yupanArr.length;t++)$(e+" #marktc"+yupanArr[t]).remove();yupanArr=[]}function htSumYupanaVectors(e,t){if(e.length!=t.length)return;var n,s=[],o=yupanArr.length,i=t.slice();for(let t=0,a=e.length;t<e.length;t++,a--)n=e[t]+i[t],n>=10&&(t+1<e.length&&(i[t+1]+=1,yupanArr.push(o),o++),n-=10),s.push(n);return s}function htWriteYupanaEquals(e){var t="<i>"+mathKeywords[e]+"</i><br /><i>"+mathKeywords[2]+"</i><br />";return t}function htWriteSumOnYupana(e,t,n){var o,s="";if(e==t)switch(e){case 1:s="<i>"+mathKeywords[3]+"</i><br />";break;case 4:s="<i>"+mathKeywords[1]+"</i><br />",s+="<i>"+mathKeywords[3]+"</i><br />";case 2:s="<i>"+mathKeywords[0]+"</i><br />";break;case 3:s="<i>"+mathKeywords[1]+"</i><br />";break;case 5:s="<i>"+mathKeywords[2]+"</i><br />";break;case 6:s=htWriteYupanaEquals(3);break;case 7:s=htWriteYupanaEquals(0);break;case 8:s=htWriteYupanaEquals(1);break;case 9:s+="<i>"+mathKeywords[1]+"</i><br />",s+="<i>"+mathKeywords[3]+"</i><br />",s+="<i>"+mathKeywords[2]+"</i><br />";default:break}else if(e!=0&&t!=0)switch(o=!1,n>10&&(s="<i>"+mathKeywords[2]+"</i><br />",n=n%10,o=!0),n){case 2:case 3:o==!0?s="<i>"+mathKeywords[1]+"</i><br /><i>"+mathKeywords[3]+"</i><br />"+s:o==!1&&n==3&&(s="<i>"+mathKeywords[4]+"</i><br />");break;case 7:if(o)s="<i>"+mathKeywords[1]+"</i><br /><i>"+mathKeywords[3]+"</i><br />"+s;else{if(e==4||t==4)s+="<i>"+mathKeywords[1]+"</i><br />";else if(e==5||t==5){s=mathKeywords[5]+"<br />";break}s+="<i>"+mathKeywords[3]+"</i><br />"}break;case 4:s=mathKeywords[5]+"<br />";break;case 5:o?s="<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />"+s:((e==4||t==4)&&(s="<i>"+mathKeywords[3]+"</i><br />"),s+="<i>"+mathKeywords[4]+"</i><br />");break;case 1:case 6:o?s="<i>"+mathKeywords[4]+"</i><br /><i>"+mathKeywords[1]+"</i><br />"+s:(e==4||t==4)&&(s="<i>"+mathKeywords[4]+"</i><br /><i>"+mathKeywords[1]+"</i><br />");break;case 9:(e==7||t==7)&&(s+="<i>"+mathKeywords[0]+"</i><br />");break;case 10:e==9||t==9?s+="<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />":e==8||t==8?s+="<i>"+mathKeywords[4]+"</i><br />":e==7||t==7?s+="<i>"+mathKeywords[4]+"</i><br />":(e==6||t==6)&&(s+="<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />"),s+=mathKeywords[2]+"</i><br />";break;case 8:o==!1&&(e==7||t==7?s+="<i>"+mathKeywords[4]+"</i><br />":e==6||t==6?s+="<i>"+mathKeywords[4]+"</i><br />":s=mathKeywords[5]+"<br />");default:break}return s.length==0&&(s=mathKeywords[5]+"<br />"),s}function htWriteYupanaSumMovement(e,t,n,s,o){if(e.length!=t.length)return;var a,i=t.slice(),r="";for(let t=0,n=e.length;t<e.length;t++,n--)a=parseInt(e[t])+parseInt(i[t]),a>=10&&t+1<e.length&&(i[t+1]+=1),r+=t+") "+e[t]+" + "+i[t]+" = "+a+":<br />",r+=htWriteSumOnYupana(e[t],i[t],a);$(n+" "+o).html(r)}function htFillYupanaDecimalValuesWithRepetition(e,t,n,s,o){var i=[];for(let a=0;a<n;a++)i=htFillYupanaDecimalValues(e,t,s,o[a]);return(!n||!t)&&(i=htFillYupanaDecimalValues(e,t,s,o[0])),i}function htMultMakeMultiplicationTableText(e,t,n,s){var i,a,r,o="";if(e==0||t==0)o=e+" x "+t+": <br />"+mathKeywords[5]+"<br />";else{r=[],i=parseInt(0);for(let n=1;n<=t;n++)a=e*n,o+=n+") "+i+" + "+e+" = "+a+":<br />",o+=htWriteSumOnYupana(i,e,a),i+=parseInt(e)}$(n+" "+s).html(o)}function htYupanaDrawFirstSquare(){return'<span class="dot five_dot_c1_up"></span><span class="dot five_dot_c1_center"></span><span class="dot five_dot_c1_bottom"></span><span class="dot five_dot_c2_up"></span><span class="dot five_dot_c2_bottom"></span>'}function htYupanaDrawSecondSquare(){return'<span class="dot three_dot_bottom"></span><span class="dot three_dot_up"></span><span class="dot three_dot_center"></span>'}function htYupanaDrawThirdSquare(){return'<span class="dot two_dot_bottom"></span> <span class="dot two_dot_up"></span>'}function htYupanaDrawFourthSquare(){return'<span class="dot dot_center"></span>'}function htYupanaAddRow(e){return'<tr id="tf'+e+'"><td id="tc1f'+e+'">'+htYupanaDrawFirstSquare()+'</td> <td id="tc2f'+e+'">'+htYupanaDrawSecondSquare()+'</td> <td id="tc3f'+e+'">'+htYupanaDrawThirdSquare()+'</td> <td id="tc4f'+e+'">'+htYupanaDrawFourthSquare()+"</td></tr>"}function htCompleteMesoamericanCalendar(e){var t=8-e.length;if(t<0)return e;for(let n=0;n<t;n++)e.unshift(0);return e}function htFillMesoamericanCalendar(e,t){for(let n=0,s=1;n<e.length;n++,s++)$("#tmc"+t+"l"+s).html(e[n]),$("#tmc1l"+s).attr("src","images/HistoryTracers/Maya_"+e[n]+".png")}function htFillMesoamericanVigesimalValues(e,t,n,s){var o,i,a,r,c=20**t;for((e>c||e<0)&&(e=0),a=20**(t-1),o=1;a>e;)s!=null&&$("#tmc"+s+"l"+o).html(0),$("#tmc"+n+"l"+o).attr("src","images/HistoryTracers/Maya_0.png"),a/=20,o++;for(i=t;e!=0;)r=e%20,e=Math.trunc(e/20),s!=null&&$("#tmc"+s+"l"+i).html(r),$("#tmc"+n+"l"+i).attr("src","images/HistoryTracers/Maya_"+r+".png"),i--}function htCleanMesoamericanVigesimalValues(e,t){for(let n=1;n<=e;n++)t!=null&&$("#tmc"+t+"l"+n).html(" "),$("#tmc1l"+n).attr("src","")}function htModifyArrow(e,t){return t<0||t>9?($(e).css("display","none"),$(e).css("visibility","hidden")):($(e).css("display","block"),$(e).css("visibility","visible")),t<0?t=0:t>9&&(t=9),t}function htSetImageForMembers(e,t,n,s,o){if(o>10)return;var i,a;o>5?(i=5,a=o-i):(i=o,a=0),$(e).attr("src","images/"+a+t),$(n).attr("src","images/"+i+s)}function htFillTableHandsFeet(e,t,n){if($(e).length==0)return;var s=0,o=0,i=0,a=0;for(let r=t;r<n;r++)r<6?o=r:r<11?s=r-5:r<16?a=r-10:i=r-15,$(e+" tr:last").after('<tr><td><img id="imgFTHFC0'+r+`" onclick="htImageZoom('imgFTHFC0`+r+`', '0%')" src="images/`+s+'Left_Hand_Small.png" /></td><td><img id="imgFTHFC1'+r+`" onclick="htImageZoom('imgFTHFC1`+r+`', '0%')" src="images/`+o+'Right_Hand_Small.png"/></td><td><img id="imgFTHFC2'+r+`" onclick="htImageZoom('imgFTHFC2`+r+`', '0%')" src="images/`+i+'LeftFoot.png" class="smallFeet" /></td><td><img id="imgFTHFC3'+r+`" onclick="htImageZoom('imgFTHFC3`+r+`', '0%')" src="images/`+a+'RightFoot.png" class="smallFeet" /></td><td><img id="imgFTHFC4'+r+`" onclick="htImageZoom('imgFTHFC4`+r+`', '0%')" src="images/HistoryTracers/Maya_`+r+'.png"/></td><td><span class="text_to_paint">'+r+"</span></td></tr>")}function htFillSequenceTable(e,t,n){let s=t;for(;s<=n;){var o="<tr>";for(let e=0;e<10;e++,s++)o+='<td><span class="num_to_paint">'+s+"</span></td>";$(e+" tr:last").after(o+"</tr>")}}function htIsNumeric(e){return!isNaN(parseFloat(e))&&isFinite(e)}
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+var yupanaSelectors = [ -1,  4,  3,  2,  4,  1,  1,  1, 1,  1,
+                        -1, -1, -1, -1,  2, -1,  4,  3, 2,  2,
+                        -1, -1, -1, -1, -1, -1, -1, -1, -1, 4];
+
+var yupanaClasses = [ "red_dot_right_up", "red_dot_right_up_1", "red_dot_right_up_2", "red_dot_right_up_3", "red_dot_right_up_4", "red_dot_right_bottom", "red_dot_right_bottom_1", "red_dot_right_bottom_2", "red_dot_right_bottom_3", "red_dot_right_bottom_4"];
+
+// https://stackoverflow.com/questions/11182924/how-to-check-if-javascript-object-is-json
+var mathVectorConstructor = [].constructor;
+
+function htSplitDecimalDigit(output, maxIdx, value, base)
+{
+    while (value != 0) {
+        var rest = value % base;
+        value = Math.trunc(value / base);
+        $(output+""+maxIdx).html(rest);
+        maxIdx--;
+    }
+}
+
+function htWriteYupanaValuesOnHTMLTable(outputColumnID, tableID, values)
+{
+    if (values == undefined) {
+        return;
+    }
+    for (let i = 0, bottom2top = values.length; i < values.length; i++, bottom2top--) {
+        $(tableID+" "+outputColumnID+bottom2top).html(values[i]);
+    }
+}
+
+function htFillYupanaDecimalOperator(tableID, columnID, rows, op)
+{
+    for (let i = 1; i <= rows; i++) {
+        $(tableID+" "+columnID+i).html(op);
+    }
+}
+
+function htFillYupanaDecimalValues(tableID, dividend, rows, dotClass)
+{
+    var ret = []
+    if (dividend == undefined) {
+        return undefined;
+    }
+
+    if (dividend.constructor === chartVectorConstructor) {
+        var multiplier = 1;
+        var total = 0;
+        for (let i = 0; i < dividend.length ; i++) {
+            total += dividend[i] * multiplier;
+            multiplier *= 10;
+        }
+        dividend = total;
+    } else {
+        var localMax = 10**rows;
+        if (dividend > localMax || dividend < 0) {
+            dividend = 0;
+        }
+
+        if (dividend > 0 ) {
+            var start = 10 ** (rows - 1);
+            var fillzero = 0;
+            while (start > dividend) {
+                start /= 10;
+                fillzero++;
+            }
+        } else {
+            fillzero = rows;
+        }
+    }
+
+    var bottom2top = rows;
+    var dots = 0;
+    while (dividend != 0) {
+        var rest = dividend % 10;
+        dividend = Math.trunc(dividend / 10);
+        ret.push(rest);
+        
+
+        for (let sel = rest ; sel < 30; sel += 10) {
+            if (yupanaSelectors[sel] < 0 ) {
+                continue;
+            }
+
+            var idx = yupanaSelectors[sel];
+            $(tableID+" #tc"+idx+"f"+bottom2top).append("<span id=\"marktc"+dots+"\" class=\"dot circValues "+dotClass+"\"></span>");
+        }
+        bottom2top--;
+    }
+
+    for (let i = 0; i < fillzero; i++) {
+        ret.push(0);
+    }
+
+    return ret;
+}
+
+function htFillYupanaValues(tableID, dividend, rows, outputColumnID, dotClass)
+{
+    var values = htFillYupanaDecimalValues(tableID, dividend, rows, dotClass);
+    htWriteYupanaValuesOnHTMLTable(outputColumnID, tableID, values);
+}
+
+function htCleanYupanaAdditionalColumn(tableID, rows, outputColumnID)
+{
+    for (let i = 1; i <= rows; i++) {
+        $(tableID+" "+outputColumnID+i).html(" ");
+    }
+}
+
+function htCleanYupanaDecimalValues(tableID, rows)
+{
+    $(tableID).find(".circValues").remove();
+}
+
+function htSumYupanaVectors(larr, rarr)
+{
+    if (larr.length != rarr.length) {
+        return;
+    }
+
+    var totals = [];
+
+    var rarr_work = rarr.slice();
+    for (let i = 0, bottom2top = larr.length; i < larr.length ; i++, bottom2top--) {
+        var result = larr[i] + rarr_work[i];
+        if (result >= 10) {
+            if (i + 1 < larr.length) {
+                rarr_work[i+1] += 1;
+            }
+            result -= 10;
+        }
+        totals.push(result);
+    }
+
+    return totals;
+}
+
+function htWriteYupanaEquals(txtIdx)
+{
+    var text = "<i>"+mathKeywords[txtIdx]+"</i><br /><i>"+mathKeywords[2]+"</i><br />";
+    return text;
+}
+
+function htWriteSumOnYupana(lValue, rValue, result)
+{
+    var text = "";
+    if (lValue == rValue) {
+        switch (lValue) {
+            case 1:
+                text = "<i>"+mathKeywords[3]+"</i><br />";
+                break;
+            case 4:
+                text = "<i>"+mathKeywords[1]+"</i><br />";
+                text += "<i>"+mathKeywords[3]+"</i><br />";
+            case 2:
+                text = "<i>"+mathKeywords[0]+"</i><br />";
+                break;
+            case 3:
+                text = "<i>"+mathKeywords[1]+"</i><br />";
+                break;
+            case 5:
+                text = "<i>"+mathKeywords[2]+"</i><br />";
+                break;
+            case 6:
+                text = htWriteYupanaEquals(3);
+                break;
+            case 7:
+                text = htWriteYupanaEquals(0);
+                break;
+            case 8:
+                text = htWriteYupanaEquals(1);
+                break;
+            case 9:
+                text += "<i>"+mathKeywords[1]+"</i><br />"
+                text += "<i>"+mathKeywords[3]+"</i><br />"
+                text += "<i>"+mathKeywords[2]+"</i><br />"
+            default:
+                break;
+        }
+    } else if (lValue != 0 && rValue != 0) {
+        var bigger = false;
+        if (result > 10) {
+            text = "<i>"+mathKeywords[2]+"</i><br />";
+            result = result % 10; 
+            bigger = true;
+        }
+
+        switch (result) {
+            case 2:
+            case 3:
+                if (bigger == true) {
+                    text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+text;
+                }
+                else if (bigger == false && result == 3) {
+                    text = "<i>"+mathKeywords[4]+"</i><br />";
+                }
+                break;
+            case 7:
+                if (bigger) {
+                    text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+text;
+                } else {
+                    if (lValue == 4 || rValue == 4) {
+                        text += "<i>"+mathKeywords[1]+"</i><br />"
+                    }
+                    else if (lValue == 5 || rValue == 5) { 
+                        text = mathKeywords[5]+"<br />";
+                        break;
+                    }
+                    text += "<i>"+mathKeywords[3]+"</i><br />"
+                }
+                break;
+            case 4:
+                text = mathKeywords[5]+"<br />";
+                break;
+            case 5:
+                if (bigger) {
+                    text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[4]+"</i><br />"+text;
+                } else {
+                    if (lValue == 4 || rValue == 4) {
+                        text = "<i>"+mathKeywords[3]+"</i><br />";
+                    }
+                    text += "<i>"+mathKeywords[4]+"</i><br />";
+                }
+                break;
+            case 1:
+            case 6:
+                if (bigger) {
+                    text = "<i>"+mathKeywords[4]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+text;
+                } else {
+                    if (lValue == 4 || rValue == 4) {
+                        text = "<i>"+mathKeywords[4]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />";
+                    }
+                }
+                break;
+            case 9:
+                if (lValue == 7 || rValue == 7) {
+                    text += "<i>"+mathKeywords[0]+"</i><br />"
+                }
+                break;
+            case 10:
+                if (lValue == 9 || rValue == 9) {
+                    text += "<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />";
+                }
+                else if (lValue == 8 || rValue == 8) {
+                    text += "<i>"+mathKeywords[4]+"</i><br />";
+                }
+                else if (lValue == 7 || rValue == 7) {
+                    text += "<i>"+mathKeywords[4]+"</i><br />";
+                }
+                else if (lValue == 6 || rValue == 6) {
+                    text += "<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />";
+                }
+                text += mathKeywords[2]+"</i><br />"
+                break;
+            case 8:
+                if (bigger == false) {
+                    if (lValue == 7 || rValue == 7) {
+                        text += "<i>"+mathKeywords[4]+"</i><br />";
+                    }
+                    else if (lValue == 6 || rValue == 6) {
+                        text += "<i>"+mathKeywords[4]+"</i><br />";
+                    } else {
+                        text = mathKeywords[5]+"<br />";
+                    }
+                }
+            default:
+                break;
+        }
+    }
+
+    if (text.length == 0) {
+        text = mathKeywords[5]+"<br />";
+    }
+
+    return text;
+}
+
+function htWriteYupanaSumMovement(larr, rarr, tableID, rows, resultID)
+{
+    if (larr.length != rarr.length) {
+        return;
+    }
+
+    var rarr_work = rarr.slice();
+    var text = "";
+    for (let i = 0, j = larr.length; i < larr.length; i++, j--) {
+        var result = parseInt(larr[i]) + parseInt(rarr_work[i]);
+        if (result >= 10) {
+            if (i + 1 < larr.length) {
+                rarr_work[i+1] += 1;
+            }
+        }
+
+        text += i+") "+larr[i] +" + "+rarr_work[i]+" = "+result+":<br />";
+        text += htWriteSumOnYupana(larr[i], rarr_work[i], result);
+    }
+    $(tableID+" "+resultID).html(text);
+}
+
+function htFillYupanaDecimalValuesWithRepetition(tableID, value, times, rows, dotClasses)
+{
+    var ret = [];
+    for (let i = 0; i < times; i++) {
+        ret = htFillYupanaDecimalValues(tableID, value, rows, dotClasses[i]);
+    }
+
+    if (!times || !value) {
+        ret = htFillYupanaDecimalValues(tableID, value, rows, dotClasses[0]);
+    }
+
+    return ret;
+}
+
+function htMultMakeMultiplicationTableText(lValue, times, tableID, cellID)
+{
+    var text = "";
+    if (lValue == 0 || times == 0) {
+        text = lValue + " x "+times+": <br />"+mathKeywords[5]+"<br />";
+    } else {
+        var ret = [];
+        var cValue = parseInt(0);
+        for (let i = 1; i <= times; i++) {
+            var result = lValue * i;
+            text += i+") "+cValue +" + "+lValue+" = "+result+":<br />";
+            text += htWriteSumOnYupana(cValue, lValue, result);
+            cValue += parseInt(lValue);
+        }
+    }
+
+    $(tableID+" "+cellID).html(text);
+}
+
+function htYupanaDrawFirstSquare()
+{
+    return "<span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span>";
+}
+
+function htYupanaDrawSecondSquare()
+{
+    return "<span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span>";
+}
+
+function htYupanaDrawThirdSquare()
+{
+    return "<span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span>";
+}
+
+function htYupanaDrawFourthSquare()
+{
+    return "<span class=\"dot dot_center\"></span>";
+}
+
+function htYupanaAddRow(row)
+{
+    return "<tr id=\"tf"+row+"\"><td id=\"tc1f"+row+"\">"+htYupanaDrawFirstSquare()+"</td> <td id=\"tc2f"+row+"\">"+htYupanaDrawSecondSquare()+"</td> <td id=\"tc3f"+row+"\">"+htYupanaDrawThirdSquare()+"</td> <td id=\"tc4f"+row+"\">"+htYupanaDrawFourthSquare()+"</td></tr>";
+}
+
+function htCompleteMesoamericanCalendar(vector)
+{
+    var len = 8 - vector.length;
+    if (len < 0) {
+        return vector;
+    }
+
+    for (let i = 0 ; i < len; i++) {
+        vector.unshift(0);
+    }
+
+    return vector;
+}
+
+function htFillMesoamericanCalendar(periods, outputColumn)
+{
+    for (let i = 0, top2bottom = 1; i < periods.length; i++, top2bottom++) {
+        $("#tmc"+outputColumn+"l"+top2bottom).html(periods[i]);
+        $("#tmc1l"+top2bottom).attr('src', 'images/HistoryTracers/Maya_'+periods[i]+'.png');
+    }
+}
+
+function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimalColumn)
+{
+    var localMax = 20**rows;
+    if (dividend > localMax || dividend < 0) {
+        dividend = 0;
+    }
+
+    var start = 20 ** (rows - 1);
+    var top2bottom = 1;
+    while (start > dividend) {
+        if (decimalColumn != undefined) {
+            $("#tmc"+decimalColumn+"l"+top2bottom).html(0);
+        }
+        $("#tmc"+outputColumn+"l"+top2bottom).attr('src', 'images/HistoryTracers/Maya_0.png');
+        start /= 20;
+        top2bottom++;
+    }
+
+    var bottom2top = rows;
+    while (dividend != 0) {
+        var rest = dividend % 20;
+        dividend = Math.trunc(dividend / 20);
+        if (decimalColumn != undefined) {
+            $("#tmc"+decimalColumn+"l"+bottom2top).html(rest);
+        }
+        $("#tmc"+outputColumn+"l"+bottom2top).attr('src', 'images/HistoryTracers/Maya_'+rest+'.png');
+        
+        bottom2top--;
+    }
+}
+
+function htCleanMesoamericanVigesimalValues(rows, outputColumn)
+{
+    for (let i = 1; i <= rows; i++) {
+        if (outputColumn != null) {
+            $("#tmc"+outputColumn+"l"+i).html(" ");
+        }
+        $("#tmc1l"+i).attr('src', '');
+    }
+}
+
+function htModifyArrow(classObj, value)
+{
+    if (value < 0 || value > 9) {
+        $(classObj).css('display','none');
+        $(classObj).css('visibility','hidden');
+    } else {
+        $(classObj).css('display','block');
+        $(classObj).css('visibility','visible');
+    }
+
+    if (value < 0)
+        value = 0;
+    else if (value > 9)
+        value = 9;
+
+    return value;
+}
+
+function htSetImageForMembers(leftMember, leftImgSuffix, rightMember, rightImgSuffix, value)
+{
+    if (value > 10) {
+        return;
+    }
+
+    var leftValue;
+    var rightValue;
+    if (value > 5) {
+        rightValue = 5;
+        leftValue = value - rightValue;
+    } else {
+        rightValue = value;
+        leftValue = 0;
+    }
+
+    $(leftMember).attr('src', 'images/'+leftValue+leftImgSuffix);
+    $(rightMember).attr('src', 'images/'+rightValue+rightImgSuffix);
+}
+
+function htFillTableHandsFeet(id, min, max) {
+    if ($(id).length == 0) {
+        return;
+    }
+    var leftHand = 0;
+    var rightHand = 0;
+    var leftFoot = 0;
+    var rightFoot = 0;
+    for (let i = min; i < max; i++ ) {
+        if (i < 6) {
+            rightHand = i;
+        } else if (i < 11) {
+            leftHand = i - 5;
+        } else if (i < 16) {
+            rightFoot = i - 10;
+        } else {
+            leftFoot = i - 15;
+        }
+        $(id+" tr:last").after("<tr><td><img id=\"imgFTHFC0"+i+"\" onclick=\"htImageZoom('imgFTHFC0"+i+"', '0%')\" src=\"images/"+leftHand+"Left_Hand_Small.png\" /></td><td><img id=\"imgFTHFC1"+i+"\" onclick=\"htImageZoom('imgFTHFC1"+i+"', '0%')\" src=\"images/"+rightHand+"Right_Hand_Small.png\"/></td><td><img id=\"imgFTHFC2"+i+"\" onclick=\"htImageZoom('imgFTHFC2"+i+"', '0%')\" src=\"images/"+leftFoot+"LeftFoot.png\" class=\"smallFeet\" /></td><td><img id=\"imgFTHFC3"+i+"\" onclick=\"htImageZoom('imgFTHFC3"+i+"', '0%')\" src=\"images/"+rightFoot+"RightFoot.png\" class=\"smallFeet\" /></td><td><img id=\"imgFTHFC4"+i+"\" onclick=\"htImageZoom('imgFTHFC4"+i+"', '0%')\" src=\"images/HistoryTracers/Maya_"+i+".png\"/></td><td><span class=\"text_to_paint\">"+i+"</span></td></tr>");
+    }
+}
+
+function htFillSequenceTable(id, min, max) {
+    let i = min;
+    while (i <= max) {
+        var value = "<tr>";
+        for (let j =0 ; j < 10; j++, i++) {
+            value += "<td><span class=\"num_to_paint\">"+i+"</span></td>";
+        }
+        $(id+" tr:last").after(value+"</tr>");
+    }
+}
+
+//https://stackoverflow.com/questions/18082/validate-decimal-numbers-in-javascript-isnumeric/174921#174921
+function htIsNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
