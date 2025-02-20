@@ -1,10 +1,11 @@
 {
-    "title" : "Yupana (soma)",
-    "header" : "<i>Yupana</i> (soma)",
+    "title" : "Yupana (Adição)",
+    "header" : "<i>Yupana</i> (Adição)",
     "sources" : [ "c742c649-bf12-4d3f-ba8c-52f91455fc95" ],
     "scripts" : [ "c742c649-bf12-4d3f-ba8c-52f91455fc95" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1717892875" ],
+    "last_update" : [ "1739809306" ],
+    "index" : [ "first_steps" ],
     "authors" : null,
     "reviewers" : "Dhavit Prem",
     "content" : [
@@ -14,48 +15,290 @@
             "value_type" : "paper",
             "value" : [
                 {
-                    "id" : "navigation",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=26e6b9ec-5b8d-49ff-be8a-4ef7a62692fc\" onclick=\"htLoadPage('class_content', 'html', '26e6b9ec-5b8d-49ff-be8a-4ef7a62692fc', false); return false;\">Releitura</a></td> <td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td><a href=\"index.html?page=class_content&arg=9a7a978b-3fac-422c-8e41-3ef1a24e88f3\" onclick=\"htLoadPage('class_content', 'html', '9a7a978b-3fac-422c-8e41-3ef1a24e88f3', false); return false;\"><i>Yupana</i> (multiplicação)</a></td></tr></table></p>"
+                    "id" : "prerequisites",
+                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
+                               { "text" : "### Pré-requisitos\n\nRecomenda-se que o leitor estude primeiro o texto *Desenhando para contar*, para relembrar como os números são representados na *Yupana*. Além disso, sugerimos o estudo dos dois textos anteriores deste capítulo",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "9618a83e-f232-49db-84f6-fc3455a3f1d1",
+                                                "text": "History Tracers Team. Desenhando para Contar",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                                                "text": "History Tracers Team. Caminhando entre os números",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "cf2853c5-db17-4793-a5f9-110b71eae84d",
+                                                "text": "History Tracers Team. Correndo entre os números",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
                 },
                 {
                     "id" : "introduction",
-                    "text" : [ "<p><h3>Introdução</h3>Conforme temos explorado, diversas civilizações desenvolveram sistemas numéricos distintos. Além disso, alguns avançaram ainda mais, criando ferramentas que simplificam os cálculos. Nesta página, aprofundamos nosso estudo no método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) da Associação Yupanki (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 354 - 363</a>).</p>" ]
+                    "text" : [ { "text" : "### Introdução\n\nAo longo da história, diversas civilizações desenvolveram seus próprios sistemas numéricos. Algumas delas foram além, criando ferramentas para facilitar cálculos. Nesta página, aprofundamos o estudo do método *Yupana Inka Tawa Pukllay*, desenvolvido e publicado por Dhavit Prem",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 354 - 363",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit, Pessoal",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
                 },
                 {
-                    "id" : "algorithm",
-                    "text" : [ "<p><h3>Somando com a <i>Yupana</i></h3>Enquanto as calculadoras modernas utilizam símbolos específicos para adição (+) e multiplicação (x), ao trabalharmos com o método <i>\"Yupana Inka Tawa Pukllay\"</i>, nos concentramos nos números representados em cada linha. O método (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 357 - 359</a>) que estamos usando, indica que: <ul><li>Devemos ter a idéia que ao final dos cálculos, não podemos ter mais de um marcador (no nosso caso círculos) em cada quadrado da <i>Yupana.</i></li> <li>Não podemos representar valores maiores que <b>9</b> por linha. Caso isto ocorra, realizamos a soma, marcando o excendente na linha imediatamente superior.</li></ul></p>", "<p>Durante as operações, empregamos os seguintes movimentos:<ul> <li><i>ISKAY</i>: Significando \"dois\" em Quechua, este movimento envolve \"abrir curto\". Quando dois círculos ocupam o número <b>2</b>, movemos um para o número <b>1</b> e outro para o número <b>3</b>, obtendo: <b>2 + 2 = 3 + 1 = 4</b>.</li> <li><i></i>KIMSA</i>: Significando \"três\" em Quechua, este movimento implica \"abrir largo\", movendo os círculos para os extremos da linha. Quando dois círculos estão no número <b>3</b>, movemos um para o número <b>5</b> e outro para o número <b>1</b>, obtendo: <b>3 + 3 = 5 + 1 = 6</b>.</li> <li><i>PISQA</i>: Significando \"cinco\" em Quechua, este movimento envolve \"mover entre filas\". Com dois círculos no número <b>5</b>, movemos um para o número <b>1</b> da linha superior e removemos o outro, resultando em: <b>5 + 5 = 10</b>.</li>  <li><i>KIKIN</i>: Os equivalentes. Este movimento converte círculos colocados no quadrado com número <b>1</b>, reduzindo-os a um único círculo em quadrados da mesma linha: <ul><li>Dois círculos se tornam um em dois: <b>1 + 1 = 2</b></li> <li>Três círculos se reduzem a um em três: <b>(1 + 1) + 1 = 3</b></li> <li>Cinco círculos convertem-se a um em cinco: <b>[(1 + 1) + (1 + 1)] + 1 = 5</b></li></ul> </li><li><i>PICHANA</i>: Significando \"vassoura\" em Quechua, o movimento <i>Pichana</i> é executado de forma a evitar a formação de círculos em quadrantes, cuja soma total é igual a de outro quadrante.</li></ul></p>", "<p>Colocamos parênteses e colchetes quando havia a necessidade de realizar mais de uma operação de soma, para indicar que realizamos as operações sempre em pares.</p>" ]
+                    "id" : "fill",
+                    "text" : [ { "text" : "### Representando números\n\nO objetivo de começarmos a usar o método *Yupana Inka Tawa Pukllay* em vez das calculadoras tradicionais é reforçar nossos conhecimentos matemáticos. Isso ocorre porque, com esse método, concentramos nossa atenção nos números representados em cada linha",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 357 - 359",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit, Pessoal",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg0\" onclick=\"htImageZoom('leftHandImg0', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg0\" onclick=\"htImageZoom('rightHandImg0', '0%')\" src=\"images/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></i></td></tr></table>", "<p class=\"desc\">Tabela 1: Representação de uma linha da <i>Yupana</i> de acordo com Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 361 - 362</a>). CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p>",
+                             { "text" : "Na **Tabela 1**, vemos a representação de uma linha da *Yupana*. Você pode usar as setas de controle para visualizar as diferentes representações numéricas. Como pode ser observado, através da disposição dos círculos, os números representados variam sempre entre zero (0) e nove (9)",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 357 - 359",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit, Pessoal",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre Valores</b><br /><br />Se podemos representar apenas números no intervalo de zero (0) a nove (9), como podemos usar a <i>Yupana</i> para realizar operações de adição?</div></div></center></p>"
+                    ]
+                },
+                {
+                    "id" : "movement",
+                    "text" : [ { "text" : "### Movimentos na *Yupana*\n\nDurante o processo de cálculo com a *Yupana*, é necessário representar um número adicional por linha. Para facilitar a compreensão, utilizaremos cores diferentes para distinguir os números.\n\nCaso a representação resulte em mais de um círculo no mesmo quadrado da linha ou a soma dos números seja maior que nove (9), devemos realizar movimentos que os façam um único número de um dígito.\n\nOs movimentos utilizados são apresentados a seguir",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 357 - 359",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit, Pessoal",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "#### *ISKAY*\n\n*ISKAY*, em Quechua, significa \"dois\". Esse movimento ocorre quando dois círculos ocupam a posição número 2. Movemos um deles para o número 1 e o outro para o número 3, representando a operação matemática",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 357 - 359",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit, Pessoal",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>2</mn> <mo>+</mo> <mn>2</mn> <mo>=</mo> <mn>1</mn>  <mo>+</mo> <mn>3</mn> </math></p>",
+                               { "text" : "Essa operação também é conhecida como **\"abrir curto\"**, pois deslocamos os círculos para os quadrados adjacentes.\n\nNa **Tabela 2*, você pode visualizar esse movimento em ação. Utilize a seta <i class=\"fa-solid fa-arrows-left-right\" style=\"color:#0f0;\"></i> para mover os círculos e atualizar os dedos das mãos e <i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i> para retornar à posição original",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><table id=\"yupana10\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg1\" onclick=\"htImageZoom('leftHandImg1', '0%')\" src=\"images/2Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg1\" onclick=\"htImageZoom('rightHandImg1', '0%')\" src=\"images/2Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-arrows-left-right upArrowWithFA\" id=\"traineeUp1\"></i> <i class=\"fa-solid fa-arrows-rotate downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown1\"></i></td></tr></table>",
+                               "<p class=\"desc\">Tabela 2: Representação do movimento <i>ISKAY</i>. CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p>",
+                                { "text" : "#### *KIMSA*\n\n*KIMSA*, em Quechua, significa \"três\". Esse movimento ocorre quando dois círculos ocupam a posição número 3. Movemos um deles para o número 1 e o outro para o número 5, representando a operação matemática",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 357 - 359",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit, Pessoal",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>3</mn> <mo>+</mo> <mn>3</mn> <mo>=</mo> <mn>1</mn>  <mo>+</mo> <mn>5</mn> </math></p>",
+                               { "text" : "Essa operação também é conhecida como **\"abrir largo\"**, pois os círculos são deslocados para os extremos da linha.\n\nNa **Tabela 3**, você pode visualizar esse movimento em ação. Utilize a seta <i class=\"fa-solid fa-arrows-left-right\" style=\"color:#0f0;\"></i> para mover os círculos e atualizar os dedos das mãos e <i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i> para retornar à posição original",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><table id=\"yupana20\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg2\" onclick=\"htImageZoom('leftHandImg2', '0%')\" src=\"images/3Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg2\" onclick=\"htImageZoom('rightHandImg2', '0%')\" src=\"images/3Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-arrows-left-right upArrowWithFA\" id=\"traineeUp2\"></i> <i class=\"fa-solid fa-arrows-rotate downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown2\"></i></td></tr></table>",
+                               "<p class=\"desc\">Tabela 3: Representação do movimento <i>KIMSA</i>. CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p>",
+                                { "text" : "#### *PISQA*\n\n*PISQA*, em Quechua, significa \"cinco\". Esse movimento ocorre quando dois círculos ocupam a posição número 5. Movemos um deles para o número 1 na linha superior e removemos o outro da linha atual, representando a operação matemática",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 357 - 359",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit, Pessoal",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>5</mn> <mo>+</mo> <mn>5</mn> <mo>=</mo> <mn>10</mn>  <mo>+</mo> <mn>0</mn> </math></p>",
+                               { "text" : "Na **Tabela 4**, você pode visualizar esse movimento em ação. Utilize a seta <i class=\"fa-solid fa-arrows-left-right\" style=\"color:#0f0;\"></i> para mover os círculos e atualizar os dedos das mãos e <i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i> para retornar à posição original",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><table id=\"yupana30\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\" rowspan=\"2\"><img id=\"leftHandImg3\" onclick=\"htImageZoom('leftHandImg3', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td id=\"tc5f1\" rowspan=\"2\"><img id=\"rightHandImg3\" onclick=\"htImageZoom('rightHandImg3', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td id=\"tc7f1\" rowspan=\"2\"><i class=\"fa-solid fa-arrows-left-right upArrowWithFA\" id=\"traineeUp3\"></i> <i class=\"fa-solid fa-arrows-rotate downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown3\"></i></td><tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td></tr></tr></table>",
+                               "<p class=\"desc\">Tabela 4: Representação do movimento <i>PISQA</i>. CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p>",
+                                { "text" : "#### *PICHANA*\n\n*PICHANA*, em Quechua, significa \"vassoura\". Esse movimento ocorre quando círculos estão posicionados em dois quadrantes cuja soma equivale ao valor de outro quadrante. Os movimentos representam os seguintes cálculos",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 357 - 359",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit, Pessoal",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>1</mn> <mo>+</mo> <mn>2</mn> <mo>=</mo> <mn>3</mn>  <mo>+</mo> <mn>0</mn> </math></p>",
+                               "<p><math display=\"block\"> <mn>2</mn> <mo>+</mo> <mn>3</mn> <mo>=</mo> <mn>5</mn>  <mo>+</mo> <mn>0</mn> </math></p>",
+                               { "text" : "Na **Tabela 5**, você pode visualizar um exemplo deste movimento. Utilize a seta <i class=\"fa-solid fa-arrows-left-right\" style=\"color:#0f0;\"></i> para mover os círculos e atualizar os dedos das mãos e <i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i> para retornar à posição original",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><table id=\"yupana40\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg4\" onclick=\"htImageZoom('leftHandImg4', '0%')\" src=\"images/2Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg4\" onclick=\"htImageZoom('rightHandImg4', '0%')\" src=\"images/1Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-arrows-left-right upArrowWithFA\" id=\"traineeUp4\"></i> <i class=\"fa-solid fa-arrows-rotate downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown4\"></i></td></tr></table>",
+                               "<p class=\"desc\">Tabela 5: Representação do movimento <i>PICHANA</i>. CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p>",
+                                { "text" : "#### *KINKIN*\n\n*KINKIN* é o movimento dos equivalentes. Ele ocorre quando há mais de um círculo posicionado no primeiro quadrante, e a soma deles equivale a outro quadrante existente. Esse movimento representa as seguintes operações matemáticas",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                                                "text": "Prem, Dhavit, pp. 357 - 359",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                                                "text": "Prem, Dhavit, Pessoal",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><math display=\"block\"> <mn>1</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>2</mn>  <mo>+</mo> <mn>0</mn> </math></p>",
+                               "<p><math display=\"block\"> <mo>(</mo> <mn>1</mn> <mo>+</mo> <mn>1</mn> <mo>)</mo> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>3</mn>  <mo>+</mo> <mn>0</mn> </math></p>",
+                               "<p><math display=\"block\">  <mo>(</mo> <mn>1</mn> <mo>+</mo> <mn>1</mn> <mo>)</mo> <mo>+</mo>  <mo>(</mo> <mn>1</mn> <mo>+</mo> <mn>1</mn> <mo>)</mo> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>5</mn>  <mo>+</mo> <mn>0</mn> </math></p>",
+                               { "text" : "Na **Tabela 6**, você pode visualizar um exemplo deste movimento. Utilize a seta <i class=\"fa-solid fa-arrows-left-right\" style=\"color:#0f0;\"></i> para mover os círculos e atualizar os dedos das mãos e <i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i> para retornar à posição original",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               "<p><table id=\"yupana50\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg5\" onclick=\"htImageZoom('leftHandImg5', '0%')\" src=\"images/1Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg5\" onclick=\"htImageZoom('rightHandImg5', '0%')\" src=\"images/1Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-arrows-left-right upArrowWithFA\" id=\"traineeUp5\"></i> <i class=\"fa-solid fa-arrows-rotate downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown5\"></i></td></tr></table>",
+                               "<p class=\"desc\">Tabela 6: Representação de um movimento <i>KINKIN</i>. CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p>"
+                    ]
                 },
                 {
                     "id" : "sum",
-                    "text" : [ "<p><h3>Exercitando com a <i>Yupana</i></h3>Para auxiliar a entender as etapas descritas, vamos usar o método <i>\"Yupana Inka Tawa Pukllay\"</i> para a soma de dois números. Dado que a <i>Yupana</i> usada possui apenas 5 linhas, limita-se a representar valores até <b>99.999</b>.</p>", "<p>No exemplo a seguir, demonstramos a soma de <b>23512</b> e <b>23513</b> utilizando a <i>Yupana</i>. Convidamos o leitor a alternar entre <b>calcular</b> e <b>valores</b> para visualizar os dados iniciais e os passos necessários para realizar a soma. Posteriormente, é possível modificar os valores do exemplo inserindo números entre <b>0</b> e <b> 99.999</b>: <input type=\"number\" value=\"23512\" min=\"0\" max=\"99999\" id=\"ia2yupana0\" /> +  <input type=\"number\" value=\"23513\" min=\"0\" max=\"99999\" id=\"ia2yupana1\" />:  <input type=\"radio\" value=\"values\" name=\"yupanaradio\" /> <b>Valores</b> <input type=\"radio\" value=\"calcular\" name=\"yupanaradio\" /> <b>Calcular</b></p>", "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Valores</th><th>Resultado</th><th>Movimentos</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><span id=\"vl1\"></span> + <span id=\"vr1\"></span></td><td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\" rowspan=\"5\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f2\"><span id=\"vl2\"></span> + <span id=\"vr2\"></span></td><td id=\"tc6f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f3\"><span id=\"vl3\"></span> + <span id=\"vr3\"></span></td><td id=\"tc6f3\">&nbsp;</td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f4\"><span id=\"vl4\"></span> + <span id=\"vr4\"></span></td><td id=\"tc6f4\">&nbsp;</td></tr> <tr id=\"tf5\"><td id=\"tc1f5\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f5\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f5\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f5\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f5\"><span id=\"vl5\"></span> + <span id=\"vr5\"></span></td><td id=\"tc6f5\">&nbsp;</td></tr></table>", "<p class=\"desc\">Tabela 5: Representação da <i>Yupana</i> de acordo com Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 361 - 362</a>).</p>", "<p>Para comparar o método <i>\"Yupana Inka Tawa Pukllay\"</i> com o método arábico, recomendamos assistir ao vídeo produzido pelo canal Yupanka Inca (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f2eb39ba-3bfc-4924-8293-51b62994aedd'); return false;\">Competencia Método <i>\"Yupana Inka Tawa Pukllay\"</i> vs Método Arábigo. <span class=\"htdate\"></span></a>).</p>" ]
+                    "text" : [ { "text" : "### Exercitando com a *Yupana*\n\nPara compreender melhor o método *Yupana Inka Tawa Pukllay*, utilizaremos uma *Yupana* com 5 linhas para somar dois números. Com essa configuração, podemos representar valores de até **99.999**. No entanto, é possível adicionar mais linhas para somar números maiores, sem restrições.\n\nNo exemplo a seguir, demonstramos a soma **23512 + 23513**. Convidamos o leitor a alternar entre as opções \"**Valores**\" e \"**Calcular**\" para visualizar os números iniciais e os movimentos realizados durante a soma. Você também pode modificar os valores do exemplo para reforçar seu aprendizado",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                                "<p style=\"text-align: center;\"><input type=\"number\" value=\"23512\" min=\"0\" max=\"99999\" id=\"ia2yupana0\" /> +  <input type=\"number\" value=\"23513\" min=\"0\" max=\"99999\" id=\"ia2yupana1\" />:  <input type=\"radio\" value=\"values\" name=\"yupanaradio\" /> <b>Valores</b> <input type=\"radio\" value=\"calcular\" name=\"yupanaradio\" /> <b>Calcular</b></p>",
+                                "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Valores</th><th>Resultado</th><th>Movimentos</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><span id=\"vl1\"></span> + <span id=\"vr1\"></span></td><td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\" rowspan=\"5\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f2\"><span id=\"vl2\"></span> + <span id=\"vr2\"></span></td><td id=\"tc6f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f3\"><span id=\"vl3\"></span> + <span id=\"vr3\"></span></td><td id=\"tc6f3\">&nbsp;</td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f4\"><span id=\"vl4\"></span> + <span id=\"vr4\"></span></td><td id=\"tc6f4\">&nbsp;</td></tr> <tr id=\"tf5\"><td id=\"tc1f5\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f5\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f5\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f5\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f5\"><span id=\"vl5\"></span> + <span id=\"vr5\"></span></td><td id=\"tc6f5\">&nbsp;</td></tr></table>",
+                                "<p class=\"desc\">Tabela 7: Representação da <i>Yupana</i> de acordo com Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 361 - 362</a>).</p>",
+                               { "text" : "Além disso, sugerimos assistir a uma demonstração do método *Yupana Inka Tawa Pukllay* no canal *Yupanka Inca*",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "f2eb39ba-3bfc-4924-8293-51b62994aedd",
+                                                "text": "Competencia Método <i>Yupana Inka Tawa Pukllay</i> vs Método Arábigo",
+                                                "date" :  {"type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ { "text" : "### Conclusão\n\nNeste texto, exploramos o uso de uma ferramenta centenária desenvolvida pelos Incas nos Andes. Por meio dela, visualizamos como os números são posicionados e movimentados entre as linhas, que correspondem às casas decimais ou famílias numéricas estudadas anteriormente",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "fill_dates" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
                 },
                 {
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "O método <i>\"Yupana Inka Tawa Pukllay\"</i> segue as regras da matemática tradicional?",
+                            "question" : "O método <i>Yupana Inka Tawa Pukllay</i> produz os mesmos resultados da matemática que usamos no dia a dia?",
                             "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "O método está totalmente alinhado à matemática tradicional."
+                            "additionalInfo" : "Ambos os métodos utilizam números decimais e, embora sejam representados de formas diferentes, os resultados são exatamente os mesmos."
                         },
                         {
-                            "question" : "Podemos representar valores maiores que 10 em uma única linha após os cálculos?",
+                            "question" : "Após os cálculos, é possível representar valores maiores que 9 em uma única linha?",
                             "yesNoAnswer" : "No",
-                            "additionalInfo" : "De acordo com o método, devemos seguir a mesma representação dos números decimais; assim, não há valores maiores que 9 em uma linha."
-                        },
-                        {
-                            "question" : "Foram ensinados cinco movimentos específicos no método <i>\"Yupana Inka Tawa Pukllay\"</i>?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Nesta primeira parte do aprendizado do método, apresentamos 5 movimentos possíveis."
-                        },
-                        {
-                            "question" : "Ao realizar o movimento <i>PISQA</i>, adicionamos um círculo na linha imediatamente acima?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Este movimento indica que completamos todos os valores possíveis em uma linha, então devemos passar para a linha superior."
-                        },
-                        {
-                            "question" : "Calculamos com o método <i>\"Yupana Inka Tawa Pukllay\"</i> de baixo para cima?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Começamos sempre pela linha inferior, pois é onde estão os menores valores."
+                            "additionalInfo" : "Seguindo a representação dos números decimais, não há valores maiores que 9 em uma mesma linha."
                         }
                     ]
                 },
@@ -63,10 +306,9 @@
                     "id": "fill_dates",
                     "text": [
                         {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
                         {  "type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" }
+                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" }
                     ]
                 }
             ]

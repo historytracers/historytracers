@@ -6,8 +6,6 @@ var yupanaSelectors = [ -1,  4,  3,  2,  4,  1,  1,  1, 1,  1,
 
 var yupanaClasses = [ "red_dot_right_up", "red_dot_right_up_1", "red_dot_right_up_2", "red_dot_right_up_3", "red_dot_right_up_4", "red_dot_right_bottom", "red_dot_right_bottom_1", "red_dot_right_bottom_2", "red_dot_right_bottom_3", "red_dot_right_bottom_4"];
 
-var yupanArr = [ ];
-
 // https://stackoverflow.com/questions/11182924/how-to-check-if-javascript-object-is-json
 var mathVectorConstructor = [].constructor;
 
@@ -46,7 +44,6 @@ function htFillYupanaDecimalValues(tableID, dividend, rows, dotClass)
     }
 
     if (dividend.constructor === chartVectorConstructor) {
-        yupanArr = [ ];
         var multiplier = 1;
         var total = 0;
         for (let i = 0; i < dividend.length ; i++) {
@@ -73,7 +70,7 @@ function htFillYupanaDecimalValues(tableID, dividend, rows, dotClass)
     }
 
     var bottom2top = rows;
-    var dots = yupanArr.length;
+    var dots = 0;
     while (dividend != 0) {
         var rest = dividend % 10;
         dividend = Math.trunc(dividend / 10);
@@ -86,9 +83,7 @@ function htFillYupanaDecimalValues(tableID, dividend, rows, dotClass)
             }
 
             var idx = yupanaSelectors[sel];
-            $(tableID+" #tc"+idx+"f"+bottom2top).append("<span id=\"marktc"+dots+"\" class=\"dot "+dotClass+"\"></span>");
-            yupanArr.push(dots);
-            dots++;
+            $(tableID+" #tc"+idx+"f"+bottom2top).append("<span id=\"marktc"+dots+"\" class=\"dot circValues "+dotClass+"\"></span>");
         }
         bottom2top--;
     }
@@ -115,11 +110,7 @@ function htCleanYupanaAdditionalColumn(tableID, rows, outputColumnID)
 
 function htCleanYupanaDecimalValues(tableID, rows)
 {
-    for (let i = 0; i < yupanArr.length; i++ ) {
-        $(tableID+" #marktc"+yupanArr[i]).remove();
-    }
-
-    yupanArr = [ ];
+    $(tableID).find(".circValues").remove();
 }
 
 function htSumYupanaVectors(larr, rarr)
@@ -130,15 +121,12 @@ function htSumYupanaVectors(larr, rarr)
 
     var totals = [];
 
-    var dots = yupanArr.length;
     var rarr_work = rarr.slice();
     for (let i = 0, bottom2top = larr.length; i < larr.length ; i++, bottom2top--) {
         var result = larr[i] + rarr_work[i];
         if (result >= 10) {
             if (i + 1 < larr.length) {
                 rarr_work[i+1] += 1;
-                yupanArr.push(dots);
-                dots++;
             }
             result -= 10;
         }
