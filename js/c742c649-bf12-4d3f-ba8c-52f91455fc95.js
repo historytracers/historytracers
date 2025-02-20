@@ -18,7 +18,7 @@ var localCounterc742c649 = 0;
 
 function htFillCurrentYupanaSum()
 {
-    lvalues = htFillYupanaDecimalValues('#yupana1', $('#ia2yupana1').val(), 5, 'red_dot_right_up');
+    lvalues = htFillYupanaDecimalValues('#yupana1', $('#ia2yupana0').val(), 5, 'red_dot_right_up');
     rvalues = htFillYupanaDecimalValues('#yupana1', $('#ia2yupana1').val(), 5, 'blue_dot_right_bottom');
     if (sumFirstTime) {
         htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', lvalues);
@@ -81,8 +81,8 @@ function htLoadExercise() {
         localCounterc742c649 = htModifyArrow('.htUpArrow', localCounterc742c649);
         localCounterc742c649 = htModifyArrow('.htDownArrow', localCounterc742c649);
 
-        htSetImageForMembers('#leftHandImg', 'Left_Hand_Small.png', '#rightHandImg', 'Right_Hand_Small.png', localCounterc742c649);
-        htCleanYupanaDecimalValues('#yupana0', 5);
+        htSetImageForMembers('#leftHandImg0', 'Left_Hand_Small.png', '#rightHandImg0', 'Right_Hand_Small.png', localCounterc742c649);
+        htCleanYupanaDecimalValues('#yupana0', 1);
         htFillYupanaDecimalValues('#yupana0', localCounterc742c649, 1, 'red_dot_right_up');
     });
 
@@ -91,14 +91,14 @@ function htLoadExercise() {
         localCounterc742c649 = htModifyArrow('.htDownArrow', localCounterc742c649);
         localCounterc742c649 = htModifyArrow('.htUpArrow', localCounterc742c649);
 
-        htSetImageForMembers('#leftHandImg', 'Left_Hand_Small.png', '#rightHandImg', 'Right_Hand_Small.png', localCounterc742c649);
-        htCleanYupanaDecimalValues('#yupana0', 5);
+        htSetImageForMembers('#leftHandImg0', 'Left_Hand_Small.png', '#rightHandImg0', 'Right_Hand_Small.png', localCounterc742c649);
+        htCleanYupanaDecimalValues('#yupana0', 1);
         htFillYupanaDecimalValues('#yupana0', localCounterc742c649, 1, 'red_dot_right_up');
     });
 
     $("#traineeUp1").on("click", function() {
-        $("#leftHandImg1").attr("src","images/3Left_Hand_Small.png");
-        $("#rightHandImg1").attr("src","images/1Right_Hand_Small.png");
+        $("#leftHandImg1").attr("src","images/0Left_Hand_Small.png");
+        $("#rightHandImg1").attr("src","images/4Right_Hand_Small.png");
         htIskayMove(1, 3);
         var totals = htSumYupanaVectors(iskayLValues, iskayRValues);
         htFillYupanaDecimalValues('#yupana10', totals, 1, 'red_dot_right_up');
@@ -113,8 +113,8 @@ function htLoadExercise() {
     });
 
     $("#traineeUp2").on("click", function() {
-        $("#leftHandImg2").attr("src","images/5Left_Hand_Small.png");
-        $("#rightHandImg2").attr("src","images/1Right_Hand_Small.png");
+        $("#leftHandImg2").attr("src","images/1Left_Hand_Small.png");
+        $("#rightHandImg2").attr("src","images/5Right_Hand_Small.png");
         htKimsaMove(5, 1);
         var totals = htSumYupanaVectors(iskayLValues, iskayRValues);
         htFillYupanaDecimalValues('#yupana20', totals, 1, 'red_dot_right_up');
@@ -141,8 +141,8 @@ function htLoadExercise() {
     });
 
     $("#traineeUp4").on("click", function() {
-        $("#leftHandImg4").attr("src","images/3Left_Hand_Small.png");
-        $("#rightHandImg4").attr("src","images/0Right_Hand_Small.png");
+        $("#leftHandImg4").attr("src","images/0Left_Hand_Small.png");
+        $("#rightHandImg4").attr("src","images/3Right_Hand_Small.png");
         htPichanaMove(3, 0);
         var totals = htSumYupanaVectors(pichanaLValues, pichanaRValues);
         htFillYupanaDecimalValues('#yupana40', totals, 1, 'red_dot_right_up');
@@ -157,8 +157,8 @@ function htLoadExercise() {
     });
 
     $("#traineeUp5").on("click", function() {
-        $("#leftHandImg5").attr("src","images/2Left_Hand_Small.png");
-        $("#rightHandImg5").attr("src","images/0Right_Hand_Small.png");
+        $("#leftHandImg5").attr("src","images/0Left_Hand_Small.png");
+        $("#rightHandImg5").attr("src","images/2Right_Hand_Small.png");
         htKinkinMove(2, 0);
         var totals = htSumYupanaVectors(kinkinLValues, kinkinRValues);
         htFillYupanaDecimalValues('#yupana50', totals, 1, 'red_dot_right_up');
