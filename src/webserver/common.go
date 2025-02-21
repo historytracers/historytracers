@@ -17,6 +17,35 @@ type HTDate struct {
 	Day      string `json:"day"`
 }
 
+type HTExercise struct {
+	Question       string `json:"question"`
+	YesNoAnswer    string `json:"yesNoAnswer"`
+	AdditionalInfo string `json:"additionalInfo"`
+}
+
+type HTSource struct {
+	Type int    `json:"type"`
+	UUID string `json:"uuid"`
+	Text string `json:"text"`
+	date HTDate `json:"date"`
+}
+
+type HTText struct {
+	Text        string     `json:"text"`
+	Source      []HTSource `json:"date"`
+	FillDates   []HTDate   `json:"fill_dates"`
+	IsTable     bool       `json:"isTable"`
+	Format      string     `json:"format"`
+	PostMention string     `json:"format"`
+}
+
+type HTMap struct {
+	Text  string `json:"text"`
+	Img   string `json:"img"`
+	Order string `json:"img"`
+}
+
+// Common functions
 func htUpdateTimestamp() string {
 	newStr := fmt.Sprintf("%d", time.Now().Unix())
 
@@ -48,6 +77,9 @@ func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
 	if bytes == 0 || err != nil {
 		return err
 	}
-	fmt.Println("Copying file", srcFile)
+
+	if verboseFlag {
+		fmt.Println("Copying file", srcFile)
+	}
 	return nil
 }

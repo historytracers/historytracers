@@ -105,6 +105,11 @@ func main() {
 		return
 	}
 
+	if validateFlag {
+		htCreateGEDCOM()
+		return
+	}
+
 	devM := "with"
 	if CFG.DevMode == false {
 		devM += "out"

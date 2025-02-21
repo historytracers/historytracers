@@ -4,7 +4,7 @@
     "sources" : [ "Array of files where sources are defined." ],
     "scripts" : [ "Array of JavaScript files that will be loaded." ],
     "index" : [ "families" ],
-    "common" : [ "Common history of the family's origin.",
+    "common" : [ 
                  { "text" : "A detailed description of the person's life history and marital status.",
                    "source" : [ 
                                  { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
@@ -30,7 +30,7 @@
     "periodOfTime" : [ "Family origin (European, American, Asian, African..).", "A period of time (Middle Ages, Litic, Classic...)" ],
     "maps" : [ { "text": "Description or information to be displayed alongside the map.", "img" : "File path to the map image.", "order" : "Number that specifies the position of the image on the screen." } ],
     "prerequisites" : [ "List of prerequisites needed to understand the text." ],
-    "gedcom" : [ "The name of the GEDCOM file." ],
+    "gedcom" : "The name of the GEDCOM file.",
     "version" : 1,
     "type" : "family_tree",
     "families" : [
@@ -171,7 +171,7 @@
                             "birth_state" : "The state where the marriage took place.",
                             "birth_pc" : "The postal code of the marriage location.",
                             "birth_country" : "The country where the marriage occurred.",
-                            "child_adopted" : "A boolean value indicating whether the child is adopted."
+                            "adopted_child" : "A boolean value indicating whether the child is adopted."
                         }
                     ]
                 }
@@ -185,7 +185,7 @@
             "additionalInfo" : "The correct answer is 'Yes' because ..."
         }
     ],
-    "fill_dates" : [
+    "date_time" : [
         {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
         {"type" : "unix", "epoch" : "0" },
         {"type" : "julian",  "epoch" : "0" }

@@ -55,7 +55,9 @@ func htMinifyCreateDirectories() {
 
 	for i := 0; i < len(htDirectories); i++ {
 		localPath = fmt.Sprintf("%s%s", CFG.ContentPath, htDirectories[i])
-		fmt.Println("Creating directory", localPath)
+		if verboseFlag {
+			fmt.Println("Creating directory", localPath)
+		}
 		htCreateDirectory(localPath)
 	}
 }
@@ -142,7 +144,9 @@ func htParseCSS(fileName string) bool {
 }
 
 func htMinifyCSSFile(m *minify.M, inFile string, outFile string) error {
-	fmt.Println("Minifying CSS", inFile)
+	if verboseFlag {
+		fmt.Println("Minifying CSS", inFile)
+	}
 	return htMinifyCommonFile(m, "text/css", inFile, outFile)
 }
 
@@ -190,7 +194,9 @@ func htParseJSON(fileName string) bool {
 }
 
 func htMinifyJSONFile(m *minify.M, inFile string, outFile string) error {
-	fmt.Println("Minifying JSON", inFile)
+	if verboseFlag {
+		fmt.Println("Minifying JSON", inFile)
+	}
 	return htMinifyCommonFile(m, "application/json", inFile, outFile)
 }
 
@@ -229,7 +235,9 @@ func htMinifyJSON() error {
 
 // JS
 func htMinifyJSFile(m *minify.M, inFile string, outFile string) error {
-	fmt.Println("Minifying JS", inFile)
+	if verboseFlag {
+		fmt.Println("Minifying JS", inFile)
+	}
 	return htMinifyCommonFile(m, "application/javascript", inFile, outFile)
 }
 
@@ -374,7 +382,9 @@ func htUpdateIndex() {
 }
 
 func htMinifyHTMLFile(m *minify.M, inFile string, outFile string) error {
-	fmt.Println("Minifying HTML", inFile)
+	if verboseFlag {
+		fmt.Println("Minifying HTML", inFile)
+	}
 	return htMinifyCommonFile(m, "text/html", inFile, outFile)
 }
 
@@ -515,5 +525,7 @@ func HTMinifyAllFiles() {
 
 	htCopyWebFonts()
 	htCopyImages()
-	fmt.Println("Completed successfully!")
+	if verboseFlag {
+		fmt.Println("Completed successfully!")
+	}
 }

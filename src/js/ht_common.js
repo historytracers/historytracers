@@ -470,7 +470,7 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
         }
         text += ")";
     }
-    text += (localObj.PostMention != undefined && localObj.PostMention != null) ? localObj.PostMention : ".";
+    text += (localObj.PostMention != undefined && localObj.PostMention != null) ? localObj.PostMention : "";
     return text+"</p>";
 }
 
@@ -2005,7 +2005,7 @@ function htFillHistorySources(divId, histID, history, useClass, personID)
     if (history != undefined) {
         for (const i in history) {
             var localObj = history[i];
-            var text = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : "<p>"+localObj+"</p>";
+            var text = (localObj.text != undefined && localObj.format != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : "<p>"+localObj+"</p>";
             $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");
         }
     }
