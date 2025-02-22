@@ -32,17 +32,17 @@ type HTSource struct {
 
 type HTText struct {
 	Text        string     `json:"text"`
-	Source      []HTSource `json:"date"`
+	Source      []HTSource `json:"source"`
 	FillDates   []HTDate   `json:"fill_dates"`
 	IsTable     bool       `json:"isTable"`
 	Format      string     `json:"format"`
-	PostMention string     `json:"format"`
+	PostMention string     `json:"PostMention"`
 }
 
 type HTMap struct {
 	Text  string `json:"text"`
 	Img   string `json:"img"`
-	Order string `json:"img"`
+	Order int    `json:"order"`
 }
 
 // Common functions
@@ -79,7 +79,7 @@ func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
 	}
 
 	if verboseFlag {
-		fmt.Println("Copying file", srcFile)
+		fmt.Println("Copying file", dstFile)
 	}
 	return nil
 }

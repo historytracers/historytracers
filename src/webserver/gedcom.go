@@ -136,7 +136,30 @@ func htParseFamilySetGEDCOM(families *Family, fileName string, lang string) {
 	}
 }
 
-func htParseFamily(fileName string, lang string) error {
+func htParseFamilySetDefaultValues(families *Family) {
+	for i := 0; i < len(families.Families); i++ {
+		family := families.Families[i]
+
+		if family.History != nil {
+			for j := 0; j < len(family.History); j++ {
+				history := family.History[j]
+
+				if len(history.PostMention) == 0 {
+					history.PostMention = "."
+				}
+				if len(history.Format) == 0 {
+					if history.Source == nil {
+						history.Format = "html"
+					} else {
+						history.Format = "markdown"
+					}
+				}
+			}
+		}
+	}
+}
+
+func htParseFamily(fileName string, lang string) (error, string) {
 	localPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, fileName)
 	if verboseFlag {
 		fmt.Println("Parsing Family File", localPath)
@@ -144,23 +167,24 @@ func htParseFamily(fileName string, lang string) error {
 
 	jsonFile, err := os.Open(localPath)
 	if err != nil {
-		return err
+		return err, ""
 	}
 
 	byteValue, err := io.ReadAll(jsonFile)
 	if err != nil {
-		return err
+		return err, ""
 	}
 	jsonFile.Close()
 
 	var family Family
 	err = json.Unmarshal(byteValue, &family)
 	if err != nil {
-		return err
+		return err, ""
 	}
 
 	htParseFamilySetGEDCOM(&family, fileName, lang)
 	family.LastUpdate[0] = htUpdateTimestamp()
+	htParseFamilySetDefaultValues(&family)
 
 	newFile, err := htWriteFamilyFile(lang, &family)
 
@@ -168,10 +192,10 @@ func htParseFamily(fileName string, lang string) error {
 	err = os.Remove(newFile)
 	if err != nil {
 		fmt.Println("ERROR", err)
-		return err
+		return err, ""
 	}
 
-	return nil
+	return nil, family.GEDCOM
 }
 
 // Adjust Family Index Files before GEDCOM creation
@@ -268,15 +292,18 @@ func htParseFamilyIndex(fileName string, lang string) error {
 		if verboseFlag {
 			fmt.Println("Parsing group", content.ID)
 		}
+		// TODO REMOVEME
+		if content.ID == "groupsj" {
+			break
+		}
 		value := content.Value
 		for j := 0; j < len(value); j++ {
-			err := htParseFamily(value[j].ID, lang)
+			err, gedcom := htParseFamily(value[j].ID, lang)
 			if err != nil {
 				return err
 			}
+			value[j].GEDCOM = gedcom
 		}
-		// TODO: Remove break after padronize all families
-		break
 	}
 
 	index.LastUpdate[0] = htUpdateTimestamp()

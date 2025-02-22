@@ -451,6 +451,8 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
     var originalText = "";
     if (localObj.fill_dates != undefined) {
         originalText = htOverwriteHTDateWithText(localObj.text, localObj.fill_dates, localLang, localCalendar);
+    } else if (localObj.date_time != undefined) {
+        originalText = htOverwriteHTDateWithText(localObj.text, localObj.date_time, localLang, localCalendar);
     } else {
         originalText = localObj.text;
     }
@@ -719,6 +721,9 @@ function htProccessData(data, optional) {
     if (data.fill_dates != undefined && data.fill_dates.constructor === vectorConstructor) {
         htFillHTDate(data.fill_dates);
     }
+    else if (data.date_time != undefined && data.date_time.constructor === vectorConstructor) {
+        htFillHTDate(data.date_time);
+    }
 
     if ($("#family_common_sn").length > 0) {
         $("#family_common_sn").html(keywords[52]);
@@ -947,6 +952,9 @@ function htFillStringOnPage(data, idx, page)
     } else if (data.content[idx].id != undefined && data.content[idx].id == "fill_dates") {
         htFillHTDate(data.content[idx].text);
         return;
+    } else if (data.content[idx].id != undefined && data.content[idx].id == "date_time") {
+        htFillHTDate(data.content[idx].text);
+        return;
     }
 
     var text = "";
@@ -1066,7 +1074,10 @@ function htFillWebPage(page, data)
                     for (const j in data.content[i].value) {
                         $("#"+data.content[i].id).append(data.content[i].value[j]);
                     }
-                
+                } else if (data.content[i].id != "date_time") {
+                    for (const j in data.content[i].value) {
+                        $("#"+data.content[i].id).append(data.content[i].value[j]);
+                    }
                 } else {
                     if (data.content[i].value.constructor === vectorConstructor) {
                         htFillHTDate(data.content[i].value);
@@ -1249,7 +1260,7 @@ function htFillTopIdx(idx, data, first)
     var prev = first;
     idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57]});
     for (const i in data.content) {
-        if (data.content[i].html_value != undefined || data.content[i].value.constructor !== vectorConstructor || data.content[i].page == undefined) {
+        if (data.content[i].html_value != undefined && data.content[i].html_value.length > 0 || data.content[i].value.constructor !== vectorConstructor || data.content[i].page == undefined) {
             continue;
         }
 
@@ -1391,6 +1402,10 @@ function htFillFamilyList(table, target) {
                 if (table[i].text.constructor === vectorConstructor) {
                     htFillHTDate(table[i].text);
                 }
+            } else if (table[i].id != undefined && table[i].id == "date_time") {
+                if (table[i].text.constructor === vectorConstructor) {
+                    htFillHTDate(table[i].text);
+                }
             }
             continue;
         }
@@ -1408,7 +1423,7 @@ function htFillFamilyList(table, target) {
 
 function htFillMapList(table, target, page) {
     for (const i in table) {
-        if (table[i].id != "fill_dates") {
+        if (table[i].id != "fill_dates" && table[i].id != "date_time") {
             $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
         } else {
             if (table[i].text.constructor === vectorConstructor) {
@@ -1586,7 +1601,7 @@ function htFillPaperContent(table, last_update, page_authors, page_reviewers, in
                 htWriteQuestions(table[i].text, later, idx);
             } else if (table[i].id == "game_v1") {
                 htWriteGame(table[i].text, later, idx);
-            } else if (table[i].id != "fill_dates") {
+            } else if (table[i].id != "fill_dates" && table[i].id != "date_time") {
                 for (const j in table[i].text) {
                     var localObj = table[i].text[j];
                     var text = (localObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
@@ -1746,6 +1761,9 @@ function htFillFamilies(page, table) {
 
     if (table.fill_dates != undefined && table.fill_dates.constructor === vectorConstructor) {
         htFillHTDate(table.fill_dates);
+    }
+    else if (table.date_time != undefined && table.date_time.constructor === vectorConstructor) {
+        htFillHTDate(table.date_time);
     }
 
     $("#loading_msg").hide();
