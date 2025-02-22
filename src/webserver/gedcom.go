@@ -293,7 +293,7 @@ func htParseFamilyIndex(fileName string, lang string) error {
 			fmt.Println("Parsing group", content.ID)
 		}
 		// TODO REMOVEME
-		if content.ID == "groupsj" {
+		if content.ID == "groupsk" || content.ID == "groupsl" {
 			break
 		}
 		value := content.Value
