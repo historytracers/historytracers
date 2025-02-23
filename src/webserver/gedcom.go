@@ -27,7 +27,7 @@ type FamilyPersonParents struct {
 type FamilyPersonMarriage struct {
 	Type            string   `json:"type"`
 	ID              string   `json:"id"`
-	Official        string   `json:"official"`
+	Official        bool     `json:"official"`
 	FamilyID        string   `json:"family_id"`
 	ExternalFile    bool     `json:"external_family_file"`
 	Name            string   `json:"name"`
@@ -293,9 +293,6 @@ func htParseFamilyIndex(fileName string, lang string) error {
 			fmt.Println("Parsing group", content.ID)
 		}
 		// TODO REMOVEME
-		if content.ID == "groupsk" || content.ID == "groupsl" {
-			break
-		}
 		value := content.Value
 		for j := 0; j < len(value); j++ {
 			err, gedcom := htParseFamily(value[j].ID, lang)
@@ -303,6 +300,9 @@ func htParseFamilyIndex(fileName string, lang string) error {
 				return err
 			}
 			value[j].GEDCOM = gedcom
+		}
+		if content.ID == "groupss" {
+			break
 		}
 	}
 

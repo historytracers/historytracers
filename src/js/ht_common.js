@@ -645,7 +645,7 @@ function htSelectAtlasMap(id) {
     var vector = htAtlas[id];
     var author = "";
     if (vector.author != null) {
-        if (vector.author == "HTMW") {
+        if (vector.author == "HTMW" || vector.author.length == 0) {
             author = keywords[82];
         } else {
             author = vector.author;
@@ -686,7 +686,7 @@ function htFillAtlas(data) {
             var localtext = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
             text += localtext;
         }
-        var author = (localAtlas[i].author != undefined) ? localAtlas[i].author : null ;
+        var author = (localAtlas[i].author != undefined && localAtlas[i].author.length > 0) ? localAtlas[i].author : null ;
         var isTable = (localAtlas[i].isTable != undefined) ? localAtlas[i].isTable : false ;
         var format = (localAtlas[i].format != undefined) ? localAtlas[i].format : "html" ;
         htAtlas.push({"name": localAtlas[i].name, "image" : localAtlas[i].image, "author": author, "text" : text, "format": format, "isTable": isTable});
@@ -1006,11 +1006,11 @@ function htFillWebPage(page, data)
 
     var page_authors = (keywords.length > 34 ) ? keywords[35] : "Editors of History Tracers";
     var page_reviewers = (keywords.length > 36 ) ? keywords[37] : "Reviewers of History Tracers";
-    if (data.authors != undefined && data.authors != null) {
+    if (data.authors != undefined && data.authors != null && data.authors.length > 0) {
         page_authors = data.authors;
     }
 
-    if (data.reviewers != undefined && data.reviewers != null) {
+    if (data.reviewers != undefined && data.reviewers != null && data.reviewers.length > 0) {
         page_reviewers = data.reviewers;
     }
 
@@ -1443,7 +1443,7 @@ function htFillSubMapList(table, target) {
                 break;
             case "tree":
             default:
-                if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].name != undefined && table[i].desc != undefined) {
+                if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].family_id.length > 0 && table[i].name != undefined && table[i].desc != undefined) {
                     $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
                 }
         }
@@ -1999,7 +1999,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             }
 
             var childLink = "";
-            if (child.family_id == undefined) {
+            if (child.family_id == undefined || child.family_id.length == 0) {
                 childLink = child.name ;
             } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
                 childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child.name+"</a>";
