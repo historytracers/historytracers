@@ -3,6 +3,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"os"
@@ -82,4 +83,19 @@ func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
 		fmt.Println("Copying file", dstFile)
 	}
 	return nil
+}
+
+func htCommonJsonError(byteValue []byte, err error) {
+	switch t := err.(type) {
+	case *json.SyntaxError:
+		jsn := string(byteValue[t.Offset-30 : t.Offset])
+		jsn += "<--(Invalid Character)"
+		fmt.Printf("Invalid character at offset %v\n %s", t.Offset, jsn)
+	case *json.UnmarshalTypeError:
+		jsn := string(byteValue[t.Offset-30 : t.Offset])
+		jsn += "<--(Invalid Type)"
+		fmt.Printf("Invalid type at offset %v\n %s", t.Offset, jsn)
+	default:
+		fmt.Printf("Invalid character at offset\n %s", err.Error())
+	}
 }

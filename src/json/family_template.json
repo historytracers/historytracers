@@ -124,16 +124,24 @@
                                            "PostMention": "A character used after a mention to include citations."
                                           }
                             ],
-                            "marriage_date" : [
-                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                                               {"type" : "unix", "epoch" : "0" },
-                                               {"type" : "julian",  "epoch" : "0" }
-                                           ],
-                            "marriage_address" : "The address where the marriage took place.",
-                            "marriage_city" : "The city where the marriage occurred.",
-                            "marriage_state" : "The state where the marriage took place.",
-                            "marriage_pc" : "The postal code of the marriage location.",
-                            "marriage_country" : "The country where the marriage occurred."
+                            "marriage": {
+                                    "date" : [
+                                                       {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                                       {"type" : "unix", "epoch" : "0" },
+                                                       {"type" : "julian",  "epoch" : "0" }
+                                                   ],
+                                    "address" : "The address where the marriage took place.",
+                                    "city" : "The city where the marriage occurred.",
+                                    "state" : "The state where the marriage took place.",
+                                    "pc" : "The postal code of the marriage location.",
+                                    "country" : "The country where the marriage occurred.",
+                                    "source" : [
+                                        { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                          "uuid": "Unique identifier (UUID) for the current citation.",
+                                          "text": "The accompanying text that will be displayed with the citation.",
+                                          "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                                     ]
+                            }
                         }
                     ],
                     "children" : [
@@ -161,19 +169,45 @@
                                            "PostMention": "A character used after a mention to include citations."
                                           }
                             ],
-                            "birth_date" : [
+                            "adopted_child" : "A boolean value indicating whether the child is adopted."
+                        }
+                    ],
+                    "birth": {
+                            "date" : [
                                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                                {"type" : "unix", "epoch" : "0" },
                                                {"type" : "julian",  "epoch" : "0" }
                                            ],
-                            "birth_address" : "The address where the marriage took place.",
-                            "birth_city" : "The city where the marriage occurred.",
-                            "birth_state" : "The state where the marriage took place.",
-                            "birth_pc" : "The postal code of the marriage location.",
-                            "birth_country" : "The country where the marriage occurred.",
-                            "adopted_child" : "A boolean value indicating whether the child is adopted."
-                        }
-                    ]
+                            "address" : "The address where the marriage took place.",
+                            "city" : "The city where the marriage occurred.",
+                            "state" : "The state where the marriage took place.",
+                            "pc" : "The postal code of the marriage location.",
+                            "country" : "The country where the marriage occurred.",
+                            "source" : [
+                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                  "uuid": "Unique identifier (UUID) for the current citation.",
+                                  "text": "The accompanying text that will be displayed with the citation.",
+                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                             ]
+                    },
+                    "death": {
+                            "date" : [
+                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                               {"type" : "unix", "epoch" : "0" },
+                                               {"type" : "julian",  "epoch" : "0" }
+                                           ],
+                            "address" : "The address where the marriage took place.",
+                            "city" : "The city where the marriage occurred.",
+                            "state" : "The state where the marriage took place.",
+                            "pc" : "The postal code of the marriage location.",
+                            "country" : "The country where the marriage occurred.",
+                            "source" : [
+                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                  "uuid": "Unique identifier (UUID) for the current citation.",
+                                  "text": "The accompanying text that will be displayed with the citation.",
+                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                             ]
+                    }
                 }
             ]
         }

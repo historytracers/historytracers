@@ -11,6 +11,16 @@ import (
 	"github.com/google/uuid"
 )
 
+type FamilyPersonEvent struct {
+	BirthDate    []HTDate   `json:"date"`
+	BirthAddress string     `json:"address"`
+	BirthCity    string     `json:"city"`
+	BirthState   string     `json:"state"`
+	BirthPC      string     `json:"pc"`
+	BirthCountry string     `json:"country"`
+	Sources      []HTSource `json:"sources"`
+}
+
 // Adjust Family files
 type FamilyPersonParents struct {
 	Type               string `json:"type"`
@@ -25,19 +35,14 @@ type FamilyPersonParents struct {
 }
 
 type FamilyPersonMarriage struct {
-	Type            string   `json:"type"`
-	ID              string   `json:"id"`
-	Official        bool     `json:"official"`
-	FamilyID        string   `json:"family_id"`
-	ExternalFile    bool     `json:"external_family_file"`
-	Name            string   `json:"name"`
-	History         []HTText `json:"history"`
-	MarriageDate    []HTDate `json:"marriage_date"`
-	MarriageAddress string   `json:"marriage_address"`
-	MarriageCity    string   `json:"marriage_city"`
-	MarriageState   string   `json:"marriage_state"`
-	MarriagePC      string   `json:"marriage_pc"`
-	MarriageCountry string   `json:"marriage_country"`
+	Type         string            `json:"type"`
+	ID           string            `json:"id"`
+	Official     bool              `json:"official"`
+	FamilyID     string            `json:"family_id"`
+	ExternalFile bool              `json:"external_family_file"`
+	Name         string            `json:"name"`
+	History      []HTText          `json:"history"`
+	Marriage     FamilyPersonEvent `json:"marriage"`
 }
 
 type FamilyPersonChild struct {
@@ -48,12 +53,6 @@ type FamilyPersonChild struct {
 	FamilyID     string   `json:"family_id"`
 	ExternalFile bool     `json:"external_family_file"`
 	History      []HTText `json:"history"`
-	BirthDate    []HTDate `json:"birth_date"`
-	BirthAddress string   `json:"birth_address"`
-	BirthCity    string   `json:"birth_city"`
-	BirthState   string   `json:"birth_state"`
-	BirthPC      string   `json:"birth_pc"`
-	BirthCountry string   `json:"birth_country"`
 	AdoptedChild bool     `json:"adopted_child"`
 }
 
@@ -72,6 +71,8 @@ type FamilyPerson struct {
 	Parents    []FamilyPersonParents    `json:"parents"`
 	Marriages  []FamilyPersonMarriage   `json:"marriages"`
 	Children   []FamilyPersonChild      `json:"children"`
+	Birth      FamilyPersonEvent        `json:"birth"`
+	Death      FamilyPersonEvent        `json:"death"`
 }
 
 type FamilyBody struct {
@@ -179,6 +180,7 @@ func htParseFamily(fileName string, lang string) (error, string) {
 	var family Family
 	err = json.Unmarshal(byteValue, &family)
 	if err != nil {
+		htCommonJsonError(byteValue, err)
 		return err, ""
 	}
 
@@ -278,6 +280,7 @@ func htParseFamilyIndex(fileName string, lang string) error {
 	var index IdxFamily
 	err = json.Unmarshal(byteValue, &index)
 	if err != nil {
+		htCommonJsonError(byteValue, err)
 		return err
 	}
 

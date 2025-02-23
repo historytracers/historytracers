@@ -24,7 +24,7 @@
       "SPDX-License-Identifier: GPL-3.0-or-later"
    ],
    "last_update": [
-      "1740277683"
+      "1740342160"
    ],
    "authors": "",
    "reviewers": "",
@@ -120,12 +120,15 @@
                      "external_family_file": false,
                      "name": "Desconhecido",
                      "history": null,
-                     "marriage_date": null,
-                     "marriage_address": "",
-                     "marriage_city": "",
-                     "marriage_state": "",
-                     "marriage_pc": "",
-                     "marriage_country": ""
+                     "marriage": {
+                        "date": null,
+                        "address": "",
+                        "city": "",
+                        "state": "",
+                        "pc": "",
+                        "country": "",
+                        "sources": null
+                     }
                   }
                ],
                "children": [
@@ -152,15 +155,27 @@
                            "PostMention": ""
                         }
                      ],
-                     "birth_date": null,
-                     "birth_address": "",
-                     "birth_city": "",
-                     "birth_state": "",
-                     "birth_pc": "",
-                     "birth_country": "",
                      "adopted_child": false
                   }
-               ]
+               ],
+               "birth": {
+                  "date": null,
+                  "address": "",
+                  "city": "",
+                  "state": "",
+                  "pc": "",
+                  "country": "",
+                  "sources": null
+               },
+               "death": {
+                  "date": null,
+                  "address": "",
+                  "city": "",
+                  "state": "",
+                  "pc": "",
+                  "country": "",
+                  "sources": null
+               }
             },
             {
                "id": "c7442d8a-e853-4e3f-9558-3901c35f8fc6",
@@ -309,15 +324,36 @@
                            "PostMention": ""
                         }
                      ],
-                     "marriage_date": null,
-                     "marriage_address": "",
-                     "marriage_city": "",
-                     "marriage_state": "",
-                     "marriage_pc": "",
-                     "marriage_country": ""
+                     "marriage": {
+                        "date": null,
+                        "address": "",
+                        "city": "",
+                        "state": "",
+                        "pc": "",
+                        "country": "",
+                        "sources": null
+                     }
                   }
                ],
-               "children": null
+               "children": null,
+               "birth": {
+                  "date": null,
+                  "address": "",
+                  "city": "",
+                  "state": "",
+                  "pc": "",
+                  "country": "",
+                  "sources": null
+               },
+               "death": {
+                  "date": null,
+                  "address": "",
+                  "city": "",
+                  "state": "",
+                  "pc": "",
+                  "country": "",
+                  "sources": null
+               }
             }
          ]
       }
