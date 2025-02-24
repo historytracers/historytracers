@@ -304,9 +304,6 @@ func htParseFamilyIndex(fileName string, lang string) error {
 			}
 			value[j].GEDCOM = gedcom
 		}
-		if content.ID == "groupss" {
-			break
-		}
 	}
 
 	index.LastUpdate[0] = htUpdateTimestamp()

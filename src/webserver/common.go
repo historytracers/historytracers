@@ -34,7 +34,7 @@ type HTSource struct {
 type HTText struct {
 	Text        string     `json:"text"`
 	Source      []HTSource `json:"source"`
-	FillDates   []HTDate   `json:"fill_dates"`
+	FillDates   []HTDate   `json:"date_time"`
 	IsTable     bool       `json:"isTable"`
 	Format      string     `json:"format"`
 	PostMention string     `json:"PostMention"`
