@@ -19,15 +19,17 @@ type htConfig struct {
 }
 
 var (
-	devFlag     bool   = false
-	minifyFlag  bool   = false
-	gedcomFlag  bool   = false
-	portFlag    int    = 12345
-	confPath    string = "/etc/historytracers/"
-	srcPath     string = "/var/www/historytracers/"
-	logPath     string = "/var/log/historytracers/"
-	contentPath string = "/var/www/historytracers/www/"
-	CFG         *htConfig
+	devFlag      bool   = false
+	minifyFlag   bool   = false
+	gedcomFlag   bool   = false
+	verboseFlag  bool   = false
+	validateFlag bool   = false
+	portFlag     int    = 12345
+	confPath     string = "/etc/historytracers/"
+	srcPath      string = "/var/www/historytracers/"
+	logPath      string = "/var/log/historytracers/"
+	contentPath  string = "/var/www/historytracers/www/"
+	CFG          *htConfig
 )
 
 func HTParseArg() {
@@ -36,6 +38,8 @@ func HTParseArg() {
 	flag.BoolVar(&CFG.DevMode, "devmode", devFlag, "Is the software running in development mode? (default: false)")
 	flag.BoolVar(&minifyFlag, "minify", minifyFlag, "Do not start the server, instead, minify all files. (default: false)")
 	flag.BoolVar(&gedcomFlag, "gedcom", gedcomFlag, "Do not start the server, instead, generate all gedcom files. (default: false)")
+	flag.BoolVar(&validateFlag, "validate", gedcomFlag, "Do not start the server, instead, validate JSON files. (default: false)")
+	flag.BoolVar(&verboseFlag, "verbose", verboseFlag, "Hide information messages during file processing. (default: false)")
 	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
 
 	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files")
@@ -77,7 +81,9 @@ func htPrintOptions() {
 		return
 	}
 
-	fmt.Println("Config Dir:", confPath, "Dev Mode:", CFG.DevMode, "Port:", CFG.Port, "Source Path:", CFG.SrcPath, "Content Path:", CFG.ContentPath, "Log Path:", CFG.LogPath)
+	if verboseFlag {
+		fmt.Println("Config Dir:", confPath, "Dev Mode:", CFG.DevMode, "Port:", CFG.Port, "Source Path:", CFG.SrcPath, "Content Path:", CFG.ContentPath, "Log Path:", CFG.LogPath)
+	}
 }
 
 func HTLoadConfig() {

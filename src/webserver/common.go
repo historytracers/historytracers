@@ -3,6 +3,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"os"
@@ -17,6 +18,35 @@ type HTDate struct {
 	Day      string `json:"day"`
 }
 
+type HTExercise struct {
+	Question       string `json:"question"`
+	YesNoAnswer    string `json:"yesNoAnswer"`
+	AdditionalInfo string `json:"additionalInfo"`
+}
+
+type HTSource struct {
+	Type int    `json:"type"`
+	UUID string `json:"uuid"`
+	Text string `json:"text"`
+	date HTDate `json:"date"`
+}
+
+type HTText struct {
+	Text        string     `json:"text"`
+	Source      []HTSource `json:"source"`
+	FillDates   []HTDate   `json:"date_time"`
+	IsTable     bool       `json:"isTable"`
+	Format      string     `json:"format"`
+	PostMention string     `json:"PostMention"`
+}
+
+type HTMap struct {
+	Text  string `json:"text"`
+	Img   string `json:"img"`
+	Order int    `json:"order"`
+}
+
+// Common functions
 func htUpdateTimestamp() string {
 	newStr := fmt.Sprintf("%d", time.Now().Unix())
 
@@ -48,6 +78,24 @@ func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
 	if bytes == 0 || err != nil {
 		return err
 	}
-	fmt.Println("Copying file", srcFile)
+
+	if verboseFlag {
+		fmt.Println("Copying file", dstFile)
+	}
 	return nil
+}
+
+func htCommonJsonError(byteValue []byte, err error) {
+	switch t := err.(type) {
+	case *json.SyntaxError:
+		jsn := string(byteValue[t.Offset-30 : t.Offset])
+		jsn += "<--(Invalid Character)"
+		fmt.Printf("Invalid character at offset %v\n %s", t.Offset, jsn)
+	case *json.UnmarshalTypeError:
+		jsn := string(byteValue[t.Offset-30 : t.Offset])
+		jsn += "<--(Invalid Type)"
+		fmt.Printf("Invalid type at offset %v\n %s", t.Offset, jsn)
+	default:
+		fmt.Printf("Invalid character at offset\n %s", err.Error())
+	}
 }
