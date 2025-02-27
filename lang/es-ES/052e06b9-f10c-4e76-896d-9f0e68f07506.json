@@ -109,9 +109,121 @@
                     ]
                 },
                 {
+                    "id" : "alphabet",
+                    "text" : [ { "text" : "### Alfabeto\n\n#### Organización\n\nLos sonidos producidos por las consonantes y vocales se organizan en una secuencia llamada alfabeto",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "3b91f37e-a9d6-47d2-b8f5-8899556bd5f9",
+                                                "text": "Real Academia Española, alfabeto"},
+                                              { "type": 0,
+                                                "uuid": "724f5279-8fd8-4565-a59a-f260abb67b40",
+                                                "text": "Diccionario panhispánico de dudas"}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<ul></li><li>a, b, c, d, e, f, g, h, i, j, k, l, m, n, ñ, o, p, q, r, s, t, u, v, w, x, y, z</li></ul>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": "."
+                               },
+                               { "text" : "En el alfabeto, las consonantes y vocales están dispuestas juntas, sin una separación explícita. Sin embargo, dado que existen definiciones específicas para cada una, a continuación las agrupamos en dos categorías distintas, según dichas definiciones",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<ul></li><li><b>Consonantes:</b> {b, c, d, f, g, h, j, k, l, m, n, ñ, p, q, r, s, t, v, w, x, y, z}</li><li><b>Vocales:</b> {a, e, i, o, u}</ul>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### Origen\n\nAunque hoy nos parezca natural representar el alfabeto de la manera en que lo usamos, no siempre fue así. Cuando los egipcios lo crearon —según una de las teorías existentes—, el alfabeto consistía en 22 jeroglíficos que representaban sílabas con sonidos de consonantes y vocales",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "714a08f1-5ace-4d75-90c6-7b78e6146e9b",
+                                                "text": "Crabben, J.",
+                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "4", "day" : "28" }},
+                                              { "type": 1,
+                                                "uuid": "f2865e84-bedf-4ad0-8059-c2e97f875946",
+                                                "text": "Olson, D. R. and Diringer, D.",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "2", "day" : "19" }},
+                                              { "type": 1,
+                                                "uuid": "04a47abe-5803-4db3-b2e8-2ce869c86fd9",
+                                                "text": "Herraiz, Elena",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Con el paso de los años, otros pueblos desarrollaron sus propios alfabetos. Siguiendo el orden cronológico, se destacan los fenicios, quienes crearon un sistema de escritura que representaba los sonidos de todas las consonantes, pero sin símbolos para las vocales",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "714a08f1-5ace-4d75-90c6-7b78e6146e9b",
+                                                "text": "Crabben, J.",
+                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "4", "day" : "28" }},
+                                              { "type": 1,
+                                                "uuid": "f2865e84-bedf-4ad0-8059-c2e97f875946",
+                                                "text": "Olson, D. R. and Diringer, D.",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "2", "day" : "19" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "<p class=\"desc\"><img id=\"imgPhoenician\" onclick=\"htImageZoom('imgPhoenician', '0%')\" src=\"images/BritshMuseum/437857001.jpg\" class=\"imgcenter\"/>Figura 1: Texto fenicio presente en el Museo Británico. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('25e7f7f1-e96c-4520-8fec-738c6efb557e'); return false;\"><i>The British Museum</i></a> ).</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "En la **Figura 1**, se observa un texto escrito con el antiguo alfabeto fenicio, expuesto en el Museo Británico",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "25e7f7f1-e96c-4520-8fec-738c6efb557e",
+                                                "text": "The British Museum"}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Con el tiempo, surgieron nuevos alfabetos y se implementaron mejoras. Finalmente, los griegos crearon el primer sistema de escritura que incluía representaciones para las vocales",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "714a08f1-5ace-4d75-90c6-7b78e6146e9b",
+                                                "text": "Crabben, J.",
+                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "4", "day" : "28" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
                     "id" : "game",
                     "text" : [ 
-                               { "text" : "<h3>Juego</h3><b>Objetivo:</b> Tu desafío es identificar las vocales (V) y consonantes (C) que componen una sílaba. Por cada respuesta correcta, se te presentará una región indígena de América (<i>Abya Ayala</i>).</p><p><b>Reglas:</b> Usa las flechas (<i class=\"fa-solid fa-caret-up\" style=\"font-size:1.5em;color:#0f0\"></i> y <i class=\"fa-solid fa-caret-down\" style=\"font-size:1.5em;color:#00f;\"></i>) para alternar entre consonantes (C) y vocales (V). Para avanzar a la siguiente sílaba, haz clic en <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>",
+                               { "text" : "### Juego\n\nContinuando con nuestro estudio, presentamos un pequeño juego para identificar consonantes y vocales",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "<b>Objetivo:</b> Tu desafío es identificar las vocales (V) y consonantes (C) que componen una sílaba. Por cada respuesta correcta, se te presentará una región indígena de América (<i>Abya Ayala</i>).</p><p><b>Reglas:</b> Usa las flechas (<i class=\"fa-solid fa-caret-up\" style=\"font-size:1.5em;color:#0f0\"></i> y <i class=\"fa-solid fa-caret-down\" style=\"font-size:1.5em;color:#00f;\"></i>) para alternar entre consonantes (C) y vocales (V). Para avanzar a la siguiente sílaba, haz clic en <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>",
                                  "source" : null,
                                   "date_time" : null,
                                   "isTable" : false,
