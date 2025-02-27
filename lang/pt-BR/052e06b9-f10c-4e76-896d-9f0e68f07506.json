@@ -111,14 +111,14 @@
                 {
                     "id" : "game",
                     "text" : [ 
-                               { "text" : "<h3>Jogo</h3><b>Objetivo:</b> Seu desafio é identificar as vogais (V) e consoantes (C) que compõem uma sílaba. A cada acerto, você será apresentado a uma região indígena da América (<i>Abya Ayala</i>).</p><p><b>Regras:</b> Use as setas (<i class=\"fa-solid fa-caret-up\" style=\"font-size:1.5em;color:#0f0\"></i> e <i class=\"fa-solid fa-caret-down\" style=\"font-size:1.5em;color:#00f;\" id=\"traineeDown0\"></i>) para alternar entre consoantes (C) e vogais (V). Para avançar para a próxima sílaba, clique em <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>",
+                               { "text" : "<h3>Jogo</h3><b>Objetivo:</b> Seu desafio é identificar as vogais (V) e consoantes (C) que compõem uma sílaba. A cada acerto, você será apresentado a uma região indígena da América (<i>Abya Ayala</i>).</p><p><b>Regras:</b> Use as setas (<i class=\"fa-solid fa-caret-up\" style=\"font-size:1.5em;color:#0f0\"></i> e <i class=\"fa-solid fa-caret-down\" style=\"font-size:1.5em;color:#00f;\"></i>) para alternar entre consoantes (C) e vogais (V). Para avançar para a próxima sílaba, clique em <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>",
                                  "source" : null,
                                   "date_time" : null,
                                   "isTable" : false,
                                   "format" : "html",
                                   "PostMention": " "
                                },
-                               { "text" : "<table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"3\">Classifique cada letra da sílaba como consoante (C) ou vogal (V).</th><th>Controles</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\" colspan=\"3\">&nbsp;</td> <td id=\"tc4f1\"><i class=\"fa-solid fa-caret-up\" style=\"font-size:5em;color:#0f0\"></i></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\" colspan=\"3\"><span id=\"cv0\"></span>&nbsp;<span id=\"cv1\"></span></div></td> <td id=\"tc4f2\"><i class=\"fa-solid fa-caret-down\" style=\"font-size:5em;color:#00f;\" id=\"traineeDown0\"></i></td></tr> <tr id=\"tf3\"><td colspan=\"3\" id=\"tc1f3\"><span id=\"gameImage\"></span></td><td id=\"tc4f3\"><div id=\"descImage\"></div> <span style=\"font-size: 3em; color: Tomato;\"><i id=\"nextLevel\" class=\"fa-solid fa-play\"></i></span></td></tr> </table>",
+                               { "text" : "<table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"3\">Classifique cada letra da sílaba como consoante (C) ou vogal (V).</th><th>Controles</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\" colspan=\"3\"><span id=\"cvtop\" class=\"text_to_paint\"></span></td> <td id=\"tc4f1\"><i class=\"fa-solid fa-caret-up\" style=\"font-size:5em;color:#0f0\" id=\"selectUp\"></i></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\" colspan=\"3\"><span id=\"cv0\" class=\"text_to_paint\"></span>&nbsp;<span id=\"cv1\" class=\"text_to_paint\"></span>&nbsp;<span id=\"cv2\" class=\"text_to_paint\"></span></div></td> <td id=\"tc4f2\"><i class=\"fa-solid fa-caret-down\" style=\"font-size:5em;color:#00f;\" id=\"selectDown\"></i></td></tr> <tr id=\"tf3\"><td colspan=\"3\" id=\"tc1f3\"><span id=\"gameImage\"></span></td><td id=\"tc4f3\"><div id=\"descImage\"></div> <span style=\"font-size: 3em; color: Tomato;\"><i id=\"nextLevel\" class=\"fa-solid fa-play\"></i></span></td></tr> </table>",
                                  "source" : null,
                                   "date_time" : null,
                                   "isTable" : false,
@@ -136,16 +136,22 @@
                         {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Teotihuacan, México." },
                         {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Caral, Peru ©ZonaArqueólogicaCaral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a7abe0b7-b3bf-44d6-ab4d-e7d32d2586ad'); return false;\">Moras, Roberto., <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d76a60c6-1eaa-4e1e-9b72-2135509101c1'); return false;\">Legado Ancestral, <span class=\"htdate\"></span>, Caral parte 2 - Tecnología en el año 4.000 A.C.</a>)." },
                         {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita a cidade de Cusco, Perú." },
-                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Copán, Honduras." },
                         {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Cahal Pech, Belize." },
                         {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Caracol, Belize." },
                         {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Joya de Cerén, El Salvador." },
                         {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de San Andres, El Salvador." },
-                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Kaminaljuyu, Guatemala." },
                         {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Tikal, Guatemala." },
                         {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Tula, México." },
                         {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Huaca Pucllana, Peru." },
-                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao complexo turístico de Mi Pueblito , Panama." }
+                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao complexo turístico de Mi Pueblito , Panama." },
+
+                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Copán, Honduras." },
+                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Copán, Honduras." },
+                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Copán, Honduras." },
+                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Copán, Honduras." },
+                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Copán, Honduras." },
+                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Copán, Honduras." },
+                        {"imageDesc" : "Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio arqueológico de Kaminaljuyu, Guatemala." }
                     ]
                 },
                 {
@@ -161,16 +167,21 @@
                         {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
                         {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
                         {"type" : "gregory", "year" : "2017", "month" : "8", "day" : "17" },
-                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
                         {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "19" },
-                        {"type" : "gregory", "year" : "2017", "month" : "7", "day" : "23" },
+                        {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "23" },
                         {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "24" },
                         {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "24" },
-                        {"type" : "gregory", "year" : "2014", "month" : "10", "day" : "19" },
                         {"type" : "gregory", "year" : "2015", "month" : "10", "day" : "22" },
                         {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "18" },
                         {"type" : "gregory", "year" : "2018", "month" : "4", "day" : "28" },
-                        {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "17" }
+                        {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "17" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2014", "month" : "10", "day" : "19" }
                     ]
                 }
             ]

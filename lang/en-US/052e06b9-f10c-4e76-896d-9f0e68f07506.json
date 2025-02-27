@@ -111,14 +111,14 @@
                 {
                     "id" : "game",
                     "text" : [ 
-                               { "text" : "<h3>Game</h3><b>Goal:</b> Your challenge is to identify vowels (V) and consonants (C) that form a syllable. For each correct answer, you will be introduced to a different Indigenous region of the Americas (<i>Abya Ayala</i>).</p><p><b>Rules: </b>Use the arrow keys (<i class=\"fa-solid fa-caret-up\" style=\"font-size:1.5em;color:#0f0\"></i> and <i class=\"fa-solid fa-caret-down\" style=\"font-size:1.5em;color:#00f;\" id=\"traineeDown0\"></i>) to switch between consonants (C) and vowels (V). To move to the next syllable, click on <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>",
+                               { "text" : "<h3>Game</h3><b>Goal:</b> Your challenge is to identify vowels (V) and consonants (C) that form a syllable. For each correct answer, you will be introduced to a different Indigenous region of the Americas (<i>Abya Ayala</i>).</p><p><b>Rules: </b>Use the arrow keys (<i class=\"fa-solid fa-caret-up\" style=\"font-size:1.5em;color:#0f0\"></i> and <i class=\"fa-solid fa-caret-down\" style=\"font-size:1.5em;color:#00f;\"></i>) to switch between consonants (C) and vowels (V). To move to the next syllable, click on <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>",
                                  "source" : null,
                                   "date_time" : null,
                                   "isTable" : false,
                                   "format" : "html",
                                   "PostMention": " "
                                },
-                               { "text" : "<table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"3\">Classify each letter as a consonant (C) or a vowel (V).</th><th>Controls</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\" colspan=\"3\">&nbsp;</td> <td id=\"tc4f1\"><i class=\"fa-solid fa-caret-up\" style=\"font-size:5em;color:#0f0\"></i></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\" colspan=\"3\"><span id=\"cv0\"></span>&nbsp;<span id=\"cv1\"></span></div></td> <td id=\"tc4f2\"><i class=\"fa-solid fa-caret-down\" style=\"font-size:5em;color:#00f;\" id=\"traineeDown0\"></i></td></tr> <tr id=\"tf3\"><td colspan=\"3\" id=\"tc1f3\"><span id=\"gameImage\"></span></td><td id=\"tc4f3\"><div id=\"descImage\"></div> <span style=\"font-size: 3em; color: Tomato;\"><i id=\"nextLevel\" class=\"fa-solid fa-play\"></i></span></td></tr> </table>",
+                               { "text" : "<table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"3\">Classify each letter as a consonant (C) or a vowel (V).</th><th>Controls</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\" colspan=\"3\"><span id=\"cvtop\" class=\"text_to_paint\"></span></td> <td id=\"tc4f1\"><i class=\"fa-solid fa-caret-up\" style=\"font-size:5em;color:#0f0\" id=\"selectUp\"></i></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\" colspan=\"3\"><span id=\"cv0\" class=\"text_to_paint\"></span>&nbsp;<span id=\"cv1\" class=\"text_to_paint\"></span></div>&nbsp;<span id=\"cv2\" class=\"text_to_paint\"></span></td> <td id=\"tc4f2\"><i class=\"fa-solid fa-caret-down\" style=\"font-size:5em;color:#00f;\" id=\"selectDown\"></i></td></tr> <tr id=\"tf3\"><td colspan=\"3\" id=\"tc1f3\"><span id=\"gameImage\"></span></td><td id=\"tc4f3\"><div id=\"descImage\"></div> <span style=\"font-size: 3em; color: Tomato;\"><i id=\"nextLevel\" class=\"fa-solid fa-play\"></i></span></td></tr> </table>",
                                  "source" : null,
                                   "date_time" : null,
                                   "isTable" : false,
@@ -136,20 +136,25 @@
                         {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Teotihuacan, México." },
                         {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Caral, Peru (©ZonaArqueólogicaCaral: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a7abe0b7-b3bf-44d6-ab4d-e7d32d2586ad'); return false;\">Moras, Roberto., <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d76a60c6-1eaa-4e1e-9b72-2135509101c1'); return false;\">Legado Ancestral, <span class=\"htdate\"></span>, Caral parte 2 - Tecnología en el año 4.000 A.C.</a>)." },
                         {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the city of Cusco, Peru." },
-                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Copán, Honduras." },
                         {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Cahal Pech, Belize." },
                         {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Caracol, Belize." },
                         {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Joya de Cerén, El Salvador." },
                         {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of San Andres, El Salvador." },
-                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Kaminaljuyu, Guatemala." },
                         {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Tikal, Guatemala." },
                         {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Tula, Mexico." },
                         {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Huaca Pucllana, Peru." },
-                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Mi Pueblito , Panama." }
+                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Mi Pueblito , Panama." },
+                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Copán, Honduras." },
+                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Copán, Honduras." },
+                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Copán, Honduras." },
+                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Copán, Honduras." },
+                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Copán, Honduras." },
+                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Copán, Honduras." },
+                        {"imageDesc" : "Photo taken on <span class=\"htdate\"></span>, during a visit to the archaeological site of Kaminaljuyu, Guatemala." }
                     ]
                 },
                 {
-                    "id": "fill_dates",
+                    "id": "date_time",
                     "text": [
                         {"type" : "gregory", "year" : "2017", "month" : "8", "day" : "16" },
                         {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "22" },
@@ -161,19 +166,24 @@
                         {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
                         {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
                         {"type" : "gregory", "year" : "2017", "month" : "8", "day" : "17" },
-                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
                         {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "19" },
-                        {"type" : "gregory", "year" : "2017", "month" : "7", "day" : "23" },
+                        {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "23" },
                         {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "24" },
                         {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "24" },
-                        {"type" : "gregory", "year" : "2014", "month" : "10", "day" : "19" },
                         {"type" : "gregory", "year" : "2015", "month" : "10", "day" : "22" },
                         {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "18" },
                         {"type" : "gregory", "year" : "2018", "month" : "4", "day" : "28" },
-                        {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "17" }
+                        {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "17" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2014", "month" : "10", "day" : "19" }
                     ]
                 }
             ]
         }
     ]
-} 
+}
