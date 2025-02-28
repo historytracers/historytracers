@@ -1,0 +1,315 @@
+{
+    "title" : "Jugando con Consonantes y Vocales",
+    "header" : "Jugando con Consonantes y Vocales",
+    "sources" : [ "052e06b9-f10c-4e76-896d-9f0e68f07506" ],
+    "scripts" : [ "052e06b9-f10c-4e76-896d-9f0e68f07506" ],
+    "index" : [ "literature" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1740370356" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "prerequisites",
+                    "text" : [ 
+                               { "text" : "<span id=\"htZoomImageMsg\"></span></p><p class=\"topdesc\"><i>Además de utilizar el nombre América, también nos referiremos al continente como <i>Abya Yala</i>, denominación empleada por los pueblos originarios del continente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i>",
+                                 "source" : null,
+                                  "date_time" : null,
+                                  "isTable" : false,
+                                  "format" : "html",
+                                  "PostMention": " "
+                               },
+                               { "text" : "### Prerrequisitos\n\nEste texto es una continuación de *Caminando entre las letras*. Por ello, recomendamos leerlo antes de continuar",
+                                 "source" : [ 
+                                              { "type": 1,
+                                                "uuid" : "7510e065-7fba-42a5-baed-c67061158b01",
+                                                "text": "History Tracers Team, Caminando entre las letras",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                  "date_time" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ { "text" : "### Introducción\n\nLas letras del alfabeto se agrupan para formar sílabas. Comprender mejor este proceso nos ayuda a diferenciar y entender las palabras con mayor claridad.\n\nEn este texto, exploraremos más a fondo la estructura de las palabras y, al final, presentaremos un juego para reforzar el conocimiento",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "phoneme",
+                    "text" : [ { "text" : "### Fonemas\n\nEn nuestro texto anterior, exploramos las vocales y algunas interjecciones. Sin embargo, las vocales no son las únicas representaciones de sonidos en nuestro lenguaje. Además de ellas, también tenemos las consonantes, que se definen de la siguiente manera",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "62553d1c-5f10-423c-91ec-5213d5b5b097",
+                                                "text": "Real Academia Española, consonante"}
+                                 ],
+                                 "istable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "postmention": ":"
+                               },
+                               { "text" : "<ul class=\"citation\"><li><i>\"Sonido del habla cuya articulación se caracteriza por la presencia de un obstáculo en el tracto vocal que impide o dificulta la salida del aire.\"</i></li> </ul>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Esta definición nos señala un aspecto clave cuando la comparamos con la de las vocales",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "67dddaf7-4e22-4d69-beee-5063332c3df0",
+                                                "text": "Real Academia Española, vocal"}
+                                 ],
+                                 "istable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "postmention": ":"
+                               },
+                               { "text" : "<ul class=\"citation\"><li><i>\"Sonido del habla cuya articulación se caracteriza por la ausencia de obstáculos a la salida del aire.\"</i></li> </ul>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Un punto en común</b><br /><br />Si observamos ambas definiciones, ¿puedes identificar algo en común?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Ambas están relacionadas con los sonidos que producimos al pronunciar una letra. Por esta razón, tanto las vocales como las consonantes se denominan **fonemas**",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "72bd945d-0cde-49c4-ab87-9943dfd05375",
+                                                "text": "Real Academia Española, fonema"}
+                                 ],
+                                 "istable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "postmention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "alphabet",
+                    "text" : [ { "text" : "### Alfabeto\n\n#### Organización\n\nLos sonidos producidos por las consonantes y vocales se organizan en una secuencia llamada alfabeto",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "3b91f37e-a9d6-47d2-b8f5-8899556bd5f9",
+                                                "text": "Real Academia Española, alfabeto"},
+                                              { "type": 0,
+                                                "uuid": "724f5279-8fd8-4565-a59a-f260abb67b40",
+                                                "text": "Diccionario panhispánico de dudas, abecedario"}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<ul></li><li>a, b, c, d, e, f, g, h, i, j, k, l, m, n, ñ, o, p, q, r, s, t, u, v, w, x, y, z</li></ul>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": "."
+                               },
+                               { "text" : "En el alfabeto, las consonantes y vocales están dispuestas juntas, sin una separación explícita. Sin embargo, dado que existen definiciones específicas para cada una, a continuación las agrupamos en dos categorías distintas, según dichas definiciones",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<ul></li><li><b>Consonantes:</b> {b, c, d, f, g, h, j, k, l, m, n, ñ, p, q, r, s, t, v, x, z}</li><li><b>Vocales:</b> {a, e, i, o, u}</ul>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Resaltamos que, en la clasificación presentada, no incluimos las letras *w* e *y*, pues su categorización depende del contexto en el que se utilicen dentro de una palabra",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "a65ef813-f81c-4f27-a491-e24d78c294cb",
+                                                "text": "Diccionario panhispánico de dudas (DPD), y"},
+                                              { "type": 0,
+                                                "uuid": "b9088f63-0fc3-480f-9b3f-2e24b74f8419",
+                                                "text": "Diccionario panhispánico de dudas (DPD), w"}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### Origen\n\nAunque hoy nos parezca natural representar el alfabeto de la manera en que lo usamos, no siempre fue así. Cuando los egipcios lo crearon —según una de las teorías existentes—, el alfabeto consistía en 22 jeroglíficos que representaban sílabas con sonidos de consonantes y vocales",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "714a08f1-5ace-4d75-90c6-7b78e6146e9b",
+                                                "text": "Crabben, J.",
+                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "4", "day" : "28" }},
+                                              { "type": 1,
+                                                "uuid": "f2865e84-bedf-4ad0-8059-c2e97f875946",
+                                                "text": "Olson, D. R. and Diringer, D.",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "2", "day" : "19" }},
+                                              { "type": 1,
+                                                "uuid": "04a47abe-5803-4db3-b2e8-2ce869c86fd9",
+                                                "text": "Herraiz, Elena",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Con el paso de los años, otros pueblos desarrollaron sus propios alfabetos. Siguiendo el orden cronológico, se destacan los fenicios, quienes crearon un sistema de escritura que representaba los sonidos de todas las consonantes, pero sin símbolos para las vocales",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "714a08f1-5ace-4d75-90c6-7b78e6146e9b",
+                                                "text": "Crabben, J.",
+                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "4", "day" : "28" }},
+                                              { "type": 1,
+                                                "uuid": "f2865e84-bedf-4ad0-8059-c2e97f875946",
+                                                "text": "Olson, D. R. and Diringer, D.",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "2", "day" : "19" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "<p class=\"desc\"><img id=\"imgPhoenician\" onclick=\"htImageZoom('imgPhoenician', '0%')\" src=\"images/BritshMuseum/437857001.jpg\" class=\"imgcenter\"/>Figura 1: Texto fenicio presente en el Museo Británico. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('25e7f7f1-e96c-4520-8fec-738c6efb557e'); return false;\"><i>The British Museum</i></a> ).</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "En la **Figura 1**, se observa un texto escrito con el antiguo alfabeto fenicio, expuesto en el Museo Británico",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "25e7f7f1-e96c-4520-8fec-738c6efb557e",
+                                                "text": "The British Museum"}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Con el tiempo, surgieron nuevos alfabetos y se implementaron mejoras. Finalmente, los griegos crearon el primer sistema de escritura que incluía representaciones para las vocales",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "714a08f1-5ace-4d75-90c6-7b78e6146e9b",
+                                                "text": "Crabben, J.",
+                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "4", "day" : "28" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "game",
+                    "text" : [ 
+                               { "text" : "### Juego\n\nContinuando con nuestro estudio, presentamos un pequeño juego para identificar consonantes y vocales",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "<b>Objetivo:</b> Tu desafío es identificar las vocales (V) y consonantes (C) que componen una sílaba. Por cada respuesta correcta, se te presentará una región indígena de América (<i>Abya Ayala</i>).</p><p><b>Reglas:</b> Usa las flechas (<i class=\"fa-solid fa-caret-up\" style=\"font-size:1.5em;color:#0f0\"></i> y <i class=\"fa-solid fa-caret-down\" style=\"font-size:1.5em;color:#00f;\"></i>) para alternar entre consonantes (C) y vocales (V). Para avanzar a la siguiente sílaba, haz clic en <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>",
+                                 "source" : null,
+                                  "date_time" : null,
+                                  "isTable" : false,
+                                  "format" : "html",
+                                  "PostMention": " "
+                               },
+                               { "text" : "<table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"3\">Clasifique cada letra de la sílaba como consonante (C) o vocal (V).</th><th>Controles</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\" colspan=\"3\"><span id=\"cvtop\" class=\"text_to_paint\"></span></td> <td id=\"tc4f1\"><i class=\"fa-solid fa-caret-up\" style=\"font-size:5em;color:#0f0\" id=\"selectUp\"></i></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\" colspan=\"3\"><span id=\"cv0\" class=\"text_to_paint\"></span>&nbsp;<span id=\"cv1\" class=\"text_to_paint\"></span>&nbsp;<span id=\"cv2\" class=\"text_to_paint\"></span></div></td> <td id=\"tc4f2\"><i class=\"fa-solid fa-caret-down\" style=\"font-size:5em;color:#00f;\" id=\"selectDown\"></i></td></tr> <tr id=\"tf3\"><td colspan=\"3\" id=\"tc1f3\"><span id=\"gameImage\"></span></td><td id=\"tc4f3\"><div id=\"descImage\"></div> <span style=\"font-size: 3em; color: Tomato;\"><i id=\"nextLevel\" class=\"fa-solid fa-play\"></i></span></td></tr> </table>",
+                                 "source" : null,
+                                  "date_time" : null,
+                                  "isTable" : false,
+                                  "format" : "html",
+                                  "PostMention": " "
+                               }
+                    ]
+                },
+                {
+                    "id": "game_v1",
+                    "text": [
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Machu Picchu, Perú." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Xunantunich, Belize." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Teotihuacan, México." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Teotihuacan, México." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Caral, Peru (©ZonaArqueólogicaCaral: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a7abe0b7-b3bf-44d6-ab4d-e7d32d2586ad'); return false;\">Moras, Roberto., <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d76a60c6-1eaa-4e1e-9b72-2135509101c1'); return false;\">Legado Ancestral, <span class=\"htdate\"></span>, Caral parte 2 - Tecnología en el año 4.000 A.C.</a>)." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita a ciudad de Cusco, Perú." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Cahal Pech, Belize." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Caracol, Belize." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Joya de Cerén, El Salvador." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de San Andres, El Salvador." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Tikal, Guatemala." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Tula, México." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Huaca Pucllana, Perú." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante uma visita al complejo turístico de Mi Pueblito, Panama." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Copán, Honduras." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Copán, Honduras." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Copán, Honduras." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Copán, Honduras." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Copán, Honduras." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Copán, Honduras." },
+                        {"imageDesc" : "Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio de Kaminaljuyu, Guatemala." }
+                    ]
+                },
+                {
+                    "id": "date_time",
+                    "text": [
+                        {"type" : "gregory", "year" : "2017", "month" : "8", "day" : "16" },
+                        {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "22" },
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" },
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" },
+                        {"type" : "gregory", "year" : "2017", "month" : "5", "day" : "17" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {"type" : "gregory", "year" : "2017", "month" : "8", "day" : "17" },
+                        {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "19" },
+                        {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "23" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "24" },
+                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "24" },
+                        {"type" : "gregory", "year" : "2015", "month" : "10", "day" : "22" },
+                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "18" },
+                        {"type" : "gregory", "year" : "2018", "month" : "4", "day" : "28" },
+                        {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "17" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
+                        {"type" : "gregory", "year" : "2014", "month" : "10", "day" : "19" }
+                    ]
+                }
+            ]
+        }
+    ]
+}
