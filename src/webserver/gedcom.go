@@ -52,6 +52,7 @@ type FamilyPersonChild struct {
 	Name         string   `json:"name"`
 	FamilyID     string   `json:"family_id"`
 	ExternalFile bool     `json:"external_family_file"`
+	AddLinK      bool     `json:"add_link"`
 	History      []HTText `json:"history"`
 	AdoptedChild bool     `json:"adopted_child"`
 }
@@ -69,10 +70,10 @@ type FamilyPerson struct {
 	Haplogroup []FamilyPersonHaplogroup `json:"haplogroup"`
 	History    []HTText                 `json:"history"`
 	Parents    []FamilyPersonParents    `json:"parents"`
+	Birth      []FamilyPersonEvent      `json:"birth"`
 	Marriages  []FamilyPersonMarriage   `json:"marriages"`
 	Children   []FamilyPersonChild      `json:"children"`
-	Birth      FamilyPersonEvent        `json:"birth"`
-	Death      FamilyPersonEvent        `json:"death"`
+	Death      []FamilyPersonEvent      `json:"death"`
 }
 
 type FamilyBody struct {
