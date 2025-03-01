@@ -2008,7 +2008,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             }
 
             var childLink = "";
-            if (child.family_id == undefined || child.family_id.length == 0) {
+            if (child.family_id == undefined || child.family_id.length == 0 || ((child.external_family_file != undefined && child.external_family_file == false) && child.add_link == false)) {
                 childLink = child.name ;
             } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
                 childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child.name+"</a>";
