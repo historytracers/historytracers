@@ -67,6 +67,7 @@ type FamilyPerson struct {
 	Name       string                   `json:"name"`
 	Sex        string                   `json:"sex"`
 	Gender     string                   `json:"gender"`
+	Real       bool                     `json:"is_real"`
 	Haplogroup []FamilyPersonHaplogroup `json:"haplogroup"`
 	History    []HTText                 `json:"history"`
 	Parents    []FamilyPersonParents    `json:"parents"`
