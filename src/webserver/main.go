@@ -106,7 +106,7 @@ func main() {
 	}
 
 	if validateFlag {
-		htCreateGEDCOM()
+		htValidateGEDCOM()
 		return
 	}
 

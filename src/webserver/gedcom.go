@@ -52,7 +52,7 @@ type FamilyPersonChild struct {
 	Name         string   `json:"name"`
 	FamilyID     string   `json:"family_id"`
 	ExternalFile bool     `json:"external_family_file"`
-	AddLinK      bool     `json:"add_link"`
+	AddLink      bool     `json:"add_link"`
 	History      []HTText `json:"history"`
 	AdoptedChild bool     `json:"adopted_child"`
 }
@@ -139,12 +139,14 @@ func htParseFamilySetGEDCOM(families *Family, fileName string, lang string) {
 }
 
 func htParseFamilySetDefaultValues(families *Family) {
+	people := make(map[string]bool)
+
 	for i := 0; i < len(families.Families); i++ {
-		family := families.Families[i]
+		family := &families.Families[i]
 
 		if family.History != nil {
 			for j := 0; j < len(family.History); j++ {
-				history := family.History[j]
+				history := &family.History[j]
 
 				if len(history.PostMention) == 0 {
 					history.PostMention = "."
@@ -158,10 +160,40 @@ func htParseFamilySetDefaultValues(families *Family) {
 				}
 			}
 		}
+
+		if family.People == nil {
+			continue
+		}
+		for j := 0; j < len(family.People); j++ {
+			person := &family.People[j]
+			people[person.ID] = true
+		}
+	}
+
+	for i := 0; i < len(families.Families); i++ {
+		family := &families.Families[i]
+
+		if family.People == nil {
+			continue
+		}
+
+		for j := 0; j < len(family.People); j++ {
+			person := &family.People[j]
+			if person.Children == nil {
+				continue
+			}
+
+			for k := 0; k < len(person.Children); k++ {
+				child := &person.Children[k]
+				if val, ok := people[child.ID]; ok {
+					child.AddLink = val
+				}
+			}
+		}
 	}
 }
 
-func htParseFamily(fileName string, lang string) (error, string) {
+func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
 	localPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, fileName)
 	if verboseFlag {
 		fmt.Println("Parsing Family File", localPath)
@@ -183,6 +215,10 @@ func htParseFamily(fileName string, lang string) (error, string) {
 	if err != nil {
 		htCommonJsonError(byteValue, err)
 		return err, ""
+	}
+
+	if rewrite == false {
+		return nil, ""
 	}
 
 	htParseFamilySetGEDCOM(&family, fileName, lang)
@@ -262,7 +298,7 @@ func htWriteIndexFile(lang string, index *IdxFamily) (string, error) {
 	return tmpFile, nil
 }
 
-func htParseFamilyIndex(fileName string, lang string) error {
+func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 	if verboseFlag {
 		fmt.Println("Adjusting file", fileName)
 	}
@@ -285,8 +321,6 @@ func htParseFamilyIndex(fileName string, lang string) error {
 		return err
 	}
 
-	htParseIndexSetGEDCOM(&index, lang)
-
 	for i := 0; i < len(index.Contents); i++ {
 		content := index.Contents[i]
 		if content.Value == nil {
@@ -296,17 +330,24 @@ func htParseFamilyIndex(fileName string, lang string) error {
 		if verboseFlag {
 			fmt.Println("Parsing group", content.ID)
 		}
-		// TODO REMOVEME
+
 		value := content.Value
 		for j := 0; j < len(value); j++ {
-			err, gedcom := htParseFamily(value[j].ID, lang)
+			err, gedcom := htParseFamily(value[j].ID, lang, rewrite)
 			if err != nil {
 				return err
 			}
-			value[j].GEDCOM = gedcom
+			if rewrite == true {
+				value[j].GEDCOM = gedcom
+			}
 		}
 	}
 
+	if rewrite == false {
+		return nil
+	}
+
+	htParseIndexSetGEDCOM(&index, lang)
 	index.LastUpdate[0] = htUpdateTimestamp()
 
 	newFile, err := htWriteIndexFile(lang, &index)
@@ -324,11 +365,11 @@ func htParseFamilyIndex(fileName string, lang string) error {
 	return nil
 }
 
-func htUpdateAllFamilies() error {
+func htUpdateAllFamilies(rewrite bool) error {
 	htLangPaths := [3]string{"en-US", "es-ES", "pt-BR"}
 	for i := 0; i < len(htLangPaths); i++ {
 		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, htLangPaths[i])
-		err := htParseFamilyIndex(localPath, htLangPaths[i])
+		err := htParseFamilyIndex(localPath, htLangPaths[i], rewrite)
 		if err != nil {
 			panic(err)
 		}
@@ -356,9 +397,13 @@ func htCreateGEDCOMDirectory() {
 }
 
 // Entries
-func htCreateGEDCOM() int {
+func htCreateGEDCOM() {
 	htCreateGEDCOMDirectory()
 
-	htUpdateAllFamilies()
-	return 0
+	htUpdateAllFamilies(true)
+}
+
+// Validate
+func htValidateGEDCOM() {
+	htUpdateAllFamilies(false)
 }
