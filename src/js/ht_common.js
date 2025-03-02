@@ -2060,25 +2060,27 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             var child_class;
             var type = child.type; 
             var child_keyword;
+            var msg = "";
             if (type == "theory") {
                 child_class = "tree-real-child-text";
                 child_keyword = keywords[20];
             } else {
                 child_class = "tree-hipothetical-child-text";
                 child_keyword = keywords[21];
+                msg = "<div class=\"no_personal_events_class\"><p>"+keywords[96]+keywords[98]+"</p></div>";
             }
 
             var childLink = "";
             if (child.family_id == undefined || child.family_id.length == 0 || ((child.external_family_file != undefined && child.external_family_file == false) && child.add_link == false)) {
-                childLink = child.name ;
+                childLink = child_keyword+" "+child.name ;
             } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
-                childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child.name+"</a>";
+                childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child_keyword+" "+child.name+"</a>";
             } else { 
-                childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child.name+"</a>";
+                childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child_keyword+" "+child.name+"</a>";
             }
 
-            $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+child_keyword+"</b>: </p></div>");
-            $("#"+child_id).append("<div id=\"with-parent-"+child.id+"\" class=\""+child_class+"\"><p><b>"+childLink+"</b>: </p></div>");
+            $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+childLink+"</b>: </p>"+msg+"</div>");
+            $("#"+child_id).append("<div id=\"with-parent-"+child.id+"\" class=\""+child_class+"\"></div>");
             htFillHistorySources("parent-"+child.id, "#with-parent-"+child.id, child.history, "", child.id);
             htSetMapFamily(child.id, id, child.marriage_id, child.type);
             personNameMap.set(child.id, child.name);
