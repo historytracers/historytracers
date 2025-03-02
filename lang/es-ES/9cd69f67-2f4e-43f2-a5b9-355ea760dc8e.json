@@ -40,7 +40,7 @@
       "SPDX-License-Identifier: GPL-3.0-or-later"
    ],
    "last_update": [
-      "1740845878"
+      "1740931229"
    ],
    "authors": "",
    "reviewers": "",
@@ -112,6 +112,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -267,6 +268,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -389,6 +391,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -540,7 +543,52 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "789",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "Tudela",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                           "text": "Juste, Alberto C., pp. 9"
+                        }
+                     ]
+                  },
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "802",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "Tudela",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                           "text": "De La Granja, Fernando, pp. 465"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "5a731099-2535-4f31-b160-04384a9d999e",
@@ -573,6 +621,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -766,7 +815,13 @@
                      "state": "",
                      "pc": "",
                      "country": "",
-                     "sources": null
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                           "text": "De La Granja, Fernando, pp. 465"
+                        }
+                     ]
                   }
                ]
             },
@@ -801,6 +856,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -877,9 +933,9 @@
                      "date": [
                         {
                            "type": "gregory",
-                           "year": "789",
-                           "month": "-1",
-                           "day": "-1"
+                           "year": "875",
+                           "month": "4",
+                           "day": "27"
                         }
                      ],
                      "address": "",
@@ -888,31 +944,11 @@
                      "pc": "",
                      "country": "",
                      "sources": [
-                                { "type": 0,
-                                  "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
-                                  "text": "Juste, Alberto C., pp. 9",
-                                  "date": {"type" : "gregory", "year" : "1980", "month" : "-1", "day" : "-1" }} 
-                     ]
-                  },
-                  {
-                     "date": [
                         {
-                           "type": "gregory",
-                           "year": "802",
-                           "month": "-1",
-                           "day": "-1"
+                           "type": 0,
+                           "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                           "text": "De La Granja, Fernando, pp. 472"
                         }
-                     ],
-                     "address": "",
-                     "city": "Zaragoza",
-                     "state": "",
-                     "pc": "",
-                     "country": "",
-                     "sources": [
-                                { "type": 0,
-                                  "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
-                                  "text": "De La Granja, Fernando, pp. 465",
-                                  "date": {"type" : "gregory", "year" : "1967", "month" : "-1", "day" : "-1" }} 
                      ]
                   }
                ]
@@ -948,6 +984,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "hypothesis",
@@ -1002,6 +1039,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "hypothesis",
@@ -1164,7 +1202,52 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "898",
+                           "month": "10",
+                           "day": "2"
+                        }
+                     ],
+                     "address": "",
+                     "city": "Zaragoza",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                           "text": "De La Granja, Fernando, pp. 480"
+                        }
+                     ]
+                  },
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "898",
+                           "month": "9",
+                           "day": "3"
+                        }
+                     ],
+                     "address": "",
+                     "city": "Zaragoza",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                           "text": "De La Granja, Fernando, pp. 480"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "dfe82008-d8ac-4a5f-a194-83c25c6b767c",
@@ -1197,6 +1280,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",

@@ -72,6 +72,7 @@ type FamilyPerson struct {
 	History    []HTText                 `json:"history"`
 	Parents    []FamilyPersonParents    `json:"parents"`
 	Birth      []FamilyPersonEvent      `json:"birth"`
+	Baptism    []FamilyPersonEvent      `json:"baptism"`
 	Marriages  []FamilyPersonMarriage   `json:"marriages"`
 	Children   []FamilyPersonChild      `json:"children"`
 	Death      []FamilyPersonEvent      `json:"death"`

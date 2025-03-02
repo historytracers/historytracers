@@ -913,6 +913,7 @@ function htDetectLanguage()
 
 function htMountSpecificDate(dateObj, localLang, localCalendar)
 {
+    var updateText;
     switch (dateObj.type) {
         case "gregory":
             if (dateObj.day > 0 ) {
@@ -1849,6 +1850,68 @@ function htCopyLink(familyID, id)
     return false;
 }
 
+function htMountPersonEvent(name, data, localLang, localCalendar) {
+    var ret = "<b>"+name+"</b> ";
+    for (const i in data) {
+        var ptr = data[i];
+        if (i != 0) {
+            ret += " "+keywords[91]+" ";
+        }
+        ret += htMountSpecificDate(ptr.date[0], localLang, localCalendar)+" (";
+        var sources = ptr.sources;
+        for (const i in sources) { 
+            if (i != 0) {
+                ret += " ; ";
+            }
+            var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
+            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+            ret += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
+        }
+
+        ret += ")";
+    }
+    return ret;
+}
+
+function htMountPersonEvents(table) {
+    var deaths = table.death;
+    var births = table.birth;
+    var baptisms = table.baptism;
+
+    var ret = "";
+    if (table.is_real == undefined) {
+        return ret;
+    }
+
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
+
+    if (table.is_real) {
+        ret = "<div class=\"personal_events_class\">"+keywords[95];
+        var begin = ret;
+        if (births != undefined) {
+            ret += htMountPersonEvent(keywords[92], births, localLang, localCalendar)+"<br />";
+        }
+
+        if (baptisms != undefined) {
+            ret += htMountPersonEvent(keywords[93], baptisms, localLang, localCalendar)+"<br />";
+        }
+
+        if (deaths != undefined) {
+            ret += htMountPersonEvent(keywords[94], deaths, localLang, localCalendar)+"<br />";
+        }
+
+        if (begin.length == ret.length) {
+            ret += keywords[99];
+        }
+        ret += "</div>";
+    } else {
+        ret = "<div class=\"no_personal_events_class\">"+keywords[95]+keywords[96]+keywords[97]+"</div>";
+    }
+
+    return ret;
+}
+
 function htAppendData(prefix, id, familyID, name, table, page) {
     var history = table.history;
     var parents = table.parents;
@@ -1856,18 +1919,16 @@ function htAppendData(prefix, id, familyID, name, table, page) {
 
     if (history != undefined) {
         var title;
-        var localHeader;
         var goToTop;
         if ((parents == undefined || marriages == undefined) && (prefix != "tree")) {
             title = keywords[8];
-            localHeader = "3";
             goToTop ="<a href=\"javascript:void(0);\" onclick=\"htScroolToID('#index_list');\">"+keywords[78]+"</a>";
         } else {
             title = keywords[9];
-            localHeader = "4";
             goToTop ="";
         }
-        $("#"+prefix+"-"+id).append("<p><h"+localHeader+" id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+page+"', '"+id+"',"+undefined+");\">"+title + " : " +name+" (<a href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"'); return false;\" >"+keywords[26]+"</a>). "+goToTop+"</h"+localHeader+"></p>");
+        var personalEvents = htMountPersonEvents(table);
+        $("#"+prefix+"-"+id).append("<h3 id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+page+"', '"+id+"',"+undefined+");\">"+title + " : " +name+" (<a href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"'); return false;\" >"+keywords[26]+"</a>). "+goToTop+"</h3><p>"+personalEvents+"</p>");
     }
 
     var primary_source = table.primary_source;

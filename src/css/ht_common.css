@@ -1094,3 +1094,29 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: bold;
 }
 
+.personal_events_class {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  width: 60%;
+  background-color: #FFD580;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.no_personal_events_class {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  width: 60%;
+  background-color: #FFCCCB;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
