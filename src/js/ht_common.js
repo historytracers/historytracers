@@ -29,7 +29,6 @@ var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htFamilyIdx = new Map();
-var htIdxLang = "en-US";
 
 var htGameImages = [ "MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "TeotihuacanMountains.jpg", "CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren.jpg", "SanAndres.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito.jpg", "Copan/CopanAltarGenealogy0.jpg", "Copan/CopanAltarGenealogy1.jpg", "Copan/CopanAltarGenealogy2.jpg", "Copan/CopanAltarGenealogy3.jpg", "StelaACopan.jpg", "Copan/CopanWholeTextStelaAltar.png", "Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
@@ -1288,18 +1287,6 @@ function htFillTopIdx(idx, data, first)
 
 function htLoadIndex(data, arg, page)
 {
-    if (data.content == undefined && data.families == undefined) {
-        return;
-    }
-
-    var localLang = $("#site_language").val();
-    if (localLang != htIdxLang) {
-        htHistoryIdx.clear();
-        htLiteratureIdx.clear();
-        htFirstStepsIdx.clear();
-        htFamilyIdx.clear();
-    }
-
     if (page == "history" && htHistoryIdx.has("history") == false) {
         htFillTopIdx(htHistoryIdx, data, "history");
         return;
