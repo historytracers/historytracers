@@ -1874,10 +1874,6 @@ function htMountPersonEvent(name, data, localLang, localCalendar) {
 }
 
 function htMountPersonEvents(table) {
-    var deaths = table.death;
-    var births = table.birth;
-    var baptisms = table.baptism;
-
     var ret = "";
     if (table.is_real == undefined) {
         return ret;
@@ -1889,16 +1885,31 @@ function htMountPersonEvents(table) {
     if (table.is_real) {
         ret = "<div class=\"personal_events_class\">"+keywords[95];
         var begin = ret;
-        if (births != undefined) {
-            ret += htMountPersonEvent(keywords[92], births, localLang, localCalendar)+"<br />";
+
+        var sex_gender = "";
+
+        if (table.sex != undefined && table.sex.length > 0) {
+            sex_gender = table.sex;
         }
 
-        if (baptisms != undefined) {
-            ret += htMountPersonEvent(keywords[93], baptisms, localLang, localCalendar)+"<br />";
+        if (table.gender != undefined && table.gender.length > 0) {
+            sex_gender += " / "+table.gender;
         }
 
-        if (deaths != undefined) {
-            ret += htMountPersonEvent(keywords[94], deaths, localLang, localCalendar)+"<br />";
+        if (sex_gender.length > 0) {
+            ret += "<b>"+keywords[100]+"/"+keywords[101]+"</b>: "+sex_gender+"<br />";
+        }
+
+        if (table.birth != undefined) {
+            ret += htMountPersonEvent(keywords[92], table.birth, localLang, localCalendar)+"<br />";
+        }
+
+        if (table.baptism != undefined) {
+            ret += htMountPersonEvent(keywords[93], table.baptism, localLang, localCalendar)+"<br />";
+        }
+
+        if (table.death != undefined) {
+            ret += htMountPersonEvent(keywords[94], table.death, localLang, localCalendar)+"<br />";
         }
 
         if (begin.length == ret.length) {

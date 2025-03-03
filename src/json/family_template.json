@@ -111,7 +111,27 @@
                             "state" : "The state where the marriage took place.",
                             "pc" : "The postal code of the marriage location.",
                             "country" : "The country where the marriage occurred.",
-                            "source" : [
+                            "sources" : [
+                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                  "uuid": "Unique identifier (UUID) for the current citation.",
+                                  "text": "The accompanying text that will be displayed with the citation.",
+                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                             ]
+                        }
+                    ],
+                    "baptism": [
+                        {
+                            "date" : [
+                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                               {"type" : "unix", "epoch" : "0" },
+                                               {"type" : "julian",  "epoch" : "0" }
+                                           ],
+                            "address" : "The address where the marriage took place.",
+                            "city" : "The city where the marriage occurred.",
+                            "state" : "The state where the marriage took place.",
+                            "pc" : "The postal code of the marriage location.",
+                            "country" : "The country where the marriage occurred.",
+                            "sources" : [
                                 { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
                                   "uuid": "Unique identifier (UUID) for the current citation.",
                                   "text": "The accompanying text that will be displayed with the citation.",
@@ -155,7 +175,7 @@
                                     "state" : "The state where the marriage took place.",
                                     "pc" : "The postal code of the marriage location.",
                                     "country" : "The country where the marriage occurred.",
-                                    "source" : [
+                                    "sources" : [
                                         { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
                                           "uuid": "Unique identifier (UUID) for the current citation.",
                                           "text": "The accompanying text that will be displayed with the citation.",
