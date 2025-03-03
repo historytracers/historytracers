@@ -1854,6 +1854,10 @@ function htMountPersonEvent(name, data, localLang, localCalendar) {
     var ret = "<b>"+name+"</b> ";
     for (const i in data) {
         var ptr = data[i];
+        if (ptr.date == undefined) {
+            continue;
+        }
+
         if (i != 0) {
             ret += " "+keywords[91]+" ";
         }
@@ -2012,6 +2016,9 @@ function htAppendData(prefix, id, familyID, name, table, page) {
     }
 
     if (marriages != undefined) {
+        var localLang = $("#site_language").val();
+        var localCalendar = $("#site_calendar").val();
+
         genealogicalStats.marriages += marriages.length;
         for (const i in marriages) {
             var marriage = marriages[i];
@@ -2037,15 +2044,20 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     marriage_keyword = keywords[86];
                 }
                 var marriageLink = "";
+                var datetime = "";
+                if (marriage.date_time != undefined && marriage.date_time.sources != null) {
+                    datetime = htMountPersonEvent(" ", marriage.date_time, localLang, localCalendar);
+                }
+
                 if (marriage.family_id == undefined) {
                     marriageLink = marriage.name;
                 } else if (familyID == marriage.family_id || (marriage.external_family_file != undefined && marriage.external_family_file == false)) {
-                    marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>";
+                    marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>"+datetime;
                 } else {
-                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>";
+                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>"+datetime;
                 }
 
-                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b>: "+marriageLink+".</p></div>");
+                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b> "+marriageLink+".</p></div>");
                htFillHistorySources(marriage.id, "#"+rel_id, marriage.history, "tree-default-align", marriage.id);
 
                 var showTree = personNameMap.has(marriage.id);
@@ -2078,7 +2090,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             } else {
                 child_class = "tree-hipothetical-child-text";
                 child_keyword = keywords[21];
-                msg = "<div class=\"no_personal_events_class\"><p>"+keywords[96]+keywords[98]+"</p></div>";
+                msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
             }
 
             var childLink = "";

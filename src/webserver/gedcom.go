@@ -42,7 +42,7 @@ type FamilyPersonMarriage struct {
 	ExternalFile bool              `json:"external_family_file"`
 	Name         string            `json:"name"`
 	History      []HTText          `json:"history"`
-	Marriage     FamilyPersonEvent `json:"marriage"`
+	DateTime     FamilyPersonEvent `json:"date_time"`
 }
 
 type FamilyPersonChild struct {
@@ -74,6 +74,7 @@ type FamilyPerson struct {
 	Birth      []FamilyPersonEvent      `json:"birth"`
 	Baptism    []FamilyPersonEvent      `json:"baptism"`
 	Marriages  []FamilyPersonMarriage   `json:"marriages"`
+	Divorced   []FamilyPersonMarriage   `json:"divorced"`
 	Children   []FamilyPersonChild      `json:"children"`
 	Death      []FamilyPersonEvent      `json:"death"`
 }
