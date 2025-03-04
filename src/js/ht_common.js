@@ -1879,6 +1879,29 @@ function htMountPersonEvents(table) {
 
         var sex_gender = "";
 
+        if (table.haplogroup != undefined && table.haplogroup.length > 0) {
+            ret += "<b>"+keywords[103]+"</b>: ";
+            for (const i in table.haplogroup) {
+                var haplogroup = table.haplogroup[i]
+                if (i != 0) {
+                    ret += ", ";
+                }
+
+                var sources = haplogroup.sources;
+                var lnk = "";
+                for (const i in sources) { 
+                    if (i != 0) {
+                        text += " ; ";
+                    }
+                    var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
+                    var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+                    lnk += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
+                }
+                ret += haplogroup.haplogroup+" ("+haplogroup.type+") ("+lnk+")" ;
+            }
+            ret += "<br />" ;
+        }
+
         if (table.sex != undefined && table.sex.length > 0) {
             sex_gender = table.sex;
         }
@@ -2019,12 +2042,14 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             if (marriage.id == undefined) {
                 $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[17]+"</b>: "+keywords[19]+"</p></div>");
             } else {
+                var msg = "";
                 if (type == "theory") {
                     marriage_class = "tree-real-family-text";
                     marriage_keyword = keywords[17];
                 } else {
                     marriage_class = "tree-hipothetical-family-text";
                     marriage_keyword = keywords[18];
+                    msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
                 }
 
                 if (official != undefined && official == false) {
@@ -2044,7 +2069,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>"+datetime;
                 }
 
-                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b> "+marriageLink+".</p></div>");
+                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b> "+marriageLink+".</p>"+msg+"</div>");
                htFillHistorySources(marriage.id, "#"+rel_id, marriage.history, "tree-default-align", marriage.id);
 
                 var showTree = personNameMap.has(marriage.id);

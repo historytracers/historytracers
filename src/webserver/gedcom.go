@@ -58,8 +58,9 @@ type FamilyPersonChild struct {
 }
 
 type FamilyPersonHaplogroup struct {
-	Type    string     `json:"type"`
-	Sources []HTSource `json:"sources"`
+	Type       string     `json:"type"`
+	Haplogroup string     `json:"haplogroup"`
+	Sources    []HTSource `json:"sources"`
 }
 
 type FamilyPerson struct {

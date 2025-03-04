@@ -46,7 +46,7 @@
       "SPDX-License-Identifier: GPL-3.0-or-later"
    ],
    "last_update": [
-      "1741042004"
+      "1741055034"
    ],
    "authors": "",
    "reviewers": "",
@@ -106,9 +106,9 @@
             {
                "id": "4249dd37-afe0-441f-b02e-8f297131c230",
                "name": "Willem Lem",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -230,9 +230,9 @@
             {
                "id": "d922e3f2-d380-41a1-be27-5ad3e1ced619",
                "name": "Maertin Lem (I)",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -376,9 +376,9 @@
             {
                "id": "6938a5f7-6c09-463a-bb67-c256abf2c11f",
                "name": "Maertin Lem (II)",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -735,9 +735,9 @@
             {
                "id": "e032fc86-3e28-4b9a-90e6-17442c8e6c96",
                "name": "Martim Leme",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -855,9 +855,9 @@
             {
                "id": "507a2b66-94d1-4cd4-81d5-5d35f95ed03a",
                "name": "Rui Leme",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -939,9 +939,9 @@
             {
                "id": "8f277307-325b-4c85-a69e-3b83c2fa2f68",
                "name": "Antonio Leme",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -1235,9 +1235,9 @@
             {
                "id": "79f33b23-c8fa-4dc5-ac32-962c40388bc5",
                "name": "Antão Leme",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -1352,9 +1352,9 @@
             {
                "id": "f0f2c7cb-390c-43f0-929b-9f6e3ee1a1d1",
                "name": "Pero Leme",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -1557,21 +1557,44 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1600",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "3a98a6a5-5261-4d8a-b10b-05f7ff97b790",
+                           "text": "Inventários e Testamentos, Volume 1, pp. 25"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "2e9d9ef0-195e-4d9e-85ee-51350601e89e",
                "name": "Leonor Leme",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "female",
+               "gender": "female",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
                      "text": "A los 80 años, Leonor Leme prestó testimonio en el proceso de canonización de San José de Anchieta, en el cual se registró que era originaria de Óbidos, Portugal. Vivió una larga vida, falleciendo en <htdate0>",
                      "source": [
                         {
-                           "type": 1,
+                           "type": 0,
                            "uuid": "ec81d3ea-1e5c-4f4a-985c-df0c1265fdda",
                            "text": "Viotti, Hélio A., pp. 25"
                         },
@@ -1607,7 +1630,30 @@
                      "mother_name": "Luzia Fernandes"
                   }
                ],
-               "birth": null,
+               "birth": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1540",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "ec81d3ea-1e5c-4f4a-985c-df0c1265fdda",
+                           "text": "Viotti, Hélio A., pp. 25"
+                        }
+                     ]
+                  }
+               ],
                "baptism": null,
                "marriages": [
                   {
@@ -1622,7 +1668,7 @@
                            "text": "Confirmado por declaraciones de la propia Leonor y de sus hijos",
                            "source": [
                               {
-                                 "type": 1,
+                                 "type": 0,
                                  "uuid": "ec81d3ea-1e5c-4f4a-985c-df0c1265fdda",
                                  "text": "Viotti, Hélio A., pp. 22, 24, 31"
                               },
@@ -1678,7 +1724,30 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1633",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "3a98a6a5-5261-4d8a-b10b-05f7ff97b790",
+                           "text": "Inventários e Testamentos, Volume 9, pp. 5"
+                        }
+                     ]
+                  }
+               ]
             }
          ]
       },
@@ -1690,7 +1759,7 @@
                "text": "Como Lucrécia Leme era natural de Portugal, optamos por empezar la historia de la familia Leme en San Vicente, a partir de sus hijos",
                "source": [
                   {
-                     "type": 1,
+                     "type": 0,
                      "uuid": "ec81d3ea-1e5c-4f4a-985c-df0c1265fdda",
                      "text": "Viotti, Hélio A., pp. 25"
                   }
@@ -1705,9 +1774,9 @@
             {
                "id": "f1a161ab-eaa9-41b7-968f-6a11ae2cdaa6",
                "name": "Lucrécia Leme",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "female",
+               "gender": "female",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -1850,14 +1919,37 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1645",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "3a98a6a5-5261-4d8a-b10b-05f7ff97b790",
+                           "text": "Inventários e Testamentos, Volume 14, pp. 316"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "b8fb53a4-d56e-4f1c-b094-f8b388234cf6",
                "name": "Pedro Dias (Paes)",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -1893,7 +1985,30 @@
                      "mother_name": "Lucrécia Leme"
                   }
                ],
-               "birth": null,
+               "birth": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1583",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "3a98a6a5-5261-4d8a-b10b-05f7ff97b790",
+                           "text": "Inventários e Testamentos, Volume 1, pp. 401"
+                        }
+                     ]
+                  }
+               ],
                "baptism": null,
                "marriages": [
                   {
@@ -1937,7 +2052,7 @@
                            "text": "Las falsificaciones genealógicas también afectaron su vida. Su padre, Paschoal Leite, fue renombrado por Pedro T. de A. Paes Leme como Paschoal Leite Furtado, siendo descrito como miembro de una familia de fidalgos. Sin embargo, testigos en el proceso de San José de Anchieta demostraron que Paschoal era descendiente de indígenas",
                            "source": [
                               {
-                                 "type": 1,
+                                 "type": 0,
                                  "uuid": "ec81d3ea-1e5c-4f4a-985c-df0c1265fdda",
                                  "text": "Viotti, Hélio A., pp. 22, 30 - 31"
                               },
@@ -2071,15 +2186,50 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1633",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "3a98a6a5-5261-4d8a-b10b-05f7ff97b790",
+                           "text": "Inventários e Testamentos, Volume 9, pp. 55"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "74a2bea9-bfc5-4499-bdf7-07be503b5113",
                "name": "João Leite da Silva",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
-               "haplogroup": null,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
+               "haplogroup": [
+                  {
+                     "type": "mtDNA",
+                     "haplogroup": "A2",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2b3c190a-a903-4066-adae-cd565147011b",
+                           "text": "de Sillos, Luiz Gustavo, t. 00:46:27"
+                        }
+                     ]
+                  }
+               ],
                "history": [
                   {
                      "text": "El Reverendo Padre João Leite da Silva tuvo su proceso de limpieza de sangre incluido en el proceso de justificación de nobleza de Pedro Dias Paes (Leme), descendiente de su hermano, Fernão Dias Paes. Sin embargo, debido a un error, fue mencionado en el árbol genealógico presentado en la diligencia para Familiar del Santo Oficio como si fuera el esposo de su propia madre",
@@ -2114,7 +2264,30 @@
                      "mother_name": "Maria Leite da Silva"
                   }
                ],
-               "birth": null,
+               "birth": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1606",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "3a98a6a5-5261-4d8a-b10b-05f7ff97b790",
+                           "text": "Inventários e Testamentos, Volume 9, pp. 56"
+                        }
+                     ]
+                  }
+               ],
                "baptism": null,
                "marriages": null,
                "divorced": null,
@@ -2124,10 +2297,22 @@
             {
                "id": "85507c9e-ace0-40f2-babc-7bc79cf7d6f1",
                "name": "Fernão Dias Paes",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
-               "haplogroup": null,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
+               "haplogroup": [
+                  {
+                     "type": "mtDNA",
+                     "haplogroup": "A2",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2b3c190a-a903-4066-adae-cd565147011b",
+                           "text": "de Sillos, Luiz Gustavo, t. 00:46:27"
+                        }
+                     ]
+                  }
+               ],
                "history": [
                   {
                      "text": "Fernão Dias Paes es una figura destacada de la historia colonial, ampliamente estudiada por su relevante participación en diversos aspectos de la vida en la colonia. Sin embargo, algunas obras sobre su vida contienen errores. Por ejemplo, Diogo Luiz de A. P. de Vasconcellos señala equivocaciones en la obra de Pedro T. de A. Paes Leme, como la falsa idea de que Fernão alcanzó los ochenta años de edad. Este error puede corregirse al revisar los inventarios de sus padres y el registro de su fallecimiento en <htdate0>",
@@ -2238,7 +2423,30 @@
                      "mother_name": "Maria Leite da Silva"
                   }
                ],
-               "birth": null,
+               "birth": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1608",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "3a98a6a5-5261-4d8a-b10b-05f7ff97b790",
+                           "text": "Inventários e Testamentos, Volume 9, pp. 56"
+                        }
+                     ]
+                  }
+               ],
                "baptism": null,
                "marriages": [
                   {
@@ -2349,15 +2557,50 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1681",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "Minas Gerais",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "4a60ed8b-3e91-457d-b93c-30b246efcc55",
+                           "text": "de Vasconcellos, Diogo Luiz de A. P., pp. 31 - 44"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "e12b3061-7218-4e12-bddf-4a385598b1f3",
                "name": "Garcia Roiz Paes",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
-               "haplogroup": null,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
+               "haplogroup": [
+                  {
+                     "type": "mtDNA",
+                     "haplogroup": "C1b",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2b3c190a-a903-4066-adae-cd565147011b",
+                           "text": "de Sillos, Luiz Gustavo, t. 01:07:10"
+                        }
+                     ]
+                  }
+               ],
                "history": [
                   {
                      "text": "La historia de Garcia Roiz Paes es un ejemplo de cómo los efectos de las guerras y las difamaciones pueden persistir a lo largo de las generaciones. Incluso cuando el difamador se arrepiente y pide perdón por las mentiras difundidas, las consecuencias perduran, reafirmando la máxima de que la primera víctima de una guerra es la verdad",
@@ -2442,7 +2685,30 @@
                   }
                ],
                "birth": null,
-               "baptism": null,
+               "baptism": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1659",
+                           "month": "9",
+                           "day": "10"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "São Paulo",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "baab6f07-714e-40ca-abea-775fb55e1968",
+                           "text": "Torre do Tombo, Tribunal do Santo Ofício: Conselho Geral, Habilitações, Pedro, mç. 25, doc. 476, img. 159"
+                        }
+                     ]
+                  }
+               ],
                "marriages": [
                   {
                      "type": "theory",
@@ -2590,14 +2856,37 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1730",
+                           "month": "3",
+                           "day": "7"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "Paraiba",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "baab6f07-714e-40ca-abea-775fb55e1968",
+                           "text": "Endangered Archives Programme, img. 60"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "51e72cb6-6573-4929-a446-caf97ef75065",
                "name": "Ignacio Dias Velho",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -2638,9 +2927,9 @@
             {
                "id": "7941b2a2-7fa0-4567-ba9c-9dba1922ab69",
                "name": "Lucrécia Leme Borges de Serqueira",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "female",
+               "gender": "female",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -2742,9 +3031,9 @@
             {
                "id": "4b6efa49-843d-484a-aa42-43b44a2681fc",
                "name": "Garcia Roiz Paes Leme",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -2793,9 +3082,9 @@
             {
                "id": "0dc52dde-6048-474a-9024-8c0867663c97",
                "name": "Pedro Dias Paes (Leme)",
-               "sex": "",
-               "gender": "",
-               "is_real": false,
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -2877,7 +3166,30 @@
                   }
                ],
                "birth": null,
-               "baptism": null,
+               "baptism": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1705",
+                           "month": "9",
+                           "day": "9"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "Rio de Janeiro",
+                     "pc": "",
+                     "country": "Brasil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "3a98a6a5-5261-4d8a-b10b-05f7ff97b790",
+                           "text": "Inventários e Testamentos, Volume 27, pp. 221"
+                        }
+                     ]
+                  }
+               ],
                "marriages": [
                   {
                      "type": "theory",
