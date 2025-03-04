@@ -24,7 +24,7 @@
       "SPDX-License-Identifier: GPL-3.0-or-later"
    ],
    "last_update": [
-      "1740789813"
+      "1741055034"
    ],
    "authors": "",
    "reviewers": "",
@@ -79,8 +79,9 @@
             {
                "id": "3ea21df7-f7c0-4341-bd2a-9ebbf8bb2228",
                "name": "Joaquina \"Cabra\"",
-               "sex": "",
-               "gender": "",
+               "sex": "feminine",
+               "gender": "feminine",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -112,6 +113,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -121,7 +123,7 @@
                      "external_family_file": false,
                      "name": "Unknown",
                      "history": null,
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -132,9 +134,10 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
-                     "type": "hypothesis",
+                     "type": "theory",
                      "id": "c7442d8a-e853-4e3f-9558-3901c35f8fc6",
                      "marriage_id": "d491cad7-214a-4c0c-983e-e6c3d0af0897",
                      "name": "Anastacia",
@@ -165,8 +168,9 @@
             {
                "id": "c7442d8a-e853-4e3f-9558-3901c35f8fc6",
                "name": "Anastacia",
-               "sex": "",
-               "gender": "",
+               "sex": "feminine",
+               "gender": "feminine",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -270,6 +274,20 @@
                      "isTable": false,
                      "format": "html",
                      "PostMention": "."
+                  },
+                  {
+                     "text": "In addition to the data presented here related to her ancestry, we would also like to highlight the fact that Anastácia received part of the will of Carlos Moreira Murta, known as 'Terça'",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "147e96d0-7968-4218-bd01-0baaa66098c1",
+                           "text": "Family Search"
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "html",
+                     "PostMention": "."
                   }
                ],
                "parents": [
@@ -286,6 +304,30 @@
                   }
                ],
                "birth": null,
+               "baptism": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1815",
+                           "month": "9",
+                           "day": "21"
+                        }
+                     ],
+                     "address": "Matriz de Nossa Senhora da Piedade",
+                     "city": "Cachoeira do Campo",
+                     "state": "Minas Gerais",
+                     "pc": "",
+                     "country": "Brazil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "e22c0cda-295d-42b6-b10b-5b2afa7640fd",
+                           "text": "Arquivo Eclesiástico da Arquidiocese de Mariana"
+                        }
+                     ]
+                  }
+               ],
                "marriages": [
                   {
                      "type": "theory",
@@ -310,7 +352,7 @@
                            "PostMention": ""
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -321,8 +363,32 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": null,
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1876",
+                           "month": "3",
+                           "day": "12"
+                        }
+                     ],
+                     "address": "Matriz de Nossa Senhora da Piedade",
+                     "city": "Cachoeira do Campo",
+                     "state": "Minas Gerais",
+                     "pc": "",
+                     "country": "Brazil",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "f6b98da1-a72a-4519-bd71-ed4eeb7142da",
+                           "text": "Family Search, <i>Cachoeira do Campo</i>"
+                        }
+                     ]
+                  }
+               ]
             }
          ]
       }

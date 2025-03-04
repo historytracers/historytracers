@@ -29,7 +29,6 @@ var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htFamilyIdx = new Map();
-var htIdxLang = "en-US";
 
 var htGameImages = [ "MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "TeotihuacanMountains.jpg", "CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren.jpg", "SanAndres.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito.jpg", "Copan/CopanAltarGenealogy0.jpg", "Copan/CopanAltarGenealogy1.jpg", "Copan/CopanAltarGenealogy2.jpg", "Copan/CopanAltarGenealogy3.jpg", "StelaACopan.jpg", "Copan/CopanWholeTextStelaAltar.png", "Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
@@ -913,6 +912,7 @@ function htDetectLanguage()
 
 function htMountSpecificDate(dateObj, localLang, localCalendar)
 {
+    var updateText;
     switch (dateObj.type) {
         case "gregory":
             if (dateObj.day > 0 ) {
@@ -1287,18 +1287,6 @@ function htFillTopIdx(idx, data, first)
 
 function htLoadIndex(data, arg, page)
 {
-    if (data.content == undefined && data.families == undefined) {
-        return;
-    }
-
-    var localLang = $("#site_language").val();
-    if (localLang != htIdxLang) {
-        htHistoryIdx.clear();
-        htLiteratureIdx.clear();
-        htFirstStepsIdx.clear();
-        htFamilyIdx.clear();
-    }
-
     if (page == "history" && htHistoryIdx.has("history") == false) {
         htFillTopIdx(htHistoryIdx, data, "history");
         return;
@@ -1849,6 +1837,106 @@ function htCopyLink(familyID, id)
     return false;
 }
 
+function htMountPersonEvent(name, data, localLang, localCalendar) {
+    var ret = "<b>"+name+"</b> ";
+    for (const i in data) {
+        var ptr = data[i];
+        if (ptr.date == undefined) {
+            continue;
+        }
+
+        if (i != 0) {
+            ret += " "+keywords[91]+" ";
+        }
+        ret += htMountSpecificDate(ptr.date[0], localLang, localCalendar)+" (";
+        var sources = ptr.sources;
+        for (const i in sources) { 
+            if (i != 0) {
+                ret += " ; ";
+            }
+            var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
+            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+            ret += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
+        }
+
+        ret += ")";
+    }
+    return ret;
+}
+
+function htMountPersonEvents(table) {
+    var ret = "";
+    if (table.is_real == undefined) {
+        return ret;
+    }
+
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
+
+    if (table.is_real) {
+        ret = "<div class=\"personal_events_class\">"+keywords[95];
+        var begin = ret;
+
+        var sex_gender = "";
+
+        if (table.haplogroup != undefined && table.haplogroup.length > 0) {
+            ret += "<b>"+keywords[103]+"</b>: ";
+            for (const i in table.haplogroup) {
+                var haplogroup = table.haplogroup[i]
+                if (i != 0) {
+                    ret += ", ";
+                }
+
+                var sources = haplogroup.sources;
+                var lnk = "";
+                for (const i in sources) { 
+                    if (i != 0) {
+                        text += " ; ";
+                    }
+                    var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
+                    var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+                    lnk += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
+                }
+                ret += haplogroup.haplogroup+" ("+haplogroup.type+") ("+lnk+")" ;
+            }
+            ret += "<br />" ;
+        }
+
+        if (table.sex != undefined && table.sex.length > 0) {
+            sex_gender = table.sex;
+        }
+
+        if (table.gender != undefined && table.gender.length > 0) {
+            sex_gender += " / "+table.gender;
+        }
+
+        if (sex_gender.length > 0) {
+            ret += "<b>"+keywords[100]+"/"+keywords[101]+"</b>: "+sex_gender+"<br />";
+        }
+
+        if (table.birth != undefined) {
+            ret += htMountPersonEvent(keywords[92], table.birth, localLang, localCalendar)+"<br />";
+        }
+
+        if (table.baptism != undefined) {
+            ret += htMountPersonEvent(keywords[93], table.baptism, localLang, localCalendar)+"<br />";
+        }
+
+        if (table.death != undefined) {
+            ret += htMountPersonEvent(keywords[94], table.death, localLang, localCalendar)+"<br />";
+        }
+
+        if (begin.length == ret.length) {
+            ret += keywords[99];
+        }
+        ret += "</div>";
+    } else {
+        ret = "<div class=\"no_personal_events_class\">"+keywords[95]+keywords[96]+keywords[97]+"</div>";
+    }
+
+    return ret;
+}
+
 function htAppendData(prefix, id, familyID, name, table, page) {
     var history = table.history;
     var parents = table.parents;
@@ -1856,18 +1944,16 @@ function htAppendData(prefix, id, familyID, name, table, page) {
 
     if (history != undefined) {
         var title;
-        var localHeader;
         var goToTop;
         if ((parents == undefined || marriages == undefined) && (prefix != "tree")) {
             title = keywords[8];
-            localHeader = "3";
             goToTop ="<a href=\"javascript:void(0);\" onclick=\"htScroolToID('#index_list');\">"+keywords[78]+"</a>";
         } else {
             title = keywords[9];
-            localHeader = "4";
             goToTop ="";
         }
-        $("#"+prefix+"-"+id).append("<p><h"+localHeader+" id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+page+"', '"+id+"',"+undefined+");\">"+title + " : " +name+" (<a href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"'); return false;\" >"+keywords[26]+"</a>). "+goToTop+"</h"+localHeader+"></p>");
+        var personalEvents = htMountPersonEvents(table);
+        $("#"+prefix+"-"+id).append("<h3 id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+page+"', '"+id+"',"+undefined+");\">"+title + " : " +name+" (<a href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"'); return false;\" >"+keywords[26]+"</a>). "+goToTop+"</h3><p>"+personalEvents+"</p>");
     }
 
     var primary_source = table.primary_source;
@@ -1940,6 +2026,9 @@ function htAppendData(prefix, id, familyID, name, table, page) {
     }
 
     if (marriages != undefined) {
+        var localLang = $("#site_language").val();
+        var localCalendar = $("#site_calendar").val();
+
         genealogicalStats.marriages += marriages.length;
         for (const i in marriages) {
             var marriage = marriages[i];
@@ -1953,27 +2042,34 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             if (marriage.id == undefined) {
                 $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[17]+"</b>: "+keywords[19]+"</p></div>");
             } else {
+                var msg = "";
                 if (type == "theory") {
                     marriage_class = "tree-real-family-text";
                     marriage_keyword = keywords[17];
                 } else {
                     marriage_class = "tree-hipothetical-family-text";
                     marriage_keyword = keywords[18];
+                    msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
                 }
 
                 if (official != undefined && official == false) {
                     marriage_keyword = keywords[86];
                 }
                 var marriageLink = "";
+                var datetime = "";
+                if (marriage.date_time != undefined && marriage.date_time.sources != null) {
+                    datetime = htMountPersonEvent(" ", marriage.date_time, localLang, localCalendar);
+                }
+
                 if (marriage.family_id == undefined) {
                     marriageLink = marriage.name;
                 } else if (familyID == marriage.family_id || (marriage.external_family_file != undefined && marriage.external_family_file == false)) {
-                    marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>";
+                    marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>"+datetime;
                 } else {
-                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>";
+                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>"+datetime;
                 }
 
-                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b>: "+marriageLink+".</p></div>");
+                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b> "+marriageLink+".</p>"+msg+"</div>");
                htFillHistorySources(marriage.id, "#"+rel_id, marriage.history, "tree-default-align", marriage.id);
 
                 var showTree = personNameMap.has(marriage.id);
@@ -1999,25 +2095,27 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             var child_class;
             var type = child.type; 
             var child_keyword;
+            var msg = "";
             if (type == "theory") {
                 child_class = "tree-real-child-text";
                 child_keyword = keywords[20];
             } else {
                 child_class = "tree-hipothetical-child-text";
                 child_keyword = keywords[21];
+                msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
             }
 
             var childLink = "";
             if (child.family_id == undefined || child.family_id.length == 0 || ((child.external_family_file != undefined && child.external_family_file == false) && child.add_link == false)) {
-                childLink = child.name ;
+                childLink = child_keyword+" "+child.name ;
             } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
-                childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child.name+"</a>";
+                childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child_keyword+" "+child.name+"</a>";
             } else { 
-                childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child.name+"</a>";
+                childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child_keyword+" "+child.name+"</a>";
             }
 
-            $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+child_keyword+"</b>: </p></div>");
-            $("#"+child_id).append("<div id=\"with-parent-"+child.id+"\" class=\""+child_class+"\"><p><b>"+childLink+"</b>: </p></div>");
+            $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+childLink+"</b>: </p>"+msg+"</div>");
+            $("#"+child_id).append("<div id=\"with-parent-"+child.id+"\" class=\""+child_class+"\"></div>");
             htFillHistorySources("parent-"+child.id, "#with-parent-"+child.id, child.history, "", child.id);
             htSetMapFamily(child.id, id, child.marriage_id, child.type);
             personNameMap.set(child.id, child.name);

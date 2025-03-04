@@ -24,7 +24,7 @@
       "SPDX-License-Identifier: GPL-3.0-or-later"
    ],
    "last_update": [
-      "1740789813"
+      "1741055034"
    ],
    "authors": "",
    "reviewers": "",
@@ -66,8 +66,9 @@
             {
                "id": "181525b9-4fa5-4ef3-9fc0-06c20f3f5d86",
                "name": "Ordoño",
-               "sex": "",
-               "gender": "",
+               "sex": "masculine",
+               "gender": "masculine",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -93,6 +94,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -111,7 +113,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -138,7 +140,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -165,14 +167,27 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
-                        "date": null,
+                     "date_time": {
+                        "date": [
+                           {
+                              "type": "gregory",
+                              "year": "922",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        ],
                         "address": "",
                         "city": "",
                         "state": "",
                         "pc": "",
                         "country": "",
-                        "sources": null
+                        "sources": [
+                           {
+                              "type": 1,
+                              "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                              "text": "Medieval Lands"
+                           }
+                        ]
                      }
                   },
                   {
@@ -192,7 +207,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -203,6 +218,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "theory",
@@ -325,17 +341,41 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "924",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb",
+                           "text": "Escalona, Romualdo, pp. 31"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "3c510ae4-d045-4f57-8eb5-f1a7091f3d53",
-               "name": "Ramiro (+<span class=\"htdate\"></span>)",
-               "sex": "",
-               "gender": "",
+               "name": "Ramiro",
+               "sex": "masculine",
+               "gender": "masculine",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
-                     "text": "There is no doubt that Ramiro is the son of Ordoño. This is confirmed in the Sampiro Chronicle (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('57058ed9-8177-47fc-9bca-f96cfc2acb28'); return false;\">Santos, Francisco C. et al., <span class=\"htdate\"></span>, pp. 53</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>) and also in a document from the County of Portucalense (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b801c9-ffbe-47f0-ab89-10e5ede4816d'); return false;\">Herculano, Alexandre, <span class=\"htdate\"></span>, Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7.</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). However, the documents diverge on the identity of his mother.</p><p>When he began to rule the Kingdom of León, Ramiro ruled as Ramiro II (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). He was responsible for expanding the kingdom's borders (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). Among the wars he fought, the war against the Muslims is particularly notable. When we read the report of Count Don Pedro about a supposed relationship between Ramiro II and a Muslim woman named Artiga, we must highlight (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94cddc67-cec8-414a-9885-6d3e7ee952ba'); return false;\">Nobiliário Conde Dom Pedro, <span class=\"htdate\"></span>, pp. 4, 111 - 116</a>): <ul><li>The details of the description.</li><li>The omission of the second marriage of Ramiro II with Urraca.</li><li>The mention of Sancho as the son of Adosinda (Aldara) and not his mother Urraca.</li></ul></p><p>The lack of documentation to confirm the marriage of Ramiro II has led different researchers to seek documentation that can indirectly confirm this marriage, known as the legend of Gaia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('84d4a783-4503-4c49-8580-292835328e4e'); return false;\">Rei, Antonio, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9b188295-959f-42f6-ad70-40d045e3237e'); return false;\">Rodrigues de Oliveira, Natália S. T., <span class=\"htdate\"></span></a>)",
+                     "text": "There is no doubt that Ramiro is the son of Ordoño. This is confirmed in the Sampiro Chronicle (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('57058ed9-8177-47fc-9bca-f96cfc2acb28'); return false;\">Santos, Francisco C. et al., <span class=\"htdate\"></span>, pp. 53</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>) and also in a document from the County of Portucalense (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b801c9-ffbe-47f0-ab89-10e5ede4816d'); return false;\">Herculano, Alexandre, <span class=\"htdate\"></span>, Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7.</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). However, the documents diverge on the identity of his mother.</p><p>When he began to rule the Kingdom of León, Ramiro ruled as Ramiro II (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). He was responsible for expanding the kingdom's borders (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). Among the wars he fought, the war against the Muslims is particularly notable. When we read the report of Count Don Pedro about a supposed relationship between Ramiro II and a Muslim woman named Artiga, we must highlight (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94cddc67-cec8-414a-9885-6d3e7ee952ba'); return false;\">Nobiliário Conde Dom Pedro, <span class=\"htdate\"></span>, pp. 4, 111 - 116</a>): <ul><li>The details of the description.</li><li>The omission of the second marriage of Ramiro II with Urraca.</li><li>The mention of Sancho as the son of Adosinda (Aldara) and not his mother Urraca.</li></ul></p><p>The lack of documentation to confirm the marriage of Ramiro II has led different researchers to seek documentation that can indirectly confirm this marriage, known as the legend of Gaia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('84d4a783-4503-4c49-8580-292835328e4e'); return false;\">Rei, Antonio, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9b188295-959f-42f6-ad70-40d045e3237e'); return false;\">Rodrigues de Oliveira, Natália S. T., <span class=\"htdate\"></span></a>)",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -365,6 +405,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -383,7 +424,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -410,7 +451,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -437,7 +478,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -464,7 +505,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -475,6 +516,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "theory",
@@ -486,7 +528,7 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to document of monastery Santiago de Compostela (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb'); return false;\">Lopez Ferrero, Antonio, <span class=\"htdate\"></span>, Apéndice, pp. 117 - 118</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
+                           "text": "According to document of monastery Santiago de Compostela (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('e0daf9ce-dfb4-4898-ad98-1edfffa61081'); return false;\">Lopez Ferreiro, Antonio, <span class=\"htdate\"></span>, Apéndice, pp. 117 - 118</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
                            "source": null,
                            "date_time": null,
                            "isTable": false,
@@ -506,7 +548,7 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to document of monastery Santiago de Compostela (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb'); return false;\">Lopez Ferrero, Antonio, <span class=\"htdate\"></span>, Apéndice, pp. 117 - 118</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
+                           "text": "According to document of monastery Santiago de Compostela (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('e0daf9ce-dfb4-4898-ad98-1edfffa61081'); return false;\">Lopez Ferreiro, Antonio, <span class=\"htdate\"></span>, Apéndice, pp. 117 - 118</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
                            "source": null,
                            "date_time": null,
                            "isTable": false,
@@ -617,13 +659,37 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "951",
+                           "month": "1",
+                           "day": "1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "85fd9a79-5bd0-490c-bf49-f1d2dfe9a2dc",
+                           "text": "Dozi, pp. 104"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "72ca5af9-89ec-4425-ac8f-67b875658ccd",
                "name": "Lovesendo Ramires",
-               "sex": "",
-               "gender": "",
+               "sex": "masculine",
+               "gender": "masculine",
+               "is_real": false,
                "haplogroup": null,
                "history": [
                   {
@@ -649,6 +715,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "hypothesis",
@@ -667,7 +734,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -686,7 +753,7 @@
                      "name": "Artiga",
                      "history": [
                         {
-                           "text": "According to Francisco Dória (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a>)",
+                           "text": "According to Francisco Dória (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a>)",
                            "source": null,
                            "date_time": null,
                            "isTable": false,
@@ -694,7 +761,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -705,6 +772,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "hypothesis",
@@ -736,7 +804,7 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Francisco Doria (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a>)",
+                           "text": "According to Francisco Doria (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a>)",
                            "source": null,
                            "date_time": null,
                            "isTable": false,
@@ -752,8 +820,9 @@
             {
                "id": "539e6b5a-55de-46e9-bcc0-d1f42440bb21",
                "name": "Ordoño",
-               "sex": "",
-               "gender": "",
+               "sex": "masculine",
+               "gender": "masculine",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -779,6 +848,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -797,7 +867,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -824,7 +894,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -851,7 +921,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -862,6 +932,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "theory",
@@ -884,17 +955,41 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "956",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                           "text": "Medieval Lands"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "5fcda57a-2d93-4054-b269-546724a08a3e",
                "name": "Vermudo",
-               "sex": "",
-               "gender": "",
+               "sex": "masculine",
+               "gender": "masculine",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
-                     "text": "It is also possible to find in Spanish literature named as Bermudo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94cddc67-cec8-414a-9885-6d3e7ee952ba'); return false;\">Nobiliário Conde Dom Pedro, <span class=\"htdate\"></span>, pp. 4, 404</a>).</p><p>He began ruled the kingdom in the year of <span class=\"htdate\"></span></p> as Vermudo II, el Gotoso. He had a government with external wars and also a civil war (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c71b7ab9-45b2-487e-ad87-2782c9bf36b0'); return false;\">Sevilla, Margarita Torres, Real Academia de la História</a>).</p><p>His personality is defined in different ways by chronists. The Sampiro chronicle defines him as <i>prudens</i> [translation: prudent], while <i>Regum Legionensium</i> chronicle defines him as <i>\"foolish and a tyrant in everything he did\"</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('be46c8ab-c26c-4b6f-bfc5-f7c8a446cf62'); return false;\">Crônica de Sampiro, Espanha Sagrada Vol. XIV, <span class=\"htdate\"></span>, pp. 466 </a>. ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
+                     "text": "It is also possible to find in Spanish literature named as Bermudo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94cddc67-cec8-414a-9885-6d3e7ee952ba'); return false;\">Nobiliário Conde Dom Pedro, <span class=\"htdate\"></span>, pp. 4, 404</a>).</p><p>He began ruled the kingdom in the year of <span class=\"htdate\"></span></p> as Vermudo II, <i>el Gotoso</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('9f256e64-a9e9-44f3-a17a-e25e88b9d849'); return false;\">Chronicon Suorum, fl. 29 </a>). He had a government with external wars and also a civil war (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c71b7ab9-45b2-487e-ad87-2782c9bf36b0'); return false;\">Sevilla, Margarita Torres, Real Academia de la História</a>).</p><p>His personality is defined in different ways by chronists. The Sampiro chronicle defines him as <i>prudens</i> [translation: prudent], while <i>Regum Legionensium</i> chronicle defines him as <i>\"foolish and a tyrant in everything he did\"</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('be46c8ab-c26c-4b6f-bfc5-f7c8a446cf62'); return false;\">Crônica de Sampiro, Espanha Sagrada Vol. XIV, <span class=\"htdate\"></span>, pp. 466 </a>. ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -916,6 +1011,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -934,7 +1030,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -961,7 +1057,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -988,7 +1084,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -999,6 +1095,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "theory",
@@ -1221,17 +1318,46 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "999",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "León",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "9f256e64-a9e9-44f3-a17a-e25e88b9d849",
+                           "text": "Chronicon Suorum, fl. 32v"
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                           "text": "Medieval Lands"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "90abbba3-a609-47a0-9b7b-ab7e9c8b8b57",
                "name": "Alfonso",
-               "sex": "",
-               "gender": "",
+               "sex": "masculine",
+               "gender": "masculine",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
-                     "text": "He was the fourth child of Vermudo II and the third from his second marriage, but as the first son, he began to rule León in the year <span class=\"htdate\"></span> as Alfonso V while still very young. For this reason, he had Count Menendo Gonzáles as his tutor (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85fd9a79-5bd0-490c-bf49-f1d2dfe9a2dc'); return false;\">Dozy, Reinhart P. A., <span class=\"htdate\"></span>, pp. 110</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7a0507f4-be4c-40d8-a8cb-a5e042996691'); return false;\">del Pozo, José Maria F., Real Academia de la História</a>).</p><p>Regarding the life of Alfonso V, Romualdo Escalona provides only a few details about his stay at the Sahagun monastery (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb'); return false;\">Escalona, Romualdo, <span class=\"htdate\"></span>, pp. 53 - 56</a>). The civil wars are detailed on the Real Academia de la Historia website (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7a0507f4-be4c-40d8-a8cb-a5e042996691'); return false;\">del Pozo, José Maria F., Real Academia de la História</a>).</p><p>The death of Alfonso V is reported in the Salterio chronicle written in <span class=\"htdate\"></span>, and the precise location of the event, Viseu in Portugal, is described in the Church of San Juan de León (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dfed13ef-ad5d-4b8d-9471-784f2fe14b74'); return false;\">Risco, Manuel, <span class=\"htdate\"></span>, pp. 253</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
+                     "text": "He was the fourth child of Vermudo II and the third from his second marriage, but as the first son, he began to rule León in the year <span class=\"htdate\"></span> as Alfonso V while still very young. For this reason, he had Count Menendo Gonzáles as his tutor (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('85fd9a79-5bd0-490c-bf49-f1d2dfe9a2dc'); return false;\">Dozy, Reinhart P. A., <span class=\"htdate\"></span>, pp. 110</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7a0507f4-be4c-40d8-a8cb-a5e042996691'); return false;\">del Pozo, José Maria F., Real Academia de la História</a>).</p><p>Regarding the life of Alfonso V, Romualdo Escalona provides only a few details about his stay at the Sahagun monastery (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb'); return false;\">Escalona, Romualdo, <span class=\"htdate\"></span>, pp. 53 - 56</a>). The civil wars are detailed on the Real Academia de la Historia website (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7a0507f4-be4c-40d8-a8cb-a5e042996691'); return false;\">del Pozo, José Maria F., Real Academia de la História</a>).</p><p>The death of Alfonso V is reported in the Salterio chronicle written in <span class=\"htdate\"></span>, and the precise location of the event, Viseu in Portugal, is described in the Church of San Juan de León (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dfed13ef-ad5d-4b8d-9471-784f2fe14b74'); return false;\">Risco, Manuel, <span class=\"htdate\"></span>, pp. 253</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -1253,6 +1379,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -1271,7 +1398,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -1298,7 +1425,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -1325,7 +1452,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -1336,6 +1463,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "theory",
@@ -1418,13 +1546,42 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1028",
+                           "month": "8",
+                           "day": "7"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "León",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "dfed13ef-ad5d-4b8d-9471-784f2fe14b74",
+                           "text": "Risco, Manuel, pp. 253"
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                           "text": "Medieval Lands"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "19ca45ba-442d-4bc0-98b9-e17577141cc3",
                "name": "Vermudo",
-               "sex": "",
-               "gender": "",
+               "sex": "masculine",
+               "gender": "masculine",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -1450,6 +1607,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -1468,7 +1626,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -1495,7 +1653,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -1522,7 +1680,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -1549,7 +1707,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -1560,6 +1718,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "theory",
@@ -1582,7 +1741,35 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "1037",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "León",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "05dd6c77-0a99-45d5-a57a-b95746ef5595",
+                           "text": "Florez, Henriques Fr, pp. 313"
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                           "text": "Medieval Lands"
+                        }
+                     ]
+                  }
+               ]
             }
          ]
       }
@@ -1596,7 +1783,7 @@
       {
          "question": "Is Lovesendo Ramires the most well-documented son of Ramiro II with his wife Ortega/Artiga?",
          "yesNoAnswer": "No",
-         "additionalInfo": "The Gaia legend mentions an Aboazar who, by patronymic, could be named Aboazar Ramírez. However, upon examining available historical documents, we conclude that there was an Aboazar Lovesendes, a figure José Mattoso associates with the legend of Gaia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('31f13a98-fff1-45fc-992d-adb817743e9f'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 208</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f7a65165-8bec-41d5-8200-dc9e38f3786c'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 492 - 493</a>). Lovesendo Ramires has only recently appeared in some studies, seemingly to address the issue with the patronymic (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('84d4a783-4503-4c49-8580-292835328e4e'); return false;\">Rei, António, <span class=\"htdate\"></span></a>)."
+         "additionalInfo": "The Gaia legend mentions an Aboazar who, by patronymic, could be named Aboazar Ramírez. However, upon examining available historical documents, we conclude that there was an Aboazar Lovesendes, a figure José Mattoso associates with the legend of Gaia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('31f13a98-fff1-45fc-992d-adb817743e9f'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 208</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f7a65165-8bec-41d5-8200-dc9e38f3786c'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 492 - 493</a>). Lovesendo Ramires has only recently appeared in some studies, seemingly to address the issue with the patronymic (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('84d4a783-4503-4c49-8580-292835328e4e'); return false;\">Rei, António, <span class=\"htdate\"></span></a>)."
       },
       {
          "question": "Is determining family relationships during the Kingdom of León complex and requires analysis of various documents?",
@@ -1696,6 +1883,84 @@
       },
       {
          "type": "gregory",
+         "year": "897",
+         "month": "2",
+         "day": "21"
+      },
+      {
+         "type": "gregory",
+         "year": "1868",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "2019",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "897",
+         "month": "2",
+         "day": "21"
+      },
+      {
+         "type": "gregory",
+         "year": "1868",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "2019",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "1782",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "2019",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "1782",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "2019",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "1782",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "2019",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "2019",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
          "year": "1758",
          "month": "-1",
          "day": "-1"
@@ -1717,90 +1982,6 @@
          "year": "2019",
          "month": "-1",
          "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "897",
-         "month": "2",
-         "day": "21"
-      },
-      {
-         "type": "gregory",
-         "year": "1782",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "897",
-         "month": "2",
-         "day": "21"
-      },
-      {
-         "type": "gregory",
-         "year": "1782",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1782",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1758",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1945",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "951",
-         "month": "1",
-         "day": "1"
       },
       {
          "type": "gregory",
@@ -1918,7 +2099,7 @@
       },
       {
          "type": "gregory",
-         "year": "1868",
+         "year": "1898",
          "month": "-1",
          "day": "-1"
       },
@@ -1930,7 +2111,7 @@
       },
       {
          "type": "gregory",
-         "year": "1868",
+         "year": "1898",
          "month": "-1",
          "day": "-1"
       },
@@ -2032,12 +2213,6 @@
       },
       {
          "type": "gregory",
-         "year": "951",
-         "month": "1",
-         "day": "1"
-      },
-      {
-         "type": "gregory",
          "year": "2013",
          "month": "-1",
          "day": "-1"
@@ -2056,7 +2231,7 @@
       },
       {
          "type": "gregory",
-         "year": "2013",
+         "year": "2001",
          "month": "-1",
          "day": "-1"
       },
@@ -2092,13 +2267,7 @@
       },
       {
          "type": "gregory",
-         "year": "951",
-         "month": "1",
-         "day": "1"
-      },
-      {
-         "type": "gregory",
-         "year": "1765",
+         "year": "1756",
          "month": "-1",
          "day": "-1"
       },
@@ -2128,7 +2297,7 @@
       },
       {
          "type": "gregory",
-         "year": "1646",
+         "year": "1649",
          "month": "-1",
          "day": "-1"
       },

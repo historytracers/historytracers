@@ -60,15 +60,18 @@
                     "name": "Name of the person.",
                     "sex": "The biological classification of a person.",
                     "gender": "The gender identity or social role adopted by a person.",
-                    "haplogroup" : [ {
-                        "type" :  "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
-                        "source" : [
+                    "haplogroup" : [
+                        {
+                            "type" :  "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
+                            "haplogroup" : "The haplogroup value",
+                            "sources" : [
                                         { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
                                           "uuid": "Unique identifier (UUID) for the current citation.",
                                           "text": "The accompanying text that will be displayed with the citation.",
                                           "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
                                     ]
-                    } ],
+                        }
+                    ],
                     "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
                                     "source" : [
                                         { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
@@ -97,6 +100,46 @@
                             "mother_family" : "Unique identifier for the mother's family.",
                             "mother_id" : "Unique identifier for the mother.",
                             "mother_name" : "Name of the mother."
+                        }
+                    ],
+                    "birth": [
+                        {
+                            "date" : [
+                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                               {"type" : "unix", "epoch" : "0" },
+                                               {"type" : "julian",  "epoch" : "0" }
+                                           ],
+                            "address" : "The address where the marriage took place.",
+                            "city" : "The city where the marriage occurred.",
+                            "state" : "The state where the marriage took place.",
+                            "pc" : "The postal code of the marriage location.",
+                            "country" : "The country where the marriage occurred.",
+                            "sources" : [
+                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                  "uuid": "Unique identifier (UUID) for the current citation.",
+                                  "text": "The accompanying text that will be displayed with the citation.",
+                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                             ]
+                        }
+                    ],
+                    "baptism": [
+                        {
+                            "date" : [
+                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                               {"type" : "unix", "epoch" : "0" },
+                                               {"type" : "julian",  "epoch" : "0" }
+                                           ],
+                            "address" : "The address where the marriage took place.",
+                            "city" : "The city where the marriage occurred.",
+                            "state" : "The state where the marriage took place.",
+                            "pc" : "The postal code of the marriage location.",
+                            "country" : "The country where the marriage occurred.",
+                            "sources" : [
+                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                  "uuid": "Unique identifier (UUID) for the current citation.",
+                                  "text": "The accompanying text that will be displayed with the citation.",
+                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                             ]
                         }
                     ],
                     "marriages" : [
@@ -135,7 +178,7 @@
                                     "state" : "The state where the marriage took place.",
                                     "pc" : "The postal code of the marriage location.",
                                     "country" : "The country where the marriage occurred.",
-                                    "source" : [
+                                    "sources" : [
                                         { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
                                           "uuid": "Unique identifier (UUID) for the current citation.",
                                           "text": "The accompanying text that will be displayed with the citation.",
@@ -172,7 +215,8 @@
                             "adopted_child" : "A boolean value indicating whether the child is adopted."
                         }
                     ],
-                    "birth": {
+                    "death": [
+                        {
                             "date" : [
                                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                                {"type" : "unix", "epoch" : "0" },
@@ -183,31 +227,14 @@
                             "state" : "The state where the marriage took place.",
                             "pc" : "The postal code of the marriage location.",
                             "country" : "The country where the marriage occurred.",
-                            "source" : [
+                            "sources" : [
                                 { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
                                   "uuid": "Unique identifier (UUID) for the current citation.",
                                   "text": "The accompanying text that will be displayed with the citation.",
                                   "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
                              ]
-                    },
-                    "death": {
-                            "date" : [
-                                               {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                                               {"type" : "unix", "epoch" : "0" },
-                                               {"type" : "julian",  "epoch" : "0" }
-                                           ],
-                            "address" : "The address where the marriage took place.",
-                            "city" : "The city where the marriage occurred.",
-                            "state" : "The state where the marriage took place.",
-                            "pc" : "The postal code of the marriage location.",
-                            "country" : "The country where the marriage occurred.",
-                            "source" : [
-                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
-                                  "uuid": "Unique identifier (UUID) for the current citation.",
-                                  "text": "The accompanying text that will be displayed with the citation.",
-                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
-                             ]
-                    }
+                        }
+                    ]
                 }
             ]
         }

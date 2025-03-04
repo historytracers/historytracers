@@ -42,7 +42,7 @@ type FamilyPersonMarriage struct {
 	ExternalFile bool              `json:"external_family_file"`
 	Name         string            `json:"name"`
 	History      []HTText          `json:"history"`
-	Marriage     FamilyPersonEvent `json:"marriage"`
+	DateTime     FamilyPersonEvent `json:"date_time"`
 }
 
 type FamilyPersonChild struct {
@@ -58,8 +58,9 @@ type FamilyPersonChild struct {
 }
 
 type FamilyPersonHaplogroup struct {
-	Type    string     `json:"type"`
-	Sources []HTSource `json:"sources"`
+	Type       string     `json:"type"`
+	Haplogroup string     `json:"haplogroup"`
+	Sources    []HTSource `json:"sources"`
 }
 
 type FamilyPerson struct {
@@ -67,11 +68,14 @@ type FamilyPerson struct {
 	Name       string                   `json:"name"`
 	Sex        string                   `json:"sex"`
 	Gender     string                   `json:"gender"`
+	Real       bool                     `json:"is_real"`
 	Haplogroup []FamilyPersonHaplogroup `json:"haplogroup"`
 	History    []HTText                 `json:"history"`
 	Parents    []FamilyPersonParents    `json:"parents"`
 	Birth      []FamilyPersonEvent      `json:"birth"`
+	Baptism    []FamilyPersonEvent      `json:"baptism"`
 	Marriages  []FamilyPersonMarriage   `json:"marriages"`
+	Divorced   []FamilyPersonMarriage   `json:"divorced"`
 	Children   []FamilyPersonChild      `json:"children"`
 	Death      []FamilyPersonEvent      `json:"death"`
 }

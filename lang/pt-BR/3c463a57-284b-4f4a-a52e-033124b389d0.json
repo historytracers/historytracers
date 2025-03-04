@@ -24,7 +24,7 @@
       "SPDX-License-Identifier: GPL-3.0-or-later"
    ],
    "last_update": [
-      "1740789813"
+      "1741055034"
    ],
    "authors": "",
    "reviewers": "",
@@ -68,12 +68,13 @@
             {
                "id": "4e3faaab-1761-4d6e-b15f-b49d82b17a0d",
                "name": "Sisebuto",
-               "sex": "",
-               "gender": "",
+               "sex": "masculino",
+               "gender": "masculino",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
-                     "text": "Sisebuto reinou entre os anos de <span class=\"htdate\"></span> e <span class=\"htdate\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0d27a725-4526-40aa-9ef4-6ecdc30f16f6'); return false;\">Moreno, Luis A. G, Real Academia de la História</a>).</p><p>Muito antes da Inquisição Cristã, Sisebuto forçou judeus a se converterem ao Cristianismo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2365a881-17ba-4719-96fe-7cf753f2a475'); return false;\">Brito, Bernardo de, <span class=\"htdate\"></span>, fl. 247</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b'); return false;\">Florez, Henriques, <span class=\"htdate\"></span>, Trat. 6, Ap. XII, pp. 494</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>).</p><p>Faleceu no ano de <span class=\"htdate\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
+                     "text": "Sisebuto reinou entre os anos de <span class=\"htdate\"></span> e <span class=\"htdate\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0d27a725-4526-40aa-9ef4-6ecdc30f16f6'); return false;\">Moreno, Luis A. G, Real Academia de la História</a>).</p><p>Muito antes da Inquisição Cristã, Sisebuto forçou judeus a se converterem ao Cristianismo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2365a881-17ba-4719-96fe-7cf753f2a475'); return false;\">Brito, Bernardo de, <span class=\"htdate\"></span>, fl. 247</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b'); return false;\">Florez, Henriques, <span class=\"htdate\"></span>, Trat. 6, Ap. XII, pp. 494</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>).</p><p>Faleceu no ano de <span class=\"htdate\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('a8ab3442-f7ab-406c-86ec-cf3411082bc1'); return false;\">Florez, Henriques, <span class=\"htdate\"></span>, pp. 178</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -95,6 +96,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -104,7 +106,7 @@
                      "external_family_file": false,
                      "name": "Desconhecida",
                      "history": null,
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -115,6 +117,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "theory",
@@ -157,13 +160,37 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "620",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "a8ab3442-f7ab-406c-86ec-cf3411082bc1",
+                           "text": "Florez, Henriques, Tomo II, pp. 178"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "db2087bd-acfc-4ca8-bc91-e685fc59a0b7",
                "name": "Recaredo",
-               "sex": "",
-               "gender": "",
+               "sex": "masculino",
+               "gender": "masculino",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -189,6 +216,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -198,7 +226,7 @@
                      "external_family_file": false,
                      "name": "Desconhecida",
                      "history": null,
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -209,14 +237,39 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": null,
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "621",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b",
+                           "text": "Florez, Henriques, Tomo VI, pp. 494"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "8aaf1501-9bbe-4162-81cb-8ea5b23bd766",
                "name": "Theodora",
-               "sex": "",
-               "gender": "",
+               "sex": "female",
+               "gender": "female",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -242,6 +295,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -251,7 +305,7 @@
                      "external_family_file": false,
                      "name": "Suintila",
                      "history": null,
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -262,6 +316,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": null,
                "death": null
             }
@@ -284,8 +339,9 @@
             {
                "id": "b790586a-f995-49da-9846-e92fa334a5c0",
                "name": "Egica",
-               "sex": "",
-               "gender": "",
+               "sex": "masculino",
+               "gender": "masculino",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -319,6 +375,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -337,7 +394,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -348,6 +405,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "theory",
@@ -390,13 +448,37 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "702",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5",
+                           "text": "Crónica de Alfonso III, pp. 12"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "547673e8-6c58-44f4-837e-920c3c90652c",
                "name": "Witiza",
-               "sex": "",
-               "gender": "",
+               "sex": "masculino",
+               "gender": "masculino",
+               "is_real": true,
                "haplogroup": null,
                "history": [
                   {
@@ -430,6 +512,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "theory",
@@ -439,7 +522,7 @@
                      "external_family_file": false,
                      "name": "Desconhecida",
                      "history": null,
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -450,6 +533,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "theory",
@@ -532,13 +616,37 @@
                      "adopted_child": false
                   }
                ],
-               "death": null
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "710",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city": "",
+                     "state": "",
+                     "pc": "",
+                     "country": "",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5",
+                           "text": "Crónica de Alfonso III, pp. 12"
+                        }
+                     ]
+                  }
+               ]
             },
             {
                "id": "9caa2e55-dd47-4906-a6d7-1a4f379e720e",
                "name": "Sisebuto",
-               "sex": "",
-               "gender": "",
+               "sex": "masculino",
+               "gender": "masculino",
+               "is_real": false,
                "haplogroup": null,
                "history": [
                   {
@@ -564,6 +672,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "hypothesis",
@@ -573,7 +682,7 @@
                      "external_family_file": false,
                      "name": "Desconhecida",
                      "history": null,
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -584,6 +693,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": [
                   {
                      "type": "hypothesis",
@@ -611,13 +721,28 @@
             {
                "id": "63f2220e-5f04-4669-9ecf-c94274d29cbb",
                "name": "Menaia Ribeiro",
-               "sex": "",
-               "gender": "",
+               "sex": "female",
+               "gender": "female",
+               "is_real": false,
                "haplogroup": null,
                "history": [
                   {
                      "text": "Manuel Jozé da C. Felgueiras Gaio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras, Gaio, Manuel J da C., <span class=\"htdate\"></span>, Souzas, pp. 13</a>) afirma que Menaia Ribeiro seria descendente por varonia de um Sisebuto, [suposto] filho de Witiza, mas não há documentos ou crônicas que corroborem essa informação (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 3</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
                      "source": null,
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "html",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "Além da falta de documentação capaz de comprovar a existência dessa pessoa e de seu suposto pai, é necessário destacar que Felgueiras Gaio lhe atribuiu um sobrenome, Ribeiro, algo incomum para a época em que se acredita que ela viveu",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "d5863482-48a0-4ee6-ba5c-062d0ce1eaa4",
+                           "text": "Felgueiras, Gaio, Manuel J da C., Souzas, pp. 13"
+                        }
+                     ],
                      "date_time": null,
                      "isTable": false,
                      "format": "html",
@@ -638,6 +763,7 @@
                   }
                ],
                "birth": null,
+               "baptism": null,
                "marriages": [
                   {
                      "type": "hypothesis",
@@ -656,7 +782,7 @@
                            "PostMention": "."
                         }
                      ],
-                     "marriage": {
+                     "date_time": {
                         "date": null,
                         "address": "",
                         "city": "",
@@ -667,6 +793,7 @@
                      }
                   }
                ],
+               "divorced": null,
                "children": null,
                "death": null
             }
@@ -782,6 +909,12 @@
       {
          "type": "gregory",
          "year": "620",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "1754",
          "month": "-1",
          "day": "-1"
       },
