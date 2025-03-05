@@ -14,12 +14,42 @@
             "value_type" : "paper",
             "value" : [
                 {
-                    "id" : "empty",
-                    "text" : [ "<p></p>" ]
+                    "id" : "line",
+                    "text": [
+                            { "text" : "<p><hr /></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                              }
+                    ]
                 },
                 {
                     "id" : "introduction",
-                    "text" : [ "<p><h3>Introduction</h3>To delve deeper into certain topics, science classes are divided into distinct disciplines:</p>", "<p><table  class=\"comparison_3D\"> <tr><th>Area</th><th>Examples</th></tr> <tr><td>Human</td><td>Philosophy, History, Literature, Geography</td></tr> <tr><td>Exact</td><td>Physics, Mathematics, Chemistry</td></tr> <tr><td>Biological</td><td>Zoology, Genetics, Biochemistry</td></tr> </table></p>", "<p class=\"desc\">Table 1: Example of sciences organized into different areas.</p>", "<p>While History Tracers aligns with this approach, the manner in which subjects are taught can sometimes lead students to perceive the sciences as isolated entities, thus creating barriers to understanding.</p>", "<p>We believe that the first step to removing these barriers is to recall our childhood, where natural curiosity allowed us to delve into new knowledge.</p>" ]
+                    "text" : [ 
+                              { "text" : "### Introduction\n\nTo delve deeper into certain topics, science classes are divided into distinct disciplines",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                              },
+                              { "text" : "<p><table  class=\"comparison_3D\"> <tr><th>Area</th><th>Examples</th></tr> <tr><td>Humanities</td><td>Philosophy, History, Literature</td></tr> <tr><td>Exact</td><td>Physics, Mathematics, Chemistry</td></tr> <tr><td>Biological</td><td>Zoology, Genetics, Biochemistry</td></tr> </table></p><p class=\"desc\">Table 1: Example of sciences organized into different areas.</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                              },
+                              { "text" : "While we support this approach, we recognize that it can lead to the misconception that sciences are entirely independent of one another, which, in turn, can create barriers to the learning process.\n\nIn light of this scenario, we have chosen to develop an **interdisciplinary** project, implementing a teaching model that considers different types of intelligence",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                              }
+                    ]
                 },
                 {
                     "id" : "contradiction",

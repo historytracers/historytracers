@@ -14,12 +14,42 @@
             "value_type" : "paper",
             "value" : [
                 {
-                    "id" : "empty",
-                    "text" : [ "<p></p>" ]
+                    "id" : "line",
+                    "text": [
+                            { "text" : "<p><hr /></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                              }
+                    ]
                 },
                 {
                     "id" : "introduction",
-                    "text" : [ "<p><h3>Introdução</h3>Para explorar os assuntos de forma mais abrangente, as aulas são divididas em diferentes disciplinas, tais como:</p>", "<p><table  class=\"comparison_3D\"> <tr><th>Área</th><th>Exemplos</th></tr><tr><td>Humanas</td><td>Filosofia, História, Letras, Geografia</td></tr><tr><td>Exatas</td><td>Física, Matemática, Química</td></tr><tr><td>Biológicas</td><td>Zoologia, Genética, Bioquímica</td></tr> </table></p>", "<p class=\"desc\">Tabela 1: Exemplo de ciências organizadas em diferentes áreas.</p>", "<p>Embora no History Tracers concordemos com essa abordagem, reconhecemos que ela pode levar alguns a perceberem as ciências como independentes entre si, o que, por sua vez, pode criar obstáculos à aprendizagem.</p>", "<p>Creemos que o primeiro passo para remover esta barreira é recordar nossa infância, onde a curiosidade natural permitia mergulhar em novos conhecimentos.</p>" ]
+                    "text" : [ 
+                              { "text" : "### Introdução\n\nPara explorar os assuntos de forma mais abrangente, as aulas são divididas em diferentes disciplinas, tais como",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                              },
+                              { "text" : "<p><table  class=\"comparison_3D\"> <tr><th>Área</th><th>Exemplos</th></tr><tr><td>Humanas</td><td>Filosofia, História, Letras</td></tr><tr><td>Exatas</td><td>Física, Matemática, Química</td></tr><tr><td>Biológicas</td><td>Zoologia, Genética, Bioquímica</td></tr> </table></p><p class=\"desc\">Tabela 1: Exemplo de ciências organizadas em diferentes áreas.</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                              },
+                              { "text" : "Não somos contra essa abordagem, mas reconhecemos que ela pode levar alguns a perceberem as ciências como áreas independentes entre si, o que, por sua vez, pode criar obstáculos à aprendizagem.\n\nDiante desse cenário, optamos por desenvolver um projeto **interdisciplinar**, realizando um ensino que abranja diferentes tipos de inteligência",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                              }
+                    ]
                 },
                 {
                     "id" : "contradiction",
