@@ -52,12 +52,115 @@
                     ]
                 },
                 {
-                    "id" : "contradiction",
-                    "text" : [ "<p><h3>A contradiction</h3>When we are children, we can't stop asking questions, which helps with our cognitive development (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ddc1f803-3676-40d8-a27c-af643522d47d'); return false;\">Chouinard, M. M., Harris, P. L., & Maratsos, M. P., <span class=\"htdate\"></span></a>). However, as we grow, some people avoid asking questions and change their habits, seeking \"solid\" answers (truths), that are often overly simplistic. In doing so, they stop questioning and begin to accept information without inquiry. Recent studies suggest these \"solid answers\" are actually linked with a relativism that prevents them from being accepted as unquestionable truths (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('23359d6a-4353-4674-bd8d-a283d28f06a7'); return false;\">Cappelen, H., & Huvenes, T. T., <span class=\"htdate\"></span></a>).</p>", "<p>Another observation I have made is that people who seek simple answers are often the same ones who reject math, and consequently, reject logic. This is a contradiction because math is genuinely solid, as demonstrated by its proofs, although these are sometimes overlooked (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('02ffd817-93f6-4180-881c-75a58a54ab2a'); return false;\">Rocha, H., <span class=\"htdate\"></span></a>).</p>", "<p>So, how can we remove these barriers to math and science?</p>" ]
+                    "id" : "knowledge",
+                    "text" : [ 
+                               { "text" : "### On Knowledge\n\n#### What is the knowledge level?\n\nOne of the best definitions of our level of knowledge, if not the best, was given by Socrates millennia ago",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "3b95809f-e017-4f2c-9c30-bc3db69ce7c5",
+                                                "text": "Plato, pp. 15",
+                                                "date" :  {"type" : "gregory", "year" : "1899", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "ae49cb80-7652-4fe9-b18a-0de1c4c8321a",
+                                                "text": "Luiz Felipe Pondé",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "9", "day" : "10" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<ul class=\"citation\"><li><i>\"I neither know nor think that I know\"</i></li> </ul>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: On Our Knowledge</b><br /><br />What conclusion can we draw from Socrates' statement?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "Initially, we might interpret it as an analogy, where our knowledge is represented as an empty circle that needs to be filled. However, this interpretation presents a problem: it suggests that human knowledge is limited in size.\n\nA more realistic perspective is that as we acquire knowledge and fill the circle, new knowledge is discovered, causing the circle to expand.\n\nImagine you want to learn something new. Now, move your cursor (or your finger, if you're reading on a smartphone) over Figure 1, representing this process. Observe how the circle grows. This reflects what happens in real life: the more we learn, the more we realize how much there is still to learn",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "<center><div class=\"htCircle\" style=\"height: 10vh; width: 10vh; background-color: white; border:1px solid black;\"></div></center><p class=\"desc\">Figure 1: Visual representation of a person's knowledge.</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "#### How Do We Learn?\n\nFor a long time, it was believed that the ability to learn was linked to a single type of intelligence. However, this concept changed at the end of the 20th century with the **Theory of Multiple Intelligences** proposed by Howard Gardner.\n\nThanks to his work, we now understand that there are different types of intelligence and that each individual can develop distinct cognitive abilities. Figure 2 illustrates the nine types of intelligence, as explained by Sabriye Şener and Ayten Çokçalışkan",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "2696b05e-fabc-4818-909a-8fc833c3cd19",
+                                                "text": "Şener, S., & Çokçalışkan, pp. 125 - 126",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "1", "day" : "21" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<center><canvas  aria-label=\"chart\" id=\"chart0\" class=\"htChart\" style=\"width: 60%;\"></canvas></center><p class=\"desc\">Figure 2: Chart showing the types of intelligence. While they are presented uniformly, each person develops them at different levels.</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "- **Verbal-linguistic:** Ability to express oneself effectively through speech and writing.\n- **Logical-mathematical:** Capacity to perform calculations and understand situations systematically and logically.\n- **Visual-spatial:** Aptitude for perceiving, modifying, and creating images and spaces.\n- **Musical:** Ability to recognize tones, rhythms, and the emotional aspects of music.\n- **Bodily-kinesthetic:** Skill in using the body and its movements with precision.\n- **Intrapersonal:** Capacity to recognize and understand one's own emotions and motivations.\n- **Interpersonal:** Ability to understand and interact effectively with others.\n- **Naturalistic:** Sensitivity to classify and comprehend elements of the natural world.\n- **Existential:** Capacity to reflect on philosophical and abstract questions, such as the meaning of life",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": " "
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: On Our Intelligence</b><br /><br />How would you assess your levels of intelligence according to Gardner’s theory?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               }
+                    ]
                 },
                 {
-                    "id" : "route",
-                    "text" : [ "<p><h3>Reaching knowledge</h3>To help readers overcome this obstacle, this section of the curriculum integrates the sciences. The methodology used considers several factors:</p>", "<p><ul><li>There is no issue in acquiring more knowledge, because as Socrates said, \"I neither know nor think that I know\" [\"I know that I know nothing\"] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3b95809f-e017-4f2c-9c30-bc3db69ce7c5'); return false;\">Plato, <span class=\"htdate\"></span>, pp. 15</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ae49cb80-7652-4fe9-b18a-0de1c4c8321a'); return false;\">Luiz Felipe Pondé, <span class=\"htdate\"></span></a>)</li><li>There are different types of intelligence (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2696b05e-fabc-4818-909a-8fc833c3cd19'); return false;\">Şener, S., & Çokçalışkan, A., <span class=\"htdate\"></span></a>), meaning that people understand content in various ways.</p>", "<p>An example of the necessity of collaboration among the sciences can be observed in the genealogy of the Rodrigues family, who lived in Brazil during the 16th century. Different authors claimed that their [supposed] matriarch migrated from Europe, but genetic tests revealed she was Indigenous. One of the researchers failed to compare the dates he was writing with available documentation, resulting in a mother was more than two decades younger than her own daughter (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('53553792-0077-41cf-b078-b2b0f537360b'); return false;\">History Tracers, <span class=\"htdate\"></span>, Rodrigues</a>). This event shows how genetics, history, and mathematics can complement each other to correct historical descriptions.</p>" ]
+                    "id" : "steps",
+                    "text" : [ 
+                               { "text" : "### Learning Steps\n\n#### The fist years\n\nWhen we are children, we can't stop asking questions, which helps with our cognitive development",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "ddc1f803-3676-40d8-a27c-af643522d47d",
+                                                "text": "Chouinard, M. M., Harris, P. L., & Maratsos, M. P.",
+                                                "date" :  {"type" : "gregory", "year" : "2007", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "However, as we grow, some people avoid asking questions and change their habits, seeking \"solid\" answers (truths), that are often overly simplistic. In doing so, they stop questioning and begin to accept information without inquiry. Recent studies suggest these \"solid answers\" are actually linked with a relativism that prevents them from being accepted as unquestionable truths",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "23359d6a-4353-4674-bd8d-a283d28f06a7",
+                                                "text": "Cappelen, H., & Huvenes, T. T.",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
                 },
                 {
                     "id" : "conclusion",
