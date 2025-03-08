@@ -3,12 +3,12 @@
 function htSelectLabels() {
     var localLang = $("#site_language").val();
     if (localLang == "pt-BR") {
-        return [ "Verbal", "Lógica", "Visual", "Musical", "Corporal", "Intrapessoal", "Interpessoal", "Naturalista", "Existencial"];
+        return [ "Verbal-Linguística", "Lógica-Matemática", "Espacial-Visual", "Musical", "Corporal-Cinestésica", "Intrapessoal", "Interpessoal", "Naturalista", "Existencial"];
     } else if (localLang == "es-ES") {
-        return [ "Verbal", "Lógica", "Visual", "Musical", "Corporal", "'Intrapersonal'", "Interpersonal", "Naturalista", "Existencial"];
+        return [ "Verbal-lingüística", "Lógico-matemática", "Espacial-visual", "Musical", "Corporal-cinestésica", "'Intrapersonal'", "Intrapersonal", "Naturalista", "Existencial"];
     }
     
-    return [ "Verbal", "Logical", "Visual", "Musical", "Bodily", "Intrapersonal", "Interpersonal", "Naturalistic", "Existential"];
+    return [ "Verbal-linguistic", "Logical-mathematical", "Visual-spatial", "Musical", "Bodily-kinesthetic", "Intrapersonal", "Interpersonal", "Naturalistic", "Existential" ];
 }
 
 function htPlotPie() {
