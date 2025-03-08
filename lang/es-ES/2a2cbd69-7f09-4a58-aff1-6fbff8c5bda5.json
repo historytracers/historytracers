@@ -7,45 +7,268 @@
     "last_update" : [ "1717109124" ],
     "authors" : null,
     "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
     "content" : [
         {
-            "id" : "families",
             "target" : "group_list",
             "value_type" : "paper",
             "value" : [
                 {
-                    "id" : "empty",
-                    "text" : [ "<p></p>" ]
+                    "id" : "line",
+                    "text": [
+                            { "text" : "<p><hr /></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                              }
+                    ]
                 },
                 {
                     "id" : "introduction",
-                    "text" : [ "<p><h3>Introducción</h3>Para una exploración más completa de los temas, las clases de ciencias se dividen en diferentes áreas:</p>", "<p><table  class=\"comparison_3D\"> <tr><th>Área</th><th>Ejemplos</th></tr> <tr><td>Humanas</td><td>Filosofia, Historia, Letras, Geografia</td></tr> <tr><td>Exactas</td><td>Física, Matemáticas, Química</td></tr> <tr><td>Biológicas</td><td>Zoologia, Genética, Bioquímica</td></tr> </table></p>", "<p class=\"desc\">Tabla 1: Ejemplo de ciencias organizadas en diferentes áreas.</p>", "<p>Aunque History Tracers está de acuerdo con esta estructura, es importante considerar que, dependiendo de cómo se enseñen los contenidos, los estudiantes pueden percibir las ciencias como disciplinas independientes. Esto podría crear una barrera para el aprendizaje integral.</p>", "<p>Creemos que el primer paso para eliminar esta barrera es recordar nuestra infancia, cuando la curiosidad natural nos permitía sumergirnos en nuevos conocimientos sin prejuicios ni divisiones artificiales.</p>" ]
+                    "text" : [ 
+                              { "text" : "### Introducción\n\nPara una exploración más completa de los temas, las clases de ciencias se dividen en diferentes áreas",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                              },
+                              { "text" : "<p><table  class=\"comparison_3D\"> <tr><th>Área</th><th>Ejemplos</th></tr> <tr><td>Humanas</td><td>Filosofía, Historia, Letras</td></tr> <tr><td>Exactas</td><td>Física, Matemáticas, Química</td></tr> <tr><td>Biológicas</td><td>Zoología, Genética, Bioquímica</td></tr> </table></p><p class=\"desc\">Tabla 1: Ejemplo de ciencias organizadas en diferentes áreas.</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                              },
+                              { "text" : "No estamos en contra de este enfoque, pero reconocemos que puede llevar a algunos a percibir las ciencias como áreas independientes entre sí, lo que, a su vez, puede crear obstáculos para el aprendizaje.\n\nFrente a este escenario, optamos por desarrollar un proyecto **interdisciplinario**, implementando una enseñanza que abarque diferentes tipos de inteligencia",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                              }
+                    ]
                 },
                 {
-                    "id" : "contradiction",
-                    "text" : [ "<p><h3>Una contradicción</h3>Cuando somos niños, somos incansables en hacer preguntas, lo cual nos ayuda en nuestro desarrollo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ddc1f803-3676-40d8-a27c-af643522d47d'); return false;\">Chouinard, M. M., Harris, P. L., & Maratsos, M. P., <span class=\"htdate\"></span></a>). Sin embargo, al crecer, muchas personas dejan de cuestionar y empiezan a buscar respuestas que consideran \"solidez\" (verdaderas), a menudo simplistas. Como resultado, dejan de cuestionar y pasan a aceptar información sin análisis crítico. Estudios recientes sugieren que estas \"respuestas sólidas\" están frecuentemente sujetas a un relativismo que impide la aceptación de verdades incuestionables (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('23359d6a-4353-4674-bd8d-a283d28f06a7'); return false;\">Cappelen, H., & Huvenes, T. T., <span class=\"htdate\"></span></a>).</p>", "<p>Otra observación en algunas personas que conocí es que aquellas que más desean respuestas incontestables tienden a rechazar la matemática, y por consecuencia, la lógica. Esto es una contradicción, ya que la matemática es notoriamente sólida, como lo demuestran sus pruebas, aunque a menudo no se nos presentan de manera accesible (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('02ffd817-93f6-4180-881c-75a58a54ab2a'); return false;\">Rocha, H., <span class=\"htdate\"></span></a>).</p>", "<p>Entonces, ¿cómo podemos remover las barreras con la matemática y las ciencias?</p>" ]
+                    "id" : "knowledge",
+                    "text" : [ 
+                               { "text" : "### Sobre el conocimiento\n\n#### ¿Cuál es el tamaño del conocimiento?\n\nUna de las mejores definiciones sobre nuestro nivel de conocimiento, si no la mejor, fue hecha por Sócrates hace milenios",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "3b95809f-e017-4f2c-9c30-bc3db69ce7c5",
+                                                "text": "Plato, pp. 15",
+                                                "date" :  {"type" : "gregory", "year" : "1899", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "ae49cb80-7652-4fe9-b18a-0de1c4c8321a",
+                                                "text": "Luiz Felipe Pondé",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "9", "day" : "10" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<ul class=\"citation\"><li><i>\"I neither know nor think that I know\" [ \"solo sé que no sé nada\" ]</i></li> </ul>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre nuestro conocimiento</b><br /><br />¿Qué conclusión podemos sacar de la frase de Sócrates?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "Inicialmente, podemos interpretarla como una analogía en la que nuestro conocimiento es un círculo vacío que necesita ser llenado. Sin embargo, esta interpretación presenta un problema: sugiere que el conocimiento humano tiene un tamaño limitado.\n\nUna visión más realista es que, a medida que adquirimos conocimiento y llenamos el círculo, nuevos conocimientos son descubiertos, expandiéndolo continuamente.\n\nSupongamos que deseas aprender algo nuevo. Ahora, coloca el cursor (o tu dedo, si estás en un smartphone) sobre la Figura 1, representando este proceso. Observa cómo el círculo se expande. Esto refleja lo que ocurre en la vida real: cuanto más aprendemos, más nos damos cuenta de cuánto nos queda por conocer",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "<center><div class=\"htCircle\" style=\"height: 10vh; width: 10vh; background-color: white; border:1px solid black;\"></div></center><p class=\"desc\">Figura 1: Representación visual del conocimiento de una persona.</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "#### ¿Cómo aprendemos?\n\nDurante mucho tiempo, se creyó que la capacidad de aprendizaje estaba directamente ligada a un único tipo de inteligencia. Sin embargo, esta concepción cambió a finales del siglo XX, de acuerdo con calendário gregoriano, con la teoría de las inteligencias múltiples de Howard Gardner.\n\nGracias a su trabajo, comprendemos que existen diferentes tipos de inteligencia y que cada individuo puede desarrollar habilidades cognitivas distintas. La Figura 2 ilustra los nueve tipos de inteligencia, explicados por Sabriye Şener y Ayten Çokçalışkan",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "2696b05e-fabc-4818-909a-8fc833c3cd19",
+                                                "text": "Şener, S., & Çokçalışkan, pp. 125 - 126",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "1", "day" : "21" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<center><canvas  aria-label=\"chart\" id=\"chart0\" class=\"htChart\" style=\"width: 60%;\"></canvas></center><p class=\"desc\">Figura 2: Gráfico que muestra los tipos de inteligencia. Aunque aparecen de manera uniforme, cada persona los desarrolla en distintos niveles.</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "- **Verbal-lingüística:** Habilidad para expresarse bien por medio de la escritura y el habla.\n- **Lógico-matemática:** Capacidad de realizar cálculos y comprender situaciones de forma sistemática y lógica.\n- **Espacial-visual:** Aptitud para percibir, modificar y crear imágenes y espacios.\n- **Musical:** Capacidad de reconocer tonos, ritmos y los aspectos emocionales de la música.\n- **Corporal-cinestésica:** Habilidad de utilizar el cuerpo y sus movimientos de forma precisa.\n- **'Intrapersonal':** Capacidad de reconocer y comprender las propias emociones y motivaciones.\n- **Intrapersonal:** Facilidad para comprender e interactuar con otras personas.\n- **Naturalista:** Sensibilidad para clasificar e interpretar elementos del mundo natural.\n- **Existencial:** Capacidad de reflexionar sobre cuestiones filosóficas y abstractas, como el sentido de la vida",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": " "
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre nuestra inteligencia</b><br /><br />¿Puedes mensurar los tipos de inteligencia propuestos por Gardner que posees?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "#### ¿Inteligencia Artificial?\n\nA diario, estamos observando el crecimiento de esta herramienta, principalmente entre el público en general. Pero, ¿es realmente inteligente?\n\nLa Dra. Sabine Hossenfelder, en diferentes vídeos de su canal y en su newsletter semanal, destaca algunos problemas de los modelos de IA actualmente en uso. Entre ellos, destacamos el trabajo de Jan Betley y colaboradores, que muestra algoritmos proporcionando consejos maliciosos y actuando de manera engañosa",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "513dd9ce-29bd-4fb4-9064-abb0d881ce60",
+                                                "text": "Dr. Sabine Hossenfelder"},
+                                              { "type": 1,
+                                                "uuid": "0bf6d7da-746d-4e51-b7e9-11cac691c50d",
+                                                "text": "Betley, J. et. al.",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Otro punto importante es entender la definición de \"inteligencia artificial\"",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "f117ab8a-7f2c-4511-bc2a-2d16564ee811",
+                                                "text": "Real Academia Española"}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<ul class=\"citation\"><li><i>\"Disciplina científica que se ocupa de crear programas informáticos que ejecutan operaciones comparables a las que realiza la mente humana, como el aprendizaje o el razonamiento lógico</i>\"</li></ul>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "Considerando que la definición está asociada al \"razonamiento lógico\", queda evidente que no estamos hablando de inteligencia en su totalidad, lo que la hace incomparable con la inteligencia humana.\n\nA pesar de sus limitaciones y de los problemas existentes en los algoritmos, entendemos que la IA es una tecnología beneficiosa, que debe ser usada con los debidos cuidados",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
                 },
                 {
-                    "id" : "route",
-                    "text" : [ "<p><h3>Alcanzando el entendimiento</h3>Con el objetivo de ayudar a los lectores a superar esta barrera, esta sección enseña las ciencias de manera integrada. El enfoque utilizado tiene en cuenta varios factores:</p>", "<p><ul><li>No hay problema en añadir más conocimiento, ya que, como dijo Sócrates, \"I neither know nor think that I know\" [ \"solo sé que nada sé\" ] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3b95809f-e017-4f2c-9c30-bc3db69ce7c5'); return false;\">Plato, <span class=\"htdate\"></span>, pp. 15</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ae49cb80-7652-4fe9-b18a-0de1c4c8321a'); return false;\">Luiz Felipe Pondé, <span class=\"htdate\"></span></a>).</lil><li>Existen diferentes tipos de inteligencia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2696b05e-fabc-4818-909a-8fc833c3cd19'); return false;\">Şener, S., & Çokçalışkan, A., <span class=\"htdate\"></span></a>),  lo que significa que las personas entienden los contenidos de maneras diversas.</p>", "<p>Un ejemplo de la necesidad de colaboración entre las ciencias puede observarse en la genealogía de la familia Rodrigues, que vivió en el siglo XVI en Brasil. Diferentes autores atribuyeron un origen europeo a su supuesta matriarca, pero exámenes genéticos revelaron que ella era indígena. Uno de los autores no comparó las fechas disponibles correctamente, lo que resultó en una madre más de dos décadas más joven que su propia hija (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('53553792-0077-41cf-b078-b2b0f537360b'); return false;\">History Tracers, <span class=\"htdate\"></span>, Rodrigues</a>). Este caso demuestra cómo la genética, la historia y la matemática pueden complementarse para corregir descripciones equivocadas y esclarecer hechos históricos.</p>" ]
+                    "id" : "steps",
+                    "text" : [ 
+                               { "text" : "### Etapas del Aprendizaje\n\n#### Los Primeros Años\n\nCuando somos niños, somos incansables en hacer preguntas, lo cual nos ayuda en nuestro desarrollo",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "ddc1f803-3676-40d8-a27c-af643522d47d",
+                                                "text": "Chouinard, M. M., Harris, P. L., & Maratsos, M. P.",
+                                                "date" :  {"type" : "gregory", "year" : "2007", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Sin embargo, al crecer, muchas personas dejan de cuestionar y empiezan a buscar respuestas que consideran \"sólidas\" (verdaderas), a menudo simplistas. Como resultado, dejan de cuestionar y pasan a aceptar información sin análisis crítico. Estudios recientes sugieren que estas \"respuestas sólidas\" están frecuentemente sujetas a un relativismo que impide la aceptación de hechos",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "23359d6a-4353-4674-bd8d-a283d28f06a7",
+                                                "text": "Cappelen, H., & Huvenes, T. T.",
+                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "#### De la Escuela a la Universidad\n\nA pesar de que aprendemos diariamente y el conocimiento no tiene límites, existe un período de la vida en que frecuentamos el jardín de infancia, la escuela y, en algunos casos, la universidad",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre el Acceso a la Educación</b><br /><br />¿No deberíamos todos tener el derecho de formarnos en una universidad?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "El Doctor Francisco A. González Redondo, al exponer sobre la historia de las Matemáticas, detalla la división de la ciencia, explicando que los alumnos, en sus primeros años, son presentados a una pre-matemática por medio de ejemplos. A medida que avanzan, son introducidos a una proto-matemática y, finalmente, al entrar en la universidad, desarrollan el conocimiento matemático",
+                                 "source" : [
+                                     { "type": 1,
+                                       "uuid": "696e5833-e134-4b57-ad3f-8438fe0ec495",
+                                       "text": "González Redondo, Francisco A., 00:07:50",
+                                       "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Como la matemática es la ciencia fundamental detrás de las otras ciencias, incluyendo las humanas, podemos generalizar las conclusiones del Doctor Francisco A. González Redondo para las demás ciencias de la siguiente manera",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<table class=\"tawapukllay\" id=\"tblHandsCounting\"><tr><th>Pre-Ciencias</th><th>Proto-Ciencias</th><th>Ciencias</th></tr> <tr id=\"tr0\"><td>Contacto inicial con las ciencias, con uso de ejemplos del día a día.</td><td>Presentación de contenidos, sin las herramientas necesarias para entender profundamente, pero con el mínimo necesario para comprender el entorno. En algunos casos, aunque raros, con clases en laboratorios.</td><td>Estudio profundo de las ciencias, conociendo las herramientas y bases de cada una.</td></tr> </table>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               }
+                    ]
                 },
                 {
                     "id" : "conclusion",
-                    "text" : [ "<p><h3>Conclusión</h3>Considerando que existen problemas en el aprendizaje desde los primeros años, los cuales llevan a los alumnos a crear barreras en diversas áreas, en esta sección de History Tracers comenzaremos explorando investigaciones que demuestran cómo iniciamos el proceso de conteo. Utilizaremos ejemplos del cuerpo humano, de nuestras familias y de experimentos que se pueden realizar en casa para demostrar que la ciencia no es una forma de contradecir algo, sino una manera de entender el mundo y añadir constantemente nuevos conocimientos.</p>" ]
+                    "text" : [ 
+                               { "text" : "### Conclusión\n\nEn esta introducción, vimos que existen diferentes tipos de inteligencia y que, muchas veces, las personas no conocen las ciencias, sino que solo se les presenta una visión inicial de ellas.\n\nPara ayudar a alumnos y profesores, **History Tracers** está desarrollando una herramienta y contenidos que permitan a las personas usar sus inteligencias para aprender mejor las ciencias",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
                 },
                 {
-                    "id": "fill_dates",
+                    "id" : "space",
                     "text": [
-                        {  "type" : "gregory", "year" : "2007", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "9", "day" : "10" },
-                        {  "type" : "gregory", "year" : "2019", "month" : "1", "day" : "21" },
-                        {  "type" : "gregory", "year" : "1899", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }
+                            { "text" : "<p>&nbsp;</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                              }
                     ]
                 }
             ]
         }
     ]
-} 
+}

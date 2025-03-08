@@ -1611,7 +1611,7 @@ function htFillPaperContent(table, last_update, page_authors, page_reviewers, in
         idx++;
     }
 
-    if (navigationPage.length > 0) {
+    if (navigationPage.length > 0 && index != undefined) {
         htAddPaperDivs("#paper", "repeat-index", navigationPage, "<hr class=\"limit\" />", "", 100000);
     }
 }
