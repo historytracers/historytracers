@@ -7,9 +7,10 @@
     "last_update" : [ "1716898952" ],
     "authors" : null,
     "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
     "content" : [
         {
-            "id" : "families",
             "target" : "group_list",
             "value_type" : "paper",
             "value" : [
@@ -136,7 +137,7 @@
                 {
                     "id" : "steps",
                     "text" : [ 
-                               { "text" : "### Etapas de aprendizagem\n\n#### Os primeiros anos\n\nQuando somos crianças, somos incansáveis em fazer perguntas, as quais nos auxiliam em nosso desenvolvimento",
+                               { "text" : "### Etapas de Aprendizagem\n\n#### Os Primeiros Anos\n\nQuando somos crianças, somos incansáveis em fazer perguntas, as quais nos auxiliam em nosso desenvolvimento",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "ddc1f803-3676-40d8-a27c-af643522d47d",
@@ -148,7 +149,7 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               { "text" : "No entanto, à medida que crescemos, muitas pessoas acabam abandonando esse hábito, buscando respostas \"sólidas\" (verdades), e frequentemente simplistas para qualquer questão. Dessa forma, deixam de questionar e passam a aceitar informações sem contestação. Estudos recentes sugerem que essas \"respostas sólidas\" são frequentemente sujeitas a um relativismo que impede a aceitação de verdades inquestionáveis",
+                               { "text" : "No entanto, à medida que crescemos, muitas pessoas acabam abandonando esse hábito, buscando respostas \"sólidas\" (verdades) e frequentemente simplistas para qualquer questão. Dessa forma, deixam de questionar e passam a aceitar informações sem contestação. Estudos recentes sugerem que essas \"respostas sólidas\" são frequentemente sujeitas a um relativismo que impede a aceitação de fatos",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "23359d6a-4353-4674-bd8d-a283d28f06a7",
@@ -160,40 +161,59 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               { "text" : "#### Anos de estudo\n\nApesar de aprendermos diariamente, e o conhecimento não ter limite. Existe um período de vida que frequentamos jardim, escola, e alguns a universidade",
+                               { "text" : "#### Da Escola à Universidade\n\nApesar de aprendermos diariamente e o conhecimento não ter limites, existe um período da vida em que frequentamos o jardim de infância, a escola e, em alguns casos, a universidade",
                                  "source" : null,
                                  "isTable" : false,
                                  "date_time" : null,
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Sobre o acesso ao ensino</b><br /><br />Não deveriamos todos ter direito a se formar em uma universidade?</div></div></center></p>",
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Sobre o Acesso ao Ensino</b><br /><br />Não deveríamos todos ter o direito de nos formar em uma universidade?</div></div></center></p>",
                                  "source" : null,
                                  "isTable" : false,
                                  "date_time" : null,
                                  "format" : "html",
                                  "PostMention": " "
                                },
-                               { "text" : "Nesta etapa que passamos em instituições de ensino, temos aulas de matérias como História, Física, Biologia e Matemática, mas, em alguns casos, temos apenas introdução aos conceitos destas matérias até chegar na universidade, onde realmente aprendemos as ciências. Em dois difentes seminários, o PhD Francisco A. Gonzales Redondo nos explicita estes edtalhes, por exemplo, sugerindo que ao trabalharmos com História, além da classificação de Pré-História e História, deveriamos ter um adicional entre elas chamada **Proto-História*",
-                                 "source" : ,
+                               { "text" : "O Doutor Francisco A. González Redondo, ao expor sobre a história da Matemática, detalha a divisão da ciência, explicando que os alunos, em seus primeiros anos, são apresentados a uma pré-matemática por meio de exemplos. À medida que avançam, são introduzidos a uma proto-matemática e, finalmente, ao entrarem na universidade, desenvolvem o conhecimento matemático",
+                                 "source" : [
+                                     { "type": 1,
+                                       "uuid": "696e5833-e134-4b57-ad3f-8438fe0ec495",
+                                       "text": "González Redondo, Francisco A., 00:07:50",
+                                       "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+
+                                 ],
                                  "isTable" : false,
                                  "date_time" : null,
                                  "format" : "markdown",
                                  "PostMention": "."
+                               },
+                               { "text" : "Como a matemática é a ciência fundamental por trás das outras ciências, incluindo as humanas, podemos generalizar as conclusões do Doutor Francisco A. González Redondo para as demais ciências da seguinte maneira",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<table class=\"tawapukllay\" id=\"tblHandsCounting\"><tr><th>Pré-Ciências</th><th>Proto-Ciências</th><th>Ciências</th></tr> <tr id=\"tr0\"><td>Contato inicial com as ciências, com uso de exemplos do dia a dia.</td><td>Apresentação de conteúdos, sem as ferramentas necessárias para entender profundamente, mas com o mínimo necessário para compreender o entorno. Em alguns casos, embora raros, com aulas em laboratórios.</td><td>Estudo profundo das ciências, conhecendo as ferramentas e bases de cada uma.</td></tr> </table>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
                                }
                     ]
                 },
                 {
                     "id" : "conclusion",
-                    "text" : [ "<p><h3>Conclusão</h3>Considerando que há problemas no aprendizado desde os primeiros anos, que acabam levando os alunos a criar barreiras em diversas áreas, nesta seção do History Tracers começaremos explorando pesquisas que demonstram como iniciamos o processo de contagem. Utilizaremos exemplos do corpo humano, de nossas famílias e de experimentos possíveis de realizar em casa para demonstrar que a ciência não é uma maneira de contradizer algo, mas sim uma forma de entender o mundo e constantemente adquirir novos conhecimentos.</p>" ]
-                },
-                {
-                    "id": "date_time",
-                    "text": [
-                        {  "type" : "gregory", "year" : "1899", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }
+                    "text" : [ 
+                               { "text" : "### Conclusão\n\nNesta introdução, vimos que existem diferentes tipos de inteligência e que, muitas vezes, as pessoas não conhecem as ciências, sendo apenas apresentadas a uma visão inicial delas.\n\nPara auxiliar alunos e professores, o **History Tracers** está desenvolvendo uma ferramenta e conteúdos que permitam às pessoas usar suas inteligências para aprender melhor as ciências",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
                     ]
                 }
             ]

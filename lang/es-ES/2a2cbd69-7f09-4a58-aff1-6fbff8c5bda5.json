@@ -7,9 +7,10 @@
     "last_update" : [ "1717109124" ],
     "authors" : null,
     "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
     "content" : [
         {
-            "id" : "families",
             "target" : "group_list",
             "value_type" : "paper",
             "value" : [
@@ -136,7 +137,7 @@
                 {
                     "id" : "steps",
                     "text" : [ 
-                               { "text" : "### Etapas del aprendizaje\n\n#### Los primeiros años\n\nCuando somos niños, somos incansables en hacer preguntas, lo cual nos ayuda en nuestro desarrollo",
+                               { "text" : "### Etapas del Aprendizaje\n\n#### Los Primeros Años\n\nCuando somos niños, somos incansables en hacer preguntas, lo cual nos ayuda en nuestro desarrollo",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "ddc1f803-3676-40d8-a27c-af643522d47d",
@@ -148,7 +149,7 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               { "text" : "Sin embargo, al crecer, muchas personas dejan de cuestionar y empiezan a buscar respuestas que consideran \"solidez\" (verdaderas), a menudo simplistas. Como resultado, dejan de cuestionar y pasan a aceptar información sin análisis crítico. Estudios recientes sugieren que estas \"respuestas sólidas\" están frecuentemente sujetas a un relativismo que impide la aceptación de verdades incuestionables",
+                               { "text" : "Sin embargo, al crecer, muchas personas dejan de cuestionar y empiezan a buscar respuestas que consideran \"sólidas\" (verdaderas), a menudo simplistas. Como resultado, dejan de cuestionar y pasan a aceptar información sin análisis crítico. Estudios recientes sugieren que estas \"respuestas sólidas\" están frecuentemente sujetas a un relativismo que impide la aceptación de hechos",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "23359d6a-4353-4674-bd8d-a283d28f06a7",
@@ -159,26 +160,63 @@
                                  "date_time" : null,
                                  "format" : "markdown",
                                  "PostMention": "."
+                               },
+                               { "text" : "#### De la Escuela a la Universidad\n\nA pesar de que aprendemos diariamente y el conocimiento no tiene límites, existe un período de la vida en que frecuentamos el jardín de infancia, la escuela y, en algunos casos, la universidad",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre el Acceso a la Educación</b><br /><br />¿No deberíamos todos tener el derecho de formarnos en una universidad?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "El Doctor Francisco A. González Redondo, al exponer sobre la historia de las Matemáticas, detalla la división de la ciencia, explicando que los alumnos, en sus primeros años, son presentados a una pre-matemática por medio de ejemplos. A medida que avanzan, son introducidos a una proto-matemática y, finalmente, al entrar en la universidad, desarrollan el conocimiento matemático",
+                                 "source" : [
+                                     { "type": 1,
+                                       "uuid": "696e5833-e134-4b57-ad3f-8438fe0ec495",
+                                       "text": "González Redondo, Francisco A., 00:07:50",
+                                       "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "Como la matemática es la ciencia fundamental detrás de las otras ciencias, incluyendo las humanas, podemos generalizar las conclusiones del Doctor Francisco A. González Redondo para las demás ciencias de la siguiente manera",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<table class=\"tawapukllay\" id=\"tblHandsCounting\"><tr><th>Pre-Ciencias</th><th>Proto-Ciencias</th><th>Ciencias</th></tr> <tr id=\"tr0\"><td>Contacto inicial con las ciencias, con uso de ejemplos del día a día.</td><td>Presentación de contenidos, sin las herramientas necesarias para entender profundamente, pero con el mínimo necesario para comprender el entorno. En algunos casos, aunque raros, con clases en laboratorios.</td><td>Estudio profundo de las ciencias, conociendo las herramientas y bases de cada una.</td></tr> </table>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
                                }
                     ]
                 },
                 {
                     "id" : "conclusion",
-                    "text" : [ "<p><h3>Conclusión</h3>Considerando que existen problemas en el aprendizaje desde los primeros años, los cuales llevan a los alumnos a crear barreras en diversas áreas, en esta sección de History Tracers comenzaremos explorando investigaciones que demuestran cómo iniciamos el proceso de conteo. Utilizaremos ejemplos del cuerpo humano, de nuestras familias y de experimentos que se pueden realizar en casa para demostrar que la ciencia no es una forma de contradecir algo, sino una manera de entender el mundo y añadir constantemente nuevos conocimientos.</p>" ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {  "type" : "gregory", "year" : "2007", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "9", "day" : "10" },
-                        {  "type" : "gregory", "year" : "2019", "month" : "1", "day" : "21" },
-                        {  "type" : "gregory", "year" : "1899", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }
+                    "text" : [ 
+                               { "text" : "### Conclusión\n\nEn esta introducción, vimos que existen diferentes tipos de inteligencia y que, muchas veces, las personas no conocen las ciencias, sino que solo se les presenta una visión inicial de ellas.\n\nPara ayudar a alumnos y profesores, **History Tracers** está desarrollando una herramienta y contenidos que permitan a las personas usar sus inteligencias para aprender mejor las ciencias",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
                     ]
                 }
             ]
         }
     ]
-} 
+}
