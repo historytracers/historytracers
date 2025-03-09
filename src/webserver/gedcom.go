@@ -9,8 +9,39 @@ import (
 	"os"
 
 	"github.com/google/uuid"
+	"github.com/iand/gedcom"
 )
 
+// Index
+type IdxFamilyValue struct {
+	ID     string `json:"id"`
+	Name   string `json:"name"`
+	Desc   string `json:"desc"`
+	GEDCOM string `json:"gedcom"`
+}
+
+type IdxFamilyContent struct {
+	ID        string           `json:"id"`
+	Desc      string           `json:"desc"`
+	Target    string           `json:"target"`
+	Page      string           `json:"page"`
+	ValueType string           `json:"value_type"`
+	HTMLValue string           `json:"html_value"`
+	Value     []IdxFamilyValue `json:"value"`
+}
+
+type IdxFamily struct {
+	Title      string             `json:"title"`
+	Header     string             `json:"header"`
+	License    []string           `json:"license"`
+	Sources    []string           `json:"sources"`
+	LastUpdate []string           `json:"last_update"`
+	GEDCOM     string             `json:"gedcom"`
+	Contents   []IdxFamilyContent `json:"content"`
+	DateTime   []HTDate           `json:"date_time"`
+}
+
+// Family
 type FamilyPersonEvent struct {
 	BirthDate    []HTDate   `json:"date"`
 	BirthAddress string     `json:"address"`
@@ -21,7 +52,6 @@ type FamilyPersonEvent struct {
 	Sources      []HTSource `json:"sources"`
 }
 
-// Adjust Family files
 type FamilyPersonParents struct {
 	Type               string `json:"type"`
 	FatherExternalFile bool   `json:"father_external_family_file"`
@@ -110,6 +140,91 @@ type Family struct {
 	DateTime      []HTDate     `json:"date_time"`
 }
 
+var familyUpdated bool
+var indexUpdated bool
+
+// GEDCOM
+func htSelLanguageName(lang string) string {
+	switch lang {
+	case "pt-BR":
+		return "Português"
+	case "es-ES":
+		return "Español"
+	case "en-US":
+	default:
+		break
+	}
+	return "English"
+}
+
+func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
+	if len(families.GEDCOM) > 0 {
+		return
+	}
+
+	families.GEDCOM = fmt.Sprintf("gedcom/families-%s.ged", lang)
+	if verboseFlag {
+		fmt.Println("Setting GEDCOM file to: ", families.GEDCOM)
+	}
+	indexUpdated = true
+}
+
+func htSetGEDCOMHeader(g *gedcom.Gedcom, lang string) {
+	htSub := &gedcom.SubmitterRecord{
+		Xref: "SUBM",
+		Name: "History Tracers",
+	}
+	localLang := htSelLanguageName(lang)
+
+	g.Submitter = append(g.Submitter, htSub)
+
+	g.Header = &gedcom.Header{
+		SourceSystem: gedcom.SystemRecord{
+			Xref:       "HistoryTracers",
+			SourceName: "https://historytracers.org/",
+		},
+		Submitter:    htSub,
+		CharacterSet: "UTF-8",
+		Language:     localLang,
+		Version:      "5.5.1",
+		Copyright:    "CC BY-NC 4.0 DEED",
+		Form:         "LINEAGE-LINKED",
+	}
+}
+
+func htWriteGEDCOM(g *gedcom.Gedcom, fileName string) error {
+	if len(fileName) == 0 {
+		return nil
+	}
+
+	fp, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+
+	enc := gedcom.NewEncoder(fp)
+	if err := enc.Encode(g); err != nil {
+		return err
+	}
+
+	fp.Close()
+
+	return nil
+}
+
+func htParseFamilySetGEDCOM(families *Family, fileName string, lang string) {
+	if len(families.GEDCOM) > 0 {
+		return
+	}
+
+	families.GEDCOM = fmt.Sprintf("gedcom/%s_%s.ged", fileName, lang)
+	if verboseFlag {
+		fmt.Println("Setting GEDCOM file to: ", families.GEDCOM)
+	}
+	familyUpdated = true
+}
+
+// Family
 func htWriteFamilyFile(lang string, family *Family) (string, error) {
 	id := uuid.New()
 	strID := id.String()
@@ -131,17 +246,6 @@ func htWriteFamilyFile(lang string, family *Family) (string, error) {
 	return tmpFile, nil
 }
 
-func htParseFamilySetGEDCOM(families *Family, fileName string, lang string) {
-	if len(families.GEDCOM) > 0 {
-		return
-	}
-
-	families.GEDCOM = fmt.Sprintf("gedcom/%s_%s.ged", fileName, lang)
-	if verboseFlag {
-		fmt.Println("Setting GEDCOM file to: ", families.GEDCOM)
-	}
-}
-
 func htParseFamilySetDefaultValues(families *Family) {
 	people := make(map[string]bool)
 
@@ -154,6 +258,7 @@ func htParseFamilySetDefaultValues(families *Family) {
 
 				if len(history.PostMention) == 0 {
 					history.PostMention = "."
+					familyUpdated = true
 				}
 				if len(history.Format) == 0 {
 					if history.Source == nil {
@@ -161,6 +266,7 @@ func htParseFamilySetDefaultValues(families *Family) {
 					} else {
 						history.Format = "markdown"
 					}
+					familyUpdated = true
 				}
 			}
 		}
@@ -198,6 +304,7 @@ func htParseFamilySetDefaultValues(families *Family) {
 }
 
 func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
+	familyUpdated = false
 	localPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, fileName)
 	if verboseFlag {
 		fmt.Println("Parsing Family File", localPath)
@@ -225,9 +332,15 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
 		return nil, ""
 	}
 
+	fgc := new(gedcom.Gedcom)
+	htSetGEDCOMHeader(fgc, lang)
+
 	htParseFamilySetGEDCOM(&family, fileName, lang)
-	family.LastUpdate[0] = htUpdateTimestamp()
 	htParseFamilySetDefaultValues(&family)
+
+	if familyUpdated == true {
+		family.LastUpdate[0] = htUpdateTimestamp()
+	}
 
 	newFile, err := htWriteFamilyFile(lang, &family)
 
@@ -238,48 +351,16 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
 		return err, ""
 	}
 
+	err = htWriteGEDCOM(fgc, family.GEDCOM)
+	if err != nil {
+		fmt.Println("ERROR", err)
+		return err, ""
+	}
+
 	return nil, family.GEDCOM
 }
 
 // Adjust Family Index Files before GEDCOM creation
-type IdxFamilyValue struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Desc   string `json:"desc"`
-	GEDCOM string `json:"gedcom"`
-}
-
-type IdxFamilyContent struct {
-	ID        string           `json:"id"`
-	Desc      string           `json:"desc"`
-	Target    string           `json:"target"`
-	Page      string           `json:"page"`
-	ValueType string           `json:"value_type"`
-	HTMLValue string           `json:"html_value"`
-	Value     []IdxFamilyValue `json:"value"`
-}
-
-type IdxFamily struct {
-	Title      string             `json:"title"`
-	Header     string             `json:"header"`
-	License    []string           `json:"license"`
-	Sources    []string           `json:"sources"`
-	LastUpdate []string           `json:"last_update"`
-	GEDCOM     string             `json:"gedcom"`
-	Contents   []IdxFamilyContent `json:"content"`
-	DateTime   []HTDate           `json:"date_time"`
-}
-
-func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
-	if len(families.GEDCOM) > 0 {
-		return
-	}
-
-	families.GEDCOM = fmt.Sprintf("gedcom/families-%s.ged", lang)
-	if verboseFlag {
-		fmt.Println("Setting GEDCOM file to: ", families.GEDCOM)
-	}
-}
 
 func htWriteIndexFile(lang string, index *IdxFamily) (string, error) {
 	id := uuid.New()
@@ -325,6 +406,11 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 		return err
 	}
 
+	htParseIndexSetGEDCOM(&index, lang)
+
+	igc := new(gedcom.Gedcom)
+	htSetGEDCOMHeader(igc, lang)
+
 	for i := 0; i < len(index.Contents); i++ {
 		content := index.Contents[i]
 		if content.Value == nil {
@@ -351,8 +437,9 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 		return nil
 	}
 
-	htParseIndexSetGEDCOM(&index, lang)
-	index.LastUpdate[0] = htUpdateTimestamp()
+	if indexUpdated == true {
+		index.LastUpdate[0] = htUpdateTimestamp()
+	}
 
 	newFile, err := htWriteIndexFile(lang, &index)
 	if err != nil {
@@ -366,12 +453,19 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 		return err
 	}
 
+	err = htWriteGEDCOM(igc, index.GEDCOM)
+	if err != nil {
+		fmt.Println("ERROR", err)
+		return err
+	}
+
 	return nil
 }
 
 func htUpdateAllFamilies(rewrite bool) error {
 	htLangPaths := [3]string{"en-US", "es-ES", "pt-BR"}
 	for i := 0; i < len(htLangPaths); i++ {
+		indexUpdated = false
 		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, htLangPaths[i])
 		err := htParseFamilyIndex(localPath, htLangPaths[i], rewrite)
 		if err != nil {
