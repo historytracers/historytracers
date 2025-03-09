@@ -43,13 +43,13 @@ type IdxFamily struct {
 
 // Family
 type FamilyPersonEvent struct {
-	BirthDate    []HTDate   `json:"date"`
-	BirthAddress string     `json:"address"`
-	BirthCity    string     `json:"city"`
-	BirthState   string     `json:"state"`
-	BirthPC      string     `json:"pc"`
-	BirthCountry string     `json:"country"`
-	Sources      []HTSource `json:"sources"`
+	Date    []HTDate   `json:"date"`
+	Address string     `json:"address"`
+	City    string     `json:"city"`
+	State   string     `json:"state"`
+	PC      string     `json:"pc"`
+	Country string     `json:"country"`
+	Sources []HTSource `json:"sources"`
 }
 
 type FamilyPersonParents struct {
@@ -67,6 +67,7 @@ type FamilyPersonParents struct {
 type FamilyPersonMarriage struct {
 	Type         string            `json:"type"`
 	ID           string            `json:"id"`
+	GEDCOMId     string            `json:"gedcom_id"`
 	Official     bool              `json:"official"`
 	FamilyID     string            `json:"family_id"`
 	ExternalFile bool              `json:"external_family_file"`
@@ -246,7 +247,38 @@ func htWriteFamilyFile(lang string, family *Family) (string, error) {
 	return tmpFile, nil
 }
 
-func htParseFamilySetDefaultValues(families *Family) {
+func htFamilySetMarriageGEDCOMId(person *FamilyPerson, global *gedcom.Gedcom, local *gedcom.Gedcom) {
+	var gedcomID string
+
+	for i := 0; i < len(person.Marriages); i++ {
+		marr := &person.Marriages[i]
+
+		familyGC := &gedcom.FamilyRecord{
+			Xref: "",
+		}
+		if len(marr.GEDCOMId) > 0 {
+			familyGC.Xref = marr.GEDCOMId
+			global.Family = append(global.Family, familyGC)
+			local.Family = append(local.Family, familyGC)
+
+			continue
+		}
+
+		familyUpdated = true
+
+		id := uuid.New()
+		strID := id.String()
+		gedcomID = fmt.Sprintf("F%s", strID[0:18])
+
+		marr.GEDCOMId = gedcomID
+
+		familyGC.Xref = gedcomID
+		global.Family = append(global.Family, familyGC)
+		local.Family = append(local.Family, familyGC)
+	}
+}
+
+func htParseFamilySetDefaultValues(families *Family, global *gedcom.Gedcom, local *gedcom.Gedcom) {
 	people := make(map[string]bool)
 
 	for i := 0; i < len(families.Families); i++ {
@@ -289,6 +321,9 @@ func htParseFamilySetDefaultValues(families *Family) {
 
 		for j := 0; j < len(family.People); j++ {
 			person := &family.People[j]
+
+			htFamilySetMarriageGEDCOMId(person, global, local)
+
 			if person.Children == nil {
 				continue
 			}
@@ -303,7 +338,7 @@ func htParseFamilySetDefaultValues(families *Family) {
 	}
 }
 
-func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
+func htParseFamily(global *gedcom.Gedcom, fileName string, lang string, rewrite bool) (error, string) {
 	familyUpdated = false
 	localPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, fileName)
 	if verboseFlag {
@@ -336,7 +371,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
 	htSetGEDCOMHeader(fgc, lang)
 
 	htParseFamilySetGEDCOM(&family, fileName, lang)
-	htParseFamilySetDefaultValues(&family)
+	htParseFamilySetDefaultValues(&family, global, fgc)
 
 	if familyUpdated == true {
 		family.LastUpdate[0] = htUpdateTimestamp()
@@ -423,7 +458,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 
 		value := content.Value
 		for j := 0; j < len(value); j++ {
-			err, gedcom := htParseFamily(value[j].ID, lang, rewrite)
+			err, gedcom := htParseFamily(igc, value[j].ID, lang, rewrite)
 			if err != nil {
 				return err
 			}
