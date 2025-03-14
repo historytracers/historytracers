@@ -12,6 +12,14 @@ import (
 	"github.com/iand/gedcom"
 )
 
+// Enum
+const (
+	HTEventBirth = iota
+	HTEventBaptism
+	HTEventMarriage
+	HTEventDeath
+)
+
 // Index
 type IdxFamilyValue struct {
 	ID     string `json:"id"`
@@ -141,10 +149,24 @@ type Family struct {
 	DateTime      []HTDate     `json:"date_time"`
 }
 
+type FamilyKey struct {
+	firstPerson  string
+	secondPerson string
+	file         string
+}
+
 var familyUpdated bool
 var indexUpdated bool
+var marriagesMap map[FamilyKey]bool
+var sourceMap map[string]HTSourceElement
+var peopleMap map[FamilyKey]*gedcom.FamilyRecord
 
 // GEDCOM
+func htXrefGEDCOM(prefix string, id string) string {
+	localXRef := fmt.Sprintf("%s%s", prefix, id[0:18])
+	return localXRef
+}
+
 func htSelLanguageName(lang string) string {
 	switch lang {
 	case "pt-BR":
@@ -181,8 +203,9 @@ func htSetGEDCOMHeader(g *gedcom.Gedcom, lang string) {
 
 	g.Header = &gedcom.Header{
 		SourceSystem: gedcom.SystemRecord{
-			Xref:       "HistoryTracers",
-			SourceName: "https://historytracers.org/",
+			Xref:            "HistoryTracers",
+			SourceName:      "https://historytracers.org/",
+			SourceCopyright: "GPL3 and CC BY-NC 4.0 DEED",
 		},
 		Submitter:    htSub,
 		CharacterSet: "UTF-8",
@@ -247,20 +270,340 @@ func htWriteFamilyFile(lang string, family *Family) (string, error) {
 	return tmpFile, nil
 }
 
-func htFamilySetMarriageGEDCOMId(person *FamilyPerson, global *gedcom.Gedcom, local *gedcom.Gedcom) {
+func htFamilyEventName(selector int) string {
+	switch selector {
+	case HTEventBirth:
+		return "BIRT"
+	case HTEventBaptism:
+		return "BAPM"
+	case HTEventMarriage:
+		return "MARR"
+	case HTEventDeath:
+	default:
+		break
+	}
+	return "DEAT"
+}
+
+func htFamilyEventDate(dt *HTDate) string {
+	if dt == nil || dt.DateType != "gregorian" {
+		return ""
+	}
+
+	if dt.Month == "-1" || dt.Day == "-1" {
+		ret := fmt.Sprintf("%s", dt.Year)
+		return ret
+	}
+
+	var month string
+	switch dt.Month {
+	case "1":
+		month = "JAN"
+		break
+	case "2":
+		month = "FEB"
+		break
+	case "3":
+		month = "MAR"
+		break
+	case "4":
+		month = "APR"
+		break
+	case "5":
+		month = "MAY"
+		break
+	case "6":
+		month = "JUN"
+		break
+	case "7":
+		month = "JUL"
+		break
+	case "8":
+		month = "AUG"
+		break
+	case "9":
+		month = "SEPT"
+		break
+	case "10":
+		month = "OCT"
+		break
+	case "11":
+		month = "NOV"
+		break
+	case "12":
+	default:
+		month = "DEC"
+		break
+	}
+	ret := fmt.Sprintf("%s %s %s", dt.Day, month, dt.Year)
+
+	return ret
+}
+
+func htGEDCOMCitationTitle(lang string, selector int) string {
+	if selector == 0 {
+		switch lang {
+		case "Português":
+			return "Fonte primária que comprova o evento."
+		case "Español":
+			return "Fuente primaria que comprueba el evento."
+		case "English":
+		default:
+			break
+		}
+		return "A primary source confirming the event."
+	}
+
+	switch lang {
+	case "Português":
+		return "Não se trata de uma fonte primária, portanto, não comprova as informações apresentadas."
+	case "Español":
+		return "No es una fuente primaria, por lo tanto, no comprueba la información presentada."
+	case "English":
+	default:
+		break
+	}
+	return "This is not a primary source; therefore, it does not confirm the event."
+}
+
+func htGEDCOMCitation(citation *HTSource, lang string) *gedcom.CitationRecord {
+	element, ok := sourceMap[citation.UUID]
+	if !ok {
+		return nil
+	}
+
+	localXref := htXrefGEDCOM("S", citation.UUID)
+	note := htGEDCOMCitationTitle(lang, citation.Type)
+	ret := &gedcom.CitationRecord{
+		Source: &gedcom.SourceRecord{
+			Xref: localXref,
+		},
+		Note: []*gedcom.NoteRecord{
+			{
+				Note: note,
+			},
+			{
+				Note: element.Citation,
+			},
+			{
+				Note: citation.Text,
+			},
+		},
+	}
+
+	if len(element.URL) > 0 {
+		ret.Source.Originator = element.URL
+	}
+
+	return ret
+}
+
+func htGEDCOMCitations(citation []HTSource, lang string) []*gedcom.CitationRecord {
+	var ret []*gedcom.CitationRecord
+	for _, element := range citation {
+		gedCit := htGEDCOMCitation(&element, lang)
+		if gedCit != nil {
+			ret = append(ret, gedCit)
+		}
+	}
+	return ret
+}
+
+/*
+func htFamilyAddNewMarriageEvent(event *FamilyPersonMarriage, eventType int) *gedcom.EventRecord {
+	tag := htFamilyEventName(eventType)
+
+	ev := &gedcom.EventRecord{
+		Tag:  tag,
+	}
+
+	return ev
+}
+*/
+
+func htFamilyAddNewPersonalEvent(event *FamilyPersonEvent, eventType int, lang string) *gedcom.EventRecord {
+	tag := htFamilyEventName(eventType)
+	dt := htFamilyEventDate(&event.Date[0])
+
+	ev := &gedcom.EventRecord{
+		Tag:  tag,
+		Date: dt,
+	}
+
+	var fullAddr string = ""
+	if len(event.Address) > 0 {
+		fullAddr += event.Address
+	}
+
+	if len(event.City) > 0 {
+		if len(fullAddr) > 0 {
+			fullAddr += ", "
+		}
+		fullAddr += event.City
+	}
+
+	if len(event.State) > 0 {
+		if len(fullAddr) > 0 {
+			fullAddr += ", "
+		}
+		fullAddr += event.State
+	}
+
+	if len(event.Country) > 0 {
+		if len(fullAddr) > 0 {
+			fullAddr += ", "
+		}
+		fullAddr += event.Country
+	}
+
+	if len(event.PC) > 0 {
+		if len(fullAddr) > 0 {
+			fullAddr += " - "
+		}
+		fullAddr += event.PC
+	}
+
+	ev.Place = gedcom.PlaceRecord{Name: fullAddr}
+
+	citations := htGEDCOMCitations(event.Sources, lang)
+	ev.Citation = citations
+
+	return ev
+}
+
+func htFamilyPersonFillEvents(individual *gedcom.IndividualRecord, events []FamilyPersonEvent, lang string) {
+	if events != nil {
+		for _, element := range events {
+			famEvent := htFamilyAddNewPersonalEvent(&element, HTEventBirth, lang)
+			individual.Event = append(individual.Event, famEvent)
+		}
+	}
+
+}
+
+/*
+func htFamilyMarriageFillEvents(individual *gedcom.IndividualRecord, events []FamilyPersonMarriage, lang string) {
+	if events != nil {
+		for _, element := range events {
+			famEvent := htFamilyAddNewMarriageEvent(&element, HTEventBirth)
+			individual.Event = append(individual.Event, famEvent)
+		}
+	}
+}
+*/
+
+// TODO: CURRENT JSON FAMILIES DO NOT HAVE CONNECTION BETWEEN THEM
+// AS SOON WE HAVE THESE CONNECTIONS, IT WILL BE NECESSARY TO LOAD ALL
+// JSON FILES, AND AFTER THIS TO WRITE
+func htFamilyAddIndividual(person *FamilyPerson, lang string) *gedcom.IndividualRecord {
+	localXRef := htXrefGEDCOM("I", person.ID)
+	localSex := "M"
+	if person.Sex == "female" {
+		localSex = "F"
+	}
+
+	individual := &gedcom.IndividualRecord{
+		Xref: localXRef,
+		Name: []*gedcom.NameRecord{
+			{
+				Name: person.Name,
+			},
+		},
+		Sex: localSex,
+	}
+
+	htFamilyPersonFillEvents(individual, person.Birth, lang)
+	htFamilyPersonFillEvents(individual, person.Baptism, lang)
+	htFamilyPersonFillEvents(individual, person.Death, lang)
+	//htFamilyMarriageFillEvents(individual, person.Marriages, lang)
+
+	return individual
+}
+
+func htFamilyAddIndividualPartner(marr *FamilyPersonMarriage, partnerSex string, lang string) *gedcom.IndividualRecord {
+	localXRef := htXrefGEDCOM("I", marr.ID)
+
+	individual := &gedcom.IndividualRecord{
+		Xref: localXRef,
+		Name: []*gedcom.NameRecord{
+			{
+				Name: marr.Name,
+			},
+		},
+		Sex: partnerSex,
+	}
+
+	return individual
+}
+
+func htFamilySetMarriageGEDCOMId(person *FamilyPerson, marr *FamilyPersonMarriage, global *gedcom.Gedcom, local *gedcom.Gedcom, xref string) {
+	familyGC := &gedcom.FamilyRecord{
+		Xref: xref,
+	}
+
+	global.Family = append(global.Family, familyGC)
+	local.Family = append(local.Family, familyGC)
+
+	individual := htFamilyAddIndividual(person, global.Header.Language)
+
+	partnerSex := "F"
+	if individual.Sex == "M" {
+		familyGC.Husband = individual
+	} else {
+		partnerSex = "M"
+		familyGC.Wife = individual
+	}
+
+	global.Individual = append(global.Individual, individual)
+	local.Individual = append(local.Individual, individual)
+
+	partnerIndividual := htFamilyAddIndividualPartner(marr, partnerSex, global.Header.Language)
+
+	global.Individual = append(global.Individual, partnerIndividual)
+	local.Individual = append(local.Individual, partnerIndividual)
+
+	if partnerIndividual.Sex == "M" {
+		familyGC.Husband = partnerIndividual
+	} else {
+		familyGC.Wife = partnerIndividual
+	}
+
+	key := FamilyKey{firstPerson: person.ID, secondPerson: marr.ID, file: ""}
+	peopleMap[key] = familyGC
+
+	for _, element := range person.Parents {
+		key.firstPerson = element.FatherID
+		key.secondPerson = element.MotherID
+		if _, ok := peopleMap[key]; ok {
+			familyGC.Child = append(familyGC.Child, individual)
+			continue
+		}
+
+		key.firstPerson = element.MotherID
+		key.secondPerson = element.FatherID
+		if _, ok := peopleMap[key]; ok {
+			familyGC.Child = append(familyGC.Child, individual)
+			continue
+		}
+	}
+}
+
+func htFamilyFillGEDCOM(person *FamilyPerson, global *gedcom.Gedcom, local *gedcom.Gedcom, fileName string) {
 	var gedcomID string
 
 	for i := 0; i < len(person.Marriages); i++ {
 		marr := &person.Marriages[i]
 
-		familyGC := &gedcom.FamilyRecord{
-			Xref: "",
+		key := FamilyKey{firstPerson: person.ID, secondPerson: marr.ID, file: fileName}
+		if _, ok := marriagesMap[key]; !ok {
+			marriagesMap[key] = true
+		} else {
+			verr := fmt.Sprintf("The same couple %s and %s, appears more than once in %s", person.ID, marr.ID, fileName)
+			panic(verr)
 		}
-		if len(marr.GEDCOMId) > 0 {
-			familyGC.Xref = marr.GEDCOMId
-			global.Family = append(global.Family, familyGC)
-			local.Family = append(local.Family, familyGC)
 
+		if len(marr.GEDCOMId) > 0 {
+			htFamilySetMarriageGEDCOMId(person, marr, global, local, marr.GEDCOMId)
 			continue
 		}
 
@@ -272,13 +615,11 @@ func htFamilySetMarriageGEDCOMId(person *FamilyPerson, global *gedcom.Gedcom, lo
 
 		marr.GEDCOMId = gedcomID
 
-		familyGC.Xref = gedcomID
-		global.Family = append(global.Family, familyGC)
-		local.Family = append(local.Family, familyGC)
+		htFamilySetMarriageGEDCOMId(person, marr, global, local, marr.GEDCOMId)
 	}
 }
 
-func htParseFamilySetDefaultValues(families *Family, global *gedcom.Gedcom, local *gedcom.Gedcom) {
+func htParseFamilySetDefaultValues(families *Family, global *gedcom.Gedcom, local *gedcom.Gedcom, fileName string) {
 	people := make(map[string]bool)
 
 	for i := 0; i < len(families.Families); i++ {
@@ -322,7 +663,7 @@ func htParseFamilySetDefaultValues(families *Family, global *gedcom.Gedcom, loca
 		for j := 0; j < len(family.People); j++ {
 			person := &family.People[j]
 
-			htFamilySetMarriageGEDCOMId(person, global, local)
+			htFamilyFillGEDCOM(person, global, local, fileName)
 
 			if person.Children == nil {
 				continue
@@ -332,15 +673,43 @@ func htParseFamilySetDefaultValues(families *Family, global *gedcom.Gedcom, loca
 				child := &person.Children[k]
 				if val, ok := people[child.ID]; ok {
 					child.AddLink = val
+					familyUpdated = true
 				}
 			}
 		}
 	}
 }
 
+func htFillSourceMap(src []HTSourceElement) {
+	for _, element := range src {
+		if _, ok := sourceMap[element.ID]; !ok {
+			sourceMap[element.ID] = element
+		}
+	}
+}
+
+func htFillSourcesMap(src *HTSourceFile) {
+	if src.PrimarySources != nil {
+		htFillSourceMap(src.PrimarySources)
+	}
+
+	if src.ReferencesSources != nil {
+		htFillSourceMap(src.ReferencesSources)
+	}
+
+	if src.ReligiousSources != nil {
+		htFillSourceMap(src.ReligiousSources)
+	}
+
+	if src.SocialMediaSources != nil {
+		htFillSourceMap(src.SocialMediaSources)
+	}
+}
+
 func htParseFamily(global *gedcom.Gedcom, fileName string, lang string, rewrite bool) (error, string) {
 	familyUpdated = false
 	localPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, fileName)
+	srcPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, fileName)
 	if verboseFlag {
 		fmt.Println("Parsing Family File", localPath)
 	}
@@ -367,11 +736,24 @@ func htParseFamily(global *gedcom.Gedcom, fileName string, lang string, rewrite 
 		return nil, ""
 	}
 
+	jsonFile, err = os.Open(srcPath)
+	if err == nil {
+		byteValue, err = io.ReadAll(jsonFile)
+		if err == nil {
+			var src HTSourceFile
+			err = json.Unmarshal(byteValue, &src)
+			if err == nil {
+				htFillSourcesMap(&src)
+			}
+		}
+		jsonFile.Close()
+	}
+
 	fgc := new(gedcom.Gedcom)
 	htSetGEDCOMHeader(fgc, lang)
 
 	htParseFamilySetGEDCOM(&family, fileName, lang)
-	htParseFamilySetDefaultValues(&family, global, fgc)
+	htParseFamilySetDefaultValues(&family, global, fgc, localPath)
 
 	if familyUpdated == true {
 		family.LastUpdate[0] = htUpdateTimestamp()
@@ -396,7 +778,6 @@ func htParseFamily(global *gedcom.Gedcom, fileName string, lang string, rewrite 
 }
 
 // Adjust Family Index Files before GEDCOM creation
-
 func htWriteIndexFile(lang string, index *IdxFamily) (string, error) {
 	id := uuid.New()
 	strID := id.String()
@@ -531,6 +912,9 @@ func htCreateGEDCOMDirectory() {
 
 // Entries
 func htCreateGEDCOM() {
+	marriagesMap = make(map[FamilyKey]bool)
+	sourceMap = make(map[string]HTSourceElement)
+	peopleMap = make(map[FamilyKey]*gedcom.FamilyRecord)
 	htCreateGEDCOMDirectory()
 
 	htUpdateAllFamilies(true)
@@ -538,5 +922,8 @@ func htCreateGEDCOM() {
 
 // Validate
 func htValidateGEDCOM() {
+	marriagesMap = make(map[FamilyKey]bool)
+	sourceMap = make(map[string]HTSourceElement)
+	peopleMap = make(map[FamilyKey]*gedcom.FamilyRecord)
 	htUpdateAllFamilies(false)
 }
