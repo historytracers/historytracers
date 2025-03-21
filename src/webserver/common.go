@@ -46,6 +46,27 @@ type HTMap struct {
 	Order int    `json:"order"`
 }
 
+type HTSourceElement struct {
+	ID       string `json:"id"`
+	Citation string `json:"citation"`
+	Date     string `json:"date"`
+	URL      string `json:"url"`
+}
+
+type HTSourceFile struct {
+	Info               string            `json:"info"`
+	License            []string          `json:"license"`
+	LastUpdate         []string          `json:"last_update"`
+	Authors            string            `json:"authors"`
+	Reviewers          string            `json:"reviewers"`
+	Version            int               `json:"version"`
+	Type               string            `json:"type"`
+	PrimarySources     []HTSourceElement `json:"primary_sources"`
+	ReferencesSources  []HTSourceElement `json:"references_sources"`
+	ReligiousSources   []HTSourceElement `json:"religious_sources"`
+	SocialMediaSources []HTSourceElement `json:"social_media_sources"`
+}
+
 // Common functions
 func htUpdateTimestamp() string {
 	newStr := fmt.Sprintf("%d", time.Now().Unix())
