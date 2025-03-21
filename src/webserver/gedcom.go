@@ -167,18 +167,20 @@ func htXrefGEDCOM(prefix string, id string) string {
 	return localXRef
 }
 
+/*
 func htSelLanguageName(lang string) string {
 	switch lang {
 	case "pt-BR":
-		return "Português"
+		return "pt"
 	case "es-ES":
-		return "Español"
+		return "es"
 	case "en-US":
 	default:
 		break
 	}
-	return "English"
+	return "en"
 }
+*/
 
 func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
 	if len(families.GEDCOM) > 0 {
@@ -197,7 +199,7 @@ func htSetGEDCOMHeader(g *gedcom.Gedcom, lang string) {
 		Xref: "SUBM",
 		Name: "History Tracers",
 	}
-	localLang := htSelLanguageName(lang)
+	//localLang := htSelLanguageName(lang)
 
 	g.Submitter = append(g.Submitter, htSub)
 
@@ -209,10 +211,10 @@ func htSetGEDCOMHeader(g *gedcom.Gedcom, lang string) {
 		},
 		Submitter:    htSub,
 		CharacterSet: "UTF-8",
-		Language:     localLang,
-		Version:      "5.5.1",
-		Copyright:    "CC BY-NC 4.0 DEED",
-		Form:         "LINEAGE-LINKED",
+		//Language:     localLang,
+		Version:   "5.5.1",
+		Copyright: "CC BY-NC 4.0 DEED",
+		Form:      "LINEAGE-LINKED",
 	}
 }
 
@@ -226,6 +228,7 @@ func htWriteGEDCOM(g *gedcom.Gedcom, fileName string) error {
 		return err
 	}
 
+	g.Trailer = &gedcom.Trailer{}
 	enc := gedcom.NewEncoder(fp)
 	if err := enc.Encode(g); err != nil {
 		return err
@@ -536,6 +539,20 @@ func htFamilyAddIndividualPartner(marr *FamilyPersonMarriage, partnerSex string,
 	return individual
 }
 
+func htFamilyAddFamilyRecord(familyGC *gedcom.FamilyRecord, typeFam string) []*gedcom.FamilyLinkRecord {
+	ret := []*gedcom.FamilyLinkRecord{
+		{
+			Family: familyGC,
+		},
+	}
+
+	if len(typeFam) > 0 {
+		ret[0].Type = typeFam
+	}
+
+	return ret
+}
+
 func htFamilySetMarriageGEDCOMId(person *FamilyPerson, marr *FamilyPersonMarriage, global *gedcom.Gedcom, local *gedcom.Gedcom, xref string) {
 	familyGC := &gedcom.FamilyRecord{
 		Xref: xref,
@@ -549,9 +566,11 @@ func htFamilySetMarriageGEDCOMId(person *FamilyPerson, marr *FamilyPersonMarriag
 	partnerSex := "F"
 	if individual.Sex == "M" {
 		familyGC.Husband = individual
+		individual.Family = htFamilyAddFamilyRecord(familyGC, "")
 	} else {
 		partnerSex = "M"
 		familyGC.Wife = individual
+		individual.Family = htFamilyAddFamilyRecord(familyGC, "")
 	}
 
 	global.Individual = append(global.Individual, individual)
@@ -564,8 +583,10 @@ func htFamilySetMarriageGEDCOMId(person *FamilyPerson, marr *FamilyPersonMarriag
 
 	if partnerIndividual.Sex == "M" {
 		familyGC.Husband = partnerIndividual
+		partnerIndividual.Family = htFamilyAddFamilyRecord(familyGC, "")
 	} else {
 		familyGC.Wife = partnerIndividual
+		partnerIndividual.Family = htFamilyAddFamilyRecord(familyGC, "")
 	}
 
 	key := FamilyKey{firstPerson: person.ID, secondPerson: marr.ID, file: ""}
@@ -575,6 +596,7 @@ func htFamilySetMarriageGEDCOMId(person *FamilyPerson, marr *FamilyPersonMarriag
 		key.firstPerson = element.FatherID
 		key.secondPerson = element.MotherID
 		if _, ok := peopleMap[key]; ok {
+			individual.Parents = htFamilyAddFamilyRecord(familyGC, "")
 			familyGC.Child = append(familyGC.Child, individual)
 			continue
 		}
@@ -582,8 +604,8 @@ func htFamilySetMarriageGEDCOMId(person *FamilyPerson, marr *FamilyPersonMarriag
 		key.firstPerson = element.MotherID
 		key.secondPerson = element.FatherID
 		if _, ok := peopleMap[key]; ok {
+			individual.Parents = htFamilyAddFamilyRecord(familyGC, "")
 			familyGC.Child = append(familyGC.Child, individual)
-			continue
 		}
 	}
 }
