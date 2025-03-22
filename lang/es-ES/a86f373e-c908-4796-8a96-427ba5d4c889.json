@@ -4,7 +4,7 @@
     "sources" : [ "a86f373e-c908-4796-8a96-427ba5d4c889" ],
     "scripts" : [ "a86f373e-c908-4796-8a96-427ba5d4c889" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1724422958" ],
+    "last_update" : [ "1742576197" ],
     "content" : [
         {
             "id" : "families",
@@ -12,12 +12,28 @@
             "value_type" : "paper",
             "value" : [
                 {
-                    "id" : "navigation",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=7c3da107-41c0-44d5-8a3b-76bbbd813175\" onclick=\"htLoadPage('class_content', 'html', '7c3da107-41c0-44d5-8a3b-76bbbd813175', false); return false;\">Seres Vivos</a></td> <td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td><a href=\"index.html?page=class_content&arg=95beb030-6030-4515-95f0-9a87ba759609\" onclick=\"htLoadPage('class_content', 'html', '95beb030-6030-4515-95f0-9a87ba759609', false); return false;\">Resumen</a></td></tr></table></p>"
+                    "id" : "line",
+                    "text": [
+                            { "text" : "<p><hr /></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                              }
+                    ]
                 },
                 {
-                    "id" : "necessity",
-                    "text" : "<p><h3>La necesidad de un método</h3>Como se ha expuesto en páginas anteriores, a medida que el universo se ha expandido, la materia se ha agrupado y ha dado lugar a estructuras además de los seres vivos que observamos. Siempre hemos intentado encontrar explicaciones para el cómo de la existencia de todo. A lo largo del tiempo, se han propuesto diferentes explicaciones para diversos fenómenos. Algunas han sido descartadas debido a experimentos que han conducido a explicaciones más precisas, mientras que otras han sido desestimadas por imposición. Es lamentable que la imposición haya sido un factor en algunos casos, por lo que es importante prestar atención a explicaciones más sólidas. ¿Cómo podemos elegir entre diferentes respuestas para un mismo evento? Se han encontrado respuestas consistentes para esta pregunta por parte de diferentes personas, destacando entre ellos Ibn Al-Haytham (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e1ddee69-8fc6-4e27-8160-c4077916aed9'); return false;\">Tbakhi, Abdelghani, and Samir S. Amr., <span class=\"htdate\"></span></a>) y Sir Francis Bacon (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28aab0ce-41e5-4404-ab2d-b86f711b80da'); return false;\">Quinton, A. M. , Quinton, . Baron , Lea, . Kathleen Marguerite and Urbach, Peter Michael, <span class=\"htdate\"></span></a>).</p>"
+                    "id" : "introduction",
+                    "text" : [ 
+                               { "text" : "### Introducción\n\nEn la vida, siempre estamos en busca de explicaciones para los eventos que ocurren a nuestro alrededor. Algunas de estas explicaciones, aunque utilizan palabras que, a primera vista, pueden parecer correctas, no resisten cuando son sometidas a pruebas y comprobaciones. Por otro lado, hay explicaciones que surgen sólidas y consistentes, y cada vez que las evaluamos, logramos confirmar y validar su precisión. Pero, en definitiva, ¿cómo podemos determinar si una explicación es buena o no",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "?"
+                               }
+                    ]
                 },
                 {
                     "id" : "scientific_method",

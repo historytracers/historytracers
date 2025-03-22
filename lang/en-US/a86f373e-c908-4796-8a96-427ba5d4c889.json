@@ -4,7 +4,7 @@
     "sources" : [ "a86f373e-c908-4796-8a96-427ba5d4c889" ],
     "scripts" : [ "a86f373e-c908-4796-8a96-427ba5d4c889" ],
     "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1724422958" ],
+    "last_update" : [ "1742576197" ],
     "content" : [
         {
             "id" : "families",
@@ -12,12 +12,28 @@
             "value_type" : "paper",
             "value" : [
                 {
-                    "id" : "navigation",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=7c3da107-41c0-44d5-8a3b-76bbbd813175\" onclick=\"htLoadPage('class_content', 'html', '7c3da107-41c0-44d5-8a3b-76bbbd813175', false); return false;\">Living beings</a></td> <td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td><a href=\"index.html?page=class_content&arg=95beb030-6030-4515-95f0-9a87ba759609\" onclick=\"htLoadPage('class_content', 'html', '95beb030-6030-4515-95f0-9a87ba759609', false); return false;\">Summary</a></td></tr></table></p>"
+                    "id" : "line",
+                    "text": [
+                            { "text" : "<p><hr /></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                              }
+                    ]
                 },
                 {
-                    "id" : "necessity",
-                    "text" : "<p><h3>The need for Methodology</h3>As discussed in previous sessions, the universe underwent expansion, leading to the formation of matter and the emergence of observable life forms. Humanity has perpetually sought to understand the reasons behind existence, often providing varied explanations for natural phenomena. Some explanations fell by the wayside as experiments yielded superior insights, while others persisted due to societal imposition. Imposition, undoubtedly, impedes progress. Thus, our focus lies on seeking optimal explanations. However, amidst a multitude of interpretations for the same event, how do we discern the most viable one? Noteworthy contributions to this question have been made by figures such as Ibn Al-Haytham (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e1ddee69-8fc6-4e27-8160-c4077916aed9'); return false;\">Tbakhi, Abdelghani, and Samir S. Amr., <span class=\"htdate\"></span></a>) and Sir Francis Bacon (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28aab0ce-41e5-4404-ab2d-b86f711b80da'); return false;\">Quinton, A. M. , Quinton, . Baron , Lea, . Kathleen Marguerite and Urbach, Peter Michael, <span class=\"htdate\"></span></a>).</p>"
+                    "id" : "introduction",
+                    "text" : [ 
+                               { "text" : "### Introduction\n\nIn life, we are always searching for explanations for the events that happen around us. Some of these explanations use words that, at first glance, may seem correct, but they fail to withstand certain tests or proofs. On the other hand, there are explanations that emerge solid and consistent, and every time we evaluate them, we are able to confirm and validate their accuracy. But how can we determine whether an explanation is good or not",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "?"
+                               }
+                    ]
                 },
                 {
                     "id" : "scientific_method",
