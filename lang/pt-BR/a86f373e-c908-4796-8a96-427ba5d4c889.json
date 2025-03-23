@@ -36,8 +36,66 @@
                     ]
                 },
                 {
-                    "id" : "scientific_method",
-                    "text" : "<p><h3>O surgimento do método</h3>Ao apresentar dois trabalhos que contribuem para a definição de um método para obter respostas, não se busca determinar quem foi o primeiro ou mais importante, pois o objetivo da página é demonstrar como ambos contribuem de forma complementar, sem competir entre si.</p><p>O trabalho de Ibn Al-Haytham descreve em detalhes os experimentos realizados e corretamente conclui que, ao atingir um objeto, a luz reflete no olho (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8cca37d0-35bb-42ae-8700-f425c98f4f28'); return false;\">Sabra, A. I., <span class=\"htdate\"></span>, Book 1, Ch. 6, pp. 63</a>). Os experimentos e conclusões corretas alcançadas por ele fornecem um modelo para compreender a natureza (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e1ddee69-8fc6-4e27-8160-c4077916aed9'); return false;\">Tbakhi, Abdelghani, and Samir S. Amr., <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ed3bf544-1c30-4109-9521-f68fa8eff0e7'); return false;\">Al-Khalili, J., <span class=\"htdate\"></span></a>).</p><p>Quando Sir Francis Bacon publicou o <i>Novum Organum</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('051faac0-97a3-4ff3-83f7-346c8a7dd14d'); return false;\">Lord Bacon, <span class=\"htdate\"></span></a>), definiu um método agora conhecido como método Baconiano (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a8eff431-07fc-4e9f-8654-5d144783218c'); return false;\">Britannica, T. Editors of Encyclopaedia, <span class=\"htdate\"></span></a>) que descreve investigações científicas em etapas, resumidas em: <ol><li>Descrição dos fatos.</li><li>Tabulação ou classificação dos fatos.</li><li>Rejeição ou aceitação de elementos associados ao fenômeno, conforme os dados disponíveis.</li></ol></p><p>Ambos os trabalhos contribuíram significativamente para o desenvolvimento da ciência como a conhecemos. Ter um método que ajuda a distinguir entre resultados que explicam e aqueles que não explicam fenômenos naturais foi fundamental para avanços importantes, como o tratamento de doenças e o aprimoramento da qualidade de vida.</p>"
+                    "id" : "propose",
+                    "text" : [ 
+                               { "text" : "### A proposta do método\n\nA utilização de um método de investigação ocorreu em momentos distintos e em locais diferentes. Neste texto, seguindo a ordem cronológica, descrevemos parte dos trabalhos de Ibn Al-Haytham e Sir Francis Bacon.\n\n#### Ibn Al-Haytham\n\nAo estudarmos o trabalho de Ibn Al-Haytham, observamos uma descrição precisa dos experimentos, que o levaram a concluir que, ao atingir um objeto, a luz reflete nos olhos. Os experimentos e as conclusões corretas alcançadas por ele fornecem um modelo para compreender a natureza",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "8cca37d0-35bb-42ae-8700-f425c98f4f28",
+                                                "text": "Sabra, A. I.",
+                                                "date" :  {"type" : "gregory", "year" : "1989", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "e1ddee69-8fc6-4e27-8160-c4077916aed9",
+                                                "text": "Tbakhi, Abdelghani, and Samir S. Amr.",
+                                                "date" :  {"type" : "gregory", "year" : "2007", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "ed3bf544-1c30-4109-9521-f68fa8eff0e7",
+                                                "text": "Al-Khalili, J.",
+                                                "date" :  {"type" : "gregory", "year" : "2015", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "<p class=\"desc\"><img id=\"Experiment\" onclick=\"htImageZoom('Experiment', '0%')\" src=\"images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg\" class=\"imgcenter\"/>Figura 1: Descrição de experimentos de Ibn Al-Haytham. Imagem extraída de Archive (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('de651eda-c584-444f-9ec0-67f1a43aa4a6'); return false;\">The Optics Of Ibn Al Haytham, Books I III, On Direct Vision</a>)</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "#### Sir Francis Bacon\n\nQuando Sir Francis Bacon publicou o *Novum Organum*, definiu o método que conhecemos como método baconiano. Este método descreve as investigações científicas em etapas específicas",
+                                 "source" : [
+                                              { "type": 0,
+                                                "uuid": "051faac0-97a3-4ff3-83f7-346c8a7dd14d",
+                                                "text": "Lord Bacon",
+                                                "date" :  {"type" : "gregory", "year" : "1902", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "a8eff431-07fc-4e9f-8654-5d144783218c",
+                                                "text": "Britannica, T. Editors of Encyclopaedia",
+                                                "date" :  {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "- Descrição dos fatos.\n- Tabulação ou classificação dos fatos.\n- Rejeição ou aceitação de elementos associados ao fenômeno, conforme os dados disponíveis",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": " "
+                               },
+                               { "text" : "#### Contribuição conjunta\n\nAmbos os trabalhos contribuíram significativamente para o desenvolvimento das ciências como as conhecemos, ajudando-nos a explicar e entender fenômenos naturais. Essas contribuições permitiram avanços importantes em nossas vidas, como o tratamento de doenças",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
                 },
                 {
                     "id" : "examples",
