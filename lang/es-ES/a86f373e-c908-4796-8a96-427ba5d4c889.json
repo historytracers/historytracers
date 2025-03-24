@@ -159,62 +159,95 @@
                     ]
                 },
                 {
-                    "id" : "examples",
-                    "text" : "</p><p>¿Qué sucede cuando una investigación demuestra que otra está \"equivocada\"?  Debemos ser cautelosos con términos como \"correcto\" y \"equivocado\", ya que podríamos estar simplemente frente a una investigación que ha identificado una limitación en un resultado anterior, lo que no necesariamente hace que el resultado anterior sea incorrecto. Por ejemplo, no deberíamos descartar la ley de la gravitación propuesta por Sir Isaac Newton (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee'); return false;\">Newton, Isaac, <span class=\"htdate\"></span></a>) y adoptar exclusivamente la teoría de la relatividad de Albert Einstein (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('902815ac-30e7-46d2-8883-57ad754c1630'); return false;\">Einstein Relativity Easy, <span class=\"htdate\"></span></a>), ya que los resultados de Newton explican fenómenos observados en la Tierra (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1df98dc5-523f-42ae-9a69-3e9410849ebb'); return false;\">Hossenfelder, Sabine, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cd738b4d-32bd-4ea6-8aef-6653d961de19'); return false;\">Hossenfelder, Sabine, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('76b636be-45db-4e52-8ecd-5c873344f926'); return false;\">Lincoln, Don, <span class=\"htdate\"></span>, Fermilab</a>).</p><p>¿Son los resultados científicos simplemente \"teoría\"? La frase \"simplemente teoría\", que a menudo se usa para desacreditar los resultados científicos, suele ser pronunciada por personas que no comprenden el método científico, e incluso a veces por aquellos que no entienden lo que desean que sea \"correcto\". El objetivo de la ciencia no es explicar por qué ocurre algo o sustituir creencias, sino buscar constantemente el conocimiento y comprender cómo ocurren las cosas. Tener dudas sobre cualquier cosa no es un problema, sino una oportunidad para adquirir nuevos conocimientos. A diario estamos aprendiendo y poniendo a prueba teorías y leyes científicas. Cuando encontramos limitaciones en alguna de ellas, debemos actualizarlas con nuevas leyes o teorías, sin excluir las anteriores, sino considerándolas como casos particulares. Volviendo al ejemplo de la gravitación, la teoría de Albert Einstein explica muchos fenómenos en el universo que no se explicaban con la teoría de Newton, pero al aplicar la teoría de Einstein en la Tierra, debería producir los mismos resultados que la teoría de Newton.</p><p>Dado que este es un proyecto de divulgación científica, también aplicamos el método científico en diferentes momentos. A continuación, algunos ejemplos: <ul><li>El origen de la familia Tavares se ha vinculado durante siglos con la familia Fonseca, pero las investigaciones de Manuel Abranches de Soveral y José Augusto de Sottomayor Pizarro han demostrado que esto no es posible (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('5089c690-497b-4f78-b85c-1835997d348c'); return false;\">History Tracers, <span class=\"htdate\"></span>,  Tavares</a>).</li><li>El uso de documentación parcial o la extracción de frases de su contexto pueden conducir a malentendidos. La historia de la familia Betim en São Paulo es un ejemplo de estos errores (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('86515cbc-40f2-40f8-8b9b-5385ba236d39'); return false;\">History Tracers, <span class=\"htdate\"></span>,  Betim</a>).</li></ul>"
-                },
-                {
-                    "id" : "game",
-                    "text" : [ "<p><h3>El Juego</h3>Para facilitar la comprensión del método científico, History Tracers desarrolló un juego en el que el método se aplica en diferentes escenarios. Puedes acceder al juego a través del enlace: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('96f3d3af-15c3-4c37-9d0e-e4b7db0db1db'); return false;\">Método Científico</a>.</p>", "<p>Recomendamos al lector jugar las fases indicadas siempre que los textos lo sugieran, y completar al menos las etapas de \"<b>Entreinamento</b>\" para una comprensión más profunda del método.</p>" ]
-                },
-                {
-                    "id" : "exercise_v2",
+                    "id" : "update",
                     "text" : [ 
-                        {
-                            "question" : "Cuando imponemos una respuesta sin aceptar cuestionamiento, ¿estamos estimulando el conocimiento?",
-                            "yesNoAnswer" : "No",
-                            "additionalInfo" : "Cuando alguien es forzado a aceptar algo sin la posibilidad de cuestionamientos, el aprendizaje no solo de ese tema, sino también de otros, se desestimula."
-                        },
-                        {
-                            "question" : "¿El método científico crea verdades indiscutibles?",
-                            "yesNoAnswer" : "No",
-                            "additionalInfo" : "Cuando tenemos un método que incentiva los cuestionamientos en sus etapas, no podemos considerar que no acepta cuestionamientos. Preguntar es una etapa esencial en el aprendizaje."
-                        },
-                        {
-                            "question" : "¿La ciencia admite errores y conclusiones de un científico son aceptas solamente cuando múltiples pruebas confirman las teorías?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Al presentar una propuesta inicial, se espera que otras personas logren reproducir la misma explicación (pruebas), hasta llegar a una conclusión (teoría)."
-                        },
-                        {
-                            "question" : "¿Se pueden mejorar teorías y leyes de la ciencia?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "El conocimiento está en constante crecimiento. Una respuesta que es adecuada hoy puede ser mejorada o corregida en el futuro con nuevos datos."
-                        },
-                        {
-                            "question" : "¿Los científicos están siempre en busca de conocimiento?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "En la ciencia, siempre estamos buscando más información."
-                        }
+                               { "text" : "### Progresos de las Ciencias\n\n#### Un Nuevo Descubrimiento\n\nImagina que, hoy, un nuevo descubrimiento contradice una idea que existía desde hace siglos. Ahora, reflexiona",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre los Descubrimientos</b><br /><br />¿Qué sucede con el entendimiento anterior? ¿Significa esto que el conocimiento previo estaba equivocado? ¿O hay algo más que considerar?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "Debemos ser cautelosos con términos como \"correcto\" e \"incorrecto\", ya que podríamos estar simplemente frente a una investigación que ha identificado una limitación en un resultado anterior, lo que no necesariamente hace que el resultado previo sea incorrecto.\n\nPor ejemplo, no deberíamos descartar la ley de la gravitación propuesta por Sir Isaac Newton y adoptar exclusivamente la teoría de la relatividad de Albert Einstein, ya que los resultados de Newton explican fenómenos observados en la Tierra, aunque no explican fenómenos en el universo",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee",
+                                                "text": "Newton, Isaac",
+                                                "date" :  {"type" : "gregory", "year" : "1686", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "902815ac-30e7-46d2-8883-57ad754c1630",
+                                                "text": "Einstein Relativity Easy",
+                                                "date" :  {"type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "1df98dc5-523f-42ae-9a69-3e9410849ebb",
+                                                "text": "Hossenfelder, Sabine",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "cd738b4d-32bd-4ea6-8aef-6653d961de19",
+                                                "text": "Hossenfelder, Sabine",
+                                                "date" :  {"type" : "gregory", "year" : "2021", "month" : "-1", "day" : "-1" }},
+                                              { "type": 1,
+                                                "uuid": "76b636be-45db-4e52-8ecd-5c873344f926",
+                                                "text": "Lincoln, Don - Fermilab",
+                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": " "
+                               },
+                               { "text" : "#### Límites de las Ciencias\n\nNo es raro escuchar frases como: \"los resultados científicos son solo teorías\". Esto nos lleva a una nueva reflexión",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre el Conocimiento</b><br /><br />¿Demuestra esta frase un desconocimiento sobre la ciencia?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "La expresión \"solo una teoría\", que a menudo se usa para desacreditar los resultados científicos, refleja un malentendido sobre los objetivos de la ciencia. El objetivo de la ciencia no es explicar por qué ocurre algo o sustituir creencias, sino buscar constantemente el conocimiento y comprender cómo ocurren las cosas. Dudar no es un problema, sino una oportunidad para adquirir nuevos conocimientos. A diario, aprendemos y ponemos a prueba teorías y leyes científicas. Cuando encontramos limitaciones en alguna de ellas, las actualizamos con nuevas leyes o teorías, sin excluir las anteriores, sino considerándolas como casos particulares",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
                     ]
                 },
                 {
-                    "id": "fill_dates",
-                    "text": [
-                        {  "type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2007", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1989", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2007", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2015", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1902", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1686", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2021", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }
+                    "id" : "game",
+                    "text" : [ 
+                               { "text" : "<p><h3>El Juego</h3>Para facilitar la comprensión del método científico, History Tracers desarrolló un juego en el que el método se aplica en diferentes escenarios. Puedes acceder al juego a través del enlace: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('96f3d3af-15c3-4c37-9d0e-e4b7db0db1db'); return false;\">Método Científico</a>.</p><p>Recomendamos al lector jugar las fases indicadas siempre que los textos lo sugieran, y completar al menos las etapas de \"<b>Entreinamento</b>\" para una comprensión más profunda del método.</p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               }
+                    ]
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : [ 
+                               { "text" : "### Conclusión\n\nEn este texto, hemos aprendido un poco sobre el método que se utilizará en diferentes secciones de History Tracers para la enseñanza. El método científico no es perfecto, pero sus defectos se compensan con una gran cualidad: no limita la búsqueda de nuevos conocimientos",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
                     ]
                 }
             ]
