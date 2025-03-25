@@ -104,6 +104,9 @@ type FamilyPersonHaplogroup struct {
 type FamilyPerson struct {
 	ID         string                   `json:"id"`
 	Name       string                   `json:"name"`
+	SurName    string                   `json:"surname"`
+	Patronymic string                   `json:"patronymic"`
+	FullName   string                   `json:"fullname"`
 	Sex        string                   `json:"sex"`
 	Gender     string                   `json:"gender"`
 	Real       bool                     `json:"is_real"`
