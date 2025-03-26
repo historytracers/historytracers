@@ -40,6 +40,7 @@ var htEditable = undefined;
 var htEditableCheck = true;
 
 function htEnableEdition() {
+    /*
     if (htEditableCheck == false || htEditable != undefined) {
         return;
     }
@@ -78,6 +79,7 @@ function htEnableEdition() {
             });
         },
     });
+    */
 }
 
 function htScroolToID(id) {
@@ -1440,8 +1442,8 @@ function htFillSubMapList(table, target) {
                 break;
             case "tree":
             default:
-                if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].family_id.length > 0 && table[i].name != undefined && table[i].desc != undefined) {
-                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
+                if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].family_id.length > 0 && table[i].fullname != undefined && table[i].desc != undefined) {
+                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].fullname+"</a>: "+table[i].desc+"</li>");
                 }
         }
     }
@@ -1726,11 +1728,11 @@ function htFillFamilies(page, table) {
             var person_id = people[j].id;
             $("#hist-"+family_id).append("<div id=\"tree-"+person_id+"\" class=\"tree-person-text\"></div>");
 
-            personNameMap.set(people[j].id, people[j].name);
+            personNameMap.set(people[j].id, people[j].fullname);
             htAppendData("tree",
                        person_id,
                        family_id,
-                       people[j].name,
+                       people[j].fullname,
                        people[j],
                        page);
         }
@@ -1920,6 +1922,14 @@ function htMountPersonEvents(table) {
 
         if (table.baptism != undefined) {
             ret += htMountPersonEvent(keywords[93], table.baptism, localLang, localCalendar)+"<br />";
+        }
+
+        if (table.surname != undefined) {
+            ret += "<b>"+keywords[104]+"</b>: "+table.surname+"<br />";
+        }
+
+        if (table.patronymic != undefined) {
+            ret += "<b>"+keywords[105]+"</b>: "+table.patronymic+"<br />";
         }
 
         if (table.death != undefined) {
