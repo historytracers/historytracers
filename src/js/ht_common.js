@@ -40,6 +40,7 @@ var htEditable = undefined;
 var htEditableCheck = true;
 
 function htEnableEdition() {
+    /*
     if (htEditableCheck == false || htEditable != undefined) {
         return;
     }
@@ -78,6 +79,7 @@ function htEnableEdition() {
             });
         },
     });
+    */
 }
 
 function htScroolToID(id) {
@@ -1920,6 +1922,14 @@ function htMountPersonEvents(table) {
 
         if (table.baptism != undefined) {
             ret += htMountPersonEvent(keywords[93], table.baptism, localLang, localCalendar)+"<br />";
+        }
+
+        if (table.surname != undefined) {
+            ret += "<b>"+keywords[104]+"</b>: "+table.surname+"<br />";
+        }
+
+        if (table.patronymic != undefined) {
+            ret += "<b>"+keywords[105]+"</b>: "+table.patronymic+"<br />";
         }
 
         if (table.death != undefined) {
