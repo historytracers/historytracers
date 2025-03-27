@@ -5,7 +5,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"os"
 
 	"github.com/google/uuid"
@@ -252,16 +251,10 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
 		fmt.Println("Parsing Family File", localPath)
 	}
 
-	jsonFile, err := os.Open(localPath)
+	byteValue, err := htOpenFileReadClose(localPath)
 	if err != nil {
 		return err, ""
 	}
-
-	byteValue, err := io.ReadAll(jsonFile)
-	if err != nil {
-		return err, ""
-	}
-	jsonFile.Close()
 
 	var family Family
 	err = json.Unmarshal(byteValue, &family)
@@ -304,7 +297,7 @@ func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
 	indexUpdated = true
 }
 
-func htWriteIndexFile(lang string, index *IdxFamily) (string, error) {
+func htWriteFamilyIndexFile(lang string, index *IdxFamily) (string, error) {
 	id := uuid.New()
 	strID := id.String()
 
@@ -330,16 +323,10 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 		fmt.Println("Adjusting file", fileName)
 	}
 
-	jsonFile, err := os.Open(fileName)
+	byteValue, err := htOpenFileReadClose(fileName)
 	if err != nil {
 		return err
 	}
-
-	byteValue, err := io.ReadAll(jsonFile)
-	if err != nil {
-		return err
-	}
-	jsonFile.Close()
 
 	var index IdxFamily
 	err = json.Unmarshal(byteValue, &index)
@@ -379,7 +366,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 		index.LastUpdate[0] = htUpdateTimestamp()
 	}
 
-	newFile, err := htWriteIndexFile(lang, &index)
+	newFile, err := htWriteFamilyIndexFile(lang, &index)
 	if err != nil {
 		return err
 	}

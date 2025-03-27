@@ -110,6 +110,11 @@ func main() {
 		return
 	}
 
+	if len(classTemplate) > 0 {
+		htCreateNewClass()
+		return
+	}
+
 	devM := "with"
 	if CFG.DevMode == false {
 		devM += "out"

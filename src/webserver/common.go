@@ -53,6 +53,21 @@ func htUpdateTimestamp() string {
 	return newStr
 }
 
+func htOpenFileReadClose(fileName string) ([]byte, error) {
+	contentFile, err := os.Open(fileName)
+	if err != nil {
+		return nil, err
+	}
+
+	byteValue, err := io.ReadAll(contentFile)
+	if err != nil {
+		return nil, err
+	}
+	contentFile.Close()
+
+	return byteValue, nil
+}
+
 func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
 	srcStat, err := os.Stat(srcFile)
 	if err != nil {
