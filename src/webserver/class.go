@@ -118,6 +118,7 @@ func htCreateTestClass(fileName string) {
 	for i := 0; i < len(htLangPaths); i++ {
 		localClassIDXUpdate = false
 		idxPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[i], classTemplate)
+		fmt.Println("Working with", idxPath)
 		err := htOpenClassIdx(idxPath, fileName, htLangPaths[i])
 		if err != nil {
 			panic(err)
@@ -133,6 +134,11 @@ func htCreateNewClass() {
 	fmt.Printf("Class %s created for %s classTemplate\n", strID, classTemplate)
 }
 
-func htVerifyClassFormats() {
-	htCreateTestClass("")
+func htValidateClassFormats() {
+	classTemplates := [5]string{"science", "history", "indigenous_who", "first_steps", "literature"}
+
+	for i := 0; i < len(classTemplates); i++ {
+		classTemplate = classTemplates[i]
+		htCreateTestClass("")
+	}
 }

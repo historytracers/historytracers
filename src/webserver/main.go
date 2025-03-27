@@ -107,6 +107,7 @@ func main() {
 
 	if validateFlag {
 		htValidateGEDCOM()
+		htValidateClassFormats()
 		return
 	}
 
