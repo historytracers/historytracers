@@ -1,0 +1,90 @@
+{
+    "title" : "Does addition always give the same result?",
+    "header" : "Does addition always give the same result?",
+    "sources" : [ "411fc48b-20aa-4514-9fc8-152a6eb9e263" ],
+    "scripts" : [ "411fc48b-20aa-4514-9fc8-152a6eb9e263" ],
+    "index" : [ "first_steps" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1743182494" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "prerequisites",
+                    "text" : [ 
+                               { "text" : "<span id=\"htZoomImageMsg\"></span>",
+                                 "source" : null,
+                                  "date_time" : null,
+                                  "isTable" : false,
+                                  "format" : "html",
+                                  "PostMention": " "
+                               },
+                               { "text" : "### Prerequisites\n\nThis text will explore the concept of addition in greater depth. As such, we recommend reviewing the previous texts in this chapter, along with their respective prerequisites",
+                                 "source" : [ 
+                                              { "type": 1,
+                                                "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                                                "text": "History Tracers Team, Primeros Pasos",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                  "date_time" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ 
+                               { "text" : "### Introduction\n\nFrequently, when performing addition, we answer automatically - a habit that leads us to reflect",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: What is the actual result?</b><br /><br />When we add two numbers, do we always obtain the same outcome?<br /><br />For example: what is the result of 40 + 40?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "If you concluded the answer is 80, you are likely correct. However, we cannot rule out the possibility of error, since we've only provided the numbers without specifying what we're adding",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Independente do que somamos, a soma de dois números sempre tem o mesmo resultado?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Ao somarmos quantidades, devemos saber o que estamos somando, para selecionar corretamente as regras que devemos fazer a soma. Além disto, devemos ter atenção as grandezas que somamos."
+                        }
+                    ]
+                },
+                {
+                    "id": "date_time",
+                    "text": [
+                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                        {"type" : "unix", "epoch" : "0" },
+                        {"type" : "julian",  "epoch" : "0" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

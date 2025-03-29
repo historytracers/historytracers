@@ -1,0 +1,89 @@
+{
+    "title" : "¿Las sumas siempre dan el mismo resultado?",
+    "header" : "¿Las sumas siempre dan el mismo resultado?",
+    "sources" : [ "411fc48b-20aa-4514-9fc8-152a6eb9e263" ],
+    "scripts" : [ "411fc48b-20aa-4514-9fc8-152a6eb9e263" ],
+    "index" : [ "first_steps" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1743182494" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "class",
+    "content" : [
+        {
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "prerequisites",
+                    "text" : [ 
+                               { "text" : "<span id=\"htZoomImageMsg\"></span>",
+                                 "source" : null,
+                                  "date_time" : null,
+                                  "isTable" : false,
+                                  "format" : "html",
+                                  "PostMention": " "
+                               },
+                               { "text" : "### Prerrequisitos\n\nEste texto profundizará en el concepto de adición. Por ello, se recomienda estudiar los textos previos de este capítulo, así como sus respectivos prerrequisitos",
+                                 "source" : [ 
+                                              { "type": 1,
+                                                "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                                                "text": "History Tracers Team, Primeros Pasos",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+                                 ],
+                                  "date_time" : null,
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ 
+                               { "text" : "### Introducción\n\nFrecuentemente, al realizar una suma, respondemos de forma automática, lo que nos lleva a la siguiente reflexión",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Cuál es el resultado?</b><br /><br />¿Al sumar dos números siempre obtenemos el mismo valor?<br /><br />Por ejemplo: ¿cuál es el resultado de 40 + 40?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "Si en su reflexión llegó al resultado 80, es muy probable que esté en lo correcto. Sin embargo, no podemos descartar la posibilidad de error, pues solo presentamos los números, no especificamos qué estamos sumando",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "WRITE A QUESTION",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "The correct answer is 'Yes' because ..."
+                        }
+                    ]
+                },
+                {
+                    "id": "date_time",
+                    "text": [
+                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                        {"type" : "unix", "epoch" : "0" },
+                        {"type" : "julian",  "epoch" : "0" }
+                    ]
+                }
+            ]
+        }
+    ]
+}
