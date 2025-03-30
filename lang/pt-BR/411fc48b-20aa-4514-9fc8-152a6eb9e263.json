@@ -66,21 +66,89 @@
                     ]
                 },
                 {
+                    "id" : "always",
+                    "text" : [ 
+                               { "text" : "### Quando 40 + 40 é igual a 80?\n\nA pergunta que intitula esta seção merece uma reflexão adicional",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Onde podemos aplicar isso?</b><br /><br />Você consegue identificar situações em que 40 + 40 resulta em 80?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "Vamos observar novamente nossas mãos",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<p><table class=\"book_navigation\"><tr><td>Mão esquerda</td><td>Mão direita</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representação das mãos. Código-fonte presente no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <span class=\"htdate\"></span>, Código Fonte</a>)</td></tr></table></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "Se reuníssemos 40 dedos e os somássemos a outros 40 dedos, obteríamos, ao final, 80 dedos. Um resultado semelhante ocorreria se fizéssemos a contagem utilizando as mãos. E não é apenas com o corpo humano que podemos realizar essas operações. Também é possível aplicar esse tipo de soma a árvores e outros animais. Diante desses exemplos, reflitamos mais uma vez",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": ":"
+                               },
+                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: O que há em comum?</b><br /><br />Você consegue identificar algo que nos una a plantas e outros animais?</div></div></center></p>",
+                                 "source" : null,
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "html",
+                                 "PostMention": " "
+                               },
+                               { "text" : "Assim como os demais animais e as plantas, nós somos seres vivos — ou, se preferir, seres naturais. O mesmo vale para os números que temos estudado até agora. Esses números naturais, representados na matemática pelo símbolo ℕ, são conhecidos por estarem diretamente ligados à nossa compreensão de contagem",
+                                 "source" : [
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               },
+                               { "text" : "No contexto dos números naturais, é correto afirmar que 40 + 40 é igual a 80, desde que estejamos falando dos mesmos objetos (ou seres vivos). No entanto, é sempre importante analisar o contexto e suas dimensões, como veremos a seguir",
+                                 "source" : [
+                                              { "type": 1,
+                                                "uuid": "0db84048-6184-4412-b538-0c41c6f8438e",
+                                                "text": "McDonough, M.",
+                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "2", "day" : "26" }},
+                                              { "type": 1,
+                                                "uuid": "ea43d68d-8004-4fa8-bf58-82b57a6458ae",
+                                                "text": "Weisstein, Eric W."}
+                                 ],
+                                 "isTable" : false,
+                                 "date_time" : null,
+                                 "format" : "markdown",
+                                 "PostMention": "."
+                               }
+                    ]
+                },
+                {
                     "id" : "exercise_v2",
                     "text" : [ 
                         {
-                            "question" : "WRITE A QUESTION",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "The correct answer is 'Yes' because ..."
+                            "question" : "Independente do que somamos, a soma de dois números sempre tem o mesmo resultado?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Ao somarmos quantidades, devemos saber o que estamos somando, para selecionar corretamente as regras que devemos fazer a soma. Além disto, devemos ter atenção as grandezas que somamos."
                         }
                     ]
                 },
                 {
                     "id": "date_time",
                     "text": [
-                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                        {"type" : "unix", "epoch" : "0" },
-                        {"type" : "julian",  "epoch" : "0" }
+                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
                     ]
                 }
             ]
