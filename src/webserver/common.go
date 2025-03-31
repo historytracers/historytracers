@@ -53,6 +53,21 @@ func htUpdateTimestamp() string {
 	return newStr
 }
 
+func htOpenFileReadClose(fileName string) ([]byte, error) {
+	contentFile, err := os.Open(fileName)
+	if err != nil {
+		return nil, err
+	}
+
+	byteValue, err := io.ReadAll(contentFile)
+	if err != nil {
+		return nil, err
+	}
+	contentFile.Close()
+
+	return byteValue, nil
+}
+
 func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
 	srcStat, err := os.Stat(srcFile)
 	if err != nil {
@@ -88,7 +103,11 @@ func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
 func htCommonJsonError(byteValue []byte, err error) {
 	switch t := err.(type) {
 	case *json.SyntaxError:
-		jsn := string(byteValue[t.Offset-30 : t.Offset])
+		begin := t.Offset
+		if begin > 30 {
+			begin -= 30
+		}
+		jsn := string(byteValue[begin : t.Offset])
 		jsn += "<--(Invalid Character)"
 		fmt.Printf("Invalid character at offset %v\n %s", t.Offset, jsn)
 	case *json.UnmarshalTypeError:

@@ -19,17 +19,18 @@ type htConfig struct {
 }
 
 var (
-	devFlag      bool   = false
-	minifyFlag   bool   = false
-	gedcomFlag   bool   = false
-	verboseFlag  bool   = false
-	validateFlag bool   = false
-	portFlag     int    = 12345
-	confPath     string = "/etc/historytracers/"
-	srcPath      string = "/var/www/historytracers/"
-	logPath      string = "/var/log/historytracers/"
-	contentPath  string = "/var/www/historytracers/www/"
-	CFG          *htConfig
+	devFlag       bool   = false
+	minifyFlag    bool   = false
+	gedcomFlag    bool   = false
+	verboseFlag   bool   = false
+	validateFlag  bool   = false
+	portFlag      int    = 12345
+	confPath      string = "/etc/historytracers/"
+	srcPath       string = "/var/www/historytracers/"
+	logPath       string = "/var/log/historytracers/"
+	contentPath   string = "/var/www/historytracers/www/"
+	classTemplate string = ""
+	CFG           *htConfig
 )
 
 func HTParseArg() {
@@ -46,6 +47,7 @@ func HTParseArg() {
 	flag.StringVar(&CFG.LogPath, "log", logPath, "Directory containing all log files")
 	flag.StringVar(&CFG.ContentPath, "www", contentPath, "Directory for user-facing content")
 	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration file.")
+	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (science, history, indigenous_who, first_steps, or literature).")
 
 	flag.Parse()
 }

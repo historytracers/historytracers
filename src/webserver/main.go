@@ -107,6 +107,12 @@ func main() {
 
 	if validateFlag {
 		htValidateGEDCOM()
+		htValidateClassFormats()
+		return
+	}
+
+	if len(classTemplate) > 0 {
+		htCreateNewClass()
 		return
 	}
 
