@@ -18,6 +18,7 @@ Los siguientes scripts están disponibles:
 -  `create_class.sh`: Crea archivos para una nueva clase según el argumento proporcionado (`science`, `history`, and `first_steps`). 
 -  `create_game.sh`: Crea archivos utilizados en el juego `Método Científico`. Los juegos futuros deben modificar este script para crear sus propios archivos.
 -  `create_language.sh`: Crea un directorio para un nuevo idioma y copia los archivos necesarios en él.
+-  `ht_tts.sh`: Realiza la conversión de un texto presente en uno de los archivos de entrada (`PT_TEXT`, `ES_TEXT` or `EN_TEXT`) a un archivo WAV.
 -  `update_js_css.sh`: Cada vez que se modifican archivos dentro del directorio `src`, es necesario ejecutar este script para actualizar el índice.
 
 ### Subdirectorio python

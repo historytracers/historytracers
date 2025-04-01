@@ -1021,6 +1021,10 @@ function htFillWebPage(page, data)
         htFillDivAuthorsContent("#extpaper", last_update, page_authors, page_reviewers);
     }
 
+    if ($("#htaudio").length > 0 && data.audio != undefined && data.audio != null) {
+        $("#htaudio").html(keywords[106]+" <a href=\""+data.audio+"\" class=\"fa-brands fa-spotify\" target=\"_blank\" style=\"font-size: 1.0em;\">. "+keywords[107]+"</a>");
+    }
+
     if (data.languages != undefined) {
         htFillIndexSelector(data.languages, "#site_language");
         $("#loading_msg").hide();
