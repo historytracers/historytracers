@@ -42,6 +42,7 @@ type IdxFamily struct {
 	License    []string           `json:"license"`
 	Sources    []string           `json:"sources"`
 	LastUpdate []string           `json:"last_update"`
+	Audio      string             `json:"audio"`
 	GEDCOM     string             `json:"gedcom"`
 	Contents   []IdxFamilyContent `json:"content"`
 	DateTime   []HTDate           `json:"date_time"`
@@ -132,6 +133,7 @@ type Family struct {
 	Header        string       `json:"header"`
 	Sources       []string     `json:"sources"`
 	Scripts       []string     `json:"scripts"`
+	Audio         string       `json:"audio"`
 	Index         []string     `json:"index"`
 	Common        []HTText     `json:"common"`
 	License       []string     `json:"license"`
@@ -183,6 +185,19 @@ func htParseFamilySetGEDCOM(families *Family, fileName string, lang string) {
 	if verboseFlag {
 		fmt.Println("Setting GEDCOM file to: ", families.GEDCOM)
 	}
+	familyUpdated = true
+}
+
+func htParseFamilySetLicenses(families *Family, lang string) {
+	if len(families.License) == 2 {
+		if families.License[0] == "SPDX-License-Identifier: GPL-3.0-or-later" && families.License[1] == "CC BY-NC 4.0 DEED" {
+			return
+		}
+	}
+
+	families.License[0] = "SPDX-License-Identifier: GPL-3.0-or-later"
+	families.License = append(families.License, "CC BY-NC 4.0 DEED")
+
 	familyUpdated = true
 }
 
@@ -268,6 +283,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
 	}
 
 	htParseFamilySetGEDCOM(&family, fileName, lang)
+	htParseFamilySetLicenses(&family, lang)
 	if familyUpdated == true {
 		family.LastUpdate[0] = htUpdateTimestamp()
 	}
@@ -294,6 +310,19 @@ func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
 	if verboseFlag {
 		fmt.Println("Setting GEDCOM file to: ", families.GEDCOM)
 	}
+	indexUpdated = true
+}
+
+func htParseIndexSetLicenses(families *IdxFamily, lang string) {
+	if len(families.License) == 2 {
+		if families.License[0] == "SPDX-License-Identifier: GPL-3.0-or-later" && families.License[1] == "CC BY-NC 4.0 DEED" {
+			return
+		}
+	}
+
+	families.License[0] = "SPDX-License-Identifier: GPL-3.0-or-later"
+	families.License = append(families.License, "CC BY-NC 4.0 DEED")
+
 	indexUpdated = true
 }
 
@@ -362,6 +391,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 	}
 
 	htParseIndexSetGEDCOM(&index, lang)
+	htParseIndexSetLicenses(&index, lang)
 	if indexUpdated == true {
 		index.LastUpdate[0] = htUpdateTimestamp()
 	}

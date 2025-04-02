@@ -18,6 +18,7 @@ Available scripts:
 -  `create_class.sh`: Generates class files based on the provided argument (`science`, `history`, or `first_steps`). 
 -  `create_game.sh`: Creates files for the  `Scientific Method` game. Future games can modify this script to create their own files.
 -  `create_language.sh`: Sets up a new language directory and generates the necessary files for it.
+-  `ht_tts.sh`: Convert a text specified in one of the input files (`PT_TEXT`, `ES_TEXT` or `EN_TEXT`) into a WAV file.
 -  `update_js_css.sh`: Updates the index whenever files in the `src` directory are modified.
 
 ### Python subirectory
