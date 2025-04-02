@@ -10,6 +10,28 @@ import (
 	"github.com/google/uuid"
 )
 
+type classTemplateContent struct {
+	ID   string   `json:"id"`
+	Text []HTText `json:"text"`
+}
+
+type classTemplateFile struct {
+	Title      string                 `json:"title"`
+	Header     string                 `json:"header"`
+	Sources    []string               `json:"sources"`
+	Scripts    []string               `json:"scripts"`
+	Index      []string               `json:"index"`
+	License    []string               `json:"license"`
+	LastUpdate []string               `json:"last_update"`
+	Authors    []string               `json:"authors"`
+	Reviewers  []string               `json:"reviewers"`
+	Type       string                 `json:"type"`
+	Version    int                    `json:"version"`
+	Content    []classTemplateContent `json:"content"`
+	Exercises  []HTExercise           `json:"exercise_v2"`
+	DateTime   []HTDate               `json:"date_time"`
+}
+
 type classContentValue struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
@@ -28,6 +50,7 @@ type classContent struct {
 type classIdx struct {
 	Title      string         `json:"title"`
 	Header     string         `json:"header"`
+	Audio      string         `json:"audio"`
 	LastUpdate []string       `json:"last_update"`
 	Sources    []string       `json:"sources"`
 	License    []string       `json:"license"`
@@ -76,6 +99,61 @@ func htAddNewClassToIdx(index *classIdx, newFile string) {
 	index.LastUpdate[0] = htUpdateTimestamp()
 }
 
+func htSetDefaultTemplateValues(fp *classTemplateFile, newFile string) {
+	fp.Title = ""
+	fp.Header = ""
+	fp.Sources[0] = newFile
+	fp.Scripts[0] = newFile
+	fp.Index[0] = classTemplate
+	fp.LastUpdate[0] = htUpdateTimestamp()
+	fp.Authors[0] = ""
+	fp.Reviewers[0] = ""
+}
+
+func htWriteTemplateFileFile(lang string, newFile string, template *classTemplateFile) error {
+	pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, newFile)
+
+	fp, err := os.Create(pathFile)
+	if err != nil {
+		return err
+	}
+
+	e := json.NewEncoder(fp)
+	e.SetEscapeHTML(false)
+	e.SetIndent("", "   ")
+	e.Encode(template)
+
+	fp.Close()
+
+	return nil
+}
+
+func htAddNewClassTemplateToDirectory(newFile string, lang string) error {
+	templatePath := fmt.Sprintf("%ssrc/json/class_template.json", CFG.SrcPath)
+
+	byteValue, err := htOpenFileReadClose(templatePath)
+	if err != nil {
+		return err
+	}
+
+	var localTemplateFile classTemplateFile
+	err = json.Unmarshal(byteValue, &localTemplateFile)
+	if err != nil {
+		htCommonJsonError(byteValue, err)
+		return err
+	}
+
+	htSetDefaultTemplateValues(&localTemplateFile, newFile)
+
+	err = htWriteTemplateFileFile(lang, newFile, &localTemplateFile)
+	if err != nil {
+		htCommonJsonError(byteValue, err)
+		return err
+	}
+
+	return nil
+}
+
 func htOpenClassIdx(fileName string, newFile string, lang string) error {
 	localClassIDXUpdate = len(newFile) > 0
 	if verboseFlag && localClassIDXUpdate {
@@ -110,7 +188,27 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 		return err
 	}
 
+	err = htAddNewClassTemplateToDirectory(newFile, lang)
+	if err != nil {
+		fmt.Println("ERROR", err)
+		return err
+	}
+
 	return nil
+}
+
+func htAddNewJSToDirectory(newFile string) {
+	srcPath := fmt.Sprintf("%ssrc/js/classes.js", CFG.SrcPath)
+	dstPath := fmt.Sprintf("%s/js/%s.js", CFG.SrcPath, newFile)
+
+	HTCopyFilesWithoutChanges(dstPath, srcPath)
+}
+
+func htAddNewSourceToDirectory(newFile string) {
+	srcPath := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
+	dstPath := fmt.Sprintf("%s/lang/source/%s.json", CFG.SrcPath, newFile)
+
+	HTCopyFilesWithoutChanges(dstPath, srcPath)
 }
 
 func htCreateTestClass(fileName string) {
@@ -124,6 +222,8 @@ func htCreateTestClass(fileName string) {
 			panic(err)
 		}
 	}
+	htAddNewJSToDirectory(fileName)
+	htAddNewSourceToDirectory(fileName)
 }
 
 func htCreateNewClass() {
