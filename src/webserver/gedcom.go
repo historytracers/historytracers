@@ -42,7 +42,7 @@ type IdxFamily struct {
 	License    []string           `json:"license"`
 	Sources    []string           `json:"sources"`
 	LastUpdate []string           `json:"last_update"`
-	Audio      string             `json:"audio"`
+	Audio      []HTAudio          `json:"audio"`
 	GEDCOM     string             `json:"gedcom"`
 	Contents   []IdxFamilyContent `json:"content"`
 	DateTime   []HTDate           `json:"date_time"`
@@ -133,7 +133,7 @@ type Family struct {
 	Header        string       `json:"header"`
 	Sources       []string     `json:"sources"`
 	Scripts       []string     `json:"scripts"`
-	Audio         string       `json:"audio"`
+	Audio         []HTAudio    `json:"audio"`
 	Index         []string     `json:"index"`
 	Common        []HTText     `json:"common"`
 	License       []string     `json:"license"`

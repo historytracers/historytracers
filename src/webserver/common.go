@@ -18,6 +18,12 @@ type HTDate struct {
 	Day      string `json:"day"`
 }
 
+type HTAudio struct {
+	URL      string `json:"url"`
+	External bool   `json:"external"`
+	Spotify  bool   `json:"spotify"`
+}
+
 type HTExercise struct {
 	Question       string `json:"question"`
 	YesNoAnswer    string `json:"yesNoAnswer"`

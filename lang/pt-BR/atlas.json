@@ -422,10 +422,10 @@
                        ]
                       },
                       "Agora que compreendemos a formação do triângulo retângulo \"(a)\", vamos explorar a relação entre os lados. Observamos que o número total de quadrados em cada lado (9, 16 e 25) corresponde ao produto do comprimento de cada linha por ela mesma, ou seja, o valor total dos quadrados geométricos é dado pelo produto do tamanho de cada lado por ele mesmo:",
-                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> = <mn>3</mn> x <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> = <mn>4</mn> x <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> = <mn>5</mn> x <mn>5</mn></li></ul>",
+                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul>",
                       "<p class=\"desc\"><b>Cálculo 1</b>: Lados do triângulo expressos em quadrados.</p>",
                       "<p>Percebemos também que a soma dos quadrados dos lados adjacente e oposto ao ângulo é igual ao quadrado da hipotenusa:</p>",
-                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> + <mn>16</mn> = <mn>25</mn></li> <li><math display=\"block\"><mn>(3 x 3)</mn> + <mn>(4 x 4)</mn> = <mn>(5 x 5)</mn></li> <li><math display=\"block\"><mn>25</mn> = <mn>5</mn> x <mn>5</mn></li></ul>",
+                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul>",
                       "<p class=\"desc\"><b>Cálculo 2</b>: Soma dos quadrados dos catetos igual ao quadrado da hipotenusa.</p>",
                       {"text" : "<h4>A Diagonal Tripla</h4>Acompanhando o Dr. Daniel F. Mansfield, chamamos de \"diagonal tripla\" a relação entre números que seguem essa regra em antigos textos babilônicos, que usam uma notação posicional sexagesimal. Apesar da semelhança entre os valores do tablet <i>Plimpton 322</i> e os valores obtidos pela trigonometria, não se pode afirmar que os babilônios usavam a trigonometria como os gregos e como a conhecemos. Entretanto, o conhecimento de um triângulo retângulo pelos babilônios é comprovado pela peça <i>Si. 427</i>, presente no <i>Museu Arqueológico de Istambul</i>",
                        "source" : [ { "type": 1,
@@ -511,7 +511,7 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>sen (θ)</mn> = <mfrac><mi>cateto oposto</mi><mi>hipotenusa</mi></mfrac></math></p>",
+                      "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>opposite side</mi><mi>hypotenuse</mi></mfrac></math></p>",
                       "<p class=\"desc\"><b>Fórmula 1</b>: Definição da função seno.</p>",
                       {"text" : "<h4>Cosseno</h4>A função cosseno, por sua vez, representa a coordenada horizontal de um ponto no arco do círculo unitário. Sua definição é apresentada pela Fórmula 2, e os componentes mostrados na subimagem \"(f)\" da Figura 1",
                        "source" : [ { "type": 1,
@@ -522,7 +522,7 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>cos (θ)</mn> = <mfrac><mi>cateto adjacente</mi><mi>hipotenusa</mi></mfrac></math></p>",
+                      "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>cateto adjacente</mi><mi>hipotenusa</mi></mfrac></math></p>",
                       "<p class=\"desc\"><b>Fórmula 2</b>: Definição da função cosseno.</p>",
                       "<p>Na Figura 2, observamos o gráfico das funções seno e cosseno, que mostram como esses valores variam em relação ao ângulo θ. Note que os valores no eixo vertical sempre se mantêm entre -1 e 1, que correspondem aos limites determinados pelo raio do círculo unitário.</p>",
                       "<p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" />Figura 2: Gráfico das funções seno e cosseno. O código-fonte das representações e gráficos está disponível no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Editors</a>)</p>"
@@ -549,11 +549,11 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>sen (θ)</mn> = <mfrac><mi>cateto oposto</mi><mi>hipotenusa</mi></mfrac></math></p>",
+                      "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>opposite side</mi><mi>hypotenuse</mi></mfrac></math></p>",
                       "<p class=\"desc\"><b>Fórmula 1</b>: Definição da função seno.</p>",
                       "<p>Para facilitar, renomeamos alguns componentes. La hipotenusa es el raio del círculo, representado por <i>r</i>. El cateto opuesto, que queremos proyectar en el eje y, será representado por <i>y</i>.<p>",
                      "<p>Ahora que definimos los nombres correspondentes a los ejes cartesianos, y observamos que multiplicar un número por su inverso resulta en 1, podemos concluir que la proyección de <i>y</i> es dada por:</p>",
-                     "<ul class=\"citation\"><li><math display=\"block\"><mn>sen (θ)</mn> = <mfrac><mi>y</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r sen (θ)</mn> = <mfrac><mi>y r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r sen (θ)</mn> = <mi>y</mi> </li></ul>",
+                     "<ul class=\"citation\"><li><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>y</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r sen (θ)</mn> <mo>=</mo> <mfrac><mi>y r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r sen (θ)</mn> <mo>=</mo> <mi>y</mi> </li></ul>",
                      "<p class=\"desc\"><b>Fórmula 2</b>: Projeção do raio r no eixo y.</p>",
                      "<p>Como o valor de sen (θ) varia entre -1 e 1, a projeção total de <i>r</i> no eixo <i>y</i> ocorre quando <i>θ</i> é igual a π/2 ou 3π/2. Em outros ângulos, apenas parte do raio é projetada.</p>",
                       {"text" : "<h4>Projeção na horizontal</h4>A projeção horizontal segue uma lógica similar à da projeção vertical, mas agora usando a definição da função cosseno, dada pela Fórmula 3", 
@@ -565,10 +565,10 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>cos (θ)</mn> = <mfrac><mi>cateto adjacente</mi><mi>hipotenusa</mi></mfrac></math></p>",
+                      "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>cateto adjacente</mi><mi>hipotenusa</mi></mfrac></math></p>",
                       "<p class=\"desc\"><b>Fórmula 3</b>: Definição da função cosseno.</p>",
                       "<p>Aqui, mantemos a hipotenusa como <i>r</i> e designamos o cateto adjacente como <i>x</i>, a projeção desejada. Assim:<p>",
-                     "<ul class=\"citation\"><li><math display=\"block\"><mn>cos (θ)</mn> = <mfrac><mi>x</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r cos (θ)</mn> = <mfrac><mi>x r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r cos (θ)</mn> = <mi>x</mi> </li></ul>",
+                     "<ul class=\"citation\"><li><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>x</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r cos (θ)</mn> <mo>=</mo> <mfrac><mi>x r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r cos (θ)</mn> <mo>=</mo> <mi>x</mi> </li></ul>",
                      "<p class=\"desc\"><b>Fórmula 4</b>: Projeção do raio <i>r</i> no eixo <i>x</i>.</p>",
                      "<p>Assim como ocorre com o seno, a projeção completa do raio no eixo <i>x</i> acontece apenas para ângulos específicos: 0 e <i>π</i>.</p>",
                      "<p><h4>Projeção do Espaço no Plano</h4>Na subimagem \"(h)\", além do ângulo <i>θ</i>, temos outro ângulo, <i>ϕ</i>, que mapeia dados no espaço tridimensional, variando de 0 (no topo do eixo <i>z</i>) até π (no extremo inferior). A seção \"Nossas Coordenadas\" detalha esse ângulo, mas adianta-se que os cálculos para <i>ϕ</i> são semelhantes aos das fórmulas 2 e 4, agora considerando o ângulo <i>ϕ</i>.</p>"
