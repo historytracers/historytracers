@@ -422,10 +422,10 @@
                        ]
                       },
                       "Now that we understand how the right triangle \"(a)\" is formed, let’s explore the relationship between its sides. We see that the total number of squares along each side (9, 16 and 25) corresponds to the product of each side’s length squared. In other words, the total number of geometric squares on each side is calculated by multiplying the length by itself:",
-                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> = <mn>3</mn> x <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> = <mn>4</mn> x <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> = <mn>5</mn> x <mn>5</mn></li></ul>",
+                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul>",
                       "<p class=\"desc\"><b>Calculation 1</b>: Triangle sides expressed as square areas.</p>",
                       "<p>We also observe that the sum of the squares of the adjacent and opposite sides is equal to the square of the hypotenuse:</p>",
-                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> + <mn>16</mn> = <mn>25</mn></li> <li><math display=\"block\"><mn>(3 x 3)</mn> + <mn>(4 x 4)</mn> = <mn>(5 x 5)</mn></li> <li><math display=\"block\"><mn>25</mn> = <mn>5</mn> x <mn>5</mn></li></ul>",
+                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul>",
                       "<p class=\"desc\"><b>Calculation 2</b>: The sum of the squares of the legs equals the square of the hypotenuse.</p>",
                       {"text" : "<h4>The Diagonal Triple</h4>Following Dr. Daniel F. Mansfield’s research, we use the term \"diagonal triple\" to describe the relationship between numbers that satisfy this rule, as seen in ancient Babylonian texts that used positional sexagesimal notation. While there are similarities between the values on the <i>Plimpton 322</i> tablet and those derived using trigonometry, we cannot conclude that the Babylonians used trigonometry in the same way as the Greeks or as we do today. Nonetheless, Babylonian knowledge of the right triangle is evidenced by the artifact known as <i>Si. 427</i>, on display at the <i>Istanbul Archaeological Museum</i>",
                        "source" : [ { "type": 1,
@@ -511,7 +511,7 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>sin (θ)</mn> = <mfrac><mi>opposite side</mi><mi>hypotenuse</mi></mfrac></math></p>",
+                      "<p><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>opposite side</mi><mi>hypotenuse</mi></mfrac></math></p>",
                       "<p class=\"desc\"><b>Formula 1</b>: Definition of the sine function.</p>",
                       {"text" : "<h4>Cosine</h4>The cosine function, on the other hand, represents the horizontal coordinate of a point on the unit circle. Its definition is given by Formula 2, illustrated in subimage \"(f)\" of Figure 1",
                        "source" : [ { "type": 1,
@@ -522,7 +522,7 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>sen (θ)</mn> = <mfrac><mi>adjacent side</mi><mi>hypotenuse</mi></mfrac></math></p>",
+                      "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>adjacent side</mi><mi>hypotenuse</mi></mfrac></math></p>",
                       "<p class=\"desc\"><b>Formula 2</b>: Definition of the cossine function.</p>",
                       "<p>In Figure 2, we see the graph of the sine and cosine functions, which shows how these values change with the angle θ. Note that values on the vertical axis remain between -1 and 1, which correspond to the limits set by the radius of the unit circle</p>",
                       "<p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" />Figure 2: Graph of the Sine and Cosine functions. The source code for these representations and graphs is available on the project’s GitHub page (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Editors</a>)</p>"
@@ -549,11 +549,11 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>sin (θ)</mn> = <mfrac><mi>opposite side</mi><mi>hypotenuse</mi></mfrac></math></p>",
+                      "<p><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>opposite side</mi><mi>hypotenuse</mi></mfrac></math></p>",
                       "<p class=\"desc\"><b>Formula 1</b>: Definition of the sine function.</p>",
                       "<p>To simplify, let’s rename some components: we’ll use <i>r</i>, for the hypotenuse (the circle’s radius) and <i>y</i> for the opposite side, which we want to project..<p>",
                      "<p>Now that we have defined the corresponding names on the Cartesian axes and observed that multiplying any number by its inverse results in 1, we can conclude that the projection onto the y-axis is given by:</p>",
-                     "<ul class=\"citation\"><li><math display=\"block\"><mn>sin (θ)</mn> = <mfrac><mi>y</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r sin (θ)</mn> = <mfrac><mi>y r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r sin (θ)</mn> = <mi>y</mi> </li></ul>",
+                     "<ul class=\"citation\"><li><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>y</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r sin (θ)</mn> <mo>=</mo> <mfrac><mi>y r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r sin (θ)</mn> <mo>=</mo> <mi>y</mi> </li></ul>",
                      "<p class=\"desc\"><b>Formula 2</b>: Projection of radius rr onto the y-axis.</p>",
                      "<p>Since sin (θ) ranges between -1 and 1, the full projection of <i>r</i> onto the y-axis occurs when <i>θ</i> is π/2 or 3π/2. For other angles, only a partial projection occurs.</p>",
                       {"text" : "<h4>Horizontal Projection</h4>The horizontal projection follows a similar logic but uses the cosine function, as given in Formula 3", 
@@ -565,10 +565,10 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>sen (θ)</mn> = <mfrac><mi>adjacent side</mi><mi>hypotenuse</mi></mfrac></math></p>",
+                      "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>adjacent side</mi><mi>hypotenuse</mi></mfrac></math></p>",
                       "<p class=\"desc\"><b>Formula 3</b>: Definition of the cosine function.</p>",
                       "<p>Here, we again use <i>r</i>  for the hypotenuse and designate x <i>x</i>, as the adjacent side. The desired projection is:<p>",
-                     "<ul class=\"citation\"><li><math display=\"block\"><mn>cos (θ)</mn> = <mfrac><mi>x</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r cos (θ)</mn> = <mfrac><mi>x r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r cos (θ)</mn> = <mi>x</mi> </li></ul>",
+                     "<ul class=\"citation\"><li><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>x</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r cos (θ)</mn> <mo>=</mo> <mfrac><mi>x r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r cos (θ)</mn> <mo>=</mo> <mi>x</mi> </li></ul>",
                      "<p class=\"desc\"><b>Formula 4</b>: Projection of radius rr onto the x-axis.</p>",
                      "<p>As with the sine, the complete projection of <i>x</i> onto the x-axis only occurs at specific angles: 0 and <i>π</i>.</p>",
                      "<p><h4>Projecting Space onto the Plane</h4>In subimage \"(h)\", another angle <i>θ</i>, is introduced, which maps points in three-dimensional space. This angle spans from 0 (at the top of the <i>z</i>) to π (at the bottom). The section \"Our Coordinates\" will cover <i>ϕ</i> in more detail, but we note here that the calculations for <i>ϕ</i> are analogous to those in Formulas 2 and 4, now applied to angle <i>ϕ</i>.</p>"

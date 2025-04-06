@@ -1022,7 +1022,26 @@ function htFillWebPage(page, data)
     }
 
     if ($("#htaudio").length > 0 && data.audio != undefined && data.audio != null) {
-        $("#htaudio").html(keywords[106]+" <a href=\""+data.audio+"\" class=\"fa-brands fa-spotify\" target=\"_blank\" style=\"font-size: 1.0em;\">. "+keywords[107]+"</a>");
+        var audioText = keywords[106];
+        var counter = 0;
+        for (const i in data.audio) {
+            var audio = data.audio[i];
+            if (audio.url == undefined || audio.length == 0) {
+                continue;
+            }
+
+            if (i % 2 == 0) {
+                counter++;
+            }
+
+            if (audio.spotify != undefined && audio.spotify == true) {
+                audioText +=  ": <a href=\""+audio.url+"\"> <i class=\"fa-brands fa-spotify\" target=\"_blank\" style=\"font-size: 1.0em;\"></i> "+keywords[107]+" "+counter+"</a>";
+            } else {
+                var audioURL = (audio.external != undefined && audio.external == false) ? "audio/"+audio.url : audio.url;
+                audioText += " <audio controls><source src=\""+audioURL+"\" type=\"audio/ogg\"></audio>";
+            }
+        }
+        $("#htaudio").html(audioText);
     }
 
     if (data.languages != undefined) {

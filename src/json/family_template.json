@@ -4,6 +4,23 @@
     "sources" : [ "Array of files where sources are defined." ],
     "scripts" : [ "Array of JavaScript files that will be loaded." ],
     "index" : [ "families" ],
+    "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/tree_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://www.historytracers.org/audios/",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/",
+         "external": true,
+         "spotify": true
+      }
+   ],
     "common" : [ 
                  { "text" : "A detailed description of the person's life history and marital status.",
                    "source" : [ 
