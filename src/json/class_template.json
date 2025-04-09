@@ -11,55 +11,55 @@
     "version" : 2,
     "type" : "class",
     "content" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ 
-                               { "text" : "<span id=\"htZoomImageMsg\"></span>",
-                                 "source" : null,
-                                  "date_time" : null,
-                                  "isTable" : false,
-                                  "format" : "html",
-                                  "PostMention": " "
-                               },
-                               { "text" : " ",
-                                 "source" : [ 
-                                              { "type": 3210,
-                                                "uuid": "Unique identifier (UUID) for the current citation.",
-                                                "text": "The accompanying text that will be displayed with the citation.",
-                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                  "date_time" : [
-                                                    {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                                                    {"type" : "unix", "epoch" : "0" },
-                                                    {"type" : "julian",  "epoch" : "0" }
-                                  ],
-                                  "isTable" : false,
-                                  "format" : "markdown or html",
-                                  "PostMention": "A character used after a mention to include citations."
-                               }
-                    ]
-                },
-                {
-                    "id" : "SECTION_NAME",
-                    "text" : [ 
-                               { "text" : " ",
-                                 "source" : [
-                                              { "type": 3210,
-                                                "uuid": "Unique identifier (UUID) for the current citation.",
-                                                "text": "The accompanying text that will be displayed with the citation.",
-                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "date_time" : [
-                                    {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                                    {"type" : "unix", "epoch" : "0" },
-                                    {"type" : "julian",  "epoch" : "0" }
-                                 ],
-                                 "format" : "markdown or html",
-                                 "PostMention": "A character used after a mention to include citations."
-                               }
-                    ]
-                }
+      {
+          "id" : "prerequisites",
+          "text" : [ 
+            { "text" : "<span id=\"htZoomImageMsg\"></span>",
+              "source" : null,
+               "date_time" : null,
+               "isTable" : false,
+               "format" : "html",
+               "PostMention": " "
+            },
+            { "text" : " ",
+              "source" : [ 
+                           { "type": 3210,
+                             "uuid": "Unique identifier (UUID) for the current citation.",
+                             "text": "The accompanying text that will be displayed with the citation.",
+                             "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+              ],
+               "date_time" : [
+                                 {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                 {"type" : "unix", "epoch" : "0" },
+                                 {"type" : "julian",  "epoch" : "0" }
+               ],
+               "isTable" : false,
+               "format" : "markdown or html",
+               "PostMention": "A character used after a mention to include citations."
+            }
+          ]
+      },
+      {
+          "id" : "SECTION_NAME",
+          "text" : [ 
+            { "text" : " ",
+              "source" : [
+                           { "type": 3210,
+                             "uuid": "Unique identifier (UUID) for the current citation.",
+                             "text": "The accompanying text that will be displayed with the citation.",
+                             "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+              ],
+              "isTable" : false,
+              "date_time" : [
+                 {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                 {"type" : "unix", "epoch" : "0" },
+                 {"type" : "julian",  "epoch" : "0" }
+              ],
+              "format" : "markdown or html",
+              "PostMention": "A character used after a mention to include citations."
+            }
+          ]
+      }
     ],
     "exercise_v2" : [ 
         {
