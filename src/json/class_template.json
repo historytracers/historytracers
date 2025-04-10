@@ -1,88 +1,88 @@
 {
-    "title" : "The name displayed on the title bar of the application or page.",
+    "title" : "The name displayed in the application's or page's title bar.",
     "header" : "The name shown at the top of the page or section.",
-    "sources" : [ "A file containing all the sources referenced in the text." ],
-    "scripts" : [ "JavaScript files associated with this content, typically used for filling and correcting exercises." ],
-    "index" : [ "A file containing all files of the section." ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "The time of the last file update, represented as Unix Epoch time." ],
-    "authors" : "Names of the individuals who contributed to editing the text.",
-    "reviewers" : "Names of the individuals who reviewed the text.",
-    "version" : 1,
+    "sources" : [ "An array of files containing all sources referenced in the text." ],
+    "scripts" : [ "An array of JavaScript files associated with this content, typically used for filling and correcting exercises." ],
+    "index" : [ "An array of files containing all section files that the new file will belong to." ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
+    "last_update" : [ "The time of the last file update, represented in Unix Epoch time." ],
+    "authors" : [ "An array of names of contributors who edited the text." ],
+    "reviewers" : [ " An array of names of individuals who reviewed the text." ],
+    "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/",
+         "external": true,
+         "spotify": true
+      }
+   ],
+    "version" : 2,
     "type" : "class",
     "content" : [
+      {
+          "id" : "prerequisites",
+          "text" : [ 
+            { "text" : "<span id=\"htZoomImageMsg\"></span>",
+              "source" : null,
+               "date_time" : null,
+               "isTable" : false,
+               "format" : "html",
+               "PostMention": " "
+            },
+            { "text" : " ",
+              "source" : [ 
+                           { "type": 3210,
+                             "uuid": "Unique identifier (UUID) for the current citation.",
+                             "text": "The accompanying text that will be displayed with the citation.",
+                             "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+              ],
+               "date_time" : [
+                                 {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                 {"type" : "unix", "epoch" : "0" },
+                                 {"type" : "julian",  "epoch" : "0" }
+               ],
+               "isTable" : false,
+               "format" : "markdown or html",
+               "PostMention": "A character used after a mention to include citations."
+            }
+          ]
+      },
+      {
+          "id" : "SECTION_NAME",
+          "text" : [ 
+            { "text" : " ",
+              "source" : [
+                           { "type": 3210,
+                             "uuid": "Unique identifier (UUID) for the current citation.",
+                             "text": "The accompanying text that will be displayed with the citation.",
+                             "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+              ],
+              "isTable" : false,
+              "date_time" : [
+                 {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                 {"type" : "unix", "epoch" : "0" },
+                 {"type" : "julian",  "epoch" : "0" }
+              ],
+              "format" : "markdown or html",
+              "PostMention": "A character used after a mention to include citations."
+            }
+          ]
+      }
+    ],
+    "exercise_v2" : [ 
         {
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ 
-                               { "text" : "<span id=\"htZoomImageMsg\"></span>",
-                                 "source" : null,
-                                  "date_time" : null,
-                                  "isTable" : false,
-                                  "format" : "html",
-                                  "PostMention": " "
-                               },
-                               { "text" : " ",
-                                 "source" : [ 
-                                              { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
-                                                "uuid": "Unique identifier (UUID) for the current citation.",
-                                                "text": "The accompanying text that will be displayed with the citation.",
-                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                  "date_time" : [
-                                                    {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                                                    {"type" : "unix", "epoch" : "0" },
-                                                    {"type" : "julian",  "epoch" : "0" }
-                                  ],
-                                  "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
-                                  "format" : "markdown or html",
-                                  "PostMention": "A character used after a mention to include citations."
-                               }
-                    ]
-                },
-                {
-                    "id" : "SECTION_NAME",
-                    "text" : [ 
-                               { "text" : " ",
-                                 "source" : [
-                                              { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
-                                                "uuid": "Unique identifier (UUID) for the current citation.",
-                                                "text": "The accompanying text that will be displayed with the citation.",
-                                                "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : "This option determines whether the collector displays data as a table (1) or as plain text (0).",
-                                 "date_time" : [
-                                    {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                                    {"type" : "unix", "epoch" : "0" },
-                                    {"type" : "julian",  "epoch" : "0" }
-                                 ],
-                                 "format" : "markdown or html",
-                                 "PostMention": "A character used after a mention to include citations."
-                               }
-                    ]
-                },
-                {
-                    "id" : "exercise_v2",
-                    "text" : [ 
-                        {
-                            "question" : "WRITE A QUESTION",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "The correct answer is 'Yes' because ..."
-                        }
-                    ]
-                },
-                {
-                    "id": "date_time",
-                    "text": [
-                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                        {"type" : "unix", "epoch" : "0" },
-                        {"type" : "julian",  "epoch" : "0" }
-                    ]
-                }
-            ]
+            "question" : "WRITE A QUESTION",
+            "yesNoAnswer" : "Yes",
+            "additionalInfo" : "The correct answer is 'Yes' because ..."
         }
+    ],
+    "date_time": [
+            {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+            {"type" : "unix", "epoch" : "0" },
+            {"type" : "julian",  "epoch" : "0" }
     ]
 }

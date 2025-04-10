@@ -36,18 +36,18 @@ var (
 func HTParseArg() {
 	CFG = NewHTConfig()
 
-	flag.BoolVar(&CFG.DevMode, "devmode", devFlag, "Is the software running in development mode? (default: false)")
-	flag.BoolVar(&minifyFlag, "minify", minifyFlag, "Do not start the server, instead, minify all files. (default: false)")
-	flag.BoolVar(&gedcomFlag, "gedcom", gedcomFlag, "Do not start the server, instead, generate all gedcom files. (default: false)")
-	flag.BoolVar(&validateFlag, "validate", gedcomFlag, "Do not start the server, instead, validate JSON files. (default: false)")
-	flag.BoolVar(&verboseFlag, "verbose", verboseFlag, "Hide information messages during file processing. (default: false)")
+	flag.BoolVar(&CFG.DevMode, "devmode", devFlag, "Is the software running in development mode? (default: false).")
+	flag.BoolVar(&minifyFlag, "minify", minifyFlag, "Do not start the server, instead, minify all files. (default: false).")
+	flag.BoolVar(&gedcomFlag, "gedcom", gedcomFlag, "Do not start the server, instead, generate all gedcom files. (default: false).")
+	flag.BoolVar(&validateFlag, "validate", gedcomFlag, "Do not start the server, instead, validate JSON files. (default: false).")
+	flag.BoolVar(&verboseFlag, "verbose", verboseFlag, "Hide information messages during file processing. (default: false).")
 	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
 
-	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files")
-	flag.StringVar(&CFG.LogPath, "log", logPath, "Directory containing all log files")
-	flag.StringVar(&CFG.ContentPath, "www", contentPath, "Directory for user-facing content")
+	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files.")
+	flag.StringVar(&CFG.LogPath, "log", logPath, "Directory containing all log files.")
+	flag.StringVar(&CFG.ContentPath, "www", contentPath, "Directory for user-facing content.")
 	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration file.")
-	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (science, history, indigenous_who, first_steps, or literature).")
+	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (history, indigenous_who, first_steps, or literature).")
 
 	flag.Parse()
 }

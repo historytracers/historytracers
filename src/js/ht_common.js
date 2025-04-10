@@ -1070,6 +1070,8 @@ function htFillWebPage(page, data)
     } else if (data.math_keywords != undefined) {
         htFillMathKeywords(data.math_keywords);
         $("#loading_msg").hide();
+    } else if (data.type != undefined && data.type == "class" && data.version == 2) {
+        htFillClassContentV2(data, last_update, page_authors, page_reviewers, data.index);
     } else {
         for (const i in data.content) {
             if (data.content[i].value == undefined || data.content[i].value == null) {
@@ -1587,6 +1589,43 @@ function htLoadAnswersFromExercise()
 
     $("#htAnswersToBeUsed").html("");
     return ret;
+}
+
+function htFillClassContentV2(table, last_update, page_authors, page_reviewers, index) {
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
+
+    $("#paper").html("<i>"+keywords[87]+"</i>");
+    htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
+
+    var idx = 0;
+    var navigationPage = "<p class=\"dynamicNavigation\"></p>";
+    if (index) {
+        htAddPaperDivs("#paper", "indexTop", navigationPage, "", "<hr class=\"limit\" />", idx);
+        idx++;
+    }
+
+    var later = "";
+    for (const i in table.content) {
+        var content = table.content[i];
+
+        for (const j in content.text) {
+            var localObj = content.text[j];
+            var text = (localObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
+            htAddPaperDivs("#paper", content.id + "_"+j, text, "", later, idx);
+        }
+        idx++;
+    }
+
+    if (table.exercise_v2 != undefined) {
+        htWriteQuestions(table.exercise_v2, later, idx);
+    }
+
+    if (table.date_time != undefined) {
+        htFillHTDate(table.date_time);
+    }
+
+    htAddPaperDivs("#paper", "repeat-index", navigationPage, "<hr class=\"limit\" />", "", idx);
 }
 
 function htFillPaperContent(table, last_update, page_authors, page_reviewers, index) {
