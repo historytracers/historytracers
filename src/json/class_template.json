@@ -8,6 +8,18 @@
     "last_update" : [ "The time of the last file update, represented in Unix Epoch time." ],
     "authors" : [ "An array of names of contributors who edited the text." ],
     "reviewers" : [ " An array of names of individuals who reviewed the text." ],
+    "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/",
+         "external": true,
+         "spotify": true
+      }
+   ],
     "version" : 2,
     "type" : "class",
     "content" : [
