@@ -1022,26 +1022,7 @@ function htFillWebPage(page, data)
     }
 
     if ($("#htaudio").length > 0 && data.audio != undefined && data.audio != null) {
-        var audioText = keywords[106];
-        var counter = 0;
-        for (const i in data.audio) {
-            var audio = data.audio[i];
-            if (audio.url == undefined || audio.length == 0) {
-                continue;
-            }
-
-            if (i % 2 == 0) {
-                counter++;
-            }
-
-            if (audio.spotify != undefined && audio.spotify == true) {
-                audioText +=  ": <a href=\""+audio.url+"\"> <i class=\"fa-brands fa-spotify\" target=\"_blank\" style=\"font-size: 1.0em;\"></i> "+keywords[107]+" "+counter+"</a>";
-            } else {
-                var audioURL = (audio.external != undefined && audio.external == false) ? "audio/"+audio.url : audio.url;
-                audioText += " <audio controls><source src=\""+audioURL+"\" type=\"audio/ogg\"></audio>";
-            }
-        }
-        $("#htaudio").html(audioText);
+        htAddAudio(data.audio);
     }
 
     if (data.languages != undefined) {
@@ -1591,11 +1572,38 @@ function htLoadAnswersFromExercise()
     return ret;
 }
 
+function htAddAudio(data) {
+    var audioText = keywords[106];
+    var counter = 0;
+    for (const i in data) {
+        var audio = data[i];
+        if (audio.url == undefined || audio.length == 0) {
+            continue;
+        }
+
+        if (i % 2 == 0) {
+            counter++;
+        }
+
+        if (audio.spotify != undefined && audio.spotify == true) {
+            audioText +=  ": <a href=\""+audio.url+"\" target=\"_blank\"> <i class=\"fa-brands fa-spotify\" target=\"_blank\" style=\"font-size: 1.0em;\"></i> "+keywords[107]+" "+counter+"</a>";
+        } else {
+            var audioURL = (audio.external != undefined && audio.external == false) ? "audio/"+audio.url : audio.url;
+            audioText += " <audio controls><source src=\""+audioURL+"\" type=\"audio/ogg\"></audio>";
+        }
+    }
+    $("#htaudio").html(audioText);
+}
+
 function htFillClassContentV2(table, last_update, page_authors, page_reviewers, index) {
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
 
-    $("#paper").html("<i>"+keywords[87]+"</i>");
+    $("#paper").html("<p><i>"+keywords[87]+"</i></p>");
+    if ($("#audio").length == 0) {
+        $("#paper").append("<div class=\"main-data\" id=\"htaudio\"></div>");
+        htAddAudio(table.audio);
+    }
     htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
 
     var idx = 0;
