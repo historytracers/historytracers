@@ -29,10 +29,8 @@ ht_select_model() {
         return
     fi
 
-    if [ $SELECTOR -lt 10000 ]; then
+    if [ $SELECTOR -lt 16384 ]; then
         echo "en_US-amy-medium.onnx"
-    elif [ $SELECTOR -lt 20000 ]; then
-        echo "en_US-joe-medium.onnx"
     else
         echo "en_US-norman-medium.onnx"
     fi
