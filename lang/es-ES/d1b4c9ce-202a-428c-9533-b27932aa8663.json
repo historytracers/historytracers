@@ -7,13 +7,29 @@
    "scripts": [
       "d1b4c9ce-202a-428c-9533-b27932aa8663"
    ],
-   "audio": null,
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/tree_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://www.historytracers.org/audios/d1b4c9ce-202a-428c-9533-b27932aa8663_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Sumerios-Dinasta-de-Uruk-e31ecmd",
+         "external": true,
+         "spotify": true
+      }
+   ],
    "index": [
       "families"
    ],
    "common": [
       {
-         "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div></div></center></p><p><h4>Textos antiguos</h4>Debido a la frecuente confusión generada por la interpretación literal del diluvio mesopotámico, elaboramos una serie de cuatro textos para ayudar a los lectores a comprender lo que sus autores realmente querían transmitir:</p><p><ul><li>(<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2544abb0-dc03-4654-81df-298f74faa908'); return false;\">Textos con Ciencias (Parte I)</a>): estudio analizando los conceptos de \"mundo\" y \"cielo\" presentes en las culturas mesopotámicas, y cómo la falta de comprensión del entorno pudo haber llevado a la idea de una longevidad exagerada, incompatible con la naturaleza humana.</li> <li>(<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('81db80fb-c932-4674-a887-fc4c4b075c40'); return false;\">Textos con Ciencias (Parte II)</a>): exploramos el funcionamiento del ciclo del agua y la conservación de la materia. Con ello, discutimos cómo el concepto de \"mundo\" de los mesopotámicos era diferente al nuestro.</li> <li>(<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8032b04f-00f1-430f-88c5-a9205831a084'); return false;\">Textos con Ciencias (Parte III)</a>): analizamos los épicos de *Gilgamesh* y *Atrahasis*, así como las narrativas sobre los diluvios sumerios. En ellas, identificamos un patrón narrativo recurrente: pocas personas y animales salvados en un gran barco, descrito en diferentes formas (cúbico o circular), tras una punición divina. A partir de esto, establecimos los períodos en los que dichos diluvios supuestamente ocurrieron y los comparamos con datos de otras regiones del mundo, concluyendo que no hubo eventos globales.</li> <li>(<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('778a5376-7773-474f-8950-63d40f44dfd0'); return false;\">Textos con Ciencias (Conclusión)</a>): estudiamos dos trabajos que mapearon diferentes inundaciones a lo largo del tiempo, proporcionando indicios sobre los eventos que podrían haber inspirado a los autores del Mediterráneo a desarrollar sus descripciones.</li> </ul><p id=\"SumerianKingListDesc\">",
+         "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div></div></center></p><p><h4>Textos antiguos</h4>Debido a la frecuente confusión generada por la interpretación literal del diluvio mesopotámico, elaboramos una serie de cuatro textos para ayudar a los lectores a comprender lo que sus autores realmente querían transmitir:</p><p><ul><li>(<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2544abb0-dc03-4654-81df-298f74faa908'); return false;\">Textos con Ciencias (Parte I)</a>): estudio analizando los conceptos de \"mundo\" y \"cielo\" presentes en las culturas mesopotámicas, y cómo la falta de comprensión del entorno pudo haber llevado a la idea de una longevidad exagerada, incompatible con la naturaleza humana.</li> <li>(<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('81db80fb-c932-4674-a887-fc4c4b075c40'); return false;\">Textos con Ciencias (Parte II)</a>): exploramos el funcionamiento del ciclo del agua y la conservación de la materia. Con ello, discutimos cómo el concepto de \"mundo\" de los mesopotámicos era diferente al nuestro.</li> <li>(<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8032b04f-00f1-430f-88c5-a9205831a084'); return false;\">Textos con Ciencias (Parte III)</a>): analizamos los épicos de <i>Gilgamesh</i> y <i>Atrahasis</i>, así como las narrativas sobre los diluvios sumerios. En ellas, identificamos un patrón narrativo recurrente: pocas personas y animales salvados en un gran barco, descrito en diferentes formas (cúbico o circular), tras una punición divina. A partir de esto, establecimos los períodos en los que dichos diluvios supuestamente ocurrieron y los comparamos con datos de otras regiones del mundo, concluyendo que no hubo eventos globales.</li> <li>(<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('778a5376-7773-474f-8950-63d40f44dfd0'); return false;\">Textos con Ciencias (Conclusión)</a>): estudiamos dos trabajos que mapearon diferentes inundaciones a lo largo del tiempo, proporcionando indicios sobre los eventos que podrían haber inspirado a los autores del Mediterráneo a desarrollar sus descripciones.</li> </ul><p id=\"SumerianKingListDesc\">",
          "source": null,
          "date_time": null,
          "isTable": false,
@@ -42,7 +58,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1743475451"
+      "1744418278"
    ],
    "authors": "",
    "reviewers": "",
@@ -378,12 +394,12 @@
                      "PostMention": "."
                   },
                   {
-                     "text": "<center><span class=\"desc\"><img src=\"images/Ashmolean/10015.jpg\" id=\"imgEA\" onclick=\"htImageZoom('imgEA', '0%')\" class=\"imgcenter\"/>Figura 3: Fragmento del épico de *Enmerkar y el Lord de Aratta*. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('434e68bc-6ee5-4b45-8692-beb26bd9da7f'); return false;\">Ashmolean Image Library</a>).</span></center>",
+                     "text": "<center><span class=\"desc\"><img src=\"images/Ashmolean/10015.jpg\" id=\"imgEA\" onclick=\"htImageZoom('imgEA', '0%')\" class=\"imgcenter\"/>Figura 3: Fragmento del épico de <i>Enmerkar y el Lord de Aratta</i>. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('434e68bc-6ee5-4b45-8692-beb26bd9da7f'); return false;\">Ashmolean Image Library</a>).</span></center>",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
                      "format": "html",
-                     "PostMention": "."
+                     "PostMention": " "
                   },
                   {
                      "text": "*Enmerkar* es uno de los personajes más emblemáticos retratados en los antiguos épicos sumerios. Inicialmente, se creía en la existencia de un único épico relacionado con él. Sin embargo, estudios más recientes señalan la presencia de múltiples épicos. Entre ellos, destaca  *Enmerkar e o Senhor de Aratta*, que relata eventos profundamente conectados con la rica cultura sumeria. A continuación, destacamos algunas líneas y palabras clave de este épico",
@@ -410,12 +426,12 @@
                      "PostMention": ":"
                   },
                   {
-                     "text": "<ul><li><b>Líneas 242 - 273</b>: Las montañas se describen como lugares de sacrificios y oraciones.</li> <li><b>Líneas 308 - 338</b>: Referencias a la existencia de un palacio en el paraíso.</li> <li><b>Líneas 518 - 535</b>: Mención de un árbol que conecta el paraíso con la tierra.</li> <li><b>Líneas 308 - 338</b>: Descripciones de las conexiones entre los ríos Tigris y Éufrates.</li> <li><b>Líneas 557 - 576</b>: Relato del diluvio que destruyó todo y la actuación de *Inana* tras el evento.</li> <li><b>Paraíso</b>: La palabra aparece <b>12 veces</b> a lo largo del épico.</li>  <li><b>Montaña</b>: Mencionada <b>67 veces</b>, incluidas dos referencias específicas a \"siete montañas\".</li> <li><b>Inana</b>: La diosa de la sabiduría, la guerra y el amor, aparece mencionada <b>31 veces</b>.</li> </ul>",
+                     "text": "<ul><li><b>Líneas 242 - 273</b>: Las montañas se describen como lugares de sacrificios y oraciones.</li> <li><b>Líneas 308 - 338</b>: Referencias a la existencia de un palacio en el paraíso.</li> <li><b>Líneas 518 - 535</b>: Mención de un árbol que conecta el paraíso con la tierra.</li> <li><b>Líneas 308 - 338</b>: Descripciones de las conexiones entre los ríos Tigris y Éufrates.</li> <li><b>Líneas 557 - 576</b>: Relato del diluvio que destruyó todo y la actuación de <i>Inana</i> tras el evento.</li> <li><b>Paraíso</b>: La palabra aparece <b>12 veces</b> a lo largo del épico.</li>  <li><b>Montaña</b>: Mencionada <b>67 veces</b>, incluidas dos referencias específicas a \"siete montañas\".</li> <li><b>Inana</b>: La diosa de la sabiduría, la guerra y el amor, aparece mencionada <b>31 veces</b>.</li> </ul>",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
                      "format": "html",
-                     "PostMention": "."
+                     "PostMention": " "
                   },
                   {
                      "text": "De acuerdo con la **Lista de los Reyes Sumerios**, el reinado de *Enmerkar* habría durado **420 años**",
@@ -437,12 +453,12 @@
                      "PostMention": "."
                   },
                   {
-                     "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre las creencias</b><br /><br />La versión babilónica del épico *Enmerkar y el Señor de Aratta* fue escrita entre <span class=\"htdate\"></span> y <span class=\"htdate\"></span>. Esto la convierte en un texto más antiguo que cualquier escritura sagrada conocida en la actualidad. Además, muchos de los conceptos presentes en este épico también aparecen en textos posteriores.<br /><br />Frente a este contexto, ¿a qué conclusión llegas sobre el origen y la transmisión de ideas a lo largo de la historia?</div></div></center>",
+                     "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre las creencias</b><br /><br />La versión babilónica del épico <i>Enmerkar y el Señor de Aratta</i> fue escrita entre <span class=\"htdate\"></span> y <span class=\"htdate\"></span>. Esto la convierte en un texto más antiguo que cualquier escritura sagrada conocida en la actualidad. Además, muchos de los conceptos presentes en este épico también aparecen en textos posteriores.<br /><br />Frente a este contexto, ¿a qué conclusión llegas sobre el origen y la transmisión de ideas a lo largo de la historia?</div></div></center>",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
                      "format": "html",
-                     "PostMention": "."
+                     "PostMention": " "
                   }
                ],
                "parents": [
@@ -581,12 +597,12 @@
                      "PostMention": "."
                   },
                   {
-                     "text": "<center><span class=\"desc\"><img src=\"images/BritshMuseum/mid_00846714_001.jpg\" id=\"imgLugalbanda\" onclick=\"htImageZoom('imgLugalbanda', '0%')\" class=\"imgcenter\"/>Figura 4: *Épico de Lugalbanda*. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('614a3cfd-1338-4988-a48d-b0b56b0c5e5e'); return false;\"><i>The British Museum</i></a>).</span></center>",
+                     "text": "<center><span class=\"desc\"><img src=\"images/BritshMuseum/mid_00846714_001.jpg\" id=\"imgLugalbanda\" onclick=\"htImageZoom('imgLugalbanda', '0%')\" class=\"imgcenter\"/>Figura 4: <i>Épico de Lugalbanda</i>. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('614a3cfd-1338-4988-a48d-b0b56b0c5e5e'); return false;\"><i>The British Museum</i></a>).</span></center>",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
                      "format": "html",
-                     "PostMention": "."
+                     "PostMention": " "
                   }
                ],
                "parents": [
@@ -785,15 +801,15 @@
                      "date_time": null,
                      "isTable": false,
                      "format": "html",
-                     "PostMention": "."
+                     "PostMention": " "
                   },
                   {
-                     "text": "<center><span class=\"desc\"><img src=\"images/BritshMuseum/mid_00107404_001.jpg\" id=\"imgGilgamesh\" onclick=\"htImageZoom('imgGilgamesh', '0%')\" class=\"imgcenter\"/>Figura 5: El Tablet del Diluvio. Tablet XI del *Épico de Gilgamesh*. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('bab0a6a1-d2a4-46b3-8d86-f33e3ad035d6'); return false;\">The British Museum</a>).</span></center>",
+                     "text": "<center><span class=\"desc\"><img src=\"images/BritshMuseum/mid_00107404_001.jpg\" id=\"imgGilgamesh\" onclick=\"htImageZoom('imgGilgamesh', '0%')\" class=\"imgcenter\"/>Figura 5: El Tablet del Diluvio. Tablet XI del <i>Épico de Gilgamesh</i>. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('bab0a6a1-d2a4-46b3-8d86-f33e3ad035d6'); return false;\">The British Museum</a>).</span></center>",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
                      "format": "html",
-                     "PostMention": "."
+                     "PostMention": " "
                   },
                   {
                      "text": "En caso de que algunos pasajes del *Épico de Gilgamesh* te recuerden otros textos antiguos, no te sorprendas. Como explica J. J. Mark en la *World History Encyclopedia*, este épico incorpora creencias mesopotámicas antiguas que [posiblemente] inspiraron a otros pueblos en la creación de sus propias narrativas",
@@ -879,7 +895,7 @@
                      "date_time": null,
                      "isTable": false,
                      "format": "html",
-                     "PostMention": "."
+                     "PostMention": " "
                   },
                   {
                      "text": "A la luz de lo expuesto, y considerando los avances en la comprensión del concepto de 'día' desde los tiempos sumerios hasta la actualidad, se concluye que interpretar los días mencionados en la antigüedad basándose en nuestra definición moderna sería un anacronismo",
@@ -1004,7 +1020,7 @@
                      "date_time": null,
                      "isTable": false,
                      "format": "html",
-                     "PostMention": "."
+                     "PostMention": " "
                   }
                ],
                "parents": [
@@ -1161,7 +1177,7 @@
                "date_time": null,
                "isTable": false,
                "format": "html",
-               "PostMention": "."
+               "PostMention": " "
             }
          ],
          "people": [
