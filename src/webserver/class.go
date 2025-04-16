@@ -20,6 +20,7 @@ type classTemplateFile struct {
 	Header     string                 `json:"header"`
 	Sources    []string               `json:"sources"`
 	Scripts    []string               `json:"scripts"`
+	Audio      []HTAudio              `json:"audio"`
 	Index      []string               `json:"index"`
 	License    []string               `json:"license"`
 	LastUpdate []string               `json:"last_update"`
@@ -50,7 +51,7 @@ type classContent struct {
 type classIdx struct {
 	Title      string         `json:"title"`
 	Header     string         `json:"header"`
-	Audio      string         `json:"audio"`
+	Audio      []HTAudio      `json:"audio"`
 	LastUpdate []string       `json:"last_update"`
 	Sources    []string       `json:"sources"`
 	License    []string       `json:"license"`
