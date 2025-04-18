@@ -1600,8 +1600,7 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     var localCalendar = $("#site_calendar").val();
 
     $("#paper").html("<p><i>"+keywords[87]+"</i></p>");
-    if ($("#audio").length == 0) {
-        $("#paper").append("<div class=\"main-data\" id=\"htaudio\"></div>");
+    if ($("#htaudio").length > 0 && table.audio != undefined && table.audio != null) {
         htAddAudio(table.audio);
     }
     htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
