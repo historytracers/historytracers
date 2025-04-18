@@ -1,8 +1,20 @@
 {
    "title": "História",
    "header": "História",
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/history_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Histria-Portugus-e31j16h",
+         "external": true,
+         "spotify": true
+      }
+   ],
    "last_update": [
-      "1743114992"
+      "1744759903"
    ],
    "sources": [
       "history"
@@ -49,11 +61,6 @@
                "desc": "Quantas gerações possuímos?"
             },
             {
-               "id": "c5492aa1-67c3-4794-95f3-c7ff05bac191",
-               "name": "Cronologia",
-               "desc": "É possível estabelecer uma classificação universal dos períodos históricos para toda a humanidade?"
-            },
-            {
                "id": "b8445908-98ab-4a8e-b5bc-a8abcbcaf973",
                "name": "Berços civilizatórios (Parte I)",
                "desc": "Embora a humanidade tenha uma origem comum na África, as primeiras civilizações emergiram em diferentes regiões do mundo, como na Suméria, nos Andes e na Mesoamérica."
@@ -67,6 +74,33 @@
                "id": "245b24d9-1d99-41fc-b25c-c72878b5a34a",
                "name": "Culturas e Civilização",
                "desc": "Existe uma hierarquia entre elas?"
+            }
+         ]
+      },
+      {
+         "id": "time_title",
+         "target": "class-time",
+         "page": "",
+         "value_type": "",
+         "html_value": "Capítulo 2: O tempo",
+         "value": null
+      },
+      {
+         "id": "groups",
+         "target": "class-time",
+         "page": "class_content",
+         "value_type": "group-list",
+         "html_value": "",
+         "value": [
+            {
+               "id": "ee28aa06-65bc-4f13-88dc-c6ad46f11adb",
+               "name": "O que é o tempo?",
+               "desc": "Neste texto, começamos a explorar uma das medições mais importantes da história e da física: o tempo."
+            },
+            {
+               "id": "c5492aa1-67c3-4794-95f3-c7ff05bac191",
+               "name": "Cronologia",
+               "desc": "É possível estabelecer uma classificação universal dos períodos históricos para toda a humanidade?"
             }
          ]
       },
