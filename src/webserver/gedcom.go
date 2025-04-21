@@ -519,7 +519,7 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 		} else {
 			if oldPerson[1] == newPerson[1] {
 				if verboseFlag {
-					fmt.Println("The person", marr.Name, "appears more than one time in", fileName)
+					fmt.Println("The person", marr.Name, "(", marr.ID, ")", "appears more than one time in", fileName)
 				}
 			}
 		}
