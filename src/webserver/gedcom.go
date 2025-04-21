@@ -1,8 +1,16 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+// The tested GEDCOM libraries did not meet the expected goals.
+//
+// As a workaround, we are exporting the data as CSV and using
+// Gramps to convert it to GEDCOM.
+//
+// https://www.gramps-project.org/wiki/index.php/Gramps_5.1_Wiki_Manual_-_Manage_Family_Trees:_CSV_Import_and_Export
+
 package main
 
 import (
+	"encoding/csv"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -24,6 +32,7 @@ type IdxFamilyValue struct {
 	Name   string `json:"name"`
 	Desc   string `json:"desc"`
 	GEDCOM string `json:"gedcom"`
+	CSV    string `json:"csv"`
 }
 
 type IdxFamilyContent struct {
@@ -44,6 +53,7 @@ type IdxFamily struct {
 	LastUpdate []string           `json:"last_update"`
 	Audio      []HTAudio          `json:"audio"`
 	GEDCOM     string             `json:"gedcom"`
+	CSV        string             `json:"csv"`
 	Contents   []IdxFamilyContent `json:"content"`
 	DateTime   []HTDate           `json:"date_time"`
 }
@@ -104,7 +114,7 @@ type FamilyPersonHaplogroup struct {
 type FamilyPerson struct {
 	ID         string                   `json:"id"`
 	Name       string                   `json:"name"`
-	SurName    string                   `json:"surname"`
+	Surname    string                   `json:"surname"`
 	Patronymic string                   `json:"patronymic"`
 	FullName   string                   `json:"fullname"`
 	Sex        string                   `json:"sex"`
@@ -145,11 +155,262 @@ type Family struct {
 	Maps          []HTMap      `json:"maps"`
 	Prerequisites []string     `json:"prerequisites"`
 	GEDCOM        string       `json:"gedcom"`
+	CSV           string       `json:"csv"`
 	Version       int          `json:"version"`
 	Type          string       `json:"type"`
 	Families      []FamilyBody `json:"families"`
 	Exercises     []HTExercise `json:"exercise_v2"`
 	DateTime      []HTDate     `json:"date_time"`
+}
+
+var familyUpdated bool
+var indexUpdated bool
+
+// CSV Types
+var htFamilyPlaceCSV [][]string
+var htFamilyPeopleCSV [][]string
+var htFamilyMarriageCSV [][]string
+var htFamilyFamilyCSV [][]string
+
+var htFamiliesPlaceCSV [][]string
+var htFamiliesPeopleCSV [][]string
+var htFamiliesMarriageCSV [][]string
+var htFamiliesFamilyCSV [][]string
+
+type FamilyKey struct {
+	firstPerson  string
+	secondPerson string
+	file         string
+}
+
+var marriagesMap map[FamilyKey][]string
+var peopleMap map[string][]string
+
+// Common CSV and GEDCOM
+func htXrefGEDCOM(prefix string, id string) string {
+	if len(id) < 19 {
+		panic("AN EMPTY ID WAS GIVEN TO A PERSON")
+	}
+	localXRef := fmt.Sprintf("%s%s", prefix, id[0:18])
+	return localXRef
+}
+
+func htFamilyEventDate(dt *HTDate) string {
+	if dt == nil || dt.DateType != "gregorian" {
+		return ""
+	}
+
+	if dt.Month == "-1" || dt.Day == "-1" {
+		ret := fmt.Sprintf("%s", dt.Year)
+		return ret
+	}
+
+	var month string
+	switch dt.Month {
+	case "1":
+		month = "jan"
+		break
+	case "2":
+		month = "feb"
+		break
+	case "3":
+		month = "mar"
+		break
+	case "4":
+		month = "apr"
+		break
+	case "5":
+		month = "may"
+		break
+	case "6":
+		month = "jun"
+		break
+	case "7":
+		month = "jul"
+		break
+	case "8":
+		month = "aug"
+		break
+	case "9":
+		month = "sep"
+		break
+	case "10":
+		month = "oct"
+		break
+	case "11":
+		month = "nov"
+		break
+	case "12":
+	default:
+		month = "dec"
+		break
+	}
+	ret := fmt.Sprintf("%s %s %s", dt.Day, month, dt.Year)
+
+	return ret
+}
+
+// CSV
+func htInitializeCSVPlace() [][]string {
+	return [][]string{{"", "", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", "", ""}, {"place", "title", "name", "type", "latitude", "longitude", "code", "enclosed_by", "date"}}
+}
+
+func htInitializeCSVPeople() [][]string {
+	return [][]string{{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"person", "gramps_id", "firstname", "surname", "callname", "prefix", "suffix", "title", "gender", "source", "note", "birthdate", "birthplace", "birthplaceid", "birthsource", "baptismdate", "baptismplace", "baptismplaceid", "baptismsource", "deathdate", "deathplace", "deathplaceid", "deathsource", "deathcause", "burialdate", "burialplace", "burialplaceid", "burialsource", "occupationdate", "occupationplace", "occupationplace_id", "occupationsource", "occupationdescr", "residencedate", "residenceplace", "residenceplace_id", "residencesource", "attributetype", "attributevalue", "attributesource"}}
+}
+
+func htSelectFirstSource(sources []HTSource) (string, int) {
+	for i := 0; i < len(sources); i++ {
+		src := &sources[i]
+
+		element, ok := sourceMap[src.UUID]
+		if ok {
+			var url string = ""
+			if element.URL != "" {
+				url = ", (" + element.URL + ")"
+			}
+			return element.Citation + url, src.Type
+		}
+		return src.Text, src.Type
+	}
+
+	return "", -1
+}
+
+func htSelectSource(sources []HTSource) (string, int) {
+	var uuid string = ""
+	var idx int = 0
+	for i := 0; i < len(sources); i++ {
+		src := &sources[i]
+
+		if src.Type == 0 {
+			idx = i
+			uuid = src.UUID
+			break
+		} else {
+			idx = i
+			uuid = src.UUID
+		}
+	}
+
+	if len(uuid) > 0 {
+		src := &sources[idx]
+		element, ok := sourceMap[uuid]
+		if ok {
+			var url string = ""
+			if element.URL != "" {
+				url = ", (" + element.URL + ")"
+			}
+			return element.Citation + url, src.Type
+		}
+		return src.Text, src.Type
+	}
+
+	return "", -1
+}
+
+func htSelectSourceFromText(texts []HTText) (string, int) {
+	for i := 0; i < len(texts); i++ {
+		text := &texts[i]
+
+		if text.Source == nil {
+			continue
+		}
+		ret, sourceType := htSelectSource(text.Source)
+
+		if sourceType >= 0 {
+			return ret, sourceType
+		}
+	}
+
+	return "", -1
+}
+
+func htSelectSourceNote(lang string, src int) string {
+	if src == 0 {
+		if lang == "pt-BR" {
+			return "Confirmado por fontes primárias."
+		} else if lang == "es-ES" {
+			return "De acuerdo con fuentes primarias."
+		}
+		return "According to Primary Sources."
+	} else {
+		if lang == "pt-BR" {
+			return "Não foram encontradas fontes primárias."
+		} else if lang == "es-ES" {
+			return "No se encontraron fuentes primarias."
+		}
+		return "No primary source was found to confirm this."
+	}
+}
+
+func htSetCSVBasicPerson(name string, id string) []string {
+	pID := htXrefGEDCOM("P", id)
+
+	return []string{pID, "REMOVEME", name, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+}
+
+func htSetCSVPeople(person *FamilyPerson, lang string) []string {
+	var birthDate string = ""
+	var birthSource string = ""
+
+	var baptismDate string = ""
+	var baptismSource string = ""
+
+	var deathDate string = ""
+	var deathSource string = ""
+
+	pID := htXrefGEDCOM("P", person.ID)
+	historySource, historyPrimary := htSelectSourceFromText(person.History)
+	historyNote := htSelectSourceNote(lang, historyPrimary)
+	if person.Birth != nil && len(person.Birth) > 0 {
+		birthDate = htFamilyEventDate(&person.Birth[0].Date[0])
+		birthSource, _ = htSelectFirstSource(person.Birth[0].Sources)
+	}
+
+	if person.Baptism != nil && len(person.Baptism) > 0 {
+		baptismDate = htFamilyEventDate(&person.Baptism[0].Date[0])
+		baptismSource, _ = htSelectFirstSource(person.Baptism[0].Sources)
+	}
+
+	if person.Death != nil && len(person.Death) > 0 {
+		deathDate = htFamilyEventDate(&person.Death[0].Date[0])
+		deathSource, _ = htSelectFirstSource(person.Death[0].Sources)
+	}
+
+	return []string{pID, "", person.Name, person.Surname, "", "", "", "", person.Gender, historySource, historyNote, birthDate, "", "", birthSource, baptismDate, "", "", baptismSource, deathDate, "", "", deathSource, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+}
+
+func htInitializeCSVMarriage() [][]string {
+	return [][]string{{"", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", ""}, {"marriage", "parent1", "parent2", "date", "place", "placeID", "source", "note"}}
+}
+
+func htSetCSVMarriage(id string, parent1 string, parent2 string, marr *FamilyPersonMarriage, lang string) []string {
+	var marrDate string = ""
+
+	if marr.DateTime.Date != nil && len(marr.DateTime.Date) > 0 {
+		marrDate = htFamilyEventDate(&marr.DateTime.Date[0])
+	}
+
+	marrSource, marrType := htSelectSourceFromText(marr.History)
+	marrNote := htSelectSourceNote(lang, marrType)
+
+	pID1 := htXrefGEDCOM("P", parent1)
+	pID2 := htXrefGEDCOM("P", parent2)
+	return []string{id, pID1, pID2, marrDate, "", "", marrSource, marrNote}
+}
+
+func htInitializeCSVFamily() [][]string {
+	return [][]string{{"", "", "", "", ""}, {"", "", "", "", ""}, {"family", "child", "source", "note", "gender"}}
+}
+
+func htSetCSVFamily(data []string, child *FamilyPersonChild, lang string) []string {
+	pID := htXrefGEDCOM("P", child.ID)
+	historySource, historyType := htSelectSourceFromText(child.History)
+	childNote := htSelectSourceNote(lang, historyType)
+
+	// Gender is specified in Person
+	return []string{data[0], pID, historySource, childNote, ""}
 }
 
 func htWriteFamilyFile(lang string, family *Family) (string, error) {
@@ -173,9 +434,6 @@ func htWriteFamilyFile(lang string, family *Family) (string, error) {
 	return tmpFile, nil
 }
 
-var familyUpdated bool
-var indexUpdated bool
-
 func htParseFamilySetGEDCOM(families *Family, fileName string, lang string) {
 	if len(families.GEDCOM) > 0 {
 		return
@@ -184,6 +442,18 @@ func htParseFamilySetGEDCOM(families *Family, fileName string, lang string) {
 	families.GEDCOM = fmt.Sprintf("gedcom/%s_%s.ged", fileName, lang)
 	if verboseFlag {
 		fmt.Println("Setting GEDCOM file to: ", families.GEDCOM)
+	}
+	familyUpdated = true
+}
+
+func htParseFamilySetCSV(families *Family, fileName string, lang string) {
+	if len(families.CSV) > 0 {
+		return
+	}
+
+	families.CSV = fmt.Sprintf("csv/%s_%s.csv", fileName, lang)
+	if verboseFlag {
+		fmt.Println("Setting CSV file to: ", families.CSV)
 	}
 	familyUpdated = true
 }
@@ -201,8 +471,66 @@ func htParseFamilySetLicenses(families *Family, lang string) {
 	familyUpdated = true
 }
 
-func htParseFamilySetDefaultValues(families *Family) {
+func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
+	var gedcomID string
+	// We always set males as first to keep pattern with GEDCOM files. This is not obligatory in History Tracers files.
+	var first string
+	var second string
+
+	for i := 0; i < len(person.Marriages); i++ {
+		marr := &person.Marriages[i]
+
+		if person.Sex == "masculine" || person.Sex == "masculino" {
+			first = person.ID
+			second = marr.ID
+		} else {
+			first = marr.ID
+			second = person.ID
+		}
+
+		if len(marr.GEDCOMId) == 0 {
+			id := uuid.New()
+			strID := id.String()
+			gedcomID = fmt.Sprintf("F%s", strID[0:18])
+
+			marr.GEDCOMId = gedcomID
+			familyUpdated = true
+		}
+
+		key := FamilyKey{firstPerson: first, secondPerson: second, file: fileName}
+		if _, ok := marriagesMap[key]; !ok {
+			localMarr := htSetCSVMarriage(marr.GEDCOMId, first, second, marr, lang)
+			marriagesMap[key] = localMarr
+			htFamilyMarriageCSV = append(htFamilyMarriageCSV, localMarr)
+			htFamiliesMarriageCSV = append(htFamiliesMarriageCSV, localMarr)
+		} else {
+			/* RELATIONSHIP BETWEEN BROTHERS CAN HAPPEN IN THE SAME FILE
+			verr := fmt.Sprintf("The same couple %s and %s, appears more than once in %s", person.ID, marr.ID, fileName)
+			panic(verr)
+			*/
+		}
+
+		newPerson := htSetCSVBasicPerson(marr.Name, marr.ID)
+		if oldPerson, ok := peopleMap[marr.ID]; !ok {
+			peopleMap[marr.ID] = newPerson
+			// TODO: NEXT TWO SHOULD BE REMOVED FROM HERE WHEN WE HAVE THE SAME PEOPLE IN DIFFERENT FILES
+			htFamilyPeopleCSV = append(htFamilyPeopleCSV, newPerson)
+			htFamiliesPeopleCSV = append(htFamiliesPeopleCSV, newPerson)
+		} else {
+			if oldPerson[1] == newPerson[1] {
+				if verboseFlag {
+					fmt.Println("The person", marr.Name, "appears more than one time in", fileName)
+				}
+			}
+		}
+
+	}
+}
+
+func htParseFamilySetDefaultValues(families *Family, lang string, fileName string) {
 	people := make(map[string]bool)
+	var first string
+	var second string
 
 	for i := 0; i < len(families.Families); i++ {
 		family := &families.Families[i]
@@ -232,6 +560,19 @@ func htParseFamilySetDefaultValues(families *Family) {
 		for j := 0; j < len(family.People); j++ {
 			person := &family.People[j]
 			people[person.ID] = true
+
+			newPerson := htSetCSVPeople(person, lang)
+			if oldPerson, ok := peopleMap[person.ID]; !ok {
+				peopleMap[person.ID] = newPerson
+				htFamilyPeopleCSV = append(htFamilyPeopleCSV, newPerson)
+				htFamiliesPeopleCSV = append(htFamiliesPeopleCSV, newPerson)
+			} else {
+				if oldPerson[1] == "REMOVEME" {
+					peopleMap[person.ID] = newPerson
+				}
+			}
+
+			htFamilyFillGEDCOM(person, fileName, lang)
 		}
 	}
 
@@ -254,12 +595,67 @@ func htParseFamilySetDefaultValues(families *Family) {
 					child.AddLink = val
 					familyUpdated = true
 				}
+
+				newPerson := htSetCSVBasicPerson(child.Name, child.ID)
+				if _, ok := peopleMap[child.ID]; !ok {
+					peopleMap[child.ID] = newPerson
+					htFamilyPeopleCSV = append(htFamilyPeopleCSV, newPerson)
+					htFamiliesPeopleCSV = append(htFamiliesPeopleCSV, newPerson)
+				}
+
+				if person.Sex == "masculine" || person.Sex == "masculino" {
+					first = person.ID
+					second = child.MarriageID
+				} else {
+					first = child.MarriageID
+					second = person.ID
+				}
+
+				key := FamilyKey{firstPerson: first, secondPerson: second, file: fileName}
+				if mm, ok := marriagesMap[key]; ok {
+					childFam := htSetCSVFamily(mm, child, lang)
+					htFamilyFamilyCSV = append(htFamilyFamilyCSV, childFam)
+					htFamiliesFamilyCSV = append(htFamiliesFamilyCSV, childFam)
+				}
 			}
 		}
 	}
 }
 
-func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
+func htRemoveKeyComment() {
+	for _, ptr := range htFamilyPeopleCSV {
+		if ptr[1] == "REMOVEME" {
+			ptr[1] = ""
+		}
+	}
+}
+
+func htWriteCSVtoFile(fileName string, in [][]string) error {
+	tmpFile := fmt.Sprintf("%s%s", CFG.SrcPath, fileName)
+
+	if verboseFlag {
+		fmt.Println("CREATING CSS FILE ", tmpFile)
+	}
+
+	fp, err := os.Create(tmpFile)
+	if err != nil {
+		return err
+	}
+
+	w := csv.NewWriter(fp)
+	w.WriteAll(in)
+
+	fp.Close()
+
+	return nil
+}
+
+func htParseFamily(fileName string, lang string, rewrite bool) (error, string, string) {
+	htFamilyPlaceCSV = htInitializeCSVPlace()
+	htFamilyPeopleCSV = htInitializeCSVPeople()
+	htFamilyMarriageCSV = htInitializeCSVMarriage()
+	htFamilyFamilyCSV = htInitializeCSVFamily()
+
 	familyUpdated = false
 	localPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, fileName)
 	if verboseFlag {
@@ -268,26 +664,27 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
 
 	byteValue, err := htOpenFileReadClose(localPath)
 	if err != nil {
-		return err, ""
+		return err, "", ""
 	}
 
 	var family Family
 	err = json.Unmarshal(byteValue, &family)
 	if err != nil {
 		htCommonJsonError(byteValue, err)
-		return err, ""
+		return err, "", ""
 	}
 
 	if rewrite == false {
-		return nil, ""
+		return nil, "", ""
 	}
 
 	htParseFamilySetGEDCOM(&family, fileName, lang)
+	htParseFamilySetCSV(&family, fileName, lang)
 	htParseFamilySetLicenses(&family, lang)
 	if familyUpdated == true {
 		family.LastUpdate[0] = htUpdateTimestamp()
 	}
-	htParseFamilySetDefaultValues(&family)
+	htParseFamilySetDefaultValues(&family, lang, localPath)
 
 	newFile, err := htWriteFamilyFile(lang, &family)
 
@@ -295,20 +692,34 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string) {
 	err = os.Remove(newFile)
 	if err != nil {
 		fmt.Println("ERROR", err)
-		return err, ""
+		return err, "", ""
 	}
 
-	return nil, family.GEDCOM
+	htRemoveKeyComment()
+
+	htFamilyPeopleCSV = append(htFamilyPeopleCSV, htFamilyMarriageCSV...)
+	htFamilyPeopleCSV = append(htFamilyPeopleCSV, htFamilyFamilyCSV...)
+
+	err = htWriteCSVtoFile(family.CSV, htFamilyPeopleCSV)
+	if err != nil {
+		return err, "", ""
+	}
+
+	return nil, family.GEDCOM, family.CSV
 }
 
 func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
-	if len(families.GEDCOM) > 0 {
-		return
-	}
-
 	families.GEDCOM = fmt.Sprintf("gedcom/families-%s.ged", lang)
 	if verboseFlag {
-		fmt.Println("Setting GEDCOM file to: ", families.GEDCOM)
+		fmt.Println("Setting INDEX GEDCOM file to: ", families.GEDCOM)
+	}
+	indexUpdated = true
+}
+
+func htParseIndexSetCSV(families *IdxFamily, lang string) {
+	families.CSV = fmt.Sprintf("csv/families-%s.csv", lang)
+	if verboseFlag {
+		fmt.Println("Setting INDEX CSV file to: ", families.CSV)
 	}
 	indexUpdated = true
 }
@@ -354,6 +765,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 
 	byteValue, err := htOpenFileReadClose(fileName)
 	if err != nil {
+		fmt.Println("ERROR Adjusting file", fileName)
 		return err
 	}
 
@@ -376,13 +788,13 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 
 		value := content.Value
 		for j := 0; j < len(value); j++ {
-			err, gedcom := htParseFamily(value[j].ID, lang, rewrite)
+
+			err, gedcom, csv := htParseFamily(value[j].ID, lang, rewrite)
 			if err != nil {
 				return err
 			}
-			if rewrite == true {
-				value[j].GEDCOM = gedcom
-			}
+			value[j].GEDCOM = gedcom
+			value[j].CSV = csv
 		}
 	}
 
@@ -391,6 +803,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 	}
 
 	htParseIndexSetGEDCOM(&index, lang)
+	htParseIndexSetCSV(&index, lang)
 	htParseIndexSetLicenses(&index, lang)
 	if indexUpdated == true {
 		index.LastUpdate[0] = htUpdateTimestamp()
@@ -415,10 +828,16 @@ func htUpdateAllFamilies(rewrite bool) error {
 	htLangPaths := [3]string{"en-US", "es-ES", "pt-BR"}
 	for i := 0; i < len(htLangPaths); i++ {
 		indexUpdated = false
+		marriagesMap = make(map[FamilyKey][]string)
+		htFamiliesPlaceCSV = htInitializeCSVPlace()
+		htFamiliesPeopleCSV = htInitializeCSVPeople()
+		htFamiliesMarriageCSV = htInitializeCSVMarriage()
+		htFamiliesFamilyCSV = htInitializeCSVFamily()
+
 		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, htLangPaths[i])
 		err := htParseFamilyIndex(localPath, htLangPaths[i], rewrite)
 		if err != nil {
-			panic(err)
+			return err
 		}
 	}
 
@@ -443,14 +862,29 @@ func htCreateGEDCOMDirectory() {
 	htCreateDirectory(localPath)
 }
 
+func htCreateCSVDirectory() {
+	localPath := fmt.Sprintf("%scsv/", CFG.SrcPath)
+	htRemoveCurrentGEDCOMDirectory(localPath)
+
+	if verboseFlag {
+		fmt.Println("Creating csv directory", localPath)
+	}
+	htCreateDirectory(localPath)
+}
+
 // Entries
 func htCreateGEDCOM() {
 	htCreateGEDCOMDirectory()
+	htCreateCSVDirectory()
+	sourceMap = make(map[string]HTSourceElement)
+	peopleMap = make(map[string][]string)
 
 	htUpdateAllFamilies(true)
 }
 
 // Validate
 func htValidateGEDCOM() {
+	sourceMap = make(map[string]HTSourceElement)
+
 	htUpdateAllFamilies(false)
 }

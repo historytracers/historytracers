@@ -37,6 +37,29 @@ type HTSource struct {
 	date HTDate `json:"date"`
 }
 
+type HTSourceElement struct {
+	ID       string `json:"id"`
+	Citation string `json:"citation"`
+	Date     string `json:"date"`
+	URL      string `json:"url"`
+}
+
+type HTSourceFile struct {
+	Info               string            `json:"info"`
+	License            []string          `json:"license"`
+	LastUpdate         []string          `json:"last_update"`
+	Authors            string            `json:"authors"`
+	Reviewers          string            `json:"reviewers"`
+	Version            int               `json:"version"`
+	Type               string            `json:"type"`
+	PrimarySources     []HTSourceElement `json:"primary_sources"`
+	ReferencesSources  []HTSourceElement `json:"references_sources"`
+	ReligiousSources   []HTSourceElement `json:"religious_sources"`
+	SocialMediaSources []HTSourceElement `json:"social_media_sources"`
+}
+
+var sourceMap map[string]HTSourceElement
+
 type HTText struct {
 	Text        string     `json:"text"`
 	Source      []HTSource `json:"source"`
@@ -123,4 +146,56 @@ func htCommonJsonError(byteValue []byte, err error) {
 	default:
 		fmt.Printf("Invalid character at offset\n %s", err.Error())
 	}
+}
+
+// Sources
+func htFillSourceMap(src []HTSourceElement) {
+	for _, element := range src {
+		if _, ok := sourceMap[element.ID]; !ok {
+			sourceMap[element.ID] = element
+		}
+	}
+}
+
+func htFillSourcesMap(src *HTSourceFile) {
+	if src.PrimarySources != nil {
+		htFillSourceMap(src.PrimarySources)
+	}
+
+	if src.ReferencesSources != nil {
+		htFillSourceMap(src.ReferencesSources)
+	}
+
+	if src.ReligiousSources != nil {
+		htFillSourceMap(src.ReligiousSources)
+	}
+
+	if src.SocialMediaSources != nil {
+		htFillSourceMap(src.SocialMediaSources)
+	}
+}
+
+func htLoadSources(fileName string) {
+	srcPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, fileName)
+
+	jsonFile, err := os.Open(srcPath)
+	if err != nil {
+		return
+	}
+
+	byteValue, err := io.ReadAll(jsonFile)
+	if err != nil {
+		jsonFile.Close()
+		return
+	}
+
+	var src HTSourceFile
+	err = json.Unmarshal(byteValue, &src)
+	if err != nil {
+		jsonFile.Close()
+		return
+	}
+
+	htFillSourcesMap(&src)
+	jsonFile.Close()
 }
