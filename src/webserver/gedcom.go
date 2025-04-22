@@ -348,7 +348,7 @@ func htSelectSourceNote(lang string, src int) string {
 func htSetCSVBasicPerson(name string, id string) []string {
 	pID := htXrefGEDCOM("P", id)
 
-	return []string{pID, "REMOVEME", name, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	return []string{pID, " ", name, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 }
 
 func htSetCSVPeople(person *FamilyPerson, lang string) []string {
@@ -568,7 +568,7 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 				htFamilyPeopleCSV = append(htFamilyPeopleCSV, newPerson)
 				htFamiliesPeopleCSV = append(htFamiliesPeopleCSV, newPerson)
 			} else {
-				if oldPerson[1] == "REMOVEME" {
+				if oldPerson[1] == " " {
 					peopleMap[person.ID] = newPerson
 				}
 			}
@@ -619,14 +619,6 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 					htFamiliesFamilyCSV = append(htFamiliesFamilyCSV, childFam)
 				}
 			}
-		}
-	}
-}
-
-func htRemoveKeyComment() {
-	for _, ptr := range htFamilyPeopleCSV {
-		if ptr[1] == "REMOVEME" {
-			ptr[1] = ""
 		}
 	}
 }
@@ -722,12 +714,14 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 		return err, "", ""
 	}
 
-	htRemoveKeyComment()
+	htFamilyMarriageCSV = append(htFamilyMarriageCSV, htFamilyFamilyCSV...)
+	htFamilyPlaceCSV = append(htFamilyPlaceCSV, htFamilyMarriageCSV...)
+	/*
+		htFamilyPeopleCSV = append(htFamilyPeopleCSV, htFamilyMarriageCSV...)
+		htFamilyPeopleCSV = append(htFamilyPeopleCSV, htFamilyFamilyCSV...)
+	*/
 
-	htFamilyPeopleCSV = append(htFamilyPeopleCSV, htFamilyMarriageCSV...)
-	htFamilyPeopleCSV = append(htFamilyPeopleCSV, htFamilyFamilyCSV...)
-
-	err = htWriteCSVtoFile(family.CSV, htFamilyPeopleCSV)
+	err = htWriteCSVtoFile(family.CSV, htFamilyPlaceCSV)
 	if err != nil {
 		return err, "", ""
 	}
