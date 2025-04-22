@@ -13,6 +13,7 @@ import (
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/google/uuid"
@@ -256,7 +257,7 @@ func htInitializeCSVPlace() [][]string {
 }
 
 func htInitializeCSVPeople() [][]string {
-	return [][]string{{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"person", "gramps_id", "firstname", "surname", "callname", "prefix", "suffix", "title", "gender", "source", "note", "birthdate", "birthplace", "birthplaceid", "birthsource", "baptismdate", "baptismplace", "baptismplaceid", "baptismsource", "deathdate", "deathplace", "deathplaceid", "deathsource", "deathcause", "burialdate", "burialplace", "burialplaceid", "burialsource", "occupationdate", "occupationplace", "occupationplace_id", "occupationsource", "occupationdescr", "residencedate", "residenceplace", "residenceplace_id", "residencesource", "attributetype", "attributevalue", "attributesource"}}
+	return [][]string{{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"person", "gramps_id", "firstname", "surname", "callname", "prefix", "suffix", "title", "gender", "source", "note", "birthdate", "birthplace", "birthplaceid", "birthsource", "baptismdate", "baptismplace", "baptismplaceid", "baptismsource", "deathdate", "deathplace", "deathplaceid", "deathsource"}}
 }
 
 func htSelectFirstSource(sources []HTSource) (string, int) {
@@ -650,6 +651,27 @@ func htWriteCSVtoFile(fileName string, in [][]string) error {
 	return nil
 }
 
+func htLoadSourceFromFile(family *Family) error {
+	for _, ptr := range family.Sources {
+		localPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, ptr)
+		byteValue, err := htOpenFileReadClose(localPath)
+		if err != nil {
+			log.Fatalln(err)
+		}
+
+		var sources HTSourceFile
+		err = json.Unmarshal(byteValue, &sources)
+		if err != nil {
+			htCommonJsonError(byteValue, err)
+			return err
+		}
+
+		htFillSourcesMap(&sources)
+	}
+
+	return nil
+}
+
 func htParseFamily(fileName string, lang string, rewrite bool) (error, string, string) {
 	htFamilyPlaceCSV = htInitializeCSVPlace()
 	htFamilyPeopleCSV = htInitializeCSVPeople()
@@ -671,6 +693,11 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	err = json.Unmarshal(byteValue, &family)
 	if err != nil {
 		htCommonJsonError(byteValue, err)
+		return err, "", ""
+	}
+
+	err = htLoadSourceFromFile(&family)
+	if err != nil {
 		return err, "", ""
 	}
 
