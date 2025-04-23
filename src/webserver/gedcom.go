@@ -257,8 +257,7 @@ func htInitializeCSVPlace() [][]string {
 }
 
 func htInitializeCSVPeople() [][]string {
-	//return [][]string{{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"person", "gramps_id", "firstname", "surname", "callname", "prefix", "suffix", "title", "gender", "source", "note", "birthdate", "birthplace", "birthplaceid", "birthsource", "baptismdate", "baptismplace", "baptismplaceid", "baptismsource", "deathdate", "deathplace", "deathplaceid", "deathsource"}}
-	return [][]string{{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"person", "grampsid", "firstname", "surname", "callname", "prefix", "suffix", "title", "gender", "source", "note", "birthdate", "birthplace", "birthplaceid", "birthsource", "baptismdate", "baptismplace", "baptismplaceid", "baptismsouce", "deathdate", "deathplace", "deathplaceid", "deathsource"}}
+	return [][]string{{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"person", "firstname", "surname", "callname", "prefix", "suffix", "title", "gender", "source", "note", "birthdate", "birthplace", "birthplaceid", "birthsource", "baptismdate", "baptismplace", "baptismplaceid", "baptismsouce", "deathdate", "deathplace", "deathplaceid", "deathsource"}}
 }
 
 func htSelectFirstSource(sources []HTSource) (string, int) {
@@ -289,7 +288,7 @@ func htSelectSource(sources []HTSource) (string, int) {
 			idx = i
 			uuid = src.UUID
 			break
-		} else {
+		} else if len(uuid) == 0 {
 			idx = i
 			uuid = src.UUID
 		}
@@ -349,7 +348,7 @@ func htSelectSourceNote(lang string, src int) string {
 func htSetCSVBasicPerson(name string, id string) []string {
 	pID := htXrefGEDCOM("P", id)
 
-	return []string{pID, " ", name, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	return []string{pID, " " + name, " ", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 }
 
 func htSetCSVPeople(person *FamilyPerson, lang string) []string {
@@ -380,11 +379,11 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 		deathSource, _ = htSelectFirstSource(person.Death[0].Sources)
 	}
 
-	return []string{"[" + pID + "]", "", person.Name, person.Surname, "", "", "", "", person.Gender, historySource, historyNote, birthDate, "", "", birthSource, baptismDate, "", "", baptismSource, deathDate, "", "", deathSource, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	return []string{"[" + pID + "]", " " + person.Name, " " + person.Surname, " ", "", "", "", " " + person.Gender, " " + historySource, " " + historyNote, " " + birthDate, "", "", " " + birthSource, " " + baptismDate, "", "", " " + baptismSource, " " + deathDate, "", "", " " + deathSource, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 }
 
 func htInitializeCSVMarriage() [][]string {
-	return [][]string{{"", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", ""}, {"marriage", "parent1", "parent2", "date", "place", "placeID", "source", "note"}}
+	return [][]string{{"", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", ""}, {"marriage", " parent1", " parent2", " date", " place", " placeID", " source", " note"}}
 }
 
 func htSetCSVMarriage(id string, parent1 string, parent2 string, marr *FamilyPersonMarriage, lang string) []string {
@@ -399,11 +398,11 @@ func htSetCSVMarriage(id string, parent1 string, parent2 string, marr *FamilyPer
 
 	pID1 := htXrefGEDCOM("P", parent1)
 	pID2 := htXrefGEDCOM("P", parent2)
-	return []string{"[" + id + "]", "[" + pID1 + "]", "[" + pID2 + "]", marrDate, "", "", marrSource, marrNote}
+	return []string{"[" + id + "]", " [" + pID1 + "]", " [" + pID2 + "]", " " + marrDate, "", "", " " + marrSource, " " + marrNote}
 }
 
 func htInitializeCSVFamily() [][]string {
-	return [][]string{{"", "", "", "", ""}, {"", "", "", "", ""}, {"family", "child", "source", "note", "gender"}}
+	return [][]string{{"", "", "", "", ""}, {"", "", "", "", ""}, {"family", " child", " source", " note", " gender"}}
 }
 
 func htSetCSVFamily(data []string, child *FamilyPersonChild, lang string) []string {
@@ -412,7 +411,7 @@ func htSetCSVFamily(data []string, child *FamilyPersonChild, lang string) []stri
 	childNote := htSelectSourceNote(lang, historyType)
 
 	// Gender is specified in Person
-	return []string{data[0], "[" + pID + "]", historySource, childNote, ""}
+	return []string{data[0], " [" + pID + "]", " " + historySource, " " + childNote, ""}
 }
 
 func htWriteFamilyFile(lang string, family *Family) (string, error) {
@@ -519,7 +518,7 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 			htFamilyPeopleCSV = append(htFamilyPeopleCSV, newPerson)
 			htFamiliesPeopleCSV = append(htFamiliesPeopleCSV, newPerson)
 		} else {
-			if oldPerson[1] == newPerson[1] {
+			if oldPerson[3] == newPerson[3] {
 				if verboseFlag {
 					fmt.Println("The person", marr.Name, "(", marr.ID, ")", "appears more than one time in", fileName)
 				}
