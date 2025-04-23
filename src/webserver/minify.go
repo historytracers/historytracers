@@ -103,7 +103,7 @@ func htUpdateHTCSS() error {
 	srcBodies := fmt.Sprintf("%ssrc/css/", CFG.SrcPath)
 	entries, err := os.ReadDir(srcBodies)
 	if err != nil {
-		fmt.Println("ERROR", err)
+		fmt.Fprintln(os.Stderr, "ERROR", err)
 		return err
 	}
 
@@ -128,7 +128,7 @@ func htUpdateHTCSS() error {
 
 	err = os.Remove(tmpFile)
 	if err != nil {
-		fmt.Println("ERROR", err)
+		fmt.Fprintln(os.Stderr, "ERROR", err)
 		return err
 	}
 

@@ -520,7 +520,7 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 		} else {
 			if oldPerson[3] == newPerson[3] {
 				if verboseFlag {
-					fmt.Println("The person", marr.Name, "(", marr.ID, ")", "appears more than one time in", fileName)
+					fmt.Fprintln(os.Stderr, "The person", marr.Name, "(", marr.ID, ")", "appears more than one time in", fileName)
 				}
 			}
 		}
@@ -710,7 +710,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
-		fmt.Println("ERROR", err)
+		fmt.Fprintln(os.Stderr, "ERROR", err)
 		return err, "", ""
 	}
 
@@ -783,7 +783,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 
 	byteValue, err := htOpenFileReadClose(fileName)
 	if err != nil {
-		fmt.Println("ERROR Adjusting file", fileName)
+		fmt.Fprintln(os.Stderr, "ERROR Adjusting file", fileName)
 		return err
 	}
 
@@ -835,7 +835,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 	HTCopyFilesWithoutChanges(fileName, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
-		fmt.Println("ERROR", err)
+		fmt.Fprintln(os.Stderr, "ERROR", err)
 		return err
 	}
 

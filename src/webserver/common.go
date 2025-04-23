@@ -133,16 +133,18 @@ func htCommonJsonError(byteValue []byte, err error) {
 	switch t := err.(type) {
 	case *json.SyntaxError:
 		begin := t.Offset
-		if begin > 30 {
+		if begin > 256 {
+			begin -= 256
+		} else if begin > 30 {
 			begin -= 30
 		}
 		jsn := string(byteValue[begin:t.Offset])
 		jsn += "<--(Invalid Character)"
-		fmt.Printf("Invalid character at offset %v\n %s", t.Offset, jsn)
+		fmt.Fprintf(os.Stderr, "Invalid character at offset %v\n %s", t.Offset, jsn)
 	case *json.UnmarshalTypeError:
 		jsn := string(byteValue[t.Offset-30 : t.Offset])
 		jsn += "<--(Invalid Type)"
-		fmt.Printf("Invalid type at offset %v\n %s", t.Offset, jsn)
+		fmt.Fprintf(os.Stderr, "Invalid type at offset %v\n %s", t.Offset, jsn)
 	default:
 		fmt.Printf("Invalid character at offset\n %s", err.Error())
 	}
