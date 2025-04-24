@@ -120,7 +120,7 @@ type FamilyPerson struct {
 	FullName   string                   `json:"fullname"`
 	Sex        string                   `json:"sex"`
 	Gender     string                   `json:"gender"`
-	Real       bool                     `json:"is_real"`
+	IsReal     bool                     `json:"is_real"`
 	Haplogroup []FamilyPersonHaplogroup `json:"haplogroup"`
 	History    []HTText                 `json:"history"`
 	Parents    []FamilyPersonParents    `json:"parents"`
@@ -345,10 +345,19 @@ func htSelectSourceNote(lang string, src int) string {
 	}
 }
 
-func htSetCSVBasicPerson(name string, id string) []string {
+func htSetCSVBasicPerson(name string, id string, lang string, child *FamilyPersonChild) []string {
 	pID := htXrefGEDCOM("P", id)
 
-	return []string{pID, " " + name, " ", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	var historySource string = ""
+	var historyNote string = ""
+	var historyPrimary int
+
+	if child != nil {
+		historySource, historyPrimary = htSelectSourceFromText(child.History)
+		historyNote = htSelectSourceNote(lang, historyPrimary)
+	}
+
+	return []string{"[" + pID + "]", " " + name, " ", "", "", "", "", "", "", "", " " + historySource, " " + historyNote, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 }
 
 func htSetCSVPeople(person *FamilyPerson, lang string) []string {
@@ -363,6 +372,11 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 	pID := htXrefGEDCOM("P", person.ID)
 	historySource, historyPrimary := htSelectSourceFromText(person.History)
+	// If we do not have a proper citation or direct access to prove,
+	// we should treat it as Reference, but have condition to confirm the person is real
+	if person.IsReal {
+		historyPrimary = 0
+	}
 	historyNote := htSelectSourceNote(lang, historyPrimary)
 	if person.Birth != nil && len(person.Birth) > 0 {
 		birthDate = htFamilyEventDate(&person.Birth[0].Date[0])
@@ -511,7 +525,7 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 			*/
 		}
 
-		newPerson := htSetCSVBasicPerson(marr.Name, marr.ID)
+		newPerson := htSetCSVBasicPerson(marr.Name, marr.ID, lang, nil)
 		if oldPerson, ok := peopleMap[marr.ID]; !ok {
 			peopleMap[marr.ID] = newPerson
 			// TODO: NEXT TWO SHOULD BE REMOVED FROM HERE WHEN WE HAVE THE SAME PEOPLE IN DIFFERENT FILES
@@ -597,7 +611,7 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 					familyUpdated = true
 				}
 
-				newPerson := htSetCSVBasicPerson(child.Name, child.ID)
+				newPerson := htSetCSVBasicPerson(child.Name, child.ID, lang, child)
 				if _, ok := peopleMap[child.ID]; !ok {
 					peopleMap[child.ID] = newPerson
 					htFamilyPeopleCSV = append(htFamilyPeopleCSV, newPerson)

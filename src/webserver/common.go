@@ -53,7 +53,7 @@ type HTSourceFile struct {
 	Version            int               `json:"version"`
 	Type               string            `json:"type"`
 	PrimarySources     []HTSourceElement `json:"primary_sources"`
-	ReferencesSources  []HTSourceElement `json:"references_sources"`
+	ReferencesSources  []HTSourceElement `json:"reference_sources"`
 	ReligiousSources   []HTSourceElement `json:"religious_sources"`
 	SocialMediaSources []HTSourceElement `json:"social_media_sources"`
 }
