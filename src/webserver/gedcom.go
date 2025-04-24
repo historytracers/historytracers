@@ -379,18 +379,24 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 	}
 	historyNote := htSelectSourceNote(lang, historyPrimary)
 	if person.Birth != nil && len(person.Birth) > 0 {
-		birthDate = htFamilyEventDate(&person.Birth[0].Date[0])
-		birthSource, _ = htSelectFirstSource(person.Birth[0].Sources)
+		if person.Birth[0].Date != nil && len(person.Birth[0].Date) > 0 {
+			birthDate = htFamilyEventDate(&person.Birth[0].Date[0])
+			birthSource, _ = htSelectFirstSource(person.Birth[0].Sources)
+		}
 	}
 
 	if person.Baptism != nil && len(person.Baptism) > 0 {
-		baptismDate = htFamilyEventDate(&person.Baptism[0].Date[0])
-		baptismSource, _ = htSelectFirstSource(person.Baptism[0].Sources)
+		if person.Baptism[0].Date != nil && len(person.Baptism[0].Date) > 0 {
+			baptismDate = htFamilyEventDate(&person.Baptism[0].Date[0])
+			baptismSource, _ = htSelectFirstSource(person.Baptism[0].Sources)
+		}
 	}
 
 	if person.Death != nil && len(person.Death) > 0 {
-		deathDate = htFamilyEventDate(&person.Death[0].Date[0])
-		deathSource, _ = htSelectFirstSource(person.Death[0].Sources)
+		if person.Death[0].Date != nil && len(person.Death[0].Date) > 0 {
+			deathDate = htFamilyEventDate(&person.Death[0].Date[0])
+			deathSource, _ = htSelectFirstSource(person.Death[0].Sources)
+		}
 	}
 
 	return []string{"[" + pID + "]", " " + person.Name, " " + person.Surname, " ", "", "", "", " " + person.Gender, " " + historySource, " " + historyNote, " " + birthDate, "", "", " " + birthSource, " " + baptismDate, "", "", " " + baptismSource, " " + deathDate, "", "", " " + deathSource, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}

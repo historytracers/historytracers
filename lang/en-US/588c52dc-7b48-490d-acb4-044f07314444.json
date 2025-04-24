@@ -94,8 +94,20 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "The life of Ordoño II is relatively well documented in the publication about the Monastery of Sahagún (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb'); return false;\">Escalona, Romualdo, <span class=\"htdate\"></span>, pp. 28 - 32</a>)",
-                     "source": null,
+                     "text": "The life of Ordoño II is relatively well documented in the publication about the Monastery of Sahagún",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb",
+                           "text": "Escalona, Romualdo, pp. 28 - 32",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1782",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ],
                      "date_time": null,
                      "isTable": false,
                      "format": "html",
@@ -128,9 +140,39 @@
                      "name": "Unknown",
                      "history": [
                         {
-                           "text": "Mentioned in a document dated <span class=\"htdate\"></span>, Medieval Lands raises the hypothesis that this document could have been written to the proposed date (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b801c9-ffbe-47f0-ab89-10e5ede4816d'); return false;\">Herculano, Alexandre, <span class=\"htdate\"></span>, Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7 - 8.</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
-                           "date_time": null,
+                           "text": "Mentioned in a document dated <htdate0>, Medieval Lands raises the hypothesis that this document could have been written to the proposed date",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "f5b801c9-ffbe-47f0-ab89-10e5ede4816d",
+                                 "text": "Herculano, Alexandre. Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7 - 8",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1868",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
+                           "date_time": [
+                              {
+                                 "type": "gregory",
+                                 "year": "897",
+                                 "month": "2",
+                                 "day": "21"
+                              }
+                           ],
                            "isTable": false,
                            "format": "html",
                            "PostMention": "."
@@ -156,9 +198,39 @@
                      "name": "Elvira Menéndez",
                      "history": [
                         {
-                           "text": "According to a document dated <span class=\"htdate\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b801c9-ffbe-47f0-ab89-10e5ede4816d'); return false;\">Herculano, Alexandre, <span class=\"htdate\"></span>, Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7 - 8.</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
-                           "date_time": null,
+                           "text": "According to a document dated <htdate0>",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "f5b801c9-ffbe-47f0-ab89-10e5ede4816d",
+                                 "text": "Herculano, Alexandre. Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7 - 8",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1868",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
+                           "date_time": [
+                              {
+                                 "type": "gregory",
+                                 "year": "897",
+                                 "month": "2",
+                                 "day": "21"
+                              }
+                           ],
                            "isTable": false,
                            "format": "html",
                            "PostMention": "."
@@ -210,7 +282,13 @@
                            {
                               "type": 1,
                               "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
-                              "text": "Medieval Lands"
+                              "text": "Medieval Lands",
+                              "date_time": {
+                                 "type": "",
+                                 "year": "",
+                                 "month": "",
+                                 "day": ""
+                              }
                            }
                         ]
                      }
@@ -386,7 +464,13 @@
                         {
                            "type": 0,
                            "uuid": "1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb",
-                           "text": "Escalona, Romualdo, pp. 31"
+                           "text": "Escalona, Romualdo, pp. 31",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -711,7 +795,13 @@
                         {
                            "type": 0,
                            "uuid": "85fd9a79-5bd0-490c-bf49-f1d2dfe9a2dc",
-                           "text": "Dozi, pp. 104"
+                           "text": "Dozi, pp. 104",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -1018,7 +1108,13 @@
                         {
                            "type": 1,
                            "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
-                           "text": "Medieval Lands"
+                           "text": "Medieval Lands",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -1387,12 +1483,24 @@
                         {
                            "type": 0,
                            "uuid": "9f256e64-a9e9-44f3-a17a-e25e88b9d849",
-                           "text": "Chronicon Suorum, fl. 32v"
+                           "text": "Chronicon Suorum, fl. 32v",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
-                           "text": "Medieval Lands"
+                           "text": "Medieval Lands",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -1621,12 +1729,24 @@
                         {
                            "type": 1,
                            "uuid": "dfed13ef-ad5d-4b8d-9471-784f2fe14b74",
-                           "text": "Risco, Manuel, pp. 253"
+                           "text": "Risco, Manuel, pp. 253",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
-                           "text": "Medieval Lands"
+                           "text": "Medieval Lands",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -1823,12 +1943,24 @@
                         {
                            "type": 0,
                            "uuid": "05dd6c77-0a99-45d5-a57a-b95746ef5595",
-                           "text": "Florez, Henriques Fr, pp. 313"
+                           "text": "Florez, Henriques Fr, pp. 313",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
-                           "text": "Medieval Lands"
+                           "text": "Medieval Lands",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }

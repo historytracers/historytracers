@@ -24,10 +24,12 @@
     "common" : [ 
                  { "text" : "A detailed description of the person's life history and marital status.",
                    "source" : [ 
-                                 { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                 { 
+                                  "type": 3210,
                                   "uuid":  "Unique identifier (UUID) for the current citation.",
                                   "text": "The accompanying text that will be displayed with the citation.",
-                                  "date" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                  "date_time" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }
+                                 }
                    ],
                    "date_time" : [
                          {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
@@ -56,10 +58,12 @@
             "name": "Name displayed at the top of the page.",
             "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
                             "source" : [
-                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                { 
+                                  "type": 3210,
                                   "uuid": "Unique identifier (UUID) for the current citation.",
                                   "text": "The accompanying text that will be displayed with the citation.",
-                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                  "date_time": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }
+                                }
                             ],
                             "date_time" : [
                                 {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
@@ -82,19 +86,22 @@
                             "type" :  "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
                             "haplogroup" : "The haplogroup value",
                             "sources" : [
-                                        { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                        { "type": 3210,
                                           "uuid": "Unique identifier (UUID) for the current citation.",
                                           "text": "The accompanying text that will be displayed with the citation.",
-                                          "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                          "date_time": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }
+                                        }
                                     ]
                         }
                     ],
                     "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
                                     "source" : [
-                                        { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                        { 
+                                          "type": 3210,
                                           "uuid": "Unique identifier (UUID) for the current citation.",
                                           "text": "The accompanying text that will be displayed with the citation.",
-                                          "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                          "date_time": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }
+                                        }
                                     ],
                                      "date_time" : [
                                         {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
@@ -121,7 +128,7 @@
                     ],
                     "birth": [
                         {
-                            "date" : [
+                            "date_time" : [
                                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                                {"type" : "unix", "epoch" : "0" },
                                                {"type" : "julian",  "epoch" : "0" }
@@ -132,16 +139,16 @@
                             "pc" : "The postal code of the marriage location.",
                             "country" : "The country where the marriage occurred.",
                             "sources" : [
-                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                { "type": 3210,
                                   "uuid": "Unique identifier (UUID) for the current citation.",
                                   "text": "The accompanying text that will be displayed with the citation.",
-                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                                  "date_time": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
                              ]
                         }
                     ],
                     "baptism": [
                         {
-                            "date" : [
+                            "date_time" : [
                                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                                {"type" : "unix", "epoch" : "0" },
                                                {"type" : "julian",  "epoch" : "0" }
@@ -152,10 +159,10 @@
                             "pc" : "The postal code of the marriage location.",
                             "country" : "The country where the marriage occurred.",
                             "sources" : [
-                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                { "type": 3210,
                                   "uuid": "Unique identifier (UUID) for the current citation.",
                                   "text": "The accompanying text that will be displayed with the citation.",
-                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                                  "date_time": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
                              ]
                         }
                     ],
@@ -169,10 +176,10 @@
                             "name" : "Name of the spouse.",
                             "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
                                             "source" : [
-                                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                                { "type": 3210,
                                                   "uuid": "Unique identifier (UUID) for the current citation.",
                                                   "text": "The accompanying text that will be displayed with the citation.",
-                                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                                                  "date_time": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
                                             ],
                                            "date_time" : [
                                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
@@ -185,7 +192,7 @@
                                           }
                             ],
                             "marriage": {
-                                    "date" : [
+                                    "date_time" : [
                                                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                                        {"type" : "unix", "epoch" : "0" },
                                                        {"type" : "julian",  "epoch" : "0" }
@@ -196,10 +203,10 @@
                                     "pc" : "The postal code of the marriage location.",
                                     "country" : "The country where the marriage occurred.",
                                     "sources" : [
-                                        { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                        { "type": 3210,
                                           "uuid": "Unique identifier (UUID) for the current citation.",
                                           "text": "The accompanying text that will be displayed with the citation.",
-                                          "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                                          "date_time": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
                                      ]
                             }
                         }
@@ -214,10 +221,10 @@
                             "external_family_file" : "Boolean used to identify the file in which the family is listed.",
                             "history" : [ { "text" : "A detailed description of the person's life history and marital status.",
                                             "source" : [
-                                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                                { "type": 3210,
                                                   "uuid": "Unique identifier (UUID) for the current citation.",
                                                   "text": "The accompanying text that will be displayed with the citation.",
-                                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                                                  "date_time": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
                                             ],
                                            "date_time" : [
                                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
@@ -234,7 +241,7 @@
                     ],
                     "death": [
                         {
-                            "date" : [
+                            "date_time" : [
                                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                                                {"type" : "unix", "epoch" : "0" },
                                                {"type" : "julian",  "epoch" : "0" }
@@ -245,10 +252,10 @@
                             "pc" : "The postal code of the marriage location.",
                             "country" : "The country where the marriage occurred.",
                             "sources" : [
-                                { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                { "type": 3210,
                                   "uuid": "Unique identifier (UUID) for the current citation.",
                                   "text": "The accompanying text that will be displayed with the citation.",
-                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
+                                  "date_time": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }} 
                              ]
                         }
                     ]

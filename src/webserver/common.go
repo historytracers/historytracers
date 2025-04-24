@@ -34,13 +34,13 @@ type HTSource struct {
 	Type int    `json:"type"`
 	UUID string `json:"uuid"`
 	Text string `json:"text"`
-	date HTDate `json:"date"`
+	Date HTDate `json:"date_time"`
 }
 
 type HTSourceElement struct {
 	ID       string `json:"id"`
 	Citation string `json:"citation"`
-	Date     string `json:"date"`
+	Date     string `json:"date_time"`
 	URL      string `json:"url"`
 }
 
