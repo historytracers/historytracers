@@ -110,7 +110,7 @@
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "html",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -174,7 +174,7 @@
                               }
                            ],
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -232,7 +232,7 @@
                               }
                            ],
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -256,11 +256,34 @@
                      "name": "Aragonta Gonzales",
                      "history": [
                         {
-                           "text": "According to a document dated (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('be46c8ab-c26c-4b6f-bfc5-f7c8a446cf62'); return false;\">Crônica de Sampiro, Espanha Sagrada Vol. XIV, <span class=\"htdate\"></span>, pp. 449 </a>. ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to a document dated",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "be46c8ab-c26c-4b6f-bfc5-f7c8a446cf62",
+                                 "text": "Crônica de Sampiro, Espanha Sagrada Vol. XIV, <span class=\"htdate\"></span>, pp. 449",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1758",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -303,11 +326,34 @@
                      "name": "Sancha Sanchez",
                      "history": [
                         {
-                           "text": "According to Codex Roda (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('652569a1-a629-402f-936c-34e4ad7b098d'); return false;\">Lacarra, José M., <span class=\"htdate\"></span>, pp. 236,237</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Codex Roda",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "652569a1-a629-402f-936c-34e4ad7b098d",
+                                 "text": "Lacarra, José M., pp. 236,237",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1945",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -334,11 +380,41 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to a document dated <span class=\"htdate\"></span>, Medieval Lands raises the hypothesis that this document could have been written to the proposed date (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b801c9-ffbe-47f0-ab89-10e5ede4816d'); return false;\">Herculano, Alexandre, <span class=\"htdate\"></span>, Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7 - 8.</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
-                           "date_time": null,
+                           "text": "According to a document dated <htdate0>, Medieval Lands raises the hypothesis that this document could have been written to the proposed date",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "f5b801c9-ffbe-47f0-ab89-10e5ede4816d",
+                                 "text": "Herculano, Alexandre. Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7 - 8",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1868",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
+                           "date_time": [
+                              {
+                                 "type": "gregory",
+                                 "year": "897",
+                                 "month": "2",
+                                 "day": "21"
+                              }
+                           ],
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -354,11 +430,41 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to a document dated <span class=\"htdate\"></span>, the Medieval Lands suggests that he can be written after the indicated date (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b801c9-ffbe-47f0-ab89-10e5ede4816d'); return false;\">Herculano, Alexandre, <span class=\"htdate\"></span>, Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7 - 8.</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
-                           "date_time": null,
+                           "text": "According to a document dated <htdate0>, the Medieval Lands suggests that he can be written after the indicated date",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "f5b801c9-ffbe-47f0-ab89-10e5ede4816d",
+                                 "text": "Herculano, Alexandre. Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7 - 8",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1868",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
+                           "date_time": [
+                              {
+                                 "type": "gregory",
+                                 "year": "897",
+                                 "month": "2",
+                                 "day": "21"
+                              }
+                           ],
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -374,11 +480,34 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to a document in the Monastery of Sahagún (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb'); return false;\">Escalona, Romualdo, <span class=\"htdate\"></span>, pp. 381 - 382</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to a document in the Monastery of Sahagún",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb",
+                                 "text": "Escalona, Romualdo, pp. 381 - 382",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1782",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -394,11 +523,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to a document in the Monastery of Sahagún (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb'); return false;\">Escalona, Romualdo, <span class=\"htdate\"></span>, pp. 381 - 382</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to a document in the Monastery of Sahagún",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb",
+                                 "text": "Escalona, Romualdo, pp. 381 - 382",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1782",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -414,11 +566,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to a document in the Monastery of Sahagún (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb'); return false;\">Escalona, Romualdo, <span class=\"htdate\"></span>, pp. 381 - 382</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to a document in the Monastery of Sahagún",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "1fd1b665-4e6c-4326-a60e-5a55fbcaa4fb",
+                                 "text": "Escalona, Romualdo, pp. 381 - 382",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1782",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -434,11 +609,23 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "Mentioned in Medieval Lands, but we did not have access to the primary source (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "Mentioned in Medieval Lands, but we did not have access to the primary source",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -488,7 +675,49 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "There is no doubt that Ramiro is the son of Ordoño. This is confirmed in the Sampiro Chronicle (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('57058ed9-8177-47fc-9bca-f96cfc2acb28'); return false;\">Santos, Francisco C. et al., <span class=\"htdate\"></span>, pp. 53</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>) and also in a document from the County of Portucalense (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b801c9-ffbe-47f0-ab89-10e5ede4816d'); return false;\">Herculano, Alexandre, <span class=\"htdate\"></span>, Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7.</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). However, the documents diverge on the identity of his mother.</p><p>When he began to rule the Kingdom of León, Ramiro ruled as Ramiro II (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). He was responsible for expanding the kingdom's borders (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). Among the wars he fought, the war against the Muslims is particularly notable. When we read the report of Count Don Pedro about a supposed relationship between Ramiro II and a Muslim woman named Artiga, we must highlight (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94cddc67-cec8-414a-9885-6d3e7ee952ba'); return false;\">Nobiliário Conde Dom Pedro, <span class=\"htdate\"></span>, pp. 4, 111 - 116</a>): <ul><li>The details of the description.</li><li>The omission of the second marriage of Ramiro II with Urraca.</li><li>The mention of Sancho as the son of Adosinda (Aldara) and not his mother Urraca.</li></ul></p><p>The lack of documentation to confirm the marriage of Ramiro II has led different researchers to seek documentation that can indirectly confirm this marriage, known as the legend of Gaia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('84d4a783-4503-4c49-8580-292835328e4e'); return false;\">Rei, Antonio, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9b188295-959f-42f6-ad70-40d045e3237e'); return false;\">Rodrigues de Oliveira, Natália S. T., <span class=\"htdate\"></span></a>)",
+                     "text": "There is no doubt that Ramiro is the son of Ordoño. This is confirmed in the Sampiro Chronicle and also in a document from the County of Portucalense. However, the documents diverge on the identity of his mother",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "57058ed9-8177-47fc-9bca-f96cfc2acb28",
+                           "text": "Santos, Francisco C. et al., pp. 53",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1758",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        },
+                        {
+                           "type": 0,
+                           "uuid": "f5b801c9-ffbe-47f0-ab89-10e5ede4816d",
+                           "text": "Herculano, Alexandre. Diplomata et Chartae, Volumen I, Fascicvlvs I, pp. 7 - 8",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1868",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                           "text": "Medieval Lands",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2019",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "<p>When he began to rule the Kingdom of León, Ramiro ruled as Ramiro II (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). He was responsible for expanding the kingdom's borders (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). Among the wars he fought, the war against the Muslims is particularly notable. When we read the report of Count Don Pedro about a supposed relationship between Ramiro II and a Muslim woman named Artiga, we must highlight (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94cddc67-cec8-414a-9885-6d3e7ee952ba'); return false;\">Nobiliário Conde Dom Pedro, <span class=\"htdate\"></span>, pp. 4, 111 - 116</a>): <ul><li>The details of the description.</li><li>The omission of the second marriage of Ramiro II with Urraca.</li><li>The mention of Sancho as the son of Adosinda (Aldara) and not his mother Urraca.</li></ul></p><p>The lack of documentation to confirm the marriage of Ramiro II has led different researchers to seek documentation that can indirectly confirm this marriage, known as the legend of Gaia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('84d4a783-4503-4c49-8580-292835328e4e'); return false;\">Rei, Antonio, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9b188295-959f-42f6-ad70-40d045e3237e'); return false;\">Rodrigues de Oliveira, Natália S. T., <span class=\"htdate\"></span></a>)",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -530,11 +759,23 @@
                      "name": "Adosinda",
                      "history": [
                         {
-                           "text": "According to a document from Celanova mentioned in Medieval Lands (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to a document from Celanova mentioned in Medieval Lands",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -558,11 +799,34 @@
                      "name": "Urraca",
                      "history": [
                         {
-                           "text": "According to the Codex Roda (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('652569a1-a629-402f-936c-34e4ad7b098d'); return false;\">Lacarra, José M., <span class=\"htdate\"></span>, pp. 238</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to the Codex Roda",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "652569a1-a629-402f-936c-34e4ad7b098d",
+                                 "text": "Lacarra, José M., pp. 238",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1945",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -586,11 +850,34 @@
                      "name": "Artiga",
                      "history": [
                         {
-                           "text": "According to lineage books (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('533919ff-5981-4e0c-8d92-46be8057cdab'); return false;\">Herculano, Alexandre, Scriptores, <span class=\"htdate\"></span>, pp. 180-181</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94cddc67-cec8-414a-9885-6d3e7ee952ba'); return false;\">Nobiliário Conde Dom Pedro, <span class=\"htdate\"></span>, pp. 4</a>)",
-                           "source": null,
+                           "text": "According to lineage books",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "533919ff-5981-4e0c-8d92-46be8057cdab",
+                                 "text": "Herculano, Alexandre, Scriptores, pp. 180-181",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1868",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "94cddc67-cec8-414a-9885-6d3e7ee952ba",
+                                 "text": "Nobiliário Conde Dom Pedro, pp. 4",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1649",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -618,7 +905,7 @@
                            "source": null,
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -645,11 +932,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to document of monastery Santiago de Compostela (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('e0daf9ce-dfb4-4898-ad98-1edfffa61081'); return false;\">Lopez Ferreiro, Antonio, <span class=\"htdate\"></span>, Apéndice, pp. 117 - 118</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to document of monastery Santiago de Compostela",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "e0daf9ce-dfb4-4898-ad98-1edfffa61081",
+                                 "text": "Lopez Ferreiro, Antonio, Apéndice, pp. 117 - 118",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1898",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -665,11 +975,34 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to document of monastery Santiago de Compostela (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('e0daf9ce-dfb4-4898-ad98-1edfffa61081'); return false;\">Lopez Ferreiro, Antonio, <span class=\"htdate\"></span>, Apéndice, pp. 117 - 118</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to document of monastery Santiago de Compostela",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "e0daf9ce-dfb4-4898-ad98-1edfffa61081",
+                                 "text": "Lopez Ferreiro, Antonio, Apéndice, pp. 117 - 118",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1898",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -685,11 +1018,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Codex Roda (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('652569a1-a629-402f-936c-34e4ad7b098d'); return false;\">Lacarra, José M., <span class=\"htdate\"></span>, pp. 238</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Codex Roda",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "652569a1-a629-402f-936c-34e4ad7b098d",
+                                 "text": "Lacarra, José M., pp. 238",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1945",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -705,11 +1061,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Codex Roda (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('652569a1-a629-402f-936c-34e4ad7b098d'); return false;\">Lacarra, José M., <span class=\"htdate\"></span>, pp. 238</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('755c42c6-3be9-41fd-8655-22f8a6877215'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Codex Roda",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "652569a1-a629-402f-936c-34e4ad7b098d",
+                                 "text": "Lacarra, José M., pp. 238",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1945",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -725,7 +1104,38 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to lineage books (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('533919ff-5981-4e0c-8d92-46be8057cdab'); return false;\">Herculano, Alexandre, Scriptores, <span class=\"htdate\"></span>, pp. 180-181</a>  ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94cddc67-cec8-414a-9885-6d3e7ee952ba'); return false;\">Nobiliário Conde Dom Pedro, <span class=\"htdate\"></span>, pp. 4</a>).</p><p>The association proposed by José Mattoso suggests that the legend of Gaia could be related to him, but it is important to recognize that there is no documentation proving this connection to Ramiro II (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('31f13a98-fff1-45fc-992d-adb817743e9f'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 208</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f7a65165-8bec-41d5-8200-dc9e38f3786c'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 492 - 493</a>)",
+                           "text": "According to lineage books",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "533919ff-5981-4e0c-8d92-46be8057cdab",
+                                 "text": "Herculano, Alexandre, Scriptores, pp. 180-181",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1868",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "94cddc67-cec8-414a-9885-6d3e7ee952ba",
+                                 "text": "Nobiliário Conde Dom Pedro, pp. 4",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1649",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
+                           "date_time": null,
+                           "isTable": false,
+                           "format": "markdown",
+                           "PostMention": "."
+                        },
+                        {
+                           "text": "<p>The association proposed by José Mattoso suggests that the legend of Gaia could be related to him, but it is important to recognize that there is no documentation proving this connection to Ramiro II (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('31f13a98-fff1-45fc-992d-adb817743e9f'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 208</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f7a65165-8bec-41d5-8200-dc9e38f3786c'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 492 - 493</a>)",
                            "source": null,
                            "date_time": null,
                            "isTable": false,
@@ -745,11 +1155,23 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to António Rei (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('84d4a783-4503-4c49-8580-292835328e4e'); return false;\">Rei, António, <span class=\"htdate\"></span>, pp. 11</a>)",
-                           "source": null,
+                           "text": "According to António Rei",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "84d4a783-4503-4c49-8580-292835328e4e",
+                                 "text": "Rei, António, pp. 11",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -765,11 +1187,23 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "This hypothesis is raised in some works, but there are no primary sources to support it (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('885d2a6e-b328-4f07-b181-62671ed219b2'); return false;\">Garcia Alvarez, M. Rubén, <span class=\"htdate\"></span>, 197 - 202</a>)",
-                           "source": null,
+                           "text": "This hypothesis is raised in some works, but there are no primary sources to support it",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "885d2a6e-b328-4f07-b181-62671ed219b2",
+                                 "text": "Garcia Alvarez, M. Rubén, 197 - 202",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1960",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -819,7 +1253,27 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "There is no documentation or chronicles confirming this person. The hypothesis of his existence is raised to create a connection between King Ramiro II and his supposed grandson, Aboazar Lovesendes, who indeed existed, but is referred to as the son of Ramiro II in the legend of Gaia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('31f13a98-fff1-45fc-992d-adb817743e9f'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 208</a>).</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Patronymics and the Facts</b><br /><br />When we examine documents from monasteries, the children of King Ramiro do not appear with patronymics; they are identified as <i>Regis filius</i> (Santiago de Compostela) or <i>filii Regis</i>(Sahagún). The patronymic \"Lovesendes\" indicates he is a son of Lovesendo. The same rule applies to \"Ramires\", son of Ramiro. Both names fall outside the pattern applied to princes and princesses. The \"Livro Velho\" and the Don Pedro seem to follow this pattern, leading us to conclude that the [possible] child was born out of official marriage. Considering there are no documents to prove the relationship, would you still add him to your genealogical tree?</div></div></center>",
+                     "text": "There is no documentation or chronicles confirming this person. The hypothesis of his existence is raised to create a connection between King Ramiro II and his supposed grandson, Aboazar Lovesendes, who indeed existed, but is referred to as the son of Ramiro II in the legend of Gaia",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "31f13a98-fff1-45fc-992d-adb817743e9f",
+                           "text": "Mattoso, José, pp. 208",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1987",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "html",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Patronymics and the Facts</b><br /><br />When we examine documents from monasteries, the children of King Ramiro do not appear with patronymics; they are identified as <i>Regis filius</i> (Santiago de Compostela) or <i>filii Regis</i>(Sahagún). The patronymic \"Lovesendes\" indicates he is a son of Lovesendo. The same rule applies to \"Ramires\", son of Ramiro. Both names fall outside the pattern applied to princes and princesses. The \"Livro Velho\" and the Don Pedro seem to follow this pattern, leading us to conclude that the [possible] child was born out of official marriage. Considering there are no documents to prove the relationship, would you still add him to your genealogical tree?</div></div></center>",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -853,8 +1307,20 @@
                      "name": "Sa'd",
                      "history": [
                         {
-                           "text": "According to António Rei (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('84d4a783-4503-4c49-8580-292835328e4e'); return false;\">Rei, António, <span class=\"htdate\"></span>, pp. 11,15</a>)",
-                           "source": null,
+                           "text": "According to António Rei",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "84d4a783-4503-4c49-8580-292835328e4e",
+                                 "text": "Rei, António, pp. 11, 15",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
                            "format": "html",
@@ -881,8 +1347,20 @@
                      "name": "Artiga",
                      "history": [
                         {
-                           "text": "According to Francisco Dória (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Francisco Dória",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "03f704e5-1d8d-40b4-a7b8-980bfa43a256",
+                                 "text": "Geneall",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2001",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
                            "format": "html",
@@ -912,8 +1390,20 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to António Rei (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('84d4a783-4503-4c49-8580-292835328e4e'); return false;\">Rei, António, <span class=\"htdate\"></span>, pp. 11,15</a>)",
-                           "source": null,
+                           "text": "According to António Rei",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "84d4a783-4503-4c49-8580-292835328e4e",
+                                 "text": "Rei, António, pp. 11, 15",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
                            "format": "html",
@@ -932,8 +1422,20 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Francisco Doria (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('03f704e5-1d8d-40b4-a7b8-980bfa43a256'); return false;\">Geneall, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Francisco Dória",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "03f704e5-1d8d-40b4-a7b8-980bfa43a256",
+                                 "text": "Geneall",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2001",
+                                    "month": "-1",
+                                    "day": "-1"
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
                            "format": "html",

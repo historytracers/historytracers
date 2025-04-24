@@ -637,6 +637,8 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 					childFam := htSetCSVFamily(mm, child, lang)
 					htFamilyFamilyCSV = append(htFamilyFamilyCSV, childFam)
 					htFamiliesFamilyCSV = append(htFamiliesFamilyCSV, childFam)
+				} else {
+					//CHANGE FAMILY GEDCOM HERE FOR ALL FAMILIES TO HAVE AN UNIQUE CODE WITH DIFFERENT LANGUAGES
 				}
 			}
 		}
