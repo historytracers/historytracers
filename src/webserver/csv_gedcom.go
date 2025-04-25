@@ -62,6 +62,7 @@ type IdxFamily struct {
 // Family
 type FamilyPersonEvent struct {
 	Date    []HTDate   `json:"date"`
+	AddrID  string     `json:"addr_id"`
 	Address string     `json:"address"`
 	City    string     `json:"city"`
 	State   string     `json:"state"`
@@ -184,7 +185,16 @@ type FamilyKey struct {
 	file         string
 }
 
-var marriagesMap map[FamilyKey][]string
+type AddrKey struct {
+	Address string
+	City    string
+	State   string
+	PC      string
+	Country string
+}
+
+var addrMap map[AddrKey][]string
+var marriagesMap map[FamilyKey][]bool
 var peopleMap map[string][]string
 
 // Common CSV and GEDCOM
@@ -421,6 +431,14 @@ func htSetCSVMarriage(id string, parent1 string, parent2 string, marr *FamilyPer
 	return []string{"[" + id + "]", " [" + pID1 + "]", " [" + pID2 + "]", " " + marrDate, "", "", " " + marrSource, " " + marrNote}
 }
 
+func htUpdateCSVMarriage(out []string, marr *FamilyPersonMarriage, lang string) {
+	marrSource, marrType := htSelectSourceFromText(marr.History)
+	marrNote := htSelectSourceNote(lang, marrType)
+
+	out[6] = " " + marrSource
+	out[7] = " " + marrNote
+}
+
 func htInitializeCSVFamily() [][]string {
 	return [][]string{{"", "", "", "", ""}, {"", "", "", "", ""}, {"family", " child", " source", " note", " gender"}}
 }
@@ -519,12 +537,23 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 		}
 
 		key := FamilyKey{firstPerson: first, secondPerson: second, file: fileName}
-		if _, ok := marriagesMap[key]; !ok {
+		if cmp, ok := marriagesMap[key]; !ok {
 			localMarr := htSetCSVMarriage(marr.GEDCOMId, first, second, marr, lang)
 			marriagesMap[key] = localMarr
 			htFamilyMarriageCSV = append(htFamilyMarriageCSV, localMarr)
 			htFamiliesMarriageCSV = append(htFamiliesMarriageCSV, localMarr)
 		} else {
+			htUpdateCSVMarriage(cmp, marr, lang)
+			htFamilyMarriageCSV = append(htFamilyMarriageCSV, cmp)
+			htFamiliesMarriageCSV = append(htFamiliesMarriageCSV, cmp)
+
+			cmpID := cmp[0][1 : len(cmp[0])-1]
+			// Families are having different IDs in different languages.
+			// we cannot accept it.
+			if cmpID != marr.GEDCOMId {
+				marr.GEDCOMId = cmpID
+				familyUpdated = true
+			}
 			/* RELATIONSHIP BETWEEN BROTHERS CAN HAPPEN IN THE SAME FILE
 			verr := fmt.Sprintf("The same couple %s and %s, appears more than once in %s", person.ID, marr.ID, fileName)
 			panic(verr)
@@ -637,10 +666,6 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 					childFam := htSetCSVFamily(mm, child, lang)
 					htFamilyFamilyCSV = append(htFamilyFamilyCSV, childFam)
 					htFamiliesFamilyCSV = append(htFamiliesFamilyCSV, childFam)
-				} else {
-					// CHANGE FAMILY GEDCOM HERE FOR ALL FAMILIES TO HAVE AN UNIQUE CODE WITH DIFFERENT LANGUAGES
-					// CREATE A KEY FOR A ADDRESS WITH ALL AVAILABLE VALUES
-					// CREATE THE FAMIL.CSV FILE
 				}
 			}
 		}
@@ -863,14 +888,24 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 		return err
 	}
 
+	htFamiliesMarriageCSV = append(htFamiliesMarriageCSV, htFamiliesFamilyCSV...)
+	htFamiliesPeopleCSV = append(htFamiliesPeopleCSV, htFamiliesMarriageCSV...)
+	htFamiliesPlaceCSV = append(htFamiliesPlaceCSV, htFamiliesPeopleCSV...)
+
+	err = htWriteCSVtoFile(index.CSV, htFamiliesPlaceCSV)
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
 
 func htUpdateAllFamilies(rewrite bool) error {
 	htLangPaths := [3]string{"en-US", "es-ES", "pt-BR"}
+	marriagesMap = make(map[FamilyKey][]string)
+	addrMap = make(map[AddrKey][]bool)
 	for i := 0; i < len(htLangPaths); i++ {
 		indexUpdated = false
-		marriagesMap = make(map[FamilyKey][]string)
 		peopleMap = make(map[string][]string)
 		htFamiliesPlaceCSV = htInitializeCSVPlace()
 		htFamiliesPeopleCSV = htInitializeCSVPeople()
