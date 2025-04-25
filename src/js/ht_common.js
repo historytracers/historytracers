@@ -469,7 +469,12 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
                 text += " ; ";
             }
             var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+            var dateText = ""
+            if (sources[i].date != undefined) {
+                dateText = ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
+            } else if (sources[i].date_time != undefined) {
+                dateText = ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
+            }
             text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
         }
         text += ")";
