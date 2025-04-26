@@ -1728,6 +1728,19 @@ function htFillFamilies(page, table) {
         }
     }
 
+    if ((table.gedcom != undefined || table.csv != undefined) && $("#files").length > 0) {
+        var csvgedtxt = keywords[108]+"<p><ul>";
+        if (table.csv != undefined) {
+            csvgedtxt += "<li><a href=\""+table.csv+"\" target=\"_blank\">CSV</a>: "+keywords[109]+"</li>";
+        }
+
+        if (table.gedcom != undefined) {
+            csvgedtxt += "<li><a href=\""+table.gedcom+"\" target=\"_blank\">GEDCOM</a>: "+keywords[110]+"</li>";
+        }
+        csvgedtxt += "</ul></p>";
+        $("#files").html(csvgedtxt);
+    }
+
     if (table.maps != undefined && table.maps != null && $("#maps").length > 0) {
         var textMap = "<p><h3>"+keywords[79]+"</h3>"+keywords[80]+"</p>";
 
