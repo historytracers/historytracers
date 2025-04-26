@@ -61,14 +61,16 @@ type IdxFamily struct {
 
 // Family
 type FamilyPersonEvent struct {
-	Date    []HTDate   `json:"date"`
-	AddrID  string     `json:"addr_id"`
-	Address string     `json:"address"`
-	City    string     `json:"city"`
-	State   string     `json:"state"`
-	PC      string     `json:"pc"`
-	Country string     `json:"country"`
-	Sources []HTSource `json:"sources"`
+	Date      []HTDate   `json:"date"`
+	Address   string     `json:"address"`
+	CityID    string     `json:"city_id"`
+	City      string     `json:"city"`
+	StateID   string     `json:"state_id"`
+	State     string     `json:"state"`
+	PC        string     `json:"pc"`
+	CountryID string     `json:"country_id"`
+	Country   string     `json:"country"`
+	Sources   []HTSource `json:"sources"`
 }
 
 type FamilyPersonParents struct {
@@ -186,15 +188,13 @@ type FamilyKey struct {
 }
 
 type AddrKey struct {
-	Address string
-	City    string
-	State   string
-	PC      string
-	Country string
+	Place string
+	Type  string
 }
 
 var addrMap map[AddrKey][]string
-var marriagesMap map[FamilyKey][]bool
+var addrMapLang map[AddrKey][]string
+var marriagesMap map[FamilyKey][]string
 var peopleMap map[string][]string
 
 // Common CSV and GEDCOM
@@ -207,7 +207,7 @@ func htXrefGEDCOM(prefix string, id string) string {
 }
 
 func htFamilyEventDate(dt *HTDate) string {
-	if dt == nil || dt.DateType != "gregorian" {
+	if dt == nil || dt.DateType != "gregory" {
 		return ""
 	}
 
@@ -370,6 +370,77 @@ func htSetCSVBasicPerson(name string, id string, lang string, child *FamilyPerso
 	return []string{"[" + pID + "]", " " + name, " ", "", "", "", "", "", "", "", " " + historySource, " " + historyNote, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 }
 
+func htFillAddrKey(place string, placeType string, date string, enclosed string, PC string) ([]string, string) {
+	var ret []string = nil
+	var retID string = ""
+	if len(place) > 0 {
+		key := AddrKey{Place: place, Type: placeType}
+		if data, ok := addrMap[key]; !ok {
+			id := uuid.New()
+			strID := id.String()
+			pID := htXrefGEDCOM("L", strID)
+
+			ret = []string{"[" + pID + "]", " " + place, " " + place, placeType, "", PC, enclosed, " " + date}
+			retID = pID
+			addrMap[key] = ret
+			addrMapLang[key] = ret
+			htFamiliesPlaceCSV = append(htFamiliesPlaceCSV, ret)
+			htFamilyPlaceCSV = append(htFamilyPlaceCSV, ret)
+		} else {
+			if _, ok := addrMapLang[key]; !ok {
+				addrMapLang[key] = data
+				htFamilyPlaceCSV = append(htFamilyPlaceCSV, data)
+			}
+			oldID := data[0]
+			retID = oldID[1 : len(oldID)-1]
+			ret = data
+		}
+	}
+
+	return ret, retID
+}
+
+func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
+	if pe == nil {
+		return nil
+	}
+
+	var nextBoundary string = ""
+	retC, retcID := htFillAddrKey(pe.Country, "Country", date, "", "")
+	if retC != nil {
+		if len(pe.CountryID) == 0 {
+			pe.CountryID = retcID
+			familyUpdated = true
+		}
+		nextBoundary = retC[0]
+	}
+
+	retS, retsID := htFillAddrKey(pe.State, "State", date, nextBoundary, "")
+	if retS != nil {
+		if len(pe.StateID) == 0 {
+			pe.StateID = retsID
+			familyUpdated = true
+		}
+		nextBoundary = retS[0]
+	}
+
+	retCi, retCiID := htFillAddrKey(pe.State, "State", date, nextBoundary, " "+pe.PC)
+	if retS != nil {
+		if len(pe.CityID) == 0 {
+			pe.CityID = retCiID
+			familyUpdated = true
+		}
+	}
+
+	if retCi != nil {
+		return retCi
+	} else if retS != nil {
+		return retS
+	}
+
+	return retC
+}
+
 func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 	var birthDate string = ""
 	var birthSource string = ""
@@ -389,23 +460,45 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 	}
 	historyNote := htSelectSourceNote(lang, historyPrimary)
 	if person.Birth != nil && len(person.Birth) > 0 {
-		if person.Birth[0].Date != nil && len(person.Birth[0].Date) > 0 {
-			birthDate = htFamilyEventDate(&person.Birth[0].Date[0])
-			birthSource, _ = htSelectFirstSource(person.Birth[0].Sources)
+		for i := 0; i < len(person.Birth); i++ {
+			b := &person.Birth[i]
+
+			if i == 0 {
+				if b.Date != nil && len(b.Date) > 0 {
+					birthDate = htFamilyEventDate(&b.Date[0])
+					birthSource, _ = htSelectFirstSource(b.Sources)
+				}
+			}
+
+			htFillAddrKeys(b, birthDate)
 		}
 	}
 
 	if person.Baptism != nil && len(person.Baptism) > 0 {
-		if person.Baptism[0].Date != nil && len(person.Baptism[0].Date) > 0 {
-			baptismDate = htFamilyEventDate(&person.Baptism[0].Date[0])
-			baptismSource, _ = htSelectFirstSource(person.Baptism[0].Sources)
+		for i := 0; i < len(person.Baptism); i++ {
+			b := &person.Baptism[i]
+
+			if i == 0 {
+				if b.Date != nil && len(b.Date) > 0 {
+					baptismDate = htFamilyEventDate(&b.Date[0])
+					baptismSource, _ = htSelectFirstSource(b.Sources)
+				}
+			}
+			htFillAddrKeys(b, baptismDate)
 		}
 	}
 
 	if person.Death != nil && len(person.Death) > 0 {
-		if person.Death[0].Date != nil && len(person.Death[0].Date) > 0 {
-			deathDate = htFamilyEventDate(&person.Death[0].Date[0])
-			deathSource, _ = htSelectFirstSource(person.Death[0].Sources)
+		for i := 0; i < len(person.Death); i++ {
+			d := &person.Death[i]
+
+			if i == 0 {
+				if d.Date != nil && len(d.Date) > 0 {
+					deathDate = htFamilyEventDate(&d.Date[0])
+					deathSource, _ = htSelectFirstSource(d.Sources)
+				}
+			}
+			htFillAddrKeys(d, deathDate)
 		}
 	}
 
@@ -547,11 +640,12 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 			htFamilyMarriageCSV = append(htFamilyMarriageCSV, cmp)
 			htFamiliesMarriageCSV = append(htFamiliesMarriageCSV, cmp)
 
-			cmpID := cmp[0][1 : len(cmp[0])-1]
+			cmpID := cmp[0]
+			partialCmpID := cmpID[1 : len(cmpID)-1]
 			// Families are having different IDs in different languages.
 			// we cannot accept it.
-			if cmpID != marr.GEDCOMId {
-				marr.GEDCOMId = cmpID
+			if partialCmpID != marr.GEDCOMId {
+				marr.GEDCOMId = partialCmpID
 				familyUpdated = true
 			}
 			/* RELATIONSHIP BETWEEN BROTHERS CAN HAPPEN IN THE SAME FILE
@@ -903,10 +997,11 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 func htUpdateAllFamilies(rewrite bool) error {
 	htLangPaths := [3]string{"en-US", "es-ES", "pt-BR"}
 	marriagesMap = make(map[FamilyKey][]string)
-	addrMap = make(map[AddrKey][]bool)
+	addrMap = make(map[AddrKey][]string)
 	for i := 0; i < len(htLangPaths); i++ {
 		indexUpdated = false
 		peopleMap = make(map[string][]string)
+		addrMapLang = make(map[AddrKey][]string)
 		htFamiliesPlaceCSV = htInitializeCSVPlace()
 		htFamiliesPeopleCSV = htInitializeCSVPeople()
 		htFamiliesMarriageCSV = htInitializeCSVMarriage()
