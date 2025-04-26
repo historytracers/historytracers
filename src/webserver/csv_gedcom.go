@@ -638,6 +638,13 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 			second = person.ID
 		}
 
+		if len(marr.History) > 0 {
+			for k := 0; k < len(marr.History); k++ {
+				m := &marr.History[k]
+				htUpdateSourcesData(m.Source)
+			}
+		}
+
 		if len(marr.GEDCOMId) == 0 {
 			id := uuid.New()
 			strID := id.String()
@@ -697,7 +704,7 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 	for i := 0; i < len(families.Families); i++ {
 		family := &families.Families[i]
 
-		if family.History != nil {
+		if len(family.History) > 0 {
 			for j := 0; j < len(family.History); j++ {
 				history := &family.History[j]
 
@@ -706,7 +713,7 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 					familyUpdated = true
 				}
 				if len(history.Format) == 0 {
-					if history.Source == nil {
+					if len(history.Source) == 0 {
 						history.Format = "html"
 					} else {
 						history.Format = "markdown"
@@ -722,6 +729,13 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 		for j := 0; j < len(family.People); j++ {
 			person := &family.People[j]
 			people[person.ID] = true
+
+			if len(person.History) > 0 {
+				for k := 0; k < len(person.History); k++ {
+					h := &person.History[k]
+					htUpdateSourcesData(h.Source)
+				}
+			}
 
 			newPerson := htSetCSVPeople(person, lang)
 			if oldPerson, ok := peopleMap[person.ID]; !ok {
@@ -756,6 +770,13 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 				if val, ok := people[child.ID]; ok {
 					child.AddLink = val
 					familyUpdated = true
+				}
+
+				if len(child.History) > 0 {
+					for k := 0; k < len(child.History); k++ {
+						c := &child.History[k]
+						htUpdateSourcesData(c.Source)
+					}
 				}
 
 				newPerson := htSetCSVBasicPerson(child.Name, child.ID, lang, child)

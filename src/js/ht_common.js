@@ -144,6 +144,10 @@ function htFillSourceContentToPrint(text, map, id)
             var dateVector = value.date.split("-");
             var textDate = htFillHTDate(dateVector);
             dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
+        } else if (value.date_time != undefined && value.date_time != null && value.date_time.length > 0) {
+            var dateVector = value.date_time.split("-");
+            var textDate = htFillHTDate(dateVector);
+            dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
         }
         var urlValue = "";
         if (value.url != undefined && value.url != null && value.url.length > 0) {
@@ -919,7 +923,10 @@ function htDetectLanguage()
 
 function htMountSpecificDate(dateObj, localLang, localCalendar)
 {
-    var updateText;
+    var updateText = "";
+    if (dateObj == undefined) {
+        return updateText;
+    }
     switch (dateObj.type) {
         case "gregory":
             if (dateObj.day > 0 ) {
@@ -1917,21 +1924,23 @@ function htMountPersonEvent(name, data, localLang, localCalendar) {
     var ret = "<b>"+name+"</b> ";
     for (const i in data) {
         var ptr = data[i];
-        if (ptr.date == undefined) {
+        if (ptr.date == undefined && ptr.date_time == undefined) {
             continue;
         }
 
         if (i != 0) {
             ret += " "+keywords[91]+" ";
         }
-        ret += htMountSpecificDate(ptr.date[0], localLang, localCalendar)+" (";
+        var selDate = (ptr.date != undefined) ? ptr.date : ptr.date_time;
+        ret += htMountSpecificDate(selDate[0], localLang, localCalendar)+" (";
         var sources = ptr.sources;
         for (const i in sources) { 
             if (i != 0) {
                 ret += " ; ";
             }
             var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+            var selLocalDate = (sources[i].date != undefined) ? sources[i].date : sources[i].date_time;
+            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(selLocalDate, localLang, localCalendar) : "";
             ret += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
         }
 
@@ -1970,7 +1979,13 @@ function htMountPersonEvents(table) {
                         text += " ; ";
                     }
                     var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-                    var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+                    var dateText = "";
+                    if (sources[i].date != undefined) {
+                        dateText =  ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
+                    } else if  (sources[i].date_time != undefined) {
+                        dateText =  ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
+                    }
+
                     lnk += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
                 }
                 ret += haplogroup.haplogroup+" ("+haplogroup.type+") ("+lnk+")" ;
@@ -2238,6 +2253,12 @@ function htFillMapSource(myMap, data)
                     continue;
                 }
                 finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
+            } else if  (data[i].date_time != undefined ){
+                var dateVector = data[i].date_time.split('-');
+                if (dateVector.length != 3) {
+                    continue;
+                }
+                finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
             }
             myMap.set(data[i].id, {"citation" : data[i].citation, "date" : finalDate, "url" : data[i].url});
         }
@@ -2274,6 +2295,8 @@ function htFillSource(divID, sourceMap, id)
         var dateValue = "";
         if (src.date != undefined && src.date != null && src.date.length > 0) {
             dateValue = ". [ "+keywords[22]+" "+src.date+" ].";
+        } else if (src.date_time != undefined && src.date_time != null && src.date_time.length > 0) {
+            dateValue = ". [ "+keywords[22]+" "+src.date_time+" ].";
         }
         var urlValue = "";
         if (src.url != undefined && src.url != null && src.url.length > 0) {

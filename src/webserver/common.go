@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/google/uuid"
@@ -232,4 +233,48 @@ func htLoadSources(fileName string) {
 	jsonFile.Close()
 
 	htUpdateSourceFile(&src, srcPath)
+}
+
+func htConvertDateStringToHTDate(dtStr string) HTDate {
+	var year string = ""
+	var month string = ""
+	var day string = ""
+
+	length := len(dtStr)
+	if length == 4 {
+		year = dtStr
+	} else {
+		values := strings.Split(dtStr, "-")
+		year = values[0]
+		if len(values) > 1 {
+			month = values[1]
+			day = values[2]
+		}
+	}
+
+	if len(year) == 0 {
+		return HTDate{DateType: "", Year: year, Month: month, Day: day}
+	}
+
+	return HTDate{DateType: "gregory", Year: year, Month: month, Day: day}
+}
+
+func htUpdateSourceData(src *HTSource) {
+	if element, ok := sourceMap[src.UUID]; ok {
+		src.Date = htConvertDateStringToHTDate(element.PublishDate)
+	}
+}
+
+func htUpdateSourcesData(src []HTSource) {
+	if len(src) == 0 {
+		return
+	}
+
+	for i := 0; i < len(src); i++ {
+		s := &src[i]
+		if s == nil {
+			continue
+		}
+		htUpdateSourceData(s)
+	}
 }
