@@ -34,7 +34,7 @@ const (
 	HTLastFile
 )
 
-var htDirectories [14]string
+var htDirectories []string
 var htFiles [HTLastFile]string
 
 var readmePattern = regexp.MustCompile("^README")
@@ -45,7 +45,7 @@ var jqueryPattern = regexp.MustCompile("^jquery-")
 var showdownPattern = regexp.MustCompile("^showdown.")
 
 func htMinifyFillVectors() {
-	htDirectories = [14]string{"bodies", "css", "gedcom", "images", "js", "lang", "lang/sources", "lang/en-US", "lang/en-US/smGame", "lang/es-ES", "lang/es-ES/smGame", "lang/pt-BR", "lang/pt-BR/smGame", "webfonts"}
+	htDirectories = []string{"bodies", "css", "csv", "gedcom", "images", "js", "lang", "lang/sources", "lang/en-US", "lang/en-US/smGame", "lang/es-ES", "lang/es-ES/smGame", "lang/pt-BR", "lang/pt-BR/smGame", "webfonts"}
 	htFiles = [HTLastFile]string{"ht_common.css", "ht_math.css", "ht_common.js", "ht_math.js", "ht_chart.js"}
 }
 
@@ -208,7 +208,7 @@ func htMinifyJSON() error {
 	m := minify.New()
 	m.AddFunc("application/json", json.Minify)
 
-	for i := 6; i < 13; i++ {
+	for i := 7; i < 14; i++ {
 		outBodies := fmt.Sprintf("%s%s/", CFG.ContentPath, htDirectories[i])
 		inBodies := fmt.Sprintf("%s%s/", CFG.SrcPath, htDirectories[i])
 		entries, err1 := os.ReadDir(inBodies)
@@ -446,6 +446,52 @@ func htCopyWebFonts() {
 	}
 }
 
+func htCopyCSV() {
+	var outFile string
+	var inFile string
+	var err error
+
+	outCSV := fmt.Sprintf("%scsv/", CFG.ContentPath)
+	inCSV := fmt.Sprintf("%scsv/", CFG.SrcPath)
+
+	entries, err1 := os.ReadDir(inCSV)
+	if err1 != nil {
+		panic(err1)
+	}
+
+	for _, fileName := range entries {
+		outFile = fmt.Sprintf("%s%s", outCSV, fileName.Name())
+		inFile = fmt.Sprintf("%s%s", inCSV, fileName.Name())
+		err = HTCopyFilesWithoutChanges(outFile, inFile)
+		if err != nil {
+			panic(err)
+		}
+	}
+}
+
+func htCopyGEDCOM() {
+	var outFile string
+	var inFile string
+	var err error
+
+	outGEDCOM := fmt.Sprintf("%sgedcom/", CFG.ContentPath)
+	inGEDCOM := fmt.Sprintf("%sgedcom/", CFG.SrcPath)
+
+	entries, err1 := os.ReadDir(inGEDCOM)
+	if err1 != nil {
+		panic(err1)
+	}
+
+	for _, fileName := range entries {
+		outFile = fmt.Sprintf("%s%s", outGEDCOM, fileName.Name())
+		inFile = fmt.Sprintf("%s%s", inGEDCOM, fileName.Name())
+		err = HTCopyFilesWithoutChanges(outFile, inFile)
+		if err != nil {
+			panic(err)
+		}
+	}
+}
+
 func htCopyImagesSpecificDir(outImages string, inImages string) {
 	var outFile string
 	var inFile string
@@ -524,6 +570,8 @@ func HTMinifyAllFiles() {
 	}
 
 	htCopyWebFonts()
+	htCopyCSV()
+	htCopyGEDCOM()
 	htCopyImages()
 	if verboseFlag {
 		fmt.Println("Completed successfully!")
