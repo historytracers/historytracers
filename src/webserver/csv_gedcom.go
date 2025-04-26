@@ -370,7 +370,7 @@ func htSetCSVBasicPerson(name string, id string, lang string, child *FamilyPerso
 	return []string{"[" + pID + "]", " " + name, " ", "", "", "", "", "", "", "", " " + historySource, " " + historyNote, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 }
 
-func htFillAddrKey(place string, placeType string, date string, enclosed string, PC string) ([]string, string) {
+func htFillAddrKey(key string, place string, placeType string, date string, enclosed string, PC string) ([]string, string) {
 	var ret []string = nil
 	var retID string = ""
 	if len(place) > 0 {
@@ -380,7 +380,7 @@ func htFillAddrKey(place string, placeType string, date string, enclosed string,
 			strID := id.String()
 			pID := htXrefGEDCOM("L", strID)
 
-			ret = []string{"[" + pID + "]", " " + place, " " + place, placeType, "", PC, enclosed, " " + date}
+			ret = []string{"[" + pID + "]", " " + place, " " + place, " "+placeType, "", " "+PC, enclosed, " " + date}
 			retID = pID
 			addrMap[key] = ret
 			addrMapLang[key] = ret
@@ -406,7 +406,7 @@ func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
 	}
 
 	var nextBoundary string = ""
-	retC, retcID := htFillAddrKey(pe.Country, "Country", date, "", "")
+	retC, retcID := htFillAddrKey(pe.CountryID, pe.Country, "Country", date, "", "")
 	if retC != nil {
 		if len(pe.CountryID) == 0 {
 			pe.CountryID = retcID
@@ -415,7 +415,7 @@ func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
 		nextBoundary = retC[0]
 	}
 
-	retS, retsID := htFillAddrKey(pe.State, "State", date, nextBoundary, "")
+	retS, retsID := htFillAddrKey(pe.StateID, pe.State, "State", date, nextBoundary, "")
 	if retS != nil {
 		if len(pe.StateID) == 0 {
 			pe.StateID = retsID
@@ -424,7 +424,7 @@ func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
 		nextBoundary = retS[0]
 	}
 
-	retCi, retCiID := htFillAddrKey(pe.State, "State", date, nextBoundary, " "+pe.PC)
+	retCi, retCiID := htFillAddrKey(pe.CityID, pe.City, "City", date, nextBoundary, " "+pe.PC)
 	if retS != nil {
 		if len(pe.CityID) == 0 {
 			pe.CityID = retCiID
@@ -443,12 +443,18 @@ func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
 
 func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 	var birthDate string = ""
+	var birthPlace string = ""
+	var birthPlaceID string = ""
 	var birthSource string = ""
 
 	var baptismDate string = ""
+	var baptismPlace string = ""
+	var baptismPlaceID string = ""
 	var baptismSource string = ""
 
 	var deathDate string = ""
+	var deathPlace string = ""
+	var deathPlaceID string = ""
 	var deathSource string = ""
 
 	pID := htXrefGEDCOM("P", person.ID)
@@ -470,7 +476,11 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 				}
 			}
 
-			htFillAddrKeys(b, birthDate)
+			birthPlaceData := htFillAddrKeys(b, birthDate)
+			if birthPlaceData != nil {
+				baptismPlace = birthPlaceData[1]
+				baptismPlaceID = birthPlaceData[0]
+			}
 		}
 	}
 
@@ -480,11 +490,15 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
-					baptismDate = htFamilyEventDate(&b.Date[0])
-					baptismSource, _ = htSelectFirstSource(b.Sources)
+					birthDate = htFamilyEventDate(&b.Date[0])
+					birthSource, _ = htSelectFirstSource(b.Sources)
 				}
 			}
-			htFillAddrKeys(b, baptismDate)
+			baptismPlaceData := htFillAddrKeys(b, baptismDate)
+			if baptismPlaceData != nil {
+				baptismPlace = baptismPlaceData[1]
+				baptismPlaceID = baptismPlaceData[0]
+			}
 		}
 	}
 
@@ -498,11 +512,15 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 					deathSource, _ = htSelectFirstSource(d.Sources)
 				}
 			}
-			htFillAddrKeys(d, deathDate)
+			deathPlaceData := htFillAddrKeys(d, deathDate)
+			if deathPlaceData != nil {
+				deathPlace = deathPlaceData[1]
+				deathPlaceID = deathPlaceData[0]
+			}
 		}
 	}
 
-	return []string{"[" + pID + "]", " " + person.Name, " " + person.Surname, " ", "", "", "", " " + person.Gender, " " + historySource, " " + historyNote, " " + birthDate, "", "", " " + birthSource, " " + baptismDate, "", "", " " + baptismSource, " " + deathDate, "", "", " " + deathSource, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
+	return []string{"[" + pID + "]", " " + person.Name, " " + person.Surname, " ", "", "", "", " " + person.Gender, " " + historySource, " " + historyNote, " " + birthDate, birthPlace, birthPlaceID, " " + birthSource, " " + baptismDate, baptismPlace, baptismPlaceID, " " + baptismSource, " " + deathDate, deathPlace, deathPlaceID, " " + deathSource, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}
 }
 
 func htInitializeCSVMarriage() [][]string {
