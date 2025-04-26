@@ -8,6 +8,8 @@ import (
 	"io"
 	"os"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 // Common date type
@@ -38,10 +40,11 @@ type HTSource struct {
 }
 
 type HTSourceElement struct {
-	ID       string `json:"id"`
-	Citation string `json:"citation"`
-	Date     string `json:"date_time"`
-	URL      string `json:"url"`
+	ID          string `json:"id"`
+	Citation    string `json:"citation"`
+	Date        string `json:"date_time"`
+	PublishDate string `json:"published"`
+	URL         string `json:"url"`
 }
 
 type HTSourceFile struct {
@@ -177,6 +180,33 @@ func htFillSourcesMap(src *HTSourceFile) {
 	}
 }
 
+func htUpdateSourceFile(src *HTSourceFile, filename string) {
+	id := uuid.New()
+	strID := id.String()
+
+	tmpFile := fmt.Sprintf("%slang/sources/%s.tmp", CFG.SrcPath, strID)
+
+	fp, err := os.Create(tmpFile)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR", err)
+		return
+	}
+
+	e := json.NewEncoder(fp)
+	e.SetEscapeHTML(false)
+	e.SetIndent("", "   ")
+	e.Encode(src)
+
+	fp.Close()
+
+	HTCopyFilesWithoutChanges(filename, tmpFile)
+	err = os.Remove(tmpFile)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR", err)
+	}
+
+}
+
 func htLoadSources(fileName string) {
 	srcPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, fileName)
 
@@ -200,4 +230,6 @@ func htLoadSources(fileName string) {
 
 	htFillSourcesMap(&src)
 	jsonFile.Close()
+
+	htUpdateSourceFile(&src, srcPath)
 }

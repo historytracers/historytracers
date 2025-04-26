@@ -380,7 +380,7 @@ func htFillAddrKey(key string, place string, placeType string, date string, encl
 			strID := id.String()
 			pID := htXrefGEDCOM("L", strID)
 
-			ret = []string{"[" + pID + "]", " " + place, " " + place, " "+placeType, "", " "+PC, enclosed, " " + date}
+			ret = []string{"[" + pID + "]", " " + place, " " + place, " " + placeType, "", " " + PC, enclosed, " " + date}
 			retID = pID
 			addrMap[key] = ret
 			addrMapLang[key] = ret
@@ -818,6 +818,8 @@ func htLoadSourceFromFile(family *Family) error {
 			htCommonJsonError(byteValue, err)
 			return err
 		}
+
+		htUpdateSourceFile(&sources, localPath)
 
 		htFillSourcesMap(&sources)
 	}
