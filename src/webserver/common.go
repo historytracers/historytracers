@@ -359,6 +359,18 @@ func htWriteFamilyIndexFile(lang string, index *IdxFamily) (string, error) {
 }
 
 // Audio
+func htAdjustAudioStringBeforeWrite(str string) string {
+	// Headers
+	ret := strings.ReplaceAll(str, "-------------\n", "\n")
+	ret = strings.ReplaceAll(ret, "---------\n", "\n")
+	ret = strings.ReplaceAll(ret, "--------\n", "\n")
+
+	// URL
+	ret = strings.ReplaceAll(ret, "( # )", "")
+
+	return ret
+}
+
 func htWriteAudioFile(fileName string, lang string, content string) error {
 	localPath := fmt.Sprintf("%saudios/%s_%s.json", CFG.SrcPath, fileName, lang)
 

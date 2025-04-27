@@ -87,7 +87,7 @@ func htTextFamilyIndex(idx *IdxFamilyContent) string {
 		for i := 0; i < len(idx.Value); i++ {
 			fv := &idx.Value[i]
 
-			work := fmt.Sprintf("%s : %s .\n", fv.Name, fv.Desc)
+			work := fmt.Sprintf("%s : %s\n", fv.Name, fv.Desc)
 
 			htmlText += htOverwriteDates(work, idx.FillDates)
 		}
@@ -144,6 +144,7 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 		return err
 	}
 
+	indexTxt = htAdjustAudioStringBeforeWrite(indexTxt)
 	err = htWriteAudioFile("families", lang, indexTxt)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR", err)
