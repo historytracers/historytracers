@@ -58,7 +58,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1744418278"
+      "1745202869"
    ],
    "authors": "",
    "reviewers": "",
@@ -76,8 +76,9 @@
    ],
    "prerequisites": null,
    "gedcom": "gedcom/d1b4c9ce-202a-428c-9533-b27932aa8663_en-US.ged",
+   "csv": "csv/d1b4c9ce-202a-428c-9533-b27932aa8663_en-US.csv",
    "version": 1,
-   "type": "family_tree",
+   "type": "genealogy",
    "families": [
       {
          "id": "d26fa58d-d7c1-4dcd-a908-931afd6bb570",
@@ -87,19 +88,37 @@
                "text": "The city of Uruk was divided into two main sections: the districts of *Eanna* and *Anu*. In this section, we analyze the descendants of Utu, who are the first to be mentioned in the Sumerian King List from the region of Uruk ",
                "source": [
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95"
+                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95"
+                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
                      "type": 1,
                      "uuid": "4d0fbb20-9f98-49e3-8253-c010ddae7592",
-                     "text": "Mark, J. J."
+                     "text": "Mark, J. J.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -124,14 +143,26 @@
                      "text": "This individual is not described as a king, but rather as the father of a king",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 97"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 97",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 97"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 97",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -168,9 +199,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -191,14 +225,26 @@
                            "text": "According to the Sumerian King List",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                                 "text": "Black, J.A. et. all, Sumerian King List, ln. 96 - 97"
+                                 "text": "Black, J.A. et. all, Sumerian King List, ln. 96 - 97",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                                 "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 96 - 97"
+                                 "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 96 - 97",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
@@ -222,24 +268,48 @@
                            "text": "The primary focus of this text is the *Sumerian King List*, and we follow its account by considering *Enmerkar* as the son of *Mec-ki-aj-gacer*. However, it is important to note that the epics *Enmerkar and the Lord of Aratta* and *Lugalbanda* describe *Enmerkar* as the son, not the grandson, of *Utu*",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "a3774b5b-7f76-47cd-9406-138a52ee477c",
-                                 "text": "Black, J.A. et. all, Lugalbanda"
+                                 "text": "Black, J.A. et. all, Lugalbanda",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "6c167611-a8ab-4c08-8128-325c6bcdafb4",
-                                 "text": "Black, J.A. et. all (translation), Lugalbanda"
+                                 "text": "Black, J.A. et. all (translation), Lugalbanda",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "5faa95a5-54fa-4f31-a979-98081a4a7709",
-                                 "text": "Black, J.A. et. all, Enmerkar and the lord of Arattaord of Aratta, ln 33 - 37"
+                                 "text": "Black, J.A. et. all, Enmerkar and the lord of Arattaord of Aratta, ln 33 - 37",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "35d9c25b-a7b7-4f4a-bdef-d737d33fcb61",
-                                 "text": "Black, J.A. et. all (translation), Enmerkar and the lord of Aratta, ln 33 - 37"
+                                 "text": "Black, J.A. et. all (translation), Enmerkar and the lord of Aratta, ln 33 - 37",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
@@ -268,14 +338,26 @@
                      "text": "*Mec-ki-aj-gacer* was the first king recorded in the region of *Eanna*, ruling for 324 years. According to the *Sumerian King List*, he is said to have disappeared into the sea",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 98 - 101"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 98 - 101",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 98 - 101"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 98 - 101",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -312,9 +394,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -335,14 +420,26 @@
                            "text": "Mentioned in the *Sumerian King List*",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                                 "text": "Black, J.A. et. all, Sumerian King List, ln. 102"
+                                 "text": "Black, J.A. et. all, Sumerian King List, ln. 102",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                                 "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 102"
+                                 "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 102",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
@@ -373,12 +470,24 @@
                         {
                            "type": 1,
                            "uuid": "256644f3-c6b2-4a19-853d-3ff893ba0a01",
-                           "text": "Algaze, G. et al, pg. 574 - 577"
+                           "text": "Algaze, G. et al, pg. 574 - 577",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1989",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "4d0fbb20-9f98-49e3-8253-c010ddae7592",
-                           "text": "Mark, J. J."
+                           "text": "Mark, J. J.",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2011",
+                              "month": "04",
+                              "day": "08"
+                           }
                         }
                      ],
                      "date_time": [
@@ -405,19 +514,37 @@
                      "text": "*Enmerkar* is one of the most emblematic figures depicted in ancient Sumerian epics. Initially, it was believed that only one epic referenced him. However, recent research has shown that multiple epics feature this important figure. Among them, the *Epic Enmerkar and the lord of Aratta* stands out, recounting events deeply tied to the rich Sumerian culture. Below, we highlight some notable lines and themes from this epic",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "5faa95a5-54fa-4f31-a979-98081a4a7709",
-                           "text": "Black, J.A. et. all, Enmerkar and the lord of Aratta"
+                           "text": "Black, J.A. et. all, Enmerkar and the lord of Aratta",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "35d9c25b-a7b7-4f4a-bdef-d737d33fcb61",
-                           "text": "Black, J.A. et. all (translation), Enmerkar and the lord of Aratta"
+                           "text": "Black, J.A. et. all (translation), Enmerkar and the lord of Aratta",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "c31b0f48-6f31-46c2-bc24-f80ab6d818f5",
-                           "text": "Britannica, T. Editors of Encyclopaedia"
+                           "text": "Britannica, T. Editors of Encyclopaedia",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2017",
+                              "month": "06",
+                              "day": "02"
+                           }
                         }
                      ],
                      "date_time": null,
@@ -437,14 +564,26 @@
                      "text": "According to the **Sumerian King List**, *Enmerkar*’s reign lasted **420 years**",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 106"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 106",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 106"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 106",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -493,7 +632,13 @@
                   {
                      "type": 1,
                      "uuid": "fb668acb-8272-4d1b-ba40-6d021561d700",
-                     "text": "Mark, J. J."
+                     "text": "Mark, J. J.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -518,24 +663,48 @@
                      "text": "*Lugalbanda* is mentioned as an ancestor of *Gilgamesh* according to the *Epic of Gilgamesh*. However, in the *Sumerian King List*, *Gilgamesh*'s father is only referenced as a phantom, leaving *Lugalbanda*'s direct connection as his progenitor ambiguous. This analysis follows the interpretation of J.J. Mark",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "a2464929-5908-4aa6-b016-802d4650c573",
-                           "text": "The Epic of Gilgamesh, Tablet I"
+                           "text": "The Epic of Gilgamesh, Tablet I",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), ln. 95-133"
+                           "text": "Black, J.A. et. all (translation), ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "fb668acb-8272-4d1b-ba40-6d021561d700",
-                           "text": "Mark, J. J."
+                           "text": "Mark, J. J.",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2023",
+                              "month": "02",
+                              "day": "06"
+                           }
                         }
                      ],
                      "date_time": null,
@@ -547,19 +716,37 @@
                      "text": "In the *Epic of Lugalbanda in the Mountain Cave*, it is described that *Lugalbanda* accompanies *Enmerkar* in a military campaign against the city of Aratta. During the journey, he falls ill on the eighth day. This epic incorporates symbolic references to Sumerian culture, such as bulls and floods",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "add1608c-3cad-426c-a876-93925bcc2e67",
-                           "text": "Black, J.A. et. all, Lugalbanda in the Mountain Cave"
+                           "text": "Black, J.A. et. all, Lugalbanda in the Mountain Cave",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "f63dd6cb-a544-485f-a27f-5e498d5a1283",
-                           "text": "Black, J.A. et. all (translation), Lugalbanda in the Mountain Cave"
+                           "text": "Black, J.A. et. all (translation), Lugalbanda in the Mountain Cave",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "fb668acb-8272-4d1b-ba40-6d021561d700",
-                           "text": "Mark, J. J."
+                           "text": "Mark, J. J.",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2023",
+                              "month": "02",
+                              "day": "06"
+                           }
                         }
                      ],
                      "date_time": null,
@@ -571,24 +758,48 @@
                      "text": "*Lugalbanda* is also the central figure of a second epic that bears his name and continues the story. After recovering from his illness, he reunites with *Enmerkar* and contributes to their victory over Aratta. This text highlights a significant characteristic of Mesopotamian culture: the interaction between humans and animals in Sumerian literature. Animals are often depicted with anthropomorphic traits, such as the ability to speak. The bird Anzud serves as a notable example of such features in this epic ",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "a3774b5b-7f76-47cd-9406-138a52ee477c",
-                           "text": "Black, J.A. et. all, Lugalbanda"
+                           "text": "Black, J.A. et. all, Lugalbanda",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "6c167611-a8ab-4c08-8128-325c6bcdafb4",
-                           "text": "Black, J.A. et. all (translation), Lugalbanda"
+                           "text": "Black, J.A. et. all (translation), Lugalbanda",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "fb668acb-8272-4d1b-ba40-6d021561d700",
-                           "text": "Mark, J. J."
+                           "text": "Mark, J. J.",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2023",
+                              "month": "02",
+                              "day": "06"
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "3eb1c26f-724f-4fa0-bd5d-e262fa404139",
-                           "text": "Verderame, L."
+                           "text": "Verderame, L.",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2021",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -634,29 +845,59 @@
                            "text": "Mention in different Epics",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "d5c92171-c023-4128-bc04-30265eaa7d2e",
-                                 "text": "Black, J.A. et. all, The Death of Gilgamesh"
+                                 "text": "Black, J.A. et. all, The Death of Gilgamesh",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "10341c88-1aef-4112-83e4-c5e0dbdd8321",
-                                 "text": "Black, J.A. et. all (translation), The Death of Gilgamesh"
+                                 "text": "Black, J.A. et. all (translation), The Death of Gilgamesh",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "e2839d51-bfa1-4569-b858-0b3857a18b80",
-                                 "text": "Black, J.A. et. all, Gilgamesh y Huwawa"
+                                 "text": "Black, J.A. et. all, Gilgamesh y Huwawa",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c90174f3-d530-4728-8117-865cc6a93552",
-                                 "text": "Black, J.A. et. all (translation), Gilgamesh y Huwawa"
+                                 "text": "Black, J.A. et. all (translation), Gilgamesh y Huwawa",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "fb668acb-8272-4d1b-ba40-6d021561d700",
-                                 "text": "Mark, J. J."
+                                 "text": "Mark, J. J.",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2023",
+                                    "month": "02",
+                                    "day": "06"
+                                 }
                               }
                            ],
                            "date_time": null,
@@ -668,9 +909,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -691,14 +935,26 @@
                            "text": "The relationship between *Lugalbanda* and *Gilgamesh* is mentioned indirectly in the Epic of Gilgamesh",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "a2464929-5908-4aa6-b016-802d4650c573",
-                                 "text": "The Epic of Gilgamesh, Tablet I"
+                                 "text": "The Epic of Gilgamesh, Tablet I",
+                                 "date_time": {
+                                    "type": "",
+                                    "year": "",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "fb668acb-8272-4d1b-ba40-6d021561d700",
-                                 "text": "Mark, J. J."
+                                 "text": "Mark, J. J.",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2023",
+                                    "month": "02",
+                                    "day": "06"
+                                 }
                               }
                            ],
                            "date_time": null,
@@ -729,17 +985,35 @@
                         {
                            "type": 1,
                            "uuid": "f3debefe-e16c-467b-bbd8-c53496bc3bb8",
-                           "text": "Britannica, T. Editors of Encyclopaedia"
+                           "text": "Britannica, T. Editors of Encyclopaedia",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "12",
+                              "day": "17"
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -753,17 +1027,35 @@
                         {
                            "type": 1,
                            "uuid": "f3debefe-e16c-467b-bbd8-c53496bc3bb8",
-                           "text": "Britannica, T. Editors of Encyclopaedia"
+                           "text": "Britannica, T. Editors of Encyclopaedia",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "12",
+                              "day": "17"
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "bd3e0656-b459-4c51-a6a7-273f67954800",
-                           "text": "Mark, J. J."
+                           "text": "Mark, J. J.",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2022",
+                              "month": "12",
+                              "day": "15"
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "b21131c6-a5e0-4350-88aa-eb65b50b67a7",
-                           "text": "Dickson, Keith"
+                           "text": "Dickson, Keith",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2009",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -777,17 +1069,35 @@
                         {
                            "type": 1,
                            "uuid": "f3debefe-e16c-467b-bbd8-c53496bc3bb8",
-                           "text": "Britannica, T. Editors of Encyclopaedia"
+                           "text": "Britannica, T. Editors of Encyclopaedia",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "12",
+                              "day": "17"
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "bd3e0656-b459-4c51-a6a7-273f67954800",
-                           "text": "Mark, J. J."
+                           "text": "Mark, J. J.",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2022",
+                              "month": "12",
+                              "day": "15"
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "a2464929-5908-4aa6-b016-802d4650c573",
-                           "text": "The Epic of Gilgamesh"
+                           "text": "The Epic of Gilgamesh",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -817,7 +1127,13 @@
                         {
                            "type": 1,
                            "uuid": "bd3e0656-b459-4c51-a6a7-273f67954800",
-                           "text": "Mark, J. J."
+                           "text": "Mark, J. J.",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2022",
+                              "month": "12",
+                              "day": "15"
+                           }
                         }
                      ],
                      "date_time": null,
@@ -829,59 +1145,125 @@
                      "text": "It is also important to note that the *Epic of Gilgamesh* as we know it today is a compilation of older texts. Some of these earlier texts also feature Gilgamesh in their titles, such as *Gilgamesh and Aga*, *Gilgamesh and the Bull of Heaven*, *The Death of Gilgamesh*, *Gilgamesh, Enkidu, and the Nether world*, and *Gilgamesh and Huwawa*",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "ba2ae680-3a26-40ac-aa58-57643c407b1a",
-                           "text": "Black, J.A. et. all, Gilgamesh and Aga"
+                           "text": "Black, J.A. et. all, Gilgamesh and Aga",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "d19faa1d-a1ff-4e69-883f-df6cb5c36b88",
-                           "text": "Black, J.A. et. all (translation), Gilgamesh and Aga"
+                           "text": "Black, J.A. et. all (translation), Gilgamesh and Aga",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "8455e820-845c-456a-9501-813017930fe2",
-                           "text": "Black, J.A. et. all, Gilgamesh and the Bull of Heaven"
+                           "text": "Black, J.A. et. all, Gilgamesh and the Bull of Heaven",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "e3614e8e-76cd-4b64-8937-0c31c5e85fc3",
-                           "text": "Black, J.A. et. all (translation), Gilgamesh and the Bull of Heaven"
+                           "text": "Black, J.A. et. all (translation), Gilgamesh and the Bull of Heaven",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "d5c92171-c023-4128-bc04-30265eaa7d2e",
-                           "text": "Black, J.A. et. all, The Death of Gilgamesh"
+                           "text": "Black, J.A. et. all, The Death of Gilgamesh",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "10341c88-1aef-4112-83e4-c5e0dbdd8321",
-                           "text": "Black, J.A. et. all (translation), The Death of Gilgamesh"
+                           "text": "Black, J.A. et. all (translation), The Death of Gilgamesh",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "08ede4bf-5a3b-40a8-9e7c-23fd86f5d0a7",
-                           "text": "Black, J.A. et. all, Gilgamesh, Enkidu, and the Nether world"
+                           "text": "Black, J.A. et. all, Gilgamesh, Enkidu, and the Nether world",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "43e278c1-4784-4318-9ba7-e7c84ec3d229",
-                           "text": "Black, J.A. et. all (translation), Gilgamesh, Enkidu, and the Nether world"
+                           "text": "Black, J.A. et. all (translation), Gilgamesh, Enkidu, and the Nether world",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "e2839d51-bfa1-4569-b858-0b3857a18b80",
-                           "text": "Black, J.A. et. all, Gilgamesh and Huwawa"
+                           "text": "Black, J.A. et. all, Gilgamesh and Huwawa",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c90174f3-d530-4728-8117-865cc6a93552",
-                           "text": "Black, J.A. et. all (translation), Gilgamesh and Huwawa"
+                           "text": "Black, J.A. et. all (translation), Gilgamesh and Huwawa",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "bd3e0656-b459-4c51-a6a7-273f67954800",
-                           "text": "Mark, J. J."
+                           "text": "Mark, J. J.",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2022",
+                              "month": "12",
+                              "day": "15"
+                           }
                         }
                      ],
                      "date_time": null,
@@ -903,7 +1285,13 @@
                         {
                            "type": 0,
                            "uuid": "e9a406aa-e7cb-487c-8161-9f2873224f00",
-                           "text": "Cambridge Dictionary"
+                           "text": "Cambridge Dictionary",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -940,9 +1328,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -963,14 +1354,26 @@
                            "text": "According to the *Sumerian King List*",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                                 "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                                 "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                                 "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                                 "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
@@ -999,14 +1402,26 @@
                      "text": "According to the *Sumerian King List*, this person is mentioned as the son of Gilgamesh. However, this is not the only significant detail about him in the list. He is the first king to be recorded with a reign compatible with the lifespan of a human being: 30 years",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -1051,9 +1466,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1074,14 +1492,26 @@
                            "text": "According to *Sumerian King List*",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                                 "text": "Black, J.A. et. all, Lista dos Reis Sumérios, ln. 95-133"
+                                 "text": "Black, J.A. et. all, Lista dos Reis Sumérios, ln. 95-133",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                                 "text": "Black, J.A. et. all (translation), Lista dos Reis Sumérios, ln. 95-133"
+                                 "text": "Black, J.A. et. all (translation), Lista dos Reis Sumérios, ln. 95-133",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1998",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
@@ -1110,14 +1540,26 @@
                      "text": "According to the *Sumerian King List*, he was the grandson of Gilgamesh and the last king associated with the lineage of Lugalbanda. After his reign, other kings are mentioned, but no genealogical connections between them are recorded. He ruled for 15 years",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -1156,14 +1598,26 @@
                "text": "It is important to emphasize to readers that Dumuzid, the Fisherman, should not be confused with the homonymous figure mentioned in the pre-flood period, as indicated by his epithet",
                "source": [
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                     "text": "Black, J.A. et. all, Sumerian King List, ln. 109-111"
+                     "text": "Black, J.A. et. all, Sumerian King List, ln. 109-111",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 109-111"
+                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 109-111",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -1196,19 +1650,37 @@
                      "text": "The reign of Dumuzid, the Fisherman, has been interpreted in various ways over time based on the available information. Initially, there was uncertainty about his nature—whether he was a divine or human figure. Another issue arose from early translations of the <i>Sumerian King List</i>. In the initial interpretation, it was believed that Dumuzid captured Enmebaragesi. However, more recent translations suggest the opposite: Enmebaragesi captured Dumuzid. This revised interpretation is further supported by the fact that Dumuzid has no successors mentioned in the list ",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "black, j.a. et. all, lista dos reis sumérios, ln. 109-111"
+                           "text": "black, j.a. et. all, lista dos reis sumérios, ln. 109-111",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "black, j.a. et. all (translation), lista dos reis sumérios, ln. 109-111"
+                           "text": "black, j.a. et. all (translation), lista dos reis sumérios, ln. 109-111",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "00a422d0-011e-41fd-bff5-94b8087d4ca5",
-                           "text": "klein, j."
+                           "text": "klein, j.",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2010",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -1220,14 +1692,26 @@
                      "text": "*Dumuzid*, the Fisherman, from the city of Kuara, is listed in the Sumerian King List as a ruler who reigned for a period of 100 years",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 109-111"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 109-111",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 109-111"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 109-111",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -1266,14 +1750,26 @@
                "text": "La-ba'cum is mentioned as a king of Uruk and is recorded in the *Sumerian King List*. However, no additional details about him have been found",
                "source": [
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -1298,14 +1794,26 @@
                      "text": "He ruled for 9 years",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -1344,14 +1852,26 @@
                "text": "En-nun-tarah-ana is mentioned as a king of Uruk and is recorded in the *Sumerian King List*. However, no additional details about him have been found",
                "source": [
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -1376,14 +1896,26 @@
                      "text": "He ruled for 8 years",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -1422,14 +1954,26 @@
                "text": "Mec-he is mentioned as a king of Uruk and is recorded in the *Sumerian King List*. However, no additional details about him have been found",
                "source": [
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -1454,14 +1998,26 @@
                      "text": "He ruled for 36 years",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -1500,14 +2056,26 @@
                "text": "Melem-ana is mentioned as a king of Uruk and is recorded in the *Sumerian King List*. However, no additional details about him have been found",
                "source": [
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -1532,14 +2100,26 @@
                      "text": "He ruled for 6 years",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
@@ -1578,14 +2158,26 @@
                "text": "Lugal-kitun is mentioned as a king of Uruk and is recorded in the *Sumerian King List*. However, no additional details about him have been found",
                "source": [
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                     "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": 0,
+                     "type": 1,
                      "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                     "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -1610,14 +2202,26 @@
                      "text": "Ruled for 36 year",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all, Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133"
+                           "text": "Black, J.A. et. all (translation), Sumerian King List, ln. 95-133",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1998",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,

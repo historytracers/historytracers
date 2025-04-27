@@ -144,6 +144,10 @@ function htFillSourceContentToPrint(text, map, id)
             var dateVector = value.date.split("-");
             var textDate = htFillHTDate(dateVector);
             dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
+        } else if (value.date_time != undefined && value.date_time != null && value.date_time.length > 0) {
+            var dateVector = value.date_time.split("-");
+            var textDate = htFillHTDate(dateVector);
+            dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
         }
         var urlValue = "";
         if (value.url != undefined && value.url != null && value.url.length > 0) {
@@ -469,7 +473,12 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
                 text += " ; ";
             }
             var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+            var dateText = ""
+            if (sources[i].date != undefined) {
+                dateText = ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
+            } else if (sources[i].date_time != undefined) {
+                dateText = ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
+            }
             text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
         }
         text += ")";
@@ -914,7 +923,10 @@ function htDetectLanguage()
 
 function htMountSpecificDate(dateObj, localLang, localCalendar)
 {
-    var updateText;
+    var updateText = "";
+    if (dateObj == undefined) {
+        return updateText;
+    }
     switch (dateObj.type) {
         case "gregory":
             if (dateObj.day > 0 ) {
@@ -1054,6 +1066,19 @@ function htFillWebPage(page, data)
     } else if (data.type != undefined && data.type == "class" && data.version == 2) {
         htFillClassContentV2(data, last_update, page_authors, page_reviewers, data.index);
     } else {
+        if ((data.gedcom != undefined || data.csv != undefined) && $("#files").length > 0) {
+            var csvgedtxt = keywords[108]+"<p><ul>";
+            if (data.csv != undefined) {
+                csvgedtxt += "<li><a href=\""+data.csv+"\" target=\"_blank\">CSV</a>: "+keywords[109]+"</li>";
+            }
+
+            if (data.gedcom != undefined) {
+                csvgedtxt += "<li><a href=\""+data.gedcom+"\" target=\"_blank\">GEDCOM</a>: "+keywords[110]+"</li>";
+            }
+            csvgedtxt += "</ul></p>"+keywords[111];
+            $("#files").html(csvgedtxt);
+        }
+
         for (const i in data.content) {
             if (data.content[i].value == undefined || data.content[i].value == null) {
                 htFillStringOnPage(data, i, page);
@@ -1428,8 +1453,19 @@ function htFillFamilyList(table, target) {
 
 function htFillMapList(table, target, page) {
     for (const i in table) {
+        var additional = "";
         if (table[i].id != "fill_dates" && table[i].id != "date_time") {
-            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
+            if (table[i].csv != undefined && table[i].csv.length > 0) {
+                additional += "(<a href=\""+table[i].csv+"\" target=\"_blank\">CSV</a>";
+            }
+
+            if (table[i].gedcom != undefined && table[i].gedcom.length > 0) {
+                additional += (additional.length == 0)? "(" : ", ";
+                additional += " <a href=\""+table[i].gedcom+"\" target=\"_blank\">GEDCOM</a>)";
+            } else {
+                additional += (additional.length == 0)? "" : ")";
+            }
+            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+" "+additional+"</li>");
         } else {
             if (table[i].text.constructor === vectorConstructor) {
                 htFillHTDate(table[i].text);
@@ -1716,6 +1752,19 @@ function htFillFamilies(page, table) {
         }
     }
 
+    if ((table.gedcom != undefined || table.csv != undefined) && $("#files").length > 0) {
+        var csvgedtxt = keywords[108]+"<p><ul>";
+        if (table.csv != undefined) {
+            csvgedtxt += "<li><a href=\""+table.csv+"\" target=\"_blank\">CSV</a>: "+keywords[109]+"</li>";
+        }
+
+        if (table.gedcom != undefined) {
+            csvgedtxt += "<li><a href=\""+table.gedcom+"\" target=\"_blank\">GEDCOM</a>: "+keywords[110]+"</li>";
+        }
+        csvgedtxt += "</ul></p>"+keywords[111];
+        $("#files").html(csvgedtxt);
+    }
+
     if (table.maps != undefined && table.maps != null && $("#maps").length > 0) {
         var textMap = "<p><h3>"+keywords[79]+"</h3>"+keywords[80]+"</p>";
 
@@ -1912,21 +1961,23 @@ function htMountPersonEvent(name, data, localLang, localCalendar) {
     var ret = "<b>"+name+"</b> ";
     for (const i in data) {
         var ptr = data[i];
-        if (ptr.date == undefined) {
+        if (ptr.date == undefined && ptr.date_time == undefined) {
             continue;
         }
 
         if (i != 0) {
             ret += " "+keywords[91]+" ";
         }
-        ret += htMountSpecificDate(ptr.date[0], localLang, localCalendar)+" (";
+        var selDate = (ptr.date != undefined) ? ptr.date : ptr.date_time;
+        ret += htMountSpecificDate(selDate[0], localLang, localCalendar)+" (";
         var sources = ptr.sources;
         for (const i in sources) { 
             if (i != 0) {
                 ret += " ; ";
             }
             var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+            var selLocalDate = (sources[i].date != undefined) ? sources[i].date : sources[i].date_time;
+            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(selLocalDate, localLang, localCalendar) : "";
             ret += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
         }
 
@@ -1965,7 +2016,13 @@ function htMountPersonEvents(table) {
                         text += " ; ";
                     }
                     var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-                    var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar) : "";
+                    var dateText = "";
+                    if (sources[i].date != undefined) {
+                        dateText =  ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
+                    } else if  (sources[i].date_time != undefined) {
+                        dateText =  ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
+                    }
+
                     lnk += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
                 }
                 ret += haplogroup.haplogroup+" ("+haplogroup.type+") ("+lnk+")" ;
@@ -2233,6 +2290,12 @@ function htFillMapSource(myMap, data)
                     continue;
                 }
                 finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
+            } else if  (data[i].date_time != undefined ){
+                var dateVector = data[i].date_time.split('-');
+                if (dateVector.length != 3) {
+                    continue;
+                }
+                finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
             }
             myMap.set(data[i].id, {"citation" : data[i].citation, "date" : finalDate, "url" : data[i].url});
         }
@@ -2269,6 +2332,8 @@ function htFillSource(divID, sourceMap, id)
         var dateValue = "";
         if (src.date != undefined && src.date != null && src.date.length > 0) {
             dateValue = ". [ "+keywords[22]+" "+src.date+" ].";
+        } else if (src.date_time != undefined && src.date_time != null && src.date_time.length > 0) {
+            dateValue = ". [ "+keywords[22]+" "+src.date_time+" ].";
         }
         var urlValue = "";
         if (src.url != undefined && src.url != null && src.url.length > 0) {

@@ -58,7 +58,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1744564979"
+      "1745202701"
    ],
    "authors": "",
    "reviewers": "",
@@ -82,8 +82,9 @@
       "There are no additional prerequisites to understand this text."
    ],
    "gedcom": "gedcom/9cd69f67-2f4e-43f2-a5b9-355ea760dc8e_en-US.ged",
-   "version": 0,
-   "type": "",
+   "csv": "csv/9cd69f67-2f4e-43f2-a5b9-355ea760dc8e_en-US.csv",
+   "version": 1,
+   "type": "genealogy",
    "families": [
       {
          "id": "98837ea6-1aba-4748-a99a-94897d31c41e",
@@ -111,7 +112,49 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "We must highlight some points raised in Jesús Lorenzo Jiménez's work about Qasi's possible life (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6fb9c6f9-f849-416f-a4d1-737e486672d1'); return false;\">Jiménez, Jesús L., <span class=\"htdate\"></span></a>):</p><p><ul><li><b>Pages 174 - 175</b>: In <span class=\"htdate\"></span>, Qasi was referred to as <i>Cássio</i> for the first time (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 6</a>). There are no documents or chronicles that mention him directly.</li><li><b>Page 178</b>: Despite the lack of documentation, his lineage continued until the 10th century.</li><li><b>Page 180</b>: There is a possibility that: <i>\"este conde Casio no es sino un personaje mítico\"</i> [translation: this Count Cássio is nothing but a mythical character].</li></ul></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: About descendants</b><br />When you read in a paper that a family lineage continued until the <i>\"10th century\"</i>, do you understand that this means there are known generations up to the present day?</div></div></center></p><p>Ibn Hazm names Qasi as the Count of Marca and also mentions his five children (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). We will consider these children as real and not just hypothetical, because as Jesús Lorenzo Jiménez concluded: \"<i>Casio existía</i>\" [translation: Casio existed ] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6fb9c6f9-f849-416f-a4d1-737e486672d1'); return false;\">Jiménez, Jesús L., <span class=\"htdate\"></span></a>, pp. 180)",
+                     "text": "Ibn Hazm names Qasi as the Count of Marca and also mentions his five children",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                           "text": "De La Granja, Fernando, pp. 86",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 0,
+                           "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                           "text": "Juste, Alberto C., pp. 7",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1980",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                           "text": "Medieval Lands",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "We must highlight some points raised in Jesús Lorenzo Jiménez's work about Qasi's possible life (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6fb9c6f9-f849-416f-a4d1-737e486672d1'); return false;\">Jiménez, Jesús L., <span class=\"htdate\"></span></a>):</p><p><ul><li><b>Pages 174 - 175</b>: In <span class=\"htdate\"></span>, Qasi was referred to as <i>Cássio</i> for the first time (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 6</a>). There are no documents or chronicles that mention him directly.</li><li><b>Page 178</b>: Despite the lack of documentation, his lineage continued until the 10th century.</li><li><b>Page 180</b>: There is a possibility that: <i>\"este conde Casio no es sino un personaje mítico\"</i> [translation: this Count Cássio is nothing but a mythical character].</li></ul></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: About descendants</b><br />When you read in a paper that a family lineage continued until the <i>\"10th century\"</i>, do you understand that this means there are known generations up to the present day?</div></div></center></p>",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -147,9 +190,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -167,11 +213,45 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al-Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 86",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 0,
+                                 "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                                 "text": "Juste, Alberto C., pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1980",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -187,11 +267,45 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al-Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 86",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 0,
+                                 "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                                 "text": "Juste, Alberto C., pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1980",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -207,11 +321,45 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al-Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 86",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 0,
+                                 "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                                 "text": "Juste, Alberto C., pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1980",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -227,11 +375,45 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al-Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 86",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 0,
+                                 "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                                 "text": "Juste, Alberto C., pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1980",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -247,11 +429,45 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De la Granja, Fernando, <span class=\"htdate\"></span>, pp. 86</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto c., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al-Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 86",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 0,
+                                 "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                                 "text": "Juste, Alberto C., pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1980",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -272,7 +488,38 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "He was the only son named with a Christian name (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 7</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>).</p><p>We do not have more details about his life. We only know that he had two children, listed below. Some researchers propose a name for his wife, but there is no documentation to support this hypothesis.</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: About marriages</b><br />The hypothetical marriage of Fortún with <i>Aisha</i>, seems to be based on the fact that Fortún had a son named Musa, like the conqueror Musa ibn Nusayr.<br />Is having a son with the same name enough to establish a connection?<br />Could the Qasi have chosen the name because they were Muslims?<br />Could it be that the name was chosen in honor of another ancestor of Fortún?<br />    Can you propose other hypotheses?</div></div></center></p><p>Creating hypotheses is part of the scientific method, but a hypothesis only becomes a theory, or a fact, when there is evidence to support it (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers, <span class=\"htdate\"></span>, Scientific method</a>)",
+                     "text": "He was the only son named with a Christian name",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                           "text": "Juste, Alberto C., pp. 7",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1980",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                           "text": "Medieval Lands",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "We do not have more details about his life. We only know that he had two children, listed below. Some researchers propose a name for his wife, but there is no documentation to support this hypothesis.</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: About marriages</b><br />The hypothetical marriage of Fortún with <i>Aisha</i>, seems to be based on the fact that Fortún had a son named Musa, like the conqueror Musa ibn Nusayr.<br />Is having a son with the same name enough to establish a connection?<br />Could the Qasi have chosen the name because they were Muslims?<br />Could it be that the name was chosen in honor of another ancestor of Fortún?<br />    Can you propose other hypotheses?</div></div></center></p><p>Creating hypotheses is part of the scientific method, but a hypothesis only becomes a theory, or a fact, when there is evidence to support it (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers, <span class=\"htdate\"></span>, Scientific method</a>)",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -308,9 +555,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -325,20 +575,46 @@
                      "name": "Aisha bint Abd al-Aziz",
                      "history": [
                         {
-                           "text": "Although there are no documents or chronicles from the time mentioning any wife or wives of Fortún ibn Qasi, it is possible to find references to such hypothetical connections in discussion groups (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('11695f90-8893-4247-9f4e-79485d19b21d'); return false;\">Google Groups, <span class=\"htdate\"></span></a>) and articles on platforms (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('717d54f3-b9c5-4bdd-aa4e-7de63715c8e9'); return false;\">Wikipedia, <span class=\"htdate\"></span>, Fortún ibn Qasi</a>)",
-                           "source": null,
+                           "text": "Although there are no documents or chronicles from the time mentioning any wife or wives of Fortún ibn Qasi, it is possible to find references to such hypothetical connections in discussion groups and articles on platforms",
+                           "source": [
+                              {
+                                 "type": 3,
+                                 "uuid": "11695f90-8893-4247-9f4e-79485d19b21d",
+                                 "text": "Google Groups",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2004",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 3,
+                                 "uuid": "717d54f3-b9c5-4bdd-aa4e-7de63715c8e9",
+                                 "text": "Wikipedia, Fortún ibn Qasi",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2022",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -356,11 +632,34 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al-Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 532",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -376,11 +675,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al-Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al-Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 532",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -401,11 +723,53 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "He is the first Banu Qasi documented in historical events by contemporaneous chronicles. According to these records, on <span class=\"htdate\"></span>, he was responsible for expelling the rebel Said ibn al-Ḥusayn Yahya from Zaragoza (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 9</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0cb6df36-71e1-40e3-9d58-960afefba168'); return false;\">Benito, Julia P., Real Academia de La Historia</a>).</p><p>The exact date of his death is unknown, but it occurred either in <span class=\"htdate\"></span> or <span class=\"htdate\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 9 - 10</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 465</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span>).</p><p>Regarding his marriages, it is known that he married at least one woman who was also married to Iñigo (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 469</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
+                     "text": "He is the first Banu Qasi documented in historical events by contemporaneous chronicles. According to these records, on <span class=\"htdate\"></span>, he was responsible for expelling the rebel Said ibn al-Ḥusayn Yahya from Zaragoza",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                           "text": "Juste, Alberto C., pp. 7",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1980",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                           "text": "Medieval Lands",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "0cb6df36-71e1-40e3-9d58-960afefba168",
+                           "text": "Benito, Julia P., Real Academia de La Historia",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "The exact date of his death is unknown, but it occurred either in <span class=\"htdate\"></span> or <span class=\"htdate\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 9 - 10</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 465</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>).</p><p>Regarding his marriages, it is known that he married at least one woman who was also married to Iñigo (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 469</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
-                     "format": "html",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -435,20 +799,46 @@
                      "name": "Unknown",
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 469</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 469",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -466,11 +856,34 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 532",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -486,11 +899,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 532",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -506,11 +942,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 532",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -526,11 +985,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 532",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -546,11 +1028,34 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 532",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -566,11 +1071,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 532</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 532",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -588,15 +1116,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "Tudela",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "",
                      "country": "",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
-                           "text": "Juste, Alberto C., pp. 9"
+                           "text": "Juste, Alberto C., pp. 9",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   },
@@ -610,15 +1147,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "Tudela",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "",
                      "country": "",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
-                           "text": "De La Granja, Fernando, pp. 465"
+                           "text": "De La Granja, Fernando, pp. 465",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -636,7 +1182,38 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "During Musa Ibn Musa's lifetime, the Banu Qasi reached their peak (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 12-35</a>). However, this was not a calm period for him and his descendants. Musa Ibn Musa, for example, is noted as the first rebel of the family (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>).</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>On Rebellions</b><br />We are facing yet another rebellion. Can you imagine a reason for so many rebellions?</div></div></center></p><p>Since we are not dealing with a single rebellion, it is likely that there is more than one answer to this reflection. We remind the reader that one of the reasons the Arabs entered the Iberian Peninsula and defeated the Visigoths was an invitation from the local people (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 8 - 9</a>).</p><p>The Chronicle of Alfonso III provides the most relevant information related to the Gothic origin of the Qasi: <i>\"Muzza quidam nomine natione Gotus\"</i> [translation: A certain Musa by name, from the Gothic nation] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Fernández, Juan G., <span class=\"htdate\"></span>, pp. 25</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)<p>The Codex of Roda informs us that Musa married Assona Iñiguez, daughter of Iñigo Arista (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('652569a1-a629-402f-936c-34e4ad7b098d'); return false;\">Lacarra, José M., <span class=\"htdate\"></span>, pp. 229</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). However, although this marriage is documented, there is insufficient evidence to identify their children. For this reason, we will attribute the children to an 'Unknown' person",
+                     "text": "During Musa Ibn Musa's lifetime, the Banu Qasi reached their peak. However, this was not a calm period for him and his descendants. Musa Ibn Musa, for example, is noted as the first rebel of the family",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                           "text": "Juste, Alberto C., pp. 12 - 35",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1980",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 0,
+                           "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                           "text": "De La Granja, Fernando, pp. 533",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>On Rebellions</b><br />We are facing yet another rebellion. Can you imagine a reason for so many rebellions?</div></div></center></p><p>Since we are not dealing with a single rebellion, it is likely that there is more than one answer to this reflection. We remind the reader that one of the reasons the Arabs entered the Iberian Peninsula and defeated the Visigoths was an invitation from the local people (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 8 - 9</a>).</p><p>The Chronicle of Alfonso III provides the most relevant information related to the Gothic origin of the Qasi: <i>\"Muzza quidam nomine natione Gotus\"</i> [translation: A certain Musa by name, from the Gothic nation] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Fernández, Juan G., <span class=\"htdate\"></span>, pp. 25</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)<p>The Codex of Roda informs us that Musa married Assona Iñiguez, daughter of Iñigo Arista (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('652569a1-a629-402f-936c-34e4ad7b098d'); return false;\">Lacarra, José M., <span class=\"htdate\"></span>, pp. 229</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). However, although this marriage is documented, there is insufficient evidence to identify their children. For this reason, we will attribute the children to an 'Unknown' person",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -670,20 +1247,46 @@
                      "name": "Assona Iñiguez",
                      "history": [
                         {
-                           "text": "According to Códice Roda (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('652569a1-a629-402f-936c-34e4ad7b098d'); return false;\">Lacarra, José M., <span class=\"htdate\"></span>, pp. 229</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Códice Roda",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "652569a1-a629-402f-936c-34e4ad7b098d",
+                                 "text": "Lacarra, José M., pp. 229",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1945",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -698,20 +1301,35 @@
                      "name": "Desconhecida",
                      "history": [
                         {
-                           "text": "According to Medieval Lands (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Medieval Lands",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -729,11 +1347,34 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -749,11 +1390,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -769,11 +1433,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -789,11 +1476,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -809,11 +1519,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -829,11 +1562,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Ibn Hazm (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 471</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>) ",
-                           "source": null,
+                           "text": "According to Ibn Hazm",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 471",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -851,15 +1607,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "Tudela",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "",
                      "country": "",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
-                           "text": "De La Granja, Fernando, pp. 465"
+                           "text": "De La Granja, Fernando, pp. 465",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -877,7 +1642,38 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "During his governance, the Vikings ('Mayus') invaded the Iberian Peninsula. Lubb ibn Musa was taken captive, but after being freed by the Sultan, he fought against the invaders. In recognition of his efforts, the Sultan gifted him an enslaved person named Ayab (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 471 - 473</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>).</p><p>Recently, in an attempt to justify a 'conversion' to Judaism of a person named Lopo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a8a348a8-236c-485d-b8e7-f9de8ef3fa43'); return false;\">Dias, History Tracers</a>), an author made claims without providing evidence or statistics about the name Lubb. For this reason, we use this historical figure to clarify some facts. Lubb is referred to as Lupus in Latin sources like the Chronicon Sebastiani (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('48f58c77-b6de-4858-b025-e33d0d7e4020'); return false;\">Flórez, Henriques, <span class=\"htdate\"></span>, p. 488</a>) and in the Chronicle of Alfonso III (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Fernández, Juan G., <span class=\"htdate\"></span>, pp. 9,16</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). In the latter chronicle, it is also mentioned that he was the governor of Toledo (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 38</a>). In Spanish his name is 'Lope' (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span></a>), and in Portuguese genealogical sites, he is referred to as 'Lopo' (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('e6d59557-84ac-48b0-a73c-f46390d1e29f'); return false;\">Roglo,  \"Lopo ibn Musa ibn Musa (Banu Qasi)\"</a>)",
+                     "text": "During his governance, the Vikings ('Mayus') invaded the Iberian Peninsula. Lubb ibn Musa was taken captive, but after being freed by the Sultan, he fought against the invaders. In recognition of his efforts, the Sultan gifted him an enslaved person named Ayab",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                           "text": "De La Granja, Fernando, pp. 471 - 473",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                           "text": "Medieval Lands",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "Recently, in an attempt to justify a 'conversion' to Judaism of a person named Lopo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a8a348a8-236c-485d-b8e7-f9de8ef3fa43'); return false;\">Dias, History Tracers</a>), an author made claims without providing evidence or statistics about the name Lubb. For this reason, we use this historical figure to clarify some facts. Lubb is referred to as Lupus in Latin sources like the Chronicon Sebastiani (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('48f58c77-b6de-4858-b025-e33d0d7e4020'); return false;\">Flórez, Henriques, <span class=\"htdate\"></span>, p. 488</a>) and in the Chronicle of Alfonso III (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Fernández, Juan G., <span class=\"htdate\"></span>, pp. 9,16</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>). In the latter chronicle, it is also mentioned that he was the governor of Toledo (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 38</a>). In Spanish his name is 'Lope' (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span></a>), and in Portuguese genealogical sites, he is referred to as 'Lopo' (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('e6d59557-84ac-48b0-a73c-f46390d1e29f'); return false;\">Roglo,  \"Lopo ibn Musa ibn Musa (Banu Qasi)\"</a>)",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -919,20 +1715,46 @@
                      "name": "Ayab",
                      "history": [
                         {
-                           "text": "According to Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 473</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 473",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -950,11 +1772,34 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to citações em fórums (<a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('11695f90-8893-4247-9f4e-79485d19b21d'); return false;\">Google Groups, <span class=\"htdate\"></span></a>; <a href=\"#\" onclick=\"htCleanSources(); htFillSMSource('717d54f3-b9c5-4bdd-aa4e-7de63715c8e9'); return false;\">Wikipedia, <span class=\"htdate\"></span>, Fortún ibn Qasi</a>)",
-                           "source": null,
+                           "text": "According to mentions in social networks",
+                           "source": [
+                              {
+                                 "type": 3,
+                                 "uuid": "11695f90-8893-4247-9f4e-79485d19b21d",
+                                 "text": "Google Groups",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2004",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 3,
+                                 "uuid": "717d54f3-b9c5-4bdd-aa4e-7de63715c8e9",
+                                 "text": "Wikipedia, Fortún ibn Qasi",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2022",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -970,11 +1815,34 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "According to Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -992,15 +1860,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "Zaragoza",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "",
                      "country": "",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
-                           "text": "De La Granja, Fernando, pp. 472"
+                           "text": "De La Granja, Fernando, pp. 472",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -1054,9 +1931,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1078,7 +1958,38 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "Like his ancestors, he was also a rebel. He entered the city of Zaragoza in the years <span class=\"htdate\"></span>-<span class=\"htdate\"></span> and took control of it, later selling it for <i>\"dez mil ....\"</i> [translation: ten thousand...] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 478</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>).</p><p>He was appointed governor of various regions by Imam Muhammad I. Loyal to the imam, he waged war against Pamplona, conquering much of the city (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 479</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>).</p><p>The last war of Muhammad ibn Lubb took place in Arribal, where he laid a great siege to the city, raising a large wall around it. One day, while riding his horse, he decided to enter the ruins of the city, where a man on foot advanced and killed him with a spear (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 480</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>).</p><p>Although there are reports of marriages from his sons and grandsons, there are no records of subsequent generations (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533 - 534</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
+                     "text": "Like his ancestors, he was also a rebel. He entered the city of Zaragoza in the years <span class=\"htdate\"></span>-<span class=\"htdate\"></span> and took control of it, later selling it for <i>\"dez mil ....\"</i> [translation: ten thousand...]",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                           "text": "De La Granja, Fernando, pp. 478",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                           "text": "Medieval Lands",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "html",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "He was appointed governor of various regions by Imam Muhammad I. Loyal to the imam, he waged war against Pamplona, conquering much of the city (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 479</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>).</p><p>The last war of Muhammad ibn Lubb took place in Arribal, where he laid a great siege to the city, raising a large wall around it. One day, while riding his horse, he decided to enter the ruins of the city, where a man on foot advanced and killed him with a spear (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 480</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>).</p><p>Although there are reports of marriages from his sons and grandsons, there are no records of subsequent generations (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533 - 534</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -1114,9 +2025,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1134,11 +2048,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1154,11 +2091,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1174,11 +2134,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1194,11 +2177,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1214,11 +2220,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1234,11 +2263,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 533",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1254,11 +2306,23 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to J. Lorenzo Jiménez research mentioned in Medieval Lands site (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to J. Lorenzo Jiménez research mentioned in Medieval Lands site",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1276,15 +2340,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "Zaragoza",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "",
                      "country": "",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
-                           "text": "De La Granja, Fernando, pp. 480"
+                           "text": "De La Granja, Fernando, pp. 480",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   },
@@ -1298,15 +2371,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "Zaragoza",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "",
                      "country": "",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
-                           "text": "De La Granja, Fernando, pp. 480"
+                           "text": "De La Granja, Fernando, pp. 480",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -1324,7 +2406,27 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "There is little information about his life, and what we have is not conclusive. Medieval Lands mentions that he could have been captured in a battle during the reign of Charlemagne, king of France (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>).</p><p>The data about his descendants is also imprecise. According to Ibn Hazm, Musa ibn Musa, his brother, arranged marriages for his daughters with the sons of <i>\"Wannago ibn Sanyo, rey de los Vascos\"</i> [translation: Wannago ibn Sanyo, king of the Vascos] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>). With this limited information, we can only speculate that the marriages might have been with Iñigo Iñíguez, Fortún Iñíguez, or possibly another undocumented son, but nothing beyond that. This information at least allows us to properly address <b>Reflection 2</b>. Due to the lack of details, claiming that the Banu Qasi have descendants in the present day is imprecise",
+                     "text": "There is little information about his life, and what we have is not conclusive. Medieval Lands mentions that he could have been captured in a battle during the reign of Charlemagne, king of France (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>).\n\nThe data about his descendants is also imprecise. According to Ibn Hazm, Musa ibn Musa, his brother, arranged marriages for his daughters with the sons of <i>\"Wannago ibn Sanyo, rey de los Vascos\"</i> [translation: Wannago ibn Sanyo, king of the Vascos]",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                           "text": "De La Granja, Fernando, pp. 480",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "With this limited information, we can only speculate that the marriages might have been with Iñigo Iñíguez, Fortún Iñíguez, or possibly another undocumented son, but nothing beyond that. This information at least allows us to properly address <b>Reflection 2</b>. Due to the lack of details, claiming that the Banu Qasi have descendants in the present day is imprecise",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -1360,9 +2462,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1380,11 +2485,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 480",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1400,11 +2528,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "According to Al Udri (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('08577d63-fb3e-4d9b-884d-7e7296beb4a5'); return false;\">De La Granja, Fernando, <span class=\"htdate\"></span>, pp. 533</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('64d5ac73-6974-4a7a-90c5-7970b72243a8'); return false;\">Medieval Lands, <span class=\"htdate\"></span></a>)",
-                           "source": null,
+                           "text": "According to Al Udri",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                                 "text": "De La Granja, Fernando, pp. 480",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                                 "text": "Medieval Lands",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2020",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1524,187 +2675,13 @@
       },
       {
          "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1980",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2009",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1980",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1980",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1980",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1980",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1980",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1980",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
          "year": "2024",
          "month": "-1",
          "day": "-1"
       },
       {
          "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2004",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2022",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
          "year": "788",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1980",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
          "month": "-1",
          "day": "-1"
       },
@@ -1752,103 +2729,7 @@
       },
       {
          "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1980",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1856",
+         "year": "1853",
          "month": "-1",
          "day": "-1"
       },
@@ -1867,108 +2748,6 @@
       {
          "type": "gregory",
          "year": "1945",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "789",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "802",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1945",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
          "month": "-1",
          "day": "-1"
       },
@@ -2022,43 +2801,7 @@
       },
       {
          "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2004",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2022",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2024",
+         "year": "2023",
          "month": "-1",
          "day": "-1"
       },
@@ -2107,126 +2850,6 @@
       {
          "type": "gregory",
          "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2020",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1967",
          "month": "-1",
          "day": "-1"
       },

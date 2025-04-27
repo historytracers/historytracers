@@ -58,7 +58,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1743475451"
+      "1745202870"
    ],
    "authors": "",
    "reviewers": "Roberto Palomino",
@@ -82,8 +82,9 @@
       "Não há pré-requisitos adicionais para entender este texto."
    ],
    "gedcom": "gedcom/4149b25a-3a8f-4bb2-b663-4dab5a5d885b_pt-BR.ged",
+   "csv": "csv/4149b25a-3a8f-4bb2-b663-4dab5a5d885b_pt-BR.csv",
    "version": 1,
-   "type": "family_tree",
+   "type": "genealogy",
    "families": [
       {
          "id": "5bbc1d7e-c193-4411-9a8e-0c79bf7f58a6",
@@ -95,7 +96,7 @@
                "date_time": null,
                "isTable": false,
                "format": "html",
-               "PostMention": ""
+               "PostMention": "."
             }
          ],
          "people": [
@@ -114,24 +115,42 @@
                      "text": "A origem do povo Inca é tradicionalmente associada ao casal Manco Capac e Mama Ocllo, conforme relatado por diversas crônicas. No entanto, as versões sobre a origem desse casal variam e, muitas vezes, se contradizem. Algumas fontes sugerem que eles emergiram de uma grande cratera, de onde também extraíam o ouro utilizado em suas vestes. Outras apontam para o lago Titicaca como o local de sua origem. Independentemente dessas divergências, Manco Capac e Mama Ocllo são tradicionalmente creditados como fundadores da cidade de Cusco, aproximadamente no século XIII, segundo o calendário gregoriano",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "30113c04-ed4d-4258-aa4b-14927758d2fb",
-                           "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 9 - 12"
+                           "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 9 - 12",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2010",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 137 - 140"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 137 - 140",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                           "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 3"
+                           "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 3",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2018",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -164,28 +183,43 @@
                            "text": "De acordo com uma crônica antiga",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "30113c04-ed4d-4258-aa4b-14927758d2fb",
-                                 "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 10"
+                                 "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 10",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2010",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 3"
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 3",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -206,24 +240,42 @@
                            "text": "De acordo com uma crônica antiga",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "30113c04-ed4d-4258-aa4b-14927758d2fb",
-                                 "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 16"
+                                 "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 16",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2010",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 140"
+                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 140",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 6"
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 6",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -249,40 +301,64 @@
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 140"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 140",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
                      "text": "Ao tratar de Sinchi Roca e sua esposa, Felipe Guaman Poma de Ayala, um cronista indígena, menciona que eles seriam os pais de Jesus Cristo. Esta afirmação nos leva a uma reflexão",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 123"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 123",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1615",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 89"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 89",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1936",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                           "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 6 - 7</a>"
+                           "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 6 - 7</a>",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2018",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
-                     "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Sobre relacionamentos</b><br /><br />Será que estamos diante de um erro de interpretação de Felipe Guaman Poma de Ayala? Ou é possível identificar algum tipo de paralelo entre essa afirmação e a genealogia de Jesus descrita no evangelho de São Mateus (<a href=\"#\" onclick=\"htCleanSources(); htFillHolySource('7004aa32-d650-47e3-a069-461e69a8b0d7'); return false;\">Mateus, Cap. 1:6-16)?</div></div></center></p><p>É fácil cair na tentação de responder se algo está certo ou errado e, assim, encerrar o assunto. No entanto, há mais informações a serem consideradas nesta reflexão. Você consegue formular outra hipótese a partir dessas informações?",
+                     "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Sobre relacionamentos</b><br /><br />Será que estamos diante de um erro de interpretação de Felipe Guaman Poma de Ayala? Ou é possível identificar algum tipo de paralelo entre essa afirmação e a genealogia de Jesus descrita no evangelho de São Mateus (<a href=\"#\" onclick=\"htCleanSources(); htFillHolySource('7004aa32-d650-47e3-a069-461e69a8b0d7'); return false;\">Mateus, Cap. 1:6-16)?</a>)</div></div></center></p><p>É fácil cair na tentação de responder se algo está certo ou errado e, assim, encerrar o assunto. No entanto, há mais informações a serem consideradas nesta reflexão. Você consegue formular outra hipótese a partir dessas informações?",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -327,23 +403,32 @@
                            "text": "De acordo com uma crônica antiga",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "30113c04-ed4d-4258-aa4b-14927758d2fb",
-                                 "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 17"
+                                 "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 17",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2010",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -361,11 +446,23 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "De acordo com uma crônica antiga (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('30113c04-ed4d-4258-aa4b-14927758d2fb'); return false;\">Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 17)",
-                           "source": null,
+                           "text": "De acordo com uma crônica antiga",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "30113c04-ed4d-4258-aa4b-14927758d2fb",
+                                 "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 17",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2010",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -384,24 +481,42 @@
                            "text": "De acordo com uma crônica antiga",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 89"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 89",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 65"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 65",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7"
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -420,24 +535,42 @@
                            "text": "De acordo com Felipe Guaman Poma de Ayala, em um trecho ele apresenta informações, mas em outro, menciona dados alinhados aos Evangelhos",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 87, 123"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 87, 123",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 62, 89"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 62, 89",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7"
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -463,26 +596,38 @@
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 141 - 142"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 141 - 142",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
                      "text": "O cronista Juan Betanzos narra que, ao nascer, Lloque Yupanqui já possuía dentes e a habilidade de caminhar, e o comparou à figura de Merlin",
                      "source": [
                         {
-                           "type": 0,
+                           "type": 1,
                            "uuid": "30113c04-ed4d-4258-aa4b-14927758d2fb",
-                           "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 17"
+                           "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 17",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2010",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -515,33 +660,54 @@
                            "text": "De acordo com uma crônica antiga",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 97"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 97",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 71"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 71",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7"
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -562,24 +728,42 @@
                            "text": "De acordo com uma crônica antiga",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 97"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 97",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 71"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 71",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7"
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -605,12 +789,18 @@
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 142 - 143"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 142 - 143",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -619,12 +809,18 @@
                         {
                            "type": 1,
                            "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
-                           "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56"
+                           "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1988",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -665,33 +861,54 @@
                            "text": "De acordo com uma crônica antiga",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 99"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 99",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 71"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 71",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7"
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -712,24 +929,42 @@
                            "text": "De acordo com uma crônica antiga",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 99"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 99",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 74"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 74",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7"
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 7",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -755,12 +990,18 @@
                         {
                            "type": 1,
                            "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
-                           "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56"
+                           "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1988",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -769,12 +1010,18 @@
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 143 - 144"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 143 - 144",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -809,26 +1056,41 @@
                               {
                                  "type": 1,
                                  "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 143 - 144"
+                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 143 - 144",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "a5033c5f-cc71-45c9-9176-9a5f633c363c",
-                                 "text": "Cahill, David, <span class=\"htdate\"></span>, pp. 15"
+                                 "text": "Cahill, David, <span class=\"htdate\"></span>, pp. 15",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2005",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -848,36 +1110,63 @@
                               {
                                  "type": 1,
                                  "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 143 - 144"
+                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 143 - 144",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "a5033c5f-cc71-45c9-9176-9a5f633c363c",
-                                 "text": "Cahill, David, <span class=\"htdate\"></span>, pp. 15"
+                                 "text": "Cahill, David, <span class=\"htdate\"></span>, pp. 15",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2005",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 99"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 99",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 71"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 71",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -903,9 +1192,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -928,12 +1220,18 @@
                               {
                                  "type": 1,
                                  "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 145"
+                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 145",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -954,12 +1252,18 @@
                               {
                                  "type": 1,
                                  "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 145"
+                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 145",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -980,7 +1284,13 @@
                   {
                      "type": 1,
                      "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                     "text": "Barker, R., <span class=\"htdate\"></span>, pp. 144"
+                     "text": "Barker, R., <span class=\"htdate\"></span>, pp. 144",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -1007,12 +1317,18 @@
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 144 - 145"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 144 - 145",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -1045,28 +1361,43 @@
                            "text": "Felipe Guaman Poma de Ayala a menciona como esposa, enquanto outras crônicas e estudos recentes a citam como mãe de Inca Roca",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 131"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 131",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 96"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 96",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1092,9 +1423,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1115,14 +1449,20 @@
                            "text": "Conforme relatado em uma crônica",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "30113c04-ed4d-4258-aa4b-14927758d2fb",
-                                 "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 18"
+                                 "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 18",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2010",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1148,12 +1488,18 @@
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 145 - 148"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 145 - 148",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -1186,28 +1532,43 @@
                            "text": "De acordo com uma crônica antiga",
                            "source": [
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 133"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 133",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
-                                 "type": 0,
+                                 "type": 1,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 96"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 96",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1230,17 +1591,29 @@
                               {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 133"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 133",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 96"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 96",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1264,34 +1637,64 @@
                      "text": "Viracocha teria sido o primeiro governante inca a expandir o território além de Cusco, exercendo controle sobre o império até aproximadamente <span class=\"htdate\"></span>. Nesse ano, após mostrar sinais de fraqueza, ele fugiu de Cusco, deixando a cidade sob o comando de seu filho e generais que defenderam a cidade de um último ataque dos chancas",
                      "source": [
                         {
-                           "type": 1,
-                           "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 145 - 148"
-                        },
-                        {
-                           "type": 1,
-                           "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
-                           "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 269 - 270"
-                        },
-                        {
                            "type": 0,
                            "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1615",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 0,
                            "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1936",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 145 - 148",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
+                           "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 269 - 270",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1945",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 427"
+                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 427",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -1300,12 +1703,18 @@
                         {
                            "type": 0,
                            "uuid": "30113c04-ed4d-4258-aa4b-14927758d2fb",
-                           "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 18 - 26"
+                           "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)], pp. 18 - 26",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2010",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -1338,33 +1747,54 @@
                            "text": "De acordo com uma crônica antiga",
                            "source": [
                               {
-                                 "type": 1,
-                                 "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
-                                 "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 270"
-                              },
-                              {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107, 135"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107, 135",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79, 100"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79, 100",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
+                                 "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 270",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1945",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1385,34 +1815,64 @@
                            "text": "Conforme diferentes pesquisas e registros de Felipe Guaman Poma de Ayala",
                            "source": [
                               {
-                                 "type": 1,
-                                 "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                                 "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 427"
-                              },
-                              {
-                                 "type": 1,
-                                 "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
-                                 "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56"
-                              },
-                              {
-                                 "type": 1,
-                                 "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
-                                 "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 267, 270"
-                              },
-                              {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
+                                 "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 427",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
+                                 "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1988",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
+                                 "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 267, 270",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1945",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1431,24 +1891,42 @@
                            "text": "De acordo com as pesquisas de John H. Rowe e Felipe Guaman Poma de Ayala",
                            "source": [
                               {
-                                 "type": 1,
-                                 "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
-                                 "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 270"
-                              },
-                              {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
+                                 "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 270",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1945",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1467,24 +1945,42 @@
                            "text": "De acordo com Felipe Guaman Poma de Ayala",
                            "source": [
                               {
-                                 "type": 1,
-                                 "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8"
-                              },
-                              {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1505,7 +2001,13 @@
                   {
                      "type": 1,
                      "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                     "text": "Barker, R., <span class=\"htdate\"></span>, pp. 26 - 43"
+                     "text": "Barker, R., <span class=\"htdate\"></span>, pp. 26 - 43",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -1519,7 +2021,7 @@
                "date_time": null,
                "isTable": false,
                "format": "html",
-               "PostMention": ""
+               "PostMention": "."
             },
             {
                "text": "As ciências não operam de forma isolada; pelo contrário, a integração dos conhecimentos de diferentes áreas é essencial para compreendermos os períodos históricos com mais precisão. Para validar suas conclusões, o Dr. Barker utilizou um estudo baseado na datação por Carbono-14 em sítios arqueológicos incas",
@@ -1527,7 +2029,13 @@
                   {
                      "type": 1,
                      "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                     "text": "Barker, R., <span class=\"htdate\"></span>, pp. 123 - 133"
+                     "text": "Barker, R., <span class=\"htdate\"></span>, pp. 123 - 133",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -1541,7 +2049,7 @@
                "date_time": null,
                "isTable": false,
                "format": "html",
-               "PostMention": ""
+               "PostMention": "."
             }
          ],
          "people": [
@@ -1560,29 +2068,53 @@
                      "text": "De acordo com John H. Rowe, Urcon Inca era o filho favorito de Viracocha para sucedê-lo, enquanto Felipe Guaman Poma de Ayala menciona Titu Cusi Yupanki como o primogênito e sucessor. Na tese do Dr. Robert Barker, é afirmado que Urcon foi coroado pelo pai diante da ameaça do avanço dos Chanca, mas acabou abandonando Cuzco à medida que os Chanca se aproximavam, deixando a vitória final para Titu Cusi Yupanki",
                      "source": [
                         {
-                           "type": 1,
-                           "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
-                           "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 270"
-                        },
-                        {
                            "type": 0,
                            "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1615",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 0,
                            "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 79",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1936",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
+                           "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 270",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1945",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 151 - 152"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 151 - 152",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -1614,9 +2146,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1641,29 +2176,53 @@
                      "text": "Seu casamento é citado por Felipe Guaman Poma de Ayala e Philomena Gebran, embora Tom Zuidema a mencione como uma figura \"mítica\"",
                      "source": [
                         {
-                           "type": 1,
-                           "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                           "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8"
-                        },
-                        {
                            "type": 0,
                            "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107 - 109, 137"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107 - 109, 137",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1615",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 0,
                            "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 82, 100"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 82, 100",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1936",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
+                           "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2018",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "f47e0dd4-0b2a-49cf-8e06-a1de83b4c2c2",
-                           "text": "Zuidema, Tom, <span class=\"htdate\"></span>, pp. 49"
+                           "text": "Zuidema, Tom, <span class=\"htdate\"></span>, pp. 49",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2008",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -1704,38 +2263,65 @@
                            "text": "De acordo com diversas pesquisas e a crônica de Felipe Guaman Poma de Ayala",
                            "source": [
                               {
-                                 "type": 1,
-                                 "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8"
-                              },
-                              {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 107",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 82"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 77 - 82",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "f47e0dd4-0b2a-49cf-8e06-a1de83b4c2c2",
-                                 "text": "Zuidema, Tom, <span class=\"htdate\"></span>, pp. 49"
+                                 "text": "Zuidema, Tom, <span class=\"htdate\"></span>, pp. 49",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2008",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1762,17 +2348,29 @@
                         {
                            "type": 1,
                            "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428"
+                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 149 - 150"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 149 - 150",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -1781,12 +2379,18 @@
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 153"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 153",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -1795,22 +2399,40 @@
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 154 - 155"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 154 - 155",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
-                           "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 270, 271"
+                           "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 270, 271",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1945",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428"
+                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -1841,7 +2463,7 @@
                   {
                      "type": "hypothesis",
                      "id": "f89f9b79-65ea-4890-aafa-7efaaca824b8",
-                     "gedcom_id": "Ffadec4d8-1084-45ec",
+                     "gedcom_id": "Fb2f73e5b-e0e8-492e",
                      "official": true,
                      "family_id": "5bbc1d7e-c193-4411-9a8e-0c79bf7f58a6",
                      "external_family_file": false,
@@ -1851,38 +2473,65 @@
                            "text": "De acordo com diferentes estudos e com Felipe Guaman Poma de Ayala, Pachacuti teria se casado com sua irmã",
                            "source": [
                               {
-                                 "type": 1,
-                                 "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8"
-                              },
-                              {
-                                 "type": 1,
-                                 "uuid": "f47e0dd4-0b2a-49cf-8e06-a1de83b4c2c2",
-                                 "text": "Zuidema, Tom, <span class=\"htdate\"></span>, pp. 49"
-                              },
-                              {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 109"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 109",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 79"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 79",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "f47e0dd4-0b2a-49cf-8e06-a1de83b4c2c2",
+                                 "text": "Zuidema, Tom, <span class=\"htdate\"></span>, pp. 49",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2008",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -1905,12 +2554,18 @@
                               {
                                  "type": 1,
                                  "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 159, 161"
+                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 159, 161",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1929,34 +2584,64 @@
                            "text": "De acordo com diversas pesquisas e com Felipe Guaman Poma de Ayala",
                            "source": [
                               {
-                                 "type": 1,
-                                 "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                                 "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428"
-                              },
-                              {
-                                 "type": 1,
-                                 "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
-                                 "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56"
-                              },
-                              {
-                                 "type": 1,
-                                 "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
-                                 "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 267, 270"
-                              },
-                              {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 109, 137"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 109, 137",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 79, 100"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 79, 100",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
+                                 "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
+                                 "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1988",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
+                                 "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 267, 270",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1945",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         },
                         {
@@ -1965,12 +2650,18 @@
                               {
                                  "type": 1,
                                  "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 155 - 159"
+                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 155 - 159",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -1991,12 +2682,18 @@
                               {
                                  "type": 1,
                                  "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 155 - 159"
+                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 155 - 159",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -2022,12 +2719,18 @@
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 157 - 161"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 157 - 161",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -2062,21 +2765,30 @@
                               {
                                  "type": 1,
                                  "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 160 - 161"
+                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 160 - 161",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -2101,19 +2813,31 @@
                      "text": "As informações apresentadas por Betanzos, além de sua menção no início da crônica, sugerem a possível existência de ao menos uma corregência. Betanzos também relata que Yamque Yupanqui chegou ao Equador",
                      "source": [
                         {
-                           "type": 1,
-                           "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 161 - 164"
-                        },
-                        {
                            "type": 0,
                            "uuid": "30113c04-ed4d-4258-aa4b-14927758d2fb",
-                           "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)]"
+                           "text": "Betanzos, Juan, [<span class=\"htdate\"></span> (<span class=\"htdate\"></span>)]",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2010",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 161 - 164",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -2145,9 +2869,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -2174,37 +2901,73 @@
                         {
                            "type": 0,
                            "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 109, 137"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 109, 137",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1615",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 0,
                            "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 79, 100"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 79, 100",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1936",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "95df14e4-d33b-425e-875d-c607dcd976bb",
-                           "text": "Raffino, Rodolfo & Stehberg, Rubén, <span class=\"htdate\"></span>, pp. 168"
+                           "text": "Raffino, Rodolfo & Stehberg, Rubén, <span class=\"htdate\"></span>, pp. 168",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1999",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
-                           "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 271 - 272"
+                           "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 271 - 272",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1945",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428"
+                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 164 - 167"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 164 - 167",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -2213,12 +2976,18 @@
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 167 - 168"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 167 - 168",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -2227,12 +2996,18 @@
                         {
                            "type": 1,
                            "uuid": "c8994799-b4d1-4289-96cc-deb5e097fe23",
-                           "text": "Ramírez Avilés, Eiffel Eduardo, <span class=\"htdate\"></span>, pp. 37 - 41"
+                           "text": "Ramírez Avilés, Eiffel Eduardo, <span class=\"htdate\"></span>, pp. 37 - 41",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2019",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -2265,33 +3040,54 @@
                            "text": "De acordo com os relatos de Felipe Guaman Poma de Ayala",
                            "source": [
                               {
-                                 "type": 1,
-                                 "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8"
-                              },
-                              {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 111, 139"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 111, 139",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 82, 100 - 103"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 82, 100 - 103",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -2314,27 +3110,51 @@
                               {
                                  "type": 1,
                                  "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                                 "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428"
+                                 "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1967",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
-                                 "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56"
+                                 "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1988",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
-                                 "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 267, 270"
+                                 "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 267, 270",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1945",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 1,
                                  "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 167 - 168"
+                                 "text": "Barker, R., <span class=\"htdate\"></span>, pp. 167 - 168",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2013",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -2360,32 +3180,62 @@
                         {
                            "type": 0,
                            "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 111 - 114"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 111 - 114",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1615",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 0,
                            "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 82 - 83"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 82 - 83",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1936",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "95df14e4-d33b-425e-875d-c607dcd976bb",
-                           "text": "Raffino, Rodolfo & Stehberg, Rubén, <span class=\"htdate\"></span>, pp. 168"
+                           "text": "Raffino, Rodolfo & Stehberg, Rubén, <span class=\"htdate\"></span>, pp. 168",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1999",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "7ee0e6c5-8284-4f46-b231-9b90c7762292",
-                           "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 272"
+                           "text": "Rowe, J. H., <span class=\"htdate\"></span>, pp. 272",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1945",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428"
+                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -2394,41 +3244,71 @@
                         {
                            "type": 0,
                            "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
-                           "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 125 - 127, 135 - 138, 142 - 143"
+                           "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 125 - 127, 135 - 138, 142 - 143",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1534",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
                      "text": "O fim de seu governo é incerto, com a possibilidade de que tenha falecido devido a uma doença trazida pelos colonizadores",
                      "source": [
                         {
-                           "type": 1,
-                           "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
-                           "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56"
-                        },
-                        {
                            "type": 0,
                            "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
-                           "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 142"
+                           "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 142",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1534",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
+                           "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1988",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 427 - 428"
+                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 427 - 428",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 167 - 168"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 167 - 168",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -2462,32 +3342,53 @@
                            "source": [
                               {
                                  "type": 0,
+                                 "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
+                                 "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 142",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1534",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 114"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 114",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 83 - 85"
-                              },
-                              {
-                                 "type": 0,
-                                 "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
-                                 "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 142"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 83 - 85",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -2507,31 +3408,52 @@
                               {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 114"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 114",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 83 - 85"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 83 - 85",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
-                                 "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 142"
+                                 "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 142",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1534",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -2554,22 +3476,40 @@
                               {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 114"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 114",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 83 - 85"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 83 - 85",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
-                                 "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 142"
+                                 "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 142",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1534",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -2590,22 +3530,40 @@
                               {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 114"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 114",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 83 - 85"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 83 - 85",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
-                                 "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 142"
+                                 "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 142",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1534",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -2623,15 +3581,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "L37f0fb58-3e70-4192",
                      "country": "Tawantinsuyu",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
-                           "text": "De Hoz, Pedro S., pp. 140"
+                           "text": "De Hoz, Pedro S., pp. 140",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -2652,29 +3619,53 @@
                      "text": "Huascar liderou seu povo por um breve período, compartilhando o governo com seu irmão Atahualpa, durante uma intensa guerra civil. Ele faleceu sem deixar herdeiros",
                      "source": [
                         {
-                           "type": 1,
-                           "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
-                           "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56"
-                        },
-                        {
-                           "type": 1,
-                           "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428 - 429"
-                        },
-                        {
                            "type": 0,
                            "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 116"
+                           "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 116",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1936",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 0,
                            "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
-                           "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 83 - 85"
+                           "text": "De Hoz, Pedro S., <span class=\"htdate\"></span>, pp. 83 - 85",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1534",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "da9662d1-5af3-48c1-8509-52dfc38ddf9d",
+                           "text": "Niles, Susan A., <span class=\"htdate\"></span>, pp. 56",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1988",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
+                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428 - 429",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -2707,33 +3698,54 @@
                            "text": "De acordo com Felipe Guaman Poma de Ayala",
                            "source": [
                               {
-                                 "type": 1,
-                                 "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
-                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8"
-                              },
-                              {
                                  "type": 0,
                                  "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 116"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 116",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1615",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               },
                               {
                                  "type": 0,
                                  "uuid": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 85"
+                                 "text": "Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 85",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1936",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "33cf32da-87cb-414c-a508-daf964dfef15",
+                                 "text": "Gebran, Philomena, <span class=\"htdate\"></span>, pp. 8",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2018",
+                                    "month": "",
+                                    "day": ""
+                                 }
                               }
                            ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -2752,15 +3764,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "L37f0fb58-3e70-4192",
                      "country": "Tawantinsuyu",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
-                           "text": "De Hoz, Pedro S., pp. 141"
+                           "text": "De Hoz, Pedro S., pp. 141",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -2783,22 +3804,40 @@
                         {
                            "type": 1,
                            "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428 - 429"
+                           "text": "Lumbreras, Luis G., <span class=\"htdate\"></span>, pp. 428 - 429",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1967",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "ec8291ec-c393-4c37-adc5-b8ff5931a2ba",
-                           "text": "Academia Play, <span class=\"htdate\"></span>, 01:25"
+                           "text": "Academia Play, <span class=\"htdate\"></span>, 01:25",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2019",
+                              "month": "",
+                              "day": ""
+                           }
                         },
                         {
                            "type": 1,
                            "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 170"
+                           "text": "Barker, R., <span class=\"htdate\"></span>, pp. 170",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2013",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -2830,9 +3869,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -2851,15 +3893,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "L37f0fb58-3e70-4192",
                      "country": "Tawantinsuyu",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "eb0302f2-6c7c-40fb-9869-830b887fc298",
-                           "text": "De Hoz, Pedro S., pp. 140"
+                           "text": "De Hoz, Pedro S., pp. 140",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }

@@ -42,7 +42,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1743475451"
+      "1745202870"
    ],
    "authors": "",
    "reviewers": "",
@@ -66,8 +66,9 @@
       "Não há pré-requisitos adicionais para entender este texto."
    ],
    "gedcom": "gedcom/3c463a57-284b-4f4a-a52e-033124b389d0_pt-BR.ged",
-   "version": 0,
-   "type": "",
+   "csv": "csv/3c463a57-284b-4f4a-a52e-033124b389d0_pt-BR.csv",
+   "version": 1,
+   "type": "genealogy",
    "families": [
       {
          "id": "c52784cc-63c7-4c58-9e7f-a272e4b1ea3f",
@@ -95,11 +96,127 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "Sisebuto reinou entre os anos de <span class=\"htdate\"></span> e <span class=\"htdate\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0d27a725-4526-40aa-9ef4-6ecdc30f16f6'); return false;\">Moreno, Luis A. G, Real Academia de la História</a>).</p><p>Muito antes da Inquisição Cristã, Sisebuto forçou judeus a se converterem ao Cristianismo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2365a881-17ba-4719-96fe-7cf753f2a475'); return false;\">Brito, Bernardo de, <span class=\"htdate\"></span>, fl. 247</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b'); return false;\">Florez, Henriques, <span class=\"htdate\"></span>, Trat. 6, Ap. XII, pp. 494</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>).</p><p>Faleceu no ano de <span class=\"htdate\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('a8ab3442-f7ab-406c-86ec-cf3411082bc1'); return false;\">Florez, Henriques, <span class=\"htdate\"></span>, pp. 178</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
-                     "source": null,
+                     "text": "Sisebuto reinou entre os anos de <htdate0> e <htdate1>",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b",
+                           "text": "Florez, Henriques, Trat. 6, Ap. XII, pp. 494",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1751",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "0d27a725-4526-40aa-9ef4-6ecdc30f16f60d27a725-4526-40aa-9ef4-6ecdc30f16f6",
+                           "text": "Moreno, Luis A. G, Real Academia de la História",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "612",
+                           "month": "-1",
+                           "day": "-1"
+                        },
+                        {
+                           "type": "gregory",
+                           "year": "620",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "isTable": false,
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "Muito antes da Inquisição Cristã, Sisebuto forçou judeus a se converterem ao Cristianismo",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b",
+                           "text": "Florez, Henriques, Trat. 6, Ap. XII, pp. 494",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1751",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "2365a881-17ba-4719-96fe-7cf753f2a475",
+                           "text": "Brito, Bernardo de, fl. 247",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1607",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                           "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2019",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "html",
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "Faleceu no ano de <htdate0>",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b",
+                           "text": "Florez, Henriques, Trat. 6, Ap. XII, pp. 494",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1751",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                           "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2019",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "620",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "isTable": false,
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -131,9 +248,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -151,11 +271,34 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "De acordo com São Isidoro de Sevilha (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b'); return false;\">Florez, Henriques, <span class=\"htdate\"></span>, Trat. 6, Ap. XII, pp. 494</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
-                           "source": null,
+                           "text": "De acordo com São Isidoro de Sevilha",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b",
+                                 "text": "Florez, Henriques, Trat. 6, Ap. XII, pp. 494",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1751",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                                 "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -171,11 +314,34 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "De acodo com Salazar y Castro ( <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ac77aeaf-c513-4e30-9a27-0c613de5859f'); return false;\">Salazar y Castro, Luis de, <span class=\"htdate\"></span>, Vol. I, pp. 45</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
-                           "source": null,
+                           "text": "De acodo com Salazar y Castro",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "ac77aeaf-c513-4e30-9a27-0c613de5859f",
+                                 "text": "Salazar y Castro, Vol. I, pp. 45",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1696",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                                 "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -193,15 +359,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "",
                      "country": "",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "a8ab3442-f7ab-406c-86ec-cf3411082bc1",
-                           "text": "Florez, Henriques, Tomo II, pp. 178"
+                           "text": "Florez, Henriques, Tomo II, pp. 178",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -255,9 +430,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -276,15 +454,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "",
                      "country": "",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "9814d2ef-9ed9-4b42-b3c8-438f24ec3f1b",
-                           "text": "Florez, Henriques, Tomo VI, pp. 494"
+                           "text": "Florez, Henriques, Tomo VI, pp. 494",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -328,7 +515,7 @@
                "marriages": [
                   {
                      "type": "theory",
-                     "id": "779bd840-7c7c-4487-97a4-9b9dd0c4ce16",
+                     "id": "6dca8a89-1eac-47d2-853f-43e5438c0326",
                      "gedcom_id": "F67da723d-1a1a-4473",
                      "official": false,
                      "family_id": "",
@@ -338,9 +525,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -378,7 +568,38 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "Tal como Sisebuto, desconhecemos quem foram os pais de Egica (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>). Por outro lado, a crônica de Dom Alfonso III informa que ele seria sobrinho do rei Wamba <i>Egicani consubrino Bambani regi</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Dom Alfonso III, <span class=\"htdate\"></span>, pp. 18</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>).</p><p>Durante o governo de Egica, foi realizado o XVI Concílio de Toledo, que, entre outras decisões, determinou (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('82ba06a3-96ba-4e11-87dd-f200977c6931'); return false;\">Montero, Pedro, <span class=\"htdate\"></span>, pp. 553 - 587</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9a57e3fc-c9e3-48c5-b9c5-912ff8eb49d2'); return false;\">Moreno, Luis A. G: <i>Egica</i></i></a>):</p><p><ul><li><i><b>I De judaeorum perfidia</b>...peccatum Judae scriptum est stylo ferreo in ungue adamantino , super petram duriores effecti in obstinationis suae caecitate perdurant... quatenus aut convertantur ad fidem aut in perfidia perdurantes acrioribus sedulè mulctentur stimulis...</i> [tradução: <b>I Da traição dos Judeus</b>... O pecado de Judá está escrito com pena de ferro num prego de diamante, na rocha os efeitos mais duros continuam na cegueira da sua obstinação... na medida em que ou se convertem à fé, ou aqueles que persistem na infidelidade são punidos com estímulos mais severos]</li><li><i><b>V De reparatione ecclesiarum vel diversis aliis causis</b>... ut ecclesia quae usque ad decem habuerit mancipia super se habeat sa- cerdotem ; quae verò minus decem mancipia ha- buerit aliis conjungatur ecclesiis</i> [tradução: <b>V Quanto à reparação de igrejas ou diversas outras causas</b>... para que uma igreja que tenha até dez servos possa ter um sacerdote; que, na verdade, tinha menos de dez servos, foi unida a outras igrejas...]</li></ul>",
+                     "text": "Tal como Sisebuto, desconhecemos quem foram os pais de Egica. Por outro lado, a crônica de Dom Alfonso III informa que ele seria sobrinho do rei Wamba <i>Egicani consubrino Bambani regi</i>",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5",
+                           "text": "Dom Alfonso III, pp. 18",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1985",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                           "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2019",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "markdown",
+                     "PostMention": " "
+                  },
+                  {
+                     "text": "<p>Durante o governo de Egica, foi realizado o XVI Concílio de Toledo, que, entre outras decisões, determinou (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('82ba06a3-96ba-4e11-87dd-f200977c6931'); return false;\">Montero, Pedro, <span class=\"htdate\"></span>, pp. 553 - 587</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9a57e3fc-c9e3-48c5-b9c5-912ff8eb49d2'); return false;\">Moreno, Luis A. G: <i>Egica</i></i></a>):</p><p><ul><li><i><b>I De judaeorum perfidia</b>...peccatum Judae scriptum est stylo ferreo in ungue adamantino , super petram duriores effecti in obstinationis suae caecitate perdurant... quatenus aut convertantur ad fidem aut in perfidia perdurantes acrioribus sedulè mulctentur stimulis...</i> [tradução: <b>I Da traição dos Judeus</b>... O pecado de Judá está escrito com pena de ferro num prego de diamante, na rocha os efeitos mais duros continuam na cegueira da sua obstinação... na medida em que ou se convertem à fé, ou aqueles que persistem na infidelidade são punidos com estímulos mais severos]</li><li><i><b>V De reparatione ecclesiarum vel diversis aliis causis</b>... ut ecclesia quae usque ad decem habuerit mancipia super se habeat sa- cerdotem ; quae verò minus decem mancipia ha- buerit aliis conjungatur ecclesiis</i> [tradução: <b>V Quanto à reparação de igrejas ou diversas outras causas</b>... para que uma igreja que tenha até dez servos possa ter um sacerdote; que, na verdade, tinha menos de dez servos, foi unida a outras igrejas...]</li></ul>",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -420,20 +641,46 @@
                      "name": "Cixilo",
                      "history": [
                         {
-                           "text": "De acordo com crônica de Dom Alfonso III (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Dom Alfonso III, <span class=\"htdate\"></span>, pp. 18</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)De acordo com crônica de Dom Alfonso III (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Dom Alfonso III, <span class=\"htdate\"></span>, pp. 18</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
-                           "source": null,
+                           "text": "De acordo com crônica de Dom Alfonso III",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5",
+                                 "text": "Dom Alfonso III, pp. 18",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1985",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                                 "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -451,11 +698,45 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "De acordo com a crônica de Alfonso III (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Dom Alfonso III, <span class=\"htdate\"></span>, pp. 19</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1eaf98d9-1945-4895-b5b0-acfb4bd28f42'); return false;\">Bronisch, Alexander, <span class=\"htdate\"></span>, pp. 47 - 51</a>)",
-                           "source": null,
+                           "text": "De acordo com a crônica de Alfonso III <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource(''); return false;\"></a>)",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5",
+                                 "text": "Dom Alfonso III, pp. 18",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1985",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                                 "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "1eaf98d9-1945-4895-b5b0-acfb4bd28f42",
+                                 "text": "Bronisch, Alexander, pp. 47 - 51",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2011",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -471,11 +752,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "De acordo com a crônica 754 (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1eaf98d9-1945-4895-b5b0-acfb4bd28f42'); return false;\">Bronisch, Alexander, <span class=\"htdate\"></span>, pp. 49</a>)",
-                           "source": null,
+                           "text": "De acordo com a crônica 754",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                                 "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "1eaf98d9-1945-4895-b5b0-acfb4bd28f42",
+                                 "text": "Bronisch, Alexander, pp. 49",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2011",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -493,15 +797,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "",
                      "country": "",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5",
-                           "text": "Crónica de Alfonso III, pp. 12"
+                           "text": "Crónica de Alfonso III, pp. 12",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -519,7 +832,27 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "Ao analisar a crônica de Alfonso III, Alexander P. Bronisch definiu parte dela como <i>\"la maldadde la estirpe de Witiza\"</i> [tradução: A maldade dos descendentes de Witiza] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1eaf98d9-1945-4895-b5b0-acfb4bd28f42'); return false;\">Bronisch, Alexander, <span class=\"htdate\"></span>, pp. 35 - 36</a>). Sua conclusão está baseada na terrível descrição dada a Witiza pela crônica, que afirma entre outras coisas: <i>\" Istut namque Spanie causa pereundi fuit, sicut dicit scriptura: Quia habundauit iniquitas...\"</i> [tradução: Pois esta foi a causa da destruição da Espanha, como diz a escritura: Porque a iniquidade abundou...] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5'); return false;\">Dom Alfonso III, <span class=\"htdate\"></span>, pp. 18</a>).</p><p>Ao descrever a situação da península Ibérica, Charles R. Haines nos informa: <i>\"The old Spanish chronicles represent the fall of Gothic kingdom as the direct veneance of Heaven ... suicidal policy towards the Arians and the Jews.\" [tradução: Antigas crônicas de Espanha representam a queda do reino Gótico como vigança direta do céu... suicídio político com Arianos e Judeus]</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cd1a4bed-9754-4888-aee9-559d59503860'); return false;\">Haines, Charles R., <span class=\"htdate\"></span>, pp. 12</a>).</p><p>Finalmente, devemos considerar o que nos diz a crônica de Ibn El-Kouthya sobre um convite feito aos muçulmanos: <i>\"et dit à Rodrigue: \"J'ai laissé là-bas des chevaux et des facouns d'une qualité incomparable\". Le roi lui remit des sommes considérables pour cette nouvelle acquisition, et l'autorisa à traverser la mer. C'est alors que Julien se rendit auprès de Thârik, fils de Ziad, et lui suggéra l'idée de conquérir l'Andalouisie, en lui dépeigant ses richesses, la faiblesse et la lâcheté de ses habitants.\"</i> [tradução: e disse a Rodrigo: “Deixei lá cavalos e carroças de qualidade incomparável”. O rei deu-lhe somas consideráveis para esta nova aquisição, e autorizou-o a atravessar o mar. Foi então que Julien foi até Thârik, filho de Ziad, e sugeriu-lhe a ideia de conquistar a Andaluzia, ao retratar as suas riquezas, fraqueza e covardia de seus habitantes.] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 8 - 9</a>)",
+                     "text": "Ao analisar a crônica de Alfonso III, Alexander P. Bronisch definiu parte dela como *\"la maldadde la estirpe de Witiza\"* [tradução: A maldade dos descendentes de Witiza] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1eaf98d9-1945-4895-b5b0-acfb4bd28f42'); return false;\">Bronisch, Alexander, <span class=\"htdate\"></span>, pp. 35 - 36</a>). Sua conclusão está baseada na terrível descrição dada a Witiza pela crônica, que afirma entre outras coisas: <i>\" Istut namque Spanie causa pereundi fuit, sicut dicit scriptura: Quia habundauit iniquitas...\"</i> [tradução: Pois esta foi a causa da destruição da Espanha, como diz a escritura: Porque a iniquidade abundou...]",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5",
+                           "text": "Dom Alfonso III, pp. 18",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1985",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "<p>Ao descrever a situação da península Ibérica, Charles R. Haines nos informa: <i>\"The old Spanish chronicles represent the fall of Gothic kingdom as the direct veneance of Heaven ... suicidal policy towards the Arians and the Jews.\" [tradução: Antigas crônicas de Espanha representam a queda do reino Gótico como vigança direta do céu... suicídio político com Arianos e Judeus]</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cd1a4bed-9754-4888-aee9-559d59503860'); return false;\">Haines, Charles R., <span class=\"htdate\"></span>, pp. 12</a>).</p><p>Finalmente, devemos considerar o que nos diz a crônica de Ibn El-Kouthya sobre um convite feito aos muçulmanos: <i>\"et dit à Rodrigue: \"J'ai laissé là-bas des chevaux et des facouns d'une qualité incomparable\". Le roi lui remit des sommes considérables pour cette nouvelle acquisition, et l'autorisa à traverser la mer. C'est alors que Julien se rendit auprès de Thârik, fils de Ziad, et lui suggéra l'idée de conquérir l'Andalouisie, en lui dépeigant ses richesses, la faiblesse et la lâcheté de ses habitants.\"</i> [tradução: e disse a Rodrigo: “Deixei lá cavalos e carroças de qualidade incomparável”. O rei deu-lhe somas consideráveis para esta nova aquisição, e autorizou-o a atravessar o mar. Foi então que Julien foi até Thârik, filho de Ziad, e sugeriu-lhe a ideia de conquistar a Andaluzia, ao retratar as suas riquezas, fraqueza e covardia de seus habitantes.] (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 8 - 9</a>)",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -563,9 +896,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -583,11 +919,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "De acordo com Ibn El-Kouthya (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 3</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
-                           "source": null,
+                           "text": "De acordo com Ibn El-Kouthya",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "27cd346a-a266-4b5a-ae76-2a0c35e8d6c2",
+                                 "text": "Ibn El-Kouthya, M. A. Cherbonneau, pp. 3",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1856",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                                 "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -603,11 +962,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "De acordo com Ibn El-Kouthya (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 3</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
-                           "source": null,
+                           "text": "De acordo com Ibn El-Kouthya",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "27cd346a-a266-4b5a-ae76-2a0c35e8d6c2",
+                                 "text": "Ibn El-Kouthya, M. A. Cherbonneau, pp. 3",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1856",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                                 "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -623,11 +1005,34 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "De acordo com Ibn El-Kouthya (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 3</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
-                           "source": null,
+                           "text": "De acordo com Ibn El-Kouthya",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "27cd346a-a266-4b5a-ae76-2a0c35e8d6c2",
+                                 "text": "Ibn El-Kouthya, M. A. Cherbonneau, pp. 3",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1856",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "28b056b5-2067-4cd4-96d4-4e6f36fac5e9",
+                                 "text": "Medieval Lands, Spain: Vandals, Suevi & Visigoths",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2019",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -643,11 +1048,23 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "De acordo com Manuel José da Costa Felgueiras Gaio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras, Gaio, Manuel J da C., <span class=\"htdate\"></span>, Souzas, pp. 13</a>)",
-                           "source": null,
+                           "text": "De acordo com Manuel José da Costa Felgueiras Gaio",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "d5863482-48a0-4ee6-ba5c-062d0ce1eaa4",
+                                 "text": "Felgueiras, Gaio, Manuel J da C., Souzas, pp. 13",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1939",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -665,15 +1082,24 @@
                         }
                      ],
                      "address": "",
+                     "city_id": "",
                      "city": "",
+                     "state_id": "",
                      "state": "",
                      "pc": "",
+                     "country_id": "",
                      "country": "",
                      "sources": [
                         {
                            "type": 0,
                            "uuid": "f52c5ae4-6b17-433d-a5cf-bfd6c569fdc5",
-                           "text": "Crónica de Alfonso III, pp. 12"
+                           "text": "Crónica de Alfonso III, pp. 12",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ]
                   }
@@ -691,11 +1117,23 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "Manuel José da Costa Felgueiras Gaio menciona informações sem apresentar qualquer fonte que as suporte (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras, Gaio, Manuel J da C., <span class=\"htdate\"></span>, Souzas, pp. 13</a>)",
-                     "source": null,
+                     "text": "Manuel José da Costa Felgueiras Gaio menciona informações sem apresentar qualquer fonte que as suporte",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "d5863482-48a0-4ee6-ba5c-062d0ce1eaa4",
+                           "text": "Felgueiras, Gaio, Manuel J da C., Souzas, pp. 13",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1939",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "html",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -727,9 +1165,12 @@
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -747,11 +1188,23 @@
                      "add_link": true,
                      "history": [
                         {
-                           "text": "De acordo com Manuel José da Costa Felgueiras Gaio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras, Gaio, Manuel J da C., <span class=\"htdate\"></span>, Souzas, pp. 13</a>)",
-                           "source": null,
+                           "text": "De acordo com Manuel José da Costa Felgueiras Gaio",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "d5863482-48a0-4ee6-ba5c-062d0ce1eaa4",
+                                 "text": "Felgueiras, Gaio, Manuel J da C., Souzas, pp. 13",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1939",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
@@ -772,11 +1225,23 @@
                "haplogroup": null,
                "history": [
                   {
-                     "text": "Manuel Jozé da C. Felgueiras Gaio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras, Gaio, Manuel J da C., <span class=\"htdate\"></span>, Souzas, pp. 13</a>) afirma que Menaia Ribeiro seria descendente por varonia de um Sisebuto, [suposto] filho de Witiza, mas não há documentos ou crônicas que corroborem essa informação (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('27cd346a-a266-4b5a-ae76-2a0c35e8d6c2'); return false;\">Ibn El-Kouthya, M. A. Cherbonneau, <span class=\"htdate\"></span>, pp. 3</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('28b056b5-2067-4cd4-96d4-4e6f36fac5e9'); return false;\">Medieval Lands, <span class=\"htdate\"></span>, <i>Spain: Vandals, Suevi & Visigoths</i></a>)",
-                     "source": null,
+                     "text": "Manuel Jozé da C. Felgueiras Gaio afirma que Menaia Ribeiro seria descendente por varonia de um Sisebuto, [suposto] filho de Witiza, mas não há documentos ou crônicas que corroborem essa informação",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "d5863482-48a0-4ee6-ba5c-062d0ce1eaa4",
+                           "text": "Felgueiras, Gaio, Manuel J da C., Souzas, pp. 13",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1939",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "html",
+                     "format": "markdown",
                      "PostMention": "."
                   },
                   {
@@ -785,12 +1250,18 @@
                         {
                            "type": 1,
                            "uuid": "d5863482-48a0-4ee6-ba5c-062d0ce1eaa4",
-                           "text": "Felgueiras, Gaio, Manuel J da C., Souzas, pp. 13"
+                           "text": "Felgueiras, Gaio, Manuel J da C., Souzas, pp. 13",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1939",
+                              "month": "",
+                              "day": ""
+                           }
                         }
                      ],
                      "date_time": null,
                      "isTable": false,
-                     "format": "html",
+                     "format": "markdown",
                      "PostMention": "."
                   }
                ],
@@ -820,20 +1291,46 @@
                      "name": "Soeiro Belfager",
                      "history": [
                         {
-                           "text": "De acordo com Dom Pedro e Manuel José da Costa Felgueiras Gaio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94cddc67-cec8-414a-9885-6d3e7ee952ba'); return false;\">Sousa, Manuel. et all, <span class=\"htdate\"></span>, Dom Pedro, pp. 133</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d5863482-48a0-4ee6-ba5c-062d0ce1eaa4'); return false;\">Felgueiras, Gaio, Manuel J da C., <span class=\"htdate\"></span>, Souzas, pp. 13</a>)",
-                           "source": null,
+                           "text": "De acordo com Dom Pedro e Manuel José da Costa Felgueiras Gaio",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "d5863482-48a0-4ee6-ba5c-062d0ce1eaa4",
+                                 "text": "Felgueiras, Gaio, Manuel J da C., Souzas, pp. 13",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1939",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "94cddc67-cec8-414a-9885-6d3e7ee952ba",
+                                 "text": "Sousa, Manuel. et all, Dom Pedro, pp. 133",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1646",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
                            "date_time": null,
                            "isTable": false,
-                           "format": "html",
+                           "format": "markdown",
                            "PostMention": "."
                         }
                      ],
                      "date_time": {
                         "date": null,
                         "address": "",
+                        "city_id": "",
                         "city": "",
+                        "state_id": "",
                         "state": "",
                         "pc": "",
+                        "country_id": "",
                         "country": "",
                         "sources": null
                      }
@@ -907,6 +1404,12 @@
       {
          "type": "gregory",
          "year": "2019",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "gregory",
+         "year": "2019",
          "month": "9",
          "day": "16"
       },
@@ -918,73 +1421,7 @@
       },
       {
          "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "612",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "620",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1607",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
          "year": "1751",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "620",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1754",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1751",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1696",
          "month": "-1",
          "day": "-1"
       },
@@ -1020,36 +1457,6 @@
       },
       {
          "type": "gregory",
-         "year": "1696",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1985",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
          "year": "1861",
          "month": "-1",
          "day": "-1"
@@ -1074,55 +1481,7 @@
       },
       {
          "type": "gregory",
-         "year": "1985",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1985",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
          "year": "2011",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2011",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2011",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1985",
          "month": "-1",
          "day": "-1"
       },
@@ -1147,90 +1506,6 @@
       {
          "type": "gregory",
          "year": "2024",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1856",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1856",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1856",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1939",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1939",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1939",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1939",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1856",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2019",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1646",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1939",
          "month": "-1",
          "day": "-1"
       }
