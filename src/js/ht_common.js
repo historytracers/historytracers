@@ -1066,6 +1066,19 @@ function htFillWebPage(page, data)
     } else if (data.type != undefined && data.type == "class" && data.version == 2) {
         htFillClassContentV2(data, last_update, page_authors, page_reviewers, data.index);
     } else {
+        if ((data.gedcom != undefined || data.csv != undefined) && $("#files").length > 0) {
+            var csvgedtxt = keywords[108]+"<p><ul>";
+            if (data.csv != undefined) {
+                csvgedtxt += "<li><a href=\""+data.csv+"\" target=\"_blank\">CSV</a>: "+keywords[109]+"</li>";
+            }
+
+            if (data.gedcom != undefined) {
+                csvgedtxt += "<li><a href=\""+data.gedcom+"\" target=\"_blank\">GEDCOM</a>: "+keywords[110]+"</li>";
+            }
+            csvgedtxt += "</ul></p>"+keywords[111];
+            $("#files").html(csvgedtxt);
+        }
+
         for (const i in data.content) {
             if (data.content[i].value == undefined || data.content[i].value == null) {
                 htFillStringOnPage(data, i, page);
@@ -1440,8 +1453,19 @@ function htFillFamilyList(table, target) {
 
 function htFillMapList(table, target, page) {
     for (const i in table) {
+        var additional = "";
         if (table[i].id != "fill_dates" && table[i].id != "date_time") {
-            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
+            if (table[i].csv != undefined && table[i].csv.length > 0) {
+                additional += "(<a href=\""+table[i].csv+"\" target=\"_blank\">CSV</a>";
+            }
+
+            if (table[i].gedcom != undefined && table[i].gedcom.length > 0) {
+                additional += (additional.length == 0)? "(" : ", ";
+                additional += " <a href=\""+table[i].gedcom+"\" target=\"_blank\">GEDCOM</a>)";
+            } else {
+                additional += (additional.length == 0)? "" : ")";
+            }
+            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+" "+additional+"</li>");
         } else {
             if (table[i].text.constructor === vectorConstructor) {
                 htFillHTDate(table[i].text);
@@ -1737,7 +1761,7 @@ function htFillFamilies(page, table) {
         if (table.gedcom != undefined) {
             csvgedtxt += "<li><a href=\""+table.gedcom+"\" target=\"_blank\">GEDCOM</a>: "+keywords[110]+"</li>";
         }
-        csvgedtxt += "</ul></p>";
+        csvgedtxt += "</ul></p>"+keywords[111];
         $("#files").html(csvgedtxt);
     }
 
