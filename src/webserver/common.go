@@ -13,6 +13,8 @@ import (
 	"github.com/google/uuid"
 )
 
+var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
+
 // Common date type
 type HTDate struct {
 	DateType string `json:"type"`
@@ -277,4 +279,59 @@ func htUpdateSourcesData(src []HTSource) {
 		}
 		htUpdateSourceData(s)
 	}
+}
+
+func htDateToString(dt *HTDate) string {
+	if dt == nil || dt.DateType != "gregory" {
+		return ""
+	}
+
+	if dt.Month == "-1" || dt.Day == "-1" {
+		ret := fmt.Sprintf("%s", dt.Year)
+		return ret
+	}
+
+	var month string
+	switch dt.Month {
+	case "1":
+		month = "jan"
+		break
+	case "2":
+		month = "feb"
+		break
+	case "3":
+		month = "mar"
+		break
+	case "4":
+		month = "apr"
+		break
+	case "5":
+		month = "may"
+		break
+	case "6":
+		month = "jun"
+		break
+	case "7":
+		month = "jul"
+		break
+	case "8":
+		month = "aug"
+		break
+	case "9":
+		month = "sep"
+		break
+	case "10":
+		month = "oct"
+		break
+	case "11":
+		month = "nov"
+		break
+	case "12":
+	default:
+		month = "dec"
+		break
+	}
+	ret := fmt.Sprintf("%s %s %s", dt.Day, month, dt.Year)
+
+	return ret
 }

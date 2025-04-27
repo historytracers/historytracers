@@ -5,7 +5,7 @@
 // As a workaround, we are exporting the data as CSV and using
 // Gramps to convert it to GEDCOM.
 //
-// https://www.gramps-project.org/wiki/index.php/Gramps_5.1_Wiki_Manual_-_Manage_Family_Trees:_CSV_Import_and_Export
+// https://www.gramps-project.org/wiki/index.php/Gramps_6.0_Wiki_Manual_-_Manage_Family_Trees:_CSV_Import_and_Export
 
 package main
 
@@ -204,61 +204,6 @@ func htXrefGEDCOM(prefix string, id string) string {
 	}
 	localXRef := fmt.Sprintf("%s%s", prefix, id[0:18])
 	return localXRef
-}
-
-func htFamilyEventDate(dt *HTDate) string {
-	if dt == nil || dt.DateType != "gregory" {
-		return ""
-	}
-
-	if dt.Month == "-1" || dt.Day == "-1" {
-		ret := fmt.Sprintf("%s", dt.Year)
-		return ret
-	}
-
-	var month string
-	switch dt.Month {
-	case "1":
-		month = "jan"
-		break
-	case "2":
-		month = "feb"
-		break
-	case "3":
-		month = "mar"
-		break
-	case "4":
-		month = "apr"
-		break
-	case "5":
-		month = "may"
-		break
-	case "6":
-		month = "jun"
-		break
-	case "7":
-		month = "jul"
-		break
-	case "8":
-		month = "aug"
-		break
-	case "9":
-		month = "sep"
-		break
-	case "10":
-		month = "oct"
-		break
-	case "11":
-		month = "nov"
-		break
-	case "12":
-	default:
-		month = "dec"
-		break
-	}
-	ret := fmt.Sprintf("%s %s %s", dt.Day, month, dt.Year)
-
-	return ret
 }
 
 // CSV
@@ -473,7 +418,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
-					birthDate = htFamilyEventDate(&b.Date[0])
+					birthDate = htDateToString(&b.Date[0])
 					birthSource, _ = htSelectFirstSource(b.Sources)
 				}
 			}
@@ -492,7 +437,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
-					baptismDate = htFamilyEventDate(&b.Date[0])
+					baptismDate = htDateToString(&b.Date[0])
 					baptismSource, _ = htSelectFirstSource(b.Sources)
 				}
 			}
@@ -510,7 +455,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if d.Date != nil && len(d.Date) > 0 {
-					deathDate = htFamilyEventDate(&d.Date[0])
+					deathDate = htDateToString(&d.Date[0])
 					deathSource, _ = htSelectFirstSource(d.Sources)
 				}
 			}
@@ -533,7 +478,7 @@ func htSetCSVMarriage(id string, parent1 string, parent2 string, marr *FamilyPer
 	var marrDate string = ""
 
 	if marr.DateTime.Date != nil && len(marr.DateTime.Date) > 0 {
-		marrDate = htFamilyEventDate(&marr.DateTime.Date[0])
+		marrDate = htDateToString(&marr.DateTime.Date[0])
 	}
 
 	marrSource, marrType := htSelectSourceFromText(marr.History)
@@ -1036,7 +981,6 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 }
 
 func htUpdateAllFamilies(rewrite bool) error {
-	htLangPaths := [3]string{"en-US", "es-ES", "pt-BR"}
 	marriagesMap = make(map[FamilyKey][]string)
 	addrMap = make(map[AddrKey][]string)
 	for i := 0; i < len(htLangPaths); i++ {
@@ -1068,8 +1012,6 @@ func htRemoveCurrentGEDCOMDirectory(path string) {
 
 func htCreateGEDCOMDirectory() {
 	localPath := fmt.Sprintf("%sgedcom/", CFG.SrcPath)
-	htRemoveCurrentGEDCOMDirectory(localPath)
-
 	if verboseFlag {
 		fmt.Println("Creating GEDCOM directory", localPath)
 	}
