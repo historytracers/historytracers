@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-// The tested GEDCOM libraries did not meet the expected goals.
-//
-// As a workaround, we are exporting the data as CSV and using
-// Gramps to convert it to GEDCOM.
+// The tested GEDCOM libraries did not meet our requirements. As an alternative,
+// we are exporting the data as CSV and using Gramps to convert it to GEDCOM.
 //
 // https://www.gramps-project.org/wiki/index.php/Gramps_6.0_Wiki_Manual_-_Manage_Family_Trees:_CSV_Import_and_Export
 
@@ -44,6 +42,7 @@ type IdxFamilyContent struct {
 	ValueType string           `json:"value_type"`
 	HTMLValue string           `json:"html_value"`
 	Value     []IdxFamilyValue `json:"value"`
+	FillDates []HTDate         `json:"date_time"`
 }
 
 type IdxFamily struct {
@@ -387,8 +386,8 @@ func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
 }
 
 func htSetCSVPeople(person *FamilyPerson, lang string) []string {
-	// WHEN EXPORTING TO GRAMPS, WE CANNOT USE TOGETHER ID AND PLACE.
-	// WE SELECTED THE ID BY UNIQUENESS
+	// When exporting to Gramps, ID and Place cannot be used together. To resolve this, we selected ID
+	// as the unique identifier.
 	var birthDate string = ""
 	// var birthPlace string = ""
 	var birthPlaceID string = ""
@@ -406,8 +405,8 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 	pID := htXrefGEDCOM("P", person.ID)
 	historySource, historyPrimary := htSelectSourceFromText(person.History)
-	// If we do not have a proper citation or direct access to prove,
-	// we should treat it as Reference, but have condition to confirm the person is real
+	// If we lack proper citations or direct evidence to verify a fact, we should classify it as a Reference
+	// but only if there is reasonable confidence that the person actually existed.
 	if person.IsReal {
 		historyPrimary = 0
 	}
@@ -570,7 +569,8 @@ func htParseFamilySetLicenses(families *Family, lang string) {
 
 func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 	var gedcomID string
-	// We always set males as first to keep pattern with GEDCOM files. This is not obligatory in History Tracers files.
+	// To maintain consistency with GEDCOM files, we always list males first. However, this rule is not
+	// mandatory in History Tracers files.
 	var first string
 	var second string
 
@@ -614,8 +614,7 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 
 			cmpID := cmp[0]
 			partialCmpID := cmpID[1 : len(cmpID)-1]
-			// Families are having different IDs in different languages.
-			// we cannot accept it.
+			// Families with different IDs across languages must be corrected.
 			if partialCmpID != marr.GEDCOMId {
 				marr.GEDCOMId = partialCmpID
 				familyUpdated = true
@@ -855,6 +854,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	return nil, family.GEDCOM, family.CSV
 }
 
+// Index
 func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
 	families.GEDCOM = fmt.Sprintf("gedcom/families-%s.ged", lang)
 	if verboseFlag {
@@ -882,27 +882,6 @@ func htParseIndexSetLicenses(families *IdxFamily, lang string) {
 	families.License = append(families.License, "CC BY-NC 4.0 DEED")
 
 	indexUpdated = true
-}
-
-func htWriteFamilyIndexFile(lang string, index *IdxFamily) (string, error) {
-	id := uuid.New()
-	strID := id.String()
-
-	tmpFile := fmt.Sprintf("%slang/%s/%s.tmp", CFG.SrcPath, lang, strID)
-
-	fp, err := os.Create(tmpFile)
-	if err != nil {
-		return "", err
-	}
-
-	e := json.NewEncoder(fp)
-	e.SetEscapeHTML(false)
-	e.SetIndent("", "   ")
-	e.Encode(index)
-
-	fp.Close()
-
-	return tmpFile, nil
 }
 
 func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
