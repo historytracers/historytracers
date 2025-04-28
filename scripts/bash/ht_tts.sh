@@ -2,19 +2,6 @@
 
 set -e
 
-ht_select_input() {
-    if [ "${1}" == "pt-BR" ]; then
-        echo "PT_TEXT"
-        return
-    elif [ "${1}" == "es-ES" ]; then
-        echo "ES_TEXT"
-        return
-    fi
-
-    echo "EN_TEXT"
-    return
-}
-
 ht_select_model() {
     local SELECTOR=$RANDOM
     if [ "${1}" == "pt-BR" ]; then
@@ -45,26 +32,28 @@ ht_select_cfg() {
 }
 
 ht_convert() {
-    local IN_FILENAME=$(ht_select_input "${1}")
-    local MODEL=$(ht_select_model "${1}")
-    local CFG=$(ht_select_cfg "${MODEL}")
+    local IN_FILENAME SELLANG MODEL CFG
+    IN_FILENAME="${1}"
+    SELLANG=$(echo "$IN_FILENAME" | cut -d_ -f2)
+    MODEL=$(ht_select_model "${SELLANG}")
+    CFG=$(ht_select_cfg "${MODEL}")
 
-    echo "Using Model ${MODEL} to create ${2}_${1}.wav"
+    echo "Using Model ${MODEL} to create ${IN_FILENAME}.wav"
 
-    cat "$IN_FILENAME" | ./piper -m ."/models/$MODEL" -c "./config/$CFG" -f "${2}_${1}.wav"
-    ffmpeg  -i "${2}_${1}.wav" "${2}_${1}.ogg"
+    ./piper -m ."/models/$MODEL" -c "./config/$CFG" -f "${IN_FILENAME}.wav" < "$IN_FILENAME"
+    ffmpeg  -i "${IN_FILENAME}.wav" "${IN_FILENAME}.ogg"
 }
 
 ht_error() {
-    echo "Please specify the language (pt-BR, es-ES, en-US) and the output filename."
+    echo "Please specify a filename with language suffix (_pt-BR, _es-ES, _en-US)."
     echo "Example:"
     echo ""
-    echo "./ht_tts.sh pt-BR families"
+    echo "./ht_tts.sh FILE_NAME_en-US"
     exit 1;
 }
 
-if [ $# -ne 2 ]; then
+if [ $# -ne 1 ]; then
     ht_error
 fi
 
-ht_convert "${1}" "${2}"
+ht_convert "${1}"

@@ -509,27 +509,6 @@ func htSetCSVFamily(data []string, child *FamilyPersonChild, lang string) []stri
 	return []string{data[0], " [" + pID + "]", historySource, childNote, ""}
 }
 
-func htWriteFamilyFile(lang string, family *Family) (string, error) {
-	id := uuid.New()
-	strID := id.String()
-
-	tmpFile := fmt.Sprintf("%slang/%s/%s.tmp", CFG.SrcPath, lang, strID)
-
-	fp, err := os.Create(tmpFile)
-	if err != nil {
-		return "", err
-	}
-
-	e := json.NewEncoder(fp)
-	e.SetEscapeHTML(false)
-	e.SetIndent("", "   ")
-	e.Encode(family)
-
-	fp.Close()
-
-	return tmpFile, nil
-}
-
 func htParseFamilySetGEDCOM(families *Family, fileName string, lang string) {
 	if len(families.GEDCOM) > 0 {
 		return
@@ -833,7 +812,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	}
 	htParseFamilySetDefaultValues(&family, lang, localPath)
 
-	newFile, err := htWriteFamilyFile(lang, &family)
+	newFile, err := htWriteTmpFile(lang, &family)
 
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)

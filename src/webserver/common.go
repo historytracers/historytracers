@@ -7,10 +7,13 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
 	"github.com/google/uuid"
+
+	"jaytaylor.com/html2text"
 )
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
@@ -79,6 +82,28 @@ type HTMap struct {
 	Text  string `json:"text"`
 	Img   string `json:"img"`
 	Order int    `json:"order"`
+}
+
+type HTCommonContent struct {
+	ID        string           `json:"id"`
+	Desc      string           `json:"desc"`
+	Target    string           `json:"target"`
+	Page      string           `json:"page"`
+	ValueType string           `json:"value_type"`
+	HTMLValue string           `json:"html_value"`
+	Value     []IdxFamilyValue `json:"value"`
+	FillDates []HTDate         `json:"date_time"`
+}
+
+type HTCommonFile struct {
+	Title      string            `json:"title"`
+	Header     string            `json:"header"`
+	License    []string          `json:"license"`
+	Sources    []string          `json:"sources"`
+	LastUpdate []string          `json:"last_update"`
+	Audio      []HTAudio         `json:"audio"`
+	Contents   []HTCommonContent `json:"content"`
+	DateTime   []HTDate          `json:"date_time"`
 }
 
 // Common functions
@@ -364,6 +389,8 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 	ret := strings.ReplaceAll(str, "-------------\n", "\n")
 	ret = strings.ReplaceAll(ret, "---------\n", "\n")
 	ret = strings.ReplaceAll(ret, "--------\n", "\n")
+	ret = strings.ReplaceAll(ret, "* *\n", "")
+	ret = strings.ReplaceAll(ret, ":*\n", ":")
 
 	// URL
 	ret = strings.ReplaceAll(ret, "( # )", "")
@@ -372,7 +399,7 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 }
 
 func htWriteAudioFile(fileName string, lang string, content string) error {
-	localPath := fmt.Sprintf("%saudios/%s_%s.json", CFG.SrcPath, fileName, lang)
+	localPath := fmt.Sprintf("%saudios/%s_%s", CFG.SrcPath, fileName, lang)
 
 	fp, err := os.Create(localPath)
 	if err != nil {
@@ -386,4 +413,90 @@ func htWriteAudioFile(fileName string, lang string, content string) error {
 	fp.Close()
 
 	return nil
+}
+
+func htWriteTmpFile(lang string, data interface{}) (string, error) {
+	id := uuid.New()
+	strID := id.String()
+
+	tmpFile := fmt.Sprintf("%slang/%s/%s.tmp", CFG.SrcPath, lang, strID)
+
+	fp, err := os.Create(tmpFile)
+	if err != nil {
+		return "", err
+	}
+
+	e := json.NewEncoder(fp)
+	e.SetEscapeHTML(false)
+	e.SetIndent("", "   ")
+	e.Encode(data)
+
+	fp.Close()
+
+	return tmpFile, nil
+}
+
+func htLoadCommonFile(cf *HTCommonFile, name string, lang string) (string, error) {
+	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
+	if verboseFlag {
+		fmt.Println("Adjusting file", fileName)
+	}
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR Adjusting file", fileName)
+		return "", err
+	}
+
+	err = json.Unmarshal(byteValue, cf)
+	if err != nil {
+		htCommonJsonError(byteValue, err)
+		return "", err
+	}
+
+	return fileName, nil
+}
+
+func htOverwriteDates(text string, dates []HTDate, PostMention string) string {
+	size := len(dates)
+	if size == 0 {
+		return text
+	}
+
+	for i := 0; i < size; i++ {
+		dt := htDateToString(&dates[i])
+		overwrite := "<htdate" + strconv.Itoa(i) + ">"
+		text = strings.Replace(text, overwrite, dt, 1)
+	}
+	return text + PostMention
+}
+
+func htTextCommonContent(idx *HTCommonContent) string {
+	var finalText string = ""
+	var htmlText string = ""
+	var err error
+
+	if len(idx.HTMLValue) > 0 {
+		htmlText = idx.HTMLValue
+
+		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, "")
+	} else if len(idx.Value) > 0 {
+		for i := 0; i < len(idx.Value); i++ {
+			fv := &idx.Value[i]
+
+			work := fmt.Sprintf("%s : %s\n", fv.Name, fv.Desc)
+
+			htmlText += htOverwriteDates(work, idx.FillDates, "")
+		}
+		htmlText = htMarkdownToHTML(htmlText)
+	} else {
+		return finalText
+	}
+
+	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true})
+	if err != nil {
+		panic(err)
+	}
+
+	return finalText + "\n"
 }
