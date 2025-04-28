@@ -337,6 +337,11 @@ func htFillAddrKey(extKey *string, place string, placeType string, date string, 
 				addrMapLang[key] = data
 				htFamilyPlaceCSV = append(htFamilyPlaceCSV, data)
 			}
+			if len(*extKey) == 0 {
+				val := data[0]
+				copyID := val[1 : len(val)-1]
+				*extKey = string(copyID)
+			}
 			ret = data
 		}
 	}
