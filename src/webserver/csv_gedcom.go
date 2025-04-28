@@ -314,18 +314,20 @@ func htSetCSVBasicPerson(name string, id string, lang string, child *FamilyPerso
 	return []string{"[" + pID + "]", name, "", "", "", "", "", "", historySource, historyNote, "", "", "", "", "", "", "", "", "", "", "", ""}
 }
 
-func htFillAddrKey(key string, place string, placeType string, date string, enclosed string, PC string) ([]string, string) {
+func htFillAddrKey(extKey *string, place string, placeType string, date string, enclosed string, PC string) []string {
 	var ret []string = nil
-	var retID string = ""
 	if len(place) > 0 {
 		key := AddrKey{Place: place, Type: placeType}
 		if data, ok := addrMap[key]; !ok {
-			id := uuid.New()
-			strID := id.String()
-			pID := htXrefGEDCOM("L", strID)
+			if len(*extKey) == 0 {
+				id := uuid.New()
+				strID := id.String()
+				pID := htXrefGEDCOM("L", strID)
+				*extKey = string(pID)
+				familyUpdated = true
+			}
 
-			ret = []string{"[" + pID + "]", place, place, placeType, "", PC, enclosed, date}
-			retID = pID
+			ret = []string{"[" + *extKey + "]", place, place, placeType, "", PC, enclosed, date}
 			addrMap[key] = ret
 			addrMapLang[key] = ret
 			htFamiliesPlaceCSV = append(htFamiliesPlaceCSV, ret)
@@ -335,13 +337,11 @@ func htFillAddrKey(key string, place string, placeType string, date string, encl
 				addrMapLang[key] = data
 				htFamilyPlaceCSV = append(htFamilyPlaceCSV, data)
 			}
-			oldID := data[0]
-			retID = oldID[1 : len(oldID)-1]
 			ret = data
 		}
 	}
 
-	return ret, retID
+	return ret
 }
 
 func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
@@ -350,31 +350,17 @@ func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
 	}
 
 	var nextBoundary string = ""
-	retC, retcID := htFillAddrKey(pe.CountryID, pe.Country, "Country", "", date, "")
+	retC := htFillAddrKey(&pe.CountryID, pe.Country, "Country", "", date, "")
 	if retC != nil {
-		if len(pe.CountryID) == 0 {
-			pe.CountryID = retcID
-			familyUpdated = true
-		}
 		nextBoundary = retC[0]
 	}
 
-	retS, retsID := htFillAddrKey(pe.StateID, pe.State, "State", nextBoundary, date, "")
+	retS := htFillAddrKey(&pe.StateID, pe.State, "State", nextBoundary, date, "")
 	if retS != nil {
-		if len(pe.StateID) == 0 {
-			pe.StateID = retsID
-			familyUpdated = true
-		}
 		nextBoundary = retS[0]
 	}
 
-	retCi, retCiID := htFillAddrKey(pe.CityID, pe.City, "City", nextBoundary, date, pe.PC)
-	if retS != nil {
-		if len(pe.CityID) == 0 {
-			pe.CityID = retCiID
-			familyUpdated = true
-		}
-	}
+	retCi := htFillAddrKey(&pe.CityID, pe.City, "City", nextBoundary, date, pe.PC)
 
 	if retCi != nil {
 		return retCi

@@ -92,35 +92,25 @@ func htTextFamilyIndex(idx *IdxFamilyContent) string {
 }
 
 // LOAD TREE AS DEFAULT VALUE
-func htTextGeneralMarriage(lang string) string {
-	if lang == "pt-BR" {
-		return "Teve \n"
-	} else if lang == "es-ES" {
-		return "Tuvo \n"
-	}
-
-	return "He had \n"
-}
-
 func htTextHTMLMarriageIntroduction(lang string, name string, marrType string) string {
 	if lang == "pt-BR" {
 		if marrType == "theory" {
-			return "<h4>matrimônio com " + name + ".</h4>"
+			return "<h4>Teve matrimônio com " + name + ".</h4>"
 		} else {
-			return "<h4>hipotético matrimônio com " + name + ".</h4>"
+			return "<h4>Teve hipotético matrimônio com " + name + ".</h4>"
 		}
 	} else if lang == "es-ES" {
 		if marrType == "theory" {
-			return "<h4>casamiento con " + name + "</h4>"
+			return "<h4>Tuvo casamiento con " + name + "</h4>"
 		} else {
-			return "<h4>hipotético casamiento con " + name + ".</h4>"
+			return "<h4>Tuvo hipotético casamiento con " + name + ".</h4>"
 		}
 	}
 
 	if marrType == "theory" {
-		return "<h4>marriage with " + name + ".</h4>"
+		return "<h4>He had a marriage with " + name + ".</h4>"
 	} else {
-		return "<h4>hypothetical marriage with " + name + ".</h4>"
+		return "<h4>He had a hypothetical marriage with " + name + ".</h4>"
 	}
 }
 
@@ -166,8 +156,34 @@ func htTextPersonIntroduction(lang string, name string) string {
 	return "\n\nPerson: " + name + ".\n\n"
 }
 
+func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 string) string {
+	var intro string = ""
+	if lang == "pt-BR" {
+		if sex == "masculine" || sex == "masculino" {
+			intro = "Filho de "
+		} else {
+			intro = "Filha de "
+		}
+		return "\n\n" + intro + parent1 + " e " + parent2 + ".\n\n"
+	} else if lang == "es-ES" {
+		if sex == "masculine" || sex == "masculino" {
+			intro = "Hijo de "
+		} else {
+			intro = "Hija de "
+		}
+		return "\n\n" + intro + parent1 + " y " + parent2 + ".\n\n"
+	}
+
+	if sex == "masculine" || sex == "masculino" {
+		intro = "Son of "
+	} else {
+		intro = "Daughter of "
+	}
+	return "\n\n" + intro + parent1 + " and " + parent2 + ".\n\n"
+}
+
 func htTextFamily(families *Family, lang string) string {
-	var finalText string = defaultFamilyTop
+	var finalText string = families.Title + ".\n\n" + defaultFamilyTop
 	var htmlText string = ""
 
 	if families.Common != nil {
@@ -247,6 +263,13 @@ func htTextFamily(families *Family, lang string) string {
 				}
 			}
 
+			if person.Parents != nil {
+				for k := 0; k < len(person.Parents); k++ {
+					parents := &person.Parents[k]
+					finalText += htTextParentsIntroduction(lang, person.Sex, parents.FatherName, parents.MotherName)
+				}
+			}
+
 			if person.Marriages != nil {
 				for k := 0; k < len(person.Marriages); k++ {
 					marr := &person.Marriages[k]
@@ -258,9 +281,6 @@ func htTextFamily(families *Family, lang string) string {
 					htmlText += htTextHTMLMarriageIntroduction(lang, marr.Name, marr.Type)
 					for m := 0; m < len(marr.History); m++ {
 						hist := &marr.History[m]
-						if m == 0 {
-							finalText += htTextGeneralMarriage(lang)
-						}
 
 						if hist.Format == "html" {
 							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "")
