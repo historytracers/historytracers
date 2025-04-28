@@ -95,6 +95,8 @@ func main() {
 	DaemonLog := htOpenLogs("daemon.log")
 	AccessLog := htOpenLogs("access.log")
 
+	// TODO: WE ALLOW MORE THAN ONE FLAG TO BE PASSED, BUT WE DO NOT PROCESS
+	// TOGETHER. IT IS NECESSARY TO CHANGE THIS.
 	if minifyFlag {
 		HTMinifyAllFiles()
 		return
@@ -102,6 +104,11 @@ func main() {
 
 	if gedcomFlag {
 		htCreateGEDCOM()
+		return
+	}
+
+	if audioFlag {
+		htFamiliesToAudio()
 		return
 	}
 

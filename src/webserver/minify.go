@@ -34,8 +34,8 @@ const (
 	HTLastFile
 )
 
-var htDirectories []string
-var htFiles [HTLastFile]string
+var htDirectories []string = []string{"bodies", "css", "csv", "gedcom", "images", "js", "lang", "lang/sources", "lang/en-US", "lang/en-US/smGame", "lang/es-ES", "lang/es-ES/smGame", "lang/pt-BR", "lang/pt-BR/smGame", "webfonts"}
+var htFiles [HTLastFile]string = [HTLastFile]string{"ht_common.css", "ht_math.css", "ht_common.js", "ht_math.js", "ht_chart.js"}
 
 var readmePattern = regexp.MustCompile("^README")
 var htPattern = regexp.MustCompile("^ht_")
@@ -43,11 +43,6 @@ var faPattern = regexp.MustCompile("^fa_")
 var chartPattern = regexp.MustCompile("^chart_")
 var jqueryPattern = regexp.MustCompile("^jquery-")
 var showdownPattern = regexp.MustCompile("^showdown.")
-
-func htMinifyFillVectors() {
-	htDirectories = []string{"bodies", "css", "csv", "gedcom", "images", "js", "lang", "lang/sources", "lang/en-US", "lang/en-US/smGame", "lang/es-ES", "lang/es-ES/smGame", "lang/pt-BR", "lang/pt-BR/smGame", "webfonts"}
-	htFiles = [HTLastFile]string{"ht_common.css", "ht_math.css", "ht_common.js", "ht_math.js", "ht_chart.js"}
-}
 
 func htMinifyCreateDirectories() {
 	htCreateDirectory(CFG.ContentPath)
@@ -540,7 +535,6 @@ func HTMinifyAllFiles() {
 	htMinifyRemoveOldContent()
 
 	// Create directories
-	htMinifyFillVectors()
 	htMinifyCreateDirectories()
 
 	var err error

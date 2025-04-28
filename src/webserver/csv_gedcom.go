@@ -1,11 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-// The tested GEDCOM libraries did not meet the expected goals.
+// The tested GEDCOM libraries did not meet our requirements. As an alternative,
+// we are exporting the data as CSV and using Gramps to convert it to GEDCOM.
 //
-// As a workaround, we are exporting the data as CSV and using
-// Gramps to convert it to GEDCOM.
-//
-// https://www.gramps-project.org/wiki/index.php/Gramps_5.1_Wiki_Manual_-_Manage_Family_Trees:_CSV_Import_and_Export
+// https://www.gramps-project.org/wiki/index.php/Gramps_6.0_Wiki_Manual_-_Manage_Family_Trees:_CSV_Import_and_Export
 
 package main
 
@@ -44,6 +42,7 @@ type IdxFamilyContent struct {
 	ValueType string           `json:"value_type"`
 	HTMLValue string           `json:"html_value"`
 	Value     []IdxFamilyValue `json:"value"`
+	FillDates []HTDate         `json:"date_time"`
 }
 
 type IdxFamily struct {
@@ -206,61 +205,6 @@ func htXrefGEDCOM(prefix string, id string) string {
 	return localXRef
 }
 
-func htFamilyEventDate(dt *HTDate) string {
-	if dt == nil || dt.DateType != "gregory" {
-		return ""
-	}
-
-	if dt.Month == "-1" || dt.Day == "-1" {
-		ret := fmt.Sprintf("%s", dt.Year)
-		return ret
-	}
-
-	var month string
-	switch dt.Month {
-	case "1":
-		month = "jan"
-		break
-	case "2":
-		month = "feb"
-		break
-	case "3":
-		month = "mar"
-		break
-	case "4":
-		month = "apr"
-		break
-	case "5":
-		month = "may"
-		break
-	case "6":
-		month = "jun"
-		break
-	case "7":
-		month = "jul"
-		break
-	case "8":
-		month = "aug"
-		break
-	case "9":
-		month = "sep"
-		break
-	case "10":
-		month = "oct"
-		break
-	case "11":
-		month = "nov"
-		break
-	case "12":
-	default:
-		month = "dec"
-		break
-	}
-	ret := fmt.Sprintf("%s %s %s", dt.Day, month, dt.Year)
-
-	return ret
-}
-
 // CSV
 func htInitializeCSVPlace() [][]string {
 	return [][]string{{"", "", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", "", ""}, {"place", "title", "name", "type", "latitude", "longitude", "code", "enclosed_by", "date"}}
@@ -370,18 +314,20 @@ func htSetCSVBasicPerson(name string, id string, lang string, child *FamilyPerso
 	return []string{"[" + pID + "]", name, "", "", "", "", "", "", historySource, historyNote, "", "", "", "", "", "", "", "", "", "", "", ""}
 }
 
-func htFillAddrKey(key string, place string, placeType string, date string, enclosed string, PC string) ([]string, string) {
+func htFillAddrKey(extKey *string, place string, placeType string, date string, enclosed string, PC string) []string {
 	var ret []string = nil
-	var retID string = ""
 	if len(place) > 0 {
 		key := AddrKey{Place: place, Type: placeType}
 		if data, ok := addrMap[key]; !ok {
-			id := uuid.New()
-			strID := id.String()
-			pID := htXrefGEDCOM("L", strID)
+			if len(*extKey) == 0 {
+				id := uuid.New()
+				strID := id.String()
+				pID := htXrefGEDCOM("L", strID)
+				*extKey = string(pID)
+				familyUpdated = true
+			}
 
-			ret = []string{"[" + pID + "]", place, place, placeType, "", PC, enclosed, date}
-			retID = pID
+			ret = []string{"[" + *extKey + "]", place, place, placeType, "", PC, enclosed, date}
 			addrMap[key] = ret
 			addrMapLang[key] = ret
 			htFamiliesPlaceCSV = append(htFamiliesPlaceCSV, ret)
@@ -391,13 +337,11 @@ func htFillAddrKey(key string, place string, placeType string, date string, encl
 				addrMapLang[key] = data
 				htFamilyPlaceCSV = append(htFamilyPlaceCSV, data)
 			}
-			oldID := data[0]
-			retID = oldID[1 : len(oldID)-1]
 			ret = data
 		}
 	}
 
-	return ret, retID
+	return ret
 }
 
 func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
@@ -406,31 +350,17 @@ func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
 	}
 
 	var nextBoundary string = ""
-	retC, retcID := htFillAddrKey(pe.CountryID, pe.Country, "Country", "", date, "")
+	retC := htFillAddrKey(&pe.CountryID, pe.Country, "Country", "", date, "")
 	if retC != nil {
-		if len(pe.CountryID) == 0 {
-			pe.CountryID = retcID
-			familyUpdated = true
-		}
 		nextBoundary = retC[0]
 	}
 
-	retS, retsID := htFillAddrKey(pe.StateID, pe.State, "State", nextBoundary, date, "")
+	retS := htFillAddrKey(&pe.StateID, pe.State, "State", nextBoundary, date, "")
 	if retS != nil {
-		if len(pe.StateID) == 0 {
-			pe.StateID = retsID
-			familyUpdated = true
-		}
 		nextBoundary = retS[0]
 	}
 
-	retCi, retCiID := htFillAddrKey(pe.CityID, pe.City, "City", nextBoundary, date, pe.PC)
-	if retS != nil {
-		if len(pe.CityID) == 0 {
-			pe.CityID = retCiID
-			familyUpdated = true
-		}
-	}
+	retCi := htFillAddrKey(&pe.CityID, pe.City, "City", nextBoundary, date, pe.PC)
 
 	if retCi != nil {
 		return retCi
@@ -442,8 +372,8 @@ func htFillAddrKeys(pe *FamilyPersonEvent, date string) []string {
 }
 
 func htSetCSVPeople(person *FamilyPerson, lang string) []string {
-	// WHEN EXPORTING TO GRAMPS, WE CANNOT USE TOGETHER ID AND PLACE.
-	// WE SELECTED THE ID BY UNIQUENESS
+	// When exporting to Gramps, ID and Place cannot be used together. To resolve this, we selected ID
+	// as the unique identifier.
 	var birthDate string = ""
 	// var birthPlace string = ""
 	var birthPlaceID string = ""
@@ -461,8 +391,8 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 	pID := htXrefGEDCOM("P", person.ID)
 	historySource, historyPrimary := htSelectSourceFromText(person.History)
-	// If we do not have a proper citation or direct access to prove,
-	// we should treat it as Reference, but have condition to confirm the person is real
+	// If we lack proper citations or direct evidence to verify a fact, we should classify it as a Reference
+	// but only if there is reasonable confidence that the person actually existed.
 	if person.IsReal {
 		historyPrimary = 0
 	}
@@ -473,7 +403,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
-					birthDate = htFamilyEventDate(&b.Date[0])
+					birthDate = htDateToString(&b.Date[0])
 					birthSource, _ = htSelectFirstSource(b.Sources)
 				}
 			}
@@ -492,7 +422,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
-					baptismDate = htFamilyEventDate(&b.Date[0])
+					baptismDate = htDateToString(&b.Date[0])
 					baptismSource, _ = htSelectFirstSource(b.Sources)
 				}
 			}
@@ -510,7 +440,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if d.Date != nil && len(d.Date) > 0 {
-					deathDate = htFamilyEventDate(&d.Date[0])
+					deathDate = htDateToString(&d.Date[0])
 					deathSource, _ = htSelectFirstSource(d.Sources)
 				}
 			}
@@ -533,7 +463,7 @@ func htSetCSVMarriage(id string, parent1 string, parent2 string, marr *FamilyPer
 	var marrDate string = ""
 
 	if marr.DateTime.Date != nil && len(marr.DateTime.Date) > 0 {
-		marrDate = htFamilyEventDate(&marr.DateTime.Date[0])
+		marrDate = htDateToString(&marr.DateTime.Date[0])
 	}
 
 	marrSource, marrType := htSelectSourceFromText(marr.History)
@@ -563,27 +493,6 @@ func htSetCSVFamily(data []string, child *FamilyPersonChild, lang string) []stri
 
 	// Gender is specified in Person
 	return []string{data[0], " [" + pID + "]", historySource, childNote, ""}
-}
-
-func htWriteFamilyFile(lang string, family *Family) (string, error) {
-	id := uuid.New()
-	strID := id.String()
-
-	tmpFile := fmt.Sprintf("%slang/%s/%s.tmp", CFG.SrcPath, lang, strID)
-
-	fp, err := os.Create(tmpFile)
-	if err != nil {
-		return "", err
-	}
-
-	e := json.NewEncoder(fp)
-	e.SetEscapeHTML(false)
-	e.SetIndent("", "   ")
-	e.Encode(family)
-
-	fp.Close()
-
-	return tmpFile, nil
 }
 
 func htParseFamilySetGEDCOM(families *Family, fileName string, lang string) {
@@ -625,7 +534,8 @@ func htParseFamilySetLicenses(families *Family, lang string) {
 
 func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 	var gedcomID string
-	// We always set males as first to keep pattern with GEDCOM files. This is not obligatory in History Tracers files.
+	// To maintain consistency with GEDCOM files, we always list males first. However, this rule is not
+	// mandatory in History Tracers files.
 	var first string
 	var second string
 
@@ -669,8 +579,7 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 
 			cmpID := cmp[0]
 			partialCmpID := cmpID[1 : len(cmpID)-1]
-			// Families are having different IDs in different languages.
-			// we cannot accept it.
+			// Families with different IDs across languages must be corrected.
 			if partialCmpID != marr.GEDCOMId {
 				marr.GEDCOMId = partialCmpID
 				familyUpdated = true
@@ -889,7 +798,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	}
 	htParseFamilySetDefaultValues(&family, lang, localPath)
 
-	newFile, err := htWriteFamilyFile(lang, &family)
+	newFile, err := htWriteTmpFile(lang, &family)
 
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
@@ -910,6 +819,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	return nil, family.GEDCOM, family.CSV
 }
 
+// Index
 func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
 	families.GEDCOM = fmt.Sprintf("gedcom/families-%s.ged", lang)
 	if verboseFlag {
@@ -937,27 +847,6 @@ func htParseIndexSetLicenses(families *IdxFamily, lang string) {
 	families.License = append(families.License, "CC BY-NC 4.0 DEED")
 
 	indexUpdated = true
-}
-
-func htWriteFamilyIndexFile(lang string, index *IdxFamily) (string, error) {
-	id := uuid.New()
-	strID := id.String()
-
-	tmpFile := fmt.Sprintf("%slang/%s/%s.tmp", CFG.SrcPath, lang, strID)
-
-	fp, err := os.Create(tmpFile)
-	if err != nil {
-		return "", err
-	}
-
-	e := json.NewEncoder(fp)
-	e.SetEscapeHTML(false)
-	e.SetIndent("", "   ")
-	e.Encode(index)
-
-	fp.Close()
-
-	return tmpFile, nil
 }
 
 func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
@@ -1036,7 +925,6 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 }
 
 func htUpdateAllFamilies(rewrite bool) error {
-	htLangPaths := [3]string{"en-US", "es-ES", "pt-BR"}
 	marriagesMap = make(map[FamilyKey][]string)
 	addrMap = make(map[AddrKey][]string)
 	for i := 0; i < len(htLangPaths); i++ {
@@ -1068,8 +956,6 @@ func htRemoveCurrentGEDCOMDirectory(path string) {
 
 func htCreateGEDCOMDirectory() {
 	localPath := fmt.Sprintf("%sgedcom/", CFG.SrcPath)
-	htRemoveCurrentGEDCOMDirectory(localPath)
-
 	if verboseFlag {
 		fmt.Println("Creating GEDCOM directory", localPath)
 	}

@@ -962,8 +962,11 @@ function htFillHTDate(vector)
 
 function htFillStringOnPage(data, idx, page)
 {
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
     if (data.content[idx].html_value != undefined && data.content[idx].target == undefined) {
-        $("#"+data.content[idx].id).append(data.content[idx].html_value);
+        var modifiedText = (data.content[idx].date_time == undefined) ? data.content[idx].html_value : htOverwriteHTDateWithText(data.content[idx].html_value, data.content[idx].date_time, localLang, localCalendar);
+        $("#"+data.content[idx].id).append(modifiedText);
     } else if (data.content[idx].id != undefined && data.content[idx].id == "fill_dates") {
         htFillHTDate(data.content[idx].text);
         return;
@@ -974,7 +977,8 @@ function htFillStringOnPage(data, idx, page)
 
     var text = "";
     if (data.content[idx].html_value != undefined) {
-        text = data.content[idx].html_value;
+        var modifiedText = (data.content[idx].date_time == undefined) ? data.content[idx].html_value : htOverwriteHTDateWithText(data.content[idx].html_value, data.content[idx].date_time, localLang, localCalendar);
+        text = modifiedText;
     } else if (data.content[idx].value != undefined) {
         text = data.content[idx].value;
     } else {
@@ -1097,7 +1101,7 @@ function htFillWebPage(page, data)
                     if (data.content[i].id != undefined && data.content[i].id != null && data.content[i].id.length > 0 && data.content[i].desc != undefined && data.content[i].desc.length > 0) {
                         $("#"+data.content[i].id).html(data.content[i].desc);
                     }
-                    htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page);
+                    htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
                 } else if (data.content[i].value_type == "subgroup") {
                     htFillSubMapList(data.content[i].value, data.content[i].target);
                 } else if (data.content[i].value_type == "paper") {
@@ -1451,7 +1455,9 @@ function htFillFamilyList(table, target) {
     }
 }
 
-function htFillMapList(table, target, page) {
+function htFillMapList(table, target, page, date_time) {
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
     for (const i in table) {
         var additional = "";
         if (table[i].id != "fill_dates" && table[i].id != "date_time") {
@@ -1465,7 +1471,10 @@ function htFillMapList(table, target, page) {
             } else {
                 additional += (additional.length == 0)? "" : ")";
             }
-            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+" "+additional+"</li>");
+
+            var modifiedText = (date_time == undefined) ? table[i].name : htOverwriteHTDateWithText(table[i].name, date_time, localLang, localCalendar);
+
+            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+modifiedText+"</a>: "+table[i].desc+" "+additional+"</li>");
         } else {
             if (table[i].text.constructor === vectorConstructor) {
                 htFillHTDate(table[i].text);
