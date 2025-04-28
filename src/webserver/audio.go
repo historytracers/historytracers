@@ -179,7 +179,7 @@ func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 
 	} else {
 		intro = "Daughter of "
 	}
-	return "\n\n" + intro + parent1 + " and " + parent2 + ".\n\n"
+	return "\n" + intro + parent1 + " and " + parent2 + ".\n\n"
 }
 
 func htTextFamily(families *Family, lang string) string {
@@ -455,6 +455,8 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 func htFamiliesToAudio() {
 	for i := 0; i < len(htLangPaths); i++ {
 		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, htLangPaths[i])
+		// TODO: IT IS ALSO NECESSARY TO LOAD THE COMMON WORDS
+		//       AND USE THEM WITH SOME FILES
 		htLoadTreeData(htLangPaths[i])
 		err := htLoadFamilyIndex(localPath, htLangPaths[i])
 		if err != nil {
