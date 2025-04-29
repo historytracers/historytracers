@@ -750,7 +750,7 @@ func htLoadSourceFromFile(family *Family) error {
 		var sources HTSourceFile
 		err = json.Unmarshal(byteValue, &sources)
 		if err != nil {
-			htCommonJsonError(byteValue, err)
+			htCommonJSONError(byteValue, err)
 			return err
 		}
 
@@ -782,7 +782,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	var family Family
 	err = json.Unmarshal(byteValue, &family)
 	if err != nil {
-		htCommonJsonError(byteValue, err)
+		htCommonJSONError(byteValue, err)
 		return err, "", ""
 	}
 
@@ -868,7 +868,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 	var index IdxFamily
 	err = json.Unmarshal(byteValue, &index)
 	if err != nil {
-		htCommonJsonError(byteValue, err)
+		htCommonJSONError(byteValue, err)
 		return err
 	}
 

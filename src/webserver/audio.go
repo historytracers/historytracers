@@ -53,7 +53,7 @@ func htTextToHumanText(txt *HTText) string {
 		return finalText
 	}
 
-	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true})
+	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
 	if err != nil {
 		panic(err)
 	}
@@ -83,7 +83,7 @@ func htTextFamilyIndex(idx *IdxFamilyContent) string {
 		return finalText
 	}
 
-	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true})
+	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
 	if err != nil {
 		panic(err)
 	}
@@ -199,7 +199,7 @@ func htTextFamily(families *Family, lang string) string {
 		}
 
 		if len(htmlText) > 0 {
-			partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true})
+			partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
 			if err != nil {
 				panic(err)
 			}
@@ -225,7 +225,7 @@ func htTextFamily(families *Family, lang string) string {
 			}
 
 			if len(htmlText) > 0 {
-				partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true})
+				partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
 				if err != nil {
 					panic(err)
 				}
@@ -239,7 +239,7 @@ func htTextFamily(families *Family, lang string) string {
 
 		for j := 0; j < len(family.People); j++ {
 			person := &family.People[j]
-			finalText += "\n\n"+htTextPersonIntroduction(lang, person.Name)
+			finalText += "\n\n" + htTextPersonIntroduction(lang, person.Name)
 
 			if person.History != nil {
 				htmlText = ""
@@ -255,7 +255,7 @@ func htTextFamily(families *Family, lang string) string {
 				}
 
 				if len(htmlText) > 0 {
-					partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true})
+					partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
 					if err != nil {
 						panic(err)
 					}
@@ -291,7 +291,7 @@ func htTextFamily(families *Family, lang string) string {
 					}
 
 					if len(htmlText) > 0 {
-						partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true})
+						partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
 						if err != nil {
 							panic(err)
 						}
@@ -320,7 +320,7 @@ func htTextFamily(families *Family, lang string) string {
 					}
 
 					if len(htmlText) > 0 {
-						partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true})
+						partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
 						if err != nil {
 							panic(err)
 						}
@@ -348,7 +348,7 @@ func htFamilyAudio(fileName string, lang string) error {
 	var family Family
 	err = json.Unmarshal(byteValue, &family)
 	if err != nil {
-		htCommonJsonError(byteValue, err)
+		htCommonJSONError(byteValue, err)
 		return err
 	}
 
@@ -408,7 +408,7 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 	var index IdxFamily
 	err = json.Unmarshal(byteValue, &index)
 	if err != nil {
-		htCommonJsonError(byteValue, err)
+		htCommonJSONError(byteValue, err)
 		return err
 	}
 
