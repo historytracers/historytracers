@@ -149,11 +149,11 @@ func htTextFamilyIntroduction(lang string, name string) string {
 
 func htTextPersonIntroduction(lang string, name string) string {
 	if lang == "pt-BR" {
-		return "\n\nPessoa: " + name + ".\n\n"
+		return "Pessoa: " + name + ".\n"
 	} else if lang == "es-ES" {
-		return "\n\nPersona: " + name + ".\n\n"
+		return "Persona: " + name + ".\n"
 	}
-	return "\n\nPerson: " + name + ".\n\n"
+	return "Person: " + name + ".\n"
 }
 
 func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 string) string {
@@ -164,14 +164,14 @@ func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 
 		} else {
 			intro = "Filha de "
 		}
-		return "\n\n" + intro + parent1 + " e " + parent2 + ".\n\n"
+		return intro + parent1 + " e " + parent2 + ".\n"
 	} else if lang == "es-ES" {
 		if sex == "masculine" || sex == "masculino" {
 			intro = "Hijo de "
 		} else {
 			intro = "Hija de "
 		}
-		return "\n\n" + intro + parent1 + " y " + parent2 + ".\n\n"
+		return intro + parent1 + " y " + parent2 + ".\n"
 	}
 
 	if sex == "masculine" || sex == "masculino" {
@@ -179,7 +179,7 @@ func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 
 	} else {
 		intro = "Daughter of "
 	}
-	return "\n" + intro + parent1 + " and " + parent2 + ".\n\n"
+	return intro + parent1 + " and " + parent2 + ".\n"
 }
 
 func htTextFamily(families *Family, lang string) string {
@@ -229,7 +229,7 @@ func htTextFamily(families *Family, lang string) string {
 				if err != nil {
 					panic(err)
 				}
-				finalText += partial + "\n"
+				finalText += partial + ".\n\n"
 			}
 		}
 
@@ -239,7 +239,7 @@ func htTextFamily(families *Family, lang string) string {
 
 		for j := 0; j < len(family.People); j++ {
 			person := &family.People[j]
-			finalText += htTextPersonIntroduction(lang, person.Name)
+			finalText += "\n\n"+htTextPersonIntroduction(lang, person.Name)
 
 			if person.History != nil {
 				htmlText = ""
@@ -259,7 +259,7 @@ func htTextFamily(families *Family, lang string) string {
 					if err != nil {
 						panic(err)
 					}
-					finalText += partial + "\n\n"
+					finalText += partial + ".\n"
 				}
 			}
 
@@ -307,7 +307,7 @@ func htTextFamily(families *Family, lang string) string {
 					if data, ok := familyMarriagesMap[child.MarriageID]; ok {
 						parent2 = data
 					}
-					htmlText = "<br /><br />"
+					htmlText = ""
 					htmlText += htTextChildIntroduction(lang, person.FullName, parent2, child.Name, child.Type)
 					for m := 0; m < len(child.History); m++ {
 						hist := &child.History[m]
@@ -324,7 +324,7 @@ func htTextFamily(families *Family, lang string) string {
 						if err != nil {
 							panic(err)
 						}
-						finalText += partial + "\n"
+						finalText += partial + ".\n\n"
 					}
 				}
 			}
