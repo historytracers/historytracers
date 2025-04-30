@@ -95,7 +95,7 @@ type HTCommonContent struct {
 	FillDates []HTDate         `json:"date_time"`
 }
 
-type HTCommonFile struct {
+type HTOldFileFormat struct {
 	Title      string            `json:"title"`
 	Header     string            `json:"header"`
 	License    []string          `json:"license"`
@@ -447,7 +447,7 @@ func htWriteTmpFile(lang string, data interface{}) (string, error) {
 	return tmpFile, nil
 }
 
-func htLoadCommonFile(cf *HTCommonFile, name string, lang string) (string, error) {
+func htLoadCommonFile(cf *HTOldFileFormat, name string, lang string) (string, error) {
 	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
 	if verboseFlag {
 		fmt.Println("Adjusting file", fileName)

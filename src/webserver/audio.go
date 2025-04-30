@@ -371,7 +371,7 @@ func htFamilyAudio(fileName string, lang string) error {
 }
 
 func htLoadTreeData(lang string) {
-	var cf HTCommonFile
+	var cf HTOldFileFormat
 	localPath, err := htLoadCommonFile(&cf, "tree", lang)
 	if err != nil {
 		panic(err)

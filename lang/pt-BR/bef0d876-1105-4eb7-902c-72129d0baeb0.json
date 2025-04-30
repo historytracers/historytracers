@@ -36,8 +36,8 @@
                "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
                "text": "Porto-Gonçalves, Carlos Walter, pp. 39-43",
                "date_time": {
-                  "type": "",
-                  "year": "",
+                  "type": "gregory",
+                  "year": "2011",
                   "month": "",
                   "day": ""
                }
@@ -121,8 +121,8 @@
                      "uuid": "9d1725a2-0939-476e-8854-e5109a432f28",
                      "text": "Clayes, André L. FR",
                      "date_time": {
-                        "type": "",
-                        "year": "",
+                        "type": "gregory",
+                        "year": "2012",
                         "month": "",
                         "day": ""
                      }
@@ -132,8 +132,8 @@
                      "uuid": "a0cf6fd1-cfe8-40a1-a229-d934cc2e0f99",
                      "text": "Gailliard, Jean-Jacques, pp. 319",
                      "date_time": {
-                        "type": "",
-                        "year": "",
+                        "type": "gregory",
+                        "year": "1857",
                         "month": "",
                         "day": ""
                      }
@@ -215,7 +215,7 @@
                      "name": "Catherine",
                      "history": [
                         {
-                           "text": "Faleceu em <span class=\"htdate\"></span>, conforme informações de Jean-Jacques Gailliard, corroboradas por contatos com a Associação da Família Lem",
+                           "text": "Faleceu em <htdate0>, conforme informações de Jean-Jacques Gailliard, corroboradas por contatos com a Associação da Família Lem",
                            "source": [
                               {
                                  "type": 1,
@@ -240,7 +240,14 @@
                                  }
                               }
                            ],
-                           "date_time": null,
+                           "date_time": [
+                              {
+                                 "type": "gregory",
+                                 "year": "1393",
+                                 "month": "-1",
+                                 "day": "-1"
+                              }
+                           ],
                            "isTable": false,
                            "format": "markdown",
                            "PostMention": "."
@@ -390,11 +397,11 @@
                      "source": [
                         {
                            "type": 1,
-                           "uuid": "29a86582-7f03-4e10-bf84-f6c85c50e8cf",
+                           "uuid": "3cf31cd0-f4ea-4736-93e7-f285785ef2dc",
                            "text": "Sueyro, Emanuel",
                            "date_time": {
-                              "type": "",
-                              "year": "",
+                              "type": "gregory",
+                              "year": "1624",
                               "month": "",
                               "day": ""
                            }
@@ -679,9 +686,16 @@
                      "PostMention": "."
                   },
                   {
-                     "text": "<center><span class=\"desc\"><img id=\"ArmsMaertin\" src=\"images/ANTT/ANTTPT-TT-CR-D-A-1-19_m0235.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('ArmsMaertin', '0%')\" />Figura 2: Armas de Maertim Lem (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b2a9eb13-b960-4c94-9fa7-db371277846c'); return false;\">do Cró, João, <span class=\"htdate\"></span>, f. 110v (img .236)</a>). <span id=\"ANTTPortugal2\"></span></span></center>",
+                     "text": "<center><span class=\"desc\"><img id=\"ArmsMaertin\" src=\"images/ANTT/ANTTPT-TT-CR-D-A-1-19_m0235.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('ArmsMaertin', '0%')\" />Figura 2: Armas de Maertim Lem (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b2a9eb13-b960-4c94-9fa7-db371277846c'); return false;\">do Cró, João, <htdate0>, f. 110v (img .236)</a>). <span id=\"ANTTPortugal2\"></span></span></center>",
                      "source": null,
-                     "date_time": null,
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "1509",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
                      "isTable": false,
                      "format": "html",
                      "PostMention": ""
@@ -1028,11 +1042,11 @@
                      "source": [
                         {
                            "type": 1,
-                           "uuid": "29a86582-7f03-4e10-bf84-f6c85c50e8cf",
+                           "uuid": "3cf31cd0-f4ea-4736-93e7-f285785ef2dc",
                            "text": "Sueyro, Emanuel",
                            "date_time": {
-                              "type": "",
-                              "year": "",
+                              "type": "gregory",
+                              "year": "1624",
                               "month": "",
                               "day": ""
                            }
@@ -1335,9 +1349,16 @@
                      "PostMention": "."
                   },
                   {
-                     "text": "<center><span class=\"desc\"><img id=\"ArmsAntonio\" src=\"images/ANTT/ANTTPT-TT-CR-D-A-1-19_m0236.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('ArmsAntonio', '0%')\" />Figura 4: Armas de Antonio Leme (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b2a9eb13-b960-4c94-9fa7-db371277846c'); return false;\">do Cró, João, <span class=\"htdate\"></span>, f. 110v (img .236)</a>). <span id=\"ANTTPortugal1\"></span></span></center>",
+                     "text": "<center><span class=\"desc\"><img id=\"ArmsAntonio\" src=\"images/ANTT/ANTTPT-TT-CR-D-A-1-19_m0236.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('ArmsAntonio', '0%')\" />Figura 4: Armas de Antonio Leme (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b2a9eb13-b960-4c94-9fa7-db371277846c'); return false;\">do Cró, João, <htdate0>, f. 110v (img .236)</a>). <span id=\"ANTTPortugal1\"></span></span></center>",
                      "source": null,
-                     "date_time": null,
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "1509",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
                      "isTable": false,
                      "format": "html",
                      "PostMention": ""
@@ -1363,9 +1384,22 @@
                      "PostMention": "."
                   },
                   {
-                     "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Matemática na História</b><br /><br />Ao mencionar a conversa entre Antônio Leme e Colombo, Antonio Romeu de Armas também menciona uma distância de \"cem léguas\" (<i>cién léguas</i>). Mas qual seria essa distância em quilômetros?<br /><br />A légua é uma unidade de medida de comprimento que varia de acordo com o período histórico e a região em que foi utilizada. Para este estudo, adotaremos a légua itinerária, comumente empregada em medições de viagens, que equivale a 5.5 quilômetros (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f140d8d6-80cc-4d82-b9f7-c3ba06bf2ed3'); return false;\">History Tracers Team, <span class=\"htdate\"></span>, Atlas, Coordenadas de Superfície</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c5d88b85-e304-4b32-8016-485b8e619b30'); return false;\">Garza Martínez, V. <span class=\"htdate\"></span></a>).<br /><br />Partindo da relação de proporção:<br /><br /> <math><mi>1 légua</mi> <mo>&#8733;</mo> <mi>5.5 quilômetros</mi> </math> <b>(F. 1)</b><br/><br/>Para realizar a conversão de léguas para quilômetros, precisamos transformar essa relação de proporcionalidade em uma igualdade usando o conceito de constantes de proporcionalidade (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4e6e0641-2d84-44f3-8647-c2c8b5b6d7bc'); return false;\">Weisstein, Eric W.</a>). A constante <i>a</i> será usada para converter quilômetros em léguas, enquanto a constante <i>b</i> fará a conversão inversa.<br /><br />Definindo a constante <i>a</i>: <math><mi>1 légua</mi> = <mi>(a)</mi> <mi>5.5 quilômetros</mi></math> <b>(F. 2)</b><br/><br/>Multiplicando ambos os lados por <math> <mfrac><mi>1 légua</mi><mi>5.5 quilômetros</mi></mfrac></math>:<br /><br /> <math> <mfrac><mi>1 légua</mi><mi>5.5 quilômetros</mi></mfrac> = <mi>a</mi> <mi></mi></math> <b>(F. 3)</b><br/><br/>Definindo a constante <b>b</b>:<br /><br /> <math><mi>1 légua</mi> <mi>(b)</mi> = <mi>5.5 quilômetros</mi></math> <b>(F. 4)</b><br/><br/>Multiplicando ambos os lados por <math><mfrac><mi>5.5 quilômetros</mi><mi>1 légua</mi></mfrac></math>:<br /><br /> <math> <mi>b</mi> = <mfrac><mi>5.5 quilômetros</mi><mi>1 légua</mi></mfrac></math> <b>(F. 5)</b><br/><br/>Agora que temos as constantes de proporcionalidade, utilizaremos a regra de três para converter as unidades (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('5bb4ad7f-cc59-4415-b458-da80dc6884d9'); return false;\">Stover, Christopher</a>). Segundo essa regra, dada a igualdade <b>(F. 7)</b>:<br /><br /> <math><mi>x</mi> <mi>y</mi> <mo>=</mo> <mi>z</mi> <mi>w</mi> </math><b>(F. 7)</b><br/><br/>Se conhecemos os valores <b>x</b>, <b>z</b> e <b>w</b>, podemos determinar <b>y</b>, multiplicando ambos os lados por <b>1/ x</b>:<br /><br /><math><mi>y</mi> <mo>=</mo> <mfrac><mi>z w</mi><mi>x</mi></mfrac></math> <b>(F. 8)</b><br /><br />Desejamos saber o valor de 100 léguas expresso em quilômetros. Comparando <b>(F. 8)</b> com <b>(F. 5)</b>, identificamos: <b>z = 5.5 quilômetros</b>, <b>x = 1 légua</b>, e, finalmente <b>w = 100 léguas</b>. Substituindo em <b>(F. 8)</b>: <br/><br/><math><mi>x</mi> <mo>=</mo> <mfrac><mi>5.5 quilômetros</mi><mi>1 légua</mi></mfrac> <mi>100 léguas</mi> <mo>=</mo> <mi></mi>550.0 quilômetros</math> <b>(F. 9)</b><br /><br />Portanto, a distância de 100 léguas equivale a 550 quilômetros.<br /><br />Se desejamos converter 550 quilômetros para léguas, utilizamos novamente <b>(F. 7)</b>. Desta vez, deduziremos os valores comparando com <b>(F. 3)</b>: <b>z = 1 légua</b>, <b>x = 5.5 quilômetros</b>, e <b>w = 550 quilômetros</b>. Substituindo: <br/><br/><math><mi>x</mi> <mo>=</mo> <mfrac><mi>1 légua</mi><mi>5.5 quilômetros</mi></mfrac> <mi>550 quilômetros</mi> <mo>=</mo> <mi></mi>100 léguas</math> <b>(F. 10)</b> </div></div></center>",
+                     "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Matemática na História</b><br /><br />Ao mencionar a conversa entre Antônio Leme e Colombo, Antonio Romeu de Armas também menciona uma distância de \"cem léguas\" (<i>cién léguas</i>). Mas qual seria essa distância em quilômetros?<br /><br />A légua é uma unidade de medida de comprimento que varia de acordo com o período histórico e a região em que foi utilizada. Para este estudo, adotaremos a légua itinerária, comumente empregada em medições de viagens, que equivale a 5.5 quilômetros (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f140d8d6-80cc-4d82-b9f7-c3ba06bf2ed3'); return false;\">History Tracers Team, <htdate0>, Atlas, Coordenadas de Superfície</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c5d88b85-e304-4b32-8016-485b8e619b30'); return false;\">Garza Martínez, V. <htdate1></a>).<br /><br />Partindo da relação de proporção:<br /><br /> <math><mi>1 légua</mi> <mo>&#8733;</mo> <mi>5.5 quilômetros</mi> </math> <b>(F. 1)</b><br/><br/>Para realizar a conversão de léguas para quilômetros, precisamos transformar essa relação de proporcionalidade em uma igualdade usando o conceito de constantes de proporcionalidade (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4e6e0641-2d84-44f3-8647-c2c8b5b6d7bc'); return false;\">Weisstein, Eric W.</a>). A constante <i>a</i> será usada para converter quilômetros em léguas, enquanto a constante <i>b</i> fará a conversão inversa.<br /><br />Definindo a constante <i>a</i>: <math><mi>1 légua</mi> = <mi>(a)</mi> <mi>5.5 quilômetros</mi></math> <b>(F. 2)</b><br/><br/>Multiplicando ambos os lados por <math> <mfrac><mi>1 légua</mi><mi>5.5 quilômetros</mi></mfrac></math>:<br /><br /> <math> <mfrac><mi>1 légua</mi><mi>5.5 quilômetros</mi></mfrac> = <mi>a</mi> <mi></mi></math> <b>(F. 3)</b><br/><br/>Definindo a constante <b>b</b>:<br /><br /> <math><mi>1 légua</mi> <mi>(b)</mi> = <mi>5.5 quilômetros</mi></math> <b>(F. 4)</b><br/><br/>Multiplicando ambos os lados por <math><mfrac><mi>5.5 quilômetros</mi><mi>1 légua</mi></mfrac></math>:<br /><br /> <math> <mi>b</mi> = <mfrac><mi>5.5 quilômetros</mi><mi>1 légua</mi></mfrac></math> <b>(F. 5)</b><br/><br/>Agora que temos as constantes de proporcionalidade, utilizaremos a regra de três para converter as unidades (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('5bb4ad7f-cc59-4415-b458-da80dc6884d9'); return false;\">Stover, Christopher</a>). Segundo essa regra, dada a igualdade <b>(F. 7)</b>:<br /><br /> <math><mi>x</mi> <mi>y</mi> <mo>=</mo> <mi>z</mi> <mi>w</mi> </math><b>(F. 7)</b><br/><br/>Se conhecemos os valores <b>x</b>, <b>z</b> e <b>w</b>, podemos determinar <b>y</b>, multiplicando ambos os lados por <b>1/ x</b>:<br /><br /><math><mi>y</mi> <mo>=</mo> <mfrac><mi>z w</mi><mi>x</mi></mfrac></math> <b>(F. 8)</b><br /><br />Desejamos saber o valor de 100 léguas expresso em quilômetros. Comparando <b>(F. 8)</b> com <b>(F. 5)</b>, identificamos: <b>z = 5.5 quilômetros</b>, <b>x = 1 légua</b>, e, finalmente <b>w = 100 léguas</b>. Substituindo em <b>(F. 8)</b>: <br/><br/><math><mi>x</mi> <mo>=</mo> <mfrac><mi>5.5 quilômetros</mi><mi>1 légua</mi></mfrac> <mi>100 léguas</mi> <mo>=</mo> <mi></mi>550.0 quilômetros</math> <b>(F. 9)</b><br /><br />Portanto, a distância de 100 léguas equivale a 550 quilômetros.<br /><br />Se desejamos converter 550 quilômetros para léguas, utilizamos novamente <b>(F. 7)</b>. Desta vez, deduziremos os valores comparando com <b>(F. 3)</b>: <b>z = 1 légua</b>, <b>x = 5.5 quilômetros</b>, e <b>w = 550 quilômetros</b>. Substituindo: <br/><br/><math><mi>x</mi> <mo>=</mo> <mfrac><mi>1 légua</mi><mi>5.5 quilômetros</mi></mfrac> <mi>550 quilômetros</mi> <mo>=</mo> <mi></mi>100 léguas</math> <b>(F. 10)</b> </div></div></center>",
                      "source": null,
-                     "date_time": null,
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "2024",
+                           "month": "-1",
+                           "day": "-1"
+                        },
+                        {
+                           "type": "gregory",
+                           "year": "2012",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
                      "isTable": false,
                      "format": "html",
                      "PostMention": ""
@@ -1859,23 +1893,50 @@
                            }
                         }
                      ],
-                     "date_time": null,
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "1592",
+                           "month": "",
+                           "day": ""
+                        }
+                     ],
                      "isTable": false,
                      "format": "markdown",
                      "PostMention": "."
                   },
                   {
-                     "text": "Mais de um século após sua morte, parte de sua história foi reescrita por Pedro Dias Paes (Leme), um descendente que buscava validar para si o mesmo título de nobreza. Pedro alegou que Pero teria tido outro filho, Fernão Dias Paes, fruto de um terceiro casamento. No entanto, essa alegação apresenta inconsistências, conforme listado (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6ef48d0f-e4b1-484c-9fac-8a286ff00917'); return false;\">de Castro, Luiz P. M., <span class=\"htdate\"></span>, pp. 12 - 14</a>)",
+                     "text": "Mais de um século após sua morte, parte de sua história foi reescrita por Pedro Dias Paes (Leme), um descendente que buscava validar para si o mesmo título de nobreza. Pedro alegou que Pero teria tido outro filho, Fernão Dias Paes, fruto de um terceiro casamento. No entanto, essa alegação apresenta inconsistências, conforme listado (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6ef48d0f-e4b1-484c-9fac-8a286ff00917'); return false;\">de Castro, Luiz P. M., <htdate0>, pp. 12 - 14</a>)",
                      "source": null,
-                     "date_time": null,
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "1938",
+                           "month": "",
+                           "day": ""
+                        }
+                     ],
                      "isTable": false,
                      "format": "html",
                      "PostMention": ":"
                   },
                   {
-                     "text": "<ul><li>O inventário de Pero Leme não cita nenhuma esposa chamada Isabel Paes, nem faz referência a um filho chamado Fernão Dias Paes (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3a98a6a5-5261-4d8a-b10b-05f7ff97b790'); return false;\">Inventários e Testamentos, <span class=\"htdate\"></span>, Volume 1, pp. 25-64</a>)</li><li>A esposa de Fernão Dias Paes, Lucrécia Leme, menciona em seu inventário um irmão chamado Braz Esteves. Esse vínculo é corroborado no inventário de sua mãe, Leonor Leme, que também não faz qualquer menção a Fernão Dias Paes como seu irmão (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3a98a6a5-5261-4d8a-b10b-05f7ff97b790'); return false;\">Inventários e Testamentos, <span class=\"htdate\"></span>, Volume 14, pp. 316</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3a98a6a5-5261-4d8a-b10b-05f7ff97b790'); return false;\">Inventários e Testamentos, <span class=\"htdate\"></span>, Volume 9, pp. 6-8</a>).</li><li>Uma carta de Pedro T. de A. Paes Leme a Frei Gaspar Madre de Deus revela que um filho de Fernão Dias Paes menciona Pero Leme como seu \"bisavô\" e não como \"avô\" (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('cf3edda1-90ac-4616-a322-14e5ea9c8417'); return false;\">Publicação official de documentos interessantes para a historia e costumes de São Paulo ... Vol. 4, <span class=\"htdate\"></span>, pp. 21-24</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6ef48d0f-e4b1-484c-9fac-8a286ff00917'); return false;\">de Castro, Luiz P. M., <span class=\"htdate\"></span>, pp. 18-19</a>).</li></ul>",
+                     "text": "<ul><li>O inventário de Pero Leme não cita nenhuma esposa chamada Isabel Paes, nem faz referência a um filho chamado Fernão Dias Paes (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3a98a6a5-5261-4d8a-b10b-05f7ff97b790'); return false;\">Inventários e Testamentos, Volume 1, pp. 25-64</a>)</li><li>A esposa de Fernão Dias Paes, Lucrécia Leme, menciona em seu inventário um irmão chamado Braz Esteves. Esse vínculo é corroborado no inventário de sua mãe, Leonor Leme, que também não faz qualquer menção a Fernão Dias Paes como seu irmão (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3a98a6a5-5261-4d8a-b10b-05f7ff97b790'); return false;\">Inventários e Testamentos, Volume 14, pp. 316</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3a98a6a5-5261-4d8a-b10b-05f7ff97b790'); return false;\">Inventários e Testamentos, Volume 9, pp. 6-8</a>).</li><li>Uma carta de Pedro T. de A. Paes Leme a Frei Gaspar Madre de Deus revela que um filho de Fernão Dias Paes menciona Pero Leme como seu \"bisavô\" e não como \"avô\" (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('cf3edda1-90ac-4616-a322-14e5ea9c8417'); return false;\">Publicação official de documentos interessantes para a historia e costumes de São Paulo ... Vol. 4, <htdate0>, pp. 21-24</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6ef48d0f-e4b1-484c-9fac-8a286ff00917'); return false;\">de Castro, Luiz P. M., <htdate1>, pp. 18-19</a>).</li></ul>",
                      "source": null,
-                     "date_time": null,
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "1895",
+                           "month": "",
+                           "day": ""
+                        },
+                        {
+                           "type": "gregory",
+                           "year": "1938",
+                           "month": "",
+                           "day": ""
+                        }
+                     ],
                      "isTable": false,
                      "format": "html",
                      "PostMention": ""
@@ -1907,7 +1968,7 @@
                      "name": "Luzia Fernandes",
                      "history": [
                         {
-                           "text": "Confirmado pelo inventário de Pero Leme e Gracia Rodrigue",
+                           "text": "Confirmado pelo inventário de Pero Leme e Gracia Rodrigues",
                            "source": [
                               {
                                  "type": 0,
@@ -2205,8 +2266,8 @@
                            "uuid": "ec81d3ea-1e5c-4f4a-985c-df0c1265fdda",
                            "text": "Viotti, Hélio A., pp. 25",
                            "date_time": {
-                              "type": "",
-                              "year": "",
+                              "type": "gregory",
+                              "year": "1996",
                               "month": "",
                               "day": ""
                            }
@@ -2354,8 +2415,8 @@
                      "uuid": "ec81d3ea-1e5c-4f4a-985c-df0c1265fdda",
                      "text": "Viotti, Hélio A., pp. 25",
                      "date_time": {
-                        "type": "",
-                        "year": "",
+                        "type": "gregory",
+                        "year": "1996",
                         "month": "",
                         "day": ""
                      }
@@ -3024,8 +3085,8 @@
                            "uuid": "2b3c190a-a903-4066-adae-cd565147011b",
                            "text": "de Sillos, Luiz Gustavo, t. 00:46:27",
                            "date_time": {
-                              "type": "",
-                              "year": "",
+                              "type": "gregory",
+                              "year": "2023",
                               "month": "",
                               "day": ""
                            }
@@ -3137,8 +3198,8 @@
                            "uuid": "2b3c190a-a903-4066-adae-cd565147011b",
                            "text": "de Sillos, Luiz Gustavo, t. 00:46:27",
                            "date_time": {
-                              "type": "",
-                              "year": "",
+                              "type": "gregory",
+                              "year": "2023",
                               "month": "",
                               "day": ""
                            }
@@ -3511,8 +3572,8 @@
                            "uuid": "4a60ed8b-3e91-457d-b93c-30b246efcc55",
                            "text": "de Vasconcellos, Diogo Luiz de A. P., pp. 31 - 44",
                            "date_time": {
-                              "type": "",
-                              "year": "",
+                              "type": "gregory",
+                              "year": "1904",
                               "month": "",
                               "day": ""
                            }
@@ -3540,8 +3601,8 @@
                            "uuid": "2b3c190a-a903-4066-adae-cd565147011b",
                            "text": "de Sillos, Luiz Gustavo, t. 01:07:10",
                            "date_time": {
-                              "type": "",
-                              "year": "",
+                              "type": "gregory",
+                              "year": "2023",
                               "month": "",
                               "day": ""
                            }
@@ -4405,66 +4466,6 @@
       {
          "type": "gregory",
          "year": "2024",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1509",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1509",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1509",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2024",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2012",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1938",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1920",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1921",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1920",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1895",
          "month": "-1",
          "day": "-1"
       },
