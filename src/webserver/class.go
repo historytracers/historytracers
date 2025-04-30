@@ -140,7 +140,7 @@ func htAddNewClassTemplateToDirectory(newFile string, lang string) error {
 	var localTemplateFile classTemplateFile
 	err = json.Unmarshal(byteValue, &localTemplateFile)
 	if err != nil {
-		htCommonJsonError(byteValue, err)
+		htCommonJSONError(byteValue, err)
 		return err
 	}
 
@@ -148,7 +148,7 @@ func htAddNewClassTemplateToDirectory(newFile string, lang string) error {
 
 	err = htWriteTemplateFileFile(lang, newFile, &localTemplateFile)
 	if err != nil {
-		htCommonJsonError(byteValue, err)
+		htCommonJSONError(byteValue, err)
 		return err
 	}
 
@@ -169,7 +169,7 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 	var index classIdx
 	err = json.Unmarshal(byteValue, &index)
 	if err != nil {
-		htCommonJsonError(byteValue, err)
+		htCommonJSONError(byteValue, err)
 		return err
 	}
 

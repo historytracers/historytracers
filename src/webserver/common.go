@@ -95,7 +95,7 @@ type HTCommonContent struct {
 	FillDates []HTDate         `json:"date_time"`
 }
 
-type HTCommonFile struct {
+type HTOldFileFormat struct {
 	Title      string            `json:"title"`
 	Header     string            `json:"header"`
 	License    []string          `json:"license"`
@@ -160,7 +160,7 @@ func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
 	return nil
 }
 
-func htCommonJsonError(byteValue []byte, err error) {
+func htCommonJSONError(byteValue []byte, err error) {
 	switch t := err.(type) {
 	case *json.SyntaxError:
 		begin := t.Offset
@@ -395,8 +395,13 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 	ret := strings.ReplaceAll(str, "-------------\n", "\n")
 	ret = strings.ReplaceAll(ret, "---------\n", "\n")
 	ret = strings.ReplaceAll(ret, "--------\n", "\n")
-	ret = strings.ReplaceAll(ret, "* *\n", "")
-	ret = strings.ReplaceAll(ret, ":*\n", ":")
+	ret = strings.ReplaceAll(ret, "*", "")
+	ret = strings.ReplaceAll(ret, "(Part I)", "(Part 1)")
+	ret = strings.ReplaceAll(ret, "(Parte I)", "(Parte 1)")
+	ret = strings.ReplaceAll(ret, "(Part II)", "(Part 2)")
+	ret = strings.ReplaceAll(ret, "(Parte II)", "(Parte 2)")
+	ret = strings.ReplaceAll(ret, "(Part III)", "(Part 3)")
+	ret = strings.ReplaceAll(ret, "(Parte III)", "(Parte 3)")
 
 	// URL
 	ret = strings.ReplaceAll(ret, "( # )", "")
@@ -442,7 +447,7 @@ func htWriteTmpFile(lang string, data interface{}) (string, error) {
 	return tmpFile, nil
 }
 
-func htLoadCommonFile(cf *HTCommonFile, name string, lang string) (string, error) {
+func htLoadCommonFile(cf *HTOldFileFormat, name string, lang string) (string, error) {
 	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
 	if verboseFlag {
 		fmt.Println("Adjusting file", fileName)
@@ -456,7 +461,7 @@ func htLoadCommonFile(cf *HTCommonFile, name string, lang string) (string, error
 
 	err = json.Unmarshal(byteValue, cf)
 	if err != nil {
-		htCommonJsonError(byteValue, err)
+		htCommonJSONError(byteValue, err)
 		return "", err
 	}
 
