@@ -408,7 +408,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
-					birthDate = htDateToString(&b.Date[0])
+					birthDate = htDateToString(&b.Date[0], lang)
 					birthSource, _ = htSelectFirstSource(b.Sources)
 				}
 			}
@@ -427,7 +427,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
-					baptismDate = htDateToString(&b.Date[0])
+					baptismDate = htDateToString(&b.Date[0], lang)
 					baptismSource, _ = htSelectFirstSource(b.Sources)
 				}
 			}
@@ -445,7 +445,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if d.Date != nil && len(d.Date) > 0 {
-					deathDate = htDateToString(&d.Date[0])
+					deathDate = htDateToString(&d.Date[0], lang)
 					deathSource, _ = htSelectFirstSource(d.Sources)
 				}
 			}
@@ -468,7 +468,7 @@ func htSetCSVMarriage(id string, parent1 string, parent2 string, marr *FamilyPer
 	var marrDate string = ""
 
 	if marr.DateTime.Date != nil && len(marr.DateTime.Date) > 0 {
-		marrDate = htDateToString(&marr.DateTime.Date[0])
+		marrDate = htDateToString(&marr.DateTime.Date[0], lang)
 	}
 
 	marrSource, marrType := htSelectSourceFromText(marr.History)
@@ -723,7 +723,7 @@ func htWriteCSVtoFile(fileName string, in [][]string) error {
 	tmpFile := fmt.Sprintf("%s%s", CFG.SrcPath, fileName)
 
 	if verboseFlag {
-		fmt.Println("CREATING CSS FILE ", tmpFile)
+		fmt.Println("CREATING CSV FILE ", tmpFile)
 	}
 
 	fp, err := os.Create(tmpFile)

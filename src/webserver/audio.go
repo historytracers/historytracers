@@ -182,6 +182,18 @@ func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 
 	return intro + parent1 + " and " + parent2 + ".\n"
 }
 
+func htHTML2Text(htmlText string) string {
+	var finalText string = ""
+	if len(htmlText) > 0 {
+		partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
+		if err != nil {
+			panic(err)
+		}
+		finalText += partial + ".\n\n"
+	}
+	return finalText
+}
+
 func htTextFamily(families *Family, lang string) string {
 	var finalText string = families.Title + ".\n\n" + defaultFamilyTop
 	var htmlText string = ""
@@ -198,13 +210,7 @@ func htTextFamily(families *Family, lang string) string {
 			}
 		}
 
-		if len(htmlText) > 0 {
-			partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
-			if err != nil {
-				panic(err)
-			}
-			finalText += partial + "\n"
-		}
+		finalText += htHTML2Text(htmlText)
 	}
 
 	for i := 0; i < len(families.Families); i++ {
@@ -224,13 +230,7 @@ func htTextFamily(families *Family, lang string) string {
 				}
 			}
 
-			if len(htmlText) > 0 {
-				partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
-				if err != nil {
-					panic(err)
-				}
-				finalText += partial + ".\n\n"
-			}
+			finalText += htHTML2Text(htmlText)
 		}
 
 		if family.People == nil {
@@ -254,13 +254,7 @@ func htTextFamily(families *Family, lang string) string {
 					}
 				}
 
-				if len(htmlText) > 0 {
-					partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
-					if err != nil {
-						panic(err)
-					}
-					finalText += partial + ".\n"
-				}
+				finalText += htHTML2Text(htmlText)
 			}
 
 			if person.Parents != nil {
@@ -290,13 +284,7 @@ func htTextFamily(families *Family, lang string) string {
 						}
 					}
 
-					if len(htmlText) > 0 {
-						partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
-						if err != nil {
-							panic(err)
-						}
-						finalText += partial + "\n\n"
-					}
+					finalText += htHTML2Text(htmlText)
 				}
 			}
 
@@ -319,13 +307,7 @@ func htTextFamily(families *Family, lang string) string {
 						}
 					}
 
-					if len(htmlText) > 0 {
-						partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
-						if err != nil {
-							panic(err)
-						}
-						finalText += partial + ".\n\n"
-					}
+					finalText += htHTML2Text(htmlText)
 				}
 			}
 		}
