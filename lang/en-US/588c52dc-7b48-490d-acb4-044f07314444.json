@@ -300,7 +300,7 @@
                      "name": "Aragonta Gonzales",
                      "history": [
                         {
-                           "text": "According to a document dated",
+                           "text": "According to a document dated <htdate0>",
                            "source": [
                               {
                                  "type": 0,
@@ -325,7 +325,14 @@
                                  }
                               }
                            ],
-                           "date_time": null,
+                           "date_time": [
+                              {
+                                 "type": "gregory",
+                                 "year": "897",
+                                 "month": "2",
+                                 "day": "21"
+                              }
+                           ],
                            "isTable": false,
                            "format": "markdown",
                            "PostMention": "."

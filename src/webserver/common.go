@@ -187,7 +187,7 @@ func htCommonJSONError(byteValue []byte, err error) {
 	}
 }
 
-func htDateToString(dt *HTDate) string {
+func htDateToString(dt *HTDate, lang string) string {
 	if dt == nil || dt.DateType != "gregory" {
 		return ""
 	}
@@ -475,7 +475,7 @@ func htOverwriteDates(text string, dates []HTDate, PostMention string) string {
 	}
 
 	for i := 0; i < size; i++ {
-		dt := htDateToString(&dates[i])
+		dt := htDateToString(&dates[i], "")
 		overwrite := "<htdate" + strconv.Itoa(i) + ">"
 		text = strings.Replace(text, overwrite, dt, 1)
 	}
