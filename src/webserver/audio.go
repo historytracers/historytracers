@@ -32,35 +32,6 @@ func htMarkdownToHTML(str string) string {
 	return ret
 }
 
-func htTextToHumanText(txt *HTText) string {
-	var finalText string = ""
-	var htmlText string
-	var err error
-
-	if txt.Format == "html" {
-		htmlText = txt.Text
-
-		htmlText = htOverwriteDates(htmlText, txt.FillDates, "", "")
-	} else if txt.Format == "markdown" {
-		work := txt.Text
-		if len(txt.PostMention) > 0 {
-			work += txt.PostMention
-		}
-
-		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, "")
-		htmlText = htMarkdownToHTML(work)
-	} else {
-		return finalText
-	}
-
-	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
-	if err != nil {
-		panic(err)
-	}
-
-	return finalText
-}
-
 func htTextFamilyIndex(idx *IdxFamilyContent, lang string) string {
 	var finalText string = ""
 	var htmlText string = ""
@@ -353,21 +324,24 @@ func htFamilyAudio(fileName string, lang string) error {
 }
 
 func htLoadTreeData(lang string) {
-	var cf HTOldFileFormat
-	localPath, err := htLoadCommonFile(&cf, "tree", lang)
+	var ctf classTemplateFile
+	localPath, err := htLoadClassFileFormat(&ctf, "tree", lang)
 	if err != nil {
 		panic(err)
 	}
 
 	defaultFamilyTop = ""
-	for i := 0; i < len(cf.Contents); i++ {
-		content := &cf.Contents[i]
+	for i := 0; i < len(ctf.Content); i++ {
+		content := &ctf.Content[i]
 
-		defaultFamilyTop += htTextCommonContent(content, lang)
+		for j := 0; j < len(content.Text); j++ {
+			text := &content.Text[j]
+			defaultFamilyTop += htTextToHumanText(text)
+		}
 	}
-	defaultFamilyTop = ".\n\n"
-
-	newFile, err := htWriteTmpFile(lang, &cf)
+	defaultFamilyTop += ".\n\n"
+	fmt.Fprintln(os.Stderr, defaultFamilyTop)
+	newFile, err := htWriteTmpFile(lang, &ctf)
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
 	if err != nil {

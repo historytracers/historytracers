@@ -1664,7 +1664,11 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
         for (const j in content.text) {
             var localObj = content.text[j];
             var text = (localObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
-            htAddPaperDivs("#paper", content.id + "_"+j, text, "", later, idx);
+            if ($("#"+content.id).length > 0) {
+                $("#"+content.id).html(text);
+            } else {
+                htAddPaperDivs("#paper", content.id + "_"+j, text, "", later, idx);
+            }
         }
         idx++;
     }

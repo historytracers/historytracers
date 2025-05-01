@@ -459,7 +459,7 @@ func htWriteTmpFile(lang string, data interface{}) (string, error) {
 	return tmpFile, nil
 }
 
-func htLoadCommonFile(cf *HTOldFileFormat, name string, lang string) (string, error) {
+func htLoadOldFileFormat(cf *HTOldFileFormat, name string, lang string) (string, error) {
 	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
 	if verboseFlag {
 		fmt.Println("Adjusting file", fileName)
@@ -478,6 +478,56 @@ func htLoadCommonFile(cf *HTOldFileFormat, name string, lang string) (string, er
 	}
 
 	return fileName, nil
+}
+
+func htLoadClassFileFormat(cf *classTemplateFile, name string, lang string) (string, error) {
+	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
+	if verboseFlag {
+		fmt.Println("Adjusting file", fileName)
+	}
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR Adjusting file", fileName)
+		return "", err
+	}
+
+	err = json.Unmarshal(byteValue, cf)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		return "", err
+	}
+
+	return fileName, nil
+}
+
+func htTextToHumanText(txt *HTText) string {
+	var finalText string = ""
+	var htmlText string
+	var err error
+
+	if txt.Format == "html" {
+		work := txt.Text
+
+		htmlText = htOverwriteDates(work, txt.FillDates, "", "")
+	} else if txt.Format == "markdown" {
+		work := txt.Text
+		if len(txt.PostMention) > 0 {
+			work += txt.PostMention
+		}
+
+		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, "")
+		htmlText = htMarkdownToHTML(work)
+	} else {
+		return finalText
+	}
+
+	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
+	if err != nil {
+		panic(err)
+	}
+
+	return finalText
 }
 
 func htOverwriteDates(text string, dates []HTDate, PostMention string, lang string) string {
