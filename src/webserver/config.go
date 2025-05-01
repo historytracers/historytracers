@@ -42,7 +42,7 @@ func HTParseArg() {
 	flag.BoolVar(&gedcomFlag, "gedcom", gedcomFlag, "Do not start the server, instead, generate all gedcom files. (default: false)")
 	flag.BoolVar(&validateFlag, "validate", gedcomFlag, "Do not start the server, instead, validate JSON files. (default: false)")
 	flag.BoolVar(&verboseFlag, "verbose", verboseFlag, "Hide information messages during file processing. (default: false)")
-	flag.BoolVar(&audioFlag, "audio", audioFlag, "Converting JSON to TXT for Piper Input. (default: false)")
+	flag.BoolVar(&audioFlag, "audiofiles", audioFlag, "Converting JSON to TXT for Piper Input. (default: false)")
 	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
 
 	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files.")

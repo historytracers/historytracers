@@ -89,39 +89,46 @@ func htOpenLogs(name string) *log.Logger {
 	}
 }
 
+func htRunStopFlags() {
+	var stopRun bool = false
+	if gedcomFlag {
+		htCreateGEDCOM()
+		stopRun = true
+	}
+
+	if audioFlag {
+		htConvertTextsToAudio()
+		stopRun = true
+	}
+
+	if validateFlag {
+		htValidateGEDCOM()
+		htValidateClassFormats()
+		stopRun = true
+	}
+
+	if len(classTemplate) > 0 {
+		htCreateNewClass()
+		stopRun = true
+	}
+
+	if minifyFlag {
+		HTMinifyAllFiles()
+		stopRun = true
+	}
+
+	if stopRun {
+		os.Exit(0)
+	}
+}
+
 func main() {
 	HTParseArg()
 	HTLoadConfig()
 	DaemonLog := htOpenLogs("daemon.log")
 	AccessLog := htOpenLogs("access.log")
 
-	// TODO: WE ALLOW MORE THAN ONE FLAG TO BE PASSED, BUT WE DO NOT PROCESS
-	// TOGETHER. IT IS NECESSARY TO CHANGE THIS.
-	if minifyFlag {
-		HTMinifyAllFiles()
-		return
-	}
-
-	if gedcomFlag {
-		htCreateGEDCOM()
-		return
-	}
-
-	if audioFlag {
-		htFamiliesToAudio()
-		return
-	}
-
-	if validateFlag {
-		htValidateGEDCOM()
-		htValidateClassFormats()
-		return
-	}
-
-	if len(classTemplate) > 0 {
-		htCreateNewClass()
-		return
-	}
+	htRunStopFlags()
 
 	devM := "with"
 	if CFG.DevMode == false {

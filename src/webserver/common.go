@@ -17,6 +17,10 @@ import (
 )
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
+var htMonthCalendarPT []string = []string{"janeiro", "fevereiro", "março", "abril", "maio", "junho", "july", "agosto", "setembro", "outubro", "novembro", "dezembro"}
+var htMonthCalendarES []string = []string{"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "deciembre"}
+var htMonthCalendarEN []string = []string{"January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
+var commonKeywords []string
 
 // Common date type
 type HTDate struct {
@@ -104,6 +108,11 @@ type HTOldFileFormat struct {
 	Audio      []HTAudio         `json:"audio"`
 	Contents   []HTCommonContent `json:"content"`
 	DateTime   []HTDate          `json:"date_time"`
+}
+
+type HTKeywordsFormat struct {
+	License  []string `json:"license"`
+	Keywords []string `json:"keywords"`
 }
 
 // Common functions
@@ -197,44 +206,53 @@ func htDateToString(dt *HTDate, lang string) string {
 		return ret
 	}
 
+	var months []string
+	if lang == "pt-BR" {
+		months = htMonthCalendarPT
+	} else if lang == "es-ES" {
+		months = htMonthCalendarES
+	} else {
+		months = htMonthCalendarEN
+	}
+
 	var month string
 	switch dt.Month {
 	case "1":
-		month = "jan"
+		month = months[0]
 		break
 	case "2":
-		month = "feb"
+		month = months[1]
 		break
 	case "3":
-		month = "mar"
+		month = months[2]
 		break
 	case "4":
-		month = "apr"
+		month = months[3]
 		break
 	case "5":
-		month = "may"
+		month = months[4]
 		break
 	case "6":
-		month = "jun"
+		month = months[5]
 		break
 	case "7":
-		month = "jul"
+		month = months[6]
 		break
 	case "8":
-		month = "aug"
+		month = months[7]
 		break
 	case "9":
-		month = "sep"
+		month = months[8]
 		break
 	case "10":
-		month = "oct"
+		month = months[9]
 		break
 	case "11":
-		month = "nov"
+		month = months[10]
 		break
 	case "12":
 	default:
-		month = "dec"
+		month = months[11]
 		break
 	}
 	ret := fmt.Sprintf("%s %s %s", dt.Day, month, dt.Year)
@@ -447,7 +465,7 @@ func htWriteTmpFile(lang string, data interface{}) (string, error) {
 	return tmpFile, nil
 }
 
-func htLoadCommonFile(cf *HTOldFileFormat, name string, lang string) (string, error) {
+func htLoadOldFileFormat(cf *HTOldFileFormat, name string, lang string) (string, error) {
 	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
 	if verboseFlag {
 		fmt.Println("Adjusting file", fileName)
@@ -468,21 +486,99 @@ func htLoadCommonFile(cf *HTOldFileFormat, name string, lang string) (string, er
 	return fileName, nil
 }
 
-func htOverwriteDates(text string, dates []HTDate, PostMention string) string {
+func htLoadClassFileFormat(cf *classTemplateFile, name string, lang string) (string, error) {
+	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
+	if verboseFlag {
+		fmt.Println("Adjusting file", fileName)
+	}
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR Adjusting file", fileName)
+		return "", err
+	}
+
+	err = json.Unmarshal(byteValue, cf)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		return "", err
+	}
+
+	return fileName, nil
+}
+
+func htLoadKeywordFile(name string, lang string) error {
+	var localKeywords []string
+	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
+	if verboseFlag {
+		fmt.Println("Loading Keyword", fileName)
+	}
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR Keyword file", fileName)
+		return err
+	}
+
+	var kf HTKeywordsFormat
+	err = json.Unmarshal(byteValue, &kf)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		return err
+	}
+
+	for _, element := range kf.Keywords {
+		localKeywords = append(localKeywords, element)
+	}
+
+	commonKeywords = localKeywords
+	return nil
+}
+
+func htTextToHumanText(txt *HTText) string {
+	var finalText string = ""
+	var htmlText string
+	var err error
+
+	if txt.Format == "html" {
+		work := txt.Text
+
+		htmlText = htOverwriteDates(work, txt.FillDates, "", "")
+	} else if txt.Format == "markdown" {
+		work := txt.Text
+		if len(txt.PostMention) > 0 {
+			work += txt.PostMention
+		}
+
+		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, "")
+		htmlText = htMarkdownToHTML(work)
+	} else {
+		return finalText
+	}
+
+	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
+	if err != nil {
+		panic(err)
+	}
+
+	return finalText
+}
+
+func htOverwriteDates(text string, dates []HTDate, PostMention string, lang string) string {
 	size := len(dates)
 	if size == 0 {
 		return text
 	}
 
 	for i := 0; i < size; i++ {
-		dt := htDateToString(&dates[i], "")
+		dt := htDateToString(&dates[i], lang)
 		overwrite := "<htdate" + strconv.Itoa(i) + ">"
 		text = strings.Replace(text, overwrite, dt, 1)
 	}
 	return text + PostMention
 }
 
-func htTextCommonContent(idx *HTCommonContent) string {
+func htTextCommonContent(idx *HTCommonContent, lang string) string {
 	var finalText string = ""
 	var htmlText string = ""
 	var err error
@@ -490,14 +586,14 @@ func htTextCommonContent(idx *HTCommonContent) string {
 	if len(idx.HTMLValue) > 0 {
 		htmlText = idx.HTMLValue
 
-		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, "")
+		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, ".", lang)
 	} else if len(idx.Value) > 0 {
 		for i := 0; i < len(idx.Value); i++ {
 			fv := &idx.Value[i]
 
 			work := fmt.Sprintf("%s : %s\n", fv.Name, fv.Desc)
 
-			htmlText += htOverwriteDates(work, idx.FillDates, "")
+			htmlText += htOverwriteDates(work, idx.FillDates, ".", lang)
 		}
 		htmlText = htMarkdownToHTML(htmlText)
 	} else {
