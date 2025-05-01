@@ -40,14 +40,14 @@ func htTextToHumanText(txt *HTText) string {
 	if txt.Format == "html" {
 		htmlText = txt.Text
 
-		htmlText = htOverwriteDates(htmlText, txt.FillDates, "")
+		htmlText = htOverwriteDates(htmlText, txt.FillDates, "", "")
 	} else if txt.Format == "markdown" {
 		work := txt.Text
 		if len(txt.PostMention) > 0 {
 			work += txt.PostMention
 		}
 
-		work = htOverwriteDates(work, txt.FillDates, txt.PostMention)
+		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, "")
 		htmlText = htMarkdownToHTML(work)
 	} else {
 		return finalText
@@ -61,7 +61,7 @@ func htTextToHumanText(txt *HTText) string {
 	return finalText
 }
 
-func htTextFamilyIndex(idx *IdxFamilyContent) string {
+func htTextFamilyIndex(idx *IdxFamilyContent, lang string) string {
 	var finalText string = ""
 	var htmlText string = ""
 	var err error
@@ -69,14 +69,14 @@ func htTextFamilyIndex(idx *IdxFamilyContent) string {
 	if len(idx.HTMLValue) > 0 {
 		htmlText = idx.HTMLValue
 
-		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, "")
+		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, "", lang)
 	} else if len(idx.Value) > 0 {
 		for i := 0; i < len(idx.Value); i++ {
 			fv := &idx.Value[i]
 
 			work := fmt.Sprintf("%s : %s\n", fv.Name, fv.Desc)
 
-			htmlText += htOverwriteDates(work, idx.FillDates, "")
+			htmlText += htOverwriteDates(work, idx.FillDates, "", lang)
 		}
 		htmlText = htMarkdownToHTML(htmlText)
 	} else {
@@ -203,9 +203,9 @@ func htTextFamily(families *Family, lang string) string {
 			comm := &families.Common[i]
 
 			if comm.Format == "html" {
-				htmlText += htOverwriteDates(comm.Text, comm.FillDates, "")
+				htmlText += htOverwriteDates(comm.Text, comm.FillDates, "", lang)
 			} else {
-				tmp := htOverwriteDates(comm.Text, comm.FillDates, comm.PostMention)
+				tmp := htOverwriteDates(comm.Text, comm.FillDates, comm.PostMention, lang)
 				htmlText += htMarkdownToHTML(tmp)
 			}
 		}
@@ -223,9 +223,9 @@ func htTextFamily(families *Family, lang string) string {
 				hist := &family.History[j]
 
 				if hist.Format == "html" {
-					htmlText += htOverwriteDates(hist.Text, hist.FillDates, "")
+					htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang)
 				} else {
-					tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention)
+					tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang)
 					htmlText += htMarkdownToHTML(tmp)
 				}
 			}
@@ -247,9 +247,9 @@ func htTextFamily(families *Family, lang string) string {
 					hist := &person.History[k]
 
 					if hist.Format == "html" {
-						htmlText += htOverwriteDates(hist.Text, hist.FillDates, "")
+						htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang)
 					} else {
-						tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention)
+						tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang)
 						htmlText += htMarkdownToHTML(tmp)
 					}
 				}
@@ -277,9 +277,9 @@ func htTextFamily(families *Family, lang string) string {
 						hist := &marr.History[m]
 
 						if hist.Format == "html" {
-							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "")
+							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang)
 						} else {
-							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention)
+							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang)
 							htmlText += htMarkdownToHTML(tmp)
 						}
 					}
@@ -300,9 +300,9 @@ func htTextFamily(families *Family, lang string) string {
 					for m := 0; m < len(child.History); m++ {
 						hist := &child.History[m]
 						if hist.Format == "html" {
-							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "")
+							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang)
 						} else {
-							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention)
+							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang)
 							htmlText += htMarkdownToHTML(tmp)
 						}
 					}
@@ -363,7 +363,7 @@ func htLoadTreeData(lang string) {
 	for i := 0; i < len(cf.Contents); i++ {
 		content := &cf.Contents[i]
 
-		defaultFamilyTop += htTextCommonContent(content)
+		defaultFamilyTop += htTextCommonContent(content, lang)
 	}
 	defaultFamilyTop = ".\n\n"
 
@@ -401,7 +401,7 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 		if verboseFlag {
 			fmt.Println("Making audio for", content.ID)
 		}
-		indexTxt += htTextFamilyIndex(content)
+		indexTxt += htTextFamilyIndex(content, lang)
 
 		value := content.Value
 		for j := 0; j < len(value); j++ {
