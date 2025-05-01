@@ -20,6 +20,7 @@ var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
 var htMonthCalendarPT []string = []string{"janeiro", "fevereiro", "março", "abril", "maio", "junho", "july", "agosto", "setembro", "outubro", "novembro", "dezembro"}
 var htMonthCalendarES []string = []string{"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "deciembre"}
 var htMonthCalendarEN []string = []string{"January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
+var commonKeywords []string
 
 // Common date type
 type HTDate struct {
@@ -107,6 +108,11 @@ type HTOldFileFormat struct {
 	Audio      []HTAudio         `json:"audio"`
 	Contents   []HTCommonContent `json:"content"`
 	DateTime   []HTDate          `json:"date_time"`
+}
+
+type HTKeywordsFormat struct {
+	License  []string `json:"license"`
+	Keywords []string `json:"keywords"`
 }
 
 // Common functions
@@ -499,6 +505,34 @@ func htLoadClassFileFormat(cf *classTemplateFile, name string, lang string) (str
 	}
 
 	return fileName, nil
+}
+
+func htLoadKeywordFile(name string, lang string) error {
+	var localKeywords []string
+	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
+	if verboseFlag {
+		fmt.Println("Loading Keyword", fileName)
+	}
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR Keyword file", fileName)
+		return err
+	}
+
+	var kf HTKeywordsFormat
+	err = json.Unmarshal(byteValue, &kf)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		return err
+	}
+
+	for _, element := range kf.Keywords {
+		localKeywords = append(localKeywords, element)
+	}
+
+	commonKeywords = localKeywords
+	return nil
 }
 
 func htTextToHumanText(txt *HTText) string {

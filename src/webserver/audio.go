@@ -63,26 +63,12 @@ func htTextFamilyIndex(idx *IdxFamilyContent, lang string) string {
 }
 
 // LOAD TREE AS DEFAULT VALUE
-func htTextHTMLMarriageIntroduction(lang string, name string, marrType string) string {
-	if lang == "pt-BR" {
-		if marrType == "theory" {
-			return "<h4>Teve matrimônio com " + name + ".</h4>"
-		} else {
-			return "<h4>Teve hipotético matrimônio com " + name + ".</h4>"
-		}
-	} else if lang == "es-ES" {
-		if marrType == "theory" {
-			return "<h4>Tuvo casamiento con " + name + "</h4>"
-		} else {
-			return "<h4>Tuvo hipotético casamiento con " + name + ".</h4>"
-		}
+func htTextHTMLMarriageIntroduction(name string, marrType string) string {
+	var idx int = 17
+	if marrType != "theory" {
+		idx = 18
 	}
-
-	if marrType == "theory" {
-		return "<h4>He had a marriage with " + name + ".</h4>"
-	} else {
-		return "<h4>He had a hypothetical marriage with " + name + ".</h4>"
-	}
+	return "<h4>" + commonKeywords[idx] + " " + name + ".</h4>"
 }
 
 func htTextChildIntroduction(lang string, parent1 string, parent2 string, child string, childType string) string {
@@ -109,22 +95,12 @@ func htTextChildIntroduction(lang string, parent1 string, parent2 string, child 
 	return ret
 }
 
-func htTextFamilyIntroduction(lang string, name string) string {
-	if lang == "pt-BR" {
-		return "\nFamília: " + name + ".\n\n"
-	} else if lang == "es-ES" {
-		return "\nFamilia: " + name + ".\n\n"
-	}
-	return "\nFamily: " + name + ".\n\n"
+func htTextFamilyIntroduction(name string) string {
+	return "\n" + commonKeywords[8] + ": " + name + ".\n\n"
 }
 
-func htTextPersonIntroduction(lang string, name string) string {
-	if lang == "pt-BR" {
-		return "Pessoa: " + name + ".\n"
-	} else if lang == "es-ES" {
-		return "Persona: " + name + ".\n"
-	}
-	return "Person: " + name + ".\n"
+func htTextPersonIntroduction(name string) string {
+	return commonKeywords[9] + ": " + name + ".\n"
 }
 
 func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 string) string {
@@ -186,7 +162,7 @@ func htTextFamily(families *Family, lang string) string {
 
 	for i := 0; i < len(families.Families); i++ {
 		family := &families.Families[i]
-		finalText += htTextFamilyIntroduction(lang, family.Name)
+		finalText += htTextFamilyIntroduction(family.Name)
 
 		if family.History != nil {
 			htmlText = ""
@@ -210,7 +186,7 @@ func htTextFamily(families *Family, lang string) string {
 
 		for j := 0; j < len(family.People); j++ {
 			person := &family.People[j]
-			finalText += "\n\n" + htTextPersonIntroduction(lang, person.Name)
+			finalText += "\n\n" + htTextPersonIntroduction(person.Name)
 
 			if person.History != nil {
 				htmlText = ""
@@ -243,7 +219,7 @@ func htTextFamily(families *Family, lang string) string {
 					}
 
 					htmlText = ""
-					htmlText += htTextHTMLMarriageIntroduction(lang, marr.Name, marr.Type)
+					htmlText += htTextHTMLMarriageIntroduction(marr.Name, marr.Type)
 					for m := 0; m < len(marr.History); m++ {
 						hist := &marr.History[m]
 
@@ -340,7 +316,6 @@ func htLoadTreeData(lang string) {
 		}
 	}
 	defaultFamilyTop += ".\n\n"
-	fmt.Fprintln(os.Stderr, defaultFamilyTop)
 	newFile, err := htWriteTmpFile(lang, &ctf)
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
@@ -410,10 +385,10 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 
 func htFamiliesToAudio() {
 	for i := 0; i < len(htLangPaths); i++ {
-		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, htLangPaths[i])
-		// TODO: IT IS ALSO NECESSARY TO LOAD THE COMMON WORDS
-		//       AND USE THEM WITH SOME FILES
 		htLoadTreeData(htLangPaths[i])
+		htLoadKeywordFile("common_keywords", htLangPaths[i])
+
+		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, htLangPaths[i])
 		err := htLoadFamilyIndex(localPath, htLangPaths[i])
 		if err != nil {
 			return
