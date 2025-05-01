@@ -89,25 +89,15 @@ func htOpenLogs(name string) *log.Logger {
 	}
 }
 
-func main() {
-	HTParseArg()
-	HTLoadConfig()
-	DaemonLog := htOpenLogs("daemon.log")
-	AccessLog := htOpenLogs("access.log")
-
+func htRunStopFlags() {
 	var stopRun bool = false
-	if minifyFlag {
-		HTMinifyAllFiles()
-		stopRun = true
-	}
-
 	if gedcomFlag {
 		htCreateGEDCOM()
 		stopRun = true
 	}
 
 	if audioFlag {
-		htFamiliesToAudio()
+		htConvertTextsToAudio()
 		stopRun = true
 	}
 
@@ -122,9 +112,23 @@ func main() {
 		stopRun = true
 	}
 
-	if stopRun {
-		return
+	if minifyFlag {
+		HTMinifyAllFiles()
+		stopRun = true
 	}
+
+	if stopRun {
+		os.Exit(0)
+	}
+}
+
+func main() {
+	HTParseArg()
+	HTLoadConfig()
+	DaemonLog := htOpenLogs("daemon.log")
+	AccessLog := htOpenLogs("access.log")
+
+	htRunStopFlags()
 
 	devM := "with"
 	if CFG.DevMode == false {

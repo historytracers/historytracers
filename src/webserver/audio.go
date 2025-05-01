@@ -420,3 +420,7 @@ func htFamiliesToAudio() {
 		}
 	}
 }
+
+func htConvertTextsToAudio() {
+	htFamiliesToAudio()
+}
