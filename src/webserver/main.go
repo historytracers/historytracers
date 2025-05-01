@@ -95,31 +95,34 @@ func main() {
 	DaemonLog := htOpenLogs("daemon.log")
 	AccessLog := htOpenLogs("access.log")
 
-	// TODO: WE ALLOW MORE THAN ONE FLAG TO BE PASSED, BUT WE DO NOT PROCESS
-	// TOGETHER. IT IS NECESSARY TO CHANGE THIS.
+	var stopRun bool = false
 	if minifyFlag {
 		HTMinifyAllFiles()
-		return
+		stopRun = true
 	}
 
 	if gedcomFlag {
 		htCreateGEDCOM()
-		return
+		stopRun = true
 	}
 
 	if audioFlag {
 		htFamiliesToAudio()
-		return
+		stopRun = true
 	}
 
 	if validateFlag {
 		htValidateGEDCOM()
 		htValidateClassFormats()
-		return
+		stopRun = true
 	}
 
 	if len(classTemplate) > 0 {
 		htCreateNewClass()
+		stopRun = true
+	}
+
+	if stopRun {
 		return
 	}
 
