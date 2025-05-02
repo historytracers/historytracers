@@ -607,3 +607,24 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 
 	return finalText + "\n"
 }
+
+func htLoopThroughContentFiles(ctf *classTemplateFile) string {
+	var ret string = ""
+	if len(ctf.Title) > 0 {
+		ret = ctf.Title + ".\n\n"
+	}
+	for i := 0; i < len(ctf.Content); i++ {
+		content := &ctf.Content[i]
+
+		for j := 0; j < len(content.Text); j++ {
+			text := &content.Text[j]
+			ret += htTextToHumanText(text)
+			if len(text.PostMention) > 0 {
+				ret += text.PostMention + "\n\n"
+			}
+		}
+		ret += ".\n\n"
+	}
+
+	return ret
+}
