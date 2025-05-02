@@ -17,6 +17,7 @@ import (
 var familyMarriagesMap map[string]string
 var defaultFamilyTop string = ""
 
+// COMMON
 func htMarkdownToHTML(str string) string {
 	extensions := parser.CommonExtensions | parser.AutoHeadingIDs | parser.NoEmptyLineBeforeBlock
 	p := parser.NewWithExtensions(extensions)
@@ -32,6 +33,7 @@ func htMarkdownToHTML(str string) string {
 	return ret
 }
 
+// Families
 func htTextFamilyIndex(idx *IdxFamilyContent, lang string) string {
 	var finalText string = ""
 	var htmlText string = ""
@@ -306,16 +308,9 @@ func htLoadTreeData(lang string) {
 		panic(err)
 	}
 
-	defaultFamilyTop = ""
-	for i := 0; i < len(ctf.Content); i++ {
-		content := &ctf.Content[i]
+	defaultFamilyTop = htLoopThroughContentFiles(&ctf)
+	defaultFamilyTop = htAdjustAudioStringBeforeWrite(defaultFamilyTop)
 
-		for j := 0; j < len(content.Text); j++ {
-			text := &content.Text[j]
-			defaultFamilyTop += htTextToHumanText(text)
-		}
-	}
-	defaultFamilyTop += ".\n\n"
 	newFile, err := htWriteTmpFile(lang, &ctf)
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
@@ -396,6 +391,37 @@ func htFamiliesToAudio() {
 	}
 }
 
+// Overall Files
+func htConvertOverallTextToAudio() {
+	pages := []string{"main"}
+
+	for i := 0; i < len(htLangPaths); i++ {
+		lang := htLangPaths[i]
+		for _, page := range pages {
+			var ctf classTemplateFile
+			localPath, err := htLoadClassFileFormat(&ctf, page, lang)
+			if err != nil {
+				panic(err)
+			}
+
+			audioTxt := htLoopThroughContentFiles(&ctf)
+			audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+			err = htWriteAudioFile(page, lang, audioTxt)
+			if err != nil {
+				panic(err)
+			}
+
+			newFile, err := htWriteTmpFile(lang, &ctf)
+			HTCopyFilesWithoutChanges(localPath, newFile)
+			err = os.Remove(newFile)
+			if err != nil {
+				panic(err)
+			}
+		}
+	}
+}
+
 func htConvertTextsToAudio() {
+	htConvertOverallTextToAudio()
 	htFamiliesToAudio()
 }
