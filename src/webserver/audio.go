@@ -393,7 +393,7 @@ func htFamiliesToAudio() {
 
 // Overall Files
 func htConvertOverallTextToAudio() {
-	pages := []string{"main"}
+	pages := []string{"main", "contact", "acknowledgement"}
 
 	for i := 0; i < len(htLangPaths); i++ {
 		lang := htLangPaths[i]
