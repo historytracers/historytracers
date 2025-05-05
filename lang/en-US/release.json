@@ -1,19 +1,60 @@
 {
-    "title" : "Version",
-    "header" : "Version",
-    "last_update" : [ "1713732065" ],
-    "sources" : null,
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "content" : [
-        {
-            "id" : "introduction",
-            "value" : [ "<p>The release <b>0.4-RC</b> marks a significant shift in our approach to teaching. Rather than focusing solely on fundamental operations and following a linear progression of knowledge, we are introducing new tools to make learning more accessible and reach a broader audience.</p>" ]
-        },
-        {
-            "id" : "notes",
-            "value" : [ "<p>New Features in This Release:</p>",
-                "<ul><li><b>Atlas:</b> Based on feedback from readers, we have created a new Atlas to teach geometrical and physics concepts, addressing common areas of misunderstanding.</li><li><b>Markdown:</b> In addition to supporting pure HTML, History Tracers now supports <i>Markdown</i>, making text editing and formatting easier.</li><li><b>Families:</b> We are reintroducing the use of families as a pedagogical tool to teach History, Math, and Biology in an integrated way.</li><li><b>\"First steps\" Section:</b> After completing the first chapter, we have advanced to the second, focusing on teaching comparisons and delving deeper into the concept of limits.</li><li><b>Images:</b> We have started reorganizing the images in History Tracers, incorporating authorized materials from various museums to enrich the learning experience.</li><li><b>Design:</b> The application’s design has been enhanced to provide a better user experience, especially on smartphones.</li></ul></p>",
-                "<p>We wish everyone a rewarding learning experience and hope you enjoy the new features!</p>" ]
-        }
-    ]
+   "title": "Version",
+   "header": "Version",
+   "sources": null,
+   "scripts": null,
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/release_en-US.wav",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Version-0-5-RC-English-e32e44q",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": null,
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1746441754"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nVersion **0.5-RC** of *History Tracers* introduces readers, listeners, and users to the project's standards, along with a variety of new features designed to enhance the learning process.\n\nHighlights of this version include",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "format": "markdown",
+               "PostMention": ":"
+            }
+         ]
+      },
+      {
+         "id": "notes",
+         "text": [
+            {
+               "text": "- The addition of a section dedicated to text comprehension ([understand texts](https://historytracers.org/index.html?page=literature) ).\n- The transformation of the web server into a development and content creation tool — a feature still in progress.\n- The integration of educational audiovisual elements in the [\"Genealogical Tree\"](https://historytracers.org/index.html?page=families) section.\n- The ability to export families in CSV and GEDCOM formats, bridging the gap between theory and practice.\n- Integration with [Piper](https://github.com/rhasspy/piper/), enabling text-to-audio conversion.\n- New content in the sections: [First Steps](https://historytracers.org/index.html?page=first_steps), [General History](https://historytracers.org/index.html?page=history) and [Genealogica Tree](https://historytracers.org/index.html?page=families).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "format": "markdown",
+               "PostMention": " "
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "date_time": null
 }

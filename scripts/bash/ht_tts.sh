@@ -8,6 +8,12 @@ ht_select_model() {
         echo "pt_BR-faber-medium.onnx"
         return
     elif [ "${1}" == "es-ES" ]; then
+        len=${#2}
+        if [ "$len" -ne 0 ]; then
+            echo "es_ES-${2}-medium.onnx"
+            return 0
+        fi
+
         if [ $SELECTOR -lt 16384 ]; then
             echo "es_ES-davefx-medium.onnx"
         else
@@ -16,13 +22,19 @@ ht_select_model() {
         return
     fi
 
+    len=${#2}
+    if [ "$len" -ne 0 ]; then
+        echo "en_US-${2}-medium.onnx"
+        return 0
+    fi
+
     if [ $SELECTOR -lt 16384 ]; then
         echo "en_US-amy-medium.onnx"
     else
         echo "en_US-norman-medium.onnx"
     fi
 
-    return
+    return 0
 }
 
 ht_select_cfg() {
@@ -35,7 +47,7 @@ ht_convert() {
     local IN_FILENAME SELLANG MODEL CFG
     IN_FILENAME="${1}"
     SELLANG=$(echo "$IN_FILENAME" | cut -d_ -f2)
-    MODEL=$(ht_select_model "${SELLANG}")
+    MODEL=$(ht_select_model "${SELLANG}" "${2}")
     CFG=$(ht_select_cfg "${MODEL}")
 
     echo "Using Model ${MODEL} to create ${IN_FILENAME}.wav"
@@ -46,14 +58,17 @@ ht_convert() {
 
 ht_error() {
     echo "Please specify a filename with language suffix (_pt-BR, _es-ES, _en-US)."
+    echo "You can also specify the model you want to use as the second option."
+    echo ""
     echo "Example:"
     echo ""
-    echo "./ht_tts.sh FILE_NAME_en-US"
+    echo "./ht_tts.sh FILE_NAME_en-US MODEL_NAME"
     exit 1;
 }
 
-if [ $# -ne 1 ]; then
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
     ht_error
 fi
 
-ht_convert "${1}"
+ht_convert "${1}" "${2}"
+
