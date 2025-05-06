@@ -391,6 +391,78 @@ func htFamiliesToAudio() {
 	}
 }
 
+// Index Files
+func htParseIndexText(index *classIdx) string {
+	var ret string = index.Title + ".\n\n"
+	for i := 0; i < len(index.Content); i++ {
+		content := &index.Content[i]
+		var htmlText = ""
+		if len(content.HTMLValue) > 0 {
+			htmlText = content.HTMLValue
+		} else {
+			if len(content.Value) > 0 {
+				for j := 0; j < len(content.Value); j++ {
+					value := &content.Value[j]
+					htmlText += "<p>" + value.Name + ": " + value.Desc + "</p>"
+				}
+			}
+		}
+
+		finalText, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
+		if err != nil {
+			panic(err)
+		}
+
+		ret += finalText + ".\n"
+	}
+
+	return ret
+}
+
+func htClassIdxAudio(localPath string, indexName string, lang string) error {
+	byteValue, err := htOpenFileReadClose(localPath)
+	if err != nil {
+		return err
+	}
+
+	var index classIdx
+	err = json.Unmarshal(byteValue, &index)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		return err
+	}
+
+	audioTxt := htParseIndexText(&index)
+	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+	err = htWriteAudioFile(indexName, lang, audioTxt)
+	if err != nil {
+		panic(err)
+	}
+
+	newFile, err := htWriteTmpFile(lang, &index)
+	HTCopyFilesWithoutChanges(localPath, newFile)
+	err = os.Remove(newFile)
+	if err != nil {
+		panic(err)
+	}
+
+	return nil
+}
+
+func htConvertIndexToAudio() {
+	for i := 0; i < len(indexFiles); i++ {
+		idxFile := indexFiles[i]
+		for j := 0; j < len(htLangPaths); j++ {
+			idxPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[j], idxFile)
+			fmt.Println("Creating audio file for ", idxPath)
+			err := htClassIdxAudio(idxPath, idxFile, htLangPaths[j])
+			if err != nil {
+				panic(err)
+			}
+		}
+	}
+}
+
 // Overall Files
 func htConvertOverallTextToAudio() {
 	pages := []string{"main", "contact", "acknowledgement", "release"}
@@ -424,4 +496,5 @@ func htConvertOverallTextToAudio() {
 func htConvertTextsToAudio() {
 	htConvertOverallTextToAudio()
 	htFamiliesToAudio()
+	htConvertIndexToAudio()
 }

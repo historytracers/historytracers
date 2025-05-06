@@ -44,7 +44,7 @@ type classContent struct {
 	Target    string              `json:"target"`
 	Page      string              `json:"page"`
 	ValueType string              `json:"value_type"`
-	HtmlValue string              `json:"html_value"`
+	HTMLValue string              `json:"html_value"`
 	Value     []classContentValue `json:"value"`
 }
 
@@ -60,27 +60,6 @@ type classIdx struct {
 }
 
 var localClassIDXUpdate bool
-
-func htWriteClassIndexFile(lang string, index *classIdx) (string, error) {
-	id := uuid.New()
-	strID := id.String()
-
-	tmpFile := fmt.Sprintf("%slang/%s/%s.tmp", CFG.SrcPath, lang, strID)
-
-	fp, err := os.Create(tmpFile)
-	if err != nil {
-		return "", err
-	}
-
-	e := json.NewEncoder(fp)
-	e.SetEscapeHTML(false)
-	e.SetIndent("", "   ")
-	e.Encode(index)
-
-	fp.Close()
-
-	return tmpFile, nil
-}
 
 func htAddNewClassToIdx(index *classIdx, newFile string) {
 	lastContent := len(index.Content) - 1
@@ -185,13 +164,13 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 	HTCopyFilesWithoutChanges(fileName, tmpName)
 	err = os.Remove(tmpName)
 	if err != nil {
-		fmt.Println("ERROR", err)
+		fmt.Fprintln(os.Stderr, "ERROR", err)
 		return err
 	}
 
 	err = htAddNewClassTemplateToDirectory(newFile, lang)
 	if err != nil {
-		fmt.Println("ERROR", err)
+		fmt.Fprintln(os.Stderr, "ERROR", err)
 		return err
 	}
 
@@ -202,6 +181,10 @@ func htAddNewJSToDirectory(newFile string) {
 	srcPath := fmt.Sprintf("%ssrc/js/classes.js", CFG.SrcPath)
 	dstPath := fmt.Sprintf("%s/js/%s.js", CFG.SrcPath, newFile)
 
+	if verboseFlag {
+		fmt.Println("Copying ", srcPath, " to ", dstPath)
+	}
+
 	HTCopyFilesWithoutChanges(dstPath, srcPath)
 }
 
@@ -209,11 +192,14 @@ func htAddNewSourceToDirectory(newFile string) {
 	srcPath := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
 	dstPath := fmt.Sprintf("%s/lang/source/%s.json", CFG.SrcPath, newFile)
 
+	if verboseFlag {
+		fmt.Println("Copying ", srcPath, " to ", dstPath)
+	}
+
 	HTCopyFilesWithoutChanges(dstPath, srcPath)
 }
 
 func htCreateTestClass(fileName string) {
-	htLangPaths := [3]string{"en-US", "es-ES", "pt-BR"}
 	for i := 0; i < len(htLangPaths); i++ {
 		localClassIDXUpdate = false
 		idxPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[i], classTemplate)
@@ -236,10 +222,8 @@ func htCreateNewClass() {
 }
 
 func htValidateClassFormats() {
-	classTemplates := [5]string{"science", "history", "indigenous_who", "first_steps", "literature"}
-
-	for i := 0; i < len(classTemplates); i++ {
-		classTemplate = classTemplates[i]
+	for i := 0; i < len(indexFiles); i++ {
+		classTemplate = indexFiles[i]
 		htCreateTestClass("")
 	}
 }
