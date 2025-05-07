@@ -64,8 +64,6 @@ type HTSourceFile struct {
 	Info               string            `json:"info"`
 	License            []string          `json:"license"`
 	LastUpdate         []string          `json:"last_update"`
-	Authors            string            `json:"authors"`
-	Reviewers          string            `json:"reviewers"`
 	Version            int               `json:"version"`
 	Type               string            `json:"type"`
 	PrimarySources     []HTSourceElement `json:"primary_sources"`

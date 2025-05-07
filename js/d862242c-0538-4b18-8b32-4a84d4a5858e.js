@@ -9,7 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htWriteNavigation("");
+    htWriteNavigation("first_steps");
 
     return false;
 }

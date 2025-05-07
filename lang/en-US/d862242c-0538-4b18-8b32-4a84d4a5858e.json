@@ -61,47 +61,34 @@
          ]
       },
       {
-         "id": "SECTION_NAME",
+         "id": "introduction2",
          "text": [
             {
-               "text": " ",
-               "source": [
-                  {
-                     "type": 3210,
-                     "uuid": "Unique identifier (UUID) for the current citation.",
-                     "text": "The accompanying text that will be displayed with the citation.",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2010",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2010",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "unix",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  },
-                  {
-                     "type": "julian",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  }
-               ],
+               "text": "### Introduction\n\nIn previous chapters, we focused on counting by raising our fingers and, as a consequence, added numbers one by one. Let's observe the hands again in Figure 1, and then consider the following reflection",
+               "source": null,
+               "date_time": null,
                "isTable": false,
                "imgdesc" : "",
-               "format": "markdown or html",
-               "PostMention": "A character used after a mention to include citations."
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            { "text" : "<p><table class=\"book_navigation\"><tr><td>Left Hand</td><td>Right Hand</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figure 1: Hands representations. Source code present in GitHub of the Project (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fuente</a>)</td></tr></table></p>",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "The figure shows a person's two hands raised with all fingers extended.",
+              "date_time" : [
+                    {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+              ],
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Group Summation</b><br /><br />Imagine this scenario: Three people are gathered together, and we want to determine the total number of fingers on their hands. Knowing that each person has 5 fingers per hand, what is the total number of fingers present?</div></div></center></p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
             }
          ]
       }
@@ -113,24 +100,5 @@
          "additionalInfo": "The correct answer is 'Yes' because ..."
       }
    ],
-   "date_time": [
-      {
-         "type": "gregory",
-         "year": "2010",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "unix",
-         "year": "",
-         "month": "",
-         "day": ""
-      },
-      {
-         "type": "julian",
-         "year": "",
-         "month": "",
-         "day": ""
-      }
-   ]
+   "date_time": null
 }

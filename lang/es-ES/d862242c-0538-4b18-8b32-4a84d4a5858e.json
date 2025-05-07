@@ -61,47 +61,34 @@
          ]
       },
       {
-         "id": "SECTION_NAME",
+         "id": "introduction",
          "text": [
             {
-               "text": " ",
-               "source": [
-                  {
-                     "type": 3210,
-                     "uuid": "Unique identifier (UUID) for the current citation.",
-                     "text": "The accompanying text that will be displayed with the citation.",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2010",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2010",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "unix",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  },
-                  {
-                     "type": "julian",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  }
-               ],
+               "text": "### Introducción\n\nEn los capítulos anteriores, nos enfocamos en el conteo mediante la elevación de los dedos y, como consecuencia, añadíamos números uno a uno. Observemos nuevamente dos manos en la Figura 1 y, a continuación, reflexionemos",
+               "source": null,
+               "date_time": null,
                "isTable": false,
                "imgdesc" : "",
-               "format": "markdown or html",
-               "PostMention": "A character used after a mention to include citations."
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            { "text" : "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representación de las manos. Código fuente presente en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fuente</a>)</td></tr></table></p>",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "En la figura, se observan las dos manos de una persona extendidas con todos los dedos levantados.",
+              "date_time" : [
+                    {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+              ],
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Sumando en grupos?</b><br /><br />Imagine la siguiente situación: tenemos tres personas reunidas y queremos saber el número total de dedos que tienen en sus manos. Sabiendo que cada persona tiene 5 dedos en cada mano, ¿cuál es el total de dedos presentes?</div></div></center></p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
             }
          ]
       }
@@ -113,24 +100,5 @@
          "additionalInfo": "The correct answer is 'Yes' because ..."
       }
    ],
-   "date_time": [
-      {
-         "type": "gregory",
-         "year": "2010",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "unix",
-         "year": "",
-         "month": "",
-         "day": ""
-      },
-      {
-         "type": "julian",
-         "year": "",
-         "month": "",
-         "day": ""
-      }
-   ]
+   "date_time": null
 }
