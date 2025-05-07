@@ -41,52 +41,27 @@
                "source": null,
                "date_time": null,
                "isTable": false,
+               "imgdesc" : "",
                "format": "html",
                "PostMention": " "
             },
-            {
-               "text": " ",
-               "source": [
-                  {
-                     "type": 3210,
-                     "uuid": "Unique identifier (UUID) for the current citation.",
-                     "text": "The accompanying text that will be displayed with the citation.",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2010",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
+            { "text" : "### Pré-requisitos\n\nEste texto expandirá o conceito de adição. Portanto, recomendamos o estudo dos capítulos anteriores e de seus respectivos pré-requisitos",
+              "source" : [ 
+                  { "type": 1,
+                    "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                    "text": "History Tracers Team, Primeiros Passos",
+                    "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
                ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2010",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "unix",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  },
-                  {
-                     "type": "julian",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  }
-               ],
+               "date_time": null,
                "isTable": false,
-               "format": "markdown or html",
-               "PostMention": "A character used after a mention to include citations."
+               "imgdesc" : "",
+               "format": "markdown",
+               "PostMention": "."
             }
          ]
       },
       {
-         "id": "SECTION_NAME",
+         "id": "introduction",
          "text": [
             {
                "text": " ",
@@ -124,6 +99,7 @@
                   }
                ],
                "isTable": false,
+               "imgdesc" : "",
                "format": "markdown or html",
                "PostMention": "A character used after a mention to include citations."
             }

@@ -46,6 +46,7 @@
                                  {"type" : "julian",  "epoch" : "0" }
                ],
                "isTable" : false,
+               "imgdesc" : "A description of an image included in the text.",
                "format" : "markdown or html",
                "PostMention": "A character used after a mention to include citations."
             }
@@ -62,6 +63,7 @@
                              "date_time" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
               ],
               "isTable" : false,
+              "imgdesc" : "A description of an image included in the text.",
               "date_time" : [
                  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
                  {"type" : "unix", "epoch" : "0" },
