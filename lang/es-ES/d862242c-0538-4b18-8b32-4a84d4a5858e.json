@@ -72,7 +72,7 @@
                "format": "markdown",
                "PostMention": ":"
             },
-            { "text" : "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representación de las manos. Código fuente presente en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fuente</a>)</td></tr></table></p>",
+            { "text" : "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\">Figura 1: Representación de las manos. Código fuente presente en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fuente</a>).</p>",
               "source" : null,
               "isTable" : false,
               "imgdesc" : "En la figura, se observan las dos manos de una persona extendidas con todos los dedos levantados.",
@@ -91,13 +91,126 @@
               "PostMention": " "
             }
          ]
+      },
+      {
+          "id" : "grouping",
+          "text" : [ 
+            { "text" : "### Agrupamiento\n\n### Una visión general\n\nPara facilitar la comprensión de la reflexión, vamos a construir una tabla con las manos de las personas propuestas",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "",
+              "date_time" : null,
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            { "text" : "<p><table class=\"tawapukllay\"><tr><th colspan=\"2\">Primera persona</th><th colspan=\"2\">Segunda persona</th><th colspan=\"2\">Tercera persona</th><th>Total</th></tr>  <tr><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img5\" onclick=\"htImageZoom('img5', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img6\" onclick=\"htImageZoom('img6', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">?</span></td></tr></table></p><p class=\"desc\">Tabla 1: Representación de las manos en la reflexión 1.</p>",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "La tabla contiene seis manos, cada una con cinco dedos levantados.",
+              "date_time" : null,
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "A partir de la Tabla 1, podríamos sumar todos los dedos uno a uno para obtener el resultado de la reflexión",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            { "text" : "<p class=\"center_notation\"><math display=\"block\"><mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>30</mi> </math></p><p class=\"desc\">Cálculo 1: Suma de todos los dedos de las manos.</p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿La vida es tan complicada?</b><br /><br />A primera vista, el Cálculo 1 parece extenso. Después de todo, debemos escribir treinta números uno (1) y luego sumarlos.<br /><br />¿No sería mejor simplificarlo?</div></div></center></p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "### Simplificando la escritura\n\nPara representar operaciones como esta de manera más sencilla, los matemáticos introdujeron el concepto de sumatorio, utilizando la letra griega sigma (Σ)",
+              "source" : [ 
+                  { "type": 1,
+                    "uuid": "7b080e09-91f4-426d-8feb-c440249078d1",
+                    "text": "Weisstein, Eric W."}
+               ],
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            { "text" : "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>30</mn></mrow> </munderover> <mi>1</mi> <mo>=</mo> <mi>30 (1)</mi>  <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Cálculo 2: Suma de todos los dedos de las manos.</p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "Al comparar el Cálculo 2 con el Cálculo 1, observamos que el símbolo sigma (Σ) cumple la función del signo de suma (+). Debajo de él, colocamos el valor inicial del índice (*n = 1*), y arriba, el valor final (*30*). Al lado, escribimos el número que se está sumando, (acá, *1*). Sin embargo, notemos que después del primer signo igual, no colocamos directamente el valor 30, sino 30 × (1), lo que indica que el número 1 se repite 30 veces",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "markdown",
+              "PostMention": "."
+            },
+            { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Podemos simplificar aún más?</b><br /><br />Escribir menos no redujo los cálculos. ¿Sería posible simplificarlo más?</div></div></center></p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "### Agrupando con las manos\n\nDescribir algo de manera individual, como hicimos con los dedos, puede generar trabajo adicional. Al observar la naturaleza, encontramos formas de agrupar datos para simplificar operaciones como el Cálculo 2.\n\nPor ejemplo, al analizar las manos, notamos que siempre hay 5 dedos por mano. En lugar de contar uno por uno, podemos contar de cinco en cinco. Así, solo necesitamos contar cinco dedos seis veces",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            { "text" : "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>6</mn></mrow> </munderover> <mi>5</mi> <mo>=</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>=</mo> <mi>6 × (5)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Cálculo 3: Suma de cinco dedos por mano.</p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "### Agrupando por persona\n\nEl agrupamiento por manos no es la única opción. Podemos simplificar aún más el conteo considerando diez dedos por persona, realizando solo tres sumas",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            { "text" : "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>3</mn></mrow> </munderover> <mi>10</mi> <mo>=</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>=</mo> <mi>3 (10)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Cálculo 4: Suma de diez dedos por persona.</p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            }
+          ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
+         "question": "É possível somar diferente números e obter o mesmo resultado?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "additionalInfo": "Conforme observado no exemplo da soma dos dedos, conseguimos chegar aos 30 dedos realizando somas de cada dedo, dos dedos das mãos, e finalmente, dedos das duas mãos de uma pessoa."
       }
    ],
    "date_time": null

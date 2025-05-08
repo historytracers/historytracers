@@ -72,7 +72,7 @@
                "format": "markdown",
                "PostMention": ":"
             },
-            { "text" : "<p><table class=\"book_navigation\"><tr><td>Left Hand</td><td>Right Hand</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figure 1: Hands representations. Source code present in GitHub of the Project (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fuente</a>)</td></tr></table></p>",
+            { "text" : "<p><table class=\"book_navigation\"><tr><td>Left Hand</td><td>Right Hand</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\">Figure 1: Hands representations. Source code present in GitHub of the Project (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fuente</a>).</p>",
               "source" : null,
               "isTable" : false,
               "imgdesc" : "The figure shows a person's two hands raised with all fingers extended.",
@@ -91,13 +91,126 @@
               "PostMention": " "
             }
          ]
+      },
+      {
+          "id" : "grouping2",
+          "text" : [ 
+            { "text" : "### Grouping\n\n### A General Vision\n\nTo simplify comprehension, we will construct a table listing the hands of the people mentioned",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "",
+              "date_time" : null,
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            { "text" : "<p><table class=\"tawapukllay\"><tr><th colspan=\"2\">First Person</th><th colspan=\"2\">Second Person</th><th colspan=\"2\">Third Person</th><th>Total</th></tr>  <tr><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img5\" onclick=\"htImageZoom('img5', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img6\" onclick=\"htImageZoom('img6', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">?</span></td></tr></table></p><p class=\"desc\">Table 1: Representation of the hands in Reflection 1.</p>",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "The table has six hands, each with five fingers raised.",
+              "date_time" : null,
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "From Table 1, we can count all the fingers one by one to obtain the result:",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            { "text" : "<p class=\"center_notation\"><math display=\"block\"><mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>30</mi> </math></p><p class=\"desc\">Calculation 1: Sum of the fingers on all hands.</p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Is Life Too Complicated?</b><br /><br />At first glance, Calculation 1 appears lengthy because it requires writing the number one thirty times before summing them.<br /><br />Can we simplify this?</div></div></center></p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "### Simplifying the Notation\n\nTo represent such operations more concisely, mathematicians introduced the concept of summation, denoted by the Greek letter sigma (Σ)",
+              "source" : [ 
+                  { "type": 1,
+                    "uuid": "7b080e09-91f4-426d-8feb-c440249078d1",
+                    "text": "Weisstein, Eric W."}
+               ],
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            { "text" : "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>30</mn></mrow> </munderover> <mi>1</mi> <mo>=</mo> <mi>30 (1)</mi>  <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Calculation 2: Sum of all fingers using sigma notation.</p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "Comparing Calculation 2 with Calculation 1, we see that the sigma symbol (Σ) functions as a repeated addition operator. Below it, we define the starting index (*n = 1*), and above it, the final value (*30*). The expression inside (here, *1*) is what we sum repeatedly. The result is equivalent to multiplying the number of repetitions (*30*) by the value being added (*1*)",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "markdown",
+              "PostMention": "."
+            },
+            { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Can We Simplify Further?</b><br /><br />While concise notation reduces writing, it doesn’t necessarily simplify the calculation itself. Is further simplification possible?</div></div></center></p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "### Grouping by Hands\n\nDescribing things individually (like counting each finger) can introduce unnecessary steps. Observing nature, we find ways to group data and simplify operations, as seen in Calculation 2.\n\nFor example, when analyzing hands, we notice that each hand has five fingers. Instead of counting one by one, we can count five at a time. Thus, we only need to count five fingers six times",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            { "text" : "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>6</mn></mrow> </munderover> <mi>5</mi> <mo>=</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>=</mo> <mi>6 ×(5)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Calculation 3: Summing five fingers per hand.</p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "### Grouping by Person\n\nGrouping by hands is not the only option. We can simplify counting even further by considering ten fingers per person, requiring only three additions",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            { "text" : "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>3</mn></mrow> </munderover> <mi>10</mi> <mo>=</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>=</mo> <mi>3 (10)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Calculation 4: Summing ten fingers per person.</p>",
+              "source" : null,
+              "isTable" : false,
+              "date_time" : null,
+              "imgdesc" : "",
+              "format" : "html",
+              "PostMention": " "
+            }
+          ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
+         "question": "É possível somar diferente números e obter o mesmo resultado?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "additionalInfo": "Conforme observado no exemplo da soma dos dedos, conseguimos chegar aos 30 dedos realizando somas de cada dedo, dos dedos das mãos, e finalmente, dedos das duas mãos de uma pessoa."
       }
    ],
    "date_time": null
