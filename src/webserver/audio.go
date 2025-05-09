@@ -464,9 +464,7 @@ func htConvertIndexToAudio() {
 }
 
 // Overall Files
-func htConvertOverallTextToAudio() {
-	pages := []string{"main", "contact", "acknowledgement", "release"}
-
+func htConvertClassesToAudio(pages []string) {
 	for i := 0; i < len(htLangPaths); i++ {
 		lang := htLangPaths[i]
 		for _, page := range pages {
@@ -493,8 +491,33 @@ func htConvertOverallTextToAudio() {
 	}
 }
 
+func htConvertOverallTextToAudio() {
+	pages := []string{"main", "contact", "acknowledgement", "release"}
+	htConvertClassesToAudio(pages)
+}
+
+func htConvertFistStepTextToAudio() {
+	pages := []string{"d862242c-0538-4b18-8b32-4a84d4a5858e"}
+	htConvertClassesToAudio(pages)
+}
+
+func htConvertHistoricalTextToAudio() {
+	pages := []string{"ee28aa06-65bc-4f13-88dc-c6ad46f11adb"}
+	htConvertClassesToAudio(pages)
+}
+
+func htConvertLiteratureTextToAudio() {
+	pages := []string{"2ecd8b93-e611-4977-aa7e-109bc27d4a51"}
+	htConvertClassesToAudio(pages)
+}
+
 func htConvertTextsToAudio() {
 	htConvertOverallTextToAudio()
 	htFamiliesToAudio()
 	htConvertIndexToAudio()
+
+	// TODO: When all texts were coverted, we must remove the static vectors and load the indexes
+	htConvertFistStepTextToAudio()
+	htConvertHistoricalTextToAudio()
+	htConvertLiteratureTextToAudio()
 }
