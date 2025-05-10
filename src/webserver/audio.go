@@ -42,14 +42,14 @@ func htTextFamilyIndex(idx *IdxFamilyContent, lang string) string {
 	if len(idx.HTMLValue) > 0 {
 		htmlText = idx.HTMLValue
 
-		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, "", lang)
+		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, "", lang, false)
 	} else if len(idx.Value) > 0 {
 		for i := 0; i < len(idx.Value); i++ {
 			fv := &idx.Value[i]
 
 			work := fmt.Sprintf("%s : %s\n", fv.Name, fv.Desc)
 
-			htmlText += htOverwriteDates(work, idx.FillDates, "", lang)
+			htmlText += htOverwriteDates(work, idx.FillDates, "", lang, false)
 		}
 		htmlText = htMarkdownToHTML(htmlText)
 	} else {
@@ -152,9 +152,9 @@ func htTextFamily(families *Family, lang string) string {
 			comm := &families.Common[i]
 
 			if comm.Format == "html" {
-				htmlText += htOverwriteDates(comm.Text, comm.FillDates, "", lang)
+				htmlText += htOverwriteDates(comm.Text, comm.FillDates, "", lang, false)
 			} else {
-				tmp := htOverwriteDates(comm.Text, comm.FillDates, comm.PostMention, lang)
+				tmp := htOverwriteDates(comm.Text, comm.FillDates, comm.PostMention, lang, false)
 				htmlText += htMarkdownToHTML(tmp)
 			}
 		}
@@ -172,9 +172,9 @@ func htTextFamily(families *Family, lang string) string {
 				hist := &family.History[j]
 
 				if hist.Format == "html" {
-					htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang)
+					htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang, false)
 				} else {
-					tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang)
+					tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 					htmlText += htMarkdownToHTML(tmp)
 				}
 			}
@@ -196,9 +196,9 @@ func htTextFamily(families *Family, lang string) string {
 					hist := &person.History[k]
 
 					if hist.Format == "html" {
-						htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang)
+						htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang, false)
 					} else {
-						tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang)
+						tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 						htmlText += htMarkdownToHTML(tmp)
 					}
 				}
@@ -226,9 +226,9 @@ func htTextFamily(families *Family, lang string) string {
 						hist := &marr.History[m]
 
 						if hist.Format == "html" {
-							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang)
+							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang, false)
 						} else {
-							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang)
+							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 							htmlText += htMarkdownToHTML(tmp)
 						}
 					}
@@ -249,9 +249,9 @@ func htTextFamily(families *Family, lang string) string {
 					for m := 0; m < len(child.History); m++ {
 						hist := &child.History[m]
 						if hist.Format == "html" {
-							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang)
+							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang, false)
 						} else {
-							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang)
+							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 							htmlText += htMarkdownToHTML(tmp)
 						}
 					}
