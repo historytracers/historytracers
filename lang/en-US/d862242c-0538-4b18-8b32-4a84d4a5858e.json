@@ -41,20 +41,28 @@
                "source": null,
                "date_time": null,
                "isTable": false,
-               "imgdesc" : "",
+               "imgdesc": "",
                "format": "html",
                "PostMention": " "
             },
-            { "text" : "### Prerequisites\n\nThis text will explore the concept of addition in greater depth. As such, we recommend reviewing the previous chapters, along with their respective prerequisites",
-              "source" : [ 
-                  { "type": 1,
-                    "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
-                    "text": "History Tracers Team, First Steps",
-                    "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
+            {
+               "text": "### Prerequisites\n\nThis text explores the concept of addition in greater depth. Therefore, we recommend reviewing the previous chapters along with their respective prerequisites",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team, First Steps",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
                ],
                "date_time": null,
                "isTable": false,
-               "imgdesc" : "",
+               "imgdesc": "",
                "format": "markdown",
                "PostMention": "."
             }
@@ -64,214 +72,328 @@
          "id": "introduction2",
          "text": [
             {
-               "text": "### Introduction\n\nIn previous chapters, we focused on counting by raising our fingers and, as a consequence, added numbers one by one. Let's observe the hands again in Figure 1, and then consider the following reflection",
+               "text": "### Introduction\n\nIn previous chapters, we focused on counting by raising our fingers, which led us to add numbers one by one. Let’s take another look at the hands in Figure 1 and reflect",
                "source": null,
                "date_time": null,
                "isTable": false,
-               "imgdesc" : "",
+               "imgdesc": "",
                "format": "markdown",
                "PostMention": ":"
             },
-            { "text" : "<p><table class=\"book_navigation\"><tr><td>Left Hand</td><td>Right Hand</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\">Figure 1: Hands representations. Source code present in GitHub of the Project (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fuente</a>).</p>",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "The figure shows a person's two hands raised with all fingers extended.",
-              "date_time" : [
-                    {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
-              ],
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Left Hand</td><td>Right Hand</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\">Figure 1: Hands representations. Source code present in GitHub of the Project (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fuente</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "The figure shows a person's two hands raised with all fingers extended.",
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Group Summation</b><br /><br />Imagine this scenario: Three people are gathered together, and we want to determine the total number of fingers on their hands. Knowing that each person has 5 fingers per hand, what is the total number of fingers present?</div></div></center></p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Group Summation</b><br /><br />Imagine this scenario: three people are gathered, and we want to determine the total number of fingers on their hands. Knowing that each person has five fingers per hand, how many fingers are there in total?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
             }
          ]
       },
       {
-          "id" : "grouping2",
-          "text" : [ 
-            { "text" : "### Grouping\n\n### A General Vision\n\nTo simplify comprehension, we will construct a table listing the hands of the people mentioned",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": ":"
+         "id": "grouping2",
+         "text": [
+            {
+               "text": "### Grouping\n\n### A General Vision\n\nTo help us understand this more easily, let’s create a table showing the hands of the individuals involved",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
             },
-            { "text" : "<p><table class=\"tawapukllay\"><tr><th colspan=\"2\">First Person</th><th colspan=\"2\">Second Person</th><th colspan=\"2\">Third Person</th><th>Total</th></tr>  <tr><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img5\" onclick=\"htImageZoom('img5', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img6\" onclick=\"htImageZoom('img6', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">?</span></td></tr></table></p><p class=\"desc\">Table 1: Representation of the hands in Reflection 1.</p>",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "The table has six hands, each with five fingers raised.",
-              "date_time" : null,
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p><table class=\"tawapukllay\"><tr><th colspan=\"2\">First Person</th><th colspan=\"2\">Second Person</th><th colspan=\"2\">Third Person</th><th>Total</th></tr>  <tr><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img5\" onclick=\"htImageZoom('img5', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img6\" onclick=\"htImageZoom('img6', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">?</span></td></tr></table></p><p class=\"desc\">Table 1: Representation of the hands in Reflection 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "The table has six hands, each with five fingers raised.",
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "From Table 1, we can count all the fingers one by one to obtain the result:",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "markdown",
-              "PostMention": ":"
+            {
+               "text": "From Table 1, we could count all the fingers one by one to get the result",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
             },
-            { "text" : "<p class=\"center_notation\"><math display=\"block\"><mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>30</mi> </math></p><p class=\"desc\">Calculation 1: Sum of the fingers on all hands.</p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>30</mi> </math></p><p class=\"desc\">Calculation 1: Sum of all fingers.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Is Life Too Complicated?</b><br /><br />At first glance, Calculation 1 appears lengthy because it requires writing the number one thirty times before summing them.<br /><br />Can we simplify this?</div></div></center></p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Is Life Too Complicated?</b><br /><br />At first glance, Calculation 1 seems long because it involves writing the number one thirty times before summing them.<br /><br />Can we simplify this?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "### Simplifying the Notation\n\nTo represent such operations more concisely, mathematicians introduced the concept of summation, denoted by the Greek letter sigma (Σ)",
-              "source" : [ 
-                  { "type": 1,
-                    "uuid": "7b080e09-91f4-426d-8feb-c440249078d1",
-                    "text": "Weisstein, Eric W."}
+            {
+               "text": "### Simplifying the Notation\n\nTo express such operations more concisely, mathematicians introduced the concept of summation, represented by the Greek letter sigma (Σ)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7b080e09-91f4-426d-8feb-c440249078d1",
+                     "text": "Weisstein, Eric W.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
                ],
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "markdown",
-              "PostMention": ":"
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
             },
-            { "text" : "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>30</mn></mrow> </munderover> <mi>1</mi> <mo>=</mo> <mi>30 (1)</mi>  <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Calculation 2: Sum of all fingers using sigma notation.</p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>30</mn></mrow> </munderover> <mi>1</mi> <mo>=</mo> <mi>30 (1)</mi>  <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Calculation 2: Sum of all fingers using sigma notation.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "Comparing Calculation 2 with Calculation 1, we see that the sigma symbol (Σ) functions as a repeated addition operator. Below it, we define the starting index (*n = 1*), and above it, the final value (*30*). The expression inside (here, *1*) is what we sum repeatedly. The result is equivalent to multiplying (×) the number of repetitions (*30*) by the value being added (*1*)",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "markdown",
-              "PostMention": "."
+            {
+               "text": "Comparing Calculation 2 with Calculation 1, we see that the sigma symbol (Σ) functions as a shorthand for repeated addition. The lower bound (n = 1) indicates where we start, and the upper bound (30) where we end. The value next to the sigma (in this case, 1) is what is being repeatedly added. The final result shows this repeated value being multiplied by the number of times it appears",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
             },
-            { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Can We Simplify Further?</b><br /><br />While concise notation reduces writing, it doesn’t necessarily simplify the calculation itself. Is further simplification possible?</div></div></center></p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Can We Simplify It Even More?</b><br /><br />While the sigma notation makes the expression shorter, it doesn't necessarily make the calculation itself easier. Is there an even simpler way?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "### Grouping by Hands\n\nDescribing things individually (like counting each finger) can introduce unnecessary steps. Observing nature, we find ways to group data and simplify operations, as seen in Calculation 2.\n\nFor example, when analyzing hands, we notice that each hand has five fingers. Instead of counting one by one, we can count five at a time. Thus, we only need to count five fingers six times",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "markdown",
-              "PostMention": ":"
+            {
+               "text": "### Grouping by Hands\n\nDescribing things individually—like counting each finger—can add unnecessary complexity. Observing nature, we can find ways to group data to simplify operations, just like in Calculation 2.\n\nFor example, each hand has five fingers. Instead of counting fingers one by one, we can count in groups of five. That means we only need to count five fingers six times",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
             },
-            { "text" : "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>6</mn></mrow> </munderover> <mi>5</mi> <mo>=</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>=</mo> <mi>6 × (5)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Calculation 3: Summing five fingers per hand.</p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>6</mn></mrow> </munderover> <mi>5</mi> <mo>=</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>=</mo> <mi>6 × (5)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Calculation 3: Counting five fingers per hand.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "### Grouping by Person\n\nGrouping by hands is not the only option. We can simplify counting even further by considering ten fingers per person, requiring only three additions",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "markdown",
-              "PostMention": ":"
+            {
+               "text": "### Grouping by Person\n\nGrouping by hands is not the only approach. We can simplify the count even further by considering ten fingers per person. That way, we only need to perform three additions",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
             },
-            { "text" : "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>3</mn></mrow> </munderover> <mi>10</mi> <mo>=</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>=</mo> <mi>3 × (10)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Calculation 4: Summing ten fingers per person.</p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>3</mn></mrow> </munderover> <mi>10</mi> <mo>=</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>=</mo> <mi>3 × (10)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Calculation 4: Counting ten fingers per person.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
             }
-          ]
+         ]
       },
       {
-          "id" : "nature",
-          "text" : [ 
-            { "text" : "### Our Repetitions\n\nHumans are always learning from nature and creating their own repetitive patterns. In fact, we have already presented an altar featuring different generations of *ajawob* (reyes) Copán",
-              "source" : [
-                           { "type": 1,
-                             "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
-                             "text": "History Tracers",
-                             "date_time" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
-              ],
-              "isTable" : false,
-              "imgdesc" : "",
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
+         "id": "nature",
+         "text": [
+            {
+               "text": "### Our Repetitions\n\nHumans constantly learn from nature and create repetitive patterns. In fact, we previously presented an altar that depicts several generations of *ajawob* (kings) from Copán",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
             },
-            { "text" : "<p><div class=\"htSlides\"></p>",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "date_time" : null,
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p><div class=\"htSlides\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "<p class=\"desc\">Slide 1: Images of Altar Q at the archaeological site of Copán, Honduras. Photo taken during a visit on <htdate0>.<br />The names of the kings (<i>ajawob</i>) are detailed in the work of Anastasia Hutnick (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate1>, pp. 18, 35 - 67.</a>).<br />The slide's source code was inspired by a template from (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cf7adc72-d340-412e-8d48-953ac64cb670'); return false;\">W3Schools</a>).</p>",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "The altar is shaped like a big box, with inscriptions on top and sculpted human figures on its sides.",
-              "date_time" : [
-                  {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
-                  {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" }
-              ],
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p class=\"desc\">Slide 1: Images of Altar Q at the archaeological site of Copán, Honduras. Photo taken during a visit on <htdate0>.<br />The names of the kings (<i>ajawob</i>) are detailed in the work of Anastasia Hutnick (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate1>, pp. 18, 35 - 67.</a>).<br />The slide's source code was inspired by a template from (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cf7adc72-d340-412e-8d48-953ac64cb670'); return false;\">W3Schools</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "The altar is shaped like a big box, with inscriptions on top and sculpted human figures on its sides.",
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "On Altar Q of Copán, we can observe four *ajawob* (reyes) on each side. Instead of counting them one by one, we can calculate them in groups of four",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "date_time" : null,
-              "format" : "html",
-              "PostMention": ":"
+            {
+               "text": "On Altar Q in Copán, we can observe four *ajawob* (kings) on each side. Rather than count them individually, we can calculate the total by grouping them in fours",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ":"
             },
-            { "text" : "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>4</mn></mrow> </munderover> <mi>4</mi> <mo>=</mo> <mi>4</mi> <mo>+</mo> <mi>4</mi> <mo>+</mo> <mi>4</mi> <mo>+</mo> <mi>4</mi> <mo>=</mo> <mi>4 × (4)</mi> <mo>=</mo> <mi>16</mi></math></p><p class=\"desc\">Calculation 4: Total number of <i>ajawob</i> (reyes) per side of the altar.</p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>4</mn></mrow> </munderover> <mi>4</mi> <mo>=</mo> <mi>4</mi> <mo>+</mo> <mi>4</mi> <mo>+</mo> <mi>4</mi> <mo>+</mo> <mi>4</mi> <mo>=</mo> <mi>4 × (4)</mi> <mo>=</mo> <mi>16</mi></math></p><p class=\"desc\">Calculation 4: Total number of <i>ajawob</i> (reyes) per side of the altar.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1</b><br /><br />Beyond counting fingers, we can observe our surroundings and identify objects that can be grouped for counting.</div></div></center></p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "imgdesc" : "",
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1</b><br /><br />Beyond fingers, look around and identify objects that can be grouped for counting.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
             }
-          ]
+         ]
+      },
+      {
+         "id": "multiplication2",
+         "text": [
+            {
+               "text": "### Multiplication\n\nThe simplifications we've explored are examples of multiplication, which is defined as",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fc77d792-25d3-4c13-ace0-0378f3aaec70",
+                     "text": "Weisstein, Eric W.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><ul class=\"citation\"><li><i>\"...multiplication is the process of calculating the result when a number is repeated a specific number of times\"</i></li> </ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": " "
+            },
+            {
+               "text": "Although this definition doesn’t explicitly mention addition, as we've seen, there's an intrinsic connection between the two operations. This is to be expected, as new knowledge builds on what we already know",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "final",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this chapter, we introduced a new way of counting: multiplication—a fundamental mathematical operation that is deeply connected to addition.\n\nIn upcoming texts, we will continue expanding our understanding of multiplication, always relating it to addition",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "É possível somar diferente números e obter o mesmo resultado?",
+         "question": "Is it possible to add different numbers and get the same result?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Conforme observado no exemplo da soma dos dedos, conseguimos chegar aos 30 dedos realizando somas de cada dedo, dos dedos das mãos, e finalmente, dedos das duas mãos de uma pessoa."
+         "additionalInfo": "As we saw when we were counting our fingers, we could obtain the same number, 30, in different ways: Counting one by one, counting by hand (five fingers at a time), or counting by person (if multiple people are involved)."
+      },
+      {
+         "question": "Is there a relationship between multiplication and addition?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Since multiplication is essentially repeated addition, there is an intrinsic relationship between these two mathematical operations."
       }
    ],
    "date_time": null

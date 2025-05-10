@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 # Script used to generate History Tracers package
@@ -36,7 +38,7 @@ ht_create_directories
 make
 
 # Run History Tracers
-./historytracers -minify=true -audiofiles=true -gedcom=true
+./historytracers -minify=true -audiofiles=true -gedcom=true -verbose
 
 ht_copy_files
 

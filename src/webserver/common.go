@@ -563,6 +563,10 @@ func htTextToHumanText(txt *HTText) string {
 		panic(err)
 	}
 
+	if len(txt.ImgDesc) > 0 {
+		finalText += "\n" + txt.ImgDesc
+	}
+
 	return finalText
 }
 
