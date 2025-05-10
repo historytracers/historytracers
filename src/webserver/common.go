@@ -17,10 +17,13 @@ import (
 )
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
+var indexFiles []string = []string{"science", "history", "indigenous_who", "first_steps", "literature"}
+
+var commonKeywords []string
+
 var htMonthCalendarPT []string = []string{"janeiro", "fevereiro", "março", "abril", "maio", "junho", "july", "agosto", "setembro", "outubro", "novembro", "dezembro"}
 var htMonthCalendarES []string = []string{"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "deciembre"}
 var htMonthCalendarEN []string = []string{"January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
-var commonKeywords []string
 
 // Common date type
 type HTDate struct {
@@ -61,8 +64,6 @@ type HTSourceFile struct {
 	Info               string            `json:"info"`
 	License            []string          `json:"license"`
 	LastUpdate         []string          `json:"last_update"`
-	Authors            string            `json:"authors"`
-	Reviewers          string            `json:"reviewers"`
 	Version            int               `json:"version"`
 	Type               string            `json:"type"`
 	PrimarySources     []HTSourceElement `json:"primary_sources"`
@@ -78,6 +79,7 @@ type HTText struct {
 	Source      []HTSource `json:"source"`
 	FillDates   []HTDate   `json:"date_time"`
 	IsTable     bool       `json:"isTable"`
+	ImgDesc     string     `json:"imgdesc"`
 	Format      string     `json:"format"`
 	PostMention string     `json:"PostMention"`
 }
@@ -561,6 +563,10 @@ func htTextToHumanText(txt *HTText) string {
 		panic(err)
 	}
 
+	if len(txt.ImgDesc) > 0 {
+		finalText += "\n" + txt.ImgDesc
+	}
+
 	return finalText
 }
 
@@ -627,4 +633,25 @@ func htLoopThroughContentFiles(ctf *classTemplateFile) string {
 	}
 
 	return ret
+}
+
+func htWriteClassIndexFile(lang string, index *classIdx) (string, error) {
+	id := uuid.New()
+	strID := id.String()
+
+	tmpFile := fmt.Sprintf("%slang/%s/%s.tmp", CFG.SrcPath, lang, strID)
+
+	fp, err := os.Create(tmpFile)
+	if err != nil {
+		return "", err
+	}
+
+	e := json.NewEncoder(fp)
+	e.SetEscapeHTML(false)
+	e.SetIndent("", "   ")
+	e.Encode(index)
+
+	fp.Close()
+
+	return tmpFile, nil
 }

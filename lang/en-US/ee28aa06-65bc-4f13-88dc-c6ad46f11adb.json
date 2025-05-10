@@ -7,9 +7,6 @@
    "scripts": [
       "ee28aa06-65bc-4f13-88dc-c6ad46f11adb"
    ],
-   "index": [
-      "history"
-   ],
    "audio": [
       {
          "url": "https://www.historytracers.org/audios/ee28aa06-65bc-4f13-88dc-c6ad46f11adb_en-US.ogg",
@@ -21,6 +18,9 @@
          "external": true,
          "spotify": true
       }
+   ],
+   "index": [
+      "history"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
@@ -42,6 +42,7 @@
                "source": null,
                "date_time": null,
                "isTable": false,
+               "imgdesc": "",
                "format": "html",
                "PostMention": " "
             },
@@ -52,17 +53,28 @@
                      "type": 1,
                      "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
                      "text": "History Tracers Team, First Steps",
-                     "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
                      "type": 1,
                      "uuid": "2806b294-0d2a-4ca2-8008-b2b82791427a",
                      "text": "History Tracers Team, Understanding texts",
-                     "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
                "isTable": false,
+               "imgdesc": "",
                "format": "markdown",
                "PostMention": "."
             }
@@ -78,11 +90,17 @@
                      "type": 1,
                      "uuid": "201b48d7-ffdb-42f4-84d6-484a0bbe700e",
                      "text": "Rodrigues, W., Soares Filho, A. C., Vale, M. S. do, & Menezes, M. C.",
-                     "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
                "isTable": false,
+               "imgdesc": "",
                "format": "markdown",
                "PostMention": ":"
             },
@@ -91,6 +109,7 @@
                "source": null,
                "date_time": null,
                "isTable": false,
+               "imgdesc": "",
                "format": "markdown",
                "PostMention": " "
             },
@@ -99,6 +118,7 @@
                "source": null,
                "date_time": null,
                "isTable": false,
+               "imgdesc": "",
                "format": "markdown",
                "PostMention": ":"
             },
@@ -107,192 +127,326 @@
                "source": null,
                "date_time": null,
                "isTable": false,
+               "imgdesc": "",
                "format": "markdown",
                "PostMention": " "
             }
          ]
       },
       {
-          "id" : "perception",
-          "text" : [ 
-            { "text" : "### The Perception of Time\n\nWhen studying ancient texts, we observe that humanity has been reflecting on time and its relationship to our lives for millennia. One of the first examples used in History Tracers—and among the oldest recorded—is the *Sumerian King List*",
-              "source" : [
-                           { "type": 0,
-                             "uuid": "4d0b579d-57af-45e1-87b0-d402dd778968",
-                             "text": "Sumerian King List"}
-              ],
-              "isTable" : false,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
-            },
-            { "text" : "<p class=\"desc\"><img src=\"images/Ashmolean/KingList.jpg\" id=\"imgKL\" onclick=\"htImageZoom('imgKL', '0%')\" class=\"imgcenter\"/>Figure 1: Sumerian King List. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('4d0b579d-57af-45e1-87b0-d402dd778968'); return false;\">Ashmolean Image Library</a>)</p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "format" : "html",
-              "PostMention": " "
-            },
-            { "text" : "This document includes implausible lifespans for humans, such as Enmenluana’s 43,200-year reign, and En-tarah-ana’s reign of 420 years, 3 months, and 3½ days. In both cases, we see a concept of cyclical time",
-              "source" : [
-                           { "type": 1,
-                             "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
-                             "text": "Black, J.A., et. al., ln. 11 - 12, 50 - 51",
-                             "date" :  {"type" : "gregory", "year" : "1998", "month" : "-1", "day" : "-1" }},
-                           { "type": 1,
-                             "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
-                             "text": "Black, J.A., et. al. (Traducción)",
-                             "date" :  {"type" : "gregory", "year" : "1998", "month" : "-1", "day" : "-1" }},
-                           { "type": 0,
-                             "uuid": "4d0b579d-57af-45e1-87b0-d402dd778968",
-                             "text": "Lista de los Reyes Sumérios"}
-              ],
-              "isTable" : false,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
-            },
-            { "text" : "A similar cyclical view appears in ancient Jewish texts—particularly in the *Book of Ecclesiastes*",
-              "source" : [
-                           { "type": 2,
-                             "uuid": "56e19b6d-5b12-4a9d-abff-7c85ff465872",
-                             "text": "Torah, Neviim u-Khetuvim. Twenty-four books of the Holy Scriptures carefully translated according to the Massoretic text, on the basis of the English version, after the best Jewish authorities, Capítulo 3, pp. 876",
-                             "date" :  {"type" : "gregory", "year" : "1891", "month" : "-1", "day" : "-1" }}
-              ],
-              "isTable" : false,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
-            },
-            { "text" : "<ul class=\"citation\"><li><i>For every thing there is a season; and a (proper) time is for every pursuit under the heavens...</li></ul>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "format" : "html",
-              "PostMention": " "
-            },
-            { "text" : "This perception of cyclical time is not limited to written records. In Mesoamerica, for example, *Type E* structures were likely tied to temporal events such as harvests, hunts, and seasonal transitions",
-              "source" : [
-                           { "type": 1,
-                             "uuid": "e7c7458b-0c63-4485-9c7b-4640edcd9122",
-                             "text": "Inomata, T.",
-                             "date" :  {"type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" }}
-              ],
-              "isTable" : false,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
-            },
-            { "text" : "<p class=\"desc\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/UBMUR-3hHz0?si=mn22_mrWLJ23ueeO\" title=\"YouTube video player\" frameborder=\"0\" allowfullscreen></iframe><br />Video 1: Type E at Caracol, Belize. Recorded during a site visit on <htdate0>.</p>",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : [
-                    {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" }
-              ],
-              "format" : "html",
-              "PostMention": " "
-            },
-            { "text" : "A similar idea is reflected in the Mesoamerican Ballgame, as discussed in the *First Steps* section. Research by scholars like Aguilar-Moreno suggests that this ceremonial space was directly tied to the cycle of day and night, reflecting an understanding of solar movement",
-              "source" : [
-                           { "type": 1,
-                             "uuid": "87a40e3a-c09b-466a-8a15-37091ddd38a5",
-                             "text": "Aguilar-Moreno, M.",
-                             "date" :  {"type" : "gregory", "year" : "2015", "month" : "-1", "day" : "-1" }},
-                           { "type": 1,
-                             "uuid": "page=class_content&arg=2ecd8b93-e611-4977-aa7e-109bc27d4a51",
-                             "text": "History Tracers Team",
-                             "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
-              ],
-              "isTable" : false,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
-            },
-            { "text" : "<p class=\"desc\"><img id=\"Copan\" onclick=\"htImageZoom('Copan', '0%')\" src=\"images/Copan/JuegoDePelotaCopan.jpg\" class=\"imgcenter\"/>Figure 2: The Ballgame Court at Copán, Honduras. Photographed on <htdate0> during a site visit.</p>",
-               "source" : null,
-               "isTable" : false,
-               "date_time" : [
-                    {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" }
+         "id": "perception",
+         "text": [
+            {
+               "text": "### The Perception of Time\n\nWhen studying ancient texts, we observe that humanity has been reflecting on time and its relationship to our lives for millennia. One of the first examples used in History Tracers—and among the oldest recorded—is the *Sumerian King List*",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "4d0b579d-57af-45e1-87b0-d402dd778968",
+                     "text": "Sumerian King List",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
                ],
-               "format" : "html",
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/Ashmolean/KingList.jpg\" id=\"imgKL\" onclick=\"htImageZoom('imgKL', '0%')\" class=\"imgcenter\"/>Figure 1: Sumerian King List. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('4d0b579d-57af-45e1-87b0-d402dd778968'); return false;\">Ashmolean Image Library</a>)</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": " "
-             },
-             { "text" : "Still, this perception alone does not fully define what time is. Let’s continue to explore that in the next section",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
+            },
+            {
+               "text": "This document includes implausible lifespans for humans, such as Enmenluana’s 43,200-year reign, and En-tarah-ana’s reign of 420 years, 3 months, and 3½ days. In both cases, we see a concept of cyclical time",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cb216fdf-1282-42e0-aaf4-3547b53857d7",
+                     "text": "Black, J.A., et. al., ln. 11 - 12, 50 - 51",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c8dd380c-6f66-415c-94fa-b116308adeef",
+                     "text": "Black, J.A., et. al. (Traducción)",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "4d0b579d-57af-45e1-87b0-d402dd778968",
+                     "text": "Lista de los Reyes Sumérios",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "A similar cyclical view appears in ancient Jewish texts—particularly in the *Book of Ecclesiastes*",
+               "source": [
+                  {
+                     "type": 2,
+                     "uuid": "56e19b6d-5b12-4a9d-abff-7c85ff465872",
+                     "text": "Torah, Neviim u-Khetuvim. Twenty-four books of the Holy Scriptures carefully translated according to the Massoretic text, on the basis of the English version, after the best Jewish authorities, Capítulo 3, pp. 876",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<ul class=\"citation\"><li><i>For every thing there is a season; and a (proper) time is for every pursuit under the heavens...</li></ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "This perception of cyclical time is not limited to written records. In Mesoamerica, for example, *Type E* structures were likely tied to temporal events such as harvests, hunts, and seasonal transitions",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e7c7458b-0c63-4485-9c7b-4640edcd9122",
+                     "text": "Inomata, T.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/UBMUR-3hHz0?si=mn22_mrWLJ23ueeO\" title=\"YouTube video player\" frameborder=\"0\" allowfullscreen></iframe><br />Video 1: Type E at Caracol, Belize. Recorded during a site visit on <htdate0>.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "A similar idea is reflected in the Mesoamerican Ballgame, as discussed in the *First Steps* section. Research by scholars like Aguilar-Moreno suggests that this ceremonial space was directly tied to the cycle of day and night, reflecting an understanding of solar movement",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "87a40e3a-c09b-466a-8a15-37091ddd38a5",
+                     "text": "Aguilar-Moreno, M.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "page=class_content&arg=2ecd8b93-e611-4977-aa7e-109bc27d4a51",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"Copan\" onclick=\"htImageZoom('Copan', '0%')\" src=\"images/Copan/JuegoDePelotaCopan.jpg\" class=\"imgcenter\"/>Figure 2: The Ballgame Court at Copán, Honduras. Photographed on <htdate0> during a site visit.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Still, this perception alone does not fully define what time is. Let’s continue to explore that in the next section",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
             }
-          ]
+         ]
       },
       {
-          "id" : "understanding",
-          "text" : [ 
-            { "text" : "### Understanding Time\n\nUnderstanding time has long been a challenge for humanity. Defining time based on natural processes adds layers of complexity to our perception of it.\n\nG. N. Bailey offers deeper reflections on this subject",
-              "source" : [
-                           { "type": 1,
-                             "uuid": "4d2c4ef0-2b21-41c5-bb5c-bf30b68bd460",
-                             "text": "Bailey, G. N.",
-                             "date" :  {"type" : "gregory", "year" : "1983", "month" : "-1", "day" : "-1" }}
-              ],
-              "isTable" : false,
-              "date_time" : false,
-              "format" : "markdown",
-              "PostMention": ":"
+         "id": "understanding",
+         "text": [
+            {
+               "text": "### Understanding Time\n\nUnderstanding time has long been a challenge for humanity. Defining time based on natural processes adds layers of complexity to our perception of it.\n\nG. N. Bailey offers deeper reflections on this subject",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4d2c4ef0-2b21-41c5-bb5c-bf30b68bd460",
+                     "text": "Bailey, G. N.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
             },
-            { "text" : "- **Pages 167 to 174**: Introduce a potential duality in understanding the universe and time’s role in our lives.\n- **Page 179**: Bailey challenges traditional notions of the “present” and the “past,” emphasizing that time varies from fleeting moments to vast millennia.\n- **Pages 180 a 186**: Encourage us to consider massive time spans—such as the 100,000-year “glacial-interglacial cycle”—alongside shorter intervals like decades, presenting time as a succession of events.\n- **Page 187**: Suggests that around 30,000 years ago, human intellectual development enabled future-oriented thinking.",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : false,
-              "format" : "markdown",
-              "PostMention": " "
+            {
+               "text": "- **Pages 167 to 174**: Introduce a potential duality in understanding the universe and time’s role in our lives.\n- **Page 179**: Bailey challenges traditional notions of the “present” and the “past,” emphasizing that time varies from fleeting moments to vast millennia.\n- **Pages 180 a 186**: Encourage us to consider massive time spans—such as the 100,000-year “glacial-interglacial cycle”—alongside shorter intervals like decades, presenting time as a succession of events.\n- **Page 187**: Suggests that around 30,000 years ago, human intellectual development enabled future-oriented thinking.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": " "
             },
-            { "text" : "It’s important to note that the ability to envision the future does not necessarily mean a civilization is focused on it. As Jaakko Hintikka points out, for example, ancient Greek civilization was not strongly anchored in the present",
-              "source" : [
-                           { "type": 1,
-                             "uuid": "77177e6a-b81f-4417-8d90-985c3d31f6a8",
-                             "text": "Hintikka, J., pp. 1 -5, 14",
-                             "date" :  {"type" : "gregory", "year" : "1967", "month" : "-1", "day" : "-1" }}
-              ],
-              "isTable" : false,
-              "date_time" : false,
-              "format" : "markdown",
-              "PostMention": "."
+            {
+               "text": "It’s important to note that the ability to envision the future does not necessarily mean a civilization is focused on it. As Jaakko Hintikka points out, for example, ancient Greek civilization was not strongly anchored in the present",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "77177e6a-b81f-4417-8d90-985c3d31f6a8",
+                     "text": "Hintikka, J., pp. 1 -5, 14",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
             },
-            { "text" : "In *History Tracers*, we adopt the perspective of time as a succession of events. Interestingly, this view emerged independently across various cultures—evident in both the *Mesoamerican* calendas and ancient Jewish texts",
-              "source" : [
-                           { "type": 1,
-                             "uuid": "4d2c4ef0-2b21-41c5-bb5c-bf30b68bd460",
-                             "text": "Bailey, G. N., pp. 167, 168",
-                             "date" :  {"type" : "gregory", "year" : "1983", "month" : "-1", "day" : "-1" }},
-                           { "type": 1,
-                             "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
-                             "text": "Puente, Francisco Barriga, pp. 13",
-                             "date" :  {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" }},
-                           { "type": 2,
-                             "uuid": "56e19b6d-5b12-4a9d-abff-7c85ff465872",
-                             "text": "Torah, Neviim u-Khetuvim. Twenty-four books of the Holy Scriptures carefully translated according to the Massoretic text, on the basis of the English version, after the best Jewish authorities, pp. 2",
-                             "date" :  {"type" : "gregory", "year" : "1891", "month" : "-1", "day" : "-1" }}
-              ],
-              "isTable" : false,
-              "date_time" : false,
-              "format" : "markdown",
-              "PostMention": "."
+            {
+               "text": "In *History Tracers*, we adopt the perspective of time as a succession of events. Interestingly, this view emerged independently across various cultures—evident in both the *Mesoamerican* calendas and ancient Jewish texts",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4d2c4ef0-2b21-41c5-bb5c-bf30b68bd460",
+                     "text": "Bailey, G. N., pp. 167, 168",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga, pp. 13",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 2,
+                     "uuid": "56e19b6d-5b12-4a9d-abff-7c85ff465872",
+                     "text": "Torah, Neviim u-Khetuvim. Twenty-four books of the Holy Scriptures carefully translated according to the Massoretic text, on the basis of the English version, after the best Jewish authorities, pp. 2",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
             }
-          ]
+         ]
       },
       {
-          "id" : "conclusion",
-          "text" : [ 
-            { "text" : "### Conclusion\n\nBased on this analysis, we can conclude that time may be understood as a **sequence of events**—but this does not mark the end of our quest to understand it.\n\nIn upcoming texts, we will continue to explore how our understanding of time has developed—an essential foundation for grasping many branches of science",
-              "source" : null,
-              "isTable" : false,
-              "date_time" : false,
-              "format" : "markdown",
-              "PostMention": "."
+         "id": "conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nBased on this analysis, we can conclude that time may be understood as a **sequence of events**—but this does not mark the end of our quest to understand it.\n\nIn upcoming texts, we will continue to explore how our understanding of time has developed—an essential foundation for grasping many branches of science",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
             }
-          ]
+         ]
       }
    ],
    "exercise_v2": [

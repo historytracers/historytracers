@@ -19,7 +19,7 @@ ht_select_model() {
         else
             echo "es_ES-sharvard-medium.onnx"
         fi
-        return
+        return 0
     fi
 
     len=${#2}
@@ -46,7 +46,7 @@ ht_select_cfg() {
 ht_convert() {
     local IN_FILENAME SELLANG MODEL CFG
     IN_FILENAME="${1}"
-    SELLANG=$(echo "$IN_FILENAME" | cut -d_ -f2)
+    SELLANG=$(echo "$IN_FILENAME" | rev | cut -d_ -f1| rev)
     MODEL=$(ht_select_model "${SELLANG}" "${2}")
     CFG=$(ht_select_cfg "${MODEL}")
 
