@@ -30,6 +30,79 @@ var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htFamilyIdx = new Map();
 
+var latexMap = new Map();
+
+MathJax = {
+  options: {
+    enableMenu: true,
+    enableExplorer: true,
+    menuOptions: {
+      settings: {
+        assistiveMml: false
+      }
+    },
+    a11y: {
+      braille: true,
+      viewBraille: true
+    },
+    sre: {
+      locale: 'en',
+      domain: 'clearspeak',
+      braille: 'euro'
+    },
+    renderActions: {
+      addCopyText: [156,
+                    (doc) => {
+                      if (!doc.processed.isSet('addtext')) {
+                        for (const math of doc.math) {
+                          MathJax.config.addCopyText(math, doc);
+                          if (math.typesetRoot.children[0]) {
+                            math.typesetRoot.children[0].setAttribute('style', 'user-select: none');
+                            math.typesetRoot.children[0].setAttribute('onselectstart', 'return false');
+                          }
+                        }
+                        doc.processed.set('addtext');
+                      }
+                    },
+                    // (math, doc) => {}
+                    (math, doc) => MathJax.config.addCopyText(math, doc)
+                   ]
+    }
+  },
+    addCopyText(math, doc) {
+    if (math.state() < MathJax.STATE.ADDTEXT) {
+      if (!math.isEscaped) {
+        const adaptor = doc.adaptor;
+        const text = adaptor.node('mjx-copytext', {'aria-hidden': true}, [
+          adaptor.text(math.start.delim + math.math + math.end.delim)
+        ]);
+        adaptor.append(math.typesetRoot, text);
+        adaptor.append(math.typesetRoot, adaptor.text('\u200C'));
+        adaptor.insert(adaptor.text('\u200C'), adaptor.firstChild(math.typesetRoot));
+      }
+      math.state(MathJax.STATE.ADDTEXT);
+    }
+  },
+  startup: {
+    ready() {
+      const {newState, STATE} = MathJax._.core.MathItem;
+      const {AbstractMathDocument} = MathJax._.core.MathDocument;
+      const {CHTML} = MathJax._.output.chtml_ts;
+      newState('ADDTEXT', 156);
+      AbstractMathDocument.ProcessBits.allocate('addtext');
+      CHTML.commonStyles['mjx-copytext'] = {
+        display: 'inline-block',
+        position: 'absolute',
+        top: 0, left: 0, width: 0, height: 0,
+        opacity: 0
+      };
+      MathJax.STATE = STATE;
+      MathJax.startup.defaultReady();
+    }
+  }
+};
+
+
 var htGameImages = [ "MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "TeotihuacanMountains.jpg", "CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren.jpg", "SanAndres.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito.jpg", "Copan/CopanAltarGenealogy0.jpg", "Copan/CopanAltarGenealogy1.jpg", "Copan/CopanAltarGenealogy2.jpg", "Copan/CopanAltarGenealogy3.jpg", "StelaACopan.jpg", "Copan/CopanWholeTextStelaAltar.png", "Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
 
@@ -1055,8 +1128,10 @@ function htFillWebPage(page, data)
     }
     else if (data.themes != undefined) {
         htFillIndexSelector(data.themes, "#site_theme");
-        $("#loading_msg").hide();
-        $(':focus').blur()
+        for (const i in data.themes) {
+            theme = data.themes[i];
+            $("#"+theme.dir).html(theme.text);
+        }
     }
 
     if (data.families != undefined) {
@@ -1644,6 +1719,8 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
 
+    latexMap.clear();
+
     $("#paper").html("<p><i>"+keywords[87]+"</i></p>");
     if ($("#htaudio").length > 0 && table.audio != undefined && table.audio != null) {
         htAddAudio(table.audio);
@@ -1658,6 +1735,7 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     }
 
     var later = "";
+    var latexCounter = 0;
     for (const i in table.content) {
         var content = table.content[i];
 
@@ -1668,6 +1746,9 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
                 $("#"+content.id).html(text);
             } else {
                 htAddPaperDivs("#paper", content.id + "_"+j, text, "", later, idx);
+            }
+            if (localObj.latex != undefined && localObj.latex.length > 0) {
+                latexMap.set(latexCounter++, {"html" : text, "latex" : localObj.latex});
             }
         }
         idx++;
