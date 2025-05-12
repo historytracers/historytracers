@@ -30,6 +30,8 @@ var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htFamilyIdx = new Map();
 
+var extLatexIdx = 0;
+
 var htGameImages = [ "MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "TeotihuacanMountains.jpg", "CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren.jpg", "SanAndres.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito.jpg", "Copan/CopanAltarGenealogy0.jpg", "Copan/CopanAltarGenealogy1.jpg", "Copan/CopanAltarGenealogy2.jpg", "Copan/CopanAltarGenealogy3.jpg", "StelaACopan.jpg", "Copan/CopanWholeTextStelaAltar.png", "Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
 
@@ -38,6 +40,32 @@ var htSequenceGameLocation = [ "Lima, Peru", "Cahal Pech, Belize", "Ciudad de Gu
 
 var htEditable = undefined;
 var htEditableCheck = true;
+
+function htLatexToText(text, id) {
+    return true;
+    var input = $.trim(text);
+
+    $("#htEequation"+id).html("");
+    MathJax.texReset();
+
+    output = document.getElementById("htEequation"+id);
+    var options = MathJax.getMetricsFor(output);
+
+    MathJax.tex2chtmlPromise(input, options).then(function (node) {
+        output.appendChild(node);
+        MathJax.startup.document.clear();
+        MathJax.startup.document.updateDocument();
+
+        if ($("#htEequation"+id).length > 0 && $("#htequation"+id).length > 0) {
+            $("#htequation"+id).html(node);
+            $("#htEequation"+id).remove();
+        }
+    }).catch(function (err) {
+        return false;
+    });
+
+    return true;
+}
 
 function htEnableEdition() {
     /*
@@ -452,6 +480,25 @@ function htOverwriteHTDateWithText(text, localDate, localLang, localCalendar) {
     return ret;
 }
 
+function htOverwriteLatexWithText(text, latex) {
+    if (latex == undefined  || latex.length == 0) {
+        return;
+    }
+
+    var ret = text;
+    for (const i in latex) {
+        var newDiv = "<div id=\"htEequation"+extLatexIdx+"\"></div>";
+        $("#ht_index_latex").append(newDiv);
+        htLatexToText(latex[i], extLatexIdx);
+
+        var changed = ret.replace("<htequation"+i+">", "<div id=\"htequation"+extLatexIdx+"\"></div>");
+        ret = changed;
+        extLatexIdx++;
+    }
+
+    return ret;
+}
+
 function htParagraphFromObject(localObj, localLang, localCalendar) {
     var format = (localObj.format == undefined) ? "html" : localObj.format;
     var originalText = "";
@@ -462,6 +509,11 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
     } else {
         originalText = localObj.text;
     }
+
+    if (localObj.latex != undefined) {
+        originalText = htOverwriteLatexWithText(originalText, localObj.latex);
+    }
+
     var text = (format == "html") ? "<p>" : ""; 
     text += htFormatText(originalText, format, localObj.isTable);
 
@@ -744,6 +796,7 @@ function htProccessData(data, optional) {
 
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     $("#messages").html("&nbsp;");
+    extLatexIdx = 0;
 
     $("#loading_msg").show();
 
@@ -784,6 +837,8 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
 
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
+    $("#ht_index_latex").append("");
+    extLatexIdx = 0;
     if (ext == "html") {
         if (page != "tree") {
             $('.right-tree').css('display','none');
@@ -1055,8 +1110,10 @@ function htFillWebPage(page, data)
     }
     else if (data.themes != undefined) {
         htFillIndexSelector(data.themes, "#site_theme");
-        $("#loading_msg").hide();
-        $(':focus').blur()
+        for (const i in data.themes) {
+            theme = data.themes[i];
+            $("#"+theme.dir).html(theme.text);
+        }
     }
 
     if (data.families != undefined) {
@@ -1658,6 +1715,7 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     }
 
     var later = "";
+    var latexCounter = 0;
     for (const i in table.content) {
         var content = table.content[i];
 

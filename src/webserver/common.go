@@ -24,6 +24,7 @@ var commonKeywords []string
 var htMonthCalendarPT []string = []string{"janeiro", "fevereiro", "março", "abril", "maio", "junho", "july", "agosto", "setembro", "outubro", "novembro", "dezembro"}
 var htMonthCalendarES []string = []string{"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "deciembre"}
 var htMonthCalendarEN []string = []string{"January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
+var htAbbrMonthCalendarEN []string = []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
 
 // Common date type
 type HTDate struct {
@@ -80,6 +81,7 @@ type HTText struct {
 	FillDates   []HTDate   `json:"date_time"`
 	IsTable     bool       `json:"isTable"`
 	ImgDesc     string     `json:"imgdesc"`
+	Latex       []string   `json:"latex"`
 	Format      string     `json:"format"`
 	PostMention string     `json:"PostMention"`
 }
@@ -198,7 +200,7 @@ func htCommonJSONError(byteValue []byte, err error) {
 	}
 }
 
-func htDateToString(dt *HTDate, lang string) string {
+func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
 	if dt == nil || dt.DateType != "gregory" {
 		return ""
 	}
@@ -209,7 +211,9 @@ func htDateToString(dt *HTDate, lang string) string {
 	}
 
 	var months []string
-	if lang == "pt-BR" {
+	if dateAbbreviation == true {
+		months = htAbbrMonthCalendarEN
+	} else if lang == "pt-BR" {
 		months = htMonthCalendarPT
 	} else if lang == "es-ES" {
 		months = htMonthCalendarES
@@ -537,7 +541,7 @@ func htLoadKeywordFile(name string, lang string) error {
 	return nil
 }
 
-func htTextToHumanText(txt *HTText) string {
+func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 	var finalText string = ""
 	var htmlText string
 	var err error
@@ -545,14 +549,14 @@ func htTextToHumanText(txt *HTText) string {
 	if txt.Format == "html" {
 		work := txt.Text
 
-		htmlText = htOverwriteDates(work, txt.FillDates, "", "")
+		htmlText = htOverwriteDates(work, txt.FillDates, "", "", dateAbbreviation)
 	} else if txt.Format == "markdown" {
 		work := txt.Text
 		if len(txt.PostMention) > 0 {
 			work += txt.PostMention
 		}
 
-		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, "")
+		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, "", dateAbbreviation)
 		htmlText = htMarkdownToHTML(work)
 	} else {
 		return finalText
@@ -570,14 +574,14 @@ func htTextToHumanText(txt *HTText) string {
 	return finalText
 }
 
-func htOverwriteDates(text string, dates []HTDate, PostMention string, lang string) string {
+func htOverwriteDates(text string, dates []HTDate, PostMention string, lang string, dateAbbreviation bool) string {
 	size := len(dates)
 	if size == 0 {
 		return text
 	}
 
 	for i := 0; i < size; i++ {
-		dt := htDateToString(&dates[i], lang)
+		dt := htDateToString(&dates[i], lang, dateAbbreviation)
 		overwrite := "<htdate" + strconv.Itoa(i) + ">"
 		text = strings.Replace(text, overwrite, dt, 1)
 	}
@@ -592,14 +596,14 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 	if len(idx.HTMLValue) > 0 {
 		htmlText = idx.HTMLValue
 
-		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, ".", lang)
+		htmlText = htOverwriteDates(idx.HTMLValue, idx.FillDates, ".", lang, false)
 	} else if len(idx.Value) > 0 {
 		for i := 0; i < len(idx.Value); i++ {
 			fv := &idx.Value[i]
 
 			work := fmt.Sprintf("%s : %s\n", fv.Name, fv.Desc)
 
-			htmlText += htOverwriteDates(work, idx.FillDates, ".", lang)
+			htmlText += htOverwriteDates(work, idx.FillDates, ".", lang, false)
 		}
 		htmlText = htMarkdownToHTML(htmlText)
 	} else {
@@ -624,7 +628,7 @@ func htLoopThroughContentFiles(ctf *classTemplateFile) string {
 
 		for j := 0; j < len(content.Text); j++ {
 			text := &content.Text[j]
-			ret += htTextToHumanText(text)
+			ret += htTextToHumanText(text, false)
 			if len(text.PostMention) > 0 {
 				ret += text.PostMention + "\n\n"
 			}

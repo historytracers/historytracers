@@ -14,19 +14,22 @@
   <meta http-equiv="Expires" content="0" />
 
 
-  <link rel="stylesheet" href="css/ht_common.css?v=1746844509">
-  <link rel="stylesheet" href="css/ht_math.css?v=1746844509">
+  <link rel="stylesheet" href="css/ht_common.css?v=1747016272">
+  <link rel="stylesheet" href="css/ht_math.css?v=1747016272">
   <!-- https://docs.fontawesome.com/v5/web/setup/host-font-awesome-yourself -->
   <link rel="stylesheet" href="css/fa_6_5_2.min.css?v=bb7aa57e-fe8d-4884-aae5-1826d8a04e8b">
 
-  <script type="text/javascript" src="js/jquery-3.7.1.min.js?v=78b7bec4-3106-48f7-b44c-7907ec7b6d48"></script>
-  <script type="text/javascript" src="js/showdown.210.min.js?v=da938423-af12-4b7a-ac3f-9d203eedd62d"></script>
-  <script type="text/javascript" src="js/ht_common.js?v=1746844509"></script>
-  <script type="text/javascript" src="js/ht_math.js?v=1746844509"></script>
+  <script type="text/javascript" async src="js/jquery-3.7.1.min.js?v=78b7bec4-3106-48f7-b44c-7907ec7b6d48"></script>
+  <script type="text/javascript" async src="js/showdown.210.min.js?v=da938423-af12-4b7a-ac3f-9d203eedd62d"></script>
+  <script type="text/javascript" async src="js/astro.js?v=a560bbae-0ac0-4bcf-9dcb-e9f2dba9ab98"></script>
+  <script type="text/javascript" async src="js/calendar.js?v=750ecce5-1ae0-4cdd-857f-9273ed54f33f"></script>
+
+  <!-- script type="text/javascript" async src="js/tex-mml-chtml_3.js?v=60887dd2-52a2-423d-884f-4cefa04090ec"></script -->
+
   <script type="text/javascript" src="js/chart_4_4_9.js?v=c26d380b-8226-4bff-bc9e-5a781b22d537"></script>
-  <script type="text/javascript" src="js/ht_chart.js?v=1746844509"></script>
-  <script type="text/javascript" src="js/astro.js?v=a560bbae-0ac0-4bcf-9dcb-e9f2dba9ab98"></script>
-  <script type="text/javascript" src="js/calendar.js?v=750ecce5-1ae0-4cdd-857f-9273ed54f33f"></script>
+  <script type="text/javascript" src="js/ht_common.js?v=1747016272"></script>
+  <script type="text/javascript" src="js/ht_math.js?v=1747016272"></script>
+  <script type="text/javascript" src="js/ht_chart.js?v=1747016272"></script>
 </head>
 
 <body>
@@ -130,12 +133,15 @@
     <p>
     <div class="top-bar-right">
         <div class="top-bar-right-lang">
-        <span id="index_lang" class="toplabel">Language:</span> 
-        <select id="site_language" class="selSize">
-            <option value="pt-BR">Português - BR</option>
-            <option value="en-US">English - USA</option>
-            <option value="es-ES">Español - ES</option>
-        </select> <br />
+            <span id="current_day" style="font-size: 0.9vw">&nbsp;</span><br />
+            <span id="index_lang" class="toplabel" style="vertical-align: top;">Language:</span> 
+            <select id="site_language" class="selSize" size="3" >
+                <option value="pt-BR">Português - BR</option>
+                <option value="en-US">English - USA</option>
+                <option value="es-ES">Español - ES</option>
+            </select> 
+        </div>
+        <div class="top-bar-right-child">
         <span id="index_calendar" class="toplabel">Date Format:</span> 
         <select id="site_calendar" class="selSize">
             <option value="gregory">Gregoriano</option>
@@ -148,14 +154,10 @@
             <option value="persian">Persa</option>
             <option value="french">Rev. Francesa</option>
             <option value="shaka">Shaka</option>
-        </select>
-        </div>
-        <div class="top-bar-right-child">
-            <span id="index_theme" class="toplabel">Theme:</span> 
-            <select id="site_theme" class="selSize">
-                <option value="aIndigenous">American Indigenous</option>
-            </select> <br />
-            <span id="current_day" style="font-size: 0.9vw">&nbsp;</span>
+        </select><br />
+        <span id="index_theme" class="toplabel">Numerals</span>: <br />
+        <input type="radio" name="site_theme" id="ha" checked /> <span id="tNumericalSystem" class="toplabel"></span>  <br />
+        <input type="radio" name="site_theme" id="nb" disabled /> <span id="bNumericalSystem" class="toplabel"></span> 
        </div>
     </div>
     </p>
@@ -210,6 +212,9 @@
 </div>
 
 <div id="ht_games" class="ht_description">
+</div>
+
+<div id="ht_index_latex" class="ht_description">
 </div>
 
 </body>

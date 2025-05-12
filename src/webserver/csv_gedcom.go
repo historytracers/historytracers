@@ -408,7 +408,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
-					birthDate = htDateToString(&b.Date[0], lang)
+					birthDate = htDateToString(&b.Date[0], lang, true)
 					birthSource, _ = htSelectFirstSource(b.Sources)
 				}
 			}
@@ -427,7 +427,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
-					baptismDate = htDateToString(&b.Date[0], lang)
+					baptismDate = htDateToString(&b.Date[0], lang, true)
 					baptismSource, _ = htSelectFirstSource(b.Sources)
 				}
 			}
@@ -445,7 +445,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 
 			if i == 0 {
 				if d.Date != nil && len(d.Date) > 0 {
-					deathDate = htDateToString(&d.Date[0], lang)
+					deathDate = htDateToString(&d.Date[0], lang, true)
 					deathSource, _ = htSelectFirstSource(d.Sources)
 				}
 			}
@@ -468,7 +468,7 @@ func htSetCSVMarriage(id string, parent1 string, parent2 string, marr *FamilyPer
 	var marrDate string = ""
 
 	if marr.DateTime.Date != nil && len(marr.DateTime.Date) > 0 {
-		marrDate = htDateToString(&marr.DateTime.Date[0], lang)
+		marrDate = htDateToString(&marr.DateTime.Date[0], lang, true)
 	}
 
 	marrSource, marrType := htSelectSourceFromText(marr.History)
