@@ -81,7 +81,7 @@ type HTText struct {
 	FillDates   []HTDate   `json:"date_time"`
 	IsTable     bool       `json:"isTable"`
 	ImgDesc     string     `json:"imgdesc"`
-	Latex       string     `json:"latex"`
+	Latex       []string   `json:"latex"`
 	Format      string     `json:"format"`
 	PostMention string     `json:"PostMention"`
 }
