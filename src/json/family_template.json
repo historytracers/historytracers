@@ -1,6 +1,7 @@
 {
     "title" : "Name to be displayed on the title bar and at the top of the page.",
     "header" : "The name shown at the top of the page or section.",
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
     "sources" : [ "Array of files where sources are defined." ],
     "scripts" : [ "Array of JavaScript files that will be loaded." ],
     "index" : [ "families" ],
@@ -38,12 +39,11 @@
                     ],
                     "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
                     "imgdesc" : "A description of an image included in the text.",
-                    "latex" : "A LaTeX text to be displayed in this section.",
+                    "latex" : [ "A LaTeX text to be displayed in this section." ],
                     "format" : "markdown or html",
                     "PostMention": "A character used after a mention to include citations."
                   }
                 ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
     "last_update" : [ "The time of the last file update, represented as Unix Epoch time." ],
     "authors" : "Names of the individuals who contributed to editing the text.",
     "reviewers" : "Names of the individuals who reviewed the text.",
@@ -74,7 +74,7 @@
                             ],
                             "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
                             "imgdesc" : "A description of an image included in the text.",
-                            "latex" : "A LaTeX text to be displayed in this section.",
+                            "latex" : [ "A LaTeX text to be displayed in this section." ],
                             "format" : "markdown or html",
                             "PostMention": "A character used after a mention to include citations."
                           }
@@ -114,7 +114,7 @@
                                      ],
                                      "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
                                      "imgdesc" : "A description of an image included in the text.",
-                                     "latex" : "A LaTeX text to be displayed in this section.",
+                                     "latex" : [ "A LaTeX text to be displayed in this section." ],
                                      "format" : "markdown or html",
                                      "PostMention": "A character used after a mention to include citations."
                                     }
@@ -194,7 +194,7 @@
                                            ],
                                            "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
                                            "imgdesc" : "A description of an image included in the text.",
-                                           "latex" : "A LaTeX text to be displayed in this section.",
+                                           "latex" : [ "A LaTeX text to be displayed in this section." ],
                                            "format" : "markdown or html",
                                            "PostMention": "A character used after a mention to include citations."
                                           }
@@ -241,7 +241,7 @@
                                            ],
                                            "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
                                            "imgdesc" : "A description of an image included in the text.",
-                                           "latex" : "A LaTeX text to be displayed in this section.",
+                                           "latex" : [ "A LaTeX text to be displayed in this section." ],
                                            "format" : "markdown or html",
                                            "PostMention": "A character used after a mention to include citations."
                                           }

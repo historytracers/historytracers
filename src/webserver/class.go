@@ -190,7 +190,7 @@ func htAddNewJSToDirectory(newFile string) {
 
 func htAddNewSourceToDirectory(newFile string) {
 	srcPath := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
-	dstPath := fmt.Sprintf("%s/lang/source/%s.json", CFG.SrcPath, newFile)
+	dstPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, newFile)
 
 	if verboseFlag {
 		fmt.Println("Copying ", srcPath, " to ", dstPath)
@@ -213,9 +213,39 @@ func htCreateTestClass(fileName string) {
 	htAddNewSourceToDirectory(fileName)
 }
 
+func htRewriteClassFileTemplate() {
+	var cf classTemplateFile
+	fileName := fmt.Sprintf("%ssrc/json/class_template.json", CFG.SrcPath)
+	if verboseFlag {
+		fmt.Println("Adjusting file", fileName)
+	}
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR Adjusting file", fileName)
+		panic(err)
+	}
+
+	err = json.Unmarshal(byteValue, &cf)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		panic(err)
+	}
+
+	newFile, err := htWriteTmpFile(htLangPaths[0], &cf)
+	HTCopyFilesWithoutChanges(fileName, newFile)
+	err = os.Remove(newFile)
+	if err != nil {
+		panic(err)
+	}
+}
+
 func htCreateNewClass() {
 	id := uuid.New()
 	strID := id.String()
+
+	htRewriteClassFileTemplate()
+	htRewriteSourceFileTemplate()
 
 	htCreateTestClass(strID)
 	fmt.Printf("Class %s created for %s classTemplate\n", strID, classTemplate)

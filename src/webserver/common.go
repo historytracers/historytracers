@@ -347,6 +347,33 @@ func htLoadSources(fileName string) {
 	htUpdateSourceFile(&src, srcPath)
 }
 
+func htRewriteSourceFileTemplate() {
+	fileName := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
+	if verboseFlag {
+		fmt.Println("Adjusting file", fileName)
+	}
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR Adjusting file", fileName)
+		panic(err)
+	}
+
+	var src HTSourceFile
+	err = json.Unmarshal(byteValue, &src)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		panic(err)
+	}
+
+	newFile, err := htWriteTmpFile(htLangPaths[0], &src)
+	HTCopyFilesWithoutChanges(fileName, newFile)
+	err = os.Remove(newFile)
+	if err != nil {
+		panic(err)
+	}
+}
+
 func htConvertDateStringToHTDate(dtStr string) HTDate {
 	var year string = ""
 	var month string = ""
