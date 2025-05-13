@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
@@ -134,7 +135,9 @@ func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 
 func htHTML2Text(htmlText string) string {
 	var finalText string = ""
 	if len(htmlText) > 0 {
-		partial, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
+		ret := strings.ReplaceAll(htmlText, "<div class=\"first_steps_reflection\" id=\"myFirstReflection\">", commonKeywords[55])
+
+		partial, err := html2text.FromString(ret, html2text.Options{PrettyTables: true, OmitLinks: true})
 		if err != nil {
 			panic(err)
 		}
@@ -160,6 +163,17 @@ func htTextFamily(families *Family, lang string) string {
 		}
 
 		finalText += htHTML2Text(htmlText)
+	}
+
+	if families.Maps != nil {
+		finalText += commonKeywords[79] + ".\n\n" + commonKeywords[80] + "\n"
+		for i := 0; i < len(families.Maps); i++ {
+			maps := &families.Maps[i]
+
+			finalText += fmt.Sprintf("%s %d: ", commonKeywords[81], maps.Order)
+			htmlText = htOverwriteDates(maps.Text, maps.DateTime, "", lang, false)
+			finalText += htHTML2Text(htmlText)
+		}
 	}
 
 	for i := 0; i < len(families.Families); i++ {

@@ -1799,6 +1799,8 @@ function htFillFamilies(page, table) {
         $(document).prop('title', table.title);
     }
 
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
     if (table.documentsInfo != undefined && table.documentsInfo != null && $("#overallInfo").length > 0) {
         var dIText = "<p><h3>"+keywords[53]+"</h3>"+keywords[59]+"</p>";
         if (table.documentsInfo.length == 4) {
@@ -1845,10 +1847,11 @@ function htFillFamilies(page, table) {
                 continue;
             }
 
-            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" id=\"imgFamilyMap\" onclick=\"htImageZoom('imgFamilyMap', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+currMap.text+" "+keywords[82]+" "+keywords[83]+"</p>";
+            var map_desc = htOverwriteHTDateWithText(currMap.text, currMap.date_time, localLang, localCalendar);
+            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" id=\"imgFamilyMap\" onclick=\"htImageZoom('imgFamilyMap', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+map_desc+" "+keywords[82]+" "+keywords[83]+"</p>";
         }
 
-        if ($("#maps").length > 0) { $("#maps").html(textMap); }
+        $("#maps").html(textMap);
     }
 
     if (table.prerequisites != undefined && table.prerequisites != null && $("#pre_requisites").length > 0) {

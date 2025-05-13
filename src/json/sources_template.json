@@ -1,43 +1,48 @@
 {
-    "info" : "General information about the sources used.",
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
-    "last_update" : [ "The time of the last file update, represented as Unix Epoch time." ],
-    "version" : 1,
-    "type" : "sources",
-    "primary_sources" : [
-       {
-           "id" : "Unique identifier for the specific primary source.",
-           "citation" : "Citation for the primary source.",
-           "date": "Date when the link was accessed.",
-           "published": "Date when the paper was published.",
-           "url": "External link to access the paper/book."
-       }
-    ],
-    "reference_sources" : [
-       {
-           "id" : "Unique identifier for the specific reference source.",
-           "citation" : "Citation for the reference that discusses a primary source or person.",
-           "date": "Date when the link was accessed.",
-           "published": "Date when the paper was published.",
-           "url": "External link to access the paper/book."
-       }
-    ],
-    "religious_sources" : [
-       {
-           "id" : "Unique identifier for the specific religious source.",
-           "citation" : "Citation for the religious source.",
-           "date": "Date when the link was accessed.",
-           "published": "Date when the paper was published.",
-           "url": "External link to access the paper/book."
-       }
-    ],
-    "social_media_sources" : [
-       {
-           "id" : "Unique identifier for the specific Social Network source.",
-           "citation" : "Citation for the Social Network source.",
-           "date": "Date when the link was accessed.",
-           "published": "Date when the paper was published.",
-           "url": "External link to access the Social Network."
-       }
-    ]
+   "info": "General information about the sources used.",
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "The time of the last file update, represented as Unix Epoch time."
+   ],
+   "version": 1,
+   "type": "sources",
+   "primary_sources": [
+      {
+         "id": "Unique identifier for the specific primary source.",
+         "citation": "Citation for the primary source.",
+         "date_time": "",
+         "published": "Date when the paper was published.",
+         "url": "External link to access the paper/book."
+      }
+   ],
+   "reference_sources": [
+      {
+         "id": "Unique identifier for the specific reference source.",
+         "citation": "Citation for the reference that discusses a primary source or person.",
+         "date_time": "",
+         "published": "Date when the paper was published.",
+         "url": "External link to access the paper/book."
+      }
+   ],
+   "religious_sources": [
+      {
+         "id": "Unique identifier for the specific religious source.",
+         "citation": "Citation for the religious source.",
+         "date_time": "",
+         "published": "Date when the paper was published.",
+         "url": "External link to access the paper/book."
+      }
+   ],
+   "social_media_sources": [
+      {
+         "id": "Unique identifier for the specific Social Network source.",
+         "citation": "Citation for the Social Network source.",
+         "date_time": "",
+         "published": "Date when the paper was published.",
+         "url": "External link to access the Social Network."
+      }
+   ]
 }

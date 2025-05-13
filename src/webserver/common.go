@@ -87,9 +87,10 @@ type HTText struct {
 }
 
 type HTMap struct {
-	Text  string `json:"text"`
-	Img   string `json:"img"`
-	Order int    `json:"order"`
+	Text     string   `json:"text"`
+	Img      string   `json:"img"`
+	Order    int      `json:"order"`
+	DateTime []HTDate `json:"date_time"`
 }
 
 type HTCommonContent struct {
