@@ -87,9 +87,10 @@ type HTText struct {
 }
 
 type HTMap struct {
-	Text  string `json:"text"`
-	Img   string `json:"img"`
-	Order int    `json:"order"`
+	Text     string   `json:"text"`
+	Img      string   `json:"img"`
+	Order    int      `json:"order"`
+	DateTime []HTDate `json:"date_time"`
 }
 
 type HTCommonContent struct {
@@ -345,6 +346,33 @@ func htLoadSources(fileName string) {
 	jsonFile.Close()
 
 	htUpdateSourceFile(&src, srcPath)
+}
+
+func htRewriteSourceFileTemplate() {
+	fileName := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
+	if verboseFlag {
+		fmt.Println("Adjusting file", fileName)
+	}
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR Adjusting file", fileName)
+		panic(err)
+	}
+
+	var src HTSourceFile
+	err = json.Unmarshal(byteValue, &src)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		panic(err)
+	}
+
+	newFile, err := htWriteTmpFile(htLangPaths[0], &src)
+	HTCopyFilesWithoutChanges(fileName, newFile)
+	err = os.Remove(newFile)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func htConvertDateStringToHTDate(dtStr string) HTDate {

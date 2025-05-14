@@ -824,6 +824,33 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	return nil, family.GEDCOM, family.CSV
 }
 
+func htRewriteFamilyFileTemplate() {
+	fileName := fmt.Sprintf("%ssrc/json/family_template.json", CFG.SrcPath)
+	if verboseFlag {
+		fmt.Println("Adjusting file", fileName)
+	}
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR Adjusting file", fileName)
+		panic(err)
+	}
+
+	var family Family
+	err = json.Unmarshal(byteValue, &family)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		panic(err)
+	}
+
+	newFile, err := htWriteTmpFile(htLangPaths[0], &family)
+	HTCopyFilesWithoutChanges(fileName, newFile)
+	err = os.Remove(newFile)
+	if err != nil {
+		panic(err)
+	}
+}
+
 // Index
 func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
 	families.GEDCOM = fmt.Sprintf("gedcom/families-%s.ged", lang)
@@ -979,6 +1006,9 @@ func htCreateCSVDirectory() {
 
 // Entries
 func htCreateGEDCOM() {
+	htRewriteFamilyFileTemplate()
+	htRewriteSourceFileTemplate()
+
 	htCreateGEDCOMDirectory()
 	htCreateCSVDirectory()
 	sourceMap = make(map[string]HTSourceElement)
