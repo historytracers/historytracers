@@ -9,7 +9,12 @@
    ],
    "audio": [
       {
-         "url": "https://open.spotify.com/episode/",
+         "url": "https://www.historytracers.org/audios/ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Inversin-Espaol-e32s0co",
          "external": true,
          "spotify": true
       }
@@ -70,7 +75,7 @@
          "id": "introduction_section",
          "text": [
             {
-               "text": "### Introducción\n\nAl estudiar la operación de adición, aprendemos que existe la propiedad de conmutatividad entre números; es decir, sin importar el orden en que los sumemos, el resultado será el mismo",
+               "text": "### Introducción\n\nAl estudiar la operación de adición, aprendimos que existe la propiedad de conmutatividad entre los números; es decir, sin importar el orden en que se sumen, el resultado será el mismo",
                "source": [
                   {
                      "type": 1,
@@ -92,7 +97,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Herencia de propiedades</b><br /><br />La suma es conmutativa.<br /><br />La multiplicación es una secuencia de sumas.<br /><br />Con estas dos premisas, ¿podemos esperar que la multiplicación también conserve los resultados al invertir los números?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Herencia de propiedades</b><br /><br />La suma es conmutativa.<br /><br />La multiplicación es una secuencia de sumas.<br /><br />Con estas dos premisas, ¿podemos esperar que la multiplicación también conserve el resultado al invertir el orden de los números?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -104,9 +109,10 @@
          ]
       },
       {
-          "id" : "square_section",
-          "text" : [ 
-            { "text" : "### Números Iguales\n\nVamos empezar nuestro estudio utilizando números iguales. Para eso, emplearemos el mismo altar mencionado en el texto anterior",
+         "id": "square_section",
+         "text": [
+            {
+               "text": "### Números Iguales\n\nComencemos nuestro estudio utilizando números iguales. Para ello, emplearemos el mismo altar mencionado en el texto anterior",
                "source": [
                   {
                      "type": 1,
@@ -119,13 +125,13 @@
                         "day": "-1"
                      }
                   }
-              ],
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": ""
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
             },
             {
                "text": "<p><div class=\"htSlides\"></p>",
@@ -161,7 +167,7 @@
                "PostMention": " "
             },
             {
-               "text": "En el Altar Q de Copán puede observarse que hay cuatro *ajawob* (reyes) en cada lado. Por tanto, independiente del orden, vamos a multiplicar 4 por 4.\n\n Para hacer la operación aún más clara, representaremos esa multiplicación por medio de cuadrados, cada uno teniendo los lados correspondiendo a una unidad de tamaño",
+               "text": "En el Altar Q de Copán puede observarse que hay cuatro ajawob (reyes) en cada lado. Por tanto, independientemente del orden, estamos multiplicando 4 por 4.\n\nPara hacer más clara esta operación, representaremos dicha multiplicación por medio de cuadrados, cada uno con lados que representan una unidad de tamaño",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -171,23 +177,28 @@
                "PostMention": ":"
             },
             {
-               "text": "<p class=\"center_notation\"><svg width=\"230\" height=\"230\"> <rect x=\"30\" y=\"0\" width=\"200\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />            <rect x=\"80\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"130\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"180\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"50\" y=\"222\">1</text> <text x=\"100\" y=\"222\">2</text> <text x=\"150\" y=\"222\">3</text> <text x=\"200\" y=\"222\">4</text>        <text x=\"5\" y=\"30\">4</text> <text x=\"5\" y=\"80\">3</text> <text x=\"5\" y=\"130\">2</text> <text x=\"5\" y=\"180\">1</text>     </svg></p><p class=\"desc\">Gráfico 1: Cuadrados representando la multiplicación de 4 por 4.</p>",
+               "text": "<p class=\"center_notation\"><svg width=\"230\" height=\"230\"> <rect x=\"30\" y=\"0\" width=\"200\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />            <rect x=\"80\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"130\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"180\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"50\" y=\"222\">1</text> <text x=\"100\" y=\"222\">2</text> <text x=\"150\" y=\"222\">3</text> <text x=\"200\" y=\"222\">4</text>        <text x=\"5\" y=\"30\">4</text> <text x=\"5\" y=\"80\">3</text> <text x=\"5\" y=\"130\">2</text> <text x=\"5\" y=\"180\">1</text>     </svg></p><p class=\"desc\">Gráfico 1: Cuadrados que representan la multiplicación de 4 por 4.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
-               "imgdesc": "Un cuadrado mayor compuesto por dezeseis cuadrados menores. En el lado izquierdo, los cuadrados son numerados de 1 a 4 (de la base hasta el topo). En la parte inferior, la numeración sigue de 1 hasta 4 (de la izquierda para la derecha)",
+               "imgdesc": "Un cuadrado mayor compuesto por dieciséis cuadrados menores. En el lado izquierdo, los cuadrados están numerados del 1 al 4 (de abajo hacia arriba). En la parte inferior, la numeración va del 1 al 4 (de izquierda a derecha).",
                "latex": null,
                "format": "html",
                "PostMention": " "
             },
             {
-               "text": "Elegimos quadrados para ilustrar la multiplicación no fue aleatória. Además de la representación visual muestrada en el Gráfico 1, denominamos \"cuadrado\" el resultado de la multiplicación de un número por él mismo",
+               "text": "La elección de cuadrados para ilustrar la multiplicación no fue aleatoria. Además de la representación visual mostrada en el Gráfico 1, también se denomina \"cuadrado\" al resultado de multiplicar un número por sí mismo",
                "source": [
                   {
                      "type": 1,
                      "uuid": "c0c1967a-f27a-4191-82f1-c5e44c44a297",
                      "text": "Weisstein, Eric W.",
-                     "date_time": null
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -197,14 +208,215 @@
                "format": "markdown",
                "PostMention": "."
             }
-          ]
+         ]
+      },
+      {
+         "id": "stelae",
+         "text": [
+            {
+               "text": "### Números Diferentes\n\nLa conmutatividad con números iguales era esperada. Veamos ahora qué ocurre con números distintos.\n\nEn esta sección, utilizaremos la Estela A, ubicada en el museo de Copán, como muestra la Figura 1",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanA\" onclick=\"htImageZoom('imgCopanA', '0%')\" src=\"images/Copan/StelaACopan.jpg\" class=\"imgcenter\"/>Figura 1: Estela A en el museo del sitio de Copán. Fotografía tomada el <htdate0>.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Las estelas son monumentos verticales. En esta en particular, se representa la imagen de un rey en la parte frontal, y textos en sus laterales y parte posterior.",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Al observar la Estela A en la Figura 1, notamos que los jeroglíficos están organizados en dos columnas. Para simplificar la comparación con el primer caso estudiado, seleccionaremos solo las primeras cuatro líneas y, nuevamente, representaremos esta parte mediante cuadrados",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><svg width=\"130\" height=\"230\"> <rect x=\"30\" y=\"0\" width=\"100\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />           <rect x=\"80\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"55\" y=\"222\">1</text> <text x=\"105\" y=\"222\">2</text>  <text x=\"5\" y=\"30\">4</text> <text x=\"5\" y=\"80\">3</text> <text x=\"5\" y=\"130\">2</text> <text x=\"5\" y=\"180\">1</text>     </svg></p><p class=\"desc\">Gráfico 2: Cuadrados que representan la multiplicación de 4 por 2</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Un rectángulo mayor compuesto por ocho cuadrados menores. En el lado izquierdo, los cuadrados están numerados del 1 al 4 (de abajo hacia arriba). En la parte inferior, la numeración va del 1 al 2 (de izquierda a derecha).",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Antes de sacar conclusiones sobre la conmutatividad de la multiplicación, cambiemos la disposición de los cuadrados en el Gráfico 2, manteniendo la misma cantidad",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><svg width=\"230\" height=\"130\"> <rect x=\"30\" y=\"0\" width=\"200\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />            <rect x=\"80\" y=\"0\" width=\"1\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"130\" y=\"0\" width=\"1\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"180\" y=\"0\" width=\"1\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"50\" y=\"122\">1</text> <text x=\"100\" y=\"122\">2</text> <text x=\"150\" y=\"122\">3</text> <text x=\"200\" y=\"122\">4</text>        <text x=\"5\" y=\"30\">2</text> <text x=\"5\" y=\"80\">1</text>     </svg></p><p class=\"desc\">Gráfico 3: Cuadrados que representan la multiplicación de 2 por 4.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Un rectángulo mayor compuesto por ocho cuadrados menores. En el lado izquierdo, los cuadrados están numerados del 1 al 2 (de abajo hacia arriba). En la parte inferior, la numeración va del 1 al 4 (de izquierda a derecha).",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Comparando</b><br /><br />Compara el Gráfico 2 con el Gráfico 3. ¿Crees que existe alguna posibilidad de que la multiplicación (es decir, la suma de los cuadrados en grupos) no dé como resultado ocho (8)?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Respondiendo a la reflexión: a pesar de la diferencia visual al invertir el orden de los números, la cantidad de elementos a multiplicar (o sumar) sigue siendo la misma. Por lo tanto, la multiplicación, al igual que la suma, también posee la propiedad de la conmutatividad.\n\nLa conmutatividad de la multiplicación es conocida como un axioma matemático, y puede representarse como",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><ul class=\"citation\"><li><i>\"ab = ba\"</i></li> </ul></p><p class=\"desc\">Cálculo 1: Conmutatividad de la multiplicación.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "En este cálculo, las letras *a* y *b* representan números",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "result_section",
+         "text": [
+            {
+               "text": "### Resultados iguales\n\nAntes de concluir este texto, propongamos una última reflexión",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre los resultados</b><br /><br />Al sumar 1 + 1, obtenemos 2. De modo similar, al multiplicar 2 × 1, también obtenemos 2.<br /><br />¿Significa eso que ambas operaciones son iguales simplemente porque producen el mismo resultado?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Aunque puede ser tentador decir que las siguientes expresiones son equivalentes por llegar al mismo número",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>2 × (1)</mi></math><math display=\"block\"> <mi>2</mi> <mo>=</mo> <mi>2</mi></math></p><p class=\"desc\">Cálculo 2: Suma y multiplicación con resultados iguales.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": [
+                  "1 + 1 = 2 \\times 1 = 2"
+               ],
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Esa comparación esconde detalles importantes —conocidos como contextos— que, al ser ignorados, pueden llevarnos a conclusiones erróneas, como comparar imágenes similares que, en realidad, no son iguales.\n\nComo vimos en este texto (y en el anterior), los resultados coinciden porque, en ambos lados de la igualdad, estamos realizando sumas mediante operaciones distintas",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "conclusion_section",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto reforzamos nuestro conocimiento sobre la multiplicación, visualizando su conmutatividad mediante representaciones geométricas. Además, observamos la relación directa entre la suma y la multiplicación, consolidando el entendimiento de que el orden de los factores no altera el resultado",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Chamamos de quadrado a multiplicação de um número por ele mesmo?",
+         "question": "¿Llamamos \"cuadrado de un número\" al resultado de la multiplicación de ese número por sí mismo?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Este é o nome dado a operação e também a uma figura geométrica."
+         "additionalInfo": "Este es el nombre dado tanto a la operación matemática como a la figura geométrica."
+      },
+      {
+         "question": "¿La multiplicación es una operación conmutativa?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Al igual que la suma, la multiplicación también es conmutativa, es decir, el orden en que realizamos la operación (que representa sumas repetidas) no altera el resultado."
       }
    ],
    "date_time": null

@@ -9,7 +9,12 @@
    ],
    "audio": [
       {
-         "url": "https://open.spotify.com/episode/",
+         "url": "https://www.historytracers.org/audios/ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Inverso-Portugus-e32s0ev",
          "external": true,
          "spotify": true
       }
@@ -104,9 +109,10 @@
          ]
       },
       {
-          "id" : "square_section",
-          "text" : [ 
-            { "text" : "### Números Iguais\n\nVamos iniciar nosso estudo com números iguais. Para isso, utilizaremos o mesmo altar mencionado no texto anterior",
+         "id": "square_section",
+         "text": [
+            {
+               "text": "### Números Iguais\n\nVamos iniciar nosso estudo com números iguais. Para isso, utilizaremos o mesmo altar mencionado no texto anterior",
                "source": [
                   {
                      "type": 1,
@@ -119,13 +125,13 @@
                         "day": "-1"
                      }
                   }
-              ],
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": ""
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
             },
             {
                "text": "<p><div class=\"htSlides\"></p>",
@@ -187,7 +193,12 @@
                      "type": 1,
                      "uuid": "c0c1967a-f27a-4191-82f1-c5e44c44a297",
                      "text": "Weisstein, Eric W.",
-                     "date_time": null
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -197,63 +208,67 @@
                "format": "markdown",
                "PostMention": "."
             }
-          ]
+         ]
       },
       {
-          "id" : "stelae",
-          "text" : [ 
-            { "text" : "### Números Diferentes\n\nA comutatividade com números iguais era esperada. Vejamos agora o que ocorre com números distintos.\n\nNesta seção, utilizaremos a Estela A, localizada no museu de Copán, conforme mostra a Figura 1",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "Estelas são monumentos verticais. Nesta em particular, temos a imagem de um rei na parte frontal e textos em suas laterais e parte traseira.",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
+         "id": "stelae",
+         "text": [
+            {
+               "text": "### Números Diferentes\n\nA comutatividade com números iguais era esperada. Vejamos agora o que ocorre com números distintos.\n\nNesta seção, utilizaremos a Estela A, localizada no museu de Copán, conforme mostra a Figura 1",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
             },
-            { "text" : "<p class=\"desc\"><img id=\"imgCopanA\" onclick=\"htImageZoom('imgCopanA', '0%')\" src=\"images/Copan/StelaACopan.jpg\" class=\"imgcenter\"/>Figura 1: Stela A no museu do sítio de Copán. Foto tirada em <htdate0>.</p>",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : [
-                    {
-                        "type": "gregory",
-                        "year": "2015",
-                        "month": "4",
-                        "day": "26"
-                     }
-              ],
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanA\" onclick=\"htImageZoom('imgCopanA', '0%')\" src=\"images/Copan/StelaACopan.jpg\" class=\"imgcenter\"/>Figura 1: Stela A no museu do sítio de Copán. Foto tirada em <htdate0>.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Estelas são monumentos verticais. Nesta em particular, temos a imagem de um rei na parte frontal e textos em suas laterais e parte traseira.",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "Ao observar a Estela A na Figura 1, percebemos que os hieróglifos estão organizados em duas colunas. Para simplificar a comparação com o primeiro caso estudado, selecionaremos apenas as quatro primeiras linhas e, novamente, representaremos esse trecho por meio de quadrados",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": ":"
+            {
+               "text": "Ao observar a Estela A na Figura 1, percebemos que os hieróglifos estão organizados em duas colunas. Para simplificar a comparação com o primeiro caso estudado, selecionaremos apenas as quatro primeiras linhas e, novamente, representaremos esse trecho por meio de quadrados",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
             },
             {
                "text": "<p class=\"center_notation\"><svg width=\"130\" height=\"230\"> <rect x=\"30\" y=\"0\" width=\"100\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />           <rect x=\"80\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"55\" y=\"222\">1</text> <text x=\"105\" y=\"222\">2</text>  <text x=\"5\" y=\"30\">4</text> <text x=\"5\" y=\"80\">3</text> <text x=\"5\" y=\"130\">2</text> <text x=\"5\" y=\"180\">1</text>     </svg></p><p class=\"desc\">Gráfico 2: Quadrados representando a multiplicação de 4 por 2.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
-               "imgdesc": "Um retângulo maior composto por oito quadrados menores. No lado esquerdo, os quadrados são numerados de 1 a 4 (da base até o topo). Na parte inferior, a numeração segue de 1 a 2 (da esquerda para a direita)",
+               "imgdesc": "Um retângulo maior composto por oito quadrados menores. No lado esquerdo, os quadrados são numerados de 1 a 4 (da base até o topo). Na parte inferior, a numeração segue de 1 a 2 (da esquerda para a direita).",
                "latex": null,
                "format": "html",
                "PostMention": " "
             },
-            { "text" : "Antes de tirarmos conclusões sobre a comutatividade da multiplicação, vamos alterar a disposição dos quadrados no Gráfico 2, mantendo a quantidade inalterada",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": ":"
+            {
+               "text": "Antes de tirarmos conclusões sobre a comutatividade da multiplicação, vamos alterar a disposição dos quadrados no Gráfico 2, mantendo a quantidade inalterada",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
             },
             {
                "text": "<p class=\"center_notation\"><svg width=\"230\" height=\"130\"> <rect x=\"30\" y=\"0\" width=\"200\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />            <rect x=\"80\" y=\"0\" width=\"1\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"130\" y=\"0\" width=\"1\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"180\" y=\"0\" width=\"1\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"50\" y=\"122\">1</text> <text x=\"100\" y=\"122\">2</text> <text x=\"150\" y=\"122\">3</text> <text x=\"200\" y=\"122\">4</text>        <text x=\"5\" y=\"30\">2</text> <text x=\"5\" y=\"80\">1</text>     </svg></p><p class=\"desc\">Gráfico 3: Quadrados representando a multiplicação de 2 por 4.</p>",
@@ -282,7 +297,12 @@
                      "type": 1,
                      "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
                      "text": "Ernst, Dana",
-                     "date_time": null
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -293,7 +313,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><i>\"ab = ba\"</i></li> </ul></p><p class=\"desc\">Cálculo 1: Soma de todos os dedos das mãos.</p>",
+               "text": "<p><ul class=\"citation\"><li><i>\"ab = ba\"</i></li> </ul></p><p class=\"desc\">Cálculo 1: Comutatividade da multiplicação.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -312,19 +332,20 @@
                "format": "markdown",
                "PostMention": "."
             }
-          ]
+         ]
       },
       {
-          "id" : "result_section",
-          "text" : [ 
-            { "text" : "### Resultados Iguais\n\nAntes de concluirmos este texto, proponho uma última reflexão",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": ":"
+         "id": "result_section",
+         "text": [
+            {
+               "text": "### Resultados Iguais\n\nAntes de concluirmos este texto, propomos uma última reflexão",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
             },
             {
                "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Sobre resultados</b><br /><br />Ao somarmos 1 + 1, obtemos 2. De modo semelhante, ao multiplicarmos 2 × 1, também obtemos 2.<br /><br />Será que essas duas operações são iguais apenas por produzirem o mesmo resultado?</div></div></center></p>",
@@ -359,7 +380,7 @@
                "PostMention": " "
             },
             {
-               "text": "Essa comparação esconde detalhes importantes — conhecidos como contextos — que, quando ignorados, podem nos levar a conclusões equivocadas, como comparar figuras parecidas, mas que, na verdade, são diferentes.\n\nComo vimos neste texto (e no anterior), os resultados coincidem porque, nos dois lados da igualdade, estamos realizando operações de soma, embora com significados distintos",
+               "text": "Essa comparação esconde detalhes importantes — conhecidos como contextos — que, quando ignorados, podem nos levar a conclusões equivocadas, como comparar figuras parecidas, mas que, na verdade, são diferentes.\n\nComo vimos neste texto (e no anterior), os resultados coincidem porque, nos dois lados da igualdade, estamos realizando operações de soma, embora com operações distintas",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -368,21 +389,22 @@
                "format": "markdown",
                "PostMention": "."
             }
-          ]
+         ]
       },
       {
-          "id" : "conclusion_section",
-          "text" : [ 
-            { "text" : "### Conclusão\n\nNeste texto, reforçamos nosso conhecimento sobre a multiplicação, visualizando a comutatividade por meio de representações geométricas. Além disso, observamos a relação direta entre soma e multiplicação, consolidando o entendimento de que a ordem dos fatores não altera o produto",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
+         "id": "conclusion_section",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, reforçamos nosso conhecimento sobre a multiplicação, visualizando a comutatividade por meio de representações geométricas. Além disso, observamos a relação direta entre soma e multiplicação, consolidando o entendimento de que a ordem dos fatores não altera o resultado",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
             }
-          ]
+         ]
       }
    ],
    "exercise_v2": [
