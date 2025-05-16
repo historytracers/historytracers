@@ -161,14 +161,91 @@
               "PostMention": "."
             }
           ]
+      },
+      {
+          "id" : "SECTION_yupana",
+          "text" : [ 
+            { "text" : "### Multiplication with the Yupana\n\nIn the following example, we illustrate the multiplication of 7 by 8 using the *Yupana*. We invite the reader to alternate between calculations and values to understand the steps involved. Afterwards, you may experiment by modifying the example using numbers between 0 and 9",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "",
+              "latex" : null,
+              "date_time" : null,
+              "format" : "markdown",
+              "PostMention": "."
+            },
+            { "text" : "<p style=\"margin: auto; with: 50%;\"><input type=\"number\" value=\"7\" min=\"0\" max=\"9\" id=\"ia2yupana0\" /> × <input type=\"number\" value=\"8\" min=\"0\" max=\"9\" id=\"ia2yupana1\" />:  <input type=\"radio\" value=\"values\" name=\"yupanaradio\" /> <b>Values</b> <input type=\"radio\" value=\"calcular\" name=\"yupanaradio\" /> <b>Calculate</b></p>",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "",
+              "latex" : null,
+              "date_time" : null,
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Values</th><th>Results</th><th>Movements</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><span id=\"vl1\"></span> x <span id=\"vr1\"></span></td><td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\" rowspan=\"5\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f2\"><span id=\"vl2\"></span> x <span id=\"vr2\"></span></td><td id=\"tc6f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f3\"><span id=\"vl3\"></span> x <span id=\"vr3\"></span></td><td id=\"tc6f3\">&nbsp;</td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f4\"><span id=\"vl4\"></span> x <span id=\"vr4\"></span></td><td id=\"tc6f4\">&nbsp;</td></tr> <tr id=\"tf5\"><td id=\"tc1f5\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f5\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f5\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f5\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f5\"><span id=\"vl5\"></span> x <span id=\"vr5\"></span></td><td id=\"tc6f5\">&nbsp;</td></tr></table>",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "The Yupana consists of a table with four columns and five rows: The first column contains five circles; The second column has three circles; The third column has two circles; The last column contains only one circle; This pattern repeats across all rows. Adjacent to the Yupana, we have added two columns showing conventional numerical representations. Finally, we included a column describing all the summation steps performed to obtain the final result.",
+              "latex" : null,
+              "date_time" : null,
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "<p class=\"desc\">Table 1: Representation of the <i>Yupana</i> according to Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, pp. 355, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, pp. 361 - 362, <htdate1></a>).</p>",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "",
+              "latex" : null,
+              "date_time" : [
+                 {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
+                 {"type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" }
+              ],
+              "format" : "html",
+              "PostMention": " "
+            },
+            { "text" : "Additionally, we recommend viewers watch the videos on the *Yupana Inka* channel to learn more about Dhavit Prem's work and the *Yupana Inka* association",
+              "source" : [
+                           { "type": 1,
+                             "uuid": "2daa772d-55d2-44c3-9bf0-69a59bbedbba",
+                             "text": "Yupana Inka"}
+              ],
+              "isTable" : false,
+              "imgdesc" : "",
+              "latex" : null,
+              "date_time" : null,
+              "format" : "markdown",
+              "PostMention": "."
+            }
+          ]
+      },
+      {
+          "id" : "SECTION_conclusion",
+          "text" : [ 
+            { "text" : "### Conclusion\n\nIn this text, we have examined another aspect of the *Yupana Inka Tawa Pukllay* method developed by Dhavit Prem. Through this analysis, it becomes evident that the inhabitants of *Tawantinsuyu* likely reached the same conclusions as other cultures regarding the relationship between multiplication and addition",
+              "source" : [
+                           { 
+                             "type": 1,
+                             "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                             "text": "Dhavit Prem, pp. 360 - 361",
+                             "date_time" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }
+                           },
+                           { 
+                             "type": 1,
+                             "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                             "text": "Dhavit Prem, Research Gate"
+                           }
+              ],
+              "isTable" : false,
+              "imgdesc" : "",
+              "latex" : null,
+              "date_time" : null,
+              "format" : "markdown",
+              "PostMention": "."
+            }
+          ]
       }
     ],
-    "exercise_v2" : [ 
-        {
-            "question" : "WRITE A QUESTION",
-            "yesNoAnswer" : "Yes",
-            "additionalInfo" : "The correct answer is 'Yes' because ..."
-        }
-    ],
+    "exercise_v2" : null,
     "date_time": null
 }
