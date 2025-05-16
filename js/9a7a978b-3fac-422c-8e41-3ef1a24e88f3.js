@@ -21,6 +21,8 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector9a7a978b);
     }
 
+    htWriteNavigation("first_steps");
+
     var times = $("#ia2yupana1").val();
     var value = $("#ia2yupana0").val();
 

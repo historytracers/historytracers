@@ -3,89 +3,172 @@
     "header" : "Yupana (multiplicação)",
     "sources" : [ "9a7a978b-3fac-422c-8e41-3ef1a24e88f3" ],
     "scripts" : [ "9a7a978b-3fac-422c-8e41-3ef1a24e88f3" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "audio" : null,
+    "index": "first_steps",
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
     "last_update" : [ "1717871770" ],
     "authors" : null,
-    "reviewers" : null,
+    "reviewers" : [ "Dhavit Prem" ],
+    "type": "class",
+    "version" : 2,
     "content" : [
+      {
+          "id" : "prerequisites_section",
+          "text" : [ 
+            { "text" : "<span id=\"htZoomImageMsg\"></span>",
+              "source" : null,
+               "date_time" : null,
+               "isTable" : false,
+               "format" : "html",
+               "PostMention": " "
+            },
+            {
+               "text": "### Pré-requisitos\n\nRecomendamos a leitura do texto anterior e do texto sobre adição com a *Yupana*, além de seus respectivos pré-requisitos, antes de prosseguir",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fbd5bb5a-58fd-4c14-a7b8-7cab2ed2560b",
+                     "text": "History Tracers Team, Inversão",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team, Yupana (Adição)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+          ]
+      },
+      {
+          "id" : "SECTION_introduction",
+          "text" : [ 
+            { "text" : "### Introdução\n\nNos dois textos anteriores sobre multiplicação, aprendemos que a humanidade criou uma nova operação para auxiliar em adições repetidas. Isso nos leva a uma reflexão",
+              "source" : null,
+              "isTable" : false,
+              "imgdesc" : "",
+              "latex" : null,
+              "date_time" : null,
+              "format" : "markdown",
+              "PostMention": ":"
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Chegando a conclusões</b><br /><br />Na seção de <b>História Geral</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('867968ea-62d6-4a8a-b3a0-8b82c76d86bf'); return false;\">History Tracers Team, História Geral</a>), vimos que diferentes povos desenvolveram culturas e civilizações de forma independente.<br /><br />Eles também chegaram a conclusões matemáticas iguais?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            }
+          ]
+      },
+      {
+          "id" : "SECTION_filling",
+          "text" : [ 
+            { "text" : "### Preenchendo a *Yupana*\n\nAo estudar a *Yupana* na obra de Felipe Guaman Poma de Ayala, apresentada no Livro 1 (referência abaixo), Dhavit Prem concluiu que, utilizando o princípio de somas repetidas, os povos do *Tawantinsuyu*, território do império Inca, também eram capazes de realizar a *miray*—a multiplicação",
+              "source" : [
+                           { 
+                             "type": 0,
+                             "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                             "text": "Poma de Ayala, Felipe Guaman",
+                             "date_time" :  {"type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" }
+                           },
+                           { 
+                             "type": 1,
+                             "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                             "text": "Dhavit Prem, pp. 360 - 361",
+                             "date_time" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }
+                           },
+                           { 
+                             "type": 1,
+                             "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                             "text": "Dhavit Prem, Research Gate"
+                           }
+              ],
+              "isTable" : false,
+              "imgdesc" : "",
+              "latex" : null,
+              "date_time" : null,
+              "format" : "markdown",
+              "PostMention": "."
+            },
+            {
+               "text": "<p style=\"margin: auto; width: 50%;\"><iframe src=\"https://archive.org/details/primer-nueva-coronica-y-buen-gobierno-manuscrito/page/n361/mode/2up\" width=\"560\" height=\"560\" frameborder=\"0\" webkitallowfullscreen=\"true\" mozallowfullscreen=\"true\" allowfullscreen></iframe></p><p class=\"desc\">Livro 1: Página 362 da obra de Felipe Guaman Poma de Ayala.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Nessa página, vemos um indígena segurando um quipu (cordas com nós), com um valor numérico indicado à direita. À esquerda, há uma Yupana—um tabuleiro com pontos que representam números, possivelmente associados aos nossos dedos.",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            { "text" : "De acordo com o método *Yupana Inka Tawa Pukllay*, proposto por Dhavit Prem, os habitantes do *Tawantinsuyu* ao utilizarem a *Yupana*, primeiro repetiam sobre ela o mesmo número várias vezes. Em seguida, aplicavam os movimentos descritos por Prem em seu artigo e reproduzidos no texto *Adição com Yupana*",
+              "source" : [
+                           { 
+                             "type": 1,
+                             "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                             "text": "Dhavit Prem, pp. 360 - 361",
+                             "date_time" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }
+                           },
+                           { 
+                             "type": 1,
+                             "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                             "text": "Dhavit Prem, Research Gate"
+                           },
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team, Yupana (Adição)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+              ],
+              "isTable" : false,
+              "imgdesc" : "",
+              "latex" : null,
+              "date_time" : null,
+              "format" : "markdown",
+              "PostMention": "."
+            }
+          ]
+      }
+    ],
+    "exercise_v2" : [ 
         {
-            "id" : "families",
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "navigation",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=c742c649-bf12-4d3f-ba8c-52f91455fc95\" onclick=\"htLoadPage('class_content', 'html', 'c742c649-bf12-4d3f-ba8c-52f91455fc95', false); return false;\"><i>Yupana</i> (soma)</a></td> <td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td><a href=\"index.html?page=class_content&arg=d7d99844-7df7-4327-86a0-920d5a5347b5\" onclick=\"htLoadPage('class_content', 'html', 'd7d99844-7df7-4327-86a0-920d5a5347b5', false); return false;\">Compreendendo o tempo</a></td></tr></table></p>"
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ "<p><h3>Introdução</h3>Ao recordar meu aprendizado da tabuada, lembro-me de que era comum ter como tarefa de casa escrever repetidamente a tabuada do 1 ao 10. No entanto, seria possível compreendê-la sem a necessidade dessa repetição constante? A partir desse questionamento, recorremos novamente ao método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) da Associação Yupanki (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 354 - 363</a>), para explorar de forma mais profunda outra operação matemática, a multiplicação.</p>" ]
-                },
-                {
-                    "id" : "mult",
-                    "text" : [ "<p><h3>Tabuada com a <i>Yupana</i></h3>A multiplicação com o método de <i>\"Yupana Inka Tawa Pukllay\"</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 360 - 361</a>), segue um raciocínio semelhante ao utilizado para determinar o número de versos do poema 'Os Lusíadas' (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('313399ff-ecd0-4edd-a176-32c5a1f5528d'); return false;\">History Tracers, <span class=\"htdate\"></span>, Poema e Música</a>). Realizamos repetidas somas do mesmo número para realizar a multiplicação.</p>", "<p>No exemplo a seguir, ilustramos a multiplicação de <b>7</b> (multiplicando) por <b>8</b> (multiplicador) utilizando a <i>Yupana</i>. Convidamos o leitor a alternar entre <b>calcular</b> e <b>valores</b> para compreender os passos envolvidos. Posteriormente, é possível experimentar modificando os valores do exemplo, inserindo números de <b>0</b> e <b>9</b>: <input type=\"number\" value=\"7\" min=\"0\" max=\"9\" id=\"ia2yupana0\" /> × <input type=\"number\" value=\"8\" min=\"0\" max=\"9\" id=\"ia2yupana1\" />:  <input type=\"radio\" value=\"values\" name=\"yupanaradio\" /> <b>Valores</b> <input type=\"radio\" value=\"calcular\" name=\"yupanaradio\" /> <b>Calcular</b></p>", "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Valores</th><th>Resultado</th><th>Movimentos</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><span id=\"vl1\"></span> x <span id=\"vr1\"></span></td><td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\" rowspan=\"5\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f2\"><span id=\"vl2\"></span> x <span id=\"vr2\"></span></td><td id=\"tc6f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f3\"><span id=\"vl3\"></span> x <span id=\"vr3\"></span></td><td id=\"tc6f3\">&nbsp;</td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f4\"><span id=\"vl4\"></span> x <span id=\"vr4\"></span></td><td id=\"tc6f4\">&nbsp;</td></tr> <tr id=\"tf5\"><td id=\"tc1f5\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f5\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f5\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f5\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f5\"><span id=\"vl5\"></span> x <span id=\"vr5\"></span></td><td id=\"tc6f5\">&nbsp;</td></tr></table>", "<p class=\"desc\">Tabela 1: Representação da <i>Yupana</i> de acordo com Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 361 - 362</a>).</p>", "<p>Ao aumentarmos os número que desejamos multiplicar, torna-se necessário representar a soma com mais círculos na <i>Yupana</i>. No entanto, há uma abordagem alternativa que requer menos círculos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 361</a>), embora demande a apresentação de outros conceitos matemáticos antes de explorá-la.</p>" ]
-                },
-                {
-                    "id" : "ten",
-                    "text" : [ "<p><h3>Explorando a multiplicação e as ordens numéricas</h3>Ao revisitar os números indo-arábicos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('adee3e8e-a555-4f95-96f0-42ac036a0ac5'); return false;\">History Tracers, <span class=\"htdate\"></span>, Releitura</a>), percebemos um padrão: ao escrevermos números maiores que 9, estamos, na verdade, somando e multiplicando esses números por fatores, como mostrado na <b>Tabela 2</b>.</p>", "<p><table class=\"numbers\"> <tr><th>Centena de Milhar</th><th>+</th><th>Dezena de Milhar</th><th>+</th><th>Unidade de Milhar</th><th>+</th><th>Centena</th><th>+</th><th>Dezena</th><th>+</th><th>Unidade</th></tr>  <tr><th>N x 100.000</th><th>+</th><th>N x 10.000</th><th>+</th><th>N x 1.000</th><th>+</th><th>N x 100</th><th>+</th><th>N x 10</th><th>+</th><th>N x 1</th></tr></table></p>", "<p class=\"desc\">Tabela 2: Representação do multiplicador de cada ordem.</p>", "<p>Os fatores de multiplicação das ordens são sempre formadas ao multiplicarmos o fator da ordem anterior por <b>10</b>, á que a transição ocorre a cada adição de <b>10</b> valores à ordem precedente. Isso é análogo ao método <i>\"Yupana Inka Tawa Pukllay\"</i>, onde ao representarmos o número <b>10</b> em uma linha, movemos um círculo para a linha imediatamente superior. Por exemplo, ao somar <b>5.555</b> a <b>5.555</b>, ou, se preferirmos, ao multiplicar <b>2 x 5.555</b>, obtemos <b>11.110</b>:</p>", "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Valores</th><th>Resultado</th><th>Movimentos</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><span id=\"vl1\"></span> + <span id=\"vr1\"></span></td><td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\" rowspan=\"5\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f2\"><span id=\"vl2\"></span> + <span id=\"vr2\"></span></td><td id=\"tc6f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f3\"><span id=\"vl3\"></span> + <span id=\"vr3\"></span></td><td id=\"tc6f3\">&nbsp;</td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f4\"><span id=\"vl4\"></span> + <span id=\"vr4\"></span></td><td id=\"tc6f4\">&nbsp;</td></tr> <tr id=\"tf5\"><td id=\"tc1f5\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f5\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f5\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f5\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f5\"><span id=\"vl5\"></span> + <span id=\"vr5\"></span></td><td id=\"tc6f5\">&nbsp;</td></tr></table>", "<p class=\"desc\">Tabela 3: Representação da <i>Yupana</i> de acordo com Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 361 - 362</a>).</p>", "<p>Então, qual é a diferença entre multiplicar números com mais de um dígito e as multiplicação da tabuada? A principal diferença reside na necessidade de multiplicar múltiplos valores por outro número. Vamos analisar a multiplicação de <b>10</b> por <b>1</b>:</p>", "<p><table class=\"mathexample\"><tr><th>Etapas do cálculo</th><th>Valores</th></tr> <tr><td>1) Escrevemos os valores</td><td rowspan=\"3\" class=\"mathexample_right\">10 <br />x 1<br/>________________<br/>10</td></tr> <tr><td>2) Multiplicamos: 0 x 1 = 0</td></tr><tr><td>3) Multiplicamos: 1 x 1 = 1</td></tr></table></p>", "<p class=\"desc\">Tabela 4: Multiplicação de um número de dois dígitos por outro de um dígito.</p>", "<p>Esta é a maneira costumeira que realizamos a multiplicação, mas ela omite algumas etapas. Vejamos as etapas implícitas:</p>", "<p><table class=\"mathexample\"><tr><th>Etapas do cálculo</th><th>Valores</th></tr> <tr><td>1) Escrevemos os valores</td><td rowspan=\"5\" class=\"mathexample_right\">10 <br />x 1<br />________________<br/>0<br /> + (1 x 1) x 10<br />________________<br/>0<br />+ 10<br />________________<br/>10</td></tr> <tr><td>2) Multiplicamos: 0 x 1 = 0</td></tr><tr><td>3) Multiplicamos: 1 x 1 = 1</td></tr><tr><td>4) Multiplicamos pelo fator: 1 x 10 = 10</td></tr><tr><td>5) Somamos os resultados das duas multiplicações: 0 + 10 = 10</td></tr></table></p>", "<p class=\"desc\">Tabela 5: Multiplicação de dois dígitos explicitando operações.</p>", "<p>Este processo demonstra como a multiplicação se relaciona com as ordens numéricas, revelando a essência do sistema decimal que utilizamos.</p>" ]
-                },
-                {
-                    "id" : "big",
-                    "text" : [ "<p><h3>Multiplicando por grandes números</h3>Ao multiplicar por um número maior que <b>9</b>, é necessário respeitar não apenas a ordem dos algarismos do multiplicador, mas também a posição dos algarismos no número multiplicado. Para ilustrar, consideremos a multiplicação de <b>12</b> por <b>34</b>:</p>", "<p><table class=\"mathexample\"><tr><th>Etapas do cálculo</th><th>Valores</th></tr> <tr><td>1) Escrevemos os valores</td><td rowspan=\"4\" class=\"mathexample_right\">12 <br />x 34<br/>________________<br/>48<br/>+ 360<br/>________________<br/>408</td></tr> <tr><td>2) Multiplicamos: 12 x 4 = 48</td></tr><tr><td>3) Multiplicamos: 12 x 30 = 360</td></tr><tr><td>4) Somamos: 48 + 360 = 408</td></tr></table></p>", "<p class=\"desc\">Tabela 6: Multiplicação de um número de dois dígitos por outro de dois dígitos.</p>", "<p>É comum encontrar o método de multiplicação por números como <b>34</b> sendo ensinado da seguinte forma: <i>\"Multiplica-se por <b>4</b> e depois por <b>3</b>, avançando uma posição ao escrever o próximo resultado.\"</i>. Operação representada como:", "<p><table class=\"mathexample\"><tr><th>Etapas do cálculo</th><th>Valores</th></tr> <tr><td>1) Escrevemos os valores</td><td rowspan=\"4\" class=\"mathexample_right\">12 <br />x 34<br/>________________<br/>48<br/>+ 36&nbsp;&nbsp;<br/>________________<br/>408</td></tr> <tr><td>2) Multiplicamos: 12 x 4 = 48</td></tr><tr><td>3) Multiplicamos: 12 x 3 = 36 e \"avançamos\"</td></tr><tr><td>4) Somamos: 48 + 36 \"avançado\" = 408</td></tr></table></p>", "<p class=\"desc\">Tabela 7: Multiplicação de um número de dois dígitos por outro de dois dígitos com artifício.</p>", "Embora essa abordagem pareça fornecer o mesmo resultado, é imprecisa. A decomposição correta para <b>34</b>, conforme observado na <b>Tabela 2</b>, é <b>(3 x 10) + 4 = 34</b>, e não <b>3 + 4 = 7</b>, indicando que o segundo dígito é na verdade um <b>30</b>.</p>" ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ "<p><h3>Conclusão</h3>Conforme observado, há distintas maneiras de se chegar a um mesmo resultado, tal qual na vida humana. É por isso que recorremos à matemática para modelar o mundo ao nosso redor.</p>", "<p>Muito provavelmente o \"avanço\" mencionado anteriormente parece ter sido criado por qualquer número somado a zero resultar no mesmo número. No entanto, essa simplificação omite a lógica, que é sempre essencial na nossa vida.</p>", "<p>Portanto, sugerimos aos leitores que busquem sempre uma abordagem lógica ao selecionar seu caminho.</p>" ]
-                },
-                {
-                    "id" : "exercise_v2",
-                    "text" : [ 
-                        {
-                            "question" : "A multiplicação pode ser entendida como somas repetidas de um valor?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Podemos concluir que a multiplicação é uma forma de somar repetidamente o mesmo valor, ou seja, não estamos lidando com algo totalmente novo."
-                        },
-                        {
-                            "question" : "Assim como na adição, o método <i>\"Yupana Inka Tawa Pukllay\"</i> segue as regras da matemática convencional para a multiplicação?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "O método <i>\"Yupana Inka Tawa Pukllay\"</i> não inventa uma nova maneira de realizar operações; ao contrário, mostra que os Incas desenvolveram um raciocínio sofisticado para executar operações matemáticas."
-                        },
-                        {
-                            "question" : "A principal diferença entre multiplicar por um número pequeno e por um número grande reside na quantidade de etapas que realizamos?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Existe apenas um ato de multiplicar. Quando multiplicamos por números maiores, seguimos rigorosamente o mesmo princípio de multiplicar dois números. A diferença básica é que teremos mais etapas até atingir o resultado desejado."
-                        },
-                        {
-                            "question" : "O resultado da operação <b>10 x 5</b> é igual a somar <b>10 + 10 + 10 + 10 + 10</b>?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Esta pergunta é um complemento à primeira. Nela, fica evidente que, ao escrever a multiplicação, estamos representando a soma de forma mais compacta."
-                        },
-                        {
-                            "question" : "A operação demonstrada na <b>Tabela 8</b> abaixo está incorreta?",
-                            "yesNoAnswer" : "No",
-                            "additionalInfo" : "A operação está correta. A grande diferença, em comparação com o que geralmente vemos em livros e na escola, é que ela explicita todas as etapas do cálculo."
-                        }
-                    ]
-                },
-                {
-                    "id" : "exercise",
-                    "text" : [ "<p><table class=\"mathexample\"><tr><th>Etapas do cálculo</th><th>Valores</th></tr> <tr><td>1) Escrevemos os valores</td><td rowspan=\"7\" class=\"mathexample_right\">12345 <br />x 111<br />________________<br/>12345<br /> (12345 x 1) x 10<br /> + (12345 x 1) x 100<br />________________<br/>12345<br />+ 123450<br />1234500<br />________________<br/>1370295</td></tr> <tr><td>2) Multiplicamos: 12345 x 1 = 12345</td></tr><tr><td>3) Multiplicamos: 12345 x 1 = 1</td></tr><tr><td>4) Multiplicamos pelo fator: 12345 x 10 = 123450</td></tr><tr><td>5) Multiplicamos: 12345 x 1 = 12345</td></tr><tr><td>6) Multiplicamos pelo fator: 12345 x 100 = 1234500</td></tr><tr><td>7) Somamos os resultados das multiplicações: 12345 + 123450 +  123500= 1370295</td></tr></table></p>", "<p class=\"desc\">Tabela 8: Multiplicação de 12345 por 111.</p>" ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" }
-                    ]
-                }
-            ]
+            "question" : "WRITE A QUESTION",
+            "yesNoAnswer" : "Yes",
+            "additionalInfo" : "The correct answer is 'Yes' because ..."
         }
-    ]
-} 
+    ],
+    "date_time": null
+}
