@@ -57,6 +57,7 @@ type classIdx struct {
 	License    []string       `json:"license"`
 	Version    int            `json:"version"`
 	Content    []classContent `json:"content"`
+	DateTime   []HTDate       `json:"date_time"`
 }
 
 var localClassIDXUpdate bool
