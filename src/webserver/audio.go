@@ -511,7 +511,7 @@ func htConvertOverallTextToAudio() {
 }
 
 func htConvertFistStepTextToAudio() {
-	pages := []string{"d862242c-0538-4b18-8b32-4a84d4a5858e", "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc"}
+	pages := []string{"d862242c-0538-4b18-8b32-4a84d4a5858e", "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc", "9a7a978b-3fac-422c-8e41-3ef1a24e88f3"}
 	htConvertClassesToAudio(pages)
 }
 
