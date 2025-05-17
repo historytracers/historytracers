@@ -117,7 +117,7 @@ func htRunStopFlags() {
 		stopRun = true
 	}
 
-	if stopRun == true {
+	if stopRun {
 		os.Exit(0)
 	}
 }

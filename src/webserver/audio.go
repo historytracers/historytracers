@@ -411,6 +411,11 @@ func htParseIndexText(index *classIdx) string {
 	for i := 0; i < len(index.Content); i++ {
 		content := &index.Content[i]
 		var htmlText = ""
+
+		if len(content.HTMLValue) > 0 && len(content.Value) > 0 {
+			panic("You cannot have both HTMLValue and Value filled.")
+		}
+
 		if len(content.HTMLValue) > 0 {
 			htmlText = content.HTMLValue
 		} else {
