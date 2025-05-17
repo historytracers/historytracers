@@ -1,29 +1,56 @@
 {
-    "title" : "Yupana (Multiplicación)",
-    "header" : "Yupana (Multiplicación)",
-    "sources" : [ "9a7a978b-3fac-422c-8e41-3ef1a24e88f3" ],
-    "scripts" : [ "9a7a978b-3fac-422c-8e41-3ef1a24e88f3" ],
-    "audio" : null,
-    "index": "first_steps",
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
-    "last_update" : [ "1717871770" ],
-    "authors" : null,
-    "reviewers" : [ "Dhavit Prem" ],
-    "type": "class",
-    "version" : 2,
-    "content" : [
+   "title": "Yupana (Multiplicación)",
+   "header": "Yupana (Multiplicación)",
+   "sources": [
+      "9a7a978b-3fac-422c-8e41-3ef1a24e88f3"
+   ],
+   "scripts": [
+      "9a7a978b-3fac-422c-8e41-3ef1a24e88f3"
+   ],
+    "audio": [
       {
-          "id" : "prerequisites_section",
-          "text" : [ 
-            { "text" : "<span id=\"htZoomImageMsg\"></span>",
-              "source" : null,
-               "date_time" : null,
-               "isTable" : false,
-               "format" : "html",
+         "url": "https://www.historytracers.org/audios/9a7a978b-3fac-422c-8e41-3ef1a24e88f3_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Yupana-multiplicacin-Espaol-e32v6ob",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1717871770"
+   ],
+   "authors": null,
+   "reviewers": [
+      "Dhavit Prem"
+   ],
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "prerequisites_section",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
                "PostMention": " "
             },
             {
-               "text": "### Prerrequisitos\n\nRecomendamos leer el texto anterior y el texto sobre adición con la *Yupana*, junto con sus respectivos prerrequisitos, antes de continuar",
+               "text": "### Prerrequisitos\n\nRecomendamos leer el texto anterior y el artículo sobre la adición con la *Yupana*, junto con sus respectivos prerrequisitos, antes de continuar",
                "source": [
                   {
                      "type": 1,
@@ -55,22 +82,23 @@
                "format": "markdown",
                "PostMention": "."
             }
-          ]
+         ]
       },
       {
-          "id" : "SECTION_introduction",
-          "text" : [ 
-            { "text" : "### Introducción\n\nEn los dos textos previos sobre multiplicación, aprendimos que la humanidad creó una nueva operación para simplificar las adiciones repetidas. Esto nos invita a reflexionar",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": ":"
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nEn los dos textos previos sobre la multiplicación, aprendimos que la humanidad creó una nueva operación para simplificar las sumas repetidas. Esto nos invita a reflexionar",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Llegar a conclusiones</b><br /><br />En la sección de <b>Historia General</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('867968ea-62d6-4a8a-b3a0-8b82c76d86bf'); return false;\">History Tracers Team, Historia General</a>), observamos que distintos pueblos desarrollaron culturas y civilizaciones de forma independiente.<br /><br />¿Acaso llegaron a las mismas conclusiones matemáticas?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Llegar a conclusiones</b><br /><br />En la sección de Historia General (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('867968ea-62d6-4a8a-b3a0-8b82c76d86bf'); return false;\">History Tracers Team, Historia General</a>), observamos que distintos pueblos desarrollaron culturas y civilizaciones de forma independiente.<br /><br />¿Llegaron también a las mismas conclusiones matemáticas?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -79,37 +107,81 @@
                "format": "html",
                "PostMention": " "
             }
-          ]
+         ]
       },
       {
-          "id" : "SECTION_filling",
-          "text" : [ 
-            { "text" : "### Llenando la *Yupana*\n\nAl estudiar la *Yupana* en la obra de Felipe Guaman Poma de Ayala —presentada en el Libro 1 (página 362), —, Dhavit Prem concluyó que, mediante el principio de sumas repetidas, los pueblos del *Tawantinsuyu*, territorio del Imperio Inca, también eran capaces de realizar la *miray* (la multiplicación)",
-              "source" : [
-                           { 
-                             "type": 0,
-                             "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                             "text": "Poma de Ayala, Felipe Guaman",
-                             "date_time" :  {"type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" }
-                           },
-                           { 
-                             "type": 1,
-                             "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
-                             "text": "Dhavit Prem, pp. 360 - 361",
-                             "date_time" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }
-                           },
-                           { 
-                             "type": 1,
-                             "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
-                             "text": "Dhavit Prem, Research Gate"
-                           }
-              ],
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
+         "id": "SECTION_filling",
+         "text": [
+            {
+               "text": "### Llenando la *Yupana*\n\n",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": " "
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgTawantsuyu\" onclick=\"htImageZoom('imgTawantsuyu', '0%')\" src=\"images/mapswire/mapswire-continent_sa-printable-map-south-america-lambert-az-hemi-271_Tawantsuyu.jpg\" class=\"imgcenter\"/>Figura 1: Mapa de Sudamérica destacando la región que se extiende desde Colombia hasta Argentina y Chile, representando las áreas ocupadas por el antiguo Imperio Inca (<i>Tawantinsuyu</i>) (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ed31f80e-ddd3-448a-9331-a0b6ac5f82fd'); return false;\">Hechler, R. S., <htdate0></a>). El área está delimitada de forma aproximada para proporcionar una visualización clara al lector. © Mapswire (<i><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\">Mapswire</a></i>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Al estudiar la *Yupana* en la obra de Felipe Guaman Poma de Ayala —presentada en el *Libro 1* abajo—, Dhavit Prem concluyó que, mediante el principio de sumas repetidas, los pueblos del *Tawantinsuyu*, territorio del Imperio Inca, también eran capaces de realizar la *miray*, es decir, la multiplicación",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1615",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Dhavit Prem, pp. 360 - 361",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Dhavit Prem, Research Gate",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
             },
             {
                "text": "<p style=\"margin: auto; width: 50%;\"><iframe src=\"https://archive.org/details/primer-nueva-coronica-y-buen-gobierno-manuscrito/page/n361/mode/2up\" width=\"560\" height=\"560\" frameborder=\"0\" webkitallowfullscreen=\"true\" mozallowfullscreen=\"true\" allowfullscreen></iframe></p><p class=\"desc\">Libro 1: Página 362 de la obra de Felipe Guaman Poma de Ayala.</p>",
@@ -128,19 +200,31 @@
                "format": "html",
                "PostMention": " "
             },
-            { "text" : "Según el método *Yupana Inka Tawa Pukllay*, propuesto por Dhavit Prem, los habitantes del *Tawantinsuyu*, al utilizar la *Yupana*, primero repetían sobre ella el mismo número varias veces. Luego, aplicaban los movimientos descritos por Prem en su artículo y reproducidos en el texto *Adición con la Yupana*",
-              "source" : [
-                           { 
-                             "type": 1,
-                             "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
-                             "text": "Dhavit Prem, pp. 360 - 361",
-                             "date_time" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }
-                           },
-                           { 
-                             "type": 1,
-                             "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
-                             "text": "Dhavit Prem, Research Gate"
-                           },
+            {
+               "text": "Según el método *Yupana Inka Tawa Pukllay*, propuesto por Dhavit Prem, los habitantes del *Tawantinsuyu*, al utilizar la *Yupana*, primero repetían un mismo número varias veces sobre el tablero. Luego aplicaban los movimientos descritos por Prem en su artículo, los cuales también fueron reproducidos en el texto *Adición con la Yupana*",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Dhavit Prem, pp. 360 - 361",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Dhavit Prem, Research Gate",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
@@ -152,100 +236,135 @@
                         "day": "-1"
                      }
                   }
-              ],
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
             }
-          ]
+         ]
       },
       {
-          "id" : "SECTION_yupana",
-          "text" : [ 
-            { "text" : "### Multiplicación con la Yupana\n\nEn el siguiente ejemplo, ilustramos la multiplicación de 7 por 8 utilizando la *Yupana*. Invitamos al lector a alternar entre los cálculos y valores para comprender los pasos empleados. Posteriormente, puede experimentar modificando los valores del ejemplo e insertando números del 0 al 9",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
+         "id": "SECTION_yupana",
+         "text": [
+            {
+               "text": "### Multiplicación con la Yupana\n\nA continuación, ilustramos la multiplicación de 7 por 8 utilizando la *Yupana*. Invitamos al lector a alternar entre los **Cálculos** y los **Valores** para comprender los pasos implicados. Después, puede experimentar modificando los valores del ejemplo, insertando números del 0 al 9",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
             },
-            { "text" : "<p  style=\"margin: auto; with: 50%;\"><input type=\"number\" value=\"7\" min=\"0\" max=\"9\" id=\"ia2yupana0\" /> × <input type=\"number\" value=\"8\" min=\"0\" max=\"9\" id=\"ia2yupana1\" />:  <input type=\"radio\" value=\"values\" name=\"yupanaradio\" /> <b>Valores</b> <input type=\"radio\" value=\"calcular\" name=\"yupanaradio\" /> <b>Calcular</b></p>",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p  style=\"margin: auto; with: 50%;\"><input type=\"number\" value=\"7\" min=\"0\" max=\"9\" id=\"ia2yupana0\" /> × <input type=\"number\" value=\"8\" min=\"0\" max=\"9\" id=\"ia2yupana1\" />:  <input type=\"radio\" value=\"values\" name=\"yupanaradio\" /> <b>Valores</b> <input type=\"radio\" value=\"calcular\" name=\"yupanaradio\" /> <b>Cálculos</b></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Valores</th><th>Resultado</th><th>Movimientos</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><span id=\"vl1\"></span> x <span id=\"vr1\"></span></td><td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\" rowspan=\"5\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f2\"><span id=\"vl2\"></span> x <span id=\"vr2\"></span></td><td id=\"tc6f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f3\"><span id=\"vl3\"></span> x <span id=\"vr3\"></span></td><td id=\"tc6f3\">&nbsp;</td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f4\"><span id=\"vl4\"></span> x <span id=\"vr4\"></span></td><td id=\"tc6f4\">&nbsp;</td></tr> <tr id=\"tf5\"><td id=\"tc1f5\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f5\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f5\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f5\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f5\"><span id=\"vl5\"></span> x <span id=\"vr5\"></span></td><td id=\"tc6f5\">&nbsp;</td></tr></table>",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "El tablero posee cuatro columnas por cinco líneas que representan la Yupana: La primera columna contiene cinco círculos; La segunda posee tres círculos; La tercera tiene dos círculos; La última presenta solo un círculo. Este patrón se repite en todas las líneas. Junto a la Yupana, añadimos dos columnas que muestran los números que usamos convencionalmente. Finalmente, incluimos una columna que describe todas las etapas de suma realizadas para obtener el resultado de la multiplicación.",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Valores</th><th>Resultado</th><th>Movimientos</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><span id=\"vl1\"></span> x <span id=\"vr1\"></span></td><td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\" rowspan=\"5\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f2\"><span id=\"vl2\"></span> x <span id=\"vr2\"></span></td><td id=\"tc6f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f3\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f3\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f3\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f3\"><span id=\"vl3\"></span> x <span id=\"vr3\"></span></td><td id=\"tc6f3\">&nbsp;</td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f4\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f4\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f4\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f4\"><span id=\"vl4\"></span> x <span id=\"vr4\"></span></td><td id=\"tc6f4\">&nbsp;</td></tr> <tr id=\"tf5\"><td id=\"tc1f5\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f5\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f5\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f5\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f5\"><span id=\"vl5\"></span> x <span id=\"vr5\"></span></td><td id=\"tc6f5\">&nbsp;</td></tr></table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "El tablero posee cuatro columnas por cinco líneas que representan la Yupana: La primera columna contiene cinco círculos; La segunda posee tres círculos; La tercera tiene dos círculos; La última presenta solo un círculo. Este patrón se repite en todas las líneas. Junto a la Yupana, añadimos dos columnas que muestran los números que usamos convencionalmente. Finalmente, incluimos una columna que describe todas las etapas de suma realizadas para obtener el resultado de la multiplicación.",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "<p class=\"desc\">Tabla 1: Representación de la <i>Yupana</i> según Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, pp. 355, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, pp. 361 - 362, <htdate1></a>).</p>",
-              "source" : null,
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : [
-                 {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                 {"type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" }
-              ],
-              "format" : "html",
-              "PostMention": " "
+            {
+               "text": "<p class=\"desc\">Tabla 1: Representación de la <i>Yupana</i> según Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, pp. 355, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, pp. 361 - 362, <htdate1></a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1615",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
             },
-            { "text" : "Además de esta práctica, recomendamos ao lector que asista a los vídeos del canal *Yupana Inka* para conocer mas sobre el trabajo de Dhavit Prem y l asociación *Yupana Inka*",
-              "source" : [
-                           { "type": 1,
-                             "uuid": "2daa772d-55d2-44c3-9bf0-69a59bbedbba",
-                             "text": "Yupana Inka"}
-              ],
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
+            {
+               "text": "Además de esta práctica, recomendamos al lector que vea los videos del canal *Yupana Inka* para conocer más sobre el trabajo de Dhavit Prem y de la asociación Yupana Inka",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2daa772d-55d2-44c3-9bf0-69a59bbedbba",
+                     "text": "Yupana Inka",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
             }
-          ]
+         ]
       },
       {
-          "id" : "SECTION_conclusion",
-          "text" : [ 
-            { "text" : "### Conclusión\n\nEn este texto, estudiamos mas una parte del método *Yupana Inka Tawa Pukllay*, desarrollado por Dhavit Prem. Por ello, queda evidente que los inhabitantes del *Tawantinsuyu* también podrian tener llegado a las mismas conclusiones que otros pueblos sobre la relación entre multiplicación y adición",
-              "source" : [
-                           { 
-                             "type": 1,
-                             "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
-                             "text": "Dhavit Prem, pp. 360 - 361",
-                             "date_time" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }
-                           },
-                           { 
-                             "type": 1,
-                             "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
-                             "text": "Dhavit Prem, Research Gate"
-                           }
-              ],
-              "isTable" : false,
-              "imgdesc" : "",
-              "latex" : null,
-              "date_time" : null,
-              "format" : "markdown",
-              "PostMention": "."
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, estudiamos una parte más del método *Yupana Inka Tawa Pukllay*, desarrollado por Dhavit Prem. Gracias a ello, resulta evidente que los habitantes del Tawantinsuyu también podrían haber llegado a las mismas conclusiones que otros pueblos en relación con la conexión entre multiplicación y adición",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Dhavit Prem, pp. 360 - 361",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Dhavit Prem, Research Gate",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
             }
-          ]
+         ]
       }
-    ],
-    "exercise_v2" : null,
-    "date_time": null
+   ],
+   "exercise_v2": null,
+   "date_time": null
 }
