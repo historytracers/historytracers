@@ -709,4 +709,3 @@ func htAddNewJSToDirectory(newFile string) {
 
 	HTCopyFilesWithoutChanges(dstPath, srcPath)
 }
-

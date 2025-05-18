@@ -191,6 +191,10 @@ func htTextFamily(families *Family, lang string) string {
 					tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 					htmlText += htMarkdownToHTML(tmp)
 				}
+
+				if len(hist.ImgDesc) > 0 {
+					htmlText += "<p>" + hist.ImgDesc + "</p>"
+				}
 			}
 
 			finalText += htHTML2Text(htmlText)
@@ -214,6 +218,10 @@ func htTextFamily(families *Family, lang string) string {
 					} else {
 						tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 						htmlText += htMarkdownToHTML(tmp)
+					}
+
+					if len(hist.ImgDesc) > 0 {
+						htmlText += "<p>" + hist.ImgDesc + "</p>"
 					}
 				}
 
@@ -245,6 +253,10 @@ func htTextFamily(families *Family, lang string) string {
 							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 							htmlText += htMarkdownToHTML(tmp)
 						}
+
+						if len(hist.ImgDesc) > 0 {
+							htmlText += "<p>" + hist.ImgDesc + "</p>"
+						}
 					}
 
 					finalText += htHTML2Text(htmlText)
@@ -267,6 +279,10 @@ func htTextFamily(families *Family, lang string) string {
 						} else {
 							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 							htmlText += htMarkdownToHTML(tmp)
+						}
+
+						if len(hist.ImgDesc) > 0 {
+							htmlText += "<p>" + hist.ImgDesc + "</p>"
 						}
 					}
 
@@ -473,7 +489,9 @@ func htConvertIndexToAudio() {
 		idxFile := indexFiles[i]
 		for j := 0; j < len(htLangPaths); j++ {
 			idxPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[j], idxFile)
-			fmt.Println("Creating audio file for ", idxPath)
+			if verboseFlag {
+				fmt.Println("Creating audio file for ", idxPath)
+			}
 			err := htClassIdxAudio(idxPath, idxFile, htLangPaths[j])
 			if err != nil {
 				panic(err)
