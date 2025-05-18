@@ -91,7 +91,7 @@ func htSetDefaultTemplateValues(fp *classTemplateFile, newFile string) {
 	fp.Reviewers[0] = ""
 }
 
-func htWriteTemplateFileFile(lang string, newFile string, template *classTemplateFile) error {
+func htWriteTemplateFile(lang string, newFile string, template *classTemplateFile) error {
 	pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, newFile)
 
 	fp, err := os.Create(pathFile)
@@ -126,7 +126,7 @@ func htAddNewClassTemplateToDirectory(newFile string, lang string) error {
 
 	htSetDefaultTemplateValues(&localTemplateFile, newFile)
 
-	err = htWriteTemplateFileFile(lang, newFile, &localTemplateFile)
+	err = htWriteTemplateFile(lang, newFile, &localTemplateFile)
 	if err != nil {
 		htCommonJSONError(byteValue, err)
 		return err
@@ -176,28 +176,6 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 	}
 
 	return nil
-}
-
-func htAddNewJSToDirectory(newFile string) {
-	srcPath := fmt.Sprintf("%ssrc/js/classes.js", CFG.SrcPath)
-	dstPath := fmt.Sprintf("%s/js/%s.js", CFG.SrcPath, newFile)
-
-	if verboseFlag {
-		fmt.Println("Copying ", srcPath, " to ", dstPath)
-	}
-
-	HTCopyFilesWithoutChanges(dstPath, srcPath)
-}
-
-func htAddNewSourceToDirectory(newFile string) {
-	srcPath := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
-	dstPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, newFile)
-
-	if verboseFlag {
-		fmt.Println("Copying ", srcPath, " to ", dstPath)
-	}
-
-	HTCopyFilesWithoutChanges(dstPath, srcPath)
 }
 
 func htCreateTestClass(fileName string) {

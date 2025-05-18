@@ -687,3 +687,26 @@ func htWriteClassIndexFile(lang string, index *classIdx) (string, error) {
 
 	return tmpFile, nil
 }
+
+func htAddNewSourceToDirectory(newFile string) {
+	srcPath := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
+	dstPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, newFile)
+
+	if verboseFlag {
+		fmt.Println("Copying ", srcPath, " to ", dstPath)
+	}
+
+	HTCopyFilesWithoutChanges(dstPath, srcPath)
+}
+
+func htAddNewJSToDirectory(newFile string) {
+	srcPath := fmt.Sprintf("%ssrc/js/classes.js", CFG.SrcPath)
+	dstPath := fmt.Sprintf("%s/js/%s.js", CFG.SrcPath, newFile)
+
+	if verboseFlag {
+		fmt.Println("Copying ", srcPath, " to ", dstPath)
+	}
+
+	HTCopyFilesWithoutChanges(dstPath, srcPath)
+}
+

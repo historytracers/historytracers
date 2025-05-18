@@ -91,17 +91,22 @@ func htOpenLogs(name string) *log.Logger {
 
 func htRunStopFlags() {
 	var stopRun bool = false
-	if gedcomFlag {
+	if GedcomFlag {
 		htCreateGEDCOM()
 		stopRun = true
 	}
 
-	if audioFlag {
+	if FamilyFlag {
+		htNewFamily()
+		stopRun = true
+	}
+
+	if AudioFlag {
 		htConvertTextsToAudio()
 		stopRun = true
 	}
 
-	if validateFlag {
+	if ValidateFlag {
 		htValidateGEDCOM()
 		htValidateClassFormats()
 		stopRun = true
@@ -112,7 +117,7 @@ func htRunStopFlags() {
 		stopRun = true
 	}
 
-	if minifyFlag {
+	if MinifyFlag {
 		HTMinifyAllFiles()
 		stopRun = true
 	}

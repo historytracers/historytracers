@@ -824,7 +824,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	return nil, family.GEDCOM, family.CSV
 }
 
-func htRewriteFamilyFileTemplate() {
+func htRewriteFamilyFileTemplate() Family {
 	fileName := fmt.Sprintf("%ssrc/json/family_template.json", CFG.SrcPath)
 	if verboseFlag {
 		fmt.Println("Adjusting file", fileName)
@@ -849,6 +849,8 @@ func htRewriteFamilyFileTemplate() {
 	if err != nil {
 		panic(err)
 	}
+
+	return family
 }
 
 // Index
@@ -1021,4 +1023,47 @@ func htValidateGEDCOM() {
 	sourceMap = make(map[string]HTSourceElement)
 
 	htUpdateAllFamilies(false)
+}
+
+// Create new family
+func htNewFamilySetDefaultValues(family *Family, fileName string) {
+	family.Title = ""
+	family.Header = ""
+	family.Sources[0] = fileName
+	family.Scripts[0] = fileName
+	family.LastUpdate[0] = htUpdateTimestamp()
+	family.GEDCOM = "gedcom/" + fileName
+	family.CSV = "csv/" + fileName
+}
+
+func htCreateNewFamily(id string, family *Family) {
+	htAddNewSourceToDirectory(id)
+	htAddNewJSToDirectory(id)
+	htNewFamilySetDefaultValues(family, id)
+	for i := 0; i < len(htLangPaths); i++ {
+		pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[i], id)
+
+		fp, err := os.Create(pathFile)
+		if err != nil {
+			panic(err)
+		}
+
+		e := json.NewEncoder(fp)
+		e.SetEscapeHTML(false)
+		e.SetIndent("", "   ")
+		e.Encode(family)
+
+		fp.Close()
+	}
+}
+
+func htNewFamily() {
+	id := uuid.New()
+	strID := id.String()
+
+	family := htRewriteFamilyFileTemplate()
+	htRewriteSourceFileTemplate()
+
+	htCreateNewFamily(strID, &family)
+	fmt.Printf("Family %s created\n", strID)
 }
