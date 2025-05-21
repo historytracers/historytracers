@@ -690,13 +690,27 @@ func htWriteClassIndexFile(lang string, index *classIdx) (string, error) {
 
 func htAddNewSourceToDirectory(newFile string) {
 	srcPath := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
-	dstPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, newFile)
 
 	if verboseFlag {
+		dstPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, newFile)
 		fmt.Println("Copying ", srcPath, " to ", dstPath)
 	}
 
-	HTCopyFilesWithoutChanges(dstPath, srcPath)
+	byteValue, err := htOpenFileReadClose(srcPath)
+	if err != nil {
+		panic(err)
+	}
+
+	var source HTSourceFile
+	err = json.Unmarshal(byteValue, &source)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		panic(err)
+	}
+
+	source.LastUpdate[0] = htUpdateTimestamp()
+
+	htUpdateSourceFile(&source, newFile)
 }
 
 func htAddNewJSToDirectory(newFile string) {
