@@ -148,7 +148,6 @@ type Family struct {
 	Scripts       []string     `json:"scripts"`
 	Audio         []HTAudio    `json:"audio"`
 	Index         []string     `json:"index"`
-	Common        []HTText     `json:"common"`
 	License       []string     `json:"license"`
 	LastUpdate    []string     `json:"last_update"`
 	Authors       string       `json:"authors"`
@@ -156,6 +155,7 @@ type Family struct {
 	DocumentsInfo []string     `json:"documentsInfo"`
 	PeriodOfTime  []string     `json:"periodOfTime"`
 	Maps          []HTMap      `json:"maps"`
+	Common        []HTText     `json:"common"`
 	Prerequisites []string     `json:"prerequisites"`
 	GEDCOM        string       `json:"gedcom"`
 	CSV           string       `json:"csv"`

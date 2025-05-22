@@ -28,6 +28,40 @@
    "index": [
       "families"
    ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "The time of the last file update, represented as Unix Epoch time."
+   ],
+   "authors": "Names of the individuals who contributed to editing the text.",
+   "reviewers": "Names of the individuals who reviewed the text.",
+   "documentsInfo": [
+      "Languages used in the document.",
+      "Names of calendars referenced.",
+      "Calendar options available on top.",
+      "Additional information (remove this if not needed)."
+   ],
+   "periodOfTime": [
+      "Family origin (European, American, Asian, African..).",
+      "A period of time (Middle Ages, Litic, Classic...)"
+   ],
+   "maps": [
+      {
+         "text": "Description or information to be displayed alongside the map.",
+         "img": "File path to the map image.",
+         "order": 1,
+         "date_time": [
+            {
+               "type": "",
+               "year": "",
+               "month": "",
+               "day": ""
+            }
+         ]
+      }
+   ],
    "common": [
       {
          "text": "A detailed description of the person's life history and marital status.",
@@ -71,40 +105,6 @@
          ],
          "format": "markdown or html",
          "PostMention": "A character used after a mention to include citations."
-      }
-   ],
-   "license": [
-      "SPDX-License-Identifier: GPL-3.0-or-later",
-      "CC BY-NC 4.0 DEED"
-   ],
-   "last_update": [
-      "The time of the last file update, represented as Unix Epoch time."
-   ],
-   "authors": "Names of the individuals who contributed to editing the text.",
-   "reviewers": "Names of the individuals who reviewed the text.",
-   "documentsInfo": [
-      "Languages used in the document.",
-      "Names of calendars referenced.",
-      "Calendar options available on top.",
-      "Additional information (remove this if not needed)."
-   ],
-   "periodOfTime": [
-      "Family origin (European, American, Asian, African..).",
-      "A period of time (Middle Ages, Litic, Classic...)"
-   ],
-   "maps": [
-      {
-         "text": "Description or information to be displayed alongside the map.",
-         "img": "File path to the map image.",
-         "order": 1,
-         "date_time": [
-            {
-               "type": "",
-               "year": "",
-               "month": "",
-               "day": ""
-            }
-         ]
       }
    ],
    "prerequisites": [

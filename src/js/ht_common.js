@@ -1701,7 +1701,6 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
 
-    $("#paper").html("<p><i>"+keywords[87]+"</i></p>");
     if ($("#htaudio").length > 0 && table.audio != undefined && table.audio != null) {
         htAddAudio(table.audio);
     }
@@ -1745,8 +1744,6 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
 function htFillPaperContent(table, last_update, page_authors, page_reviewers, index) {
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
-
-    $("#paper").html("<i>"+keywords[87]+"</i>");
 
     var navigationPage = table[0].text;
     var idx = 0;
