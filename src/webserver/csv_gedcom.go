@@ -1026,21 +1026,21 @@ func htValidateGEDCOM() {
 }
 
 // Create new family
-func htNewFamilySetDefaultValues(family *Family, fileName string) {
+func htNewFamilySetDefaultValues(family *Family, lang string, fileName string) {
 	family.Title = ""
 	family.Header = ""
 	family.Sources[0] = fileName
 	family.Scripts[0] = fileName
 	family.LastUpdate[0] = htUpdateTimestamp()
-	family.GEDCOM = "gedcom/" + fileName
-	family.CSV = "csv/" + fileName
+	family.GEDCOM = "gedcom/" + fileName+"_"+lang+".ged"
+	family.CSV = "csv/" + fileName+"_"+lang+".csv"
 }
 
 func htCreateNewFamily(id string, family *Family) {
 	htAddNewSourceToDirectory(id)
 	htAddNewJSToDirectory(id)
-	htNewFamilySetDefaultValues(family, id)
 	for i := 0; i < len(htLangPaths); i++ {
+		htNewFamilySetDefaultValues(family, htLangPaths[i], id)
 		pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[i], id)
 
 		fp, err := os.Create(pathFile)
