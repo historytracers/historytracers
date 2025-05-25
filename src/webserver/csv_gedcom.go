@@ -1032,8 +1032,8 @@ func htNewFamilySetDefaultValues(family *Family, lang string, fileName string) {
 	family.Sources[0] = fileName
 	family.Scripts[0] = fileName
 	family.LastUpdate[0] = htUpdateTimestamp()
-	family.GEDCOM = "gedcom/" + fileName+"_"+lang+".ged"
-	family.CSV = "csv/" + fileName+"_"+lang+".csv"
+	family.GEDCOM = "gedcom/" + fileName + "_" + lang + ".ged"
+	family.CSV = "csv/" + fileName + "_" + lang + ".csv"
 }
 
 func htCreateNewFamily(id string, family *Family) {
