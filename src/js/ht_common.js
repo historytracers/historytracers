@@ -1442,11 +1442,6 @@ function htLoadSources(data, arg, page)
             genealogicalStats.holy_src =  (data.religious_sources != undefined) ? data.religious_sources.length : 0;
             genealogicalStats.social_media_src =  (data.social_media_sources != undefined) ? data.social_media_sources.length : 0;
         }
-
-        if (page == 'tree') {
-            $("#loading_msg").hide();
-            return false;
-        }
     }
     return true;
 }
@@ -2362,16 +2357,14 @@ function htFillMapSource(myMap, data)
             var finalDate = "";
             if (data[i].date != undefined ) {
                 var dateVector = data[i].date.split('-');
-                if (dateVector.length != 3) {
-                    continue;
+                if (dateVector.length == 3) {
+                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
                 }
-                finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
             } else if  (data[i].date_time != undefined ){
                 var dateVector = data[i].date_time.split('-');
-                if (dateVector.length != 3) {
-                    continue;
+                if (dateVector.length == 3) {
+                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
                 }
-                finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
             }
             myMap.set(data[i].id, {"citation" : data[i].citation, "date" : finalDate, "url" : data[i].url});
         }
