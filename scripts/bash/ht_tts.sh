@@ -3,7 +3,8 @@
 set -e
 
 ht_select_model() {
-    local SELECTOR=$RANDOM
+    FILE=".ht_tts_${1}"
+    SELECTOR=$(cat "${FILE}")
     if [ "${1}" == "pt-BR" ]; then
         echo "pt_BR-faber-medium.onnx"
         return
@@ -14,9 +15,11 @@ ht_select_model() {
             return 0
         fi
 
-        if [ $SELECTOR -lt 16384 ]; then
+        if [ "${SELECTOR}" == "es_ES-davefx-medium.onnx" ]; then
+            echo "es_ES-sharvard-medium.onnx" > .ht_tts_es-ES
             echo "es_ES-davefx-medium.onnx"
         else
+            echo "es_ES-davefx-medium.onnx" > .ht_tts_es-ES
             echo "es_ES-sharvard-medium.onnx"
         fi
         return 0
@@ -28,9 +31,11 @@ ht_select_model() {
         return 0
     fi
 
-    if [ $SELECTOR -lt 16384 ]; then
+    if [ "${SELECTOR}" == "en_US-amy-medium.onnx" ]; then
+        echo "en_US-norman-medium.onnx" > .ht_tts_en-US
         echo "en_US-amy-medium.onnx"
     else
+        echo "en_US-amy-medium.onnx" > .ht_tts_en-US
         echo "en_US-norman-medium.onnx"
     fi
 
