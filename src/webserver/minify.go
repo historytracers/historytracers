@@ -511,7 +511,7 @@ func htCopyImages() {
 	var outImages string
 	var inImages string
 
-	htImgDirs := []string{"ANTT", "Archive", "Ashmolean", "Athens", "BibliotecaNacionalDigital", "BritshMuseum", "CreativeCommons", "Copan", "HistoryTracers", "UNESCO", "USGS", "mapswire"}
+	htImgDirs := []string{"ANTT", "Archive", "Ashmolean", "Athens", "BibliotecaNacionalDigital", "BritshMuseum", "CreativeCommons", "Copan", "HistoryTracers", "UNESCO", "USGS", "mapswire", "Nature"}
 
 	outImages = fmt.Sprintf("%simages/", CFG.ContentPath)
 	inImages = fmt.Sprintf("%simages/", CFG.SrcPath)
