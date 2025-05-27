@@ -17,11 +17,11 @@ import (
 )
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
-var indexFiles []string = []string{"science", "history", "indigenous_who", "first_steps", "literature"}
+var indexFiles []string = []string{"science", "history", "indigenous_who", "first_steps", "literature", "genealogical_map"}
 
 var commonKeywords []string
 
-var htMonthCalendarPT []string = []string{"janeiro", "fevereiro", "março", "abril", "maio", "junho", "july", "agosto", "setembro", "outubro", "novembro", "dezembro"}
+var htMonthCalendarPT []string = []string{"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julio", "agosto", "setembro", "outubro", "novembro", "dezembro"}
 var htMonthCalendarES []string = []string{"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "deciembre"}
 var htMonthCalendarEN []string = []string{"January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
 var htAbbrMonthCalendarEN []string = []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
@@ -686,4 +686,40 @@ func htWriteClassIndexFile(lang string, index *classIdx) (string, error) {
 	fp.Close()
 
 	return tmpFile, nil
+}
+
+func htAddNewSourceToDirectory(newFile string) {
+	srcPath := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
+
+	if verboseFlag {
+		dstPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, newFile)
+		fmt.Println("Copying ", srcPath, " to ", dstPath)
+	}
+
+	byteValue, err := htOpenFileReadClose(srcPath)
+	if err != nil {
+		panic(err)
+	}
+
+	var source HTSourceFile
+	err = json.Unmarshal(byteValue, &source)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		panic(err)
+	}
+
+	source.LastUpdate[0] = htUpdateTimestamp()
+
+	htUpdateSourceFile(&source, newFile)
+}
+
+func htAddNewJSToDirectory(newFile string) {
+	srcPath := fmt.Sprintf("%ssrc/js/classes.js", CFG.SrcPath)
+	dstPath := fmt.Sprintf("%s/js/%s.js", CFG.SrcPath, newFile)
+
+	if verboseFlag {
+		fmt.Println("Copying ", srcPath, " to ", dstPath)
+	}
+
+	HTCopyFilesWithoutChanges(dstPath, srcPath)
 }

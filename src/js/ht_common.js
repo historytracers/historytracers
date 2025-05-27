@@ -115,7 +115,7 @@ function htScroolToID(id) {
 }
 
 function htResetGenealogicalStats() {
-    return { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
+    return { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "social_media_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
 }
 
 function htAddTreeReflection(id, key)
@@ -1440,11 +1440,7 @@ function htLoadSources(data, arg, page)
             genealogicalStats.primary_src = (data.primary_sources != undefined) ? data.primary_sources.length : 0;
             genealogicalStats.reference_src = (data.reference_sources != undefined) ? data.reference_sources.length : 0;
             genealogicalStats.holy_src =  (data.religious_sources != undefined) ? data.religious_sources.length : 0;
-        }
-
-        if (page == 'tree') {
-            $("#loading_msg").hide();
-            return false;
+            genealogicalStats.social_media_src =  (data.social_media_sources != undefined) ? data.social_media_sources.length : 0;
         }
     }
     return true;
@@ -1701,7 +1697,6 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
 
-    $("#paper").html("<p><i>"+keywords[87]+"</i></p>");
     if ($("#htaudio").length > 0 && table.audio != undefined && table.audio != null) {
         htAddAudio(table.audio);
     }
@@ -1745,8 +1740,6 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
 function htFillPaperContent(table, last_update, page_authors, page_reviewers, index) {
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
-
-    $("#paper").html("<i>"+keywords[87]+"</i>");
 
     var navigationPage = table[0].text;
     var idx = 0;
@@ -1848,7 +1841,7 @@ function htFillFamilies(page, table) {
             }
 
             var map_desc = htOverwriteHTDateWithText(currMap.text, currMap.date_time, localLang, localCalendar);
-            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" id=\"imgFamilyMap\" onclick=\"htImageZoom('imgFamilyMap', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+map_desc+" "+keywords[82]+" "+keywords[83]+"</p>";
+            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" id=\"imgFamilyMap"+currMap.order+"\" onclick=\"htImageZoom('imgFamilyMap"+currMap.order+"', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+map_desc+" "+keywords[82]+" "+keywords[83]+"</p>";
         }
 
         $("#maps").html(textMap);
@@ -2178,7 +2171,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             var parents_id = prefix+"-parents-"+id;
             var father = (couple.father_id) ? couple.father_id : couple.father;
             var mother = (couple.mother_id) ? couple.mother_id : couple.mother;
-            if (father == null && mother == null) {
+            if (father == undefined && mother == undefined) {
                 $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[0] + "</b>: " + keywords[10]+"</p></div>");
 
                 familyMap.set(id, "null&null&t");
@@ -2192,8 +2185,10 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     name = personNameMap.get(father);
                     if (name != undefined) {
                         parentsLink += "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+father+"'); htFillTree('"+father+"'); htSetCurrentLinkBasis('"+page+"', '"+father+"',"+undefined+");\">" +name+"</a> ";
-                    } else if (couple.father_name != undefined && couple.father_family != undefined && couple.father_family != familyID) {
+                    } else if (couple.father_name != undefined && couple.father_family != undefined && couple.father_family != familyID && couple.father_family.length > 0) {
                         parentsLink += "<a href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+couple.father_name+"</a> & ";
+                    } else {
+                        parentsLink += couple.father_name+" & ";
                     }
                 }
                 parents_id += "-";
@@ -2212,8 +2207,10 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                         } else {
                             parentsLink += " & " +name;
                         }
-                    } else if (couple.mother_name != undefined && couple.mother_family != undefined && couple.mother_family != familyID) {
+                    } else if (couple.mother_name != undefined && couple.mother_family != undefined && couple.mother_family != familyID && couple.mother_family > 0) {
                         parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+couple.mother_name+"</a>";
+                    } else {
+                        parentsLink += couple.mother_name;
                     }
                 }
 
@@ -2360,16 +2357,14 @@ function htFillMapSource(myMap, data)
             var finalDate = "";
             if (data[i].date != undefined ) {
                 var dateVector = data[i].date.split('-');
-                if (dateVector.length != 3) {
-                    continue;
+                if (dateVector.length == 3) {
+                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
                 }
-                finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
             } else if  (data[i].date_time != undefined ){
                 var dateVector = data[i].date_time.split('-');
-                if (dateVector.length != 3) {
-                    continue;
+                if (dateVector.length == 3) {
+                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
                 }
-                finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
             }
             myMap.set(data[i].id, {"citation" : data[i].citation, "date" : finalDate, "url" : data[i].url});
         }
