@@ -21,7 +21,7 @@ var indexFiles []string = []string{"science", "history", "indigenous_who", "firs
 
 var commonKeywords []string
 
-var htMonthCalendarPT []string = []string{"janeiro", "fevereiro", "março", "abril", "maio", "junho", "july", "agosto", "setembro", "outubro", "novembro", "dezembro"}
+var htMonthCalendarPT []string = []string{"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julio", "agosto", "setembro", "outubro", "novembro", "dezembro"}
 var htMonthCalendarES []string = []string{"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "deciembre"}
 var htMonthCalendarEN []string = []string{"January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
 var htAbbrMonthCalendarEN []string = []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
