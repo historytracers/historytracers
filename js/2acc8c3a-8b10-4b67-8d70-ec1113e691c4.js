@@ -1,12 +1,29 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var localAnswerVector = undefined;
+var localAnswerVector2acc8c3a = undefined;
+
+var slideIndexae2acc8c3a = 0;
+
+function htPlusDivs(n) {
+    var x = document.getElementsByClassName("htSlide");
+    slideIndexae2acc8c3a += n;
+    if (slideIndexae2acc8c3a == x.length) {
+        slideIndexae2acc8c3a = 0;
+    } else if (slideIndexae2acc8c3a < 0) {
+        slideIndexae2acc8c3a = x.length - 1;
+    }
+
+    htShowSlideDivs(x, slideIndexae2acc8c3a);
+}
 
 function htLoadExercise() {
-    if (localAnswerVector == undefined) {
-        localAnswerVector = htLoadAnswersFromExercise();
+    htAddAlterQImages(".htSlides");
+    htPlusDivs(0);
+
+    if (localAnswerVector2acc8c3a == undefined) {
+        localAnswerVector2acc8c3a = htLoadAnswersFromExercise();
     } else {
-        htResetAnswers(localAnswerVector);
+        htResetAnswers(localAnswerVector2acc8c3a);
     }
 
     htWriteNavigation("first_steps");
