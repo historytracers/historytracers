@@ -340,7 +340,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><math><mi>Result</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Formula 1: This formula is used in Calculation 1 to represent repeated sums of zero elements in a group.</p>",
+               "text": "<p><center><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Formula 1: This formula is used in Calculation 1 to represent repeated sums of zero elements in a group.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -474,6 +474,153 @@
                "PostMention": " "
             }
          ]
+      },
+      {
+         "id": "SECTION_one",
+         "text": [
+            {
+               "text": "### Multiplication by One (1)\n\nAll principles applied to multiplication by zero also apply when multiplying by one (1) and any other number, though the results will differ.\n\n#### Understanding Multiplication by One\n\nA practical example of multiplication by one is counting by raising fingers one at a time. Use the arrows in Table 2 to visualize this concept:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"tawapukllay\" id=\"tblHandsCounting\"><tr><th>Left Hand</th><th>Right Hand</th><th>Arrows</th></tr> <tr id=\"tr0\"><td><img id=\"lefthand\" onclick=\"htImageZoom('lefthand', '0%') src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"righthand\" onclick=\"htImageZoom('righthand', '0%') src=\"images/0Right_Hand_Small.png\" /></td><td style=\"background-color: white;\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr> </table></p><p class=\"desc\">Table 2: Examples of counting and multiplication by 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### The Multiplication Table Explained\n\nMultiplying a number by one is equivalent to repeatedly adding one until reaching that number. This means the result always equals the original number, except when multiplying zero, as previously noted",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "We can summarize this concept with Formula 2",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Formula 2: Result of multiplication by one, except when N equals zero.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "<p>Applying Formula 2 to the finger-counting example in Table 2 gives us the following multiplication table for one:</p><p><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center\"><b>Multiplication Table of 1</b><br /><br /><math><mi>0</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>0</mi> </math><br /><math><mi>1</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>1</mi> </math><br /> <math><mi>2</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>2</mi></math><br /> <math><mi>3</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>3</mi> </math><br /> <math><mi>4</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>4</mi> </math><br /> <math><mi>5</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>5</mi> </math><br /> <math><mi>6</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>6</mi> </math><br /> <math><mi>7</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>7</mi> </math><br /><math><mi>8</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>8</mi> </math><br /> <math><mi>9</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>9</mi> </math><br /> <math><mi>10</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>10</mi> </math></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Graphical Representation\n\nBefore plotting the points, consider:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Building Understanding</b><br /><br />Compare the zero multiplication table with the one multiplication table:<br /><br />What similarities do you notice between the charts we've drawn and those we're about to create?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "The chart creation process mirrors that of Chart 2 - we'll plot points individually:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart3\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Chart 4: Point representation of the multiplication-by-one table. Created using <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Before addressing Reflection 2, let's connect the plotted points:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart4\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Chart 5: Connected points from the one multiplication table forming a straight line. Created using <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Comparing Chart 5 with Chart 3 reveals they share only one identical point: the result of multiplying by zero. Other points differ, preventing the horizontal straight line we saw previously. The connected points now form a diagonal line dividing the plane into two triangles.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -481,6 +628,16 @@
          "question": "Quando multiplicamos por zero, sempre obtemos o resultado zero?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Multiplicar por zero significa somar quantidades vazias, com isto, não podemos ter valores diferente zero, pois indicaria a existência de algo."
+      },
+      {
+         "question": "Quando multiplicamos um número por um, sempre obtemos como resultado o próprio número?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Não se preocupe caso tenha errado, pois não é incomum ouvirmos \"todo número multiplicado por um é igual ao número\". A frase que ouvimos é verdadeira, se e somente se, excluímos o zero."
+      },
+      {
+         "question": "Quando colocamos o resultado da multiplicação no formato de um gráfico para as tabuadas de zero e um, sempre obtemos imagens diferentes quando conectamos os pontos?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Os pontos da tabuada de 1 sempre irão crescer na diagonal, enquanto os pontos da tabuada de zero, sempre se posicinam na linha do zero."
       }
    ],
    "date_time": null
