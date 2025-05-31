@@ -519,6 +519,16 @@ func htConvertClassesToAudio(pages []string) {
 			}
 
 			newFile, err := htWriteTmpFile(lang, &ctf)
+			equal, err := HTAreFilesEqual(newFile, localPath)
+			if !equal && err == nil {
+				ctf.LastUpdate[0] = htUpdateTimestamp()
+				err = os.Remove(newFile)
+				if err != nil {
+					panic(err)
+				}
+				newFile, err = htWriteTmpFile(lang, &ctf)
+			}
+
 			HTCopyFilesWithoutChanges(localPath, newFile)
 			err = os.Remove(newFile)
 			if err != nil {
