@@ -121,9 +121,9 @@ function htLoadExercise() {
 
 function htCheckAnswers()
 {
-    if (localAnswerVector != undefined) {
-        for (let i = 0; i < localAnswerVector.length; i++) {
-            htCheckExerciseAnswer("exercise"+i, localAnswerVector[i], "#answer"+i, "#explanation"+i);
+    if (localAnswerVector2acc8c3a != undefined) {
+        for (let i = 0; i < localAnswerVector2acc8c3a.length; i++) {
+            htCheckExerciseAnswer("exercise"+i, localAnswerVector2acc8c3a[i], "#answer"+i, "#explanation"+i);
         }
     }
 }
