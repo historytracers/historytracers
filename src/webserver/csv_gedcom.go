@@ -930,13 +930,15 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 	htParseIndexSetGEDCOM(&index, lang)
 	htParseIndexSetCSV(&index, lang)
 	htParseIndexSetLicenses(&index, lang)
-	if indexUpdated == true {
-		index.LastUpdate[0] = htUpdateTimestamp()
-	}
 
 	newFile, err := htWriteFamilyIndexFile(lang, &index)
 	if err != nil {
 		return err
+	}
+
+	equal, err := HTAreFilesEqual(fileName, newFile)
+	if !equal && err == nil {
+		index.LastUpdate[0] = htUpdateTimestamp()
 	}
 
 	HTCopyFilesWithoutChanges(fileName, newFile)

@@ -118,7 +118,7 @@ function htPlotConstantContinuousChart(options)
                     radius: 4
         },
         options : {
-            responsive: false,
+            responsive: true,
             scales: {
                 y: {
                     title: {
@@ -126,9 +126,11 @@ function htPlotConstantContinuousChart(options)
                         text: options.yLable
                     },
                     type: options.yType,
+                    min: options.ymin,
+                    max: options.ymax,
                     ticks: {
                         callback: (val) => {
-                            return htPlotCallBack(val);
+                            return options.useCallBack ? htPlotCallBack(val) : val;
                         },
                     },
                 },
@@ -141,7 +143,7 @@ function htPlotConstantContinuousChart(options)
                     type: options.xType,
                     ticks: {
                         callback: (val) => {
-                            return htPlotCallBack(val);
+                            return options.useCallBack ? htPlotCallBack(val) : val;
                         },
                     },
                 }

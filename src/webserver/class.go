@@ -178,7 +178,7 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 	return nil
 }
 
-func htCreateTestClass(fileName string) {
+func htCreateOrTestClass(fileName string) {
 	for i := 0; i < len(htLangPaths); i++ {
 		localClassIDXUpdate = false
 		idxPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[i], classTemplate)
@@ -226,13 +226,13 @@ func htCreateNewClass() {
 	htRewriteClassFileTemplate()
 	htRewriteSourceFileTemplate()
 
-	htCreateTestClass(strID)
+	htCreateOrTestClass(strID)
 	fmt.Printf("Class %s created for %s classTemplate\n", strID, classTemplate)
 }
 
 func htValidateClassFormats() {
 	for i := 0; i < len(indexFiles); i++ {
 		classTemplate = indexFiles[i]
-		htCreateTestClass("")
+		htCreateOrTestClass("")
 	}
 }

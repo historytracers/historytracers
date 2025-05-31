@@ -1,14 +1,13 @@
 {
-    "title" : "The name displayed in the application's or page's title bar.",
-    "header" : "The name shown at the top of the page or section.",
-    "sources" : [ "An array of files containing all sources referenced in the text." ],
-    "scripts" : [ "An array of JavaScript files associated with this content, typically used for filling and correcting exercises." ],
-    "index" : [ "An array of files containing all section files that the new file will belong to." ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
-    "last_update" : [ "The time of the last file update, represented in Unix Epoch time." ],
-    "authors" : [ "An array of names of contributors who edited the text." ],
-    "reviewers" : [ " An array of names of individuals who reviewed the text." ],
-    "audio": [
+   "title": "The name displayed in the application's or page's title bar.",
+   "header": "The name shown at the top of the page or section.",
+   "sources": [
+      "An array of files containing all sources referenced in the text."
+   ],
+   "scripts": [
+      "An array of JavaScript files associated with this content, typically used for filling and correcting exercises."
+   ],
+   "audio": [
       {
          "url": "https://www.historytracers.org/audios/",
          "external": true,
@@ -20,73 +19,157 @@
          "spotify": true
       }
    ],
-    "version" : 2,
-    "type" : "class",
-    "content" : [
+   "index": [
+      "An array of files containing all section files that the new file will belong to."
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "The time of the last file update, represented in Unix Epoch time."
+   ],
+   "authors": [
+      "An array of names of contributors who edited the text."
+   ],
+   "reviewers": [
+      " An array of names of individuals who reviewed the text."
+   ],
+   "type": "class",
+   "version": 2,
+   "content": [
       {
-          "id" : "prerequisites_section",
-          "text" : [ 
-            { "text" : "<span id=\"htZoomImageMsg\"></span>",
-              "source" : null,
-               "date_time" : null,
-               "isTable" : false,
-               "format" : "html",
+         "id": "prerequisites_section",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
                "PostMention": " "
             },
-            { "text" : " ",
-              "source" : [ 
-                           { "type": 3210,
-                             "uuid": "Unique identifier (UUID) for the current citation.",
-                             "text": "The accompanying text that will be displayed with the citation.",
-                             "date_time" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
-              ],
-               "date_time" : [
-                                 {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                                 {"type" : "unix", "epoch" : "0" },
-                                 {"type" : "julian",  "epoch" : "0" }
+            {
+               "text": " ",
+               "source": [
+                  {
+                     "type": 3210,
+                     "uuid": "Unique identifier (UUID) for the current citation.",
+                     "text": "The accompanying text that will be displayed with the citation.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
                ],
-               "isTable" : false,
-               "imgdesc" : "A description of an image included in the text.",
-               "latex" : [ "A LaTeX text to be displayed in this section." ],
-               "format" : "markdown or html",
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "unix",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "julian",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "A description of an image included in the text.",
+               "latex": [
+                  "A LaTeX text to be displayed in this section."
+               ],
+               "format": "markdown or html",
                "PostMention": "A character used after a mention to include citations."
             }
-          ]
+         ]
       },
       {
-          "id" : "SECTION_NAME",
-          "text" : [ 
-            { "text" : " ",
-              "source" : [
-                           { "type": 3210,
-                             "uuid": "Unique identifier (UUID) for the current citation.",
-                             "text": "The accompanying text that will be displayed with the citation.",
-                             "date_time" :  {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
-              ],
-              "isTable" : false,
-              "imgdesc" : "A description of an image included in the text.",
-              "latex" : [ "A LaTeX text to be displayed in this section." ],
-              "date_time" : [
-                 {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-                 {"type" : "unix", "epoch" : "0" },
-                 {"type" : "julian",  "epoch" : "0" }
-              ],
-              "format" : "markdown or html",
-              "PostMention": "A character used after a mention to include citations."
+         "id": "SECTION_NAME",
+         "text": [
+            {
+               "text": " ",
+               "source": [
+                  {
+                     "type": 3210,
+                     "uuid": "Unique identifier (UUID) for the current citation.",
+                     "text": "The accompanying text that will be displayed with the citation.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "unix",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "julian",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "A description of an image included in the text.",
+               "latex": [
+                  "A LaTeX text to be displayed in this section."
+               ],
+               "format": "markdown or html",
+               "PostMention": "A character used after a mention to include citations."
             }
-          ]
+         ]
       }
-    ],
-    "exercise_v2" : [ 
-        {
-            "question" : "WRITE A QUESTION",
-            "yesNoAnswer" : "Yes",
-            "additionalInfo" : "The correct answer is 'Yes' because ..."
-        }
-    ],
-    "date_time": [
-            {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
-            {"type" : "unix", "epoch" : "0" },
-            {"type" : "julian",  "epoch" : "0" }
-    ]
+   ],
+   "exercise_v2": [
+      {
+         "question": "WRITE A QUESTION",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "The correct answer is 'Yes' because ..."
+      }
+   ],
+   "date_time": [
+      {
+         "type": "gregory",
+         "year": "2010",
+         "month": "-1",
+         "day": "-1"
+      },
+      {
+         "type": "unix",
+         "year": "",
+         "month": "",
+         "day": ""
+      },
+      {
+         "type": "julian",
+         "year": "",
+         "month": "",
+         "day": ""
+      }
+   ]
 }

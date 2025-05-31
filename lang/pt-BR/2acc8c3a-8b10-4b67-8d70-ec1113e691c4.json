@@ -1,0 +1,674 @@
+{
+   "title": "Entendendo a tabuada (Parte I)",
+   "header": "Entendendo a tabuada (Parte I)",
+   "sources": [
+      "2acc8c3a-8b10-4b67-8d70-ec1113e691c4"
+   ],
+   "scripts": [
+      "2acc8c3a-8b10-4b67-8d70-ec1113e691c4"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/2acc8c3a-8b10-4b67-8d70-ec1113e691c4_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Entendendo-a-tabuada-Parte-I-Portugus-e33keu9",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1748318099"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "prerequisites_section",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "### Pré-requisitos\n\nRecomendamos o estudo dos textos anteriores desta seção antes de prosseguir com este",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team, Primeiros passos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nAo aprender um novo conteúdo e perceber que ele pode ser útil em diversas situações, é comum criarmos tabelas para facilitar a consulta de resultados — como no método científico",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9a82e769-0cf6-4b17-8b98-63f27de3123e",
+                     "text": "History Tracers Team, Método Científico",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "Ter essas tabelas à disposição para consulta rápida é muito útil, mas elas só fazem sentido quando compreendemos como foram construídas. A partir deste texto — e nos próximos —, vamos focar em entender o que são as tabuadas e o que exatamente elas nos revelam, em vez de apenas praticar a memorização.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_why",
+         "text": [
+            {
+               "text": "### Por que tabelar?\n\nA palavra \"multiplicação\" também é usada no sentido de aumento, o que está diretamente relacionado a tudo que vimos até aqui",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "02bdc345-0662-4ed3-8afa-45335804009e",
+                     "text": "Real Academia Española",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### A Família\n\nNas gerações familiares, como as representadas no Altar Q de Copán, Honduras, sempre que nasce uma nova criança, costuma-se dizer que a família está se multiplicando — ou seja, crescendo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htSlides\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "<p class=\"desc\">Slide 1: Imagens do Altar Q, localizado no sítio arqueológico de Copán, Honduras. Foto tirada em uma visita ao sítio em <htdate0>.<br />Os nomes dos reis, ou <i>ajawob</i>, são detalhados no trabalho de Anastasia Hutnick (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate1>, pp. 18, 35 - 67.</a>).<br />O código fonte para slide foi inspirado no código de W3Schools (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cf7adc72-d340-412e-8d48-953ac64cb670'); return false;\">W3Schools</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "O altar tem formato de uma grande caixa fechada, com textos em sua parte superior e figuras humanas esculpidas nas laterais.",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### A Floresta\n\nOutro exemplo de multiplicação está nos bosques, como as encontradas na cidade de Teotihuacan.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgTeotihuacanGeneral\" onclick=\"htImageZoom('imgTeotihuacanGeneral', '0%')\" src=\"images/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figura 1: Vista geral de Teotihuacan. Foto tirada em <htdate0> durante uma visita ao sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Visão Geral da cidade de Teotihuacan. Nela é possível observar várias construções no formato Talud-Tablero, e ao fundo duas construções do tipo piramidal, que representam montanhas sagradas.",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Simplificando\n\nAntes de prosseguir, vamos refletir:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Simplificando</b><br /><br />No caso das famílias, multiplicamos pessoas.<br />No caso dos bosques, multiplicamos árvores.<br /><br />Podemos contá-las da mesma forma?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Tanto pessoas quanto árvores são seres vivos. Portanto, o método de contagem e o resultado serão os mesmos para ambos os grupos. Com isso, podemos construir uma tabela de resultados.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_zero",
+         "text": [
+            {
+               "text": "### Multiplicação por Zero (0)\n\nComeçaremos nossa tabuada com o zero (0), que representa a ideia de vazio",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
+                     "text": "Musa, Auwalu",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Visualizando a multiplicação\n\nPrimeiro, vamos realizar um pequeno experimento com a Tabela 1:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"ht-grid-container\"  style=\"background-image: url('images/CaralPiramideH1.jpg'); width: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; margin: auto;\"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div></div></p><p class=\"desc\">Tabela 1: Pirâmide H1 no sítio arqueológico de Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <htdate0></a>). Foto tirada em <htdate0> durante uma visita ao sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Multiplicando por Zero</b><br />Os retângulos numerados nesta tabela representam grupos criados para somar os elementos presentes. Suponhamos que estejamos contando pessoas dentro de cada retângulo.<br /><br />Ao observarmos atentamente, percebemos que não há nenhuma pessoa em nenhum dos retângulos. Portanto:<br />Total de pessoas = 0 + 0 + 0 + 0 = 4 x 0 = 0<br /><br />Se ampliarmos a contagem para as duas primeiras linhas:<br />Total de pessoas = 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 = 8  x 0 = 0</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Esse experimento nos leva a concluir que, independentemente do número de retângulos considerados, o total será sempre zero, já que não há pessoas presentes. O mesmo se aplicaria a árvores ou qualquer outro objeto ausente.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Resultado Constante</b><br /><br />Diante desses resultados, qual é o produto de qualquer número multiplicado por zero?<br /><br />Podemos reformular assim:<br /><br />É possível encontrar algo em um lugar onde esse algo não está presente?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Montando a Tabuada\n\nDurante a Prática 1, usamos a seguinte fórmula:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Fórmula 1: Fórmula utilizada no Cálculo 1 para indicar somas repetidas de zero elementos em um grupo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Nessa fórmula",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "79d126c9-39ac-4679-904b-4ab69558e44e",
+                     "text": "Weisstein, Eric W.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "- O **resultado** (à esquerda da igualdade) é o produto.\n- Os números à direita são os **fatores**.\n- **N** representa o número do grupo na Tabela 1.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Aplicando a Fórmula 1 aos primeiros 10 grupos:</p><p><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center\"><b>Tabuada de 0</b><br /><br /><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>0</mi> </math><br /><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>1</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>2</mi></math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>3</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>4</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>5</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>6</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>7</mi> </math><br /><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>8</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>9</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>10</mi> </math></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Desenhando a Tabuada\n\nAntes de visualizarmos a tabuada com gráficos, reflita novamente:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: O que isso lhe lembra?</b><br /><br />Ao observar a tabuada de 0, alguma imagem lhe vem à mente?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Para representar graficamente os valores, vamos relembrar a relação que estabelecemos entre números e um caminho",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Gráfico 1: Representação de um eixo contendo números. Os números estão dispostos abaixo da linha, e uma seta na extremidade indica a direção do crescimento dos valores. Os códigos-fontes usados para montar a imagem CSS estão em <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Esse caminho com uma seta, mostrado no Gráfico 1, é conhecido na matemática como um eixo, e o usaremos para desenhar nossa tabuada. Nós usaremos dois eixos:\n- Vertical (Produto): contém os resultados.\n- Horizontal (Fatores): representa os valores de N.\n\nNosso objetivo é, partindo dos valores no eixo horizontal, encontrar os pontos correspondentes no eixo vertical. Vejamos na prática:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart1\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 2: Representação dos pontos da tabuada do zero. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "No Gráfico 2, observamos que os valores da tabuada do zero (0) são transformados em pontos distribuídos em um plano com dois eixos. Para desenhá-los, seguimos os seguintes passos:\n- Localizamos o resultado no eixo vertical (Produto). Como ele é sempre zero, permanecemos na linha correspondente ao valor 0.\n - Em seguida, deslizamos no eixo horizontal (Fatores) até encontrarmos o valor de N. Ao identificá-lo, marcamos um ponto (círculo).\n\nSe conectarmos todos os pontos desenhados, obtemos uma reta, conforme ilustrado no Gráfico 3:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart2\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 3: Pontos da tabuada do zero conectados, formando uma reta. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
+      },
+      {
+         "id": "SECTION_one",
+         "text": [
+            {
+               "text": "### Multiplicando por Um (1)\n\nTudo o que foi feito com o zero pode ser repetido com o número um (1), com resultados diferentes.\n\n#### Construindo a Tabuada do Um (1)\n\nUm exemplo cotidiano é contar os dedos, um por um. Utilize as setas na Tabela 2 para visualizar o que estamos descrevendo:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"tawapukllay\" id=\"tblHandsCounting\"><tr><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tr0\"><td><img id=\"lefthand\" onclick=\"htImageZoom('lefthand', '0%') src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"righthand\" onclick=\"htImageZoom('righthand', '0%') src=\"images/0Right_Hand_Small.png\" /></td><td style=\"background-color: white;\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr> </table></p><p class=\"desc\">Tabela 2: Exemplo de contagem e multiplicação por 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Montando a Tabuada\n\nMultiplicar números por um, tem o mesmo significado que adicionarmos um a um até o número que estamos multiplicando. Ou seja, o resultado será sempre o mesmo número, exceto quando esse número for zero, como vimos anteriormente",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "De maneira resumida, podemos expressar essa ideia com a Fórmula 2",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Fórmula 2: Resultado da multiplicação por um, exceto quando o número N é zero.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "<p>Aplicando a Fórmula 2 aos dedos da Tabela 2, obtemos a seguinte tabuada do um (1):</p><p><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center\"><b>Tabuada do 1</b><br /><br /><math><mi>0</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>0</mi> </math><br /><math><mi>1</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>1</mi> </math><br /> <math><mi>2</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>2</mi></math><br /> <math><mi>3</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>3</mi> </math><br /> <math><mi>4</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>4</mi> </math><br /> <math><mi>5</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>5</mi> </math><br /> <math><mi>6</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>6</mi> </math><br /> <math><mi>7</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>7</mi> </math><br /><math><mi>8</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>8</mi> </math><br /> <math><mi>9</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>9</mi> </math><br /> <math><mi>10</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>10</mi> </math></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Desenhando a Tabuada\n\nAntes de desenharmos a figura com os pontos, reflita:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: Construindo o Conhecimento</b><br /><br />Compare as tabuadas de 0 e 1:<br /><br />Você acredita que há algo em comum entre os gráficos que desenharemos e os que já desenhamos?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "O processo de desenho da tabuada segue os mesmos passos realizados no Gráfico 2, ou seja, marcamos ponto a ponto:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart3\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 4: Representação dos pontos da tabuada de um. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Antes de respondermos à Reflexão 4, vamos conectar os pontos da tabuada:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart4\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 5: Pontos da tabuada de um conectados, formando uma reta. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Ao compararmos o Gráfico 5 com o Gráfico 3, observamos que ambos possuem apenas um ponto é idêntico: o resultado da multiplicação por zero. Nos demais casos, os resultados diferem e, por isso, não foi possível traçar uma linha reta horizontal como antes. Agora, ao conectar os pontos, obtemos uma linha diagonal, dividindo a folha em dois triângulos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, nomeamos os componentes da multiplicação e visualizamos como as tabuadas de zero e um são construídas.\n\nNos próximos textos, vamos generalizar as Fórmulas 1 e 2 e aprofundar nosso conhecimento das tabuadas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Quando multiplicamos um número por zero, o resultado será sempre zero?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Multiplicar por zero significa somar quantidades vazias; portanto, o resultado não pode ser diferente de zero, pois isso indicaria a existência de algo."
+      },
+      {
+         "question": "Quando multiplicamos um número por um, o resultado será sempre o próprio número?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Não se preocupe se você errou, pois é comum ouvirmos que \"todo número multiplicado por um resulta no próprio número\". Essa afirmação é verdadeira apenas se excluirmos o zero, já que zero multiplicado por um ainda é zero."
+      },
+      {
+         "question": "Ao representar os resultados das tabuadas do zero e do um em um gráfico, as linhas formadas pela conexão dos pontos serão sempre diferentes?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "No gráfico das tabuadas:<ul><li>Na tabuada do 0: Todos os pontos permanecem alinhados na linha do zero.</li><li>Tabuada do 1: Os pontos formam uma linha diagonal crescente.</li></ul>"
+      }
+   ],
+   "date_time": null
+}

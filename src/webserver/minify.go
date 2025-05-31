@@ -43,6 +43,7 @@ var faPattern = regexp.MustCompile("^fa_")
 var chartPattern = regexp.MustCompile("^chart_")
 var jqueryPattern = regexp.MustCompile("^jquery-")
 var showdownPattern = regexp.MustCompile("^showdown.")
+var rewriteHTML bool = false
 
 func htMinifyCreateDirectories() {
 	htCreateDirectory(CFG.ContentPath)
@@ -116,6 +117,11 @@ func htUpdateHTCSS() error {
 
 		outFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
 		finalFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
+
+		equal, err := HTAreFilesEqual(tmpFile, outFile)
+		if !equal && err == nil {
+			rewriteHTML = true
+		}
 
 		HTCopyFilesWithoutChanges(finalFile, tmpFile)
 		HTCopyFilesWithoutChanges(outFile, finalFile)
@@ -327,6 +333,11 @@ func htUpdateHTJS() error {
 
 		outFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
 		finalFile = fmt.Sprintf("%s%s", outBodies, fileName.Name())
+
+		equal, err := HTAreFilesEqual(tmpFile, outFile)
+		if !equal && err == nil {
+			rewriteHTML = true
+		}
 
 		HTCopyFilesWithoutChanges(finalFile, tmpFile)
 		HTCopyFilesWithoutChanges(outFile, finalFile)
@@ -557,7 +568,9 @@ func HTMinifyAllFiles() {
 
 	htUpdateHTCSS()
 
-	htUpdateIndex()
+	if rewriteHTML {
+		htUpdateIndex()
+	}
 	err = htMinifyHTML()
 	if err != nil {
 		panic(err)

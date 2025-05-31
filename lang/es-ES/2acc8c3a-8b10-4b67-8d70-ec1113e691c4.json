@@ -1,0 +1,674 @@
+{
+   "title": "Entendiendo la tabla de multiplicar (Parte I)",
+   "header": "Entendiendo la tabla de multiplicar (Parte I)",
+   "sources": [
+      "2acc8c3a-8b10-4b67-8d70-ec1113e691c4"
+   ],
+   "scripts": [
+      "2acc8c3a-8b10-4b67-8d70-ec1113e691c4"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/2acc8c3a-8b10-4b67-8d70-ec1113e691c4_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Entendiendo-la-tabla-de-multiplicar-Parte-I-e33ker1",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1748318099"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "prerequisites_section",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "### Prerrequisitos\n\nSe recomienda estudiar los textos anteriores de esta sección antes de continuar con este",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team, Primeiros pasos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nCuando aprendemos un nuevo contenido y percibimos que puede ser útil en distintas situaciones, solemos construir tablas para facilitar la consulta de resultados, como ocurre con el método científico",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9a82e769-0cf6-4b17-8b98-63f27de3123e",
+                     "text": "History Tracers Team, Método Científico",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "Tener estas tablas a mano para una consulta rápida es muy útil, pero solo adquieren verdadero significado si comprendemos cómo fueron elaboradas. A partir de este texto —y en los siguientes— nos enfocaremos en entender qué son las tablas de multiplicar y qué información nos proporcionan, en lugar de limitarnos a memorizarlas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_why",
+         "text": [
+            {
+               "text": "### ¿Por qué tabular?\n\nLa palabra \"multiplicación\" también se utiliza en el sentido de \"aumento\", lo cual está directamente relacionado con lo visto hasta el momento",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "02bdc345-0662-4ed3-8afa-45335804009e",
+                     "text": "Real Academia Española",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### La Familia\n\nEn las generaciones familiares, como las representadas en el Altar Q de Copán, Honduras, cuando nace un nuevo hijo se suele decir que la familia \"se está multiplicando\" (es decir, que está creciendo).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htSlides\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "<p class=\"desc\">Slide 1: Imágenes del Altar Q, ubicado en el sitio arqueológico de Copán, Honduras. Fotografía tomada durante una visita al sitio el <htdate0>.<br />Los nombres de los reyes (<i>ajawob</i>) se detallan en el trabajo de Anastasia Hutnick (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate1>, pp. 18, 35 - 67.</a>).<br />El código fuente para este slide se inspiró en el modelo de (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cf7adc72-d340-412e-8d48-953ac64cb670'); return false;\">W3Schools</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "El altar tiene forma de una gran caja cerrada, con inscripciones en la parte superior y figuras humanas esculpidas en sus laterales.",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### La Floresta\n\nOtro ejemplo de multiplicación lo encontramos en los bosques de la ciudad de Teotihuacán.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgTeotihuacanGeneral\" onclick=\"htImageZoom('imgTeotihuacanGeneral', '0%')\" src=\"images/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figura 1: Vista general de Teotihuacán. Foto tomada el <htdate0> durante una visita al sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Panorámica de la ciudad de Teotihuacán, donde se aprecian numerosas edificaciones de estilo talud-tablero, destacando en el fondo dos imponentes pirámides que simbolizan montañas sagradas.",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Simplificando\n\nAntes de continuar, reflexionemos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Simplificando</b><br /><br />En el caso de las familias, multiplicamos personas.<br />En el de los bosques, multiplicamos árboles.<br /><br />¿Podemos contarlos de la misma manera?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Tanto personas como árboles son seres vivos, por lo tanto, el método de conteo será similar para ambos grupos. Así, podemos construir una tabla de resultados.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_zero",
+         "text": [
+            {
+               "text": "### Multiplicación por cero (0)\n\nComenzaremos nuestra tabla de multiplicar con el cero (0), que representa la idea de vacío",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
+                     "text": "Musa, Auwalu",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "### Visualizando la multiplicación\n\nPrimero, realizaremos un pequeño experimento con la Tabla 1:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"ht-grid-container\"  style=\"background-image: url('images/CaralPiramideH1.jpg'); width: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; margin: auto;\"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div></div></p><p class=\"desc\">Tabla 1: Pirámide H1 en el sitio arqueológico de Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <htdate0></a>). Foto tomada el <htdate1> durante una visita al sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Multiplicando por cero</b><br />Los rectángulos numerados en esta tabla representan grupos creados para sumar los elementos presentes. Por ejemplo, supongamos que estamos contando personas dentro de cada rectángulo.<br /><br />Al observar, notamos que no hay personas en ninguno de los rectángulos. Así, el total de personas en la primera fila se calcula como:<br />Total de personas = 0 + 0 + 0 + 0 = 4 x 0 = 0<br /><br />Si extendemos el conteo a las dos primeras filas:<br />Total de personas = 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 = 8  x 0 = 0</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Este experimento nos permite concluir que, sin importar la cantidad de rectángulos considerados, el resultado no cambia si no hay elementos presentes. Lo mismo aplica si estuviéramos contando árboles u otros objetos ausentes.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Resultado constante</b><br /><br />Con los resultados obtenidos, ¿cuál es el resultado de multiplicar cualquier número por cero?<br /><br />Podemos reformular la reflexión así:<br /><br />¿Es posible encontrar algo en un lugar donde ese algo no está presente?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Entendiendo la Tabla de Multiplicar\n\nDurante la Práctica 1, al realizar una multiplicación, seguimos la siguiente fórmula:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Fórmula 1: Fórmula utilizada en el Cálculo 1 para representar sumas repetidas de cero elementos en un grupo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "En esta fórmula",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "79d126c9-39ac-4679-904b-4ab69558e44e",
+                     "text": "Weisstein, Eric W.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "- El **resultado** (lado izquierdo) se llama producto.\n- En el lado derecho están los **factores**.\n- **N** representa el número del grupo en la Tabla 1.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p>Aplicando la Fórmula 1 a los primeros 10 grupos de la Tabla 1, obtenemos la siguiente tabla del cero (0):</p><p><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center\">Tabla del 0<br /><br /><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>0</mi> </math><br /><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>1</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>2</mi></math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>3</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>4</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>5</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>6</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>7</mi> </math><br /><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>8</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>9</mi> </math><br /> <math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>10</mi> </math></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Dibujando la Tabla\n\nOtra manera de visualizar estos resultados es mediante una representación gráfica. Antes de hacerlo, reflexionemos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Qué te sugiere esto?</b><br /><br />Al observar los valores de la Tabla del 0, ¿qué imagen se te viene a la mente?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Para graficarlos, recordemos la relación entre los números y una recta numérica",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Gráfico 1: Eje numérico. Los números están dispuestos debajo de una línea, y una flecha al final indica la dirección en la que aumentan los valores. El código CSS utilizado para esta imagen está disponible en  <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Esta línea con una flecha, mostrada en el Gráfico 1, se conoce en matemáticas como un eje. Lo usaremos para graficar nuestra tabla, empleando dos ejes:\n- Eje vertical (Producto): Muestra los resultados.\n- Eje horizontal (Factores): Muestra los valores de N.\n\nEl objetivo es ubicar, para cada valor de N, su correspondiente resultado (0) en el plano. Veamos cómo:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart1\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 2: Puntos de la tabla del cero. Gráfico generado con <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "En el Gráfico 2, los valores de la tabla del 0 se representan como puntos en un plano con dos ejes. Para trazarlos, seguimos estos pasos:\n- Localizamos el resultado (0) en el eje vertical (Producto). Como siempre es cero, todos los puntos estarán sobre la línea del 0.\n - Deslizamos en el eje horizontal (Factores) hasta encontrar el valor de N y marcamos un punto (círculo) en la intersección.\n\nSi unimos todos los puntos, formamos una línea recta, como se muestra en el Gráfico 3:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart2\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 3: Puntos conectados formando una recta. Gráfico creado con <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
+      },
+      {
+         "id": "SECTION_one",
+         "text": [
+            {
+               "text": "### Multiplicación por Uno (1)\n\nTodo lo que hemos hecho con el cero también puede aplicarse al uno (1), aunque con resultados distintos.\n\n#### Construyendo la Tabla del Uno (1)\n\nUn ejemplo es contar los dedos uno a uno. Usa las flechas en la Tabla 2 para seguir este proceso:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"tawapukllay\" id=\"tblHandsCounting\"><tr><th>Mano izquierda</th><th>Mano derecha</th><th>Setas</th></tr> <tr id=\"tr0\"><td><img id=\"lefthand\" onclick=\"htImageZoom('lefthand', '0%') src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"righthand\" onclick=\"htImageZoom('righthand', '0%') src=\"images/0Right_Hand_Small.png\" /></td><td style=\"background-color: white;\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr> </table></p><p class=\"desc\">Tabla 2: Ejemplo de conteo y multiplicación por 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Entendiendo la Tabla de Multiplicar\n\nMultiplicar un número por uno tiene el mismo significado que sumar uno repetidamente hasta alcanzar dicho número. Es decir, el resultado siempre será el mismo número, excepto cuando este sea cero, como vimos anteriormente",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "De manera resumida, podemos expresar esta idea con la Fórmula 2",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Fórmula 2: Resultado de multiplicar por uno, excepto cuando N es cero.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "<p>Aplicando la Fórmula 2 a los dedos de la Tabla 2, obtenemos la siguiente tabla del uno:</p><p><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center\"><b>Tabuada do 1</b><br /><br /><math><mi>0</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>0</mi> </math><br /><math><mi>1</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>1</mi> </math><br /> <math><mi>2</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>2</mi></math><br /> <math><mi>3</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>3</mi> </math><br /> <math><mi>4</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>4</mi> </math><br /> <math><mi>5</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>5</mi> </math><br /> <math><mi>6</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>6</mi> </math><br /> <math><mi>7</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>7</mi> </math><br /><math><mi>8</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>8</mi> </math><br /> <math><mi>9</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>9</mi> </math><br /> <math><mi>10</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>10</mi> </math></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Dibujando la Tabla\n\nAntes de graficar los puntos, reflexiona:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: Construyendo el conocimiento</b><br /><br />Compara la tabla del cero con la del uno.<br /><br />¿Cree que hay algo en común entre los gráficos que hemos dibujado y los que dibujaremos?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "El proceso de graficar la tabla sigue los mismos pasos que en el Gráfico 2, es decir, marcamos punto por punto:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart3\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 4: Representación de los puntos de la tabla del uno. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Antes de responder la Reflexión 4, conectemos los puntos de la tabla:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart4\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 5: Puntos de la tabla del uno conectados, formando una línea recta. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Al comparar el Gráfico 5 con el Gráfico 3, observamos que ambos comparten solo un punto idéntico: el resultado de multiplicar por cero. En los demás casos, los resultados difieren, por lo que ya no es posible trazar una línea recta horizontal como antes. Ahora, al unir los puntos, obtenemos una línea diagonal que divide la hoja en dos triángulos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, nombramos los componentes de la multiplicación y visualizamos cómo se construyen las tablas del cero y del uno.\n\nEn los próximos textos, generalizaremos las Fórmulas 1 y 2 y profundizaremos nuestros conocimientos sobre las tablas de multiplicar.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿Cuando multiplicamos un número por cero, el resultado es siempre cero?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Multiplicar por cero significa sumar cantidades vacías; por lo tanto, el resultado no puede ser diferente de cero, ya que eso indicaría la existencia de algo."
+      },
+      {
+         "question": "¿Cuando multiplicamos un número por uno, el resultado es siempre el mismo número?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "No te preocupes si te equivocaste, pues es común escuchar que 'todo número multiplicado por uno da como resultado el mismo número'. Sin embargo, esta afirmación solo es cierta si excluimos el cero, dado que cero multiplicado por uno sigue siendo cero."
+      },
+      {
+         "question": "Al representar los resultados de las tablas del cero y del uno en un gráfico, ¿las líneas formadas por la conexión de los puntos serán siempre diferentes?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "En el gráfico de las tablas:<ul><li>Tabla del 0: Todos los puntos permanecen alineados en la línea del cero.</li><li>Tabla del 1: Los puntos forman una línea diagonal creciente.</li></ul>"
+      }
+   ],
+   "date_time": null
+}
