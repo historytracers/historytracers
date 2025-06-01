@@ -539,7 +539,7 @@ func htConvertClassesToAudio(pages []string) {
 }
 
 func htConvertOverallTextToAudio() {
-	pages := []string{"main", "contact", "acknowledgement", "release"}
+	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5"}
 	htConvertClassesToAudio(pages)
 }
 
