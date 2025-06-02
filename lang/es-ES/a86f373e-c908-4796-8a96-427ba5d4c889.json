@@ -1,256 +1,411 @@
 {
-    "title" : "Método cientifico",
-    "header" : "Método cientifico",
-    "sources" : [ "a86f373e-c908-4796-8a96-427ba5d4c889" ],
-    "scripts" : [ "a86f373e-c908-4796-8a96-427ba5d4c889" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1742576197" ],
-    "content" : [
-        {
-            "id" : "families",
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "line",
-                    "text": [
-                            { "text" : "<p><hr /></p>",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "html",
-                                 "PostMention": " "
-                              }
-                    ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ 
-                               { "text" : "### Introducción\n\nEn la vida, siempre estamos en busca de explicaciones para los eventos que ocurren a nuestro alrededor. Algunas de estas explicaciones, aunque utilizan palabras que, a primera vista, pueden parecer correctas, no resisten cuando son sometidas a pruebas y comprobaciones. Por otro lado, hay explicaciones que surgen sólidas y consistentes, y cada vez que las evaluamos, logramos confirmar y validar su precisión. Pero, en definitiva, ¿cómo podemos determinar si una explicación es buena o no",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "?"
-                               }
-                    ]
-                },
-                {
-                    "id" : "propose",
-                    "text" : [ 
-                               { "text" : "### La propuesta del método\n\nLa utilización de un método de investigación ocurrió en momentos distintos y en lugares diferentes. En este texto, siguiendo el orden cronológico, describimos parte de los trabajos de Ibn Al-Haytham y Sir Francis Bacon.\n\n#### Ibn Al-Haytham\n\nAl estudiar el trabajo de Ibn Al-Haytham, observamos una descripción precisa de experimentos, que lo llevaron a concluir que, al alcanzar un objeto, la luz se refleja en los ojos. Los experimentos y las conclusiones correctas alcanzadas por él proporcionan un modelo para comprender la naturaleza",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "8cca37d0-35bb-42ae-8700-f425c98f4f28",
-                                                "text": "Sabra, A. I.",
-                                                "date" :  {"type" : "gregory", "year" : "1989", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "e1ddee69-8fc6-4e27-8160-c4077916aed9",
-                                                "text": "Tbakhi, Abdelghani, and Samir S. Amr.",
-                                                "date" :  {"type" : "gregory", "year" : "2007", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "ed3bf544-1c30-4109-9521-f68fa8eff0e7",
-                                                "text": "Al-Khalili, J.",
-                                                "date" :  {"type" : "gregory", "year" : "2015", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "<p class=\"desc\"><img id=\"Experiment\" onclick=\"htImageZoom('Experiment', '0%')\" src=\"images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg\" class=\"imgcenter\"/>Figura 1: Descripción de los experimentos de Ibn Al-Haytham. Imagen extraída de Archive (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('de651eda-c584-444f-9ec0-67f1a43aa4a6'); return false;\">The Optics Of Ibn Al Haytham, Books I III, On Direct Vision</a>)</p>",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "html",
-                                 "PostMention": " "
-                               },
-                               { "text" : "#### Sir Francis Bacon\n\nCuando Sir Francis Bacon publicó el *Novum Organum*, definió el método que conocemos como método baconiano. Este método describe las investigaciones científicas en etapas específicas",
-                                 "source" : [
-                                              { "type": 0,
-                                                "uuid": "051faac0-97a3-4ff3-83f7-346c8a7dd14d",
-                                                "text": "Lord Bacon",
-                                                "date" :  {"type" : "gregory", "year" : "1902", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "a8eff431-07fc-4e9f-8654-5d144783218c",
-                                                "text": "Britannica, T. Editors of Encyclopaedia",
-                                                "date" :  {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               { "text" : "- Descripción de los hechos.\n- Tabulación o clasificación de los hechos.\n- Rechazo o aceptación de elementos asociados al fenómeno, según los cuadros.",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": " "
-                               },
-                               { "text" : "#### Contribución conjunta\n\nAmbos trabajos contribuyeron significativamente al desarrollo de la ciencia tal como la conocemos, ayudándonos a explicar y entender fenómenos naturales. Estas contribuciones permitieron avances importantes en nuestras vidas, como el tratamiento de enfermedades",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "using_method",
-                    "text" : [ 
-                               { "text" : "### Usando el método\n\nRealicemos un pequeño experimento para poner a prueba el método. Antes de hacerlo, por favor, reflexione y responda",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre el sonido</b><br /><br />¿Objetos diferentes producen el mismo sonido al ser sacudidos dentro de una caja?</div></div></center></p>",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "html",
-                                 "PostMention": " "
-                               },
-                               { "text" : "Para responder a esta pregunta, usaremos una caja, como la representada en el gráfico 1",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               { "text" : "<p><center><svg width=\"300\" height=\"300\" viewBox=\"-25 -25 50 50\"><line x1=\"5\" y1=\"20\" x2=\"20\" y2=\"5\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"-5\" x2=\"-5\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"5\" y1=\"-5\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"20\" x2=\"5\" y2=\"20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"-5\" x2=\"5\" y2=\"-5\" style=\"stroke:#000;\"/>  <line x1=\"-5\" y1=\"-20\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/>  <line x1=\"-20\" y1=\"20\" x2=\"-20\" y2=\"-5\" style=\"stroke:#000;\"/>   <line x1=\"5\" y1=\"20\" x2=\"5\" y2=\"-5\" style=\"stroke:#000;\"/> <line x1=\"20\" y1=\"5\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"20\" x2=\"-5\" y2=\"5\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <line x1=\"-5\" y1=\"5\" x2=\"20\" y2=\"5\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <line x1=\"-5\" y1=\"5\" x2=\"-5\" y2=\"-20\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> </svg></center></p><p class=\"desc\">Gráfico 1: Caja usada en los ejemplos a seguir.</p>",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "html",
-                                 "PostMention": " "
-                               },
-                               { "text" : "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Aplicando el método con sonidos</b><br /><br />Elija una pequeña caja hecha de un material que, al golpear su lateral, produzca ruido.<br /><br />Ahora, seleccione tres objetos pequeños que sean más pequeños que la caja. Por ejemplo, un frijol, una piedra pequeña y un trozo de algodón.<br /><br />Tome una hoja de papel y escriba el nombre de los objetos que ha elegido. Describa los sonidos que espera que produzcan los objetos y asigne un número del 1 al 3 para definir el nivel de sonido en relación con los otros objetos. Por ejemplo:<br /><b>Algodón - ruido suave - 1</b><br /><b>Frijol: ruido moderado – 2</b><br /><b>Piedra: ruido fuerte – 3</b><br /><br />Esta hoja ahora contiene su hipótesis. Ahora es el momento de ponerla a prueba. Coloque un objeto dentro de la caja, ciérrela y agítela. Verifique si los resultados coinciden con sus anotaciones.<br /><br />Si los resultados están de acuerdo con su hipótesis, entonces esta queda confirmada. Si el experimento muestra que el orden de los objetos está equivocado, actualice el orden inicial. En caso de obtener un resultado completamente diferente, deberá descartar la hipótesis.</div></div></p>",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "html",
-                                 "PostMention": " "
-                               },
-                               { "text" : "Después de esta primera práctica, habrá observado que los objetos más grandes generan más ruido que los más pequeños. Sin embargo, la ciencia no se detiene aquí. Solo hemos completado el primer experimento. Pasemos al segundo",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               { "text" : "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Confirmación del resultado</b><br />Seleccione otra pequeña caja hecha de un material que produzca ruido al golpear su lateral.<br /><br />Ahora, escoja tres objetos pequeños que quepan dentro de la caja, dejando un espacio entre ellos y las paredes de la caja. Prefiera seleccionar objetos completamente diferentes a los de la primera práctica. Por ejemplo, un grano de arroz, un poco de azúcar y un trozo de papel arrugado.<br /><br />Haga una lista ordenada, similar a la lista de la práctica 1.<br /><br />Repita el procedimiento de agitar un objeto a la vez dentro de la caja y verifique si los resultados coinciden con su hipótesis.</div></div></p>",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "html",
-                                 "PostMention": " "
-                               },
-                               { "text" : "Todo el proceso descrito en estas prácticas también es llevado a cabo por científicos que estudian fenómenos naturales. Cuando un científico completa una investigación, envía su artículo a una revista científica, la cual lo somete a revisión por parte de otros expertos en el campo. Si los resultados pueden ser replicados, entonces el artículo es publicado",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "update",
-                    "text" : [ 
-                               { "text" : "### Progresos de las Ciencias\n\n#### Un Nuevo Descubrimiento\n\nImagina que, hoy, un nuevo descubrimiento contradice una idea que existía desde hace siglos. Ahora, reflexiona",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre los Descubrimientos</b><br /><br />¿Qué sucede con el entendimiento anterior? ¿Significa esto que el conocimiento previo estaba equivocado? ¿O hay algo más que considerar?</div></div></center></p>",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "html",
-                                 "PostMention": " "
-                               },
-                               { "text" : "Debemos ser cautelosos con términos como \"correcto\" e \"incorrecto\", ya que podríamos estar simplemente frente a una investigación que ha identificado una limitación en un resultado anterior, lo que no necesariamente hace que el resultado previo sea incorrecto.\n\nPor ejemplo, no deberíamos descartar la ley de la gravitación propuesta por Sir Isaac Newton y adoptar exclusivamente la teoría de la relatividad de Albert Einstein, ya que los resultados de Newton explican fenómenos observados en la Tierra, aunque no explican fenómenos en el universo",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee",
-                                                "text": "Newton, Isaac",
-                                                "date" :  {"type" : "gregory", "year" : "1686", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "902815ac-30e7-46d2-8883-57ad754c1630",
-                                                "text": "Einstein Relativity Easy",
-                                                "date" :  {"type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "1df98dc5-523f-42ae-9a69-3e9410849ebb",
-                                                "text": "Hossenfelder, Sabine",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "cd738b4d-32bd-4ea6-8aef-6653d961de19",
-                                                "text": "Hossenfelder, Sabine",
-                                                "date" :  {"type" : "gregory", "year" : "2021", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "76b636be-45db-4e52-8ecd-5c873344f926",
-                                                "text": "Lincoln, Don - Fermilab",
-                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": " "
-                               },
-                               { "text" : "#### Límites de las Ciencias\n\nNo es raro escuchar frases como: \"los resultados científicos son solo teorías\". Esto nos lleva a una nueva reflexión",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               { "text" : "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre el Conocimiento</b><br /><br />¿Demuestra esta frase un desconocimiento sobre la ciencia?</div></div></center></p>",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "html",
-                                 "PostMention": " "
-                               },
-                               { "text" : "La expresión \"solo una teoría\", que a menudo se usa para desacreditar los resultados científicos, refleja un malentendido sobre los objetivos de la ciencia. El objetivo de la ciencia no es explicar por qué ocurre algo o sustituir creencias, sino buscar constantemente el conocimiento y comprender cómo ocurren las cosas. Dudar no es un problema, sino una oportunidad para adquirir nuevos conocimientos. A diario, aprendemos y ponemos a prueba teorías y leyes científicas. Cuando encontramos limitaciones en alguna de ellas, las actualizamos con nuevas leyes o teorías, sin excluir las anteriores, sino considerándolas como casos particulares",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "game",
-                    "text" : [ 
-                               { "text" : "<p><h3>El Juego</h3>Para facilitar la comprensión del método científico, History Tracers desarrolló un juego en el que el método se aplica en diferentes escenarios. Puedes acceder al juego a través del enlace: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('96f3d3af-15c3-4c37-9d0e-e4b7db0db1db'); return false;\">Método Científico</a>.</p><p>Recomendamos al lector jugar las fases indicadas siempre que los textos lo sugieran, y completar al menos las etapas de \"<b>Entreinamento</b>\" para una comprensión más profunda del método.</p>",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "html",
-                                 "PostMention": " "
-                               }
-                    ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ 
-                               { "text" : "### Conclusión\n\nEn este texto, hemos aprendido un poco sobre el método que se utilizará en diferentes secciones de History Tracers para la enseñanza. El método científico no es perfecto, pero sus defectos se compensan con una gran cualidad: no limita la búsqueda de nuevos conocimientos",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "date_time" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Método cientifico",
+   "header": "Método cientifico",
+   "sources": [
+      "a86f373e-c908-4796-8a96-427ba5d4c889"
+   ],
+   "scripts": [
+      "a86f373e-c908-4796-8a96-427ba5d4c889"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/a86f373e-c908-4796-8a96-427ba5d4c889_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Mtodo-cientifico-Espaol-e33lqth",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": null,
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1748821210"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><hr /></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "### Introducción\n\nEn la vida, siempre estamos en busca de explicaciones para los eventos que ocurren a nuestro alrededor. Algunas de estas explicaciones, aunque utilizan palabras que, a primera vista, pueden parecer correctas, no resisten cuando son sometidas a pruebas y comprobaciones. Por otro lado, hay explicaciones que surgen sólidas y consistentes, y cada vez que las evaluamos, logramos confirmar y validar su precisión. Pero, en definitiva, ¿cómo podemos determinar si una explicación es buena o no?",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_propose",
+         "text": [
+            {
+               "text": "### La propuesta del método\n\nLa utilización de un método de investigación ocurrió en momentos distintos y en lugares diferentes. En este texto, siguiendo el orden cronológico, describimos parte de los trabajos de Ibn Al-Haytham y Sir Francis Bacon.\n\n#### Ibn Al-Haytham\n\nAl estudiar el trabajo de Ibn Al-Haytham, observamos una descripción precisa de experimentos, que lo llevaron a concluir que, al alcanzar un objeto, la luz se refleja en los ojos. Los experimentos y las conclusiones correctas alcanzadas por él proporcionan un modelo para comprender la naturaleza",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "8cca37d0-35bb-42ae-8700-f425c98f4f28",
+                     "text": "Sabra, A. I.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1989",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e1ddee69-8fc6-4e27-8160-c4077916aed9",
+                     "text": "Tbakhi, Abdelghani, and Samir S. Amr.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2007",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ed3bf544-1c30-4109-9521-f68fa8eff0e7",
+                     "text": "Al-Khalili, J.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2015",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"Experiment\" onclick=\"htImageZoom('Experiment', '0%')\" src=\"images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg\" class=\"imgcenter\"/>Figura 1: Descripción de los experimentos de Ibn Al-Haytham. Imagen extraída de Archive (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('de651eda-c584-444f-9ec0-67f1a43aa4a6'); return false;\">The Optics Of Ibn Al Haytham, Books I III, On Direct Vision</a>)</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Sir Francis Bacon\n\nCuando Sir Francis Bacon publicó el *Novum Organum*, definió el método que conocemos como método baconiano. Este método describe las investigaciones científicas en etapas específicas",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "051faac0-97a3-4ff3-83f7-346c8a7dd14d",
+                     "text": "Lord Bacon",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1902",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a8eff431-07fc-4e9f-8654-5d144783218c",
+                     "text": "Britannica, T. Editors of Encyclopaedia",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "- Descripción de los hechos.\n- Tabulación o clasificación de los hechos.\n- Rechazo o aceptación de elementos asociados al fenómeno, según los cuadros.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Contribución conjunta\n\nAmbos trabajos contribuyeron significativamente al desarrollo de la ciencia tal como la conocemos, ayudándonos a explicar y entender fenómenos naturales. Estas contribuciones permitieron avances importantes en nuestras vidas, como el tratamiento de enfermedades.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_using_method",
+         "text": [
+            {
+               "text": "### Usando el método\n\nRealicemos un pequeño experimento para poner a prueba el método. Antes de hacerlo, por favor, reflexione y responda:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre el sonido</b><br /><br />¿Objetos diferentes producen el mismo sonido al ser sacudidos dentro de una caja?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para responder a esta pregunta, usaremos una caja, como la representada en el gráfico 1:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><svg width=\"300\" height=\"300\" viewBox=\"-25 -25 50 50\"><line x1=\"5\" y1=\"20\" x2=\"20\" y2=\"5\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"-5\" x2=\"-5\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"5\" y1=\"-5\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"20\" x2=\"5\" y2=\"20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"-5\" x2=\"5\" y2=\"-5\" style=\"stroke:#000;\"/>  <line x1=\"-5\" y1=\"-20\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/>  <line x1=\"-20\" y1=\"20\" x2=\"-20\" y2=\"-5\" style=\"stroke:#000;\"/>   <line x1=\"5\" y1=\"20\" x2=\"5\" y2=\"-5\" style=\"stroke:#000;\"/> <line x1=\"20\" y1=\"5\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"20\" x2=\"-5\" y2=\"5\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <line x1=\"-5\" y1=\"5\" x2=\"20\" y2=\"5\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <line x1=\"-5\" y1=\"5\" x2=\"-5\" y2=\"-20\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> </svg></center></p><p class=\"desc\">Gráfico 1: Caja usada en los ejemplos a seguir.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Aplicando el método con sonidos</b><br /><br />Elija una pequeña caja hecha de un material que, al golpear su lateral, produzca ruido.<br /><br />Ahora, seleccione tres objetos pequeños que sean más pequeños que la caja. Por ejemplo, un frijol, una piedra pequeña y un trozo de algodón.<br /><br />Tome una hoja de papel y escriba el nombre de los objetos que ha elegido. Describa los sonidos que espera que produzcan los objetos y asigne un número del 1 al 3 para definir el nivel de sonido en relación con los otros objetos. Por ejemplo:<br /><b>Algodón: ruido suave - 1</b><br /><b>Frijol: ruido moderado – 2</b><br /><b>Piedra: ruido fuerte – 3</b><br /><br />Esta hoja ahora contiene su hipótesis. Ahora es el momento de ponerla a prueba. Coloque un objeto dentro de la caja, ciérrela y agítela. Verifique si los resultados coinciden con sus anotaciones.<br /><br />Si los resultados están de acuerdo con su hipótesis, entonces esta queda confirmada. Si el experimento muestra que el orden de los objetos está equivocado, actualice el orden inicial. En caso de obtener un resultado completamente diferente, deberá descartar la hipótesis.</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Después de esta primera práctica, habrá observado que los objetos más grandes generan más ruido que los más pequeños. Sin embargo, la ciencia no se detiene aquí. Solo hemos completado el primer experimento. Pasemos al segundo:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Confirmación del resultado</b><br />Seleccione otra pequeña caja hecha de un material que produzca ruido al golpear su lateral.<br /><br />Ahora, escoja tres objetos pequeños que quepan dentro de la caja, dejando un espacio entre ellos y las paredes de la caja. Prefiera seleccionar objetos completamente diferentes a los de la primera práctica. Por ejemplo, un grano de arroz, un poco de azúcar y un trozo de papel arrugado.<br /><br />Haga una lista ordenada, similar a la lista de la práctica 1.<br /><br />Repita el procedimiento de agitar un objeto a la vez dentro de la caja y verifique si los resultados coinciden con su hipótesis.</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Todo el proceso descrito en estas prácticas también es llevado a cabo por científicos que estudian fenómenos naturales. Cuando un científico completa una investigación, envía su artículo a una revista científica, la cual lo somete a revisión por parte de otros expertos en el campo. Si los resultados pueden ser replicados, entonces el artículo es publicado.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_update",
+         "text": [
+            {
+               "text": "### Progresos de las Ciencias\n\n#### Un Nuevo Descubrimiento\n\nImagina que, hoy, un nuevo descubrimiento contradice una idea que existía desde hace siglos. Ahora, reflexiona:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre los Descubrimientos</b><br /><br />¿Qué sucede con el entendimiento anterior? ¿Significa esto que el conocimiento previo estaba equivocado? ¿O hay algo más que considerar?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Debemos ser cautelosos con términos como \"correcto\" e \"incorrecto\", ya que podríamos estar simplemente frente a una investigación que ha identificado una limitación en un resultado anterior, lo que no necesariamente hace que el resultado previo sea incorrecto.\n\nPor ejemplo, no deberíamos descartar la ley de la gravitación propuesta por Sir Isaac Newton y adoptar exclusivamente la teoría de la relatividad de Albert Einstein, ya que los resultados de Newton explican fenómenos observados en la Tierra, aunque no explican fenómenos en el universo",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee",
+                     "text": "Newton, Isaac",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1686",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "902815ac-30e7-46d2-8883-57ad754c1630",
+                     "text": "Einstein Relativity Easy",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2017",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1df98dc5-523f-42ae-9a69-3e9410849ebb",
+                     "text": "Hossenfelder, Sabine",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cd738b4d-32bd-4ea6-8aef-6653d961de19",
+                     "text": "Hossenfelder, Sabine",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "76b636be-45db-4e52-8ecd-5c873344f926",
+                     "text": "Lincoln, Don - Fermilab",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Límites de las Ciencias\n\nNo es raro escuchar frases como: \"los resultados científicos son solo teorías\". Esto nos lleva a una nueva reflexión:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre el Conocimiento</b><br /><br />¿Demuestra esta frase un desconocimiento sobre la ciencia?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "La expresión \"solo una teoría\", que a menudo se usa para desacreditar los resultados científicos, refleja un malentendido sobre los objetivos de la ciencia. El objetivo de la ciencia no es explicar por qué ocurre algo o sustituir creencias, sino buscar constantemente el conocimiento y comprender cómo ocurren las cosas. Dudar no es un problema, sino una oportunidad para adquirir nuevos conocimientos. A diario, aprendemos y ponemos a prueba teorías y leyes científicas. Cuando encontramos limitaciones en alguna de ellas, las actualizamos con nuevas leyes o teorías, sin excluir las anteriores, sino considerándolas como casos particulares.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>El Juego</h3>Para facilitar la comprensión del método científico, History Tracers desarrolló un juego en el que el método se aplica en diferentes escenarios. Puedes acceder al juego a través del enlace: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('96f3d3af-15c3-4c37-9d0e-e4b7db0db1db'); return false;\">Método Científico</a>.</p><p>Recomendamos al lector jugar las fases indicadas siempre que los textos lo sugieran, y completar al menos las etapas de \"<b>Entreinamento</b>\" para una comprensión más profunda del método.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, hemos aprendido un poco sobre el método que se utilizará en diferentes secciones de History Tracers para la enseñanza. El método científico no es perfecto, pero sus defectos se compensan con una gran cualidad: no limita la búsqueda de nuevos conocimientos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "date_time": null
+}
