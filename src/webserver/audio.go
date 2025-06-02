@@ -156,9 +156,11 @@ func htTextFamily(families *Family, lang string) string {
 
 			if comm.Format == "html" {
 				htmlText += htOverwriteDates(comm.Text, comm.FillDates, "", lang, false)
-			} else {
+			} else if comm.Format == "markdown" {
 				tmp := htOverwriteDates(comm.Text, comm.FillDates, comm.PostMention, lang, false)
 				htmlText += htMarkdownToHTML(tmp)
+			} else {
+				htFormatNotExpected(comm.Format)
 			}
 		}
 
@@ -187,9 +189,11 @@ func htTextFamily(families *Family, lang string) string {
 
 				if hist.Format == "html" {
 					htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang, false)
-				} else {
+				} else if hist.Format == "markdown" {
 					tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 					htmlText += htMarkdownToHTML(tmp)
+				} else {
+					htFormatNotExpected(hist.Format)
 				}
 
 				if len(hist.ImgDesc) > 0 {
@@ -215,9 +219,11 @@ func htTextFamily(families *Family, lang string) string {
 
 					if hist.Format == "html" {
 						htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang, false)
-					} else {
+					} else if hist.Format == "markdown" {
 						tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 						htmlText += htMarkdownToHTML(tmp)
+					} else {
+						htFormatNotExpected(hist.Format)
 					}
 
 					if len(hist.ImgDesc) > 0 {
@@ -249,9 +255,11 @@ func htTextFamily(families *Family, lang string) string {
 
 						if hist.Format == "html" {
 							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang, false)
-						} else {
+						} else if hist.Format == "markdown" {
 							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 							htmlText += htMarkdownToHTML(tmp)
+						} else {
+							htFormatNotExpected(hist.Format)
 						}
 
 						if len(hist.ImgDesc) > 0 {
@@ -276,9 +284,11 @@ func htTextFamily(families *Family, lang string) string {
 						hist := &child.History[m]
 						if hist.Format == "html" {
 							htmlText += htOverwriteDates(hist.Text, hist.FillDates, "", lang, false)
-						} else {
+						} else if hist.Format == "markdown" {
 							tmp := htOverwriteDates(hist.Text, hist.FillDates, hist.PostMention, lang, false)
 							htmlText += htMarkdownToHTML(tmp)
+						} else {
+							htFormatNotExpected(hist.Format)
 						}
 
 						if len(hist.ImgDesc) > 0 {
@@ -544,7 +554,7 @@ func htConvertOverallTextToAudio() {
 }
 
 func htConvertFistStepTextToAudio() {
-	pages := []string{"d862242c-0538-4b18-8b32-4a84d4a5858e", "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc", "9a7a978b-3fac-422c-8e41-3ef1a24e88f3", "2acc8c3a-8b10-4b67-8d70-ec1113e691c4"}
+	pages := []string{"411fc48b-20aa-4514-9fc8-152a6eb9e263", "d862242c-0538-4b18-8b32-4a84d4a5858e", "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc", "9a7a978b-3fac-422c-8e41-3ef1a24e88f3", "2acc8c3a-8b10-4b67-8d70-ec1113e691c4"}
 	htConvertClassesToAudio(pages)
 }
 

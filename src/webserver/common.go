@@ -577,7 +577,7 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 	if txt.Format == "html" {
 		work := txt.Text
 
-		htmlText = htOverwriteDates(work, txt.FillDates, "", "", dateAbbreviation)
+		htmlText = htOverwriteDates(work, txt.FillDates, "", "", dateAbbreviation) + "<br />"
 	} else if txt.Format == "markdown" {
 		work := txt.Text
 		if len(txt.PostMention) > 0 {
@@ -585,9 +585,9 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 		}
 
 		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, "", dateAbbreviation)
-		htmlText = htMarkdownToHTML(work)
+		htmlText = htMarkdownToHTML(work) + "<br />"
 	} else {
-		return finalText
+		htFormatNotExpected(txt.Format)
 	}
 
 	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
@@ -657,9 +657,7 @@ func htLoopThroughContentFiles(ctf *classTemplateFile) string {
 		for j := 0; j < len(content.Text); j++ {
 			text := &content.Text[j]
 			ret += htTextToHumanText(text, false)
-			if len(text.PostMention) > 0 {
-				ret += text.PostMention + "\n\n"
-			}
+			ret += text.PostMention + "\n\n"
 		}
 		ret += ".\n\n"
 	}
@@ -722,4 +720,9 @@ func htAddNewJSToDirectory(newFile string) {
 	}
 
 	HTCopyFilesWithoutChanges(dstPath, srcPath)
+}
+
+func htFormatNotExpected(format string) {
+	text := fmt.Sprintf("Format '%s' not expected", format)
+	panic(text)
 }
