@@ -1,219 +1,438 @@
 {
-    "title" : "Running Among the Numbers",
-    "header" : "Running Among the Numbers",
-    "sources" : [ "687a38b5-de0e-4d16-a4d0-8ec87a545ccb" ],
-    "scripts" : [ "687a38b5-de0e-4d16-a4d0-8ec87a545ccb" ],
-    "index" : [ "first_steps" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1738958281" ],
-    "authors" : null,
-    "reviewers" : null,
-    "version" : 1,
-    "type" : "class",
-    "content" : [
-        {
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
-                               { "text" : "### Prerequisites\n\nWe recommend that readers study the previous text and its prerequisites before proceeding with this one",
-                                 "source" : [ 
-                                              { "type": 1,
-                                                "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
-                                                "text": "History Tracers Team",
-                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                  "fill_dates" : null,
-                                  "isTable" : false,
-                                  "format" : "markdown",
-                                  "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ { "text" : "### Introduction\n\nIn the previous text, we explored an axiom stating that any value added to zero (0) equals itself (Additive Identity). Additionally, we learned that advancing a number in the numerical sequence is equivalent to adding one (1) to the previous number",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
-                                                "text": "Ernst, Dana.",
-                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
-                                                "text": "History Tracers Team",
-                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: On axioms</b><br /><br />If an axiom exists for adding zero, could there also be axioms for adding other numbers?</div></div></center></p>",
-                               { "text" : "In this text, we will delve deeper into addition and explore how we can move more efficiently along the numerical axis",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "axiom",
-                    "text" : [ { "text" : "### The Addition Order\n\nThe addition operation has a fundamental property, which is also an axiom. While we have not yet fully explored it, this property will be essential in guiding our studies. Let’s revisit the representation of a numerical axis",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                                "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Graph 1: Representation of an axis with numbers. The numbers are placed below the line, and an arrow on the right end indicates the direction in which the values increase. The source code used to generate the CSS-based image is available on <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>",
-                               { "text" : "Based on what we have learned previously, let’s begin by working with the number 5. On the axis shown above, we can interpret a person standing on the number 5 as being five units to the right of the origin. This means the person has taken five steps from zero (0). Additionally, we know that adding zero (0) to any number leaves the number unchanged. For example",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
-                                                "text": "History Tracers Team",
-                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<p><math display=\"block\"> <mn>5</mn> <mo>+</mo> <mn>0</mn> <mo>=</mo> <mn>5</mn> </math></p>",
-                               "<ul class=\"citation\"><li><i><b>Calculation 1:</b> Adding zero (0) and five (5).</i></li></ul></p>",
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: On Inversion</b><br /><br />Would the result be the same if, instead of calculating <b>5 + 0</b>, we calculated <b>0 + 5</b>?</div></div></center></p>",
-                               { "text" : "From the axiom we learned earlier, we know that adding zero to any number results in the same number. Therefore, both **0 + 5** and **5 + 0**, yield the same result, as we are simply adding zero (0) to the number 5 in both cases.\n\nThis principle applies to other numbers as well. For example, if we add four (4) and one (1), and then reverse the order by adding one (1) and four (4), the result remains the same",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>5</mn> </math></p>",
-                               "<p><math display=\"block\"> <mn>1</mn> <mo>+</mo> <mn>4</mn> <mo>=</mo> <mn>5</mn> </math></p>",
-                               "<ul class=\"citation\"><li><i><b>Calculation 2:</b> Adition of integer numbers.</i></li></ul></p>",
-                               { "text" : "We can visualize these calculations using the numerical axis in **Chart 1**. In the first case, we start at position four (4) and advance one (1) step to reach position five (5). In the second case, we start at position one (1) and advance four (4) steps, again reaching position five (5).\n\nBased on these observations, we can define the **Commutative Axiom**",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<ul class=\"citation\"><li><i><b>Commutative Axiom:</b> For any numbers <b>a</b> and <b>b</b>, the order of addition does not change the result:<br /> a + b = b + a</i></li></ul></p>",
-                               { "text" : "To conclude this section, let’s apply the Commutative Axiom to Calculation 2",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>1</mn> <mo>+</mo> <mn>4</mn> </math></p>"
-                    ]
-                },
-                {
-                    "id" : "growing",
-                    "text" : [ { "text" : "### Addition as Reconstructions\n\nHuman constructions often involve a form of numerical addition. A notable example is **Temple 16 in Copán**, which underwent multiple reconstruction phases and now stands over 30 meters tall. In its earliest stages, however, the temple was significantly smaller",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "daae87a2-5fa9-43d1-88fb-6713b25d50d5",
-                                                "text": "Tuarez Mejia, L. F.",
-                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\" src=\"images/HistoryTracers/Temple16Copan.png\" class=\"imgcenter\"/>Figure 1: Sign at the Archaeological Site of Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span class=\"htdate\"></span></a>). Photo taken on <span class=\"htdate\"></span>, during a visit to the site.</p>",
-                               { "text" : "The Mesoamerican reconstruction process typically occurred in successive stages with minimal gaps between them. However, **Temple 16** presents an exception: the reconstruction that followed the *Rosalila* phase left an intermediate space, allowing visitors to walk through these areas, as shown in **Figure 2**",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<p class=\"desc\"><img id=\"imgCopanTemple2\" onclick=\"htImageZoom('imgCopanTemple2', '0%')\" src=\"images/Copan/Templo16Inside.jpg\" class=\"imgcenter\" style=\"width:40%;\"/>Figure 2: Internal view of Temple 16 in Copán  (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <span class=\"htdate\"></span></a>). Photo taken on <span class=\"htdate\"></span>, during a visit to the site.</p>",
-                               { "text" : "The process of numerical addition can be likened to these Indigenous reconstructions. When performing addition, we always begin with the smallest value and progress to the largest. Furthermore, based on the two axioms we have already explored, we can conclude that addition always occurs in pairs of numbers, represented in the axioms as *a* and *b*, until the final result is achieved.\n\nIn the next subsection, we will explore the details of calculating large numbers",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "calculation",
-                    "text" : [ { "text" : "### Adding Large Numbers\n\nTo add numbers with more than one digit, we follow a repetitive process: we add the numbers column by column, starting from the rightmost digit and moving to the left. This ensures that each digit in the result is a single digit, and any excess is carried over to the next column.\n\nAs an example, let’s add the numbers <b>654321</b> and <b>543210</b>",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
-                                                "text": "Weisstein, Eric W."}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<p style=\"text-align=center\"><center>&nbsp;<span class=\"sumexample1\" id=\"cmoc6\">1 </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmtc6\">6 </span><span class=\"sumexample1\" id=\"cmtc5\">5 </span><span class=\"sumexample1\" id=\"cmtc4\">4 </span><span class=\"sumexample1\" id=\"cmtc3\">3 </span><span class=\"sumexample1\" id=\"cmtc2\">2 </span><span class=\"sumexample1\" id=\"cmtc1\">1 </span> <br />+&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmbc6\">5 </span><span class=\"sumexample1\" id=\"cmbc5\">4 </span><span class=\"sumexample1\" id=\"cmbc4\">3 </span><span class=\"sumexample1\" id=\"cmbc3\">2 </span><span class=\"sumexample1\" id=\"cmbc2\">1 </span><span class=\"sumexample1\" id=\"cmbc1\">0 </span><br />____________<br />&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmrc6\">1 1 </span><span class=\"sumexample1\" id=\"cmrc5\">9 </span><span class=\"sumexample1\" id=\"cmrc4\">7 </span><span class=\"sumexample1\" id=\"cmrc3\">5 </span><span class=\"sumexample1\" id=\"cmrc2\">3 </span><span class=\"sumexample1\" id=\"cmrc1\">1 </span></center></p>",
-                               "<p class=\"desc\">Calculation 3: Addition of 654321 and 543210</p>",
-                               { "text" : "In this calculation, you can hover your mouse over each column to see the numbers being added. Below are some key points to note:\n\n- **Additive Identity**: In the first column, we add 0 and 1. Since any number added to zero remains unchanged, the result is 1.\n- **Commutativity**: The order of the numbers does not affect the result. For example, if we were to write 543,210 on top and 654,321 below, the result would still be the same.\n- **Sum Limit Without Carrying**: If both digits in a column are less than 5, their sum will never exceed 9, so no carrying is needed.\n- **Carrying**: When the sum of a column exceeds 9, we carry over 1 to the next column and write the remaining digit in the result",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": " "
-                               },
-                               { "text" : "#### Practice Exercise\n\nReading about addition is helpful, but practice is essential for full understanding. Below is a table with an addition problem. Before using the controls to check the result, try solving it on your own.\n\nWhen you finish the calculation, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can proceed to another problem by clicking the button (<i class=\"fa-solid fa-chevron-right\"></i>) below",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Sum of Numbers</th><th colspan=\"2\">Controls</th></tr> </table></p>",
-                               "<p class=\"desc\">Table 1: Exercise for Adding Two Numbers.</p>" 
-                    ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ { "text" : "### Conclusion\n\nIn this text, we explored how the addition of large numbers involves repeating the same steps used to add two numbers, as many times as necessary. Therefore, don’t be intimidated by the size of the numbers! Simply follow the steps to add column by column, and you will arrive at the correct result.\n\nIn addition to the mathematical process, we also gained some insight into how the Mesoamerican people approached reconstruction",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "exercise_v2",
-                    "text" : [ 
-                        {
-                            "question" : "If I calculate <b>5 + 4</b>, would the result be different from <b>4 + 5</b>?",
-                            "yesNoAnswer" : "No",
-                            "additionalInfo" : "As mentioned in the <b>Commutative Axiom of Addition</b>, the order in which we add numbers does not change the final result."
-                        },
-                        {
-                            "question" : "Is the main difference between adding two single-digit numbers and two ten-digit numbers the time required to perform the operation?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "In fact, the rule for adding small numbers is exactly the same as the rule for adding large numbers. The only difference is that, in the case of large numbers, we need to repeat the same steps multiple times, which requires more time to complete the operation."
-                        }
-                    ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" },
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "30" }
-                    ]
-                }
-            ]
-        }
-    ]
+   "title": "Running Among the Numbers",
+   "header": "Running Among the Numbers",
+   "sources": [
+      "687a38b5-de0e-4d16-a4d0-8ec87a545ccb"
+   ],
+   "scripts": [
+      "687a38b5-de0e-4d16-a4d0-8ec87a545ccb"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/687a38b5-de0e-4d16-a4d0-8ec87a545ccb_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Running-Among-the-Numbers-English-e33oq1p",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1748963598"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "### Prerequisites\n\nWe recommend that readers study the previous text and its prerequisites before proceeding with this one",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nIn the previous text, we explored an axiom stating that any value added to zero (0) equals itself (Additive Identity). Additionally, we learned that advancing a number in the numerical sequence is equivalent to adding one (1) to the previous number",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: On axioms</b><br /><br />If an axiom exists for adding zero, could there also be axioms for adding other numbers?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In this text, we will delve deeper into addition and explore how we can move more efficiently along the numerical axis.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_axiom",
+         "text": [
+            {
+               "text": "### The Addition Order\n\nThe addition operation has a fundamental property, which is also an axiom. While we have not yet fully explored it, this property will be essential in guiding our studies. Let’s revisit the representation of a numerical axis:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"chart\"><div class=\"tick\"><span>0</span></div><div class=\"tick\"><span>1</span></div><div class=\"tick\"><span>2</span></div><div class=\"tick\"><span>3</span></div><div class=\"tick\"><span>4</span></div><div class=\"tick\"><span>5</span></div><div class=\"tick\"><span>6</span></div><div class=\"tick\"><span>7</span></div><div class=\"tick\"><span>8</span></div><div class=\"tick\"><span>9</span></div><div class=\"tick arrow rightarrow\"></div></div></p><p>&nbsp;</p><p class=\"desc\">Graph 1: Representation of an axis with numbers. The numbers are placed below the line, and an arrow on the right end indicates the direction in which the values increase. The source code used to generate the CSS-based image is available on <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c7edc93c-0a41-4753-8f89-9e52904ff003'); return false;\">W3 Schools</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Based on what we have learned previously, let’s begin by working with the number five (5). On the axis shown above, we can interpret a person standing on the number 5 as being five units to the right of the origin. This means the person has taken five steps from zero (0). Additionally, we know that adding zero (0) to any number leaves the number unchanged. For example",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6e3666ca-88e4-4b5e-a717-c42056476a77",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>5</mn> <mo>+</mo> <mn>0</mn> <mo>=</mo> <mn>5</mn> </math></p><p><ul class=\"citation\"><li><i><b>Calculation 1:</b> Adding zero (0) and five (5).</i></li></ul></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: On Inversion</b><br /><br />Would the result be the same if, instead of calculating <b>5 + 0</b>, we calculated <b>0 + 5</b>?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "From the axiom we learned earlier, we know that adding zero to any number results in the same number. Therefore, both **0 + 5** and **5 + 0**, yield the same result, as we are simply adding zero (0) to the number five (5) in both cases.\n\nThis principle applies to other numbers as well. For example, if we add four (4) and one (1), and then reverse the order by adding one (1) and four (4), the result remains the same:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>5</mn> </math></p><p><math display=\"block\"> <mn>1</mn> <mo>+</mo> <mn>4</mn> <mo>=</mo> <mn>5</mn> </math></p><p><ul class=\"citation\"><li><i><b>Calculation 2:</b> Adition of integer numbers.</i></li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "We can visualize these calculations using the numerical axis in **Chart 1**. In the first case, we start at position four (4) and advance one (1) step to reach position five (5). In the second case, we start at position one (1) and advance four (4) steps, again reaching position five (5).\n\nBased on these observations, we can define the **Commutative Axiom**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><<ul class=\"citation\"><li><i><b>Commutative Axiom:</b> For any numbers <b>a</b> and <b>b</b>, the order of addition does not change the result:<br /> a + b = b + a</i></li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To conclude this section, let’s apply the Commutative Axiom to Calculation 2:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>4</mn> <mo>+</mo> <mn>1</mn> <mo>=</mo> <mn>1</mn> <mo>+</mo> <mn>4</mn> </math></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_growing",
+         "text": [
+            {
+               "text": "### Addition as Reconstructions\n\nHuman constructions often involve a form of numerical addition. A notable example is **Temple 16 in Copán**, which underwent multiple reconstruction phases and now stands over 30 meters tall. In its earliest stages, however, the temple was significantly smaller",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "daae87a2-5fa9-43d1-88fb-6713b25d50d5",
+                     "text": "Tuarez Mejia, L. F.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\" src=\"images/HistoryTracers/Temple16Copan.png\" class=\"imgcenter\"/>Figure 1: Sign at the Archaeological Site of Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Photo taken on <htdate1>, during a visit to the site.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "The image depicts the sequential construction phases of Temple 16, with later temples superimposed on earlier ones.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The Mesoamerican reconstruction process typically occurred in successive stages with minimal gaps between them. However, **Temple 16** presents an exception: the reconstruction that followed the *Rosalila* phase left an intermediate space, allowing visitors to walk through these areas, as shown in **Figure 2**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanTemple2\" onclick=\"htImageZoom('imgCopanTemple2', '0%')\" src=\"images/Copan/Templo16Inside.jpg\" class=\"imgcenter\" style=\"width:40%;\"/>Figure 2: Internal view of Temple 16 in Copán  (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Photo taken on <htdate1>, during a visit to the site.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "This image shows a 'corridor' demarcating the transition between two distinct building stages, visible in Figure 1.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The process of numerical addition can be likened to these Indigenous reconstructions. When performing addition, we always begin with the smallest value and progress to the largest. Furthermore, based on the two axioms we have already explored, we can conclude that addition always occurs in pairs of numbers, represented in the axioms as *a* and *b*, until the final result is achieved.\n\nIn the next subsection, we will explore the details of calculating large numbers.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_calculation",
+         "text": [
+            {
+               "text": "### Adding Large Numbers\n\nTo add numbers with more than one digit, we follow a repetitive process: we add the numbers column by column, starting from the rightmost digit and moving to the left. This ensures that each digit in the result is a single digit, and any excess is carried over to the next column.\n\nAs an example, let’s add the numbers <b>654321</b> and <b>543210</b>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
+                     "text": "Weisstein, Eric W.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;<span class=\"sumexample1\" id=\"cmoc6\">1 </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmtc6\">6 </span><span class=\"sumexample1\" id=\"cmtc5\">5 </span><span class=\"sumexample1\" id=\"cmtc4\">4 </span><span class=\"sumexample1\" id=\"cmtc3\">3 </span><span class=\"sumexample1\" id=\"cmtc2\">2 </span><span class=\"sumexample1\" id=\"cmtc1\">1 </span> <br />+&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmbc6\">5 </span><span class=\"sumexample1\" id=\"cmbc5\">4 </span><span class=\"sumexample1\" id=\"cmbc4\">3 </span><span class=\"sumexample1\" id=\"cmbc3\">2 </span><span class=\"sumexample1\" id=\"cmbc2\">1 </span><span class=\"sumexample1\" id=\"cmbc1\">0 </span><br />____________<br />&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmrc6\">1 1 </span><span class=\"sumexample1\" id=\"cmrc5\">9 </span><span class=\"sumexample1\" id=\"cmrc4\">7 </span><span class=\"sumexample1\" id=\"cmrc3\">5 </span><span class=\"sumexample1\" id=\"cmrc2\">3 </span><span class=\"sumexample1\" id=\"cmrc1\">1 </span></center></p><p class=\"desc\">Calculation 3: Addition of 654321 and 543210.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In this calculation, you can hover your mouse over each column to see the numbers being added. Below are some key points to note:\n\n- **Additive Identity**: In the first column, we add 0 and 1. Since any number added to zero remains unchanged, the result is 1.\n- **Commutativity**: The order of the numbers does not affect the result. For example, if we were to write 543,210 on top and 654,321 below, the result would still be the same.\n- **Sum Limit Without Carrying**: If both digits in a column are less than 5, their sum will never exceed 9, so no carrying is needed.\n- **Carrying**: When the sum of a column exceeds 9, we carry over 1 to the next column and write the remaining digit in the result.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Practice Exercise\n\nReading about addition is helpful, but practice is essential for full understanding. Below is a table with an addition problem. Before using the controls to check the result, try solving it on your own.\n\nWhen you finish the calculation, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can proceed to another problem by clicking the button (<i class=\"fa-solid fa-chevron-right\"></i>) below:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Sum of Numbers</th><th colspan=\"2\">Controls</th></tr> </table></p><p class=\"desc\">Table 1: Exercise for Adding Two Numbers.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we explored how the addition of large numbers involves repeating the same steps used to add two numbers, as many times as necessary. Therefore, don’t be intimidated by the size of the numbers! Simply follow the steps to add column by column, and you will arrive at the correct result.\n\nIn addition to the mathematical process, we also gained some insight into how the Mesoamerican people approached reconstruction.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "If I calculate <b>5 + 4</b>, would the result be different from <b>4 + 5</b>?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "As mentioned in the <b>Commutative Axiom of Addition</b>, the order in which we add numbers does not change the final result."
+      },
+      {
+         "question": "Is the main difference between adding two single-digit numbers and two ten-digit numbers the time required to perform the operation?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "In fact, the rule for adding small numbers is exactly the same as the rule for adding large numbers. The only difference is that, in the case of large numbers, we need to repeat the same steps multiple times, which requires more time to complete the operation."
+      }
+   ],
+   "date_time": null
 }
