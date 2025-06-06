@@ -234,6 +234,107 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_general_formula",
+         "text": [
+            {
+               "text": "### A General Formula\n\nIn the multiplication table, we multiply different numbers **N** by a fixed value, obtaining their products. In the first text, we performed these operations and concluded that the following formulas exist for the multiplication tables of zero and one",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p><center><math><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Forrmula 1: Formulas used in the multiplication tables of zero and one.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "These two formulas can be expressed more generally",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "79d126c9-39ac-4679-904b-4ab69558e44e",
+                     "text": "Weisstein, Eric W.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><math><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>n</mi> </math></center></p><p class=\"desc\">Formula 2: General formula for multiplication tables.</p>",
+               "source": null,
+               "date_time": null,
+               "istable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "postmention": ""
+            },
+            {
+               "text": "In this formula:\n- *r*: is the product of the multiplication.\n *N*: is the factor representing the counted number.\n- *a*: in addition to being a multiplication factor, it receives different names in various contexts. However, regardless of its name, its function in multiplication remains the same: to modify a point's position relative to the horizontal line. For this reason, one of its names is **slope coefficient** (or **angular coefficient**).",
+               "source": null,
+               "date_time": null,
+               "istable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "postmention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: The Factor *a*</b><br /><br />When **a = 0**, the results become points aligned along the horizontal axis.<br />Cuando a = 1, the results form points along the diagonal, dividing the grid paper into two equal triangles.<br /><br />What would you expect to happen when <b>a</b> takes the values 2 and 3</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -241,6 +342,11 @@
          "question": "Um triângulo é uma figura fechada com três lados e três ângulos?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Esta é a definição de triângulo que estamos utilizando neste capítulo, mas ainda há mais informações que podemos adicionar a definção do triângulo que serão ensinadas adiante."
+      },
+      {
+         "question": "Quando realizamos a multiplicação, temos dois fatores, com um deles representando o valor que contamos, enquanto o outro representa um afastamento da linha horizontal?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Neste texto, nomeamos o fator <b>a</> como sendo coeficiente angular, e vimos como ele atua no resultado, afastando-o da linha horizontal."
       }
    ],
    "date_time": null

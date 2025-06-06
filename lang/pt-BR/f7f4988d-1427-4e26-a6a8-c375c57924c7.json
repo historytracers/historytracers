@@ -234,6 +234,107 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_general_formula",
+         "text": [
+            {
+               "text": "### Uma Fórmula Geral\n\nNa tabuada, multiplicamos diferentes números **N** por um valor fixo, obtendo seus resultados. No primeiro texto, realizamos essas etapas e concluímos que existem as seguintes fórmulas para as tabuadas do zero e do um",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><math><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p><center><math><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Fórmula 1: Fórmulas utilizadas nas tabuadas do zero e do um.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Essas duas fórmulas podem ser escritas de maneira mais geral",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "79d126c9-39ac-4679-904b-4ab69558e44e",
+                     "text": "Weisstein, Eric W.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><math><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>n</mi> </math></center></p><p class=\"desc\">Fórmula 2: Fórmula geral das tabuadas.</p>",
+               "source": null,
+               "date_time": null,
+               "istable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "postmention": ""
+            },
+            {
+               "text": "Nesta fórmula:\n- *r*: é o resultado da multiplicação.\n *N*: é o fator que representa um número que contamos.\n- *a*: além de ser um dos fatores da multiplicação, recebe diferentes nomes em diferentes situações da vida. No entanto, independente do nome, sua função na multiplicação permanece a mesma: modificar a posição do ponto em relação à linha horizontal. Por esse motivo, um de seus nomes é **coeficiente angular**.",
+               "source": null,
+               "date_time": null,
+               "istable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "postmention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: O Fator *a*</b><br /><br />Quando **a = 0**, os resultados se transformam em pontos alinhados sobre a horizontal.<br />Quando a = 1, os resultados formam pontos na diagonal, dividindo uma folha quadriculada em dois triângulos iguais.<br /><br />O que você espera quando *a* assumir os valores dois e três?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -241,6 +342,11 @@
          "question": "Um triângulo é uma figura fechada com três lados e três ângulos?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Esta é a definição de triângulo que estamos utilizando neste capítulo, mas ainda há mais informações que podemos adicionar a definção do triângulo que serão ensinadas adiante."
+      },
+      {
+         "question": "Quando realizamos a multiplicação, temos dois fatores, com um deles representando o valor que contamos, enquanto o outro representa um afastamento da linha horizontal?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Neste texto, nomeamos o fator <b>a</> como sendo coeficiente angular, e vimos como ele atua no resultado, afastando-o da linha horizontal."
       }
    ],
    "date_time": null
