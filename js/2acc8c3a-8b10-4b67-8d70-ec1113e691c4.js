@@ -48,14 +48,17 @@ function htLoadExercise() {
     var yVector1 = [ 0, null, 0, null, 0, null, 0, null, 0, null, 0, null, 0, null, 0, null, 0, null, 0, null, 0];
 
     var chart1Options = {
+        "datasets": [
+                    {
+                        data : yVector1,
+                        label : mathKeywords[16]+"0",
+                        fill : false
+                    }],
         "chartId" : "chart1",
-        "yVector" : yVector1,
-        "yLable": mathKeywords[14],
         "yType" : "linear",
         "xVector" : xVector1,
         "xLable": mathKeywords[15],
         "xType" : "linear",
-        "datasetFill" : false,
         "ymin": 0,
         "ymax": 10,
         "useCallBack": false
@@ -66,14 +69,17 @@ function htLoadExercise() {
     var yVector2 = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     var chart2Options = {
+        "datasets": [
+                    {
+                        data : yVector2,
+                        label : mathKeywords[16]+"0",
+                        fill : false
+                    }],
         "chartId" : "chart2",
-        "yVector" : yVector2,
-        "yLable": mathKeywords[14],
         "yType" : "linear",
         "xVector" : xVector2,
         "xLable": mathKeywords[15],
         "xType" : "linear",
-        "datasetFill" : false,
         "ymin": 0,
         "ymax": 10,
         "useCallBack": false
@@ -84,14 +90,17 @@ function htLoadExercise() {
     var yVector3 = [ 0, null, 1, null, 2, null, 3, null, 4, null, 5, null, 6, null, 7, null, 8, null, 9, null, 10];
 
     var chart3Options = {
+        "datasets": [
+                    {
+                        data : yVector3,
+                        label : mathKeywords[16]+"1",
+                        fill : false
+                    }],
         "chartId" : "chart3",
-        "yVector" : yVector3,
-        "yLable": mathKeywords[14],
         "yType" : "linear",
         "xVector" : xVector3,
         "xLable": mathKeywords[15],
         "xType" : "linear",
-        "datasetFill" : false,
         "ymin": 0,
         "ymax": 10,
         "useCallBack": false
@@ -102,14 +111,17 @@ function htLoadExercise() {
     var yVector4 = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     var chart4Options = {
+        "datasets": [
+                    {
+                        data : yVector4,
+                        label : mathKeywords[16]+"1",
+                        fill : false
+                    }],
         "chartId" : "chart4",
-        "yVector" : yVector4,
-        "yLable": mathKeywords[14],
         "yType" : "linear",
         "xVector" : xVector4,
         "xLable": mathKeywords[15],
         "xType" : "linear",
-        "datasetFill" : false,
         "ymin": 0,
         "ymax": 10,
         "useCallBack": false
