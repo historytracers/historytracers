@@ -92,11 +92,11 @@ function htPlotCallBack(val) {
 
 function htPlotConstantContinuousChart(options)
 {
-    if (options.yVector == undefined || options.xVector == undefined ) {
+    if (options.datasets == undefined || options.xVector == undefined ) {
         return;
     }
 
-    if (options.yVector.constructor !== chartVectorConstructor || options.xVector.constructor !== chartVectorConstructor) {
+    if (options.datasets.constructor !== chartVectorConstructor || options.xVector.constructor !== chartVectorConstructor) {
         return;
     }
 
@@ -109,12 +109,7 @@ function htPlotConstantContinuousChart(options)
         type : 'line',
         data : {
             labels : options.xVector,
-            datasets : [
-                    {
-                        data : options.yVector,
-                        label : options.yLable,
-                        fill : options.datasetFill
-                    }],
+            datasets : options.datasets,
                     radius: 4
         },
         options : {
@@ -150,7 +145,7 @@ function htPlotConstantContinuousChart(options)
             },
             plugins: {
                legend: {
-                    display: false
+                    display: true
                 }
             } 
         },

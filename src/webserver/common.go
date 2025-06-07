@@ -688,9 +688,9 @@ func htWriteClassIndexFile(lang string, index *classIdx) (string, error) {
 
 func htAddNewSourceToDirectory(newFile string) {
 	srcPath := fmt.Sprintf("%ssrc/json/sources_template.json", CFG.SrcPath)
+	dstPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, newFile)
 
 	if verboseFlag {
-		dstPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, newFile)
 		fmt.Println("Copying ", srcPath, " to ", dstPath)
 	}
 

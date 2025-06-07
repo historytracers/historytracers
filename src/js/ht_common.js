@@ -526,12 +526,12 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
             }
             var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
             var dateText = ""
-            if (sources[i].date != undefined) {
+            if (sources[i].date != undefined && sources[i].date.year.length > 0) {
                 dateText = ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
-            } else if (sources[i].date_time != undefined) {
+            } else if (sources[i].date_time != undefined && sources[i].date_time.year.length > 0) {
                 dateText = ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
             }
-            text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
+            text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+dateText+"</i></a>";
         }
         text += ")";
     }
