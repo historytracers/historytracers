@@ -107,7 +107,6 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart3Options);
 
-    var xVector4 = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     var yVector4 = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     var chart4Options = {
@@ -119,7 +118,7 @@ function htLoadExercise() {
                     }],
         "chartId" : "chart4",
         "yType" : "linear",
-        "xVector" : xVector4,
+        "xVector" : xVector2,
         "xLable": mathKeywords[15],
         "xType" : "linear",
         "ymin": 0,

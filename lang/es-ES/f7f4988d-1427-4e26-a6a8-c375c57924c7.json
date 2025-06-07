@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1749004689"
+      "1749322137"
    ],
    "authors": null,
    "reviewers": null,
@@ -139,16 +139,6 @@
                "PostMention": ""
             },
             {
-               "text": "Al observar el Gráfico 1, reflexione:",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "latex": null,
-               "format": "markdown",
-               "PostMention": ":"
-            },
-            {
                "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Defina el triángulo</b><br /><br />Observando el Gráfico 1, donde el área del triángulo inferior está resaltada, ¿cómo describiría usted esta figura?</div></div></center></p>",
                "source": null,
                "date_time": null,
@@ -197,13 +187,23 @@
                      "type": 1,
                      "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
                      "text": "Weisstein, Eric W., Triangulo",
-                     "date_time": null
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
                      "type": 1,
                      "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
                      "text": "Weisstein, Eric W., Triangulo Retangulo",
-                     "date_time": null
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
@@ -308,21 +308,21 @@
                "text": "<p><center><math><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>n</mi> </math></center></p><p class=\"desc\">Fórmula 2: Fórmula general de las tablas de multiplicación.</p>",
                "source": null,
                "date_time": null,
-               "istable": false,
+               "isTable": false,
                "imgdesc": "",
                "latex": null,
                "format": "html",
-               "postmention": ""
+               "PostMention": ""
             },
             {
                "text": "En esta fórmula:\n- *r*: es el resultado de la multiplicación.\n *N*: es el factor que representa un número contable.\n- *a*: además de ser uno de los factores de la multiplicación, recibe diferentes nombres en distintas situaciones de la vida. Sin embargo, independientemente del nombre, su función en la multiplicación sigue siendo la misma: modificar la posición de un punto en relación con la línea horizontal. Por este motivo, uno de sus nombres es *coeficiente angular*.",
                "source": null,
                "date_time": null,
-               "istable": false,
+               "isTable": false,
                "imgdesc": "",
                "latex": null,
-               "format": "html",
-               "postmention": ""
+               "format": "markdown",
+               "PostMention": ""
             },
             {
                "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: El factor *a*</b><br /><br />Cuando **a = 0**, los resultados se transforman en puntos alineados sobre la horizontal.<br />Cuando a = 1, los resultados forman puntos en la diagonal, dividiendo una hoja cuadriculada en dos triángulos iguales.<br /><br />¿Qué esperas que ocurra cuando <b>a</b> tome los valores 2 y 3?</div></div></center></p>",
@@ -365,11 +365,11 @@
                "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representación de las manos. Código fuente disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <span class=\"htdate\"></span>, La Fuente</a>)</td></tr></table></p>",
                "source": null,
                "date_time": null,
-               "istable": false,
+               "isTable": false,
                "imgdesc": "En la figura, se observan las dos manos de una persona extendidas con todos los dedos levantados.",
                "latex": null,
                "format": "html",
-               "postmention": ""
+               "PostMention": ""
             },
             {
                "text": "El Dr. Francisco Barriga Puente, en sus estudios sobre los sistemas numéricos de los indígenas brasileños, identificó sistemas binarios basados en los números uno (1) y dos (2). Para representar cantidades mayores, como el seis (6), utilizaban sumas repetidas",
@@ -397,14 +397,14 @@
                "text": "<p><center><math><mi>2</mi> <mo>y</mo> <mi>2</mi> <mo>y</mo> <mi>2</mi> </math></center></p><p class=\"desc\">Representación del número seis en sistemas binarios indígenas.</p>",
                "source": null,
                "date_time": null,
-               "istable": false,
+               "isTable": false,
                "imgdesc": "",
                "latex": null,
                "format": "html",
-               "postmention": ""
+               "PostMention": ""
             },
             {
-               "text": "Estos ejemplos nos ayudan a construir la tabla del dos.#### Construyendo la Tabla\n\nPara elaborar la tabla del dos (2), aplicamos la Fórmula 2, asignando al factor *a* el valor dos (2), lo que nos da los siguientes resultados:",
+               "text": "Estos ejemplos nos ayudan a construir la tabla del dos.\n#### Construyendo la Tabla\n\nPara elaborar la tabla del dos (2), aplicamos la Fórmula 2, asignando al factor *a* el valor dos (2), lo que nos da los siguientes resultados:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -486,18 +486,194 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_three",
+         "text": [
+            {
+               "text": "### Multiplicando por Tres (3)\n\nAdemás del triángulo rectángulo, en este y en los próximos textos también utilizaremos el triángulo isósceles, que posee al menos dos lados iguales. Como consecuencia, si trazamos una línea desde el vértice dónde se encuntran los lados iguales hasta el lado opuesto, obtenemos lados simétricos, como se ilustra en el **Gráfico 5**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "61e568be-8a3a-4f53-bd2d-e9ce113cf68b",
+                     "text": "Weisstein, Eric W.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenter\"><svg width=\"450\" height=\"300\"><polygon points=\"265,10 125,280 405,280\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><text x=\"140\" y=\"270\" font-size=\"1.5em\">α</text><text x=\"370\" y=\"270\" font-size=\"1.5em\">α</text><g fill=\"none\" stroke=\"black\" stroke-width=\"1\"><path stroke-dasharray=\"5,5\" d=\"M265 14 l0 270\" /></g></svg></p><p class=\"desc\">Gráfico 5: Triángulo isósceles con ángulos y lados iguales.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El número tres también aparece en diferentes objetos y construcciones, como el Complejo Tipo E en Caracol, Belice. En él, observamos tres estructuras responsables de marcar las estaciones del año",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e7c7458b-0c63-4485-9c7b-4640edcd9122",
+                     "text": "Inomata, T.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2017",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/UBMUR-3hHz0?si=mn22_mrWLJ23ueeO\" title=\"YouTube video player\" frameborder=\"0\" allowfullscreen></iframe><br />Video 1: Complejo Tipo E en Caracol, Belice. Grabado durante una visita al sitio el <htdate0>.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Construyendo la Tabla\n\nPara elaborar la tabla del tres (3), aplicamos nuevamente la **Fórmula 2**, asignando al factor **a** el valor tres (3), obteniendo los siguientes resultados:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center\"><b>Tabla del 3</b><br /><br /><math><mi>0</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>0</mi> </math><br /><math><mi>3</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>1</mi> </math><br /> <math><mi>6</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>2</mi></math><br /> <math><mi>9</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>3</mi> </math><br /> <math><mi>12</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>4</mi> </math><br /> <math><mi>15</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>5</mi> </math><br /> <math><mi>18</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>6</mi> </math><br /> <math><mi>21</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>7</mi> </math><br /><math><mi>24</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>8</mi> </math><br /> <math><mi>27</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>9</mi> </math><br /> <math><mi>30</mi> <mo>=</mo> <mi>3</mi> <mo>×</mo> <mi>10</mi> </math></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Dibujando la Tabla\n\nEl **Gráfico 6** muestra los valores de la tabla del 3",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart4\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 6: Puntos de la tabla del tres conectados, formando una línea recta. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Relación entre Números</b><br /><br />La tabla del uno (1) generó puntos alejados de la línea horizontal. Al usar la tabla del dos (2), nos alejamos aún más de dicha línea.<br /><br />¿La tabla del tres (3) hace que los puntos queden más cerca o más lejos de la línea horizontal?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para visualizarlo mejor, dibujemos las tres tablas juntas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart5\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 7: Puntos de las tablas del uno, dos y tres conectados, formando tres rectas. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "El **Gráfico 7** muestra las tres tablas con sus respectivos puntos graficados y conectados. A partir de ello, podemos concluir:\n- A medida que aumentamos el factor **a** (coeficiente angular), se espera que el alejamiento (y el ángulo) también aumente.\n- El valor seis (6) aparece en la tabla del dos (2) cuando **N = 3**, mientras que el mismo valor (6) surge en la tabla del tres (3) cuando **N = 2**. Esto ilustra que el orden de los factores no altera el producto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, ampliamos nuestro conocimiento sobre la tabla de multiplicación al analizar la relación entre el producto de dos factores y el alejamiento de los puntos respecto a la línea horizontal. Además, profundizamos en el estudio de los triángulos y sus propiedades.\n\nEn el próximo texto, exploraremos cómo la tabla de multiplicación y los triángulos pueden aplicarse en la naturaleza.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Um triângulo é uma figura fechada com três lados e três ângulos?",
+         "question": "¿Un triángulo es una figura cerrada con tres lados y tres ángulos?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Esta é a definição de triângulo que estamos utilizando neste capítulo, mas ainda há mais informações que podemos adicionar a definção do triângulo que serão ensinadas adiante."
+         "additionalInfo": "Esta es la definición básica de triángulo que estamos utilizando en este capítulo, pero existen más aspectos que complementarán este concepto y que serán presentados posteriormente."
       },
       {
-         "question": "Quando realizamos a multiplicação, temos dois fatores, com um deles representando o valor que contamos, enquanto o outro representa um afastamento da linha horizontal?",
+         "question": "Al multiplicar tres por un número <b>N</b>, ¿el resultado (producto) será siempre mayor que cuando usamos números menores que él por <b>N</b>?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Todo número multiplicado por cero da como resultado cero, por lo que siempre obtenemos valores iguales en este caso."
+      },
+      {
+         "question": "¿Cuanto mayor sea el valor del factor <b>a</b> en la <b>Fórmula 2</b> de la multiplicación, más se alejará un punto de la línea horizontal?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Neste texto, nomeamos o fator <b>a</> como sendo coeficiente angular, e vimos como ele atua no resultado, afastando-o da linha horizontal."
+         "additionalInfo": "La multiplicación consiste en el producto entre dos factores: uno de ellos, como hemos visto, corresponde a los números del eje horizontal; el otro, que denominamos coeficiente angular (representado por <b>a</b>). Observamos que al aumentar el valor de este coeficiente (excepto cuando multiplicamos por cero), los puntos en el gráfico alcanzan valores más elevados. Por lo tanto, al conectar estos puntos, obtenemos una recta con mayor inclinación."
       }
    ],
    "date_time": null

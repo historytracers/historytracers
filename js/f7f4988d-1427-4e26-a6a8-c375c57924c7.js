@@ -11,7 +11,7 @@ function htLoadExercise() {
 
     htWriteNavigation("first_steps");
 
-    var xVector1 = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var xVector = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     var yVector1 = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     var chart1Options = {
@@ -24,7 +24,7 @@ function htLoadExercise() {
         ],
         "chartId" : "chart1",
         "yType" : "linear",
-        "xVector" : xVector1,
+        "xVector" : xVector,
         "xLable": mathKeywords[15],
         "xType" : "linear",
         "ymin": 0,
@@ -33,7 +33,6 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart1Options);
 
-    var xVector2 = [ 0, 1, 2, 3, 4,  5,  6,  7,  8,  9, 10];
     var yVector2 = [ 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
 
     var chart2Options = {
@@ -45,7 +44,7 @@ function htLoadExercise() {
                     }],
         "chartId" : "chart2",
         "yType" : "linear",
-        "xVector" : xVector2,
+        "xVector" : xVector,
         "xLable": mathKeywords[15],
         "xType" : "linear",
         "datasetFill" : false,
@@ -55,11 +54,10 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart2Options);
 
-    var yVector3 = [ 0, 1, 2, 3, 4,  5,  6,  7,  8,  9, 10];
     var chart3Options = {
         "datasets": [
                     {
-                        data : yVector3,
+                        data : xVector,
                         label : mathKeywords[16]+"1",
                         fill : false
                     },
@@ -71,7 +69,7 @@ function htLoadExercise() {
         ],
         "chartId" : "chart3",
         "yType" : "linear",
-        "xVector" : xVector2,
+        "xVector" : xVector,
         "xLable": mathKeywords[15],
         "xType" : "linear",
         "datasetFill" : false,
@@ -80,6 +78,58 @@ function htLoadExercise() {
         "useCallBack": false
     };
     htPlotConstantContinuousChart(chart3Options);
+
+    var yVector3 = [ 0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30];
+
+    var chart4Options = {
+        "datasets": [
+                    {
+                        data : yVector3,
+                        label : mathKeywords[16]+"3",
+                        fill : false
+                    }],
+        "chartId" : "chart4",
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": mathKeywords[15],
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin": 0,
+        "ymax": 30,
+        "useCallBack": false
+    };
+    htPlotConstantContinuousChart(chart4Options);
+
+    var chart5Options = {
+        "datasets": [
+                    {
+                        data : xVector,
+                        label : mathKeywords[16]+"1",
+                        fill : false
+                    },
+                    {
+                        data : yVector2,
+                        label : mathKeywords[16]+"2",
+                        fill : false
+                    },
+                    {
+                        data : yVector3,
+                        label : mathKeywords[16]+"3",
+                        fill : false
+                    }
+        ],
+        "chartId" : "chart5",
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": mathKeywords[15],
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin": 0,
+        "ymax": 30,
+        "useCallBack": false
+    };
+    htPlotConstantContinuousChart(chart5Options);
+
     return false;
 }
 
