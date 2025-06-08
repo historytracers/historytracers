@@ -150,6 +150,17 @@ func htTextFamily(families *Family, lang string) string {
 	var finalText string = families.Title + ".\n\n" + defaultFamilyTop
 	var htmlText string = ""
 
+	if families.Maps != nil {
+		finalText += commonKeywords[79] + ".\n\n" + commonKeywords[80] + "\n"
+		for i := 0; i < len(families.Maps); i++ {
+			maps := &families.Maps[i]
+
+			finalText += fmt.Sprintf("%s %d: ", commonKeywords[81], maps.Order)
+			htmlText = htOverwriteDates(maps.Text, maps.DateTime, ".", lang, false)
+			finalText += htHTML2Text(htmlText)
+		}
+	}
+
 	if families.Common != nil {
 		for i := 0; i < len(families.Common); i++ {
 			comm := &families.Common[i]
@@ -165,17 +176,6 @@ func htTextFamily(families *Family, lang string) string {
 		}
 
 		finalText += htHTML2Text(htmlText)
-	}
-
-	if families.Maps != nil {
-		finalText += commonKeywords[79] + ".\n\n" + commonKeywords[80] + "\n"
-		for i := 0; i < len(families.Maps); i++ {
-			maps := &families.Maps[i]
-
-			finalText += fmt.Sprintf("%s %d: ", commonKeywords[81], maps.Order)
-			htmlText = htOverwriteDates(maps.Text, maps.DateTime, "", lang, false)
-			finalText += htHTML2Text(htmlText)
-		}
 	}
 
 	for i := 0; i < len(families.Families); i++ {
