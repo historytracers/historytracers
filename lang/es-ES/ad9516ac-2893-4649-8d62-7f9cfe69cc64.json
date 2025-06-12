@@ -256,13 +256,120 @@
                "PostMention": ":"
             }
          ]
+      },
+      {
+         "id": "SECTION_four",
+         "text": [
+            {
+               "text": "### Multiplicación por cuatro (4)\n\nAdemás del conteo de lados en figuras geométricas cuadriláteras, el número cuatro está presente en diversos objetos de nuestra vida cotidiana, como sillas, mesas y metates indígenas, utilizados para triturar alimentos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"table\" onclick=\"htImageZoom('table', '0%')\" src=\"images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg\" class=\"imgcenter\"/>Figura 1: Metate exhibido en el Museo Nacional de Antropología, Costa Rica. Fotografía tomada el <htdate0> durante una visita al museu.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "17"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En esta figura, se muestra una mesa con el formato de uno jaguar. La espalda del jaguar tiene forma plana, lo que permite su uso funcional como superficie.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Construyendo la tabla\n\nPara construir la tabla del cuatro (4), aplicamos la **Fórmula 1**, asignando al factor **a** el valor cuatro (4). Los resultados obtenidos son:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center\"><b>Tabla del 4</b><br /><br /><math><mi>0</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>0</mi> </math><br /><math><mi>4</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>1</mi> </math><br /> <math><mi>8</mi> <mo>=</mo> <mi>8</mi> <mo>×</mo> <mi>2</mi></math><br /> <math><mi>12</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>3</mi> </math><br /> <math><mi>16</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>4</mi> </math><br /> <math><mi>20</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>5</mi> </math><br /> <math><mi>24</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>6</mi> </math><br /> <math><mi>28</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>7</mi> </math><br /><math><mi>32</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>8</mi> </math><br /> <math><mi>36</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>9</mi> </math><br /> <math><mi>40</mi> <mo>=</mo> <mi>2</mi> <mo>×</mo> <mi>10</mi> </math></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Representación gráfica\n\nRepresentamos los puntos de la tabla y los unimos en un gráfico:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart1\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 1: Puntos de la tabla del cuatro conectados, formando una línea recta. Gráfico generado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Para reforzar el concepto de múltiplos, comparamos las tablas del dos (2) y del cuatro (4) en un mismo gráfico:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart2\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 2: Puntos de las tablas del dos y del cuatro conectados, formando líneas rectas. Gráfico generado con <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Considerando lo que hemos estudiado, destacamos en el **Gráfico 2**:\n\n- Excepto el cero, todo resultado en la tabla del cuatro equivale al resultado de la tabla del dos multiplicado por dos. Por ejemplo: 20 = 10 × 2 y 40 = (10 × 2) × 2.\n- Algunos números aparecen en ambas tablas. Por ejemplo, el ocho (8) es múltiplo de dos (2) y de quatro (4): 8 = 2 × 4 = 4 × 2.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
+         "question": "Só existem dois tipos de quadriláteros?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Neste texto, nós focamos apenas em quadrados e retângulos, mas há outros tipos de quadriláteros como paralelograma, trapézio, e losango."
+      },
+      {
+         "question": "Quando um número é multiplo de outro, como quatro é multiplo de dois, todos os números que aparecem em uma tabela (quatro) são maiores que valores da outra (dois) pelo mesmo fator (dois)?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "additionalInfo": "O valor do múltiplo, neste texto o dois, é sempre o valor que separa um valor de uma tabuada da outra. Ou seja, atingimos a tabuada do múltiplo realizando mais uma multiplicação."
       }
    ],
    "date_time": null
