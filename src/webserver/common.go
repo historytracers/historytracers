@@ -708,7 +708,7 @@ func htAddNewSourceToDirectory(newFile string) {
 
 	source.LastUpdate[0] = htUpdateTimestamp()
 
-	htUpdateSourceFile(&source, newFile)
+	htUpdateSourceFile(&source, dstPath)
 }
 
 func htAddNewJSToDirectory(newFile string) {

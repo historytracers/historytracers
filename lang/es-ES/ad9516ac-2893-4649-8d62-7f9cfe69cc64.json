@@ -1,0 +1,610 @@
+{
+   "title": "Entendiendo la tabla de multiplicar (4 y 5)",
+   "header": "Entendiendo la tabla de multiplicar (4 y 5)",
+   "sources": [
+      "ad9516ac-2893-4649-8d62-7f9cfe69cc64"
+   ],
+   "scripts": [
+      "ad9516ac-2893-4649-8d62-7f9cfe69cc64"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/ad9516ac-2893-4649-8d62-7f9cfe69cc64_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Entendiendo-la-tabla-de-multiplicar-4-y-5-e3462tm",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1749395099"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "### Prerrequisitos\n\nRecomendamos que el lector estudie el texto anterior y sus prerrequisitos antes de continuar con este",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nLas cuatro tablas que hemos estudiado hasta el momento (0, 1, 2 y 3) corresponden a números representados directamente en las líneas de la Yupana, como se abordó en textos anteriores",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team, Dibujando para contar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team, Yupana (Adición)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c4c2c00d-7878-42da-9cc4-060cd7f8d225",
+                     "text": "History Tracers Team, Yupana (Multiplicación)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td></td></tr></table><p class=\"desc\">Tabla 1: Representación de una línea de la <i>Yupana</i> según Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <htdate1>, pp. 361 - 362</a>). CSS inspirado en el código de <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1615",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En este texto, además de estudiar la tabla del cinco (5) —que también aparece en una línea de la Yupana—, analizaremos la del cuatro (4). Pero antes, comenzaremos con una reflexión:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: El número que falta</b><br /><br />Teniendo en cuenta las cuatro tablas ya estudiadas, ¿puedes identificar algún motivo por el cual el número cuatro no está explícito en las líneas de la Yupana?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_multiple_polygon",
+         "text": [
+            {
+               "text": "### Múltiplos\n\nVamos a comenzar recordando la fórmula general utilizada para el montaje de las tablas",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Fórmula 1: Fórmula general de las tablas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Cuando trabajamos con el valor de *a* siendo uno (1), dos (2) o tres (3), no hubo ningún número diferente de uno (1) que, al asumir el valor de *N*, resultase en el valor nombrando otra tabla. Sin embargo, algo distinto ocurre con el cuatro (4), que también es el resultado de la multiplicación de 2 por 2.\n\nCuando esto sucede, decimos que un número es múltiplo de otro; es decir, el 4 es un múltiplo de 2",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5cdee284-576b-4e19-a754-5326002f3598",
+                     "text": "Weisstein, Eric W.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "### Cuadriláteros\n\nExisten diversas figuras geométricas de cuatro lados. En este texto, nos enfocaremos en dos de las más comunes en nuestro día a día y conocidas como cuadriláteros: el cuadrado y el rectángulo",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0c1967a-f27a-4191-82f1-c5e44c44a297",
+                     "text": "Weisstein, Eric W., Cuadrado",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3b7542b4-d24a-4708-a890-e2c57fd0f1ae",
+                     "text": "Weisstein, Eric W., Rectángulo",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><svg width=\"430\" height=\"130\"> <rect x=\"30\" y=\"0\" width=\"100\" height=\"100\" style=\"fill:lightgreen;stroke-width:3;stroke:none\" /><text x=\"75\" y=\"125\" font-size=\"1.5em\">a</text> <text x=\"140\" y=\"60\" font-size=\"1.5em\">a</text>  <rect x=\"200\" y=\"0\" width=\"200\" height=\"100\" style=\"fill:lightblue;stroke-width:3;stroke:none\" /> <text x=\"410\" y=\"60\" font-size=\"1.5em\">a</text> <text x=\"290\" y=\"125\" font-size=\"1.5em\">b</text></p><p class=\"desc\">Gráfico 1: Representación de un cuadrado (izquierda) y un rectángulo (derecha).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A partir del **Gráfico 1**, podemos concluir que:\n\n- El cuadrado y el rectángulo son figuras geométricas cerradas, ambos con cuatro lados.\n- Sus lados se conectan formando ángulos rectos, al igual que ocurre en la unión de dos lados de un triángulo rectángulo.\n- El cuadrado tiene todos sus lados iguales, cada uno con longitud *a*.\n- El rectángulo, por su parte, no tiene los cuatro lados iguales, pero sí pares de lados con la misma longitud. En el ejemplo, un par tiene longitud *a* (como el cuadrado) y el otro par tiene longitud *b*.\n- Los valores *a* y *b* pueden representar cualquier número previamente estudiado, en cualquier escala, razón por la cual se representan mediante letras.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            }
+         ]
+      },
+      {
+         "id": "SECTION_four",
+         "text": [
+            {
+               "text": "### Multiplicación por cuatro (4)\n\nAdemás del conteo de lados en figuras geométricas cuadriláteras, el número cuatro está presente en diversos objetos de nuestra vida cotidiana, como sillas, mesas y metates indígenas, utilizados para triturar alimentos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"table\" onclick=\"htImageZoom('table', '0%')\" src=\"images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg\" class=\"imgcenter\"/>Figura 1: Metate exhibido en el Museo Nacional de Antropología, Costa Rica. Fotografía tomada el <htdate0> durante una visita al museu.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "17"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En esta figura, se muestra una mesa con el formato de uno jaguar. La espalda del jaguar tiene forma plana, lo que permite su uso funcional como superficie.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Construyendo la tabla\n\nPara construir la tabla del cuatro (4), aplicamos la **Fórmula 1**, asignando al factor **a** el valor cuatro (4). Los resultados obtenidos son:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center\"><b>Tabla del 4</b><br /><br /><math><mi>0</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>0</mi> </math><br /><math><mi>4</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>1</mi> </math><br /> <math><mi>8</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>2</mi></math><br /> <math><mi>12</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>3</mi> </math><br /> <math><mi>16</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>4</mi> </math><br /> <math><mi>20</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>5</mi> </math><br /> <math><mi>24</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>6</mi> </math><br /> <math><mi>28</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>7</mi> </math><br /><math><mi>32</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>8</mi> </math><br /> <math><mi>36</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>9</mi> </math><br /> <math><mi>40</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>10</mi> </math></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Representación gráfica\n\nRepresentamos los puntos de la tabla y los unimos en un gráfico:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart1\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 2: Puntos de la tabla del cuatro conectados, formando una línea recta. Gráfico generado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Para reforzar el concepto de múltiplos, comparamos las tablas del dos (2) y del cuatro (4) en un mismo gráfico:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart2\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 3: Puntos de las tablas del dos y del cuatro conectados, formando líneas rectas. Gráfico generado con <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Considerando lo que hemos estudiado, destacamos en el **Gráfico 3**:\n\n- Excepto el cero, todo resultado en la tabla del cuatro equivale al resultado de la tabla del dos multiplicado por dos. Por ejemplo: 20 = 10 × 2 y 40 = (10 × 2) × 2.\n- Algunos números aparecen en ambas tablas. Por ejemplo, el ocho (8) es múltiplo de dos (2) y de quatro (4): 8 = 2 × 4 = 4 × 2.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_five",
+         "text": [
+            {
+               "text": "### Multiplicación por cinco (5)\n\nAl hablar de sumas consecutivas (multiplicación) por cinco, lo primero que probablemente nos viene a la mente son nuestras manos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 2: Representación de las manos. Código fuente disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, La Fuente</a>)</td></tr></table></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En la figura, se observan las dos manos de una persona extendidas con todos los dedos levantados.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Construyendo la tabla\n\nPara construir la tabla del cinco (5), aplicamos la **Fórmula 1**, asignando al factor *a* el valor cinco (5), obteniendo los siguientes resultados:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center\"><b>Tabla del 5</b><br /><br /><math><mi>0</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>0</mi> </math><br /><math><mi>5</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>1</mi> </math><br /> <math><mi>10</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>2</mi></math><br /> <math><mi>15</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>3</mi> </math><br /> <math><mi>20</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>4</mi> </math><br /> <math><mi>25</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>5</mi> </math><br /> <math><mi>30</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>6</mi> </math><br /> <math><mi>35</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>7</mi> </math><br /><math><mi>40</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>8</mi> </math><br /> <math><mi>45</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>9</mi> </math><br /> <math><mi>50</mi> <mo>=</mo> <mi>5</mi> <mo>×</mo> <mi>10</mi> </math></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Dibujando la Tabla\n\nEl **Gráfico 4** muestra los valores de la tabla del cinco (5):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart3\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 4: Puntos de la tabla del cinco conectados, formando una línea recta. Gráfico generado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "No próximo gráfico, representaremos esta tabla junto con las otras ya estudiadas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart4\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 5: Puntos de las tablas del uno, dos, tres, cuatro y cinco conectados, formando rectas. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Al alcanzar la tabla del 5, llegamos a la mitad de las tablas que estudiaremos. Antes de continuar, reforcemos nuestro conocimiento con el **Gráfico 5**:\n- Todas las tablas, excepto la del cero, generan puntos que forman rectas inclinadas.\n- Gracias a la propiedad conmutativa de la multiplicación (a × b = b × a), es posible encontrar el mismo resultado en diferentes tablas.\n- Además de la línea de cada tabla, al analizar los valores verticalmente (por factor), también identificamos la secuencia de la tabla correspondiente a dicho factor. Más adelante, exploraremos el motivo de estos patrones verticales.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Para finalizar este estudio de la tabla del cinco (5), retomamos la línea de la Yupana presentada en la Tabla 1. Observe que en ella también encontramos el número cinco, así como el four (4), el tres (3), el dos (2) y el uno (1). Por lo tanto, podemos concluir que una única línea de la Yupana exhibe números que no son múltiplos en la tabla.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_nature",
+         "text": [
+            {
+               "text": "### Modelando la naturaleza\n\nCuando trabajamos con cuadrados y triángulos en una hoja de papel, estamos creando representaciones sobre una superficie plana. Sin embargo, incluso una hoja extremadamente fina posee un grosor mínimo, lo que la convierte en algo más que un simple plano",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "45c7121a-244c-42c2-a9d2-9e548de0a1c9",
+                     "text": "Weisstein, Eric W.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Al observar el mundo a nuestro alrededor, notamos que incluso los objetos que aparentan tener solo dos dimensiones (ancho y altura) aún presentan profundidad o espesor. Por ello, es necesario desarrollar estructuras que se aproximen mejor a la realidad, como se ilustra en la **Figura 3**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"pyramid\" onclick=\"htImageZoom('pyramid', '0%')\" src=\"images/HistoryTracers/pyramid.jpg\" class=\"imgcenter\"/>Figura 3: Una pirámide, generada mediante un script Python disponible en el repositorio del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">Scripts en el Repositorio</a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En la **Figura 3**, se observa una pirámide compuesta por una base cuadrada y cuatro triángulos que forman sus lados.\n\nLas estructuras basadas en triángulos y cuadrados nos permiten modelar, por ejemplo, techos de construcciones humanas o incluso montañas, como las que se encuentran en Machu Picchu, Perú:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"mp\" onclick=\"htImageZoom('mp', '0%')\" src=\"images/MachuPicchu/MachuPicchu.jpg\" class=\"imgcenter\"/>Figura 4: Fotografía de la ciudad de Machu Picchu, Perú. Imagen tomada el <htdate0> durante una visita a la ciudad.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2017",
+                     "month": "8",
+                     "day": "16"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En esta fotografía, se destaca un sector de la ciudad donde no se aprecian techos en las construcciones, pero es evidente su forma triangular. Al fondo, se observan montañas que podrían compararse con pirámides de cima redondeada.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aunque pueda parecer una simplificación excesiva afirmar que las montañas se asemejan a pirámides, es importante destacar que ambas comparten una característica en común: tienen una base más ancha que se estrecha gradualmente hasta alcanzar una cima más fina.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto hemos conocido el concepto de múltiplos, las tablas del cuatro y del cinco, además de aprender que los conceptos planos son fundamentales para construir modelos más realistas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿Existen solo dos tipos de cuadriláteros?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "En este texto, nos enfocamos solo en cuadrados y rectángulos, pero existen otros tipos de cuadriláteros, como el paralelogramo, el trapecio y el losango."
+      },
+      {
+         "question": "Cuando un número es múltiplo de otro (por ejemplo, cuatro es múltiplo de dos), ¿todos los números de una tabla (cuatro) son mayores que los de la otra (dos) por el mismo factor (dos)? (i.e., r = 4 × N = 2 × (2 × N))",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "El múltiplo (en este caso, el número dos) es siempre el factor que diferencia una tabla de otra. En otras palabras, llegamos a la tabla del múltiplo realizando una multiplicación adicional."
+      },
+      {
+         "question": "¿El número cinco es múltiplo de otras tablas ya estudiadas (1, 2, 3, 4)?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "El número cinco no puede obtenerse multiplicando los números anteriores (1, 2, 3, 4) entre sí. Por eso, no es un múltiplo de esos valores."
+      }
+   ],
+   "date_time": null
+}
