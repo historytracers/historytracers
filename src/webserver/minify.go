@@ -509,34 +509,29 @@ func htCopyImagesSpecificDir(outImages string, inImages string) {
 	}
 
 	for _, fileName := range entries {
-		outFile = fmt.Sprintf("%s%s", outImages, fileName.Name())
-		inFile = fmt.Sprintf("%s%s", inImages, fileName.Name())
-		err = HTCopyFilesWithoutChanges(outFile, inFile)
-		if err != nil {
-			panic(err)
+		if fileName.IsDir() {
+			inImages := fmt.Sprintf("%simages/%s/", CFG.SrcPath, fileName.Name())
+			outImages := fmt.Sprintf("%simages/%s/", CFG.ContentPath, fileName.Name())
+
+			htCreateDirectory(outImages)
+
+			htCopyImagesSpecificDir(outImages, inImages)
+		} else {
+			outFile = fmt.Sprintf("%s%s", outImages, fileName.Name())
+			inFile = fmt.Sprintf("%s%s", inImages, fileName.Name())
+			err = HTCopyFilesWithoutChanges(outFile, inFile)
+			if err != nil {
+				panic(err)
+			}
 		}
 	}
 }
 
 func htCopyImages() {
-	var outImages string
-	var inImages string
-
-	htImgDirs := []string{"ANTT", "Archive", "Ashmolean", "Athens", "BibliotecaNacionalDigital", "BritshMuseum", "CreativeCommons", "Copan", "HistoryTracers", "mapswire", "Nature", "SanJoseCRMuseo", "UNESCO", "USGS"}
-
-	outImages = fmt.Sprintf("%simages/", CFG.ContentPath)
-	inImages = fmt.Sprintf("%simages/", CFG.SrcPath)
+	outImages := fmt.Sprintf("%simages/", CFG.ContentPath)
+	inImages := fmt.Sprintf("%simages/", CFG.SrcPath)
 
 	htCopyImagesSpecificDir(outImages, inImages)
-
-	for i := 0; i < len(htImgDirs); i++ {
-		outImages = fmt.Sprintf("%simages/%s/", CFG.ContentPath, htImgDirs[i])
-		inImages = fmt.Sprintf("%simages/%s/", CFG.SrcPath, htImgDirs[i])
-
-		htCreateDirectory(outImages)
-
-		htCopyImagesSpecificDir(outImages, inImages)
-	}
 }
 
 // MAIN FUNCTION
