@@ -1,92 +1,373 @@
 {
-    "title" : "Equality Levels",
-    "header" : "Equality Levels",
-    "sources" : [ "22080ce2-a428-493e-84f9-aebdbed90b0c" ],
-    "scripts" : [ "22080ce2-a428-493e-84f9-aebdbed90b0c" ],
-    "index" : [ "first_steps" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1737319700" ],
-    "authors" : null,
-    "reviewers" : null,
-    "version" : 1,
-    "type" : "class",
-    "content" : [
-        {
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
-                        { "text" : "### Prerequisites\n\nIn this text, we explore the concept of equality. For more details, we recommend starting with the first two chapters of the \"First Steps\" section explain how to perform counting and comparisons",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
-                                                "text": "History Tracers Team, <i>First Steps</i>",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }} ],
-                                  "isTable" : false,
-                                  "format" : "markdown",
-                                  "PostMention": "."
-                               }]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ { "text" : "<h3>Introduction</h3>In exploring the concept of equality in previous texts, we observed that mathematics allows us to precisely express when objects are strictly equal. However, the discussion does not end here. As human beings, we sometimes make mistakes when considering things as equal. In this text, we will begin by demonstrating how something that appears equal can, in fact, be different. Afterward, we will examine how to measure and verify whether objects are truly equal",
-                               "source" : [ { "type": 1, "uuid":  "bb226b7f-2358-437f-b6e1-668943c682d7", "text": "Editors and Revisors of History Tracers Team, <span class=\"htdate\"></span>" } ]
-                               } ]
-                },
-                {
-                    "id" : "world",
-                    "text" : [ "<h3>The difference behind Equality</h3>At first glance, the title of this section might seem contradictory, but the concept it conveys is quite common when we read ancient texts without considering their context. Let’s explore an example:",
-                   "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflection 1: The concept of \"world\"</b><br /><br />How would you define the world we live in?<br /><br />Has this definition always been the same throughout history?</div></div></center></p>",
-                    { "text" : "Before we understood the solar system and the evolution of life, many cultures believed that humanity was the center of the universe, thinking that everything revolved around Earth and our existence. This view changed significantly with the scientific advancements made at places like the Maragha Observatory in Persia and by figures such as Nicolaus Copernicus, who demonstrated that, in fact, the Earth orbits the Sun",
-                      "source" : [ { "type": 1, "uuid":  "7a66289e-7b37-41b4-83e9-f5641e03ad65", "text": "Elshaikh, Eman M." }, { "type": 1, "uuid":  "82b11e77-377e-4121-bca3-f54f50045ca2", "text": "Goddu, André., <span class=\"htdate\"></span>, pp. 5, 6" }, { "type": 0, "uuid":  "ce58b238-5908-4b41-a22d-2df0a84d6c88", "text": "Copernicus, Nicolaus, <span class=\"htdate\"></span>, fl. 9v" }, { "type": 1, "uuid": "4bee48dc-3067-46c8-87e0-d0b528dab007", "text": "Cartwright, M., <span class=\"htdate\"></span>" } ]
-                    },
-                    { "text" : "In addition to the Earth's position in the universe, our perception of the \"world\" itself has also evolved. The earliest known world map, originating from Babylon, shows that for ancient civilizations, the \"world\" was limited to nearby lands, with no mention of other continents or oceans. Today, the concept of \"world\" encompasses a much larger scope than those early civilizations could have imagined",
-                      "source" : [ { "type": 1, "uuid": "81161bc9-dd2a-4a11-906d-10427a5946d6", "text": "Finkel, I, <span class=\"htdate\"></span>, <i>The British Museum</i>" }, { "type": 0, "uuid": "5e23a3eb-7323-44ab-b9e1-88acfd1e21a6", "text": "<i>The British Museum</i>" }, { "type": 1, "uuid": "44d06c2e-afbc-4248-95cb-5b507205e532", "text": "Hu, X., Shum, C.K. & Bevis, M, <span class=\"htdate\"></span>" }, { "type": 1, "uuid": "15a70728-6130-4245-8bb9-0594e8494c1e", "text": "Earth 3D Model. <i>NASA</i>" } ]
-                    },
-                    "<p class=\"desc\"><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\" src=\"images/BritshMuseum/mid_00404485_001.jpg\" class=\"imgcenter\"/>Figure 1: Map of the \"world\" © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5e23a3eb-7323-44ab-b9e1-88acfd1e21a6'); return false;\"><i>The British Museum</i></a>). Shared under the <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>.</p>",
-                    { "text" : "To make the differences between the ancient Babylonian understanding of the world and our current understanding even more evident, we followed Dr. Irving Finkel's explanation. We cut the map from Figure 1, rotated it, and finally placed it on top of the current world map, as shown in Figure 2",
-                      "source" : [ { "type": 1, "uuid": "81161bc9-dd2a-4a11-906d-10427a5946d6", "text": "Finkel, I, <span class=\"htdate\"></span>, <i>The British Museum</i>" } ]
-                    },
-                    "<p class=\"desc\"><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/mapswire/mapswire-world-political-white-equal_earth_babylon.png\" class=\"imgcenterlarge\"/>Figure 2: Babylonian world map © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5e23a3eb-7323-44ab-b9e1-88acfd1e21a6'); return false;\"><i>The British Museum</i></a>) superimposed on the modern world map © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Shariing under <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> license.</p>",
-                    "<p>Given this historical transformation, it is clear that when we read the word \"world\" in ancient texts, it does not necessarily refer to what we understand as \"world\" today, even though the word itself may be the same. In mathematics, we use the symbol for inequality \"≠\" to indicate that two quantities are different. Applying this idea, we can express the following:</li></ul></p>",
-                    "<p class=\"desc\">Equation 1: Relationship between \"world\" concept.</p>"
-                    ]
-                },
-                {
-                    "id" : "measuring",
-                    "text" : [ "<p><h3>Measuring</h3>It is important to be cautious when stating that two objects are equal, as sometimes they only appear to be. For example, when comparing the metates in Figure 3, it is not enough to merely observe and conclude that they look alike independent on their color. Measurements are necessary. But how can we measure objects?</p>",
-                                "<p><table class=\"book_navigation\"><tr><td>Costa Rica</td><td>El Salvador</td></tr><tr><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg\" class=\"imgcenter\"/></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/SanSalvadorESAntropologia.jpg\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\">Figure 3: Metates in jaguar shape. On the left, a photo taken on <span class=\"htdate\"></span>, during a visit to the Museo de Antropología de San José, Costa Rica. On the right, a photo taken on <span class=\"htdate\"></span>, during a visit to the Museo de Antropología de San Salvador, El Salvador.</td></tr></table></p>",
-                                "<p>To measure objects, we use tools with markings that help us make comparisons. Let’s consider the use of a ruler in Figure 4:</p>",
-                                "<p class=\"desc\"><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/RuleQuipu.jpg\" class=\"imgcenter\"/>Figure 4: Representation of a ruler measuring a line. The source code is available on the project’s GitHub (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <span class=\"htdate\"></span></a>).</p>",
-                                { "text" : "The ruler has numbers separated by equal spaces. The main numbers go from zero (0) to ten (10), representing 10 major divisions. Between each of these major divisions, there are 10 smaller divisions without numbered labels. To avoid confusion when working with these divisions, we give them specific names: the major divisions are called centimeters, and the smaller ones are called millimeters, both related to the standard unit, the meter", 
-                                  "source" : [ { "type": 1, "uuid":  "bf99c89d-6ee8-495e-b7fd-aba1391992a3", "text": "<i>NIST</i>" } ]
-                                },
-                                "<p>To measure an object with the ruler, we place the zero mark at one end of the object, align the ruler, and observe the position on the ruler that the object reaches. In Figure 4, the object measures exactly 10 centimeters. If the object is smaller and reaches the fifth mark between 9 and 10, we would say it measures 9 centimeters and 5 millimeters.</p>",
-                                "<p>When objects are truly equal, their dimensions will also be the same.</p>"
-                    ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ "<p><h3>Conclusion</h3>This text illustrates how the same term, described in different eras, can carry different meanings. Additionally, we have begun to explore the concept of measurement.</p>",
-                                "<p>Although there are many more topics to discuss regarding measurement, we chose to pause here, as knowledge is built step by step. With this text, we hope the reader understands that, when conducting a study or making measurements, these actions must be based on both context and the necessary tools to verify whether objects or texts are truly equal.</p>" ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2019", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "1543", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2020", "month" : "10", "day" : "26" },
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2015", "month" : "10", "day" : "17" },
-                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "25" },
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
-                    ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Equality Levels",
+   "header": "Equality Levels",
+   "sources": [
+      "22080ce2-a428-493e-84f9-aebdbed90b0c"
+   ],
+   "scripts": [
+      "22080ce2-a428-493e-84f9-aebdbed90b0c"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/22080ce2-a428-493e-84f9-aebdbed90b0c_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Equality-Levels-English-e349dd6",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1750001914"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "### Prerequisites\n\nIn this text, we explore the concept of equality. For more details, we recommend starting with the first two chapters of the \"First Steps\" section explain how to perform counting and comparisons",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team, <i>Primeiros Passos</i>",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nIn exploring the concept of equality in previous texts, we observed that mathematics allows us to precisely express when objects are strictly equal. However, the discussion does not end here. As human beings, we sometimes make mistakes when considering things as equal. In this text, we will begin by demonstrating how something that appears equal can, in fact, be different. Afterward, we will examine how to measure and verify whether objects are truly equal",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "Editores e Revisores do History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_world",
+         "text": [
+            {
+               "text": "<h3>The difference behind Equality</h3>At first glance, the title of this section might seem contradictory, but the concept it conveys is quite common when we read ancient texts without considering their context. Let’s explore an example:</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflection 1: The concept of \"world\"</b><br /><br />How would you define the world we live in?<br /><br />Has this definition always been the same throughout history?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Before we understood the solar system and the evolution of life, many cultures believed that humanity was the center of the universe, thinking that everything revolved around Earth and our existence. This view changed significantly with the scientific advancements made at places like the Maragha Observatory in Persia and by figures such as Nicolaus Copernicus, who demonstrated that, in fact, the Earth orbits the Sun",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a66289e-7b37-41b4-83e9-f5641e03ad65",
+                     "text": "Elshaikh, Eman M.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "82b11e77-377e-4121-bca3-f54f50045ca2",
+                     "text": "Goddu, André., pp. 5, 6",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "ce58b238-5908-4b41-a22d-2df0a84d6c88",
+                     "text": "Copernicus, Nicolaus, fl. 9v",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1543",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4bee48dc-3067-46c8-87e0-d0b528dab007",
+                     "text": "Cartwright, M.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "10",
+                        "day": "26"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "In addition to the Earth's position in the universe, our perception of the \"world\" itself has also evolved. The earliest known world map, originating from Babylon, shows that for ancient civilizations, the \"world\" was limited to nearby lands, with no mention of other continents or oceans. Today, the concept of \"world\" encompasses a much larger scope than those early civilizations could have imagined",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "81161bc9-dd2a-4a11-906d-10427a5946d6",
+                     "text": "Finkel, I.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "5e23a3eb-7323-44ab-b9e1-88acfd1e21a6",
+                     "text": "The British Museum",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "44d06c2e-afbc-4248-95cb-5b507205e532",
+                     "text": "Hu, X., Shum, C.K. & Bevis, M",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "15a70728-6130-4245-8bb9-0594e8494c1e",
+                     "text": "Earth 3D Model. NASA",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\" src=\"images/BritshMuseum/mid_00404485_001.jpg\" class=\"imgcenter\"/>Figure 1: Map of the \"world\" © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5e23a3eb-7323-44ab-b9e1-88acfd1e21a6'); return false;\"><i>The British Museum</i></a>). Shared under the <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "This figure shows a clay tablet with inscriptions, featuring a central circle surrounded by triangles.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To make the differences between the ancient Babylonian understanding of the world and our current understanding even more evident, we followed Dr. Irving Finkel's explanation. We cut the map from **Figure 1**, rotated it, and finally placed it on top of the current world map, as shown in **Figure 2**",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "81161bc9-dd2a-4a11-906d-10427a5946d6",
+                     "text": "Finkel, I.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/mapswire/mapswire-world-political-white-equal_earth_babylon.png\" class=\"imgcenterlarge\"/>Figure 2: Babylonian world map © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5e23a3eb-7323-44ab-b9e1-88acfd1e21a6'); return false;\"><i>The British Museum</i></a>) superimposed on the modern world map © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Shariing under <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> license.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "In this image, we can see that the ancient Babylonian map represents only a fraction of our current understanding of the world.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Given this historical transformation, it is clear that when we read the word \"world\" in ancient texts, it does not necessarily refer to what we understand as \"world\" today, even though the word itself may be the same. In mathematics, we use the symbol for inequality \"≠\" to indicate that two quantities are different. Applying this idea, we can express the following:</li></ul></p><p class=\"desc\">Equation 1: Relationship between \"world\" concept.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_measuring",
+         "text": [
+            {
+               "text": "<p><h3>Measuring</h3>It is important to be cautious when stating that two objects are equal, as sometimes they only appear to be. For example, when comparing the metates in <b>Figure 3</b>, it is not enough to merely observe and conclude that they look alike independent on their color. Measurements are necessary. But how can we measure objects?</p><p><table class=\"book_navigation\"><tr><td>Costa Rica</td><td>El Salvador</td></tr><tr><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg\" class=\"imgcenter\"/></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/SanSalvadorESAntropologia.jpg\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\">Figure 3: Metates in jaguar shape. On the left, a photo taken on <htdate0>, during a visit to the Museo de Antropología de San José, Costa Rica. On the right, a photo taken on <htdate1>, during a visit to the Museo de Antropología de San Salvador, El Salvador.</td></tr></table></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "17"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "25"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "In these figures, it is showing a table in jaguar shape. The back of the jaguar is plane, allowing the functional usage of the surface.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>To measure objects, we use tools with markings that help us make comparisons. Let’s consider the use of a ruler in <b>Figure 4</b>:</p><p class=\"desc\"><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/RuleQuipu.jpg\" class=\"imgcenter\"/>Figure 4: Representation of a ruler measuring a line. The source code is available on the project’s GitHub (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0></a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The ruler has numbers separated by equal spaces. The main numbers go from zero (0) to ten (10), representing 10 major divisions. Between each of these major divisions, there are 10 smaller divisions without numbered labels. To avoid confusion when working with these divisions, we give them specific names: the major divisions are called centimeters, and the smaller ones are called millimeters, both related to the standard unit, the meter",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bf99c89d-6ee8-495e-b7fd-aba1391992a3",
+                     "text": "NIST",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p>To measure an object with the ruler, we place the zero mark at one end of the object, align the ruler, and observe the position on the ruler that the object reaches. In <b>Figure 4</b>, the object measures exactly 10 centimeters. If the object is smaller and reaches the fifth mark between 9 and 10, we would say it measures 9 centimeters and 5 millimeters.</p><p>When objects are truly equal, their dimensions will also be the same.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<p><h3>Conclusion</h3>This text illustrates how the same term, described in different eras, can carry different meanings. Additionally, we have begun to explore the concept of measurement.</p><p>Although there are many more topics to discuss regarding measurement, we chose to pause here, as knowledge is built step by step. With this text, we hope the reader understands that, when conducting a study or making measurements, these actions must be based on both context and the necessary tools to verify whether objects or texts are truly equal.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "date_time": null
+}
