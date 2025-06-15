@@ -556,7 +556,7 @@ func htConvertOverallTextToAudio() {
 }
 
 func htConvertFistStepTextToAudio() {
-	pages := []string{"03bb4b8e-6187-4572-8f00-ea3892df51a4", "1ae03186-6cd0-451d-ae10-d5107cbe9651", "687a38b5-de0e-4d16-a4d0-8ec87a545ccb", "c742c649-bf12-4d3f-ba8c-52f91455fc95", "411fc48b-20aa-4514-9fc8-152a6eb9e263", "d862242c-0538-4b18-8b32-4a84d4a5858e", "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc", "9a7a978b-3fac-422c-8e41-3ef1a24e88f3", "2acc8c3a-8b10-4b67-8d70-ec1113e691c4", "2acc8c3a-8b10-4b67-8d70-ec1113e691c4", "f7f4988d-1427-4e26-a6a8-c375c57924c7", "ad9516ac-2893-4649-8d62-7f9cfe69cc64"}
+	pages := []string{"9b824032-42e6-4d2b-89f4-26cc94762d25", "03bb4b8e-6187-4572-8f00-ea3892df51a4", "1ae03186-6cd0-451d-ae10-d5107cbe9651", "687a38b5-de0e-4d16-a4d0-8ec87a545ccb", "c742c649-bf12-4d3f-ba8c-52f91455fc95", "411fc48b-20aa-4514-9fc8-152a6eb9e263", "d862242c-0538-4b18-8b32-4a84d4a5858e", "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc", "9a7a978b-3fac-422c-8e41-3ef1a24e88f3", "2acc8c3a-8b10-4b67-8d70-ec1113e691c4", "2acc8c3a-8b10-4b67-8d70-ec1113e691c4", "f7f4988d-1427-4e26-a6a8-c375c57924c7", "ad9516ac-2893-4649-8d62-7f9cfe69cc64"}
 	htConvertClassesToAudio(pages)
 }
 

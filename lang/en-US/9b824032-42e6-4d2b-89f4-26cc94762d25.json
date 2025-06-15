@@ -1,199 +1,546 @@
 {
-    "title" : "Are we truly equal?",
-    "header" : "Are we truly equal?",
-    "sources" : [ "9b824032-42e6-4d2b-89f4-26cc94762d25" ],
-    "scripts" : [ "9b824032-42e6-4d2b-89f4-26cc94762d25" ],
-    "index" : [ "first_steps" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1733663625" ],
-    "authors" : null,
-    "reviewers" : null,
-    "version" : 1,
-    "type" : "class",
-    "content" : [
-        {
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
-                                { "text" : "### Prerequisites\n\nThis text is a continuation of the content previously studied, where we explored fundamental concepts of comparison. In this section, we delve deeper into the subject by using classification levels. Therefore, we recommend reading the previous text first",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
-                                                "text": "History Tracers Team",
-                                                "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" } }
-                                            ],
-                               "format" : "markdown"
-                    } ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ { "text" : "### Introduction\n\nWhen observing the animal kingdom, including humans, it becomes evident that we are not all the same. Significant differences, such as those between elephants and lions, define different species. Conversely, subtle differences, like those observed in the cats shown in Figure 1, indicate that they belong to the same species but represent different breeds.",
-                                 "source" : null,
-                                 "format" : "markdown"
-                               },
-                               "<p class=\"desc\"><img id=\"catsCirusUrraca\" src=\"images/HistoryTracers/CatsCirusUrraca.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('catsCirusUrraca', '0%')\" />Figure 1: The Editors' cats.</p>",
-                               { "text" : "In the case of humans, while we exhibit variations in skin color, eye shape, and other traits, these differences are not sufficient to classify us into separate species or breeds. So, how do we establish these classifications?",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
-                                                { "type": 1,
-                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }
-                                 ],
-                                 "format" : "markdown"
-                               } ]
-                },
-                {
-                    "id" : "scale",
-                    "text" : [ "<h3>Defining a Scale</h3><p class=\"desc\"><img id=\"imgMeter\" src=\"images/HistoryTracers/Meter.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" />Figure 2: Representation of a centesimal scale.</p>",
-                               { "text" : "When studying our species and chimpanzees, Alan R. Templeton utilized a branch of mathematics known as statistics. So far, we have only explored numbers and basic concepts of limits, and we do not yet have the tools to delve deeper into statistics. However, we can introduce some of its foundational ideas",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
-                                                { "type": 1,
-                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
-                                                { "type": 1,
-                                                "uuid": "b4fa4f07-e08e-4010-a007-bb28e854058b",
-                                                "text": "Staunton, Deborah and Weisstein, Eric W. Statistics" }
-                                            ],
-                               "format" : "markdown"
-                             },
-                             { "text" : "#### Measuring with the Scale\n\nFigure 2, presented here, is analogous to Figure 4 from the previous text. However, we will not use it as a conventional ruler to measure physical dimensions",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
-                                                "text": "History Tracers Team",
-                                                "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" } }
-                                            ],
-                                 "format" : "markdown"
-                             },
-                             "<p class=\"desc\"><img id=\"metate1\" src=\"images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate1', '0%')\" />Figure 3: Metate from Costa Rica. Photograph taken on <span class=\"htdate\"></span> during a visit to the Anthropological Museum of San José, Costa Rica.</p>",
-                             { "text" : "We will use a scale from 0 to 100 to analyze 10 characteristics of the object shown in Figure 3:",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             { "text" : "|Values|Description of the Region |Is it Present?|\n|------------|------------|--------------|\n|0 - 10| Jaguar shape | Yes |\n|11 - 20| Curved tail pointing downward | Yes |\n|21 - 30| Oval body | Yes |\n|31 - 40| Raised eyes | Yes |\n|41 - 50| Side ornament without a central division | Yes |\n|51 - 60| Elevated ears | Yes |\n|61 - 70| Rounded legs| Yes |\n|71 - 80| Four legs | Yes |\n|81 - 90| Produced between <htdate0> and <htdate1> | Yes |\n|91 - 100| Symmetrical metate | Yes |\n",
-                                 "source" : null,
-                                 "isTable" : 1,
-                                 "format" : "markdown",
-                                 "fill_dates" : [
-                                    { "type": "gregory", "year": "1000", "month": "-1", "day": "-1" },
-                                    { "type": "gregory", "year": "1500", "month": "-1", "day": "-1" }
-                                 ]
-                             },
-                             "<p class=\"desc\">Table 1: Characteristics of the metate shown in Figure 3.</p>",
-                             { "text" : "In this example, we listed only a few characteristics and applied some flexibility in criteria. In scientific contexts, the analysis would need to be more rigorous.\n\nAs indicated in the \"Is it Present?\" column, all characteristics were identified. This means the scale reaches its maximum value, 100. In scales like this, the term \"percent\" (symbolized as \"%\") is often used to indicate the relationship between what is measured and the total possible value. Thus, we can affirm that the metate analyzed possesses 100% of the expected characteristics.",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             { "text" : "#### Near Comparisons\n\nWe now apply the same scale to another metate, shown in Figure 4:",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             "<p class=\"desc\"><img id=\"metate2\" src=\"images/SanSalvadorESAntropologia.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate2', '0%')\" />Figure 4: Metate from El Salvador. Photograph taken on <span class=\"htdate\"></span> , during a visit to the Anthropological Museum of San Salvador, El Salvador.</p>",
-                             { "text" : "|Values|Description of the Region |Is it Present?|\n|------------|------------|--------------|\n|0 - 10| Jaguar shape | Yes |\n|11 - 20| Curved tail pointing downward | Yes |\n|21 - 30| Oval body | Yes |\n|31 - 40| Raised eyes | Yes |\n|41 - 50| Side ornament without a central division | No |\n|51 - 60| Elevated ears | Yes |\n|61 - 70| Rounded legs| Yes |\n|71 - 80| Four legs | Yes |\n|81 - 90| Produced between <htdate0> and <htdate1> | Yes |\n|91 - 100| Symmetrical metate | Yes |\n",
-                                 "source" : null,
-                                 "isTable" : 1,
-                                 "format" : "markdown",
-                                 "fill_dates" : [
-                                    { "type": "gregory", "year": "1000", "month": "-1", "day": "-1" },
-                                    { "type": "gregory", "year": "1500", "month": "-1", "day": "-1" }
-                                 ]
-                             },
-                             "<p class=\"desc\">Table 2: Characteristics of the metate shown in Figure 4.</p>",
-                             { "text" : "In this case, the characteristic corresponding to the range \"41-50\" was not identified. Consequently, the metate in Figure 4 possesses approximately 90% of the characteristics defined in the initial scale.",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             { "text" : "#### Distant Comparisons\n\nWe now analyze a metate from a more distant region: Teotihuacán, Mexico, shown in Figure 5:",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             "<p class=\"desc\"><img id=\"metate3\" src=\"images/MetateTeotihuacan.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate3', '0%')\" />Figure 5: Metate from Mexico. Photo taken on <span class=\"htdate\"></span> during a visit to the Achaeological Site of Teotihuacan, México.</p>",
-                             { "text" : "|Values|Description of the Region |Is it Present?|\n|------------|------------|--------------|\n|0 - 10| Jaguar shape | No |\n|11 - 20| Curved tail pointing downward | No |\n|21 - 30| Oval body | No |\n|31 - 40| Raised eyes | No |\n|41 - 50| Side ornament without a central division | No |\n|51 - 60| Elevated ears | No |\n|61 - 70| Rounded legs| No |\n|71 - 80| Four legs | No |\n|81 - 90| Produced between <htdate0> and <htdate1> | No |\n|91 - 100| Symmetrical metate | Yes |\n",
-                                 "source" : null,
-                                 "isTable" : 1,
-                                 "format" : "markdown",
-                                 "fill_dates" : [
-                                    { "type": "gregory", "year": "1000", "month": "-1", "day": "-1" },
-                                    { "type": "gregory", "year": "1500", "month": "-1", "day": "-1" }
-                                 ]
-                             },
-                             "<p class=\"desc\">Table 3: Characteristics of the metate shown in Figure 5.</p>",
-                             { "text" : "Here, only one characteristic was identified, resulting in a value of 10% on the scale.",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             { "text" : "#### Interpreting the Results\n\nAs shown in the examples above, when we defined the characteristics in Table 1 using the metate from Costa Rica, it fulfilled all expectations, achieving the maximum value of 100%.\n\nIn contrast, when we analyzed other metates, one was very similar but not identical, reaching 90%, while another, from a more distant region, achieved only 10%.\n\nThese results lead to the conclusion that the closer the object aligns with the defined characteristics, the higher its score, tending toward the maximum. Conversely, as the object deviates, its value decreases, approaching the minimum of 0%.",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             }
-                    ]
-                },
-                {
-                    "id" : "DNA",
-                    "text" : [ { "text" : "### Living Beings\n\n#### DNA\n\nWhen scientists study species, it is essential to use a common element to understand how evolution occurred. The discovery that the cells of all living beings contain DNA — a molecule that carries the genetic information of each organism — has become the foundation for numerous scientific studies",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "3ce506ac-8895-40dd-89f7-57f80517aba4",
-                                                "text": "Alberts B, Johnson A, Lewis J, et al.",
-                                                "date" :  {"type" : "gregory", "year" : "2002", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "b30a6ec9-85c3-413e-a02f-b3eba83aa364",
-                                                "text": "History Tracers Team",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }} ],
-                                 "isTable" : 0,
-                                 "format" : "markdown"
-                               },
-                              { "text" : "Figure 6 illustrates part of the structure of DNA",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "85b3b9a5-7cc7-4c37-a0da-3b8a2bfb1c00",
-                                                "text": "Minchin S, Lodge J.",
-                                                "date" :  {"type" : "gregory", "year" : "2019", "month" : "-1", "day" : "-1" }}],
-                                 "format" : "markdown"
-                              },
-                               "<p class=\"desc\"><img id=\"imgDNA\" src=\"images/HistoryTracers/DNA.png\" class=\"imgcenter\" onclick=\"htImageZoom('imgDNA', '0%')\" />Figure 6: Representation of DNA structure.</p>",
-                               { "text" : "#### Genetic Differences Among Chimpanzees\n\nUnderstanding genetic scales allows us to better appreciate the work of Alan R. Templeton. In his research, he observed that the differences in DNA among chimpanzee populations are substantial (greater than 25%), which enables the identification of distinct genetic races within the species",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
-                                                "text": "Templeton A. R., pp. 7 - 8",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }],
-                                 "isTable" : 0,
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### Humans: A Species Without Races\n\nIn contrast, the analysis of human DNA reveals that genetic variation among populations is less than 5%. This demonstrates that humans are remarkably similar at the genetic level, sharing more than 95% of their genetic information. Alan R. Templeton goes beyond mathematical analysis, tracing the genetic history of human populations over time",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
-                                                "text": "Templeton A. R., pp. 8 - 13",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }],
-                                 "isTable" : 0,
-                                 "format" : "markdown"
-                               }
-                               ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ { "text" : "### Conclusion\n\nIn this text, we explored how to map information on a centesimal scale to better understand how nature operates. Initially, we learned to assign characteristics to the scale and compare objects based on these characteristics. The final relationship between objects and characteristics was determined by assigning 10 points for each identified characteristic. Thus, the more characteristics an object possessed, the closer it was to the maximum value; conversely, with fewer characteristics, it stayed nearer to the minimum value.\n\nSubsequently, we examined how Alan R. Templeton demonstrated the absence of races within humankind. He began by analyzing genetic samples from various individuals, including both chimpanzees and humans. In the case of chimpanzees, it was found that genetic differences between individuals could exceed 25%, indicating the existence of distinct races. However, when the same analysis was applied to humans, it revealed that genetic differences were less than 5%. This indicates that humans share at least 95% of their genetic characteristics, which invalidates the concept of races within our species.",
-                                 "source" : null,
-                                 "isTable" : 0,
-                                 "fill_dates" : null,
-                                 "format" : "markdown"
-                               } ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2015", "month" : "10", "day" : "17" },
-                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "25" },
-                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" }
-                    ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Are we truly equal?",
+   "header": "Are we truly equal?",
+   "sources": [
+      "9b824032-42e6-4d2b-89f4-26cc94762d25"
+   ],
+   "scripts": [
+      "9b824032-42e6-4d2b-89f4-26cc94762d25"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/9b824032-42e6-4d2b-89f4-26cc94762d25_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Are-we-trully-equal--English-e348pcj",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1749948268"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "### Prerequisites\n\nThis text is a continuation of the content previously studied, where we explored fundamental concepts of comparison. In this section, we delve deeper into the subject by using classification levels. Therefore, we recommend reading the previous text first",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nWhen observing the animal kingdom, including humans, it becomes evident that we are not all the same. Significant differences, such as those between elephants and lions, define different species. Conversely, subtle differences, like those observed in the cats shown in Figure 1, indicate that they belong to the same species but represent different breeds.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"catsCirusUrraca\" src=\"images/HistoryTracers/CatsCirusUrraca.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('catsCirusUrraca', '0%')\" />Figure 1: The Editors' cats.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In the case of humans, while we exhibit variations in skin color, eye shape, and other traits, these differences are not sufficient to classify us into separate species or breeds. So, how do we establish these classifications",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "?"
+            }
+         ]
+      },
+      {
+         "id": "SECTION_scale",
+         "text": [
+            {
+               "text": "<h3>Defining a Scale</h3><p class=\"desc\"><img id=\"imgMeter\" src=\"images/HistoryTracers/Meter.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" />Figure 2: Representation of a centesimal scale.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "When studying our species and chimpanzees, Alan R. Templeton utilized a branch of mathematics known as statistics. So far, we have only explored numbers and basic concepts of limits, and we do not yet have the tools to delve deeper into statistics. However, we can introduce some of its foundational ideas",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b4fa4f07-e08e-4010-a007-bb28e854058b",
+                     "text": "Staunton, Deborah and Weisstein, Eric W. Statistics",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Measuring with the Scale\n\nFigure 2, presented here, is analogous to Figure 4 from the previous text. However, we will not use it as a conventional ruler to measure physical dimensions",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"metate1\" src=\"images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate1', '0%')\" />Figure 3: Metate from Costa Rica. Photograph taken on <htdate0> during a visit to the Anthropological Museum of San José, Costa Rica.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "17"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "We will use a scale from 0 to 100 to analyze 10 characteristics of the object shown in Figure 3:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "|Values|Description of the Region |Is it Present?|\n|------------|------------|--------------|\n|0 - 10| Jaguar shape. | Yes |\n|11 - 20| Curved tail pointing downward. | Yes |\n|21 - 30| Oval body. | Yes |\n|31 - 40| Raised eyes. | Yes |\n|41 - 50| Side ornament without a central division. | Yes |\n|51 - 60| Elevated ears. | Yes |\n|61 - 70| Rounded legs.| Yes |\n|71 - 80| Four legs. | Yes |\n|81 - 90| Produced between <htdate0> and <htdate1>. | Yes |\n|91 - 100| Symmetrical metate. | Yes |\n",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1000",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1500",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": true,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Table 1: Characteristics of the metate shown in Figure 3.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In this example, we listed only a few characteristics and applied some flexibility in criteria. In scientific contexts, the analysis would need to be more rigorous.\n\nAs indicated in the \"Is it Present?\" column, all characteristics were identified. This means the scale reaches its maximum value, 100. In scales like this, the term \"percent\" (symbolized as \"%\") is often used to indicate the relationship between what is measured and the total possible value. Thus, we can affirm that the metate analyzed possesses 100% of the expected characteristics.\n\n#### Near Comparisons\n\nWe now apply the same scale to another metate, shown in Figure 4:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"metate2\" src=\"images/SanSalvadorESAntropologia.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate2', '0%')\" />Figure 4: Metate from El Salvador. Photograph taken on <htdate0> , during a visit to the Anthropological Museum of San Salvador, El Salvador.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "25"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "|Values|Description of the Region |Is it Present?|\n|------------|------------|--------------|\n|0 - 10| Jaguar shape. | Yes |\n|11 - 20| Curved tail pointing downward. | Yes |\n|21 - 30| Oval body. | Yes |\n|31 - 40| Raised eyes. | Yes |\n|41 - 50| Side ornament without a central division. | No |\n|51 - 60| Elevated ears. | Yes |\n|61 - 70| Rounded legs.| Yes |\n|71 - 80| Four legs. | Yes |\n|81 - 90| Produced between <htdate0> and <htdate1>. | Yes |\n|91 - 100| Symmetrical metate. | Yes |\n",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1000",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1500",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": true,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Table 2: Characteristics of the metate shown in Figure 4.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In this case, the characteristic corresponding to the range \"41-50\" was not identified. Consequently, the metate in Figure 4 possesses approximately 90% of the characteristics defined in the initial scale.\n\n#### Distant Comparisons\n\nWe now analyze a metate from a more distant region: Teotihuacán, Mexico, shown in Figure 5:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"metate3\" src=\"images/MetateTeotihuacan.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate3', '0%')\" />Figure 5: Metate from Mexico. Photo taken on <htdate0> during a visit to the Achaeological Site of Teotihuacan, México.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "|Values|Description of the Region |Is it Present?|\n|------------|------------|--------------|\n|0 - 10| Jaguar shape. | No |\n|11 - 20| Curved tail pointing downward. | No |\n|21 - 30| Oval body. | No |\n|31 - 40| Raised eyes. | No |\n|41 - 50| Side ornament without a central division. | No |\n|51 - 60| Elevated ears. | No |\n|61 - 70| Rounded legs.| No |\n|71 - 80| Four legs. | No |\n|81 - 90| Produced between <htdate0> and <htdate1>. | No |\n|91 - 100| Symmetrical metate. | Yes |\n",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1000",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1500",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": true,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Table 3: Characteristics of the metate shown in Figure 5.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Interpreting the Results\n\nAs shown in the examples above, when we defined the characteristics in Table 1 using the metate from Costa Rica, it fulfilled all expectations, achieving the maximum value of 100%.\n\nIn contrast, when we analyzed other metates, one was very similar but not identical, reaching 90%, while another, from a more distant region, achieved only 10%.\n\nThese results lead to the conclusion that the closer the object aligns with the defined characteristics, the higher its score, tending toward the maximum. Conversely, as the object deviates, its value decreases, approaching the minimum of 0%.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_dna",
+         "text": [
+            {
+               "text": "### Living Beings\n\n#### DNA\n\nWhen scientists study species, it is essential to use a common element to understand how evolution occurred. The discovery that the cells of all living beings contain DNA — a molecule that carries the genetic information of each organism — has become the foundation for numerous scientific studies",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3ce506ac-8895-40dd-89f7-57f80517aba4",
+                     "text": "Alberts B, Johnson A, Lewis J, et al.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2002",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b30a6ec9-85c3-413e-a02f-b3eba83aa364",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "Figure 6 illustrates part of the structure of DNA",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "85b3b9a5-7cc7-4c37-a0da-3b8a2bfb1c00",
+                     "text": "Minchin S, Lodge J.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgDNA\" src=\"images/HistoryTracers/DNA.png\" class=\"imgcenter\" onclick=\"htImageZoom('imgDNA', '0%')\" />Figure 6: Representation of DNA structure.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Genetic Differences Among Chimpanzees\n\nUnderstanding genetic scales allows us to better appreciate the work of Alan R. Templeton. In his research, he observed that the differences in DNA among chimpanzee populations are substantial (greater than 25%), which enables the identification of distinct genetic races within the species",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R., pp. 7 - 8",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Humans: A Species Without Races\n\nIn contrast, the analysis of human DNA reveals that genetic variation among populations is less than 5%. This demonstrates that humans are remarkably similar at the genetic level, sharing more than 95% of their genetic information. Alan R. Templeton goes beyond mathematical analysis, tracing the genetic history of human populations over time",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R., pp. 8 - 13",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we explored how to map information on a centesimal scale to better understand how nature operates. Initially, we learned to assign characteristics to the scale and compare objects based on these characteristics. The final relationship between objects and characteristics was determined by assigning 10 points for each identified characteristic. Thus, the more characteristics an object possessed, the closer it was to the maximum value; conversely, with fewer characteristics, it stayed nearer to the minimum value.\n\nSubsequently, we examined how Alan R. Templeton demonstrated the absence of races within humankind. He began by analyzing genetic samples from various individuals, including both chimpanzees and humans. In the case of chimpanzees, it was found that genetic differences between individuals could exceed 25%, indicating the existence of distinct races. However, when the same analysis was applied to humans, it revealed that genetic differences were less than 5%. This indicates that humans share at least 95% of their genetic characteristics, which invalidates the concept of races within our species.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "date_time": null
+}
