@@ -495,3 +495,53 @@ function htIsNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+function htFillMultiplicationTable(target, tmin, tmax, fillArea) {
+    if (tmin > tmax)
+        return;
+
+    var xVector = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var datasets = [ ];
+
+    var yMax = 0;
+    for (let i = tmin; i <= tmax; i++) {
+        var yVector = [ ];
+        for (let j = 0 ; j < xVector.length ; j++) {
+            yMax = i * j;
+            yVector.push(yMax);
+        }
+
+        var obj = {
+                    data : yVector,
+                    label : mathKeywords[16]+i,
+                    fill : fillArea
+                  };
+        datasets.push(obj);
+    }
+
+    if (yMax == 0) { yMax = 10; }
+
+    var chartOptions = {
+        "datasets": datasets,
+        "chartId" : target,
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": mathKeywords[15],
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin": 0,
+        "ymax": yMax,
+        "useCallBack": false
+    };
+    htPlotConstantContinuousChart(chartOptions);
+}
+
+function htWriteMultiplicationTable(target, extTarget, tValue) {
+    $(target).append("<b>"+mathKeywords[16]+extTarget+tValue+"</b><br /><br />");
+
+    var angularCoef = parseInt(tValue);
+    for (let i = 0; i < 11; i++) {
+        var product =  angularCoef * i;
+        $(target).append("<math onmouseover=\"this.style.fontWeight='bold';\" onmouseleave=\"this.style.fontWeight='normal';\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
+    }
+}
+

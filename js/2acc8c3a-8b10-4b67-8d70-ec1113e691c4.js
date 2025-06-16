@@ -65,28 +65,11 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart1Options);
 
-    var xVector2 = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    var yVector2 = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    htFillMultiplicationTable("chart2", 0, 0, false);
 
-    var chart2Options = {
-        "datasets": [
-                    {
-                        data : yVector2,
-                        label : mathKeywords[16]+"0",
-                        fill : false
-                    }],
-        "chartId" : "chart2",
-        "yType" : "linear",
-        "xVector" : xVector2,
-        "xLable": mathKeywords[15],
-        "xType" : "linear",
-        "ymin": 0,
-        "ymax": 10,
-        "useCallBack": false
-    };
-    htPlotConstantContinuousChart(chart2Options);
+    htWriteMultiplicationTable("#mtZero", "", 0);
+    htWriteMultiplicationTable("#mtOne", "", 1);
 
-    var xVector3 = [ 0, 0.5,  1,  1.5, 2,  2.5, 3,  3.5, 4,  4.5, 5,  5.5, 6,  6.5, 7,  7.5, 8,  8.5, 9,  9.5, 10];
     var yVector3 = [ 0, null, 1, null, 2, null, 3, null, 4, null, 5, null, 6, null, 7, null, 8, null, 9, null, 10];
 
     var chart3Options = {
@@ -98,7 +81,7 @@ function htLoadExercise() {
                     }],
         "chartId" : "chart3",
         "yType" : "linear",
-        "xVector" : xVector3,
+        "xVector" : xVector1,
         "xLable": mathKeywords[15],
         "xType" : "linear",
         "ymin": 0,
@@ -107,25 +90,7 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart3Options);
 
-    var yVector4 = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-    var chart4Options = {
-        "datasets": [
-                    {
-                        data : yVector4,
-                        label : mathKeywords[16]+"1",
-                        fill : false
-                    }],
-        "chartId" : "chart4",
-        "yType" : "linear",
-        "xVector" : xVector2,
-        "xLable": mathKeywords[15],
-        "xType" : "linear",
-        "ymin": 0,
-        "ymax": 10,
-        "useCallBack": false
-    };
-    htPlotConstantContinuousChart(chart4Options);
+    htFillMultiplicationTable("chart4", 1, 1, false);
 
     return false;
 }
