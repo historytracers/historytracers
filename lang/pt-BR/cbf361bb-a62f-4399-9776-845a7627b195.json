@@ -1,69 +1,274 @@
 {
-    "title" : "Explorando a igualdade",
-    "header" : "Explorando a igualdade",
-    "sources" : [ "cbf361bb-a62f-4399-9776-845a7627b195" ],
-    "scripts" : [ "cbf361bb-a62f-4399-9776-845a7627b195" ],
-    "index" : [ "first_steps" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1735507440" ],
-    "authors" : null,
-    "reviewers" : null,
-    "version" : 1,
-    "type" : "class",
-    "content" : [
-        {
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p><h3>Pré-requisitos</h3>Neste texto, exploramos a idéia de igualdade. Para uma compreensão mais detalhada, recomendamos primeiramente a leitura de:</p>", "<p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9618a83e-f232-49db-84f6-fc3455a3f1d1'); return false;\">Desenhando para contar</a>: Uma análise de como substituímos nossos dedos por figuras geométricas.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('648fb7b4-ba73-452e-980b-6d68d57d16b9'); return false;\">Nossos números atuais</a>: Apresentamos aqui os números que utilizamos atualmente.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">Criando padrões</a>: Uma explicação sobre a evolução dos números.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('00f3ab60-2017-420a-99dc-56de384243e8'); return false;\">Famílias numéricas (Parte I)</a>: Mostra-se ao leitor uma possível relação entre nossos ancestrais e os números.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e92e3d06-886e-4d3c-811f-bcbcce9aa832'); return false;\">Mudança de direção</a>: Neste texto, exploramos a direção que os indígenas escrevem seus números.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b1a262fc-0148-489b-8b70-5266a85c1e67'); return false;\">Famílias numéricas (Parte II)</a>: Esta seção apresenta ao leitor os nomes correspondentes às gerações e às ordens numéricas.</li></ul></p>" ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ "<p><h3>Introdução</h3>No capítulo anterior, exploramos o desenvolvimento da contagem e como ela nos auxilia na nossa vida. Agora, vamos explorar outra habilidade essencial tanto para a vida quanto para as ciências: o ato de comparar.</p>", "<p>Frequentemente, classificamos coisas como iguais ou diferentes. No entanto, há momentos em que consideramos elementos muito diferentes como próximos, ou o oposto, percebemos grandes diferenças em semelhantes. Neste capítulo, vamos analisar essas contradições e aprofundar nossa compreensão sobre o processo de comparação.</p>" ]
-                },
-                {
-                    "id" : "initial",
-                    "text" : [ "<p><h3>O que significa ser igual?</h3>Antes de iniciarmos comparações, é importante definirmos o conceito de igualdade. Para este estudo, destacamos duas definições relevantes do termo igual, conforme o Dicionário da Língua Portuguesa (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('54b5daf4-7e04-4145-9343-95f30ac152dc'); return false;\">\"igual\". Dicionário da Língua Portuguesa</a>):</p>", "<p><ul class=\"citation\"> <li>\"<i>1. que tem a mesma natureza, aparência, dimensão, quantidade, qualidade, duração; que não apresenta diferença</i>\"</li> <li>\"<i>6. Álgebra: que mantém uma relação de igualdade; que tem o mesmo valor, a mesma quantidade ou medida</i>\"</li></ul></p>", "<p>Com essas definições em mente, vamos observar o <b>Gráfico 1</b>:</p>", "<p><div class=\"htTwoGeometricalRectangle\"> <div class=\"htFirstGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh;\"></div></div> <div class=\"htSecondGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh;\"></div></div> </div></p>", "<p class=\"desc\">Gráfico 1: Dois círculos idênticos.</p>", "<p>No <b>Gráfico 1</b>, vemos dois círculos que correspondem exatamente à primeira definição: eles são idênticos em todas as suas características. Agora, comparemos com o <b>Gráfico 2</b>:</p>", "<p><div class=\"htTwoGeometricalRectangle\"> <div class=\"htFirstGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh;\"></div></div> <div class=\"htSecondGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh; background-color: blue;\"></div></div> </div></p>", "<p class=\"desc\">Gráfico 2: Dois círculos semelhantes, porém com cores diferentes.</p>", "<p>No <b>Gráfico 2</b>, temos dois círculos que compartilham todas as características exceto a cor. Portanto, são considerados <i>parecidos</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('9c1f81b5-1682-41c5-a1d1-d5cffaa16c8d'); return false;\">\"parecido\". Dicionário da Língua Portuguesa</a>), já que possuem cores diferentes, mas mantêm uma semelhança geral.</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre grupos</b><br /><br />Será que mudar a cor de um círculo faz dele outra objeto?</div></div></center></p>", "<p>Para responder a essa pergunta, precisamos definir o que é um círculo. Segundo a definição de Eric W. Weisstein (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f3cee656-d0ed-4885-a059-91ce6e50b17a'); return false;\">Weisstein, Eric W. <i>MathWorld--A Wolfram Web Resource</i></a>):</p>", "<p><div class=\"desc\"><div class=\"circle2\" style=\"width:12vh;height:12vh;display: flex;align-items: center;justify-content: center;\"><div class=\"circle\" style=\"width:1vh;height:1vh;background-color:black\"></div></div></div></p>", "<p class=\"desc\">Gráfico 3: Círculo usado na definição matemática.</p>", "<p><ul class=\"citation\"> <li>\"<i>Um círculo é um conjunto de pontos, em um plano, todos a mesma distância de um ponto central.</i>\"</li></ul></p>", "<p>Observe que a definição de círculo não menciona a cor como uma característica essencial. Logo, embora os círculos do <b>Gráfico 2</b> não sejam idênticos em cor, eles ainda mantêm suas propriedades geométricas e, portanto, ambos continuam sendo círculos.</p>" ]
-                },
-                {
-                    "id" : "history",
-                    "text" : [ "<p><h3>Comparações na História</h3>As comparações desempenham um papel fundamental na ciência, ajudando-nos a compreender melhor a natureza. No campo da história, comparar objetos nos permite identificar suas origens e traçar conexões entre diferentes culturas.</p>", "<p><h4>Mesoamérica</h4>Vamos examinar um exemplo prático. Os metates representados na <b>Figura 1</b> possuem cores distintas e foram expostos em museus diferentes durante visitas a esses locais. No entanto, por compartilharem características semelhantes e serem datados do mesmo período, é possível determinar que ambos tiveram sua origem na Costa Rica, onde essas peças eram tradicionalmente fabricadas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3fb52297-2d42-46f2-8ef1-b8a2c8f4052a'); return false;\">HOOPES, J. W., pp. 459</a>).</p>", "<p><table class=\"book_navigation\"><tr><td>Costa Rica</td><td>El Salvador</td></tr><tr><td><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\" src=\"images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg\" class=\"imgcenter\"/></td><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/SanSalvadorESAntropologia.jpg\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\">Figura 1: Metates em formato de jaguar. À esquerda, fotografia tirada em <span class=\"htdate\"></span> durante uma visita ao Museu de Antropologia de San José, Costa Rica. À direita, fotografia tirada em <span class=\"htdate\"></span> durante uma visita ao Museu de Antropologia de San Salvador, El Salvador.</td></tr></table></p>", "<p><h4>Pirâmides</h4>Não é apenas o formato ou as características visíveis que devemos considerar na história. Muitas vezes, civilizações distintas constroem estruturas que se assemelham, mas que servem a propósitos diferentes. Estruturas em formato de pirâmides, por exemplo, são encontradas em diversas regiões do planeta, construídas por povos que não tinham qualquer contato entre si (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7561d65f-e3f0-4593-8bba-2c76cda1a32f'); return false;\">Mark, J. J., Pyramid. <i>World History Encyclopedia</i></a>).</p>",
-                    "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre pirâmides</b><br /><br />O que é uma pirâmide?</div></div></center></p>", "<p>Um dos motivos que leva as pessoas a acreditarem que as pirâmides ao redor do mundo compartilham uma única origem é o desconhecimento do que define, de fato, uma pirâmide. Vamos simplificar a definição proposta por Eric W. Weisstein, mantendo sua essência (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1aae32d7-8b8a-49d9-b136-f859e24a53e6'); return false;\">Weisstein, Eric W. <i>MathWorld--A Wolfram Web Resource</i></a>):</p>", "<p><table class=\"book_navigation\"><tr><td>Pirâmide Quadrangular</td><td>Pirâmide Pentagonal</td></tr><tr><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/HistoryTracers/pyramid.jpg\" class=\"imgcenter\"/></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/HistoryTracers/pentagonal_pyramid.jpg\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\">Figura 2: Exemplos de pirâmides que ilustram a definição matemática.</td></tr></table></p>", "<p><ul class=\"citation\"> <li>\"<i>Uma pirâmide é uma figura geométrica com uma base fechada e cujas faces laterais são triângulos que se encontram em um ponto comum no topo, chamado ápice.</i>\"</li></ul></p>", "<p>A partir dessa definição, podemos explorar as diferentes construções piramidais ao redor do mundo.</p>",
-                    "<p><h4>Egito</h4>No Egito, as pirâmides mais conhecidas, localizadas em Gizé, foram erguidas durante a Quarta Dinastia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('920578b1-b37d-4c0d-8aef-58e24136bdca'); return false;\">Britannica, T. Editors of Encyclopaedia, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c355fb7-ca61-46b1-8993-43db7aea59ca'); return false;\">Cy, <span class=\"htdate\"></span></a>). No entanto, antes dessas famosas construções, os egípcios passaram por um longo processo de experimentação (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2867db47-20a6-4e5e-be47-e21d490d3cf4'); return false;\">Vafea F., <span class=\"htdate\"></span>, pp. 111 - 114</a>):</p>", "<p><ul><li><b>Primeiras Dinastias</b>: As duas primeiras dinastias iniciaram o processo de sepultamento com construções na região conhecida como Abidos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a09c822f-fd5e-4e38-a229-30081a723c3b'); return false;\">Bestock, L., <span class=\"htdate\"></span></a>, pp. 48 - 58).</li><li><b>Terceira Dinastia</b>: Surgem pirâmides em degraus do Egito (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dcbeb1d2-ef7d-49bc-b584-b557269f8570'); return false;\">Cy, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('055fe64b-e59e-4926-9966-2d34267900ff'); return false;\">Bussmann, R., <span class=\"htdate\">, pp. 179</span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c355fb7-ca61-46b1-8993-43db7aea59ca'); return false;\">Cy, <span class=\"htdate\"></span></a>).</li><li><b>Quarta Dinastia</b>: Os egípcios constroem as pirâmides reais, mas não de imediato. Vemos um aprimoramento gradual do método através da construção das pirâmides \"Bent\" (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('92b3b013-aaef-4b93-90f9-298dffa6d70f'); return false;\">Sparavigna, A. C., <span class=\"htdate\"></span></a>) e \"Red\", até chegar às grandes pirâmides de Gizé (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c355fb7-ca61-46b1-8993-43db7aea59ca'); return false;\">Cy, <span class=\"htdate\"></span></a>).</li></ul></p>",
-                    "<p>Apesar de suas variações de forma, as pirâmides egípcias compartilham dois aspectos importantes: foram construídas ao longo de um braço do Nilo (Ahramat) (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('56225a39-761d-49c2-9caa-ed02b33926c2'); return false;\">Ghoneim, E., Ralph, T.J., Onstine, S. <i>et al</i>, <span class=\"htdate\"></span></a>) e serviram como tumbas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e8ccb530-ef38-42ef-aaaf-5257f3d667e4'); return false;\">Roth, A. M., <span class=\"htdate\"></span>, pp. 48 - 50</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7561d65f-e3f0-4593-8bba-2c76cda1a32f'); return false;\">Mark, J. J., Pyramid. <i>World History Encyclopedia</i></a>).</p>",
-                   "<p><h4>Mesoamérica</h4>Quando observamos estruturas piramidais na Mesoamérica, notamos diferenças significativas, como a presença de ornamentos, escadas e janelas, elementos que fogem completamente à definição matemática de pirâmide. Um exemplo é a montanha sagrada presente na cidade de Xunantunich, Belize, retratada na <b>Figura 3</b>:</p>", "<p class=\"desc\"><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/WitzXunantunich.jpg\" class=\"imgcenter\"/>Figura 3: Montanha sagrada em Xunantunich, Belize. Fotografia tirada em <span class=\"htdate\"></span> durante uma visita ao sitio.</p>", "<p>As construções piramidais mesoamericanas são ricas em detalhes e geralmente servem como locais de celebração, eram conhecidas pelos habitantes como uma \"montanha sagrada\" (<i>Witz</i>) (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('960e3a8e-3a60-4ee4-9df4-e2187489e3b9'); return false;\">García Capistrán, H., <span class=\"htdate\"></span>, pp. 144</a>).</p>" ]
-                },
-                {
-                    "id" : "language",
-                    "text" : [ "<p><h3>Iguais para sempre</h3>Já apresentamos o conceito de igualdade em imagens e construções, mas há um tipo de igualdade que, apesar de estar relacionado a todos os exemplos que vimos, causa certo desconforto em algumas pessoas: a igualdade matemática.</p>", "<p>Na matemática, usamos o símbolo \"=\" para indicar que duas grandezas são equivalentes. A ideia de utilizar a matemática é transmitir de forma mais simples o que um texto descreve. Vejamos um exemplo, descrevendo os metates da <b>Figura 1</b> antes de expressarmos essa informação matematicamente:</p>", "<p><ul class=\"citation\"> <li>\"<i>Os metates expostos em ambos os museus possuem exatamente as mesmas características fundamentais: têm o formato de jaguar, as mesmas dimensões e, consequentemente, o mesmo peso. Portanto, podemos afirmar que o metate da Costa Rica, identificado como MCR, e o metate de El Salvador, identificado como MES, são do mesmo tipo de metate em formato de jaguar, identificado como MJ.</i>\"</li></ul></p>", "<p>Todo esse parágrafo pode ser resumido matematicamente como:</p>", "<p><ul class=\"citation\"><li>MES = MCR = MJ</li></ul></p>", "<p class=\"desc\">Equação 1: Relação entre metates.</p>", "<p>É claro que, se lermos apenas essa <b>equação 1</b> sem uma explicação prévia, ela pode não ser clara. No entanto, uma vez que aprendemos os significados dos nomes e siglas, podemos expressá-los de forma mais simples através da matemática.</p>", "<p>Ao definir uma igualdade matemática, é importante lembrar que, uma vez estabelecida, ela deve ser mantida. Isso significa que, se alterarmos um dos lados da equação, o outro também deverá ser alterado da mesma maneira. Vamos fazer um exercício com números e nossas mãos, usando setas para exemplificar:</p>", "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equação</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">=</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">0</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\" src=\"images/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table>", "<p class=\"desc\">Tabela 1: Mantendo a igualdade.</p>" ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ "<p><h3>Conclusão</h3>Neste texto, começamos a explorar o conceito de igualdade em suas diferentes formas. Observamos que existem situações em que objetos são exatamente iguais, enquanto em outros casos, pequenas variações não os tornam fundamentalmente diferentes. Além disso, vimos que objetos com aparência similar, como as estruturas piramidais, podem ter significados ou usos distintos quando analisados junto as civilizações que as fizeram.</p>", "<p>No próximo texto, aprofundaremos o estudo sobre os diferentes graus de igualdade e como isso se aplica em várias áreas do conhecimento.</p>" ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2015", "month" : "10", "day" : "17" },
-                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "25" },
-                        {"type" : "gregory", "year" : "2024", "month" : "5", "day" : "20" },
-                        {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2002", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2008", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2024", "month" : "5", "day" : "16" },
-                        {"type" : "gregory", "year" : "1993", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2016", "month" : "7", "day" : "22" },
-                        {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }
-                    ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Explorando a igualdade",
+   "header": "Explorando a igualdade",
+   "sources": [
+      "cbf361bb-a62f-4399-9776-845a7627b195"
+   ],
+   "scripts": [
+      "cbf361bb-a62f-4399-9776-845a7627b195"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/cbf361bb-a62f-4399-9776-845a7627b195_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Explorando-a-igualdade-Portugus-e349qad",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1750027033"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><h3>Pré-requisitos</h3>Neste texto, exploramos a idéia de igualdade. Para uma compreensão mais detalhada, recomendamos primeiramente a leitura de:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9618a83e-f232-49db-84f6-fc3455a3f1d1'); return false;\">Desenhando para contar</a>: Uma análise de como substituímos nossos dedos por figuras geométricas.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('648fb7b4-ba73-452e-980b-6d68d57d16b9'); return false;\">Nossos números atuais</a>: Apresentamos aqui os números que utilizamos atualmente.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e141ef0d-690f-4109-aad2-0691181b04ca'); return false;\">Criando padrões</a>: Uma explicação sobre a evolução dos números.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('00f3ab60-2017-420a-99dc-56de384243e8'); return false;\">Famílias numéricas (Parte I)</a>: Mostra-se ao leitor uma possível relação entre nossos ancestrais e os números.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e92e3d06-886e-4d3c-811f-bcbcce9aa832'); return false;\">Mudança de direção</a>: Neste texto, exploramos a direção que os indígenas escrevem seus números.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b1a262fc-0148-489b-8b70-5266a85c1e67'); return false;\">Famílias numéricas (Parte II)</a>: Esta seção apresenta ao leitor os nomes correspondentes às gerações e às ordens numéricas.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Introdução</h3>No capítulo anterior, exploramos o desenvolvimento da contagem e como ela nos auxilia na nossa vida. Agora, vamos explorar outra habilidade essencial tanto para a vida quanto para as ciências: o ato de comparar.</p><p>Frequentemente, classificamos coisas como iguais ou diferentes. No entanto, há momentos em que consideramos elementos muito diferentes como próximos, ou o oposto, percebemos grandes diferenças em semelhantes. Neste capítulo, vamos analisar essas contradições e aprofundar nossa compreensão sobre o processo de comparação.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_initial",
+         "text": [
+            {
+               "text": "<p><h3>O que significa ser igual?</h3>Antes de iniciarmos comparações, é importante definirmos o conceito de igualdade. Para este estudo, destacamos duas definições relevantes do termo igual, conforme o Dicionário da Língua Portuguesa (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('54b5daf4-7e04-4145-9343-95f30ac152dc'); return false;\">\"igual\". Dicionário da Língua Portuguesa</a>):</p><p><ul class=\"citation\"> <li>\"<i>1. que tem a mesma natureza, aparência, dimensão, quantidade, qualidade, duração; que não apresenta diferença</i>\"</li> <li>\"<i>6. Álgebra: que mantém uma relação de igualdade; que tem o mesmo valor, a mesma quantidade ou medida</i>\"</li></ul></p><p>Com essas definições em mente, vamos observar o <b>Gráfico 1</b>:</p><p><div class=\"htTwoGeometricalRectangle\"> <div class=\"htFirstGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh;\"></div></div> <div class=\"htSecondGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh;\"></div></div> </div></p><p class=\"desc\">Gráfico 1: Dois círculos idênticos.</p><p>No <b>Gráfico 1</b>, vemos dois círculos que correspondem exatamente à primeira definição: eles são idênticos em todas as suas características. Agora, comparemos com o <b>Gráfico 2</b>:</p><p><div class=\"htTwoGeometricalRectangle\"> <div class=\"htFirstGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh;\"></div></div> <div class=\"htSecondGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh; background-color: blue;\"></div></div> </div></p><p class=\"desc\">Gráfico 2: Dois círculos semelhantes, porém com cores diferentes.</p><p>No <b>Gráfico 2</b>, temos dois círculos que compartilham todas as características exceto a cor. Portanto, são considerados <i>parecidos</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('9c1f81b5-1682-41c5-a1d1-d5cffaa16c8d'); return false;\">\"parecido\". Dicionário da Língua Portuguesa</a>), já que possuem cores diferentes, mas mantêm uma semelhança geral.</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre grupos</b><br /><br />Será que mudar a cor de um círculo faz dele outra objeto?</div></div></center></p><p>Para responder a essa pergunta, precisamos definir o que é um círculo. Segundo a definição de Eric W. Weisstein (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f3cee656-d0ed-4885-a059-91ce6e50b17a'); return false;\">Weisstein, Eric W. <i>MathWorld--A Wolfram Web Resource</i></a>):</p><p><div class=\"desc\"><div class=\"circle2\" style=\"width:12vh;height:12vh;display: flex;align-items: center;justify-content: center;\"><div class=\"circle\" style=\"width:1vh;height:1vh;background-color:black\"></div></div></div></p><p class=\"desc\">Gráfico 3: Círculo usado na definição matemática.</p><p><ul class=\"citation\"> <li>\"<i>Um círculo é um conjunto de pontos, em um plano, todos a mesma distância de um ponto central.</i>\"</li></ul></p><p>Observe que a definição de círculo não menciona a cor como uma característica essencial. Logo, embora os círculos do <b>Gráfico 2</b> não sejam idênticos em cor, eles ainda mantêm suas propriedades geométricas e, portanto, ambos continuam sendo círculos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_history",
+         "text": [
+            {
+               "text": "<p><h3>Comparações na História</h3>As comparações desempenham um papel fundamental na ciência, ajudando-nos a compreender melhor a natureza. No campo da história, comparar objetos nos permite identificar suas origens e traçar conexões entre diferentes culturas.</p><p><h4>Mesoamérica</h4>Vamos examinar um exemplo prático. Os metates representados na <b>Figura 1</b> possuem cores distintas e foram expostos em museus diferentes durante visitas a esses locais. No entanto, por compartilharem características semelhantes e serem datados do mesmo período, é possível determinar que ambos tiveram sua origem na Costa Rica, onde essas peças eram tradicionalmente fabricadas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3fb52297-2d42-46f2-8ef1-b8a2c8f4052a'); return false;\">HOOPES, J. W., pp. 459</a>).</p><p><table class=\"book_navigation\"><tr><td>Costa Rica</td><td>El Salvador</td></tr><tr><td><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\" src=\"images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg\" class=\"imgcenter\"/></td><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/SanSalvadorESAntropologia.jpg\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\">Figura 1: Metates em formato de jaguar. À esquerda, fotografia tirada em <htdate0></span> durante uma visita ao Museu de Antropologia de San José, Costa Rica. À direita, fotografia tirada em <htdate1></span> durante uma visita ao Museu de Antropologia de San Salvador, El Salvador.</td></tr></table></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "17"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "25"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Nestas figuras, vemos mesas em formato de jaguar. As costas do jaguar apresenta uma superfície plana.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h4>Pirâmides</h4>Não é apenas o formato ou as características visíveis que devemos considerar na história. Muitas vezes, civilizações distintas constroem estruturas que se assemelham, mas que servem a propósitos diferentes. Estruturas em formato de pirâmides, por exemplo, são encontradas em diversas regiões do planeta, construídas por povos que não tinham qualquer contato entre si (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7561d65f-e3f0-4593-8bba-2c76cda1a32f'); return false;\">Mark, J. J., Pyramid. <i>World History Encyclopedia</i></a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre pirâmides</b><br /><br />O que é uma pirâmide?</div></div></center></p><p>Um dos motivos que leva as pessoas a acreditarem que as pirâmides ao redor do mundo compartilham uma única origem é o desconhecimento do que define, de fato, uma pirâmide. Vamos simplificar a definição proposta por Eric W. Weisstein, mantendo sua essência (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1aae32d7-8b8a-49d9-b136-f859e24a53e6'); return false;\">Weisstein, Eric W. <i>MathWorld--A Wolfram Web Resource</i></a>):</p><p><table class=\"book_navigation\"><tr><td>Pirâmide de Base Quadrangular</td><td>Pirâmide de Base Pentagonal</td></tr><tr><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/HistoryTracers/pyramid.jpg\" class=\"imgcenter\"/></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/HistoryTracers/pentagonal_pyramid.jpg\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\" class=\"desc\">Figura 2: Exemplos de pirâmides que ilustram a definição matemática.</td></tr></table></p><p><ul class=\"citation\"> <li>\"<i>Uma pirâmide é uma figura geométrica com uma base fechada e cujas faces laterais são triângulos que se encontram em um ponto comum no topo, chamado ápice.</i>\"</li></ul></p><p>A partir dessa definição, podemos explorar as diferentes construções piramidais ao redor do mundo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h4>Egito</h4>No Egito, as pirâmides mais conhecidas, localizadas em Gizé, foram erguidas durante a Quarta Dinastia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('920578b1-b37d-4c0d-8aef-58e24136bdca'); return false;\">Britannica, T. Editors of Encyclopaedia, <htdate0></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c355fb7-ca61-46b1-8993-43db7aea59ca'); return false;\">Cy, <htdate1></span></a>). No entanto, antes dessas famosas construções, os egípcios passaram por um longo processo de experimentação (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2867db47-20a6-4e5e-be47-e21d490d3cf4'); return false;\">Vafea F., <htdate2></span>, pp. 111 - 114</a>):</p><p><ul><li><b>Primeiras Dinastias</b>: As duas primeiras dinastias iniciaram o processo de sepultamento com construções na região conhecida como Abidos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a09c822f-fd5e-4e38-a229-30081a723c3b'); return false;\">Bestock, L., <htdate3></span></a>, pp. 48 - 58).</li><li><b>Terceira Dinastia</b>: Surgem pirâmides em degraus do Egito (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dcbeb1d2-ef7d-49bc-b584-b557269f8570'); return false;\">Cy, <htdate4></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('055fe64b-e59e-4926-9966-2d34267900ff'); return false;\">Bussmann, R., <htdate5>, pp. 179</span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c355fb7-ca61-46b1-8993-43db7aea59ca'); return false;\">Cy, <htdate6></span></a>).</li><li><b>Quarta Dinastia</b>: Os egípcios constroem as pirâmides reais, mas não de imediato. Vemos um aprimoramento gradual do método através da construção das pirâmides \"Bent\" (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('92b3b013-aaef-4b93-90f9-298dffa6d70f'); return false;\">Sparavigna, A. C., <htdate7></span></a>) e \"Red\", até chegar às grandes pirâmides de Gizé (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c355fb7-ca61-46b1-8993-43db7aea59ca'); return false;\">Cy, <htdate8></span></a>).</li></ul></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "5",
+                     "day": "20"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2023",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2002",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2008",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2023",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2014",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2023",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2023",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Apesar de suas variações de forma, as pirâmides egípcias compartilham dois aspectos importantes: foram construídas ao longo de um braço do Nilo (Ahramat) (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('56225a39-761d-49c2-9caa-ed02b33926c2'); return false;\">Ghoneim, E., Ralph, T.J., Onstine, S. <i>et al</i>, <htdate0></span></a>) e serviram como tumbas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e8ccb530-ef38-42ef-aaaf-5257f3d667e4'); return false;\">Roth, A. M., <htdate1></span>, pp. 48 - 50</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7561d65f-e3f0-4593-8bba-2c76cda1a32f'); return false;\">Mark, J. J., Pyramid. <i>World History Encyclopedia</i></a>).</p><p><h4>Mesoamérica</h4>Quando observamos estruturas piramidais na Mesoamérica, notamos diferenças significativas, como a presença de ornamentos, escadas e janelas, elementos que fogem completamente à definição matemática de pirâmide. Um exemplo é a montanha sagrada presente na cidade de Xunantunich, Belize, retratada na <b>Figura 3</b>:</p><p class=\"desc\"><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/WitzXunantunich.jpg\" class=\"imgcenter\"/>Figura 3: Montanha sagrada em Xunantunich, Belize. Fotografia tirada em <htdate2></span> durante uma visita ao sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "5",
+                     "day": "16"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1993",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "7",
+                     "day": "22"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Nesta montanha sagrada, vemos uma escadaria na face frontal, que conduz a uma estrutura piramidal com três níveis. No topo dessa estrutura, há janelas de um cômodo. Por fim, na parte superior, há uma área aberta para celebrações.",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>As construções piramidais mesoamericanas são ricas em detalhes e geralmente servem como locais de celebração, eram conhecidas pelos habitantes como uma \"montanha sagrada\" (<i>Witz</i>) (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('960e3a8e-3a60-4ee4-9df4-e2187489e3b9'); return false;\">García Capistrán, H., <htdate0></span>, pp. 144</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_language",
+         "text": [
+            {
+               "text": "<p><h3>Iguais para sempre</h3>Já apresentamos o conceito de igualdade em imagens e construções, mas há um tipo de igualdade que, apesar de estar relacionado a todos os exemplos que vimos, causa certo desconforto em algumas pessoas: a igualdade matemática.</p><p>Na matemática, usamos o símbolo \"=\" para indicar que duas grandezas são equivalentes. A ideia de utilizar a matemática é transmitir de forma mais simples o que um texto descreve. Vejamos um exemplo, descrevendo os metates da <b>Figura 1</b> antes de expressarmos essa informação matematicamente:</p><p><ul class=\"citation\"> <li>\"<i>Os metates expostos em ambos os museus possuem exatamente as mesmas características fundamentais: têm o formato de jaguar, as mesmas dimensões e, consequentemente, o mesmo peso. Portanto, podemos afirmar que o metate da Costa Rica, identificado como MCR, e o metate de El Salvador, identificado como MES, são do mesmo tipo de metate em formato de jaguar, identificado como MJ.</i>\"</li></ul></p><p>Todo esse parágrafo pode ser resumido matematicamente como:</p><p><ul class=\"citation\"><li>MES = MCR = MJ</li></ul></p><p class=\"desc\">Equação 1: Relação entre metates.</p><p>É claro que, se lermos apenas essa <b>equação 1</b> sem uma explicação prévia, ela pode não ser clara. No entanto, uma vez que aprendemos os significados dos nomes e siglas, podemos expressá-los de forma mais simples através da matemática.</p><p>Ao definir uma igualdade matemática, é importante lembrar que, uma vez estabelecida, ela deve ser mantida. Isso significa que, se alterarmos um dos lados da equação, o outro também deverá ser alterado da mesma maneira. Vamos fazer um exercício com números e nossas mãos, usando setas para exemplificar:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equação</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">=</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">0</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\" src=\"images/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table><p class=\"desc\">Tabela 1: Mantendo a igualdade.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<p><h3>Conclusão</h3>Neste texto, começamos a explorar o conceito de igualdade em suas diferentes formas. Observamos que existem situações em que objetos são exatamente iguais, enquanto em outros casos, pequenas variações não os tornam fundamentalmente diferentes. Além disso, vimos que objetos com aparência similar, como as estruturas piramidais, podem ter significados ou usos distintos quando analisados junto as civilizações que as fizeram.</p><p>No próximo texto, aprofundaremos o estudo sobre os diferentes graus de igualdade e como isso se aplica em várias áreas do conhecimento.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "date_time": null
+}
