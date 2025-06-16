@@ -495,3 +495,88 @@ function htIsNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+function htFillMultiplicationTable(target, tmin, tmax, fillArea) {
+    if (tmin > tmax)
+        return;
+
+    var xVector = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var datasets = [ ];
+
+    var yMax = 0;
+    for (let i = tmin; i <= tmax; i++) {
+        var yVector = [ ];
+        for (let j = 0 ; j < xVector.length ; j++) {
+            yMax = i * j;
+            yVector.push(yMax);
+        }
+
+        var obj = {
+                    data : yVector,
+                    label : mathKeywords[16]+i,
+                    fill : fillArea
+                  };
+        datasets.push(obj);
+    }
+
+    if (yMax == 0) { yMax = 10; }
+
+    var chartOptions = {
+        "datasets": datasets,
+        "chartId" : target,
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": mathKeywords[15],
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin": 0,
+        "ymax": yMax,
+        "useCallBack": false
+    };
+    htPlotConstantContinuousChart(chartOptions);
+}
+
+function htDrawMultiplicationTable(target, angularC, repeat) {
+    var angulartext = "";
+    for (let i = 0; i < angularC; i++) {
+        angulartext += "<i class=\"fa-solid fa-star\" style=\"font-size:0.8em;\"></i>";
+    }
+
+    var additionalSpace = (12 - repeat)/2;
+    var text = "";
+    for (let i = 0; i < additionalSpace; i++) {
+        text += "<br />";
+    }
+
+    
+    for (let i = 0; i < repeat; i++) {
+        text += angulartext+"<br />";
+    }
+
+    if (repeat % 2 == 1) {
+        additionalSpace--;
+    }
+    for (let i = 0; i < additionalSpace; i++) {
+        text += "<br />";
+    }
+    $(target).html(text);
+}
+
+function htResetMultiplicationTable(target) {
+        $(target).html(mathKeywords[17]+"<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />");
+}
+
+
+function htWriteMultiplicationTable(target, tValue) {
+    var localTarget0 = "#mt"+tValue;
+    var localTarget1 = "#mtTable"+tValue;
+    $(target).append("<div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 20%; text-align: center; display: inline-block; padding: 5px;\" id=\"mt"+tValue+"\"></div><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 20%; text-align: center; display: inline-block; vertical-align: top; padding: 5px;\" id=\"mtTable"+tValue+"\"></div>");
+    $(localTarget0).append("<b>"+mathKeywords[16]+tValue+"</b><br />");
+    htResetMultiplicationTable(localTarget1);
+
+    var angularCoef = parseInt(tValue);
+    for (let i = 0; i < 11; i++) {
+        var product =  angularCoef * i;
+        $(localTarget0).append("<math onmouseover=\"this.style.fontWeight='bold'; htDrawMultiplicationTable('"+localTarget1+"', "+angularCoef+", "+i+");\" onmouseleave=\"this.style.fontWeight='normal'; htResetMultiplicationTable('"+localTarget1+"');\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
+    }
+}
+
