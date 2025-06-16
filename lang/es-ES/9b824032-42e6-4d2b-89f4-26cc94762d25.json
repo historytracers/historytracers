@@ -1,204 +1,546 @@
 {
-    "title" : "¿Somos realmente iguales?",
-    "header" : "¿Somos realmente iguales?",
-    "sources" : [ "9b824032-42e6-4d2b-89f4-26cc94762d25" ],
-    "scripts" : [ "9b824032-42e6-4d2b-89f4-26cc94762d25" ],
-    "index" : [ "first_steps" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1733663625" ],
-    "authors" : null,
-    "reviewers" : null,
-    "version" : 1,
-    "type" : "class",
-    "content" : [
-        {
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ 
-                               "<p><span id=\"htZoomImageMsg\"></span></p>",
-                               { "text" : "### Prerrequisitos\n\nEste texto es una continuación del contenido abordado anteriormente, donde exploramos conceptos fundamentales sobre comparaciones. En esta ocasión, profundizaremos en el tema utilizando niveles de clasificación. Por ello, recomendamos la lectura previa del texto anterior",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
-                                                "text": "History Tracers Team",
-                                                "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" } }
-                                            ],
-                               "format" : "markdown"
-                    } ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ { "text" : "### Introducción\n\nAl observar el reino animal, incluidos los seres humanos, es evidente que no todos somos iguales. Las diferencias significativas, como las que existen entre elefantes y leones, caracterizan a especies distintas. Por otro lado, diferencias más sutiles, como las que se aprecian entre los gatos ilustrados en la Figura 1, indican que pertenecen a la misma especie, pero a razas diferentes.",
-                                 "source" : null,
-                                 "format" : "markdown"
-                               },
-                               "<p class=\"desc\"><img id=\"catsCirusUrraca\" src=\"images/HistoryTracers/CatsCirusUrraca.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('catsCirusUrraca', '0%')\" />Figura 1: Gatos de los editores.</p>",
-                               { "text" : "En el caso de los humanos, aunque tenemos variaciones en el color de piel, la forma de los ojos y otros rasgos, estas diferencias no justifican una división en categorías biológicas separadas. Pero, ¿cómo hacemos estas clasificaciones?",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
-                                                { "type": 1,
-                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }
-                                 ],
-                                 "format" : "markdown"
-                               } ]
-                },
-                {
-                    "id" : "scale",
-                    "text" : [ "<h3>Definiendo una Escala</h3><p class=\"desc\"><img id=\"imgMeter\" src=\"images/HistoryTracers/Meter.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" />Figura 2: Representación de una escala centesimal.</p>",
-                               { "text" : "Al estudiar nuestra especie y la de los chimpancés, Alan R. Templeton utilizó un área de las matemáticas llamada estadística. Hasta ahora, hemos explorado solo números y los primeros conceptos de límites, y aún no contamos con las herramientas necesarias para profundizar en la estadística. Sin embargo, podemos introducir algunas de sus ideas básicas",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
-                                                { "type": 1,
-                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
-                                                { "type": 1,
-                                                "uuid": "b4fa4f07-e08e-4010-a007-bb28e854058b",
-                                                "text": "Staunton, Deborah and Weisstein, Eric W. Statistics" }
-                                            ],
-                               "format" : "markdown"
-                             },
-                             { "text" : "#### Midiendo con la Escala\n\nLa Figura 2, presentada en esta página, es similar a la Figura 4 del texto anterior. Sin embargo, no la utilizaremos como una regla convencional para medir dimensiones físicas",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
-                                                "text": "History Tracers Team",
-                                                "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" } }
-                                            ],
-                                 "format" : "markdown"
-                             },
-                             "<p class=\"desc\"><img id=\"metate1\" src=\"images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate1', '0%')\" />Figura 3: Metate presente en Costa Rica. Fotografia tomada el <span class=\"htdate\"></span> durante una visita al Museu de Antropologia de San José, Costa Rica.</p>",
-                             { "text" : "Usaremos una escala de 0 a 100 para analizar 10 características del objeto representado en la Figura 3:",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             { "text" : "|Valores|Descripción de la región |¿Está presente?|\n|------------|------------|--------------|\n|0 - 10| Formato de jaguar | Sí |\n|11 - 20| Cola curvada hacia abajo | Sí |\n|21 - 30| Cuerpo ovalado | Sí |\n|31 - 40| Ojos elevados | Sí |\n|41 - 50| Adorno lateral sin división central | Sí |\n|51 - 60| Orejas elevadas | Sí |\n|61 - 70| Patas redondeadas | Sí |\n|71 - 80| Cuatro patas | Sí |\n|81 - 90| Producido entre <htdate0> y <htdate1> | Sí |\n|91 - 100| Metate simétrico | Sí |\n",
-                                 "source" : null,
-                                 "isTable" : 1,
-                                 "format" : "markdown",
-                                 "fill_dates" : [
-                                    { "type": "gregory", "year": "1000", "month": "-1", "day": "-1" },
-                                    { "type": "gregory", "year": "1500", "month": "-1", "day": "-1" }
-                                 ]
-                             },
-                             "<p class=\"desc\">Tabla 1: Lista de características del metate de la Figura 3.</p>",
-                             { "text" : "En este ejemplo, hemos listado solo algunas características. En contextos científicos, el análisis debe ser más riguroso.\n\nComo se indica en la columna \"¿Está presente?\", todas las características fueron identificadas. Esto significa que la escala alcanzó su valor máximo, es decir, 100. En escalas como esta, la expresión \"por ciento\" se utiliza frecuentemente, representada por el símbolo \"%\", para indicar la relación entre lo medido y el valor total posible. Así, podemos afirmar que el metate analizado presenta el 100% de las características esperadas.",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             { "text" : "#### Comparaciones Próximas\n\nAhora aplicamos la misma escala a otro metate, representado en la Figura 4:",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             "<p class=\"desc\"><img id=\"metate2\" src=\"images/SanSalvadorESAntropologia.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate2', '0%')\" />Figura 4: Metate presente en El Salvador. Fotografia tomada en <span class=\"htdate\"></span> durante una visita al Museu de Antropologia de San Salvador, El Salvador.</p>",
-                             { "text" : "|Valores|Descripción de la región |¿Está presente?|\n|------------|------------|--------------|\n|0 - 10| Formato de jaguar | Sí |\n|11 - 20| Cola curvada hacia abajo | Sí |\n|21 - 30| Cuerpo ovalado | Sí |\n|31 - 40| Ojos elevados | Sí |\n|41 - 50| Adorno lateral sin división central | No |\n|51 - 60| Orejas elevadas | Sí |\n|61 - 70| Patas redondeadas | Sí |\n|71 - 80| Cuatro patas | Sí |\n|81 - 90| Producido entre <htdate0> y <htdate1> | Sí |\n|91 - 100| Metate simétrico | Sí |\n",
-                                 "source" : null,
-                                 "isTable" : 1,
-                                 "format" : "markdown",
-                                 "fill_dates" : [
-                                    { "type": "gregory", "year": "1000", "month": "-1", "day": "-1" },
-                                    { "type": "gregory", "year": "1500", "month": "-1", "day": "-1" }
-                                 ]
-                             },
-                             "<p class=\"desc\">Tabla 2: Lista de características del metate de la Figura 4.</p>",
-                             { "text" : "En este caso, la característica correspondiente al rango **41-50** no fue identificada. Por lo tanto, el metate de la Figura 4 posee el 90% de las características de la escala inicial.",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             { "text" : "#### Comparaciones Distantes\n\nAhora analizamos un metate de una región más lejana: Teotihuacán, México, representado en la Figura 5:",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             "<p class=\"desc\"><img id=\"metate3\" src=\"images/MetateTeotihuacan.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate3', '0%')\" />Figura 5: Metate del México. Fotografia tomada en <span class=\"htdate\"></span> durante una visita al Sitio Arqueológico de Teotihuacan, México.</p>",
-                             { "text" : "|Valores|Descripción de la región |¿Está presente?|\n|------------|------------|--------------|\n|0 - 10| Formato de jaguar | No |\n|11 - 20| Cola curvada hacia abajo | No |\n|21 - 30| Cuerpo ovalado | No |\n|31 - 40| Ojos elevados | No |\n|41 - 50| Adorno lateral sin división central | No |\n|51 - 60| Orejas elevadas | No |\n|61 - 70| Patas redondeadas | No |\n|71 - 80| Cuatro patas | No |\n|81 - 90| Producido entre <htdate0> y <htdate1> | No |\n|91 - 100| Metate simétrico | Sí |\n",
-                                 "source" : null,
-                                 "isTable" : 1,
-                                 "format" : "markdown",
-                                 "fill_dates" : [
-                                    { "type": "gregory", "year": "1000", "month": "-1", "day": "-1" },
-                                    { "type": "gregory", "year": "1500", "month": "-1", "day": "-1" }
-                                 ]
-                             },
-                             "<p class=\"desc\">Tabla 3: Lista de características del metate de la Figura 5.</p>",
-                             { "text" : "Aquí, solo una característica fue identificada, resultando en un valor del 10% en la escala.",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             },
-                             { "text" : "#### Interpretación de los Resultados\n\nComo se observa en los ejemplos anteriores, al definir las características en la Tabla 1 usando un metate, este poseía todas las características esperadas, lo que dio como resultado el valor máximo de 100%.\n\nPor otro lado, al evaluar otros metates, encontramos que uno presentaba elementos extremadamente similares, aunque no idénticos, alcanzando un 90%. Otro, más distante, solo alcanzó el 10%.\n\nEstos resultados nos llevan a la conclusión de que, cuanto más cerca está un objeto de las características evaluadas, su puntuación tiende al máximo. A medida que los datos se alejan, la puntuación se aproxima al mínimo, es decir, 0%.",
-                                 "source" : null,
-                                 "format" : "markdown"
-                             }
-                    ]
-                },
-                {
-                    "id" : "DNA",
-                    "text" : [ { "text" : "### Seres vivos\n\n#### ADN\n\nCuando un científico estudia las especies, es fundamental utilizar un elemento común entre ellas para comprender cómo han evolucionado. Con el descubrimiento de que todas las células de los seres vivos contienen ADN — una molécula que transporta la información genética de cada organismo —, esta se convirtió en la base de numerosos estudios científicos",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "3ce506ac-8895-40dd-89f7-57f80517aba4",
-                                                "text": "Alberts B, Johnson A, Lewis J, et al.",
-                                                "date" :  {"type" : "gregory", "year" : "2002", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "b30a6ec9-85c3-413e-a02f-b3eba83aa364",
-                                                "text": "History Tracers Team",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }} ],
-                                 "isTable" : 0,
-                                 "format" : "markdown"
-                               },
-                              { "text" : "La Figura 6 ilustra parte de la estructura del ADN",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "85b3b9a5-7cc7-4c37-a0da-3b8a2bfb1c00",
-                                                "text": "Minchin S, Lodge J.",
-                                                "date" :  {"type" : "gregory", "year" : "2019", "month" : "-1", "day" : "-1" }}],
-                                 "format" : "markdown"
-                              },
-                               "<p class=\"desc\"><img id=\"imgDNA\" src=\"images/HistoryTracers/DNA.png\" class=\"imgcenter\" onclick=\"htImageZoom('imgDNA', '0%')\" />Figura 6: Representación de la estructura del ADN.</p>",
-                               { "text" : "#### Razas entre Chimpancés\n\nCon el conocimiento de las escalas genéticas, podemos comprender mejor el trabajo de Alan R. Templeton. En su investigación, observó que las diferencias en el ADN entre distintas poblaciones de chimpancés son significativas (superiores al 25%), lo que permite identificar razas genéticamente diferenciadas entre ellos",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
-                                                "text": "Templeton A. R., pp. 7 - 8",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }],
-                                 "isTable" : 0,
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### Humanos sin Razas\n\nEn contraste, al analizar el ADN humano, se observa que la variación genética entre poblaciones es inferior al 5%. Esto indica que, genéticamente, los humanos son notablemente similares, compartiendo más del 95% de su información genética. Alan R. Templeton va más allá de los análisis matemáticos, trazando también la historia genética de las poblaciones humanas a lo largo del tiempo",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
-                                                "text": "Templeton A. R., pp. 8 - 13",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
-                                                { "type": 1,
-                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }],
-                                 "isTable" : 0,
-                                 "format" : "markdown"
-                               }
-                               ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ { "text" : "### Conclusión\n\nEn este texto, exploramos cómo mapear información en una escala centesimal y, a partir de ello, comprender mejor cómo opera la naturaleza. Inicialmente, aprendimos a asignar características a dicha escala y a comparar objetos con base en ellas. La relación final entre los objetos y las características se determinaba conteando 10 puntos por cada característica identificada. Así, cuanto más características poseía un objeto, más se acercaba al valor máximo; cuanto menos características presentaba, más cerca estaba del valor mínimo.\n\nPosteriormente, analizamos cómo Alan R. Templeton demostró la inexistencia de razas en la especie humana. Él comenzó examinando muestras genéticas de diferentes individuos, tanto humanos como chimpancés. En los chimpancés, se verificó que las diferencias genéticas entre algunos individuos superaban el 25%, evidenciando la existencia de razas. Sin embargo, al realizar el mismo estudio con seres humanos, se observó que nuestras diferencias genéticas son inferiores al 5%. Esto significa que compartimos cerca del 95% de nuestras características genéticas, lo que imposibilita categorizar a nuestra especie en razas.",
-                                 "source" : null,
-                                 "isTable" : 0,
-                                 "fill_dates" : null,
-                                 "format" : "markdown"
-                               } ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2015", "month" : "10", "day" : "17" },
-                        {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "25" },
-                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" }
-                    ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "¿Somos realmente iguales?",
+   "header": "¿Somos realmente iguales?",
+   "sources": [
+      "9b824032-42e6-4d2b-89f4-26cc94762d25"
+   ],
+   "scripts": [
+      "9b824032-42e6-4d2b-89f4-26cc94762d25"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/9b824032-42e6-4d2b-89f4-26cc94762d25_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Somos-realmente-iguales-e348pjp",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1749948269"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste texto es una continuación del contenido abordado anteriormente, donde exploramos conceptos fundamentales sobre comparaciones. En esta ocasión, profundizaremos en el tema utilizando niveles de clasificación. Por ello, recomendamos la lectura previa del texto anterior",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nAl observar el reino animal, incluidos los seres humanos, es evidente que no todos somos iguales. Las diferencias significativas, como las que existen entre elefantes y leones, caracterizan a especies distintas. Por otro lado, diferencias más sutiles, como las que se aprecian entre los gatos ilustrados en la Figura 1, indican que pertenecen a la misma especie, pero a razas diferentes.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"catsCirusUrraca\" src=\"images/HistoryTracers/CatsCirusUrraca.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('catsCirusUrraca', '0%')\" />Figura 1: Gatos de los editores.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En el caso de los humanos, aunque tenemos variaciones en el color de piel, la forma de los ojos y otros rasgos, estas diferencias no justifican una división en categorías biológicas separadas. Pero, ¿cómo hacemos estas clasificaciones",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "?"
+            }
+         ]
+      },
+      {
+         "id": "SECTION_scale",
+         "text": [
+            {
+               "text": "<h3>Definiendo una Escala</h3><p class=\"desc\"><img id=\"imgMeter\" src=\"images/HistoryTracers/Meter.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" />Figura 2: Representación de una escala centesimal.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al estudiar nuestra especie y la de los chimpancés, Alan R. Templeton utilizó un área de las matemáticas llamada estadística. Hasta ahora, hemos explorado solo números y los primeros conceptos de límites, y aún no contamos con las herramientas necesarias para profundizar en la estadística. Sin embargo, podemos introducir algunas de sus ideas básicas",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b4fa4f07-e08e-4010-a007-bb28e854058b",
+                     "text": "Staunton, Deborah and Weisstein, Eric W. Statistics",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Midiendo con la Escala\n\nLa Figura 2, presentada en esta página, es similar a la Figura 4 del texto anterior. Sin embargo, no la utilizaremos como una regla convencional para medir dimensiones físicas",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"metate1\" src=\"images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate1', '0%')\" />Figura 3: Metate presente en Costa Rica. Fotografia tomada el <htdate0> durante una visita al Museu de Antropologia de San José, Costa Rica.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "17"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Usaremos una escala de 0 a 100 para analizar 10 características del objeto representado en la Figura 3:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "|Valores|Descripción de la región |¿Está presente?|\n|------------|------------|--------------|\n|0 - 10| Formato de jaguar. | Sí |\n|11 - 20| Cola curvada hacia abajo. | Sí |\n|21 - 30| Cuerpo ovalado. | Sí |\n|31 - 40| Ojos elevados. | Sí |\n|41 - 50| Adorno lateral sin división central. | Sí |\n|51 - 60| Orejas elevadas. | Sí |\n|61 - 70| Patas redondeadas. | Sí |\n|71 - 80| Cuatro patas. | Sí |\n|81 - 90| Producido entre <htdate0> y <htdate1>. | Sí |\n|91 - 100| Metate simétrico. | Sí |\n",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1000",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1500",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": true,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Tabla 1: Lista de características del metate de la Figura 3.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En este ejemplo, hemos listado solo algunas características. En contextos científicos, el análisis debe ser más riguroso.\n\nComo se indica en la columna \"¿Está presente?\", todas las características fueron identificadas. Esto significa que la escala alcanzó su valor máximo, es decir, 100. En escalas como esta, la expresión \"por ciento\" se utiliza frecuentemente, representada por el símbolo \"%\", para indicar la relación entre lo medido y el valor total posible. Así, podemos afirmar que el metate analizado presenta el 100% de las características esperadas.\n\n#### Comparaciones Próximas\n\nAhora aplicamos la misma escala a otro metate, representado en la Figura 4:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"metate2\" src=\"images/SanSalvadorESAntropologia.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate2', '0%')\" />Figura 4: Metate presente en El Salvador. Fotografia tomada en <htdate0> durante una visita al Museu de Antropologia de San Salvador, El Salvador.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "25"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "|Valores|Descripción de la región |¿Está presente?|\n|------------|------------|--------------|\n|0 - 10| Formato de jaguar. | Sí |\n|11 - 20| Cola curvada hacia abajo. | Sí |\n|21 - 30| Cuerpo ovalado. | Sí |\n|31 - 40| Ojos elevados. | Sí |\n|41 - 50| Adorno lateral sin división central. | No |\n|51 - 60| Orejas elevadas. | Sí |\n|61 - 70| Patas redondeadas. | Sí |\n|71 - 80| Cuatro patas. | Sí |\n|81 - 90| Producido entre <htdate0> y <htdate1>. | Sí |\n|91 - 100| Metate simétrico. | Sí |\n",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1000",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1500",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": true,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Tabla 2: Lista de características del metate de la Figura 4.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En este caso, la característica correspondiente al rango **41-50** no fue identificada. Por lo tanto, el metate de la Figura 4 posee el 90% de las características de la escala inicial.\n\n#### Comparaciones Distantes\n\nAhora analizamos un metate de una región más lejana: Teotihuacán, México, representado en la Figura 5:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"metate3\" src=\"images/MetateTeotihuacan.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate3', '0%')\" />Figura 5: Metate del México. Fotografia tomada en <htdate0> durante una visita al Sitio Arqueológico de Teotihuacan, México.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "|Valores|Descripción de la región |¿Está presente?|\n|------------|------------|--------------|\n|0 - 10| Formato de jaguar. | No |\n|11 - 20| Cola curvada hacia abajo. | No |\n|21 - 30| Cuerpo ovalado. | No |\n|31 - 40| Ojos elevados. | No |\n|41 - 50| Adorno lateral sin división central. | No |\n|51 - 60| Orejas elevadas. | No |\n|61 - 70| Patas redondeadas. | No |\n|71 - 80| Cuatro patas. | No |\n|81 - 90| Producido entre <htdate0> y <htdate1>. | No |\n|91 - 100| Metate simétrico. | Sí |\n",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1000",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1500",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": true,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Tabla 3: Lista de características del metate de la Figura 5.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aquí, solo una característica fue identificada, resultando en un valor del 10% en la escala.\n\n#### Interpretación de los Resultados\n\nComo se observa en los ejemplos anteriores, al definir las características en la Tabla 1 usando un metate, este poseía todas las características esperadas, lo que dio como resultado el valor máximo de 100%.\n\nPor otro lado, al evaluar otros metates, encontramos que uno presentaba elementos extremadamente similares, aunque no idénticos, alcanzando un 90%. Otro, más distante, solo alcanzó el 10%.\n\nEstos resultados nos llevan a la conclusión de que, cuanto más cerca está un objeto de las características evaluadas, su puntuación tiende al máximo. A medida que los datos se alejan, la puntuación se aproxima al mínimo, es decir, 0%.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_dna",
+         "text": [
+            {
+               "text": "### Seres vivos\n\n#### ADN\n\nCuando un científico estudia las especies, es fundamental utilizar un elemento común entre ellas para comprender cómo han evolucionado. Con el descubrimiento de que todas las células de los seres vivos contienen ADN — una molécula que transporta la información genética de cada organismo —, esta se convirtió en la base de numerosos estudios científicos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3ce506ac-8895-40dd-89f7-57f80517aba4",
+                     "text": "Alberts B, Johnson A, Lewis J, et al.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2002",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b30a6ec9-85c3-413e-a02f-b3eba83aa364",
+                     "text": "History Tracers Team",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "La Figura 6 ilustra parte de la estructura del ADN",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "85b3b9a5-7cc7-4c37-a0da-3b8a2bfb1c00",
+                     "text": "Minchin S, Lodge J.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgDNA\" src=\"images/HistoryTracers/DNA.png\" class=\"imgcenter\" onclick=\"htImageZoom('imgDNA', '0%')\" />Figura 6: Representación de la estructura del ADN.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Razas entre Chimpancés\n\nCon el conocimiento de las escalas genéticas, podemos comprender mejor el trabajo de Alan R. Templeton. En su investigación, observó que las diferencias en el ADN entre distintas poblaciones de chimpancés son significativas (superiores al 25%), lo que permite identificar razas genéticamente diferenciadas entre ellos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R., pp. 7 - 8",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Humanos sin Razas\n\nEn contraste, al analizar el ADN humano, se observa que la variación genética entre poblaciones es inferior al 5%. Esto indica que, genéticamente, los humanos son notablemente similares, compartiendo más del 95% de su información genética. Alan R. Templeton va más allá de los análisis matemáticos, trazando también la historia genética de las poblaciones humanas a lo largo del tiempo",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R., pp. 8 - 13",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, exploramos cómo mapear información en una escala centesimal y, a partir de ello, comprender mejor cómo opera la naturaleza. Inicialmente, aprendimos a asignar características a dicha escala y a comparar objetos con base en ellas. La relación final entre los objetos y las características se determinaba conteando 10 puntos por cada característica identificada. Así, cuanto más características poseía un objeto, más se acercaba al valor máximo; cuanto menos características presentaba, más cerca estaba del valor mínimo.\n\nPosteriormente, analizamos cómo Alan R. Templeton demostró la inexistencia de razas en la especie humana. Él comenzó examinando muestras genéticas de diferentes individuos, tanto humanos como chimpancés. En los chimpancés, se verificó que las diferencias genéticas entre algunos individuos superaban el 25%, evidenciando la existencia de razas. Sin embargo, al realizar el mismo estudio con seres humanos, se observó que nuestras diferencias genéticas son inferiores al 5%. Esto significa que compartimos cerca del 95% de nuestras características genéticas, lo que imposibilita categorizar a nuestra especie en razas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "date_time": null
+}

@@ -577,6 +577,8 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 	if txt.Format == "html" {
 		work := txt.Text
 
+		ret := strings.ReplaceAll(work, "<span id=\"htZoomImageMsg\"></span>", commonKeywords[84])
+		work = strings.ReplaceAll(ret, "<span id=\"htAmericaAbyaYalaMsg\"></span>", commonKeywords[85])
 		htmlText = htOverwriteDates(work, txt.FillDates, "", "", dateAbbreviation) + "<br />"
 	} else if txt.Format == "markdown" {
 		work := txt.Text
