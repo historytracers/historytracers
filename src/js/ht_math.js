@@ -535,13 +535,48 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea) {
     htPlotConstantContinuousChart(chartOptions);
 }
 
-function htWriteMultiplicationTable(target, extTarget, tValue) {
-    $(target).append("<b>"+mathKeywords[16]+extTarget+tValue+"</b><br /><br />");
+function htDrawMultiplicationTable(target, angularC, repeat) {
+    var angulartext = "";
+    for (let i = 0; i < angularC; i++) {
+        angulartext += "<i class=\"fa-solid fa-star\" style=\"font-size:0.8em;\"></i>";
+    }
+
+    var additionalSpace = (12 - repeat)/2;
+    var text = "";
+    for (let i = 0; i < additionalSpace; i++) {
+        text += "<br />";
+    }
+
+    
+    for (let i = 0; i < repeat; i++) {
+        text += angulartext+"<br />";
+    }
+
+    if (repeat % 2 == 1) {
+        additionalSpace--;
+    }
+    for (let i = 0; i < additionalSpace; i++) {
+        text += "<br />";
+    }
+    $(target).html(text);
+}
+
+function htResetMultiplicationTable(target) {
+        $(target).html(mathKeywords[17]+"<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />");
+}
+
+
+function htWriteMultiplicationTable(target, tValue) {
+    var localTarget0 = "#mt"+tValue;
+    var localTarget1 = "#mtTable"+tValue;
+    $(target).append("<div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 20%; text-align: center; display: inline-block; padding: 5px;\" id=\"mt"+tValue+"\"></div><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 20%; text-align: center; display: inline-block; vertical-align: top; padding: 5px;\" id=\"mtTable"+tValue+"\"></div>");
+    $(localTarget0).append("<b>"+mathKeywords[16]+tValue+"</b><br />");
+    htResetMultiplicationTable(localTarget1);
 
     var angularCoef = parseInt(tValue);
     for (let i = 0; i < 11; i++) {
         var product =  angularCoef * i;
-        $(target).append("<math onmouseover=\"this.style.fontWeight='bold';\" onmouseleave=\"this.style.fontWeight='normal';\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
+        $(localTarget0).append("<math onmouseover=\"this.style.fontWeight='bold'; htDrawMultiplicationTable('"+localTarget1+"', "+angularCoef+", "+i+");\" onmouseleave=\"this.style.fontWeight='normal'; htResetMultiplicationTable('"+localTarget1+"');\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
     }
 }
 

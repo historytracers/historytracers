@@ -11,9 +11,8 @@ function htLoadExercise() {
 
     htWriteNavigation("first_steps");
 
-    htWriteMultiplicationTable("#mtTwo", "", 2);
-
-    htWriteMultiplicationTable("#mtThree", "", 3);
+    htWriteMultiplicationTable("#mParent2", 2);
+    htWriteMultiplicationTable("#mParent3", 3);
 
     htFillMultiplicationTable("chart1", 1, 1, true);
 

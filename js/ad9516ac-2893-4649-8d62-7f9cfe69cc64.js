@@ -9,8 +9,9 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVectorad9516ac);
     }
 
-    htWriteMultiplicationTable("#mtFour", "", 4);
-    htWriteMultiplicationTable("#mtFive", "", 5);
+    htWriteMultiplicationTable("#mParent4", 4);
+    htWriteMultiplicationTable("#mParent5", 5);
+
 
     var xVector =  [ 0, 1, 2,  3,  4,  5,  6,  7,  8,  9, 10];
     var yVector2 = [ 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
