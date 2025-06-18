@@ -33,9 +33,16 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
                "source": null,
-               "date_time": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
                "isTable": false,
                "imgdesc": "",
                "latex": null,
@@ -100,13 +107,89 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_begin",
+         "text": [
+            {
+               "text": "### O começo\n\nResponder imediatamente à reflexão sugerindo uma construção muito alta e que ocupe um grande espaço é extremamente tentador. No entanto, na natureza, sempre partimos de estruturas menores para chegar às maiores. Por esse motivo, vamos estudar algumas construções menores.\n\n#### A Casa do Povo\n\nEm diferentes povos, quando construções perduram por longos períodos — mesmo que aquela população já não domine ou habite a região —, geralmente estamos falando de estruturas feitas com materiais resistentes, como pedras. Por outro lado, as construções erguidas pela população em geral costumam ser feitas de materiais menos duráveis, muitas vezes extraídos diretamente das árvores, como ocorreu no continente americano (*Abya Yala*). Esses materiais facilitam o desmonte das estruturas com o tempo, devido a eventos naturais, como chuvas. Um exemplo pode ser visto na **Figura 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"miPueblito\" onclick=\"htImageZoom('miPueblito', '0%')\" src=\"images/MiPueblito/MiPueblito.jpg\" class=\"imgcenter\"/>Figura 1: Construções indígenas em <i>Mi Pueblito</i>, Panamá. Foto tirada em <htdate0> durante uma visita ao local.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "1",
+                     "day": "17"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As construções de *Mi Pueblito* possuem todas as figuras geométricas que estudamos até agora. Na parte superior, observamos o formato de um triângulo que, por não estar desenhado em um plano, chamamos de prisma. Já nas paredes, vemos tábuas de madeira retangulares dispostas lado a lado.\n\nPodemos deduzir que, para erguer essas construções, foram necessárias pelo menos as seguintes etapas:\n- Posicionamento das madeiras, uma a uma, em seu lugar definitivo. Ou seja, os indígenas adicionaram peças de madeira até alcançar o resultado final: a construção.\n- O processo repetitivo de posicionar madeiras tem relação com à multiplicação.\n- Observação da natureza que levou a um telhado triangular, já que esse formato ajuda a água a escorrer, evitando acúmulos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Independentemente de os indígenas terem usado a matemática ou apenas reproduzido padrões naturais, tanto a soma quanto a multiplicação estão diretamente ligadas a fenômenos da natureza e, consequentemente, às ações humanas.\n\n#### Conservação\nEstruturas como as da **Figura 1** só se conservam por longos períodos quando eventos naturais extremos ocorrem. Um desses eventos — uma erupção vulcânica — aconteceu em *Joya de Cerén*, El Salvador, e foi responsável por preservar a construção da **Figura 2** até os dias atuais",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "21315015-e589-486f-b0aa-3eba1d775b1d",
+                     "text": "Ministerio de Cultura, El Salvador",
+                     "date_time": null
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"JC\" onclick=\"htImageZoom('JC', '0%')\" src=\"images/JoyaCeren/JoyaCeren.jpg\" class=\"imgcenter\"/>Figura 2: Construções indígenas em <i>Joya de Ceren</i>, El Salvador. Foto tirada em <htdate0> durante uma visita ao local.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "24"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "question": "É impossível fazer construções sem conhecimento matemático?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Não há bases para fazer este tipo de afirmação. Nós usamos a matemática para entender a natureza, e ela faz este papel muito bem. Mas, mesmo sem domínio profundo da matemática, podemos observar e repetir o que estamos vendo."
       }
    ],
    "date_time": null
