@@ -58,6 +58,16 @@
    ],
    "common": [
       {
+         "text": "<p class=\"topdesc\"><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+         "source": null,
+         "date_time": null,
+         "isTable": false,
+         "imgdesc": "",
+         "latex": null,
+         "format": "html",
+         "PostMention": " "
+      },
+      {
          "text": "### Objective\n\nThis text examines Altar Q at Copán and its depicted figures, primarily drawing from the work of Anastasia Hutnick",
          "source": [
             {
@@ -154,6 +164,78 @@
          "latex": null,
          "format": "markdown",
          "PostMention": ""
+      },
+      {
+         "text": "### On Genetics\n\nIn a study conducted by Dr. M. Murray and his team, researchers genetically mapped two individuals carrying the haplogroup Q1b on the Y chromosome—the most common haplogroup among Indigenous peoples of the Americas (Abya Yala). One of them, identified as **CpM13**, was discovered at the Acrópolis and classified as an *\"enigmatic dynastic ruler\"*",
+         "source": [
+            {
+               "type": 1,
+               "uuid": "2df13434-a0e5-4a62-8f72-d9ba127da7af",
+               "text": "Murray, M. et al., pp. 3, 4, 9, 27",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2024",
+                  "month": "-1",
+                  "day": "-1"
+               }
+            }
+         ],
+         "date_time": null,
+         "isTable": false,
+         "imgdesc": "",
+         "latex": null,
+         "format": "markdown",
+         "PostMention": "."
+      },
+      {
+         "text": "Although this data does not conclusively prove that all kings shared the same haplogroup, the fact that Q1b is the most prevalent among Indigenous populations suggests that—for educational purposes—this sample can serve as a reference for the entire lineage. Thus, it can be taught that the haplogroup remained consistent across generations within this historical timeframe.\n\n### The Altar as Evidence\nAltar Q was constructed in <htdate0>, decades or even centuries after the deaths of many rulers depicted on it. When no further evidence exists beyond the Altar itself to confirm a ruler’s historicity, we will consider them hypothetical, as it remains impossible to determine whether they truly existed or were inserted for symbolic or political purposes",
+         "source": [
+            {
+               "type": 0,
+               "uuid": "7e0542d1-a834-4fb4-95d0-9f084ac4a17e",
+               "text": "Castillo, José Alfredo F., pp. 3, 14",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2015",
+                  "month": "-1",
+                  "day": "-1"
+               }
+            },
+            {
+               "type": 1,
+               "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+               "text": "Hutnick, Anastasia, pp. 65",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2020",
+                  "month": "-1",
+                  "day": "-1"
+               }
+            }
+         ],
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "776",
+               "month": "-1",
+               "day": "-1"
+            }
+         ],
+         "isTable": false,
+         "imgdesc": "",
+         "latex": null,
+         "format": "markdown",
+         "PostMention": "."
+      },
+      {
+         "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\" id=\"myFirstReflection\"></div></div></center></p>",
+         "source": null,
+         "date_time": null,
+         "isTable": false,
+         "imgdesc": "",
+         "latex": null,
+         "format": "html",
+         "PostMention": "."
       }
    ],
    "prerequisites": null,
@@ -541,7 +623,7 @@
                      "imgdesc": "",
                      "latex": null,
                      "format": "markdown",
-                     "PostMention": ""
+                     "PostMention": "."
                   },
                   {
                      "text": "While **Altar Q** depicts sixteen consecutive rulers, there is no conclusive evidence demonstrating they represent successive generations or familial relationships among the *ajawob* (kings) shown on the stela. Due to this lack of verifiable genealogical data, we must conclude the lineage at this point.",
@@ -572,39 +654,7 @@
                "marriages": null,
                "divorced": null,
                "children": null,
-               "death": [
-                  {
-                     "date": [
-                        {
-                           "type": "gregory",
-                           "year": "470",
-                           "month": "-1",
-                           "day": "-1"
-                        }
-                     ],
-                     "address": "",
-                     "city_id": "5f164ab9-430e-484f-88a5-ec014b16b515",
-                     "city": "Copán",
-                     "state_id": "",
-                     "state": "",
-                     "pc": "",
-                     "country_id": "L0bb6a72e-871b-4d17",
-                     "country": "Honduras",
-                     "sources": [
-                        {
-                           "type": 0,
-                           "uuid": "7e0542d1-a834-4fb4-95d0-9f084ac4a17e",
-                           "text": "Castillo, José Alfredo F., pp. 3",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2015",
-                              "month": "-1",
-                              "day": "-1"
-                           }
-                        }
-                     ]
-                  }
-               ]
+               "death": null
             }
          ]
       },
@@ -668,8 +718,26 @@
                "fullname": "Unidentified",
                "sex": "male",
                "gender": "male",
-               "is_real": true,
-               "haplogroup": null,
+               "is_real": false,
+               "haplogroup": [
+                  {
+                     "type": "Y",
+                     "haplogroup": "Q1b",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2df13434-a0e5-4a62-8f72-d9ba127da7af",
+                           "text": "Murray, M. et. al",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ]
+                  }
+               ],
                "history": [
                   {
                      "text": "No verifiable information about this *ajaw* (king) has been identified as of the publication date",
@@ -702,7 +770,7 @@
                      "imgdesc": "",
                      "latex": null,
                      "format": "markdown",
-                     "PostMention": ""
+                     "PostMention": "."
                   }
                ],
                "parents": [
@@ -734,7 +802,25 @@
                "sex": "male",
                "gender": "male",
                "is_real": true,
-               "haplogroup": null,
+               "haplogroup": [
+                  {
+                     "type": "Y",
+                     "haplogroup": "Q1b",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2df13434-a0e5-4a62-8f72-d9ba127da7af",
+                           "text": "Murray, M. et. al",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ]
+                  }
+               ],
                "history": [
                   {
                      "text": "Although there is limited information about this *ajaw* (king), he is better documented than others. For example, he is mentioned on Stela 34 and in the Papagayo Structure, located within Structure 10L-26, which is shown in its external view in **Figure 2**",
@@ -833,7 +919,25 @@
                "sex": "masculino",
                "gender": "masculino",
                "is_real": true,
-               "haplogroup": null,
+               "haplogroup": [
+                  {
+                     "type": "Y",
+                     "haplogroup": "Q1b",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2df13434-a0e5-4a62-8f72-d9ba127da7af",
+                           "text": "Murray, M. et. al",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ]
+                  }
+               ],
                "history": [
                   {
                      "text": "This *ajaw* (king) may have been mentioned on Quiriguá Monument 26, but this cannot be stated with certainty",
@@ -866,7 +970,7 @@
                      "imgdesc": "",
                      "latex": null,
                      "format": "markdown",
-                     "PostMention": ""
+                     "PostMention": "."
                   },
                   {
                      "text": "<p class=\"desc\"><img id=\"imgQuiringua26\" onclick=\"htImageZoom('imgQuiringua26', '0%')\" src=\"images/ResearchGate/Quirigua-Monument-26-c1-d9-drawing-by-linda-schele-FaMsi-ls-archive.png\" class=\"imgcenter\" style=\"height: 600px; width: 170px;\"/>Figure 2: Text inscribed on Quiriguá Monument 26 (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1ec17934-3c1e-470f-906d-08bc01a0d38a'); return false;\">Bíró, P., pp. 61, <htdate0></a>). Illustration by Linda Schele, made available under the <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).</p>",
@@ -914,8 +1018,26 @@
                "fullname": "Unidentified",
                "sex": "male",
                "gender": "male",
-               "is_real": true,
-               "haplogroup": null,
+               "is_real": false,
+               "haplogroup": [
+                  {
+                     "type": "Y",
+                     "haplogroup": "Q1b",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2df13434-a0e5-4a62-8f72-d9ba127da7af",
+                           "text": "Murray, M. et. al",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ]
+                  }
+               ],
                "history": [
                   {
                      "text": "This *ajaw* (king) is only mentioned on **Altar Q**",
@@ -948,7 +1070,7 @@
                      "imgdesc": "",
                      "latex": null,
                      "format": "markdown",
-                     "PostMention": ""
+                     "PostMention": "."
                   }
                ],
                "parents": [
@@ -1021,7 +1143,25 @@
                "sex": "male",
                "gender": "make",
                "is_real": true,
-               "haplogroup": null,
+               "haplogroup": [
+                  {
+                     "type": "Y",
+                     "haplogroup": "Q1b",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2df13434-a0e5-4a62-8f72-d9ba127da7af",
+                           "text": "Murray, M. et. al",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ]
+                  }
+               ],
                "history": [
                   {
                      "text": "His reign began in <htdate0>. In addition to his primary name, he was known by other epithets, including \"Jaguar Sun God\"",
@@ -1092,11 +1232,11 @@
                      "father_external_family_file": false,
                      "father_family": "",
                      "father_id": "e6229ffb-b566-4bfe-898c-a68523abf725",
-                     "father_name": "Desconocido",
+                     "father_name": "Unknown",
                      "mother_external_family_file": false,
                      "mother_family": "",
                      "mother_id": "633007cc-772d-48b3-859b-57ed34fa889b",
-                     "mother_name": "Desconocida"
+                     "mother_name": "Unknown"
                   }
                ],
                "birth": null,
@@ -1109,7 +1249,7 @@
                      "official": true,
                      "family_id": "",
                      "external_family_file": false,
-                     "name": "Desconocida",
+                     "name": "Unknown",
                      "history": null,
                      "date_time": {
                         "date": null,
@@ -1156,7 +1296,7 @@
                            "imgdesc": "",
                            "latex": null,
                            "format": "markdown",
-                           "PostMention": ""
+                           "PostMention": "."
                         }
                      ],
                      "adopted_child": false
@@ -1165,7 +1305,7 @@
                      "type": "hypothesis",
                      "id": "93c1a563-3029-4403-a941-305c5aa8be36",
                      "marriage_id": "79498381-a356-44b0-bef1-eae8bf72b72c",
-                     "name": "Desconocido",
+                     "name": "Unknown",
                      "family_id": "446a0a08-f07f-45f0-91a6-fece5677da09",
                      "external_family_file": false,
                      "add_link": true,
@@ -1190,7 +1330,7 @@
                            "imgdesc": "",
                            "latex": null,
                            "format": "markdown",
-                           "PostMention": ""
+                           "PostMention": "."
                         }
                      ],
                      "adopted_child": false
@@ -1269,6 +1409,452 @@
                               "year": "2020",
                               "month": "",
                               "day": ""
+                           }
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "id": "104eea25-a2ae-4dbc-ab7d-29672f597def",
+               "name": "Wi’ Yohl K’inich",
+               "surname": "",
+               "patronymic": "",
+               "fullname": "Wi’ Yohl K’inich",
+               "sex": "masculino",
+               "gender": "masculino",
+               "is_real": true,
+               "haplogroup": [
+                  {
+                     "type": "Y",
+                     "haplogroup": "Q1b",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2df13434-a0e5-4a62-8f72-d9ba127da7af",
+                           "text": "Murray, M. et. al",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "history": [
+                  {
+                     "text": "Among the principal achievements of this *ajaw* (king), was the initiation of Temple Rosalila's construction, which remained preserved despite multiple construction phases. **Figure 3** shows Rosalila's location in the Acropolis of Copán",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+                           "text": "Hutnick, Anastasia, pp. 47-48",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "latex": null,
+                     "format": "markdown",
+                     "PostMention": ":"
+                  },
+                  {
+                     "text": "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\" src=\"images/Copan/Temple16Copan.png\" class=\"imgcenter\"/>Figure 3: Informative panel at the Copán archaeological site (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Photograph taken on <htdate1> during a site visit.</p>",
+                     "source": null,
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "2024",
+                           "month": "-1",
+                           "day": "-1"
+                        },
+                        {
+                           "type": "gregory",
+                           "year": "2015",
+                           "month": "7",
+                           "day": "30"
+                        }
+                     ],
+                     "isTable": false,
+                     "imgdesc": "",
+                     "latex": null,
+                     "format": "html",
+                     "PostMention": ""
+                  },
+                  {
+                     "text": "The intentional spacing between construction phases preserved Rosalila's original structure, allowing its full-scale reconstruction at the site museum:",
+                     "source": null,
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "latex": null,
+                     "format": "markdown",
+                     "PostMention": ""
+                  },
+                  {
+                     "text": "<p class=\"desc\"><img id=\"imgCopanTemple2\" onclick=\"htImageZoom('imgCopanTemple2', '0%')\" src=\"images/Copan/RosalilaReconstruction.jpg\" class=\"imgcenter\"/>Figure 4: Upper section of Rosalila's full-scale reconstruction (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Photograph taken on <htdate1> during a site visit.</p>",
+                     "source": null,
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "2024",
+                           "month": "-1",
+                           "day": "-1"
+                        },
+                        {
+                           "type": "gregory",
+                           "year": "2015",
+                           "month": "7",
+                           "day": "30"
+                        }
+                     ],
+                     "isTable": false,
+                     "imgdesc": "",
+                     "latex": null,
+                     "format": "html",
+                     "PostMention": ""
+                  },
+                  {
+                     "text": "Rosalila was not this *ajaw* (king) only architectural project. He also oversaw renovations of the previous palace",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+                           "text": "Hutnick, Anastasia, pp. 48",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "latex": null,
+                     "format": "markdown",
+                     "PostMention": "."
+                  }
+               ],
+               "parents": [
+                  {
+                     "type": "hypothesis",
+                     "father_external_family_file": false,
+                     "father_family": "446a0a08-f07f-45f0-91a6-fece5677da09",
+                     "father_id": "e71f0fe9-405f-4dbe-b032-2fc2a48fee58",
+                     "father_name": "Bahlam Nehn",
+                     "mother_external_family_file": false,
+                     "mother_family": "",
+                     "mother_id": "79498381-a356-44b0-bef1-eae8bf72b72c",
+                     "mother_name": "Unknown"
+                  }
+               ],
+               "birth": null,
+               "baptism": null,
+               "marriages": null,
+               "divorced": null,
+               "children": null,
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "551",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city_id": "5f164ab9-430e-484f-88a5-ec014b16b515",
+                     "city": "Copán",
+                     "state_id": "",
+                     "state": "",
+                     "pc": "",
+                     "country_id": "L0bb6a72e-871b-4d17",
+                     "country": "Honduras",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+                           "text": "Hutnick, Anastasia, pp. 48",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "id": "93c1a563-3029-4403-a941-305c5aa8be36",
+               "name": "Unknown",
+               "surname": "",
+               "patronymic": "",
+               "fullname": "Unknown",
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
+               "haplogroup": [
+                  {
+                     "type": "Y",
+                     "haplogroup": "Q1b",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2df13434-a0e5-4a62-8f72-d9ba127da7af",
+                           "text": "Murray, M. et. al",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "history": [
+                  {
+                     "text": "The beginning of his reign in <htdate0> is recorded on the hieroglyphic stairway of Structure 10L-26, as shown in **Figure 1**. His rule ended in <htdate1>, when Jaguar Moon ascended to the throne",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "7e0542d1-a834-4fb4-95d0-9f084ac4a17e",
+                           "text": "Castillo, José Alfredo F., pp. 4",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2015",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+                           "text": "Hutnick, Anastasia, pp. 49",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "551",
+                           "month": "-1",
+                           "day": "-1"
+                        },
+                        {
+                           "type": "gregory",
+                           "year": "553",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "isTable": false,
+                     "imgdesc": "",
+                     "latex": null,
+                     "format": "markdown",
+                     "PostMention": "."
+                  }
+               ],
+               "parents": [
+                  {
+                     "type": "hypothesis",
+                     "father_external_family_file": false,
+                     "father_family": "446a0a08-f07f-45f0-91a6-fece5677da09",
+                     "father_id": "e71f0fe9-405f-4dbe-b032-2fc2a48fee58",
+                     "father_name": "Bahlam Nehn",
+                     "mother_external_family_file": false,
+                     "mother_family": "",
+                     "mother_id": "79498381-a356-44b0-bef1-eae8bf72b72c",
+                     "mother_name": "Unknown"
+                  }
+               ],
+               "birth": null,
+               "baptism": null,
+               "marriages": null,
+               "divorced": null,
+               "children": null,
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "553",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city_id": "5f164ab9-430e-484f-88a5-ec014b16b515",
+                     "city": "Copán",
+                     "state_id": "",
+                     "state": "",
+                     "pc": "",
+                     "country_id": "L0bb6a72e-871b-4d17",
+                     "country": "Honduras",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "7e0542d1-a834-4fb4-95d0-9f084ac4a17e",
+                           "text": "Castillo, José Alfredo F., pp. 4",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2015",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+                           "text": "Hutnick, Anastasia, pp. 49",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ]
+                  }
+               ]
+            },
+            {
+               "id": "41babe8f-c403-4e18-89a1-c70ab4e2497d",
+               "name": "Moon Jaguar",
+               "surname": "",
+               "patronymic": "",
+               "fullname": "Moon Jaguar",
+               "sex": "male",
+               "gender": "male",
+               "is_real": true,
+               "haplogroup": [
+                  {
+                     "type": "Y",
+                     "haplogroup": "Q1b",
+                     "sources": [
+                        {
+                           "type": 1,
+                           "uuid": "2df13434-a0e5-4a62-8f72-d9ba127da7af",
+                           "text": "Murray, M. et. al",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "-1",
+                              "day": "-1"
+                           }
+                        }
+                     ]
+                  }
+               ],
+               "history": [
+                  {
+                     "text": "In addition to having a longer reign than his supposed brothers, this *ajaw* (king) is also notable for erecting two stelae (Stelae 9 and 17), which were placed in the village rather than the Acropolis. Moreover, Stela 9 associates this *ajaw* (king) with his father",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+                           "text": "Hutnick, Anastasia, pp. 50-51",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "latex": null,
+                     "format": "markdown",
+                     "PostMention": "."
+                  },
+                  {
+                     "text": "While his ancestry is explicit, there is no information linking him to subsequent ajawob (kings). Because of this, we will further divide the lineage.",
+                     "source": null,
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "latex": null,
+                     "format": "markdown",
+                     "PostMention": ""
+                  }
+               ],
+               "parents": [
+                  {
+                     "type": "theory",
+                     "father_external_family_file": false,
+                     "father_family": "446a0a08-f07f-45f0-91a6-fece5677da09",
+                     "father_id": "e71f0fe9-405f-4dbe-b032-2fc2a48fee58",
+                     "father_name": "Bahlam Nehn",
+                     "mother_external_family_file": false,
+                     "mother_family": "",
+                     "mother_id": "79498381-a356-44b0-bef1-eae8bf72b72c",
+                     "mother_name": "Desconhecida"
+                  }
+               ],
+               "birth": null,
+               "baptism": null,
+               "marriages": null,
+               "divorced": null,
+               "children": null,
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "578",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
+                     "address": "",
+                     "city_id": "5f164ab9-430e-484f-88a5-ec014b16b515",
+                     "city": "Copán",
+                     "state_id": "",
+                     "state": "",
+                     "pc": "",
+                     "country_id": "L0bb6a72e-871b-4d17",
+                     "country": "Honduras",
+                     "sources": [
+                        {
+                           "type": 0,
+                           "uuid": "7e0542d1-a834-4fb4-95d0-9f084ac4a17e",
+                           "text": "Castillo, José Alfredo F., pp. 4",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2015",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+                           "text": "Hutnick, Anastasia, pp. 49",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2020",
+                              "month": "-1",
+                              "day": "-1"
                            }
                         }
                      ]

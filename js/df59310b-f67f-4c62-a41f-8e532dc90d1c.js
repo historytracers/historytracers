@@ -19,6 +19,7 @@ function htPlusDivs(n) {
 function htLoadExercise() {
     htAddAlterQImages(".htSlides");
     htPlusDivs(0);
+    htAddTreeReflection("#myFirstReflection", 55);
 
     if (localAnswerVector == undefined) {
         localAnswerVector = htLoadAnswersFromExercise();
