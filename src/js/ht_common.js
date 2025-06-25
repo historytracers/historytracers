@@ -2210,7 +2210,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     } else if (couple.mother_name != undefined && couple.mother_family != undefined && couple.mother_family != familyID && couple.mother_family > 0) {
                         parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+couple.mother_name+"</a>";
                     } else {
-                        parentsLink += couple.mother_name;
+                        parentsLink += " & " +couple.mother_name;
                     }
                 }
 
