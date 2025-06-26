@@ -252,7 +252,14 @@
                ],
                "birth": [
                   {
-                     "date": null,
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "2010",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
                      "address": "The address where the marriage took place.",
                      "city_id": "",
                      "city": "The city where the marriage occurred.",
@@ -278,7 +285,14 @@
                ],
                "baptism": [
                   {
-                     "date": null,
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "2010",
+                           "month": "-1",
+                           "day": "-1"
+                        }
+                     ],
                      "address": "The address where the marriage took place.",
                      "city_id": "",
                      "city": "The city where the marriage occurred.",
