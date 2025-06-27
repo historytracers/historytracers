@@ -2178,7 +2178,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
             } else {
                 var parentsLink = "";
                 var name = "";
-                if (father != undefined && father != null) {
+                if (father != undefined && father != null && couple.father_family.length > 0) {
                     global_father = father;
                     parents_id += father + "-";
 
@@ -2190,6 +2190,8 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     } else {
                         parentsLink += couple.father_name+" & ";
                     }
+                } else {
+                    parentsLink += couple.father_name+" & ";
                 }
                 parents_id += "-";
 
@@ -2198,7 +2200,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
 
                     name = personNameMap.get(mother);
                     if (name != undefined) {
-                        if (couple.mother_family != undefined) {
+                        if (couple.mother_family != undefined && couple.mother_family.length > 0) {
                             if (couple.mother_family == familyID || (couple.mother_external_family_file != undefined && couple.mother_external_family_file == false)) {
                                 parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+mother+"'); htFillTree('"+mother+"'); htSetCurrentLinkBasis('"+page+"', '"+mother+"',"+undefined+");\">" +name+"</a>";
                             } else {
@@ -2210,7 +2212,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     } else if (couple.mother_name != undefined && couple.mother_family != undefined && couple.mother_family != familyID && couple.mother_family > 0) {
                         parentsLink += "<a href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+couple.mother_name+"</a>";
                     } else {
-                        parentsLink += couple.mother_name;
+                        parentsLink += " & " +couple.mother_name;
                     }
                 }
 
