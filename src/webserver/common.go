@@ -50,6 +50,7 @@ type HTSource struct {
 	Type int    `json:"type"`
 	UUID string `json:"uuid"`
 	Text string `json:"text"`
+	Page string `json:"page"`
 	Date HTDate `json:"date_time"`
 }
 
@@ -321,8 +322,8 @@ func htUpdateSourceFile(src *HTSourceFile, filename string) {
 
 }
 
-func htLoadSources(fileName string) {
-	srcPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, fileName)
+func htRewriteSource(fileName string) {
+	srcPath := fmt.Sprintf("%slang/sources/%s", CFG.SrcPath, fileName)
 
 	jsonFile, err := os.Open(srcPath)
 	if err != nil {
@@ -346,6 +347,22 @@ func htLoadSources(fileName string) {
 	jsonFile.Close()
 
 	htUpdateSourceFile(&src, srcPath)
+}
+
+func htRewriteSources() {
+	srcDir := fmt.Sprintf("%slang/sources/", CFG.SrcPath)
+	entries, err := os.ReadDir(srcDir)
+	if err != nil {
+		panic(err)
+	}
+
+	for _, fileName := range entries {
+		if fileName.IsDir() {
+			continue
+		} else {
+			htRewriteSource(fileName.Name())
+		}
+	}
 }
 
 func htRewriteSourceFileTemplate() {
