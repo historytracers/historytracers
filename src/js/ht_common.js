@@ -1352,6 +1352,8 @@ function htWriteNavigation(index)
 
 function htFillTopIdx(idx, data, first)
 {
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
     var prev = first;
     idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57]});
     for (const i in data.content) {
@@ -1366,14 +1368,14 @@ function htFillTopIdx(idx, data, first)
             if (fillNext != undefined) {
                 fillNext.next = table[j].id;
             }
-            var pos = table[j].name.length;
+            var show_text = table[j].name;
             if (first == "families") {
-                var testing = table[j].name.search("\\(<span");
-                if (testing > 0) {
-                    pos = testing;
+                var testing = show_text.search("\\(<htdate");
+                if (testing > 0 && data.content[i].date_time != undefined) {
+                    show_text = htOverwriteHTDateWithText(show_text, data.content[i].date_time, localLang, localCalendar);
                 }
             }
-            idx.set(table[j].id, {"prev" : prev, "next" : undefined, "name" : table[j].name.substring(0, pos) });
+            idx.set(table[j].id, {"prev" : prev, "next" : undefined, "name" : show_text});
             prev = table[j].id;
         }
     }
@@ -2601,4 +2603,3 @@ function htAddAlterQImages(id)
     }
     $(id).append("<i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i> <i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i>");
 }
-
