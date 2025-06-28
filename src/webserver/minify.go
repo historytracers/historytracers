@@ -543,6 +543,9 @@ func HTMinifyAllFiles() {
 	// Create directories
 	htMinifyCreateDirectories()
 
+	// Rewrite Sources
+	htRewriteSources()
+
 	var err error
 	err = htMinifyJS()
 	if err != nil {

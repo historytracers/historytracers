@@ -13,3 +13,7 @@ install_modules:
 
 clean:
 	rm -rf historytracers
+
+update_modules:
+	go get -u
+	go mod tidy

@@ -102,8 +102,9 @@ function htParseIndexRequest() {
             case 'genealogical_map_list':
             case 'class_content':
                 if (urlParams.has('arg')) {
+                    var larg = urlParams.get('arg');
                     var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
-                    var finalArg = (lperson.length == 0) ? urlParams.get('arg') : larg+'&person_id='+lperson;
+                    var finalArg = (lperson.length == 0) ? larg : larg+'&person_id='+lperson;
                     htLoadPage(page,'html', finalArg, false);
                 } else {
                     htLoadPage(page,'html', '', false);

@@ -1,730 +1,851 @@
 {
-    "info" : "General information about images used.",
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1729884649" ],
-    "authors" : null,
-    "reviewers" : null,
-    "version" : 1,
-    "type" : "sources",
-    "primary_sources" : [
-       {
-           "id" : "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-           "citation" : "Poma de Ayala, Felipe Guaman (1615). Primer Nueva Corónica y Buen Gobierno - Manuscrito",
-           "date" : "2024-02-13",
-           "url" : "https://archive.org/details/primer-nueva-coronica-y-buen-gobierno-manuscrito"
-       },
-       {
-           "id" : "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
-           "citation" : "Poma de Ayala, Felipe Guaman (1936). Nueva Corónica y Buen Gobierno.",
-           "date" : "2024-02-13",
-           "url" : "https://biblioteca.clacso.edu.ar/clacso/se/20191121014717/Nueva_coronica_y_buen_gobierno_1.pdf"
-       },
-       {
-           "id" : "b5e0b575-280f-485f-971e-6702e6c7bc19",
-           "citation" : "\"atlas\". <i>Dicionário da Língua Portuguesa. Academia das Ciências de Lisboa</i>.",
-           "date": "2024-10-25",
-           "url": "https://dicionario.acad-ciencias.pt/pesquisa/?word=atlas"
-       },
-       {
-           "id" : "4d98df05-928d-4a85-8df3-62f05594556c",
-           "citation" : "\"atlas\". <i>Real Academia Española</i>",
-           "date": "2024-10-25",
-           "url": "https://dle.rae.es/atlas"
-       },
-       {
-           "id" : "9592bef7-96e8-46dc-8d43-26c67d33b2c5",
-           "citation" : "\"atlas\". <i>Cambridge Dictionary</i>",
-           "date": "2024-10-25",
-           "url": "https://dictionary.cambridge.org/dictionary/english/atlas"
-       },
-       {
-           "id" : "5e23a3eb-7323-44ab-b9e1-88acfd1e21a6",
-           "citation" : "Clay tablet. <i>The British Museum</i>",
-           "date" : "2023-10-06",
-           "url" : "https://www.britishmuseum.org/collection/object/W_1882-0714-509" 
-       }
-    ],
-    "reference_sources" : [
-       {
-           "id" : "b5efc8f9-c268-430f-9681-7a43848ee48e",
-           "citation" : "History Tracers (2024). First steps",
-           "date" : "2024-06-13",
-           "url" : "index.html?page=first_steps"
-       },
-       {
-           "id" : "2806b294-0d2a-4ca2-8008-b2b82791427a",
-           "citation" : "History Tracers Team (2024). Understanding Text",
-           "date" : "2024-01-29",
-           "url" : "index.html?page=literature"
-       },
-       {
-           "id" : "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
-           "citation" : "<i>Mapswire</i>",
-           "date" : "2023-10-24",
-           "url" : "https://mapswire.com" 
-       },
-       {
-           "id" : "c0a6fd42-b5b9-4745-b242-f0b2a84aaccf",
-           "citation" : "Yoshii, Yuzuru, et al. (2022). Potential Signature of Population III Pair-Instability Supernova Ejecta in the BLR Gas of the Most Distant Quasar at z = 7.54. 2022. DOI.org (Datacite)",
-           "date" : "2024-01-15",
-           "url" : "https://doi.org/10.48550/ARXIV.2207.11909"
-       },
-       {
-           "id" : "d4ed59c5-0332-4f5a-a662-dcf5549616ba",
-           "citation" : "NASA, Stars",
-           "date" : "2024-01-15",
-           "url" : "https://science.nasa.gov/astrophysics/focus-areas/how-do-stars-form-and-evolve/"
-       },
-       {
-           "id" : "d7243fd4-4bf5-4018-ab27-9d9bdd5696e3",
-           "citation" : "Sacani, Sérgio (2017). Sem Big Bang, Sem Universo - Space Today TV Ep.750. <i>Space Today, Youtube Channel</i>",
-           "date" : "2024-02-17",
-           "url" : "https://www.youtube.com/watch?v=obbAUK3V1oA"
-       },
-       {
-           "id" : "57d899ce-113b-40b2-b29d-d9b38be14607",
-           "citation" : "Stefanelli, Jeferson (2024). A vida das estrelas. <i>Universo Genial, Youtube Channel</i>",
-           "date" : "2024-10-26",
-           "url" : "https://www.youtube.com/shorts/ahjWUaDtx_s"
-       },
-       {
-           "id" : "e6b9585f-6b26-4e01-b801-536609492251",
-           "citation" : "Sacani, Sérgio (2019). Grandes Dúvidas Sobre As Teorias de Formação de Estrelas - Space Today TV Ep.1237. <i>Space Today, Youtube Channel</i>",
-           "date" : "2024-02-20",
-           "url" : "https://www.youtube.com/watch?v=jxJf9uIE1do"
-       },
-       {
-           "id" : "79d13e10-a273-420f-bbb6-61e06a499a85",
-           "citation" : "Sacani, Sérgio (2017). Formação de Planetas Em Tempo Real - Space Today TV Ep.919. <i>Space Today, Youtube Channel</i>",
-           "date" : "2024-10-26",
-           "url" : "https://www.youtube.com/watch?v=KeSnTfbCPLU"
-       },
-       {
-           "id" : "87856c77-7a50-48ef-98b6-a22211d28b0f",
-           "citation" : "PBS/NASA (2024). The NASA Planetary Science Collection on PBS LearningMedia is contributed by WGBH Educational Foundation. It is a collaborative production of WGBH Education, the WGBH Media Library, and WGBH Digital.",
-           "date" : "2024-02-20",
-           "url" : "https://www.pbslearningmedia.org/resource/npls13.sci.ess.eiu.planetevol/the-formation-of-stars-nasa-planetary-sciences/"
-       },
-       { 
-           "id" : "28bbb4a2-2b1c-4704-ac30-110753f74d23",
-           "citation" : "Morfill, G., et al. (1978). The Dynamics of Dust in a Collapsing Protostellar Cloud and Its Possible Role in Planet Formation. <i>The Moon and the Planets, vol. 19, no. 2</i>. Oct. 1978. pp. 211–20. DOI.org (Crossref)",
-           "date" : "2024-01-17",
-           "url" : "https://doi.org/10.1007/BF00896994"
-       },
-       { 
-           "id" : "cfa22d73-c494-4b2d-b9d5-d19292c61b09",
-           "citation" : "Birnstiel, T., Fang, M. & Johansen, A. (2016). Dust Evolution and the Formation of Planetesimals. <i>Space Sci Rev 205</i>. 41–75 (2016).",
-           "date" : "2024-01-17",
-           "url" : "https://doi.org/10.1007/s11214-016-0256-1"
-       },
-       { 
-           "id" : "722f0c13-990d-4452-bd95-6cc9f7031bf1",
-           "citation" : "Leinhardt, Zoe M., and Derek C. Richardson. (2005). Planetesimals to Protoplanets. I. Effect of Fragmentation on Terrestrial Planet Formation. <i>The Astrophysical Journal, vol. 625, no. 1</i>. May 2005. pp. 427–40. DOI.org (Crossref)",
-           "date" : "2024-01-18",
-           "url" : "https://doi.org/10.1086/429402"
-       },
-       { 
-           "id" : "4326e165-e43d-4436-9d0f-500faac7a633",
-           "citation" : "Science Reference Section (2023). Why is Pluto no longer a planet?. <i>Library of Congress</i>",
-           "date" : "2024-01-19",
-           "url" : "https://www.loc.gov/everyday-mysteries/astronomy/item/why-is-pluto-no-longer-a-planet/#:~:text=Answer,neighboring%20region%20of%20other%20objects.%E2%80%9D"
-       },
-       { 
-           "id" : "e9951a6d-02aa-48ab-a2ed-77a8282d97d3",
-           "citation" : "Hogeback, J. (2016). Why Is Pluto No Longer a Planet?. <i>Encyclopedia Britannica</i>.",
-           "date" : "2024-01-19",
-           "url" : "https://www.britannica.com/story/why-is-pluto-no-longer-a-planet"
-       },
-       { 
-           "id" : "16797baa-f339-4753-8c5f-66dbfeae3abd",
-           "citation" : "Stannard, W. B. (2018). Why do things fall? How to explain why gravity is not a force. In <i>Physics Education (Vol. 53, Issue 2, p. 025007).</i> IOP Publishing. https://doi.org/10.1088/1361-6552/aa9d6e",
-           "date" : "2024-10-24",
-           "url" : "https://www.researchgate.net/publication/322254276_Why_do_things_fall_How_to_explain_why_gravity_is_not_a_force"
-       },
-       {
-           "id" : "cd738b4d-32bd-4ea6-8aef-6653d961de19",
-           "citation" : "Hossenfelder, Sabine (2021). Is Gravity a Force?. <i>Sabine Hossenfelder, Youtube Channel</i>",
-           "date" : "2024-02-19",
-           "url" : "https://www.youtube.com/watch?v=EmrZ3ZaXmS4"
-       },
-       {
-           "id" : "1df98dc5-523f-42ae-9a69-3e9410849ebb",
-           "citation" : "Hossenfelder, Sabine (2024). Gravity is not a force. But what does that mean?. <i>Sabine Hossenfelder, Youtube Channel</i>",
-           "date" : "2024-02-19",
-           "url" : "https://www.youtube.com/watch?v=R3LjJeeae68"
-       },
-       {
-           "id" : "76b636be-45db-4e52-8ecd-5c873344f926",
-           "citation" : "Lincoln, Don (2023). Is gravity a force?. <i>Fermilab, Youtube Channel</i>",
-           "date" : "2024-02-19",
-           "url" : "https://www.youtube.com/watch?v=ZHxoM9lvzVA"
-       },
-       {
-           "id" : "d269a387-b20c-435e-ad52-0a6af4a852d7",
-           "citation" : "Quantum Fracture (2018). La Gravedad NO ES UNA FUERZA | El Principio de Equivalencia. <i>QuantumFracture, Youtube Channel</i>",
-           "date" : "2024-02-20",
-           "url" : "https://www.youtube.com/watch?v=7vhc-hMWclY"
-       },
-       {
-           "id" : "44d06c2e-afbc-4248-95cb-5b507205e532",
-           "citation" : "Hu, X., Shum, C.K. & Bevis, M. (2023). A triaxial reference ellipsoid for the Earth. <i>J Geod 97</i>, 29",
-           "date" : "2024-05-11",
-           "url" : "https://doi.org/10.1007/s00190-023-01717-1" 
-       },
-       {
-           "id" : "424c993c-5af2-4add-954f-35bc5312621f",
-           "citation" : "Gravity/Gravitational Field. <i>Physical Oceanography Distributed Active Archive Center</i>",
-           "date" : "2024-10-27",
-           "url" : "https://podaac.jpl.nasa.gov/gravity" 
-       },
-       {
-           "id" : "6808958a-781b-4088-85ca-1551c078a2ed",
-           "citation" : "Adamopoulos, K., Koutsouris, D., Zaravinos, A., & Lambrou, G. I. (2021). Gravitational Influence on Human Living Systems and the Evolution of Species on Earth. In <i>Molecules (Vol. 26, Issue 9, p. 2784).</i> MDPI AG.",
-           "date" : "2024-10-27",
-           "url" : "https://doi.org/10.3390/molecules26092784" 
-       },
-       {
-           "id" : "a6be3657-2567-4db5-b645-d5f65ea957fa",
-           "citation" : "Tong, David (2013). David Tong: Lectures on Dynamics and Relativity. <i>University of Cambridge</i>",
-           "date" : "2024-10-27",
-           "url" : "https://www.damtp.cam.ac.uk/user/tong/relativity.html" 
-       },
-       {
-           "id" : "2451d5b3-6232-435b-9505-750b7459fdfe",
-           "citation" : "Britannica, The Editors of Encyclopaedia (2024-09-20). escape velocity. <i>Encyclopedia Britannica</i>",
-           "date" : "2024-10-27",
-           "url" : "https://www.britannica.com/science/escape-velocity" 
-       },
-       {
-           "id" : "021534bf-9945-43c6-ae30-7d1bcd43aecd",
-           "citation" : "Windley, Brian Frederick (2024-04-05). geologic history of Earth. <i>Encyclopedia Britannica</i>",
-           "date" : "2024-10-27",
-           "url" : "https://www.britannica.com/science/geologic-history-of-Earth" 
-       },
-       {
-           "id" : "2440434d-29ba-4475-814e-a15eec9e63c2",
-           "citation" : "Andel, Tjeerd H. van and Murphy, J. Brendan (2024-09-10). plate tectonics. <i>Encyclopedia Britannica</i>",
-           "date" : "2024-10-27",
-           "url" : "https://www.britannica.com/science/plate-tectonics" 
-       },
-       {
-           "id" : "d8dee061-0e72-4ca5-bfe3-bcfa3c42b070",
-           "citation" : "Redacción National Geographic (2024-07-08). ¿Cuál es el origen del término Gondwana?. <i>National Geographic</i>",
-           "date" : "2024-10-27",
-           "url" : "https://www.nationalgeographicla.com/historia/2024/07/cual-es-el-origen-del-termino-gondwana" 
-       },
-       {
-           "id" : "9b86417a-a5bf-4211-bc42-ee8a1d3739c0",
-           "citation" : "Britannica, T. Editors of Encyclopaedia (2024-10-14). Gondwana. <i>Encyclopedia Britannica</i>",
-           "date" : "2024-10-27",
-           "url" : "https://www.britannica.com/place/Gondwana-supercontinent" 
-       },
-       {
-           "id" : "06780f2e-073c-4da7-869e-945ecd275316",
-           "citation" : "Stampfli, G. M., Hochard, C., Vérard, C., Wilhem, C., & vonRaumer, J. (2013). The formation of Pangea. <i>In Tectonophysics (Vol. 593, pp. 1–19).</i> Elsevier BV. https://doi.org/10.1016/j.tecto.2013.02.037",
-           "date" : "2024-10-27",
-           "url" : "https://www.researchgate.net/publication/241002325_The_formation_of_Pangea" 
-       },
-       {
-           "id" : "8634e87f-9ea9-4fdd-9a26-ae3b33e17af1",
-           "citation" : "Britannica, T. Editors of Encyclopaedia (2024, July 22). Pangea. <i>Encyclopedia Britannica.</i>",
-           "date" : "2024-10-27",
-           "url" : "https://www.britannica.com/place/Pangea" 
-       },
-       {
-           "id" : "ebf2075b-3cf5-46a1-b203-1f568b6da374",
-           "citation" : "Bushnell, D. and Woodward, . Ralph Lee (2024, October 27). Central America. <i>Encyclopedia Britannica.</i>",
-           "date" : "2024-10-27",
-           "url" : "https://www.britannica.com/place/Central-America" 
-       },
-       {
-           "id" : "99888d29-5332-4a50-af2c-c8007e318082",
-           "citation" : "Britannica, T. Editors of Encyclopaedia (2024, November 3). Urartu. <i>Encyclopedia Britannica.</i>" ,
-           "date" : "2024-11-08",
-           "url" : "https://www.britannica.com/place/Urartu" 
-       },
-       {
-           "id" : "59c0b962-d032-4b6c-9498-2341e089510b",
-           "citation" : "Allmon, Warren D., Picconi, Jane A., Greb, Stephen F., Smith, Charles C. <i>Paleontological Research Institute</i>",
-           "date" : "2024-10-28",
-           "url" : "https://earthathome.org/hoe/se/geologic-history/#triassic-jurassic-pangaea" 
-       },
-       {
-           "id" : "750e84b5-9330-4f99-92b0-72469a6a64f4",
-           "citation" : "Allmon, Warren D., Picconi, Jane A., Greb, Stephen F., Smith, Charles C. <i>The teacher-frindly Guide</i>",
-           "date" : "2024-10-28",
-           "url" : "https://geology.teacherfriendlyguide.org/index.php/downloads-se" 
-       },
-       {
-           "id" : "1a426c74-8e9c-4022-90dc-2a1b9b4ac129",
-           "citation" : "Stover, Christopher and Weisstein, Eric W. Polar Coordinates. <i>From MathWorld--A Wolfram Web Resource</i>",
-           "date" : "2024-10-28",
-           "url" : "https://mathworld.wolfram.com/PolarCoordinates.html" 
-       },
-       {
-           "id" : "fd003897-89a6-4d01-ae79-da9e564d9583",
-           "citation" : "Weisstein, Eric W.. Spherical Coordinates. <i>From MathWorld--A Wolfram Web Resource</i>",
-           "date" : "2024-10-30",
-           "url" : "https://mathworld.wolfram.com/SphericalCoordinates.html" 
-       },
-       {
-           "id" : "98aee156-df44-4def-a664-a7db2131c33d",
-           "citation" : "Weisstein, Eric W.. Latitude. <i>From MathWorld--A Wolfram Web Resource</i>",
-           "date" : "2024-11-02",
-           "url" : "https://mathworld.wolfram.com/Latitude.html" 
-       },
-       {
-           "id" : "a7fe67e6-2487-4463-b09e-82de4a04b46c",
-           "citation" : "Weisstein, Eric W.. Longitude. <i>From MathWorld--A Wolfram Web Resource</i>",
-           "date" : "2024-11-02",
-           "url" : "https://mathworld.wolfram.com/Longitude.html" 
-       },
-       {
-           "id" : "e6658b62-fb15-446c-ab20-44f2b6459b1d",
-           "citation" : "Weisstein, Eric W.. Plane. <i>From MathWorld--A Wolfram Web Resource</i>",
-           "date" : "2024-11-03",
-           "url" : "https://mathworld.wolfram.com/Plane.html" 
-       },
-       {
-           "id" : "eb59db91-042f-4acb-8211-47eac4348c94",
-           "citation" : "Weisstein, Eric W.. Sine. <i>From MathWorld--A Wolfram Web Resource</i>",
-           "date" : "2024-11-11",
-           "url" : "https://mathworld.wolfram.com/Sine.html" 
-       },
-       {
-           "id" : "92e66bd4-1d7f-4f28-bed2-f62210493341",
-           "citation" : "Weisstein, Eric W.. Cosine. <i>From MathWorld--A Wolfram Web Resource</i>",
-           "date" : "2024-11-11",
-           "url" : "https://mathworld.wolfram.com/Cosine.html" 
-       },
-       {
-           "id" : "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
-           "citation" : "Weisstein, Eric W.. Trigonometry. <i>From MathWorld--A Wolfram Web Resource</i>",
-           "date" : "2024-11-11",
-           "url" : "https://mathworld.wolfram.com/Trigonometry.html" 
-       },
-       {
-           "id" : "69ab4b6c-69b4-466b-9410-7d7b6c2be4fc",
-           "citation" : "Stover, Christopher and Weisstein, Eric W. Cartesian Coordinates. <i>From MathWorld--A Wolfram Web Resource</i>",
-           "date" : "2024-11-13",
-           "url" : "https://mathworld.wolfram.com/CartesianCoordinates.html" 
-       },
-       {
-           "id" : "411ca4da-ce37-4c63-9bd1-b727659fdf09",
-           "citation" : "Stover, Christopher and Weisstein, Eric W. Polar Coordinates. <i>From MathWorld--A Wolfram Web Resource</i>",
-           "date" : "2024-11-13",
-           "url" : " https://mathworld.wolfram.com/PolarCoordinates.html" 
-       },
-       {
-           "id" : "006b21c9-6800-4deb-bb3f-a367dd38b703",
-           "citation" : "NOAA (2024-06-16). What is longitude?. <i>National Ocean Service website </i>",
-           "date" : "2024-10-31",
-           "url" : "https://oceanservice.noaa.gov/facts/longitude.html" 
-       },
-       {
-           "id" : "72ea1365-bb46-4036-a9e2-7384896e0a28",
-           "citation" : "NOAA (2024-06-16). What is latitude?. <i>National Ocean Service website </i>",
-           "date" : "2024-10-31",
-           "url" : "https://oceanservice.noaa.gov/facts/latitude.html" 
-       },
-       {
-           "id" : "7b82ec3f-a292-48b4-8945-58e2d154f499",
-           "citation" : "Brown, Cynthia S.. READ: Eratosthenes of Cyrene. <i>Khan Academy</i>",
-           "date" : "2024-11-01",
-           "url" : "https://www.khanacademy.org/humanities/big-history-project/solar-system-and-earth/knowing-solar-system-earth/a/eratosthenes-of-cyrene" 
-       },
-       {
-           "id" : "bd3c511d-a7c6-4720-9956-b863578fe58b",
-           "citation" : "Sparavigna, Amelia C. (2014). Al-Biruni and the Mathematical Geography. <i>Philica</i>",
-           "date" : "2024-11-01",
-           "url" : "https://hal.science/hal-02264631v1" 
-       },
-       {
-           "id" : "924f3991-5eec-4639-b307-5ce39447f6f6",
-           "citation" : "Earth Fact Sheet. <i>NASA</i>",
-           "date": "2024-07-20",
-           "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html"
-       },
-       {
-           "id" : "27864fd8-e7f7-4a2f-85c7-e1453e3c5234",
-           "citation" : "Abdul Karim Khan (2013). Asian Civilization-Part01-Introduction. <i>Abdul Karim Khan - Youtube Channel</i>",
-           "date": "2024-11-02",
-           "url": "https://www.youtube.com/watch?v=vbdcSxtsj9A"
-       },
-       {
-           "id" : "c7b8241f-ae72-43e3-9403-95db77b6258c",
-           "citation" : "Abdul Karim Khan (2013). Asian Civilization-Part03-Pre-Historic Asia. <i>Abdul Karim Khan - Youtube Channel</i>",
-           "date": "2024-11-09",
-           "url": "https://www.youtube.com/watch?v=j-BeKJtyWC8"
-       },
-       {
-           "id" : "fd8c673c-48e1-4dc4-af81-ced66c390e36",
-           "citation" : "Rabbi Dr. Yitzchok Breitowitz (2021). Is the Book of Genesis Literal?. <i>Jewish Learning Institute - Youtube Channel</i>",
-           "date": "2024-11-10",
-           "url": "https://www.youtube.com/watch?v=DHsQYJswoDw"
-       },
-       {
-           "id" : "1804b247-7fe8-4cff-a4e2-91accbaa936a",
-           "citation" : "Tokyo Latitude. <i>Google Search</i>",
-           "date": "2024-11-02",
-           "url": "https://g.co/kgs/dyUtcpw"
-       },
-       {
-           "id" : "fb327056-722a-41e9-9f72-e1e77a5318c9",
-           "citation" : "Montevideo Latitude. <i>Google Search</i>",
-           "date": "2024-11-02",
-           "url": "https://g.co/kgs/4TDZXJj"
-       },
-       {
-           "id" : "910e016f-246e-44dc-8f76-430fe6e9c01d",
-           "citation" : "Britannica, T. Editors of Encyclopaedia. matter. <i>Encyclopedia Britannica</i>",
-           "date": "2024-11-03",
-           "url": "https://www.britannica.com/science/matter"
-       },
-       {
-           "id" : "d94d235c-a97d-48dd-a18c-6b7d6db9e8ab",
-           "citation" : "Russel, Jeffrey B. (1991). <i>Inventing the Flat Earth - Columbus And Modern Historians </i>. Praeger Publishers. One Madson Avenue. New York, NY",
-           "date": null,
-           "url": null
-       },
-       {
-           "id" : "f7fe2b60-85fc-4c16-8fe7-120f7b9236a4",
-           "citation" : "Gould, Stephan J. (1996). <i>Dinosaur in a Haystack: Reflections in Natural History</i>. New York",
-           "date": null,
-           "url": "http://w3.inf.fu-berlin.de/lehre/SS05/efs/materials/FlatEarth.pdf"
-       },
-       {
-           "id" : "2c731ac7-93ae-4e9b-98d6-6f28c7681735",
-           "citation" : "National Concil of Education Research and Training (2024). Map Projection",
-           "date": "2024-11-03",
-           "url": "https://ncert.nic.in/textbook/pdf/kegy304.pdf"
-       },
-       {
-           "id" : "b1e795e3-2c39-4df1-822e-5a81b15e2b4a",
-           "citation" : "Aslanbek Naziev. (2017). How to draw a cone easily and correctly? Unpublished.",
-           "date": "2024-11-03",
-           "url": "https://doi.org/10.13140/RG.2.2.19840.43520"
-       },
-       {
-           "id" : "81161bc9-dd2a-4a11-906d-10427a5946d6",
-           "citation" : "Finkel, I. (2024). The Babylonian Map of the World with Irving Finkel | Curator’s Corner S9 Ep5. <i>The British Museum</i>",
-           "date" : "2024-09-08",
-           "url" : "https://www.youtube.com/watch?v=LUxFzh8r384"
-       },
-       {
-           "id" : "8637140f-b357-45d4-8c59-e39a289096ab",
-           "citation" : "Finkel, I. (2016). Irving Finkel | The Ark Before Noah: A Great Adventure. <i>The Institute for the Study of Ancient Culturs</i>",
-           "date" : "2024-09-15",
-           "url" : "https://www.youtube.com/watch?v=s_fkpZSnz2I"
-       },
-       {
-           "id" : "3dae3fac-de9e-41d8-9bf9-5718d118ba5f",
-           "citation" : "Peru: Cradle of Civilization. <i>Museo Larco</i>",
-           "date" : "2024-09-13",
-           "url" : "https://www.museolarco.org/en/exhibition/permanent-exhibition/online-exhibition/introduction/peru-cradle-of-civilization/"
-       },
-       {
-           "id" : "893e651f-8354-4d9a-b182-893512a3bbbe",
-           "citation" : "History Tracers Editors (2024). <i>Cradles of civilization (Part I)</i>",
-           "date" : "2024-11-03",
-           "url" : "index.html?page=class_content&arg=b8445908-98ab-4a8e-b5bc-a8abcbcaf973" 
-       },
-       {
-           "id" : "2be849f1-551b-44eb-8fc6-87027dbf8a68",
-           "citation" : "Mounier, A., & Mirazón Lahr, M. (2019). Deciphering African late middle Pleistocene hominin diversity and the origin of our species. In <i>Nature Communications (Vol. 10, Issue 1).</i> Springer Science and Business Media LLC.",
-           "date" : "2024-11-04",
-           "url" : "https://doi.org/10.1038/s41467-019-11213-w" 
-       },
-       {
-           "id" : "ed998d95-1afb-4021-9181-2c81d1d9ecd5",
-           "citation" : "Arango-Isaza, E., Capodiferro, M. R., Aninao, M. J., Babiker, H., Aeschbacher, S., Achilli, A., Posth, C., Campbell, R., Martínez, F. I., Heggarty, P., Sadowsky, S., Shimizu, K. K., & Barbieri, C. (2023). The genetic history of the Southern Andes from present-day Mapuche ancestry. In <i>Current Biology (Vol. 33, Issue 13, pp. 2602-2615.e5)</i>. Elsevier BV.",
-           "date" : "2024-11-04",
-           "url" : "https://doi.org/10.1016/j.cub.2023.05.013" 
-       },
-       {
-           "id" : "cff99ec5-cb25-40ef-b2ee-410a75e73a6e",
-           "citation" : "National Geographic Education. Global Human Journey.",
-           "date" : "2024-11-04",
-           "url" : "https://education.nationalgeographic.org/resource/global-human-journey/" 
-       },
-       {
-           "id" : "064c3691-1f4c-491b-b643-150c011b4525",
-           "citation" : "Goebel, Ted, et al. (2008): \"The Late Pleistocene Dispersal of Modern Humans in the Americas.\", Science, vol. 319, no. 5869, Mar. 2008, pp. 1497–502. DOI.org (Crossref) https://doi.org/10.1126/science.1153569",
-           "date" : "2023-11-18",
-           "url" : "https://www.researchgate.net/publication/5512275_The_Late_Pleistocene_Dispersal_of_Modern_Humans_in_the_Americas"
-       },
-       {
-           "id" : "160fb48c-1711-491e-a1aa-e1257e7889af",
-           "citation" : "Norma Giarraca (comp.), con colaboración de Miguel Teubal ... [et.al.] (2011). <i>Bicentenarios ( Otros ) Transiciones Y Resistencias, Buenos Aires, Una Ventana,</i> ISBN 978-987-25376-4-7",
-           "date" : "2023-10-29",
-           "url" : "https://www.ceapedi.com.ar/Imagenes/Biblioteca/libreria/298.pdf"
-       },
-       {
-           "id" : "5be12554-c54b-4a38-b24c-5a0842fdfd9d",
-           "citation" : "Kessler, P. L. (2013, July 11). Map of Sumer. <i>World History Encyclopedia.</i>",
-           "date" : "2024-10-24",
-           "url" : "https://www.worldhistory.org/image/1352/map-of-sumer/"
-       },
-       {
-           "id" : "51dfa9af-177b-4e0b-a7a0-33fc9cf3767e",
-           "citation" : "Mark, J. J. (2019, October 09). Sumerians. <i>World History Encyclopedia.</i>",
-           "date" : "2024-11-05",
-           "url" : "https://www.worldhistory.org/Sumerians/"
-       },
-       {
-           "id" : "c8180501-e791-4c81-ab4c-64e44f334154",
-           "citation" : "Britannica, T. Editors of Encyclopaedia (2024, August 12). Sumer. <i>Encyclopedia Britannica.</i>",
-           "date" : "2024-11-05",
-           "url" : "https://www.britannica.com/place/Sumer"
-       },
-       {
-           "id" : "4588cb01-66e8-45e8-84a4-49fc4de02c9b",
-           "citation" : "<i>Atlas Nacional de España</i>",
-           "date" : "2024-10-25",
-           "url" : "https://atlasnacional.ign.es/wane/Edad_Antigua"
-       },
-       {
-           "id" : "297eeedf-c8db-480e-a131-d00843eeb048",
-           "citation" : "<i>Atlas Nacional de España</i>",
-           "date" : "2024-10-25",
-           "url" : "https://atlasnacional.ign.es/wane/Edad_Media"
-       },
-       {
-           "id" : "82ba06a3-96ba-4e11-87dd-f200977c6931",
-           "citation" : "Montero, Pedro (1861): <i>Colección de Cánones y todos los Concilios de la Iglesia de España y de América (en latín y castellano) con notas e ilustraciones, Volumen 4</i>. Madrid ",
-           "date" : "2024-06-15",
-           "url" : "https://books.google.es/books?id=xPQQ_8teP6sC"
-       },
-       {
-           "id" : "e4d4873d-f83a-4e68-845d-446cf7d1d58e",
-           "citation" : "Mark, J. J. (2019, September 16). Visigoth. <i>World History Encyclopedia.</i>",
-           "date" : "2024-11-05",
-           "url" : "https://www.worldhistory.org/visigoth/"
-       },
-       {
-           "id" : "9ac63913-6a20-4680-bebf-51ff99a4bb31",
-           "citation" : "Britannica, The Editors of Encyclopaedia . Visigoth. <i>Encyclopedia Britannica.</i>",
-           "date" : "2024-11-05",
-           "url" : "https://www.britannica.com/topic/Visigoth"
-       },
-       {
-           "id" : "cd1a4bed-9754-4888-aee9-559d59503860",
-           "citation" : "Haines, Charles R. (1889). <i>Christianity and Islam in Spain, A.D. 756-1031: Volume 20</i>. London. Kengan Paul, Trench & CO., I Paternoster Square",
-           "date" : "2024-06-15",
-           "url" : "https://books.google.com.uy/books?hl=en&lr=&id=9Z4zAQAAMAAJ"
-       },
-       {
-           "id" : "27cd346a-a266-4b5a-ae76-2a0c35e8d6c2",
-           "citation" : "Ibn El-Kouthya, M. A. Cherbonneau (1856): <i>Histoire de la conquete de l'Espagne par les Musulmans, traduite de la cronique d'ibn el-kouthya</i>, Paris, Imprimiere Impèriale",
-           "date" : "2023-09-06",
-           "url" : "https://gallica.bnf.fr/ark:/12148/bpt6k555028.image#"
-       },
-       {
-           "id" : "732ffe6d-b8a9-42af-b070-16c18c82dbce",
-           "citation" : "O'Callaghan, J. F. , Shubert, . Adrian , Koenigsberger, . Helmut Georg , Carr, . Raymond , Harrison, . Richard John , Rodriguez, . Vicente , Richardson, . John S. , Ginés, . Juan Vernet , Viguera, . María J. and Smith, . Catherine Delano <i>Encyclopedia Britannica.</i>",
-           "date" : "2024-11-06",
-           "url" : "https://www.britannica.com/place/Spain"
-       },
-       {
-           "id" : "08ac929b-a863-4a22-b7ed-ca86966b7b10",
-           "citation" : "Cartwright, M. (2018, October 05). Reconquista. <i>World History Encyclopedia.</i>",
-           "date" : "2024-11-06",
-           "url" : "https://www.worldhistory.org/Reconquista/"
-       },
-       {
-           "id" : "b43eff03-c370-4692-875a-2455e2c99d03",
-           "citation" : "Juste, Alberto C. (1980). Los Banu Qasi. <i>Principe de Viana</i>, Año 41",
-           "date" : "2023-09-03",
-           "url" : "https://dialnet.unirioja.es/servlet/articulo?codigo=15651"
-       },
-       {
-           "id" : "64d5ac73-6974-4a7a-90c5-7970b72243a8",
-           "citation" : "Medieval Lands (2020). <i>Moorish Spain</i>",
-           "date" : "2023-09-01",
-           "url" : "https://fmg.ac/Projects/MedLands/MOORISH%20SPAIN.htm"
-       },
-       {
-           "id" : "6d01fbc4-a193-4adb-bb60-422dcb3729ef",
-           "citation" : "History Tracers Editors (2023). Banu Qasi",
-           "date" : "2024-11-06",
-           "url" : "index.html?page=tree&arg=9cd69f67-2f4e-43f2-a5b9-355ea760dc8e" 
-       },
-       {
-           "id" : "74c5d8b0-9a31-47e2-bb4f-c3c6d85318ed",
-           "citation" : "History Tracers Editors (2023). Kings of Leon",
-           "date" : "2024-11-06",
-           "url" : "index.html?page=tree&arg=588c52dc-7b48-490d-acb4-044f07314444" 
-       },
-       {
-           "id" : "755c42c6-3be9-41fd-8655-22f8a6877215",
-           "citation" : "Medieval Lands (2019). Asturias & Leon. Kings",
-           "date" : "2023-10-11",
-           "url" : "https://fmg.ac/Projects/MedLands/ASTURIAS,%20LEON.htm"
-       },
-       {
-           "id" : "250dfecb-b380-4704-af04-7f8921987fa0",
-           "citation" : "Britannica, T. Editors of Encyclopaedia (1998, July 20). Leon. <i>Encyclopedia Britannica</i>",
-           "date" : "2024-11-06",
-           "url" : "https://www.britannica.com/place/Leon-medieval-kingdom-Spain"
-       },
-       {
-           "id" : "ed31f80e-ddd3-448a-9331-a0b6ac5f82fd",
-           "citation" : "Hechler, R. S. (2022). The Fourth Lifeway: Recognizing the Legacy of Bodily Difference and Disability within the Inka Empire. In <i>Disability Studies Quarterly (Vol. 41, Issue 4)</i>. The Ohio State University Libraries.",
-           "date" : "2024-10-24",
-           "url" : "https://doi.org/10.18061/dsq.v41i4.8459" 
-       },
-       {
-           "id" : "47643b61-f223-493f-b58f-8c441b1b5642",
-           "citation" : "Harris, K. R. (2007). Was the Inca Empire A Socialist State? A Historical Discussion. <i>Hístoría, Volume 16, pp. 54-60</i>",
-           "date" : "2024-10-10",
-           "url" : "https://www.eiu.edu/historia/2007issue.php"
-       },
-       {
-           "id" : "1e873ced-4625-40b2-9e73-00b3855f8292",
-           "citation" : "Cartwright, M. (2014, September 15). <i>Inca Civilization</i>. World History Encyclopedia.",
-           "date": "2024-10-08",
-           "url": "https://www.worldhistory.org/Inca_Civilization/"
-       },
-       {
-           "id" : "5100834d-6b30-4aa8-9a59-29d5ab160228",
-           "citation" : "Lumbreras, Luis G. (1967). Pueblos y culturas del Perú Antiguo. Coleccíon Bicentenario Petroperú, Lettera Gráfica SAC, 2019, ISBN: 978-612-4202-54-4",
-           "date" : "2024-02-11",
-           "url" : "https://cultura.petroperu.com.pe/biblioteca-virtual/pueblos-y-culturas-del-peru-antiguo/"
-       },
-       {
-           "id" : "b88200b0-2775-4a59-bee4-5790ab338c05",
-           "citation" : "Barker, R; (2013) An Analysis of the Creation of Chronology and Genealogy of the Inca Dynasty in a Selection of Early Peruvian Chronicles. Doctoral thesis (PhD), UCL (University College London)",
-           "date": "2024-10-08",
-           "url": "https://discovery.ucl.ac.uk/id/eprint/1384309/"
-       },
-       {
-           "id" : "922ae4e4-8a1a-40ed-9fa3-ca7d541a05e1",
-           "citation" : "History Tracers (2024). Incas (Tawantinsuyu)",
-           "date" : "2024-02-24",
-           "url" : "index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b"
-       },
-       {
-           "id" : "01b6f0e8-66dc-4afb-b895-9dddd4a7c6dd",
-           "citation" : "Farias, Roberto (1997). A atual situação diglóssica do Brasil: suas origens no bilinguismo dos primeiros séculos de colonização. I SIMPOSIO INTERNACIONAL SOBRE O BILINGÜISMO: COMUNIDADES E INDIVIDUOS BILINGÜES",
-           "date" : "2024-11-07",
-           "url" : "https://ssl.webs.uvigo.es/actas1997/06/Farias.pdf"
-       },
-       {
-           "id" : "ffc2d22b-dfcc-4a5d-be17-d28c10d5d49f",
-           "citation" : "Carrato, José F. <i>COLEÇÃO DE DOCUMENTOS CARTOGRÁFICOS DO ARQUIVO PÚBLICO MINEIRO - APM</i>",
-           "date" : "2024-11-07",
-           "url" : "http://www.siaapm.cultura.mg.gov.br/modules/grandes_formatos/brtacervo.php?cid=234&op=1"
-       },
-       {
-           "id" : "5488872a-27c1-4ea8-8580-2ecc5aeb0cbf",
-           "citation" : "Mansfield, D. F. (2021). Plimpton 322: A Study of Rectangles. In Foundations of Science (Vol. 26, Issue 4, pp. 977–1005). Springer Science and Business Media LLC",
-           "date" : "2024-11-08",
-           "url" : "https://doi.org/10.1007/s10699-021-09806-0"
-       },
-       {
-           "id" : "eda6e242-751a-46b3-b5f7-0c4489d9b374",
-           "citation" : "History Tracers Editors (2023). Origin",
-           "date" : "2023-12-26",
-           "url" : "index.html?page=class_content&arg=49c7f908-87cc-4fcc-8e4d-bcaba40e0aea"
-       },
-       {
-           "id" : "4b485840-e823-4f27-87cd-4ce65f55d80d",
-           "citation" : "Davies, G. I. (2001). Introduction to the Pentateuch. The Oxford Bible commentary, 12-38.",
-           "date" : "2024-11-08",
-           "url" : "https://www.edsd.org/wp-content/uploads/2017/10/SFM-HB1-Torah-Documentary-Hypothesis-Detailed.pdf"
-       },
-       {
-           "id" : "082f655f-5086-4998-9ed6-02906ab5eeb0",
-           "citation" : "Moras, Roberto (2024). Pitagoras y un Asesinato Irracional. <i>Historia de las Religiones, Youtube Channel</i>",
-           "date": "2024-11-09",
-           "url": "https://www.youtube.com/watch?v=jD3j2IqLC0I"
-       },
-       {
-           "id" : "e31c5a5d-a61f-488b-a657-cf82d112e105",
-           "citation" : "Weisstein, Eric W. Right Triangle. <i>MathWorld--A Wolfram Web Resource</i>",
-           "date": "2024-11-09",
-           "url": "https://mathworld.wolfram.com/RightTriangle.html"
-       },
-       {
-           "id" : "6438de6a-38b8-4060-943d-d2c3f5f36160",
-           "citation" : "Weisstein, Eric W. Angle. <i>MathWorld--A Wolfram Web Resource</i>",
-           "date": "2024-11-09",
-           "url": "https://mathworld.wolfram.com/Angle.html"
-       },
-       {
-           "id" : "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
-           "citation" : "Mansfield, D. F. (2021). Plimpton 322: A Study of Rectangles. In <i>Foundations of Science (Vol. 26, Issue 4, pp. 977–1005)</i>. Springer Science and Business Media LLC.",
-           "date": "2024-11-09",
-           "url": "https://doi.org/10.1007/s10699-021-09806-0"
-       },
-       { 
-           "id" : "f40bd766-4f57-4f9b-a715-dd75311cada5",
-           "citation" : "Britannica, T. Editors of Encyclopaedia (2024, November 3). Pythagorean theorem .<i>Encyclopedia Britannica</i>.",
-           "date" : "2024-11-11",
-           "url" : "https://www.britannica.com/science/Pythagorean-theorem"
-       },
-       { 
-           "id" : "4da1237a-2d61-4f76-8707-dccc5d90bb48",
-           "citation" : "Britannica, T. Editors of Encyclopaedia (2024, August 28). space-time .<i>Encyclopedia Britannica</i>.",
-           "date" : "2024-11-11",
-           "url" : "https://www.britannica.com/science/space-time"
-       },
-       { 
-           "id" : "7eee4ba3-54ef-420e-a6b4-6e8b80decb7b",
-           "citation" : "Odenwald, Sten. Special & General Relativity Questions and Answers. <i>Gravity Probe B, Testing Einstein's Universe</i>",
-           "date" : "2024-11-11",
-           "url" : "https://einstein.stanford.edu/content/relativity/q411.html"
-       },
-       { 
-           "id" : "5d8aaf88-d206-4576-8587-e3dc7403d259",
-           "citation" : "Pontzen, Andrew and Whyntie, Tom. The fundamentals of space-time: Part 1. <i>TEDEd</i>",
-           "date" : "2024-11-11",
-           "url" : "https://ed.ted.com/lessons/the-fundamentals-of-space-time-part-1-andrew-pontzen-and-tom-whyntie"
-       },
-       { 
-           "id" : "d4212894-96ca-4ab2-9458-24ff2a8c5024",
-           "citation" : "Pontzen, Andrew and Whyntie, Tom. The fundamentals of space-time: Part 2. <i>TEDEd</i>",
-           "date" : "2024-11-11",
-           "url" : "https://ed.ted.com/lessons/the-fundamentals-of-space-time-part-2-andrew-pontzen-and-tom-whyntie"
-       },
-       { 
-           "id" : "c632d8ab-7347-4df4-825f-d2bc6f5cbd0b",
-           "citation" : "Pontzen, Andrew and Whyntie, Tom. The fundamentals of space-time: Part 3. <i>TEDEd</i>",
-           "date" : "2024-11-11",
-           "url" : "https://ed.ted.com/lessons/the-fundamentals-of-space-time-part-3-andrew-pontzen-and-tom-whyntie"
-       },
-       {
-           "id" : "4f5657f4-4284-4e13-b90f-b0f1a7e50c68",
-           "citation" : "History Tracers Editors (2024). Scripts",
-           "date" : "2024-01-08",
-           "url" : "https://github.com/historytracers/historytracers/tree/master/scripts" 
-       },
-       {
-           "id" : "2d720f02-051c-4469-b425-7d020f2c2f9b",
-           "citation" : "Creamer, W. (1987). Mesoamerica as a Concept: An Archaeological View from Central America. <i>Latin American Research Review, 22(1), 35–62</i>. http://www.jstor.org/stable/2503542",
-           "date" : "2024-10-06",
-           "url" : "https://antharky.ucalgary.ca/mccafferty/sites/antharky.ucalgary.ca.mccafferty/files/Creamer_1989.pdf"
-       },
-       {
-           "id" : "43952372-dff0-404a-96e2-cea9b773e81c",
-           "citation" : "Cintra, J. P. (2013). Reconstruindo o mapa das capitanias hereditárias. In Anais do Museu Paulista: História e Cultura Material (Vol. 21, Issue 2, pp. 11–45). Universidade de Sao Paulo, Agencia USP de Gestao da Informacao Academica (AGUIA)",
-           "date" : "2024-11-17",
-           "url" : "https://doi.org/10.1590/s0101-47142013000200002"
-       },
-       {
-           "id" : "cd61bc64-1358-4bfd-b343-3629facaa3b4",
-           "citation" : "González Redondo, Francisco A. (2024). CONFERENCIA: ¿Fueron las mujeres los \"primeros matemáticos\"?. <i>Alumni - USAL. Youtube Channel</i>",
-           "date" : "2024-12-25",
-           "url" : "https://www.youtube.com/watch?v=RFui5Z52pUY"
-       }
-    ],
-    "religious_sources" : [
-       {
-           "id" : "56e19b6d-5b12-4a9d-abff-7c85ff465872",
-           "citation" : "<i>Torah, Neviim u-Khetuvim. Twenty-four books of the Holy Scriptures carefully translated according to the Massoretic text, on the basis of the English version, after the best Jewish authorities</i> (1891). Cincinnati, Bloch Pub. and Pr. Co.",
-           "date" : "2024-02-23",
-           "url" : "https://archive.org/details/torahneviimukhet00cincrich/mode/2up"
-       }
-    ],
-    "social_media_sources" : null
+   "info": "General information about images used.",
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later"
+   ],
+   "last_update": [
+      "1729884649"
+   ],
+   "version": 1,
+   "type": "sources",
+   "primary_sources": [
+      {
+         "id": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+         "citation": "Poma de Ayala, Felipe Guaman (1615). Primer Nueva Corónica y Buen Gobierno - Manuscrito",
+         "date_time": "",
+         "published": "",
+         "url": "https://archive.org/details/primer-nueva-coronica-y-buen-gobierno-manuscrito"
+      },
+      {
+         "id": "c5bb1db2-0f10-45c5-91ce-52020e770ca9",
+         "citation": "Poma de Ayala, Felipe Guaman (1936). Nueva Corónica y Buen Gobierno.",
+         "date_time": "",
+         "published": "",
+         "url": "https://biblioteca.clacso.edu.ar/clacso/se/20191121014717/Nueva_coronica_y_buen_gobierno_1.pdf"
+      },
+      {
+         "id": "b5e0b575-280f-485f-971e-6702e6c7bc19",
+         "citation": "\"atlas\". <i>Dicionário da Língua Portuguesa. Academia das Ciências de Lisboa</i>.",
+         "date_time": "",
+         "published": "",
+         "url": "https://dicionario.acad-ciencias.pt/pesquisa/?word=atlas"
+      },
+      {
+         "id": "4d98df05-928d-4a85-8df3-62f05594556c",
+         "citation": "\"atlas\". <i>Real Academia Española</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://dle.rae.es/atlas"
+      },
+      {
+         "id": "9592bef7-96e8-46dc-8d43-26c67d33b2c5",
+         "citation": "\"atlas\". <i>Cambridge Dictionary</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://dictionary.cambridge.org/dictionary/english/atlas"
+      },
+      {
+         "id": "5e23a3eb-7323-44ab-b9e1-88acfd1e21a6",
+         "citation": "Clay tablet. <i>The British Museum</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britishmuseum.org/collection/object/W_1882-0714-509"
+      }
+   ],
+   "reference_sources": [
+      {
+         "id": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+         "citation": "History Tracers (2024). First steps",
+         "date_time": "",
+         "published": "",
+         "url": "index.html?page=first_steps"
+      },
+      {
+         "id": "2806b294-0d2a-4ca2-8008-b2b82791427a",
+         "citation": "History Tracers Team (2024). Understanding Text",
+         "date_time": "",
+         "published": "",
+         "url": "index.html?page=literature"
+      },
+      {
+         "id": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+         "citation": "<i>Mapswire</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mapswire.com"
+      },
+      {
+         "id": "c0a6fd42-b5b9-4745-b242-f0b2a84aaccf",
+         "citation": "Yoshii, Yuzuru, et al. (2022). Potential Signature of Population III Pair-Instability Supernova Ejecta in the BLR Gas of the Most Distant Quasar at z = 7.54. 2022. DOI.org (Datacite)",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.48550/ARXIV.2207.11909"
+      },
+      {
+         "id": "d4ed59c5-0332-4f5a-a662-dcf5549616ba",
+         "citation": "NASA, Stars",
+         "date_time": "",
+         "published": "",
+         "url": "https://science.nasa.gov/astrophysics/focus-areas/how-do-stars-form-and-evolve/"
+      },
+      {
+         "id": "d7243fd4-4bf5-4018-ab27-9d9bdd5696e3",
+         "citation": "Sacani, Sérgio (2017). Sem Big Bang, Sem Universo - Space Today TV Ep.750. <i>Space Today, Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=obbAUK3V1oA"
+      },
+      {
+         "id": "57d899ce-113b-40b2-b29d-d9b38be14607",
+         "citation": "Stefanelli, Jeferson (2024). A vida das estrelas. <i>Universo Genial, Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/shorts/ahjWUaDtx_s"
+      },
+      {
+         "id": "e6b9585f-6b26-4e01-b801-536609492251",
+         "citation": "Sacani, Sérgio (2019). Grandes Dúvidas Sobre As Teorias de Formação de Estrelas - Space Today TV Ep.1237. <i>Space Today, Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=jxJf9uIE1do"
+      },
+      {
+         "id": "79d13e10-a273-420f-bbb6-61e06a499a85",
+         "citation": "Sacani, Sérgio (2017). Formação de Planetas Em Tempo Real - Space Today TV Ep.919. <i>Space Today, Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=KeSnTfbCPLU"
+      },
+      {
+         "id": "87856c77-7a50-48ef-98b6-a22211d28b0f",
+         "citation": "PBS/NASA (2024). The NASA Planetary Science Collection on PBS LearningMedia is contributed by WGBH Educational Foundation. It is a collaborative production of WGBH Education, the WGBH Media Library, and WGBH Digital.",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.pbslearningmedia.org/resource/npls13.sci.ess.eiu.planetevol/the-formation-of-stars-nasa-planetary-sciences/"
+      },
+      {
+         "id": "28bbb4a2-2b1c-4704-ac30-110753f74d23",
+         "citation": "Morfill, G., et al. (1978). The Dynamics of Dust in a Collapsing Protostellar Cloud and Its Possible Role in Planet Formation. <i>The Moon and the Planets, vol. 19, no. 2</i>. Oct. 1978. pp. 211–20. DOI.org (Crossref)",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.1007/BF00896994"
+      },
+      {
+         "id": "cfa22d73-c494-4b2d-b9d5-d19292c61b09",
+         "citation": "Birnstiel, T., Fang, M. & Johansen, A. (2016). Dust Evolution and the Formation of Planetesimals. <i>Space Sci Rev 205</i>. 41–75 (2016).",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.1007/s11214-016-0256-1"
+      },
+      {
+         "id": "722f0c13-990d-4452-bd95-6cc9f7031bf1",
+         "citation": "Leinhardt, Zoe M., and Derek C. Richardson. (2005). Planetesimals to Protoplanets. I. Effect of Fragmentation on Terrestrial Planet Formation. <i>The Astrophysical Journal, vol. 625, no. 1</i>. May 2005. pp. 427–40. DOI.org (Crossref)",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.1086/429402"
+      },
+      {
+         "id": "4326e165-e43d-4436-9d0f-500faac7a633",
+         "citation": "Science Reference Section (2023). Why is Pluto no longer a planet?. <i>Library of Congress</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.loc.gov/everyday-mysteries/astronomy/item/why-is-pluto-no-longer-a-planet/#:~:text=Answer,neighboring%20region%20of%20other%20objects.%E2%80%9D"
+      },
+      {
+         "id": "e9951a6d-02aa-48ab-a2ed-77a8282d97d3",
+         "citation": "Hogeback, J. (2016). Why Is Pluto No Longer a Planet?. <i>Encyclopedia Britannica</i>.",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/story/why-is-pluto-no-longer-a-planet"
+      },
+      {
+         "id": "16797baa-f339-4753-8c5f-66dbfeae3abd",
+         "citation": "Stannard, W. B. (2018). Why do things fall? How to explain why gravity is not a force. In <i>Physics Education (Vol. 53, Issue 2, p. 025007).</i> IOP Publishing. https://doi.org/10.1088/1361-6552/aa9d6e",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.researchgate.net/publication/322254276_Why_do_things_fall_How_to_explain_why_gravity_is_not_a_force"
+      },
+      {
+         "id": "cd738b4d-32bd-4ea6-8aef-6653d961de19",
+         "citation": "Hossenfelder, Sabine (2021). Is Gravity a Force?. <i>Sabine Hossenfelder, Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=EmrZ3ZaXmS4"
+      },
+      {
+         "id": "1df98dc5-523f-42ae-9a69-3e9410849ebb",
+         "citation": "Hossenfelder, Sabine (2024). Gravity is not a force. But what does that mean?. <i>Sabine Hossenfelder, Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=R3LjJeeae68"
+      },
+      {
+         "id": "76b636be-45db-4e52-8ecd-5c873344f926",
+         "citation": "Lincoln, Don (2023). Is gravity a force?. <i>Fermilab, Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=ZHxoM9lvzVA"
+      },
+      {
+         "id": "d269a387-b20c-435e-ad52-0a6af4a852d7",
+         "citation": "Quantum Fracture (2018). La Gravedad NO ES UNA FUERZA | El Principio de Equivalencia. <i>QuantumFracture, Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=7vhc-hMWclY"
+      },
+      {
+         "id": "44d06c2e-afbc-4248-95cb-5b507205e532",
+         "citation": "Hu, X., Shum, C.K. & Bevis, M. (2023). A triaxial reference ellipsoid for the Earth. <i>J Geod 97</i>, 29",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.1007/s00190-023-01717-1"
+      },
+      {
+         "id": "424c993c-5af2-4add-954f-35bc5312621f",
+         "citation": "Gravity/Gravitational Field. <i>Physical Oceanography Distributed Active Archive Center</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://podaac.jpl.nasa.gov/gravity"
+      },
+      {
+         "id": "6808958a-781b-4088-85ca-1551c078a2ed",
+         "citation": "Adamopoulos, K., Koutsouris, D., Zaravinos, A., & Lambrou, G. I. (2021). Gravitational Influence on Human Living Systems and the Evolution of Species on Earth. In <i>Molecules (Vol. 26, Issue 9, p. 2784).</i> MDPI AG.",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.3390/molecules26092784"
+      },
+      {
+         "id": "a6be3657-2567-4db5-b645-d5f65ea957fa",
+         "citation": "Tong, David (2013). David Tong: Lectures on Dynamics and Relativity. <i>University of Cambridge</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.damtp.cam.ac.uk/user/tong/relativity.html"
+      },
+      {
+         "id": "2451d5b3-6232-435b-9505-750b7459fdfe",
+         "citation": "Britannica, The Editors of Encyclopaedia (2024-09-20). escape velocity. <i>Encyclopedia Britannica</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/science/escape-velocity"
+      },
+      {
+         "id": "021534bf-9945-43c6-ae30-7d1bcd43aecd",
+         "citation": "Windley, Brian Frederick (2024-04-05). geologic history of Earth. <i>Encyclopedia Britannica</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/science/geologic-history-of-Earth"
+      },
+      {
+         "id": "2440434d-29ba-4475-814e-a15eec9e63c2",
+         "citation": "Andel, Tjeerd H. van and Murphy, J. Brendan (2024-09-10). plate tectonics. <i>Encyclopedia Britannica</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/science/plate-tectonics"
+      },
+      {
+         "id": "d8dee061-0e72-4ca5-bfe3-bcfa3c42b070",
+         "citation": "Redacción National Geographic (2024-07-08). ¿Cuál es el origen del término Gondwana?. <i>National Geographic</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.nationalgeographicla.com/historia/2024/07/cual-es-el-origen-del-termino-gondwana"
+      },
+      {
+         "id": "9b86417a-a5bf-4211-bc42-ee8a1d3739c0",
+         "citation": "Britannica, T. Editors of Encyclopaedia (2024-10-14). Gondwana. <i>Encyclopedia Britannica</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/place/Gondwana-supercontinent"
+      },
+      {
+         "id": "06780f2e-073c-4da7-869e-945ecd275316",
+         "citation": "Stampfli, G. M., Hochard, C., Vérard, C., Wilhem, C., & vonRaumer, J. (2013). The formation of Pangea. <i>In Tectonophysics (Vol. 593, pp. 1–19).</i> Elsevier BV. https://doi.org/10.1016/j.tecto.2013.02.037",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.researchgate.net/publication/241002325_The_formation_of_Pangea"
+      },
+      {
+         "id": "8634e87f-9ea9-4fdd-9a26-ae3b33e17af1",
+         "citation": "Britannica, T. Editors of Encyclopaedia (2024, July 22). Pangea. <i>Encyclopedia Britannica.</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/place/Pangea"
+      },
+      {
+         "id": "ebf2075b-3cf5-46a1-b203-1f568b6da374",
+         "citation": "Bushnell, D. and Woodward, . Ralph Lee (2024, October 27). Central America. <i>Encyclopedia Britannica.</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/place/Central-America"
+      },
+      {
+         "id": "99888d29-5332-4a50-af2c-c8007e318082",
+         "citation": "Britannica, T. Editors of Encyclopaedia (2024, November 3). Urartu. <i>Encyclopedia Britannica.</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/place/Urartu"
+      },
+      {
+         "id": "59c0b962-d032-4b6c-9498-2341e089510b",
+         "citation": "Allmon, Warren D., Picconi, Jane A., Greb, Stephen F., Smith, Charles C. <i>Paleontological Research Institute</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://earthathome.org/hoe/se/geologic-history/#triassic-jurassic-pangaea"
+      },
+      {
+         "id": "750e84b5-9330-4f99-92b0-72469a6a64f4",
+         "citation": "Allmon, Warren D., Picconi, Jane A., Greb, Stephen F., Smith, Charles C. <i>The teacher-frindly Guide</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://geology.teacherfriendlyguide.org/index.php/downloads-se"
+      },
+      {
+         "id": "1a426c74-8e9c-4022-90dc-2a1b9b4ac129",
+         "citation": "Stover, Christopher and Weisstein, Eric W. Polar Coordinates. <i>From MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/PolarCoordinates.html"
+      },
+      {
+         "id": "fd003897-89a6-4d01-ae79-da9e564d9583",
+         "citation": "Weisstein, Eric W.. Spherical Coordinates. <i>From MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/SphericalCoordinates.html"
+      },
+      {
+         "id": "98aee156-df44-4def-a664-a7db2131c33d",
+         "citation": "Weisstein, Eric W.. Latitude. <i>From MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/Latitude.html"
+      },
+      {
+         "id": "a7fe67e6-2487-4463-b09e-82de4a04b46c",
+         "citation": "Weisstein, Eric W.. Longitude. <i>From MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/Longitude.html"
+      },
+      {
+         "id": "e6658b62-fb15-446c-ab20-44f2b6459b1d",
+         "citation": "Weisstein, Eric W.. Plane. <i>From MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/Plane.html"
+      },
+      {
+         "id": "eb59db91-042f-4acb-8211-47eac4348c94",
+         "citation": "Weisstein, Eric W.. Sine. <i>From MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/Sine.html"
+      },
+      {
+         "id": "92e66bd4-1d7f-4f28-bed2-f62210493341",
+         "citation": "Weisstein, Eric W.. Cosine. <i>From MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/Cosine.html"
+      },
+      {
+         "id": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
+         "citation": "Weisstein, Eric W.. Trigonometry. <i>From MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/Trigonometry.html"
+      },
+      {
+         "id": "69ab4b6c-69b4-466b-9410-7d7b6c2be4fc",
+         "citation": "Stover, Christopher and Weisstein, Eric W. Cartesian Coordinates. <i>From MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/CartesianCoordinates.html"
+      },
+      {
+         "id": "411ca4da-ce37-4c63-9bd1-b727659fdf09",
+         "citation": "Stover, Christopher and Weisstein, Eric W. Polar Coordinates. <i>From MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": " https://mathworld.wolfram.com/PolarCoordinates.html"
+      },
+      {
+         "id": "006b21c9-6800-4deb-bb3f-a367dd38b703",
+         "citation": "NOAA (2024-06-16). What is longitude?. <i>National Ocean Service website </i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://oceanservice.noaa.gov/facts/longitude.html"
+      },
+      {
+         "id": "72ea1365-bb46-4036-a9e2-7384896e0a28",
+         "citation": "NOAA (2024-06-16). What is latitude?. <i>National Ocean Service website </i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://oceanservice.noaa.gov/facts/latitude.html"
+      },
+      {
+         "id": "7b82ec3f-a292-48b4-8945-58e2d154f499",
+         "citation": "Brown, Cynthia S.. READ: Eratosthenes of Cyrene. <i>Khan Academy</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.khanacademy.org/humanities/big-history-project/solar-system-and-earth/knowing-solar-system-earth/a/eratosthenes-of-cyrene"
+      },
+      {
+         "id": "bd3c511d-a7c6-4720-9956-b863578fe58b",
+         "citation": "Sparavigna, Amelia C. (2014). Al-Biruni and the Mathematical Geography. <i>Philica</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://hal.science/hal-02264631v1"
+      },
+      {
+         "id": "924f3991-5eec-4639-b307-5ce39447f6f6",
+         "citation": "Earth Fact Sheet. <i>NASA</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html"
+      },
+      {
+         "id": "27864fd8-e7f7-4a2f-85c7-e1453e3c5234",
+         "citation": "Abdul Karim Khan (2013). Asian Civilization-Part01-Introduction. <i>Abdul Karim Khan - Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=vbdcSxtsj9A"
+      },
+      {
+         "id": "c7b8241f-ae72-43e3-9403-95db77b6258c",
+         "citation": "Abdul Karim Khan (2013). Asian Civilization-Part03-Pre-Historic Asia. <i>Abdul Karim Khan - Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=j-BeKJtyWC8"
+      },
+      {
+         "id": "fd8c673c-48e1-4dc4-af81-ced66c390e36",
+         "citation": "Rabbi Dr. Yitzchok Breitowitz (2021). Is the Book of Genesis Literal?. <i>Jewish Learning Institute - Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=DHsQYJswoDw"
+      },
+      {
+         "id": "1804b247-7fe8-4cff-a4e2-91accbaa936a",
+         "citation": "Tokyo Latitude. <i>Google Search</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://g.co/kgs/dyUtcpw"
+      },
+      {
+         "id": "fb327056-722a-41e9-9f72-e1e77a5318c9",
+         "citation": "Montevideo Latitude. <i>Google Search</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://g.co/kgs/4TDZXJj"
+      },
+      {
+         "id": "910e016f-246e-44dc-8f76-430fe6e9c01d",
+         "citation": "Britannica, T. Editors of Encyclopaedia. matter. <i>Encyclopedia Britannica</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/science/matter"
+      },
+      {
+         "id": "d94d235c-a97d-48dd-a18c-6b7d6db9e8ab",
+         "citation": "Russel, Jeffrey B. (1991). <i>Inventing the Flat Earth - Columbus And Modern Historians </i>. Praeger Publishers. One Madson Avenue. New York, NY",
+         "date_time": "",
+         "published": "",
+         "url": ""
+      },
+      {
+         "id": "f7fe2b60-85fc-4c16-8fe7-120f7b9236a4",
+         "citation": "Gould, Stephan J. (1996). <i>Dinosaur in a Haystack: Reflections in Natural History</i>. New York",
+         "date_time": "",
+         "published": "",
+         "url": "http://w3.inf.fu-berlin.de/lehre/SS05/efs/materials/FlatEarth.pdf"
+      },
+      {
+         "id": "2c731ac7-93ae-4e9b-98d6-6f28c7681735",
+         "citation": "National Concil of Education Research and Training (2024). Map Projection",
+         "date_time": "",
+         "published": "",
+         "url": "https://ncert.nic.in/textbook/pdf/kegy304.pdf"
+      },
+      {
+         "id": "b1e795e3-2c39-4df1-822e-5a81b15e2b4a",
+         "citation": "Aslanbek Naziev. (2017). How to draw a cone easily and correctly? Unpublished.",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.13140/RG.2.2.19840.43520"
+      },
+      {
+         "id": "81161bc9-dd2a-4a11-906d-10427a5946d6",
+         "citation": "Finkel, I. (2024). The Babylonian Map of the World with Irving Finkel | Curator’s Corner S9 Ep5. <i>The British Museum</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=LUxFzh8r384"
+      },
+      {
+         "id": "8637140f-b357-45d4-8c59-e39a289096ab",
+         "citation": "Finkel, I. (2016). Irving Finkel | The Ark Before Noah: A Great Adventure. <i>The Institute for the Study of Ancient Culturs</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=s_fkpZSnz2I"
+      },
+      {
+         "id": "3dae3fac-de9e-41d8-9bf9-5718d118ba5f",
+         "citation": "Peru: Cradle of Civilization. <i>Museo Larco</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.museolarco.org/en/exhibition/permanent-exhibition/online-exhibition/introduction/peru-cradle-of-civilization/"
+      },
+      {
+         "id": "893e651f-8354-4d9a-b182-893512a3bbbe",
+         "citation": "History Tracers Editors (2024). <i>Cradles of civilization (Part I)</i>",
+         "date_time": "",
+         "published": "",
+         "url": "index.html?page=class_content&arg=b8445908-98ab-4a8e-b5bc-a8abcbcaf973"
+      },
+      {
+         "id": "2be849f1-551b-44eb-8fc6-87027dbf8a68",
+         "citation": "Mounier, A., & Mirazón Lahr, M. (2019). Deciphering African late middle Pleistocene hominin diversity and the origin of our species. In <i>Nature Communications (Vol. 10, Issue 1).</i> Springer Science and Business Media LLC.",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.1038/s41467-019-11213-w"
+      },
+      {
+         "id": "ed998d95-1afb-4021-9181-2c81d1d9ecd5",
+         "citation": "Arango-Isaza, E., Capodiferro, M. R., Aninao, M. J., Babiker, H., Aeschbacher, S., Achilli, A., Posth, C., Campbell, R., Martínez, F. I., Heggarty, P., Sadowsky, S., Shimizu, K. K., & Barbieri, C. (2023). The genetic history of the Southern Andes from present-day Mapuche ancestry. In <i>Current Biology (Vol. 33, Issue 13, pp. 2602-2615.e5)</i>. Elsevier BV.",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.1016/j.cub.2023.05.013"
+      },
+      {
+         "id": "cff99ec5-cb25-40ef-b2ee-410a75e73a6e",
+         "citation": "National Geographic Education. Global Human Journey.",
+         "date_time": "",
+         "published": "",
+         "url": "https://education.nationalgeographic.org/resource/global-human-journey/"
+      },
+      {
+         "id": "064c3691-1f4c-491b-b643-150c011b4525",
+         "citation": "Goebel, Ted, et al. (2008): \"The Late Pleistocene Dispersal of Modern Humans in the Americas.\", Science, vol. 319, no. 5869, Mar. 2008, pp. 1497–502. DOI.org (Crossref) https://doi.org/10.1126/science.1153569",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.researchgate.net/publication/5512275_The_Late_Pleistocene_Dispersal_of_Modern_Humans_in_the_Americas"
+      },
+      {
+         "id": "160fb48c-1711-491e-a1aa-e1257e7889af",
+         "citation": "Norma Giarraca (comp.), con colaboración de Miguel Teubal ... [et.al.] (2011). <i>Bicentenarios ( Otros ) Transiciones Y Resistencias, Buenos Aires, Una Ventana,</i> ISBN 978-987-25376-4-7",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.ceapedi.com.ar/Imagenes/Biblioteca/libreria/298.pdf"
+      },
+      {
+         "id": "5be12554-c54b-4a38-b24c-5a0842fdfd9d",
+         "citation": "Kessler, P. L. (2013, July 11). Map of Sumer. <i>World History Encyclopedia.</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.worldhistory.org/image/1352/map-of-sumer/"
+      },
+      {
+         "id": "51dfa9af-177b-4e0b-a7a0-33fc9cf3767e",
+         "citation": "Mark, J. J. (2019, October 09). Sumerians. <i>World History Encyclopedia.</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.worldhistory.org/Sumerians/"
+      },
+      {
+         "id": "c8180501-e791-4c81-ab4c-64e44f334154",
+         "citation": "Britannica, T. Editors of Encyclopaedia (2024, August 12). Sumer. <i>Encyclopedia Britannica.</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/place/Sumer"
+      },
+      {
+         "id": "4588cb01-66e8-45e8-84a4-49fc4de02c9b",
+         "citation": "<i>Atlas Nacional de España</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://atlasnacional.ign.es/wane/Edad_Antigua"
+      },
+      {
+         "id": "297eeedf-c8db-480e-a131-d00843eeb048",
+         "citation": "<i>Atlas Nacional de España</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://atlasnacional.ign.es/wane/Edad_Media"
+      },
+      {
+         "id": "82ba06a3-96ba-4e11-87dd-f200977c6931",
+         "citation": "Montero, Pedro (1861): <i>Colección de Cánones y todos los Concilios de la Iglesia de España y de América (en latín y castellano) con notas e ilustraciones, Volumen 4</i>. Madrid ",
+         "date_time": "",
+         "published": "",
+         "url": "https://books.google.es/books?id=xPQQ_8teP6sC"
+      },
+      {
+         "id": "e4d4873d-f83a-4e68-845d-446cf7d1d58e",
+         "citation": "Mark, J. J. (2019, September 16). Visigoth. <i>World History Encyclopedia.</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.worldhistory.org/visigoth/"
+      },
+      {
+         "id": "9ac63913-6a20-4680-bebf-51ff99a4bb31",
+         "citation": "Britannica, The Editors of Encyclopaedia . Visigoth. <i>Encyclopedia Britannica.</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/topic/Visigoth"
+      },
+      {
+         "id": "cd1a4bed-9754-4888-aee9-559d59503860",
+         "citation": "Haines, Charles R. (1889). <i>Christianity and Islam in Spain, A.D. 756-1031: Volume 20</i>. London. Kengan Paul, Trench & CO., I Paternoster Square",
+         "date_time": "",
+         "published": "",
+         "url": "https://books.google.com.uy/books?hl=en&lr=&id=9Z4zAQAAMAAJ"
+      },
+      {
+         "id": "27cd346a-a266-4b5a-ae76-2a0c35e8d6c2",
+         "citation": "Ibn El-Kouthya, M. A. Cherbonneau (1856): <i>Histoire de la conquete de l'Espagne par les Musulmans, traduite de la cronique d'ibn el-kouthya</i>, Paris, Imprimiere Impèriale",
+         "date_time": "",
+         "published": "",
+         "url": "https://gallica.bnf.fr/ark:/12148/bpt6k555028.image#"
+      },
+      {
+         "id": "732ffe6d-b8a9-42af-b070-16c18c82dbce",
+         "citation": "O'Callaghan, J. F. , Shubert, . Adrian , Koenigsberger, . Helmut Georg , Carr, . Raymond , Harrison, . Richard John , Rodriguez, . Vicente , Richardson, . John S. , Ginés, . Juan Vernet , Viguera, . María J. and Smith, . Catherine Delano <i>Encyclopedia Britannica.</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/place/Spain"
+      },
+      {
+         "id": "08ac929b-a863-4a22-b7ed-ca86966b7b10",
+         "citation": "Cartwright, M. (2018, October 05). Reconquista. <i>World History Encyclopedia.</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.worldhistory.org/Reconquista/"
+      },
+      {
+         "id": "b43eff03-c370-4692-875a-2455e2c99d03",
+         "citation": "Juste, Alberto C. (1980). Los Banu Qasi. <i>Principe de Viana</i>, Año 41",
+         "date_time": "",
+         "published": "",
+         "url": "https://dialnet.unirioja.es/servlet/articulo?codigo=15651"
+      },
+      {
+         "id": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+         "citation": "Medieval Lands (2020). <i>Moorish Spain</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://fmg.ac/Projects/MedLands/MOORISH%20SPAIN.htm"
+      },
+      {
+         "id": "6d01fbc4-a193-4adb-bb60-422dcb3729ef",
+         "citation": "History Tracers Editors (2023). Banu Qasi",
+         "date_time": "",
+         "published": "",
+         "url": "index.html?page=tree&arg=9cd69f67-2f4e-43f2-a5b9-355ea760dc8e"
+      },
+      {
+         "id": "74c5d8b0-9a31-47e2-bb4f-c3c6d85318ed",
+         "citation": "History Tracers Editors (2023). Kings of Leon",
+         "date_time": "",
+         "published": "",
+         "url": "index.html?page=tree&arg=588c52dc-7b48-490d-acb4-044f07314444"
+      },
+      {
+         "id": "755c42c6-3be9-41fd-8655-22f8a6877215",
+         "citation": "Medieval Lands (2019). Asturias & Leon. Kings",
+         "date_time": "",
+         "published": "",
+         "url": "https://fmg.ac/Projects/MedLands/ASTURIAS,%20LEON.htm"
+      },
+      {
+         "id": "250dfecb-b380-4704-af04-7f8921987fa0",
+         "citation": "Britannica, T. Editors of Encyclopaedia (1998, July 20). Leon. <i>Encyclopedia Britannica</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/place/Leon-medieval-kingdom-Spain"
+      },
+      {
+         "id": "ed31f80e-ddd3-448a-9331-a0b6ac5f82fd",
+         "citation": "Hechler, R. S. (2022). The Fourth Lifeway: Recognizing the Legacy of Bodily Difference and Disability within the Inka Empire. In <i>Disability Studies Quarterly (Vol. 41, Issue 4)</i>. The Ohio State University Libraries.",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.18061/dsq.v41i4.8459"
+      },
+      {
+         "id": "47643b61-f223-493f-b58f-8c441b1b5642",
+         "citation": "Harris, K. R. (2007). Was the Inca Empire A Socialist State? A Historical Discussion. <i>Hístoría, Volume 16, pp. 54-60</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.eiu.edu/historia/2007issue.php"
+      },
+      {
+         "id": "1e873ced-4625-40b2-9e73-00b3855f8292",
+         "citation": "Cartwright, M. (2014, September 15). <i>Inca Civilization</i>. World History Encyclopedia.",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.worldhistory.org/Inca_Civilization/"
+      },
+      {
+         "id": "5100834d-6b30-4aa8-9a59-29d5ab160228",
+         "citation": "Lumbreras, Luis G. (1967). Pueblos y culturas del Perú Antiguo. Coleccíon Bicentenario Petroperú, Lettera Gráfica SAC, 2019, ISBN: 978-612-4202-54-4",
+         "date_time": "",
+         "published": "",
+         "url": "https://cultura.petroperu.com.pe/biblioteca-virtual/pueblos-y-culturas-del-peru-antiguo/"
+      },
+      {
+         "id": "b88200b0-2775-4a59-bee4-5790ab338c05",
+         "citation": "Barker, R; (2013) An Analysis of the Creation of Chronology and Genealogy of the Inca Dynasty in a Selection of Early Peruvian Chronicles. Doctoral thesis (PhD), UCL (University College London)",
+         "date_time": "",
+         "published": "",
+         "url": "https://discovery.ucl.ac.uk/id/eprint/1384309/"
+      },
+      {
+         "id": "922ae4e4-8a1a-40ed-9fa3-ca7d541a05e1",
+         "citation": "History Tracers (2024). Incas (Tawantinsuyu)",
+         "date_time": "",
+         "published": "",
+         "url": "index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b"
+      },
+      {
+         "id": "01b6f0e8-66dc-4afb-b895-9dddd4a7c6dd",
+         "citation": "Farias, Roberto (1997). A atual situação diglóssica do Brasil: suas origens no bilinguismo dos primeiros séculos de colonização. I SIMPOSIO INTERNACIONAL SOBRE O BILINGÜISMO: COMUNIDADES E INDIVIDUOS BILINGÜES",
+         "date_time": "",
+         "published": "",
+         "url": "https://ssl.webs.uvigo.es/actas1997/06/Farias.pdf"
+      },
+      {
+         "id": "ffc2d22b-dfcc-4a5d-be17-d28c10d5d49f",
+         "citation": "Carrato, José F. <i>COLEÇÃO DE DOCUMENTOS CARTOGRÁFICOS DO ARQUIVO PÚBLICO MINEIRO - APM</i>",
+         "date_time": "",
+         "published": "",
+         "url": "http://www.siaapm.cultura.mg.gov.br/modules/grandes_formatos/brtacervo.php?cid=234&op=1"
+      },
+      {
+         "id": "5488872a-27c1-4ea8-8580-2ecc5aeb0cbf",
+         "citation": "Mansfield, D. F. (2021). Plimpton 322: A Study of Rectangles. In Foundations of Science (Vol. 26, Issue 4, pp. 977–1005). Springer Science and Business Media LLC",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.1007/s10699-021-09806-0"
+      },
+      {
+         "id": "eda6e242-751a-46b3-b5f7-0c4489d9b374",
+         "citation": "History Tracers Editors (2023). Origin",
+         "date_time": "",
+         "published": "",
+         "url": "index.html?page=class_content&arg=49c7f908-87cc-4fcc-8e4d-bcaba40e0aea"
+      },
+      {
+         "id": "4b485840-e823-4f27-87cd-4ce65f55d80d",
+         "citation": "Davies, G. I. (2001). Introduction to the Pentateuch. The Oxford Bible commentary, 12-38.",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.edsd.org/wp-content/uploads/2017/10/SFM-HB1-Torah-Documentary-Hypothesis-Detailed.pdf"
+      },
+      {
+         "id": "082f655f-5086-4998-9ed6-02906ab5eeb0",
+         "citation": "Moras, Roberto (2024). Pitagoras y un Asesinato Irracional. <i>Historia de las Religiones, Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=jD3j2IqLC0I"
+      },
+      {
+         "id": "e31c5a5d-a61f-488b-a657-cf82d112e105",
+         "citation": "Weisstein, Eric W. Right Triangle. <i>MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/RightTriangle.html"
+      },
+      {
+         "id": "6438de6a-38b8-4060-943d-d2c3f5f36160",
+         "citation": "Weisstein, Eric W. Angle. <i>MathWorld--A Wolfram Web Resource</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://mathworld.wolfram.com/Angle.html"
+      },
+      {
+         "id": "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
+         "citation": "Mansfield, D. F. (2021). Plimpton 322: A Study of Rectangles. In <i>Foundations of Science (Vol. 26, Issue 4, pp. 977–1005)</i>. Springer Science and Business Media LLC.",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.1007/s10699-021-09806-0"
+      },
+      {
+         "id": "f40bd766-4f57-4f9b-a715-dd75311cada5",
+         "citation": "Britannica, T. Editors of Encyclopaedia (2024, November 3). Pythagorean theorem .<i>Encyclopedia Britannica</i>.",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/science/Pythagorean-theorem"
+      },
+      {
+         "id": "4da1237a-2d61-4f76-8707-dccc5d90bb48",
+         "citation": "Britannica, T. Editors of Encyclopaedia (2024, August 28). space-time .<i>Encyclopedia Britannica</i>.",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.britannica.com/science/space-time"
+      },
+      {
+         "id": "7eee4ba3-54ef-420e-a6b4-6e8b80decb7b",
+         "citation": "Odenwald, Sten. Special & General Relativity Questions and Answers. <i>Gravity Probe B, Testing Einstein's Universe</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://einstein.stanford.edu/content/relativity/q411.html"
+      },
+      {
+         "id": "5d8aaf88-d206-4576-8587-e3dc7403d259",
+         "citation": "Pontzen, Andrew and Whyntie, Tom. The fundamentals of space-time: Part 1. <i>TEDEd</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://ed.ted.com/lessons/the-fundamentals-of-space-time-part-1-andrew-pontzen-and-tom-whyntie"
+      },
+      {
+         "id": "d4212894-96ca-4ab2-9458-24ff2a8c5024",
+         "citation": "Pontzen, Andrew and Whyntie, Tom. The fundamentals of space-time: Part 2. <i>TEDEd</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://ed.ted.com/lessons/the-fundamentals-of-space-time-part-2-andrew-pontzen-and-tom-whyntie"
+      },
+      {
+         "id": "c632d8ab-7347-4df4-825f-d2bc6f5cbd0b",
+         "citation": "Pontzen, Andrew and Whyntie, Tom. The fundamentals of space-time: Part 3. <i>TEDEd</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://ed.ted.com/lessons/the-fundamentals-of-space-time-part-3-andrew-pontzen-and-tom-whyntie"
+      },
+      {
+         "id": "4f5657f4-4284-4e13-b90f-b0f1a7e50c68",
+         "citation": "History Tracers Editors (2024). Scripts",
+         "date_time": "",
+         "published": "",
+         "url": "https://github.com/historytracers/historytracers/tree/master/scripts"
+      },
+      {
+         "id": "2d720f02-051c-4469-b425-7d020f2c2f9b",
+         "citation": "Creamer, W. (1987). Mesoamerica as a Concept: An Archaeological View from Central America. <i>Latin American Research Review, 22(1), 35–62</i>. http://www.jstor.org/stable/2503542",
+         "date_time": "",
+         "published": "",
+         "url": "https://antharky.ucalgary.ca/mccafferty/sites/antharky.ucalgary.ca.mccafferty/files/Creamer_1989.pdf"
+      },
+      {
+         "id": "43952372-dff0-404a-96e2-cea9b773e81c",
+         "citation": "Cintra, J. P. (2013). Reconstruindo o mapa das capitanias hereditárias. In Anais do Museu Paulista: História e Cultura Material (Vol. 21, Issue 2, pp. 11–45). Universidade de Sao Paulo, Agencia USP de Gestao da Informacao Academica (AGUIA)",
+         "date_time": "",
+         "published": "",
+         "url": "https://doi.org/10.1590/s0101-47142013000200002"
+      },
+      {
+         "id": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
+         "citation": "González Redondo, Francisco A. (2024). CONFERENCIA: ¿Fueron las mujeres los \"primeros matemáticos\"?. <i>Alumni - USAL. Youtube Channel</i>",
+         "date_time": "",
+         "published": "",
+         "url": "https://www.youtube.com/watch?v=RFui5Z52pUY"
+      }
+   ],
+   "religious_sources": [
+      {
+         "id": "56e19b6d-5b12-4a9d-abff-7c85ff465872",
+         "citation": "<i>Torah, Neviim u-Khetuvim. Twenty-four books of the Holy Scriptures carefully translated according to the Massoretic text, on the basis of the English version, after the best Jewish authorities</i> (1891). Cincinnati, Bloch Pub. and Pr. Co.",
+         "date_time": "",
+         "published": "",
+         "url": "https://archive.org/details/torahneviimukhet00cincrich/mode/2up"
+      }
+   ],
+   "social_media_sources": null
 }
