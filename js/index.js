@@ -103,7 +103,7 @@ function htParseIndexRequest() {
             case 'class_content':
                 if (urlParams.has('arg')) {
                     var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
-                    var finalArg = (lperson.length == 0) ? larg : larg+'&person_id='+lperson;
+                    var finalArg = (lperson.length == 0) ? urlParams.get('arg') : larg+'&person_id='+lperson;
                     htLoadPage(page,'html', finalArg, false);
                 } else {
                     htLoadPage(page,'html', '', false);
@@ -118,55 +118,6 @@ function htParseIndexRequest() {
 
     firstIndexTime = false;
 }
-
-/*
-$(document).ready(function(){
-    if (urlParams.has('page')) {
-        var page = urlParams.get('page');
-        switch(page) {
-            case 'main':
-            case 'license':
-            case 'contact':
-            case 'science':
-            case 'history':
-            case 'genealogical_first_steps':
-            case 'genealogical_faq':
-            case 'genealogical_map':
-            case 'families':
-            case 'myths_believes':
-            case 'first_steps':
-            case 'sources':
-            case 'indigenous_who':
-            case 'indigenous_time':
-            case 'acknowledgement':
-            case 'first_steps_games':
-            case 'release':
-            case 'literature':
-            case 'atlas':
-                htLoadPage(page, 'html', '', false);
-                break;
-            case 'tree':
-            case 'genealogical_map_list':
-            case 'class_content':
-                var larg = (urlParams.has('arg')) ? urlParams.get('arg'): "";
-                if (larg != null && larg != undefined && larg.length > 5 ) {
-                    var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
-                    var finalArg = (lperson.length == 0) ? larg : larg+'&person_id='+lperson;
-                    htLoadPage(page,'html', finalArg, false);
-                } else {
-                    htLoadPage(page,'html', '', false);
-                }
-                break;
-            default:
-                $( "#messages" ).html( "Error requesting page " +  urlParams.get('page'));
-        }
-    } else {
-        htLoadPage('main','html', '', false);
-    }
-
-    firstIndexTime = false;
-});
-*/
 
 /*
 // http://api.jquery.com/ajaxerror/
