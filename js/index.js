@@ -20,32 +20,38 @@ function htReloadCurrentPage()
     }
 }
 
-$(document).ready(function(){
-    var lang = "";
-    var cal = "";
-
-    var urlParams = new URLSearchParams(window.location.search);
+function htSetIndexLang(urlParams) {
+    var lang = "en-US";
     if (urlParams.has('lang')) {
         var selLang = urlParams.get('lang');
-        if ($("#site_language option[value='"+selLang+"']").length < 0) {
+        if ($("#site_language option[value='"+selLang+"']").length > 0) {
             lang = "en-US";
-        } else {
-            lang = selLang;
         }
     } else {
         lang = htDetectLanguage();
     }
 
+    return lang;
+}
+
+function htSetIndexCal(urlParams) {
+    var cal = "";
     if (urlParams.has('cal')) {
         var selCalendar = urlParams.get('cal');
-        if ($("#site_calendar option[value='"+selCalendar+"']").length < 0) {
-            cal = "gregory";
-        } else {
+        if ($("#site_calendar option[value='"+selCalendar+"']").length > 0) {
             cal = selCalendar;
         }
     } else {
         cal = "gregory";
     }
+
+    return cal;
+}
+
+function htParseIndexRequest() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var lang = htSetIndexLang(urlParams);
+    var cal = htSetIndexCal(urlParams);
 
     if (urlParams.has('atlas_page')) {
         var selAtlas = urlParams.get('atlas_page');
@@ -54,9 +60,9 @@ $(document).ready(function(){
         $("#atlas").val(1);
     }
 
-
     $('#site_language').val(lang);
     $('#site_calendar').val(cal);
+
     htLoadPage('index','json', '', false);
     htLoadPage('language','json', '', false);
     htLoadPage('calendars','json', '', false);
@@ -68,10 +74,53 @@ $(document).ready(function(){
         htReloadCurrentPage();
     });
 
-    $('#site_calendar').on('change', function() {
-        htReloadCurrentPage();
-    });
+    if (urlParams.has('page')) {
+        var page = urlParams.get('page');
+        switch(page) {
+            case 'main':
+            case 'license':
+            case 'contact':
+            case 'science':
+            case 'history':
+            case 'genealogical_first_steps':
+            case 'genealogical_faq':
+            case 'genealogical_map':
+            case 'families':
+            case 'myths_believes':
+            case 'first_steps':
+            case 'sources':
+            case 'indigenous_who':
+            case 'indigenous_time':
+            case 'acknowledgement':
+            case 'first_steps_games':
+            case 'release':
+            case 'literature':
+            case 'atlas':
+                htLoadPage(page, 'html', '', false);
+                break;
+            case 'tree':
+            case 'genealogical_map_list':
+            case 'class_content':
+                if (urlParams.has('arg')) {
+                    var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
+                    var finalArg = (lperson.length == 0) ? larg : larg+'&person_id='+lperson;
+                    htLoadPage(page,'html', finalArg, false);
+                } else {
+                    htLoadPage(page,'html', '', false);
+                }
+                break;
+            default:
+                break;
+        }
+    } else {
+        htLoadPage('main','html', '', false);
+    }
 
+    firstIndexTime = false;
+}
+
+/*
+$(document).ready(function(){
     if (urlParams.has('page')) {
         var page = urlParams.get('page');
         switch(page) {
@@ -114,10 +163,14 @@ $(document).ready(function(){
     } else {
         htLoadPage('main','html', '', false);
     }
+
     firstIndexTime = false;
 });
+*/
 
+/*
 // http://api.jquery.com/ajaxerror/
 $(document).on( "ajaxError", function( event, request, settings ) {
   $( "#messages" ).html( "Error requesting page " + settings.url );
 });
+*/
