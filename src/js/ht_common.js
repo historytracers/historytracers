@@ -534,13 +534,13 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
 
             var pageText = ""
             if (sources[i].page != undefined && sources[i].page.length > 0) {
-                pageText = ","+sources[i].page;
+                pageText = ", "+sources[i].page;
             }
             text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+dateText+pageText+"</i></a>";
         }
         text += ")";
     }
-    text += (localObj.PostMention != undefined && localObj.PostMention != null) ? localObj.PostMention : "";
+    text += (localObj.PostMention != undefined && localObj.PostMention.length > 0) ? localObj.PostMention : "";
     text += (format == "html") ? "</p>" : ""; 
     return text;
 }
