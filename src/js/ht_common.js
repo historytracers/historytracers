@@ -531,12 +531,18 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
             } else if (sources[i].date_time != undefined && sources[i].date_time.year.length > 0) {
                 dateText = ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
             }
-            text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+dateText+"</i></a>";
+
+            var pageText = ""
+            if (sources[i].page != undefined && sources[i].page.length > 0) {
+                pageText = ", "+sources[i].page;
+            }
+            text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+dateText+pageText+"</i></a>";
         }
         text += ")";
     }
-    text += (localObj.PostMention != undefined && localObj.PostMention != null) ? localObj.PostMention : "";
-    return text+"</p>";
+    text += (localObj.PostMention != undefined && localObj.PostMention.length > 0) ? localObj.PostMention : "";
+    text += (format == "html") ? "</p>" : ""; 
+    return text;
 }
 
 function htFillSMGameData(data) {
@@ -984,7 +990,7 @@ function htMountSpecificDate(dateObj, localLang, localCalendar)
     }
     switch (dateObj.type) {
         case "gregory":
-            if (dateObj.day > 0 ) {
+            if (dateObj.day > 0) {
                 updateText = htConvertGregorianDate(localCalendar, localLang, dateObj.year, dateObj.month, dateObj.day);
             } else {
                 updateText = htConvertGregorianYear(localCalendar, dateObj.year);
