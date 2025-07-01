@@ -78,7 +78,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introdução\n\nNeste texto, exploraremos duas tabuadas que formam a base de nosso sistema de tempo. Para atingir esse objetivo, não usaremos *Abya Yala* (América) desta vez. Atravessaremos o mundo, indo para a Mesopotâmia, a fim de estudar como sumérios e babilônios utilizaram esses números no passado – e como nós ainda os empregamos hoje.\n\nAntes de prosseguirmos com o texto, façamos uma reflexão:",
+               "text": "### Introdução\n\nNeste texto, exploraremos duas tabuadas que formam a base do nosso sistema de tempo. Para alcançar esse objetivo, não utilizaremos inicialmente os conhecimentos de *Abya Yala* (América). Atravessaremos o mundo, indo para a Mesopotâmia, a fim de estudar como sumérios e babilônios utilizaram esses números no passado – e como nós ainda os empregamos hoje.\n\nAntes de prosseguirmos com o texto, façamos uma reflexão:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -173,7 +173,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgMagan\" onclick=\"htImageZoom('imgMagan', '0%')\" src=\"images/BritshMuseum/mid_00862177_001.jpg\" class=\"imgcenter\"/>Figura 6: Tábua de argila com os materiais necessários para os barcos de Magan. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('fef4e98f-ac26-4a2f-ba97-8c50d4e71bd5'); return false;\"><i>The British Museum</i></a>).</p>",
+               "text": "<p class=\"desc\"><img id=\"imgMagan\" onclick=\"htImageZoom('imgMagan', '0%')\" src=\"images/BritshMuseum/mid_00862177_001.jpg\" class=\"imgcenter\"/>Figura 1: Tábua de argila com os materiais necessários para os barcos de Magan. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('fef4e98f-ac26-4a2f-ba97-8c50d4e71bd5'); return false;\"><i>The British Museum</i></a>).</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -505,23 +505,221 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_seven",
+         "text": [
+            {
+               "text": "### Multiplicação por sete (7)\n\nComo mencionado anteriormente, a semana possui 7 dias. Portanto, para sabermos quantos dias se passaram em quatro semanas, basta multiplicar o número de semanas por 7.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Montando a Tabuada\n\nPara montar a tabuada do sete (7), aplicamos a **Fórmula 1**, atribuindo ao fator **a** o valor sete (7), obtendo os seguintes resultados:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent7\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Desenhando a Tabuada\n\nO **Gráfico 3** exibe os valores da tabuada de sete (7):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart3\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 3: Pontos da tabuada de sete conectados, formando uma reta. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "O número 7, assim como os números 1, 2, 3 e 5, não é múltiplo de nenhum dos números que o antecedem na contagem. Ele também é o último entre os 10 números que compõem o sistema decimal com essa característica.\n\nNo próximo gráfico, vamos representar essa tabuada junto às já estudadas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><canvas aria-label=\"chart\" id=\"chart4\" class=\"htChart\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 4: Pontos das tabuadas de zero a sete conectados, formando as retas. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
+      },
+      {
+         "id": "SECTION_natural_calendar",
+         "text": [
+            {
+               "text": "### Calendários e a Natureza\n\nQuando Esdras reformou o calendário, observamos que ele implementou a \"Grande Primavera\" para adaptar seu calendário à duração correta do ano. Não apenas a questão dos dias faltantes chama atenção nesta reforma, mas também o fato de que os calendários, antes das reformas romanas, ainda estavam alinhados com eventos naturais",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d3baf59f-4cff-4f57-ab9f-5d35143b993a",
+                     "text": "LEWY, H., & LEWY, J.",
+                     "page": "pp. 1 - 145",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1942",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "A relação entre calendários e eventos naturais não é exclusividade dos povos do Oriente Médio. Na Mesoamérica, é comum encontrar complexos do tipo E, que marcam precisamente as estações do ano",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e7c7458b-0c63-4485-9c7b-4640edcd9122",
+                     "text": "Inomata, T.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2017",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/UBMUR-3hHz0?si=mn22_mrWLJ23ueeO\" title=\"YouTube video player\" frameborder=\"0\" allowfullscreen></iframe><br />Video 1: Complexo Tipo E em Caracol, Belize. Gravado durante uma visita ao site em <htdate0>.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Além dos complexos Tipo E, também observamos diferentes sistemas calendáricos, como a Pedra do Sol Asteca, que oferece uma representação visual do calendário anual de 365 dias utilizado por eles, além de um calendário ritualístico de 260 dias e a contagem de 52 anos - período necessário para que os dois calendários retornem à mesma posição inicial",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b8661476-12b4-42db-8522-ad5101b75f75",
+                     "text": "Ocampo, Estela; Bidon-Chanal, Carlos",
+                     "page": "pp. 175-176",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgd700\" onclick=\"htImageZoom('imgd700', '0%')\" src=\"images/MexicoCityMuseo/Cuauhxicalli.jpg\" class=\"imgcenter\"/>Figura 2: Pedra do Sol Azteca exposta no Museo Nacional de Antropologia em Cidade do México (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0be2ea18-ab78-4cb1-b3be-1ff0ba4ade95'); return false;\">Museo Nacional de Antropologia - México</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f023ffd4-7942-42d5-81e8-146da4491bef'); return false;\">INAH - MX, <span class=\"htdate\"></span></a>).<br />Foto tirada em <htdate0> durante uma visita ao museu.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "21"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Nesta imagem, vemos a representação de uma divindade comumente associada ao Sol no centro. Ao redor desta divindade, observamos diferentes círculos e textos que auxiliavam na marcação do tempo.",
+               "latex": null,
+               "format": "html",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, conhecemos as tabuadas que servem de base para nossa medição do tempo. Além disso, aprendemos como alguns povos definiram seus calendários e as mudanças realizadas em certos sistemas calendários que não possuem relação direta com eventos naturais, como as estações do ano.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Sumérios dividiram os dias em minutos e segundos?",
+         "question": "Os sumérios dividiram os dias em minutos e segundos?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Apesar de terem criado o sistemas sexagesimal que usamos nas horas, não há qualquer tipo de evidência que tenham usado períodos de tempo como minutos."
+         "additionalInfo": "Embora tenham criado o sistema sexagesimal que utilizamos para medir horas, não há evidências de que os sumérios tenham usado períodos como minutos e segundos em sua contagem temporal."
       },
       {
-         "question": "O número 6 é multiplo de 2 e 3?",
+         "question": "O número 6 é múltiplo de 2 e 3?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Como podemos chegar ao número 6 multiplicando estes números, independente da ordem, o 6 torna-se um múltiplo deles. Como consequência disto, ao multiplicarmos qualquer número das suas respectivas tabuadas (2 e 3), alcançamos um valor da tabuada de 6."
+         "additionalInfo": "Ao multiplicarmos os números 2 e 3 (em qualquer ordem), obtemos o número 6, o que o torna um múltiplo comum de ambos. Consequentemente, qualquer produto das tabuadas do 2 por 3 e do 3 por 2 corresponderá necessariamente a um valor presente na tabuada do 6."
       },
       {
-         "question": "A semana sempre teve sete dias?",
+         "question": "Apenas os povos do Oriente Médio conseguiram medir o tempo?",
          "yesNoAnswer": "No",
-         "additionalInfo": "As bases da semana, um complemento do calendário Amorita, não tinha sete dias, e os próprios judeus chegaram a ter este período com divisões não uniformes. Somente depois passamos a ter semanas com a mesma quantidade de dias, sete."
+         "additionalInfo": "A medição do tempo foi desenvolvida independentemente por diversas civilizações ao redor do mundo, cada uma criando seus próprios sistemas calendários. Neste estudo, além de analisarmos nosso calendário atual, examinamos também os sistemas desenvolvidos pelos povos mesoamericanos."
       }
    ],
    "date_time": null

@@ -49,6 +49,9 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart2Options);
 
+    htFillMultiplicationTable("chart3", 7, 7, false);
+    htFillMultiplicationTable("chart4", 0, 7, false);
+
     return false;
 }
 
