@@ -1,6 +1,6 @@
 html {
   font-family: "verdana", "arial", "Helvetica";
-  font-size: 1.0rem;
+  font-size: 1.0em;
 }
 
 @media only screen and (max-width: 600px) {
@@ -97,7 +97,7 @@ html {
   height: 100%;
   width: 80%;
   float: left;
-  font-size: 2rem;
+  font-size: 2.5vw;
   text-align: center;
   padding-top: 10px;
   padding-right: 10px;
@@ -266,38 +266,38 @@ div.tree-child-center {
 }
 
 .cited-text {
-  font-size: 1.0rem ;
+  font-size: 1.0vw ;
 }
 
 .tree-person-text {
   position: relative;
-  font-size: 1.0rem ;
+  font-size: 1.0vw ;
   left: 2%;
 }
 
 .tree-real-family-text {
   position: relative;
-  font-size: 1.0rem ;
+  font-size: 1.0vw ;
   left: 4%;
 }
 
 .tree-real-child-text {
   position: relative;
-  font-size: 1.0rem ;
+  font-size: 1.0vw ;
   width: 95%;
   left: 4%;
 }
 
 .tree-hipothetical-family-text {
   position: relative;
-  font-size: 1.0rem ;
+  font-size: 1.0vw ;
   font-style: italic;
   left: 4%;
 }
 
 .tree-hipothetical-child-text {
   position: relative;
-  font-size: 1.0rem ;
+  font-size: 1.0vw ;
   width: 95%;
   font-style: italic;
   left: 4%;
@@ -305,17 +305,27 @@ div.tree-child-center {
 
 .tree-default-align {
   position: relative;
-  font-size: 1.0rem ;
+  font-size: 1.0vw ;
   width: 90%;
   left: 2%;
 }
 
 h1 {
   text-align: center;
+  font-size: 5vw;
 }
 
 h2 {
   text-align: center;
+  font-size: 4vw;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1em;
 }
 
 .center_notation {
@@ -340,14 +350,23 @@ a:visited {
   color: blue;
 }
 
+.menuht {
+    font-size: 2.0em;
+    overflow: hidden;
+}
+
+.menu-slogan {
+    font-size: 0.9em;
+}
+
 .menu-title {
-  font-size: 0.9vw;
+  font-size: 0.95em;
   overflow: hidden;
 }
 
 li.menu {
   list-style: none;
-  font-size: 0.9vw;
+  font-size: 0.90em;
   overflow:hidden;
   z-index: 0;
 }
@@ -729,10 +748,9 @@ ul {
 }
 
 .htChart {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
+  position: relative;
+  margin: auto;
+  width: 80%;
 }
 
 .ht_description {
@@ -1134,5 +1152,27 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 30px;
   font-weight: bold;
   text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 0.9em;
+    }
+
+    .menu-slogan {
+        font-size: 0.65em;
+    }
+
+    .menuht {
+        font-size: 1.2em;
+    }
+
+    .menu-title {
+        font-size: 0.85em;
+    }
+
+    li.menu {
+        font-size: 0.75em;
+    }
 }
 
