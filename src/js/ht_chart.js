@@ -50,6 +50,7 @@ function htPlotConstantChart(dest, yValue, xLable, yLable)
 
     const ctx = document.getElementById(dest).getContext("2d");
     var chartId = new Chart(ctx, {
+         maintainAspectRatio: false,
          type: 'bubble',
          data: {
             labels: [xLable+" 1", xLable+" 2", xLable+" 3", xLable+" 4", xLable+" 5"],
@@ -106,6 +107,7 @@ function htPlotConstantContinuousChart(options)
 
     const ctx = document.getElementById(options.chartId).getContext("2d");
     var chartId = new Chart(ctx, {
+        maintainAspectRatio: false,
         type : 'line',
         data : {
             labels : options.xVector,

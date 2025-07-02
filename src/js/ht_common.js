@@ -519,11 +519,10 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
 
     if (localObj.source != undefined && localObj.source != null) {
         var sources = localObj.source;
-        text += " (";
+        var citeSources = " (";
         for (const i in sources) { 
-            if (i != 0) {
-                text += " ; ";
-            }
+            var searchFor = "<htcite"+i+">";
+            var pos = text.search(searchFor);
             var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
             var dateText = ""
             if (sources[i].date != undefined && sources[i].date.year.length > 0) {
@@ -536,12 +535,22 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
             if (sources[i].page != undefined && sources[i].page.length > 0) {
                 pageText = ", "+sources[i].page;
             }
-            text += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+dateText+pageText+"</i></a>";
+            var appendText = "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+dateText+pageText+"</i></a>";
+            if (pos < 0) {
+                if (i != 0 && citeSources.length > 2) {
+                    citeSources += " ; ";
+                }
+                citeSources += appendText; 
+            } else {
+                text = text.replace(searchFor, appendText);
+            }
         }
-        text += ")";
+        if (citeSources.length > 2) {
+            text += citeSources+ ")";
+        }
     }
     text += (localObj.PostMention != undefined && localObj.PostMention.length > 0) ? localObj.PostMention : "";
-    text += (format == "html") ? "</p>" : ""; 
+    text += "</p>"; 
     return text;
 }
 
@@ -669,7 +678,8 @@ function htImageZoom(id, translate) {
     var name = $("#"+id).prop("name");
     if (name.length == 0) {
         $("#"+id).attr("name", "zoomin");
-        $("#"+id).css("transform", "scale(2.7)");
+        var setScale = (window.innerWidth < 800) ? 1.5 : 2.0;
+        $("#"+id).css("transform", "scale("+setScale+")");
         $("#"+id).css("translate", translate);
     } else {
         $("#"+id).attr("name", "");
@@ -846,10 +856,12 @@ function htLoadPage(page, ext, arg, reload) {
     $("#ht_index_latex").append("");
     extLatexIdx = 0;
     if (ext == "html") {
+        /*
         if (page != "tree") {
             $('.right-tree').css('display','none');
             $('.right-tree').css('visibility','hidden');
         }
+        */
         switch(page) {
             case "tree":
             case "genealogical_map_list":
@@ -865,10 +877,12 @@ function htLoadPage(page, ext, arg, reload) {
                     lastTreeLoaded.arg = arg;
                 }
 
+                /*
                 if (page == "tree") {
                    $('.right-tree').css('display','block');
                    $('.right-tree').css('visibility','visible');
                 }
+                */
 
                 var myURL = (arg != undefined && arg != null) ? 'index.html?page='+page+'&arg='+arg : 'index.html?page='+page;
                 genealogicalStats = htResetGenealogicalStats();

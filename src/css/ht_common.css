@@ -1,12 +1,11 @@
 html {
   font-family: "verdana", "arial", "Helvetica";
-  font-size: 1.0rem;
+  font-size: 1.0em;
 }
 
-@media only screen and (max-width: 600px) {
-  .right-tree {
-    visibility: hidden;
-  }
+audio {
+  max-height: 90%;
+  max-width: 90%;
 }
 
 .hr {
@@ -48,15 +47,22 @@ html {
   position: fixed;
   background-color: lightyellow;
   top: 0%;
-  width: 10%;
+  width: 20%;
   float: left;
   height: 100%;
+  left: -18%;
+}
+
+.side-bar:hover {
+  position: fixed;
+  left: 0%;
+  z-index: 1000;
 }
 
 .main {
   position: relative;
-  left: 12%;
-  width: 88%;
+  left: 5%;
+  width: 95%;
   float: left;
   height: 100%;
 }
@@ -85,9 +91,9 @@ html {
 
 .top-bar-left {
   position: relative;
-  left: 12%;
+  left: 5%;
   height: 100%;
-  width: 76%;
+  width: 90%;
   float: left;
   z-index: 100;
 }
@@ -95,9 +101,9 @@ html {
 .top-bar-inside-left {
   position: absolute;
   height: 100%;
-  width: 80%;
+  width: 70%;
   float: left;
-  font-size: 2rem;
+  font-size: 2.5em;
   text-align: center;
   padding-top: 10px;
   padding-right: 10px;
@@ -256,7 +262,7 @@ div.tree-child-center {
 
 .tree-text {
   width: 95%;
-  font-size: 1.0vw ;
+  font-size: 1.0em ;
 }
 
 .tree-introduction-text {
@@ -266,38 +272,33 @@ div.tree-child-center {
 }
 
 .cited-text {
-  font-size: 1.0rem ;
+  font-size: 1.0em ;
 }
 
 .tree-person-text {
   position: relative;
-  font-size: 1.0rem ;
   left: 2%;
 }
 
 .tree-real-family-text {
   position: relative;
-  font-size: 1.0rem ;
   left: 4%;
 }
 
 .tree-real-child-text {
   position: relative;
-  font-size: 1.0rem ;
   width: 95%;
   left: 4%;
 }
 
 .tree-hipothetical-family-text {
   position: relative;
-  font-size: 1.0rem ;
   font-style: italic;
   left: 4%;
 }
 
 .tree-hipothetical-child-text {
   position: relative;
-  font-size: 1.0rem ;
   width: 95%;
   font-style: italic;
   left: 4%;
@@ -305,17 +306,26 @@ div.tree-child-center {
 
 .tree-default-align {
   position: relative;
-  font-size: 1.0rem ;
   width: 90%;
   left: 2%;
 }
 
 h1 {
   text-align: center;
+  font-size: 5vw;
 }
 
 h2 {
   text-align: center;
+  font-size: 4vw;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1em;
 }
 
 .center_notation {
@@ -340,14 +350,39 @@ a:visited {
   color: blue;
 }
 
+.twomenu {
+    overflow: auto;
+    width: 100%;
+}
+
+div.twomenu div {
+  float:left;
+}
+
+.menuht {
+    width: 92%;
+    font-size: 4.0em;
+    overflow: hidden;
+}
+
+.menuht2 {
+  width: 5%;
+  font-size: 1.8em;
+  z-index: 1001;
+}
+
+.menu-slogan {
+    font-size: 0.9em;
+}
+
 .menu-title {
-  font-size: 0.9vw;
+  font-size: 0.95em;
   overflow: hidden;
 }
 
 li.menu {
   list-style: none;
-  font-size: 0.9vw;
+  font-size: 0.90em;
   overflow:hidden;
   z-index: 0;
 }
@@ -380,6 +415,7 @@ ul.sidebar-navigation {
 
 ul.sidebar-all {
   list-style-type: none;
+  column-count: 2;
   margin: 0;
   padding: 0%;
 }
@@ -589,6 +625,13 @@ ul {
   width: 50%;
 }
 
+.imgcenterresponsive {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .imgcenterGame {
   display: block;
   margin-left: auto;
@@ -729,10 +772,9 @@ ul {
 }
 
 .htChart {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
+  position: relative;
+  margin: auto;
+  width: 80%;
 }
 
 .ht_description {
@@ -1083,15 +1125,15 @@ input[type=number]::-webkit-outer-spin-button {
   position: absolute;
   top: 0%;
   left: 80%;
-  font-size: 0.8vw;
+  font-size: 0.8em;
 }
 
 .smGameTextSize {
-  font-size: 1.1vw;
+  font-size: 1.1em;
 }
 
 .smGameTextTitleSize {
-  font-size: 1.1vw;
+  font-size: 1.1em;
   font-weight: bold;
 }
 
@@ -1136,3 +1178,58 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
 }
 
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 0.9em;
+    }
+
+    .menu-slogan {
+        font-size: 0.65em;
+    }
+
+    .menuht {
+        font-size: 1.2em;
+    }
+
+    .menu-title {
+        font-size: 0.85em;
+    }
+
+    li.menu {
+        font-size: 0.75em;
+    }
+
+    .menuht {
+        font-size: 3.5em;
+        width: 90%;
+    }
+
+    .menuht2 {
+        width: 8%;
+    }
+
+    .side-bar {
+      width: 28%;
+      left: -25%;
+    }
+
+    .right-tree {
+        visibility: hidden;
+    }
+
+    .imgcenterresponsive {
+        width: 100%;
+    }
+
+    .top-bar-inside-left {
+        font-size: 1.8em;
+    }
+
+    .htSlidesGame {
+        width: 100%;
+    }
+
+    .imgGameSizeWithOpacity {
+        width: 90%;
+    }
+}

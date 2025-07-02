@@ -81,7 +81,7 @@
 }
 
 .tawapukllay {
-  width: 86vh;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -419,7 +419,7 @@
 }
 
 .tableTen {
-  width: 90vh;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -451,3 +451,9 @@
   -webkit-text-stroke: 2px white;
 }
 
+@media screen and (max-width: 800px) {
+    .tawapukllay {
+        font-size: 0.8em;
+        width: 100%;
+    }
+}
