@@ -678,7 +678,8 @@ function htImageZoom(id, translate) {
     var name = $("#"+id).prop("name");
     if (name.length == 0) {
         $("#"+id).attr("name", "zoomin");
-        $("#"+id).css("transform", "scale(2.7)");
+        var setScale = (window.innerWidth < 800) ? 1.5 : 2.0;
+        $("#"+id).css("transform", "scale("+setScale+")");
         $("#"+id).css("translate", translate);
     } else {
         $("#"+id).attr("name", "");
@@ -855,10 +856,12 @@ function htLoadPage(page, ext, arg, reload) {
     $("#ht_index_latex").append("");
     extLatexIdx = 0;
     if (ext == "html") {
+        /*
         if (page != "tree") {
             $('.right-tree').css('display','none');
             $('.right-tree').css('visibility','hidden');
         }
+        */
         switch(page) {
             case "tree":
             case "genealogical_map_list":
@@ -874,10 +877,12 @@ function htLoadPage(page, ext, arg, reload) {
                     lastTreeLoaded.arg = arg;
                 }
 
+                /*
                 if (page == "tree") {
                    $('.right-tree').css('display','block');
                    $('.right-tree').css('visibility','visible');
                 }
+                */
 
                 var myURL = (arg != undefined && arg != null) ? 'index.html?page='+page+'&arg='+arg : 'index.html?page='+page;
                 genealogicalStats = htResetGenealogicalStats();
