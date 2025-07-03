@@ -616,7 +616,7 @@ ul {
 
 .toplabel {
   font-weight: normal;
-  font-size: 0.85vw;
+  font-size: 0.85em;
 }
 
 .imgcenter {
@@ -775,7 +775,7 @@ ul {
 .htChart {
   position: relative;
   margin: auto;
-  width: 80%;
+  width: 100%;
 }
 
 .ht_description {
@@ -1185,6 +1185,10 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 0.9em;
     }
 
+    .toplabel {
+        font-size: 2.05em;
+    }
+
     .menu-slogan {
         font-size: 0.72em;
         width: 90%;
@@ -1208,8 +1212,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menuht {
-        font-size: 2.5em;
-        width: 86%;
+        font-size: 2.0em;
+        width: 84%;
     }
 
     .menuht2 {
@@ -1217,8 +1221,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .side-bar {
-      width: 34%;
-      left: -29%;
+      width: 45%;
+      left: -37%;
     }
 
     div.righttext {
@@ -1250,6 +1254,10 @@ input[type=number]::-webkit-outer-spin-button {
 @media screen and (min-width: 600px) {
     html {
         font-size: 0.9em;
+    }
+
+    .toplabel {
+        font-size: 1.85em;
     }
 
     .menu-slogan {
@@ -1319,6 +1327,10 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 0.9em;
     }
 
+    .toplabel {
+        font-size: 1.35em;
+    }
+
     .menu-slogan {
         font-size: 0.75em;
         width: 90%;
@@ -1384,6 +1396,10 @@ input[type=number]::-webkit-outer-spin-button {
 @media screen and (min-width: 992px) {
     html {
         font-size: 0.95em;
+    }
+
+    .toplabel {
+        font-size: 1.35em;
     }
 
     .menu-slogan {
@@ -1456,6 +1472,10 @@ input[type=number]::-webkit-outer-spin-button {
     .menu-slogan {
         font-size: 0.9em;
         width: 90%;
+    }
+
+    .toplabel {
+        font-size: 0.85em;
     }
 
     .cited-text {
