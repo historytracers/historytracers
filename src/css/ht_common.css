@@ -14,7 +14,8 @@ audio {
 }
 
 .selSize {
-  width: 7vw;
+  width: 7em;
+  z-index: 900;
 }
 
 .AtlasSelSize {
@@ -150,7 +151,6 @@ div.left-tree {
 
 div.righttext {
   position: relative;
-  z-index: 120;
   float: left;
 }
 
@@ -272,7 +272,8 @@ div.tree-child-center {
 }
 
 .cited-text {
-  font-size: 1.0em ;
+  font-size: 0.9em ;
+  width: 90%;
 }
 
 .tree-person-text {
@@ -615,7 +616,7 @@ ul {
 
 .toplabel {
   font-weight: normal;
-  font-size: 0.85vw;
+  font-size: 0.85em;
 }
 
 .imgcenter {
@@ -774,7 +775,7 @@ ul {
 .htChart {
   position: relative;
   margin: auto;
-  width: 80%;
+  width: 100%;
 }
 
 .ht_description {
@@ -1178,17 +1179,28 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
 }
 
-@media screen and (max-width: 800px) {
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 600px) {
     html {
         font-size: 0.9em;
     }
 
-    .menu-slogan {
-        font-size: 0.65em;
+    .toplabel {
+        font-size: 2.05em;
     }
 
-    .menuht {
-        font-size: 1.2em;
+    .menu-slogan {
+        font-size: 0.72em;
+        width: 90%;
+    }
+
+    .cited-text {
+       font-size: 0.72em ;
+       width: 48%;
+    }
+
+    .selSize {
+        width: 3em;
     }
 
     .menu-title {
@@ -1200,8 +1212,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menuht {
-        font-size: 3.5em;
-        width: 90%;
+        font-size: 2.0em;
+        width: 84%;
     }
 
     .menuht2 {
@@ -1209,8 +1221,12 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .side-bar {
-      width: 28%;
-      left: -25%;
+      width: 45%;
+      left: -37%;
+    }
+
+    div.righttext {
+        font-size: 0.85em;
     }
 
     .right-tree {
@@ -1233,3 +1249,289 @@ input[type=number]::-webkit-outer-spin-button {
         width: 90%;
     }
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (min-width: 600px) {
+    html {
+        font-size: 0.9em;
+    }
+
+    .toplabel {
+        font-size: 1.85em;
+    }
+
+    .menu-slogan {
+        font-size: 0.65em;
+        width: 90%;
+    }
+
+    .cited-text {
+       font-size: 0.75em ;
+       width: 85%;
+    }
+
+    .selSize {
+        width: 3em;
+    }
+
+    .menu-title {
+        font-size: 0.85em;
+    }
+
+    li.menu {
+        font-size: 0.75em;
+    }
+
+    .menuht {
+        font-size: 3.2em;
+        width: 90%;
+    }
+
+    .menuht2 {
+        width: 8%;
+    }
+
+    .side-bar {
+      width: 36%;
+      left: -32%;
+    }
+
+    div.righttext {
+        font-size: 0.85em;
+    }
+
+    .right-tree {
+        visibility: hidden;
+    }
+
+    .imgcenterresponsive {
+        width: 100%;
+    }
+
+    .top-bar-inside-left {
+        font-size: 1.8em;
+    }
+
+    .htSlidesGame {
+        width: 100%;
+    }
+
+    .imgGameSizeWithOpacity {
+        width: 90%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 0.9em;
+    }
+
+    .toplabel {
+        font-size: 1.35em;
+    }
+
+    .menu-slogan {
+        font-size: 0.75em;
+        width: 90%;
+    }
+
+    .cited-text {
+       font-size: 0.85em ;
+       width: 90%;
+    }
+
+    .selSize {
+        width: 3em;
+    }
+
+    .menu-title {
+        font-size: 0.95em;
+    }
+
+    li.menu {
+        font-size: 0.80em;
+    }
+
+    .menuht {
+        font-size: 4.2em;
+        width: 90%;
+    }
+
+    .menuht2 {
+        width: 8%;
+    }
+
+    .side-bar {
+      width: 36%;
+      left: -32%;
+    }
+
+    div.righttext {
+        font-size: 0.87em;
+    }
+
+    .right-tree {
+        visibility: hidden;
+    }
+
+    .imgcenterresponsive {
+        width: 100%;
+    }
+
+    .top-bar-inside-left {
+        font-size: 1.8em;
+    }
+
+    .htSlidesGame {
+        width: 100%;
+    }
+
+    .imgGameSizeWithOpacity {
+        width: 90%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    html {
+        font-size: 0.95em;
+    }
+
+    .toplabel {
+        font-size: 1.35em;
+    }
+
+    .menu-slogan {
+        font-size: 0.85em;
+        width: 90%;
+    }
+
+    .cited-text {
+       font-size: 1.0em ;
+       width: 95%;
+    }
+
+    .selSize {
+        width: 4em;
+    }
+
+    .menu-title {
+        font-size: 1.0em;
+    }
+
+    li.menu {
+        font-size: 0.90em;
+    }
+
+    .menuht {
+        font-size: 4.0em;
+        width: 90%;
+    }
+
+    .menuht2 {
+        width: 8%;
+    }
+
+    .side-bar {
+      width: 36%;
+      left: -32%;
+    }
+
+    div.righttext {
+        font-size: 0.87em;
+    }
+
+    .right-tree {
+        visibility: hidden;
+    }
+
+    .imgcenterresponsive {
+        width: 100%;
+    }
+
+    .top-bar-inside-left {
+        font-size: 1.8em;
+    }
+
+    .htSlidesGame {
+        width: 100%;
+    }
+
+    .imgGameSizeWithOpacity {
+        width: 90%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    html {
+        font-size: 1.0em;
+    }
+
+    .menu-slogan {
+        font-size: 0.9em;
+        width: 90%;
+    }
+
+    .toplabel {
+        font-size: 0.85em;
+    }
+
+    .cited-text {
+       font-size: 0.9em ;
+       width: 95%;
+    }
+
+    .selSize {
+        width: 6em;
+    }
+
+    .menu-title {
+        font-size: 1.0em;
+    }
+
+    li.menu {
+        font-size: 0.90em;
+    }
+
+    .menuht {
+        font-size: 4.0em;
+        width: 92%;
+    }
+
+    .menuht2 {
+        width: 5%;
+        font-size: 1.8em;
+    }
+
+    .side-bar {
+      width: 20%;
+      left: -18%;
+    }
+
+    div.righttext {
+        font-size: 0.87em;
+    }
+
+    .right-tree {
+        visibility: hidden;
+    }
+
+    .imgcenterresponsive {
+        width: 100%;
+    }
+
+    .top-bar-inside-left {
+        font-size: 1.8em;
+    }
+
+    .htSlidesGame {
+        width: 100%;
+    }
+
+    .imgGameSizeWithOpacity {
+        width: 90%;
+    }
+}
+

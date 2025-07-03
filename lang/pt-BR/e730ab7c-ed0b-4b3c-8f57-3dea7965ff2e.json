@@ -104,13 +104,132 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_measure",
+         "text": [
+            {
+               "text": "### Medir é multiplicar\n\nDescobrir o tamanho de um objeto ou de uma pessoa vai além de simplesmente obter um número. Para medir, somamos as pequenas partes do que desejamos medir e, como essas partes têm rigorosamente o mesmo tamanho, realizamos multiplicações.\n\n#### Medindo uma linha\n\nVamos começar revisando a medição de uma linha reta, em que somamos todos os pequenos segmentos até atingir o comprimento total. Posicionamos o zero (0) em uma extremidade da linha e observamos até onde ela se estende em uma régua (<htcite0>), conforme ilustrado na **Figura 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgRule\" onclick=\"htImageZoom('imgRule', '0%')\" src=\"images/HistoryTracers/RuleQuipu.jpg\" class=\"imgcenter\"/>Figura 1: Representação de uma régua medindo uma linha. Código-fonte disponível no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0></a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Medindo uma área\n\nQuando aprendemos que a ordem dos fatores em uma multiplicação não altera o resultado, também descobrimos que o produto de dois números iguais é chamado de quadrado (<htcite0>), como mostrado no **Gráfico 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fbd5bb5a-58fd-4c14-a7b8-7cab2ed2560b",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><svg width=\"230\" height=\"230\"> <rect x=\"30\" y=\"0\" width=\"200\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />            <rect x=\"80\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"130\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"180\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"50\" y=\"222\">1</text> <text x=\"100\" y=\"222\">2</text> <text x=\"150\" y=\"222\">3</text> <text x=\"200\" y=\"222\">4</text>        <text x=\"5\" y=\"30\">4</text> <text x=\"5\" y=\"80\">3</text> <text x=\"5\" y=\"130\">2</text> <text x=\"5\" y=\"180\">1</text>     </svg></p><p class=\"desc\">Gráfico 1: Quadrados representando a multiplicação de 4 por 4.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Um quadrado maior composto por dezesseis quadrados menores. No lado esquerdo, os quadrados são numerados de 1 a 4 (da base até o topo). Na parte inferior, a numeração segue de 1 a 4 (da esquerda para a direita)",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Podemos ir além com esse gráfico para entender a medição de área. Observe que, na horizontal, ao somarmos unidade por unidade (1 + 1 + 1 + 1 = 4), obtemos um total de quatro quadrados. Como discutido neste capítulo, isso também significa multiplicar quatro por um (4 × 1 = 4) — o mesmo processo usado para medir o comprimento na **Figura 1**.\n\nAinda analisando o **Gráfico 1**, vemos que, na vertical, a estrutura se repete: há linhas consecutivas de quatro quadrados. Portanto, para calcular a área da figura, basta somar todas as linhas de comprimento quatro, o que equivale a multiplicar o comprimento da linha (4) pela quantidade de linhas: **4 × 4 = 16**.\n\n#### Medindo um volume\n\nAlém do comprimento e da área, existe outra grandeza chamada volume, que está diretamente relacionada ao que vimos até agora. Novamente, partiremos de uma visualização — o **Gráfico 2**, que representa um cubo — antes de explorar sua conexão com a multiplicação:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><svg width=\"300\" height=\"300\" viewBox=\"-25 -25 50 50\"><line x1=\"5\" y1=\"20\" x2=\"20\" y2=\"5\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"-5\" x2=\"-5\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"5\" y1=\"-5\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"20\" x2=\"5\" y2=\"20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"-5\" x2=\"5\" y2=\"-5\" style=\"stroke:#000;\"/>  <line x1=\"-5\" y1=\"-20\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/>  <line x1=\"-20\" y1=\"20\" x2=\"-20\" y2=\"-5\" style=\"stroke:#000;\"/>   <line x1=\"5\" y1=\"20\" x2=\"5\" y2=\"-5\" style=\"stroke:#000;\"/> <line x1=\"20\" y1=\"5\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"20\" x2=\"-5\" y2=\"5\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <line x1=\"-5\" y1=\"5\" x2=\"20\" y2=\"5\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <line x1=\"-5\" y1=\"5\" x2=\"-5\" y2=\"-20\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <text x=\"-8\" y=\"25\" font-size=\"5px\">2</text> <text x=\"16\" y=\"14\" font-size=\"5px\">2</text> <text x=\"21\" y=\"-5\" font-size=\"5px\">2</text></svg></center></p><p class=\"desc\">Gráfico 2: Representação de um cubo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Por definição, um cubo tem todos os lados iguais, formados por faces quadradas (<htcite0>). Para calcular a área de um quadrado, somamos todas as linhas até obter seu tamanho total. Da mesma forma, para determinar o volume do cubo, somamos todas as áreas dos quadrados que o compõem. No caso do **Gráfico 2**, a medição do volume segue estas etapas:\n- **Cálculo do comprimento**: Ao medir um lado do cubo, obtemos o valor **2**, como indicado no gráfico.\n- **Cálculo da área**: Como todos os lados são iguais, a soma das linhas também resulta em **2**, logo a área é: **2 × 2 = 4**.\n- **Cálculo do volume**: Somando todas as áreas dos quadrados na vertical, chegamos ao volume por meio da multiplicação: **4 × 2 = 8**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c30a9ff1-c7ca-4995-b4b2-06297b0e1e37",
+                     "text": "Weisstein, Eric W",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
+         "question": "Há alguma relação entre comprimento, área e o volume?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "additionalInfo": "Estas unidades de medida estão relacinadas por medirem comprimentos de diferentes superfícies. Como consequência disto, podemos aplicar multiplicações (somas consecutivas) para medira a todas."
+      },
+      {
+         "question": "Medimos volumes através do comprimento de linhas?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como a soma das linhas resulta em uma área, e a soma das áreas resulta em um volume. Reforçamos que as três unidades de comprimento estão interligadas."
       }
    ],
    "date_time": null

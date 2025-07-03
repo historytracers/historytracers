@@ -104,13 +104,132 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_measure",
+         "text": [
+            {
+               "text": "### Measure is Multiply\n\nTo discover an object’s length or a person’s height means more than obtaining a simple number. To measure, we sum all the small parts of what we want to measure, and because they have the same dimensions, we are also multiplying.\n\n#### Measuring a Line\n\nLet us begin by measuring a straight line. We sum all the small segments until we reach its full length. We place the zero (0) at one end of the line and observe the last number it reaches on the ruler (<htcite0>), as illustrated in **Figure 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/HistoryTracers/RuleQuipu.jpg\" class=\"imgcenter\"/>Figure 1: Representation of a ruler measuring a line. The source code is available in the GitHub project (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0></a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Measuring an Area\n\nWhen we learned that changing the order of factors does not change the product’s result, we also discovered that the product of two equal numbers is called a square (<htcite0>), as shown in **Chart 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fbd5bb5a-58fd-4c14-a7b8-7cab2ed2560b",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><svg width=\"230\" height=\"230\"> <rect x=\"30\" y=\"0\" width=\"200\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />            <rect x=\"80\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"130\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"180\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"50\" y=\"222\">1</text> <text x=\"100\" y=\"222\">2</text> <text x=\"150\" y=\"222\">3</text> <text x=\"200\" y=\"222\">4</text>        <text x=\"5\" y=\"30\">4</text> <text x=\"5\" y=\"80\">3</text> <text x=\"5\" y=\"130\">2</text> <text x=\"5\" y=\"180\">1</text>     </svg></p><p class=\"desc\">Chart 1: Squares representing the multiplication of 4 by 4.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "A larger square composed of sixteen smaller squares. On the left side, the squares are numbered from 1 to 4 (bottom to top). On the bottom side, the squares are numbered from 1 to 4 (left to right).",
+               "latex": null,
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "We can delve deeper into this chart to understand area measurement. Observe that horizontally, when we sum unit by unit (1 + 1 + 1 + 1 = 4), we obtain a total of four squares. As discussed in this chapter, this also means multiplying four by one (4 × 1 = 4), the same process used to measure the length in **Figure 1**.\n\nContinuing to analyze **Chart 1**, we observe that vertically, the structure repeats: there are consecutive lines of four squares. Thus, to calculate the area of a figure, we simply sum the lines of equal length (four), meaning we can multiply the length of the line (4) by the number of lines: **4 × 4 = 16**.\n\n#### Measuring a Volume\n\nIn addition to length and area, there is another magnitude called volume, which is directly linked to what we have seen so far. Again, we will start by visualizing **Chart 2**, representing a cube, before exploring its connection with multiplication:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><svg width=\"300\" height=\"300\" viewBox=\"-25 -25 50 50\"><line x1=\"5\" y1=\"20\" x2=\"20\" y2=\"5\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"-5\" x2=\"-5\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"5\" y1=\"-5\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"20\" x2=\"5\" y2=\"20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"-5\" x2=\"5\" y2=\"-5\" style=\"stroke:#000;\"/>  <line x1=\"-5\" y1=\"-20\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/>  <line x1=\"-20\" y1=\"20\" x2=\"-20\" y2=\"-5\" style=\"stroke:#000;\"/>   <line x1=\"5\" y1=\"20\" x2=\"5\" y2=\"-5\" style=\"stroke:#000;\"/> <line x1=\"20\" y1=\"5\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"20\" x2=\"-5\" y2=\"5\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <line x1=\"-5\" y1=\"5\" x2=\"20\" y2=\"5\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <line x1=\"-5\" y1=\"5\" x2=\"-5\" y2=\"-20\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <text x=\"-8\" y=\"25\" font-size=\"5px\">2</text> <text x=\"16\" y=\"14\" font-size=\"5px\">2</text> <text x=\"21\" y=\"-5\" font-size=\"5px\">2</text></svg></center></p><p class=\"desc\">Chart 2: Cube representation.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "By definition, a cube has all sides equal, formed by square faces (<htcite0>). To calculate the area of a square, we sum all the lines until we reach the final size. Similarly, to determine a cube’s volume, we sum all the squares that compose it. In **Chart 2**, the volume measurement follows these steps:\n- **Calculate a length**: When we measure a cube’s side, we obtain the value **2**, as indicated in the chart.\n- **Calculating the area**: Since all sides are equal, the sum of the lines is also **2**, so the area is: **2 × 2 = 4**.\n- **Calculate the volume**: Summing all the areas of the squares vertically, we find the volume by multiplying: **4 × 2 = 8**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c30a9ff1-c7ca-4995-b4b2-06297b0e1e37",
+                     "text": "Weisstein, Eric W",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "latex": null,
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
+         "question": "Há alguma relação entre comprimento, área e o volume?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "additionalInfo": "Estas unidades de medida estão relacinadas por medirem comprimentos de diferentes superfícies. Como consequência disto, podemos aplicar multiplicações (somas consecutivas) para medira a todas."
+      },
+      {
+         "question": "Medimos volumes através do comprimento de linhas?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como a soma das linhas resulta em uma área, e a soma das áreas resulta em um volume. Reforçamos que as três unidades de comprimento estão interligadas."
       }
    ],
    "date_time": null
