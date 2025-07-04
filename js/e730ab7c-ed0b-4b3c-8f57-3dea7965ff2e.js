@@ -44,7 +44,7 @@ function htLoadExercise() {
         "xType" : "linear",
         "datasetFill" : false,
         "ymin": 0,
-        "ymax": 60,
+        "ymax": 80,
         "useCallBack": false
     };
     htPlotConstantContinuousChart(chart2Options);
