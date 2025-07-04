@@ -44,10 +44,13 @@ function htLoadExercise() {
         "xType" : "linear",
         "datasetFill" : false,
         "ymin": 0,
-        "ymax": 60,
+        "ymax": 80,
         "useCallBack": false
     };
     htPlotConstantContinuousChart(chart2Options);
+
+    htFillMultiplicationTable("chart3", 9, 9, false);
+    htFillMultiplicationTable("chart4", 0, 9, false);
 
     return false;
 }
