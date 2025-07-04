@@ -98,8 +98,8 @@
 .tawapukllay td:nth-child(-n+4) {
   position: relative;
   font-weight: normal;
-  width: 10vh;
-  height: 10vh;
+  width: 10em;
+  height: 10em;
   border: 1px solid black;
 }
 
@@ -107,7 +107,7 @@
   text-align: center;
   font-weight: bold;
   background: white;
-  width: 11.66vh;
+  width: 11.66em;
   border: 1px solid black;
 }
 
@@ -115,7 +115,7 @@
   text-align: center;
   font-weight: bold;
   background: white;
-  width: 11.66vh;
+  width: 11.66em;
   border: 1px solid black;
 }
 
@@ -123,7 +123,7 @@
   text-align: center;
   font-weight: bold;
   background: white;
-  width: 11.66vh;
+  width: 11.66em;
   border: 1px solid black;
 }
 
@@ -131,7 +131,7 @@
   text-align: center;
   font-weight: bold;
   background: white;
-  width: 11.66vh;
+  width: 11.66em;
   border: 1px solid black;
 }
 
@@ -451,7 +451,42 @@
   -webkit-text-stroke: 2px white;
 }
 
-@media screen and (max-width: 800px) {
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media screen and (max-width: 600px) {
+    .tawapukllay {
+        font-size: 0.72em;
+        width: 90%;
+    }
+
+    .tawapukllay td:nth-child(-n+4) {
+        position: relative;
+        width: 8em;
+    }
+
+    .tawapukllay td:nth-child(5){
+        font-size: 0.82em;
+        width: 8em;
+    }
+
+    .tawapukllay td:nth-child(6){
+        font-size: 0.82em;
+        width: 8em;
+    }
+
+    .tawapukllay td:nth-child(7){
+        font-size: 0.82em;
+        width: 8em;
+    }
+
+    .tawapukllay td:nth-child(8){
+        font-size: 0.82em;
+        width: 8em;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media screen and (max-width: 992px) {
     .tawapukllay {
         font-size: 0.8em;
         width: 100%;
