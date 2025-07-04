@@ -160,6 +160,7 @@ type Family struct {
 	GEDCOM        string       `json:"gedcom"`
 	CSV           string       `json:"csv"`
 	Version       int          `json:"version"`
+	Editing       bool         `json:"edidting"`
 	Type          string       `json:"type"`
 	Families      []FamilyBody `json:"families"`
 	Exercises     []HTExercise `json:"exercise_v2"`

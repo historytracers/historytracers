@@ -28,6 +28,7 @@ type classTemplateFile struct {
 	Reviewers  []string               `json:"reviewers"`
 	Type       string                 `json:"type"`
 	Version    int                    `json:"version"`
+	Editing    bool                   `json:"edidting"`
 	Content    []classTemplateContent `json:"content"`
 	Exercises  []HTExercise           `json:"exercise_v2"`
 	DateTime   []HTDate               `json:"date_time"`
