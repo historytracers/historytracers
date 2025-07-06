@@ -474,6 +474,9 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 
 	// URL
 	ret = strings.ReplaceAll(ret, "( # )", "")
+	ret = strings.ReplaceAll(ret, " ( )", "")
+	ret = strings.ReplaceAll(ret, " ( ; )", "")
+	ret = strings.ReplaceAll(ret, " ( ; ; )", "")
 
 	return ret
 }
