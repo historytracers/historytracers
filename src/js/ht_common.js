@@ -510,10 +510,6 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
         originalText = localObj.text;
     }
 
-    if (localObj.latex != undefined) {
-        originalText = htOverwriteLatexWithText(originalText, localObj.latex);
-    }
-
     var text = (format == "html") ? "<p>" : ""; 
     text += htFormatText(originalText, format, localObj.isTable);
 
@@ -1736,7 +1732,6 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     }
 
     var later = "";
-    var latexCounter = 0;
     for (const i in table.content) {
         var content = table.content[i];
 
