@@ -1272,6 +1272,10 @@ function htFillWebPage(page, data)
         $("#htZoomImageMsg").html(keywords[84]);
     }
 
+    if ($("#htChartMsg").length > 0) {
+        $("#htChartMsg").html(keywords[112]);
+    }
+
     if ($("#htAmericaAbyaYalaMsg").length > 0) {
         $("#htAmericaAbyaYalaMsg").html(keywords[85]);
     }
