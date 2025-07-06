@@ -32,7 +32,7 @@ var htFamilyIdx = new Map();
 
 var extLatexIdx = 0;
 
-var htGameImages = [ "MachuPicchu/MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "TeotihuacanMountains.jpg", "Caral/CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren/JoyaCeren.jpg", "SanAndres.jpg", "NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito/MiPueblito.jpg", "Copan/CopanAltarGenealogy0.jpg", "Copan/CopanAltarGenealogy1.jpg", "Copan/CopanAltarGenealogy2.jpg", "Copan/CopanAltarGenealogy3.jpg", "Copan/StelaACopan.jpg", "Copan/CopanWholeTextStelaAltar.png", "Kaminaljuyu.jpg" ];
+var htGameImages = [ "MachuPicchu/MachuPicchu.jpg", "WitzXunantunich.jpg", "TeotihuacanGeneral.jpg", "TeotihuacanMountains.jpg", "Caral/CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren/JoyaCeren.jpg", "SanAndres.jpg", "Tikal/NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito/MiPueblito.jpg", "Copan/CopanAltarGenealogy0.jpg", "Copan/CopanAltarGenealogy1.jpg", "Copan/CopanAltarGenealogy2.jpg", "Copan/CopanAltarGenealogy3.jpg", "Copan/StelaACopan.jpg", "Copan/CopanWholeTextStelaAltar.png", "Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
 
 var htSequenceGame = [ "CeramicaAntropologiaPeru.jpg", "ChocolatPotCahalPech.jpg", "EstelaAntropologiaGuatemala.jpg", "Kaminaljuyu.jpg", "MayaCRJade.jpg", "MetateTeotihuacan.jpg", "SanJoseCRAntropologia.jpg", "SanSalvadorESAntropologia.jpg", "StelaACopan.jpg", "MusicCR.jpg" ];
@@ -508,10 +508,6 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
         originalText = htOverwriteHTDateWithText(localObj.text, localObj.date_time, localLang, localCalendar);
     } else {
         originalText = localObj.text;
-    }
-
-    if (localObj.latex != undefined) {
-        originalText = htOverwriteLatexWithText(originalText, localObj.latex);
     }
 
     var text = (format == "html") ? "<p>" : ""; 
@@ -1272,6 +1268,10 @@ function htFillWebPage(page, data)
         $("#htZoomImageMsg").html(keywords[84]);
     }
 
+    if ($("#htChartMsg").length > 0) {
+        $("#htChartMsg").html(keywords[112]);
+    }
+
     if ($("#htAmericaAbyaYalaMsg").length > 0) {
         $("#htAmericaAbyaYalaMsg").html(keywords[85]);
     }
@@ -1732,7 +1732,6 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     }
 
     var later = "";
-    var latexCounter = 0;
     for (const i in table.content) {
         var content = table.content[i];
 

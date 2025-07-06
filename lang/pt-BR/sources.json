@@ -1,46 +1,490 @@
 {
-    "title" : "Fontes",
-    "header" : "Fontes usadas nas pesquisas",
-    "sources" : [ "sources" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1726362353" ],
-    "content" : [
-        {
-            "id" : "introduction",
-            "value" : [ "<p><h3>Pré-requisitos</h3>Neste texto, exploramos as fontes utilizadas em uma pesquisa genealógica. Para uma compreensão mais detalhada, recomendamos a leitura prévia dos seguintes temas:</p>", "<p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">Método científico</a>: Um texto introdutório sobre o método científico.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('75f9c1d6-8510-4ce6-8561-02f376645005'); return false;\">Compreendendo o tempo</a>: Estudo de como diferentes civilizações marcaram o tempo.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6831d5da-9bf9-4512-9231-09a2816980a6'); return false;\">A escrita</a>: Descrição da evolução da escrita, essencial para a criação dos documentos que analisamos.</li></ul></p>", "<p><h3>Introdução</h3>Os textos do History Tracers possuem citações de uma variedade de fontes, incluindo documentos históricos, trabalhos científicos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e5bb4fcb-4820-4c01-b2d2-2f9df8e1b2f7'); return false;\">Garcia, Emílio, <span class=\"htdate\"></span></a>) e textos religiosos. Estas fontes são organizadas da seguinte forma: fontes primárias são documentos originais analisados no projeto, algumas das quais são mencionadas nas referências; referências são trabalhos científicos ou livros que citam os resultados de pesquisas ou fontes primárias; fontes religiosas são citadas com respeito, com o objetivo de compreender diferentes perspectivas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0d449896-8388-4a24-8885-11e20a687d88'); return false;\">History Tracers, <span class=\"htdate\"></span>: Fontes</a>). Nesta página, vamos aprofundar o conhecimento sobre como as referências são feitas.</p>" ]
-        },
-        {
-            "id" : "primary-source",
-            "value" : [ "<p><h3>Fontes Primárias</h3>De maneira sucinta, definimos fontes primárias como documentos originais e objetos criados no período estudado (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0eff7270-c6b4-4bab-b685-67d3c2970a93'); return false;\">Library of Congress</a>). Para a genealogia, exemplos de fontes primárias incluem:</p>", "<p><ul><li><b>Documentos pessoais</b>: Estes são documentos emitidos pela pessoa ou por seus familiares próximos, incluindo identidade, certidões de nascimento, casamento e óbito, inventários e testamentos. Em algumas nações, não era obrigatório que as pessoas mantivessem o mesmo nome ao longo da vida. No Brasil, por exemplo, é comum observar mudanças de nomes antes do decreto regulamentador de registros, em <span class=\"htdate\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('788267b1-c89e-44b5-84b5-e4fab7be0dac'); return false;\">Câmara dos Deputados</a>).</li><li><b>Fontes religiosas</b>: Estes documentos são encontrados em igrejas e, em alguns casos, em dioceses. Em países onde não havia separação entre igreja e estado, os registros de pessoas eram feitos pelas igrejas e conventos. Nestas instituições, é possível encontrar registros de batismo, casamento, óbito, testamento e processos <i>de genere et mobirus</i>.</li><li><b>Documentos governamentais</b>: Estes são documentos emitidos pelo governo e incluem: <ul><li><b>Cartas de sesmarias</b>: Documentos que concediam uma sesmaria (uma região) a uma pessoa.</li><li><b>Documentos régios</b>: Documentos emitidos durante períodos em que os governantes eram monarcas, arquivados em locais como a Torre do Tombo e a Chancelaria Régia (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('a0fb89b0-34b3-485c-bd96-ec5c9b20d922'); return false;\">Torre do Tombo, Chancelaria Régia</a>). Um exemplo são as cartas de armas, embora deva ser observado que em algumas delas os ancestrais femininos foram omitidos, devido à ênfase na linhagem masculina.</li></ul> <li><b>Documentos jurídicos</b>: Estes documentos podem conter informações sobre ancestrais, especialmente em processos realizados durante o período da inquisição.</li><li><b>Crônicas</b>: Textos que detalham histórias de uma determinada região.</li></ul><p></p><p>Fontes primárias nem sempre precisam ter sido escritas durante a vida da pessoa em questão. Exemplos de fontes primárias redigidas após o falecimento de um indivíduo incluem diligências para familiares do Santo Ofício, para a Ordem Terceira e para irmandades de Misericórdia. Nesses documentos, conforme observado pelo padre Joseph Mascarenhas, ocorria uma investigação sobre várias gerações dos candidatos que desejavam ingressar nessas ordens (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('baab6f07-714e-40ca-abea-775fb55e1968'); return false;\">Torre do Tombo, Tribunal do Santo Ofício: Conselho Geral, Habilitações, Pedro, mç. 25, doc. 476, img. 49</a>). É crucial ressaltar que, apesar da distância temporal, só podemos considerar um documento como referente a uma pessoa quando ela é mencionada nele. (Observação: Embora essa afirmação pareça óbvia, essa lógica foi distorcida por 'genealogistas' recentemente).</p>" ]
-        },
-        {
-            "id" : "reference",
-            "value" : [ "<p><h3>Referências (fontes secundárias e terciárias)</h3>Neste projeto, classificamos todas as fontes secundárias ou terciárias como referências, pois não são suficientes como prova de conexões. Elas são tratadas como referências por citarem fontes primárias ou por apresentarem indícios de possíveis conexões.</p>" ]
-        },
-        {
-            "id" : "religious-reference",
-            "value" : [ "<p><h3>Fontes religiosas</h3>Devido a convicções pessoais, o tratamento de fontes religiosas torna-se delicado, uma vez que para algumas pessoas que têm fé, essas fontes se tornam inquestionáveis. No entanto, como este é um projeto de divulgação científica, onde se entende que modelos podem e devem ser questionados e, sempre que possível, aprimorados, preferimos separar as fontes religiosas. No entanto, as reconheceremos respeitosamente como fontes primárias quando forem escritas durante a vida das pessoas estudadas.</p>" ]
-        },
-        {
-            "id" : "social-media",
-            "value" : [ "<p><h3>Redes Sociais</h3>A popularização das redes sociais tem levado pesquisadores de diversas áreas a discutir e compartilhar seus trabalhos nessas plataformas.</p>", "<p>Além dos pesquisadores, inúmeras pessoas se conectam e trocam informações que encontram em livros e outras fontes, abordando temas variados, como ancestrais comuns.</p>", "<p>Nessas redes, é possível encontrar conteúdos que seguem ou não o método científico (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers, <span class=\"htdate\"></span>, <i>Método científico</i></a>). Assim, sempre que as informações apresentarem fontes verificáveis, elas poderão ser citadas na seção de referências. No entanto, quando não for possível validar as informações, mas o conteúdo ainda for relevante, ele será mencionado nesta seção de forma cuidadosa.</p>" ]
-        },
-        {
-            "id" : "dictionary",
-            "value" : [ "<p><h3>Dicionário</h3>É comum surgirem dúvidas ao lidarmos com fontes documentais, especialmente quando nos deparamos com termos desconhecidos. Desde <span class=\"htdate\"></span>, contamos com uma valiosa ferramenta para auxiliar em nossas pesquisas: o Dicionário de Genealogia, elaborado por Gilber Rubim Rangel (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('2cf03d7c-589e-4f1e-81d3-03296d37f2d8'); return false;\">Rangel, Gilber Rubim, <span class=\"htdate\"></span>, <i>Dicionário de Genealogia</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('80c28cd8-cee2-4696-a083-2bb0c5a26889'); return false;\">Rangel, Gilber Rubim, <i>Dicionário de Genealogia</i>, Instagram</a>). Uma amostra do dicionário encontra-se disponível no Archive (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('ef8346d5-184c-4e34-94d3-a69604fd6bb4'); return false;\">Rangel, Gilber Rubim, <span class=\"htdate\"></span>, Amostra</i></a>).</p>", "<p>Além de consultar dicionários especializados, é recomendável recorrer também a dicionários convencionais (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('503282d2-bcfb-4f59-bca4-f9bdce3d5133'); return false;\">Dicionário da Língua Portuguesa. Academia das Ciências de Lisboa</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3b91f37e-a9d6-47d2-b8f5-8899556bd5f9'); return false;\">Real Academia Española</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('eeac939a-5a0f-492c-9880-85e2a803c665'); return false;\">Cambridge Dictionary</a>), sempre que surgir alguma dúvida em relação a termos do idioma.</p>" ]
-        },
-        {
-            "id": "fill_dates",
-            "text": [
-                {  "type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "1939", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
-            ]
-        }
-    ]
+   "title": "Fontes",
+   "header": "Fontes usadas nas pesquisas",
+   "sources": [
+      "sources"
+   ],
+   "scripts": null,
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/sources_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://creators.spotify.com/pod/show/thiago-marques03/episodes/Fontes-Portugus-e3561ev",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": null,
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1751822758"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "edidting": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><hr /></p><p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nNeste texto, exploramos as fontes utilizadas em uma pesquisa genealógica. Para uma compreensão mais detalhada, recomendamos a leitura prévia dos seguintes temas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('81e9393b-d5b6-4b04-91bd-417e943d3e97'); return false;\">O Conhecimento</a>: Texto que descreve os diferentes tipos de inteligência e a construção do conhecimento.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">Método científico</a>: Texto introdutório sobre o método científico.</li> </ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nNo ano <htdate0>, a informação nos chega de diversas fontes e em quantidade gigantesca. Diante desse cenário, é necessário realizar uma tripla reflexão:",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "now",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre a fonte</b><br /><br />Toda informação que recebemos é confiável?<br /><br />A informação correta é aquela que me agrada ou a que possui fundamentação?<br /><br />Como podemos confirmar a credibilidade de uma fonte?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O *History Tracers* usa quatro tipos de fontes — primárias, referências, religiosas e até mesmo redes sociais —, conforme explicado no texto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_primary_source",
+         "text": [
+            {
+               "text": "### Fontes primárias\n\nEsta é a principal fonte de informação utilizada pelo *History Tracers*. Sua maior credibilidade, quando comparada às demais, deve-se ao fato de terem sido escritas no período em que os eventos ocorreram (<htcite0>), ou por consistirem em resultados científicos inéditos que podem ser verificados e reproduzidos por outros pesquisadores (<htcite1>), independentemente do tempo em que foram feitos.\n\n#### Exemplos\n\nSão exemplos de fontes primárias:\n- **Exames Genéticos**: O DNA é único em cada pessoa, mas há partes que compartilhamos não apenas entre humanos, mas também com outras espécies (<htcite2>; <htcite3>).\n- **Documentos pessoais**: Registros que contêm o nome de uma pessoa e, às vezes, de seus ancestrais.\n-**Crônicas**: Descrições de eventos históricos feitas por pessoas que viveram **na época em questão**.\n- **Dicionários de idiomas**: As palavras mudam de significado ao longo do tempo, por isso é sempre útil consultar dicionários para compreender o que as pessoas realmente queriam dizer em seu contexto (<htcite4>; <htcite5>; <htcite6>).\n- **Dicionários especializados**: Áreas do conhecimento possuem palavras exclusivas. Um exemplo é o *Dicionário de Genealogia*, elaborado por Gilber Rubim Rangel (<htcite7>; <htcite8>; <htcite9>).\n- **Documentos governamentais**: não há um único tipo de documento emitido por governantes, e sua natureza pode variar conforme a época. Na **Figura 1**, apresentamos uma folha do Tratado de Tordesilhas como exemplo.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0eff7270-c6b4-4bab-b685-67d3c2970a93",
+                     "text": "Biblioteca do Congresso",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3ec8a96e-09c1-4241-891a-db9476761232",
+                     "text": "Ajayi, V. O.",
+                     "page": "pp. 1 - 4",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2017",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "503282d2-bcfb-4f59-bca4-f9bdce3d5133",
+                     "text": "Academia das Ciências de Lisboa",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "3b91f37e-a9d6-47d2-b8f5-8899556bd5f9",
+                     "text": "Real Academia Española",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "eeac939a-5a0f-492c-9880-85e2a803c665",
+                     "text": "Cambridge Dictionay",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "2cf03d7c-589e-4f1e-81d3-03296d37f2d8",
+                     "text": "Rangel, Gilber Rubim",
+                     "page": "Dicionário de Genealogia",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "80c28cd8-cee2-4696-a083-2bb0c5a26889",
+                     "text": "Rangel, Gilber Rubim",
+                     "page": "Instagram",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "ef8346d5-184c-4e34-94d3-a69604fd6bb4",
+                     "text": "Rangel, Gilber Rubim",
+                     "page": "Archive",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<span class=\"desc\"><img id=\"bndPortugal6r\" src=\"images/BibliotecaNacionalDigital/BNDTordesillas_6r.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('bndPortugal6r', '0%')\" />Figura 1: Folha do Tratado de Tordesilhas (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('086440f2-0df7-4589-ac73-0353cf1b5312'); return false;\">Biblioteca Nacional de Portugal - BNP, BN MS. 5, n.º 25, F. 6r</a>). <span id=\"bndPortugal\"></span>).</span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Sobre a qualidade\n\nUtilizamos fontes primárias como base principal, mas é preciso refletir sobre elas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Perfeição</b><br /><br />Fontes primárias são perfeitas?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O fato de alguém ter escrito sobre algo que vivenciou não significa que o registro reproduz fielmente o que ocorreu. Por isso, é essencial buscar o máximo de informações para se aproximar dos fatos.\n\nUm exemplo de divergência entre fontes primárias ocorre ao tentar determinar a data exata do falecimento de Musa ibn Fortún. Crônicas da época indicam que ele teria morrido em <htdate0> (<htcite0>) ou em <htdate1> (<htcite1>).",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                     "text": "Juste, Alberto C.",
+                     "page": "pp. 9",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1980",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "08577d63-fb3e-4d9b-884d-7e7296beb4a5",
+                     "text": "De La Granja, Fernando",
+                     "page": "pp. 465",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1967",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "789",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "802",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Idade e precisão\n\nQuanto mais retrocedemos no tempo, mais \"simples\", e menos detalhados os textos se tornam, o que pode gerar confusão sobre seu real significado. Isso nos leva a outra questão:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Precisão</b><br /><br />Quanto mais antigo um texto, mais preciso ele é?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Textos antigos contêm palavras que, embora reconhecíveis hoje, nem sempre têm o mesmo significado devido a alterações semânticas (<htcite0>). Além disso, muitas vezes são interpretados literalmente, mesmo quando os autores usavam metáforas (<htcite1>).\n\nUm exemplo é a **Lista dos Reis Sumérios**, que, embora mencione personagens historicamente comprováveis, inclui tempos de vida impossíveis e eventos naturais locais descritos como globais (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "79ea767b-924d-43e3-9bea-a8195b536dde",
+                     "text": "Sabino, Marilei A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0c59c0de-f385-4bf2-8190-166d53e158b5",
+                     "text": "Portuese, Ludovico & Pallavidini, Marta",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e8bb14f9-defd-4495-824d-8daf202a7509",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/Ashmolean/KingList.jpg\" id=\"imgKL\" onclick=\"htImageZoom('imgKL', '0%')\" class=\"imgcenter\"/>Figura 2: Lista dos Reis Sumérios. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('4d0b579d-57af-45e1-87b0-d402dd778968'); return false;\">Ashmolean Image Library</a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_references",
+         "text": [
+            {
+               "text": "### Referências\n\nNo *History Tracers*, classificamos as referências em dois grupos de textos:\n- **Fontes secundárias**: Textos que citam dados apresentados em fontes primárias, como teses acadêmicas, livros e artigos científicos (<htcite0>).\n- **Textos gerais**: Esses textos podem mencionar outras obras ou indivíduos, mas nem sempre fornecem evidências para suas afirmações. Muitas genealogias antigas (nobiliários) se enquadram nessa categoria.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3ec8a96e-09c1-4241-891a-db9476761232",
+                     "text": "Ajayi, V. O.",
+                     "page": "pp. 2, 4",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2017",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_religious",
+         "text": [
+            {
+               "text": "### Fontes Religiosas\n\nEsta seção destina-se a livros religiosos que servem como base de crença para muitas pessoas.\n\nSempre que necessário fazer referência a esse tipo de fonte, faremos com respeito às convicções pessoais, mantendo uma abordagem fundamentada no mundo natural e em evidências mensuráveis. Destacaremos ainda quando essas fontes apresentarem dados históricos verificáveis.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_sn",
+         "text": [
+            {
+               "text": "### Redes Sociais\n\nAs redes sociais fazem parte de nossas vidas, e o *History Tracers* as utiliza para divulgar novos textos e democratizar o conhecimento. Entretanto, não podemos deixar de citar uma importante reflexão de Umberto Eco",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "97ad972d-e3f9-443a-9038-965df6c99fd5",
+                     "text": "Calvillo, J., & Martínez, C. E. A.",
+                     "page": "pp. 186 ",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><ul class=\"citation\"><li><i>\"...o drama da internet é que promoveu o tolo do povo como portador da verdade.\"</i></li> </ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Justamente por serem as redes sociais o meio onde circulam mais textos e vídeos desinformados e sem fundamentação, elas ocupam o último nível em nossa hierarquia de fontes.\n\nQuanto às redes sociais, destacamos que há muitos profissionais realizando excelente divulgação científica nessas plataformas. Quando utilizamos essas publicações como referência, elas são devidamente citadas na seção *Referências*.\n\nCompreendemos ainda que o \"tolo\" mencionado por Eco refere-se à pessoa que não teve acesso à informação adequada ou que foi ensinada a memorizar em vez de compreender. Cabe a nós trabalhar para as pessoas sairem da postura de autoafirmação de \"verdades\" e passar a ter pensamento crítico.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusions",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, apresentamos as fontes utilizadas pelo *History Tracers* e sua relação com o mundo natural.\n\nRecomendamos que, sempre que estas fontes forem mencionadas e o idioma original seja conhecido, elas sejam lidas ou assistidas (no caso de materiais audiovisuais) para um aprofundamento do seu conhecimento.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "date_time": null
 }

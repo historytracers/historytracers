@@ -82,7 +82,6 @@ type HTText struct {
 	FillDates   []HTDate   `json:"date_time"`
 	IsTable     bool       `json:"isTable"`
 	ImgDesc     string     `json:"imgdesc"`
-	Latex       []string   `json:"latex"`
 	Format      string     `json:"format"`
 	PostMention string     `json:"PostMention"`
 }
@@ -474,6 +473,9 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 
 	// URL
 	ret = strings.ReplaceAll(ret, "( # )", "")
+	ret = strings.ReplaceAll(ret, " ( )", "")
+	ret = strings.ReplaceAll(ret, " ( ; )", "")
+	ret = strings.ReplaceAll(ret, " ( ; ; )", "")
 
 	return ret
 }
