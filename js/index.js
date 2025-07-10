@@ -74,6 +74,10 @@ function htParseIndexRequest() {
         htReloadCurrentPage();
     });
 
+    $('#site_calendar').on('change', function() {
+        htReloadCurrentPage();
+    });
+
     if (urlParams.has('page')) {
         var page = urlParams.get('page');
         switch(page) {
