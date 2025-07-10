@@ -202,12 +202,23 @@ func htCommonJSONError(byteValue []byte, err error) {
 }
 
 func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
+	year, _ := strconv.Atoi(dt.Year)
+	suffix := ""
+	if year < 0 {
+		year = -year
+		if lang == "en-US" {
+			suffix = " B.E.C."
+		} else {
+			suffix = " A.E.C."
+		}
+	}
+
 	if dt == nil || dt.DateType != "gregory" {
 		return ""
 	}
 
 	if dt.Month == "-1" || dt.Day == "-1" {
-		ret := fmt.Sprintf("%s", dt.Year)
+		ret := fmt.Sprintf("%d%s", year, suffix)
 		return ret
 	}
 
@@ -262,7 +273,7 @@ func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
 		month = months[11]
 		break
 	}
-	ret := fmt.Sprintf("%s %s %s", dt.Day, month, dt.Year)
+	ret := fmt.Sprintf("%s %s %d%s", dt.Day, month, year, suffix)
 
 	return ret
 }
