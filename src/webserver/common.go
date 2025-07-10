@@ -487,6 +487,7 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 	ret = strings.ReplaceAll(ret, " ( )", "")
 	ret = strings.ReplaceAll(ret, " ( ; )", "")
 	ret = strings.ReplaceAll(ret, " ( ; ; )", "")
+	ret = strings.ReplaceAll(ret, " ( ; ; ; )", "")
 
 	return ret
 }
