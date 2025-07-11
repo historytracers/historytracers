@@ -799,7 +799,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	htParseFamilySetGEDCOM(&family, fileName, lang)
 	htParseFamilySetCSV(&family, fileName, lang)
 	htParseFamilySetLicenses(&family, lang)
-	if familyUpdated == true {
+	if familyUpdated == true || updateDateFlag == true {
 		family.LastUpdate[0] = htUpdateTimestamp()
 	}
 	htParseFamilySetDefaultValues(&family, lang, localPath)
@@ -938,7 +938,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 	}
 
 	equal, err := HTAreFilesEqual(fileName, newFile)
-	if !equal && err == nil {
+	if !equal && err == nil || updateDateFlag == true {
 		index.LastUpdate[0] = htUpdateTimestamp()
 	}
 
