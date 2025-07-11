@@ -19,26 +19,28 @@ type htConfig struct {
 }
 
 var (
-	devFlag       bool   = false
-	MinifyFlag    bool   = false
-	GedcomFlag    bool   = false
-	verboseFlag   bool   = false
-	ValidateFlag  bool   = false
-	AudioFlag     bool   = false
-	FamilyFlag    bool   = false
-	portFlag      int    = 12345
-	confPath      string = "/etc/historytracers/"
-	srcPath       string = "/var/www/historytracers/"
-	logPath       string = "/var/log/historytracers/"
-	contentPath   string = "/var/www/historytracers/www/"
-	classTemplate string = ""
-	CFG           *htConfig
+	updateDateFlag bool   = false
+	devFlag        bool   = false
+	MinifyFlag     bool   = false
+	GedcomFlag     bool   = false
+	verboseFlag    bool   = false
+	ValidateFlag   bool   = false
+	AudioFlag      bool   = false
+	FamilyFlag     bool   = false
+	portFlag       int    = 12345
+	confPath       string = "/etc/historytracers/"
+	srcPath        string = "/var/www/historytracers/"
+	logPath        string = "/var/log/historytracers/"
+	contentPath    string = "/var/www/historytracers/www/"
+	classTemplate  string = ""
+	CFG            *htConfig
 )
 
 func HTParseArg() {
 	CFG = NewHTConfig()
 
 	flag.BoolVar(&CFG.DevMode, "devmode", false, "Is the software running in development mode? (default: false)")
+	flag.BoolVar(&updateDateFlag, "timestamp", false, "Update the timestamp fields in all files. (default: false)")
 	flag.BoolVar(&MinifyFlag, "minify", false, "Do not start the server, instead, minify all files. (default: false)")
 	flag.BoolVar(&GedcomFlag, "gedcom", false, "Do not start the server, instead, generate all gedcom files. (default: false)")
 	flag.BoolVar(&ValidateFlag, "validate", false, "Do not start the server, instead, validate JSON files. (default: false)")
