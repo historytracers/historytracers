@@ -211,6 +211,8 @@ func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
 		} else {
 			suffix = " A.E.C."
 		}
+	} else if dt.Year == "now" {
+		year, _, _ = time.Now().Date()
 	}
 
 	if dt == nil || dt.DateType != "gregory" {
