@@ -246,8 +246,20 @@
          "id": "SECTION_shapes",
          "text": [
             {
-               "text": "### Formas\n\nDesconhecemos sua conclusão para a **Reflexão 2**, mas, em nosso caso, entendemos que triângulos e pirâmides são as figuras ideais.\n\n#### Triângulos\n\nExistem diversos tipos de triângulos (<htcite0>), sendo um em especial o nosso escolhido: o triângulo isósceles. Este triângulo possui pelo menos dois ângulos iguais, simetria e uma base mais ampla que se reduz gradualmente até o topo (<htcite1>), conforme ilustrado no **Gráfico 1**.",
+               "text": "### Formas\n\nDesconhecemos sua conclusão para a **Reflexão 2**, mas, em nosso caso, entendemos que triângulos e pirâmides são as figuras ideais.\n\n#### Triângulos\n\nExistem diversos tipos de triângulos (<htcite0>; <htcite1>), sendo um em especial o nosso escolhido: o triângulo isósceles. Este triângulo possui pelo menos dois ângulos iguais, simetria e uma base mais ampla que se reduz gradualmente até o topo (<htcite2>), conforme ilustrado no **Gráfico 1**.",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triângulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
@@ -289,7 +301,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Pirâmides\n\nPor serem figuras planas, os triângulos não representam exatamente a natureza. No entanto, ao combinarmos triângulos, podemos chegar mais perto do que desejamos. A **Figura 4** mostra quatro triângulos que, unidos, formam uma pirâmide (<htcite0>).",
+               "text": "#### Pirâmides\n\nPor serem figuras planas, os triângulos não representam exatamente a natureza. No entanto, ao combinarmos triângulos, podemos chegar mais perto do que desejamos. A **Figura 4** mostra quatro triângulos que, unidos, formam uma pirâmide (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -342,13 +354,111 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_slope",
+         "text": [
+            {
+               "text": "### Inclinação\n\nTriângulos e pirâmides nos ajudam a aproximar-nos das montanhas naturais. Porém, para chegarmos ainda mais perto das montanhas reais, precisamos ajustar as alturas dos triângulos, o que nos leva a estudar sua inclinação.\n\n#### Triângulo retângulo\n\nVamos considerar apenas um lado do triângulo isósceles do **Gráfico 1**. Ao fazer isso, obtemos um triângulo retângulo (<htcite0>; <htcite1>), conforme mostrado no **Gráfico 2* com seus elementos listados abaixo:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
+                     "text": "Weisstein, Eric W., Triângulo Retângulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "false",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg height=\"245\" width=\"450\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M425 5 L75 200 L425 200 Z\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><rect x=\"404\" y=\"179\" width=\"20\" height=\"20\" stroke=\"lightgreen\" fill=\"none\" stroke-width=\"3\" /><text x=\"125\" y=\"192\" font-size=\"1.5em\">α</text><text x=\"401\" y=\"45\" font-size=\"1.5em\">β</text><text x=\"235\" y=\"95\" font-size=\"2.5em\">c</text><text x=\"428\" y=\"120\" font-size=\"2.5em\">b</text><text x=\"265\" y=\"230\" font-size=\"2.5em\">a</text></svg></p><p class=\"desc\">Gráfico 2: Triângulo retângulo com suas componentes.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **a**, **b** e **c**: são os lados do triângulo. Os lados **a** e **b** são chamados **catetos**, enquanto **c** é o nome da **hipotenusa**.\n- **α**, **β**, e <i class=\"fa-regular fa-square\"></i>: são os ângulos formatos pela união dos lados do triângulo. O quadrado ( <i class=\"fa-regular fa-square\"></i> ) que representa a conexão entre as linhas horizontal e vertical é chamado **ângulo reto**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Movendo a hipotenusa\n\nAo observar o **Gráfico 2**, podemos concluir que, para aumentar a altura do triângulo retângulo, precisamos aumentar o tamanho do cateto **b**. Como consequência, também aumentaremos o tamanho da hipotenusa **c**. Isso pode ser visualizado no **Gráfico 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 3: Pontos das tabuadas de zero a nove conectados, formando as retas. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Note que, para todas as linhas do **Gráfico 3**, mantemos o cateto **a** com os mesmos valores entre 0 e 10. Os únicos valores alterados para cada linha são os valores do cateto **b** e, consequentemente, o comprimento da hipotenusa **c**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1</b><br /><br />Para tornar ainda mais claro o que estamos explicando, siga estas etapas:<br *><br />1. Clique em todos os títulos <b>Tabuada de X</b>, onde <b>X</b> é um número entre <b>0</b> e <b>9</b>, para ocultar as linhas.<br />2. Clique em cada um individualmente para mostrar as linhas novamente.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "A principal professora da humanidade é a natureza?",
+         "question": "Pirâmides nos aproximam da natureza?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Boa parte do conhecimento que temos hoje é oriundo de observações da natureza. Mesmo quando fazemos algo que chamamos artificial, de certa forma é uma cópia dos eventos naturais."
+         "additionalInfo": "Quando realizamos modelos, não necessariamente chegamos exatamente ao que a natureza possuí. Mas, algumas vezes, chegar próximo é o suficiente, como quando construímos estruturas piramidais. "
+      },
+      {
+         "question": "Podemos inferir que o aumento de um cateto, associado com a extensão da hipotenusa, nos ajuda a fazer nossos modelos mais próximos das montanhas?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "A medida que aumentamos o cateto da vertical de um truângulo retângulo, vamos nos aproximando da inclinação de montanhas."
       }
    ],
    "date_time": null

@@ -10,6 +10,7 @@ function htLoadExercise() {
     }
 
     htWriteNavigation("first_steps");
+    htFillMultiplicationTable("chart1", 0, 9, false);
 
     return false;
 }

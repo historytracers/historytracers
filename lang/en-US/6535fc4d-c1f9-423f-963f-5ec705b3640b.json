@@ -246,8 +246,20 @@
          "id": "SECTION_shapes",
          "text": [
             {
-               "text": "### Shapes\n\nWhile we don't know your conclusion for **Reflection 2**, in our case we have identified triangles and pyramids as the ideal forms.\n\n#### Triangles\n\nVarious types of triangles exist (<htcite0>), with one particular type being our focus: the isosceles triangle. This geometric figure features at least two equal angles, symmetry, and a broad base that gradually narrows to its apex (<htcite1>), as illustrated in **Chart 1**.",
+               "text": "### Shapes\n\nWhile we don't know your conclusion for **Reflection 2**, in our case we have identified triangles and pyramids as the ideal forms.\n\n#### Triangles\n\nVarious types of triangles exist (<htcite0>; <htcite1>), with one particular type being our focus: the isosceles triangle. This geometric figure features at least two equal angles, symmetry, and a broad base that gradually narrows to its apex (<htcite2>), as illustrated in **Chart 1**.",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triângulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
@@ -289,7 +301,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Pyramids\n\nAs two-dimensional shapes, triangles alone cannot fully represent the natural world. However, by combining triangles, we can better approximate our desired representation. **Figure 4** demonstrates how four united triangles form a pyramid (<htcite0>).",
+               "text": "#### Pyramids\n\nAs two-dimensional shapes, triangles alone cannot fully represent the natural world. However, by combining triangles, we can better approximate our desired representation. **Figure 4** demonstrates how four united triangles form a pyramid (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -342,13 +354,111 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_slope",
+         "text": [
+            {
+               "text": "### Slope\n\nTriangles and pyramids help us approximate natural mountains. To better represent real mountains, we need to adjust our triangles, which requires studying their slope.\n\n#### Right Triangles\n\nLet us consider only one side of the isosceles triangle from **Chart 1**. Doing this gives us a right triangle (<htcite0>; <htcite1>), as shown in **Chart 2* with its labeled components:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
+                     "text": "Weisstein, Eric W., Right triangle",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "false",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg height=\"245\" width=\"450\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M425 5 L75 200 L425 200 Z\" style=\"fill:none;stroke:green;stroke-width:3\" /><rect x=\"404\" y=\"179\" width=\"20\" height=\"20\" stroke=\"green\" fill=\"none\" stroke-width=\"3\" /><text x=\"125\" y=\"192\" font-size=\"1.5em\">α</text><text x=\"401\" y=\"45\" font-size=\"1.5em\">β</text><text x=\"235\" y=\"95\" font-size=\"2.5em\">c</text><text x=\"428\" y=\"120\" font-size=\"2.5em\">b</text><text x=\"265\" y=\"230\" font-size=\"2.5em\">a</text></svg></p><p class=\"desc\">Chart 2: Right triangle with its components labeled.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **a**, **b** and **c**: The sides of the triangle. Sides **a** and **b** are called **legs**, while **c** is the **hypotenuse**.\n- **α**, **β**, and <i class=\"fa-regular fa-square\"></i>: The angles formed by the intersection of the sides. The square symbol ( <i class=\"fa-regular fa-square\"></i> ) marking the angle between the horizontal and vertical sides is called the **right angle**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Adjusting the Hypotenuse\n\nFrom **Chart 2**, we conclude that to increase the triangle's height, we must increase the length of side **b**. Consequently, this also increases the hypotenuse length **c**, as visualized in **Chart 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Chart 3: Points from multiplication tables 0 through 9 connected to form straight lines. Chart created using <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Note that for all lines in **Chart 3**, we maintain side **a** with constant values between 0 and 10. The only varying values are side **b** and, consequently, the hypotenuse length **c**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1</b><br /><br />To further clarify our explanation, follow these steps:<br *><br />1. Click all titles <b>Table of X</b> (where <b>X</b> is a number between <b>0</b> and <b>9</b>) to hide lines.<br />2. Click each title individually to show the lines again.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "A principal professora da humanidade é a natureza?",
+         "question": "Pirâmides nos aproximam da natureza?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Boa parte do conhecimento que temos hoje é oriundo de observações da natureza. Mesmo quando fazemos algo que chamamos artificial, de certa forma é uma cópia dos eventos naturais."
+         "additionalInfo": "Quando realizamos modelos, não necessariamente chegamos exatamente ao que a natureza possuí. Mas, algumas vezes, chegar próximo é o suficiente, como quando construímos estruturas piramidais. "
+      },
+      {
+         "question": "Podemos inferir que o aumento de um cateto, associado com a extensão da hipotenusa, nos ajuda a fazer nossos modelos mais próximos das montanhas?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "A medida que aumentamos o cateto da vertical de um truângulo retângulo, vamos nos aproximando da inclinação de montanhas."
       }
    ],
    "date_time": null
