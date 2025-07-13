@@ -216,20 +216,8 @@
          "id": "SECTION_sum_body",
          "text": [
             {
-               "text": "### Relectura del Orden de los Números\n\nAntes de comprender la lógica detrás de la adición, es importante revisar una tabla presentada en el texto *Dibujando para Contar*. Esta tabla utiliza el método *\"Yupana Inka Tawa Pukllay\"*, desarrollado y publicado por Dhavit Prem, de la Asociación Yupanki. Este método está basado en la *Yupana* descrita por Felipe Guaman Poma de Ayala",
+               "text": "### Relectura del Orden de los Números\n\nAntes de comprender la lógica detrás de la adición, es importante revisar una tabla presentada en el texto *Dibujando para Contar*. Esta tabla utiliza el método *\"Yupana Inka Tawa Pukllay\"* (<htcite0>; <htcite1>; <htcite2>), desarrollado y publicado por Dhavit Prem, de la Asociación Yupanki. Este método está basado en la *Yupana* descrita por Felipe Guaman Poma de Ayala (<htcite3>).",
                "source": [
-                  {
-                     "type": 0,
-                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                     "text": "Poma de Ayala, Felipe Guaman",
-                     "page": "pp. 361 - 362",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
                   {
                      "type": 1,
                      "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
@@ -265,13 +253,25 @@
                         "month": "",
                         "day": ""
                      }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman",
+                     "page": "pp. 361 - 362",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
                "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mano izquierda</th><th>Mano derecha</th><th>Flechas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\" src=\"images/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table><p class=\"desc\">Tabla 1: Representación de una línea de la <i>Yupana</i> según Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <htdate1>, pp. 361 - 362</a>). CSS inspirado no código de <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a>.</p>",
@@ -408,7 +408,7 @@
                "PostMention": ""
             },
             {
-               "text": "Sin embargo, el Cálculo 2, tal como está escrito, omite algunos aspectos importantes del razonamiento matemático. A primera vista, el número 1 en la parte superior parece estar \"aislado\" y simplemente \"bajar\" a la línea del resultado. No obstante, el cero (0), que representa el vacío, suele omitirse a la izquierda de los números. Nada nos impide, sin embargo, explicitarlo. Así, podemos reescribir el Cálculo 2 de la siguiente manera",
+               "text": "Sin embargo, el Cálculo 2, tal como está escrito, omite algunos aspectos importantes del razonamiento matemático. A primera vista, el número 1 en la parte superior parece estar \"aislado\" y simplemente \"bajar\" a la línea del resultado. No obstante, el cero (0), que representa el vacío (<htcite0>), suele omitirse a la izquierda de los números. Nada nos impide, sin embargo, explicitarlo. Así, podemos reescribir el Cálculo 2 de la siguiente manera (<htcite1>):",
                "source": [
                   {
                      "type": 1,
@@ -439,7 +439,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ":"
+               "PostMention": ""
             },
             {
                "text": "<p style=\"text-align=center\"><center>&nbsp;1&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;0 9<br />+&nbsp;&nbsp;0 1<br />____________<br />&nbsp;&nbsp;1 0</center></p><p class=\"desc\">Cálculo 3: Representación de la suma de números en formato vertical, incluyendo el cero explícito.</p>",
@@ -452,20 +452,7 @@
             },
             {
                "text": "En el Cálculo 3, podemos concluir que el número 1 no se desplaza simplemente a la línea del resultado. Lo que realmente ocurre es que la suma de 9 + 1 da como resultado 10. Sin embargo, como no podemos representar números fuera del rango de 0 a 9 en un único dígito, el número que excede el mayor valor permitido (nueve) se transfiere a la línea superior, donde se suma a los números subsecuentes. Cuando no hay ningún número visible en las líneas a la izquierda, entendemos que hay un cero implícito en esa posición",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
