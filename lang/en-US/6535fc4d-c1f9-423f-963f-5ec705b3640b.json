@@ -251,8 +251,8 @@
                   {
                      "type": 1,
                      "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
-                     "text": "Weisstein, Eric W., Triângulo",
-                     "page": "",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Triangle",
                      "date_time": {
                         "type": "",
                         "year": "",
@@ -323,7 +323,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"pyramid\" onclick=\"htImageZoom('pyramid', '0%')\" src=\"images/HistoryTracers/pyramid.jpg\" class=\"imgcenter\"/>Figure 3: Pyramid generated using a Python script available in our project repository (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">Repository Scripts</a>).</p>",
+               "text": "<p class=\"desc\"><img id=\"pyramid\" onclick=\"htImageZoom('pyramid', '0%')\" src=\"images/HistoryTracers/pyramid.jpg\" class=\"imgcenter\"/>Figure 4: Pyramid generated using a Python script available in our project repository (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">Repository Scripts</a>).</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -364,8 +364,8 @@
                   {
                      "type": 1,
                      "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
-                     "text": "Weisstein, Eric W., Right triangle",
-                     "page": "",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Right triangle",
                      "date_time": {
                         "type": "",
                         "year": "",
@@ -447,18 +447,212 @@
                "PostMention": " "
             }
          ]
+      },
+      {
+         "id": "SECTION_line",
+         "text": [
+            {
+               "text": "### Zoom on Lines\n\nThe lines drawn on **Chart 3** were created following rules called mathematical formulas (<htcite0>). To better understand this process, let us recall how indigenous peoples made their sacred mountains in Mesoamerica.\n\n#### Rebuilding\n\nWhat we generally observe in archaeological sites, as shown in **Figures 2 and 3**, represents the final stage of a construction process that began with small structures. Additional structures were subsequently built on top of these until reaching the final form. We must not forget that in some cases, the final structure was built atop even older structures (<htcite1>), as shown in **Figura 5**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a84a6938-22ad-4fa4-9588-2d70f6aa1693",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Formula",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "daae87a2-5fa9-43d1-88fb-6713b25d50d5",
+                     "text": "Tuarez Mejia, L. F.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\" src=\"images/Copan/Temple16Copan.png\" class=\"imgcenter\"/>Figure 1: Sign at the Archaeological Site of Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Photo taken on <htdate1>, during a visit to the site.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "The image depicts the sequential construction phases of Temple 16, with later temples superimposed on earlier ones.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Unlinking Points\n\nFor construction, we use small blocks stacked on top of others. This replicates what we observe in natural processes occurring over millions of years (<htcite0>).\n\nBoth natural processes and human constructions involve repetitive steps connecting either elements or blocks of stone. To make this even clearer, we will remove the lines connecting points in **Chart 3**, leaving only the visible points in **Chart 4** below:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9b33bffc-ad77-472d-84a6-aa94946e8645",
+                     "text": "Bird, P.",
+                     "page": "pp. 1 - 14",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1988",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Chart 4: Points from the zero to nine table. Chart created using <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "**Chart 4** exactly reproduces what we learned in this chapter. From this, we can observe:\n- When viewing the horizontal axis and approaching zero (where multiplication always yields the same result), the vertical points become closer to each other.\n- **Commutativity**: Points share the same vertical value when commutativity occurs. For example, the value 15 appears when multiplying 3 by 5 and 5 by 3.\n- All numbers appearing in the hypotenuse of a multiplication table also appear vertically in their factor's column.\n\nDespite having connected points in the tables we've been using, the multiplication results we've learned so far create disconnected (discrete) points. We will learn how to connect them in future chapters. For now, let's generalize these disconnected points.\n\n#### Repeated Sums\n\nWhen performing repeated sums, we are executing an operation called multiplication (<htcite0>). During our studies, we observed that these repeated sums can be represented in different ways. For example, to add the number 10 three consecutive times, we can express it as follows (<htcite1>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>=</mo>  <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>3</mn></mrow> </munderover> <mi>10</mi> <mo>=</mo> <mi>3 × (10)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Calculation 1: Sum of ten three consecutive times.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Through our study of multiplication tables, we concluded that all points shown in the chart can be summarized by **Fórmula 1** (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Formula 1: General formula of the tables.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In this formula:\n- *r*: is the product of the multiplication.\n *N*: is the factor representing the counted number.\n- *a*: in addition to being a multiplication factor, it receives different names in various contexts. However, regardless of its name, its function in multiplication remains the same: to modify a point's position relative to the horizontal line, creating the angle **α** shown in **Chart 2**. For this reason, one of its names is **slope coefficient** (or **angular coefficient**). The factor **a** is what gives a multiplication table its name.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we reviewed what we learned in this chapter, but our exploration of multiplication tables doesn't end here.\n\nTo create mountains using formulas, 10 numbers on the horizontal axis are insufficient. As observed in **Chapter 4**, the result of multiplying by ten never appeared in the vertical values, except in the 9 times table. Because there is much more to learn about the 10 times table, we will study it in the next chapter.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Pirâmides nos aproximam da natureza?",
+         "question": "Do pyramids bring us closer to nature?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Quando realizamos modelos, não necessariamente chegamos exatamente ao que a natureza possuí. Mas, algumas vezes, chegar próximo é o suficiente, como quando construímos estruturas piramidais. "
+         "additionalInfo": "When we create models, we do not immediately achieve results identical to those found in nature. Therefore, in many cases, an approximation is sufficient, as occurs with pyramidal structures."
       },
       {
-         "question": "Podemos inferir que o aumento de um cateto, associado com a extensão da hipotenusa, nos ajuda a fazer nossos modelos mais próximos das montanhas?",
+         "question": "Can we infer that increasing one side of a right triangle, along with extending its hypotenuse, helps us model natural mountains?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "A medida que aumentamos o cateto da vertical de um truângulo retângulo, vamos nos aproximando da inclinação de montanhas."
+         "additionalInfo": "When we increase the vertical side of a right triangle, we come closer to representing mountain slopes."
+      },
+      {
+         "question": "Do the results of multiplication tables create a continuous straight line?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "The multiplication methods we have learned so far only produce discrete points with spaces between them. In future chapters, we will study numbers that represent continuity and, as a result, will better describe natural phenomena."
       }
    ],
    "date_time": null

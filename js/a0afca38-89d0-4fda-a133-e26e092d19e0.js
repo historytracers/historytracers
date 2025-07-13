@@ -11,7 +11,7 @@ function htLoadExercise() {
 
     htWriteNavigation("first_steps");
 
-    htFillMultiplicationTable("chart4", 0, 5, false);
+    htFillMultiplicationTable("chart4", 0, 5, false, true);
 
     return false;
 }

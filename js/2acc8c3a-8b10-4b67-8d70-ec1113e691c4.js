@@ -65,7 +65,7 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart1Options);
 
-    htFillMultiplicationTable("chart2", 0, 0, false);
+    htFillMultiplicationTable("chart2", 0, 0, false, true);
 
     htWriteMultiplicationTable("#mParent0", 0);
     htWriteMultiplicationTable("#mParent1", 1);
@@ -90,7 +90,7 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart3Options);
 
-    htFillMultiplicationTable("chart4", 1, 1, false);
+    htFillMultiplicationTable("chart4", 1, 1, false, true);
 
     return false;
 }
