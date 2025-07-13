@@ -14,15 +14,15 @@ function htLoadExercise() {
     htWriteMultiplicationTable("#mParent2", 2);
     htWriteMultiplicationTable("#mParent3", 3);
 
-    htFillMultiplicationTable("chart1", 1, 1, true);
+    htFillMultiplicationTable("chart1", 1, 1, true, true);
 
-    htFillMultiplicationTable("chart2", 2, 2, false);
+    htFillMultiplicationTable("chart2", 2, 2, false, true);
 
-    htFillMultiplicationTable("chart3", 1, 2, false);
+    htFillMultiplicationTable("chart3", 1, 2, false, true);
 
-    htFillMultiplicationTable("chart4", 3, 3, false);
+    htFillMultiplicationTable("chart4", 3, 3, false, true);
 
-    htFillMultiplicationTable("chart5", 1, 3, false);
+    htFillMultiplicationTable("chart5", 1, 3, false, true);
 
     return false;
 }

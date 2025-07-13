@@ -17,7 +17,7 @@ function htLoadExercise() {
     var yVector2 = [ 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
     var yVector4 = [ 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40];
 
-    htFillMultiplicationTable("chart1", 4, 4, false);
+    htFillMultiplicationTable("chart1", 4, 4, false, true);
 
     var chart2Options = {
         "datasets": [
@@ -44,9 +44,9 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart2Options);
 
-    htFillMultiplicationTable("chart3", 5, 5, false);
+    htFillMultiplicationTable("chart3", 5, 5, false, true);
 
-    htFillMultiplicationTable("chart4", 0, 5, false);
+    htFillMultiplicationTable("chart4", 0, 5, false, true);
 
     htWriteNavigation("first_steps");
 

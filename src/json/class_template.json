@@ -36,8 +36,8 @@
       " An array of names of individuals who reviewed the text."
    ],
    "type": "class",
-   "editing": false,
    "version": 2,
+   "edidting": false,
    "content": [
       {
          "id": "SECTION_prerequisites",
@@ -45,10 +45,16 @@
             {
                "text": "<p><hr /></p><p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
                "source": null,
-               "date_time": null,
+               "date_time": [
+                    {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+               ],
                "isTable": false,
                "imgdesc": "",
-               "latex": null,
                "format": "html",
                "PostMention": ""
             },
@@ -90,9 +96,6 @@
                ],
                "isTable": false,
                "imgdesc": "A description of an image included in the text.",
-               "latex": [
-                  "A LaTeX text to be displayed in this section."
-               ],
                "format": "markdown or html",
                "PostMention": "A character used after a mention to include citations."
             }
@@ -139,9 +142,6 @@
                ],
                "isTable": false,
                "imgdesc": "A description of an image included in the text.",
-               "latex": [
-                  "A LaTeX text to be displayed in this section."
-               ],
                "format": "markdown or html",
                "PostMention": "A character used after a mention to include citations."
             }

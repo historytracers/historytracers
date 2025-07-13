@@ -495,18 +495,23 @@ function htIsNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-function htFillMultiplicationTable(target, tmin, tmax, fillArea) {
+function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
     if (tmin > tmax)
         return;
 
-    var xVector = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var isNotContinuous = (continuous == undefined || continuous == false);
+    var xVector = (isNotContinuous) ? [ 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10] : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] ;
     var datasets = [ ];
 
     var yMax = 0;
     for (let i = tmin; i <= tmax; i++) {
         var yVector = [ ];
-        for (let j = 0 ; j < xVector.length ; j++) {
-            yMax = i * j;
+        for (let j = 0, k = 0; j < xVector.length ; j++, k += 0.5) {
+            if (isNotContinuous) {
+                yMax = ( (j % 2) == 0)? i * k: null;
+            } else {
+                yMax = i * j;
+            }
             yVector.push(yMax);
         }
 

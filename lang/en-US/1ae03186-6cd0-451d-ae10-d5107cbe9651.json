@@ -27,13 +27,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1752261715"
+      "1752276966"
    ],
    "authors": null,
    "reviewers": null,
    "type": "class",
    "version": 2,
-   "edidting": false,
+   "editing": false,
    "content": [
       {
          "id": "SECTION_prerequisites",
@@ -111,7 +111,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"images/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figure 1: General view of Teotihuacan. Photograph taken on <htdate0>, during a visit to the site.</p>",
+               "text": "<p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"images/Teotihuacan/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figure 1: General view of Teotihuacan. Photograph taken on <htdate0>, during a visit to the site.</p>",
                "source": null,
                "date_time": [
                   {
@@ -216,20 +216,8 @@
          "id": "SECTION_sum_body",
          "text": [
             {
-               "text": "### Rereading the Order of Numbers\n\nBefore understanding the logic behind addition, it is important to review a table presented in the text *Drawing to Count*. This table uses the method *\"Yupana Inka Tawa Pukllay,\"* developed and published by Dhavit Prem from the *Yupanki Association*. The method is based on the *Yupana* described by Felipe Guaman Poma de Ayala",
+               "text": "### Rereading the Order of Numbers\n\nBefore understanding the logic behind addition, it is important to review a table presented in the text *Drawing to Count*. This table uses the method *\"Yupana Inka Tawa Pukllay,\"* (<htcite0>; <htcite1>; <htcite2>) developed and published by Dhavit Prem from the *Yupanki Association*. The method is based on the *Yupana* described by Felipe Guaman Poma de Ayala (<htcite3>).",
                "source": [
-                  {
-                     "type": 0,
-                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                     "text": "Poma de Ayala, Felipe Guaman",
-                     "page": "pp. 361 - 362",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
                   {
                      "type": 1,
                      "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
@@ -265,13 +253,25 @@
                         "month": "",
                         "day": ""
                      }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman",
+                     "page": "pp. 361 - 362",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
                "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Left Hand</th><th>Right Hand</th><th>Arrows</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\" src=\"images/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table><p class=\"desc\">Table 1: Representation of a  <i>Yupana</i> according to Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <htdate1>, pp. 361 - 362</a>). CSS inspirado no código de <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a>.</p>",
@@ -408,7 +408,7 @@
                "PostMention": ""
             },
             {
-               "text": "However, Calculation 2, as written, hides some important aspects of the mathematical reasoning behind it. At first glance, the number 1 above appears \"isolated\" and seems to simply \"drop\" to the result line. However, the zero (0), which represents the empty or null value, is typically omitted on the left side of a number. That said, there’s nothing stopping us from making it explicit. Thus, we can rewrite Calculation 2 as follows:",
+               "text": "However, Calculation 2, as written, hides some important aspects of the mathematical reasoning behind it. At first glance, the number 1 above appears \"isolated\" and seems to simply \"drop\" to the result line. However, the zero (0), which represents the empty or null value (<htcite0>), is typically omitted on the left side of a number. That said, there’s nothing stopping us from making it explicit. Thus, we can rewrite Calculation 2 as follows (<htcite1>):",
                "source": [
                   {
                      "type": 1,
@@ -452,20 +452,7 @@
             },
             {
                "text": "In Calculation 3, we can conclude that the number 1 is not merely carried to the result line. What truly happens is that the sum of 9 + 1 equals 10. Since numbers outside the range of 0 to 9 cannot be represented as a single digit, the value exceeding the highest allowed number (nine) is carried to the line above, where it is added to the next numbers. When no number is visible on the left side, we understand that implicit zeros are present in that position",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

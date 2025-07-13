@@ -27,13 +27,13 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1752261715"
+      "1752276966"
    ],
    "authors": null,
    "reviewers": null,
    "type": "class",
    "version": 2,
-   "edidting": false,
+   "editing": false,
    "content": [
       {
          "id": "SECTION_prerequisites",
@@ -111,7 +111,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"images/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figura 1: Vista geral de Teotihuacan. Foto tirada em <htdate0> durante uma visita ao sítio.</p>",
+               "text": "<p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"images/Teotihuacan/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figura 1: Vista geral de Teotihuacan. Foto tirada em <htdate0> durante uma visita ao sítio.</p>",
                "source": null,
                "date_time": [
                   {
@@ -216,20 +216,8 @@
          "id": "SECTION_sum_body",
          "text": [
             {
-               "text": "### Releitura da Ordem dos Números\n\nAntes de compreendermos a lógica por trás da adição, é importante revisitar uma tabela apresentada no texto *Desenhando para contar*. Essa tabela utiliza o método *\"Yupana Inka Tawa Pukllay\"*, desenvolvido e publicado por Dhavit Prem, da *Associação Yupanki*. O método é baseado na *Yupana* descrita por Felipe Guaman Poma de Ayala",
+               "text": "### Releitura da Ordem dos Números\n\nAntes de compreendermos a lógica por trás da adição, é importante revisitar uma tabela apresentada no texto *Desenhando para contar*. Essa tabela utiliza o método *\"Yupana Inka Tawa Pukllay\"* (<htcite0>; <htcite1>; <htcite2>), desenvolvido e publicado por Dhavit Prem, da *Associação Yupanki*. O método é baseado na *Yupana* descrita por Felipe Guaman Poma de Ayala (<htcite3>).",
                "source": [
-                  {
-                     "type": 0,
-                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
-                     "text": "Poma de Ayala, Felipe Guaman",
-                     "page": "pp. 361 - 362",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
                   {
                      "type": 1,
                      "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
@@ -265,13 +253,25 @@
                         "month": "",
                         "day": ""
                      }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman",
+                     "page": "pp. 361 - 362",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
                "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\" src=\"images/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table><p class=\"desc\">Tabela 1: Representação de uma linha da <i>Yupana</i> de acordo com Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <htdate1>, pp. 361 - 362</a>). CSS inspirado no código de <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a>.</p>",
@@ -408,7 +408,7 @@
                "PostMention": ""
             },
             {
-               "text": "No entanto, o Cálculo 2, como está escrito, omite algumas partes importantes do raciocínio matemático. O número 1, no topo, parece estar \"isolado\" e simplesmente \"cair\" para a linha do resultado. Contudo, o zero (0), que representa o vazio, é normalmente omitido à esquerda dos números. Nada, porém, nos impede de explicitá-lo. Assim, podemos reescrever o Cálculo 2 da seguinte forma",
+               "text": "No entanto, o Cálculo 2, como está escrito, omite algumas partes importantes do raciocínio matemático. O número 1, no topo, parece estar \"isolado\" e simplesmente \"cair\" para a linha do resultado. Contudo, o zero (0), que representa o vazio (<htcite0>), é normalmente omitido à esquerda dos números. Nada, porém, nos impede de explicitá-lo. Assim, podemos reescrever o Cálculo 2 da seguinte forma (<htcite1>):",
                "source": [
                   {
                      "type": 1,
@@ -439,7 +439,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": ":"
+               "PostMention": ""
             },
             {
                "text": "<p style=\"text-align=center\"><center>&nbsp;1&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;0 9<br />+&nbsp;&nbsp;0 1<br />____________<br />&nbsp;&nbsp;1 0</center></p><p class=\"desc\">Cálculo 3: Contagem dos números representada pela adição de 1 no formato vertical com o 0 explícito.</p>",
@@ -452,20 +452,7 @@
             },
             {
                "text": "No Cálculo 3, podemos concluir que o número 1 não é simplesmente deslocado para a linha de resultado. O que realmente ocorre é que a adição de 9 + 1 resulta em 10. No entanto, como não podemos representar números diferentes entre 0 e 9 em um único dígito, o número que excede o maior valor possível (nove) é transferido para a linha superior, onde é adicionado aos números subsequentes. Quando não há nenhum número visível ao lado esquerdo, entendemos que há um zero implícito nessa posição",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "94c4d446-cc89-499b-8404-b528e5107864",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

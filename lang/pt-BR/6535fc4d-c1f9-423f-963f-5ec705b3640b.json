@@ -1,0 +1,664 @@
+{
+   "title": "Entendendo as tabuadas (Resumo)",
+   "header": "Entendendo as tabuadas (Resumo)",
+   "sources": [
+      "6535fc4d-c1f9-423f-963f-5ec705b3640b"
+   ],
+   "scripts": [
+      "6535fc4d-c1f9-423f-963f-5ec705b3640b"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/6535fc4d-c1f9-423f-963f-5ec705b3640b_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/95DASIbyYUb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1752335462"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nRecomendamos que o leitor revise os textos anteriores deste capítulo antes de prosseguir",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "Hitory Tracers Team",
+                     "page": "Primeiros Passos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nUm dos axiomas que estudamos neste capítulo foi o da comutatividade (<htcite0>). Por meio dele, aprendemos que a ordem dos fatores não altera o resultado (produto) da multiplicação. Diante desse cenário, vamos refletir sobre o aprendizado:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: O caminho do conhecimento</b><br /><br />Seria possível ensinar as tabuadas partindo da natureza para chegar aos números?<br /><br />Esse caminho poderia facilitar a compreensão das pessoas?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
+      },
+      {
+         "id": "SECTION_nature",
+         "text": [
+            {
+               "text": "### A natureza\n\nAo observarmos o mapa da América do Norte (*Abya Yala*) apresentado na **Figura 1**, podemos identificar uma extensa região com montanhas. Nela está situada a cidade de Teotihuacan, no México, que passamos a estudar.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/mapswire/continent_na-physical-map-north-america-robinson-269.jpg\" id=\"imgMoutains\" onclick=\"htImageZoom('imgMoutains', '0%')\" class=\"imgcenter\"/>Figura 1: Mapa mostrando as montanhas no norte do continente americano (Abya Yala). © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Teotihuacan\n\nA cidade de Teotihuacan destacou-se como uma sociedade influente em diversas regiões da Mesoamérica, ocupada desde o final do período Pré-Clássico até boa parte do período Clássico (entre <htdate0> e <htdate1>) (<htcite0>; <htcite1>).\n\nDevido à sua localização geográfica, inúmeras montanhas a cercavam, conforme ilustrado nas Figuras 2 e 3:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4b6c8f3e-f8a2-4e41-b50c-230b81765ee4",
+                     "text": "Cowgill, G. L.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1997",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cff9edbf-cd50-44cd-8ef7-54197d68c82b",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-200",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "700",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"images/Teotihuacan/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figura 2: Vista geral de Teotihuacan. Foto tirada em <htdate0> durante uma visita ao sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Visão Geral da cidade de Teotihuacan. Nela é possível observar várias construções no formato Talud-Tablero, e ao fundo duas construções do tipo piramidal, que representam montanhas sagradas.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"ChronologyTeotihuacan2\" onclick=\"htImageZoom('ChronologyTeotihuacan2', '0%')\" src=\"images/Teotihuacan/TeotihuacanMountains.jpg\" class=\"imgcenter\" style=\"width:60%;\"/>Figura 3: Vista da \"Pirâmide\" do Sol em Teotihuacan, México,  a partir da \"Pirâmide\" da Lua. Foto tirada em <htdate0> durante uma visita ao sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Visão geral da Pirâmide do Sol e de algumas pirâmides menores no estilo talude-tablero. Além disso, é possível observar montanhas com diversas inclinações.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Modelagem\n\nNosso objetivo neste texto será justamente recriar essas montanhas, como fizeram os teotihuacanos e outros povos mesoamericanos (<htcite0>). No entanto, em vez de estruturas piramidais como as mostradas nas **Figuras 2 e 3**, faremos isso por meio de desenhos e da matemática.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "960e3a8e-3a60-4ee4-9df4-e2187489e3b9",
+                     "text": "García Capistrán, H.",
+                     "page": "pp. 144",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Construa sua montanha</b><br /><br />Das figuras que você sabe desenhar, qual se parece mais com uma montanha?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
+      },
+      {
+         "id": "SECTION_shapes",
+         "text": [
+            {
+               "text": "### Formas\n\nDesconhecemos sua conclusão para a **Reflexão 2**, mas, em nosso caso, entendemos que triângulos e pirâmides são as figuras ideais.\n\n#### Triângulos\n\nExistem diversos tipos de triângulos (<htcite0>; <htcite1>), sendo um em especial o nosso escolhido: o triângulo isósceles. Este triângulo possui pelo menos dois ângulos iguais, simetria e uma base mais ampla que se reduz gradualmente até o topo (<htcite2>), conforme ilustrado no **Gráfico 1**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Triângulo",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "61e568be-8a3a-4f53-bd2d-e9ce113cf68b",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg width=\"450\" height=\"300\"><polygon points=\"265,10 125,280 405,280\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><text x=\"140\" y=\"270\" font-size=\"1.5em\">α</text><text x=\"370\" y=\"270\" font-size=\"1.5em\">α</text><g fill=\"none\" stroke=\"black\" stroke-width=\"1\"><path stroke-dasharray=\"5,5\" d=\"M265 14 l0 270\" /></g></svg></p><p class=\"desc\">Gráfico 1: Triângulo isósceles contendo ângulos e lados iguais.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Pirâmides\n\nPor serem figuras planas, os triângulos não representam exatamente a natureza. No entanto, ao combinarmos triângulos, podemos chegar mais perto do que desejamos. A **Figura 4** mostra quatro triângulos que, unidos, formam uma pirâmide (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"pyramid\" onclick=\"htImageZoom('pyramid', '0%')\" src=\"images/HistoryTracers/pyramid.jpg\" class=\"imgcenter\"/>Figura 4: Uma pirâmide, gerada por um script Python disponível no repositório do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">Scripts no Repositório</a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Antes de prosseguirmos, gostaríamos de reforçar um ponto importante que mencionamos anteriormente e que gera confusão em algumas pessoas. O fato de aproximarmos as montanhas e as construções mesoamericanas de pirâmides não as torna pirâmides. Portanto, a definição mais precisa para o que observamos na Mesoamérica seria \"montanhas sagradas\" com formato piramidal (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "960e3a8e-3a60-4ee4-9df4-e2187489e3b9",
+                     "text": "García Capistrán, H.",
+                     "page": "pp. 144",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_slope",
+         "text": [
+            {
+               "text": "### Inclinação\n\nTriângulos e pirâmides nos ajudam a aproximar-nos das montanhas naturais. Porém, para chegarmos ainda mais perto das montanhas reais, precisamos ajustar as alturas dos triângulos, o que nos leva a estudar sua inclinação.\n\n#### Triângulo retângulo\n\nVamos considerar apenas um lado do triângulo isósceles do **Gráfico 1**. Ao fazer isso, obtemos um triângulo retângulo (<htcite0>; <htcite1>), conforme mostrado no **Gráfico 2* com seus elementos listados abaixo:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Triângulo Retângulo",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "false",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg height=\"245\" width=\"450\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M425 5 L75 200 L425 200 Z\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><rect x=\"404\" y=\"179\" width=\"20\" height=\"20\" stroke=\"lightgreen\" fill=\"none\" stroke-width=\"3\" /><text x=\"125\" y=\"192\" font-size=\"1.5em\">α</text><text x=\"401\" y=\"45\" font-size=\"1.5em\">β</text><text x=\"235\" y=\"95\" font-size=\"2.5em\">c</text><text x=\"428\" y=\"120\" font-size=\"2.5em\">b</text><text x=\"265\" y=\"230\" font-size=\"2.5em\">a</text></svg></p><p class=\"desc\">Gráfico 2: Triângulo retângulo com suas componentes.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **a**, **b** e **c**: são os lados do triângulo. Os lados **a** e **b** são chamados **catetos**, enquanto **c** é o nome da **hipotenusa**.\n- **α**, **β**, e <i class=\"fa-regular fa-square\"></i>: são os ângulos formatos pela união dos lados do triângulo. O quadrado ( <i class=\"fa-regular fa-square\"></i> ) que representa a conexão entre as linhas horizontal e vertical é chamado **ângulo reto**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Movendo a hipotenusa\n\nAo observar o **Gráfico 2**, podemos concluir que, para aumentar a altura do triângulo retângulo, precisamos aumentar o tamanho do cateto **b**. Como consequência, também aumentaremos o tamanho da hipotenusa **c**. Isso pode ser visualizado no **Gráfico 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 3: Pontos das tabuadas de zero a nove conectados, formando as retas. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Note que, para todas as linhas do **Gráfico 3**, mantemos o cateto **a** com os mesmos valores entre 0 e 10. Os únicos valores alterados para cada linha são os valores do cateto **b** e, consequentemente, o comprimento da hipotenusa **c**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1</b><br /><br />Para tornar ainda mais claro o que estamos explicando, siga estas etapas:<br *><br />1. Clique em todos os títulos <b>Tabuada de X</b>, onde <b>X</b> é um número entre <b>0</b> e <b>9</b>, para ocultar as linhas.<br />2. Clique em cada um individualmente para mostrar as linhas novamente.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
+      },
+      {
+         "id": "SECTION_line",
+         "text": [
+            {
+               "text": "### Ampliando a linha\n\nO desenho das linhas do **Gráfico 3** foi feito seguindo regras que chamamos de fórmulas matemáticas (<htcite0>). Para entendermos melhor este processo, vamos recordar como os indígenas faziam suas montanhas sagradas em Mesoamérica.\n\n#### Reconstrução\n\nO que geralmente vemos nos sítios arqueológicos, como nas **Figuras 2 e 3**, é a etapa final de um processo de construção que começou com a adição de pequenas estruturas, sobre as quais outras foram posteriormente erguidas. Também não podemos esquecer que algumas das estruturas atuais foram construídas sobre outras já concluídas anteriormente (<htcite1>), como mostrado na **Figura 5**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a84a6938-22ad-4fa4-9588-2d70f6aa1693",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Fórmula",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "daae87a2-5fa9-43d1-88fb-6713b25d50d5",
+                     "text": "Tuarez Mejia, L. F.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanTemple\" onclick=\"htImageZoom('imgCopanTemple', '0%')\" src=\"images/Copan/Temple16Copan.png\" class=\"imgcenter\"/>Figura 5: Cartaz no sítio arqueológico de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0>). Foto tirada em <htdate1> em uma visita ao sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Este painel mostra as 9 etapas construtivas do Templo 16 de Copán. Nele, observa-se que, após pequenas construções nas três primeiras etapas, a quarta etapa ergueu uma grande base, que serviria de suporte para as estruturas posteriores. Dentre todas as fases, destaca-se a Rosalila, com suas múltiplas entradas e um espaço no topo de onde alguém poderia se dirigir à população.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Desconectando os pontos\n\nPara fazer construções, utilizamos pequenos blocos empilhados uns sobre os outros. Isto é uma repetição do que a natureza faz em processos que podem durar milhões de anos (<htcite0>).\n\nTanto o processo natural quanto o processo humano consistem na repetição de etapas que ligam elementos ou blocos de pedras. Para deixar ainda mais claro, iremos remover as linhas que conectam os pontos do **Gráfico 3**, deixando apenas os pontos visíveis no **Gráfico 4** a seguir:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9b33bffc-ad77-472d-84a6-aa94946e8645",
+                     "text": "Bird, P.",
+                     "page": "pp. 1 - 14",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1988",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 4: Pontos das tabuadas de zero a nove. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "O **Gráfico 4** reproduz exatamente o que aprendemos neste capítulo. Através dele, é possível observar:\n- Quanto mais nos aproximamos do zero na horizontal, onde sempre temos o mesmo resultado na multiplicação, mais os pontos na vertical se aproximam.\n- **Comutatividade**: Pontos possuem o mesmo valor na vertical quando há comutatividade. Por exemplo, o valor 15 aparece quando multiplicamos 3 por 5 e 5 por 3.\n- Todos os números que aparecem na hipotenusa de uma tabuada quando estamos multiplicando também aparecem no fator na sua vertical.\n\nApesar de termos conectado os pontos das tabuadas que estamos usando, o resultado da multiplicação que aprendemos até o momento cria pontos desconexos, também chamados de discretos, ao invés de contínuos. Veremos como unir os pontos em capítulos futuros. Por hora, vamos generalizar estes pontos desconexos.\n\n#### Somas repetidas\n\nSempre que realizamos somas repetidas, estamos efetuando uma operação conhecida como multiplicação (<htcite0>). Ao longo do estudo, verificamos que podemos representar essas somas repetidas de diferentes formas. Por exemplo, para somar o número 10 três vezes consecutivas, podemos expressar da seguinte maneira (<htcite1>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>=</mo>  <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>3</mn></mrow> </munderover> <mi>10</mi> <mo>=</mo> <mi>3 × (10)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\">Cálculo 1: Representações da soma de 10 três vezes consecutivas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "À medida que fomos estudando as tabuadas, concluímos que todos os pontos mostrados nos gráficos podem ser resumidos através da **Fórmula 1** (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Fórmula 1: Fórmula geral das tabuadas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Nesta fórmula:\n- *r*: é o resultado da multiplicação (produto).\n *N*: é o fator que representa um número que contamos.\n- *a*: além de ser um dos fatores da multiplicação, recebe diferentes nomes em diferentes situações da vida. No entanto, independentemente do nome, sua função na multiplicação permanece a mesma: modificar a posição do ponto em relação à linha horizontal, criando o ângulo **α** mostrado no **Gráfico 2**. Por esse motivo, um de seus nomes é **coeficiente angular**. O fator **a** é justamente o que dá nome a uma tabuada.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, revisamos o que aprendemos durante todo este capítulo, mas as tabuadas não terminam aqui.\n\nPara criarmos montanhas através das fórmulas, 10 números na horizontal não são suficientes. E como pode ser observado no **Gráfico 4**, não apareceu nenhuma vez na vertical, nas tabuadas diferentes de 9, o resultado de quando multiplicamos por 10 um número na horizontal. Como há muito mais coisas por trás da tabuada de 10, passaremos a estudar no próximo capítulo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "As pirâmides nos aproximam da natureza?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Ao realizarmos modelos, nem sempre alcançamos exatamente o que a natureza apresenta. No entanto, em muitos casos, uma aproximação já é suficiente - como ocorre com as estruturas piramidais."
+      },
+      {
+         "question": "Podemos inferir que o aumento de um cateto, associado à extensão da hipotenusa, ajuda a tornar nossos modelos mais próximos das montanhas?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "À medida que aumentamos o cateto vertical de um triângulo retângulo, nos aproximamos da inclinação característica das montanhas."
+      },
+      {
+         "question": "Os resultados da tabuada criam uma linha contínua sem espaços?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "As multiplicações com os números que aprendemos até agora geram resultados que mantêm espaços entre si. Posteriormente, estudaremos números que representam continuidade e, consequentemente, descrevem melhor os fenômenos naturais."
+      }
+   ],
+   "date_time": null
+}
