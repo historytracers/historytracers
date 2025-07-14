@@ -15,6 +15,11 @@ type classTemplateContent struct {
 	Text []HTText `json:"text"`
 }
 
+type HTGameDesc struct {
+	ImageDesc string `json:"imageDesc"`
+	DateTime  HTDate `json:"date_time"`
+}
+
 type classTemplateFile struct {
 	Title      string                 `json:"title"`
 	Header     string                 `json:"header"`
@@ -31,6 +36,7 @@ type classTemplateFile struct {
 	Editing    bool                   `json:"editing"`
 	Content    []classTemplateContent `json:"content"`
 	Exercises  []HTExercise           `json:"exercise_v2"`
+	GameV1     []HTGameDesc           `json:"game_v2"`
 	DateTime   []HTDate               `json:"date_time"`
 }
 
