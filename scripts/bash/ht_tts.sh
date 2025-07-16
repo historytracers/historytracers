@@ -1,5 +1,18 @@
 #!/bin/bash
 
+#
+# Install PIPER:
+#   pip3 install piper-tts
+#
+# Download Voices
+#   python3 -m piper.download_voices en_US-amy-medium
+#   python3 -m piper.download_voices en_US-ryan-medium
+#
+#   python3 -m piper.download_voices es_ES-sharvard-medium
+#   python3 -m piper.download_voices es_ES-davefx-medium
+#
+#   python3 -m piper.download_voices pt_BR-faber-medium
+
 set -e
 
 ht_select_model() {
@@ -32,11 +45,11 @@ ht_select_model() {
     fi
 
     if [ "${SELECTOR}" == "en_US-amy-medium.onnx" ]; then
-        echo "en_US-norman-medium.onnx" > .ht_tts_en-US
+        echo "en_US-ryan-medium.onnx" > .ht_tts_en-US
         echo "en_US-amy-medium.onnx"
     else
         echo "en_US-amy-medium.onnx" > .ht_tts_en-US
-        echo "en_US-norman-medium.onnx"
+        echo "en_US-ryan-medium.onnx"
     fi
 
     return 0
@@ -57,7 +70,7 @@ ht_convert() {
 
     echo "Using Model ${MODEL} to create ${IN_FILENAME}.wav"
 
-    ./piper -m ."/models/$MODEL" -c "./config/$CFG" -f "${IN_FILENAME}.wav" < "$IN_FILENAME"
+    python3 -m piper -m ."/models/$MODEL" -f "${IN_FILENAME}.wav" --input-file "$IN_FILENAME"
     ffmpeg  -i "${IN_FILENAME}.wav" "${IN_FILENAME}.ogg"
 }
 

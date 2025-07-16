@@ -1,54 +1,197 @@
 {
-    "title" : "Superando limites",
-    "header" : "Superando limites",
-    "sources" : [ "590d1c30-1e72-4975-bc00-2011905b3dba" ],
-    "scripts" : [ "590d1c30-1e72-4975-bc00-2011905b3dba" ],
-    "index" : [ "first_steps" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1733609974" ],
-    "authors" : null,
-    "reviewers" : null,
-    "content" : [
-        {
-            "id" : "families",
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p><h3>Pré-requisitos</h3>Este texto tem como objetivo reforçar os conhecimentos sobre os sistemas numéricos indígenas e os sistemas que usamos atualmente. Antes de começar, é recomendado estudar as seguintes páginas anteriores:</p>", "<p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('20b14681-88c0-438a-a273-a0902ae5db38'); return false;\">Nossos lados são iguais</a>: mostra-se que seu corpo tem simetria.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3874d1e8-0f76-4432-9ee2-d8c8c9dccf53'); return false;\">Contando</a>: introduzimos a ideia de contagem a partir do próprio corpo.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">Além dos Dedos</a>: explorando as limitações e a necessidade de novas ferramentas para contar.</li></ul></p>" ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ "<p><h3>Introdução</h3>Quando não é possível contar apenas com os dedos, podemos chamar outras pessoas para ajudar na contagem. No entanto, às vezes isso ainda não é suficiente  (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">History Tracers Team, <span class=\"htdate\"></span>, Além dos Dedos</a>).</p>", "<p><table class=\"tawapukllay\"><tr><th colspan=\"2\">Primeira pessoa</th><th colspan=\"2\">Segunda pessoa</th><th colspan=\"2\">Terceira pessoa</th><th>Quarta pessoa</th></tr>  <tr><td><img id=\"img5900\" onclick=\"htImageZoom('img5900', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img5901\" onclick=\"htImageZoom('img5901', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img5902\" onclick=\"htImageZoom('img5902', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img5903\" onclick=\"htImageZoom('img5903', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img5904\" onclick=\"htImageZoom('img5904', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img5905\" onclick=\"htImageZoom('img5905', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img5906\" onclick=\"htImageZoom('img5906', '0%')\" src=\"images/2Right_Hand_Small.png\" /></td></tr></table></p>", "<p class=\"desc\">Tabela 1: Contagem em equipe.</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Mãos e números</b><br />Observando a <b>Tabela 1</b>, como você utilizaria os números para substituir as mãos?</div></div></center></p>" ]
-                },
-                {
-                    "id" : "limits",
-                    "text" : [  "<p><h3>Os limites</h3>Para responder à primeira reflexão, precisamos descobrir os limites dos nossos números. Usando as setas, verifique quais são os valores possíveis com os números decimais:</p>", "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Hindú-arábico</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"></td> <td id=\"tc2f1\"></td> <td id=\"tc3f1\"></td> <td id=\"tc4f1\"></td><td id=\"tc5f1\"><img onclick=\"htImageZoom('leftHandImg0', '0%')\" id=\"leftHandImg0\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img onclick=\"htImageZoom('rightHandImg0', '0%')\" id=\"rightHandImg0\" src=\"images/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\">&nbsp;</td><td> <i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown0\"></i></td></tr></table>", "<p class=\"desc\">Tabela 2: Representação de uma linha da <i>Yupana</i> de acordo com Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <span class=\"htdate\"></span>, pp. 361 - 362</a>). CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 2: Os limites</b><br />Quando levantamos todos os dedos para representar um número?</div></div></center></p>", "<p>O primeiro passo para responder a essa reflexão é resumir o que vimos:</p>", "<p><ul><li>Quando apertamos a seta para cima (seta azul), os números aumentam até 9.</li><li>Ao apertarmos a seta para baixo (seta verde), os números diminuem até 0.</li></ul></p>", "<p>Podemos concluir que os números crescem até um valor máximo, o nove (9), e reduzem até um valor mínimo, o zero (0). Estes são os limites por posição do nosso sistema numérico, que devemos respeitar.</p>", "<p>Ao olharmos a <b>Tabela 1</b>, vemos que, quando precisamos de ajuda para contar apenas com as mãos, chamamos outra pessoa para levantar seus dedos ao nosso lado. Podemos fazer o mesmo com os números, respeitando seus limites:</p>", "<p><table class=\"tawapukllay\" id=\"yupana1\"><tr><th colspan=\"2\">Segunda pessoa</th><th colspan=\"2\">Primeira pessoa</th><th>Hindú-Arábico</th><th>Hindú-Arábico</th><th>Setas</th></tr>  <tr><td><img onclick=\"htImageZoom('leftHandImg2', '0%')\" id=\"leftHandImg2\" src=\"\" /></td><td><img onclick=\"htImageZoom('rightHandImg2', '0%')\" id=\"rightHandImg2\" src=\"\" /></td><td><img onclick=\"htImageZoom('leftHandImg1', '0%')\" id=\"leftHandImg1\" src=\"\" /></td><td><img onclick=\"htImageZoom('rightHandImg1', '0%')\" id=\"rightHandImg1\" src=\"\" /></td><td id=\"tc5f1\"></td><td id=\"tc6f1\"></td><td><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp1\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown1\"></i></td></tr></table></p>", "<p class=\"desc\">Tabela 3: A lógica dos números.</p>", "<p>Como o zero (0) representa o vazio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, <span class=\"htdate\"></span>, pp. 44, 46 - 48</a>), não escrevemos zeros à esquerda de um número, mas podemos considerar que ele sempre está presente. Com isso, ao atingirmos o número nove (9) em uma posição, aumentamos o número da posição ao lado de zero para um, e voltamos os números da posição anterior para zero.</p>", "<p>Poderíamos continuar usando as setas para obter números maiores que dezenove (19), mas nesta página trabalharemos apenas com esses números. Nas próximas páginas, abordaremos números maiores.</p>" ]
-                },
-                {
-                    "id" : "mesoamerican",
-                    "text" : [ "<p><h3>Extendendo o sistema numérico</h3>Além do sistema decimal, os indígenas criaram um outro sistema, o vigesimal (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span class=\"htdate\"></span>, (ResearchGate), pp. 25 - 26</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span class=\"htdate\"></span>, (Revista), pp. 25-26</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <span class=\"htdate\"></span>, pp. 32, 34</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d1b7daa6-a743-4a66-9cfe-ff4286868f35'); return false;\">Hernández Mendoza, Aurelio & Pérez López, Felipa, <span class=\"htdate\"></span>, pp. 251 - 260</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ced67eaf-7378-4589-9166-07f799969e3e'); return false;\">Catepillán, Ximena, <span class=\"htdate\"></span></a>), que possui símbolos que podem ser associados aos dedos dos pés. Abaixo mostramos a relação dele com nossos dedos:</p>", "<table class=\"tawapukllay\" id=\"yupana2\"><tr><th>Mão esquerda</th><th>Mão direita</th><th>Pé esquerdo</th><th>Pé direito</th><th>Indígena</th><th>Hindú-arábico</th></tr> </table>", "<p class=\"desc\">Tabela 4: Números hindu-arábicos e a relação com nossos membros.</p>" ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ "<p><h3>Conclusão</h3>Nesta página, aprendemos como podemos criar números maiores, limitando-nos à representação dos números que podem ser associados aos nossos dedos. Esses números possuem um nome sem um padrão bem definido. Nas próximas páginas, aprenderemos a ligação dos números com nossas famílias.</p>" ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "1615", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }
-                    ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Superando limites",
+   "header": "Superando limites",
+   "sources": [
+      "590d1c30-1e72-4975-bc00-2011905b3dba"
+   ],
+   "scripts": [
+      "590d1c30-1e72-4975-bc00-2011905b3dba"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/590d1c30-1e72-4975-bc00-2011905b3dba_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/IOJhdkJ32Ub",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1752633395"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Pré-requisitos</h3>Este texto tem como objetivo reforçar os conhecimentos sobre os sistemas numéricos indígenas e os sistemas que usamos atualmente. Antes de começar, é recomendado estudar as seguintes páginas anteriores:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('20b14681-88c0-438a-a273-a0902ae5db38'); return false;\">Nossos lados são iguais</a>: mostra-se que seu corpo tem simetria.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3874d1e8-0f76-4432-9ee2-d8c8c9dccf53'); return false;\">Contando</a>: introduzimos a ideia de contagem a partir do próprio corpo.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">Além dos Dedos</a>: explorando as limitações e a necessidade de novas ferramentas para contar.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Introdução</h3>Quando não é possível contar apenas com os dedos, podemos chamar outras pessoas para ajudar na contagem. No entanto, às vezes isso ainda não é suficiente  (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">History Tracers Team, <htdate0>, Além dos Dedos</a>).</p><p><table class=\"tawapukllay\"><tr><th colspan=\"2\">Primeira pessoa</th><th colspan=\"2\">Segunda pessoa</th><th colspan=\"2\">Terceira pessoa</th><th>Quarta pessoa</th></tr>  <tr><td><img id=\"img5900\" onclick=\"htImageZoom('img5900', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img5901\" onclick=\"htImageZoom('img5901', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img5902\" onclick=\"htImageZoom('img5902', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img5903\" onclick=\"htImageZoom('img5903', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img5904\" onclick=\"htImageZoom('img5904', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td><img id=\"img5905\" onclick=\"htImageZoom('img5905', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><img id=\"img5906\" onclick=\"htImageZoom('img5906', '0%')\" src=\"images/2Right_Hand_Small.png\" /></td></tr></table></p><p class=\"desc\">Tabela 1: Contagem em equipe.</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Mãos e números</b><br />Observando a <b>Tabela 1</b>, como você utilizaria os números para substituir as mãos?</div></div></center></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Tabela que mostra seis mãos com todos os dedos levantados e uma mão com dois dedos levantados.",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_limits",
+         "text": [
+            {
+               "text": "<p><h3>Os limites</h3>Para responder à primeira reflexão, precisamos descobrir os limites dos nossos números. Usando as setas, verifique quais são os valores possíveis com os números decimais:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Hindú-arábico</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"></td> <td id=\"tc2f1\"></td> <td id=\"tc3f1\"></td> <td id=\"tc4f1\"></td><td id=\"tc5f1\"><img onclick=\"htImageZoom('leftHandImg0', '0%')\" id=\"leftHandImg0\" src=\"images/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img onclick=\"htImageZoom('rightHandImg0', '0%')\" id=\"rightHandImg0\" src=\"images/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\">&nbsp;</td><td> <i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown0\"></i></td></tr></table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Tabela 2: Representação de uma linha da <i>Yupana</i> de acordo com Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <htdate1>, pp. 361 - 362</a>). CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 2: Os limites</b><br />Quando levantamos todos os dedos para representar um número?</div></div></center></p><p>O primeiro passo para responder a essa reflexão é resumir o que vimos:</p><p><ul><li>Quando apertamos a seta para cima (seta azul), os números aumentam até 9.</li><li>Ao apertarmos a seta para baixo (seta verde), os números diminuem até 0.</li></ul></p><p>Podemos concluir que os números crescem até um valor máximo, o nove (9), e reduzem até um valor mínimo, o zero (0). Estes são os limites por posição do nosso sistema numérico, que devemos respeitar.</p><p>Ao olharmos a <b>Tabela 1</b>, vemos que, quando precisamos de ajuda para contar apenas com as mãos, chamamos outra pessoa para levantar seus dedos ao nosso lado. Podemos fazer o mesmo com os números, respeitando seus limites:</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1615",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"tawapukllay\" id=\"yupana1\"><tr><th colspan=\"2\">Segunda pessoa</th><th colspan=\"2\">Primeira pessoa</th><th>Hindú-Arábico</th><th>Hindú-Arábico</th><th>Setas</th></tr>  <tr><td><img onclick=\"htImageZoom('leftHandImg2', '0%')\" id=\"leftHandImg2\" src=\"\" /></td><td><img onclick=\"htImageZoom('rightHandImg2', '0%')\" id=\"rightHandImg2\" src=\"\" /></td><td><img onclick=\"htImageZoom('leftHandImg1', '0%')\" id=\"leftHandImg1\" src=\"\" /></td><td><img onclick=\"htImageZoom('rightHandImg1', '0%')\" id=\"rightHandImg1\" src=\"\" /></td><td id=\"tc5f1\"></td><td id=\"tc6f1\"></td><td><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp1\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown1\"></i></td></tr></table></p><p class=\"desc\">Tabela 3: A lógica dos números.</p><p>Como o zero (0) representa o vazio (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, <htdate0>, pp. 44, 46 - 48</a>), não escrevemos zeros à esquerda de um número, mas podemos considerar que ele sempre está presente. Com isso, ao atingirmos o número nove (9) em uma posição, aumentamos o número da posição ao lado de zero para um, e voltamos os números da posição anterior para zero.</p><p>Poderíamos continuar usando as setas para obter números maiores que dezenove (19), mas nesta página trabalharemos apenas com esses números. Nas próximas páginas, abordaremos números maiores.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2014",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mesoamerican",
+         "text": [
+            {
+               "text": "<p><h3>Extendendo o sistema numérico</h3>Além do sistema decimal, os indígenas criaram um outro sistema, o vigesimal (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate0>, (ResearchGate), pp. 25 - 26</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate1>, (Revista), pp. 25-26</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <htdate2>, pp. 32, 34</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d1b7daa6-a743-4a66-9cfe-ff4286868f35'); return false;\">Hernández Mendoza, Aurelio & Pérez López, Felipa, <htdate3>, pp. 251 - 260</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ced67eaf-7378-4589-9166-07f799969e3e'); return false;\">Catepillán, Ximena, <htdate4></a>), que possui símbolos que podem ser associados aos dedos dos pés. Abaixo mostramos a relação dele com nossos dedos:</p><table class=\"tawapukllay\" id=\"yupana2\"><tr><th>Mão esquerda</th><th>Mão direita</th><th>Pé esquerdo</th><th>Pé direito</th><th>Indígena</th><th>Hindú-arábico</th></tr> </table><p class=\"desc\">Tabela 4: Números hindu-arábicos e a relação com nossos membros.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2013",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2023",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<p><h3>Conclusão</h3>Nesta página, aprendemos como podemos criar números maiores, limitando-nos à representação dos números que podem ser associados aos nossos dedos. Esses números possuem um nome sem um padrão bem definido. Nas próximas páginas, aprenderemos a ligação dos números com nossas famílias.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
