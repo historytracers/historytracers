@@ -1,43 +1,137 @@
 {
-    "title" : "Memory game",
-    "header" : "Memory game",
-    "sources" : [ "52dc6a73-a5e9-4b07-ad32-0482c305a6f8" ],
-    "scripts" : [ "52dc6a73-a5e9-4b07-ad32-0482c305a6f8" ],
-    "index" : [ "first_steps" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1733534227" ],
-    "authors" : null,
-    "reviewers" : null,
-    "content" : [
-        {
-            "id" : "families",
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p><h3>Prerequisites</h3>The game on this page aims to reinforce knowledge of indigenous numerical systems and the numbers we use today. Before starting, we suggest studying the following previous pages:</p>", "<p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('20b14681-88c0-438a-a273-a0902ae5db38'); return false;\">Our sides are equal</a>: in this first text, we show for people their body symmetry.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3874d1e8-0f76-4432-9ee2-d8c8c9dccf53'); return false;\">Couting</a>: we introduce the idea of counting using our body.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">Beyond fingers</a>: exploring the limitations and the necessity of new tools to count.</li></ul></p>" ]
-                },
-                {
-                    "id" : "rules",
-                    "text" : [ "<p><h3>General rules</h3>The squares with question marks contain different images. Your goal is to find matching pairs of images. Each time you find a pair, the number of pairs found will be updated on the right side. When all pairs are found, you will receive two medals (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i> <i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p>" ]
-                },
-                {
-                    "id" : "game",
-                    "text" : [ "<p><h3>Memory game</h3>When you complete the game, you can restart it by clicking the button <input id=\"playButton\" type=\"button\" />.</p>", "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Memory Game</th><th>Counting</th><th colspan=\"2\">Representation</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"></td> <td id=\"tc2f1\"></td> <td id=\"tc3f1\"></td> <td id=\"tc4f1\"></td> <td id=\"tc5f1\">Hands<td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"></td> <td id=\"tc2f2\"></td> <td id=\"tc3f2\"></td> <td id=\"tc4f2\"></td><td id=\"tc5f2\" rowspan=\"2\">Indigenous</td><td id=\"tc6f2\" rowspan=\"2\" colspan=\"2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"></td> <td id=\"tc2f3\"></td> <td id=\"tc3f3\"></td> <td id=\"tc4f3\"></td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"></td> <td id=\"tc2f4\"></td> <td id=\"tc3f4\"></td> <td id=\"tc4f4\"></td><td id=\"tc5f4\" rowspan=\"2\">Hindu-Arabic</td><td id=\"tc6f4\" rowspan=\"2\" colspan=\"2\">&nbsp;</td></tr> <tr id=\"tf5\"></td> <td id=\"tc1f5\"></td> <td id=\"tc2f5\"></td> <td id=\"tc3f5\"></td> <td id=\"tc4f5\"></td></tr></table>", "<p class=\"desc\">We work with <i>Yupana</i> using the <i>\"Yupana Inka Tawa Pukllay\"</i> method, developed and published by Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) of the Yupanki Association (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <span class=\"htdate\"></span></a>).<br />The use of Mesoamerican numbers is based on the work of Orlando Josué Casares Contreras, José M. Gamboa Cetina y Venus Sarahí Estrella Cabrera (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span class=\"htdate\"></span>, (ResearchGate)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <span class=\"htdate\"></span>, (Revista)</a>). Additionally, we incorporate the work of Francisco Barriga Puente, and Ximena Catepillán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ced67eaf-7378-4589-9166-07f799969e3e'); return false;\">Catepillán, Ximena, <span class=\"htdate\"></span></a>).<br /> Finally, we utilize various counting methods inspired by the work of Francisco A. González Redondo <i>et al.</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a4f22e25-5839-407f-a1aa-634521d52b42'); return false;\">González Redondo, Francisco A., et al., <span class=\"htdate\"></span></a>).<br />The game's source code was inspired by code available on CodePen (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1502abc2-78f9-4f10-8581-8cb8666e9e0f'); return false;\">CodePEN</a>)</p>" ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }
-                    ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Memory game",
+   "header": "Memory game",
+   "sources": [
+      "52dc6a73-a5e9-4b07-ad32-0482c305a6f8"
+   ],
+   "scripts": [
+      "52dc6a73-a5e9-4b07-ad32-0482c305a6f8"
+   ],
+   "audio": null,
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1752669659"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Prerequisites</h3>The game on this page aims to reinforce knowledge of indigenous numerical systems and the numbers we use today. Before starting, we suggest studying the following previous pages:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('20b14681-88c0-438a-a273-a0902ae5db38'); return false;\">Our sides are equal</a>: in this first text, we show for people their body symmetry.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3874d1e8-0f76-4432-9ee2-d8c8c9dccf53'); return false;\">Couting</a>: we introduce the idea of counting using our body.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">Beyond fingers</a>: exploring the limitations and the necessity of new tools to count.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>General rules</h3>The squares with question marks contain different images. Your goal is to find matching pairs of images. Each time you find a pair, the number of pairs found will be updated on the right side. When all pairs are found, you will receive two medals (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i> <i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Memory game</h3>When you complete the game, you can restart it by clicking the button <input id=\"playButton\" type=\"button\" />.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Memory Game</th><th>Counting</th><th colspan=\"2\">Representation</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"></td> <td id=\"tc2f1\"></td> <td id=\"tc3f1\"></td> <td id=\"tc4f1\"></td> <td id=\"tc5f1\">Hands<td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"></td> <td id=\"tc2f2\"></td> <td id=\"tc3f2\"></td> <td id=\"tc4f2\"></td><td id=\"tc5f2\" rowspan=\"2\">Indigenous</td><td id=\"tc6f2\" rowspan=\"2\" colspan=\"2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"></td> <td id=\"tc2f3\"></td> <td id=\"tc3f3\"></td> <td id=\"tc4f3\"></td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"></td> <td id=\"tc2f4\"></td> <td id=\"tc3f4\"></td> <td id=\"tc4f4\"></td><td id=\"tc5f4\" rowspan=\"2\">Hindu-Arabic</td><td id=\"tc6f4\" rowspan=\"2\" colspan=\"2\">&nbsp;</td></tr> <tr id=\"tf5\"></td> <td id=\"tc1f5\"></td> <td id=\"tc2f5\"></td> <td id=\"tc3f5\"></td> <td id=\"tc4f5\"></td></tr></table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">We work with <i>Yupana</i> using the <i>\"Yupana Inka Tawa Pukllay\"</i> method, developed and published by Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) of the Yupanki Association (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0></a>).<br />The use of Mesoamerican numbers is based on the work of Orlando Josué Casares Contreras, José M. Gamboa Cetina y Venus Sarahí Estrella Cabrera (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate1>, (ResearchGate)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate2>, (Revista)</a>). Additionally, we incorporate the work of Francisco Barriga Puente, and Ximena Catepillán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <htdate3></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ced67eaf-7378-4589-9166-07f799969e3e'); return false;\">Catepillán, Ximena, <htdate4></a>).<br /> Finally, we utilize various counting methods inspired by the work of Francisco A. González Redondo <i>et al.</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a4f22e25-5839-407f-a1aa-634521d52b42'); return false;\">González Redondo, Francisco A., et al., <htdate5></a>).<br />The game's source code was inspired by code available on CodePen (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1502abc2-78f9-4f10-8581-8cb8666e9e0f'); return false;\">CodePEN</a>)</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2023",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

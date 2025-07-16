@@ -16,8 +16,8 @@ type classTemplateContent struct {
 }
 
 type HTGameDesc struct {
-	ImageDesc string `json:"imageDesc"`
-	DateTime  HTDate `json:"date_time"`
+	ImageDesc string   `json:"imageDesc"`
+	DateTime  []HTDate `json:"date_time"`
 }
 
 type classTemplateFile struct {

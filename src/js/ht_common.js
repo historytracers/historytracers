@@ -1621,8 +1621,10 @@ function htWriteGame(table, later, idx)
     for (const i in table) {
         var finalText = table[i].imageDesc;
         if (table[i].date_time != undefined) {
-            var tmp = finalText.replace("<htdate0>", htMountSpecificDate(table[i].date_time, localLang, localCalendar));
-            finalText = tmp;
+            localDate = table[i].date_time;
+            for (const j in localDate) {
+                finalText = finalText.replace("<htdate"+j+">", htMountSpecificDate(localDate[j], localLang, localCalendar));
+            }
         }
         tmpData += finalText+"|";
         total++;
