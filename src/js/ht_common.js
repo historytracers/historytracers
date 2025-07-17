@@ -35,7 +35,7 @@ var extLatexIdx = 0;
 var htGameImages = [ "MachuPicchu/MachuPicchu.jpg", "WitzXunantunich.jpg", "Teotihuacan/TeotihuacanGeneral.jpg", "Teotihuacan/TeotihuacanMountains.jpg", "Caral/CaralPiramideH1.jpg", "PachacutiCusco.jpg", "CahalPech.jpg", "CaracolWitz.jpg", "JoyaCeren/JoyaCeren.jpg", "SanAndres.jpg", "Tikal/NecropoleTikal.jpg", "CiudadTula.jpg", "Huaca.jpg", "MiPueblito/MiPueblito.jpg", "Copan/CopanAltarGenealogy0.jpg", "Copan/CopanAltarGenealogy1.jpg", "Copan/CopanAltarGenealogy2.jpg", "Copan/CopanAltarGenealogy3.jpg", "Copan/StelaACopan.jpg", "Copan/CopanWholeTextStelaAltar.png", "Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
 
-var htSequenceGame = [ "CeramicaAntropologiaPeru.jpg", "ChocolatPotCahalPech.jpg", "EstelaAntropologiaGuatemala.jpg", "Kaminaljuyu.jpg", "MayaCRJade.jpg", "MetateTeotihuacan.jpg", "SanJoseCRAntropologia.jpg", "SanSalvadorESAntropologia.jpg", "StelaACopan.jpg", "MusicCR.jpg" ];
+var htSequenceGame = [ "CeramicaAntropologiaPeru.jpg", "ChocolatPotCahalPech.jpg", "EstelaAntropologiaGuatemala.jpg", "Kaminaljuyu.jpg", "MayaCRJade.jpg", "MetateTeotihuacan.jpg", "SanJoseCRMuseo/SanJoseCRAntropologia.jpg", "SanSalvadorESAntropologia.jpg", "Copan/StelaACopan.jpg", "MusicCR.jpg" ];
 var htSequenceGameLocation = [ "Lima, Peru", "Cahal Pech, Belize", "Ciudad de Guatemala, Guatemala", "Kaminaljuyu - Ciudad de Guatemala, Guatemala", "San Jose, Costa Rica", "Teotihuacan, Mexico", "San Jose, Costa Rica", "San Salvador, El Salvador", "Copan, Honduras", "San Jose, Costa Rica" ];
 
 var htEditable = undefined;
@@ -1614,10 +1614,19 @@ function htResetAnswers(vector)
 
 function htWriteGame(table, later, idx)
 {
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
     var tmpData = "<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";
     var total = 0;
     for (const i in table) {
-        tmpData += table[i].imageDesc+"|";
+        var finalText = table[i].imageDesc;
+        if (table[i].date_time != undefined) {
+            localDate = table[i].date_time;
+            for (const j in localDate) {
+                finalText = finalText.replace("<htdate"+j+">", htMountSpecificDate(localDate[j], localLang, localCalendar));
+            }
+        }
+        tmpData += finalText+"|";
         total++;
     }
 
@@ -1749,6 +1758,10 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
 
     if (table.exercise_v2 != undefined) {
         htWriteQuestions(table.exercise_v2, later, idx);
+    }
+
+    if (table.game_v2 != undefined) {
+        htWriteGame(table.game_v2, "", 1);
     }
 
     if (table.date_time != undefined) {

@@ -1,53 +1,177 @@
 {
-    "title" : "Familias numericas (Parte I)",
-    "header" : "Familias numericas (Parte I)",
-    "sources" : [ "9d4c7f85-0e69-4795-a738-0acb54f2011d" ],
-    "scripts" : [ "9d4c7f85-0e69-4795-a738-0acb54f2011d" ],
-    "index" : [ "first_steps" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1735490890" ],
-    "authors" : null,
-    "reviewers" : null,
-    "content" : [
-        {
-            "id" : "families",
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p><h3>Prerrequisitos</h3>El texto de esta página tiene como objetivo reforzar los conocimientos relacionados con los sistemas numéricos que usamos actualmente. Antes de empezar, se sugiere estudiar las siguientes páginas:</p>", "<p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('20b14681-88c0-438a-a273-a0902ae5db38'); return false;\">Nuestros lados son similares</a>: en este texto vas a conocer que su cuerpo tiene \"dos lados\".</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3874d1e8-0f76-4432-9ee2-d8c8c9dccf53'); return false;\">Contando</a>: introducimos la idea de contar a partir del propio cuerpo.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">Más allá de los dedos</a>: explorando las limitaciones y la necesidad de nuevas herramientas para contar.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('36dcbdd0-8d4d-48ac-a1cc-57bf9c8beaa4'); return false;\">Superando limites</a>: Presenta la lógica de la secuencia de números entre 0 y 19.</li></ul></p>" ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ "<p><h3>Introducción</h3>Como los nombres de los líderes mayas son generalmente desconocidos por la población, utilizaremos las palabras \"rey\" y \"reyes\", acompañadas de sus versiones en maya: en singular <i>ajaw</i>, y en el plural, <i>ajawob</i>, cerca de ellas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('fee902e4-93b5-472e-bea8-b657b5a8737d'); return false;\">McKinney, K. J., <span class=\"htdate\"></span>, pp. 14</a>).</p>" ]
-                },
-                {
-                    "id" : "family",
-                    "text" : [ "<p><h3>Familias</h3>Las familias de hoy no son iguales a las del pasado (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c725eea-183b-405c-adb2-977ef18c813a'); return false;\">History Tracers, <span class=\"htdate\"></span>, Família</a>), pero hay algo en común: llamamos familia a las personas que se conectan de alguna manera. Por ejemplo, veamos el Altar Q en Copán, Honduras:</p>", "<p><div class=\"htSlides\"></p>", "<p class=\"desc\">Slide 1: Imágenes del Altar Q en el sitio arqueológico de Copán, Honduras. Foto tomada durante una visita al sitio el <span class=\"htdate\"></span>.<br />Los nombres de los reyes, o (<i>ajawob</i>), están expuestos en el trabajo de Anastasia Hutnick (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <span class=\"htdate\"></span>, pp. 18, 35 - 67.</a>).<br />El código fuente para este slide fue inspirado en el código de W3Schools. (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cf7adc72-d340-412e-8d48-953ac64cb670'); return false;\">W3Schools</a>).</p>", "<p>En este altar, vemos generaciones de reyes, o <i>ajawob</i>. Esto significa que el rey (<i>ajawob</i>) 16, <i>Yax Pasaj Chan Yopaat</i>, incluye a todos los reyes (<i>ajawob</i>) anteriores en su familia. Aunque puede haber otras personas en esta familia, el altar representa solo a los gobernantes. Pero, ¿cómo se relaciona esto con los números?</p>" ]
-                },
-                {
-                    "id" : "numbers",
-                    "text" : [ "<p><h3>Familias y los números</h3>Observando el altar del <b>Slide 1</b>, vemos que las personas están dispuestas en orden, al igual que los números (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). ¿Hay algo más que podemos extraer de esto? Veamos cómo las dos primeras generaciones de los reyes (<i>ajawob</i>) de Copán - Honduras  se alinean con los números:</p>", "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th><i>Hijo</i></th><th>Padre</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><i>K’inich Popol Hol</i></td> <td id=\"tc2f1\"><i>K’inich Yax K’uk’ Mo’</i></td></tr>  <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"text_to_paint\">1</span></td> <td id=\"tc2f2\"><span class=\"text_to_paint\">0</span></td></tr> </table>", "<p class=\"desc\">Tabla 1: Posición de los números como familia.</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexión 1: Los números y la vida</b><br />¿Son los números etapas de nuestra vida?</div></div></center></p>", "<p>Sí, los números son como nuestra vida. Cuando empezamos, estamos en el momento cero (0) y caminamos hasta el máximo posible, el nueve (9). Pero nuestra vida continúa después del nueve. Podemos contar de cero (0) a nueve (9) como etapas hasta tener más miembros en la familia, la generación de los hijos. Cuando los hijos comienzan a vivir sus vidas, aumentando los números, la vida de los padres entra en una nueva etapa, de cero (0) a nueve (9). Cuando el niño pasa a su siguiente etapa, el dos (2), los padres comienzan con él un nuevo ciclo.</p>" ]
-                },
-                {
-                    "id" : "numerical_table",
-                    "text" : [ "<p><h3>Relación entre dos generaciones</h3>Antes de ver las relaciones entre más \"generaciones\", reforcemos nuestro aprendizaje mapeando etapas de la vida entre las dos primeras \"generaciones\":</p>", "<p><table id=\"sequenceNum\" class=\"tableTen tableTenBgBlue\"><tr><th colspan=\"10\"><i>Numerical sequence</i></th></tr> </table> </p>", "<p class=\"desc\">Table 2: Secuence of the first 100 numbers.</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexión 2: Etapas desiguales</b><br />¿Notaron que para cambiar los números de la \"generación\"  de los hijos, cambiamos más veces las etapas de la vida de los ancestros?</div></div></center></p>", "<p>Estamos mostrando una versión sencilla de los números. Hay muchos números que aún estudiaremos que no están listados en la <b>Tabla 2</b>. Además, en la visión de los ancestros, cuando llega un niño, su vida parece tener muchas más etapas.</p>" ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ "<p><h3>Conclusión</h3>En este texto vimos que nuestra vida está relacionada con los números. También observamos que para cambiar el número en una \"generación\" siguiente, necesitamos primero reescribir todos los números de 0 a 9 en la \"generación\" actual.</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexión 3: Una ayuda</b><br />Para cambiar un número en la próxima \"generación\",<br /> primero necesitamos usar los 10 números que representan nuestros dedos.<br />¿Podríamos decir que cambiamos el número después de tener todos los dedos levantados<br /> para \"ayudar\" a cambiar el próximo número?</div></div></center></p>", "<p>En el próximo texto, tendremos un juego para practicar estas secuencias. Pero antes, ¿qué tal realizar la siguiente práctica?</p>", "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1</b><br />Preparar una comida requiere etapas. Comerla es la etapa siguiente.<br />Usando las dos primeras líneas de la <b>Tabla 2</b>, crea 10 etapas para preparar la comida y,<br /> a continuación, crea 10 etapas para comerla.</div></div></center></p>" ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2015", "month" : "4", "day" : "26" },
-                        {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" }
-                    ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Familias numericas (Parte I)",
+   "header": "Familias numericas (Parte I)",
+   "sources": [
+      "9d4c7f85-0e69-4795-a738-0acb54f2011d"
+   ],
+   "scripts": [
+      "9d4c7f85-0e69-4795-a738-0acb54f2011d"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/9d4c7f85-0e69-4795-a738-0acb54f2011d_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/LLvmreEh2Ub",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1752619390"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Prerrequisitos</h3>El texto de esta página tiene como objetivo reforzar los conocimientos relacionados con los sistemas numéricos que usamos actualmente. Antes de empezar, se sugiere estudiar las siguientes páginas:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('20b14681-88c0-438a-a273-a0902ae5db38'); return false;\">Nuestros lados son similares</a>: en este texto vas a conocer que su cuerpo tiene \"dos lados\".</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3874d1e8-0f76-4432-9ee2-d8c8c9dccf53'); return false;\">Contando</a>: introducimos la idea de contar a partir del propio cuerpo.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">Más allá de los dedos</a>: explorando las limitaciones y la necesidad de nuevas herramientas para contar.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('36dcbdd0-8d4d-48ac-a1cc-57bf9c8beaa4'); return false;\">Superando limites</a>: Presenta la lógica de la secuencia de números entre 0 y 19.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Introducción</h3>Como los nombres de los líderes mayas son generalmente desconocidos por la población, utilizaremos las palabras \"rey\" y \"reyes\", acompañadas de sus versiones en maya: en singular <i>ajaw</i>, y en el plural, <i>ajawob</i>, cerca de ellas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('fee902e4-93b5-472e-bea8-b657b5a8737d'); return false;\">McKinney, K. J., <htdate0>, pp. 14</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_family",
+         "text": [
+            {
+               "text": "<p><h3>Familias</h3>Las familias de hoy no son iguales a las del pasado (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2c725eea-183b-405c-adb2-977ef18c813a'); return false;\">History Tracers, <htdate0>, Família</a>), pero hay algo en común: llamamos familia a las personas que se conectan de alguna manera. Por ejemplo, veamos el Altar Q en Copán, Honduras:</p><p><div class=\"htSlides\"></p><p class=\"desc\">Slide 1: Imágenes del Altar Q en el sitio arqueológico de Copán, Honduras. Foto tomada durante una visita al sitio el <htdate1>.<br />Los nombres de los reyes, o (<i>ajawob</i>), están expuestos en el trabajo de Anastasia Hutnick (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate2>, pp. 18, 35 - 67.</a>).<br />El código fuente para este slide fue inspirado en el código de W3Schools (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cf7adc72-d340-412e-8d48-953ac64cb670'); return false;\">W3Schools</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "El altar tiene forma de una gran caja cerrada, con inscripciones en la parte superior y figuras humanas esculpidas en sus laterales.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>El Altar Q representa a 16 de reyes (<i>ajawob</i>), que trataremos didácticamente como generaciones consecutivas, aunque no sea posible comprobar que constituyen generaciones consecutivas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate0></a>). Por ello, el rey (<i>ajawob</i>) <i>Yax Pasaj Chan Yopaat</i>, habría incluido en su linaje a todos los gobernantes anteriores representados en el altar. Pero, ¿cómo se relaciona esto con los números?</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_numbers",
+         "text": [
+            {
+               "text": "<p><h3>Familias y los números</h3>Observando el altar del <b>Slide 1</b>, vemos que las personas están dispuestas en orden, al igual que los números (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). ¿Hay algo más que podemos extraer de esto? Veamos cómo las dos primeras generaciones de los reyes (<i>ajawob</i>) de Copán - Honduras  se alinean con los números:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th><i>Hijo</i></th><th>Padre</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><i>K’inich Popol Hol</i></td> <td id=\"tc2f1\"><i>K’inich Yax K’uk’ Mo’</i></td></tr>  <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"text_to_paint\">1</span></td> <td id=\"tc2f2\"><span class=\"text_to_paint\">0</span></td></tr> </table><p class=\"desc\">Tabla 1: Posición de los números como familia.</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexión 1: Los números y la vida</b><br />¿Son los números etapas de nuestra vida?</div></div></center></p><p>Sí, los números son como nuestra vida. Cuando empezamos, estamos en el momento cero (0) y caminamos hasta el máximo posible, el nueve (9). Pero nuestra vida continúa después del nueve. Podemos contar de cero (0) a nueve (9) como etapas hasta tener más miembros en la familia, la generación de los hijos. Cuando los hijos comienzan a vivir sus vidas, aumentando los números, la vida de los padres entra en una nueva etapa, de cero (0) a nueve (9). Cuando el niño pasa a su siguiente etapa, el dos (2), los padres comienzan con él un nuevo ciclo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_numerical_table",
+         "text": [
+            {
+               "text": "<p><h3>Relación entre dos generaciones</h3>Antes de ver las relaciones entre más \"generaciones\", reforcemos nuestro aprendizaje mapeando etapas de la vida entre las dos primeras \"generaciones\":</p><p><table id=\"sequenceNum\" class=\"tableTen tableTenBgBlue\"><tr><th colspan=\"10\"><i>Numerical sequence</i></th></tr> </table> </p><p class=\"desc\">Tabla 2: Secuencia de los primeros cién números.</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexión 2: Etapas desiguales</b><br />¿Notaron que para cambiar los números de la \"generación\"  de los hijos, cambiamos más veces las etapas de la vida de los ancestros?</div></div></center></p><p>Estamos mostrando una versión sencilla de los números. Hay muchos números que aún estudiaremos que no están listados en la <b>Tabla 2</b>. Además, en la visión de los ancestros, cuando llega un niño, su vida parece tener muchas más etapas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<p><h3>Conclusión</h3>En este texto vimos que nuestra vida está relacionada con los números. También observamos que para cambiar el número en una \"generación\" siguiente, necesitamos primero reescribir todos los números de 0 a 9 en la \"generación\" actual.</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexión 3: Una ayuda</b><br />Para cambiar un número en la próxima \"generación\",<br /> primero necesitamos usar los 10 números que representan nuestros dedos.<br />¿Podríamos decir que cambiamos el número después de tener todos los dedos levantados<br /> para \"ayudar\" a cambiar el próximo número?</div></div></center></p><p>En el próximo texto, tendremos un juego para practicar estas secuencias. Pero antes, ¿qué tal realizar la siguiente práctica?</p><p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1</b><br />Preparar una comida requiere etapas. Comerla es la etapa siguiente.<br />Usando las dos primeras líneas de la <b>Tabla 2</b>, crea 10 etapas para preparar la comida y,<br /> a continuación, crea 10 etapas para comerla.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

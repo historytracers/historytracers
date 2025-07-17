@@ -1,50 +1,180 @@
 {
-    "title" : "Nossos números atuais",
-    "header" : "Nossos números atuais",
-    "sources" : [ "b88b8566-9b25-4cef-adeb-0e5c8697f81a" ],
-    "scripts" : [ "b88b8566-9b25-4cef-adeb-0e5c8697f81a" ],
-    "index" : [ "first_steps" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1735128478" ],
-    "authors" : null,
-    "reviewers" : null,
-    "content" : [
-        {
-            "id" : "families",
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "introduction",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p><h3>Introdução</h3>Até agora, vimos como nossos dedos nos ajudaram a criar diferentes maneiras de contar. No entanto, isso nem sempre foi assim. Por um longo tempo, não tínhamos uma maneira de representar quando todos os dedos estavam fechados. Neste texto, exploraremos um pouco dessa história e como chegamos aos números que usamos hoje.</p>" ]
-                },
-                {
-                    "id" : "history",
-                    "text" : [ "<p><h3>A história de nossos números</h3>Os números que usamos atualmente são antigos. Chamamos esses números de hindu-arábicos, pois eles foram inicialmente criados na Índia e, depois de serem conhecidos pelos árabes, foram expandidos e disseminados para o resto do mundo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7b7d81af-c3ba-43fa-9bd8-06662ee66d1f'); return false;\">Kunitzsch, Paul, <span class=\"htdate\"></span>, pp. 3 - 21</a>).</p>",
-                        "<p>A partir de agora, começaremos a usar mais os números hindu-arábicos, mas não abandonaremos os números que aprendemos dos indígenas. Como os números podem ter diferentes representações, escolhemos a seguinte para continuar:</p>", "<table class=\"tawapukllay\"><tr><th>Mão esquerda</th><th>Mão direita</th><th>Números</th></tr> <tr><td><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/0Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">0</span></td></tr> <tr><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/1Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">1</span></td></tr> <tr><td><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img5\" onclick=\"htImageZoom('img5', '0%')\" src=\"images/2Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">2</span></td></tr> <tr><td><img id=\"img6\" onclick=\"htImageZoom('img6', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img7\" onclick=\"htImageZoom('img7', '0%')\" src=\"images/3Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">3</span></td></tr> <tr><td><img id=\"img8\" onclick=\"htImageZoom('img8', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img9\" onclick=\"htImageZoom('img9', '0%')\" src=\"images/4Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">4</span></td></tr> <tr><td><img id=\"img10\" onclick=\"htImageZoom('img10', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img11\" onclick=\"htImageZoom('img11', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">5</span></td></tr> <tr><td><img id=\"img12\" onclick=\"htImageZoom('img12', '0%')\" src=\"images/1Left_Hand_Small.png\" /></td><td><img id=\"img13\" onclick=\"htImageZoom('img13', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">6</span></td></tr> <tr><td><img id=\"img14\" onclick=\"htImageZoom('img14', '0%')\" src=\"images/2Left_Hand_Small.png\" /></td><td><img id=\"img15\" onclick=\"htImageZoom('img15', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">7</span></td></tr> <tr><td><img id=\"img16\" onclick=\"htImageZoom('img16', '0%')\" src=\"images/3Left_Hand_Small.png\" /></td><td><img id=\"img17\" onclick=\"htImageZoom('img17', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">8</span></td></tr> <tr><td><img id=\"img18\" onclick=\"htImageZoom('img18', '0%')\" src=\"images/4Left_Hand_Small.png\" /></td><td><img id=\"img19\" onclick=\"htImageZoom('img19', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">9</span></td></tr> </table>", "<p class=\"desc\">Tabela 1: Números hindu-arábicos e a relação com nossos dedos</p>", "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1</b><br />Pinte os números da <b>Tabela 1</b>, se estiver com ela em mãos.<br /> Ou, em uma folha, copie-os e pinte com as cores que desejar.</p>" ]
-                },
-                {
-                    "id" : "thezero",
-                    "text" : [ "<p><h3>Quem representou o <b>0</b> primeiro?</h3>Embora estejamos apresentando dez números com nossas mãos, as coisas nem sempre foram assim. Esse conhecimento foi construído ao longo do tempo. O filósofo Sócrates, reconhecendo esta constante mudança no conhecimento, nos deu uma importante lição:  <b>\"só sei que nada sei\"</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3b95809f-e017-4f2c-9c30-bc3db69ce7c5'); return false;\">Plato, <span class=\"htdate\"></span>, pp. 15</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ae49cb80-7652-4fe9-b18a-0de1c4c8321a'); return false;\">Luiz Felipe Pondé, <span class=\"htdate\"></span></a>).</p>", "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1</b><br />Dado o quanto sabemos pouco, que tal estudar para encontrar respostas para a vida?</div></div></center></p>", "<p>Um exemplo deste avanço no conhecimento é o primeiro número da <b>Tabela 1</b>, o 0, que foi um dos últimos números a ser representado, apesar de fecharmos as mãos há muito tempo. Mas quem o representou primeiro? Se começássemos nossa resposta com: \"O primeiro a representar o 0 foi ....\", devemos ter em mente que isso pode mudar com novas descobertas. Vamos ver alguns exemplos.</p>", "<p>Auwalu Musa e Anna Blume, nos informam que, embora os indígenas americanos tenham criado um símbolo para representar os dedos fechados , eles não o usavam da mesma forma que nós (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, <span class=\"htdate\"></span>, pp. 44</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9f68915b-60c5-42fc-84ff-3f6e329d09b8'); return false;\">Blume, Anna, <span class=\"htdate\"></span></a>). Portanto, poderíamos concluir que os primeiros a criar e usar um símbolo foram os árabes (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, <span class=\"htdate\"></span>, pp. 44</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7b7d81af-c3ba-43fa-9bd8-06662ee66d1f'); return false;\">Kunitzsch, Paul, <span class=\"htdate\"></span>, pp. 4</a>).  Por outro lado, ao estudarmos o trabalho de Francisco B. Puente, aprendemos que os indígenas do continente americano usaram diferentes maneiras para representar nossos dedos fechados em diferentes locais (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <span class=\"htdate\"></span></a>).</p>", "<p>Com base no que vimos, podemos afirmar que diferentes povos representaram os dedos fechados de diferentes maneiras.</p>" ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ "<p><h3>Conclusão</h3>Conhecemos os números Hindú-árabicos e sua relação com nossos dedos. Existem muitos outros sistemas numéricos e muitas coisas que se podem fazer com estes números, mas antes de prosseguirmos, na próxima página reforçaremos nosso conhecimento com diversão.</p>" ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2003", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "1899", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2003", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2020", "month" : "-1", "day" : "-1" }
-                    ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Nossos números atuais",
+   "header": "Nossos números atuais",
+   "sources": [
+      "b88b8566-9b25-4cef-adeb-0e5c8697f81a"
+   ],
+   "scripts": [
+      "b88b8566-9b25-4cef-adeb-0e5c8697f81a"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/b88b8566-9b25-4cef-adeb-0e5c8697f81a_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/qo4iT4JA3Ub",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1752689920"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Introdução</h3>Até agora, vimos como nossos dedos nos ajudaram a criar diferentes maneiras de contar. No entanto, isso nem sempre foi assim. Por um longo tempo, não tínhamos uma maneira de representar quando todos os dedos estavam fechados. Neste texto, exploraremos um pouco dessa história e como chegamos aos números que usamos hoje.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_history",
+         "text": [
+            {
+               "text": "<p><h3>A história de nossos números</h3>Os números que usamos atualmente são antigos. Chamamos esses números de hindu-arábicos, pois eles foram inicialmente criados na Índia e, depois de serem conhecidos pelos árabes, foram expandidos e disseminados para o resto do mundo (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7b7d81af-c3ba-43fa-9bd8-06662ee66d1f'); return false;\">Kunitzsch, Paul, <htdate0>, pp. 3 - 21</a>).</p><p>A partir de agora, começaremos a usar mais os números hindu-arábicos, mas não abandonaremos os números que aprendemos dos indígenas. Como os números podem ter diferentes representações, escolhemos a seguinte para continuar:</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2003",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<table class=\"tawapukllay\"><tr><th>Mão esquerda</th><th>Mão direita</th><th>Números</th></tr> <tr><td><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/0Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">0</span></td></tr> <tr><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/1Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">1</span></td></tr> <tr><td><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img5\" onclick=\"htImageZoom('img5', '0%')\" src=\"images/2Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">2</span></td></tr> <tr><td><img id=\"img6\" onclick=\"htImageZoom('img6', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img7\" onclick=\"htImageZoom('img7', '0%')\" src=\"images/3Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">3</span></td></tr> <tr><td><img id=\"img8\" onclick=\"htImageZoom('img8', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img9\" onclick=\"htImageZoom('img9', '0%')\" src=\"images/4Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">4</span></td></tr> <tr><td><img id=\"img10\" onclick=\"htImageZoom('img10', '0%')\" src=\"images/0Left_Hand_Small.png\" /></td><td><img id=\"img11\" onclick=\"htImageZoom('img11', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">5</span></td></tr> <tr><td><img id=\"img12\" onclick=\"htImageZoom('img12', '0%')\" src=\"images/1Left_Hand_Small.png\" /></td><td><img id=\"img13\" onclick=\"htImageZoom('img13', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">6</span></td></tr> <tr><td><img id=\"img14\" onclick=\"htImageZoom('img14', '0%')\" src=\"images/2Left_Hand_Small.png\" /></td><td><img id=\"img15\" onclick=\"htImageZoom('img15', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">7</span></td></tr> <tr><td><img id=\"img16\" onclick=\"htImageZoom('img16', '0%')\" src=\"images/3Left_Hand_Small.png\" /></td><td><img id=\"img17\" onclick=\"htImageZoom('img17', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">8</span></td></tr> <tr><td><img id=\"img18\" onclick=\"htImageZoom('img18', '0%')\" src=\"images/4Left_Hand_Small.png\" /></td><td><img id=\"img19\" onclick=\"htImageZoom('img19', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">9</span></td></tr> </table><p class=\"desc\">Tabela 1: Números hindu-arábicos e a relação com nossos dedos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1</b><br />Pinte os números da <b>Tabela 1</b>, se estiver com ela em mãos.<br /> Ou, em uma folha, copie-os e pinte com as cores que desejar.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_zero",
+         "text": [
+            {
+               "text": "<p><h3>Quem representou o <b>0</b> primeiro?</h3>Embora estejamos apresentando dez números com nossas mãos, as coisas nem sempre foram assim. Esse conhecimento foi construído ao longo do tempo. O filósofo Sócrates, reconhecendo esta constante mudança no conhecimento, nos deu uma importante lição:  <b>\"só sei que nada sei\"</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3b95809f-e017-4f2c-9c30-bc3db69ce7c5'); return false;\">Plato, <htdate0>, pp. 15</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ae49cb80-7652-4fe9-b18a-0de1c4c8321a'); return false;\">Luiz Felipe Pondé, <htdate1></a>).</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1</b><br />Dado o quanto sabemos pouco, que tal estudar para encontrar respostas para a vida?</div></div></center></p><p>Um exemplo deste avanço no conhecimento é o primeiro número da <b>Tabela 1</b>, o 0, que foi um dos últimos números a ser representado, apesar de fecharmos as mãos há muito tempo. Mas quem o representou primeiro? Se começássemos nossa resposta com: \"O primeiro a representar o 0 foi ....\", devemos ter em mente que isso pode mudar com novas descobertas. Vamos ver alguns exemplos.</p><p>Auwalu Musa e Anna Blume, nos informam que, embora os indígenas americanos tenham criado um símbolo para representar os dedos fechados , eles não o usavam da mesma forma que nós (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, <htdate2>, pp. 44</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9f68915b-60c5-42fc-84ff-3f6e329d09b8'); return false;\">Blume, Anna, <htdate3></a>). Portanto, poderíamos concluir que os primeiros a criar e usar um símbolo foram os árabes (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, <htdate4>, pp. 44</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7b7d81af-c3ba-43fa-9bd8-06662ee66d1f'); return false;\">Kunitzsch, Paul, <htdate5>, pp. 4</a>).  Por outro lado, ao estudarmos o trabalho de Francisco B. Puente, aprendemos que os indígenas do continente americano usaram diferentes maneiras para representar nossos dedos fechados em diferentes locais (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <htdate6></a>).</p><p>Com base no que vimos, podemos afirmar que diferentes povos representaram os dedos fechados de diferentes maneiras.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1899",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2014",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2014",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2003",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<p><h3>Conclusão</h3>Conhecemos os números Hindú-árabicos e sua relação com nossos dedos. Existem muitos outros sistemas numéricos e muitas coisas que se podem fazer com estes números, mas antes de prosseguirmos, na próxima página reforçaremos nosso conhecimento com diversão.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

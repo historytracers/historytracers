@@ -1,44 +1,142 @@
 {
-    "title" : "Nuestros lados son iguales",
-    "header" : "Nuestros lados son iguales",
-    "sources" : [ "489f9dbf-f251-4ef8-a61b-431564784bd5" ],
-    "scripts" : [ "489f9dbf-f251-4ef8-a61b-431564784bd5" ],
-    "index" : [ "first_steps" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1735128478" ],
-    "content" : [
-        {
-            "id" : "families",
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "introduction",
-                    "text" : "<p><span id=\"htZoomImageMsg\"></span></p><p><h3>Mi cuerpo tiene dos lados</h3>Coloque sus dos manos sobre una mesa. ¿Son similares? ¿Qué diferencias nota entre ellas?</p>"
-                },
-                {
-                    "id" : "hands",
-                    "text" : [ "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representación de las manos. Código fuente disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <span class=\"htdate\"></span>, La Fuente</a>)</td></tr></table></p>", "<p>Ahora junte las manos y observe los dedos. ¿Tienen el mismo tamaño? ¿Y las manos, también son del mismo tamaño?</p>" ]
-                },
-                {
-                    "id" : "draw_hands",
-                    "text" : "<p><h3>Dibujando</h3>Doble una hoja por la mitad y coloque una mano con los dedos extendidos en una de las mitades. Trace el contorno de la mano con un lápiz. Luego, repita el proceso con la otra mano en la otra mitad de la hoja. <table class=\"draw\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img src=\"images/White.png\" class=\"imgcenter\"/></td><td><img src=\"images/White.png\" class=\"imgcenter\"/></td></tr></table></p>"
-                },
-                {
-                    "id" : "body",
-                    "text" : "<p><h3>Mi cuerpo</h3>Observe sus brazos. ¿Son similares? ¿Y sus piernas? ¿Puede ver que un lado de su cuerpo se parece al otro? Compruebe si su amigo o maestro también tiene lados similares.</p>"
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : "<p><h3>Conclusión y práctica</h3>Nosotros tenemos un solo cuerpo, donde un lado se asemeja al otro. Y no somos los únicos con lados similares. Observe si las hojas de las plantas y otros animales también tienen lados similares. </p>"
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
-                    ]
-                }
-            ]
-        }
-    ]
+   "title": "Nuestros lados son iguales",
+   "header": "Nuestros lados son iguales",
+   "sources": [
+      "489f9dbf-f251-4ef8-a61b-431564784bd5"
+   ],
+   "scripts": [
+      "489f9dbf-f251-4ef8-a61b-431564784bd5"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/489f9dbf-f251-4ef8-a61b-431564784bd5_es-ES.wav",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/U4bm6Wxl5Ub",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1752772687"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Mi cuerpo tiene dos lados</h3>Coloque sus dos manos sobre una mesa. ¿Son similares? ¿Qué diferencias nota entre ellas?</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_hands",
+         "text": [
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representación de las manos. Código fuente disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, La Fuente</a>)</td></tr></table></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En la figura, se observan las dos manos de una persona extendidas.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Ahora junte las manos y observe los dedos. ¿Tienen el mismo tamaño? ¿Y las manos, también son del mismo tamaño?</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_draw_hands",
+         "text": [
+            {
+               "text": "<p><h3>Dibujando</h3>Doble una hoja por la mitad y coloque una mano con los dedos extendidos en una de las mitades. Trace el contorno de la mano con un lápiz. Luego, repita el proceso con la otra mano en la otra mitad de la hoja. <table class=\"draw\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img src=\"images/White.png\" class=\"imgcenter\"/></td><td><img src=\"images/White.png\" class=\"imgcenter\"/></td></tr></table></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_body",
+         "text": [
+            {
+               "text": "<p><h3>Mi cuerpo</h3>Observe sus brazos. ¿Son similares? ¿Y sus piernas? ¿Puede ver que un lado de su cuerpo se parece al otro? Compruebe si su amigo o maestro también tiene lados similares.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<p><h3>Conclusión y práctica</h3>Nosotros tenemos un solo cuerpo, donde un lado se asemeja al otro. Y no somos los únicos con lados similares. Observe si las hojas de las plantas y otros animales también tienen lados similares.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
 }
