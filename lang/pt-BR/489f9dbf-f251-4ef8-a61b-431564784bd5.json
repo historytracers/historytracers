@@ -7,7 +7,18 @@
    "scripts": [
       "489f9dbf-f251-4ef8-a61b-431564784bd5"
    ],
-   "audio": null,
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/489f9dbf-f251-4ef8-a61b-431564784bd5_pt-BR.wav",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/lx1YnmMl5Ub",
+         "external": true,
+         "spotify": true
+      }
+   ],
    "index": [
       "first_steps"
    ],
@@ -56,7 +67,7 @@
          "id": "SECTION_hands",
          "text": [
             {
-               "text": "<p><table class=\"book_navigation\"><tr><td>Mão esquerda</td><td>Mão direita</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representação das mãos. Código-fonte presente no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fonte</a>)</td></tr></table></p><p>Agora junte as palmas das mãos e observe os dedos. Eles têm o mesmo tamanho? E suas mãos, possuem o mesmo tamanho?</p>",
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mão esquerda</td><td>Mão direita</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representação das mãos. Código-fonte presente no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fonte</a>)</td></tr></table></p>",
                "source": null,
                "date_time": [
                   {
@@ -66,6 +77,15 @@
                      "day": "-1"
                   }
                ],
+               "isTable": false,
+               "imgdesc": "Na figura, observam-se as duas mãos de uma pessoa estendidas, com todos os dedos esticados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Agora junte as palmas das mãos e observe os dedos. Eles têm o mesmo tamanho? E suas mãos, possuem o mesmo tamanho?</p>",
+               "source": null,
+               "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
