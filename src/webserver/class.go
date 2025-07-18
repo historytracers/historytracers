@@ -76,9 +76,6 @@ func htAddNewClassToIdx(index *classIdx, newFile string) {
 	}
 
 	content := &index.Content[lastContent]
-	if content.Value == nil {
-		return
-	}
 
 	newValue := classContentValue{ID: newFile, Name: "", Desc: ""}
 
