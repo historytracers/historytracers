@@ -93,6 +93,8 @@ func htSetDefaultTemplateValues(fp *classTemplateFile, newFile string) {
 	fp.LastUpdate[0] = htUpdateTimestamp()
 	fp.Authors[0] = ""
 	fp.Reviewers[0] = ""
+	fp.Type = "class"
+	fp.Version = 2
 }
 
 func htWriteTemplateFile(lang string, newFile string, template *classTemplateFile) error {
