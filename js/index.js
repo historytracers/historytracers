@@ -20,6 +20,31 @@ function htReloadCurrentPage()
     }
 }
 
+function htDetectLocalLanguage()
+{
+    var lang = navigator.language || navigator.userLanguage;
+    if (lang == undefined || lang == null || lang.length == 0) {
+        lang = "en-US";
+    } else {
+        var llang =  lang.substring(0, 2).toLowerCase();
+        if (($("#site_language option[value='"+lang+"']").length > 0) == false) {
+            if (llang == "pt") {
+                lang = "pt-BR";
+            } else if (llang == "es") {
+                lang = "es-ES";
+            } else {
+                lang = "en-US";
+            }
+        }
+
+        // address browsers that stores only lower case values.
+        var country = lang.substring(3).toUpperCase();
+        llang =  lang.substring(0, 2).toLowerCase();
+        lang = llang+'-'+country;
+    }
+    return lang;
+}
+
 function htSetIndexLang(urlParams) {
     var lang = "en-US";
     if (urlParams.has('lang')) {
@@ -28,7 +53,7 @@ function htSetIndexLang(urlParams) {
             lang = "en-US";
         }
     } else {
-        lang = htDetectLanguage();
+        lang = htDetectLocalLanguage();
     }
 
     return lang;
