@@ -53,6 +53,27 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart2Options);
 
+    var xVector3 = [ 1, 1.5,  2,  2.5, 3,  3.5, 4,  4.5, 5,  5.5, 6,  6.5, 7,  7.5, 8,  8.5, 9];
+    var yVector3 = [ 2, null, 2, null, 2, null, 2, null, 2, null, 2, null, 2, null, 2, null, 2];
+
+    var chart3Options = {
+        "datasets": [
+                    {
+                        data : yVector3,
+                        label : mathKeywords[22],
+                        fill : false
+                    }],
+        "chartId" : "chart3",
+        "yType" : "linear",
+        "xVector" : xVector3,
+        "xLable": mathKeywords[23],
+        "xType" : "linear",
+        "ymin": 0,
+        "ymax": 10,
+        "useCallBack": false
+    };
+    htPlotConstantContinuousChart(chart3Options);
+
     return false;
 }
 

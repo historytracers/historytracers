@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1752799673"
+      "1752975529"
    ],
    "authors": null,
    "reviewers": null,
@@ -226,7 +226,7 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "markdwon",
+               "format": "markdown",
                "PostMention": ""
             },
             {
@@ -244,7 +244,7 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "markdwon",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
@@ -350,11 +350,11 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "markdwon",
+               "format": "markdown",
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 2: Representación de sílabas métricas del poema <i>Voltas</i>. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 2: Sílabas métricas por verso en el poema <i>Voltas</i>. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -363,18 +363,122 @@
                "PostMention": " "
             }
          ]
+      },
+      {
+         "id": "SECTION_hieroglyphics",
+         "text": [
+            {
+               "text": "### La matemática en los jeroglíficos\n\nAdemás de los alfabetos que utilizamos actualmente, la humanidad también desarrolló otros sistemas de escritura (<htcite0>), en los cuales las matemáticas igualmente están presentes.\n\n#### El texto mesoamericano\n\nAl observar la Estela A, localizada en el sitio arqueológico de Copán, Honduras, y parcialmente mostrada en la **Figura 1**, notamos dos columnas de jeroglíficos que ocupan 9 líneas en el lateral de la estela.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5390fa3b-735f-4e22-ac98-178303a13fdb",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanStelaA\" onclick=\"htImageZoom('imgCopanStelaA', '0%')\" src=\"images/Copan/StelaACopan.jpg\" class=\"imgcenter\" style=\"width:30%\"/>Figura 4: Estela A en el Museo del Sitio Arqueológico de Copán, con mención a las ciudades de Copán, Tikal, Calakmul y Palenque en este orden (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Foto tomada el <htdate1> durante una visita al sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "30"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En esta imagen, se observa un texto jeroglífico dispuesto en dos columnas.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El conteo de los jeroglíficos sigue una lógica análoga a la que usamos para contar sílabas métricas en versos. Así, tenemos un total de 18 jeroglíficos (2 × 9) visibles en la **Figura 1**.\n\n#### Gráfico de jeroglíficos\n\nEn el **Gráfico 3**, representamos la cantidad de jeroglíficos por línea. En comparación con el **Gráfico 2**, observamos que también hay una cantidad constante; sin embargo, en este caso, todos los puntos tienen el valor 2, en contraste con el valor 5 del gráfico anterior.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 3: Jeroglíficos por línea en la Estela A. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, hemos visto que las matemáticas aparecen en los textos de forma explícita (como en el conteo de sílabas) e implícita (cuando añadimos letras para formar palabras o nos movemos entre líneas). Básicamente, aplicamos estos conceptos a los textos, lo que nos lleva a una reflexión final:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Sobre los números</b><br /><br />¿Cuando escribimos números, también utilizamos operaciones matemáticas implícitamente?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "En el próximo texto, responderemos a esa reflexión en detalles.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Textos jamais se misturam com a matemática?",
+         "question": "¿Los textos nunca se mezclan con las matemáticas?",
          "yesNoAnswer": "No",
-         "additionalInfo": "A pergunta simplesmente não faz sentido. A matemática está presente em qualquer área de nossa vida, mas muita das vezes aparece de maneira implícita."
+         "additionalInfo": "Las matemáticas están presentes en todas las áreas de nuestra vida, aunque muchas veces aparezcan de manera implícita."
       },
       {
-         "question": "A contagem de sílabas métricas podem ser feita por multiplicação?",
+         "question": "¿El conteo de sílabas métricas puede hacerse mediante multiplicación?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Ao contarmos as sílabas métricas de um verso, utilizamos a tabuada de 1. Se o poema segue uma única métrica em todos os versos, então podemos multiplicar o total de versos pela quantidade de sílabas métricas em um texto."
+         "additionalInfo": "Al contar las sílabas métricas de un verso, utilizamos la tabla del 1. Si el poema mantiene una misma métrica en todos sus versos, podemos multiplicar el número total de versos por la cantidad de sílabas métricas para obtener el total de sílabas del texto."
+      },
+      {
+         "question": "¿La multiplicación puede aplicarse a los jeroglíficos?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "No es posible excluir las matemáticas de nuestra vida cotidiana. Por lo tanto, también podemos aplicar la multiplicación en el estudio de los jeroglíficos."
       }
    ],
    "game_v2": null,
