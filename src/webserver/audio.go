@@ -428,6 +428,7 @@ func htFamiliesToAudio() {
 		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, htLangPaths[i])
 		err := htLoadFamilyIndex(localPath, htLangPaths[i])
 		if err != nil {
+			panic(err)
 			return
 		}
 	}
