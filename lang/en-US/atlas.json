@@ -3,7 +3,10 @@
     "header" : "Atlas",
     "sources" : [ "atlas" ],
     "scripts" : [ "atlas_images" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
     "last_update" : [ "1735259198" ],
     "authors" : null,
     "reviewers" : null,
@@ -17,7 +20,15 @@
                 {
                     "id" : "prerequisites",
                     "text" : [ 
-                              "<p><span id=\"htZoomImageMsg\"></span></p>",
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                               { "text" : "<span id=\"htAmericaAbyaYalaMsg\"></span>",
                                 "source" : [ { "type": 1,
                                      "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
@@ -43,8 +54,15 @@
                                                 "uuid": "9592bef7-96e8-46dc-8d43-26c67d33b2c5",
                                                 "text": "\"atlas\". <i>Cambridge Dictionary</i>" } ]
                                },
-                                "<p><h3>History Tracers Atlas</h3>This section is organized like a book. You can access a map directly by clicking its name or by using the navigation arrows.</p>",
-                                "<p><b>The Atlas can be updated at any time based on new research. <span id=\"atlas_sn\"></span> </b></p>"
+            {
+               "text": "<p><h3>History Tracers Atlas</h3>This section is organized like a book. You can access a map directly by clicking its name or by using the navigation arrows.</p><p><b>The Atlas can be updated at any time based on new research. <span id=\"atlas_sn\"></span> </b></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
                     ]
                 }
             ]
@@ -55,8 +73,16 @@
             "image" : null,
             "author" : null,
             "name" : "Introduction",
-            "text" :[ "<p><h3>Introduction</h3>Before diving into maps, let’s explore how nature has shaped the structures that make map-making possible. To understand this, we’ll review the formation of stars and planets and examine the concept of force.",
-                      "<p><h4>Can an atlas explore physics, biology, and history?</h4>Yes! Fields of knowledge are interconnected, so we’ve included various disciplines to help you better understand how borders were shaped over time.",
+            "text" :[ 
+            {
+               "text": "<p><h3>Introduction</h3>Before diving into maps, let’s explore how nature has shaped the structures that make map-making possible. To understand this, we’ll review the formation of stars and planets and examine the concept of force.</p><p><h4>Can an atlas explore physics, biology, and history?</h4>Yes! Fields of knowledge are interconnected, so we’ve included various disciplines to help you better understand how borders were shaped over time.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>A Law</h4>In his classes on Asian History, Dr. Abdul Karim Khan presents a fundamental relationship between History and Geography: \"...if History has any laws, Geography is the first law\". Based on this definition, studying the evolution of nature and our species from this perspective becomes essential",
                        "source" : [ { "type": 1,
                                       "uuid": "27864fd8-e7f7-4a2f-85c7-e1453e3c5234",
@@ -144,7 +170,16 @@
             "image" : "images/HistoryTracers/Planet_Space_Time.png",
             "author" : "History Tracers Team",
             "name" : "Understanding Gravity",
-            "text" :[ "<p><h3>Understanding Gravity</h3>In the previous text, we mentioned gravity when defining a planet, but we didn’t explain the concept in detail. This section expands on that idea.</p>",
+            "text" :[ 
+            {
+               "text": "<p><h3>Understanding Gravity</h3>In the previous text, we mentioned gravity when defining a planet, but we didn’t explain the concept in detail. This section expands on that idea.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>The Space-time</h4>For a long time, we understood space, where we move, and time, which records the sequence of events, as absolute and separate dimensions. As a result, we believed that time was the same for everyone, whether it was a person reading this text, someone traveling in a car, or even an astronaut on a journey to the Moon",
                        "source" : [ { "type": 1,
                                       "uuid": "4da1237a-2d61-4f76-8707-dccc5d90bb48",
@@ -184,7 +219,15 @@
                            { "type": "gregory", "year": "1916", "month": "-1", "day": "-1" }
                         ]
                       },
-                      "<ul><li>The universe can be described by a four-dimensional structure known as <b>space-time</b>, which combines the three spatial coordinates (height, width, and depth) with time, forming a continuous four-dimensional fabric.</li><li>In space-time, the presence of mass curves this structure; in other words, objects with mass distort space-time around them.</li></ul>",
+            {
+               "text": "<p><ul><li>The universe can be described by a four-dimensional structure known as <b>space-time</b>, which combines the three spatial coordinates (height, width, and depth) with time, forming a continuous four-dimensional fabric.</li><li>In space-time, the presence of mass curves this structure; in other words, objects with mass distort space-time around them.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>The planet and space-time</h4>When a planet forms, it tends to acquire a spherical or near-spherical shape, like an ellipsoid. In doing so, it curves the space-time, as illustrated in this section’s figure. The effect of moving within this curved space-time is what we call gravity. John Wheeler famously explained it this way: \"Matter tells space-time how to curve, and space-time tells matter how to move\". A clear example of this phenomenon is our planet’s orbit around the Sun, caused by the curvature that the Sun’s mass creates in space-time",
                        "source" : [ { "type": 1,
                                       "uuid": "16797baa-f339-4753-8c5f-66dbfeae3abd",
@@ -265,7 +308,15 @@
                                       "date": { "type": "gregory", "year": "2024", "month": "9", "day": "20" } }
                        ]
                      },
-                     "<p>We will discuss the concept of a flat Earth in more detail later.</p>"
+            {
+               "text": "<p>We will discuss the concept of a flat Earth in more detail later.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
                     ]
         },
         {
@@ -405,6 +456,15 @@
             "author" : "History Tracers Team",
             "name" : "The History of a Theorem",
             "text" :[ "<p>The image in this section presents data that may raise questions for some people. In fact, a few have already asked me, \"Why do I need to learn the Pythagorean Theorem?\" To help illustrate the value of this knowledge, we will break down the image in stages and demonstrate the relationship between the theorem and geographic coordinates, which are used, among other things, in the GPS on your smartphone.</p>",
+            {
+               "text": "",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h3>The History of a Theorem</h3><h4>The Right Triangle</h4>Let's begin with the first column of the image, specifically the sections labeled \"(a) Pythagorean Theorem\" and \"(b) The Triangle and Its Components\". In the center of image \"(b)\" we see the right triangle labeled \"(a)\". This triangle has two highlighted angles. The theta (θ) angle is formed between the adjacent side and the hypotenuse. Additionally, a right angle, represented by a square, lies between the adjacent and opposite sides, which are also known as the legs",
                        "source" : [ { "type": 1,
                                       "uuid": "e31c5a5d-a61f-488b-a657-cf82d112e105",
@@ -421,12 +481,15 @@
                                       "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" } }
                        ]
                       },
-                      "Now that we understand how the right triangle \"(a)\" is formed, let’s explore the relationship between its sides. We see that the total number of squares along each side (9, 16 and 25) corresponds to the product of each side’s length squared. In other words, the total number of geometric squares on each side is calculated by multiplying the length by itself:",
-                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul>",
-                      "<p class=\"desc\"><b>Calculation 1</b>: Triangle sides expressed as square areas.</p>",
-                      "<p>We also observe that the sum of the squares of the adjacent and opposite sides is equal to the square of the hypotenuse:</p>",
-                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul>",
-                      "<p class=\"desc\"><b>Calculation 2</b>: The sum of the squares of the legs equals the square of the hypotenuse.</p>",
+            {
+               "text": "<p>Now that we understand how the right triangle \"(a)\" is formed, let’s explore the relationship between its sides. We see that the total number of squares along each side (9, 16 and 25) corresponds to the product of each side’s length squared. In other words, the total number of geometric squares on each side is calculated by multiplying the length by itself:</p><p><ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul></p><p class=\"desc\"><b>Calculation 1</b>: Triangle sides expressed as square areas.</p><p>We also observe that the sum of the squares of the adjacent and opposite sides is equal to the square of the hypotenuse:</p><p><ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul></p><p class=\"desc\"><b>Calculation 2</b>: The sum of the squares of the legs equals the square of the hypotenuse.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>The Diagonal Triple</h4>Following Dr. Daniel F. Mansfield’s research, we use the term \"diagonal triple\" to describe the relationship between numbers that satisfy this rule, as seen in ancient Babylonian texts that used positional sexagesimal notation. While there are similarities between the values on the <i>Plimpton 322</i> tablet and those derived using trigonometry, we cannot conclude that the Babylonians used trigonometry in the same way as the Greeks or as we do today. Nonetheless, Babylonian knowledge of the right triangle is evidenced by the artifact known as <i>Si. 427</i>, on display at the <i>Istanbul Archaeological Museum</i>",
                        "source" : [ { "type": 1,
                                       "uuid": "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
@@ -445,8 +508,15 @@
                                       "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" } }
                        ]
                       },
-                      "<math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>    </mrow></math>",
-                      "<p class=\"desc\"><b>Formula 1</b>: Pythagorean Theorem, where <i>a</i> is the adjacent leg, <i>b</i> is the opposite leg, and <i>c</i> is the hypotenuse.</p>"
+            {
+               "text": "<p><math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>    </mrow></math></p><p class=\"desc\"><b>Formula 1</b>: Pythagorean Theorem, where <i>a</i> is the adjacent leg, <i>b</i> is the opposite leg, and <i>c</i> is the hypotenuse.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
             ]
         },
         {

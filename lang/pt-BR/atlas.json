@@ -3,7 +3,10 @@
     "header" : "Atlas",
     "sources" : [ "atlas" ],
     "scripts" : [ "atlas_images" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
     "last_update" : [ "1735259198" ],
     "authors" : null,
     "reviewers" : null,
@@ -17,7 +20,15 @@
                 {
                     "id" : "prerequisites",
                     "text" : [ 
-                               "<p><span id=\"htZoomImageMsg\"></span></p>",
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                                { "text" : "<span id=\"htAmericaAbyaYalaMsg\"></span>",
                                  "source" : [ { "type": 1,
                                                 "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
@@ -42,10 +53,16 @@
                                  "source" : [ { "type": 0,
                                                 "uuid": "b5e0b575-280f-485f-971e-6702e6c7bc19",
                                                 "text": "\"atlas\". <i>Dicionário da Língua Portuguesa. Academia das Ciências de Lisboa</i>" } ]
-                               }
-                               ,
-                               "<p><h3>Atlas do History Tracers</h3>Esta seção é organizada como um livro. Você pode acessar um mapa diretamente clicando no seu nome ou utilizando as setas de navegação.</p>",
-                               "<p><b>O Atlas pode ser atualizado a qualquer momento com base em novas pesquisas. <span id=\"atlas_sn\"></span> </b></p>"
+                               },
+            {
+               "text": "<p><h3>Atlas do History Tracers</h3>Esta seção é organizada como um livro. Você pode acessar um mapa diretamente clicando no seu nome ou utilizando as setas de navegação.</p>p><b>O Atlas pode ser atualizado a qualquer momento com base em novas pesquisas. <span id=\"atlas_sn\"></span> </b></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
                     ]
                 }
             ]
@@ -56,8 +73,16 @@
             "image" : null,
             "author" : null,
             "name" : "Introdução",
-            "text" :[ "<p><h3>Introdução</h3>Antes de falarmos sobre os mapas, vamos explorar brevemente como a natureza criou toda a estrutura que nos permite elaborá-los. Discutiremos a formação de estrelas e planetas, além de explicar o conceito de força.",
-                      "<p><h4>Um atlas que explora física, biologia e história?</h4>Sim! As áreas do conhecimento estão interligadas. Por isso, incluímos diferentes disciplinas para ajudar você a entender melhor como as fronteiras foram formadas e o contexto que os molda.",
+            "text" :[ 
+            {
+               "text": "<p><h3>Introdução</h3>Antes de falarmos sobre os mapas, vamos explorar brevemente como a natureza criou toda a estrutura que nos permite elaborá-los. Discutiremos a formação de estrelas e planetas, além de explicar o conceito de força.</p><p><h4>Um atlas que explora física, biologia e história?</h4>Sim! As áreas do conhecimento estão interligadas. Por isso, incluímos diferentes disciplinas para ajudar você a entender melhor como as fronteiras foram formadas e o contexto que os molda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>Uma Lei</h4>Em suas aulas sobre História da Ásia, o Dr. Abdul Karim Khan nos apresenta uma relação fundamental entre História e Geografia: \"...se a História possui alguma lei, a Geografia é a primeira delas\" (<i>...if History has any laws, Geography is the first law</i>). Com base nessa definição, torna-se essencial estudar a evolução dos continentes e da nossa espécie a partir dessa perspectiva",
                        "source" : [ { "type": 1,
                                       "uuid": "27864fd8-e7f7-4a2f-85c7-e1453e3c5234",
@@ -145,7 +170,16 @@
             "image" : "images/HistoryTracers/Planet_Space_Time.png",
             "author" : "History Tracers Team",
             "name" : "Entendendo a Gravidade",
-            "text" :[ "<p><h3>Entendendo a Gravidade</h3>No texto anterior, mencionamos a gravidade ao definir um planeta, mas sem detalhar o conceito. Por isso, criamos esta seção.</p>",
+            "text" :[ 
+            {
+               "text": "<p><h3>Entendendo a Gravidade</h3>No texto anterior, mencionamos a gravidade ao definir um planeta, mas sem detalhar o conceito. Por isso, criamos esta seção.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>O espaço-tempo</h4>Por muito tempo, entendemos o espaço, onde nos movemos, e o tempo, que registra a sucessão de eventos, como dimensões absolutas e separadas. Assim, acreditava-se que o tempo passava da mesma forma para todos, seja para uma pessoa lendo um texto, alguém viajando de carro ou até para astronautas em uma viagem à Lua",
                        "source" : [ { "type": 1,
                                       "uuid": "4da1237a-2d61-4f76-8707-dccc5d90bb48",
@@ -185,7 +219,15 @@
                            { "type": "gregory", "year": "1916", "month": "-1", "day": "-1" }
                         ]
                       },
-                      "<ul><li>O universo pode ser descrito como uma estrutura de quatro dimensões, o <b>espaço-tempo</b>, que combina as três coordenadas espaciais (altura, largura e profundidade) com o tempo, formando um contínuo quadridimensional.</li><li>No espaço-tempo, a presença de matéria cria uma curvatura, ou seja, os objetos com massa deformam o espaço-tempo.</li></ul>",
+            {
+               "text": "<p><ul><li>O universo pode ser descrito como uma estrutura de quatro dimensões, o <b>espaço-tempo</b>, que combina as três coordenadas espaciais (altura, largura e profundidade) com o tempo, formando um contínuo quadridimensional.</li><li>No espaço-tempo, a presença de matéria cria uma curvatura, ou seja, os objetos com massa deformam o espaço-tempo.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>O planeta no espaço-tempo</h4>Quando um planeta se forma, ele tende a adquirir uma forma esférica ou semelhante a um elipsoide e, ao fazer isso, curva o espaço-tempo, como ilustrado na figura desta seção. O movimento nesse espaço-tempo curvado é o que chamamos de gravidade. John Wheeler explicou esse fenômeno da seguinte maneira \"A matéria diz ao espaço-tempo como se curvar, e o espaço-tempo diz à matéria como se mover\". Um exemplo disso é o movimento de nosso planeta em órbita ao redor do Sol, causado pela curvatura gerada pela massa solar",
                        "source" : [ { "type": 1,
                                       "uuid": "16797baa-f339-4753-8c5f-66dbfeae3abd",
@@ -266,7 +308,15 @@
                                       "date": { "type": "gregory", "year": "2024", "month": "9", "day": "20" } }
                        ]
                      },
-                     "<p>Sobre a ideia de uma Terra plana, discutiremos mais adiante.</p>"
+            {
+               "text": "<p>Sobre a ideia de uma Terra plana, discutiremos mais adiante.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
             ]
         },
         {
@@ -404,7 +454,16 @@
             "image" : "images/HistoryTracers/Trigonometry.png",
             "author" : "History Tracers Team",
             "name" : "Historia de um Teorema",
-            "text" :[ "<p>A imagem desta seção apresenta muitos dados que podem causar apreensão em algumas pessoas. Algumas delas, inclusive, me perguntaram: \"Por que preciso aprender o Teorema de Pitágoras, se nunca o usarei na minha vida?\" Para ajudá-las a entender que os conhecimentos que adquirimos têm valor, explicaremos esta imagem em diferentes partes e mostraremos a relação do teorema com as coordenadas geográficas, que são utilizadas, entre outras coisas, pelo GPS de seu smartphone.</p>",
+            "text" :[ 
+            {
+               "text": "<p>A imagem desta seção apresenta muitos dados que podem causar apreensão em algumas pessoas. Algumas delas, inclusive, me perguntaram: \"Por que preciso aprender o Teorema de Pitágoras, se nunca o usarei na minha vida?\" Para ajudá-las a entender que os conhecimentos que adquirimos têm valor, explicaremos esta imagem em diferentes partes e mostraremos a relação do teorema com as coordenadas geográficas, que são utilizadas, entre outras coisas, pelo GPS de seu smartphone.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h3>História de um Teorema</h3><h4>O Triângulo Retângulo</h4>Comecemos pela primeira coluna da imagem, especificamente as subimagens \"(a) Teorema de Pitágoras\" e \"(b) O Triângulo e Seus Componentes\" da Figura 1. Observamos que o triângulo retângulo \"(b)\" está no centro da imagem \"(a)\". Este triângulo possui dois ângulos destacados. O ângulo theta (θ) é formado entre o lado adjacente ao ângulo e a hipotenusa. Há também um ângulo reto, representado por um quadrado, entre os lados adjacente e oposto, conhecidos como catetos",
                        "source" : [ { "type": 1,
                                       "uuid": "e31c5a5d-a61f-488b-a657-cf82d112e105",
@@ -421,12 +480,15 @@
                                       "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" } }
                        ]
                       },
-                      "Agora que compreendemos a formação do triângulo retângulo \"(a)\", vamos explorar a relação entre os lados. Observamos que o número total de quadrados em cada lado (9, 16 e 25) corresponde ao produto do comprimento de cada linha por ela mesma, ou seja, o valor total dos quadrados geométricos é dado pelo produto do tamanho de cada lado por ele mesmo:",
-                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul>",
-                      "<p class=\"desc\"><b>Cálculo 1</b>: Lados do triângulo expressos em quadrados.</p>",
-                      "<p>Percebemos também que a soma dos quadrados dos lados adjacente e oposto ao ângulo é igual ao quadrado da hipotenusa:</p>",
-                      "<ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul>",
-                      "<p class=\"desc\"><b>Cálculo 2</b>: Soma dos quadrados dos catetos igual ao quadrado da hipotenusa.</p>",
+            {
+               "text": "<p>Agora que compreendemos a formação do triângulo retângulo \"(a)\", vamos explorar a relação entre os lados. Observamos que o número total de quadrados em cada lado (9, 16 e 25) corresponde ao produto do comprimento de cada linha por ela mesma, ou seja, o valor total dos quadrados geométricos é dado pelo produto do tamanho de cada lado por ele mesmo:</p><p><ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul></p><p class=\"desc\"><b>Cálculo 1</b>: Lados do triângulo expressos em quadrados.</p><p>Percebemos também que a soma dos quadrados dos lados adjacente e oposto ao ângulo é igual ao quadrado da hipotenusa:</p><p><ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul></p><p class=\"desc\"><b>Cálculo 2</b>: Soma dos quadrados dos catetos igual ao quadrado da hipotenusa.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>A Diagonal Tripla</h4>Acompanhando o Dr. Daniel F. Mansfield, chamamos de \"diagonal tripla\" a relação entre números que seguem essa regra em antigos textos babilônicos, que usam uma notação posicional sexagesimal. Apesar da semelhança entre os valores do tablet <i>Plimpton 322</i> e os valores obtidos pela trigonometria, não se pode afirmar que os babilônios usavam a trigonometria como os gregos e como a conhecemos. Entretanto, o conhecimento de um triângulo retângulo pelos babilônios é comprovado pela peça <i>Si. 427</i>, presente no <i>Museu Arqueológico de Istambul</i>",
                        "source" : [ { "type": 1,
                                       "uuid": "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
@@ -445,8 +507,15 @@
                                       "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" } }
                        ]
                       },
-                      "<math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>    </mrow></math>",
-                      "<p class=\"desc\"><b>Fórmula 1</b>: Teorema de Pitágoras, onde <i>a</i> é o cateto adjacente, <i>b</i> é o cateto oposto, e <i>c</i> é a hipotenusa.</p>"
+            {
+               "text": "<p><math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>    </mrow></math><p class=\"desc\"><b>Fórmula 1</b>: Teorema de Pitágoras, onde <i>a</i> é o cateto adjacente, <i>b</i> é o cateto oposto, e <i>c</i> é a hipotenusa.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
             ]
         },
         {
