@@ -109,6 +109,7 @@ func htRunStopFlags() {
 	if ValidateFlag {
 		htValidateGEDCOM()
 		htValidateClassFormats()
+		htValidateAtlasFormats()
 		stopRun = true
 	}
 
