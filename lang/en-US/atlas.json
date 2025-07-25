@@ -523,7 +523,16 @@
             "image" : "images/HistoryTracers/Trigonometry.png",
             "author" : "History Tracers Team",
             "name" : "The Theorem and the Circle",
-            "text" :[ "<p>The image in this section presents data that may raise questions for some people. In fact, a few have already asked me, \"Why do I need to learn the Pythagorean Theorem?\" To help illustrate the value of this knowledge, we will break down the image in stages and demonstrate the relationship between the theorem and geographic coordinates, which are used, among other things, in the GPS on your smartphone.</p>",
+            "text" :[ 
+            {
+               "text": "<p>The image in this section presents data that may raise questions for some people. In fact, a few have already asked me, \"Why do I need to learn the Pythagorean Theorem?\" To help illustrate the value of this knowledge, we will break down the image in stages and demonstrate the relationship between the theorem and geographic coordinates, which are used, among other things, in the GPS on your smartphone.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h3>The Theorem and the Circle</h3><h4>Superposition of Figures</h4>In figure \"(c)\", we place the right triangle from figure \"(b)\"  inside a unit circle, meaning a circle with a radius of 1. Observing the superposition of these figures, we see that the radius of the circle becomes the hypotenuse of the triangle",
                        "source" : [ { "type": 1,
                                       "uuid": "eb59db91-042f-4acb-8211-47eac4348c94",
@@ -551,15 +560,31 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<math display=\"block\"><mrow> <mrow><msup><mi>cos</mi><mn>2</mn></msup><mi>(θ)</mi> <mo>+</mo> <msup><mi>sin</mi><mn>2</mn></msup><mi>(θ)</mi> <mrow> <mo>=</mo> <msup><mi>1</mi> <mn>2</mn></msup>  </mrow></math>",
-                      "<p class=\"desc\"><b>Formula 1</b>: Pythagorean Theorem Applied to Trigonometric Functions in a Unit Circle.</p>"
+            {
+               "text": "<p><math display=\"block\"><mrow> <mrow><msup><mi>cos</mi><mn>2</mn></msup><mi>(θ)</mi> <mo>+</mo> <msup><mi>sin</mi><mn>2</mn></msup><mi>(θ)</mi> <mrow> <mo>=</mo> <msup><mi>1</mi> <mn>2</mn></msup>  </mrow></math></p><p class=\"desc\"><b>Formula 1</b>: Pythagorean Theorem Applied to Trigonometric Functions in a Unit Circle.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
             ]
         },
         {
             "image" : "images/HistoryTracers/Trigonometry.png",
             "author" : "History Tracers Team",
             "name" : "Sine and Cosine",
-            "text" :[ "<p>The image in this section presents data that may raise questions for some people. In fact, a few have already asked me, \"Why do I need to learn the Pythagorean Theorem?\" To help illustrate the value of this knowledge, we will break down the image in stages and demonstrate the relationship between the theorem and geographic coordinates, which are used, among other things, in the GPS on your smartphone.</p>",
+            "text" :[ 
+            {
+               "text": "<p>The image in this section presents data that may raise questions for some people. In fact, a few have already asked me, \"Why do I need to learn the Pythagorean Theorem?\" To help illustrate the value of this knowledge, we will break down the image in stages and demonstrate the relationship between the theorem and geographic coordinates, which are used, among other things, in the GPS on your smartphone.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h3>Sine and Cosine</h3><h4>Trigonometric Functions</h4>Trigonometric functions, such as sine and cosine, are typically defined using the unit circle, as illustrated in subimage \"(c)\" of Figure 1. These functions allow us to understand and calculate angles within trigonometry. In this section, we will focus on two specific functions: sine and cosine. The angle used in these functions is θ angle, measured counterclockwise from the <i>x-axis</i>",
                        "source" : [  { "type": 1,
                                       "uuid": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
@@ -581,8 +606,15 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>opposite side</mi><mi>hypotenuse</mi></mfrac></math></p>",
-                      "<p class=\"desc\"><b>Formula 1</b>: Definition of the sine function.</p>",
+            {
+               "text": "<p><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>opposite side</mi><mi>hypotenuse</mi></mfrac></math></p><p class=\"desc\"><b>Formula 1</b>: Definition of the sine function.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>Cosine</h4>The cosine function, on the other hand, represents the horizontal coordinate of a point on the unit circle. Its definition is given by Formula 2, illustrated in subimage \"(f)\" of Figure 1",
                        "source" : [ { "type": 1,
                                       "uuid": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
@@ -592,24 +624,49 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>adjacent side</mi><mi>hypotenuse</mi></mfrac></math></p>",
-                      "<p class=\"desc\"><b>Formula 2</b>: Definition of the cossine function.</p>",
-                      "<p>In Figure 2, we see the graph of the sine and cosine functions, which shows how these values change with the angle θ. Note that values on the vertical axis remain between -1 and 1, which correspond to the limits set by the radius of the unit circle</p>",
-                      "<p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" />Figure 2: Graph of the Sine and Cosine functions. The source code for these representations and graphs is available on the project’s GitHub page (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Editors</a>)</p>"
+            {
+               "text": "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>adjacent side</mi><mi>hypotenuse</mi></mfrac></math></p><p class=\"desc\"><b>Formula 2</b>: Definition of the cossine function.</p><p>In Figure 2, we see the graph of the sine and cosine functions, which shows how these values change with the angle θ. Note that values on the vertical axis remain between -1 and 1, which correspond to the limits set by the radius of the unit circle</p><p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" />Figure 2: Graph of the Sine and Cosine functions. The source code for these representations and graphs is available on the project’s GitHub page (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Editors</a>)</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
             ]
         },
         {
             "image" : "images/HistoryTracers/Trigonometry.png",
             "author" : "History Tracers Team",
             "name" : "Angles and Projections",
-            "text" :[ "<p>The image in this section presents data that may raise questions for some people. In fact, a few have already asked me, \"Why do I need to learn the Pythagorean Theorem?\" To help illustrate the value of this knowledge, we will break down the image in stages and demonstrate the relationship between the theorem and geographic coordinates, which are used, among other things, in the GPS on your smartphone.</p>",
-                     "<p><h3>Angles and Projections</h3><h4>A Jigsaw Puzzle Analogy</h4>Before diving into angles and projections, let’s begin with a thought experiment to reinforce an important concept. Look at Figure 1, which consists of 8 subimages. Imagine cutting these subimages apart and turning them into a jigsaw puzzle with 8 pieces. Each piece represents a fraction of the main image, and if we give one piece to each of 8 people, each person holds 1/8 of the whole. When all the pieces are brought together, we reconstruct the original image. This exercise illustrates how individual parts, when reunited, recreate the original whole.</p>",
-                      "<h4>Understanding the Angle θ</h4>In Figure 1, subimage \"(g)\" looks similar to subimage \"(c)\" but has a key difference: it displays angle values from two perspectives. The inner values represent angle projections on a circle, as if viewed from above. In contrast, the outer values represent coordinates on a Cartesian plane, shown around the circle.",
-                    "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Connecting Different Coordinate Spaces</b><br /><br />In subimage \"(g)\", we see two types of coordinates: the inner values, defined by the radius <i>r</i> and the angle <i>θ</i>, are known as polar coordinates (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('411ca4da-ce37-4c63-9bd1-b727659fdf09'); return false;\">Stover, Christopher and Weisstein, Eric W.</a>), while the outer values correspond to Cartesian coordinates with the <i>x</i> and <i>y</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('69ab4b6c-69b4-466b-9410-7d7b6c2be4fc'); return false;\">Stover, Christopher and Weisstein, Eric W.</a>).<br /><br />Do you know how to project polar coordinates onto Cartesian coordinates?</div></div></center></p>",
-                      "<p>To explore this relationship, let’s use Figure 2 from the previous section, which shows the sine and cosine functions along with a table of specific values.</p>",
-                      "<p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" />Figura 2: Gráfico de las funciones seno y coseno. El código fuente de las representaciones y gráficos está disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Editors</a>)</p>",
-                      "<p><table class=\"tableTen tableTenBgBlue\"> <tr><th>Angle θ</th> <th>cos(θ)</th>  <th>sin(θ)</th> <th>x</th> <th>y</th></tr> <tr><td>0</td> <td>1</td>  <td>0</td> <td>1</td> <td>0</td></tr>  <tr><td>π/2</td> <td>0</td>  <td>1</td> <td>0</td> <td>1</td></tr> <tr><td>π</td> <td>-1</td>  <td>0</td> <td>-1</td> <td>0</td></tr> <tr><td>3π/2</td> <td>0</td>  <td>-1</td> <td>0</td> <td>-1</td></tr> <tr><td>2π</td> <td>1</td>  <td>0</td> <td>1</td> <td>0</td></tr></table> </p>",
-                      "<p class=\"desc\">Table 1: Relationship between angular values and Cartesian coordinates for specific points.</p>",
+            "text" :[ 
+            {
+               "text": "<p>The image in this section presents data that may raise questions for some people. In fact, a few have already asked me, \"Why do I need to learn the Pythagorean Theorem?\" To help illustrate the value of this knowledge, we will break down the image in stages and demonstrate the relationship between the theorem and geographic coordinates, which are used, among other things, in the GPS on your smartphone.</p><p><h3>Angles and Projections</h3><h4>A Jigsaw Puzzle Analogy</h4>Before diving into angles and projections, let’s begin with a thought experiment to reinforce an important concept. Look at Figure 1, which consists of 8 subimages. Imagine cutting these subimages apart and turning them into a jigsaw puzzle with 8 pieces. Each piece represents a fraction of the main image, and if we give one piece to each of 8 people, each person holds 1/8 of the whole. When all the pieces are brought together, we reconstruct the original image. This exercise illustrates how individual parts, when reunited, recreate the original whole.</p><h4>Understanding the Angle θ</h4>In Figure 1, subimage \"(g)\" looks similar to subimage \"(c)\" but has a key difference: it displays angle values from two perspectives. The inner values represent angle projections on a circle, as if viewed from above. In contrast, the outer values represent coordinates on a Cartesian plane, shown around the circle.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Connecting Different Coordinate Spaces</b><br /><br />In subimage \"(g)\", we see two types of coordinates: the inner values, defined by the radius <i>r</i> and the angle <i>θ</i>, are known as polar coordinates (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('411ca4da-ce37-4c63-9bd1-b727659fdf09'); return false;\">Stover, Christopher and Weisstein, Eric W.</a>), while the outer values correspond to Cartesian coordinates with the <i>x</i> and <i>y</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('69ab4b6c-69b4-466b-9410-7d7b6c2be4fc'); return false;\">Stover, Christopher and Weisstein, Eric W.</a>).<br /><br />Do you know how to project polar coordinates onto Cartesian coordinates?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>To explore this relationship, let’s use Figure 2 from the previous section, which shows the sine and cosine functions along with a table of specific values.</p><p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" />Figura 2: Gráfico de las funciones seno y coseno. El código fuente de las representaciones y gráficos está disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Editors</a>)</p><p><table class=\"tableTen tableTenBgBlue\"> <tr><th>Angle θ</th> <th>cos(θ)</th>  <th>sin(θ)</th> <th>x</th> <th>y</th></tr> <tr><td>0</td> <td>1</td>  <td>0</td> <td>1</td> <td>0</td></tr>  <tr><td>π/2</td> <td>0</td>  <td>1</td> <td>0</td> <td>1</td></tr> <tr><td>π</td> <td>-1</td>  <td>0</td> <td>-1</td> <td>0</td></tr> <tr><td>3π/2</td> <td>0</td>  <td>-1</td> <td>0</td> <td>-1</td></tr> <tr><td>2π</td> <td>1</td>  <td>0</td> <td>1</td> <td>0</td></tr></table> </p><p class=\"desc\">Table 1: Relationship between angular values and Cartesian coordinates for specific points.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>Vertical Projection</h4>In subimage \"(c)\"  of Figure 1, we see how the triangle’s legs (catheti) relate to trigonometric functions. We’ll use this relationship to project values on the circle’s <i>x</i> and <i>y</i> axes. The definition of the sine function is given in Formula 1", 
                        "source" : [ { "type": 1,
                                       "uuid": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
@@ -619,13 +676,15 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>opposite side</mi><mi>hypotenuse</mi></mfrac></math></p>",
-                      "<p class=\"desc\"><b>Formula 1</b>: Definition of the sine function.</p>",
-                      "<p>To simplify, let’s rename some components: we’ll use <i>r</i>, for the hypotenuse (the circle’s radius) and <i>y</i> for the opposite side, which we want to project..<p>",
-                     "<p>Now that we have defined the corresponding names on the Cartesian axes and observed that multiplying any number by its inverse results in 1, we can conclude that the projection onto the y-axis is given by:</p>",
-                     "<ul class=\"citation\"><li><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>y</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r sin (θ)</mn> <mo>=</mo> <mfrac><mi>y r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r sin (θ)</mn> <mo>=</mo> <mi>y</mi> </li></ul>",
-                     "<p class=\"desc\"><b>Formula 2</b>: Projection of radius rr onto the y-axis.</p>",
-                     "<p>Since sin (θ) ranges between -1 and 1, the full projection of <i>r</i> onto the y-axis occurs when <i>θ</i> is π/2 or 3π/2. For other angles, only a partial projection occurs.</p>",
+            {
+               "text": "<p><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>opposite side</mi><mi>hypotenuse</mi></mfrac></math></p><p class=\"desc\"><b>Formula 1</b>: Definition of the sine function.</p><p>To simplify, let’s rename some components: we’ll use <i>r</i>, for the hypotenuse (the circle’s radius) and <i>y</i> for the opposite side, which we want to project..<p><p>Now that we have defined the corresponding names on the Cartesian axes and observed that multiplying any number by its inverse results in 1, we can conclude that the projection onto the y-axis is given by:</p><p><ul class=\"citation\"><li><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>y</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r sin (θ)</mn> <mo>=</mo> <mfrac><mi>y r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r sin (θ)</mn> <mo>=</mo> <mi>y</mi> </li></ul></p><p class=\"desc\"><b>Formula 2</b>: Projection of radius rr onto the y-axis.</p><p>Since sin (θ) ranges between -1 and 1, the full projection of <i>r</i> onto the y-axis occurs when <i>θ</i> is π/2 or 3π/2. For other angles, only a partial projection occurs.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>Horizontal Projection</h4>The horizontal projection follows a similar logic but uses the cosine function, as given in Formula 3", 
                        "source" : [ { "type": 1,
                                       "uuid": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
@@ -635,13 +694,15 @@
                                       "text": "Weisstein, Eric W." }
                        ]
                       },
-                      "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>adjacent side</mi><mi>hypotenuse</mi></mfrac></math></p>",
-                      "<p class=\"desc\"><b>Formula 3</b>: Definition of the cosine function.</p>",
-                      "<p>Here, we again use <i>r</i>  for the hypotenuse and designate x <i>x</i>, as the adjacent side. The desired projection is:<p>",
-                     "<ul class=\"citation\"><li><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>x</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r cos (θ)</mn> <mo>=</mo> <mfrac><mi>x r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r cos (θ)</mn> <mo>=</mo> <mi>x</mi> </li></ul>",
-                     "<p class=\"desc\"><b>Formula 4</b>: Projection of radius rr onto the x-axis.</p>",
-                     "<p>As with the sine, the complete projection of <i>x</i> onto the x-axis only occurs at specific angles: 0 and <i>π</i>.</p>",
-                     "<p><h4>Projecting Space onto the Plane</h4>In subimage \"(h)\", another angle <i>θ</i>, is introduced, which maps points in three-dimensional space. This angle spans from 0 (at the top of the <i>z</i>) to π (at the bottom). The section \"Our Coordinates\" will cover <i>ϕ</i> in more detail, but we note here that the calculations for <i>ϕ</i> are analogous to those in Formulas 2 and 4, now applied to angle <i>ϕ</i>.</p>"
+            {
+               "text": "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>adjacent side</mi><mi>hypotenuse</mi></mfrac></math></p><p class=\"desc\"><b>Formula 3</b>: Definition of the cosine function.</p><p>Here, we again use <i>r</i>  for the hypotenuse and designate x <i>x</i>, as the adjacent side. The desired projection is:<p><p><ul class=\"citation\"><li><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>x</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r cos (θ)</mn> <mo>=</mo> <mfrac><mi>x r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r cos (θ)</mn> <mo>=</mo> <mi>x</mi> </li></ul></p><p class=\"desc\"><b>Formula 4</b>: Projection of radius rr onto the x-axis.</p><p>As with the sine, the complete projection of <i>x</i> onto the x-axis only occurs at specific angles: 0 and <i>π</i>.</p><p><h4>Projecting Space onto the Plane</h4>In subimage \"(h)\", another angle <i>θ</i>, is introduced, which maps points in three-dimensional space. This angle spans from 0 (at the top of the <i>z</i>) to π (at the bottom). The section \"Our Coordinates\" will cover <i>ϕ</i> in more detail, but we note here that the calculations for <i>ϕ</i> are analogous to those in Formulas 2 and 4, now applied to angle <i>ϕ</i>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
             ]
         },
         {
@@ -649,7 +710,15 @@
             "author" : null,
             "name" : "Where are we on a circle?",
             "text" :[ 
-                      "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"75\" cy=\"75\" r=\"70\"></circle> <path d=\"M70,70 L145,70 A70,70 0 0,0 134,35 z\" stroke-width=\"3\"></path> <text x=\"65\" y=\"85\">O</text>  <text x=\"115\" y=\"85\">r</text> <text x=\"115\" y=\"65\" style=\"font-size: 2em\">θ</text> </svg></p>",
+            {
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"75\" cy=\"75\" r=\"70\"></circle> <path d=\"M70,70 L145,70 A70,70 0 0,0 134,35 z\" stroke-width=\"3\"></path> <text x=\"65\" y=\"85\">O</text>  <text x=\"115\" y=\"85\">r</text> <text x=\"115\" y=\"65\" style=\"font-size: 2em\">θ</text> </svg></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h3>Where are we on a circle?</h3>We know that, by definition, a planet is nearly spherical in shape. We also understand that our planet has continents, but we haven’t yet explored how to locate ourselves on it. In everyday life, we use addresses to find locations, but street names can change over time. Therefore, we need a precise and stable system of location",
                        "source" : [ { "type": 1,
                                       "uuid": "59c0b962-d032-4b6c-9498-2341e089510b",
@@ -667,7 +736,15 @@
                                       "date": { "type": "gregory", "year": "2016", "month": "-1", "day": "-1" } }
                        ]
                       },
-                      "<p>Imagine a segment of a sphere in the shape of a flat disc. This disc has a central point, which we’ll call <b>O</b>. From <b>O</b>, we can measure the distance to the edge of the disc, which we’ll refer to as the radius and denote by the letter <b>r</b>. Every straight line drawn from the center to the edge of the disc will have this same length, <b>r</b>.</p>",
+            {
+               "text": "<p>Imagine a segment of a sphere in the shape of a flat disc. This disc has a central point, which we’ll call <b>O</b>. From <b>O</b>, we can measure the distance to the edge of the disc, which we’ll refer to as the radius and denote by the letter <b>r</b>. Every straight line drawn from the center to the edge of the disc will have this same length, <b>r</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                      {"text" : "To specify a particular point on the disc, we need additional information beyond the radius: the angle formed between two lines extending from the center. This angle, called theta (θ), ranges from 0 to 2π radians or from 0 to 360 degrees. Using the pair (r,θ), we can define the position of any point on the disc by moving from the center out to the edge. This is known as the polar coordinate system, where <b>r</b> represents the distance from the center, and theta (<b>θ</b>) ndicates the angular position relative to a starting line",
                        "source" : [ { "type": 1,
                                       "uuid": "1a426c74-8e9c-4022-90dc-2a1b9b4ac129",
@@ -679,8 +756,16 @@
             "image" : "images/mapswire/continent_af-where-is-africa_coordinates.png",
             "author" : "HTMW",
             "name" : "Where are we on a sphere?",
-            "text" :[ "<p><h3>Where are we on a sphere?</h3>In the previous section, we extracted a flat disc from a sphere and learned to position ourselves on it. Now, let’s try a practical exercise:</p>",
-                "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Creating a Sphere</b><br /><br />Draw a circle on a sheet of paper; you can use a plate as a guide, tracing around it with a pencil. Then, cut out the circle. Place it in front of you horizontally, and spin it a few times toward your feet.</div></div></center></p>",
+            "text" :[ 
+            {
+               "text": "<p><h3>Where are we on a sphere?</h3>In the previous section, we extracted a flat disc from a sphere and learned to position ourselves on it. Now, let’s try a practical exercise:</p><p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Creating a Sphere</b><br /><br />Draw a circle on a sheet of paper; you can use a plate as a guide, tracing around it with a pencil. Then, cut out the circle. Place it in front of you horizontally, and spin it a few times toward your feet.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "By spinning the circle, we representing a sphere, similar to our planet, as shown in the image in this section. This exercise also highlights the need to define an additional variable to locate ourselves beyond a flat disc. This extra variable, represented by the Greek letter phi (<b>ϕ</b>), covers values between 0 and π radians, or 0 to 180 degrees. Introducing (<b>ϕ</b>) transitions us from polar coordinates to spherical coordinates",
                        "source" : [ { "type": 1,
                                       "uuid": "fd003897-89a6-4d01-ae79-da9e564d9583",
@@ -694,7 +779,15 @@
             "author" : "HTMW",
             "name" : "Surface Coordinates",
             "text" :[
-                      "<h4>The origin</h4><p>The figure in this section shows the intersection of the <b>Equator parallel</b> and the <i>Greenwich Meridian</i>, marked as point <b>O</b>. This serves as the reference point for all measurements of latitude and longitude.</p>",
+            {
+               "text": "<h4>The origin</h4><p>The figure in this section shows the intersection of the <b>Equator parallel</b> and the <i>Greenwich Meridian</i>, marked as point <b>O</b>. This serves as the reference point for all measurements of latitude and longitude.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                 {"text" : "<h3>Surface Coordinates</h3>To determine our position on Earth's surface, we initially use the angular coordinates theta (<b>θ</b>) and phi (<b>ϕ</b>). However, in everyday terminology, these coordinates are known by different names: theta (<b>θ</b>) corresponds to <b>longitude</b>, and phi (<b>ϕ</b>) is referred to as <b>colatitude</b>. In geographic contexts, we also use a measure called <b>latitude</b> (<b>δ</b>), which indicates position relative to the Equator. The relationship between latitude and colatitude is defined by the formula: ϕ = 90º - δ. This is just one of the simplifications we will explore further",
                        "source" : [ { "type": 1,
                                       "uuid": "006b21c9-6800-4deb-bb3f-a367dd38b703",
@@ -765,8 +858,16 @@
             "image" : "images/mapswire/continent_af-where-is-africa_coordinates.png",
             "author" : "HTMW",
             "name" : "Our Coordinates",
-            "text" :[ "<p><h3>Our Coordinates</h3>Before pinpointing our location on Earth, let’s consider a question:</p>",
-                "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflection: Are we using the correct number of variables?</b><br /><br />Could we be oversimplifying by using only longitude (<b>θ</b>) and latitude (<b>δ</b>) to locate ourselves on the Earth's surface?</div></div></center></p>",
+            "text" :[ 
+            {
+               "text": "<p><h3>Our Coordinates</h3>Before pinpointing our location on Earth, let’s consider a question:</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflection: Are we using the correct number of variables?</b><br /><br />Could we be oversimplifying by using only longitude (<b>θ</b>) and latitude (<b>δ</b>) to locate ourselves on the Earth's surface?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>Simplification</h4>When we use only latitude and longitude to determine our location, we are indeed simplifying. This approach assumes a constant average Earth radius, estimated at 6,371 kilometers (Km) (or 6,371,000 meters (m))",
                        "source" : [ { "type": 1,
                                       "uuid": "fd003897-89a6-4d01-ae79-da9e564d9583",
@@ -788,30 +889,61 @@
                                       "date": { "type": "gregory", "year": "2024", "month": "11", "day": "2" }}
                                       ]
                       },
-                      "<p><ul class=\"citation\"><li><b>Tokyo</b>: (35,6764º Norte, 139,6500º Leste)</li><li><b>Montevideo</b> (34,9055º Sul, 56,1851º Oeste)</li></ul></p>",
+            {
+               "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (35,6764º Norte, 139,6500º Leste)</li><li><b>Montevideo</b> (34,9055º Sul, 56,1851º Oeste)</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h4>All variables</h4>To express coordinates more precisely, it’s essential to use the same unit of measurement for all coordinates. On the Earth's surface, when we work with angles, we can simplify calculations by omitting the Earth’s radius. However, for three-dimensional accuracy, we need to include the radius and convert angle measurements from degrees to radians before continuing with calculations.",
                        "source" : [ { "type": 1,
                                       "uuid": "fd003897-89a6-4d01-ae79-da9e564d9583",
                                       "text": "Weisstein, Eric W." }
                                   ]
                       },
-                      "<ul class=\"citation\"><li><math display=\"block\"><mn>θ'</mn> = <mn>θ</mn> <mfrac><mi>π</mi><mi>180</mi></mfrac></math></li><li><math display=\"block\"><mn>ϕ</mn> = (90 - δ) <mfrac><mi>π</mi><mi>180</mi></mfrac></math></li></ul>",
-                      "Next, we apply these converted angles in the formulas for spherical-to-Cartesian conversion, considering the radius <b>r</b>:",
+            {
+               "text": "<p><ul class=\"citation\"><li><math display=\"block\"><mn>θ'</mn> = <mn>θ</mn> <mfrac><mi>π</mi><mi>180</mi></mfrac></math></li><li><math display=\"block\"><mn>ϕ</mn> = (90 - δ) <mfrac><mi>π</mi><mi>180</mi></mfrac></math></li></ul><p>Next, we apply these converted angles in the formulas for spherical-to-Cartesian conversion, considering the radius <b>r</b>:</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<center>(x, y, z) = (r cos(θ') sen(ϕ), r sen(θ') sen(ϕ) , r cos (ϕ))</center>",
                        "source" : [ { "type": 1,
                                       "uuid": "fd003897-89a6-4d01-ae79-da9e564d9583",
                                       "text": "Weisstein, Eric W." }
                                   ]
                       },
-                      "<p><ul class=\"citation\"><li><b>Tokyo</b>: (-3944126.27, 3350784.05, 3715609.67) </li><li><b>Montevideo</b>: (2907683.28, 4341002.95, -3645642.93)</li></ul></p>",
-                      "<p>With this three-dimensional representation, we achieve a complete and highly precise location.</p>"
+            {
+               "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (-3944126.27, 3350784.05, 3715609.67) </li><li><b>Montevideo</b>: (2907683.28, 4341002.95, -3645642.93)</li></ul></p><p>With this three-dimensional representation, we achieve a complete and highly precise location.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
             ]
         },
         {
             "image" : null,
             "author" : null,
             "name" : "The Myth of a Flat Earth",
-            "text" :[ "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g fill=\"grey\" transform=\"rotate(-10 50 100) translate(-6 35.5) skewX(40) scale(0.7 0.3)\"> <rect width=\"14vw\" height=\"10vw\" x=\"10\" y=\"10\" fill=\"gray\" /> </g></svg></svg></p>",
+            "text" :[ 
+            {
+               "text": "<p class=\"desc\"><svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g fill=\"grey\" transform=\"rotate(-10 50 100) translate(-6 35.5) skewX(40) scale(0.7 0.3)\"> <rect width=\"14vw\" height=\"10vw\" x=\"10\" y=\"10\" fill=\"gray\" /> </g></svg></svg></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       {"text" : "<h3>The Myth of a Flat Earth</h3><h4>What is a Plane?</h4>To answer this question, we can simplify the definition given by Eric W. Weisstein: a plane is a rigid, two-dimensional surface",
                        "source" : [ { "type": 1,
                                       "uuid": "e6658b62-fb15-446c-ab20-44f2b6459b1d",
@@ -874,7 +1006,16 @@
             "image" : "images/HistoryTracers/conesphere.jpg",
             "author" : "History Tracers Team",
             "name" : "Map Projections",
-            "text" :[ "<p><h3>Map Projections</h3>The fact that Earth is not flat does not mean we cannot represent it on a plane.</p>",
+            "text" :[ 
+            {
+               "text": "<p><h3>Map Projections</h3>The fact that Earth is not flat does not mean we cannot represent it on a plane.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                       { "text" : "To create a map projection, we first need a scaled globe model of Earth. Using this model, we select a technique to transfer the spherical representation onto a two-dimensional surface, such as paper. The image in this section demonstrates the \"Developable Surface\", technique, which is used with projections like the Conic Projection with a Standard Parallel. However, this is just one of many available techniques. In the work by the National Council of Educational Research and Training, Lambert’s projection and Mercator’s projection are also discussed; these are widely used for creating world maps",
                        "source" : [ { "type": 1,
                                       "uuid": "2c731ac7-93ae-4e9b-98d6-6f28c7681735",
@@ -971,7 +1112,15 @@
             "author" : "HTMW",
             "name" : "Sumerians",
             "text" :[ 
-                "<p>In the map in this section, we highlight the region where Sumerian cities flourished.</p>",
+            {
+               "text": "<p>In the map in this section, we highlight the region where Sumerian cities flourished.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                 {"text" : "<h3>Sumerians</h3>The Sumerians did not form a unified country. The various cities that arose across a large territory—from Mesopotamia to the Zagros Mountains in present-day Iran—were organized as independent city-states. These Sumerian city-states were eventually dominated by the Elamites, bringing an end to a period that lasted from approximately <htdate0> to <htdate1>",
                        "source" : [ { "type": 1,
                                       "uuid": "5be12554-c54b-4a38-b24c-5a0842fdfd9d",
@@ -1006,7 +1155,15 @@
                                       "text": "Finkel, I." }
                        ]
                     },
-                     "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflection: External Influences</b><br /><br />As we began studying trigonometry, we noted measures like the famous \"Pythagorean theorem\" was already known by the Babylonians over a millennium before the Greeks. This fact raises the possibility that the Greeks either acquired this knowledge from other civilizations or independently arrived at the same conclusions more than a thousand years later (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('5488872a-27c1-4ea8-8580-2ecc5aeb0cbf'); return false;\">Mansfield, D. F.</a>).<br /><br />However, the exchange of knowledge is not limited to mathematics. Dr. Irving Finkel, in explaining the map featured in this section, also references a cuneiform text preserved in the British Museum. This text makes mention, among other things, of an Ark and its dimensions. Finkel points out a shared element between the map and this text: the word <i>parsiktu</i>, which denotes a unit of volume (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('81161bc9-dd2a-4a11-906d-10427a5946d6'); return false;\">Finkel, I, <i>The British Museum</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8637140f-b357-45d4-8c59-e39a289096ab'); return false;\">Finkel, I, <i>The Institute for the Study of Ancient Cultures</i>, 50:06 - 56:11</a>).<br /><br />Additionally, Dr. Finkel notes that one of the mountains mentioned on the map is near a region called Urartu—located in present-day Armenia, Türkiye, and Iran—which corresponds to \"Ararat\" mentioned in the book of Genesis in the Hebrew text. Given the way the Pentateuch was composed, it is possible that Babylonian traditions influenced later Jewish narratives, as Dr. Finkel suggests (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('81161bc9-dd2a-4a11-906d-10427a5946d6'); return false;\">Finkel, I, <i>The British Museum</i></a> ;  <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8637140f-b357-45d4-8c59-e39a289096ab'); return false;\">Finkel, I, <i>The Institute for the Study of Ancient Cultures</i>, 50:06 - 56:11</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillHolySource('56e19b6d-5b12-4a9d-abff-7c85ff465872'); return false;\">Torah, Neviim u-Khetuvim. Twenty-four books of the Holy Scriptures carefully translated according to the Massoretic text, on the basis of the English version, after the best Jewish authorities, Gênesis 8:4</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8637140f-b357-45d4-8c59-e39a289096ab'); return false;\">Britannica, T. Editors of Encyclopaedia</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4b485840-e823-4f27-87cd-4ce65f55d80d'); return false;\">Davies, G. I.</a>).<br /><br />These archaeological discoveries demonstrate how stories and beliefs were exchanged among neighboring cultures and civilizations. Could it be possible, then, that these cultural influences extended even further, deeply shaping the traditions of distant peoples as they rewrote their own histories?</div></div></center></p>",
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflection: External Influences</b><br /><br />As we began studying trigonometry, we noted measures like the famous \"Pythagorean theorem\" was already known by the Babylonians over a millennium before the Greeks. This fact raises the possibility that the Greeks either acquired this knowledge from other civilizations or independently arrived at the same conclusions more than a thousand years later (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('5488872a-27c1-4ea8-8580-2ecc5aeb0cbf'); return false;\">Mansfield, D. F.</a>).<br /><br />However, the exchange of knowledge is not limited to mathematics. Dr. Irving Finkel, in explaining the map featured in this section, also references a cuneiform text preserved in the British Museum. This text makes mention, among other things, of an Ark and its dimensions. Finkel points out a shared element between the map and this text: the word <i>parsiktu</i>, which denotes a unit of volume (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('81161bc9-dd2a-4a11-906d-10427a5946d6'); return false;\">Finkel, I, <i>The British Museum</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8637140f-b357-45d4-8c59-e39a289096ab'); return false;\">Finkel, I, <i>The Institute for the Study of Ancient Cultures</i>, 50:06 - 56:11</a>).<br /><br />Additionally, Dr. Finkel notes that one of the mountains mentioned on the map is near a region called Urartu—located in present-day Armenia, Türkiye, and Iran—which corresponds to \"Ararat\" mentioned in the book of Genesis in the Hebrew text. Given the way the Pentateuch was composed, it is possible that Babylonian traditions influenced later Jewish narratives, as Dr. Finkel suggests (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('81161bc9-dd2a-4a11-906d-10427a5946d6'); return false;\">Finkel, I, <i>The British Museum</i></a> ;  <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8637140f-b357-45d4-8c59-e39a289096ab'); return false;\">Finkel, I, <i>The Institute for the Study of Ancient Cultures</i>, 50:06 - 56:11</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillHolySource('56e19b6d-5b12-4a9d-abff-7c85ff465872'); return false;\">Torah, Neviim u-Khetuvim. Twenty-four books of the Holy Scriptures carefully translated according to the Massoretic text, on the basis of the English version, after the best Jewish authorities, Gênesis 8:4</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8637140f-b357-45d4-8c59-e39a289096ab'); return false;\">Britannica, T. Editors of Encyclopaedia</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4b485840-e823-4f27-87cd-4ce65f55d80d'); return false;\">Davies, G. I.</a>).<br /><br />These archaeological discoveries demonstrate how stories and beliefs were exchanged among neighboring cultures and civilizations. Could it be possible, then, that these cultural influences extended even further, deeply shaping the traditions of distant peoples as they rewrote their own histories?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
                     {"text" : "Rabbi Dr. Yitzchok Breitowitz, on the <i>Jewish Learning Institute</i>, reflects on the use of metaphor and allegory in sacred texts, noting how these elements may reflect historical events. Similarly, Dr. Abdul Karim Khan reminds us that concepts of creation and the world have emerged across different cultures, each with its own interpretations and symbolism",
                        "source" : [ { "type": 1,
                                       "uuid": "fd8c673c-48e1-4dc4-af81-ced66c390e36",
@@ -1253,7 +1410,15 @@
                                       "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" }}
                        ]
                       },
-                      "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflection: External Influences (Part II)</b><br /><br />In analyzing the account given by Felipe Guaman Poma de Ayala on Inca rulers, we find an intriguing fragment where he describes Jesus Christ as the son of Mama Coca, wife (<i>Coya</i>) of Sinchi Roca. Interestingly, in another part of the same book, Guaman Poma presents Jesus Christ in a slightly different way, yet still anachronistically places him in the era of the Inca kings (<i>Sapa</i>) (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, pp. 87, 123</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('c5bb1db2-0f10-45c5-91ce-52020e770ca9'); return false;\">Poma de Ayala, Felipe Guaman,  pp. 62, 89</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('33cf32da-87cb-414c-a508-daf964dfef15'); return false;\">Gebran, Philomena, pp. 6 - 7</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('922ae4e4-8a1a-40ed-9fa3-ca7d541a05e1'); return false;\">History Tracers</a>).<br /><br />Imagine that you had never encountered any other version beyond Guaman Poma’s account; would you consider it an unquestionable truth?<br /><br />In your opinion, can relying solely on specific sources limit access to other documents and hinder a broader understanding of different worldviews?</div></div></center></p>"
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflection: External Influences (Part II)</b><br /><br />In analyzing the account given by Felipe Guaman Poma de Ayala on Inca rulers, we find an intriguing fragment where he describes Jesus Christ as the son of Mama Coca, wife (<i>Coya</i>) of Sinchi Roca. Interestingly, in another part of the same book, Guaman Poma presents Jesus Christ in a slightly different way, yet still anachronistically places him in the era of the Inca kings (<i>Sapa</i>) (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, pp. 87, 123</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('c5bb1db2-0f10-45c5-91ce-52020e770ca9'); return false;\">Poma de Ayala, Felipe Guaman,  pp. 62, 89</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('33cf32da-87cb-414c-a508-daf964dfef15'); return false;\">Gebran, Philomena, pp. 6 - 7</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('922ae4e4-8a1a-40ed-9fa3-ca7d541a05e1'); return false;\">History Tracers</a>).<br /><br />Imagine that you had never encountered any other version beyond Guaman Poma’s account; would you consider it an unquestionable truth?<br /><br />In your opinion, can relying solely on specific sources limit access to other documents and hinder a broader understanding of different worldviews?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
                  ]
         },
         {
