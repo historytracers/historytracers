@@ -2,6 +2,25 @@
 
 var localAnswerVector = undefined;
 
+function htSetMultColors(localClass, color, id)
+{
+    // Top line
+    $("#mmtc2."+localClass).css("color", color);
+    $("#mmtc1."+localClass).css("color", color);
+
+    // Multiplicator
+    $("#mmbc"+id+"."+localClass).css("color", color);
+
+    var prefix = (id == 1) ? "mmptrc" : "mmpbrc";
+
+    $("#"+prefix+"1."+localClass).css("color", color);
+    $("#"+prefix+"2."+localClass).css("color", color);
+    if (id == 1)
+        return;
+    $("#"+prefix+"3."+localClass).css("color", color);
+
+}
+
 function htLoadExercise() {
     if (localAnswerVector == undefined) {
         localAnswerVector = htLoadAnswersFromExercise();
@@ -31,14 +50,15 @@ function htLoadExercise() {
         $("#cmrc"+idx).css("color", "black");
     });
 
-    $(".multexample1").hover(function(){
+    $(".multexample").hover(function(){
         var id = $(this).attr("id");
         if (id == undefined || id.length < 5) {
             return;
         }
         var idx = id[4];
-        if (idx > 1) {
-            $("#mmbc1").css("color", "red");
+        var localIdx = idx - 1;
+        if ((idx % 2) == 0) {
+            $("#mmbc"+localIdx).css("color", "red");
         } else {
             $("#mmbc"+idx).css("color", "red");
         }
@@ -50,14 +70,29 @@ function htLoadExercise() {
             return;
         }
         var idx = id[4];
-        if (idx > 5) {
-            $("#mmbc1").css("color", "black");
+        var localIdx = idx - 1;
+        if ((idx % 2) == 0) {
+            $("#mmbc"+localIdx).css("color", "black");
         } else {
             $("#mmbc"+idx).css("color", "black");
         }
         $("#mmtc"+idx).css("color", "black");
         $("#mmrc"+idx).css("color", "black");
     });
+
+    $('.ordercheck').change(function(){
+        var id = $(this).attr("id");
+        if (id == undefined) {
+            return;
+        }
+
+        if ($(this).is(':checked')) {
+            htSetMultColors("multexample1", "red", id);
+        } else {
+            htSetMultColors("multexample1", "black", id);
+        }
+    });
+
 
     htWriteMultiplicationTable("#mParent10", 10);
     htFillMultiplicationTable("chart1", 10, 10, false, true);

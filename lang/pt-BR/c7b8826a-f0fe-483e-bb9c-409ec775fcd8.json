@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1753185602"
+      "1753448314"
    ],
    "authors": null,
    "reviewers": null,
@@ -206,7 +206,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp; <span class=\"multexample1\" id=\"mmtc2\">1 </span><span class=\"multexample1\" id=\"mmtc1\">0 </span> <br />× &nbsp;&nbsp;<span class=\"multexample1\" id=\"mmbc1\">2 </span><br />_____<br /></span>&nbsp; <span class=\"multexample1\" id=\"mmrc2\">2 </span><span class=\"multexample1\" id=\"mmrc1\">0 </span></center></p><p class=\"desc\">Cálculo 2: Multiplicação de 10 por 2.</p>",
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp; <span class=\"multexample\" id=\"mmtc2\">1 </span><span class=\"multexample\" id=\"mmtc1\">0 </span> <br />× &nbsp;&nbsp;<span class=\"multexample\" id=\"mmbc1\">2 </span><br />_____<br /></span>&nbsp; <span class=\"multexample\" id=\"mmrc2\">2 </span><span class=\"multexample\" id=\"mmrc1\">0 </span></center></p><p class=\"desc\">Cálculo 2: Multiplicação de 10 por 2.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -224,7 +224,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table class=\"indigenous_period\"><tr><th>Coluna</th><th>Cálculo 1</th><th>Cálculo 2</th><th>Resultado</th></tr> <tr><td>Unidades</td><td>0 + 0 </td><td> 0 × 2 </td><td> 0 </td></tr> <tr><td>Dezenas</td><td>1 + 1 </td><td> 1 × 2 </td><td> 2 </td></tr> </table>",
+               "text": "<p><table class=\"indigenous_period\"><tr><th>Coluna</th><th>Cálculo 1</th><th>Cálculo 2</th><th>Resultado</th></tr> <tr><td>Unidades</td><td>0 + 0 </td><td> 0 × 2 </td><td> 0 </td></tr> <tr><td>Dezenas</td><td>1 + 1 </td><td> 1 × 2 </td><td> 2 </td></tr> </table></p><p class=\"desc\">Tabela 1: Comparação das operações matemáticas.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -296,13 +296,213 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_order",
+         "text": [
+            {
+               "text": "### Ordem Numérica\n\nAo falarmos sobre as famílias numéricas (<htcite0>; <htcite1>), aprendemos que, em cada posição em que escrevemos um número, **só podemos colocar valores entre 0 e 9 (0, 1, 2, 3, 4, 5, 6, 7, 8 e 9)**. Sempre que atingimos o valor máximo (9), alteramos o valor à esquerda, que é uma ordem superior. Mas qual é a relação entre a tabuada do 10 e essa mudança?\n\n#### Reinterpretando a Multiplicação de Múltiplos Dígitos\n\nA multiplicação de números com mais de um dígito não pode ser entendida apenas como \"multiplicamos o valor da unidade e depois o valor das dezenas\", pois essa interpretação omite algo importante: a ordem. Para deixar mais claro, vamos multiplicar 11 × 2:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers Team",
+                     "page": "Famílias Numéricas (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Famílias Numéricas (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp; <span class=\"multexample\" id=\"mmtc4\">1 </span><span class=\"multexample\" id=\"mmtc3\">1 </span> <br />× &nbsp;&nbsp;<span class=\"multexample\" id=\"mmbc3\">2 </span><br />_____<br /></span>&nbsp; <span class=\"multexample\" id=\"mmrc4\">2 </span><span class=\"multexample\" id=\"mmrc3\">2 </span></center></p><p class=\"desc\">Cálculo 3: Multiplicação de 11 por 2.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Podemos refazer esse mesmo cálculo por etapas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"indigenous_period\"><tr><th>Etapa</th><th>Cálculo</th></tr> <tr><td>Separando dezenas e unidades</td><td>11 = 10 + 1 </td></tr> <tr><td>Multiplicamos cada número por 2</td><td>11 × 2 = (10 × 2) + (1 × 2) </td></tr> <tr><td>Realizamos os três cálculos</td><td>22 = 20 + 2 </td></tr> <tr><td>Somamos os resultados</td><td>22 = 22 </td></tr> </table></p><p class=\"desc\">Tabela 2: Representação do **Cálculo 3** por etapas</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O que foi feito na **Tabela 2** pode ser aplicado a qualquer outra multiplicação. Ou seja, podemos separar qualquer número em suas ordens (unidades, dezenas, centenas...), multiplicar cada parte pelo número desejado e, ao final, somar os resultados.\n\nIsso significa que, ao realizarmos o **Cálculo 2**, estávamos fazendo:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><math display=\"block\"><mi>10 × 2<mi> <mo>=</mo> <mi>10 × 2</mi> <mo>+</mo> <mi>0 × 2</mi></math><math display=\"block\"><mi>20<mi> <mo>=</mo> <mi>20</mi> <mo>+</mo> <mi>0</mi></math><math display=\"block\"><mi>20<mi> <mo>=</mo> <mi>20</mi></math></p><p class=\"desc\">Cálculo 4: Multiplicação de 10 por 2 representado por etapas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h4>Multiplicando por Múltiplas Ordens</h4></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Mais ordens</b><br /><br />Vimos que, ao multiplicar números com mais de um dígito, podemos separá-los em ordens. Mas e se o segundo número também tiver mais de uma ordem?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Vejamos a multiplicação **10 × 10 = 100** para responder esta reflexão. Selecione **Unidades** ou **Dezenas** para ver as operações realizadas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>Multiplicação por: <input class=\"ordercheck\" type=\"checkbox\" id=\"1\" /> Unidades <input class=\"ordercheck\" type=\"checkbox\" id=\"2\" /> Dezenas</center></p><p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp; <span class=\"multexample1\" id=\"mmtc2\">1 </span><span class=\"multexample1\" id=\"mmtc1\">0 </span> <br />× &nbsp;&nbsp;&nbsp;<span class=\"multexample1\" id=\"mmbc2\">1 </span><span class=\"multexample1\" id=\"mmbc1\">0 </span><br />_________<br /></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=\"multexample1\" id=\"mmptrc2\">0 </span><span class=\"multexample1\" id=\"mmptrc1\">0 </span><br />+ <span class=\"multexample1\" id=\"mmpbrc3\">1 </span><span class=\"multexample1\" id=\"mmpbrc2\">0 </span><span class=\"multexample1\" id=\"mmpbrc1\">0 </span><br />_________<br />&nbsp; <span class=\"multexample1\" id=\"mmrc3\">1 </span><span class=\"multexample1\" id=\"mmrc2\">0 </span><span class=\"multexample1\" id=\"mmrc1\">0 </span></center></p><p class=\"desc\">Cálculo 5: Multiplicação de 10 por 10.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Façamos este cálculo por etapas. Primeiro, multiplicamos 10 por 0:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp; <span class=\"multexample\" id=\"mmtc6\">1 </span><span class=\"multexample\" id=\"mmtc5\">0 </span> <br />× &nbsp;&nbsp;<span class=\"multexample\" id=\"mmbc5\">0 </span><br />_____<br /></span>&nbsp; <span class=\"multexample\" id=\"mmrc6\">0 </span><span class=\"multexample\" id=\"mmrc5\">0 </span></center></p><p class=\"desc\">Cálculo 6: Multiplicação de 10 por 0.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O zero à esquerda poderia ser omitido, mas mantivemos para facilitar o entendimento.\n\nAgora, multiplicamos 10 × 10. Como estamos multiplicando por uma dezena, não basta colocar o resultado abaixo do primeiro zero. Em vez disso, **deslocamos uma casa para a esquerda (adicionando um zero) e escrevemos o resultado a partir da dezena**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span class=\"multexample\" id=\"mmtc8\">1 </span><span class=\"multexample\" id=\"mmtc7\">0 </span> <br />× <span class=\"multexample\" id=\"mmbc7\">1 </span><br />_______<br />&nbsp;&nbsp;<span class=\"multexample\" id=\"mmrc8\">1</span><span class=\"multexample\" id=\"mmrc7\">0 </span><span class=\"multexample\">0 </span></center></p><p class=\"desc\">Cálculo 7: Multiplicação de 10 por 10.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Por fim, somamos os resultados dos **Cálculos 6 e 7**: 100 + 0 = 100.\n\n#### Resumo\n\nDiante de tudo o que foi visto, podemos resumir:\n- Todo número maior que 9 pode ser separado em ordens e depois reunido por soma. Exemplos: **17 = 10 + 7** e **6543 = 6000 + 500 + 40 + 3**.\n- A separação em ordens é essencial para multiplicações com mais de um dígito.\n- Primeiro realizamos a multiplicação dos valores, pelos valores da unidade.\n- Logo em seguida, realizamos os valores pelos valores da dezena, incluindo o zero até chegar a unidade.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, aprofundamos nossos conhecimentos sobre ordens numéricas e vimos como o entendimento delas nos auxiliam a realizar multiplicações.\n\nTudo o que foi visto aqui é a base para compreender o calendário amorita, que deu origem às semanas que utilizamos hoje (<htcite0>; <htcite1>). Nos aprofundaremos nesse conceito no próximo texto.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d3baf59f-4cff-4f57-ab9f-5d35143b993a",
+                     "text": "LEWY, H., & LEWY, J.",
+                     "page": "pp. 1 - 145",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1942",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cb2e3438-4de7-4f4b-867c-b030bd2f9af5",
+                     "text": "History Tracers Team",
+                     "page": "Entendendo a Tabuada (6 e 7)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Multiplicação e soma são operações completamente diferentes?",
+         "question": "A multiplicação e a soma são operações completamente diferentes?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Multiplicação e soma estão completamente ligados. Como vimos neste texto, multiplicação é o ato de realizar somas repetidas."
+         "additionalInfo": "Multiplicação e soma estão conectadas. Como vimos neste texto, a multiplicação consiste em realizar somas repetidas."
+      },
+      {
+         "question": "Os números podem ser separados em suas ordens (unidades, dezenas, centenas...)?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Para efetuar certos cálculos, é mais prático decompor os números em suas ordens (unidades, dezenas, centenas...) do que trabalhar com eles como um todo. Lembre-se sempre de que, ao separar as ordens, devemos completar com zeros até atingir a casa das unidades."
       }
    ],
    "game_v2": null,
