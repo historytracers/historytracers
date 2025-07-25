@@ -1364,7 +1364,7 @@ function htBuildNavigation(index)
 
 function htWriteNavigation(index) 
 {
-    var navigation = htBuildNavigation(index);
+    var navigation = (index.length != 0) ? htBuildNavigation(index) : "Not defined";
     $(".dynamicNavigation").each(function() {
         $(this).html(navigation);
     });

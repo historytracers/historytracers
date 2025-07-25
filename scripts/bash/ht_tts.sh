@@ -6,7 +6,7 @@
 #
 # Download Voices
 #   python3 -m piper.download_voices en_US-amy-medium
-#   python3 -m piper.download_voices en_US-ryan-medium
+#   python3 -m piper.download_voices en_US-lessac-medium
 #
 #   python3 -m piper.download_voices es_ES-sharvard-medium
 #   python3 -m piper.download_voices es_ES-davefx-medium
@@ -19,54 +19,47 @@ ht_select_model() {
     FILE=".ht_tts_${1}"
     SELECTOR=$(cat "${FILE}")
     if [ "${1}" == "pt-BR" ]; then
-        echo "pt_BR-faber-medium.onnx"
+        echo "pt_BR-faber-medium"
         return
     elif [ "${1}" == "es-ES" ]; then
         len=${#2}
         if [ "$len" -ne 0 ]; then
-            echo "es_ES-${2}-medium.onnx"
+            echo "es_ES-${2}-medium"
             return 0
         fi
 
-        if [ "${SELECTOR}" == "es_ES-davefx-medium.onnx" ]; then
-            echo "es_ES-sharvard-medium.onnx" > .ht_tts_es-ES
-            echo "es_ES-davefx-medium.onnx"
+        if [ "${SELECTOR}" == "es_ES-davefx-medium" ]; then
+            echo "es_ES-sharvard-medium" > .ht_tts_es-ES
+            echo "es_ES-davefx-medium"
         else
-            echo "es_ES-davefx-medium.onnx" > .ht_tts_es-ES
-            echo "es_ES-sharvard-medium.onnx"
+            echo "es_ES-davefx-medium" > .ht_tts_es-ES
+            echo "es_ES-sharvard-medium"
         fi
         return 0
     fi
 
     len=${#2}
     if [ "$len" -ne 0 ]; then
-        echo "en_US-${2}-medium.onnx"
+        echo "en_US-${2}-medium"
         return 0
     fi
 
-    if [ "${SELECTOR}" == "en_US-amy-medium.onnx" ]; then
-        echo "en_US-ryan-medium.onnx" > .ht_tts_en-US
-        echo "en_US-amy-medium.onnx"
+    if [ "${SELECTOR}" == "en_US-amy-medium" ]; then
+        echo "en_US-lessac-medium" > .ht_tts_en-US
+        echo "en_US-amy-medium"
     else
-        echo "en_US-amy-medium.onnx" > .ht_tts_en-US
-        echo "en_US-ryan-medium.onnx"
+        echo "en_US-amy-medium" > .ht_tts_en-US
+        echo "en_US-lessac-medium"
     fi
 
     return 0
 }
 
-ht_select_cfg() {
-    SUB=$(echo "${1}" | cut -d. -f1)
-
-    echo "$SUB.json"
-}
-
 ht_convert() {
-    local IN_FILENAME SELLANG MODEL CFG
+    local IN_FILENAME SELLANG MODEL
     IN_FILENAME="${1}"
     SELLANG=$(echo "$IN_FILENAME" | rev | cut -d_ -f1| rev)
     MODEL=$(ht_select_model "${SELLANG}" "${2}")
-    CFG=$(ht_select_cfg "${MODEL}")
 
     echo "Using Model ${MODEL} to create ${IN_FILENAME}.wav"
 
