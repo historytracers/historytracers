@@ -38,7 +38,7 @@ ht_create_directories
 make
 
 # Run History Tracers
-./historytracers -minify -audiofiles -gedcom -verbose
+./historytracers -minify -audiofiles -gedcom -verbose -timestamp
 
 ht_copy_files
 
