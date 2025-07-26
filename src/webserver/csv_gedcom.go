@@ -11,7 +11,6 @@ import (
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/google/uuid"
@@ -215,7 +214,7 @@ func htInitializeCSVPeople() [][]string {
 	return [][]string{{"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}, {"person", "firstname", "surname", "callname", "prefix", "suffix", "title", "gender", "source", "note", "birthdate", "birthplace", "birthplaceid", "birthsource", "baptismdate", "baptismplace", "baptismplaceid", "baptismsouce", "deathdate", "deathplace", "deathplaceid", "deathsource"}}
 }
 
-func htSelectFirstSource(sources []HTSource) (string, int) {
+func htCSVSelectFirstSource(sources []HTSource) (string, int) {
 	for i := 0; i < len(sources); i++ {
 		src := &sources[i]
 
@@ -233,7 +232,7 @@ func htSelectFirstSource(sources []HTSource) (string, int) {
 	return "", -1
 }
 
-func htSelectSource(sources []HTSource) (string, int) {
+func htSelectCSVSource(sources []HTSource) (string, int) {
 	var uuid string = ""
 	var idx int = 0
 	for i := 0; i < len(sources); i++ {
@@ -272,7 +271,7 @@ func htSelectSourceFromText(texts []HTText) (string, int) {
 		if text.Source == nil {
 			continue
 		}
-		ret, sourceType := htSelectSource(text.Source)
+		ret, sourceType := htSelectCSVSource(text.Source)
 
 		if sourceType >= 0 {
 			return ret, sourceType
@@ -410,7 +409,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
 					birthDate = htDateToString(&b.Date[0], lang, true)
-					birthSource, _ = htSelectFirstSource(b.Sources)
+					birthSource, _ = htCSVSelectFirstSource(b.Sources)
 				}
 			}
 
@@ -429,7 +428,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 			if i == 0 {
 				if b.Date != nil && len(b.Date) > 0 {
 					baptismDate = htDateToString(&b.Date[0], lang, true)
-					baptismSource, _ = htSelectFirstSource(b.Sources)
+					baptismSource, _ = htCSVSelectFirstSource(b.Sources)
 				}
 			}
 			baptismPlaceData := htFillAddrKeys(b, baptismDate)
@@ -447,7 +446,7 @@ func htSetCSVPeople(person *FamilyPerson, lang string) []string {
 			if i == 0 {
 				if d.Date != nil && len(d.Date) > 0 {
 					deathDate = htDateToString(&d.Date[0], lang, true)
-					deathSource, _ = htSelectFirstSource(d.Sources)
+					deathSource, _ = htCSVSelectFirstSource(d.Sources)
 				}
 			}
 			deathPlaceData := htFillAddrKeys(d, deathDate)
@@ -740,29 +739,6 @@ func htWriteCSVtoFile(fileName string, in [][]string) error {
 	return nil
 }
 
-func htLoadSourceFromFile(family *Family) error {
-	for _, ptr := range family.Sources {
-		localPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, ptr)
-		byteValue, err := htOpenFileReadClose(localPath)
-		if err != nil {
-			log.Fatalln(err)
-		}
-
-		var sources HTSourceFile
-		err = json.Unmarshal(byteValue, &sources)
-		if err != nil {
-			htCommonJSONError(byteValue, err)
-			return err
-		}
-
-		htUpdateSourceFile(&sources, localPath)
-
-		htFillSourcesMap(&sources)
-	}
-
-	return nil
-}
-
 func htParseFamily(fileName string, lang string, rewrite bool) (error, string, string) {
 	htFamilyPlaceCSV = htInitializeCSVPlace()
 	htFamilyPeopleCSV = htInitializeCSVPeople()
@@ -787,10 +763,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 		return err, "", ""
 	}
 
-	err = htLoadSourceFromFile(&family)
-	if err != nil {
-		return err, "", ""
-	}
+	htLoadSourceFromFile(family.Sources)
 
 	if rewrite == false {
 		return nil, "", ""

@@ -5,7 +5,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
+	"strings"
 )
 
 type atlasTemplateContent struct {
@@ -30,6 +32,56 @@ type atlasTemplateFile struct {
 	Atlas      []atlasTemplateContent `json:"atlas"`
 }
 
+func htUpdateAtlasSources(localTemplateFile *atlasTemplateFile) {
+	for _, atlasData := range localTemplateFile.Atlas {
+		for _, textData := range atlasData.Text {
+			if textData.Format == "markdown" {
+				continue
+			} else if textData.Format != "html" {
+				log.Fatalf("Invalid type : %s", textData.Format)
+			}
+
+			if textData.Source == nil {
+				continue
+			}
+
+			for i := 0; i < len(textData.Source); i++ {
+				src := &textData.Source[i]
+				element, ok := sourceMap[src.UUID]
+				if ok {
+					dt := &src.Date
+					if len(dt.DateType) > 0 {
+						continue
+					}
+
+					length := len(element.PublishDate)
+					if length == 0 {
+						continue
+					}
+
+					dt.DateType = "gregory"
+					if length == 4 {
+						dt.Year = element.PublishDate
+					} else {
+						fields := strings.Split(element.PublishDate, "-")
+						length = len(fields)
+						if length == 0 {
+							continue
+						}
+
+						dt.Year = fields[0]
+						dt.Month = fields[1]
+
+						if length == 3 {
+							dt.Day = fields[2]
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 func htRewriteAtlas(lang string) {
 	fileName := fmt.Sprintf("%slang/%s/atlas.json", CFG.SrcPath, lang)
 
@@ -48,6 +100,9 @@ func htRewriteAtlas(lang string) {
 		htCommonJSONError(byteValue, err)
 		panic(err)
 	}
+
+	htLoadSourceFromFile(localTemplateFile.Sources)
+	htUpdateAtlasSources(&localTemplateFile)
 
 	newFile, err := htWriteTmpFile(lang, &localTemplateFile)
 	HTCopyFilesWithoutChanges(fileName, newFile)

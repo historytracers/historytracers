@@ -307,6 +307,27 @@ func htFillSourcesMap(src *HTSourceFile) {
 	}
 }
 
+func htLoadSourceFromFile(srcs []string) {
+	for _, ptr := range srcs {
+		localPath := fmt.Sprintf("%slang/sources/%s.json", CFG.SrcPath, ptr)
+		byteValue, err := htOpenFileReadClose(localPath)
+		if err != nil {
+			panic(err)
+		}
+
+		var sources HTSourceFile
+		err = json.Unmarshal(byteValue, &sources)
+		if err != nil {
+			htCommonJSONError(byteValue, err)
+			panic(err)
+		}
+
+		htUpdateSourceFile(&sources, localPath)
+
+		htFillSourcesMap(&sources)
+	}
+}
+
 func htUpdateSourceFile(src *HTSourceFile, filename string) {
 	id := uuid.New()
 	strID := id.String()
