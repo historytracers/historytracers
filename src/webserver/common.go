@@ -702,13 +702,13 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 	return finalText + "\n"
 }
 
-func htLoopThroughContentFiles(ctf *classTemplateFile) string {
+func htLoopThroughContentFiles(Title string, Content []classTemplateContent) string {
 	var ret string = ""
-	if len(ctf.Title) > 0 {
-		ret = ctf.Title + ".\n\n"
+	if len(Title) > 0 {
+		ret = Title + ".\n\n"
 	}
-	for i := 0; i < len(ctf.Content); i++ {
-		content := &ctf.Content[i]
+	for i := 0; i < len(Content); i++ {
+		content := &Content[i]
 
 		for j := 0; j < len(content.Text); j++ {
 			text := &content.Text[j]

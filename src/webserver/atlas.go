@@ -11,8 +11,10 @@ import (
 )
 
 type atlasTemplateContent struct {
-	ID   string   `json:"id"`
-	Text []HTText `json:"text"`
+	Image  string   `json:"image"`
+	Author string   `json:"author"`
+	Name   string   `json:"name"`
+	Text   []HTText `json:"text"`
 }
 
 type atlasTemplateFile struct {
@@ -80,6 +82,22 @@ func htUpdateAtlasSources(localTemplateFile *atlasTemplateFile) {
 			}
 		}
 	}
+}
+
+func htLoopThroughAtlasFiles(Content []atlasTemplateContent) string {
+	var ret string = ""
+	for i := 0; i < len(Content); i++ {
+		content := &Content[i]
+
+		for j := 0; j < len(content.Text); j++ {
+			text := &content.Text[j]
+			ret += htTextToHumanText(text, false)
+			ret += text.PostMention + "\n\n"
+		}
+		ret += ".\n\n"
+	}
+
+	return ret
 }
 
 func htRewriteAtlas(lang string) {

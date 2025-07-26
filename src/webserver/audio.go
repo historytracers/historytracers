@@ -348,7 +348,7 @@ func htLoadTreeData(lang string) {
 		panic(err)
 	}
 
-	defaultFamilyTop = htLoopThroughContentFiles(&ctf)
+	defaultFamilyTop = htLoopThroughContentFiles(ctf.Title, ctf.Content)
 	defaultFamilyTop = htAdjustAudioStringBeforeWrite(defaultFamilyTop)
 
 	newFile, err := htWriteTmpFile(lang, &ctf)
@@ -523,7 +523,7 @@ func htConvertClassesToAudio(pages []string) {
 				panic(err)
 			}
 
-			audioTxt := htLoopThroughContentFiles(&ctf)
+			audioTxt := htLoopThroughContentFiles(ctf.Title, ctf.Content)
 			audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
 			err = htWriteAudioFile(page, lang, audioTxt)
 			if err != nil {
@@ -552,6 +552,32 @@ func htConvertClassesToAudio(pages []string) {
 
 func htConvertAtlasToAudio() {
 	htValidateAtlasFormats()
+	for i := 0; i < len(htLangPaths); i++ {
+		lang := htLangPaths[i]
+		fileName := fmt.Sprintf("%slang/%s/atlas.json", CFG.SrcPath, lang)
+
+		byteValue, err := htOpenFileReadClose(fileName)
+		if err != nil {
+			panic(err)
+		}
+
+		var localTemplateFile atlasTemplateFile
+		err = json.Unmarshal(byteValue, &localTemplateFile)
+		if err != nil {
+			htCommonJSONError(byteValue, err)
+			panic(err)
+		}
+
+		contentTxt := htLoopThroughContentFiles("Atlas", localTemplateFile.Content)
+		atlasTxt := htLoopThroughAtlasFiles(localTemplateFile.Atlas)
+		audioTxt := contentTxt + "\n\n" + atlasTxt
+		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+
+		err = htWriteAudioFile("atlas", lang, audioTxt)
+		if err != nil {
+			panic(err)
+		}
+	}
 }
 
 func htConvertOverallTextToAudio() {
