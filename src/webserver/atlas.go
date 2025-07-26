@@ -13,7 +13,7 @@ import (
 type atlasTemplateContent struct {
 	Image  string   `json:"image"`
 	Author string   `json:"author"`
-	Name   string   `json:"name"`
+	Index  string   `json:"index"`
 	Text   []HTText `json:"text"`
 }
 
