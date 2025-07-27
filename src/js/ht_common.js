@@ -727,20 +727,18 @@ function htSelectAtlasMap(id) {
         }
     }
 
-    var formattedText = htFormatText(vector.text, vector.format, vector.isTable);
+    var formattedText =  vector.text;
 
     if (vector.format == undefined || vector.format == "html") {
         formattedText = "<p>"+formattedText+"</p>";
-    } else {
-        formattedText += "</p>";
     }
 
-    var text = (vector.image != null) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+".</p>"+formattedText : formattedText;
+    var text = (vector.image.length > 0) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+".</p>"+formattedText : formattedText;
     var prevIdx = id - 1;
     var nextIdx = id + 1;
     var prevText = (prevIdx >= 0) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+prevIdx+"); htModifyAtlasIndexMap("+prevIdx+");\">"+htAtlas[prevIdx].name+"</a>" : "&nbsp;";
     var nextText = (nextIdx < htAtlas.length) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+nextIdx+"); htModifyAtlasIndexMap("+nextIdx+");\">"+htAtlas[nextIdx].name+"</a>" : "&nbsp;";
-    text += "<p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p><p>&nbsp;</p>";
+    text += "<p><hr /></p><p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p><p>&nbsp;</p>";
     $("#rightcontent").html(text);
 }
 
@@ -758,16 +756,15 @@ function htFillAtlas(data) {
         var text = "";
         for (const j in localAtlas[i].text) {
             var localObj = localAtlas[i].text[j];
-            var localtext = (localObj.text != undefined && localObj.source != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
-            text += localtext;
+            text += htParagraphFromObject(localObj, localLang, localCalendar);
         }
         var author = (localAtlas[i].author != undefined && localAtlas[i].author.length > 0) ? localAtlas[i].author : null ;
         var isTable = (localAtlas[i].isTable != undefined) ? localAtlas[i].isTable : false ;
         var format = (localAtlas[i].format != undefined) ? localAtlas[i].format : "html" ;
-        htAtlas.push({"name": localAtlas[i].name, "image" : localAtlas[i].image, "author": author, "text" : text, "format": format, "isTable": isTable});
+        htAtlas.push({"name": localAtlas[i].index, "image" : localAtlas[i].image, "author": author, "text" : text, "format": format, "isTable": isTable});
 
         var showIdx = parseInt(i) + 1;
-        var o = new Option(showIdx+". "+localAtlas[i].name, showIdx);
+        var o = new Option(showIdx+". "+localAtlas[i].index, showIdx);
         $("#atlasindex").append(o);
     }
 
@@ -1142,6 +1139,12 @@ function htFillWebPage(page, data)
         $("#loading_msg").hide();
     } else if (data.type != undefined && data.type == "class" && data.version == 2) {
         htFillClassContentV2(data, last_update, page_authors, page_reviewers, data.index);
+    } else if (data.type != undefined && data.type == "atlas" && data.version == 2) {
+        htFillClassContentV2(data, last_update, page_authors, page_reviewers, null);
+
+        if (data.atlas != undefined) {
+            htFillAtlas(data);
+        }
     } else {
         if ((data.gedcom != undefined || data.csv != undefined) && $("#files").length > 0) {
             var csvgedtxt = keywords[108]+"<p><ul>";
@@ -1199,10 +1202,6 @@ function htFillWebPage(page, data)
 
         if (data.date_time != undefined) {
             htFillHTDate(data.date_time);
-        }
-
-        if (data.atlas != undefined) {
-            htFillAtlas(data);
         }
 
         if ($("#tree-sources-lbl").length > 0) {

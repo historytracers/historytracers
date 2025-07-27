@@ -1,0 +1,152 @@
+{
+   "title": "The name displayed in the application's or page's title bar.",
+   "header": "The name shown at the top of the page or section.",
+   "sources": [
+      "An array of files containing all sources referenced in the text."
+   ],
+   "scripts": [
+      "An array of JavaScript files associated with this content, typically used for filling and correcting exercises."
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "The time of the last file update, represented in Unix Epoch time."
+   ],
+   "authors": [
+      "An array of names of contributors who edited the text."
+   ],
+   "reviewers": [
+      " An array of names of individuals who reviewed the text."
+   ],
+   "type": "atlas",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><hr /></p><p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "",
+               "source": [
+                  {
+                     "type": 3210,
+                     "uuid": "Unique identifier (UUID) for the current citation.",
+                     "text": "The accompanying text that will be displayed with the citation.",
+                     "page": "The specific page in the publication where this information appears.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "unix",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "julian",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "A description of an image included in the text.",
+               "format": "markdown or html",
+               "PostMention": "A character used after a mention to include citations."
+            }
+         ]
+      }
+   ],
+   "atlas": [
+      {
+         "image": "Complete path to filename.",
+         "author": "Map author",
+         "index": "Name shown in the index.",
+         "text": [
+            {
+               "text": "",
+               "source": [
+                  {
+                     "type": 3210,
+                     "uuid": "Unique identifier (UUID) for the current citation.",
+                     "text": "The accompanying text that will be displayed with the citation.",
+                     "page": "The specific page in the publication where this information appears.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "unix",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "julian",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "A description of an image included in the text.",
+               "format": "markdown or html",
+               "PostMention": "A character used after a mention to include citations."
+            }
+         ]
+      }
+   ]
+}
