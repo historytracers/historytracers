@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -574,6 +575,54 @@ func htLoadOldFileFormat(cf *HTOldFileFormat, name string, lang string) (string,
 	return fileName, nil
 }
 
+func htUpdateClassSources(localTemplateFile *classTemplateFile) {
+	for _, classData := range localTemplateFile.Content {
+		for _, textData := range classData.Text {
+			if textData.Format != "markdown" && textData.Format != "html" {
+				log.Fatalf("Invalid type : %s", textData.Format)
+			}
+
+			if textData.Source == nil {
+				continue
+			}
+
+			for i := 0; i < len(textData.Source); i++ {
+				src := &textData.Source[i]
+				element, ok := sourceMap[src.UUID]
+				if ok {
+					dt := &src.Date
+					if len(dt.DateType) > 0 {
+						continue
+					}
+
+					length := len(element.PublishDate)
+					if length == 0 {
+						continue
+					}
+
+					dt.DateType = "gregory"
+					if length == 4 {
+						dt.Year = element.PublishDate
+					} else {
+						fields := strings.Split(element.PublishDate, "-")
+						length = len(fields)
+						if length == 0 {
+							continue
+						}
+
+						dt.Year = fields[0]
+						dt.Month = fields[1]
+
+						if length == 3 {
+							dt.Day = fields[2]
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 func htLoadClassFileFormat(cf *classTemplateFile, name string, lang string) (string, error) {
 	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
 	if verboseFlag {
@@ -591,6 +640,9 @@ func htLoadClassFileFormat(cf *classTemplateFile, name string, lang string) (str
 		htCommonJSONError(byteValue, err)
 		return "", err
 	}
+
+	htLoadSourceFromFile(cf.Sources)
+	htUpdateClassSources(cf)
 
 	return fileName, nil
 }

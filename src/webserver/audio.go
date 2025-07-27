@@ -323,6 +323,8 @@ func htFamilyAudio(fileName string, lang string) error {
 		return err
 	}
 
+	htLoadSourceFromFile(family.Sources)
+
 	audioTxt := htTextFamily(&family, lang)
 	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
 	err = htWriteAudioFile(fileName, lang, audioTxt)

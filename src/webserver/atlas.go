@@ -37,9 +37,7 @@ type atlasTemplateFile struct {
 func htUpdateAtlasSources(localTemplateFile *atlasTemplateFile) {
 	for _, atlasData := range localTemplateFile.Atlas {
 		for _, textData := range atlasData.Text {
-			if textData.Format == "markdown" {
-				continue
-			} else if textData.Format != "html" {
+			if textData.Format != "markdown" && textData.Format != "html" {
 				log.Fatalf("Invalid type : %s", textData.Format)
 			}
 
