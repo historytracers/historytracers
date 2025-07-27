@@ -89,12 +89,15 @@ func htLoopThroughAtlasFiles(Content []atlasTemplateContent) string {
 	for i := 0; i < len(Content); i++ {
 		content := &Content[i]
 
+		ret += content.Index + ".\n\n"
 		for j := 0; j < len(content.Text); j++ {
 			text := &content.Text[j]
 			ret += htTextToHumanText(text, false)
-			ret += text.PostMention + "\n\n"
+			if len(text.PostMention) > 0 {
+				ret += text.PostMention
+			}
+			ret += ".\n\n"
 		}
-		ret += ".\n\n"
 	}
 
 	return ret
