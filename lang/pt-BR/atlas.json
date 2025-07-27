@@ -7,7 +7,18 @@
    "scripts": [
       "atlas_images"
    ],
-   "audio": null,
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/atlas_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/7loRfYSMlVb",
+         "external": true,
+         "spotify": true
+      }
+   ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
@@ -1588,7 +1599,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>lado oposto</mi><mi>hipotenusa</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 1</b>: Definição da função seno.</p><p>Para facilitar, renomeamos alguns componentes. La hipotenusa es el raio del círculo, representado por <i>r</i>. El cateto opuesto, que queremos proyectar en el eje y, será representado por <i>y</i>.<p><p>Ahora que definimos los nombres correspondentes a los ejes cartesianos, y observamos que multiplicar un número por su inverso resulta en 1, podemos concluir que la proyección de <i>y</i> es dada por:</p><ul class=\"citation\"><li><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>y</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r sen (θ)</mn> <mo>=</mo> <mfrac><mi>y r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r sen (θ)</mn> <mo>=</mo> <mi>y</mi> </li></ul><p class=\"desc\"><b>Fórmula 2</b>: Projeção do raio r no eixo y.</p><p>Como o valor de sen (θ) varia entre -1 e 1, a projeção total de <i>r</i> no eixo <i>y</i> ocorre quando <i>θ</i> é igual a π/2 ou 3π/2. Em outros ângulos, apenas parte do raio é projetada.</p>",
+               "text": "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>lado oposto</mi><mi>hipotenusa</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 1</b>: Definição da função seno.</p><p>Para facilitar, renomeamos algumas componentes. A hipotenusa é o raio do círculo, representado por <i>r</i>. O cateto oposto, que queremos projetar no eixo y, será representado por <i>y</i>.<p><p>Agora que definimos os nomes correspondentes aos eixos cartesianos, e observamos que multiplicar un número por seu inverso resulta em 1, podemos concluir que a projeção de <i>y</i> é dada por:</p><ul class=\"citation\"><li><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>y</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r sen (θ)</mn> <mo>=</mo> <mfrac><mi>y r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r sen (θ)</mn> <mo>=</mo> <mi>y</mi> </li></ul><p class=\"desc\"><b>Fórmula 2</b>: Projeção do raio r no eixo y.</p><p>Como o valor de sen (θ) varia entre -1 e 1, a projeção total de <i>r</i> no eixo <i>y</i> ocorre quando <i>θ</i> é igual a π/2 ou 3π/2. Em outros ângulos, apenas parte do raio é projetada.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -1799,7 +1810,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h3>Coordenadas de Superfície</h3>Para determinar nossa posição na superfície terrestre, utilizamos as coordenadas angulares theta (<b>θ</b>) e phi (<b>ϕ</b>). No entanto, no contexto cotidiano, essas coordenadas recebem outros nomes. A coordenada theta (<b>θ</b>) é chamada de <b>longitude</b>, enquanto a coordenada phi (<b>ϕ</b>) é conhecida como <b>colatitude</b>. Em geografia, também empregamos uma medida chamada <b>latitude</b> (<b>δ</b>), que indica a posição em relação ao Equador. A relação entre colatitude e latitude é dada pela fórmula: ϕ = 90º - δ. Esse tipo de adaptação facilita a interpretação e é uma das simplificações que exploraremos a seguir",
+               "text": "<h3>Coordenadas de Superfície</h3>Para determinar nossa posição na superfície terrestre, utilizamos as coordenadas angulares theta (<b>θ</b>) e phi (<b>ϕ</b>). No entanto, no contexto cotidiano, essas coordenadas recebem outros nomes. A coordenada theta (<b>θ</b>) é chamada de <b>longitude</b>, enquanto a coordenada phi (<b>ϕ</b>) é conhecida como <b>colatitude</b>. Em geografia, também empregamos uma medida chamada <b>latitude</b> (<b>δ</b>), que indica a posição em relação ao Equador. A relação entre colatitude e latitude é dada pela fórmula: ϕ = 90° - δ. Esse tipo de adaptação facilita a interpretação e é uma das simplificações que exploraremos a seguir",
                "source": [
                   {
                      "type": 1,
@@ -1857,7 +1868,7 @@
                "PostMention": "."
             },
             {
-               "text": "<h4>Longitude</h4>Na matemática, a longitude (<b>θ</b>) é expressa com valores entre 0 a 2π radianos ou entre 0 a 360 graus. No entanto, ao trabalharmos com coordenadas geográficas, dividimos o globo em duas regiões de 180 graus. A linha que separa essas duas regiões é o <b>Meridiano de Greenwich</b>, definido arbitrariamente em <htdate0> como el punto cero en el Observatorio Real de Greenwich, en Inglaterra. Las posiciones al este de Greenwich se miden como X grados al <b>este</b>, y las posiciones al oeste como X grados al <b>oeste</b>",
+               "text": "<h4>Longitude</h4>Na matemática, a longitude (<b>θ</b>) é expressa com valores entre 0 a 2π radianos ou entre 0 a 360 graus. No entanto, ao trabalharmos com coordenadas geográficas, dividimos o globo em duas regiões de 180 graus. A linha que separa essas duas regiões é o <b>Meridiano de Greenwich</b>, definido arbitrariamente em <htdate0> como el punto cero en el Observatorio Real de Greenwich, en Inglaterra. As posições a leste do Greenwich são medikdas como X graus a <b>leste</b>, e as posições a oeste como X graus ao <b>oeste</b>",
                "source": [
                   {
                      "type": 1,
@@ -2074,7 +2085,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (35,6764º Norte, 139,6500º Leste)</li><li><b>Montevidéu</b>: (34,9055º Sul, 56,1851º Oeste)</li></ul></p><p><h4>Todas as variáveis</h4>Para expressarmos coordenadas de forma precisa, é fundamental que todas estejam na mesma unidade de medida.</p>",
+               "text": "<p><ul class=\"citation\"><li><b>Tóquio</b>: (35,6764° Norte, 139,6500° Leste)</li><li><b>Montevidéu</b>: (34,9055° Sul, 56,1851° Oeste)</li></ul></p><p><h4>Todas as variáveis</h4>Para expressarmos coordenadas de forma precisa, é fundamental que todas estejam na mesma unidade de medida.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,

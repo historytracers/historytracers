@@ -7,7 +7,18 @@
    "scripts": [
       "atlas_images"
    ],
-   "audio": null,
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/atlas_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/KDadgCsMlVb",
+         "external": true,
+         "spotify": true
+      }
+   ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
@@ -1579,7 +1590,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p>To explore this relationship, let’s use Figure 2 from the previous section, which shows the sine and cosine functions along with a table of specific values.</p><p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" />Figura 2: Gráfico de las funciones seno y coseno. El código fuente de las representaciones y gráficos está disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Team</a>)</p><p><table class=\"tableTen tableTenBgBlue\"> <tr><th>Angle θ</th> <th>cos(θ)</th>  <th>sin(θ)</th> <th>x</th> <th>y</th></tr> <tr><td>0</td> <td>1</td>  <td>0</td> <td>1</td> <td>0</td></tr>  <tr><td>π/2</td> <td>0</td>  <td>1</td> <td>0</td> <td>1</td></tr> <tr><td>π</td> <td>-1</td>  <td>0</td> <td>-1</td> <td>0</td></tr> <tr><td>3π/2</td> <td>0</td>  <td>-1</td> <td>0</td> <td>-1</td></tr> <tr><td>2π</td> <td>1</td>  <td>0</td> <td>1</td> <td>0</td></tr></table> </p><p class=\"desc\">Table 1: Relationship between angular values and Cartesian coordinates for specific points.</p>",
+               "text": "<p>To explore this relationship, let’s use Figure 2 from the previous section, which shows the sine and cosine functions along with a table of specific values.</p><p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" />Figure 2: Chart of the functions sine and cossine. Source code available in the project's GitHub repository (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Team</a>)</p><p><table class=\"tableTen tableTenBgBlue\"> <tr><th>Angle θ</th> <th>cos(θ)</th>  <th>sin(θ)</th> <th>x</th> <th>y</th></tr> <tr><td>0</td> <td>1</td>  <td>0</td> <td>1</td> <td>0</td></tr>  <tr><td>π/2</td> <td>0</td>  <td>1</td> <td>0</td> <td>1</td></tr> <tr><td>π</td> <td>-1</td>  <td>0</td> <td>-1</td> <td>0</td></tr> <tr><td>3π/2</td> <td>0</td>  <td>-1</td> <td>0</td> <td>-1</td></tr> <tr><td>2π</td> <td>1</td>  <td>0</td> <td>1</td> <td>0</td></tr></table> </p><p class=\"desc\">Table 1: Relationship between angular values and Cartesian coordinates for specific points.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -1795,7 +1806,7 @@
                "PostMention": ""
             },
             {
-               "text": "By spinning the circle, we representing a sphere, similar to our planet, as shown in the image in this section. This exercise also highlights the need to define an additional variable to locate ourselves beyond a flat disc. This extra variable, represented by the Greek letter phi (<b>ϕ</b>), covers values between 0 and π radians, or 0 to 180 degrees. Introducing (<b>ϕ</b>) transitions us from polar coordinates to spherical coordinates",
+               "text": "By spinning the circle, we representing a sphere, similar to our planet, as shown in the image in this section. This exercise also highlights the need to define an additional variable to locate ourselves beyond a flat disc. This extra variable, represented by the Greek letter phi (<b>ϕ</b>), covers values between 0 and π radians, or 0 to 180 degrees. Introducing Phi (<b>ϕ</b>) transitions us from polar coordinates to spherical coordinates",
                "source": [
                   {
                      "type": 1,
@@ -1833,7 +1844,7 @@
                "PostMention": ""
             },
             {
-               "text": "<h3>Surface Coordinates</h3>To determine our position on Earth's surface, we initially use the angular coordinates theta (<b>θ</b>) and phi (<b>ϕ</b>). However, in everyday terminology, these coordinates are known by different names: theta (<b>θ</b>) corresponds to <b>longitude</b>, and phi (<b>ϕ</b>) is referred to as <b>colatitude</b>. In geographic contexts, we also use a measure called <b>latitude</b> (<b>δ</b>), which indicates position relative to the Equator. The relationship between latitude and colatitude is defined by the formula: ϕ = 90º - δ. This is just one of the simplifications we will explore further",
+               "text": "<h3>Surface Coordinates</h3>To determine our position on Earth's surface, we initially use the angular coordinates theta (<b>θ</b>) and phi (<b>ϕ</b>). However, in everyday terminology, these coordinates are known by different names: theta (<b>θ</b>) corresponds to <b>longitude</b>, and phi (<b>ϕ</b>) is referred to as <b>colatitude</b>. In geographic contexts, we also use a measure called <b>latitude</b> (<b>δ</b>), which indicates position relative to the Equator. The relationship between latitude and colatitude is defined by the formula: ϕ = 90° - δ. This is just one of the simplifications we will explore further",
                "source": [
                   {
                      "type": 1,
@@ -2108,7 +2119,7 @@
                "PostMention": ":"
             },
             {
-               "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (35,6764º Norte, 139,6500º Leste)</li><li><b>Montevideo</b>: (34,9055º Sul, 56,1851º Oeste)</li></ul></p>",
+               "text": "<p><ul class=\"citation\"><li><b>Tokyo</b>: (35,6764° Norte, 139,6500° Leste)</li><li><b>Montevideo</b>: (34,9055° Sul, 56,1851° Oeste)</li></ul></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
