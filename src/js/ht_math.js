@@ -585,3 +585,30 @@ function htWriteMultiplicationTable(target, tValue) {
     }
 }
 
+function htChangeMultUniqueDigitStyle(id, color) {
+    if (id == undefined || id.length < 5) {
+        return;
+    }
+    var idx = id[4];
+    var localIdx = idx - 1;
+    if ((idx % 2) == 0) {
+        $("#mmbc"+localIdx).css("color", color);
+    } else {
+        $("#mmbc"+idx).css("color", color);
+    }
+    $("#mmtc"+idx).css("color", color);
+    $("#mmrc"+idx).css("color", color);
+}
+
+function htChangeSumUniqueDigitStyle(id, color) {
+    if (id == undefined || id.length < 5) {
+        return;
+    }
+    var idx = id[4];
+    if (idx > 5) {
+        $("#cmoc"+idx).css("color", color);
+    }
+    $("#cmtc"+idx).css("color", color);
+    $("#cmbc"+idx).css("color", color);
+    $("#cmrc"+idx).css("color", color);    
+}

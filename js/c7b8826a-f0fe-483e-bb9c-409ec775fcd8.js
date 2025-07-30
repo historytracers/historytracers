@@ -32,52 +32,18 @@ function htLoadExercise() {
 
     $(".sumexample1").hover(function(){
         var id = $(this).attr("id");
-        if (id == undefined || id.length < 5) {
-            return;
-        }
-        var idx = id[4];
-        $("#cmtc"+idx).css("color", "red");
-        $("#cmbc"+idx).css("color", "red");
-        $("#cmrc"+idx).css("color", "red");
+        htChangeSumUniqueDigitStyle(id, "red");
     }, function(){
         var id = $(this).attr("id");
-        if (id == undefined || id.length < 5) {
-            return;
-        }
-        var idx = id[4];
-        $("#cmtc"+idx).css("color", "black");
-        $("#cmbc"+idx).css("color", "black");
-        $("#cmrc"+idx).css("color", "black");
+        htChangeSumUniqueDigitStyle(id, "black");
     });
 
     $(".multexample").hover(function(){
         var id = $(this).attr("id");
-        if (id == undefined || id.length < 5) {
-            return;
-        }
-        var idx = id[4];
-        var localIdx = idx - 1;
-        if ((idx % 2) == 0) {
-            $("#mmbc"+localIdx).css("color", "red");
-        } else {
-            $("#mmbc"+idx).css("color", "red");
-        }
-        $("#mmtc"+idx).css("color", "red");
-        $("#mmrc"+idx).css("color", "red");
+        htChangeMultUniqueDigitStyle(id, "red");
     }, function(){
         var id = $(this).attr("id");
-        if (id == undefined || id.length < 5) {
-            return;
-        }
-        var idx = id[4];
-        var localIdx = idx - 1;
-        if ((idx % 2) == 0) {
-            $("#mmbc"+localIdx).css("color", "black");
-        } else {
-            $("#mmbc"+idx).css("color", "black");
-        }
-        $("#mmtc"+idx).css("color", "black");
-        $("#mmrc"+idx).css("color", "black");
+        htChangeMultUniqueDigitStyle(id, "black");
     });
 
     $('.ordercheck').change(function(){

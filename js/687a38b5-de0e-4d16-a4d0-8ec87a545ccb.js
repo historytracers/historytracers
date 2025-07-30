@@ -175,28 +175,10 @@ function htLoadExercise() {
 
     $(".sumexample1").hover(function(){
         var id = $(this).attr("id");
-        if (id == undefined || id.length < 5) {
-            return;
-        }
-        var idx = id[4];
-        if (idx > 5) {
-            $("#cmoc"+idx).css("color", "red");
-        }
-        $("#cmtc"+idx).css("color", "red");
-        $("#cmbc"+idx).css("color", "red");
-        $("#cmrc"+idx).css("color", "red");
+        htChangeSumUniqueDigitStyle(id, "red");
     }, function(){
         var id = $(this).attr("id");
-        if (id == undefined || id.length < 5) {
-            return;
-        }
-        var idx = id[4];
-        if (idx > 5) {
-            $("#cmoc"+idx).css("color", "black");
-        }
-        $("#cmtc"+idx).css("color", "black");
-        $("#cmbc"+idx).css("color", "black");
-        $("#cmrc"+idx).css("color", "black");
+        htChangeSumUniqueDigitStyle(id, "black");
     });
 
     htAdditionAddCommonTable("0");
