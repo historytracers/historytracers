@@ -30,6 +30,19 @@ function htLoadExercise() {
         htChangeSumUniqueDigitStyle(id, "black");
     });
 
+    $('.ordercheck').change(function(){
+        var id = $(this).attr("id");
+        if (id == undefined) {
+            return;
+        }
+
+        if ($(this).is(':checked')) {
+            htSetMultColors("multexample1", "red", id);
+        } else {
+            htSetMultColors("multexample1", "black", id);
+        }
+    });
+
     var xVector1 = [ 1,   1.5,  2,  2.5,  3,  3.5,  4,  4.5,  5,  5.5,  6,  6.5,  7,  7.5,  8];
     var yVector1 = [ 70, null, 70, null, 70, null, 70, null, 70, null, 70, null, 70, null, 15];
 

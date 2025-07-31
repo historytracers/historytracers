@@ -590,14 +590,23 @@ function htChangeMultUniqueDigitStyle(id, color) {
         return;
     }
     var idx = id[4];
-    var localIdx = idx - 1;
+    var nextIdx = parseInt(idx) + 1;
     if ((idx % 2) == 0) {
-        $("#mmbc"+localIdx).css("color", color);
+        var prevIdx = idx - 1;
+        $("#mmbc"+prevIdx).css("color", color);
     } else {
         $("#mmbc"+idx).css("color", color);
     }
     $("#mmtc"+idx).css("color", color);
     $("#mmrc"+idx).css("color", color);
+
+    if ($("#mmoc"+idx).length > 0) {
+        $("#mmoc"+idx).css("color", color);
+    }
+
+    if ($("#mmoc"+nextIdx).length > 0) {
+        $("#mmoc"+nextIdx).css("color", color);
+    }
 }
 
 function htChangeSumUniqueDigitStyle(id, color) {
@@ -612,3 +621,23 @@ function htChangeSumUniqueDigitStyle(id, color) {
     $("#cmbc"+idx).css("color", color);
     $("#cmrc"+idx).css("color", color);    
 }
+
+function htSetMultColors(localClass, color, id)
+{
+    // Top line
+    $("#mmtc2."+localClass).css("color", color);
+    $("#mmtc1."+localClass).css("color", color);
+
+    // Multiplicator
+    $("#mmbc"+id+"."+localClass).css("color", color);
+
+    var prefix = (id == 1) ? "mmptrc" : "mmpbrc";
+
+    $("#"+prefix+"1."+localClass).css("color", color);
+    $("#"+prefix+"2."+localClass).css("color", color);
+    if (id == 1)
+        return;
+    $("#"+prefix+"3."+localClass).css("color", color);
+
+}
+

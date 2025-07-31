@@ -2,25 +2,6 @@
 
 var localAnswerVector = undefined;
 
-function htSetMultColors(localClass, color, id)
-{
-    // Top line
-    $("#mmtc2."+localClass).css("color", color);
-    $("#mmtc1."+localClass).css("color", color);
-
-    // Multiplicator
-    $("#mmbc"+id+"."+localClass).css("color", color);
-
-    var prefix = (id == 1) ? "mmptrc" : "mmpbrc";
-
-    $("#"+prefix+"1."+localClass).css("color", color);
-    $("#"+prefix+"2."+localClass).css("color", color);
-    if (id == 1)
-        return;
-    $("#"+prefix+"3."+localClass).css("color", color);
-
-}
-
 function htLoadExercise() {
     if (localAnswerVector == undefined) {
         localAnswerVector = htLoadAnswersFromExercise();
