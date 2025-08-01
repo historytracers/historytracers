@@ -620,7 +620,7 @@ func htConvertHistoricalTextToAudio() {
 }
 
 func htConvertLiteratureTextToAudio() {
-	pages := []string{"2ecd8b93-e611-4977-aa7e-109bc27d4a51"}
+	pages := []string{"1009578c-3097-4183-9f10-c6dd0a833d5b", "2ecd8b93-e611-4977-aa7e-109bc27d4a51"}
 	htConvertClassesToAudio(pages)
 }
 
