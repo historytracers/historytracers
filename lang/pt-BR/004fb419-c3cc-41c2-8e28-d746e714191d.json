@@ -1,225 +1,429 @@
 {
-    "title" : "Caminhando entre as letras",
-    "header" : "Caminhando entre as letras",
-    "sources" : [ "004fb419-c3cc-41c2-8e28-d746e714191d" ],
-    "scripts" : [ "004fb419-c3cc-41c2-8e28-d746e714191d" ],
-    "index" : [ "literature" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
-    "last_update" : [ "1754008776" ],
-    "authors" : null,
-    "reviewers" : null,
-    "type" : "class",
+   "title": "Caminhando entre as letras",
+   "header": "Caminhando entre as letras",
+   "sources": [
+      "004fb419-c3cc-41c2-8e28-d746e714191d"
+   ],
+   "scripts": [
+      "004fb419-c3cc-41c2-8e28-d746e714191d"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/004fb419-c3cc-41c2-8e28-d746e714191d_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/LHLFyb2EtVb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "literature"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1754018442"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
    "version": 2,
    "editing": false,
-    "content" : [
-        {
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ { "text" : "### Pré-requisitos\n\nEste texto aborda conceitos de adição apresentados na *pré-matemática. Por isso, recomendamos que você estude previamente o texto *Caminhando entre os números* antes de prosseguir",
-                                 "source" : [ 
-                                              { "type": 1,
-                                                "uuid": "d6a6b284-a060-4a85-bc6c-9d2fe442254c",
-                                                "text": "González Redondo, Francisco A., 00:08:20",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
-                                                "text": "History Tracers Team. Caminhando entre os números",
-                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                  "fill_dates" : null,
-                                  "isTable" : false,
-                                  "format" : "markdown",
-                                  "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ { "text" : "### Introdução\n\nQuando nascemos, ainda não somos capazes de caminhar e dependemos de ser carregados nos braços. Com o tempo, começamos a engatinhar, damos os primeiros passos e, finalmente, aprendemos a correr. O aprendizado dos textos segue um caminho semelhante: iniciamos com etapas básicas e, gradualmente, avançamos para conceitos mais complexos. Neste texto, exploraremos a jornada inicial dos textos e da *pré-matemática* por meio da adição",
-                                 "source" : [ 
-                                              { "type": 1,
-                                                "uuid": "d6a6b284-a060-4a85-bc6c-9d2fe442254c",
-                                                "text": "González Redondo, Francisco A., 00:08:20",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "road",
-                    "text" : [ { "text" : "### Caminhos\n\nA Figura 1 apresenta um trecho do sítio arqueológico de Teotihuacan, no México",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"images/Teotihuacan/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figura 1: Vista geral de Teotihuacan. Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio.</p>",
-                               { "text" : "Os indígenas americanos (de *Abya Yala*) não apenas criaram cidades com caminhos internos, mas também projetaram vias que conectavam diferentes regiões. Por exemplo, os Maias construíram os **sacbes** (plural: **sacbeob**), caminhos brancos que facilitavam o trânsito entre centros populacionais",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "19ea1063-0ddd-4468-ad3e-2635675ca68d",
-                                                "text": "LaRocque, A., Leblon, B., Ek, J., and Folan, W. J.",
-                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               { "text" : "Já no sul do continente, os Incas desenvolveram a rota de 39.000 quilômetros chamada **Qhapaq Ñan**, que conectava vastas áreas. Parte dessa rota foi construída por civilizações anteriores, como os Wari",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "0bc6455e-7fdb-49cd-bf29-c3675aca4d4f",
-                                                "text": "Jurado, L. R. C. V., pp. 1270 - 1271",
-                                                "date" :  {"type" : "gregory", "year" : "2018", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Os caminhos</b><br /><br />Os caminhos não são exclusividade das civilizações indígenas americanas. Ainda hoje, criamos ruas, estradas e rotas que desempenham funções semelhantes, facilitando o deslocamento e conectando diferentes pontos.<br /><br />Além disso, os rios, que seguem seu curso de forma natural, também foram e continuam sendo utilizados como caminhos por várias culturas.<br /><br />É possível perceber conexões entre os textos e os caminhos?</div></div></center></p>"
-                    ]
-                },
-                {
-                    "id" : "alphabet",
-                    "text" : [ { "text" : "### As Vogais\n\nO aprendizado de qualquer assunto baseia-se em conhecimentos prévios. Quando uma criança começa a estudar, ela é o principal ator de suas descobertas, incluindo o aprendizado da leitura",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "b5b8ecc8-037a-4d96-93de-4c2f1953d444",
-                                                "text": "Martins, Margarida Alves, and Ana Cristina Silva, pp. 50",
-                                                "date" :  {"type" : "gregory", "year" : "1999", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : "false",
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "O processo de pronunciar palavras ocorre em diferentes estágios durante nossa vida. As vogais, por exemplo, são mais fáceis de utilizar, pois possuem um som próximo ao valor que associamos ao escrevê-las. No alfabeto latino, os nomes das vogais (a, e, i, o, u) têm o mesmo som que pronunciamos",
-                                 "source" : [
-                                              { "type": 0,
-                                                "uuid": "8a876eef-1550-488a-90fc-e5a8eec14d41",
-                                                "text": "Dicionário da Língua Portuguesa"},
-                                              { "type": 1,
-                                                "uuid": "b5b8ecc8-037a-4d96-93de-4c2f1953d444",
-                                                "text": "Martins, Margarida Alves, and Ana Cristina Silva, pp. 54",
-                                                "date" :  {"type" : "gregory", "year" : "1999", "month" : "-1", "day" : "-1" }},
-                                              { "type": 0,
-                                                "uuid": "5c2b00ac-9609-4102-9bfb-a688b092bad6",
-                                                "text": "Real Academia Española y Asociación de Academias de la Lengua Española"},
-                                              { "type": 1,
-                                                "uuid": "6fe155f8-e95f-42b4-9b14-df20e63e1847",
-                                                "text": "Herraiz, Elena",
-                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : "false",
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Fala e escrita</b><br />Pronuncie em voz alta as vogais, uma de cada vez. Em seguida, escreva-as abaixo:<br /><br />A&nbsp; E&nbsp; I&nbsp; O&nbsp; U&nbsp;<br /><br />__ __ __ __ __</div></div></p>"
-                    ]
-                },
-                {
-                    "id" : "building",
-                    "text" : [ { "text" : "### Formando palavras\n\nO processo de formar uma palavra vai muito além de simplesmente escrever letras lado a lado. Essas letras, quando unidas, devem fazer sentido e transmitir uma informação compreensível para outras pessoas. Um exemplo são as interjeições, que expressam diferentes sensações",
-                                 "source" : [
-                                              { "type": 0,
-                                                "uuid": "88726a34-89f2-45e8-baae-befa3e1d4c0b",
-                                                "text": "Dicionário da Língua Portuguesa"}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<p><ul> <li><b>Admiração:</b> Uau!</li> <li><b>Apelo:</b> Ei! </li> <li><b>Chamamento:</b> Oi!</li> <li><b>Dor:</b> Ai! Ui!</li> </ul></p>",
-                               { "text" : "Existem muitas outras interjeições que usamos no dia a dia, mas aqui focamos apenas naquelas que utilizam vogais, construindo o conhecimento por etapas. Como podemos observar, ao pronunciar essas palavras (interjeições), o som das vogais é preservado, mesmo quando combinado com outras vogais",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "math",
-                    "text" : [ { "text" : "### Introdução à Matemática nas Palavras\n\nTudo o que vimos até agora neste texto tem uma relação direta com a matemática. Por exemplo, ao escrevermos uma vogal (uma letra) sozinha, é como escrever um único número entre 0 e 9. Ambos possuem uma representação única. Da mesma forma, quando escrevemos números lado a lado, criamos um novo número, assim como fazemos ao juntar letras para formar palavras",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Sobre somas</b><br /><br />Se podemos estabelecer uma analogia entre letras e números, será que também podemos dizer que \"adicionamos\" letras para formar uma palavra?</div></div></center></p>",
-                               { "text" : "Embora possamos pensar que a interjeição \"Ei\" é a soma da vogal \"E\" com a vogal \"I\", essa ideia seria imprecisa. Essa ideia consideraria que, ao somar duas letras, o resultado ultrapassaria o \"limite\" do alfabeto (sua última letra, \"Z\") e retornaria a \"E\", excedendo \"I\"",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "Por outro lado, podemos associar a leitura de palavras a um caminho a ser percorrido, semelhante a um eixo onde posicionamos os números",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
-                                                "text": "History Tracers Team. Caminhando entre os números",
-                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ { "text" : "### Conclusão\n\nNeste texto, exploramos um pouco sobre a formação das palavras e sua conexão com a matemática. Vimos que, com base no que foi apresentado em *Caminhando entre os números*, ainda não é possível estabelecer uma ligação direta entre a adição e a formação de palavras. No entanto, à medida que estudarmos com mais detalhes a matemática, poderemos aprofundar ainda mais essa relação e expandir nosso entendimento sobre o tema",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
-                                                "text": "History Tracers Team. Caminhando entre os números",
-                                                "date" :  {"type" : "gregory", "year" : "2025", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "exercise_v2",
-                    "text" : [ 
-                        {
-                            "question" : "Novos conhecimentos são construídos a partir de conhecimentos anteriores?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Aprender é um processo de associação de informações que se torna mais eficiente quando construímos novos conhecimentos a partir daquilo que já dominamos. Por essa razão, as crianças são protagonistas no processo de aprendizagem, pois estão constantemente associando o novo ao que já conhecem."
-                        },
-                        {
-                            "question" : "Estudar um texto tem alguma relação com um caminho numérico (eixo)?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Essa analogia é válida, pois, ao ler uma palavra, seguimos uma direção clara: partimos da primeira letra em direção à última. No entanto, é importante lembrar que os números não possuem um \"final\" definido, como discutido na seção <i>Primeiros passos</i>"
-                        }
-                    ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2016", "month" : "10", "day" : "19" }
-                    ]
-                }
-            ]
-        }
-    ]
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste texto aborda conceitos de adição apresentados na *pré-matemática. Por isso, recomendamos que você estude previamente o texto *Caminhando entre os números* antes de prosseguir",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d6a6b284-a060-4a85-bc6c-9d2fe442254c",
+                     "text": "González Redondo, Francisco A., 00:08:20",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team. Caminhando entre os números",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nQuando nascemos, ainda não somos capazes de caminhar e dependemos de ser carregados nos braços. Com o tempo, começamos a engatinhar, damos os primeiros passos e, finalmente, aprendemos a correr. O aprendizado dos textos segue um caminho semelhante: iniciamos com etapas básicas e, gradualmente, avançamos para conceitos mais complexos. Neste texto, exploraremos a jornada inicial dos textos e da *pré-matemática* por meio da adição",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d6a6b284-a060-4a85-bc6c-9d2fe442254c",
+                     "text": "González Redondo, Francisco A., 00:08:20",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_road",
+         "text": [
+            {
+               "text": "### Caminhos\n\nA Figura 1 apresenta um trecho do sítio arqueológico de Teotihuacan, no México",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"ChronologyTeotihuacan\" onclick=\"htImageZoom('ChronologyTeotihuacan', '0%')\" src=\"images/Teotihuacan/TeotihuacanGeneral.jpg\" class=\"imgcenter\"/>Figura 1: Vista geral de Teotihuacan. Foto tirada em <htdate0> durante uma visita ao sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Visão Geral da cidade de Teotihuacan. Nela é possível observar várias construções no formato Talud-Tablero, e ao fundo duas construções do tipo piramidal, que representam montanhas sagradas.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Os indígenas americanos (de *Abya Yala*) não apenas criaram cidades com caminhos internos, mas também projetaram vias que conectavam diferentes regiões. Por exemplo, os Maias construíram os **sacbes** (plural: **sacbeob**), caminhos brancos que facilitavam o trânsito entre centros populacionais",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "19ea1063-0ddd-4468-ad3e-2635675ca68d",
+                     "text": "LaRocque, A., Leblon, B., Ek, J., and Folan, W. J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "Já no sul do continente, os Incas desenvolveram a rota de 39.000 quilômetros chamada **Qhapaq Ñan**, que conectava vastas áreas. Parte dessa rota foi construída por civilizações anteriores, como os Wari",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0bc6455e-7fdb-49cd-bf29-c3675aca4d4f",
+                     "text": "Jurado, L. R. C. V., pp. 1270 - 1271",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Os caminhos</b><br /><br />Os caminhos não são exclusividade das civilizações indígenas americanas. Ainda hoje, criamos ruas, estradas e rotas que desempenham funções semelhantes, facilitando o deslocamento e conectando diferentes pontos.<br /><br />Além disso, os rios, que seguem seu curso de forma natural, também foram e continuam sendo utilizados como caminhos por várias culturas.<br /><br />É possível perceber conexões entre os textos e os caminhos?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_alphabet",
+         "text": [
+            {
+               "text": "### As Vogais\n\nO aprendizado de qualquer assunto baseia-se em conhecimentos prévios. Quando uma criança começa a estudar, ela é o principal ator de suas descobertas, incluindo o aprendizado da leitura",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5b8ecc8-037a-4d96-93de-4c2f1953d444",
+                     "text": "Martins, Margarida Alves, and Ana Cristina Silva, pp. 50",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1999",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "O processo de pronunciar palavras ocorre em diferentes estágios durante nossa vida. As vogais, por exemplo, são mais fáceis de utilizar, pois possuem um som próximo ao valor que associamos ao escrevê-las. No alfabeto latino, os nomes das vogais (a, e, i, o, u) têm o mesmo som que pronunciamos",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "8a876eef-1550-488a-90fc-e5a8eec14d41",
+                     "text": "Dicionário da Língua Portuguesa",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5b8ecc8-037a-4d96-93de-4c2f1953d444",
+                     "text": "Martins, Margarida Alves, and Ana Cristina Silva, pp. 54",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1999",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "5c2b00ac-9609-4102-9bfb-a688b092bad6",
+                     "text": "Real Academia Española y Asociación de Academias de la Lengua Española",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6fe155f8-e95f-42b4-9b14-df20e63e1847",
+                     "text": "Herraiz, Elena",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Fala e escrita</b><br />Pronuncie em voz alta as vogais, uma de cada vez. Em seguida, escreva-as abaixo:<br /><br />A&nbsp; E&nbsp; I&nbsp; O&nbsp; U&nbsp;<br /><br />__ __ __ __ __</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_building",
+         "text": [
+            {
+               "text": "### Formando palavras\n\nO processo de formar uma palavra vai muito além de simplesmente escrever letras lado a lado. Essas letras, quando unidas, devem fazer sentido e transmitir uma informação compreensível para outras pessoas. Um exemplo são as interjeições, que expressam diferentes sensações",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "88726a34-89f2-45e8-baae-befa3e1d4c0b",
+                     "text": "Dicionário da Língua Portuguesa",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><ul> <li><b>Admiração:</b> Uau!</li> <li><b>Apelo:</b> Ei! </li> <li><b>Chamamento:</b> Oi!</li> <li><b>Dor:</b> Ai! Ui!</li> </ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Existem muitas outras interjeições que usamos no dia a dia, mas aqui focamos apenas naquelas que utilizam vogais, construindo o conhecimento por etapas. Como podemos observar, ao pronunciar essas palavras (interjeições), o som das vogais é preservado, mesmo quando combinado com outras vogais.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_math",
+         "text": [
+            {
+               "text": "### Introdução à Matemática nas Palavras\n\nTudo o que vimos até agora neste texto tem uma relação direta com a matemática. Por exemplo, ao escrevermos uma vogal (uma letra) sozinha, é como escrever um único número entre 0 e 9. Ambos possuem uma representação única. Da mesma forma, quando escrevemos números lado a lado, criamos um novo número, assim como fazemos ao juntar letras para formar palavras",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Sobre somas</b><br /><br />Se podemos estabelecer uma analogia entre letras e números, será que também podemos dizer que \"adicionamos\" letras para formar uma palavra?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Embora possamos pensar que a interjeição \"Ei\" é a soma da vogal \"E\" com a vogal \"I\", essa ideia seria imprecisa. Essa ideia consideraria que, ao somar duas letras, o resultado ultrapassaria o \"limite\" do alfabeto (sua última letra, \"Z\") e retornaria a \"E\", excedendo \"I\".\n\nPor outro lado, podemos associar a leitura de palavras a um caminho a ser percorrido, semelhante a um eixo onde posicionamos os números",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team. Caminhando entre os números",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, exploramos um pouco sobre a formação das palavras e sua conexão com a matemática. Vimos que, com base no que foi apresentado em *Caminhando entre os números*, ainda não é possível estabelecer uma ligação direta entre a adição e a formação de palavras. No entanto, à medida que estudarmos com mais detalhes a matemática, poderemos aprofundar ainda mais essa relação e expandir nosso entendimento sobre o tema",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team. Caminhando entre os números",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Novos conhecimentos são construídos a partir de conhecimentos anteriores?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Aprender é um processo de associação de informações que se torna mais eficiente quando construímos novos conhecimentos a partir daquilo que já dominamos. Por essa razão, as crianças são protagonistas no processo de aprendizagem, pois estão constantemente associando o novo ao que já conhecem."
+      },
+      {
+         "question": "Estudar um texto tem alguma relação com um caminho numérico (eixo)?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Essa analogia é válida, pois, ao ler uma palavra, seguimos uma direção clara: partimos da primeira letra em direção à última. No entanto, é importante lembrar que os números não possuem um \"final\" definido, como discutido na seção <i>Primeiros passos</i>"
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
 }
