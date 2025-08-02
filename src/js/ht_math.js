@@ -574,14 +574,14 @@ function htResetMultiplicationTable(target) {
 function htWriteMultiplicationTable(target, tValue) {
     var localTarget0 = "#mt"+tValue;
     var localTarget1 = "#mtTable"+tValue;
-    $(target).append("<div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 20%; text-align: center; display: inline-block; padding: 5px;\" id=\"mt"+tValue+"\"></div><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 20%; text-align: center; display: inline-block; vertical-align: top; padding: 5px;\" id=\"mtTable"+tValue+"\"></div>");
-    $(localTarget0).append("<b>"+mathKeywords[16]+tValue+"</b><br />");
+    $(target).append("<div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 30%; text-align: center; display: inline-block; padding: 5px;\" id=\"mt"+tValue+"\"></div><div style=\"border-radius: 30px; margin: auto; border-style= solid; background-color: lightblue; width: 40%; text-align: center; display: inline-block; vertical-align: top; padding: 5px;\" id=\"mtTable"+tValue+"\"></div>");
+    $(localTarget0).append("<b style=\"font-size: 0.9em;\">"+mathKeywords[16]+tValue+"</b><br />");
     htResetMultiplicationTable(localTarget1);
 
     var angularCoef = parseInt(tValue);
     for (let i = 0; i < 11; i++) {
         var product =  angularCoef * i;
-        $(localTarget0).append("<math onmouseover=\"this.style.fontWeight='bold'; htDrawMultiplicationTable('"+localTarget1+"', "+angularCoef+", "+i+");\" onmouseleave=\"this.style.fontWeight='normal'; htResetMultiplicationTable('"+localTarget1+"');\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
+        $(localTarget0).append("<math onmouseover=\"this.style.fontWeight='bold'; htDrawMultiplicationTable('"+localTarget1+"', "+angularCoef+", "+i+");\" onmouseleave=\"this.style.fontWeight='normal'; htResetMultiplicationTable('"+localTarget1+"');\" style=\"font-size: 0.9em;\"><mi>"+product+"</mi> <mo>=</mo> <mi>"+tValue+"</mi> <mo>×</mo> <mi>"+i+"</mi> </math><br />");
     }
 }
 
