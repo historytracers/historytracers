@@ -620,7 +620,7 @@ func htConvertHistoricalTextToAudio() {
 }
 
 func htConvertLiteratureTextToAudio() {
-	pages := []string{"1009578c-3097-4183-9f10-c6dd0a833d5b", "004fb419-c3cc-41c2-8e28-d746e714191d", "052e06b9-f10c-4e76-896d-9f0e68f07506", "2ecd8b93-e611-4977-aa7e-109bc27d4a51"}
+	pages := []string{"1009578c-3097-4183-9f10-c6dd0a833d5b", "004fb419-c3cc-41c2-8e28-d746e714191d", "052e06b9-f10c-4e76-896d-9f0e68f07506", "da242227-867d-47d4-8637-90000e2ed7b4", "2ecd8b93-e611-4977-aa7e-109bc27d4a51"}
 	htConvertClassesToAudio(pages)
 }
 
