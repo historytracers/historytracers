@@ -957,29 +957,18 @@ func htUpdateAllFamilies(rewrite bool) error {
 }
 
 // Create Directories
-func htRemoveCurrentGEDCOMDirectory(path string) {
-	err := os.RemoveAll(path)
-	if err != nil {
-		panic(err)
+func htCleanCSVGEDWorkDirectory(subdir string) {
+	localPath := fmt.Sprintf("%s%s/", CFG.SrcPath, subdir)
+	if !htDirectoryExists(localPath) {
+		htCreateDirectory(localPath)
+		if verboseFlag {
+			fmt.Println("Creating directory", localPath)
+		}
+	} else {
+		if subdir != "gedcom" {
+			htRemoveFilesWithoutextension(localPath, ".md")
+		}
 	}
-}
-
-func htCreateGEDCOMDirectory() {
-	localPath := fmt.Sprintf("%sgedcom/", CFG.SrcPath)
-	if verboseFlag {
-		fmt.Println("Creating GEDCOM directory", localPath)
-	}
-	htCreateDirectory(localPath)
-}
-
-func htCreateCSVDirectory() {
-	localPath := fmt.Sprintf("%scsv/", CFG.SrcPath)
-	htRemoveCurrentGEDCOMDirectory(localPath)
-
-	if verboseFlag {
-		fmt.Println("Creating csv directory", localPath)
-	}
-	htCreateDirectory(localPath)
 }
 
 // Entries
@@ -987,8 +976,8 @@ func htCreateGEDCOM() {
 	htRewriteFamilyFileTemplate()
 	htRewriteSourceFileTemplate()
 
-	htCreateGEDCOMDirectory()
-	htCreateCSVDirectory()
+	htCleanCSVGEDWorkDirectory("csv")
+	htCleanCSVGEDWorkDirectory("gedcom")
 	sourceMap = make(map[string]HTSourceElement)
 
 	htUpdateAllFamilies(true)
