@@ -8,6 +8,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
@@ -833,4 +834,41 @@ func htAddNewJSToDirectory(newFile string) {
 func htFormatNotExpected(format string) {
 	text := fmt.Sprintf("Format '%s' not expected", format)
 	panic(text)
+}
+
+func htDirectoryExists(path string) bool {
+	info, err := os.Stat(path)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return info.IsDir()
+}
+
+func htRemoveFilesWithoutextension(path string, ext string) {
+	if !htDirectoryExists(path) {
+		return
+	}
+
+	files, err := os.ReadDir(path)
+	if err != nil {
+		panic(err)
+	}
+
+	// Process each file
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+
+		ext := filepath.Ext(file.Name())
+		if ext == ".md" {
+			continue
+		}
+
+		filePath := filepath.Join(path, file.Name())
+		err := os.Remove(filePath)
+		if err != nil {
+			panic(err)
+		}
+	}
 }

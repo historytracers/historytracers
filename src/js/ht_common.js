@@ -41,32 +41,6 @@ var htSequenceGameLocation = [ "Lima, Peru", "Cahal Pech, Belize", "Ciudad de Gu
 var htEditable = undefined;
 var htEditableCheck = true;
 
-function htLatexToText(text, id) {
-    return true;
-    var input = $.trim(text);
-
-    $("#htEequation"+id).html("");
-    MathJax.texReset();
-
-    output = document.getElementById("htEequation"+id);
-    var options = MathJax.getMetricsFor(output);
-
-    MathJax.tex2chtmlPromise(input, options).then(function (node) {
-        output.appendChild(node);
-        MathJax.startup.document.clear();
-        MathJax.startup.document.updateDocument();
-
-        if ($("#htEequation"+id).length > 0 && $("#htequation"+id).length > 0) {
-            $("#htequation"+id).html(node);
-            $("#htEequation"+id).remove();
-        }
-    }).catch(function (err) {
-        return false;
-    });
-
-    return true;
-}
-
 function htEnableEdition() {
     /*
     if (htEditableCheck == false || htEditable != undefined) {
@@ -118,17 +92,38 @@ function htResetGenealogicalStats() {
     return { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "social_media_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
 }
 
-function htAddTreeReflection(id, key)
+function htAddTreeReflection(elementId, keywordIndex)
 {
-    if ($(id).length > 0 && keywords.length >= key) {
-        $(id).html(keywords[key]);
+    const $element = $(elementId);
+
+    if ($element.length === 0 || !Array.isArray(keywords)) {
+        return;
+    }
+
+    if (keywordIndex >= 0 && keywordIndex < keywords.length) {
+        $element.html(keywords[keywordIndex]);
     }
 }
 
-function htAddReligionReflection(id)
+function htAddReligionReflection(elementSelector)
 {
-    if ($(id).length > 0 && keywords.length > 68) {
-        $(id).html(keywords[69]);
+    const RELIGION_KEYWORD_INDEX = 69;
+    if (!elementSelector || typeof elementSelector !== 'string') {
+        return;
+    }
+
+    const $element = $(elementSelector);
+
+    if ($element.length === 0 || !Array.isArray(keywords)) {
+        return;
+    } else if (keywords.length <= RELIGION_KEYWORD_INDEX) {
+        return;
+    }
+
+    try {
+        $element.html(keywords[RELIGION_KEYWORD_INDEX]);
+    } catch (error) {
+        console.error('Failed to set reflection content:', error);
     }
 }
 
@@ -475,25 +470,6 @@ function htOverwriteHTDateWithText(text, localDate, localLang, localCalendar) {
     for (const i in localDate) {
         var changed = ret.replace("<htdate"+i+">", htMountSpecificDate(localDate[i], localLang, localCalendar));
         ret = changed;
-    }
-
-    return ret;
-}
-
-function htOverwriteLatexWithText(text, latex) {
-    if (latex == undefined  || latex.length == 0) {
-        return;
-    }
-
-    var ret = text;
-    for (const i in latex) {
-        var newDiv = "<div id=\"htEequation"+extLatexIdx+"\"></div>";
-        $("#ht_index_latex").append(newDiv);
-        htLatexToText(latex[i], extLatexIdx);
-
-        var changed = ret.replace("<htequation"+i+">", "<div id=\"htequation"+extLatexIdx+"\"></div>");
-        ret = changed;
-        extLatexIdx++;
     }
 
     return ret;
