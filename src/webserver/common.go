@@ -9,6 +9,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -495,11 +496,29 @@ func htWriteFamilyIndexFile(lang string, index *IdxFamily) (string, error) {
 
 // Audio
 func htAdjustAudioStringBeforeWrite(str string) string {
+	tableLineRegex := regexp.MustCompile(`^\+(?:[+-. ]+)+\+$`)
+	dashLineRegex := regexp.MustCompile(`^\s*-+\s*$`)
+	patternLinksRegex := regexp.MustCompile(`\([\s#;]*\)`)
+
+	lines := strings.Split(str, "\n")
+	final := ""
+	for _, line := range lines {
+		if tableLineRegex.MatchString(line) {
+			continue
+		}
+		if dashLineRegex.MatchString(line) {
+			continue
+		}
+		if patternLinksRegex.MatchString(line) {
+			continue
+		}
+
+		final += line + "\n"
+	}
+
+	ret := final
+
 	// Headers
-	ret := strings.ReplaceAll(str, "-------------\n", "\n")
-	ret = strings.ReplaceAll(ret, "---------\n", "\n")
-	ret = strings.ReplaceAll(ret, "--------\n", "\n")
-	ret = strings.ReplaceAll(ret, "*", "")
 	ret = strings.ReplaceAll(ret, "(Part I)", "(Part 1)")
 	ret = strings.ReplaceAll(ret, "(Parte I)", "(Parte 1)")
 	ret = strings.ReplaceAll(ret, "(Part II)", "(Part 2)")
@@ -507,13 +526,6 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 	ret = strings.ReplaceAll(ret, "(Part III)", "(Part 3)")
 	ret = strings.ReplaceAll(ret, "(Parte III)", "(Parte 3)")
 	ret = strings.ReplaceAll(ret, "|", ".")
-
-	// URL
-	ret = strings.ReplaceAll(ret, "( # )", "")
-	ret = strings.ReplaceAll(ret, " ( )", "")
-	ret = strings.ReplaceAll(ret, " ( ; )", "")
-	ret = strings.ReplaceAll(ret, " ( ; ; )", "")
-	ret = strings.ReplaceAll(ret, " ( ; ; ; )", "")
 
 	return ret
 }

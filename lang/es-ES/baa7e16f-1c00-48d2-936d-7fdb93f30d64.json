@@ -4,12 +4,13 @@
     "sources" : [ "baa7e16f-1c00-48d2-936d-7fdb93f30d64" ],
     "scripts" : [ "baa7e16f-1c00-48d2-936d-7fdb93f30d64" ],
     "index" : [ "literature" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1735748916" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
+    "last_update" : [ "1754251739" ],
     "authors" : null,
     "reviewers" : null,
-    "version" : 1,
     "type" : "class",
+   "version": 2,
+   "editing": false,
     "content" : [
         {
             "target" : "group_list",
@@ -19,7 +20,7 @@
                     "id" : "prerequisites",
                     "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
                                "<p class=\"topdesc\"><i>Las siglas A.E.C. (Antes de la Era Comun), B.C.E. (Before common Era) y los años negativos son convenciones generales para representar eras anteriores a las primeras fechas registradas en los calendarios.</i></p>",
-                              "<p class=\"topdesc\"><i>Además de utilizar el nombre América, también nos referiremos al continente como <i>Abya Yala</i>, denominación empleada por los pueblos originarios del continente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i></p>", 
+                              "<p class=\"topdesc\"><i>Además de utilizar el nombre América, también nos referiremos al continente como <i>Abya Yala</i>, denominación empleada por los pueblos originarios del continente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</i></p>", 
                               { "text" : "### Prerrequisitos\n\nEste texto se basará en todos los conceptos presentados en los sete primeros textos. Además, utilizaremos los conceptos de conteo y escalas discutidos en los dos primeros capítulos de la sección \"*Primeros Pasos*\", junto con los conocimientos explorados en la sección \"*Atlas*\"",
                                  "source" : [ 
                                               { "type": 1,
@@ -54,8 +55,7 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               "<p>Comencemos, una última vez en este capítulo, con una reflexión sobre ciencia y religión, con el objetivo de reforzar nuestra perspectiva:</p>",
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div></div></center></p>"
+                               "<p>Comencemos, una última vez en este capítulo, con una reflexión sobre ciencia y religión, con el objetivo de reforzar nuestra perspectiva:</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div></div></center></p>"
                     ]
                 },
                 {
@@ -205,14 +205,7 @@
                                  "format" : "markdown",
                                  "PostMention": ":"
                                },
-                               { "text" : "- *Atrahasis*, cuyo nombre significa \"extremadamente inteligente\", es el protagonista.\n- Los dioses crearon a los humanos para aligerar sus propias tareas.\n- El ruido humano molestó a los dioses, quienes enviaron pestes y destruyeron cultivos.\n- *Enki* advierte a *Atrahasis* que construya un barco para salvarse junto con su familia y los animales del diluvio\n",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                                   { "text" : "#### Más Allá del Cubo\n\nRecientemente, el Dr. Irving Finkel descubrió que el barco descrito en la versión babilónica no era cúbico, sino circular. Según su investigación, el barco tenía una superficie de 3.600 m<sup>2</sup>, 7 metros de altura, y fue construido con 527 km de cuerda (*rope*)",
+                               { "text" : "- *Atrahasis*, cuyo nombre significa \"extremadamente inteligente\", es el protagonista.\n- Los dioses crearon a los humanos para aligerar sus propias tareas.\n- El ruido humano molestó a los dioses, quienes enviaron pestes y destruyeron cultivos.\n- *Enki* advierte a *Atrahasis* que construya un barco para salvarse junto con su familia y los animales del diluvio.\n\n#### Más Allá del Cubo\n\nRecientemente, el Dr. Irving Finkel descubrió que el barco descrito en la versión babilónica no era cúbico, sino circular. Según su investigación, el barco tenía una superficie de 3.600 m<sup>2</sup>, 7 metros de altura, y fue construido con 527 km de cuerda (*rope*)",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "8637140f-b357-45d4-8c59-e39a289096ab",
@@ -308,7 +301,7 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/Caral/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figura 4: Pirámide H1 en el sitio arqueológico de Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span class=\"htdate\"></span></a>). Foto tomada el <span class=\"htdate\"></span> durante una visita al sítio.</p>",
+                               "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/Caral/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figura 4: Pirámide H1 en el sitio arqueológico de Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <htdate0></a>). Foto tomada el <htdate0> durante una visita al sítio.</p>",
                                { "text" : "La *Enciclopedia Britannica* señala que no se han descubierto evidencias históricas que confirmen los eventos narrados en el poema, pero esto no impide estimar cuándo podría haber vivido el rey de Ur mencionado. Esto se debe a que *Enmebaragesi*, rey de Kish, está documentado gracias a una cerámica fechada entre <htdate0> y <htdate1>, que confirma su existencia. Además, Aga, hijo de *Enmebaragesi*, es mencionado en otro poema por su encuentro con *Gilgamesh*",
                                  "source" : [
                                               { "type": 0,
@@ -366,7 +359,7 @@
                                  "PostMention": "."
                                },
                                "<p class=\"desc\"><img src=\"images/Ashmolean/47565.jpg\" id=\"imgS\" onclick=\"htImageZoom('imgS', '0%')\" class=\"imgcenter\"/>Figura 6: Estatuillas de la Sexta Dinastía. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f3b5c752-03d2-446d-b398-2c7f3ad4c2ee'); return false;\">Ashmolean Image Library</a>).</p>",
-                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica</b><br />Con base en lo analizado sobre el <i>Épico de Gilgamesh</i>, es posible inferir conclusiones similares para el <i>Épico de Atrahasis</i>. La versión que conocemos de este texto fue escrita entre el final del Reino Antiguo y el inicio del Reino Nuevo de Egipto (<span class=\"htdate\"></span> - <span class=\"htdate\"></span>), lo que refuerza la ausencia de lagunas arqueológicas significativas en este intervalo. ¿Podemos confirmar la existencia de datos arqueológicos en Egipto durante este período (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4fc70dfb-f585-4100-975a-7acccc5af501'); return false;\">Bowman, A. K., et al</a>)? </p>"
+                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica</b><br />Con base en lo analizado sobre el <i>Épico de Gilgamesh</i>, es posible inferir conclusiones similares para el <i>Épico de Atrahasis</i>. La versión que conocemos de este texto fue escrita entre el final del Reino Antiguo y el inicio del Reino Nuevo de Egipto (<htdate0> - <htdate0>), lo que refuerza la ausencia de lagunas arqueológicas significativas en este intervalo. ¿Podemos confirmar la existencia de datos arqueológicos en Egipto durante este período (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4fc70dfb-f585-4100-975a-7acccc5af501'); return false;\">Bowman, A. K., et al</a>)? </p>"
                     ]
                 },
                 {
@@ -398,7 +391,7 @@
                                  "format" : "markdown",
                                  "PostMention": ":"
                                },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: El diluvio en la Torá</b><br /><br />El diluvio descrito en la Torá habría ocurrido después del período de Gilgamesh y antes de <i>Atrahasis</i>, situándose en paralelo al Reino Antiguo de Egipto y a las construcciones de la ciudad de Caral, en Perú.<br /><br />Un punto importante a considerar es que no sabemos con certeza quién escribió la Torá ni cuándo fue escrita. Existe consenso en que sus libros fueron producidos bajo diferentes contextos históricos para expresar perspectivas religiosas o políticas diversas. Además, son textos más recientes que los épicos babilónicos y sumerios, por lo que podrían haberse inspirado en ellos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('539bf348-94a2-48af-9cf6-c71905a0fc34'); return false;\">Frymer-Kensky, T., <span class=\"htdate\"></span>, pp. 147 - 155</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('68b1c90d-f604-4bc8-8010-a01620eeca54'); return false;\">Finkelstein, Israel & Silbeman, Neil A., <span class=\"htdate\"></span>, pp. 11 - 13</a>)<br /><br />¿Qué conclusiones podemos extraer sobre el diluvio judío?</div></div></center></p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: El diluvio en la Torá</b><br /><br />El diluvio descrito en la Torá habría ocurrido después del período de Gilgamesh y antes de <i>Atrahasis</i>, situándose en paralelo al Reino Antiguo de Egipto y a las construcciones de la ciudad de Caral, en Perú.<br /><br />Un punto importante a considerar es que no sabemos con certeza quién escribió la Torá ni cuándo fue escrita. Existe consenso en que sus libros fueron producidos bajo diferentes contextos históricos para expresar perspectivas religiosas o políticas diversas. Además, son textos más recientes que los épicos babilónicos y sumerios, por lo que podrían haberse inspirado en ellos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('539bf348-94a2-48af-9cf6-c71905a0fc34'); return false;\">Frymer-Kensky, T., <htdate0>, pp. 147 - 155</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('68b1c90d-f604-4bc8-8010-a01620eeca54'); return false;\">Finkelstein, Israel & Silbeman, Neil A., <htdate0>, pp. 11 - 13</a>)<br /><br />¿Qué conclusiones podemos extraer sobre el diluvio judío?</div></div></center></p>",
                               { "text" : "Al tratarse de una reflexión, no la responderemos directamente, sino que ofreceremos un comentario basado en esta y en la Reflexión 1. Clasificar algo como simplemente correcto o incorrecto sería una simplificación de la complejidad de lo que hemos estudiado. Como señala el Rabino Doctor Yitzchok Breitowitz, algunos especialistas judíos plantean la posibilidad de que la Torá \"*emplee un lenguaje metafórico o alegórico*\" en sus pasajes iniciales, una interpretación respaldada por evidencias arqueológicas",
                                  "source" : [ 
                                               { "type": 1,
@@ -435,7 +428,7 @@
                         {
                             "question" : "¿Todos los diluvios mencionados aquí han sido comprobados científicamente y tienen una escala global?",
                             "yesNoAnswer" : "No",
-                            "additionalInfo" : "Las evidencias arqueológicas y geológicas disponibles hasta el momento apuntan en dirección contraria a lo que sugieren los relatos de los diluvios. No existe ninguna prueba concreta que confirme la existencia de los personajes mencionados en estas narrativas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('01cd11ec-2bcb-41d9-9313-cc09e59cd0c8'); return false;\">Mark, J. J., <span class=\"htdate\"></span></a>)."
+                            "additionalInfo" : "Las evidencias arqueológicas y geológicas disponibles hasta el momento apuntan en dirección contraria a lo que sugieren los relatos de los diluvios. No existe ninguna prueba concreta que confirme la existencia de los personajes mencionados en estas narrativas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('01cd11ec-2bcb-41d9-9313-cc09e59cd0c8'); return false;\">Mark, J. J., <htdate0></a>)."
                         }
                     ]
                 },

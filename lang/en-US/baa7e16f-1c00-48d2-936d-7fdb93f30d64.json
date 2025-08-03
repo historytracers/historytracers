@@ -4,12 +4,14 @@
     "sources" : [ "baa7e16f-1c00-48d2-936d-7fdb93f30d64" ],
     "scripts" : [ "baa7e16f-1c00-48d2-936d-7fdb93f30d64" ],
     "index" : [ "literature" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1735748916" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
+    "last_update" : [ "1754251739" ],
     "authors" : null,
     "reviewers" : null,
     "version" : 1,
     "type" : "class",
+   "version": 2,
+   "editing": false,
     "content" : [
         {
             "target" : "group_list",
@@ -19,7 +21,7 @@
                     "id" : "prerequisites",
                     "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
                                "<p class=\"topdesc\"><i>The abbreviations A.E.C, B.C.E (Before Common Era), and negative years serve as generalizations for representing eras preceding the initial days of the calendars.</i></p>",
-                               "<p class=\"topdesc\"><i>In addition to using the name America, we will also refer to the continent as <i>Abya Yala</i>, a term used by the indigenous peoples of the continent (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i></p>", 
+                               "<p class=\"topdesc\"><i>In addition to using the name America, we will also refer to the continent as <i>Abya Yala</i>, a term used by the indigenous peoples of the continent (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</i></p>", 
                               { "text" : "### Pre-requisites\n\nThis text builds on all the concepts presented in the previous seven texts. Additionally, we will use the concepts of counting and scales discussed in the first two chapters of the \"*First steps*\" and expands on the concepts presented in the \"*Atlas*\" section",
                                  "source" : [ 
                                               { "type": 1,
@@ -54,8 +56,7 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               "<p>Let us begin, for the last time in this chapter, with a reflection about science and religion, with the goal to reinforce our goal:</p>",
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div></div></center></p>"
+                               "<p>Let us begin, for the last time in this chapter, with a reflection about science and religion, with the goal to reinforce our goal:</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div></div></center></p>"
                     ]
                 },
                 {
@@ -205,14 +206,7 @@
                                  "format" : "markdown",
                                  "PostMention": ":"
                                },
-                               { "text" : "- *Atrahasis* (\"exceedingly wise\") as the protagonist.\n- The gods created humans to labor for them.\n- They grew irritated by the noise and disturbances humans caused. In response, the gods sent plagues and famines.\n- Forewarned by the god *Enki*, *Atrahasis* built a boat to save himself, his family, and animals\n",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                                   { "text" : "#### Beyond the Cube\n\nDr. Irving Finkel's research revealed that the Babylonian flood boat described in the *Atrahasis Epic* was not cubic but circular. His findings suggest the boat had a surface area of 3,600 square meters, a height of 7 meters, and required 527 kilometers of rope for construction",
+                               { "text" : "- *Atrahasis* (\"exceedingly wise\") as the protagonist.\n- The gods created humans to labor for them.\n- They grew irritated by the noise and disturbances humans caused. In response, the gods sent plagues and famines.\n- Forewarned by the god *Enki*, *Atrahasis* built a boat to save himself, his family, and animals.\n\n#### Beyond the Cube\n\nDr. Irving Finkel's research revealed that the Babylonian flood boat described in the *Atrahasis Epic* was not cubic but circular. His findings suggest the boat had a surface area of 3,600 square meters, a height of 7 meters, and required 527 kilometers of rope for construction",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "8637140f-b357-45d4-8c59-e39a289096ab",
@@ -308,7 +302,7 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/Caral/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figure 4: Pyramid H1 in the archaeological site of Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span class=\"htdate\"></span></a>). Photo taken on <span class=\"htdate\"></span>, during a site visite.</p>",
+                               "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/Caral/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figure 4: Pyramid H1 in the archaeological site of Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <htdate0></a>). Photo taken on <htdate0>, during a site visite.</p>",
                                { "text" : "The *British Encyclopedia* notes that no evidence has been discovered to directly support the events described in ancient Mesopotamian texts. However, this does not prevent us from estimating when the king of Ur may have lived. For instance, *Enmebaragesi*, king of Kish, is documented through a ceramic piece dated between <htdate0> and <htdate1>, confirming his existence. Furthermore, Aga, son of *Enmebaragesi*, is mentioned in another poem detailing his meeting with *Gilgamesh*",
                                  "source" : [
                                               { "type": 0,
@@ -366,7 +360,7 @@
                                  "PostMention": "."
                                },
                                "<p class=\"desc\"><img src=\"images/Ashmolean/47565.jpg\" id=\"imgS\" onclick=\"htImageZoom('imgS', '0%')\" class=\"imgcenter\"/>Figure 6: Estatuillas of the Sixth Dynasty. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f3b5c752-03d2-446d-b398-2c7f3ad4c2ee'); return false;\">Ashmolean Image Library</a>).</p>",
-                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice</b><br />Based on our analysis of the <i>Epic of Gilgamesh</i>, it is possible to draw analogous conclusions for the <i>Epic of Atrahasis</i>. The version of the text we know today was written between the end of Egypt's Old Kingdom and the beginning of the New Kingdom (<span class=\"htdate\"></span> - <span class=\"htdate\"></span>), reinforcing the absence of significant archaeological gaps during this period. Can you confirm the presence of archaeological evidence in Egypt from this interval (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4fc70dfb-f585-4100-975a-7acccc5af501'); return false;\">Bowman, A. K., et al</a>)? </p>"
+                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice</b><br />Based on our analysis of the <i>Epic of Gilgamesh</i>, it is possible to draw analogous conclusions for the <i>Epic of Atrahasis</i>. The version of the text we know today was written between the end of Egypt's Old Kingdom and the beginning of the New Kingdom (<htdate0> - <htdate0>), reinforcing the absence of significant archaeological gaps during this period. Can you confirm the presence of archaeological evidence in Egypt from this interval (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4fc70dfb-f585-4100-975a-7acccc5af501'); return false;\">Bowman, A. K., et al</a>)? </p>"
                     ]
                 },
                 {
@@ -398,7 +392,7 @@
                                  "format" : "markdown",
                                  "PostMention": ":"
                                },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: The Torah's Deluge</b><br /><br />The deluge described in the Torah is situated after the period of the Epic of <i>Gilgamesh</i> and before that of the <i>Epic of Atrahasis</i>. This places it in parallel with Egypt's Old Kingdom and the construction of the city of Caral in Peru.<br /><br />An important point to consider is that we do not know precisely who wrote the Torah or when it was written. There is general consensus that its books were produced in different historical contexts, often reflecting distinct religious or political perspectives. Additionally, the Torah's texts are more recent than the Sumerian and Babylonian epics and may have been influenced by them (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('539bf348-94a2-48af-9cf6-c71905a0fc34'); return false;\">Frymer-Kensky, T., <span class=\"htdate\"></span>, pp. 147 - 155</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('68b1c90d-f604-4bc8-8010-a01620eeca54'); return false;\">Finkelstein, Israel & Silbeman, Neil A., <span class=\"htdate\"></span>, pp. 11 - 13</a>)<br /><br />What conclusions can we draw about the Jewish deluge?</div></div></center></p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: The Torah's Deluge</b><br /><br />The deluge described in the Torah is situated after the period of the Epic of <i>Gilgamesh</i> and before that of the <i>Epic of Atrahasis</i>. This places it in parallel with Egypt's Old Kingdom and the construction of the city of Caral in Peru.<br /><br />An important point to consider is that we do not know precisely who wrote the Torah or when it was written. There is general consensus that its books were produced in different historical contexts, often reflecting distinct religious or political perspectives. Additionally, the Torah's texts are more recent than the Sumerian and Babylonian epics and may have been influenced by them (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('539bf348-94a2-48af-9cf6-c71905a0fc34'); return false;\">Frymer-Kensky, T., <htdate0>, pp. 147 - 155</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('68b1c90d-f604-4bc8-8010-a01620eeca54'); return false;\">Finkelstein, Israel & Silbeman, Neil A., <htdate0>, pp. 11 - 13</a>)<br /><br />What conclusions can we draw about the Jewish deluge?</div></div></center></p>",
                               { "text" : "Since this is a reflection, we will not answer it directly. Instead, we will provide a brief comment based on this and Reflection 1. Classifying something as simply right or wrong oversimplifies the complexity of what we are studying. As noted by Rabbi Dr. Yitzchok Breitowitz, some Jewish sages consider the possibility that the Torah \"*might be speaking metaphorically or allegorically*\" in its early sections, an interpretation supported by archaeological evidence",
                                  "source" : [ 
                                               { "type": 1,
@@ -435,7 +429,7 @@
                         {
                             "question" : "Were all the deluges mentioned here scientifically proven to have occurred on a global scale?",
                             "yesNoAnswer" : "No",
-                            "additionalInfo" : "The archaeological and geological evidence currently available contradicts the narratives of a global deluge. There is no concrete evidence to confirm the existence of the individuals mentioned in these stories or the events described within them (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('01cd11ec-2bcb-41d9-9313-cc09e59cd0c8'); return false;\">Mark, J. J., <span class=\"htdate\"></span></a>)."
+                            "additionalInfo" : "The archaeological and geological evidence currently available contradicts the narratives of a global deluge. There is no concrete evidence to confirm the existence of the individuals mentioned in these stories or the events described within them (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('01cd11ec-2bcb-41d9-9313-cc09e59cd0c8'); return false;\">Mark, J. J., <htdate0></a>)."
                         }
                     ]
                 },

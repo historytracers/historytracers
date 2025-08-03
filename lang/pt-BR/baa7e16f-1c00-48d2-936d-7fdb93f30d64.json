@@ -4,12 +4,12 @@
     "sources" : [ "baa7e16f-1c00-48d2-936d-7fdb93f30d64" ],
     "scripts" : [ "baa7e16f-1c00-48d2-936d-7fdb93f30d64" ],
     "index" : [ "literature" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1735748916" ],
-    "authors" : null,
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
+    "last_update" : [ "1754251739" ],
     "reviewers" : null,
-    "version" : 1,
     "type" : "class",
+   "version": 2,
+   "editing": false,
     "content" : [
         {
             "target" : "group_list",
@@ -19,7 +19,7 @@
                     "id" : "prerequisites",
                     "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
                               "<p class=\"topdesc\"><i>As siglas A.E.C. (Antes da Era Comum) e B.C.E. (Before Common Era) ) usadas abaixo, juntamente com o conceito de anos negativos, são convenções gerais utilizadas para representar períodos anteriores à primeira data registrada nos calendários.</i></p>",
-                               "<p class=\"topdesc\"><i>Além de utilizar o nome América, também faremos referência ao continente como <i>Abya Yala</i>, nome pelo qual é reconhecido pelos povos originários do continente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i></p>",
+                               "<p class=\"topdesc\"><i>Além de utilizar o nome América, também faremos referência ao continente como <i>Abya Yala</i>, nome pelo qual é reconhecido pelos povos originários do continente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</i></p>",
                               { "text" : "### Pré-requisitos\n\nEste texto se baseará em todos os conceitos apresentados nos sete primeiros textos. Além disso, utilizaremos os conceitos de contagem e escalas discutidos nos dois primeiros capítulos da seção \"*Primeiros Passos*\", assim como os conhecimentos abordados na seção \"*Atlas*\"",
                                  "source" : [ 
                                               { "type": 1,
@@ -54,8 +54,7 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               "<p>Neste capítulo, começaremos uma última vez com uma reflexão sobre ciência e religião, a fim de reforçar nosso objetivo:</p>",
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div></div></center></p>"
+                               "<p>Neste capítulo, começaremos uma última vez com uma reflexão sobre ciência e religião, a fim de reforçar nosso objetivo:</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div></div></center></p>"
                     ]
                 },
                 {
@@ -205,14 +204,7 @@
                                  "format" : "markdown",
                                  "PostMention": ":"
                                },
-                               { "text" : "- *Atrahasis*, cujo nome significa \"extremamente inteligente\", é o protagonista do dilúvio.\n- Os deuses criaram os humanos para aliviar suas próprias tarefas.\n- Os deuses enviaram pestes e afetaram as plantações devido ao barulho humano.\n- Enki avisa *Atrahasis* para construir um barco, para salvar sua família e os animais do dilúvio.\n",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": " "
-                               },
-                                   { "text" : "#### Além do cubo\n\nRecentemente, o Dr. Irving Finkel descobriu que o barco descrito na versão babilônica do dilúvio era circular, com uma superfície de 3.600 m<sup>2</sup> e 7 metros de altura, construído com 527 km de cordas (*rope*)",
+                               { "text" : "- *Atrahasis*, cujo nome significa \"extremamente inteligente\", é o protagonista do dilúvio.\n- Os deuses criaram os humanos para aliviar suas próprias tarefas.\n- Os deuses enviaram pestes e afetaram as plantações devido ao barulho humano.\n- Enki avisa *Atrahasis* para construir um barco, para salvar sua família e os animais do dilúvio.\n\n#### Além do cubo\n\nRecentemente, o Dr. Irving Finkel descobriu que o barco descrito na versão babilônica do dilúvio era circular, com uma superfície de 3.600 m<sup>2</sup> e 7 metros de altura, construído com 527 km de cordas (*rope*)",
                                  "source" : [
                                               { "type": 1,
                                                 "uuid": "8637140f-b357-45d4-8c59-e39a289096ab",
@@ -308,7 +300,7 @@
                                  "format" : "markdown",
                                  "PostMention": "."
                                },
-                               "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/Caral/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figura 4: Pirâmide H1 no sítio arqueológico de Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span class=\"htdate\"></span></a>). Foto tirada em <span class=\"htdate\"></span> durante uma visita ao sítio.</p>",
+                               "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/Caral/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figura 4: Pirâmide H1 no sítio arqueológico de Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <htdate0></a>). Foto tirada em <htdate0> durante uma visita ao sítio.</p>",
                                { "text" : "A *Enciclopédia Britannica* nos informa que ainda não foram descobertas qualquer tipo de evidência histórica dos eventos do poema, mas isto não nos impossibilita de estimar quando este rei de Ur teria vivido. Isto é possível, graças ao fato que *Enmebaragesi*, rei de Kish, possuí uma cerâmica  datada entre <htdate0> e <htdate1>, que atesta sua existência. Além disso, Aga, filho de *Enmebaragesi*, é mencionado em outro poema em um encontro com *Gilgamesh*",
                                  "source" : [
                                               { "type": 0,
@@ -366,7 +358,7 @@
                                  "PostMention": "."
                                },
                                "<p class=\"desc\"><img src=\"images/Ashmolean/47565.jpg\" id=\"imgS\" onclick=\"htImageZoom('imgS', '0%')\" class=\"imgcenter\"/>Figura 6: Estatuetas da sexta dinastia. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f3b5c752-03d2-446d-b398-2c7f3ad4c2ee'); return false;\">Ashmolean Image Library</a>).</p>",
-                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática</b><br />Com base no que analisamos sobre o <i>Épico de Gilgamesh</i>, é possível inferir conclusões semelhantes para o <i>Épico de Atrahasis</i>. A versão conhecida desse texto foi escrita entre o final do Reino Antigo e o início do Novo Reino do Egito (<span class=\"htdate\"></span> - <span class=\"htdate\"></span>), o que reforça que não há lacunas arqueológicas significativas nesse intervalo. Poderias confirmar a existência de dados no Egito neste período (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4fc70dfb-f585-4100-975a-7acccc5af501'); return false;\">Bowman, A. K., et al</a>)? </p>"
+                               "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática</b><br />Com base no que analisamos sobre o <i>Épico de Gilgamesh</i>, é possível inferir conclusões semelhantes para o <i>Épico de Atrahasis</i>. A versão conhecida desse texto foi escrita entre o final do Reino Antigo e o início do Novo Reino do Egito (<htdate0> - <htdate0>), o que reforça que não há lacunas arqueológicas significativas nesse intervalo. Poderias confirmar a existência de dados no Egito neste período (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4fc70dfb-f585-4100-975a-7acccc5af501'); return false;\">Bowman, A. K., et al</a>)? </p>"
                     ]
                 },
                 {
@@ -398,7 +390,7 @@
                                  "format" : "markdown",
                                  "PostMention": ":"
                                },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: O dilúvio da Torah</b><br /><br />O dilúvio descrito na Torá teria ocorrido após o período de *Gilgamesh* e antes do *Atrahasis*. Isso o situa em paralelo ao Reino Antigo do Egito e às construções da cidade de Caral, no Peru.<br /><br />Um ponto importante é que não sabemos exatamente quem escreveu a Torá ou quando foi escrita. Há consenso de que seus livros foram produzidos em diferentes contextos históricos para expressar visões religiosas ou políticas distintas. Além disso, são textos mais recentes que os épicos babilônicos e sumérios, podendo até ter se inspirado neles (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('539bf348-94a2-48af-9cf6-c71905a0fc34'); return false;\">Frymer-Kensky, T., <span class=\"htdate\"></span>, pp. 147 - 155</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('68b1c90d-f604-4bc8-8010-a01620eeca54'); return false;\">Finkelstein, Israel & Silbeman, Neil A., <span class=\"htdate\"></span>, pp. 11 - 13</a>)<br /><br />Que conclusões podemos tirar sobre o dilúvio judaico?</div></div></center></p>",
+                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: O dilúvio da Torah</b><br /><br />O dilúvio descrito na Torá teria ocorrido após o período de *Gilgamesh* e antes do *Atrahasis*. Isso o situa em paralelo ao Reino Antigo do Egito e às construções da cidade de Caral, no Peru.<br /><br />Um ponto importante é que não sabemos exatamente quem escreveu a Torá ou quando foi escrita. Há consenso de que seus livros foram produzidos em diferentes contextos históricos para expressar visões religiosas ou políticas distintas. Além disso, são textos mais recentes que os épicos babilônicos e sumérios, podendo até ter se inspirado neles (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('539bf348-94a2-48af-9cf6-c71905a0fc34'); return false;\">Frymer-Kensky, T., <htdate0>, pp. 147 - 155</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('68b1c90d-f604-4bc8-8010-a01620eeca54'); return false;\">Finkelstein, Israel & Silbeman, Neil A., <htdate0>, pp. 11 - 13</a>)<br /><br />Que conclusões podemos tirar sobre o dilúvio judaico?</div></div></center></p>",
                               { "text" : "Por tratarse de uma reflexão, não a responderemos diretamente, mas faremos um comentário com base nesta e na Reflexão 1. Classificar algo como simplesmente certo ou errado seria uma simplificação da complexidade do que estudamos. Como destaca o Rabino Doutor Yitzchok Breitowitz, há especialistas judeus que consideram a possibilidade de que, em sua parte inicial, a Torá utilize \"*termos metafóricos ou alegóricos*\", interpretação que encontra respaldo em evidências arqueológicas",
                                  "source" : [
                                               { "type": 1,
@@ -435,7 +427,7 @@
                         {
                             "question" : "Todos os dilúvios mencionados aqui foram comprovados e possuem escala global?",
                             "yesNoAnswer" : "No",
-                            "additionalInfo" : "As evidências arqueológicas e geológicas disponíveis até o momento apontam na direção oposta ao que sugerem os relatos dos dilúvios. Não há qualquer prova concreta que confirme a existência dos personagens citados nessas narrativas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('01cd11ec-2bcb-41d9-9313-cc09e59cd0c8'); return false;\">Mark, J. J., <span class=\"htdate\"></span></a>)."
+                            "additionalInfo" : "As evidências arqueológicas e geológicas disponíveis até o momento apontam na direção oposta ao que sugerem os relatos dos dilúvios. Não há qualquer prova concreta que confirme a existência dos personagens citados nessas narrativas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('01cd11ec-2bcb-41d9-9313-cc09e59cd0c8'); return false;\">Mark, J. J., <htdate0></a>)."
                         }
                     ]
                 },
