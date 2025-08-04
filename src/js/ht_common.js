@@ -2289,9 +2289,9 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     datetime = htMountPersonEvent(" ", marriage.date_time, localLang, localCalendar);
                 }
 
-                if (marriage.family_id == undefined || marriage.family_id.length == 0) {
+                if (marriage.family_id == undefined || marriage.family_id.length == 0 || familyID == undefined) {
                     marriageLink = marriage.name;
-                } else if ((familyid == marriage.family_id) || (marriage.external_family_file != undefined && marriage.external_family_file == false)) {
+                } else if ((familyID == marriage.family_id) || (marriage.external_family_file != undefined && marriage.external_family_file == false)) {
                     marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>"+datetime;
                 } else {
                     marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>"+datetime;
