@@ -837,7 +837,7 @@ func htAddNewSourceToDirectory(newFile string) {
 }
 
 func htAddNewJSToDirectory(newFile string) {
-	srcPath := fmt.Sprintf("%ssrc/js/classes.js", CFG.SrcPath)
+	srcPath := fmt.Sprintf("%ssrc/js/ht_classes.js", CFG.SrcPath)
 	dstPath := fmt.Sprintf("%s/js/%s.js", CFG.SrcPath, newFile)
 
 	if verboseFlag {
