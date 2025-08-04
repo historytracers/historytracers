@@ -13,5 +13,6 @@ Sugere-se que, antes de publicar os arquivos traduzidos, você altere os arquivo
 Os seguintes subdiretórios estão presentes neste diretório:
 
 -  `aa-BB`: São os diretórios de idiomas, onde `aa` representa o código do idioma e `BB` a sigla do país.
+-  `aa-BB/smGame`: Contém arquivos do jogo *Scientific Method*.
 -  `source`: Este diretório contém os arquivos que possuem as fontes mencionadas nos arquivos de idiomas.
 

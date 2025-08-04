@@ -1,35 +1,50 @@
-## Scripts
+## Python
 
-This directory contains various scripts used to generate content for the History Tracers project.
+This directory contains scripts for generating content in the History Tracers project.
 
 ### Subdirectories
 
-The directory is organized into the following subdirectories:
+- **`bash/`**  
+  Contains Bash scripts for file creation and project setup.
+- **`python/`**  
+  Contains Python scripts for image generation.
 
--  `bash`: Contains Bash scripts for creating files used in History Tracers.
--  `python`: Contains Python scripts for generating images used in the project.
+### Bash Scripts
 
-### Bash subirectory
+All Bash scripts are designed to run within their respective directories and will handle directory changes automatically when needed.
 
-The Bash scripts are designed to run within their respective directory. When necessary, they will automatically change the directory to perform their tasks.
+#### Available Scripts:
+- **`create_game.sh`**  
+  Generates files for the *Scientific Method* game (modifiable for other games).
+- **`create_language.sh`**  
+  Sets up new language directories with template files.
+- **`ht_tts.sh`**  
+  Converts text to WAV audio using input files:
+  - `PT_TEXT`
+  - `ES_TEXT` 
+  - `EN_TEXT`
 
-Available scripts:
+#### Supporting Directory:
+- **`models/`**  
+  Contains models used by `ht_tts.sh` for text-to-speech conversion.
 
--  `create_class.sh`: Generates class files based on the provided argument (`science`, `history`, or `first_steps`). 
--  `create_game.sh`: Creates files for the  `Scientific Method` game. Future games can modify this script to create their own files.
--  `create_language.sh`: Sets up a new language directory and generates the necessary files for it.
--  `ht_tts.sh`: Convert a text specified in one of the input files (`PT_TEXT`, `ES_TEXT` or `EN_TEXT`) into a WAV file.
--  `update_js_css.sh`: Updates the index whenever files in the `src` directory are modified.
+### Python Scripts
 
-### Python subirectory
+These scripts can be executed from any location, though generated images need manual placement in their final directories.
 
-These scripts can be run from any directory, but you will need to move the generated images to the appropriate directory.
+All current scripts produce images for the *First Steps* section.
 
-Currently, all available scripts in this subdirectory generate images for the section titled `The universe and us`.
+#### Image Generation Scripts:
+- **Basic Shapes**
+  - `sphere.py` - Sphere visualization
+  - `pyramid.py` - Pyramid visualization
+  - `pentagonal_pyramid.py` - Pentagonal pyramid
+  - `parallelepiped.py` - Parallelepiped
 
-Available scripts:
+- **Charts & Graphs**
+  - `2daxis.py` - 2D coordinate chart
+  - `line.py` - 1D linear chart
+  - `trigonometry.py` - Sine/cosine wave plots
 
--  `2daxis.py`: Generates a 2D chart image.
--  `line.py`: Generates a 1D chart image.
--  `parallelepiped.py`: Generates an image of a parallelepiped.
-
+- **Utilities**
+  - `geographical2mathcoord.py` - Coordinate system conversion
