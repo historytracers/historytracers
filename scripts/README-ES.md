@@ -1,35 +1,50 @@
-## Scripts
+## Python
 
-Este directorio contiene varios scripts utilizados para generar contenidos para el proyecto History Tracers.
+Este directorio contiene scripts para generar contenido del proyecto History Tracers.
 
 ### Subdirectorios
 
-Los siguientes subdirectorios están presentes en este directorio:
+- **`bash/`**  
+  Contiene scripts Bash para creación de archivos y configuración del proyecto
+- **`python/`**  
+  Contiene scripts Python para generación de imágenes
 
--  `bash`: Contiene scripts Bash usados para crear archivos para History Tracers.
--  `python`: Contiene scripts Python usados para generar imágenes utilizadas en History Tracers.
+### Scripts Bash
 
-### Subdirectorio bash
+Todos los scripts Bash están diseñados para ejecutarse dentro de sus respectivos directorios y manejarán automáticamente los cambios de directorio cuando sea necesario.
 
-Los scripts Bash están diseñados para ejecutarse en el directorio donde se encuentran. Cuando sea necesario, los scripts cambiarán de directorio para realizar sus tareas.
+#### Scripts disponibles:
+- **`create_game.sh`**  
+  Genera archivos para el juego *Método Científico* (modificable para otros juegos)
+- **`create_language.sh`**  
+  Configura nuevos directorios de idioma con archivos plantilla
+- **`ht_tts.sh`**  
+  Convierte texto a audio WAV usando archivos de entrada:
+  - `PT_TEXT`
+  - `ES_TEXT`
+  - `EN_TEXT`
 
-Los siguientes scripts están disponibles:
+#### Directorio auxiliar:
+- **`models/`**  
+  Contiene modelos usados por `ht_tts.sh` para conversión de texto a voz
 
--  `create_class.sh`: Crea archivos para una nueva clase según el argumento proporcionado (`science`, `history`, and `first_steps`). 
--  `create_game.sh`: Crea archivos utilizados en el juego `Método Científico`. Los juegos futuros deben modificar este script para crear sus propios archivos.
--  `create_language.sh`: Crea un directorio para un nuevo idioma y copia los archivos necesarios en él.
--  `ht_tts.sh`: Realiza la conversión de un texto presente en uno de los archivos de entrada (`PT_TEXT`, `ES_TEXT` or `EN_TEXT`) a un archivo WAV.
--  `update_js_css.sh`: Cada vez que se modifican archivos dentro del directorio `src`, es necesario ejecutar este script para actualizar el índice.
+### Scripts Python
 
-### Subdirectorio python
+Estos scripts pueden ejecutarse desde cualquier ubicación, aunque las imágenes generadas requieren colocación manual en sus directorios finales.
 
-Estos scripts no tienen restricciones de directorio para su ejecución, pero será necesario mover la imagen generada al directorio correspondiente.
+Todos los scripts actuales producen imágenes para la sección *Primeros Pasos*.
 
-Actualmente, todos los scripts disponibles en este subdirectorio generan imágenes utilizadas en la sección `Nosotros y el universo`.
+#### Scripts de generación de imágenes:
+- **Formas básicas**
+  - `sphere.py` - Visualización de esfera
+  - `pyramid.py` - Visualización de pirámide
+  - `pentagonal_pyramid.py` - Pirámide pentagonal
+  - `parallelepiped.py` - Paralelepípedo
 
-Los siguientes scripts están disponibles:
+- **Gráficos y diagramas**
+  - `2daxis.py` - Gráfico de coordenadas 2D
+  - `line.py` - Gráfico lineal 1D
+  - `trigonometry.py` - Gráficas de ondas seno/coseno
 
--  `2daxis.py`: Genera un gráfico 2D.
--  `line.py`: Genera un gráfico 1D.
--  `parallelepiped.py`: Genera una imagen de un paralelepípedo.
-
+- **Utilidades**
+  - `geographical2mathcoord.py` - Conversión de sistemas de coordenadas

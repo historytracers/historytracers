@@ -1,41 +1,64 @@
-## Src
+## src/
 
-This directory contains various source code files that serve as models for generating content for the History Tracers project.
+This directory contains source code files that serve as templates for content generation in the History Tracers project.
 
 ### Subdirectories
 
-The directory is organized into the following subdirectories:
+The directory structure is organized as follows:
 
--  `css`: Contains files used for formatting content.
--  `js`: Includes scripts utilized in games and texts.
--  `json`: Contains the site's overall content.
+- **`css/`**  
+  Stylesheets for content formatting
+- **`images/`**  
+  Source files for the images are located in `images/HistoryTracers`.
+- **`js/`**  
+  JavaScript scripts used in games and text content
+- **`json/`**  
+  Contains all site content templates
+- **`webserver/`**  
+  Web server source code
 
-### CSS subirectory
+### CSS Files
 
-The formatting is divided into two distinct CSS files:
+Style formatting is divided into two primary files:
 
--  `ht_common`: A generic file used for formatting the overall project.
--  `ht_math`: Used for formatting the Yupana, Mesoamerican numerals, and other math-related subjects.
+- **`ht_common.css`**  
+  Global styles used throughout the project
+- **`ht_math.css`**  
+  Specialized formatting for:
+  - Yupana numerals
+  - Mesoamerican numerals
+  - Other mathematical elements
 
-### JS subirectory
+### JavaScript Files
 
-These scripts serve as templates for generating content.
+These scripts function as content generation templates:
 
-Available scripts:
+#### Core Scripts:
+- **`ht_classes.js`**  
+  Contains content loading functions and exercise correction logic
+- **`ht_common.js`**  
+  Main project script with shared functionality
 
--  `classes`: Contains functions for loading content and correcting exercises.
--  `ht_charts`: Used in conjunction with [Chart.js](https://www.chartjs.org/).
--  `ht_common`: The main script used across the project.
--  `ht_math`: Contains mathematical functions.
+#### Specialized Scripts:
+- **`ht_charts.js`**  
+  Integrates with [Chart.js](https://www.chartjs.org/) for data visualization
+- **`ht_math.js`**  
+  Mathematical operations and calculations
 
-### JSON subirectory
+### JSON Templates
 
-Templates used for content generation.
+Content generation templates include:
 
-Available templates:
+#### Content Types:
+- **`atlas_template.json`**  
+  Geographic atlas content structure
+- **`class_template.json`**  
+  Classroom/lesson content framework
 
--  `class_template`: For creating class content.
--  `family_template`: For genealogical content.
--  `scientific_method_game_template`: Used with the `Scientific Method` game.
--  `sources_template`: For citations and references in the other templates.
-
+#### Specialized Templates:
+- **`family_template.json`**  
+  Genealogical relationship mapping
+- **`scientific_method_game_template.json`**  
+  Structure for the *Scientific Method* game
+- **`sources_template.json`**  
+  Citation and reference format for other templates

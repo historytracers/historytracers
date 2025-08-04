@@ -1,41 +1,64 @@
-## Src
+## src/
 
-Este diretório contém vários arquivos de código-fonte que servem como modelos para gerar conteúdo para o projeto History Tracers.
+Este diretório contém arquivos de código fonte que servem como modelos para geração de conteúdo no projeto History Tracers.
 
 ### Subdiretórios
 
-O diretório está organizado nos seguintes subdiretórios:
+A estrutura de diretórios está organizada da seguinte forma:
 
--  `css`: Contém arquivos usados para formatar o conteúdo.
--  `js`: Inclui scripts utilizados em jogos e textos.
--  `json`: Contém o conteúdo geral do site.
+- **`css/`**  
+  Folhas de estilo para formatação de conteúdo
+- **`images/`**  
+  Os arquivos fonte das imagens estão localizados em `images/HistoryTracers`
+- **`js/`**  
+  Scripts JavaScript usados em jogos e conteúdo textual
+- **`json/`**  
+  Contém todos os modelos de conteúdo do site
+- **`webserver/`**  
+  Código fonte do servidor web
 
-### Subdiretório CSS
+### Arquivos CSS
 
-A formatação é dividida em dois arquivos CSS distintos:
+A formatação de estilo está dividida em dois arquivos principais:
 
--  `ht_common`: Um arquivo genérico usado para formatar o projeto como um todo.
--  `ht_math`: Usado para formatar a Yupana, os números mesoamericanos e outros temas relacionados à matemática.
+- **`ht_common.css`**  
+  Estilos globais utilizados em todo o projeto
+- **`ht_math.css`**  
+  Formatação especializada para:
+  - Numerais Yupana
+  - Numeração mesoamericana
+  - Outros elementos matemáticos
 
-### Subdiretório JS
+### Arquivos JavaScript
 
-Esses scripts servem como modelos para gerar conteúdo.
+Estes scripts funcionam como modelos para geração de conteúdo:
 
-Scripts disponíveis:
+#### Scripts principais:
+- **`ht_classes.js`**  
+  Contém funções de carregamento de conteúdo e lógica para correção de exercícios
+- **`ht_common.js`**  
+  Script principal do projeto com funcionalidades compartilhadas
 
--  `classes`: Contém funções para carregar conteúdo e corrigir exercícios.
--  `ht_charts`: Usado em conjunto com [Chart.js](https://www.chartjs.org/).
--  `ht_common`: O script principal usado em todo o projeto.
--  `ht_math`: Contém funções matemáticas.
+#### Scripts especializados:
+- **`ht_charts.js`**  
+  Integra com [Chart.js](https://www.chartjs.org/) para visualização de dados
+- **`ht_math.js`**  
+  Operações e cálculos matemáticos
 
-### Subdiretório JSON
+### Modelos JSON
 
-Modelos usados para a geração de conteúdo.
+Os modelos de geração de conteúdo incluem:
 
-Modelos disponíveis:
+#### Tipos de conteúdo:
+- **`atlas_template.json`**  
+  Estrutura de conteúdo para atlas geográficos
+- **`class_template.json`**  
+  Estrutura para conteúdo de aulas/lições
 
--  `class_template`: Para criar conteúdo de aulas.
--  `family_template`: Para conteúdo genealógico.
--  `scientific_method_game_template`: Usado com o jogo `Scientific Method`.
--  `sources_template`: Para citações e referências nas outras modelos.
-
+#### Modelos especializados:
+- **`family_template.json`**  
+  Mapeamento de relações genealógicas
+- **`scientific_method_game_template.json`**  
+  Estrutura para o jogo *Método Científico*
+- **`sources_template.json`**  
+  Formato de citações e referências para outros modelos

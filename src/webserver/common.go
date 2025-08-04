@@ -9,6 +9,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -495,24 +496,37 @@ func htWriteFamilyIndexFile(lang string, index *IdxFamily) (string, error) {
 
 // Audio
 func htAdjustAudioStringBeforeWrite(str string) string {
+	tableLineRegex := regexp.MustCompile(`^\+(?:[+-. ]+)+\+$`)
+	dashLineRegex := regexp.MustCompile(`^\s*-+\s*$`)
+	patternLinksRegex := regexp.MustCompile(`\([\s#;]*\)`)
+
+	lines := strings.Split(str, "\n")
+	final := ""
+	for _, line := range lines {
+		if tableLineRegex.MatchString(line) {
+			continue
+		}
+		if dashLineRegex.MatchString(line) {
+			continue
+		}
+		if patternLinksRegex.MatchString(line) {
+			continue
+		}
+
+		final += line + "\n"
+	}
+
+	ret := final
+
 	// Headers
-	ret := strings.ReplaceAll(str, "-------------\n", "\n")
-	ret = strings.ReplaceAll(ret, "---------\n", "\n")
-	ret = strings.ReplaceAll(ret, "--------\n", "\n")
-	ret = strings.ReplaceAll(ret, "*", "")
 	ret = strings.ReplaceAll(ret, "(Part I)", "(Part 1)")
 	ret = strings.ReplaceAll(ret, "(Parte I)", "(Parte 1)")
 	ret = strings.ReplaceAll(ret, "(Part II)", "(Part 2)")
 	ret = strings.ReplaceAll(ret, "(Parte II)", "(Parte 2)")
 	ret = strings.ReplaceAll(ret, "(Part III)", "(Part 3)")
 	ret = strings.ReplaceAll(ret, "(Parte III)", "(Parte 3)")
-
-	// URL
-	ret = strings.ReplaceAll(ret, "( # )", "")
-	ret = strings.ReplaceAll(ret, " ( )", "")
-	ret = strings.ReplaceAll(ret, " ( ; )", "")
-	ret = strings.ReplaceAll(ret, " ( ; ; )", "")
-	ret = strings.ReplaceAll(ret, " ( ; ; ; )", "")
+	ret = strings.ReplaceAll(ret, "|", ".")
+	ret = strings.ReplaceAll(ret, "*", "")
 
 	return ret
 }
@@ -686,7 +700,9 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 
 		ret := strings.ReplaceAll(work, "<span id=\"htZoomImageMsg\"></span>", commonKeywords[84])
 		work = strings.ReplaceAll(ret, "<span id=\"htAmericaAbyaYalaMsg\"></span>", commonKeywords[85])
-		htmlText = htOverwriteDates(work, txt.FillDates, "", "", dateAbbreviation) + "<br />"
+		ret = strings.ReplaceAll(work, "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div>", "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\">"+commonKeywords[69]+"</div>")
+
+		htmlText = htOverwriteDates(ret, txt.FillDates, "", "", dateAbbreviation) + "<br />"
 	} else if txt.Format == "markdown" {
 		work := txt.Text
 		if len(txt.PostMention) > 0 {
@@ -821,7 +837,7 @@ func htAddNewSourceToDirectory(newFile string) {
 }
 
 func htAddNewJSToDirectory(newFile string) {
-	srcPath := fmt.Sprintf("%ssrc/js/classes.js", CFG.SrcPath)
+	srcPath := fmt.Sprintf("%ssrc/js/ht_classes.js", CFG.SrcPath)
 	dstPath := fmt.Sprintf("%s/js/%s.js", CFG.SrcPath, newFile)
 
 	if verboseFlag {
