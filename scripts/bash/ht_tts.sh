@@ -3,17 +3,40 @@
 #
 # Install PIPER:
 #   pip3 install piper-tts
-#
-# Download Voices
-#   python3 -m piper.download_voices en_US-amy-medium
-#   python3 -m piper.download_voices en_US-lessac-medium
-#
-#   python3 -m piper.download_voices es_ES-sharvard-medium
-#   python3 -m piper.download_voices es_ES-davefx-medium
-#
-#   python3 -m piper.download_voices pt_BR-faber-medium
 
 set -e
+
+ht_cmd_exists() {
+    command -v "$1" >/dev/null 2>&1;
+}
+
+ht_check_or_create_dir() {
+    local dir="$1"
+
+    if [ ! -d "$dir" ]; then
+        echo "Creating directory: $dir"
+        mkdir -p "$dir" || { echo "Error: Failed to create $dir" >&2; return 2; }
+        return 0  # New directory is empty
+    fi
+
+    if [ -z "$(ls -A "$dir")" ]; then
+        return 0  # Empty
+    else
+        return 1  # Not empty
+    fi
+}
+
+ht_download_models() {
+   python3 -m piper.download_voices en_US-amy-medium
+   python3 -m piper.download_voices en_US-lessac-medium
+
+   python3 -m piper.download_voices es_ES-sharvard-medium
+   python3 -m piper.download_voices es_ES-davefx-medium
+
+   python3 -m piper.download_voices pt_BR-faber-medium
+   
+   mv *.onnx* models/
+}
 
 ht_select_model() {
     FILE=".ht_tts_${1}"
@@ -76,6 +99,18 @@ ht_error() {
     echo "./ht_tts.sh FILE_NAME_en-US MODEL_NAME"
     exit 1;
 }
+
+
+target_dir="models"
+case $(ht_check_or_create_dir "$target_dir") in
+    0)
+        if ! ht_cmd_exists "pip3"; then
+            echo "Cannot install models"
+            exit 1
+        fi
+        ht_download_models
+        ;;
+esac
 
 if [ $# -lt 1 ] || [ $# -gt 2 ]; then
     ht_error
