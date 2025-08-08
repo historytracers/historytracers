@@ -624,20 +624,27 @@ function htChangeSumUniqueDigitStyle(id, color) {
 
 function htSetMultColors(localClass, color, id)
 {
+    if (id == undefined || id.length == 0) {
+        return;
+    }
+    var numId = parseInt(id);
+    var numIdnext = numId + 1;
     // Top line
-    $("#mmtc2."+localClass).css("color", color);
-    $("#mmtc1."+localClass).css("color", color);
+    $("#mmtc"+numIdnext+"."+localClass).css("color", color);
+    $("#mmtc"+numId+"."+localClass).css("color", color);
 
     // Multiplicator
-    $("#mmbc"+id+"."+localClass).css("color", color);
+    $("#mmbc"+numId+"."+localClass).css("color", color);
 
-    var prefix = (id == 1) ? "mmptrc" : "mmpbrc";
+    var prefix = ((numId % 2) != 0) ? "mmptrc" : "mmpbrc";
 
-    $("#"+prefix+"1."+localClass).css("color", color);
-    $("#"+prefix+"2."+localClass).css("color", color);
-    if (id == 1)
+    $("#"+prefix+numId+"."+localClass).css("color", color);
+    $("#"+prefix+numIdnext+"."+localClass).css("color", color);
+    if ((numId % 2) != 0)
         return;
-    $("#"+prefix+"3."+localClass).css("color", color);
+
+    numIdnext++;
+    $("#"+prefix+numIdnext+"."+localClass).css("color", color);
 
 }
 

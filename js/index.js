@@ -148,9 +148,3 @@ function htParseIndexRequest() {
     firstIndexTime = false;
 }
 
-/*
-// http://api.jquery.com/ajaxerror/
-$(document).on( "ajaxError", function( event, request, settings ) {
-  $( "#messages" ).html( "Error requesting page " + settings.url );
-});
-*/
