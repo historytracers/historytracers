@@ -87,7 +87,7 @@ function htGregorianCalendar(tableId) {
     }
 
     $tableElement.empty();
-    $tableElement.append("<tr><td colspan=\"7\"><i class=\"fa-solid fa-chevron-left\" style=\"font-size:1.5vw;\" id=\"prevMonth\"></i> "+currentMonthString+"/"+currentYear+" <i class=\"fa-solid fa-chevron-right\" style=\"font-size:1.5vw;\" id=\"nextMonth\"></i></td></tr><tr> <td><span id=\"calendarDay0\">"+keywords[113]+"</span></td> <td><span id=\"calendarDay1\">"+keywords[114]+"</span></td> <td><span id=\"calendarDay2\">"+keywords[115]+"</span></td> <td><span id=\"calendarDay3\">"+keywords[116]+"</span></td> <td><span id=\"calendarDay4\">"+keywords[117]+"</span></td> <td><span id=\"calendarDay5\">"+keywords[118]+"</span></td> <td><span id=\"calendarDay6\">"+keywords[119]+"</span></td> </tr>");
+    $tableElement.append("<tr><td colspan=\"7\"> "+currentMonthString+" / "+currentYear+" </td></tr><tr> <td><span id=\"calendarDay0\">"+keywords[113]+"</span></td> <td><span id=\"calendarDay1\">"+keywords[114]+"</span></td> <td><span id=\"calendarDay2\">"+keywords[115]+"</span></td> <td><span id=\"calendarDay3\">"+keywords[116]+"</span></td> <td><span id=\"calendarDay4\">"+keywords[117]+"</span></td> <td><span id=\"calendarDay5\">"+keywords[118]+"</span></td> <td><span id=\"calendarDay6\">"+keywords[119]+"</span></td> </tr>");
 
     htRenderGregorianCalendar(tableId, currentMonth, currentYear) ;
 }
