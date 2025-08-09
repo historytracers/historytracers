@@ -496,9 +496,9 @@ func htWriteFamilyIndexFile(lang string, index *IdxFamily) (string, error) {
 
 // Audio
 func htAdjustAudioStringBeforeWrite(str string) string {
-	tableLineRegex := regexp.MustCompile(`^\+(?:[+-. ]+)+\+$`)
+	tableLineRegex := regexp.MustCompile(`(?m)^\+\-+(?:\+\-+)+\+$`)
 	dashLineRegex := regexp.MustCompile(`^\s*-+\s*$`)
-	patternLinksRegex := regexp.MustCompile(`\([\s#;]*\)`)
+	patternLinksRegex := regexp.MustCompile(`\(\s*(?:;+\s*)+\)`)
 
 	lines := strings.Split(str, "\n")
 	final := ""
@@ -506,11 +506,13 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 		if tableLineRegex.MatchString(line) {
 			continue
 		}
+
 		if dashLineRegex.MatchString(line) {
 			continue
 		}
+
 		if patternLinksRegex.MatchString(line) {
-			continue
+			line = patternLinksRegex.ReplaceAllString(line, "")
 		}
 
 		final += line + "\n"
