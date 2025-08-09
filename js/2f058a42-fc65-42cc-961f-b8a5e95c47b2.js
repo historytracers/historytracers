@@ -170,24 +170,6 @@ function htLoadExercise() {
         }
     });
 
-    $('#prevMonth').on('click', function(){
-        currentMonth--;
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear--;
-        }
-        htRenderGregorianCalendar("#gregorian_calendar", currentMonth, currentYear) ;
-    });
-
-    $('#nextMonth').on('click', function(){
-        currentMonth++;
-        if (currentMonth > 11) {
-            currentMonth = 0;
-            currentYear++;
-        }
-        htRenderGregorianCalendar("#gregorian_calendar", currentMonth, currentYear) ;
-    });
-
     let currentDate = new Date();
     currentMonth = currentDate.getMonth();
     currentMonthString = currentDate.toLocaleString($("#site_language").val(), { month: 'long' });
