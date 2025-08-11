@@ -1902,7 +1902,7 @@ function htFillFamilies(page, table) {
         $("#trees").append("<div id=\"hist-"+family_id+"\"></div>");
 
         var family = table.families[i];
-        htAppendData("hist",
+        htAppendFamilyData("hist",
                    family_id,
                    undefined,
                    family.name,
@@ -1925,7 +1925,7 @@ function htFillFamilies(page, table) {
             $("#hist-"+family_id).append("<div id=\"tree-"+person_id+"\" class=\"tree-person-text\"></div>");
 
             personNameMap.set(people[j].id, people[j].fullname);
-            htAppendData("tree",
+            htAppendFamilyData("tree",
                        person_id,
                        family_id,
                        people[j].fullname,
@@ -2151,7 +2151,7 @@ function htMountPersonEvents(table) {
     return ret;
 }
 
-function htAppendData(prefix, id, familyID, name, table, page) {
+function htAppendFamilyData(prefix, id, familyID, name, table, page) {
     var history = table.history;
     var parents = table.parents;
     var marriages = table.marriages;
@@ -2197,20 +2197,20 @@ function htAppendData(prefix, id, familyID, name, table, page) {
                     if (name != undefined) {
                         if (couple.father_family != undefined && couple.father_family.length > 0) {
                             if (couple.father_family == familyID || (couple.father_external_family_file != undefined && couple.father_external_family_file == false)) {
-                                parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+father+"'); htFillTree('"+father+"'); htSetCurrentLinkBasis('"+page+"', '"+father+"',"+undefined+");\">" +name+"</a>";
+                                parentsLink += "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+father+"'); htFillTree('"+father+"'); htSetCurrentLinkBasis('"+page+"', '"+father+"',"+undefined+");\">" +name+"</a>";
                             } else {
                                 parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+name+"</a>";
                             }
                         } else {
-                            parentsLink += couple.father_name+" & ";
+                            parentsLink += couple.father_name;
                         }
                     } else if (couple.father_name != undefined && couple.father_family != undefined && couple.father_family != familyID && couple.father_family > 0) {
                         parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+couple.father_name+"</a>";
                     } else {
-                        parentsLink += couple.father_name+" & ";
+                        parentsLink += couple.father_name;
                     }
                 } else {
-                    parentsLink += couple.father_name+" & ";
+                    parentsLink += couple.father_name;
                 }
                 parents_id += "-";
 
@@ -2335,7 +2335,7 @@ function htAppendData(prefix, id, familyID, name, table, page) {
 
             var childLink = "";
             if (child.family_id == undefined || child.family_id.length == 0 || ((child.external_family_file != undefined && child.external_family_file == false) && child.add_link == false)) {
-                childLink = child_keyword+" "+child.name ;
+                childLink = child_keyword+" "+child.name;
             } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
                 childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child_keyword+" "+child.name+"</a>";
             } else { 
