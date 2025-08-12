@@ -1,0 +1,194 @@
+{
+   "title": "Sumas mesoamericanas",
+   "header": "Sumas mesoamericanas",
+   "sources": [
+      "68ecf470-69b8-4fcb-b5f8-36f7ee5aee66"
+   ],
+   "scripts": [
+      "68ecf470-69b8-4fcb-b5f8-36f7ee5aee66"
+   ],
+   "audio": [
+      {
+         "url": "https://spotifycreators-web.app.link/e/",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1754933690"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste texto aborda el sistema numérico mesoamericano. Antes de continuar, sugerimos el estudio de los siguientes textos:\n- **Superando límites**: presenta el sistema calendárico vigesimal mesoamericano (<htcite0>).\n- **Cambio de Dirección (Parte II)**: explica cómo se utilizan los órdenes en un sistema exclusivamente vigesimal (<htcite1>).\n- **Capítulo 5 (Primeros Pasos):** textos anteriores de este capítulo en la sección *Primeros pasos* (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "36dcbdd0-8d4d-48ac-a1cc-57bf9c8beaa4",
+                     "text": "History Tracers Team",
+                     "page": "Superando límites",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6fd2997b-caf1-4620-a58f-1140388ab8c1",
+                     "text": "History Tracers Team",
+                     "page": "Cambio de Dirección (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeiros Passos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nLos números mesoamericanos se utilizaban en un sistema cronológico, como lo demuestran los hallazgos arqueológicos (<htcite0>; <htcite1>; <htcite2>). Como resultado, no podemos realizar cálculos con ellos de la misma manera que lo hacemos con nuestros números, ni como en el método *\"Yupana Inka Tawa Pukllay\"*, desarrollado y publicado por Dhavit Prem, de la *Associação Yupanki* (<htcite3>; <htcite4>).\n\nPor otro lado, el hecho de que no podamos utilizarlos de la misma manera no significa que no podamos aplicar nuestros conocimientos para inferir cómo podrían haber sido empleados. Con esto, te invitamos a reflexionar:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ced67eaf-7378-4589-9166-07f799969e3e",
+                     "text": "Catepillán, Ximena",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Cambiando de sistema</b><br /><br />Sabiendo que los números mesoamericanos se escribían en forma vertical, ¿cómo realizarías la suma con ellos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "WRITE A QUESTION",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "The correct answer is 'Yes' because ..."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
