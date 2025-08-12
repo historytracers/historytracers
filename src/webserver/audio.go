@@ -422,8 +422,8 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 
 func htFamiliesToAudio() {
 	for i := 0; i < len(htLangPaths); i++ {
-		htLoadTreeData(htLangPaths[i])
 		htLoadKeywordFile("common_keywords", htLangPaths[i])
+		htLoadTreeData(htLangPaths[i])
 
 		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, htLangPaths[i])
 		err := htLoadFamilyIndex(localPath, htLangPaths[i])
