@@ -50,8 +50,20 @@
                "PostMention": ""
             },
             {
-               "text": "### Pré-requisitos\n\nEste texto aborda o sistema numérico mesoamericano. Antes de prosseguir, sugerimos o estudo dos seguintes textos:\n- **Superando limites**: apresenta o sistema calendárico vigesimal mesoamericano (<htcite0>).\n- **Mudança de Direção (Parte II)**: explica como as ordens são utilizadas em um sistema exclusivamente vigesimal (<htcite1>).\n- **Capítulo 5 (Primeiros Passos):** textos anteriores deste capítulo, na seção *Primeiros passos* (<htcite2>).",
+               "text": "### Pré-requisitos\n\nEste texto aborda o sistema numérico mesoamericano. Antes de prosseguir, sugerimos o estudo dos seguintes textos:\n- **Yupana (Adição)**: apresenta como trabalhar com a operação de soma através da *Yupana* (<htcite0>).\n- **Superando limites**: apresenta o sistema calendárico vigesimal mesoamericano (<htcite1>).\n- **Mudança de Direção (Parte II)**: explica como as ordens são utilizadas em um sistema exclusivamente vigesimal (<htcite2>).\n- **Capítulo 5 (Primeiros Passos):** textos anteriores deste capítulo, na seção *Primeiros passos* (<htcite3>).",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (Adição)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "36dcbdd0-8d4d-48ac-a1cc-57bf9c8beaa4",
@@ -180,13 +192,160 @@
                "PostMention": " "
             }
          ]
+      },
+      {
+         "id": "SECTION_iupana",
+         "text": [
+            {
+               "text": "### Recordando o método *Yupana Inka Tawa Pukllay*\n\n#### Os quipus\n\nAo estudarmos os povos andinos, observamos que, nos Andes, foram desenvolvidos quipus que podem datar de mais de quatro milênios (<htcite0>). Esses *quipus* (Figura 1), assim como os números mesoamericanos, eram escritos na vertical, mas utilizavam a base decimal (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c2ff41fc-7833-4dc2-8882-eaed12a065b7",
+                     "text": "Mann, Charles C.",
+                     "page": "pp. 1008",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2005",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6e9bef8c-6ec5-4c04-b583-aea8e6bbec5b",
+                     "text": "Quesada, Eugenio de",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgQuipuPanel\" onclick=\"htImageZoom('imgQuipuPanel', '0%')\" src=\"images/Caral/QuipuPanel.png\" class=\"imgcenter\"/>Figura 1: Painel presente no sítio arqueológico de Caral, ©ZonaArqueólogicaCaral, (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <htdate1></a>). Foto tirada em <htdate2> durante uma visita ao sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2017",
+                     "month": "6",
+                     "day": "13"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### A *Yupana*\n\nTambém estudamos que a leitura do quipu era realizada com o auxílio de ferramentas como a *yupana*, que também contabiliza números na vertical, como podemos ver no trabalho de Felipe Guaman Poma de Ayala:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"margin: auto; width: 100%;\"><iframe src=\"https://archive.org/details/primer-nueva-coronica-y-buen-gobierno-manuscrito/page/n361/mode/2up\" width=\"100%\" height=\"560\" frameborder=\"0\" webkitallowfullscreen=\"true\" mozallowfullscreen=\"true\" allowfullscreen></iframe></p><p class=\"desc\">Livro 1: Página 362 da obra de Felipe Guaman Poma de Ayala.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Nessa imagem, vemos um indígena segurando um quipu (cordas com nós), com um valor numérico indicado à direita. À esquerda, há uma Yupana—um tabuleiro com pontos que representam números, possivelmente associados aos nossos dedos.",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### O método\n\nComo não existem textos conhecidos dos incas descrevendo o uso da yupana, torna-se necessária a realização de estudos que tentem compreender como ela poderia ter sido utilizada. Um desses estudos foi realizado por Dhavit Prem, que identificou cinco movimentos possíveis de se realizar com a *yupana*, permitindo operações matemáticas (<htcite0>; <htcite1>). Esses movimentos foram explicados em detalhes em seu artigo e também quando ensinamos a adição com a *yupana* (<htcite2>).\n\nA seguir, selecione o movimento que deseja realizar na yupana e, em seguida, utilize a seta <i class=\"fa-solid fa-arrows-left-right\" style=\"color:#0f0;\"></i> para mover os círculos e atualizar os dedos das mãos e <i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i> para retornar à posição original:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (Adição)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><input type=\"radio\" value=\"0\" name=\"yupanaradio\" /> <i>ISKAY</i> <input type=\"radio\" value=\"1\" name=\"yupanaradio\" /> <i>KIMSA</i> <input type=\"radio\" value=\"2\" name=\"yupanaradio\" /> <i>PISQA</i> <input type=\"radio\" value=\"3\" name=\"yupanaradio\" /> <i>PICHANA</i> <input type=\"radio\" value=\"4\" name=\"yupanaradio\" /> <i>KINKIN</i> </center></p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\" rowspan=\"2\"><img id=\"leftHandImg3\" onclick=\"htImageZoom('leftHandImg3', '0%')\" src=\"images/5Left_Hand_Small.png\" /></td><td id=\"tc5f1\" rowspan=\"2\"><img id=\"rightHandImg3\" onclick=\"htImageZoom('rightHandImg3', '0%')\" src=\"images/5Right_Hand_Small.png\" /></td><td id=\"tc7f1\" rowspan=\"2\"><i class=\"fa-solid fa-arrows-left-right upArrowWithFA\" id=\"traineeUp3\"></i> <i class=\"fa-solid fa-arrows-rotate downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown3\"></i></td><tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td></tr></tr></table></p><p class=\"desc\">Tabela 1: Representação dos movimentos do método <i>Yupana Inka Tawa Pukllay</i>. CSS inspirado no código de <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "question": "Quando trabalhamos com números na vertical, reescrevemos na horizontal antes de somar?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Não é necessário reescrever números na horizontal para somár-los, os números na vertical podem ser somados exatamente como são escritos, e até mesmo ferramentas, como a yupana, foram criados para realizar soma neste formato."
       }
    ],
    "game_v2": null,
