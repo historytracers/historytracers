@@ -613,8 +613,13 @@ function htChangeSumUniqueDigitStyle(id, color) {
     if (id == undefined || id.length < 5) {
         return;
     }
-    var idx = id[4];
-    if (idx > 5) {
+    var idx = parseInt(id[4]);
+    var nextIdx = idx + 1;
+    if ($("#cmoc"+nextIdx).length > 0) {
+        $("#cmoc"+nextIdx).css("color", color);
+    }
+
+    if ($("#cmoc"+idx).length > 0) {
         $("#cmoc"+idx).css("color", color);
     }
     $("#cmtc"+idx).css("color", color);

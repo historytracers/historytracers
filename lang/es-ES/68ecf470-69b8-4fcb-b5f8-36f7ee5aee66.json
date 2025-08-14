@@ -344,7 +344,7 @@
          "id": "SECTION_sum",
          "text": [
             {
-               "text": "### Sumando un orden\n\nDe la misma forma que hicimos a lo largo de esta sección, comenzaremos inicialmente con solo un orden, el *K'iin* (equivalente a nuestras unidades, pero que representan los días) (<htcite0>; <htcite1>), ampliando nuestros conocimientos a lo largo del texto.\n\nPara realizar la suma de los números mesoamericanos, utilizaremos los algoritmos propuestos por Ruy D. Díaz (<htcite2>). Como desconocemos los signos que los pueblos indígenas utilizaban para representar la suma y la igualdad, adaptaremos estas operaciones empleando los signos actuales de adición (+) e igualdad (=).\n\nEn esta primera etapa, presentamos una pequeña tabla en la que es posible modificar los valores mediante las flechas laterales. El resultado final cambiará siempre dentro del intervalo permitido, de 0 a 19. En caso de que el valor sobrepase el límite mínimo o máximo, la página ajustará automáticamente el otro valor, respetando los límites establecidos:",
+               "text": "### Sumando un orden\n\nDe la misma forma que hicimos a lo largo de esta sección, comenzaremos inicialmente con solo un orden, conocido por los mayas como *K'iin* (equivalente a nuestras unidades, pero que representan los días) (<htcite0>; <htcite1>), ampliando nuestros conocimientos a lo largo del texto.\n\nPara realizar la suma de los números mesoamericanos, utilizaremos los algoritmos propuestos por Ruy D. Díaz (<htcite2>). Como desconocemos los signos que los pueblos indígenas utilizaban para representar la suma y la igualdad, adaptaremos estas operaciones empleando los signos actuales de adición (+) e igualdad (=).\n\nEn esta primera etapa, presentamos una pequeña tabla (Cálculo 1) en la que es posible modificar los valores mediante las flechas laterales. El resultado final cambiará siempre dentro del intervalo permitido, de 0 a 19. En caso de que el valor sobrepase el límite mínimo o máximo, la página ajustará automáticamente el otro valor, respetando los límites establecidos:",
                "source": [
                   {
                      "type": 1,
@@ -390,12 +390,194 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"oneOrder\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Control Izquierdo</b></td><td style=\"background-color: lightblue\"><b>Valor</b></td><td style=\"background-color: lightblue\"><b>Signo de Suma</b></td><td style=\"background-color: lightblue\"><b>Valor</b></td><td style=\"background-color: lightblue\"><b>Signo de Igual</b></td><td style=\"background-color: lightblue\"><b>Resultado</b></td><td style=\"background-color: lightblue\"><b>Control Derecho</b></td></tr>  <tr><td rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"traineeUpL\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"traineeDownL\"></i></td><td><img id=\"imgml0\" onclick=\"htImageZoom('imgml0', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td> + </td><td><img id=\"imgmr0\" onclick=\"htImageZoom('imgmr0', '0%')\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td> = </td><td><img id=\"imgme0\" onclick=\"htImageZoom('imgme0', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"traineeUpR\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"traineeDownR\"></i> </td></tr>  <tr><td><span id=\"leftVL0\">19</span></td><td> + </td><td><span id=\"rightVR0\">0</span></td><td> = </td><td><span id=\"totalVE0\">19</span></td></tr></table></p><p class=\"desc\">Tabla 2: Suma de números cuyo resultado máximo es 19.</p>",
+               "text": "<p><table id=\"oneOrder\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Control Izquierdo</b></td><td style=\"background-color: lightblue\"><b>Valor</b></td><td style=\"background-color: lightblue\"><b>Signo de Suma</b></td><td style=\"background-color: lightblue\"><b>Valor</b></td><td style=\"background-color: lightblue\"><b>Signo de Igual</b></td><td style=\"background-color: lightblue\"><b>Resultado</b></td><td style=\"background-color: lightblue\"><b>Control Derecho</b></td></tr>  <tr><td rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"traineeUpL\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"traineeDownL\"></i></td><td><img id=\"imgml0\" onclick=\"htImageZoom('imgml0', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td> + </td><td><img id=\"imgmr0\" onclick=\"htImageZoom('imgmr0', '0%')\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td> = </td><td><img id=\"imgme0\" onclick=\"htImageZoom('imgme0', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"traineeUpR\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"traineeDownR\"></i> </td></tr>  <tr><td><span id=\"leftVL0\">19</span></td><td> + </td><td><span id=\"rightVR0\">0</span></td><td> = </td><td><span id=\"totalVE0\">19</span></td></tr></table></p><p class=\"desc\">Cálculo 2: Suma de números cuyo resultado máximo es 19.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_one_more_order",
+         "text": [
+            {
+               "text": "### Sumando dos órdenes\n\nEl segundo orden numérico de los mesoamericanos es conocido por los mayas como *Winal* (correspondiente a nuestras decenas, pero entendido como \"la persona\") (<htcite0>; <htcite1>). Este orden sigue el patrón de un sistema vigesimal, es decir, cualquier número colocado en esta posición representa el número multiplicado por 20.\n\nAntes de continuar, veamos cómo escribimos el número 25 utilizando los órdenes numéricos decimal y cronológico ya explorados en el texto anterior (<htcite2>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1388be6c-13c5-47a8-b945-56020b798c5f",
+                     "text": "History Tracers Team",
+                     "page": "Calendários mesoamericanos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><p><math display=\"block\">  <mo>a)</mo> <mn>25</mn> = <mo>(</mo> <mn>2</mn> <mo>×</mo> <mn>10</mn><mo>) + </mo> <mo>(</mo> <mn>5</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p><p style=\"text-align=center\"><p><math display=\"block\">  <mo>b)</mo> <mn>25</mn> = <mo>(</mo> <mn>1</mn> <mo>×</mo> <mn>20</mn><mo>) + </mo> <mo>(</mo> <mn>5</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p><p class=\"desc\">Cálculo 2: Reescritura del número 25 explicitando los órdenes numéricos en base decimal (a) y base cronológica (b).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Sumando dentro de los límites\n\nA continuación, realizamos la suma 25 + 25 utilizando números decimales y números mesoamericanos. En el caso mesoamericano, seguimos el algoritmo propuesto por Ruy D. Díaz (<htcite0>). Cabe destacar que, como ninguno de los órdenes presenta valores mayores que 19, no es necesario realizar ajustes adicionales:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9e7d0cea-d968-4bd5-886e-bc08c824e7ca",
+                     "text": "Díaz, Ruy D.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmoc2\">1 </span>&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmtc2\">2</span><span class=\"sumexample1\" id=\"cmtc1\">5</span> <br />+&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmbc2\">2</span><span class=\"sumexample1\" id=\"cmbc1\">5 </span><br />____________<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmrc2\">5</span><span class=\"sumexample1\" id=\"cmrc1\">0 </span></center></p><p class=\"desc\">Cálculo 3: Adición de 25 + 25.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"twoOrders\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Valor</b></td><td style=\"background-color: lightblue\"><b>Signo de Suma</b></td><td style=\"background-color: lightblue\"><b>Valor</b></td><td style=\"background-color: lightblue\"><b>Signo de Igual</b></td><td style=\"background-color: lightblue\"><b>Resultado</b></td></tr> <tr><td><img id=\"imgml1\" onclick=\"htImageZoom('imgml1', '0%')\" src=\"images/HistoryTracers/Maya_2.png\" /></td><td rowspan=\"2\"> + </td><td><img id=\"imgmr2\" onclick=\"htImageZoom('imgmr2', '0%')\" src=\"images/HistoryTracers/Maya_2.png\" /></td><td rowspan=\"2\"> = </td><td><img id=\"imgme3\" onclick=\"htImageZoom('imgme3', '0%')\" src=\"images/HistoryTracers/Maya_4.png\" /></td></tr> <tr><td><img id=\"imgml4\" onclick=\"htImageZoom('imgml4', '0%')\" src=\"images/HistoryTracers/Maya_5.png\" /></td><td><img id=\"imgmr5\" onclick=\"htImageZoom('imgmr5', '0%')\" src=\"images/HistoryTracers/Maya_5.png\" /></td><td><img id=\"imgme6\" onclick=\"htImageZoom('imgme6', '0%')\" src=\"images/HistoryTracers/Maya_10.png\" /></td></tr>   <tr><td><span id=\"leftVL1\">25</span></td><td> + </td><td><span id=\"rightVR1\">25</span></td><td> = </td><td><span id=\"totalVE1\">50</span></td></tr></table></p><p class=\"desc\">Cálculo 4: Adición de 25 + 25 usando números vigesimales.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Ajustando los valores\n\nCuando una suma supera los valores permitidos en un orden, es necesario realizar ajustes. En el método *Yupana Inka Tawa Pukllay*, Dhavit Prem propone cinco ajustes, presentados en la **Tabla 1** (<htcite0>; <htcite1>).\n\nPara los números decimales, el número excedente se transfiere al orden siguiente, como en el **Cálculo 3**. En cambio, en el sistema mesoamericano, Ruy D. Díaz sugiere realizar primero la suma en horizontal y, a continuación, aplicar los ajustes (<htcite2>).\n\nPara ilustrar, sumemos 19 + 19:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9e7d0cea-d968-4bd5-886e-bc08c824e7ca",
+                     "text": "Díaz, Ruy D.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"twoOrders\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Valor</b></td><td style=\"background-color: lightblue\"><b>Signo de Suma</b></td><td style=\"background-color: lightblue\"><b>Valor</b></td><td style=\"background-color: lightblue\"><b>Signo de Igual</b></td><td style=\"background-color: lightblue\"><b>Resultado sin Ajustes</b></td><td style=\"background-color: lightblue\"><b>Signo de Igual</b></td><td style=\"background-color: lightblue\"><b>Resultado Final</b></td></tr> <tr><td><img id=\"imgml10\" onclick=\"htImageZoom('imgml10', '0%')\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td rowspan=\"2\"> + </td><td><img id=\"imgmr11\" onclick=\"htImageZoom('imgmr11', '0%')\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td rowspan=\"2\"> = </td><td><img id=\"imgme12\" onclick=\"htImageZoom('imgme12', '0%')\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td rowspan=\"2\"> = </td><td><img id=\"imgme13\" onclick=\"htImageZoom('imgme13', '0%')\" src=\"images/HistoryTracers/Maya_1.png\" /></td></tr> <tr><td><img id=\"imgml14\" onclick=\"htImageZoom('imgml14', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td><img id=\"imgmr15\" onclick=\"htImageZoom('imgmr15', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td><img id=\"imgme16\" onclick=\"htImageZoom('imgme16', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /><img id=\"imgme17\" onclick=\"htImageZoom('imgme17', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td><img id=\"imgme18\" onclick=\"htImageZoom('imgme18', '0%')\" src=\"images/HistoryTracers/Maya_18.png\" /></td></tr>   <tr><td><span id=\"leftVL1\">19</span></td><td> + </td><td><span id=\"rightVR1\">19</span></td><td> = </td><td><span id=\"totalVE1\">38</span></td><td> = </td><td><span id=\"totalVE1\">38</span></td></tr></table></p><p class=\"desc\">Cálculo 5: Adición de 19 + 19 usando números vigesimales.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para convertir el valor de la columna **Resultado sin Ajustes** para la columna **Resultado Final**, es necesario recordar que el segundo orden, *Winal*, siempre tiene sus números multiplicados por 20. Así, la transformación de 38 se realiza de la siguiente manera:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><math display=\"block\">  <mn>38</mn> = <mo>(</mo> <mn>0</mn> <mo>×</mo> <mn>20</mn><mo>) + </mo> <mo>(</mo> <mn>38</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p> <p style=\"text-align=center\"><p><math display=\"block\"> <mn>38</mn> = <mo>(</mo> <mn>0</mn> <mo>×</mo> <mn>20</mn><mo>) + </mo> <mo>(</mo> <mn>20</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> <mo>+ (</mo> <mn>18</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p><p style=\"text-align=center\"><math display=\"block\">  <mn>38</mn> = <mo>(</mo> <mn>1</mn> <mo>×</mo> <mn>20</mn><mo>) + </mo> <mo>(</mo> <mn>18</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p> <p class=\"desc\">Cálculo 6: Reescritura de 38 explicitando los órdenes numéricos en base vigesimal.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como se puede observar en el **Cálculo 6**, después de identificar múltiplos de 20 en el primer orden (*K'iin*), estos se transfieren al segundo orden (*Winal*). Los detalles de estas identificaciones se presentarán en el próximo capítulo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]

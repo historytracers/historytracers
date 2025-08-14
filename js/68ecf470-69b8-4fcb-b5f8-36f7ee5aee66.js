@@ -150,6 +150,15 @@ function htLoadExercise() {
         WriteOneOrder(name);
     });
 
+    $(".sumexample1").hover(function(){
+        var id = $(this).attr("id");
+        htChangeSumUniqueDigitStyle(id, "red");
+    }, function(){
+        var id = $(this).attr("id");
+        htChangeSumUniqueDigitStyle(id, "black");
+    });
+
+
     return false;
 }
 
