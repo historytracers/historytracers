@@ -58,6 +58,59 @@ function htResetValues68ecf470() {
     }
 }
 
+function WriteOneOrder(name) {
+    var left = parseInt($("#leftVL0").html());
+    var right = parseInt($("#rightVR0").html());
+
+    var side = 0;
+    if (name == "traineeUpL") {
+        side = 0;
+        left++;
+    } else if (name == "traineeUpR") {
+        side = 1;
+        right++;
+    } else if (name == "traineeDownR") {
+        side = 1;
+        right--;
+    } else {
+        side = 0;
+        left--;
+    }
+
+    if (right < 0) {
+        right = 0;
+    }
+    if (left < 0) {
+        left = 0;
+    }
+    if (right > 19) {
+        right = 19;
+    }
+    if (left > 19) {
+        left = 19;
+    }
+
+    var total = left + right;
+    if (total > 19) {
+        if (!side && right > 0) {
+            right--;
+        }
+        if (side && left > 0) {
+            left--;
+        }
+
+        total = 19;
+    }
+
+    $("#leftVL0").html(left);
+    $("#rightVR0").html(right);
+    $("#totalVE0").html(total);
+
+    $("#imgml0").attr("src", "images/HistoryTracers/Maya_"+left+".png");
+    $("#imgmr0").attr("src", "images/HistoryTracers/Maya_"+right+".png");
+    $("#imgme0").attr("src", "images/HistoryTracers/Maya_"+total+".png");
+}
+
 function htLoadExercise() {
     if (localAnswerVector68ecf470 == undefined) {
         localAnswerVector68ecf470 = htLoadAnswersFromExercise();
@@ -85,6 +138,16 @@ function htLoadExercise() {
     $("#traineeDown3").on("click", function() {
         htResetValues68ecf470();
         htUpdateYupana68ecf470(left68ecf470, right68ecf470);
+    });
+
+    $(".upArrowWithFA").on("click", function() {
+        var name = $(this).attr('name');
+        WriteOneOrder(name);
+    });
+
+    $(".downArrowWithFA").on("click", function() {
+        var name = $(this).attr('name');
+        WriteOneOrder(name);
     });
 
     return false;

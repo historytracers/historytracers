@@ -339,6 +339,66 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_sum",
+         "text": [
+            {
+               "text": "### Sumando un orden\n\nDe la misma forma que hicimos a lo largo de esta sección, comenzaremos inicialmente con solo un orden, el *K'iin* (equivalente a nuestras unidades, pero que representan los días) (<htcite0>; <htcite1>), ampliando nuestros conocimientos a lo largo del texto.\n\nPara realizar la suma de los números mesoamericanos, utilizaremos los algoritmos propuestos por Ruy D. Díaz (<htcite2>). Como desconocemos los signos que los pueblos indígenas utilizaban para representar la suma y la igualdad, adaptaremos estas operaciones empleando los signos actuales de adición (+) e igualdad (=).\n\nEn esta primera etapa, presentamos una pequeña tabla en la que es posible modificar los valores mediante las flechas laterales. El resultado final cambiará siempre dentro del intervalo permitido, de 0 a 19. En caso de que el valor sobrepase el límite mínimo o máximo, la página ajustará automáticamente el otro valor, respetando los límites establecidos:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9e7d0cea-d968-4bd5-886e-bc08c824e7ca",
+                     "text": "Díaz, Ruy D.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"oneOrder\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Control Izquierdo</b></td><td style=\"background-color: lightblue\"><b>Valor</b></td><td style=\"background-color: lightblue\"><b>Signo de Suma</b></td><td style=\"background-color: lightblue\"><b>Valor</b></td><td style=\"background-color: lightblue\"><b>Signo de Igual</b></td><td style=\"background-color: lightblue\"><b>Resultado</b></td><td style=\"background-color: lightblue\"><b>Control Derecho</b></td></tr>  <tr><td rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"traineeUpL\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"traineeDownL\"></i></td><td><img id=\"imgml0\" onclick=\"htImageZoom('imgml0', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td> + </td><td><img id=\"imgmr0\" onclick=\"htImageZoom('imgmr0', '0%')\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td> = </td><td><img id=\"imgme0\" onclick=\"htImageZoom('imgme0', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"traineeUpR\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"traineeDownR\"></i> </td></tr>  <tr><td><span id=\"leftVL0\">19</span></td><td> + </td><td><span id=\"rightVR0\">0</span></td><td> = </td><td><span id=\"totalVE0\">19</span></td></tr></table></p><p class=\"desc\">Tabla 2: Suma de números cuyo resultado máximo es 19.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -346,6 +406,11 @@
          "question": "Quando trabalhamos com números na vertical, reescrevemos na horizontal antes de somar?",
          "yesNoAnswer": "No",
          "additionalInfo": "Não é necessário reescrever números na horizontal para somár-los, os números na vertical podem ser somados exatamente como são escritos, e até mesmo ferramentas, como a yupana, foram criados para realizar soma neste formato."
+      },
+      {
+         "question": "Podemos escrever núemros maiores que 9 nas ordens dos números mesoamericanos?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Por trabalharem com um sistema de contagem de calendário com vinte digitos, podemos escrever valores entre 0 e 19 por ordem (posição)."
       }
    ],
    "game_v2": null,
