@@ -495,6 +495,14 @@ func htWriteFamilyIndexFile(lang string, index *IdxFamily) (string, error) {
 }
 
 // Audio
+func htGetLastChar(line string) (rune, bool) {
+	trimmed := strings.TrimSpace(line)
+	if len(trimmed) == 0 {
+		return 0, false
+	}
+	return []rune(trimmed)[len([]rune(trimmed))-1], true
+}
+
 func htAdjustAudioStringBeforeWrite(str string) string {
 	tableLineRegex := regexp.MustCompile(`(?m)^\+\-+(?:\+\-+)+\+$`)
 	dashLineRegex := regexp.MustCompile(`^\s*-+\s*$`)
@@ -515,6 +523,16 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 			line = patternLinksRegex.ReplaceAllString(line, "")
 		}
 
+		if len(line) > 1 {
+			if lastChar, ok := htGetLastChar(line); ok {
+				if lastChar != '.' && lastChar != '?' && lastChar != ':' {
+					line += "."
+				} else if lastChar == ':' {
+					line = line[0:len(line)-1] + "."
+				}
+			}
+		}
+
 		final += line + "\n"
 	}
 
@@ -529,6 +547,7 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 	ret = strings.ReplaceAll(ret, "(Parte III)", "(Parte 3)")
 	ret = strings.ReplaceAll(ret, "|", ".")
 	ret = strings.ReplaceAll(ret, "*", "")
+	ret = strings.ReplaceAll(ret, "( )", "")
 
 	return ret
 }
