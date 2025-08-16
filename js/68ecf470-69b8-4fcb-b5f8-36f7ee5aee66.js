@@ -17,9 +17,16 @@ function htUpdateYupana68ecf470(lv, rv)
     $("#leftHandImg3").attr("src", "images/"+rv+"Left_Hand_Small.png");
 }
 
-function htUpdateValues68ecf470(left, hand) {
+function htUpdateValues68ecf470(left, right) {
     left68ecf470 = left;
-    right68ecf470 = hand;
+    right68ecf470 = right;
+
+    if (left == 10 && right == 0) {
+        left = 5;
+        right = 5;
+    }
+    $("#rightHandImg3").attr("src", "images/"+right+"Right_Hand_Small.png");
+    $("#leftHandImg3").attr("src", "images/"+left+"Left_Hand_Small.png");
 }
 
 function htSetValues68ecf470() {
