@@ -97,32 +97,32 @@ function htLoadExercise() {
     });
 
     $("#traineeUp1").on("click", function() {
-        $("#leftHandImg1").attr("src","images/0Left_Hand_Small.png");
-        $("#rightHandImg1").attr("src","images/4Right_Hand_Small.png");
+        $("#leftHandImg1").attr("src","images/HistoryTracers/0Left_Hand_Small.png");
+        $("#rightHandImg1").attr("src","images/HistoryTracers/4Right_Hand_Small.png");
         htIskayMove(1, 3);
         var totals = htSumYupanaVectors(iskayLValues, iskayRValues);
         htFillYupanaDecimalValues('#yupana10', totals, 1, 'red_dot_right_up');
     });
 
     $("#traineeDown1").on("click", function() {
-        $("#leftHandImg1").attr("src","images/2Left_Hand_Small.png");
-        $("#rightHandImg1").attr("src","images/2Right_Hand_Small.png");
+        $("#leftHandImg1").attr("src","images/HistoryTracers/2Left_Hand_Small.png");
+        $("#rightHandImg1").attr("src","images/HistoryTracers/2Right_Hand_Small.png");
         htIskayMove(2, 2);
         htWriteYupanaValuesOnHTMLTable('#vl', '#yupana10', iskayLValues);
         htWriteYupanaValuesOnHTMLTable('#vr', '#yupana10', iskayRValues);
     });
 
     $("#traineeUp2").on("click", function() {
-        $("#leftHandImg2").attr("src","images/1Left_Hand_Small.png");
-        $("#rightHandImg2").attr("src","images/5Right_Hand_Small.png");
+        $("#leftHandImg2").attr("src","images/HistoryTracers/1Left_Hand_Small.png");
+        $("#rightHandImg2").attr("src","images/HistoryTracers/5Right_Hand_Small.png");
         htKimsaMove(5, 1);
         var totals = htSumYupanaVectors(iskayLValues, iskayRValues);
         htFillYupanaDecimalValues('#yupana20', totals, 1, 'red_dot_right_up');
     });
 
     $("#traineeDown2").on("click", function() {
-        $("#leftHandImg2").attr("src","images/3Left_Hand_Small.png");
-        $("#rightHandImg2").attr("src","images/3Right_Hand_Small.png");
+        $("#leftHandImg2").attr("src","images/HistoryTracers/3Left_Hand_Small.png");
+        $("#rightHandImg2").attr("src","images/HistoryTracers/3Right_Hand_Small.png");
         htKimsaMove(3, 3);
         htWriteYupanaValuesOnHTMLTable('#vl', '#yupana20', iskayLValues);
         htWriteYupanaValuesOnHTMLTable('#vr', '#yupana20', iskayRValues);
@@ -141,32 +141,32 @@ function htLoadExercise() {
     });
 
     $("#traineeUp4").on("click", function() {
-        $("#leftHandImg4").attr("src","images/0Left_Hand_Small.png");
-        $("#rightHandImg4").attr("src","images/3Right_Hand_Small.png");
+        $("#leftHandImg4").attr("src","images/HistoryTracers/0Left_Hand_Small.png");
+        $("#rightHandImg4").attr("src","images/HistoryTracers/3Right_Hand_Small.png");
         htPichanaMove(3, 0);
         var totals = htSumYupanaVectors(pichanaLValues, pichanaRValues);
         htFillYupanaDecimalValues('#yupana40', totals, 1, 'red_dot_right_up');
     });
 
     $("#traineeDown4").on("click", function() {
-        $("#leftHandImg4").attr("src","images/2Left_Hand_Small.png");
-        $("#rightHandImg4").attr("src","images/1Right_Hand_Small.png");
+        $("#leftHandImg4").attr("src","images/HistoryTracers/2Left_Hand_Small.png");
+        $("#rightHandImg4").attr("src","images/HistoryTracers/1Right_Hand_Small.png");
         htPichanaMove(2, 1);
         htWriteYupanaValuesOnHTMLTable('#vl', '#yupana40', pichanaLValues);
         htWriteYupanaValuesOnHTMLTable('#vr', '#yupana40', pichanaRValues);
     });
 
     $("#traineeUp5").on("click", function() {
-        $("#leftHandImg5").attr("src","images/0Left_Hand_Small.png");
-        $("#rightHandImg5").attr("src","images/2Right_Hand_Small.png");
+        $("#leftHandImg5").attr("src","images/HistoryTracers/0Left_Hand_Small.png");
+        $("#rightHandImg5").attr("src","images/HistoryTracers/2Right_Hand_Small.png");
         htKinkinMove(2, 0);
         var totals = htSumYupanaVectors(kinkinLValues, kinkinRValues);
         htFillYupanaDecimalValues('#yupana50', totals, 1, 'red_dot_right_up');
     });
 
     $("#traineeDown5").on("click", function() {
-        $("#leftHandImg5").attr("src","images/1Left_Hand_Small.png");
-        $("#rightHandImg5").attr("src","images/1Right_Hand_Small.png");
+        $("#leftHandImg5").attr("src","images/HistoryTracers/1Left_Hand_Small.png");
+        $("#rightHandImg5").attr("src","images/HistoryTracers/1Right_Hand_Small.png");
         htKinkinMove(1, 1);
         htWriteYupanaValuesOnHTMLTable('#vl', '#yupana50', kinkinLValues);
         htWriteYupanaValuesOnHTMLTable('#vr', '#yupana50', kinkinRValues);

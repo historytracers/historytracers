@@ -20,8 +20,8 @@ function htLoadExercise() {
         localCountercbf361bb++;
         localCountercbf361bb = htModifycbf361bb(localCountercbf361bb);
 
-        $('#leftHandImg').attr('src', 'images/'+localCountercbf361bb+'Left_Hand_Small.png');
-        $('#rightHandImg').attr('src', 'images/'+localCountercbf361bb+'Right_Hand_Small.png');
+        $('#leftHandImg').attr('src', 'images/HistoryTracers/'+localCountercbf361bb+'Left_Hand_Small.png');
+        $('#rightHandImg').attr('src', 'images/HistoryTracers/'+localCountercbf361bb+'Right_Hand_Small.png');
 
         $('#leftnum').html(localCountercbf361bb);
         $('#rightnum').html(localCountercbf361bb);
@@ -31,8 +31,8 @@ function htLoadExercise() {
         localCountercbf361bb--;
         localCountercbf361bb = htModifycbf361bb(localCountercbf361bb);
 
-        $('#leftHandImg').attr('src', 'images/'+localCountercbf361bb+'Left_Hand_Small.png');
-        $('#rightHandImg').attr('src', 'images/'+localCountercbf361bb+'Right_Hand_Small.png');
+        $('#leftHandImg').attr('src', 'images/HistoryTracers/'+localCountercbf361bb+'Left_Hand_Small.png');
+        $('#rightHandImg').attr('src', 'images/HistoryTracers/'+localCountercbf361bb+'Right_Hand_Small.png');
 
         $('#leftnum').html(localCountercbf361bb);
         $('#rightnum').html(localCountercbf361bb);
