@@ -1695,7 +1695,7 @@ function htAddAudio(data) {
             audioText +=  ": <a href=\""+audio.url+"\" target=\"_blank\"> <i class=\"fa-brands fa-spotify\" target=\"_blank\" style=\"font-size: 1.0em;\"></i> "+keywords[107]+" "+counter+"</a>";
         } else {
             var audioURL = (audio.external != undefined && audio.external == false) ? "audio/"+audio.url : audio.url;
-            audioText += " <audio controls><source src=\""+audioURL+"\" type=\"audio/ogg\"></audio>";
+            audioText += " <audio controls preload=\"none\"><source src=\""+audioURL+"\" type=\"audio/ogg\"></audio>";
         }
     }
     $("#htaudio").html(audioText);
