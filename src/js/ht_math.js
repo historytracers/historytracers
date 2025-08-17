@@ -453,8 +453,8 @@ function htSetImageForMembers(leftMember, leftImgSuffix, rightMember, rightImgSu
         leftValue = 0;
     }
 
-    $(leftMember).attr('src', 'images/'+leftValue+leftImgSuffix);
-    $(rightMember).attr('src', 'images/'+rightValue+rightImgSuffix);
+    $(leftMember).attr('src', 'images/HistoryTracers/'+leftValue+leftImgSuffix);
+    $(rightMember).attr('src', 'images/HistoryTracers/'+rightValue+rightImgSuffix);
 }
 
 function htFillTableHandsFeet(id, min, max) {
