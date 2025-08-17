@@ -1,45 +1,186 @@
 {
-    "title" : "Frequently Asked Question",
-    "header" : "Frequently Asked Question",
-    "sources" : [ "genealogical_faq" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1715050890" ],
-    "content" : [
-        {
-            "id" : "introduction",
-            "value" : [ "<p><h3>Introduction</h3>When compiling our family tree, it's natural to encounter doubts, and sometimes we make mistakes by opting for simplistic answers to complex questions. Here, we provide answers to some of the most common inquiries.</p>" ],
-            "references" : null
-        },
-        {
-            "id" : "nobiliarchy",
-            "value" : [ "<p><h3>Are nobiliary books reliable?</h3>In \"Ricos Homens Infanções e Cavaleiros\", José Mattoso articulates the nature of nobiliary books so eloquently that it requires no further embellishment. He states, <i>\"... os livros de linhagens fornecem eles próprios alguns elementos que é possível encontrar também na documentação antiga ... Este trabalho tornou-se possível desde que procedemos a uma edição crítica dos livros de linhagens, o que permitiu corrigir em muitos casos as leiuras errôneas dos editores e copistas\"</i> [.. lineage books themselves provide elements that can also be found in ancient documentation ... This work became possible since we conducted a critical review of lineage books, allowing us to rectify many erroneous readings by editors and copyists] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('de906f7e-10dc-4557-8c82-13ddbdd1505e'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 09-10</a>). He further emphasizes <i>\"É claro que em muitos casos sobretudo para a época de que aqui tratamos os erros de livros de linhagens são numerosos. É evidente que se preferem os dados fornecidos pela documentação coeva.\"</i> [Of course in many cases, mainly for the period of time we are working, the mistakes in genealogical books are too high. It is obvious that it is preferred the data present in consistent documentation] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('de906f7e-10dc-4557-8c82-13ddbdd1505e'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 09-10</a>). Despite improvements over time, nobiliary books still contain errors, highlighting the importance of relying on primary sources.</p>" ]
-        },
-        {
-            "id" : "nobiliarchy-usage",
-            "value" : [ "<p><h3>How can I work with nobiliary books?</h3>As previously mentioned, nobiliary books are not infallible, but this does not render them unusable. We propose the following approach:</p>", "<p> <ul> <li>Never treat nobiliary books as definitive proof, as they represent the author's conclusions based on primary sources or other references.</li><li>View nobiliary books as guides that may contain information about your ancestors. Always strive to locate documents that validate the information presented in these books.</li> <li>When unable to find supporting documentation, explicitly acknowledge your reliance on nobiliary suggestions, as demonstrated by José Mattoso: <i>\"temos de nos contentar com informações fornecidas pelos livros de linhagens\"</i> [we have to accept information given by lineage books] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f7a65165-8bec-41d5-8200-dc9e38f3786c'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 494</a>), or like Pizarro when he worked with Riba de Vizela's family <i>\"O Livro de Linhagens do Conde Dom Pedro registra apenas um filho bastardo\"</i> [The lineage book of Count Dom Pedro registers only one bastard son] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f1c459e5-8007-4554-a835-67c429a04a2e'); return false;\">Pizarro, <span class=\"htdate\"></span>, Volume I, pp. 553</a>) </li> </ul> </p>" ]
-        },
-        {
-            "id" : "homonymous",
-            "value" : [ "<p><h3>What is homonymy?</h3>Homonymy occurs when individuals share the exact same name. Consider the following examples:</p>", "<p><ul> <li>In the 19th century, the \"Ferreira de Britto\" family had a father and son both named José Ferreira de Britto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e26a3216-d801-47f3-9d36-bf624d6f10f1'); return false;\">Caiafa Lagoa, Maria A. A. et Villela, Moacyr U., <span class=\"htdate\"></span>, 1-2, 1-2-4</a>).</li> <li>According to Silva Leme, the 16th century witnessed two Salvador Pires, purportedly father and son ((<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94c71cd7-d6c1-4f05-aa78-73b7b2fce000'); return false;\">Silva Leme, Luiz G., <span class=\"htdate\"></span>, Volume IX, pp. 3-5</a>). However, a study of available documentation by Américo de Moura revealed errors in Silva Leme's account, indicating only one Salvador Pires (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b1c45fb5-1ac1-4e88-bb9c-7d8111de671c'); return false;\">de Moura, Américo, <span class=\"htdate\"></span>, pp. 429</a>).</li><li>The period from the 9th to 11th centuries presents an intriguing scenario, as individuals lacked surnames and often shared names and patronymics, such as Egas Moniz (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('de906f7e-10dc-4557-8c82-13ddbdd1505e'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 194</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f7a65165-8bec-41d5-8200-dc9e38f3786c'); return false;\">Mattoso, José, <span class=\"htdate\"></span>, pp. 486</a>).</li> </ul></p>", "<p>It's important to note that homonymy does not imply familial relation or shared habits.</p>" ]
-        },
-        {
-            "id" : "thefirst",
-            "value" : [ "<p><h3>Who is the first known ancestor?</h3>There is no singular answer to this question, as it is being explored in detail in the <b>Class</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eda6e242-751a-46b3-b5f7-0c4489d9b374'); return false;\">History Tracers, <span class=\"htdate\"></span>, Origin</a>) section. Here, we simply convey that the answer is contingent upon:</p>", "<p> <ul><li>The source used for investigation.</li><li>Discoveries of new fossils and the ability to extract data from them.</li><li>Avoiding limitations based on species or gender.</li><li>Avoiding arbitrary constraints.</li></ul><br /></p>" ]
-        },
-        {
-            "id": "fill_dates",
-            "text": [
-                        {  "type" : "gregory", "year" : "1982", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1982", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1969", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1997", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2016", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1904", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1951", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1982", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "1969", "month" : "-1", "day" : "-1" },
-                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }
-                    ]
-        }
-    ]
+   "title": "Frequently Asked Question",
+   "header": "Frequently Asked Question",
+   "sources": [
+      "genealogical_faq"
+   ],
+   "scripts": null,
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/genealogical_faq_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/NhPsLyvKUVb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": null,
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1755454972"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><hr /></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Introduction</h3>When compiling our family tree, it's natural to encounter doubts, and sometimes we make mistakes by opting for simplistic answers to complex questions. Here, we provide answers to some of the most common inquiries.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_nobiliarchy",
+         "text": [
+            {
+               "text": "<p><h3>Nobiliarchy</h3></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><br /><br />Are nobiliary books reliable?</div></div></center></p><p>In \"Ricos Homens Infanções e Cavaleiros\", José Mattoso articulates the nature of nobiliary books so eloquently that it requires no further embellishment. He states, <i>\"... os livros de linhagens fornecem eles próprios alguns elementos que é possível encontrar também na documentação antiga ... Este trabalho tornou-se possível desde que procedemos a uma edição crítica dos livros de linhagens, o que permitiu corrigir em muitos casos as leiuras errôneas dos editores e copistas\"</i> [.. lineage books themselves provide elements that can also be found in ancient documentation ... This work became possible since we conducted a critical review of lineage books, allowing us to rectify many erroneous readings by editors and copyists] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('de906f7e-10dc-4557-8c82-13ddbdd1505e'); return false;\">Mattoso, José, <htdate0>, pp. 09-10</a>). He further emphasizes <i>\"É claro que em muitos casos sobretudo para a época de que aqui tratamos os erros de livros de linhagens são numerosos. É evidente que se preferem os dados fornecidos pela documentação coeva.\"</i> [Of course in many cases, mainly for the period of time we are working, the mistakes in genealogical books are too high. It is obvious that it is preferred the data present in consistent documentation] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('de906f7e-10dc-4557-8c82-13ddbdd1505e'); return false;\">Mattoso, José, <htdate1>, pp. 09-10</a>). Despite improvements over time, nobiliary books still contain errors, highlighting the importance of relying on primary sources.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1982",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1982",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_nobiliarchy_usage",
+         "text": [
+            {
+               "text": "<p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><br /><br />How can I work with nobiliary books?</div></div></center></p><p>As previously mentioned, nobiliary books are not infallible, but this does not render them unusable. We propose the following approach:</p><p> <ul> <li>Never treat nobiliary books as definitive proof, as they represent the author's conclusions based on primary sources or other references.</li><li>View nobiliary books as guides that may contain information about your ancestors. Always strive to locate documents that validate the information presented in these books.</li> <li>When unable to find supporting documentation, explicitly acknowledge your reliance on nobiliary suggestions, as demonstrated by José Mattoso: <i>\"temos de nos contentar com informações fornecidas pelos livros de linhagens\"</i> [we have to accept information given by lineage books] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f7a65165-8bec-41d5-8200-dc9e38f3786c'); return false;\">Mattoso, José, <htdate0>, pp. 494</a>), or like Pizarro when he worked with Riba de Vizela's family <i>\"O Livro de Linhagens do Conde Dom Pedro registra apenas um filho bastardo\"</i> [The lineage book of Count Dom Pedro registers only one bastard son] (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f1c459e5-8007-4554-a835-67c429a04a2e'); return false;\">Pizarro, <htdate1>, Volume I, pp. 553</a>) </li> </ul> </p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1969",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1997",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_homonymous",
+         "text": [
+            {
+               "text": "<p><h3>Homonymy</h3></p><p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><br /><br />What is homonymy?</div></div></center></p><p>Homonymy occurs when individuals share the exact same name. Consider the following examples:</p><p><ul> <li>In the 19th century, the \"Ferreira de Britto\" family had a father and son both named José Ferreira de Britto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e26a3216-d801-47f3-9d36-bf624d6f10f1'); return false;\">Caiafa Lagoa, Maria A. A. et Villela, Moacyr U., <htdate0>, 1-2, 1-2-4</a>).</li> <li>According to Silva Leme, the 16th century witnessed two Salvador Pires, purportedly father and son ((<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94c71cd7-d6c1-4f05-aa78-73b7b2fce000'); return false;\">Silva Leme, Luiz G., <htdate1>, Volume IX, pp. 3-5</a>). However, a study of available documentation by Américo de Moura revealed errors in Silva Leme's account, indicating only one Salvador Pires (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b1c45fb5-1ac1-4e88-bb9c-7d8111de671c'); return false;\">de Moura, Américo, <htdate2>, pp. 429</a>).</li><li>The period from the 9th to 11th centuries presents an intriguing scenario, as individuals lacked surnames and often shared names and patronymics, such as Egas Moniz (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('de906f7e-10dc-4557-8c82-13ddbdd1505e'); return false;\">Mattoso, José, <htdate3>, pp. 194</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f7a65165-8bec-41d5-8200-dc9e38f3786c'); return false;\">Mattoso, José, <htdate4>, pp. 486</a>).</li> </ul></p><p>It's important to note that homonymy does not imply familial relation or shared habits.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1904",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1951",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1982",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1969",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_thefirst",
+         "text": [
+            {
+               "text": "<p><h3>First Ancestors</h3></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><br /><br />Who is the first known ancestor?</div></div></center></p><p>There is no singular answer to this question, as it is being explored in detail in the <b>Class</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eda6e242-751a-46b3-b5f7-0c4489d9b374'); return false;\">History Tracers, <htdate0>, Origin</a>) section. Here, we simply convey that the answer is contingent upon:</p><p> <ul><li>The source used for investigation.</li><li>Discoveries of new fossils and the ability to extract data from them.</li><li>Avoiding limitations based on species or gender.</li><li>Avoiding arbitrary constraints.</li></ul><br /></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2023",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
 }
