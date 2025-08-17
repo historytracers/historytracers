@@ -1,6 +1,25 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
+//
+var slideIndexaeGFS = 0;
 
-$(document).ready(function(){
-    htLoadPage('genealogical_first_steps','json', '', false);
-});
+function htPlusDivs(n) {
+    var x = document.getElementsByClassName("htSlide");
+    slideIndexaeGFS += n;
+    if (slideIndexaeGFS == x.length) {
+        slideIndexaeGFS = 0;
+    } else if (slideIndexaeGFS < 0) {
+        slideIndexaeGFS = x.length - 1;
+    }
+
+    htShowSlideDivs(x, slideIndexaeGFS);
+}
+
+function htLoadExercise() {
+    htAddTreeReflection("#myFirstReflection", 55);
+
+    htAddAlterQImages(".htSlides");
+    htPlusDivs(0);
+
+    return false;
+}
 
