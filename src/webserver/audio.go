@@ -585,7 +585,7 @@ func htConvertAtlasToAudio() {
 }
 
 func htConvertOverallTextToAudio() {
-	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5", "a86f373e-c908-4796-8a96-427ba5d4c889", "sources", "genealogical_first_steps"}
+	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5", "a86f373e-c908-4796-8a96-427ba5d4c889", "sources", "genealogical_first_steps", "genealogical_faq"}
 	htConvertClassesToAudio(pages)
 }
 
