@@ -86,8 +86,8 @@ function htMemorySetRepresentation(value)
         left = value - 5;
         right = 5;
     }
-    $("#tc6f1").html("<img id=\"imgtc6f1\" onclick=\"htImageZoom('imgtc6f1', '0%')\" src=\"images/"+left+"Left_Hand_Small.png\" />");
-    $("#tc7f1").html("<img id=\"imgtc7f1\" onclick=\"htImageZoom('imgtc7f1', '0%')\" src=\"images/"+right+"Right_Hand_Small.png\" />");
+    $("#tc6f1").html("<img id=\"imgtc6f1\" onclick=\"htImageZoom('imgtc6f1', '0%')\" src=\"images/HistoryTracers/"+left+"Left_Hand_Small.png\" />");
+    $("#tc7f1").html("<img id=\"imgtc7f1\" onclick=\"htImageZoom('imgtc7f1', '0%')\" src=\"images/HistoryTracers/"+right+"Right_Hand_Small.png\" />");
 
     $("#tc6f2").html("<img id=\"imgtc6f2\" onclick=\"htImageZoom('imgtc6f2', '0%')\" src=\"images/HistoryTracers/Maya_"+value+".png\" />");
 

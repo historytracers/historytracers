@@ -13,8 +13,8 @@ function htUpdateYupana68ecf470(lv, rv)
     rvalues = htFillYupanaDecimalValues('#yupana0', lv, 2, 'red_dot_right_up');
     lvalues = htFillYupanaDecimalValues('#yupana0', rv, 2, 'blue_dot_right_bottom');
 
-    $("#rightHandImg3").attr("src", "images/"+lv+"Right_Hand_Small.png");
-    $("#leftHandImg3").attr("src", "images/"+rv+"Left_Hand_Small.png");
+    $("#rightHandImg3").attr("src", "images/HistoryTracers/"+lv+"Right_Hand_Small.png");
+    $("#leftHandImg3").attr("src", "images/HistoryTracers/"+rv+"Left_Hand_Small.png");
 }
 
 function htUpdateValues68ecf470(left, right) {
@@ -25,8 +25,8 @@ function htUpdateValues68ecf470(left, right) {
         left = 5;
         right = 5;
     }
-    $("#rightHandImg3").attr("src", "images/"+right+"Right_Hand_Small.png");
-    $("#leftHandImg3").attr("src", "images/"+left+"Left_Hand_Small.png");
+    $("#rightHandImg3").attr("src", "images/HistoryTracers/"+right+"Right_Hand_Small.png");
+    $("#leftHandImg3").attr("src", "images/HistoryTracers/"+left+"Left_Hand_Small.png");
 }
 
 function htSetValues68ecf470() {

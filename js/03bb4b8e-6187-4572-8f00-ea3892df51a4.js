@@ -20,8 +20,8 @@ function htLoadExercise() {
         localCounter03bb4b8e++;
         localCounter03bb4b8e = htModify03bb4b8e(localCounter03bb4b8e);
 
-        $('#leftHandImg').attr('src', 'images/'+(localCounter03bb4b8e - 1)+'Left_Hand_Small.png');
-        $('#rightHandImg').attr('src', 'images/'+localCounter03bb4b8e+'Right_Hand_Small.png');
+        $('#leftHandImg').attr('src', 'images/HistoryTracers/'+(localCounter03bb4b8e - 1)+'Left_Hand_Small.png');
+        $('#rightHandImg').attr('src', 'images/HistoryTracers/'+localCounter03bb4b8e+'Right_Hand_Small.png');
 
         $('#leftnum').html(localCounter03bb4b8e - 1);
         $('#rightnum').html(localCounter03bb4b8e);
@@ -31,8 +31,8 @@ function htLoadExercise() {
         localCounter03bb4b8e--;
         localCounter03bb4b8e = htModify03bb4b8e(localCounter03bb4b8e);
 
-        $('#leftHandImg').attr('src', 'images/'+(localCounter03bb4b8e - 1)+'Left_Hand_Small.png');
-        $('#rightHandImg').attr('src', 'images/'+localCounter03bb4b8e+'Right_Hand_Small.png');
+        $('#leftHandImg').attr('src', 'images/HistoryTracers/'+(localCounter03bb4b8e - 1)+'Left_Hand_Small.png');
+        $('#rightHandImg').attr('src', 'images/HistoryTracers/'+localCounter03bb4b8e+'Right_Hand_Small.png');
 
         $('#leftnum').html(localCounter03bb4b8e - 1);
         $('#rightnum').html(localCounter03bb4b8e);
