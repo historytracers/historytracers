@@ -4,6 +4,7 @@ var rValues = [];
 var lValues = [];
 
 var localAnswerVector648170f0 = undefined;
+var currentExampleIdx = 0;
 
 function htFillYupanaMultYupana0(value, times)
 {
@@ -74,6 +75,34 @@ function htLoadExercise() {
 
     htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', lvalues);
     htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', rvalues);
+
+    $('.ordercheck').change(function(){
+        var id = $(this).attr("id");
+        if (id == undefined) {
+            return;
+        }
+
+        if ($(this).is(':checked')) {
+            htSetMultColors("multexample1", "red", id);
+        } else {
+            htSetMultColors("multexample1", "black", id);
+        }
+    });
+
+    $("#traineeUp3").on("click", function() {
+        if (currentExampleIdx >= 4) {
+            currentExampleIdx = 0;
+        }
+
+        $("#imgm"+currentExampleIdx).attr("src", "images/HistoryTracers/Maya_2.png");
+        currentExampleIdx++;
+    });
+
+    $("#traineeDown3").on("click", function() {
+        for (let i = 0; i < 4; i++) {
+            $("#imgm"+i).attr("src", "");
+        }
+    });
 
     return false;
 }

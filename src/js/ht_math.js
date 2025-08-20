@@ -634,8 +634,13 @@ function htSetMultColors(localClass, color, id)
     }
     var numId = parseInt(id);
     var numIdnext = numId + 1;
+
     // Top line
-    $("#mmtc"+numIdnext+"."+localClass).css("color", color);
+    if (numIdnext != 3) {
+        $("#mmtc"+numIdnext+"."+localClass).css("color", color);
+    } else {
+        $("#mmtc1."+localClass).css("color", color);
+    }
     $("#mmtc"+numId+"."+localClass).css("color", color);
 
     // Multiplicator
