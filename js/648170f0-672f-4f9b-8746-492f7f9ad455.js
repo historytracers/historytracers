@@ -2,6 +2,9 @@
 
 var rValues = [];
 var lValues = [];
+var mayaProductVector = [];
+var firstVector = [];
+var secondVector = [];
 
 var localAnswerVector648170f0 = undefined;
 var currentExampleIdx = 0;
@@ -13,6 +16,155 @@ function htFillYupanaMultYupana0(value, times)
     htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', lValues);
     rValues[0] = times;
     htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', rValues);
+}
+
+function htFillWriteTableHeader(tableId, horizontalVector) {
+    const $tableElement = $(tableId);
+
+    var table = "<tr><td style=\"background-color: lightblue\" rowspan=\"2\">&nbsp;</td><td style=\"background-color: lightblue\" colspan=\""+horizontalVector.length+"\"><b>"+mathKeywords[14]+"</b></td><td style=\"background-color: lightblue\"><b>"+mathKeywords[26]+"</b></td><td style=\"background-color: lightblue\"><b>"+mathKeywords[27]+"</b></td></tr>";
+    $tableElement.append(table);
+}
+
+function htAddTDtoTable(i, j, value0, value1, addStyle, isProduct) {
+    var additional = "";
+    var style = "";
+    var imageIdx = i + j;
+    if (value1 > 0 && value1 < 20) {
+        var idx = (i + j)*imageIdx;
+        additional = " <span class=\"timesAdd\">×</span> <img class=\"imgAdd\" id=\"imgresa"+idx+"\" onclick=\"htImageZoom('imgresa"+idx+"', '0%')\" src=\"images/HistoryTracers/Maya_"+value1+".png\" />";
+    }
+
+    if (addStyle.length > 0 ) {
+        style = "style=\""+addStyle+"\"";
+    }
+    var additionalClass = (isProduct == true) ? "noChanged": "resChanged";
+    var ret =  "<td "+style+"><img class=\""+additionalClass+"\" id=\"imgres"+imageIdx+"\" onclick=\"htImageZoom('imgres"+imageIdx+"', '0%')\" src=\"images/HistoryTracers/Maya_"+value0+".png\" />"+additional+"</td>";
+    imageIdx++;
+    return ret;
+}
+
+function htFillWriteTableBody(tableId, horizontalVector, verticalVector, productVector) {
+    const $tableElement = $(tableId);
+
+    var totalRows = productVector.length;
+    var rowspan = totalRows + 1;
+    var horizontalLength = horizontalVector.length;
+    var horizontalIdx = 0; 
+    var productIdx = 0; 
+    var verticalLength = verticalVector.length;
+    var colors = [ "lightyellow", "lightgreen", "lightgray", "#FFA8B5", "E48E65" ];
+    var initialColorIdx = 0;
+    var zindex = 999;
+    for (let i = 0; productIdx < totalRows; i++) {
+        var row = "<tr>";
+        if (i == 0) {
+            for (let j = 0 ; j < verticalLength; j++) {
+                row += "<td style=\"background-color: lightblue\"><img id=\"imgres0"+j+"\" onclick=\"htImageZoom('imgres0"+j+"', '0%')\" src=\"images/HistoryTracers/Maya_"+verticalVector[j]+".png\" /></td>";
+            }
+            row += "<td style=\"background-color: lightblue\" rowspan=\""+rowspan+"\"> = </td><td style=\"background-color: lightblue\">&nbsp;</td></tr>";
+            $tableElement.append(row);
+            if (horizontalLength != totalRows) {
+                for (let w =  horizontalLength; w < totalRows; w++) {
+                    row = "<tr><td style=\"background-color: lightblue\">&nbsp;</td>";
+                    for (let j = 0 ; j < verticalLength; j++) {
+                        row += "<td>&nbsp;</td>";
+                    }
+                    row += htAddTDtoTable(i*1000, rowspan++, productVector[productIdx], -1, "background-color: "+colors[productIdx], true);
+                    row += "</tr>";
+                    productIdx++;
+                    $tableElement.append(row);
+                }
+            }
+            continue;
+        }
+
+        var currentHorizontal = horizontalVector[horizontalIdx]; 
+        row += htAddTDtoTable(i*1000, rowspan++, currentHorizontal, -1, "background-color: lightblue", false);
+
+        var currentColorIdx = initialColorIdx;
+        for (let j = 0 ; j < verticalLength; j++) {
+            var currentTotal = currentHorizontal*verticalVector[j];
+            var additional = -1;
+            if (currentTotal > 19) {
+                currentTotal = currentHorizontal;
+                additional = verticalVector[j];
+            }
+            row += htAddTDtoTable(i*100, rowspan++, currentTotal, additional, "background-color: "+colors[currentColorIdx], false);
+            currentColorIdx++;
+        }
+        row += htAddTDtoTable(i*10, rowspan++, productVector[productIdx], -1, "background-color: "+colors[currentColorIdx - 1], true);
+        row += "</tr>";
+        initialColorIdx++;
+        $tableElement.append(row);
+
+        horizontalIdx++;
+        productIdx++;
+    }
+}
+
+function htFillCalcTable6481070f0 (tableId) {
+    const $tableElement = $(tableId);
+
+    if ($tableElement.length === 0) {
+        return;
+    }
+    $tableElement.empty();
+
+    var first = parseInt($("#firstV").val());
+    firstVector = htMesoamericanNumberOrder(first);
+
+    var second = parseInt($("#secondV").val());
+    secondVector = htMesoamericanNumberOrder(second);
+
+    htFillWriteTableHeader(tableId, secondVector);
+
+    var product = first * second;
+    mayaProductVector = htMesoamericanNumberOrder(product);
+    $("#thirdV").val(product);
+
+    if (firstVector.length > 1) {
+        firstVector.reverse();
+    }
+
+    if (secondVector.length > 1) {
+        secondVector.reverse();
+    }
+
+    if (mayaProductVector.length > 1) {
+        mayaProductVector.reverse();
+    }
+
+
+    htFillWriteTableBody(tableId, firstVector, secondVector, mayaProductVector);
+}
+
+function htChangeCalcTable6481070f0 (tableId) {
+    const $tableElement = $(tableId);
+
+    if ($tableElement.length === 0) {
+        return;
+    }
+
+    if (mayaProductVector.length == 0) {
+        return;
+    }
+
+    $(".imgAdd").each(function(index, element) {
+        $(this).remove();
+    });
+
+    $(".timesAdd").each(function(index, element) {
+        $(this).remove();
+    });
+
+    var verticalLength = secondVector.length;
+    var productIdx = 0;
+    $(".resChanged").each(function(index, element) {
+        if (index < verticalLength) {
+            $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[productIdx]+".png");
+            productIdx++;
+        }
+    });
 }
 
 function htLoadExercise() {
@@ -103,6 +255,34 @@ function htLoadExercise() {
             $("#imgm"+i).attr("src", "");
         }
     });
+
+    $("#firstV").on("keyup", function() {
+        var val = $(this).val();
+        if (val > 999) {
+            $(this).val(999);
+        } else if (val < 0) {
+            $(this).val(0);
+        }
+    });
+
+    $("#secondV").on("keyup", function() {
+        var val = $(this).val();
+        if (val > 999) {
+            $(this).val(999);
+        } else if (val < 0) {
+            $(this).val(0);
+        }
+    });
+
+    $("#equalCalc").on("click", function() {
+        htFillCalcTable6481070f0 ("#calcGrid");
+    });
+
+    $("#changeResult").on("click", function() {
+        htChangeCalcTable6481070f0 ("#calcGrid");
+    });
+
+    htFillCalcTable6481070f0 ("#calcGrid");
 
     return false;
 }
