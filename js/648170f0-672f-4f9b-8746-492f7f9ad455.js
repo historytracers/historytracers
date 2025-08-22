@@ -25,7 +25,7 @@ function htFillWriteTableHeader(tableId, horizontalVector) {
     $tableElement.append(table);
 }
 
-function htAddTDtoTable(i, j, value0, value1, addStyle, isProduct) {
+function htAddTDtoTable(i, j, value0, value1, addStyle, isProductFactor) {
     var additional = "";
     var style = "";
     var imageIdx = i + j;
@@ -37,7 +37,7 @@ function htAddTDtoTable(i, j, value0, value1, addStyle, isProduct) {
     if (addStyle.length > 0 ) {
         style = "style=\""+addStyle+"\"";
     }
-    var additionalClass = (isProduct == true) ? "noChanged": "resChanged";
+    var additionalClass = (isProductFactor == true) ? "noChanged": "resChanged";
     var ret =  "<td "+style+"><img class=\""+additionalClass+"\" id=\"imgres"+imageIdx+"\" onclick=\"htImageZoom('imgres"+imageIdx+"', '0%')\" src=\"images/HistoryTracers/Maya_"+value0+".png\" />"+additional+"</td>";
     imageIdx++;
     return ret;
@@ -79,7 +79,7 @@ function htFillWriteTableBody(tableId, horizontalVector, verticalVector, product
         }
 
         var currentHorizontal = horizontalVector[horizontalIdx]; 
-        row += htAddTDtoTable(i*1000, rowspan++, currentHorizontal, -1, "background-color: lightblue", false);
+        row += htAddTDtoTable(i*1000, rowspan++, currentHorizontal, -1, "background-color: lightblue", true);
 
         var currentColorIdx = initialColorIdx;
         for (let j = 0 ; j < verticalLength; j++) {
@@ -149,6 +149,13 @@ function htChangeCalcTable6481070f0 (tableId) {
         return;
     }
 
+    var verticalLength = secondVector.length;
+    var horizontalLength = firstVector.length;
+    var productLength = mayaProductVector.length;
+    if (horizontalLength == 1 && verticalLength == 1 && productLength > 1) {
+        return;
+    }
+
     $(".imgAdd").each(function(index, element) {
         $(this).remove();
     });
@@ -157,12 +164,30 @@ function htChangeCalcTable6481070f0 (tableId) {
         $(this).remove();
     });
 
-    var verticalLength = secondVector.length;
+    var verticalLengthP1 = secondVector.length + 1;
     var productIdx = 0;
+    var cell = 0;
+    var row = 2;
+    var totalM1 = $(".resChanged").length - 1;
     $(".resChanged").each(function(index, element) {
-        if (index < verticalLength) {
+        // 999 * 215
+        if (index < verticalLength ) {
             $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[productIdx]+".png");
             productIdx++;
+        } else {
+            // alert(index+" "+row+" | "+horizontalLength+" = ("+cell+" "+(mayaProductVector.length - productIdx)+" )");
+            if (cell ==  verticalLength || index == totalM1) {
+                $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[productIdx]+".png");
+                productIdx++;
+                row++;
+                cell = 1;
+            } else if ((cell == 1) && (productLength == 5) && (row == horizontalLength) && ((productLength - productIdx) >= cell)) {
+                $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[productIdx]+".png");
+                productIdx++;
+            } else {
+                $(this).attr("src", "images/HistoryTracers/Maya_0.png");
+            }
+            cell++;
         }
     });
 }
