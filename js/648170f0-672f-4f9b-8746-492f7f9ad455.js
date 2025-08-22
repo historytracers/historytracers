@@ -2,12 +2,14 @@
 
 var rValues = [];
 var lValues = [];
+
 var mayaProductVector = [];
 var firstVector = [];
 var secondVector = [];
 
 var localAnswerVector648170f0 = undefined;
 var currentExampleIdx = 0;
+var initialColorChange = 0;
 
 function htFillYupanaMultYupana0(value, times)
 {
@@ -49,12 +51,12 @@ function htFillWriteTableBody(tableId, horizontalVector, verticalVector, product
     var totalRows = productVector.length;
     var rowspan = totalRows + 1;
     var horizontalLength = horizontalVector.length;
+    var verticalLength = verticalVector.length;
+    var productRC = horizontalLength * verticalLength ;
     var horizontalIdx = 0; 
     var productIdx = 0; 
-    var verticalLength = verticalVector.length;
     var colors = [ "lightyellow", "lightgreen", "lightgray", "#FFA8B5", "E48E65" ];
     var initialColorIdx = 0;
-    var zindex = 999;
     for (let i = 0; productIdx < totalRows; i++) {
         var row = "<tr>";
         if (i == 0) {
@@ -63,17 +65,36 @@ function htFillWriteTableBody(tableId, horizontalVector, verticalVector, product
             }
             row += "<td style=\"background-color: lightblue\" rowspan=\""+rowspan+"\"> = </td><td style=\"background-color: lightblue\">&nbsp;</td></tr>";
             $tableElement.append(row);
+            var idx = 0;
             if (horizontalLength != totalRows) {
                 for (let w =  horizontalLength; w < totalRows; w++) {
                     row = "<tr><td style=\"background-color: lightblue\">&nbsp;</td>";
                     for (let j = 0 ; j < verticalLength; j++) {
-                        row += "<td>&nbsp;</td>";
+                        row += (j == 0) ? "<td style=\"background-color: "+colors[0]+"\"><img class=\"imgAddProd\" id=\"addprod"+productIdx+"\" onclick=\"htImageZoom('imgprod"+productIdx+"', '0%')\" src=\"\" /></td>": "<td>&nbsp;</td>";
                     }
-                    row += htAddTDtoTable(i*1000, rowspan++, productVector[productIdx], -1, "background-color: "+colors[productIdx], true);
+                    row += htAddTDtoTable(i*1000, rowspan++, productVector[productIdx], -1, "background-color: "+colors[idx], true);
                     row += "</tr>";
                     productIdx++;
+
+                    if (totalRows == 5) {
+                        if ( (horizontalLength == 3 && verticalLength == 3) || ((horizontalLength != 3 || verticalLength != 3) && w != horizontalLength)) {
+                            idx++;
+                        }
+                    } else if (totalRows == 4 && (horizontalLength == 3 || verticalLength == 3)) {
+                        idx++;
+                    }
+
                     $tableElement.append(row);
                 }
+            }
+            if (totalRows == 5) {
+                if ((horizontalLength != 3 || verticalLength != 3) && (horizontalLength == 2 || verticalLength == 2)) { 
+                    initialColorChange = 1;
+                }
+            } else if (totalRows == 4) {
+                initialColorChange = (horizontalLength == 3 || verticalLength == 3) ? 0 : 1;
+            } else if (totalRows == 3 && (horizontalLength == 1 || verticalLength == 1)) {
+                initialColorChange = 1;
             }
             continue;
         }
@@ -109,6 +130,7 @@ function htFillCalcTable6481070f0 (tableId) {
         return;
     }
     $tableElement.empty();
+    initialColorChange = 0;
 
     var first = parseInt($("#firstV").val());
     firstVector = htMesoamericanNumberOrder(first);
@@ -138,6 +160,16 @@ function htFillCalcTable6481070f0 (tableId) {
     htFillWriteTableBody(tableId, firstVector, secondVector, mayaProductVector);
 }
 
+function htChangeCleanUnused() {
+        $(".imgAdd").each(function(index, element) {
+            $(this).remove();
+        });
+
+        $(".timesAdd").each(function(index, element) {
+            $(this).remove();
+        });
+}
+
 function htChangeCalcTable6481070f0 (tableId) {
     const $tableElement = $(tableId);
 
@@ -153,39 +185,55 @@ function htChangeCalcTable6481070f0 (tableId) {
     var horizontalLength = firstVector.length;
     var productLength = mayaProductVector.length;
     if (horizontalLength == 1 && verticalLength == 1 && productLength > 1) {
+        htChangeCleanUnused();
+
+        $($(".imgAddProd").get().reverse()).each(function(index, element) {
+            $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[0]+".png");
+        });
+
+        $(".resChanged").each(function(index, element) {
+            $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[1]+".png");
+        });
         return;
     }
 
-    $(".imgAdd").each(function(index, element) {
-        $(this).remove();
-    });
-
-    $(".timesAdd").each(function(index, element) {
-        $(this).remove();
-    });
+    htChangeCleanUnused();
 
     var verticalLengthP1 = secondVector.length + 1;
-    var productIdx = 0;
-    var cell = 0;
+    var productIdx = initialColorChange;
+    var cell = 1;
     var row = 2;
-    var totalM1 = $(".resChanged").length - 1;
+
+    var additional = productIdx - 1;
+    $($(".imgAddProd").get().reverse()).each(function(index, element) {
+        if (additional < 0) { 
+            return false;
+        }
+
+        $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[additional]+".png");
+        additional--;
+    });
+
+    
+    var test = (horizontalLength == 1 && verticalLength == 1 && productLength > 1);
     $(".resChanged").each(function(index, element) {
-        // 999 * 215
-        if (index < verticalLength ) {
-            $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[productIdx]+".png");
-            productIdx++;
+        if (test) {
+            $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[index]+".png");
         } else {
-            // alert(index+" "+row+" | "+horizontalLength+" = ("+cell+" "+(mayaProductVector.length - productIdx)+" )");
-            if (cell ==  verticalLength || index == totalM1) {
-                $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[productIdx]+".png");
-                productIdx++;
-                row++;
-                cell = 1;
-            } else if ((cell == 1) && (productLength == 5) && (row == horizontalLength) && ((productLength - productIdx) >= cell)) {
+            if (index < verticalLength ) {
                 $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[productIdx]+".png");
                 productIdx++;
             } else {
-                $(this).attr("src", "images/HistoryTracers/Maya_0.png");
+                if ( (cell % verticalLength) == 0) {
+                    $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[productIdx]+".png");
+                    productIdx++;
+                    row++;
+                } else {
+                    $(this).attr("src", "images/HistoryTracers/Maya_0.png");
+                }
+                if (productIdx >= productLength) {
+                    return false;
+                }
             }
             cell++;
         }
