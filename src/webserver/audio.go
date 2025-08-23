@@ -617,7 +617,7 @@ func htConvertIndexTextToAudio(idxName string) {
 }
 
 func htAudioIndexLoop() {
-	indexes := []string{"first_steps", "literature"}
+	indexes := []string{"first_steps", "literature", "indigenous_who"}
 	for i := 0; i < len(htLangPaths); i++ {
 		lang := htLangPaths[i]
 		htLoadKeywordFile("common_keywords", lang)
