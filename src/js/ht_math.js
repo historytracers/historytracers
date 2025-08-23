@@ -378,6 +378,21 @@ function htFillMesoamericanCalendar(periods, outputColumn)
     }
 }
 
+function htMesoamericanNumberOrder(dividend) 
+{
+    var ret = [];
+    if ( dividend != 0) {
+        while (dividend != 0) {
+            var rest = dividend % 20;
+            dividend = Math.trunc(dividend / 20);
+            ret.push(rest);
+        }
+    } else {
+        ret.push(0);
+    }
+    return ret;
+}
+
 function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimalColumn)
 {
     var localMax = 20**rows;
@@ -396,16 +411,13 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimal
         top2bottom++;
     }
 
-    var bottom2top = rows;
-    while (dividend != 0) {
-        var rest = dividend % 20;
-        dividend = Math.trunc(dividend / 20);
+    var output = htMesoamericanNumberOrder(dividend);
+    for (let i = 0, bottom2top = rows; i < output.length; i++, bottom2top--) {
+        var rest = output[i];
         if (decimalColumn != undefined) {
             $("#tmc"+decimalColumn+"l"+bottom2top).html(rest);
         }
         $("#tmc"+outputColumn+"l"+bottom2top).attr('src', 'images/HistoryTracers/Maya_'+rest+'.png');
-        
-        bottom2top--;
     }
 }
 
@@ -634,8 +646,13 @@ function htSetMultColors(localClass, color, id)
     }
     var numId = parseInt(id);
     var numIdnext = numId + 1;
+
     // Top line
-    $("#mmtc"+numIdnext+"."+localClass).css("color", color);
+    if (numIdnext != 3) {
+        $("#mmtc"+numIdnext+"."+localClass).css("color", color);
+    } else {
+        $("#mmtc1."+localClass).css("color", color);
+    }
     $("#mmtc"+numId+"."+localClass).css("color", color);
 
     // Multiplicator

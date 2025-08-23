@@ -66,7 +66,6 @@ type HTSourceElement struct {
 }
 
 type HTSourceFile struct {
-	Info               string            `json:"info"`
 	License            []string          `json:"license"`
 	LastUpdate         []string          `json:"last_update"`
 	Version            int               `json:"version"`
