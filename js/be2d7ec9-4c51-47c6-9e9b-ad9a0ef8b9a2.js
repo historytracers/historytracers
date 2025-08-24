@@ -410,5 +410,7 @@ function htLoadExercise() {
 
     htFillCalcTable6481070f0 ("#calcGrid");
 
+    htWriteNavigation("indigenous_who");
+
     return false;
 }

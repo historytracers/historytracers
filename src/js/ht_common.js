@@ -28,6 +28,7 @@ var htAtlas = [];
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
+var htIndigenousWhoIdx = new Map();
 var htFamilyIdx = new Map();
 
 var extLatexIdx = 0;
@@ -1307,6 +1308,8 @@ function htSelectIndexMap(index)
         return htFirstStepsIdx;
     } else if (index == "families") {
         return htFamilyIdx;
+    } else if (index == "indigenous_who") {
+        return htIndigenousWhoIdx;
     }
 
     return undefined;
@@ -1403,6 +1406,9 @@ function htLoadIndex(data, arg, page)
         return;
     } else if (page == "families" && htFamilyIdx.has("families") == false) {
         htFillTopIdx(htFamilyIdx, data, "families");
+        return;
+    } else if (page == "indigenous_who" && htFamilyIdx.has("indigenous_who") == false) {
+        htFillTopIdx(htIndigenousWhoIdx, data, "indigenous_who");
         return;
     }
 
