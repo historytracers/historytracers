@@ -3,6 +3,8 @@
 function htLoadExercise() {
     htAddTreeReflection("#myFirstReflection", 55);
 
+    htWriteNavigation("indigenous_who");
+
     return false;
 }
 
