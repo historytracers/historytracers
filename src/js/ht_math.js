@@ -670,3 +670,30 @@ function htSetMultColors(localClass, color, id)
 
 }
 
+// MESO
+
+function htAddTDtoGradeTable(i, j, value0, value1, addStyle, isProductFactor) {
+    var additional = "";
+    var style = "";
+    var imageIdx = i + j;
+    if (value1 > 0 && value1 < 20) {
+        var idx = (i + j)*imageIdx;
+        additional = " <span class=\"timesAdd\">×</span> <img class=\"imgAdd\" id=\"imgresa"+idx+"\" onclick=\"htImageZoom('imgresa"+idx+"', '0%')\" src=\"images/HistoryTracers/Maya_"+value1+".png\" />";
+    }
+
+    if (addStyle.length > 0 ) {
+        style = "style=\""+addStyle+"\"";
+    }
+    var additionalClass = (isProductFactor == true) ? "noChanged": "resChanged";
+    var ret =  "<td "+style+"><img class=\""+additionalClass+"\" id=\"imgres"+imageIdx+"\" onclick=\"htImageZoom('imgres"+imageIdx+"', '0%')\" src=\"images/HistoryTracers/Maya_"+value0+".png\" />"+additional+"</td>";
+    imageIdx++;
+    return ret;
+}
+
+function htFillWriteMesoTableHeader(tableId, horizontalVector) {
+    const $tableElement = $(tableId);
+
+    var table = "<tr><td style=\"background-color: lightblue\" rowspan=\"2\">&nbsp;</td><td style=\"background-color: lightblue\" colspan=\""+horizontalVector.length+"\"><b>"+mathKeywords[14]+"</b></td><td style=\"background-color: lightblue\"><b>"+mathKeywords[26]+"</b></td><td style=\"background-color: lightblue\"><b>"+mathKeywords[27]+"</b></td></tr>";
+    $tableElement.append(table);
+}
+

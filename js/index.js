@@ -119,7 +119,6 @@ function htParseIndexRequest() {
             case 'first_steps':
             case 'indigenous_who':
             case 'indigenous_time':
-            case 'acknowledgement':
             case 'first_steps_games':
             case 'release':
             case 'literature':

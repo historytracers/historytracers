@@ -28,6 +28,7 @@ var htAtlas = [];
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
+var htIndigenousWhoIdx = new Map();
 var htFamilyIdx = new Map();
 
 var extLatexIdx = 0;
@@ -1031,7 +1032,7 @@ function htFillStringOnPage(data, idx, page)
 
     if ($("#"+data.content[idx].id).length > 0) {
         $("#"+data.content[idx].id).html(text);
-    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps") && (data.content[idx].target != undefined)) {
+    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" ||page == "indigenous_who") && (data.content[idx].target != undefined)) {
         $("#group-map").append("<ul><b><span id=\""+data.content[idx].id+"\">"+text+"</span></b><ol id=\""+data.content[idx].target+"\"></ol></ul><br />");
     }
 }
@@ -1121,6 +1122,18 @@ function htFillWebPage(page, data)
 
             if (data.atlas != undefined) {
                 htFillAtlas(data);
+            }
+        } else if (data.type == "index") {
+            for (const i in data.content) {
+                if (data.content[i].value == undefined || data.content[i].value == null) {
+                    htFillStringOnPage(data, i, page);
+                    continue;
+                } else if (data.content[i].value_type == "group-list") {
+                    if (data.content[i].id != undefined && data.content[i].id != null && data.content[i].id.length > 0 && data.content[i].desc != undefined && data.content[i].desc.length > 0) {
+                        $("#"+data.content[i].id).html(data.content[i].desc);
+                    }
+                    htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
+                }
             }
         }
     } else {
@@ -1295,6 +1308,8 @@ function htSelectIndexMap(index)
         return htFirstStepsIdx;
     } else if (index == "families") {
         return htFamilyIdx;
+    } else if (index == "indigenous_who") {
+        return htIndigenousWhoIdx;
     }
 
     return undefined;
@@ -1391,6 +1406,9 @@ function htLoadIndex(data, arg, page)
         return;
     } else if (page == "families" && htFamilyIdx.has("families") == false) {
         htFillTopIdx(htFamilyIdx, data, "families");
+        return;
+    } else if (page == "indigenous_who" && htFamilyIdx.has("indigenous_who") == false) {
+        htFillTopIdx(htIndigenousWhoIdx, data, "indigenous_who");
         return;
     }
 

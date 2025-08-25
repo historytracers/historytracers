@@ -9,6 +9,8 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector24e0b84e);
     }
 
+    htWriteNavigation("indigenous_who");
+
     return false;
 }
 
