@@ -55,8 +55,20 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerequisites\n\nThis text will make use of the concepts of addition and multiplication. For better understanding, we recommend studying chapters 2, 3, and 4 of the *First Steps* section (<htcite0>) before continuing.",
+               "text": "### Prerequisites\n\nThis text will make use of the concepts of addition and multiplication. For better understanding, we recommend studying the section *Scientific Method*, and chapters 2, 3, and 4 of the *First Steps* section (<htcite0>) before continuing.",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9a82e769-0cf6-4b17-8b98-63f27de3123e",
+                     "text": "History Tracers Team",
+                     "page": "Scientific Method",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
@@ -122,13 +134,249 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_happybirth",
+         "text": [
+            {
+               "text": "### My Birthday\n\nMathematics is the oldest science developed by human beings (<htcite0>). As we learned more about it, we developed what we call *mathematical modeling*, that is, representations of reality through mathematics (<htcite1>).\n\n#### The Questions\n\nSince this will be our first modeling exercise, we’ll start by getting to know ourselves through mathematics.\n\nIn the **Year** box below, History Tracers randomly selected a year between <span id=\"firstYear\"></span> and <span id=\"lastYear\"></span>. We suggest replacing it with the year you were born and then clicking **update** (<i class=\"fa-solid fa-circle-check\" style=\"font-size: 1.2em; color: green;\"></i>), so that all the content of the page adjusts accordingly.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
+                     "text": "González Redondo, Francisco A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "12c1baeb-fe38-42ce-b337-d88d3a15d91e",
+                     "text": "The Editors of Encyclopaedia Britannica",
+                     "page": "mathematical model",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "7",
+                        "day": "13"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><b>Year:</b> <input type=\"number\" id=\"birthYear\" /> <i class=\"fa-solid fa-circle-check\" style=\"font-size: 1.5em; color: green;\" id=\"updateEnv\"></i> </center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "The first step is to choose the question(s) we want to answer. In our case, they are:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "mardown",
+               "PostMention": " "
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: My Birthday</b><br /><br />How old am I now?<br /><br />How old will I be in 5 years?<br /><br />In what year did I turn 30?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Initial Observation\n\nTo answer the first question, let’s remember how we celebrate birthdays. When we are born, we are zero years old. Our first birthday happens one year after birth. To turn two, we need another full year to pass.\n\nSo, each year that passes we add one more to our life. This pattern follows the **Multiplication Table of 1** (Chart 1):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "mardown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Graph 1: Points from the Table of 1. Graph made with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Graph 1 only shows 50 years for simplicity. We wish the reader a long life and remind them that the graph does not represent their exact life trajectory.\n\nAlso, it does not show the year given in the **Questions** section, which leads us to reflect:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "mardown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: The Missing Part</b><br /><br />Graph 1 shows years starting from zero, ignoring the year chosen in the <b>Year</b> box.<br /><br />What is missing so that the vertical values indicate years starting, for example, from <span id=\"yearQuestion\"></span>?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Deepening the Knowledge\n\nLet’s recall the general formula of multiplication tables (Formula 1) and compare it to Graph 1, which shows the relationship between ages and lived years:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "mardown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Formula 1: General formula of multiplication tables.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In the table of 1, we saw that *r* is the result of the multiplication, *a* equals *1*, and *N* corresponds to the number being multiplied (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the multiplication table (0 and 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "mardown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\">Formula 2: Result of multiplying by 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Applying Formula 2, we get:</p><p><div id=\"mParent1\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "Making an analogy between our life and the stars in the multiplication table, the stars that appear when hovering over a multiplication correspond to each new year of life that a person completes.\n\nThis data helps us understand the role of factor a in Formula 1: it represents the rate of change, that is, how much *N*. grows. This becomes evident when comparing the tables from 0 to 9 in **Graph 2**: the larger the value of a, the further the result moves from the horizontal line.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "mardown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Graph 2: Points from the tables of 0 to 9 connected, forming straight lines. Graph created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "#### Adding a Term\n\nNow that we understand the variable term (a × N), let’s think about what’s missing to adapt Formula 2 and Graph 1 to our birthday.\n\nThe graph must still increase by 1 each year, so we don’t need to change the variable term. What’s missing is shifting the start. Instead of starting at zero, it must start in the year we were born. That shift is done by adding a constant (C), which represents the year of birth (<htcite0>).\n\nThus, our years of life are expressed with:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team",
+                     "page": "Walking Among Numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "mardown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>Y</mi><mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> <mo>+</mo> <mi>C</mi> </math></center></p><p class=\"desc\">Formula 3: Birthdays in our life.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            },
+            {
+               "text": "In Formula 3:\n\n- **Y**: year in which we have a birthday.\n- **1 × N**: rate of change (1 per year), with N being the number of birthdays.\n- **C**: year of birth (constant).\n\nFor greater clarity, **Table 1** shows the first 4 moments of the life of someone born in <span id=\"yearBeforeChart\"></span>.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": " "
+            },
+            {
+               "text": "<p><table id=\"emptyGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">Y (year)</td><td style=\"background-color: lightblue\"><b>Moment (<i>1 × N</i>)</b></td><td style=\"background-color: lightblue\"><b>Start (C)</b></td></tr>  <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable0\"></span></b></td><td>1 × 0</td><td><span id=\"constantTable0\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable1\"></span></b></td><td>1 × 1</td><td><span id=\"constantTable1\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable2\"></span></b></td><td>1 × 2</td><td><span id=\"constantTable2\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable3\"></span></b></td><td>1 × 3</td><td><span id=\"constantTable3\"></span></td></tr> </table></p> <p class=\"desc\">Table 1 – Relationship between age and year for someone born in <span id=\"yearLable\"></span>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Graph 3: Relationship between years and birthdays, connected by straight lines. Graph created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": " "
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
+         "question": "Os anos do nosso aniversário podem ser explicado ao adicionarmos a Tabuada de 1 nosso ano de nascimento?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "additionalInfo": "O ano que nascemos é uma constante que não muda. A partir deste ano, a cada ano que passa somamos mais um ano em nossa vida. Esta variação anual (sempre somar um a cada ano que passa), é exatamente a variação que a tabuada de 1 possuí."
       }
    ],
    "game_v2": null,
