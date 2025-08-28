@@ -139,8 +139,20 @@
          "id": "SECTION_happybirth",
          "text": [
             {
-               "text": "### My Birthday\n\nMathematics is the oldest science developed by human beings (<htcite0>). As we learned more about it, we developed what we call *mathematical modeling*, that is, representations of reality through mathematics (<htcite1>).\n\n#### The Questions\n\nSince this will be our first modeling exercise, we’ll start by getting to know ourselves through mathematics.\n\nIn the **Year** box below, History Tracers randomly selected a year between <span id=\"firstYear\"></span> and <span id=\"lastYear\"></span>. We suggest replacing it with the year you were born and then clicking **update** (<i class=\"fa-solid fa-circle-check\" style=\"font-size: 1.2em; color: green;\"></i>), so that all the content of the page adjusts accordingly.",
+               "text": "### My Birthday\n\nMathematics is the oldest science developed by human beings (<htcite0>; <htcite1>). As we learned more about it, we developed what we call *mathematical modeling*, that is, representations of reality through mathematics (<htcite2>).\n\n#### The Questions\n\nSince this will be our first modeling exercise, we’ll start by getting to know ourselves through mathematics.\n\nIn the **Year** box below, History Tracers randomly selected a year between <span id=\"firstYear\"></span> and <span id=\"lastYear\"></span>. We suggest replacing it with the year you were born and then clicking **update** (<i class=\"fa-solid fa-circle-check\" style=\"font-size: 1.2em; color: green;\"></i>), so that all the content of the page adjusts accordingly.",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
@@ -173,7 +185,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><b>Year:</b> <input type=\"number\" id=\"birthYear\" /> <i class=\"fa-solid fa-circle-check\" style=\"font-size: 1.5em; color: green;\" id=\"updateEnv\"></i> </center></p>",
+               "text": "<p><center><b>Year:</b> <input type=\"number\" id=\"birthYear\" /> <i class=\"fa-solid fa-circle-check\" style=\"font-size: 1.5em; color: green;\" id=\"updateEnv\"></i> <span id=\"statusUpdate\"></span> </center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -187,7 +199,7 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "mardown",
+               "format": "markdown",
                "PostMention": " "
             },
             {
@@ -205,7 +217,7 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "mardown",
+               "format": "markdown",
                "PostMention": ""
             },
             {
@@ -223,7 +235,7 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "mardown",
+               "format": "markdown",
                "PostMention": ""
             },
             {
@@ -241,7 +253,7 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "mardown",
+               "format": "markdown",
                "PostMention": ""
             },
             {
@@ -272,7 +284,7 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "mardown",
+               "format": "markdown",
                "PostMention": ""
             },
             {
@@ -299,7 +311,7 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "mardown",
+               "format": "markdown",
                "PostMention": ""
             },
             {
@@ -330,7 +342,7 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "mardown",
+               "format": "markdown",
                "PostMention": ""
             },
             {

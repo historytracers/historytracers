@@ -7,6 +7,8 @@ var selectedYear = 0;
 var xVector1 = [];
 var yVector1 = [];
 var yVector2 = [];
+var yVector2Max = 0;
+var yearChart = undefined;
 
 var chartOptions1 = {};
 var chartOptions3 = {};
@@ -16,26 +18,34 @@ function htFillVectors() {
     yVector1 = [];
     yVector2 = [];
 
-    var cYear = selectedYear;
-    for (let i = 0, j = 0; i < 100; i++, j += 0.5) {
+    var y = selectedYear;
+    for (let i = 0, j = 0 ; i < 101; i++, j += 0.5) {
         xVector1.push(j);
         if ((i % 2) == 0) {
             yVector1.push(j);
-            yVector2.push(cYear++);
+            yVector2.push(y);
+            y++;
         } else {
             yVector1.push(null);
             yVector2.push(null);
         }
     }
+    yVector2Max = y;
 }
 
 function htUpdateYearVector() {
     yVector2 = [];
 
     var cYear = selectedYear;
-    for (let i = 0; i < 100; i++) {
-        yVector2.push(((i % 2) == 0) ? cYear++: null);
+    for (let i = 0; i < 101; i++) {
+        if ((i % 2) == 0) {
+            yVector2.push(cYear);
+            cYear++;
+        } else {
+            yVector2.push(null);
+        }
     }
+    yVector2Max = cYear;
 }
 
 function htWriteYearTable() {
@@ -46,7 +56,8 @@ function htWriteYearTable() {
     }
 }
 
-function htPlotLocalChart(id, hAxis, vAxis) {
+function htPlotLocalChart(id, hAxis, vAxis, vMax) {
+    var yMin = (vMax == 50) ? 0 : selectedYear - 5;
     var chartOptions = {
         "datasets": [
                     {
@@ -59,8 +70,8 @@ function htPlotLocalChart(id, hAxis, vAxis) {
         "xVector" : hAxis,
         "xLable": mathKeywords[28],
         "xType" : "linear",
-        "ymin": 0,
-        "ymax": 50,
+        "ymin": yMin,
+        "ymax": vMax,
         "useCallBack": false
     };
     return chartOptions;
@@ -82,11 +93,17 @@ function htLoadExercise() {
             selectedYear = lyear;
             $("#birthYear").val(selectedYear);
         }
+
         $("#yearQuestion").html(iyear);
         htUpdateYearVector();
-        chartOptions3 = htPlotLocalChart("chart3", xVector1, yVector2);
-        htPlotConstantContinuousChart(chartOptions3);
+        if (yearChart != undefined) {
+            yearChart.data.datasets[0].data = yVector2;
+            yearChart.options.scales.y.min = selectedYear - 5;
+            yearChart.options.scales.y.max = yVector2Max;
+            yearChart.update();
+        }
         htWriteYearTable();
+        $("#statusUpdate").html("<b>"+keywords[120]+"</b>");
     });
 
     var local_calendar = $("#site_calendar").val();
@@ -101,6 +118,9 @@ function htLoadExercise() {
 
     var iyear = getRandomArbitrary(fyear, year);
     selectedYear = iyear;
+    if (selectedYear == NaN) {
+        selecterYear = year;
+    }
     $("#birthYear").val(iyear);
     $("#yearQuestion").html(iyear);
     $("#yearLable").html(iyear);
@@ -108,7 +128,7 @@ function htLoadExercise() {
 
     htFillVectors();
 
-    chartOptions1 = htPlotLocalChart("chart1", xVector1, yVector1);
+    chartOptions1 = htPlotLocalChart("chart1", xVector1, yVector1, 50);
     htPlotConstantContinuousChart(chartOptions1);
 
     htFillMultiplicationTable("chart2", 0, 9, false, true);
@@ -116,8 +136,8 @@ function htLoadExercise() {
 
     htWriteYearTable();
 
-    chartOptions3 = htPlotLocalChart("chart3", xVector1, yVector2);
-    htPlotConstantContinuousChart(chartOptions3);
+    chartOptions3 = htPlotLocalChart("chart3", xVector1, yVector2, yVector2Max);
+    yearChart = htPlotConstantContinuousChart(chartOptions3);
 
     $("#birthYear").on("keyup", function() {
         var year = new Date().getFullYear();
@@ -128,6 +148,7 @@ function htLoadExercise() {
         } else if (val > year) {
             $(this).val(year);
         }
+        $("#statusUpdate").html("");
     });
 
     return false;
