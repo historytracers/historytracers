@@ -152,4 +152,6 @@ function htPlotConstantContinuousChart(options)
             } 
         },
     });
+
+    return chartId;
 }
