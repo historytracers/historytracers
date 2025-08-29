@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1756206707"
+      "1756425717"
    ],
    "authors": null,
    "reviewers": null,
@@ -109,7 +109,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "À primeira vista, a prática sugere escolher entre soma ou multiplicação. No entanto, como já vimos anteriormente, a multiplicação nada mais é do que a soma de números repetidos (<htcite0>). Portanto, não é possível separar completamente multiplicação de soma.\n\nEmbora isso possa parecer indicar que a prática esteja incorreta, na verdade ela introduz o tema central deste texto: o uso conjunto da multiplicação e da soma para compreender a natureza.",
@@ -191,7 +191,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "O primeiro passo é escolher a(s) pergunta(s) que queremos responder. No nosso caso, são as seguintes:",
@@ -200,7 +200,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Meu aniversário</b><br /><br />Quantos anos tenho agora?<br /><br />Quantos anos terei daqui a 5 anos?<br /><br />Em que ano eu fiz 30 anos?</div></div></center>",
@@ -294,7 +294,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "Aplicando a Fórmula 2, temos:</p><p><div id=\"mParent1\" style=\"margin: auto; text-align: center;\"></div></p>",
@@ -303,7 +303,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "Fazendo analogia da nossa vida com as estrelas na tabuada, as estrelas que aparecem ao passarmos o mouse na operação de multiplicação correspondem a cada novo ano de vida que uma pessoa completa.\n\nEsses dados nos ajudam a compreender o papel do fator *a* da Fórmula 1: ele representa a taxa de variação, isto é, o quanto *N* cresce. Isso fica claro quando comparamos as tabuadas de 0 a 9 no Gráfico 2: quanto maior o valor de *a*, mais o resultado se afasta da linha horizontal.",
@@ -321,7 +321,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "#### Adicionando um termo\n\nAgora que entendemos o termo variável (*a × N*), podemos pensar no que falta para adaptar a Fórmula 2 e o Gráfico 1 à situação do nosso aniversário.\n\nO gráfico deve continuar variando sempre 1 a cada ano, então não precisamos alterar o termo variável. O que falta é deslocar o início. Em vez de começar no zero, ele deve começar no ano em que nascemos. Esse deslocamento é feito adicionando uma constante (C), que representa o ano do nascimento (<htcite0>).\n\nAssim, nossos anos de vida são dados por:",
@@ -352,7 +352,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "Na Fórmula 3:\n\n- **Y**: ano em que fazemos aniversário.\n- **1 × N**: taxa de variação (1 por ano), sendo N o número de aniversários.\n- **C**: ano de nascimento (constante).\n\nPara deixar mais claro, a **Tabela 1** mostra os 4 primeiros momentos da vida de alguém nascido em <span id=\"yearBeforeChart\"></span>.",
@@ -361,7 +361,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "<p><table id=\"emptyGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">Y (ano)</td><td style=\"background-color: lightblue\"><b>Momento (<i>1 × N</i>)</b></td><td style=\"background-color: lightblue\"><b>O começo (C)</b></td></tr>  <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable0\"></span></b></td><td>1 × 0</td><td><span id=\"constantTable0\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable1\"></span></b></td><td>1 × 1</td><td><span id=\"constantTable1\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable2\"></span></b></td><td>1 × 2</td><td><span id=\"constantTable2\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable3\"></span></b></td><td>1 × 3</td><td><span id=\"constantTable3\"></span></td></tr> </table></p> <p class=\"desc\">Tabela 1 – Relação entre idades e ano para pessoa que nasceu em <span id=\"yearLable\"></span>.</p>",
@@ -379,7 +379,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             }
          ]
       }

@@ -735,6 +735,10 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 		htFormatNotExpected(txt.Format)
 	}
 
+	if txt.PostMention == " " {
+		txt.PostMention = ""
+	}
+
 	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
 	if err != nil {
 		panic(err)

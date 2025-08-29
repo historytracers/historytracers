@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1756206707"
+      "1756425714"
    ],
    "authors": null,
    "reviewers": null,
@@ -109,7 +109,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "At first glance, the exercise seems to suggest choosing between addition and multiplication. However, as we have already seen, multiplication is nothing more than repeated addition (<htcite0>). Therefore, it is not possible to completely separate multiplication from addition.\n\nAlthough this might give the impression that the exercise is incorrect, in reality it introduces the central theme of this text: the combined use of multiplication and addition to understand nature.",
@@ -191,7 +191,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "The first step is to choose the question(s) we want to answer. In our case, they are:",
@@ -200,7 +200,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: My Birthday</b><br /><br />How old am I now?<br /><br />How old will I be in 5 years?<br /><br />In what year did I turn 30?</div></div></center>",
@@ -294,7 +294,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "Applying Formula 2, we get:</p><p><div id=\"mParent1\" style=\"margin: auto; text-align: center;\"></div></p>",
@@ -303,7 +303,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "Making an analogy between our life and the stars in the multiplication table, the stars that appear when hovering over a multiplication correspond to each new year of life that a person completes.\n\nThis data helps us understand the role of factor a in Formula 1: it represents the rate of change, that is, how much *N*. grows. This becomes evident when comparing the tables from 0 to 9 in **Graph 2**: the larger the value of a, the further the result moves from the horizontal line.",
@@ -321,7 +321,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "#### Adding a Term\n\nNow that we understand the variable term (a × N), let’s think about what’s missing to adapt Formula 2 and Graph 1 to our birthday.\n\nThe graph must still increase by 1 each year, so we don’t need to change the variable term. What’s missing is shifting the start. Instead of starting at zero, it must start in the year we were born. That shift is done by adding a constant (C), which represents the year of birth (<htcite0>).\n\nThus, our years of life are expressed with:",
@@ -352,7 +352,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "In Formula 3:\n\n- **Y**: year in which we have a birthday.\n- **1 × N**: rate of change (1 per year), with N being the number of birthdays.\n- **C**: year of birth (constant).\n\nFor greater clarity, **Table 1** shows the first 4 moments of the life of someone born in <span id=\"yearBeforeChart\"></span>.",
@@ -361,7 +361,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": " "
+               "PostMention": ""
             },
             {
                "text": "<p><table id=\"emptyGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">Y (year)</td><td style=\"background-color: lightblue\"><b>Moment (<i>1 × N</i>)</b></td><td style=\"background-color: lightblue\"><b>Start (C)</b></td></tr>  <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable0\"></span></b></td><td>1 × 0</td><td><span id=\"constantTable0\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable1\"></span></b></td><td>1 × 1</td><td><span id=\"constantTable1\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable2\"></span></b></td><td>1 × 2</td><td><span id=\"constantTable2\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable3\"></span></b></td><td>1 × 3</td><td><span id=\"constantTable3\"></span></td></tr> </table></p> <p class=\"desc\">Table 1 – Relationship between age and year for someone born in <span id=\"yearLable\"></span>.</p>",
@@ -379,7 +379,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": " "
+               "PostMention": ""
             }
          ]
       }
