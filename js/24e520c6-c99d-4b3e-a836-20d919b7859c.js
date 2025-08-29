@@ -126,6 +126,11 @@ function htLoadExercise() {
     $("#yearLable").html(iyear);
     $("#yearBeforeChart").html(iyear);
 
+    $("#exercise0").html(iyear);
+
+    iyear += 30;
+    $("#exercise1").html(iyear);
+
     htFillVectors();
 
     chartOptions1 = htPlotLocalChart("chart1", xVector1, yVector1, 50);

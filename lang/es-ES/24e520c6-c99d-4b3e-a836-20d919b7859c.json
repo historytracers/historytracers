@@ -382,6 +382,134 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_indigenous",
+         "text": [
+            {
+               "text": "### Construcciones indígenas\n\nLa relación entre la suma y la multiplicación también puede observarse en las construcciones indígenas presentadas en el texto *Copiando la naturaleza* (<htcite0>), donde analizamos únicamente la inclinación del techo, sin considerar que este no comenzaba en el suelo.\n\n#### La constante que faltaba\n\nObserve nuevamente el techo inclinado, como el encontrado en Mi Pueblito, Panamá (Figura 1). El techo no empieza en el suelo; por el contrario, se encuentra elevado a partir de una región que llamamos **altura inicial**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fddfb494-8fb6-4dee-bf73-ba3bb0fc88fd",
+                     "text": "History Tracers Team",
+                     "page": "Copiando la naturaleza",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"miPueblito\" onclick=\"htImageZoom('miPueblito', '0%')\" src=\"images/MiPueblito/MiPueblito.jpg\" class=\"imgcenter\"/>Figura 1: Construcciones indígenas en <i>Mi Pueblito</i>, Panamá. Foto tomada el <htdate0> durante una visita al lugar.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "1",
+                     "day": "17"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "De manera análoga, al entrar en el Templo 16 de Copán (Figura 2), podemos observar que el techo de esta construcción también presenta una inclinación que puede modelarse mediante la multiplicación. Sin embargo, la multiplicación por sí sola no basta para describir exactamente dónde se encuentra el techo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanTemple2\" onclick=\"htImageZoom('imgCopanTemple2', '0%')\" src=\"images/Copan/Templo16Inside.jpg\" class=\"imgcenter\" style=\"width:40%;\"/>Figura 2: Vista interna del Templo 16 de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Foto tomada el <htdate1> durante una visita al sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En otra vista del Templo 16, se aprecia un corredor que marca la transición entre dos fases constructivas, como se ilustra en la Figura 1.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al observar estas dos construcciones, resulta evidente que, para una descripción más completa de los techos inclinados, necesitamos añadir una constante: la altura a partir de la cual comienza el techo.\n\n#### Comparando la edad con el techo\n\nAntes de comparar, proponemos una reflexión:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: La igualdad</b><br /><br />Compare el Gráfico 3, que muestra los años de vida y las edades, con los techos indígenas. ¿Qué tienen en común estas dos medidas?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para resaltar los puntos en común, reescribamos la **Fórmula 3** de manera más explícita y, a continuación, formulemos una expresión para el techo:\n\n- **Años versus edad**: Año = (1 × edad) + año de nacimiento\n- **Altura del techo**: Altura del techo = (Factor de inclinación × distancia desde el inicio del techo) + altura inicial",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Fórmula 4: Relaciones entre años de vida y el techo</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Observe que, tanto en el caso de nuestro cumpleaños como en el de la altura del techo, siempre existe un punto inicial que no cambia (la constante añadida). A este valor se suma una tasa que se multiplica por una variable.\n- En el caso de los años de vida, la variable es la edad.\n- En el caso del techo, la variable es la distancia desde el punto en que este comienza.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Modele usted mismo</b><br /><br />Sostenga un objeto con la mano en posición inclinada.<br /><br />1. Sostenga un objeto con la mano en posición inclinada.<br />2. Apoye el codo sobre una superficie.<br />3. Ahora, escriba una fórmula similar a la Fórmula 4 para describir lo que está haciendo.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -389,6 +517,11 @@
          "question": "Os anos do nosso aniversário podem ser explicado ao adicionarmos a Tabuada de 1 nosso ano de nascimento?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "O ano que nascemos é uma constante que não muda. A partir deste ano, a cada ano que passa somamos mais um ano em nossa vida. Esta variação anual (sempre somar um a cada ano que passa), é exatamente a variação que a tabuada de 1 possuí."
+      },
+      {
+         "question": "Anos de vida e inclinações em contruções são coisas completamente diferentes?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Apesar de podermos pensar inicialmente que sim, neste texto vimos que a matemática nos ajuda a aproximá-las e explicar de maneira parecida."
       }
    ],
    "game_v2": null,

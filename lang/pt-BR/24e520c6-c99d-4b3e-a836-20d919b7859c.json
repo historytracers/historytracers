@@ -382,6 +382,134 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_indigenous",
+         "text": [
+            {
+               "text": "### Construções indígenas\n\nO encontro entre a soma e a multiplicação também pode ser observado nas construções indígenas apresentadas no texto *Copiando a natureza* (<htcite0>), onde analisamos apenas a inclinação do teto, sem considerar que ele não se iniciava no chão.\n\n#### A constante que faltava\n\nObserve novamente o teto inclinado, como o encontrado em *Mi Pueblito*, Panamá (Figura 1). O teto não começa no chão; pelo contrário, ele está elevado em relação ao solo, a partir de uma região que chamamos de **altura inicial**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fddfb494-8fb6-4dee-bf73-ba3bb0fc88fd",
+                     "text": "History Tracers Team",
+                     "page": "Copiando a natureza",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"miPueblito\" onclick=\"htImageZoom('miPueblito', '0%')\" src=\"images/MiPueblito/MiPueblito.jpg\" class=\"imgcenter\"/>Figura 1: Construções indígenas em <i>Mi Pueblito</i>, Panamá. Foto tirada em <htdate0> durante uma visita ao local.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "1",
+                     "day": "17"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "De forma análoga, ao entrarmos no Templo 16 de Copán (Figura 2), podemos observar que o teto dessa construção também possui uma inclinação que pode ser modelada por meio da multiplicação. No entanto, apenas a multiplicação não é suficiente para descrever exatamente onde o teto se encontra.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanTemple2\" onclick=\"htImageZoom('imgCopanTemple2', '0%')\" src=\"images/Copan/Templo16Inside.jpg\" class=\"imgcenter\" style=\"width:40%;\"/>Figura 2: Vista interna do Templo 16 de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Foto tirada em <htdate1> em uma visita ao sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Nesta imagem do Templo 16, observa-se um corredor que delimita a separação entre duas fases construtivas.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ao observarmos essas duas construções, fica evidente que, para uma descrição mais completa dos tetos inclinados, precisamos adicionar uma constante: a altura a partir da qual o teto se inicia.\n\n#### Comparando idade com o teto\n\nAntes da comparação, propomos uma reflexão:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: A igualdade</b><br /><br />Compare o Gráfico 3, que mostra os anos de vida e as idades, com os tetos indígenas. O que há em comum entre essas duas medidas?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para destacar os pontos em comum, vamos reescrever a **Fórmula 3** de maneira mais explícita e, em seguida, elaborar uma fórmula para o teto:\n\n- **Anos versus idade**: Ano = (1 × idade) + ano de nascimento\n- **Altura do Teto**: Altura do teto = (Fator de inclinação × distância do início do teto) + altura inicial",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Fórmula 4: Relações entre anos de vida e o teto.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Perceba que, tanto no caso do nosso aniversário quanto no da altura do teto, existe sempre um ponto inicial que não se altera (a constante adicionada). A esse valor é somada uma taxa que é multiplicada por uma variável.\n- Para os anos de vida, a variável é a idade.\n- Para o teto, a variável é a distância a partir do ponto em que ele se inicia.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Modele você mesmo</b><br /><br />Inclinações a partir de um ponto estão presentes em muitos lugares. Por isso, sugerimos que você também crie um modelo para descrever algo:<br /><br />1. Segure um objeto com a mão de forma inclinada.<br />2. Apoie o cotovelo sobre uma superfície.<br />3. Agora, escreva uma fórmula semelhante à Fórmula 4 para descrever o que você está fazendo.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -389,6 +517,16 @@
          "question": "Os anos do nosso aniversário podem ser explicado ao adicionarmos a Tabuada de 1 nosso ano de nascimento?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "O ano que nascemos é uma constante que não muda. A partir deste ano, a cada ano que passa somamos mais um ano em nossa vida. Esta variação anual (sempre somar um a cada ano que passa), é exatamente a variação que a tabuada de 1 possuí."
+      },
+      {
+         "question": "Anos de vida e inclinações em contruções são coisas completamente diferentes?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Apesar de podermos pensar inicialmente que sim, neste texto vimos que a matemática nos ajuda a aproximá-las e explicar de maneira parecida."
+      },
+      {
+         "question": "Ao colocarmos na Fórmula 3 a idade N de 30 anos e o ano de nascimento C como <span id=\"exercise0\"></span>, descobrimos que a pessoas completou 30 anos em <span id=\"exercise1\"></span>?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como a taxa de que mudamos de idade é sempre a mesma, independente da pessoa. Sempre que adicionamos ao nascimento 30 anos, obteremos o ano de aniversário de uma pessoa 30 anos após seu nascimento"
       }
    ],
    "game_v2": null,
