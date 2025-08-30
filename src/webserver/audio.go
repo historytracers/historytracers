@@ -521,6 +521,10 @@ func htConvertClassesToAudio(pages []string) {
 
 		for _, page := range pages {
 			var ctf classTemplateFile
+			if len(page) == 0 {
+				continue
+			}
+
 			localPath, err := htLoadClassFileFormat(&ctf, page, lang)
 			if err != nil {
 				panic(err)
@@ -589,7 +593,7 @@ func htConvertOverallTextToAudio() {
 	htConvertClassesToAudio(pages)
 }
 
-func htConvertIndexTextToAudio(idxName string) {
+func htConvertIndexTextToAudio(idxName string, lang string) {
 	var pages []string
 	byteValue, err := htOpenFileReadClose(idxName)
 	if err != nil {
@@ -614,17 +618,34 @@ func htConvertIndexTextToAudio(idxName string) {
 	}
 
 	htConvertClassesToAudio(pages)
+
+	newFile, err := htWriteTmpFile(lang, &index)
+	equal, err := HTAreFilesEqual(newFile, idxName)
+	if !equal && err == nil || updateDateFlag == true {
+		index.LastUpdate[0] = htUpdateTimestamp()
+		err = os.Remove(newFile)
+		if err != nil {
+			panic(err)
+		}
+		newFile, err = htWriteTmpFile(lang, &index)
+	}
+
+	HTCopyFilesWithoutChanges(idxName, newFile)
+	err = os.Remove(newFile)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func htAudioIndexLoop() {
-	indexes := []string{"first_steps", "literature", "indigenous_who"}
+	indexes := []string{"first_steps", "literature", "indigenous_who", "myths_believes"}
 	for i := 0; i < len(htLangPaths); i++ {
 		lang := htLangPaths[i]
 		htLoadKeywordFile("common_keywords", lang)
 
-		for j := 0; j < len(indexes); j++ {
-			fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, indexes[j])
-			htConvertIndexTextToAudio(fileName)
+		for _, idx := range indexes {
+			fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, idx)
+			htConvertIndexTextToAudio(fileName, lang)
 		}
 	}
 }

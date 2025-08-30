@@ -1009,7 +1009,7 @@ function htFillStringOnPage(data, idx, page)
 {
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
-    if (data.content[idx].html_value != undefined && data.content[idx].target == undefined) {
+    if (data.content[idx].html_value != undefined && data.content[idx].html_value.length > 0 && data.content[idx].target == undefined) {
         var modifiedText = (data.content[idx].date_time == undefined) ? data.content[idx].html_value : htOverwriteHTDateWithText(data.content[idx].html_value, data.content[idx].date_time, localLang, localCalendar);
         $("#"+data.content[idx].id).append(modifiedText);
     } else if (data.content[idx].id != undefined && data.content[idx].id == "fill_dates") {
@@ -1021,7 +1021,7 @@ function htFillStringOnPage(data, idx, page)
     }
 
     var text = "";
-    if (data.content[idx].html_value != undefined) {
+    if (data.content[idx].html_value != undefined && data.content[idx].html_value.length > 0) {
         var modifiedText = (data.content[idx].date_time == undefined) ? data.content[idx].html_value : htOverwriteHTDateWithText(data.content[idx].html_value, data.content[idx].date_time, localLang, localCalendar);
         text = modifiedText;
     } else if (data.content[idx].value != undefined) {
@@ -1032,7 +1032,7 @@ function htFillStringOnPage(data, idx, page)
 
     if ($("#"+data.content[idx].id).length > 0) {
         $("#"+data.content[idx].id).html(text);
-    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" ||page == "indigenous_who") && (data.content[idx].target != undefined)) {
+    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" || page == "indigenous_who" || page == "myths_believes") && (data.content[idx].target != undefined)) {
         $("#group-map").append("<ul><b><span id=\""+data.content[idx].id+"\">"+text+"</span></b><ol id=\""+data.content[idx].target+"\"></ol></ul><br />");
     }
 }
@@ -1127,12 +1127,13 @@ function htFillWebPage(page, data)
             for (const i in data.content) {
                 if (data.content[i].value == undefined || data.content[i].value == null) {
                     htFillStringOnPage(data, i, page);
-                    continue;
                 } else if (data.content[i].value_type == "group-list") {
                     if (data.content[i].id != undefined && data.content[i].id != null && data.content[i].id.length > 0 && data.content[i].desc != undefined && data.content[i].desc.length > 0) {
                         $("#"+data.content[i].id).html(data.content[i].desc);
                     }
                     htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
+                } else if (data.content[i].value_type == "mixed-group-list") {
+                    htFillMixedMapList(data.content[i].value, data.content[i].target);
                 }
             }
         }
@@ -1569,6 +1570,17 @@ function htFillSubMapList(table, target) {
         }
     }
 }
+
+function htFillMixedMapList(table, target) {
+    for (const i in table) {
+        if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].family_id.length > 0) {
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
+        } else if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>"); 
+        }
+    }
+}
+
 
 function htCheckExerciseAnswer(val0, val1, answer, explanation) {
     var ans = parseInt($("input[name="+val0+"]:checked").val());

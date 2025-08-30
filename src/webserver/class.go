@@ -41,9 +41,11 @@ type classTemplateFile struct {
 }
 
 type classContentValue struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
-	Desc string `json:"desc"`
+	FamilyId string `json:"family_id"`
+	PersonId string `json:"person_id"`
+	ID       string `json:"id"`
+	Name     string `json:"name"`
+	Desc     string `json:"desc"`
 }
 
 type classContent struct {
@@ -63,6 +65,7 @@ type classIdx struct {
 	Sources    []string       `json:"sources"`
 	License    []string       `json:"license"`
 	Version    int            `json:"version"`
+	Type       string         `json:"type"`
 	Content    []classContent `json:"content"`
 	DateTime   []HTDate       `json:"date_time"`
 }
