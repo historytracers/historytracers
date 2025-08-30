@@ -1133,7 +1133,7 @@ function htFillWebPage(page, data)
                     }
                     htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
                 } else if (data.content[i].value_type == "mixed-group-list") {
-                    htFillMixedMapList(data.content[i].value, data.content[i].target);
+                    htFillMixedMapList(data.content[i].value, data.content[i].target, data.content[i].date_time);
                 }
             }
         }
@@ -1571,12 +1571,15 @@ function htFillSubMapList(table, target) {
     }
 }
 
-function htFillMixedMapList(table, target) {
+function htFillMixedMapList(table, target, time_vector) {
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
     for (const i in table) {
+        var text = (table[i].date_time != undefined) ? htOverwriteHTDateWithText(table[i].desc, table[i].date_time, localLang, localCalendar) : table[i].desc;
         if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].family_id.length > 0) {
-            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>");
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>");
         } else if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
-            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>"); 
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>"); 
         }
     }
 }
