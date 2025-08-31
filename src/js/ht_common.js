@@ -1576,8 +1576,9 @@ function htFillMixedMapList(table, target, time_vector) {
     var localCalendar = $("#site_calendar").val();
     for (const i in table) {
         var text = (table[i].date_time != undefined) ? htOverwriteHTDateWithText(table[i].desc, table[i].date_time, localLang, localCalendar) : table[i].desc;
-        if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].family_id.length > 0) {
-            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>");
+        if (table[i].family_id != undefined && table[i].family_id.length > 0) {
+            var person =  (table[i].person_id != undefined && table[i].person_id.length > 0 )? table[i].family_id+"&person_id="+table[i].person_id : table[i].family_id ;
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+person+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+person+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>");
         } else if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
             $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>"); 
         }
