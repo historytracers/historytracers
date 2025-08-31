@@ -480,13 +480,6 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 		return err
 	}
 
-	audioTxt := htParseIndexText(&index)
-	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
-	err = htWriteAudioFile(indexName, lang, audioTxt)
-	if err != nil {
-		panic(err)
-	}
-
 	newFile, err := htWriteTmpFile(lang, &index)
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
@@ -593,9 +586,9 @@ func htConvertOverallTextToAudio() {
 	htConvertClassesToAudio(pages)
 }
 
-func htConvertIndexTextToAudio(idxName string, lang string) {
+func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 	var pages []string
-	byteValue, err := htOpenFileReadClose(idxName)
+	byteValue, err := htOpenFileReadClose(localPath)
 	if err != nil {
 		panic(err)
 	}
@@ -619,8 +612,15 @@ func htConvertIndexTextToAudio(idxName string, lang string) {
 
 	htConvertClassesToAudio(pages)
 
+	audioTxt := htParseIndexText(&index)
+	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+	err = htWriteAudioFile(idxName, lang, audioTxt)
+	if err != nil {
+		panic(err)
+	}
+
 	newFile, err := htWriteTmpFile(lang, &index)
-	equal, err := HTAreFilesEqual(newFile, idxName)
+	equal, err := HTAreFilesEqual(newFile, localPath)
 	if !equal && err == nil || updateDateFlag == true {
 		index.LastUpdate[0] = htUpdateTimestamp()
 		err = os.Remove(newFile)
@@ -630,7 +630,7 @@ func htConvertIndexTextToAudio(idxName string, lang string) {
 		newFile, err = htWriteTmpFile(lang, &index)
 	}
 
-	HTCopyFilesWithoutChanges(idxName, newFile)
+	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
 		panic(err)
@@ -645,7 +645,7 @@ func htAudioIndexLoop() {
 
 		for _, idx := range indexes {
 			fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, idx)
-			htConvertIndexTextToAudio(fileName, lang)
+			htConvertIndexTextToAudio(idx, fileName, lang)
 		}
 	}
 }
