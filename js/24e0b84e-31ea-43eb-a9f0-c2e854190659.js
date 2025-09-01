@@ -9,7 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector24e0b84e);
     }
 
-    htWriteNavigation("indigenous_who");
+    htWriteNavigation(["indigenous_who", "myths_believes"]);
 
     return false;
 }

@@ -6,7 +6,8 @@ function htLoadExercise() {
             $(this).addClass('three_table_bg');
         }
     });
-    htWriteNavigation("first_steps");
+
+    htWriteNavigation(["first_steps", "myths_believes"]);
 
     return false;
 }

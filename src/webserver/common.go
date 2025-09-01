@@ -679,6 +679,11 @@ func htLoadClassFileFormat(cf *classTemplateFile, name string, lang string) (str
 	htLoadSourceFromFile(cf.Sources)
 	htUpdateClassSources(cf)
 
+	_, fileWasModified := htGitModifiedMap[fileName]
+	if fileWasModified {
+		cf.LastUpdate[0] = htUpdateTimestamp()
+	}
+
 	return fileName, nil
 }
 

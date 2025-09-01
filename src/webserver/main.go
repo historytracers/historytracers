@@ -90,6 +90,8 @@ func htOpenLogs(name string) *log.Logger {
 }
 
 func htRunStopFlags() {
+	htFillModifiedGit()
+
 	var stopRun bool = false
 	if GedcomFlag {
 		htCreateGEDCOM()

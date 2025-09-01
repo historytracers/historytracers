@@ -26,7 +26,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation(["first_steps", "myths_believes"]);
 
     return false;
 }

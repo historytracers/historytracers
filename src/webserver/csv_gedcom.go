@@ -772,7 +772,8 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	htParseFamilySetGEDCOM(&family, fileName, lang)
 	htParseFamilySetCSV(&family, fileName, lang)
 	htParseFamilySetLicenses(&family, lang)
-	if familyUpdated == true || updateDateFlag == true {
+	_, fileWasModified := htGitModifiedMap[localPath]
+	if familyUpdated == true || updateDateFlag == true || fileWasModified {
 		family.LastUpdate[0] = htUpdateTimestamp()
 	}
 	htParseFamilySetDefaultValues(&family, lang, localPath)
@@ -815,6 +816,11 @@ func htRewriteFamilyFileTemplate() Family {
 	if err != nil {
 		htCommonJSONError(byteValue, err)
 		panic(err)
+	}
+
+	_, fileWasModified := htGitModifiedMap[fileName]
+	if fileWasModified {
+		family.LastUpdate[0] = htUpdateTimestamp()
 	}
 
 	newFile, err := htWriteTmpFile(htLangPaths[0], &family)
@@ -911,7 +917,8 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 	}
 
 	equal, err := HTAreFilesEqual(fileName, newFile)
-	if !equal && err == nil || updateDateFlag == true {
+	_, fileWasModified := htGitModifiedMap[fileName]
+	if !equal && err == nil || updateDateFlag == true || fileWasModified {
 		index.LastUpdate[0] = htUpdateTimestamp()
 	}
 
