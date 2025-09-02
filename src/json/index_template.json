@@ -48,9 +48,31 @@
          "html_value": "",
          "value": [
             {
+               "family_id": "",
+               "person_id": "",
                "id": "Unique identifier (UUID) for the current citation.",
                "name": "A clear, concise title summarizing the citation group's purpose or theme.",
-               "desc": "A brief yet informative description detailing the content, context, and significance of the citations within this group."
+               "desc": "A brief yet informative description detailing the content, context, and significance of the citations within this group.",
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "unix",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "julian",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  }
+               ]
             }
          ]
       },
@@ -69,11 +91,54 @@
          "value_type": "group-list",
          "html_value": "",
          "value": [
+             {
+               "family_id": "",
+               "person_id": "",
                "id": "Unique identifier (UUID) for the current citation.",
                "name": "A clear, concise title summarizing the citation group's purpose or theme.",
-               "desc": "A brief yet informative description detailing the content, context, and significance of the citations within this group."
+               "desc": "A brief yet informative description detailing the content, context, and significance of the citations within this group.",
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "unix",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "julian",
+                     "year": "",
+                     "month": "",
+                     "day": ""
+                  }
+               ]
+             }
          ]
       }
    ],
-   "date_time": null
+   "date_time": [
+        {
+            "type": "gregory",
+            "year": "2010",
+            "month": "-1",
+            "day": "-1"
+        },
+        {
+            "type": "unix",
+            "year": "",
+            "month": "",
+            "day": ""
+        },
+        {
+            "type": "julian",
+            "year": "",
+            "month": "",
+            "day": ""
+        }
+   ]
 }

@@ -41,9 +41,12 @@ type classTemplateFile struct {
 }
 
 type classContentValue struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
-	Desc string `json:"desc"`
+	FamilyId string   `json:"family_id"`
+	PersonId string   `json:"person_id"`
+	ID       string   `json:"id"`
+	Name     string   `json:"name"`
+	Desc     string   `json:"desc"`
+	DateTime []HTDate `json:"date_time"`
 }
 
 type classContent struct {
@@ -53,6 +56,7 @@ type classContent struct {
 	ValueType string              `json:"value_type"`
 	HTMLValue string              `json:"html_value"`
 	Value     []classContentValue `json:"value"`
+	DateTime  []HTDate            `json:"date_time"`
 }
 
 type classIdx struct {
@@ -63,6 +67,7 @@ type classIdx struct {
 	Sources    []string       `json:"sources"`
 	License    []string       `json:"license"`
 	Version    int            `json:"version"`
+	Type       string         `json:"type"`
 	Content    []classContent `json:"content"`
 	DateTime   []HTDate       `json:"date_time"`
 }
@@ -161,6 +166,11 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 
 	if localClassIDXUpdate {
 		htAddNewClassToIdx(&index, newFile)
+	}
+
+	_, fileWasModified := htGitModifiedMap[fileName]
+	if fileWasModified {
+		index.LastUpdate[0] = htUpdateTimestamp()
 	}
 
 	tmpName, err1 := htWriteClassIndexFile(lang, &index)

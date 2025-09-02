@@ -12,7 +12,7 @@ function htLoadExercise() {
     htAddTreeReflection("#myFirstReflection", 55);
     htAddTreeReflection("#GenealogicalLimit", 72);
 
-    htWriteNavigation("families");
+    htWriteNavigation(["families", "myths_believes"]);
 
     return false;
 }

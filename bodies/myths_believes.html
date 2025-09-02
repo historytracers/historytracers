@@ -1,25 +1,22 @@
 <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
 
 <script>
-    var treeUnixEpoch = Date.now();
-    var treeFile = document.createElement("script");
-    treeFile.setAttribute("src", "js/myths_believes.js?nocache="+treeUnixEpoch);
-    document.head.appendChild(treeFile);
+    var gmUnixEpoch = Date.now();
+    var gmFile = document.createElement("script");
+    gmFile.setAttribute("src", "js/myths_believes.js?nocache="+gmUnixEpoch);
+    document.head.appendChild(gmFile);
 </script>
-
 <div class="left-tree">
     <div class="paper-data" id="extpaper">
     </div>
 
-    <p>&nbsp;</p>
-
-    <p>
-    <div class="tree-introduction-text" id="common">
+    <div class="paper-data" id="htaudio" style="z-index: 100">
     </div>
-    </p>
 
-    <div class="main-data" id="index">
-        <ul id="group_list">
-        </ul>
+    <div class="main-data" id="introduction">
+    </div>
+
+    <div class="main-data" id="group-map">
+        <h4 id="groups"> </h4>
     </div>
 </div>

@@ -29,6 +29,7 @@ var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htIndigenousWhoIdx = new Map();
+var htMythsBelievesIdx = new Map();
 var htFamilyIdx = new Map();
 
 var extLatexIdx = 0;
@@ -842,6 +843,8 @@ function htLoadPage(page, ext, arg, reload) {
                     htLiteratureIdx.clear();
                     htFirstStepsIdx.clear();
                     htFamilyIdx.clear();
+                    htIndigenousWhoIdx.clear();
+                    htMythsBelievesIdx.clear();
                 } else {
                     lastTreeLoaded.page = page;
                     lastTreeLoaded.arg = arg;
@@ -1009,7 +1012,7 @@ function htFillStringOnPage(data, idx, page)
 {
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
-    if (data.content[idx].html_value != undefined && data.content[idx].target == undefined) {
+    if (data.content[idx].html_value != undefined && data.content[idx].html_value.length > 0 && data.content[idx].target == undefined) {
         var modifiedText = (data.content[idx].date_time == undefined) ? data.content[idx].html_value : htOverwriteHTDateWithText(data.content[idx].html_value, data.content[idx].date_time, localLang, localCalendar);
         $("#"+data.content[idx].id).append(modifiedText);
     } else if (data.content[idx].id != undefined && data.content[idx].id == "fill_dates") {
@@ -1021,7 +1024,7 @@ function htFillStringOnPage(data, idx, page)
     }
 
     var text = "";
-    if (data.content[idx].html_value != undefined) {
+    if (data.content[idx].html_value != undefined && data.content[idx].html_value.length > 0) {
         var modifiedText = (data.content[idx].date_time == undefined) ? data.content[idx].html_value : htOverwriteHTDateWithText(data.content[idx].html_value, data.content[idx].date_time, localLang, localCalendar);
         text = modifiedText;
     } else if (data.content[idx].value != undefined) {
@@ -1032,7 +1035,7 @@ function htFillStringOnPage(data, idx, page)
 
     if ($("#"+data.content[idx].id).length > 0) {
         $("#"+data.content[idx].id).html(text);
-    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" ||page == "indigenous_who") && (data.content[idx].target != undefined)) {
+    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" || page == "indigenous_who" || page == "myths_believes") && (data.content[idx].target != undefined)) {
         $("#group-map").append("<ul><b><span id=\""+data.content[idx].id+"\">"+text+"</span></b><ol id=\""+data.content[idx].target+"\"></ol></ul><br />");
     }
 }
@@ -1127,12 +1130,13 @@ function htFillWebPage(page, data)
             for (const i in data.content) {
                 if (data.content[i].value == undefined || data.content[i].value == null) {
                     htFillStringOnPage(data, i, page);
-                    continue;
                 } else if (data.content[i].value_type == "group-list") {
                     if (data.content[i].id != undefined && data.content[i].id != null && data.content[i].id.length > 0 && data.content[i].desc != undefined && data.content[i].desc.length > 0) {
                         $("#"+data.content[i].id).html(data.content[i].desc);
                     }
                     htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
+                } else if (data.content[i].value_type == "mixed-group-list") {
+                    htFillMixedMapList(data.content[i].value, data.content[i].target, data.content[i].date_time);
                 }
             }
         }
@@ -1310,12 +1314,105 @@ function htSelectIndexMap(index)
         return htFamilyIdx;
     } else if (index == "indigenous_who") {
         return htIndigenousWhoIdx;
+    } else if (index == "myths_believes") {
+        return htMythsBelievesIdx;
     }
 
     return undefined;
 }
 
-function htBuildNavigation(index)
+function htSelectIndexName(index) {
+    if (index == "families") {
+        return keywords[8];
+    } else if (index == "first_steps") {
+        return keywords[121];
+    } else if (index == "atlas") {
+        return "Atlas";
+    } else if (index == "literature") {
+        return keywords[122];
+    } else if (index == "indigenous_who") {
+        return keywords[123];
+    } else if (index == "myths_believes") {
+        return keywords[124];
+    }
+}
+
+function htBuildNavigationSteps(ptr, idx, index, idxName)
+{
+    var prev = "";
+    var pageName = "";
+    var selector = "";
+    if (ptr.prev == index) {
+        prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></a>";
+    } else {
+        var prevPtr = idx.get(ptr.prev);
+        selector = ptr.prev.split(":");
+        pageName = (index == "families" || prevPtr.additional != undefined) ? "tree" : "class_content";
+        var lprev = "";
+        if (prevPtr.additional != undefined) {
+            lprev = (prevPtr.additional.length > 1) ? selector[0]+"&person_id="+prevPtr.additional: selector[0];
+        } else {
+            lprev = selector[0];
+        }
+
+        prev = "<a href=\"index.html?page="+pageName+"&arg="+lprev+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lprev+"', false); return false;\">"+prevPtr.name+"</a>";
+    }
+
+    var next = "";
+    if (ptr.next == undefined) {
+        next = "&nbsp;";
+    } else {
+        var nextPtr = idx.get(ptr.next);
+        selector = ptr.next.split(":");
+        pageName = (index == "families" || nextPtr.additional != undefined) ? "tree" : "class_content";
+
+        var lnext = "";
+        if (nextPtr.additional != undefined) {
+            lnext = (nextPtr.additional.length > 1) ? selector[0]+"&person_id="+nextPtr.additional: selector[0];
+        } else {
+            lnext = selector[0];
+        }
+
+        next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
+    }
+
+    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr><tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></td><td>"+next+"</td></tr></table></p>";
+
+    return navigation;
+}
+
+function htUpdateNavigationTitle(currentIdx, title, indexName)
+{
+    var pageHeader = $(header).html();
+
+    if (currentIdx == 0) {
+        $("#header").removeClass();
+        $("#header").removeAttr("style");
+        $("#header").addClass("top-bar-inside-left");
+        pageHeader += " ("+indexName+")";
+    } else {
+        const ww = window.innerWidth;
+        var fontSize = 0;
+        if (ww < 992) {
+            fontSize = 1.0;
+        } else if (ww < 1200) {
+            fontSize = 1.75;
+        } else {
+            fontSize = 2.5;
+        }
+
+        fontSize -= (0.75 * currentIdx);
+        if (fontSize < 0.8) {
+            fontSize = 0.8;
+        }
+        $("#header").css("font-size", fontSize+"em");
+        pageHeader += "<br />"+title+" ("+indexName+")";
+    }
+
+    $(header).html(pageHeader);
+}
+
+function htBuildNavigation(index, currentIdx)
 {
     var urlParams = new URLSearchParams(window.location.search);
     if (!urlParams.has('arg')) {
@@ -1328,35 +1425,41 @@ function htBuildNavigation(index)
 
     var ptr = idx.get(arg);
     if (ptr == undefined) {
-        return null;
+        return "";
     }
 
-    var pageName = (index == "families") ? "tree" : "class_content";
+    var idxName = htSelectIndexName(index);
+    htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
+    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
 
-    var prev = "";
-    if (ptr.prev == index) {
-        prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+"</span></a>";
-    } else {
-        var prevPtr = idx.get(ptr.prev);
-        prev = "<a href=\"index.html?page="+pageName+"&arg="+ptr.prev+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+ptr.prev+"', false); return false;\">"+prevPtr.name+"</a>";
+    for (let i = 0; i < 10; i++) {
+        var j = ptr.total+1;
+        var next = arg+":"+j;
+        ptr = idx.get(next);
+        if (ptr == undefined) {
+            break;
+        }
+        htUpdateNavigationTitle(j+1, ptr.name, idxName);
+        navigation += htBuildNavigationSteps(ptr, idx, index, idxName);
     }
-
-    var next = "";
-    if (ptr.next == undefined) {
-        next = "&nbsp;";
-    } else {
-        var nextPtr = idx.get(ptr.next);
-        next = "<a href=\"index.html?page="+pageName+"&arg="+ptr.next+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+ptr.next+"', false); return false;\">"+nextPtr.name+"</a>";
-    }
-
-    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr><tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+"</span></td><td>"+next+"</td></tr></table></p>";
 
     return navigation;
 }
 
 function htWriteNavigation(index) 
 {
-    var navigation = (index.length != 0) ? htBuildNavigation(index) : "Not defined";
+    var navigation = "";
+    if (index.length == 0) {
+        navigation = "Not defined";
+    } else {
+        if (index.constructor === stringConstructor) {
+            navigation = htBuildNavigation(index, 0);
+        } else if (index.constructor === vectorConstructor) {
+            for (const i in index) {
+                navigation += htBuildNavigation(index[i], i);
+            }
+        }
+    }
     $(".dynamicNavigation").each(function() {
         $(this).html(navigation);
     });
@@ -1367,7 +1470,7 @@ function htFillTopIdx(idx, data, first)
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
     var prev = first;
-    idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57]});
+    idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57], "additional": undefined, "total": 0});
     for (const i in data.content) {
         if (data.content[i].html_value != undefined && data.content[i].html_value.length > 0 || data.content[i].value.constructor !== vectorConstructor || data.content[i].page == undefined) {
             continue;
@@ -1377,8 +1480,30 @@ function htFillTopIdx(idx, data, first)
         var name = "";
         for (const j in table) {
             var fillNext = idx.get(prev);
+            var id = "";
+            var additional = undefined;
+            var theFirst = undefined;
+            if (table[j].id.length > 0) {
+                id = table[j].id;
+                theFirst = idx.get(id);
+            } else if (table[j].family_id.length) {
+                id = table[j].family_id;
+                theFirst = idx.get(id);
+
+                if (table[j].person_id.length) {
+                    additional = table[j].person_id;
+                } else {
+                    additional = "1";
+                }
+            }
+
+            var counter = 0;
+            if (theFirst != undefined) {
+                counter = theFirst.total + 1;
+                id += ":"+counter;
+            }
             if (fillNext != undefined) {
-                fillNext.next = table[j].id;
+                fillNext.next = id;
             }
             var show_text = table[j].name;
             if (first == "families") {
@@ -1387,14 +1512,24 @@ function htFillTopIdx(idx, data, first)
                     show_text = htOverwriteHTDateWithText(show_text, data.content[i].date_time, localLang, localCalendar);
                 }
             }
-            idx.set(table[j].id, {"prev" : prev, "next" : undefined, "name" : show_text});
-            prev = table[j].id;
+            idx.set(id, {"prev" : prev, "next" : undefined, "name" : show_text, "additional": additional, "total": counter});
+            prev = id;
         }
     }
 }
 
 function htLoadIndex(data, arg, page)
 {
+    if (data != undefined && data.index != undefined) {
+        if (data.index.constructor === vectorConstructor) {
+            for (const i in data.index) {
+                var newData = { "index" : data.index[i]};
+                htLoadIndex(newData, arg, page);
+            }
+            return;
+        }
+    }
+
     if (page == "history" && htHistoryIdx.has("history") == false) {
         htFillTopIdx(htHistoryIdx, data, "history");
         return;
@@ -1407,8 +1542,11 @@ function htLoadIndex(data, arg, page)
     } else if (page == "families" && htFamilyIdx.has("families") == false) {
         htFillTopIdx(htFamilyIdx, data, "families");
         return;
-    } else if (page == "indigenous_who" && htFamilyIdx.has("indigenous_who") == false) {
+    } else if (page == "indigenous_who" && htIndigenousWhoIdx.has("indigenous_who") == false) {
         htFillTopIdx(htIndigenousWhoIdx, data, "indigenous_who");
+        return;
+    } else if (page == "myths_believes" && htMythsBelievesIdx.has("myths_believes") == false) {
+        htFillTopIdx(htMythsBelievesIdx, data, "myths_believes");
         return;
     }
 
@@ -1569,6 +1707,21 @@ function htFillSubMapList(table, target) {
         }
     }
 }
+
+function htFillMixedMapList(table, target, time_vector) {
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
+    for (const i in table) {
+        var text = (table[i].date_time != undefined) ? htOverwriteHTDateWithText(table[i].desc, table[i].date_time, localLang, localCalendar) : table[i].desc;
+        if (table[i].family_id != undefined && table[i].family_id.length > 0) {
+            var person =  (table[i].person_id != undefined && table[i].person_id.length > 0 )? table[i].family_id+"&person_id="+table[i].person_id : table[i].family_id ;
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+person+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+person+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>");
+        } else if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>"); 
+        }
+    }
+}
+
 
 function htCheckExerciseAnswer(val0, val1, answer, explanation) {
     var ans = parseInt($("input[name="+val0+"]:checked").val());

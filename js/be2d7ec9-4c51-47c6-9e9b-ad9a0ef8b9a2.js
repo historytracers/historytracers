@@ -410,7 +410,7 @@ function htLoadExercise() {
 
     htFillCalcTable6481070f0 ("#calcGrid");
 
-    htWriteNavigation("indigenous_who");
+    htWriteNavigation(["indigenous_who", "myths_believes"]);
 
     return false;
 }
