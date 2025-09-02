@@ -1345,8 +1345,8 @@ function htBuildNavigationSteps(ptr, idx, index, idxName)
     if (ptr.prev == index) {
         prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></a>";
     } else {
+        var prevPtr = idx.get(ptr.prev);
         selector = ptr.prev.split(":");
-        var prevPtr = idx.get(selector[0]);
         pageName = (index == "families" || prevPtr.additional != undefined) ? "tree" : "class_content";
         var lprev = "";
         if (prevPtr.additional != undefined) {
@@ -1362,8 +1362,8 @@ function htBuildNavigationSteps(ptr, idx, index, idxName)
     if (ptr.next == undefined) {
         next = "&nbsp;";
     } else {
+        var nextPtr = idx.get(ptr.next);
         selector = ptr.next.split(":");
-        var nextPtr = idx.get(selector[0]);
         pageName = (index == "families" || nextPtr.additional != undefined) ? "tree" : "class_content";
 
         var lnext = "";
@@ -1381,7 +1381,38 @@ function htBuildNavigationSteps(ptr, idx, index, idxName)
     return navigation;
 }
 
-function htBuildNavigation(index)
+function htUpdateNavigationTitle(currentIdx, title, indexName)
+{
+    var pageHeader = $(header).html();
+
+    if (currentIdx == 0) {
+        $("#header").removeClass();
+        $("#header").removeAttr("style");
+        $("#header").addClass("top-bar-inside-left");
+        pageHeader += " ("+indexName+")";
+    } else {
+        const ww = window.innerWidth;
+        var fontSize = 0;
+        if (ww < 992) {
+            fontSize = 1.0;
+        } else if (ww < 1200) {
+            fontSize = 1.75;
+        } else {
+            fontSize = 2.5;
+        }
+
+        fontSize -= (0.75 * currentIdx);
+        if (fontSize < 0.8) {
+            fontSize = 0.8;
+        }
+        $("#header").css("font-size", fontSize+"em");
+        pageHeader += "<br />"+title+" ("+indexName+")";
+    }
+
+    $(header).html(pageHeader);
+}
+
+function htBuildNavigation(index, currentIdx)
 {
     var urlParams = new URLSearchParams(window.location.search);
     if (!urlParams.has('arg')) {
@@ -1398,6 +1429,7 @@ function htBuildNavigation(index)
     }
 
     var idxName = htSelectIndexName(index);
+    htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
     var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
 
     for (let i = 0; i < 10; i++) {
@@ -1407,6 +1439,7 @@ function htBuildNavigation(index)
         if (ptr == undefined) {
             break;
         }
+        htUpdateNavigationTitle(j+1, ptr.name, idxName);
         navigation += htBuildNavigationSteps(ptr, idx, index, idxName);
     }
 
@@ -1420,10 +1453,10 @@ function htWriteNavigation(index)
         navigation = "Not defined";
     } else {
         if (index.constructor === stringConstructor) {
-            navigation = htBuildNavigation(index);
+            navigation = htBuildNavigation(index, 0);
         } else if (index.constructor === vectorConstructor) {
             for (const i in index) {
-                navigation += htBuildNavigation(index[i]);
+                navigation += htBuildNavigation(index[i], i);
             }
         }
     }
