@@ -843,6 +843,8 @@ function htLoadPage(page, ext, arg, reload) {
                     htLiteratureIdx.clear();
                     htFirstStepsIdx.clear();
                     htFamilyIdx.clear();
+                    htIndigenousWhoIdx.clear();
+                    htMythsBelievesIdx.clear();
                 } else {
                     lastTreeLoaded.page = page;
                     lastTreeLoaded.arg = arg;
@@ -1335,6 +1337,50 @@ function htSelectIndexName(index) {
     }
 }
 
+function htBuildNavigationSteps(ptr, idx, index, idxName)
+{
+    var prev = "";
+    var pageName = "";
+    var selector = "";
+    if (ptr.prev == index) {
+        prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></a>";
+    } else {
+        selector = ptr.prev.split(":");
+        var prevPtr = idx.get(selector[0]);
+        pageName = (index == "families" || prevPtr.additional != undefined) ? "tree" : "class_content";
+        var lprev = "";
+        if (prevPtr.additional != undefined) {
+            lprev = (prevPtr.additional.length > 1) ? selector[0]+"&person_id="+prevPtr.additional: selector[0];
+        } else {
+            lprev = selector[0];
+        }
+
+        prev = "<a href=\"index.html?page="+pageName+"&arg="+lprev+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lprev+"', false); return false;\">"+prevPtr.name+"</a>";
+    }
+
+    var next = "";
+    if (ptr.next == undefined) {
+        next = "&nbsp;";
+    } else {
+        selector = ptr.next.split(":");
+        var nextPtr = idx.get(selector[0]);
+        pageName = (index == "families" || nextPtr.additional != undefined) ? "tree" : "class_content";
+
+        var lnext = "";
+        if (nextPtr.additional != undefined) {
+            lnext = (nextPtr.additional.length > 1) ? selector[0]+"&person_id="+nextPtr.additional: selector[0];
+        } else {
+            lnext = selector[0];
+        }
+
+        next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
+    }
+
+    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr><tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></td><td>"+next+"</td></tr></table></p>";
+
+    return navigation;
+}
+
 function htBuildNavigation(index)
 {
     var urlParams = new URLSearchParams(window.location.search);
@@ -1343,37 +1389,26 @@ function htBuildNavigation(index)
     }
 
     var arg = urlParams.get('arg');
-    var person = urlParams.get('person_id');
 
     var idx = htSelectIndexMap(index);
 
-    var ptr = idx.get((person != undefined && index == "myths_believes") ? person : arg);
+    var ptr = idx.get(arg);
     if (ptr == undefined) {
         return "";
     }
 
-    var pageName = (index == "families" || person != undefined) ? "tree" : "class_content";
     var idxName = htSelectIndexName(index);
+    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
 
-    var prev = "";
-    if (ptr.prev == index) {
-        prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></a>";
-    } else {
-        var prevPtr = idx.get(ptr.prev);
-        var lprev = (prevPtr.additional != undefined) ? prevPtr.additional+"&person_id="+prevPtr+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val() : ptr.prev;
-        prev = "<a href=\"index.html?page="+pageName+"&arg="+ptr.prev+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lprev+"', false); return false;\">"+prevPtr.name+"</a>";
+    for (let i = 0; i < 10; i++) {
+        var j = ptr.total+1;
+        var next = arg+":"+j;
+        ptr = idx.get(next);
+        if (ptr == undefined) {
+            break;
+        }
+        navigation += htBuildNavigationSteps(ptr, idx, index, idxName);
     }
-
-    var next = "";
-    if (ptr.next == undefined) {
-        next = "&nbsp;";
-    } else {
-        var nextPtr = idx.get(ptr.next);
-        var lnext = (nextPtr.additional != undefined) ? nextPtr.additional+"&person_id="+nextPtr+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val() : ptr.next;
-        next = "<a href=\"index.html?page="+pageName+"&arg="+ptr.next+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
-    }
-
-    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr><tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></td><td>"+next+"</td></tr></table></p>";
 
     return navigation;
 }
@@ -1402,7 +1437,7 @@ function htFillTopIdx(idx, data, first)
     var localLang = $("#site_language").val();
     var localCalendar = $("#site_calendar").val();
     var prev = first;
-    idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57], "additional": undefined});
+    idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57], "additional": undefined, "total": 0});
     for (const i in data.content) {
         if (data.content[i].html_value != undefined && data.content[i].html_value.length > 0 || data.content[i].value.constructor !== vectorConstructor || data.content[i].page == undefined) {
             continue;
@@ -1414,16 +1449,26 @@ function htFillTopIdx(idx, data, first)
             var fillNext = idx.get(prev);
             var id = "";
             var additional = undefined;
+            var theFirst = undefined;
             if (table[j].id.length > 0) {
                 id = table[j].id;
+                theFirst = idx.get(id);
             } else if (table[j].family_id.length) {
                 id = table[j].family_id;
+                theFirst = idx.get(id);
+
                 if (table[j].person_id.length) {
-                    additional = id;
-                    id = table[j].person_id;
+                    additional = table[j].person_id;
+                } else {
+                    additional = "1";
                 }
             }
 
+            var counter = 0;
+            if (theFirst != undefined) {
+                counter = theFirst.total + 1;
+                id += ":"+counter;
+            }
             if (fillNext != undefined) {
                 fillNext.next = id;
             }
@@ -1434,7 +1479,7 @@ function htFillTopIdx(idx, data, first)
                     show_text = htOverwriteHTDateWithText(show_text, data.content[i].date_time, localLang, localCalendar);
                 }
             }
-            idx.set(id, {"prev" : prev, "next" : undefined, "name" : show_text});
+            idx.set(id, {"prev" : prev, "next" : undefined, "name" : show_text, "additional": additional, "total": counter});
             prev = id;
         }
     }
@@ -1464,10 +1509,10 @@ function htLoadIndex(data, arg, page)
     } else if (page == "families" && htFamilyIdx.has("families") == false) {
         htFillTopIdx(htFamilyIdx, data, "families");
         return;
-    } else if (page == "indigenous_who" && htFamilyIdx.has("indigenous_who") == false) {
+    } else if (page == "indigenous_who" && htIndigenousWhoIdx.has("indigenous_who") == false) {
         htFillTopIdx(htIndigenousWhoIdx, data, "indigenous_who");
         return;
-    } else if (page == "myths_believes" && htFamilyIdx.has("myths_believes") == false) {
+    } else if (page == "myths_believes" && htMythsBelievesIdx.has("myths_believes") == false) {
         htFillTopIdx(htMythsBelievesIdx, data, "myths_believes");
         return;
     }
