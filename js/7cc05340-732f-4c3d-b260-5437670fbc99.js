@@ -9,7 +9,21 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htWriteNavigation("");
+    htWriteNavigation("first_steps");
+
+    var divRadius = parseInt($(".htCircle").width());
+
+    $(".htCircle").mouseenter(function(){
+        $(this).animate({ width: 4*divRadius, height: 4*divRadius });
+    }).mouseleave(function(){
+        $(this).animate({ width: divRadius, height: divRadius });
+    });
+
+    $('table').each(function() {
+        if (!$(this).hasClass('book_navigation')) {
+            $(this).addClass('three_table_bg');
+        }
+    });
 
     return false;
 }
