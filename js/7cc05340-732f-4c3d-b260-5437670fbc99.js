@@ -11,12 +11,22 @@ function htLoadExercise() {
 
     htWriteNavigation("first_steps");
 
-    var divRadius = parseInt($(".htCircle").width());
+    var divRadius = parseInt($(".htCircle[name='fig1']").width());
 
     $(".htCircle").mouseenter(function(){
-        $(this).animate({ width: 4*divRadius, height: 4*divRadius });
+        var name = $(this).attr('name');;
+        if (name == "fig1") {
+            $(this).animate({ width: 4*divRadius, height: 4*divRadius }, 'slow');
+        } else {
+            $(this).animate({ width: divRadius, height: divRadius }, 'slow');
+        }
     }).mouseleave(function(){
-        $(this).animate({ width: divRadius, height: divRadius });
+        var name = $(this).attr('name');;
+        if (name == "fig1") {
+            $(this).animate({ width: divRadius, height: divRadius }, 'slow');
+        } else {
+            $(this).animate({ width: 4*divRadius, height: 4*divRadius }, 'slow');
+        }
     });
 
     $('table').each(function() {
