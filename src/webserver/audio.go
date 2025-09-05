@@ -626,6 +626,11 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 		panic(err)
 	}
 
+	_, fileWasModified := htGitModifiedMap[localPath]
+	if fileWasModified {
+		index.LastUpdate[0] = htUpdateTimestamp()
+	}
+
 	newFile, err := htWriteTmpFile(lang, &index)
 	equal, err := HTAreFilesEqual(newFile, localPath)
 	if !equal && err == nil || updateDateFlag == true {
