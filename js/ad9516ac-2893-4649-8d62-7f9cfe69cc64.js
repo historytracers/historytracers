@@ -48,7 +48,7 @@ function htLoadExercise() {
 
     htFillMultiplicationTable("chart4", 0, 5, false, true);
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     return false;
 }

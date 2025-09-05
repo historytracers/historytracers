@@ -9,7 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htWriteNavigation(["first_steps", "myths_believes"]);
+    htWriteNavigation();
 
     htFillMultiplicationTable("chart4", 0, 5, false, true);
 

@@ -1318,7 +1318,11 @@ function htSelectIndexName(index) {
         return keywords[123];
     } else if (index == "myths_believes") {
         return keywords[124];
+    } else if (index == "history") {
+        return keywords[125];
     }
+
+     return "Undefined";
 }
 
 function htBuildNavigationSteps(ptr, idx, index, idxName)
@@ -1431,7 +1435,7 @@ function htBuildNavigation(index, currentIdx)
     return navigation;
 }
 
-function htWriteNavigation(index) 
+function htWriteNavigation()
 {
     if (loadedIdx.length == 0) {
         return;

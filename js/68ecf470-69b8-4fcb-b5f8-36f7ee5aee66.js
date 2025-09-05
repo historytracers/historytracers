@@ -125,7 +125,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector68ecf470);
     }
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     $( "input[name='yupanaradio']" ).on( "change", function() {
         yupanaSelected = $(this).val();

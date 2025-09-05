@@ -48,7 +48,7 @@ function htLoadExercise() {
         htShowtrainee0();
     });
     htShowtrainee0();
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     return false;
 }

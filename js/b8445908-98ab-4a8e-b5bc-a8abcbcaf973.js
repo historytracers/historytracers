@@ -3,7 +3,7 @@
 var localAnswerVectorb8445908 = undefined;
 
 function htLoadExercise() {
-    htWriteNavigation("history");
+    htWriteNavigation();
 
     return false;
 }

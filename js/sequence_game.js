@@ -334,7 +334,7 @@ function htLoadExercise()
     } else {
         htSequenceSetFactor();
     }
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     return false;
 }

@@ -30,7 +30,7 @@ function htLoadExercise() {
         htFillYupanaDecimalValues('#yupana0', localCounter1ae03186, 1, 'red_dot_right_up');
     });
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     return false;
 }

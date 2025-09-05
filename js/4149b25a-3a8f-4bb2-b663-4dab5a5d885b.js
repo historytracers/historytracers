@@ -9,7 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector4149b25a);
     }
 
-    htWriteNavigation(["families", "myths_believes"]);
+    htWriteNavigation();
 
     return false;
 }

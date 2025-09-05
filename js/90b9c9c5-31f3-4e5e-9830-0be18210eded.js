@@ -9,7 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htWriteNavigation(["first_steps", "myths_believes"]);
+    htWriteNavigation();
 
     var xVector1 = [ 1, 1.5,  2,  2.5, 3,  3.5, 4,  4.5, 5,  5.5, 6,  6.5, 7,  7.5, 8,  8.5, 9,  9.5, 10,  10.5, 11,  11.5, 12];
     var yVector1 = [ 1, null, 2, null, 3, null, 4, null, 5, null, 6, null, 7, null, 8, null, 9, null, 10,  null, 11,  null, 12];

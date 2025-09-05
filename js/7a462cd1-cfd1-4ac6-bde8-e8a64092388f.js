@@ -44,7 +44,7 @@ function htLoadExercise() {
         localCounter7a462cd1--;
         htUpdateMembers();
     });
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     return false;
 }

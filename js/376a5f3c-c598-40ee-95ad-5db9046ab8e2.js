@@ -12,7 +12,7 @@ function htLoadExercise() {
     htAddReligionReflection("#htReligiousReflection");
     $("#SumerianKingListDesc").html(keywords[90]);
 
-    htWriteNavigation(["families", "myths_believes"]);
+    htWriteNavigation();
 
     return false;
 }

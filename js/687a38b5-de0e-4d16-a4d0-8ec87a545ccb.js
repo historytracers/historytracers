@@ -171,7 +171,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector687a38b5);
     }
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     $(".sumexample1").hover(function(){
         var id = $(this).attr("id");

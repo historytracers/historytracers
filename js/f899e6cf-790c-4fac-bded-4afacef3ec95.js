@@ -9,7 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVectorf899e6cf);
     }
 
-    htWriteNavigation(["literature", "myths_believes"]);
+    htWriteNavigation();
     htAddReligionReflection("#htReligiousReflection");
 
     return false;

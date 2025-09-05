@@ -222,7 +222,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector648170f0);
     }
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     var times = $("#ia2yupana1").val();
     var value = $("#ia2yupana0").val();

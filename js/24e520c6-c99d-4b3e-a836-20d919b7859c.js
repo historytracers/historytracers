@@ -84,7 +84,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector24e520);
     }
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     $("#updateEnv").on("click", function() {
         var lyear = new Date().getFullYear() - 200;
