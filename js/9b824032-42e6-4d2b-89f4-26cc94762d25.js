@@ -7,7 +7,7 @@ function htLoadExercise() {
         }
     });
 
-    htWriteNavigation(["first_steps", "myths_believes"]);
+    htWriteNavigation();
 
     return false;
 }

@@ -37,7 +37,7 @@ function htLoadExercise() {
         $('#leftnum').html(localCounter03bb4b8e - 1);
         $('#rightnum').html(localCounter03bb4b8e);
     });
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     return false;
 }

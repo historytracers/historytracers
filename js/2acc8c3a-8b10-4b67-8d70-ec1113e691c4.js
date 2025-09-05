@@ -22,7 +22,7 @@ function htLoadExercise() {
     htAddAlterQImages(".htSlides");
     htPlusDivs(0);
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     if (localAnswerVector2acc8c3a == undefined) {
         localAnswerVector2acc8c3a = htLoadAnswersFromExercise();

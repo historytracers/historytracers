@@ -9,7 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htWriteNavigation(["families", "myths_believes"]);
+    htWriteNavigation();
     htAddTreeReflection("#myFirstReflection", 55);
     $("#bndPortugal").html(keywords[88]);
 

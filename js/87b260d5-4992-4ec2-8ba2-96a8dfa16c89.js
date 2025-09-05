@@ -50,7 +50,7 @@ function htLoadExercise() {
 
     htUpdateMesoScreen87b260d5(0);
     htUpdateYupanaScreen87b260d5(0);
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     return false;
 }

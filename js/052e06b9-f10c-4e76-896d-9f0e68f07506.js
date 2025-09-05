@@ -175,7 +175,7 @@ function htCheckAnswer(startValue) {
 
 function htLoadExercise() {
     $("#nextLevel").hide();
-    htWriteNavigation("literature");
+    htWriteNavigation();
 
     htSetValues();
     htWriteValuesOnScreen();

@@ -41,7 +41,7 @@ function htLoadExercise() {
         htFillYupanaDecimalValues('#yupana0', localCounter687ee328, 1, 'red_dot_right_up');
     });
     htAddElementTo687ee328Table("#tblHandsCounting", "#tr", 11);
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     return false;
 }

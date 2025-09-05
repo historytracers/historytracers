@@ -155,7 +155,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     $('.ordercheck').change(function(){
         var id = $(this).attr("id");

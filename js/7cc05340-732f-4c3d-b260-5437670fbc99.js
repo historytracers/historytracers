@@ -9,7 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     var divRadius = parseInt($(".htCircle[name='fig1']").width());
 

@@ -70,7 +70,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVectorc742c649);
     }
 
-    htWriteNavigation("first_steps");
+    htWriteNavigation();
 
     localCounterc742c649 = 0;
     localCounterc742c649 = htModifyArrow('.htUpArrow', localCounterc742c649);
