@@ -1,41 +1,101 @@
 {
-    "title" : "Scientific method - the game",
-    "header" : "Scientific method - the game",
-    "sources" : [ "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0" ],
-    "scripts" : [ "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1724201889" ],
-    "authors" : null,
-    "reviewers" : null,
-    "content" : [
-        {
-            "id" : "families",
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "navigation",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=6d519d82-2de9-41cf-a740-2efe63326043\" onclick=\"htLoadPage('class_content', 'html', '6d519d82-2de9-41cf-a740-2efe63326043', false); return false;\">Understanding contexts (parte II)</a></td> <td><a href=\"index.html?page=science\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
-                },
-                {
-                    "id" : "preriquisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p class=\"topdesc\"><i>In addition to using the name America, we will also refer to the continent as <i>Abya Yala</i>, a term used by the indigenous peoples of the continent (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i></p>",
-                        "<p><h3>Pre-requisites</h3>The game levels complement the texts available in <i>History Tracers</i>. Therefore, we recommend reading the following texts before starting the activities:</p>",
-                        "<p><ul><li><b>Figures:</b> In this level, we compare geometric figures to identify similarities and differences. Recommended texts: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9618a83e-f232-49db-84f6-fc3455a3f1d1'); return false;\">Drawing to Count</a>, <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('bb226b7f-2358-437f-b6e1-668943c682d7'); return false;\">On Equality</a>, and <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0d0fac24-858f-4ff8-92c3-da7a3474da4c'); return false;\">Bigger or Smaller</a>.</li><li><b>The person's name is:</b> We explore a common genealogical error: the belief in a universal pattern for naming children throughout history. Recommended texts: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cb595338-7398-4bfc-84ae-a22444357e9d'); return false;\">Leme Family</a>, and <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('74c5d8b0-9a31-47e2-bb4f-c3c6d85318ed'); return false;\">Kings of León</a>.</li><li><b>Defamations:</b> During the Paulista Civil War, we analyze how the Camargo family sought to incite the population against their enemies. Recommended text: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cb595338-7398-4bfc-84ae-a22444357e9d'); return false;\">Leme Family</a>.</li><li><b>The Discoverer:</b> We examine different perspectives on the discovery of the American continent. Recommended texts: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2943210c-d6a1-4f72-bcd0-23a45818ae89'); return false;\">Who truly discovered America?</a> y <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e6ffacf6-f9ac-46ea-b046-3f6ad2c9a744'); return false;\">Human Migrations</a>.</li></ul></p>" ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ "<p><h3>Introduction</h3>The main goal of this game is to help people reinforce their knowledge. In each level, you will find links to other areas of the project that can assist you; feel free to access them whenever necessary. The game score is solely intended to indicate where you can improve your skills, not to judge if a person is good or bad. Each part of the game that you access, your score will increase, because the learning received cannot be discarded.</p>" ]
-                },
-                {
-                    "id" : "rules",
-                    "text" : [ "<p><h3>Controls</h3>During the game, you will have the following controls available:</p>", "<p><ul><li><b>Next (<i class=\"fa-solid fa-chevron-right\"></i>)</b>:  Moves to the next screen. However, if a question screen appears, it will be skipped until an answer is provided.</li><li><b>Previous (<i class=\"fa-solid fa-chevron-left\"></i>)</b>: Returns to the previous screen. This option is available until the problem-solving stage begins, allowing you to reinforce your knowledge.</li><li><b>Skip (<i class=\"fa-solid fa-angle-double-right\"></i>)</b>: Available during the game’s introduction, enabling you to jump directly to the main screen.</li><li><b>Agree (<i class=\"fa-solid fa-thumbs-up\" style=\"color:green;\"></i>)</b>: Appears only on question screens, indicating that you agree with the question.</li><li><b>Disagree (<i class=\"fa-solid fa-thumbs-down\" style=\"color:red;\"></i>)</b>: Appears only on question screens, indicating that you believe the statement is incorrect.</li></ul></p>" ]
-                },
-                {
-                    "id" : "game",
-                    "text" : [ "<p><h3>The game</h3>The game starts with an introduction where each screen is displayed for 6 seconds before automatically advancing to the next.</p>", "<p>In each game level, you will be presented with a case study. You will also receive hypotheses, and after analyzing the data that supports or refutes them, you will indicate whether you agree (<i class=\"fa-solid fa-thumbs-up\" style=\"color:green;\"></i>) or disagree (<i class=\"fa-solid fa-thumbs-down\" style=\"color:red;\"></i>) with the proposed questions. At the end of each level, the corresponding theory will be presented to you, and you will receive a medal for completing the level (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p>", "<p>To begin the game, click the button <i class=\"fa-solid fa-play\" style=\"color:red;font-size:1.0vw;\">.</i></p>", "<p><b>The game can be updated at any time. <span id=\"family_common_sn\"></span></b></p>", "<p><div class=\"htSlidesGame\"></div></p>" ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Scientific method - the game",
+   "header": "Scientific method - the game",
+   "sources": [
+      "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0"
+   ],
+   "scripts": [
+      "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0"
+   ],
+   "audio": null,
+   "index": null,
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1757197332"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><hr /></p><p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h3>Prerequisites</h3>The game levels complement the texts available in <i>History Tracers</i>. Therefore, we recommend reading the following texts before starting the activities:</p><p><ul><li><b>Figures:</b> In this level, we compare geometric figures to identify similarities and differences. Recommended texts: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9618a83e-f232-49db-84f6-fc3455a3f1d1'); return false;\">Drawing to Count</a>, <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('bb226b7f-2358-437f-b6e1-668943c682d7'); return false;\">On Equality</a>, and <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0d0fac24-858f-4ff8-92c3-da7a3474da4c'); return false;\">Bigger or Smaller</a>.</li><li><b>The person's name is:</b> We explore a common genealogical error: the belief in a universal pattern for naming children throughout history. Recommended texts: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cb595338-7398-4bfc-84ae-a22444357e9d'); return false;\">Leme Family</a>, and <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('74c5d8b0-9a31-47e2-bb4f-c3c6d85318ed'); return false;\">Kings of León</a>.</li><li><b>Defamations:</b> During the Paulista Civil War, we analyze how the Camargo family sought to incite the population against their enemies. Recommended text: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cb595338-7398-4bfc-84ae-a22444357e9d'); return false;\">Leme Family</a>.</li><li><b>The Discoverer:</b> We examine different perspectives on the discovery of the American continent. Recommended texts: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2943210c-d6a1-4f72-bcd0-23a45818ae89'); return false;\">Who truly discovered America?</a> y <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e6ffacf6-f9ac-46ea-b046-3f6ad2c9a744'); return false;\">Human Migrations</a>.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Introduction</h3>The main goal of this game is to help people reinforce their knowledge. In each level, you will find links to other areas of the project that can assist you; feel free to access them whenever necessary. The game score is solely intended to indicate where you can improve your skills, not to judge if a person is good or bad. Each part of the game that you access, your score will increase, because the learning received cannot be discarded.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Controls</h3>During the game, you will have the following controls available:</p><p><ul><li><b>Next (<i class=\"fa-solid fa-chevron-right\"></i>)</b>:  Moves to the next screen. However, if a question screen appears, it will be skipped until an answer is provided.</li><li><b>Previous (<i class=\"fa-solid fa-chevron-left\"></i>)</b>: Returns to the previous screen. This option is available until the problem-solving stage begins, allowing you to reinforce your knowledge.</li><li><b>Skip (<i class=\"fa-solid fa-angle-double-right\"></i>)</b>: Available during the game’s introduction, enabling you to jump directly to the main screen.</li><li><b>Agree (<i class=\"fa-solid fa-thumbs-up\" style=\"color:green;\"></i>)</b>: Appears only on question screens, indicating that you agree with the question.</li><li><b>Disagree (<i class=\"fa-solid fa-thumbs-down\" style=\"color:red;\"></i>)</b>: Appears only on question screens, indicating that you believe the statement is incorrect.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>The game</h3>The game starts with an introduction where each screen is displayed for 6 seconds before automatically advancing to the next.</p><p>In each game level, you will be presented with a case study. You will also receive hypotheses, and after analyzing the data that supports or refutes them, you will indicate whether you agree (<i class=\"fa-solid fa-thumbs-up\" style=\"color:green;\"></i>) or disagree (<i class=\"fa-solid fa-thumbs-down\" style=\"color:red;\"></i>) with the proposed questions. At the end of each level, the corresponding theory will be presented to you, and you will receive a medal for completing the level (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p><p>To begin the game, click the button <i class=\"fa-solid fa-play\" style=\"color:red;font-size:1.0vw;\">.</i></p><p><b>The game can be updated at any time. <span id=\"family_common_sn\"></span></b></p><p><div class=\"htSlidesGame\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
