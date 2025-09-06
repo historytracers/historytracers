@@ -725,6 +725,7 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 
 		ret := strings.ReplaceAll(work, "<span id=\"htZoomImageMsg\"></span>", commonKeywords[84])
 		work = strings.ReplaceAll(ret, "<span id=\"htAmericaAbyaYalaMsg\"></span>", commonKeywords[85])
+		work = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span>", commonKeywords[52])
 		ret = strings.ReplaceAll(work, "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div>", "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\">"+commonKeywords[69]+"</div>")
 
 		htmlText = htOverwriteDates(ret, txt.FillDates, "", "", dateAbbreviation) + "<br />"
