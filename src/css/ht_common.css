@@ -273,6 +273,7 @@ div.tree-child-center {
 
 .cited-text {
   font-size: 0.9em ;
+  word-break: break-all;
   width: 90%;
 }
 
@@ -385,6 +386,7 @@ li.menu {
   list-style: none;
   font-size: 0.90em;
   overflow:hidden;
+  word-break: break-all;
   z-index: 0;
 }
 
