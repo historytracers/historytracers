@@ -1575,7 +1575,7 @@ function htLoadIndex(data, arg, page)
         htFillTopIdx(htFirstStepsIdx, data, "first_steps");
         return;
     } else if (page == "math_games" && htMathGamesIdx.has("math_games") == false) {
-        htFillTopIdx(htMathGamesIdx, data, "games");
+        htFillTopIdx(htMathGamesIdx, data, "math_games");
         return;
     } else if (page == "literature" && htLiteratureIdx.has("literature") == false) {
         htFillTopIdx(htLiteratureIdx, data, "literature");
