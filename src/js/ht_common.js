@@ -29,6 +29,7 @@ var loadedIdx = [];
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
+var htMathGamesIdx = new Map();
 var htIndigenousWhoIdx = new Map();
 var htMythsBelievesIdx = new Map();
 var htFamilyIdx = new Map();
@@ -1019,7 +1020,7 @@ function htFillStringOnPage(data, idx, page)
 
     if ($("#"+data.content[idx].id).length > 0) {
         $("#"+data.content[idx].id).html(text);
-    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" || page == "indigenous_who" || page == "myths_believes") && (data.content[idx].target != undefined)) {
+    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" || page == "indigenous_who" || page == "myths_believes" || page == "math_games") && (data.content[idx].target != undefined)) {
         $("#group-map").append("<ul><b><span id=\""+data.content[idx].id+"\">"+text+"</span></b><ol id=\""+data.content[idx].target+"\"></ol></ul><br />");
     }
 }
@@ -1294,6 +1295,8 @@ function htSelectIndexMap(index)
         return htLiteratureIdx;
     } else if (index == "first_steps") {
         return htFirstStepsIdx;
+    } else if (index == "math_games") {
+        return htMathGamesIdx;
     } else if (index == "families") {
         return htFamilyIdx;
     } else if (index == "indigenous_who") {
@@ -1320,6 +1323,8 @@ function htSelectIndexName(index) {
         return keywords[124];
     } else if (index == "history") {
         return keywords[125];
+    } else if (index == "math_games") {
+        return keywords[126];
     }
 
      return "Undefined";
@@ -1544,6 +1549,7 @@ function htResetAllIndexes()
     htHistoryIdx.clear();
     htLiteratureIdx.clear();
     htFirstStepsIdx.clear();
+    htMathGamesIdx.clear();
     htFamilyIdx.clear();
     htIndigenousWhoIdx.clear();
     htMythsBelievesIdx.clear();
@@ -1567,6 +1573,9 @@ function htLoadIndex(data, arg, page)
         return;
     } else if (page == "first_steps" && htFirstStepsIdx.has("first_steps") == false) {
         htFillTopIdx(htFirstStepsIdx, data, "first_steps");
+        return;
+    } else if (page == "math_games" && htMathGamesIdx.has("math_games") == false) {
+        htFillTopIdx(htMathGamesIdx, data, "games");
         return;
     } else if (page == "literature" && htLiteratureIdx.has("literature") == false) {
         htFillTopIdx(htLiteratureIdx, data, "literature");

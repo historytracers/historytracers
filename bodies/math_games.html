@@ -3,11 +3,14 @@
 <script>
     var gmUnixEpoch = Date.now();
     var gmFile = document.createElement("script");
-    gmFile.setAttribute("src", "js/first_steps_games.js?nocache="+gmUnixEpoch);
+    gmFile.setAttribute("src", "js/math_games.js?nocache="+gmUnixEpoch);
     document.head.appendChild(gmFile);
 </script>
 <div class="left-tree">
     <div class="paper-data" id="extpaper">
+    </div>
+
+    <div class="paper-data" id="htaudio" style="z-index: 100">
     </div>
 
     <div class="main-data" id="introduction">
@@ -15,13 +18,5 @@
 
     <div class="main-data" id="group-map">
         <h4 id="groups"> </h4>
-        <ul><b><span id="initial_title"> </span></b>
-            <ol id="class-group">
-            </ol>
-        </ul><br />
-        <ul><b><span id="function_group"> </span></b>
-            <ol id="class-function-group">
-            </ol>
-        </ul>
     </div>
 </div>
