@@ -1209,7 +1209,9 @@ function htFillWebPage(page, data)
         for (const i in data.scripts) {
             var jsURL = "js/" + data.scripts[i] + ".js";
             $.getScript( jsURL, function() {
-                if (typeof htLoadExercise !== "undefined") {
+                if (typeof htLoadContent !== "undefined") {
+                    htLoadContent();
+                } else if (typeof htLoadExercise !== "undefined") {
                     htLoadExercise();
                 }
 

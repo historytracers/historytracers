@@ -9,8 +9,6 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
-    htWriteNavigation();
-
     return false;
 }
 
@@ -23,3 +21,9 @@ function htCheckAnswers()
     }
 }
 
+function htLoadContent() {
+    htWriteNavigation();
+    htLoadExercise();
+
+    return false;
+}
