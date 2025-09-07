@@ -23,6 +23,7 @@
   <script type="text/javascript" async src="js/showdown.210.min.js?v=da938423-af12-4b7a-ac3f-9d203eedd62d"></script>
   <script type="text/javascript" async src="js/astro.js?v=a560bbae-0ac0-4bcf-9dcb-e9f2dba9ab98"></script>
   <script type="text/javascript" src="js/calendar.js?v=750ecce5-1ae0-4cdd-857f-9273ed54f33f"></script>
+  <script type="text/javascript" src="js/qrcode.min.js?v=436a93fc-3974-440f-9cd4-eae638cbc431"></script>
 
   <!-- script type="text/javascript" async src="js/tex-mml-chtml_3.js?v=60887dd2-52a2-423d-884f-4cefa04090ec"></script -->
 
@@ -48,10 +49,11 @@
     <ul class="sidebar-navigation">
         <li> <b><label id="lblmain" class="menu-title"></label></b>
             <ul class="sidebar-all">
-                <li class="menu"> <a href="index.html?page=main" onclick="htLoadPage('main','html', '', false); return false;" id="sbMain"></a></li>
+                <li class="menu"> <a href="index.html?page=class_content&arg=main" onclick="htLoadPage('class_content','html', 'main', false); return false;" id="sbMain"></a></li>
                 <li class="menu"> <a href="index.html?page=class_content&arg=acknowledgement" onclick="htLoadPage('class_content', 'html', 'acknowledgement', false); return false;" id="sbAcknowledgement"></a></li>
-                <li class="menu"> <a href="index.html?page=license" onclick="htLoadPage('license','html', '', false); $(\"#header\").html(\"\"); return false;" id="sbLicense"></a></li>
+                <li class="menu"> <a href="index.html?page=class_content&arg=partnership" onclick="htLoadPage('class_content', 'html', 'partnership', false); return false;" id="sbPartnership"></a></li>
                 <li class="menu"> <a href="index.html?page=contact" onclick="htLoadPage('contact','html', '', false); return false;" id="sbContact"></a></li>
+                <li class="menu"> <a href="index.html?page=license" onclick="htLoadPage('license','html', '', false); $(\"#header\").html(\"\"); return false;" id="sbLicense"></a></li>
                 <li class="menu"> <a href="index.html?page=release" onclick="htLoadPage('release','html', '', false); return false;" id="sbRelease"></a></li>
             </ul>
         </li>
@@ -113,9 +115,9 @@
     <ul class="sidebar-navigation">
         <li> <b><label id="lblgenealogy" class="menu-title"></label></b>
             <ul class="sidebar-all">
-                <li class="menu"> <a href="index.html?page=class_content&arg=genealogical_first_steps" onclick="htLoadPage('class_content','html', 'genealogical_first_steps', false); return false;" id="sbFirst"></a></li>
                 <li class="menu"> <a href="index.html?page=families" onclick="htLoadPage('families','html', '', false); return false;" id="sbFamily"></a></li>
                 <li class="menu"> <a href="index.html?page=class_content&arg=genealogical_faq" onclick="htLoadPage('class_content','html', 'genealogical_faq', false); return false;" id="sbFAQ"></a></li>
+                <li class="menu"> <a href="index.html?page=class_content&arg=genealogical_first_steps" onclick="htLoadPage('class_content','html', 'genealogical_first_steps', false); return false;" id="sbFirst"></a></li>
             </ul>
         </li>
 

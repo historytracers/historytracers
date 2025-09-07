@@ -106,7 +106,6 @@ function htParseIndexRequest() {
     if (urlParams.has('page')) {
         var page = urlParams.get('page');
         switch(page) {
-            case 'main':
             case 'license':
             case 'contact':
             case 'science':
@@ -141,7 +140,7 @@ function htParseIndexRequest() {
                 break;
         }
     } else {
-        htLoadPage('main','html', '', false);
+        htLoadPage('class_content','html', 'main', false);
     }
 
     firstIndexTime = false;
