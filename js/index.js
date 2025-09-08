@@ -110,8 +110,6 @@ function htParseIndexRequest() {
             case 'contact':
             case 'science':
             case 'history':
-            case 'genealogical_first_steps':
-            case 'genealogical_faq':
             case 'genealogical_map':
             case 'families':
             case 'myths_believes':

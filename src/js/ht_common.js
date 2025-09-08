@@ -783,6 +783,13 @@ function htProccessData(data, optional) {
 
 }
 
+function htFillPIXQRCode(id, size) {
+    var htmlSize = $(id).html();
+    if (htmlSize.length == 0) {
+        $(id).html("<img src=\"images/HistoryTracers/qrcodePix.png\" width=\""+size+"\"/>");
+    }
+}
+
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     $("#messages").html("&nbsp;");
     extLatexIdx = 0;
@@ -825,7 +832,6 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     });
 }
 
-
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
     $("#ht_index_latex").append("");
@@ -860,17 +866,6 @@ function htLoadPage(page, ext, arg, reload) {
         $("#tree-source").html("");
         $("#tree-ref").html("");
         $("#tree-holy-ref").html("");
-
-        if ($("htPixQRCode").length > 0 ) {
-            var qrcode = new QRCode(document.getElementById("qrcode"), {
-                text: "Hello, World!", // The data to encode in the QR code
-                width: 128,
-                height: 128,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H // Error correction level
-            });
-        }
     }
 
     var pages = arg.split('&person_id=') ;
@@ -924,8 +919,12 @@ function htLoadPage(page, ext, arg, reload) {
 
             htFillWebPage(page, data);
 
-            if (arg != "source") {
-                htEnableEdition();
+            if ($("#htPixQRCode").length > 0 ) {
+                htFillPIXQRCode("#htPixQRCode", "10%");
+            }
+
+            if ($("#htPixSideQRCode").length > 0 ) {
+                htFillPIXQRCode("#htPixSideQRCode", "25%");
             }
 
             return false;
