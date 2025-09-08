@@ -106,6 +106,14 @@ function htParseIndexRequest() {
     if (urlParams.has('page')) {
         var page = urlParams.get('page');
         switch(page) {
+            case 'main':
+            case 'acknowledgement':
+            case 'partnership':
+            case 'sources':
+            case 'genealogical_faq':
+            case 'genealogical_first_steps':
+                htLoadPage('class_content','html', arg, false);
+                break;
             case 'license':
             case 'contact':
             case 'science':
