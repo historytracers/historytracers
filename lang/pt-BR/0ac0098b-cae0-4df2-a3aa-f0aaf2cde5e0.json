@@ -1,41 +1,112 @@
 {
-    "title" : "Método científico - o jogo",
-    "header" : "Método científico - o jogo",
-    "sources" : [ "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0" ],
-    "scripts" : [ "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1724201889" ],
-    "authors" : null,
-    "reviewers" : null,
-    "content" : [
-        {
-            "id" : "families",
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "navigation",
-                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=class_content&arg=6d519d82-2de9-41cf-a740-2efe63326043\" onclick=\"htLoadPage('class_content', 'html', '6d519d82-2de9-41cf-a740-2efe63326043', false); return false;\">Compreendendo contextos (parte II)</a></td> <td><a href=\"index.html?page=science\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td>&nbsp;</td></tr></table></p>"
-                },
-                {
-                    "id" : "preriquisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p class=\"topdesc\"><i>Além de utilizar o nome América, também faremos referência ao continente como <i>Abya Yala</i>, nome pelo qual é reconhecido pelos povos originários do continente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i></p>",
-                        "<p><h3>Pré-requisitos</h3>As etapas do jogo complementam os textos do <i>History Tracers</i>. Por isso, recomendamos a leitura dos seguintes materiais antes de iniciar as atividades:</p>",
-                        "<p><ul><li><b>Figuras:</b> Nesta etapa, comparamos figuras geométricas para verificar semelhanças e diferenças. Textos recomendados: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9618a83e-f232-49db-84f6-fc3455a3f1d1'); return false;\">Desenhando para contar</a>, <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('bb226b7f-2358-437f-b6e1-668943c682d7'); return false;\">Explorando a igualdade</a> e <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0d0fac24-858f-4ff8-92c3-da7a3474da4c'); return false;\">Maior ou menor</a>.</li><li><b>Nomes são iguais:</b> Exploramos um erro comum na genealogia, que é presumir padrões fixos na atribuição de nomes ao longo da história. Textos recomendados: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cb595338-7398-4bfc-84ae-a22444357e9d'); return false;\">Família Leme</a> e <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('74c5d8b0-9a31-47e2-bb4f-c3c6d85318ed'); return false;\">Reis de Leão</a>.</li><li><b>Difamações:</b> Estudamos como, durante a Guerra Civil Paulista, a família Camargo buscou incitar a revolta popular contra seus inimigos. Texto recomendado: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cb595338-7398-4bfc-84ae-a22444357e9d'); return false;\">Família Leme</a>.</li><li><b>Descobrimentos:</b> Analisamos diferentes perspectivas sobre a descoberta do continente americano. Textos recomendados: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2943210c-d6a1-4f72-bcd0-23a45818ae89'); return false;\">Quem descobriu América?</a> e <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e6ffacf6-f9ac-46ea-b046-3f6ad2c9a744'); return false;\">Migrações humanas</a>.</li></ul></p>" ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ "<p><h3>Objetivos</h3>Este jogo tem como objetivo ajudar a reforçar o seu conhecimento. Em cada nível, haverá links para as áreas que estão sendo trabalhadas. Sinta-se à vontade para consultá-los quando necessário. A pontuação no jogo serve para indicar onde você pode aprimorar suas habilidades, e não para julgar se alguém é bom ou ruim. A cada etapa do jogo que você acessar, ganhará um ponto, pois o aprendizado adiquirido não poderá ser descartado.</p>" ]
-                },
-                {
-                    "id" : "rules",
-                    "text" : [ "<p><h3>Controles</h3>Durante o jogo, você terá à sua disposição os seguintes controles:</p>", "<p><ul><li><b>Avançar (<i class=\"fa-solid fa-chevron-right\"></i>)</b>: Avança para a próxima tela. No entanto, em telas com perguntas, o avanço será omitido até que uma resposta seja dada.</li><li><b>Voltar (<i class=\"fa-solid fa-chevron-left\"></i>)</b>: Retorna à tela anterior. Esta opção está disponível até o início da etapa de resolução do problema, permitindo que você reforce seus conhecimentos.</li><li><b>Pular (<i class=\"fa-solid fa-angle-double-right\"></i>)</b>: Disponível na introdução do jogo, permite pular diretamente para a tela principal.</li><li><b>Estou de acordo (<i class=\"fa-solid fa-thumbs-up\" style=\"color:green;\"></i>)</b>: Aparece apenas em telas com perguntas, indicando que você considera a pergunta apresentada correta.</li><li><b>Não estou de acordo (<i class=\"fa-solid fa-thumbs-down\" style=\"color:red;\"></i>)</b>: Aparece apenas em telas com perguntas, indicando que você considera a pergunta apresentada incorreta.</li></ul></p>" ]
-                },
-                {
-                    "id" : "game",
-                    "text" : [ "<p><h3>O jogo</h3>O jogo começa com uma introdução, onde cada tela fica visível por 6 segundos antes de avançar automaticamente.</p>", "<p>Em cada etapa, você será apresentado a um problema para ser investigado. Hipóteses serão propostas, e, ao analisar os dados que as validam ou refutam, você deverá indicar se concorda (<i class=\"fa-solid fa-thumbs-up\" style=\"color:green;\"></i>) ou discorda (<i class=\"fa-solid fa-thumbs-down\" style=\"color:red;\"></i>) das perguntas. Ao final de cada etapa, será apresentada a teoria correspondente, e você receberá uma medalha por ter concluído a etapa (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p>", "<p>Para iniciar o jogo, clique no botão <i class=\"fa-solid fa-play\" style=\"color:red;font-size:1.0vw;\">.</i></p>", "<p><b>O jogo pode ser atualizado a qualquer momento. <span id=\"family_common_sn\"></span></b></p>", "<p><div class=\"htSlidesGame\"></div></p>" ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Método científico - o jogo",
+   "header": "Método científico - o jogo",
+   "sources": [
+      "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0"
+   ],
+   "scripts": [
+      "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/AmOoWZZfsWb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": null,
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1757197332"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><hr /></p><p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Pré-requisitos</h3>As etapas do jogo complementam os textos do <i>History Tracers</i>. Por isso, recomendamos a leitura dos seguintes materiais antes de iniciar as atividades:</p><p><ul><li><b>Figuras:</b> Nesta etapa, comparamos figuras geométricas para verificar semelhanças e diferenças. Textos recomendados: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9618a83e-f232-49db-84f6-fc3455a3f1d1'); return false;\">Desenhando para contar</a>, <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('bb226b7f-2358-437f-b6e1-668943c682d7'); return false;\">Explorando a igualdade</a> e <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0d0fac24-858f-4ff8-92c3-da7a3474da4c'); return false;\">Maior ou menor</a>.</li><li><b>Nomes são iguais:</b> Exploramos um erro comum na genealogia, que é presumir padrões fixos na atribuição de nomes ao longo da história. Textos recomendados: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cb595338-7398-4bfc-84ae-a22444357e9d'); return false;\">Família Leme</a> e <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('74c5d8b0-9a31-47e2-bb4f-c3c6d85318ed'); return false;\">Reis de Leão</a>.</li><li><b>Difamações:</b> Estudamos como, durante a Guerra Civil Paulista, a família Camargo buscou incitar a revolta popular contra seus inimigos. Texto recomendado: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cb595338-7398-4bfc-84ae-a22444357e9d'); return false;\">Família Leme</a>.</li><li><b>Descobrimentos:</b> Analisamos diferentes perspectivas sobre a descoberta do continente americano. Textos recomendados: <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2943210c-d6a1-4f72-bcd0-23a45818ae89'); return false;\">Quem descobriu América?</a> e <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e6ffacf6-f9ac-46ea-b046-3f6ad2c9a744'); return false;\">Migrações humanas</a>.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Objetivos</h3>Este jogo tem como objetivo ajudar a reforçar o seu conhecimento. Em cada nível, haverá links para as áreas que estão sendo trabalhadas. Sinta-se à vontade para consultá-los quando necessário. A pontuação no jogo serve para indicar onde você pode aprimorar suas habilidades, e não para julgar se alguém é bom ou ruim. A cada etapa do jogo que você acessar, ganhará um ponto, pois o aprendizado adiquirido não poderá ser descartado.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Controles</h3>Durante o jogo, você terá à sua disposição os seguintes controles:</p><p><ul><li><b>Avançar (<i class=\"fa-solid fa-chevron-right\"></i>)</b>: Avança para a próxima tela. No entanto, em telas com perguntas, o avanço será omitido até que uma resposta seja dada.</li><li><b>Voltar (<i class=\"fa-solid fa-chevron-left\"></i>)</b>: Retorna à tela anterior. Esta opção está disponível até o início da etapa de resolução do problema, permitindo que você reforce seus conhecimentos.</li><li><b>Pular (<i class=\"fa-solid fa-angle-double-right\"></i>)</b>: Disponível na introdução do jogo, permite pular diretamente para a tela principal.</li><li><b>Estou de acordo (<i class=\"fa-solid fa-thumbs-up\" style=\"color:green;\"></i>)</b>: Aparece apenas em telas com perguntas, indicando que você considera a pergunta apresentada correta.</li><li><b>Não estou de acordo (<i class=\"fa-solid fa-thumbs-down\" style=\"color:red;\"></i>)</b>: Aparece apenas em telas com perguntas, indicando que você considera a pergunta apresentada incorreta.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>O jogo</h3>O jogo começa com uma introdução, onde cada tela fica visível por 6 segundos antes de avançar automaticamente.</p><p>Em cada etapa, você será apresentado a um problema para ser investigado. Hipóteses serão propostas, e, ao analisar os dados que as validam ou refutam, você deverá indicar se concorda (<i class=\"fa-solid fa-thumbs-up\" style=\"color:green;\"></i>) ou discorda (<i class=\"fa-solid fa-thumbs-down\" style=\"color:red;\"></i>) das perguntas. Ao final de cada etapa, será apresentada a teoria correspondente, e você receberá uma medalha por ter concluído a etapa (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p><p>Para iniciar o jogo, clique no botão <i class=\"fa-solid fa-play\" style=\"color:red;font-size:1.0vw;\">.</i></p><p><b>O jogo pode ser atualizado a qualquer momento. <span id=\"family_common_sn\"></span></b></p><p><div class=\"htSlidesGame\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

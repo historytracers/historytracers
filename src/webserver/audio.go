@@ -589,7 +589,7 @@ func htConvertAtlasToAudio() {
 }
 
 func htConvertOverallTextToAudio() {
-	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5", "a86f373e-c908-4796-8a96-427ba5d4c889", "sources", "genealogical_first_steps", "genealogical_faq"}
+	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5", "a86f373e-c908-4796-8a96-427ba5d4c889", "sources", "genealogical_first_steps", "genealogical_faq", "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0", "partnership"}
 	htConvertClassesToAudio(pages)
 }
 
@@ -650,7 +650,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 }
 
 func htAudioIndexLoop() {
-	indexes := []string{"first_steps", "literature", "indigenous_who", "myths_believes"}
+	indexes := []string{"first_steps", "literature", "indigenous_who", "myths_believes", "math_games"}
 	for i := 0; i < len(htLangPaths); i++ {
 		lang := htLangPaths[i]
 		htLoadKeywordFile("common_keywords", lang)

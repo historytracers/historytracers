@@ -29,6 +29,7 @@ var loadedIdx = [];
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
+var htMathGamesIdx = new Map();
 var htIndigenousWhoIdx = new Map();
 var htMythsBelievesIdx = new Map();
 var htFamilyIdx = new Map();
@@ -782,6 +783,13 @@ function htProccessData(data, optional) {
 
 }
 
+function htFillPIXQRCode(id, size) {
+    var htmlSize = $(id).html();
+    if (htmlSize.length == 0) {
+        $(id).html("<img src=\"images/HistoryTracers/qrcodePix.png\" width=\""+size+"\"/>");
+    }
+}
+
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     $("#messages").html("&nbsp;");
     extLatexIdx = 0;
@@ -823,7 +831,6 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
         },
     });
 }
-
 
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
@@ -912,8 +919,12 @@ function htLoadPage(page, ext, arg, reload) {
 
             htFillWebPage(page, data);
 
-            if (arg != "source") {
-                htEnableEdition();
+            if ($("#htPixQRCode").length > 0 ) {
+                htFillPIXQRCode("#htPixQRCode", "10%");
+            }
+
+            if ($("#htPixSideQRCode").length > 0 ) {
+                htFillPIXQRCode("#htPixSideQRCode", "25%");
             }
 
             return false;
@@ -1019,7 +1030,7 @@ function htFillStringOnPage(data, idx, page)
 
     if ($("#"+data.content[idx].id).length > 0) {
         $("#"+data.content[idx].id).html(text);
-    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" || page == "indigenous_who" || page == "myths_believes") && (data.content[idx].target != undefined)) {
+    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" || page == "indigenous_who" || page == "myths_believes" || page == "math_games") && (data.content[idx].target != undefined)) {
         $("#group-map").append("<ul><b><span id=\""+data.content[idx].id+"\">"+text+"</span></b><ol id=\""+data.content[idx].target+"\"></ol></ul><br />");
     }
 }
@@ -1208,7 +1219,9 @@ function htFillWebPage(page, data)
         for (const i in data.scripts) {
             var jsURL = "js/" + data.scripts[i] + ".js";
             $.getScript( jsURL, function() {
-                if (typeof htLoadExercise !== "undefined") {
+                if (typeof htLoadContent !== "undefined") {
+                    htLoadContent();
+                } else if (typeof htLoadExercise !== "undefined") {
                     htLoadExercise();
                 }
 
@@ -1294,6 +1307,8 @@ function htSelectIndexMap(index)
         return htLiteratureIdx;
     } else if (index == "first_steps") {
         return htFirstStepsIdx;
+    } else if (index == "math_games") {
+        return htMathGamesIdx;
     } else if (index == "families") {
         return htFamilyIdx;
     } else if (index == "indigenous_who") {
@@ -1320,6 +1335,8 @@ function htSelectIndexName(index) {
         return keywords[124];
     } else if (index == "history") {
         return keywords[125];
+    } else if (index == "math_games") {
+        return keywords[126];
     }
 
      return "Undefined";
@@ -1544,6 +1561,7 @@ function htResetAllIndexes()
     htHistoryIdx.clear();
     htLiteratureIdx.clear();
     htFirstStepsIdx.clear();
+    htMathGamesIdx.clear();
     htFamilyIdx.clear();
     htIndigenousWhoIdx.clear();
     htMythsBelievesIdx.clear();
@@ -1567,6 +1585,9 @@ function htLoadIndex(data, arg, page)
         return;
     } else if (page == "first_steps" && htFirstStepsIdx.has("first_steps") == false) {
         htFillTopIdx(htFirstStepsIdx, data, "first_steps");
+        return;
+    } else if (page == "math_games" && htMathGamesIdx.has("math_games") == false) {
+        htFillTopIdx(htMathGamesIdx, data, "math_games");
         return;
     } else if (page == "literature" && htLiteratureIdx.has("literature") == false) {
         htFillTopIdx(htLiteratureIdx, data, "literature");

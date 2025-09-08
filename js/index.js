@@ -106,20 +106,17 @@ function htParseIndexRequest() {
     if (urlParams.has('page')) {
         var page = urlParams.get('page');
         switch(page) {
-            case 'main':
             case 'license':
             case 'contact':
             case 'science':
             case 'history':
-            case 'genealogical_first_steps':
-            case 'genealogical_faq':
             case 'genealogical_map':
             case 'families':
             case 'myths_believes':
             case 'first_steps':
             case 'indigenous_who':
             case 'indigenous_time':
-            case 'first_steps_games':
+            case 'math_games':
             case 'release':
             case 'literature':
             case 'atlas':
@@ -141,7 +138,7 @@ function htParseIndexRequest() {
                 break;
         }
     } else {
-        htLoadPage('main','html', '', false);
+        htLoadPage('class_content','html', 'main', false);
     }
 
     firstIndexTime = false;
