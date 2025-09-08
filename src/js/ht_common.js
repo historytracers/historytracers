@@ -860,6 +860,17 @@ function htLoadPage(page, ext, arg, reload) {
         $("#tree-source").html("");
         $("#tree-ref").html("");
         $("#tree-holy-ref").html("");
+
+        if ($("htPixQRCode").length > 0 ) {
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: "Hello, World!", // The data to encode in the QR code
+                width: 128,
+                height: 128,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H // Error correction level
+            });
+        }
     }
 
     var pages = arg.split('&person_id=') ;
