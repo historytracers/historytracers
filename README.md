@@ -1,16 +1,40 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
+## What is History Tracers?
+
+This project is free software distributed under the `GPL 3 or later` license. All content on the project is licensed under [CC BY-NC 4.0 DEED](https://creativecommons.org/licenses/by-nc/4.0/), unless otherwise indicated.
+
 ## Why Another Educational Project?
 
-Although there are undoubtedly excellent books available for educating people, it is crucial to recognize that there are multiple approaches to teaching. What may be simple for one person may not be for another. Employing a singular teaching methodology for an entire population can erect barriers instead of fostering progress. Our reflective project aims to cultivate understanding of science from an individual perspective, mitigating inequality. After all, we are all part of the same species, *Homo sapiens*.
+Teaching is often a daily challenge for both students and teachers, each for different reasons. Our goal is to support both sides of the learning process by providing diverse tools.
 
-Math is presented in a simple way, focusing not on memorizing formulas, but on developing the reasoning needed to understand them, using our body and nature as tools for learning.
+### The Main Tool
 
-## Why do we need another genealogical project?
+Unsurprisingly, the main teaching tool in *History Tracers* is **YOU**. Through our own body, we study different sciences.
 
-Various genealogical projects exist to assist individuals in constructing their family trees. Some of these projects encourage collaboration, enabling people to work together to trace their ancestors. The primary objective of our project is not to compete with existing websites or software for family tree creation, but rather to facilitate the application of the scientific method, aiding individuals in comprehending the growth of their family knowledge over centuries. Additionally, we highlight familial participation in significant historical events.
+### Texts with Audio
 
-Beyond delineating family connections, our project integrates logical reasoning by teaching various sciences in tandem. This approach seeks to foster understanding not only of ourselves and our familial lineage but also of the broader universe.
+With the exception of two sections that will soon receive audio (*General History* and *Historical Events*), all project texts already include narration. This way, in addition to reading and practicing, you can also listen to the content whenever you like.
+
+### Images
+
+Purely written texts may be challenging for some people. For this reason, we present illustrated content whenever necessary.
+
+### Genealogy
+
+Family relationships play an important role in education, as they make knowledge literally become part of our lives. For this reason, we use genealogy in different types of content.
+
+### Practices
+
+Theoretical teaching is important, but science without practice is not science. For this reason, most texts include, at the end, questions with answers so you can check whether you understood the content. In addition, some texts include practices that can be carried out at home.
+
+### Multidisciplinarity
+
+The word that names this section is long and equally deep. It highlights the need for content from different disciplines to be presented together. For this reason, the same text from *History Tracers* may appear in different sections.
+
+### Videos
+
+In some texts, we also present videos to further illustrate the content.
 
 ## Why Can't I Access the Site Locally?
 

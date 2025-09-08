@@ -1,10 +1,41 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-## Por que precisamos de mais um projeto de educação?
+## O que é History Tracers?
 
-Quanto à educação, reconhecemos a diversidade de métodos de ensino e buscamos promover um entendimento mais amplo das ciências, adaptando-nos às necessidades individuais e evitando desigualdades.
 
-A matemática é apresentada de forma simples, não focando na memorização de fórmulas, mas sim no desenvolvimento do raciocínio que leva a elas, utilizando o corpo e a natureza como ferramentas de aprendizado
+Este projeto é um software livre distribuído sob a licença `GPL 3 ou posterior`. Todo o conteúdo do projeto está licenciado sob [CC BY-NC 4.0 DEED](https://creativecommons.org/licenses/by-nc/4.0/), a menos que seja indicado o contrário.
+
+## Por que Outro Projeto Educacional?
+
+Ensinar costuma ser um desafio diário tanto para estudantes quanto para professores, cada um por razões diferentes. Nosso objetivo é apoiar ambos os lados do processo de aprendizagem, oferecendo diversas ferramentas.
+
+### A Principal Ferramenta
+
+Não é surpresa que a principal ferramenta de ensino em *History Tracers* seja **VOCÊ**. Através do nosso próprio corpo e experiências, exploramos diferentes ciências.
+
+### Textos com Áudio
+
+Com exceção de duas seções que em breve receberão áudio (*História Geral* e *Acontecimentos Históricos*), todos os textos do projeto já contam com narração. Assim, além de ler e praticar, você também pode ouvir o conteúdo sempre que quiser.
+
+### Imagens
+
+Textos puramente escritos podem ser desafiadores para alguns aprendizes. Por isso, oferecemos conteúdo ilustrado sempre que necessário.
+
+### Genealogia
+
+As relações familiares desempenham um papel importante na educação, pois fazem com que o conhecimento se torne, literalmente, parte de nossas vidas. Por essa razão, incorporamos a genealogia em diferentes tipos de conteúdo.
+
+### Práticas
+
+O ensino teórico é importante, mas ciência sem prática não é ciência. Por isso, a maioria dos textos inclui, ao final, perguntas com respostas para que você possa verificar sua compreensão. Além disso, alguns textos apresentam práticas que podem ser realizadas em casa.
+
+### Multidisciplinaridade
+
+A palavra que dá nome a esta seção é longa e significativa. Ela ressalta a importância de apresentar conteúdos de diferentes disciplinas em conjunto. Por isso, um mesmo texto do *History Tracers* pode aparecer em várias seções.
+
+### Vídeos
+
+Em alguns textos, também oferecemos vídeos para ilustrar ainda mais o conteúdo.
 
 ## Por que precisamos de mais um projeto de genealogia?
 

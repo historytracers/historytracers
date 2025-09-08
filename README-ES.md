@@ -1,10 +1,41 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
+## ¿Qué es History Tracers?
+
+Este proyecto es software libre distribuido bajo la licencia `GPL 3 o posterior`. Todo el contenido del proyecto está licenciado bajo [CC BY-NC 4.0 DEED](https://creativecommons.org/licenses/by-nc/4.0/), a menos que se indique lo contrario.
+
 ## ¿Por qué otro proyecto de educación?
 
-Existen muchos buenos libros sobre educación que ayudan a las personas en la escuela, pero entendemos que no hay una sola forma de enseñar; lo que es fácil para uno puede no serlo para otros. El uso de un único método de enseñanza para toda una población puede crear barreras en lugar de facilitar el aprendizaje. Por eso, tenemos un proyecto que ayuda a las personas a reflexionar y comprender las ciencias, partiendo de sí mismas, sin crear diferencias, ya que todos somos *Homo sapiens*.
+La enseñanza suele ser un desafío diario tanto para estudiantes como para docentes, cada uno por distintas razones. Nuestro objetivo es apoyar a ambos lados del proceso de aprendizaje proporcionando diversas herramientas.
 
-Las matemáticas se presentan de manera sencilla, evitando la memorización de fórmulas y enfocándonos en desarrollar el razonamiento que conduce a ellas, utilizando nuestro cuerpo y la naturaleza como herramientas de aprendizaje.
+### La Herramienta Principal
+
+No es de sorprender que la principal herramienta de enseñanza en *History Tracers* seas **TÚ**. A través de nuestro propio cuerpo y experiencias, exploramos diferentes ciencias.
+
+### Textos con Audio
+
+Con la excepción de dos secciones que pronto recibirán audio (*Historia General* y *Acontecimientos Históricos*), todos los textos del proyecto ya incluyen narración. De esta manera, además de leer y practicar, también puedes escuchar el contenido cuando lo desees.
+
+### Imágenes
+
+Los textos puramente escritos pueden resultar difíciles para algunos estudiantes. Por esta razón, ofrecemos contenido ilustrado siempre que sea necesario.
+
+### Genealogía
+
+Las relaciones familiares desempeñan un papel importante en la educación, ya que hacen que el conocimiento se convierta literalmente en parte de nuestras vidas. Por esta razón, incorporamos la genealogía en diferentes tipos de contenido.
+
+### Prácticas
+
+La enseñanza teórica es importante, pero la ciencia sin práctica no es ciencia. Por ello, la mayoría de los textos incluyen al final preguntas con respuestas para que puedas comprobar tu comprensión. Además, algunos textos presentan prácticas que pueden realizarse en casa.
+
+### Multidisciplinariedad
+
+La palabra que da nombre a esta sección es larga y significativa. Resalta la importancia de presentar juntos contenidos de diferentes disciplinas. Por esta razón, un mismo texto de *History Tracers* puede aparecer en varias secciones.
+
+### Videos
+
+En algunos textos, también ofrecemos videos para ilustrar aún más el contenido.
+
 
 ## ¿Por qué la necesidad de más proyectos de genealogía?
 
