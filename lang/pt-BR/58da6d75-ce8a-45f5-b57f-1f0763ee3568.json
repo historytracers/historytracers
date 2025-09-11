@@ -1,0 +1,668 @@
+{
+   "title": "Simplicidade vs. Complexidade",
+   "header": "Simplicidade vs. Complexidade",
+   "sources": [
+      "58da6d75-ce8a-45f5-b57f-1f0763ee3568"
+   ],
+   "scripts": [
+      "58da6d75-ce8a-45f5-b57f-1f0763ee3568"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/58da6d75-ce8a-45f5-b57f-1f0763ee3568_pt-BR.wav",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/rutNK7V8zWb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1757614958"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nRecomendamos o estudo do texto anterior e do Capítulo 4 da seção *Primeiros Passos* antes de prosseguir (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b9866acb-fde8-4fcb-b54d-ee7c481cc9e7",
+                     "text": "History Tracers Team",
+                     "page": "Origem Compartilhado",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeiros Passos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nNeste texto, continuaremos estudando a divisão a partir de uma perspectiva de compartilhamento e veremos como a matemática nos ajuda a explicar o que observamos no universo.\n\nAntes de compreendermos os compartilhamentos (divisões) realizados no universo em seus primeiros momentos de \"vida\" — e que ainda utilizamos hoje —, vamos refletir sobre o que já conhecemos até aqui.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: O que sei sobre dividir</b><br /><br />Suponha que você tenha 10 frutas para compartilhar. Quando você não tem ninguém com quem compartilhar, quantas frutas os outros receberão?<br /><br />Se não há com quem compartilhar, com quantas frutas você ficará ao final?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora, vamos mudar de cenário e continuar refletindo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Modelos simples</b><br /><br />Você gosta de perguntas que possuem apenas duas respostas possíveis, como \"sim\" ou \"não\"?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_zero",
+         "text": [
+            {
+               "text": "### Divisão por zero\n\nVamos retornar a um exemplo que utilizamos quando começamos a contar (<htcite0>), o qual nos ajudará a responder à Reflexão 1.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3874d1e8-0f76-4432-9ee2-d8c8c9dccf53",
+                     "text": "History Tracers Team",
+                     "page": "Contando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mão esquerda</td><td>Mão direita</td></tr><tr><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/HistoryTracers/Hand_Grape.jpg\" class=\"imgcenter\"/></td><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/HistoryTracers/RHand_Grape.jpg\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\">Figura 1: Representação das mãos.</td></tr></table></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Na figura, observam-se as duas mãos de uma pessoa estendidas, com todos os dedos esticados. Cada dedo aponta para uma fruta.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Compartilhando com ninguém\n\nA Figura 1 mostra uma pessoa que segura uma fruta em cada mão. Estando sozinha, ela não tem como compartilhar essas frutas com ninguém, acabando por ficar com todas para si.\n\nDessa forma, podemos dizer que, para que o processo de compartilhar algo ocorra, é necessário haver ao menos outra pessoa com quem dividir.\n\nMais uma vez, utilizaremos como exemplo o sítio arqueológico de Caral, no Peru, o mais antigo conhecido nas Américas (*Abya Yala*). Na Tabela 1, vemos uma imagem do sítio sem a presença de pessoas. Essa imagem foi dividida em 20 quadrados.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"ht-grid-container\"  style=\"background-image: url('images/Caral/CaralPiramideH1.jpg'); width: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; margin: auto;\"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div></div></p><p class=\"desc\">Tabela 1: Pirâmide H1 no sítio arqueológico de Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <htdate1></a>). Foto tirada em <htdate2> durante uma visita ao sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Compartilhando</b><br /><br />1. Distribua uma fruta para cada pessoa nos 4 primeiros quadrados da tabela.<br />2. Agora, distribua uma fruta para cada pessoa nos quadrados de 5 a 8.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como não existem pessoas nos quadrados, não há como distribuir nenhuma fruta. Entretanto, observe que, tanto no passo 1 quanto no passo 2 da Prática 1, o resultado final foi o mesmo: não houve distribuição.\n\nDiante desse cenário, podemos expressar o que foi escrito por Eric W. Weisstein (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fc6c2a04-8a51-4ea5-847d-9b71912828ea",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Division by Zero",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><ul class=\"citation\"><li>Esta conclusão está diretamente ligada ao fato de que qualquer valor multiplicado por zero é zero, ou seja, não há resultado diferente quando multiplicamos por zero. Quer dizer, a divisão é indefinida.</li> </ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: divisão e multiplicação</b><br /><br />Multiplicar por zero significa contar o vazio diversas vezes.<br /><br />Ao tentar distribuir para o vazio, vimos que isso não é possível, pois não há ninguém para receber.<br /><br />Surgem então as perguntas: existiria alguma relação entre multiplicação e divisão (compartilhamento)?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### O universo\n\nNão possuímos medições do início do universo. No entanto, a partir das observações da radiação cósmica de fundo (CMB), registradas 380.000 anos após o seu surgimento, podemos propor modelos sobre o que havia antes (<htcite0>; <htcite1>; <htcite2>).\n\nAtualmente, compreendemos que tenha ocorrido uma grande inflação nos momentos iniciais do universo e, em seguida, a energia foi convertida em matéria e luz (<htcite3>). Ou seja, no começo do universo também não havia como compartilhar (dividir) energia com nada. Esse talvez seja nosso melhor exemplo: contar ou multiplicar algo diferente de energia resultaria em zero. E dividir (compartilhar) essa energia seria impreciso, pois ainda não existia matéria como a que conhecemos hoje.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "587cdba4-cefb-4df9-8514-2e50ccf88739",
+                     "text": "Penzias, A. A., & Wilson, R. W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1965",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "28041ca0-f1c9-4ee3-bde1-bdd0693e3dca",
+                     "text": "NASA",
+                     "page": "Cosmic Microwave Background (CMB)",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b9866acb-fde8-4fcb-b54d-ee7c481cc9e7",
+                     "text": "History Tracers Team",
+                     "page": "Origem Compartilhado",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6dfe4b3b-8338-46ab-8149-2e073414907e",
+                     "text": "NASA",
+                     "page": "História Cósmica",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_one",
+         "text": [
+            {
+               "text": "### Dividindo comigo\n\nDividir comigo mesmo, ou compartilhar algo comigo, poderia parecer estranho. Por outro lado, quando pensamos apenas em situações como esta, nas quais somos o foco principal, isso pode dizer muito sobre nós.\n\n#### A relação entre divisão e multiplicação\n\nAo falarmos de multiplicação, somamos quantidades repetidas ao agrupá-las. Já quando falamos em dividir (compartilhar), nossa intenção é separar o que está unido. Dessa forma, multiplicação e divisão estão ligadas, pois ambas as ações — agrupar ou repartir — afetam a mesma quantidade. Quando o resultado final é obtido pela multiplicação (agrupamento), podemos descobrir o estado inicial compartilhando (dividindo). Por outro lado, após repartir uma parte de um todo, podemos reagrupar tudo novamente pela multiplicação.\n\n#### Escrevendo a multiplicação\n\nPodemos entender a matemática como uma forma de resumir o que observamos na natureza. Por exemplo, na Figura 1 temos a mesma fruta contada 10 vezes; em termos matemáticos:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendo a Tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>10</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>10</mi> </math></center></p><p class=\"desc\">Fórmula 1: Contagem da mesma fruta representada matematicamente.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Compartilhando com a matemática\n\nAgora queremos redistribuir o total. Para isso, devemos lembrar a descoberta de Antoine Lavoisier: a matéria se conserva (<htcite0>). Essa conservação está representada pelo sinal de igualdade (=) da Fórmula 1. A partir dessa lei natural, entendemos que, para redistribuir o que está agrupado, é necessário:\n- Escrever o total em um lado da igualdade e a maneira como o representamos no outro.\n- Como a matéria se conserva, as quantidades em ambos os lados da igualdade também devem permanecer equivalentes. Ou seja, ao modificar um lado da igualdade, devemos modificar o outro de modo a manter a equivalência observada na natureza.\n\nPara sabermos exatamente o que estamos redistribuindo, vamos substituir os números por nomes (variáveis):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "68227419-2430-4359-b902-f6cf87b8941d",
+                     "text": "Holmes, F. L.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1985",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>Total de Frutas</mi> <mo>=</mo> <mi>Frutas</mi> <mo>×</mo> <mi>Dedos</mi> </math></center></p><p class=\"desc\">Fórmula 2: Descrição das quantidades na Fórmula 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: mover ou não mover...</b><br /><br />Partindo do total de frutas, quantos dedos (grupos) possuíamos contendo a mesma quantidade de frutas?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A Reflexão 4 nos leva novamente à Fórmula 2. O total existe porque, inicialmente, contamos a mesma quantidade de frutas em cada dedo; matematicamente, realizamos a multiplicação **Frutas × Dedos**. Para sabermos quantos dedos (grupos) havia, precisamos redistribuir (dividir) todas as frutas, ou seja, separar as frutas novamente. Matematicamente, procedemos assim:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mi>Total de Frutas</mi></mrow><mrow><mi>Frutas</mi><mrow> </mfrac> <mo>=</mo> <mfrac> <mrow> <mi>Frutas</mi> <mo>×</mo> <mi>Dedos</mi></mrow><mrow><mi>Frutas</mi><mrow> </mfrac> </math></center></p><p class=\"desc\">Fórmula 3: Distribuindo frutas por dedos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A Fórmula 3 representa uma etapa intermediária em nosso objetivo: isolar os **Dedos**. No entanto, ainda encontramos o fator **Frutas** tanto no numerador (parte superior) quanto no denominador (parte inferior) do lado direito da equação. Ao observar esse lado, percebemos que há uma divisão que pode ser expressa como **Frutas ÷ Frutas**, cujo resultado é 1. Recordemos que qualquer número multiplicado por 1 é igual a ele mesmo (<htcite0>; <htcite1>). Assim, podemos simplificar:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendo a Tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mi>Total de Frutas por Dedos</mi></mrow><mrow><mi>Frutas</mi><mrow> </mfrac> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>Dedos</mi> </math></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mi>Total de Frutas por Dedos</mi></mrow><mrow><mi>Frutas</mi><mrow> </mfrac> <mo>=</mo> <mi>Dedos</mi> </math></center></p><p class=\"desc\">Fórmula 4: Expressão do número de dedos em função do total de frutas e do número de frutas por dedo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Praticando\n\nFinalmente, podemos responder à Reflexão 4 e descobrir quantos dedos tínhamos quando havia apenas 1 fruta por dedo. Tomando **Total = 10** e **Frutas = 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>10</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>10</mi> </math></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mi>10</mi></mrow><mrow><mi>1</mi><mrow> </mfrac> <mo>=</mo> <mfrac> <mrow> <mi>1</mi> <mo>×</mo> <mi>10</mi></mrow><mrow><mi>1</mi><mrow> </mfrac> </math></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mi>10</mi></mrow><mrow><mi>1</mi><mrow> </mfrac> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>10</mi> </math></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mi>10</mi></mrow><mrow><mi>1</mi><mrow> </mfrac> <mo>=</mo> <mi>10</mi> </math></center></p><p class=\"desc\">Cálculo 1: Distribuindo frutas por dedos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Analisando o resultado\n\nComecemos relembrando a tabuada do 1:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent1\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\">Gráfico 1: Representação dos pontos da tabuada de um. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "É possível observar, pela tabuada do 1 e pelo Cálculo 1, dois pontos importantes para nosso estudo:\n- A multiplicação de qualquer número por 1 resulta no próprio número.\n- A divisão de qualquer número por 1 também resulta no próprio número.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: treinando</b><br /><br />1. Refaça as etapas do Cálculo 1.<br /><br />2. Agora, substitua o 10 do Cálculo 1 por 5 e refaça os cálculos para confirmar que <b>5 ÷ 1 = 5</b>.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Essas etapas da divisão serão aprofundadas nos próximos textos. Por enquanto, fiquemos com esta relação direta: multiplicar por 1 e dividir por 1 conduzem ao mesmo resultado — o próprio número.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_complexity",
+         "text": [
+            {
+               "text": "### Complexidade\n\nComo dividir por um trás a idéia de centralizar e não compartilhar. Isso nos leva a uma reflexão sobre o que sabemos a respeito do início do universo (<htcite0>).\n\nComo vimos, no início o universo provavelmente continha apenas energia, de acordo com os modelos que possuímos hoje. Ou seja, tudo estava concentrado — o que torna esse estado simples para o universo, mas, ao mesmo tempo, vazio de matéria.\n\nSe em nossa vida tivéssemos absolutamente tudo, assim como o universo já teve um dia, possivelmente também não teríamos nada ao nosso redor.\n\nA complexidade do universo — e também de nossa vida — começa a surgir a partir do momento em que a energia se transforma em matéria. Esse processo leva, entre outras consequências, à nossa própria existência.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6dfe4b3b-8338-46ab-8149-2e073414907e",
+                     "text": "NASA",
+                     "page": "História Cósmica",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 5: Simplicidade vs. Complexidade</b><br /><br />É melhor viver em meio à complexidade, compartilhando e existindo? Ou é melhor possuir tudo, mesmo que isso acabe resultando em nada ao nosso redor?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, aprendemos que a divisão por zero é indefinida e também vimos que a divisão por um pode ser entendida como uma forma de centralização, por indicar que nada é compartilhado. Além disso, observamos que deixar de ter tudo centralizado e transformar o todo em algo diferente permite, entre outras coisas, a existência de tudo o que conhecemos — e até mesmo de algumas coisas que ainda desconhecemos (<htcite0>; <htcite1>).\n\nNo próximo texto da seção *Primeiros Passos* (<htcite2>) continuaremos estudando como o universo e nós compartilhamos (dividimos) algo além de nós mesmos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "69cab2e5-5a40-4d13-a3dd-9baabe23be3a",
+                     "text": "Gohd, Chelsea",
+                     "page": "Energia escura",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b9866acb-fde8-4fcb-b54d-ee7c481cc9e7",
+                     "text": "History Tracers Team",
+                     "page": "Origem Compartilhado",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeiros Passos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "A divisão por zero é bem definida?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Como todo número multiplicado por zero resulta em zero, e não é possível compartilhar algo com o nada, qualquer divisão por zero é completamente indefinida."
+      },
+      {
+         "question": "Ao compartilhar qualquer quantidade comigo, eu fico com tudo?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Quando não há pessoas para dividir, há uma concentração de matéria. Matematicamente, essa situação é representada pela divisão por um, na qual qualquer número dividido por um é igual a ele mesmo."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
