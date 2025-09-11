@@ -112,7 +112,7 @@ function htParseIndexRequest() {
             case 'sources':
             case 'genealogical_faq':
             case 'genealogical_first_steps':
-                htLoadPage('class_content','html', arg, false);
+                htLoadPage('class_content','html', page, false);
                 break;
             case 'license':
             case 'contact':

@@ -1438,6 +1438,9 @@ function htBuildNavigation(index, currentIdx)
     htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
     var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
 
+    if (loadedIdx.length == 1) {
+        return navigation;
+    }
     for (let i = 0; i < 10; i++) {
         var j = ptr.total+1;
         var next = arg+":"+j;
