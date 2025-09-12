@@ -14,7 +14,7 @@
       }
    ],
    "last_update": [
-      "1747497830"
+      "1757643558"
    ],
    "sources": [
       "genealogical_map"
@@ -23,24 +23,55 @@
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
-   "version": 0,
-   "type": "",
+   "version": 2,
+   "type": "index",
    "content": [
       {
          "id": "introduction",
          "target": "",
          "page": "",
          "value_type": "",
-         "html_value": "<p><h3>Descripción</h3>Todos somos <i>Homo sapiens</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">(Stringer, Chris, <span class=\"htdate\"></span>)</a>) y contribuimos a la expansión del conocimiento sobre nuestra familia, adoptando una visión de especies y buscando el posible ancestro común entre nosotros y los <i>Homo neanderthalensis</i> <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <span class=\"htdate\"></span></a>. Esta explicación simple nos ayuda a comprender que no existen diferencias fundamentales entre nosotros, lo que nos hace iguales.</p> <p>La evolución de los animales requiere largos periodos de tiempo, a pesar de las conocidas explosiones evolutivas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c6bc83e7-103d-44ea-8623-bafa1862860c'); return false;\">Sperling, Erik A., et Richard G. Stockey, <span class=\"htdate\"></span>, pp. 605-622)</a>,  mientras que la evolución del lenguaje es mucho más rápida (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f49430b6-ab85-4d19-8d2b-d0ce06126dc4'); return false;\">Fitch, W.T., <span class=\"htdate\"></span>, 3-33</a>). Como resultado, creamos y difundimos rápidamente definiciones y nombres para grupos de personas y eventos historicos, lo que puede dar la ilusión de que somos diferentes.</p><p><b>Algunas familias previamente publicadas han sido omitidas temporalmente hasta la finalización del proceso de estandarización. Mientras tanto, los textos originales siguen disponibles en el repositorio del proyecto en GitHub (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('68c5b4fe-6794-461d-b3e6-40cf62d4b7a4'); return false;\">History Tracers, Github</a>).</b></p><p><b>Los eventos pueden ser actualizados o añadidos en cualquier momento debido a nuevas investigaciones. <span id=\"family_common_sn\"></span></b></p>",
+         "html_value": "<p><hr /></p><p class=\"topdesc\"><i>Además de utilizar el nombre América, también nos referiremos al continente como <i>Abya Yala</i>, denominación empleada por los pueblos originarios del continente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</i></p><p><h3>Descripción</h3>Todos somos <i>Homo sapiens</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">(Stringer, Chris, <htdate0>)</a>) y contribuimos a la expansión del conocimiento sobre nuestra familia, adoptando una visión de especies y buscando el posible ancestro común entre nosotros y los <i>Homo neanderthalensis</i> <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2119e27f-6337-4b83-a551-31deb737ee3d'); return false;\">Stringer, Chris, <htdate1></a>. Esta explicación simple nos ayuda a comprender que no existen diferencias fundamentales entre nosotros, lo que nos hace iguales.</p> <p>La evolución de los animales requiere largos periodos de tiempo, a pesar de las conocidas explosiones evolutivas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c6bc83e7-103d-44ea-8623-bafa1862860c'); return false;\">Sperling, Erik A., et Richard G. Stockey, <htdate2>, pp. 605-622)</a>,  mientras que la evolución del lenguaje es mucho más rápida (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f49430b6-ab85-4d19-8d2b-d0ce06126dc4'); return false;\">Fitch, W.T., <htdate3>, 3-33</a>). Como resultado, creamos y difundimos rápidamente definiciones y nombres para grupos de personas y eventos historicos, lo que puede dar la ilusión de que somos diferentes.</p><p><b>Los eventos pueden ser actualizados o añadidos en cualquier momento debido a nuevas investigaciones. <span id=\"family_common_sn\"></span></b></p>",
          "value": null,
-         "date_time": null
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "-1",
+               "day": "-1"
+            },
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "-1",
+               "day": "-1"
+            },
+            {
+               "type": "gregory",
+               "year": "2018",
+               "month": "-1",
+               "day": "-1"
+            },
+            {
+               "type": "gregory",
+               "year": "2017",
+               "month": "-1",
+               "day": "-1"
+            },
+            {
+               "type": "gregory",
+               "year": "1969",
+               "month": "-1",
+               "day": "-1"
+            }
+         ]
       },
       {
          "id": "groups",
          "target": "people-group",
          "page": "",
          "value_type": "",
-         "html_value": "Eventos Historicos:",
+         "html_value": "Descubiertas",
          "value": null,
          "date_time": null
       },
@@ -48,91 +79,20 @@
          "id": "groups",
          "target": "people-group",
          "page": "genealogical_map_list",
-         "value_type": "group-list",
+         "value_type": "mixed-group-list",
          "html_value": "",
          "value": [
             {
-               "family_id": "",
+               "family_id": "cc5d9e97-e24c-40a4-92ef-53135f9e1ea8",
                "person_id": "",
-               "id": "91eab659-f361-47e3-b573-48ccab3e29ce",
-               "name": "Difamados como judíos",
-               "desc": "se refiere a personas que, aunque no tengan ascendencia judía en al menos tres generaciones, fueron etiquetadas como judías. El término \"difamación\" proviene de la época de la Inquisición y no debe utilizarse de manera similar en el contexto actual.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "c3ba1e63-6758-4feb-9c9f-1a3da73135bf",
-               "name": "Esclavizados",
-               "desc": "estudio de la esclavitud de personas en diferentes siglos.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "cb99b613-eb70-416b-b283-c8dc8c3d3ef6",
-               "name": "Familiares de la Inquisición",
-               "desc": "Los Familiares de la Inquisición eran individuos que gozaban de diversos privilegios en la sociedad y formaban una especie de \"tercer orden\" vinculada a la Inquisición (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d960f232-9cfe-4cb3-8ba2-23af2207799f'); return false;\">Saraiva, Antonio José, <span class=\"htdate\"></span>, pp. 240 - 243</a>). En esta sección, se enumeran las personas que se postularon y fueron sometidas a una exhaustiva investigación de su linaje antes de ser aprobadas o rechazadas para ocupar el cargo.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "f6e2710f-1e34-44df-9b6d-e9ee2d5e783b",
-               "name": "Indígenas Americanos",
-               "desc": "pueblos que habitaron las Américas durante milenios antes de la llegada de los europeos, desarrollando una gran diversidad de culturas y civilizaciones.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "272f30aa-d143-4a9f-a190-462928f17188",
-               "name": "Musulmán",
-               "desc": "eventos históricos en los que familias musulmanas, o de ascendencia musulmana, son las protagonistas.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "18a43a9e-eb2b-4320-b05a-c9a75e88fb27",
-               "name": "Persecución de los judíos",
-               "desc": "la persecución de los judíos ha ocurrido en distintos momentos de la historia de la humanidad. En el enlace proporcionado, se presenta una lista de casos analizados que ilustran este fenómeno en diversos contextos históricos.",
+               "id": "",
+               "name": "Indígenas Abya Yala (América)",
+               "desc": "En este texto estudiamos cómo los pueblos indígenas llegaron a Abya Yala (las Américas) y cómo se entienden a sí mismos como una sola familia.",
                "date_time": null
             }
          ],
          "date_time": null
       }
    ],
-   "date_time": [
-      {
-         "type": "gregory",
-         "year": "2016",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2016",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2018",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "2017",
-         "month": "-1",
-         "day": "-1"
-      },
-      {
-         "type": "gregory",
-         "year": "1969",
-         "month": "-1",
-         "day": "-1"
-      }
-   ]
+   "date_time": null
 }
