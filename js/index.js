@@ -106,6 +106,9 @@ function htParseIndexRequest() {
     if (urlParams.has('page')) {
         var page = urlParams.get('page');
         switch(page) {
+            case 'genealogical_map':
+                htLoadPage('historical_events','html', page, false);
+                break;
             case 'main':
             case 'acknowledgement':
             case 'partnership':
@@ -116,9 +119,11 @@ function htParseIndexRequest() {
                 break;
             case 'license':
             case 'contact':
-            case 'science':
+            case 'physics':
+            case 'historical_events':
+            case 'biology':
+            case 'chemical':
             case 'history':
-            case 'genealogical_map':
             case 'families':
             case 'myths_believes':
             case 'first_steps':
@@ -131,7 +136,6 @@ function htParseIndexRequest() {
                 htLoadPage(page, 'html', '', false);
                 break;
             case 'tree':
-            case 'genealogical_map_list':
             case 'class_content':
                 if (urlParams.has('arg')) {
                     var larg = urlParams.get('arg');
