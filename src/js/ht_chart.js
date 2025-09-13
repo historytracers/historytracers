@@ -101,7 +101,7 @@ function htPlotConstantContinuousChart(options)
         return;
     }
 
-    if ($("#"+options.chartId).length < 0) {
+    if ($("#"+options.chartId).length <= 0) {
         return;
     }
 

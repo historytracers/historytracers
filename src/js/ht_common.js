@@ -799,6 +799,9 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     extLatexIdx = 0;
 
     $("#loading_msg").show();
+    $("#header").removeClass();
+    $("#header").removeAttr("style");
+    $("#header").addClass("top-bar-inside-left");
 
     var URL = htLoadPageMountURL(page, arg, dir);
     var unixEpoch = Date.now();
@@ -870,6 +873,9 @@ function htLoadPage(page, ext, arg, reload) {
         $("#tree-source").html("");
         $("#tree-ref").html("");
         $("#tree-holy-ref").html("");
+        $("#header").removeClass();
+        $("#header").removeAttr("style");
+        $("#header").addClass("top-bar-inside-left");
     }
 
     var pages = arg.split('&person_id=') ;
@@ -1034,7 +1040,7 @@ function htFillStringOnPage(data, idx, page)
 
     if ($("#"+data.content[idx].id).length > 0) {
         $("#"+data.content[idx].id).html(text);
-    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" || page == "indigenous_who" || page == "myths_believes" || page == "math_games" || page == "historical_events" || page == "biology" || page == "physics" || page == "chemical") && (data.content[idx].target != undefined)) {
+    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" || page == "indigenous_who" || page == "myths_believes" || page == "math_games" || page == "historical_events" || page == "biology" || page == "physics" || page == "chemistry") && (data.content[idx].target != undefined)) {
         $("#group-map").append("<ul><b><span id=\""+data.content[idx].id+"\">"+text+"</span></b><ol id=\""+data.content[idx].target+"\"></ol></ul><br />");
     }
 }
@@ -1323,7 +1329,7 @@ function htSelectIndexMap(index)
         return htHistoricalEventsIdx;
     } else if (index == "physics") {
         return htPhysicsIdx;
-    } else if (index == "chemical") {
+    } else if (index == "chemistry") {
         return htChemicalIdx;
     } else if (index == "biology") {
         return htBiologyIdx;
@@ -1351,7 +1357,7 @@ function htSelectIndexName(index) {
         return keywords[126];
     } else if (index == "physics") {
         return keywords[127];
-    } else if (index == "chemical") {
+    } else if (index == "chemistry") {
         return keywords[128];
     } else if (index == "biology") {
         return keywords[129];
@@ -1406,13 +1412,13 @@ function htBuildNavigationSteps(ptr, idx, index, idxName)
 
 function htUpdateNavigationTitle(currentIdx, title, indexName)
 {
-    var pageHeader = $(header).html();
+    var pageHeader = $("#header").html();
 
     if (currentIdx == 0) {
         $("#header").removeClass();
         $("#header").removeAttr("style");
         $("#header").addClass("top-bar-inside-left");
-        pageHeader += " ("+indexName+")";
+        pageHeader = title+" ("+indexName+")";
     } else {
         const ww = window.innerWidth;
         var fontSize = 0;
@@ -1496,16 +1502,17 @@ function htIsIndexLoaded(idx) {
         return false;
     }
 
+    var counter = 0;
     for (const i in test) {
         var value = test[i];
-        for (const j in loadedIdx) {
-            if (value ==  loadedIdx[j]) {
-                return true;
-            }
+        var idx = htSelectIndexMap(value);
+        if (idx != undefined && Object.keys(idx).length > 0) {
+            counter++;
+            continue;
         }
     }
 
-    return false;
+    return (counter == test.length);
 }
 
 function htFillTopIdx(idx, data, first)
@@ -1582,9 +1589,8 @@ function htLoadIndex(data, arg, page)
 {
     if (data != undefined && data.index != undefined) {
         if (data.index.constructor === vectorConstructor) {
-            htResetAllIndexes();
             for (const i in data.index) {
-                var newData = { "index" : data.index[i]};
+                var newData = { "index" : data.index[i] };
                 htLoadIndex(newData, arg, page);
             }
             return;
@@ -1618,8 +1624,8 @@ function htLoadIndex(data, arg, page)
     } else if (page == "biology" && htBiologyIdx.has("biology") == false) {
         htFillTopIdx(htBiologyIdx, data, "biology");
         return;
-    } else if (page == "chemical" && htChemicalIdx.has("chemical") == false) {
-        htFillTopIdx(htChemicalIdx, data, "chemical");
+    } else if (page == "chemistry" && htChemicalIdx.has("chemistry") == false) {
+        htFillTopIdx(htChemicalIdx, data, "chemistry");
         return;
     } else if (page == "physics" && htPhysicsIdx.has("physics") == false) {
         htFillTopIdx(htPhysicsIdx, data, "physics");

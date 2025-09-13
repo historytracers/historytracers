@@ -1,23 +1,20 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var firstIndexTime = true;
-
 function htReloadCurrentPage()
 {
-    if (!firstIndexTime) {
-        var lastLoaded = $("#html_loaded").val();
-        if (lastLoaded.lenght == 0 ) {
-            lastLoaded = 'main';
-        }
-
-        htLoadPage('index','json', '', true);
-        htLoadPage('language','json', '', true);
-        htLoadPage('calendars','json', '', true);
-        htLoadPage('theme','json', '', true);
-        htLoadPage('common_keywords','json', '', true);
-        htLoadPage('math_keywords','json', '', true);
-        htLoadPage(lastLoaded, 'html', '', true);
+    htResetAllIndexes();
+    var lastLoaded = $("#html_loaded").val();
+    if (lastLoaded.lenght == 0 ) {
+        lastLoaded = 'main';
     }
+
+    htLoadPage('index','json', '', true);
+    htLoadPage('language','json', '', true);
+    htLoadPage('calendars','json', '', true);
+    htLoadPage('theme','json', '', true);
+    htLoadPage('common_keywords','json', '', true);
+    htLoadPage('math_keywords','json', '', true);
+    htLoadPage(lastLoaded, 'html', '', true);
 }
 
 function htDetectLocalLanguage()
@@ -122,7 +119,7 @@ function htParseIndexRequest() {
             case 'physics':
             case 'historical_events':
             case 'biology':
-            case 'chemical':
+            case 'chemistry':
             case 'history':
             case 'families':
             case 'myths_believes':
@@ -152,7 +149,5 @@ function htParseIndexRequest() {
     } else {
         htLoadPage('class_content','html', 'main', false);
     }
-
-    firstIndexTime = false;
 }
 
