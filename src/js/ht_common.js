@@ -1464,6 +1464,22 @@ function htBuildNavigation(index, currentIdx)
     htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
     var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
 
+    if (loadedIdx.length == 1) {
+        return navigation;
+    }
+
+    var end = ptr.total+2;
+    for (let i = 0; i < end; i++) {
+        var j = ptr.total+1;
+        var next = arg+":"+j;
+        ptr = idx.get(next);
+        if (ptr == undefined) {
+            break;
+        }
+        htUpdateNavigationTitle(j+1, ptr.name, idxName);
+        navigation += htBuildNavigationSteps(ptr, idx, index, idxName);
+    }
+
     return navigation;
 }
 
