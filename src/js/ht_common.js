@@ -1362,7 +1362,7 @@ function htSelectIndexName(index) {
     } else if (index == "biology") {
         return keywords[129];
     } else if (index == "historical_events") {
-        return keywords[129];
+        return keywords[130];
     }
 
      return "Undefined";
