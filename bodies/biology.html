@@ -3,25 +3,20 @@
 <script>
     var gmUnixEpoch = Date.now();
     var gmFile = document.createElement("script");
-    gmFile.setAttribute("src", "js/genealogical_map.js?nocache="+gmUnixEpoch);
+    gmFile.setAttribute("src", "js/biology.js?nocache="+gmUnixEpoch);
     document.head.appendChild(gmFile);
 </script>
 <div class="left-tree">
     <div class="paper-data" id="extpaper">
     </div>
 
-    <div class="main-data" id="htaudio" style="z-index: 100">
+    <div class="paper-data" id="htaudio" style="z-index: 100">
     </div>
 
     <div class="main-data" id="introduction">
     </div>
 
     <div class="main-data" id="group-map">
-        <h3 id="groups"> </h3>
-        <ul id="people-group">
-        </ul>
-        <h3 id="review"> </h3>
-        <ul id="review-people-group">
-        </ul>
+        <h4 id="groups"> </h4>
     </div>
 </div>

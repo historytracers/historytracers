@@ -1,23 +1,20 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var firstIndexTime = true;
-
 function htReloadCurrentPage()
 {
-    if (!firstIndexTime) {
-        var lastLoaded = $("#html_loaded").val();
-        if (lastLoaded.lenght == 0 ) {
-            lastLoaded = 'main';
-        }
-
-        htLoadPage('index','json', '', true);
-        htLoadPage('language','json', '', true);
-        htLoadPage('calendars','json', '', true);
-        htLoadPage('theme','json', '', true);
-        htLoadPage('common_keywords','json', '', true);
-        htLoadPage('math_keywords','json', '', true);
-        htLoadPage(lastLoaded, 'html', '', true);
+    htResetAllIndexes();
+    var lastLoaded = $("#html_loaded").val();
+    if (lastLoaded.lenght == 0 ) {
+        lastLoaded = 'main';
     }
+
+    htLoadPage('index','json', '', true);
+    htLoadPage('language','json', '', true);
+    htLoadPage('calendars','json', '', true);
+    htLoadPage('theme','json', '', true);
+    htLoadPage('common_keywords','json', '', true);
+    htLoadPage('math_keywords','json', '', true);
+    htLoadPage(lastLoaded, 'html', '', true);
 }
 
 function htDetectLocalLanguage()
@@ -106,6 +103,9 @@ function htParseIndexRequest() {
     if (urlParams.has('page')) {
         var page = urlParams.get('page');
         switch(page) {
+            case 'genealogical_map':
+                htLoadPage('historical_events','html', page, false);
+                break;
             case 'main':
             case 'acknowledgement':
             case 'partnership':
@@ -116,9 +116,11 @@ function htParseIndexRequest() {
                 break;
             case 'license':
             case 'contact':
-            case 'science':
+            case 'physics':
+            case 'historical_events':
+            case 'biology':
+            case 'chemistry':
             case 'history':
-            case 'genealogical_map':
             case 'families':
             case 'myths_believes':
             case 'first_steps':
@@ -131,7 +133,6 @@ function htParseIndexRequest() {
                 htLoadPage(page, 'html', '', false);
                 break;
             case 'tree':
-            case 'genealogical_map_list':
             case 'class_content':
                 if (urlParams.has('arg')) {
                     var larg = urlParams.get('arg');
@@ -148,7 +149,5 @@ function htParseIndexRequest() {
     } else {
         htLoadPage('class_content','html', 'main', false);
     }
-
-    firstIndexTime = false;
 }
 
