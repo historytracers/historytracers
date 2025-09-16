@@ -30,7 +30,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1757943739"
+      "1758043196"
    ],
    "authors": null,
    "reviewers": null,
@@ -134,13 +134,270 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_table",
+         "text": [
+            {
+               "text": "### La mitad del otro lado\n\nCuando dividimos algo en dos partes iguales, estamos separando la cantidad en mitades. En la Figura 1, por ejemplo, tenemos un total de dos manos, una a cada lado del cuerpo. Del mismo modo, tenemos 10 dedos, siendo 5 en cada mano.\n\nEste razonamiento no se restringe solo a nuestro cuerpo, sino que lo utilizaremos como punto de partida para comprender otros casos. Veamos cómo podemos redistribuir nuestros ejemplos siguiendo pasos ya presentados en el texto anterior (<htcite0>).\n\n#### Recordando la tabla del 2\n\nEl acto de redistribuir puede entenderse como el inverso de acumular. Para ilustrarlo, recordemos la tabla del 2, que nos ayudará a comprender cómo distribuir los dedos entre dos manos (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3f68de7c-d729-4b62-9bb1-36c6f518fea4",
+                     "text": "History Tracers Editors.",
+                     "page": "Simplicidad vs. Complejidad",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la Tabla (2 y 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Conservando la materia\n\nRecordamos al lector (o al oyente) que la materia siempre se conserva (<htcite0>). Este principio está representado por la igualdad (=) en las operaciones. En el caso de los dedos de las manos, sabemos que el total se calcula con la siguiente fórmula:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "68227419-2430-4359-b902-f6cf87b8941d",
+                     "text": "Holmes, F. L.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1985",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>Total</mi> <mo>=</mo> <mi>manos</mi> <mo>×</mo> <mi>dedos</mi> </math></center></p><p class=\"desc\">Fórmula 1: Total dedos por mãos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aplicando la Figura 1, llegamos a:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>10</mi> <mo>=</mo> <mi>2</mi> <mo>×</mo> <mi>5</mi> </math></center></p><p class=\"desc\">Cálculo 1: Total de dedos em duas mãos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Nuestro objetivo es redistribuir los dedos entre las dos manos, lo que nos lleva al siguiente razonamiento:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mi>10</mi></mrow><mrow><mi>2</mi><mrow> </mfrac> <mo>=</mo> <mfrac> <mrow> <mi>2</mi> <mo>×</mo> <mi>5</mi></mrow><mrow><mi>2</mi><mrow> </mfrac> </math></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mi>10</mi></mrow><mrow><mi>2</mi><mrow> </mfrac> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>5</mi> </math></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mi>10</mi></mrow><mrow><mi>2</mi><mrow> </mfrac> <mo>=</mo> <mi>5</mi> </math></center></p><p class=\"desc\">Cálculo 2: Distribuyendo los dedos entre las manos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Múltiplos\n\nEl resultado del **Cálculo 1** y la Figura 1 también nos ayudan a recordar otro concepto ya estudiado: el de múltiplos (<htcite0>; <htcite1>).\n\nAl observar únicamente la cantidad de dedos en una mano, podemos reescribir la Fórmula 1 de la siguiente forma:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5cdee284-576b-4e19-a754-5326002f3598",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la Tabla (4 y 5)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>5</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>5</mi> </math></center></p><p class=\"desc\">Cálculo 3: Total de dedos en una mano</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Si añadimos otra mano al lado derecho (también con 5 dedos), tendremos dos manos (2), lo que afecta directamente el resultado del lado izquierdo, que crece en la misma proporción. Así:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>5</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>5</mi> </math></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>5</mi> <mo>×</mo> <mi>2</mi> <mo>= (</mo> <mi>1</mi> <mo>×</mo> <mi>2</mi>  <mo>) ×</mo> <mi>5</mi></math></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math><mi>10</mi> <mo>=</mo> <mi>2</mi> <mo>×</mo> <mi>5</mi> </math></center></p><p class=\"desc\">Cálculo 4: Total de dedos en dos manos</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Note que el número de dedos en los Cálculos 3 y 4 se mantuvo constante.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Hágalo usted mismo</b><br /><br />1. Repita los pasos del Cálculo 1 y del Cálculo 2.<br />2. Luego, realice los pasos del Cálculo 4.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al comparar los resultados de la práctica, vemos que la cantidad de dedos se mantuvo constante. Mientras que el **Cálculo 4** acumula los dedos, los **Cálculos 1 y 2** nos ayudan a distribuirlos. Es decir, la materia se conserva (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "68227419-2430-4359-b902-f6cf87b8941d",
+                     "text": "Holmes, F. L.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1985",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
+         "question": "Vamos além dos dedos da mão, realizando o Cálculo 1 e 2 com os dedos do pé. Confirme que 20 ÷ 2 = 10 partindo de 20 = 2 × 10.",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "additionalInfo": ""
+      },
+      {
+         "question": "Agora, confirme que a ordem dos fatores não altere o produdo realizando os mesmos Cálculos partindo de 20 = 10 × 2.",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": ""
       }
    ],
    "game_v2": null,
