@@ -271,9 +271,9 @@
                "source": [
                   {
                      "type": 1,
-                     "uuid": "5cdee284-576b-4e19-a754-5326002f3598",
+                     "uuid": "b16d461d-eb7a-484b-a78b-b12336edf3c0",
                      "text": "Weisstein, Eric W.",
-                     "page": "",
+                     "page": "Múltiplo",
                      "date_time": {
                         "type": "",
                         "year": "",
@@ -386,18 +386,174 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_fraction",
+         "text": [
+            {
+               "text": "### Compartiendo con fracciones\n\nAl realizar los pasos de los cálculos en el texto anterior y en este, siempre que modificamos un valor de un lado de la igualdad, también modificamos el del otro, colocando valores debajo de los números ya escritos. Al hacer esto, estamos escribiendo los números en formato de fracción (<htcite0>), que tiene en la parte superior el numerador y en la parte inferior el denominador:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "db081093-4026-4632-8a78-420ee6d841ad",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Frações",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mi>numerador</mi></mrow><mrow><mi>denominador</mi><mrow> </mfrac> </math></p><p class=\"desc\">Fórmula 2: Fracción y sus elementos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Visualizando una fracción\n\nPara entender una fracción, hagamos una práctica con una hoja:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"2\">Hoja entera</th></tr><tr><td colspan=\"2\" style=\"height: 300px;\"></td></tr> </table></p><p class=\"desc\">Tabla 1: Representación de una hoja en blanco.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Fraccionando</b><br /><br />1. Dobla una hoja por la mitad.<br />2. Ahora, ábrela y córtala por el doblez.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"2\">Hoja dividida</th></tr><tr><td style=\"height: 300px;\"></td><td style=\"height: 300px;\"></td></tr> </table></p><p class=\"desc\">Tabla 2: Hoja dividida en dos partes.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Escribiendo la fracción\n\nCuando tenemos todas las cantidades unidas, tenemos el todo completo, es decir, tenemos 1. Con esto, podemos representar la hoja de la Tabla 1 a través de la Fórmula 2 como:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>1</mn><mrow> </mfrac> <mo>=</mo>  <mn>1</mn>  </math></p><p class=\"desc\">Cálculo 5: Representación del todo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A partir del momento en que tenemos dos partes (Tabla 2), que representan un todo, podemos multiplicar numerador y denominador por 2, pues cualquier número dividido por sí mismo es igual a 1 (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mn>2</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> <mo>×</mo> <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>1</mn><mrow> </mfrac> <mo>=</mo>  <mfrac> <mrow> <mn>2</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> </math></p><p class=\"desc\">Cálculo 6: Representación de dos partes separadas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como en la Tabla 2 hicimos una separación de las partes, mantendremos la indicación de cuál era el todo en el denominador y explicitaremos que ahora son dos partes que, al sumarse, forman 1. Matemáticamente, lo hacemos así:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math> <mfrac> <mrow> <mn>2</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> <mo>=</mo> <mfrac> <mrow> <mn>1 + 1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac>  <mo>=</mo> <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac>  <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> </math></p><p class=\"desc\">Cálculo 7: Representación de dos partes separadas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Existen distintas maneras de leer el Cálculo 7, pero, por ahora, vamos a leerlo de izquierda a derecha como dos mitades (1/2) que se separaron de un todo (1). Del mismo modo, podemos leerlo de derecha a izquierda: al sumar las mitades (1/2), volvemos a tener el todo unido (1).\n\nEste cálculo, además de reforzar una vez más la idea de conservación (<htcite0>), muestra algo que hemos venido destacando en este capítulo: la idea de compartir.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "68227419-2430-4359-b902-f6cf87b8941d",
+                     "text": "Holmes, F. L.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1985",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Vamos além dos dedos da mão, realizando o Cálculo 1 e 2 com os dedos do pé. Confirme que 20 ÷ 2 = 10 partindo de 20 = 2 × 10.",
+         "question": "Usando também os dedos do pé, através das etapas mostradas nos Cálculo 1 e 2. Podemos afirmar que 20 dividido por 2 é igual a 10?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": ""
-      },
-      {
-         "question": "Agora, confirme que a ordem dos fatores não altere o produdo realizando os mesmos Cálculos partindo de 20 = 10 × 2.",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": ""
+         "additionalInfo": "<p><center><math><mi>20</mi> <mo>=</mo> <mi>2</mi> <mo>×</mo> <mi>10</mi> </math></center></p><p><center><math> <mfrac> <mrow> <mi>20</mi></mrow><mrow><mi>2</mi><mrow> </mfrac> <mo>=</mo> <mfrac> <mrow> <mi>2</mi> <mo>×</mo> <mi>10</mi></mrow><mrow><mi>2</mi><mrow> </mfrac> </math></center></p><p><center><math> <mfrac> <mrow> <mi>20</mi></mrow><mrow><mi>2</mi><mrow> </mfrac> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>10</mi> </math></center></p><p><center><math> <mfrac> <mrow> <mi>20</mi></mrow><mrow><mi>2</mi><mrow> </mfrac> <mo>=</mo> <mi>10</mi> </math></center></p>"
       }
    ],
    "game_v2": null,
