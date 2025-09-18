@@ -23,6 +23,7 @@ Os seguintes subdiretórios estão disponíveis neste diretório:
 - `Caral`: Contém fotos tiradas durante uma viagem a [Caral](https://www.zonacaral.gob.pe), Peru.
 - `Copan`: Contém fotos tiradas durante uma viagem a [Copán](https://ihah.hn/parque-arqueologico-copan/), Honduras.
 - `CreativeCommons`: Contém imagens originais da [Creative Commons](https://creativecommons.org/).
+- `ESA`: Contém imagens orignais da Agência Espacial Européia [ESA](https://www.esa.int/).
 - `HistoryTracers`: Contém fotos criadas pela equipe do History Tracers.
 - `JoyaCeren`: Contém fotos tiradas durante uma viagem a Joya de Cerén, El Salvador.
 - `MachuPicchu`: Contém fotos tiradas durante uma viagem a [Machu Picchu](https://www.machupicchu.gob.pe/), Peru.
