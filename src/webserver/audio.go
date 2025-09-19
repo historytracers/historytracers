@@ -663,7 +663,7 @@ func htAudioIndexLoop() {
 }
 
 func htConvertHistoricalTextToAudio() {
-	pages := []string{"ee28aa06-65bc-4f13-88dc-c6ad46f11adb"}
+	pages := []string{"49c7f908-87cc-4fcc-8e4d-bcaba40e0aea", "ee28aa06-65bc-4f13-88dc-c6ad46f11adb"}
 	htConvertClassesToAudio(pages)
 }
 
