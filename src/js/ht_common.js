@@ -169,49 +169,113 @@ function htFillSourceContentToPrint(text, map, id)
     }
 
     var mention = "";
-    for (let [key, value] of map) {
-        var dateValue = "";
+    map.forEach((value, key) => {
+        var textDate = "";
         if (value.date != undefined && value.date != null && value.date.length > 0) {
             var dateVector = value.date.split("-");
-            var textDate = htFillHTDate(dateVector);
-            dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
+            textDate = htFillHTDate(dateVector);
         } else if (value.date_time != undefined && value.date_time != null && value.date_time.length > 0) {
             var dateVector = value.date_time.split("-");
-            var textDate = htFillHTDate(dateVector);
-            dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
+            textDate = htFillHTDate(dateVector);
         }
-        var urlValue = "";
-        if (value.url != undefined && value.url != null && value.url.length > 0) {
-            urlValue = keywords[23]+"  "+value.url;
-        }
+        var urlValue = (value.url != undefined && value.url != null && value.url.length > 0) ? urlValue = keywords[23]+"  "+value.url : "";
+        var dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
         mention += "<p>"+value.citation+" "+dateValue +" "+urlValue+"</p>";
-    }
+    });
 
-    text = text.replace("<div id=\""+id+"\" class=\"cited-text\"></div>", "<div id=\""+id+"\" class=\"cited-text\">"+mention+"</div>");
-    return text;
+    const replacement = `<div id="${id}" class="cited-text">${mention}</div>`;
+    return text.replace(`<div id="${id}" class="cited-text"></div>`, replacement);
 }
 
 function htPrintContent(header, body)
 {
-    // Code inspired by https://jsfiddle.net/gFtUY/
-    var pageHeader = $(header).html();
-    var pageBody = $(body).html();
-    var pageCitation = $(".right-sources").html();
+    try {
+        if (!header || !body) {
+            throw new Error('Header and body selectors are required');
+        }
 
-    pageCitation = htFillSourceContentToPrint(pageCitation, primarySourceMap, 'tree-source');
-    pageCitation = htFillSourceContentToPrint(pageCitation, refSourceMap, 'tree-ref');
-    pageCitation = htFillSourceContentToPrint(pageCitation, holyRefSourceMap, 'tree-holy-ref');
-    pageCitation = htFillSourceContentToPrint(pageCitation, smSourceMap, 'tree-sm-ref');
+        const $header = $(header);
+        const $body = $(body);
+        const $sources = $(".right-sources");
 
-    var printMe = "<p><h1><center>" + pageHeader + "</center></h1></p><p>" + pageBody + "</p><p>" + pageCitation + "</p>";
-    var printScreen = window.open('', 'PRINT');
+        if (!$header.length || !$body.length || !$sources.length) {
+            throw new Error('Required elements not found in the DOM');
+        }
 
-    printScreen.document.write(printMe);
+        const pageHeader = $header.html();
+        const pageBody = $body.html();
+        let pageCitation = $sources.html();
 
-    printScreen.document.close();
+        // Process all source maps
+        const sourceMaps = [
+            { map: primarySourceMap, id: 'tree-source' },
+            { map: refSourceMap, id: 'tree-ref' },
+            { map: holyRefSourceMap, id: 'tree-holy-ref' },
+            { map: smSourceMap, id: 'tree-sm-ref' }
+        ];
 
-    printScreen.window.focus();
-    printScreen.window.print();
+        sourceMaps.forEach(({ map, id }) => {
+            pageCitation = htFillSourceContentToPrint(pageCitation, map, id);
+        });
+
+        // Create print document with proper HTML structure
+        const printDocument = `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Document</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cited-text {
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+        @media print {
+            body { margin: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>${pageHeader}</h1>
+    <div>${pageBody}</div>
+    <div class="cited-text">${pageCitation}</div>
+</body>
+</html>`;
+
+        // Open print window
+        const printWindow = window.open('', 'PRINT', 'height=600,width=800');
+
+        if (!printWindow) {
+            throw new Error('Popup blocked. Please allow popups for this site.');
+        }
+
+        printWindow.document.write(printDocument);
+        printWindow.document.close();
+
+        // Wait for content to load before printing
+        printWindow.onload = function() {
+            printWindow.focus();
+
+            // Add slight delay to ensure content is rendered
+            setTimeout(() => {
+                printWindow.print();
+            }, 250);
+        };
+
+    } catch (error) {
+        console.error('Printing failed:', error);
+        alert('Printing failed: ' + error.message);
+    }
 }
 
 function htAdjustGregorianZeroYear(text)
