@@ -1262,19 +1262,23 @@ function htFillWebPage(page, data)
     htFillClassWithText(".htIndexText", keywords[60]);
 
     if ($("#family_common_sn").length > 0) {
-        $("#family_common_sn").html(keywords[52]);
+        htAddTreeReflection("#family_common_sn", 52);
     }
 
     if ($("#htZoomImageMsg").length > 0) {
-        $("#htZoomImageMsg").html(keywords[84]);
+        htAddTreeReflection("#htZoomImageMsg", 84);
     }
 
     if ($("#htChartMsg").length > 0) {
-        $("#htChartMsg").html(keywords[112]);
+        htAddTreeReflection("#htChartMsg", 112);
     }
 
     if ($("#htAmericaAbyaYalaMsg").length > 0) {
-        $("#htAmericaAbyaYalaMsg").html(keywords[85]);
+        htAddTreeReflection("#htAmericaAbyaYalaMsg", 85);
+    }
+
+    if ($("#htAgeMsg").length > 0) {
+        htAddTreeReflection("#htAgeMsg", 131);
     }
 
     if ($("#tree-common-stats").length <= 0) {
