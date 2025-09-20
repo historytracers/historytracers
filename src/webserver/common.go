@@ -20,7 +20,8 @@ import (
 )
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
-var indexFiles []string = []string{"science", "history", "indigenous_who", "first_steps", "literature"}
+
+var indexFiles []string = []string{"first_steps", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology"}
 
 var commonKeywords []string
 
