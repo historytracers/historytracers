@@ -560,8 +560,8 @@ function htConvertJulianDate(test, locale, julianEpoch)
 //    Mount Page Section
 //
 
-function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
-    if (last_update <= 0) {
+function htFillDivAuthorsContent(target, lastUpdate, authors, reviewers) {
+    if (lastUpdate <= 0 || !target) {
         return;
     }
 
@@ -569,62 +569,80 @@ function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
         return;
     }
 
-    var dateDiv = "<p><div id=\"paper-title\" class=\"paper-title-style\"><div id=\"paper-date\" class=\"paper-date-style\">";
-    var local_lang = $("#site_language").val();
-    var local_calendar = $("#site_calendar").val();
-    var text = htConvertDate(local_calendar, local_lang, last_update, undefined, undefined);
+    const $target = $(target);
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
 
-    if (keywords.length > 33) {
-        dateDiv += keywords[34] + " : " + authors + ".<br />";
+    const formattedDate = htConvertDate(localCalendar, localLang, lastUpdate);
+
+    let content = `
+        <p>
+            <div id="paper-title" class="paper-title-style">
+                <div id="paper-date" class="paper-date-style">
+    `;
+
+    if (keywords) {
+        content += `${keywords[34]} : ${authors}.<br />`;
+        content += `${keywords[36]} : ${reviewers}.<br />`;
+        content += `${keywords[33]} : ${formattedDate}.`;
     }
 
-    if (keywords.length > 35) {
-        dateDiv += keywords[36] + " : " + reviewers + ".<br />";
-    }
-    dateDiv += keywords[33] + " : " + text+ ".";
+    content += `
+                </div>
+                <div id="paper-print" class="paper-print-style">
+                    <a href="#" class="fa-solid fa-print" onclick="htPrintContent('#header', '#page_data'); return false;"></a>
+                </div>
+            </div>
+            <br />
+            <i>${keywords[24]} ${keywords[38]}</i>
+        </p>
+    `;
 
-    dateDiv += "</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div><br /><i>"+keywords[24]+" "+keywords[38]+"</i></p>";
-
-    $(target).append(dateDiv);
+    $target.append(content);
 }
 
 function htLoadPageMountURL(page, arg, dir)
 {
-    var url = "lang/"; 
+    const baseUrl = "lang/";
 
-    var lang = $("#site_language").val();
-    // Use default language
-    if (lang == null || lang == undefined) {
+    let lang = $("#site_language").val();
+    if (!lang) {
         lang = htDetectLanguage();
     }
 
-    if (arg == "source") {
-        url += arg+"s/";
+    let url = baseUrl;
+
+    if (arg === "source") {
+        url += `${arg}s/`;
     } else {
-        url  += lang+"/";
+        url += `${lang}/`;
     }
 
-    if (dir.length != 0) {
-        url += dir+"/";
+    if (dir && dir.length > 0) {
+        url += `${dir}/`;
     }
 
-    url += page+".json";
+    url += `${page}.json`;
 
     return url;
 }
 
 function htOverwriteHTDateWithText(text, localDate, localLang, localCalendar) {
-    if (localDate == undefined  || localDate.length == 0) {
+    if (!localDate || !Array.isArray(localDate) || localDate.length === 0) {
         return text;
     }
 
-    var ret = text;
-    for (const i in localDate) {
-        var changed = ret.replace("<htdate"+i+">", htMountSpecificDate(localDate[i], localLang, localCalendar));
-        ret = changed;
+    if (typeof text !== 'string' || !localLang || !localCalendar) {
+        return text;
     }
 
-    return ret;
+    let result = text;
+    for (let i = 0; i < localDate.length; i++) {
+        const dateReplacement = htMountSpecificDate(localDate[i], localLang, localCalendar);
+        result = result.replace(`<htdate${i}>`, dateReplacement);
+    }
+
+    return result;
 }
 
 function htParagraphFromObject(localObj, localLang, localCalendar) {
@@ -677,6 +695,11 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
     text += "</p>"; 
     return text;
 }
+
+
+//
+//    Scientific Method Game Section
+//
 
 function htFillSMGameData(data) {
     if (data == undefined || data.content.length == 0) { 

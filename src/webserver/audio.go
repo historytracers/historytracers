@@ -633,7 +633,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 	}
 }
 
-func htAudioIndexLoop() {
+func htIndexesToAudio() {
 	for i := 0; i < len(htLangPaths); i++ {
 		lang := htLangPaths[i]
 		htLoadKeywordFile("common_keywords", lang)
@@ -645,17 +645,9 @@ func htAudioIndexLoop() {
 	}
 }
 
-func htConvertHistoricalTextToAudio() {
-	pages := []string{"c5492aa1-67c3-4794-95f3-c7ff05bac191", "ee28aa06-65bc-4f13-88dc-c6ad46f11adb", "49c7f908-87cc-4fcc-8e4d-bcaba40e0aea", "245b24d9-1d99-41fc-b25c-c72878b5a34a", "b8445908-98ab-4a8e-b5bc-a8abcbcaf973", "1c00e340-d27a-4142-be50-c0829857787e"}
-	htConvertClassesToAudio(pages)
-}
-
 func htConvertTextsToAudio() {
 	htConvertOverallTextToAudio()
 	htFamiliesToAudio()
 	htConvertAtlasToAudio()
-
-	htAudioIndexLoop()
-	// TODO: When all texts were coverted, we must remove the static vectors and load the indexes
-	htConvertHistoricalTextToAudio()
+	htIndexesToAudio()
 }
