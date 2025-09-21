@@ -645,18 +645,25 @@ function htOverwriteHTDateWithText(text, localDate, localLang, localCalendar) {
     return result;
 }
 
+function htGetTextWithDateReplacements(localObj, localLang, localCalendar) {
+    if (localObj.date_time) {
+        return htOverwriteHTDateWithText(localObj.text, localObj.date_time, localLang, localCalendar);
+    } else if (localObj.fill_dates) {
+        return htOverwriteHTDateWithText(localObj.text, localObj.fill_dates, localLang, localCalendar);
+    }
+    return localObj.text || '';
+}
+
 function htParagraphFromObject(localObj, localLang, localCalendar) {
-    var format = (localObj.format == undefined) ? "html" : localObj.format;
-    var originalText = "";
-    if (localObj.fill_dates != undefined) {
-        originalText = htOverwriteHTDateWithText(localObj.text, localObj.fill_dates, localLang, localCalendar);
-    } else if (localObj.date_time != undefined) {
-        originalText = htOverwriteHTDateWithText(localObj.text, localObj.date_time, localLang, localCalendar);
-    } else {
-        originalText = localObj.text;
+    if (!localObj || typeof localObj !== 'object') {
+        return '<p></p>';
     }
 
-    var text = (format == "html") ? "<p>" : ""; 
+    const format = localObj.format || 'html';
+
+    let originalText = htGetTextWithDateReplacements(localObj, localLang, localCalendar);
+
+    let text = (format === 'html') ? '<p>' : '';
     text += htFormatText(originalText, format, localObj.isTable);
 
     if (localObj.source != undefined && localObj.source != null) {
@@ -691,7 +698,7 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
             text += citeSources+ ")";
         }
     }
-    text += (localObj.PostMention != undefined && localObj.PostMention.length > 0) ? localObj.PostMention : "";
+    text += (localObj.PostMention) ? localObj.PostMention : "";
     text += "</p>"; 
     return text;
 }
@@ -941,11 +948,10 @@ function htProccessData(data, optional) {
             break;
     }
 
-    if (data.fill_dates != undefined && data.fill_dates.constructor === vectorConstructor) {
-        htFillHTDate(data.fill_dates);
-    }
-    else if (data.date_time != undefined && data.date_time.constructor === vectorConstructor) {
+    if (data.date_time != undefined && data.date_time.constructor === vectorConstructor) {
         htFillHTDate(data.date_time);
+    } else if (data.fill_dates != undefined && data.fill_dates.constructor === vectorConstructor) {
+        htFillHTDate(data.fill_dates);
     }
 
     if ($("#family_common_sn").length > 0) {
@@ -997,9 +1003,11 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
 
             htProccessData(data, optional);
 
+            /*
             if (arg != source) {
                 htEnableEdition();
             }
+            */
 
             return false;
         },
@@ -1187,10 +1195,10 @@ function htFillStringOnPage(data, idx, page)
     if (data.content[idx].html_value != undefined && data.content[idx].html_value.length > 0 && data.content[idx].target == undefined) {
         var modifiedText = (data.content[idx].date_time == undefined) ? data.content[idx].html_value : htOverwriteHTDateWithText(data.content[idx].html_value, data.content[idx].date_time, localLang, localCalendar);
         $("#"+data.content[idx].id).append(modifiedText);
-    } else if (data.content[idx].id != undefined && data.content[idx].id == "fill_dates") {
+    } else if (data.content[idx].id != undefined && data.content[idx].id == "date_time") {
         htFillHTDate(data.content[idx].text);
         return;
-    } else if (data.content[idx].id != undefined && data.content[idx].id == "date_time") {
+    } else if (data.content[idx].id != undefined && data.content[idx].id == "fill_dates") {
         htFillHTDate(data.content[idx].text);
         return;
     }
@@ -1351,11 +1359,11 @@ function htFillWebPage(page, data)
                     htFillPaperContent(data.content[i].value, last_update, page_authors, page_reviewers, data.index);
                 }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].id != undefined) {
-                if (data.content[i].id != "fill_dates") {
+                if (data.content[i].id != "date_time") {
                     for (const j in data.content[i].value) {
                         $("#"+data.content[i].id).append(data.content[i].value[j]);
                     }
-                } else if (data.content[i].id != "date_time") {
+                } else if (data.content[i].id != "fill_dates") {
                     for (const j in data.content[i].value) {
                         $("#"+data.content[i].id).append(data.content[i].value[j]);
                     }
@@ -1897,11 +1905,11 @@ function htFillMathKeywords(table) {
 function htFillFamilyList(table, target) {
     for (const i in table) {
         if (table[i].target == undefined) {
-            if (table[i].id != undefined && table[i].id == "fill_dates") {
+            if (table[i].id != undefined && table[i].id == "date_time") {
                 if (table[i].text.constructor === vectorConstructor) {
                     htFillHTDate(table[i].text);
                 }
-            } else if (table[i].id != undefined && table[i].id == "date_time") {
+            } else if (table[i].id != undefined && table[i].id == "fill_dates") {
                 if (table[i].text.constructor === vectorConstructor) {
                     htFillHTDate(table[i].text);
                 }
@@ -2371,11 +2379,10 @@ function htFillFamilies(page, table) {
         htWriteGame(table.game_v1, "", 1);
     }
 
-    if (table.fill_dates != undefined && table.fill_dates.constructor === vectorConstructor) {
-        htFillHTDate(table.fill_dates);
-    }
-    else if (table.date_time != undefined && table.date_time.constructor === vectorConstructor) {
+    if (table.date_time != undefined && table.date_time.constructor === vectorConstructor) {
         htFillHTDate(table.date_time);
+    } else if (table.fill_dates != undefined && table.fill_dates.constructor === vectorConstructor) {
+        htFillHTDate(table.fill_dates);
     }
 
     $("#loading_msg").hide();
