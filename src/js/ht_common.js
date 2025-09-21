@@ -92,13 +92,72 @@ function htEnableEdition() {
     */
 }
 
+
+//
+//    Navigation Section
+//
+
 function htScroolToID(id) {
     $('html, body').scrollTop($(id).offset().top);
 }
 
+
+//
+//    Reset Section
+//
+
 function htResetGenealogicalStats() {
     return { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "social_media_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
 }
+
+function htResetAllIndexes()
+{
+    loadedIdx = [];
+    const indexMaps = [
+        htHistoryIdx,
+        htLiteratureIdx,
+        htFirstStepsIdx,
+        htMathGamesIdx,
+        htFamilyIdx,
+        htIndigenousWhoIdx,
+        htMythsBelievesIdx,
+        htHistoricalEventsIdx,
+        htBiologyIdx,
+        htChemicalIdx,
+        htPhysicsIdx
+    ];
+
+    indexMaps.forEach(map => {
+        if (map && typeof map.clear === 'function') {
+            map.clear();
+        }
+    });
+}
+
+function htResetAnswers(vector)
+{
+    if (!Array.isArray(vector)) {
+        return;
+    }
+
+    const exerciseCount = vector.length;
+
+    for (let i = 0; i < exerciseCount; i++) {
+        const exerciseId = i;
+
+        $(`#answer${exerciseId}`).text('');
+        $(`input[name="exercise${exerciseId}"]`).prop('checked', false);
+
+        $(`#explanation${exerciseId}`).css({
+            display: 'none',
+            visibility: 'hidden'
+        });
+    }
+}
+
+//
+//    Reflection Section
+//
 
 function htAddTreeReflection(elementId, keywordIndex)
 {
@@ -147,20 +206,9 @@ function htAddPaperDivs(generalID, id, text, before, later, i)
     $(generalID).append(div);
 }
 
-function htShowDateRef()
-{
-    var src = "John Walker - Fourmilab . [ Accessed on Apr 26, 2024 ]. Retrieved from <a href=\"https://www.fourmilab.ch/documents/calendar/\" target=\"_blank\">https://www.fourmilab.ch/documents/calendar/</a>"
-    $("#tree-ref").html(src);
-}
-
-function htUpdateCurrentDateOnIndex()
-{
-    var current_time = Math.floor(Date.now()/1000);
-    var local_lang = $("#site_language").val();
-    var local_calendar = $("#site_calendar").val();
-    var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined);
-    $("#current_day").html(keywords[42]+" "+text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
-}
+//
+//    Print Section
+//
 
 function htFillSourceContentToPrint(text, map, id)
 {
@@ -278,20 +326,47 @@ function htPrintContent(header, body)
     }
 }
 
-function htAdjustGregorianZeroYear(text)
-{
-    var parsed = text.split(" ");
-    var finalText = parsed[0] +" ";
-    var end = parsed.length - 1;
-    for (let i = 1; i < end; i++) {
-        finalText += parsed[i] +" ";
-    }
+//
+//    Date Section
+//
 
-    return finalText + "0";
+function htShowDateRef()
+{
+    var src = "John Walker - Fourmilab . [ Accessed on Apr 26, 2024 ]. Retrieved from <a href=\"https://www.fourmilab.ch/documents/calendar/\" target=\"_blank\">https://www.fourmilab.ch/documents/calendar/</a>"
+    $("#tree-ref").html(src);
 }
 
-function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
+function htUpdateCurrentDateOnIndex()
 {
+    var current_time = Math.floor(Date.now()/1000);
+    var local_lang = $("#site_language").val();
+    var local_calendar = $("#site_calendar").val();
+    var text = htConvertDate(local_calendar, local_lang, current_time, undefined, undefined);
+    $("#current_day").html(keywords[42]+" "+text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
+}
+
+function htAdjustGregorianZeroYear(text)
+{
+    if (typeof text !== 'string' || !text.trim()) {
+        return text || '';
+    }
+
+    const parts = text.trim().split(/\s+/);
+    if (parts.length <= 1) {
+        return '0';
+    }
+
+    parts[parts.length - 1] = '0';
+    return parts.join(' ');
+}
+
+function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDate)
+{
+    if (!calendarType || !locale) {
+        console.error('Missing required parameters: calendarType and locale');
+        return '';
+    }
+
     var ct = undefined;
     var intEpoch = undefined;
     var jd = undefined;
@@ -313,13 +388,14 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
     } else {
         return;
     }
+
     ct.toLocaleString(locale, { timeZone: 'UTC' })
     var julianDays = gregorian_to_jd(jd[0], jd[1], jd[2]);
 
     var text = "";
     var year = " "+keywords[43];
     var mesoamericanPeriod = 0;
-    switch(test) {
+    switch(calendarType) {
         case "gregory":
         case "hebrew":
         case "islamic":
@@ -353,7 +429,7 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
         case "hispanic":
             intEpoch += 1199188800;
         default:
-            test = "gregory";
+            calendarType = "gregory";
             break;
     }
 
@@ -361,9 +437,9 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
         ct.setUTCSeconds(intEpoch);
     }
 
-    text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: test }).format(ct);
+    text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: calendarType }).format(ct);
 
-    if (test == "gregory") { 
+    if (calendarType == "gregory") { 
         var yearValue = ct.getFullYear();
         if (yearValue < 0) {
             text += " "+keywords[43];
@@ -432,13 +508,13 @@ function htConvertGregorianYear(test, gregoryYear)
                 return text;
             case "french":
                 var frCals = jd_to_french_revolutionary(jd);
-                year = (frCals[0] < 0 ) ? mod(frCals[0]) + keywords[43] : frCals[0]; 
+                year = (frCals[0] < 0 ) ? Math.abs(frCals[0]) + " "+ keywords[43] : frCals[0]; 
     
                 text = "" + year;
                 return text;
             case "shaka":
                 var indianCal = jd_to_indian_civil(jd);
-                year = (indianCal[0] < 0 ) ? mod(indianCal[0]) + year : indianCal[0]; 
+                year = (indianCal[0] < 0 ) ? Math.abs(indianCal[0]) + " "+  keywords[43] : indianCal[0]; 
     
                 text = ""+year;
                 return text;
@@ -479,6 +555,10 @@ function htConvertJulianDate(test, locale, julianEpoch)
 {
     return htConvertDate(test, locale, undefined, julianEpoch, undefined);
 }
+
+//
+//    Mount Page Section
+//
 
 function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
     if (last_update <= 0) {
@@ -1655,22 +1735,6 @@ function htFillTopIdx(idx, data, first)
     }
 }
 
-function htResetAllIndexes()
-{
-    loadedIdx = [];
-    htHistoryIdx.clear();
-    htLiteratureIdx.clear();
-    htFirstStepsIdx.clear();
-    htMathGamesIdx.clear();
-    htFamilyIdx.clear();
-    htIndigenousWhoIdx.clear();
-    htMythsBelievesIdx.clear();
-    htHistoricalEventsIdx.clear();
-    htBiologyIdx.clear();
-    htChemicalIdx.clear();
-    htPhysicsIdx.clear();
-}
-
 function htLoadIndex(data, arg, page)
 {
     if (data != undefined && data.index != undefined) {
@@ -1917,17 +1981,6 @@ function htCheckExerciseAnswer(val0, val1, answer, explanation) {
     }
 
     return false;
-}
-
-function htResetAnswers(vector)
-{
-    for (let i = 0; i < vector.length; i++) {
-        $("#answer"+i).text("");
-        $("input[name=exercise"+i+"]").prop("checked", false);
-
-        $("#explanation"+i).css("display","none");
-        $("#explanation"+i).css("visibility","hidden");
-    }
 }
 
 function htWriteGame(table, later, idx)
