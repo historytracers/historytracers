@@ -693,7 +693,7 @@ function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
         next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
     }
 
-    var navigation = "<tr style=\"background-color: "+bgColor+";\"><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></td><td>"+next+"</td></tr>";
+    var navigation = "<tr style=\"background-color: "+bgColor+";\"><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+idxName+"</span></td><td>"+next+"</td></tr>";
 
     return navigation;
 }

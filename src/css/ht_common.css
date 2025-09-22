@@ -13,44 +13,6 @@ audio {
   height: 1px;
 }
 
-.dynamicNavigation {
-  position: relative;
-  max-height: 6em;
-  overflow: hidden;
-  line-height: 1.5em;
-  cursor: pointer;
-  transition: max-height 0.4s ease;
-  padding-bottom: 2em;
-  background: #fff;
-}
-
-.dynamicNavigation::after {
-  content: attr(data-after-content);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 0.3em 0;
-  background: #ffffff;
-  border-top: 1px solid #ddd;
-  font-size: 0.9em;
-  pointer-events: none;
-  color: #333;
-  font-style: italic;
-  pointer-events: none;
-}
-
-.dynamicNavigation:hover {
-  content: "";  
-  max-height: 1000px; /* large enough to show all content */
-}
-
-.dynamicNavigation:hover::after {
-  background: none;
-  border: none;
-}
-
 .selSize {
   width: 7em;
   z-index: 900;
