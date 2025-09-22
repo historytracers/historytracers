@@ -497,22 +497,6 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 	return nil
 }
 
-func htConvertIndexToAudio() {
-	for i := 0; i < len(indexFiles); i++ {
-		idxFile := indexFiles[i]
-		for j := 0; j < len(htLangPaths); j++ {
-			idxPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[j], idxFile)
-			if verboseFlag {
-				fmt.Println("Creating audio file for ", idxPath)
-			}
-			err := htClassIdxAudio(idxPath, idxFile, htLangPaths[j])
-			if err != nil {
-				panic(err)
-			}
-		}
-	}
-}
-
 // Overall Files
 func htConvertClassesToAudio(pages []string) {
 	for i := 0; i < len(htLangPaths); i++ {
@@ -649,31 +633,21 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 	}
 }
 
-func htAudioIndexLoop() {
-	indexes := []string{"first_steps", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology"}
+func htIndexesToAudio() {
 	for i := 0; i < len(htLangPaths); i++ {
 		lang := htLangPaths[i]
 		htLoadKeywordFile("common_keywords", lang)
 
-		for _, idx := range indexes {
+		for _, idx := range indexFiles {
 			fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, idx)
 			htConvertIndexTextToAudio(idx, fileName, lang)
 		}
 	}
 }
 
-func htConvertHistoricalTextToAudio() {
-	pages := []string{"ee28aa06-65bc-4f13-88dc-c6ad46f11adb"}
-	htConvertClassesToAudio(pages)
-}
-
 func htConvertTextsToAudio() {
 	htConvertOverallTextToAudio()
 	htFamiliesToAudio()
-	htConvertIndexToAudio()
 	htConvertAtlasToAudio()
-
-	htAudioIndexLoop()
-	// TODO: When all texts were coverted, we must remove the static vectors and load the indexes
-	htConvertHistoricalTextToAudio()
+	htIndexesToAudio()
 }

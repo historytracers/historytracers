@@ -1,446 +1,925 @@
 {
-    "title" : "Cultura y Civilización",
-    "header" : "Cultura y Civilización",
-    "sources" : [ "245b24d9-1d99-41fc-b25c-c72878b5a34a" ],
-    "scripts" : [ "245b24d9-1d99-41fc-b25c-c72878b5a34a" ],
-    "index" : [ "history" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1738247708" ],
-    "authors" : null,
-    "reviewers" : null,
-    "version" : 1,
-    "type" : "class",
-    "content" : [
-        {
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p><p class=\"topdesc\"><i>Además de utilizar el nombre América, también nos referiremos al continente como <i>Abya Yala</i>, denominación empleada por los pueblos originarios del continente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <span class=\"htdate\"></span>, pp. 39-43</a>).</i></p>",
-                        { "text" : "### Prerrequisitos\n\nEste texto es una continuación de los demás textos de esta sección, **Historia General**. Por eso, sugerimos el estudio de los textos anteriores antes de proseguir con este",
-                                 "source" : [ 
-                                              { "type": 1,
-                                                "uuid": "867968ea-62d6-4a8a-b3a0-8b82c76d86bf",
-                                                "text": "History Tracers Team. Historia General",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                  "fill_dates" : null,
-                                  "isTable" : false,
-                                  "format" : "markdown",
-                                  "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "introduction",
-                    "text" : [ { "text" : "### Introducción\n\nNo es raro ver que se realicen comparaciones de manera superficial, sin un análisis profundo del contexto. Cuando esto ocurre, terminamos comparando situaciones distintas y clasificando algo de manera equivocada como \"mayor\" o \"mejor\" que otro. Precisamente para evitar este tipo de errores, en la sección **Primeros Pasos** escribimos el capítulo **\"Ser o no Ser...\"**, dedicado a explicar las bases de las comparaciones",
-                                 "source" : [ 
-                                              { "type": 1,
-                                                "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
-                                                "text": "History Tracers Team. Primeiros pasos",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                                "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Comparaciones</b><br /><br />Antes de profundizar en el texto, reflexionemos sobre nuestro conocimiento actual:<br /><br />En este momento, ¿consideras que hubo alguna civilización mayor que otra? Si es así, ¿por qué lo crees?<br /><br />Si consideras que no es así, ¿qué te lleva a concluir que no es posible establecer una escala jerárquica entre civilizaciones?</div></div></center></p>"
-                    ]
-                },
-                {
-                    "id" : "origin",
-                    "text" : [ { "text" : "### ¿Personas mejores que otras?\n\nComo discutimos anteriormente, hoy existe un consenso de que nuestra especie se originó en África hace al menos 250.000 años y se expandió por el planeta Tierra",
-                                 "source" : [{ "type": 1,
-                                               "uuid": "2be849f1-551b-44eb-8fc6-87027dbf8a68",
-                                               "text": "Mounier, A., & Mirazón Lahr, M.",
-                                               "date": { "type": "gregory", "year": "2019", "month": "-1", "day": "-1" }},
-                                             { "type": 1,
-                                               "uuid": "cff99ec5-cb25-40ef-b2ee-410a75e73a6e",
-                                                "text": "National Geographic Education"},
-                                              { "type": 1,
-                                                "uuid": "27864fd8-e7f7-4a2f-85c7-e1453e3c5234",
-                                                "text": "Abdul Karim Khan",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" }},
-                                              { "type": 1,
-                                                "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
-                                                "text": "González Redondo, Francisco A., 00:41:51",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "dd34414b-8f55-4e5e-877a-c0e111e871be",
-                                                "text": "Wang, Richard J.",
-                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "eda6e242-751a-46b3-b5f7-0c4489d9b374",
-                                                "text": "History Tracers Team. Origen",
-                                                "date" :  {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               "<p class=\"desc\"><img id=\"originmigration\" src=\"images/Mapswire/mapswire-world-political-white-equal_earth_journey.png\" class=\"imgcenter\" onclick=\"htImageZoom('originmigration', '0%')\" />Figura 1: Mapa de la migración humana <span id=\"OriginHTMW\"></span></p>",
-                               { "text" : "Al tener el mismo origen, si un grupo de personas fuera considerado \"mejor\" que otros, hasta el punto de hacer una cultura \"superior\", esto debería estar reflejado en la genética de esas personas. Sin embargo, los estudios más recientes sobre nuestra especie muestran que simplemente no hay diferencias significativas que justifiquen la existencia de razas",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } },
-                                                { "type": 1,
-                                                "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
-                                                "text": "Templeton A. R.",
-                                                "date": { "type": "gregory", "year": "2013", "month": "-1", "day": "-1" } }
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "El hecho de que no sea posible encontrar cambios genéticos significativos que justifiquen la división en razas nos lleva a una nueva reflexión",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": ":"
-                               },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Factores externos</b><br /><br />No tenemos, internamente, algo que permita a un grupo sentirse superior a otro.<br /><br />¿Consideras esto suficiente? ¿O habría factores externos que aún no se han considerado?</div></div></center></p>"
-                    ]
-                },
-                {
-                    "id" : "culture",
-                    "text" : [ { "text" : "### Cultura vs. Civilización\n\nExisten diversas definiciones del concepto de cultura. Hasta hoy, muchos aún se basan en la definición clásica formulada en el siglo XIX, según el calendario gregoriano, por el antropólogo Edward Burnett Tylor",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
-                                                "text": "White, L. A.",
-                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               "<ul class=\"citation\"><li><i>\"Cultura... un todo complejo que incluye conocimiento, creencias, arte, leyes, costumbres y cualquier otra capacidad y hábito adquiridos por el hombre como miembro de una sociedad.\"</i></li> </ul>",
-                               { "text" : "Sin embargo, esta definición ha sido refinada con el avance de la antropología. En <htdate0>, por ejemplo, A. L. Kroeber y Clyde Kluckhohn presentaron 164 definiciones diferentes para el término. Esta multiplicidad de interpretaciones evidencia la complejidad del concepto de cultura y su relación con la civilización",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
-                                                "text": "White, L. A.",
-                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "1952", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "Thorsten Botz-Bornstein llama la atención sobre más de 250 años de confusión entre los términos \"cultura\" y \"civilización\". Destaca que, aunque algunos autores han considerado ambos conceptos como distintos, Tylor terminó por descartar esta distinción, eliminando la idea de que la cultura sería inferior a la civilización",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
-                                                "text": "Botz-Bornstein, Thorsten, pp. 11 - 13",
-                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "1952", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "No obstante, como señala Botz-Bornstein en su obra, tratar cultura y civilización como equivalentes no se convirtió en una regla universal. La supuesta diferencia entre ambos conceptos fue utilizada frecuentemente para justificar conflictos, especialmente durante las guerras mundiales del siglo XX, según el calendario gregoriano",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
-                                                "text": "Botz-Bornstein, Thorsten, pp. 13 - 25",
-                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "1952", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "Tanto en el artículo de Leslie A. White como en el trabajo de Thorsten Botz-Bornstein, queda claro que no hay cultura sin civilización. Desde los inicios de la cultura, hace miles de años, estos dos conceptos han estado intrínsecamente ligados a nuestra especie, a pesar de los intentos arbitrarios de separarlos",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
-                                                "text": "White, L. A.",
-                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }},
-                                              { "type": 1,
-                                                "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
-                                                "text": "Botz-Bornstein, Thorsten",
-                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "1952", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "selfdeclaration",
-                    "text" : [ { "text" : "### Autodeclaración de superioridad\n\nDebido a la falta de documentación exhaustiva sobre todas las poblaciones, nos centraremos en dos casos conocidos. Sin embargo, los ejemplos aquí presentados posiblemente no sean los únicos existentes.\n\n#### Griegos\n\nQuizás el caso más conocido para los occidentales sea el de los griegos. Como demostró Hyun Jin Kim, entre las últimas décadas del siglo VI y las primeras décadas del siglo V a.E.C. (según el calendario gregoriano), se desarrolló entre los jonios la antítesis entre griegos y bárbaros, que posteriormente se extendió por toda Grecia",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "223b0a94-010d-494b-8cfc-8dfb77c961b0",
-                                                "text": "Kim, H. J.",
-                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               "<p class=\"desc\"><img id=\"imgAthens\" onclick=\"htImageZoom('imgAthens', '0%')\" src=\"images/Athens/Erechtheion.jpg\" class=\"imgcenter\"/>Figura 2: Templo Erechtheion en Atenas, Grecia (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('38444844-0e52-4748-89f7-025ebd713e10'); return false;\"><i>The Acropolis Museum</i></a>). Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio.</p>",
-                               { "text" : "#### China\n\nDe forma independiente a Grecia, se observa en China un fenómeno similar. El momento exacto en que surgió esta idea también ha sido objeto de estudios profundos, con conclusiones variadas.\n\nYuri Pines, al analizar textos antiguos chinos, aborda la dicotomía \"chino-bárbaros\". Comienza con la compleja identificación de lo que en Occidente llamamos \"China\", pasando por el período preimperial hasta llegar al imperio chino. En el período preimperial, algunos textos no expresaban ideas raciales, como pueden concluyr algunos estudiosos y lectores. Sin embargo, a partir del período imperial, la idea de superioridad china se hizo evidente en parte de la población imperial, culminando siglos después en la construcción de la Gran Muralla y en el abandono de la idea de universalización cultural",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "bbffa480-a748-4c03-bc37-6f1082136d3b",
-                                                "text": "Pines, Y.",
-                                                "date" :  {"type" : "gregory", "year" : "2005", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "#### Puntos comunes\n\nLas autodeclaraciones de superioridad de los griegos y los chinos presentan al menos dos puntos en común, como es posible observar en los trabajos de Hyun Jin Kim y Yuri Pines",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "223b0a94-010d-494b-8cfc-8dfb77c961b0",
-                                                "text": "Kim, h. j.",
-                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "bbffa480-a748-4c03-bc37-6f1082136d3b",
-                                                "text": "Pines, y., p. 21",
-                                                "date" :  {"type" : "gregory", "year" : "2005", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "istable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "postmention": ":"
-                               },
-                               "<p class=\"desc\"><img class=\"imgcenter\" src=\"images/UNESCO/site_0438_0002.jpg\" id=\"imgCW\" onclick=\"htImageZoom('imgCW', '0%')\"/>Figura 3: Gran Muralla China. Fotografía tomada por Giovanni Boccardi y disponible en el sitio web de la UNESCO (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('674939ef-1f42-4c1d-a614-17bd22aba67e'); return false;\">UNESCO</a>). Compartido bajo la licencia <a href=\"https://whc.unesco.org/en/licenses/6\" target=\"_blank\">Creative Commons Attribution-ShareAlike 3.0 IGO</a>.</p>",
-                               "<ul> <li><b>Declaración de superioridad:</b> Ambas culturas llegaron a esta conclusión al elegir características propias como superiores. No hay evidencias de que características biológicas o físicas justifiquen esta supuesta superioridad, ni siquiera en una comparación directa entre las dos culturas.</li> <li><b>Guerras:</b> Tanto griegos como chinos libraron guerras contra sus vecinos. Una posible unificación en una única cultura podría haber evitado conflictos, pero la historia muestra que las expansiones frecuentemente resultaron en más guerras.</li> </ul>",
-                               { "text" : "Basándonos en lo expuesto, podemos continuar la reflexión y construir nuestro conocimiento",
-                                 "source" : null,
-                                 "istable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "postmention": ":"
-                               },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre conocimientos</b><br /><br />¿Sabías que griegos y chinos compartían la idea de superioridad, a pesar de haber llegado a esta conclusión de forma aislada?<br /><br />¿Crees que lo sabes todo sobre estas dos civilizaciones?<br /><br />¿El desconocimiento de otras culturas puede llevarnos a conclusiones erróneas?<br /><br />Salgamos un poco del tema cultural, pero aplicando la misma lógica: ¿alguna vez has probado un alimento que considerabas malo, pero cambiaste de opinión al probarlo?</div></div></center></p>",
-                               { "text" : "Nos gustaría cerrar esta subsección con una frase de Leslie A. White mencionada en su artículo, que resume perfectamente la relación entre las culturas abordada aquí: \"Cultura es contagiosa\" ",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
-                                                "text": "White, L. A.",
-                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "origin",
-                    "text" : [ { "text" : "### El Origen de los Elementos Culturales\n\nUn equívoco común al comparar culturas es ignorar cómo una determinada cultura fue construida. Frecuentemente, las culturas absorben elementos de otras, creando un intercambio que enriquece y transforma sus propias tradiciones. En esta sección, nos enfocaremos en la cultura griega, ya que no conocemos los detalles sobre la creación de elementos de la cultura china.\n\nEs indiscutible la influencia de la cultura griega en la formación de la civilización occidental. Sin embargo, muchos de los elementos atribuidos a los griegos no fueron creados por ellos, sino adaptados a partir de otras culturas. Los griegos supieron aprovechar el conocimiento de otros pueblos, integrándolo de manera única en su propia tradición.\n\n#### El Alfabeto\n\nEl alfabeto griego, por ejemplo, fue desarrollado con base en el alfabeto fenício. Los fenícios son frecuentemente considerados los precursores del sistema de escritura adoptado por los griegos, quienes lo adaptaron y expandieron para satisfacer sus necesidades",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "03cede22-8d42-40ab-8eeb-2fd8df5415cd",
-                                                "text": "Britannica, T. Editors of Encyclopaedia",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "11", "day" : "20" }},
-                                              { "type": 1,
-                                                "uuid": "977bd44c-ed89-4a56-8a69-348549b68f44",
-                                                "text": "Thamis",
-                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown or html",
-                                 "PostMention": "."
-                               },
-                               { "text" : "#### La Matemática\n\nEn el ámbito de la matemática, el famoso teorema atribuido a Pitágoras ya era conocido por los babilonios mucho antes de ser formalizado por los griegos. Descubrimientos arqueológicos recientes confirman que los babilonios utilizaban conceptos similares al \"triángulo de Pitágoras\" en sus cálculos",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "5488872a-27c1-4ea8-8580-2ecc5aeb0cbf",
-                                                "text": "Mansfield, D. F.",
-                                                "date" :  {"type" : "gregory", "year" : "2021", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "f140d8d6-80cc-4d82-b9f7-c3ba06bf2ed3",
-                                                "text": "History Tracers Team",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown or html",
-                                 "PostMention": "."
-                               },
-                               { "text" : "#### La Religión\n\nEn la religión, la diosa Afrodita pudo haber sido influenciada por la diosa sumeria *Inanna*, conocida como *Ishtar* en Babilonia. Esta influencia habría llegado a los griegos a través de los fenicios, y no se detuvo allí. Estas creencias continuaron transformándose y diseminándose, llegando incluso a influir en creencias actuales",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "47bb57e9-73ff-4892-a2ac-0010e483a0ba",
-                                                "text": "Marcovich, M.",
-                                                "date" :  {"type" : "gregory", "year" : "1996", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown or html",
-                                 "PostMention": "."
-                               },
-                               { "text" : "Nos limitamos a estos tres ejemplos para ilustrar cómo la cultura griega fue influenciada por otras civilizaciones. Esto demuestra que ninguna cultura surge de forma aislada, sino a partir de un complejo proceso de intercambios y adaptaciones",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown or html",
-                                 "PostMention": ":"
-                               },
-                               "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: Sobre los Orígenes</b><br /><br />La cultura griega fue influenciada por otras civilizaciones, así como también ejerció una influencia sobre otras. Si consideramos las culturas como diferentes pero interconectadas, y buscamos aprender de sus particularidades, ¿no estaríamos promoviendo un escenario menos conflictivo que la imposición cultural por medio de guerras?</div></div></center></p>"
-                    ]
-                },
-                {
-                    "id" : "misunderstanding",
-                    "text" : [ { "text" : "### Desentendimientos\n\nA pesar del vasto conocimiento acumulado hasta la actualidad, sigue siendo común encontrar comentarios en redes sociales o conversaciones cotidianas que evidencian cómo los temas abordados en este texto continúan impactando a las personas. En esta sección, analizaremos algunos equívocos que conducen a interpretaciones distorsionadas sobre los orígenes culturales y la creencia en falsas superioridades.\n\n#### Inexistencia de algo\n\nEl desconocimiento de las tecnologías utilizadas por determinadas culturas puede llevar a conclusiones erróneas. Un claro ejemplo es la visión eurocéntrica que reduce las civilizaciones indígenas de las Américas (*Abya Yala*) a sociedades que \"vivían en la Edad de Piedra\". Esta perspectiva ignora los avances tecnológicos y culturales de estos pueblos, además de evidenciar una falta de comprensión sobre antropología y arqueología. Como se destaca en el texto *Cronología*, diferentes regiones tienen tiempos arqueológicos distintos, y existen evidencias del uso de diversos metales en Sudamérica (*Abya Yala*)",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "cff9edbf-cd50-44cd-8ef7-54197d68c82b",
-                                                "text": "History Tracers Team. Cronologia",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "Durante el período inicial de la colonización, el etnocentrismo —la práctica de evaluar otras culturas desde la propia— llevó a clasificaciones erróneas sobre sociedades nunca antes visitadas por los europeos",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
-                                                "text": "White, L. A.",
-                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "#### Supuestos orígenes\n\nLa **Figura 1**, presentada en la parte superior de esta página, fue elaborada a partir de investigaciones científicas publicadas y revisadas a lo largo de los siglos. Gracias a estos avances, hoy sabemos que las poblaciones humanas, aunque comparten un origen común en África, estuvieron separadas durante milenios. Este aislamiento solo se rompió en los últimos siglos, lo que explica la existencia de distintas cunas civilizatorias que se desarrollaron de manera independiente, como se ha discutido en textos anteriores de esta sección",
-                                 "source" : [{ "type": 1,
-                                               "uuid": "2be849f1-551b-44eb-8fc6-87027dbf8a68",
-                                               "text": "Mounier, A., & Mirazón Lahr, M.",
-                                               "date": { "type": "gregory", "year": "2019", "month": "-1", "day": "-1" }},
-                                              { "type": 1,
-                                                "uuid": "867968ea-62d6-4a8a-b3a0-8b82c76d86bf",
-                                                "text": "History Tracers Team. História Geral",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
-                                                "text": "González Redondo, Francisco A., 00:41:51",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                                "<p class=\"desc\"><img id=\"imgMWPWEEC\" onclick=\"htImageZoom('imgMWPWEEC', '0%')\" src=\"images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png\" class=\"imgcenterlarge\"/>Figura 4: Cunas civilizatorias. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Compartida bajo la licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</p>",
-                               { "text" : "Sin embargo, algunas personas insisten en establecer conexiones entre sociedades distintas sin respaldo en evidencias arqueológicas o genéticas, basándose en comparaciones superficiales. Un ejemplo de ello son las pirámides encontradas en las Américas y en Egipto, que, pese a sus similitudes visuales, no presentan ninguna conexión histórica o cultural comprobada",
-                                 "source" : [ 
-                                              { "type": 1,
-                                                "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
-                                                "text": "White, L. A.",
-                                                "date" :  {"type" : "gregory", "year" : "2022", "month" : "8", "day" : "5" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/Caral/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figura 5: Pirámide H1 en el sitio arqueológico de Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <span class=\"htdate\"></span></a>). Foto tomada en <span class=\"htdate\"></span> durante una visita al sítio.</p>",
-                               { "text" : "Algunos de los puntos discutidos en esta subsección ya han sido abordados en los textos *Orígenes* y en el primer apéndice de la sección *Interpretación de Textos*. Estos equívocos surgen de la lectura descontextualizada de textos antiguos, especialmente del Mediterráneo, sin considerar que el significado y el alcance de las palabras cambian con el tiempo. Esto puede llevar a generalizaciones infundadas sobre eventos descritos en contextos locales",
-                                 "source" : [{ "type": 1,
-                                               "uuid": "2806b294-0d2a-4ca2-8008-b2b82791427a",
-                                               "text": "History Tracers Team. Interpretando Textos",
-                                               "date": { "type": "gregory", "year": "2024", "month": "-1", "day": "-1" }},
-                                              { "type": 1,
-                                                "uuid": "eda6e242-751a-46b3-b5f7-0c4489d9b374",
-                                                "text": "History Tracers Team. Origenes",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               },
-                               { "text" : "#### Intento de dominación\n\nEntre todos los problemas derivados de la mala interpretación de las culturas, quizá el más grave sea el uso de estos equívocos como justificación para la guerra. Atribuir inferioridad a un pueblo facilita su deshumanización, haciendo más aceptable su agresión y dominación. Este fenómeno fue ampliamente observado durante la colonización de las Américas (*Abya Yala*)",
-                                 "source" : [
-                                              { "type": 1,
-                                                "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
-                                                "text": "Botz-Bornstein, Thorsten, pp. 20 - 21",
-                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "e46a809d-bea1-4107-8b21-86a87b3fbaaa",
-                                                "text": "History Tracers Team",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "conclusion",
-                    "text" : [ { "text" : "### Conclusión\n\nA lo largo de este texto, hemos visto cómo la definición de cultura ha experimentado transformaciones con el tiempo y cómo está intrínsecamente ligada al concepto de civilización.\n\nTambién analizamos que las llamadas ‘superioridades culturales’ no tienen ninguna base genética. A menudo, los grupos humanos seleccionan ciertas características para diferenciarse, con el propósito de alcanzar objetivos específicos.\n\nEste es el último texto de este capítulo. En los próximos, continuaremos abordando a todas las personas de manera igualitaria, pero destacando las divisiones que la humanidad ha construido a lo largo de la historia",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown",
-                                 "PostMention": "."
-                               }
-                    ]
-                },
-                {
-                    "id" : "exercise_v2",
-                    "text" : [ 
-                        {
-                            "question" : "¿Se pueden usar factores genéticos para afirmar que un grupo de personas es superior a otro?",
-                            "yesNoAnswer" : "No",
-                            "additionalInfo" : "En realidad, lo que observamos es exactamente lo contrario. Las diferencias genéticas en nuestra especie son tan mínimas que no existe ninguna base científica para afirmar que un grupo de personas es superior a otro."
-                        },
-                        {
-                            "question" : "¿La cultura griega se desarrolló de forma completamente independiente de otras culturas?",
-                            "yesNoAnswer" : "No",
-                            "additionalInfo" : "Los datos arqueológicos demuestran que los griegos absorbieron conocimientos y aspectos culturales de otros pueblos. Del mismo modo, diversas culturas incorporaron elementos de la civilización griega."
-                        },
-                        {
-                            "question" : "¿Los conceptos de cultura y civilización están interconectados?",
-                            "yesNoAnswer" : "Yes",
-                            "additionalInfo" : "Como hemos visto a lo largo de este texto, aunque algunos investigadores han intentado separar los conceptos de cultura y civilización —llegando incluso a considerar la cultura como inferior a la civilización—, estos términos están intrínsecamente conectados."
-                        }
-                    ]
-                },
-                {
-                    "id": "fill_dates",
-                    "text": [
-                        {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2019", "month" : "8", "day" : "31" },
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
-                        {"type" : "gregory", "year" : "2017", "month" : "6", "day" : "13" }
-                    ]
-                }
-            ]
-        }
-    ]
+   "title": "Cultura y Civilización",
+   "header": "Cultura y Civilización",
+   "sources": [
+      "245b24d9-1d99-41fc-b25c-c72878b5a34a"
+   ],
+   "scripts": [
+      "245b24d9-1d99-41fc-b25c-c72878b5a34a"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/245b24d9-1d99-41fc-b25c-c72878b5a34a_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4iulUiXDJzE3mM45Mx6DDx?si=QFwyQC1sSpmg5Mt0W6wjcQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "history"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1758417390"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p><p><span id=\"htAgeMsg\"></span></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste texto es una continuación de los demás textos de esta sección, *Historia General* (<htcite0>). Por eso, sugerimos el estudio de los textos anteriores antes de proseguir con este.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "867968ea-62d6-4a8a-b3a0-8b82c76d86bf",
+                     "text": "History Tracers Team",
+                     "page": "Historia General",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nNo es raro ver que se realicen comparaciones de manera superficial, sin un análisis profundo del contexto. Cuando esto ocurre, terminamos comparando situaciones distintas y clasificando algo de manera equivocada como \"mayor\" o \"mejor\" que otro. Precisamente para evitar este tipo de errores, en la sección *Primeros Pasos* escribimos el capítulo **\"Ser o no Ser...\"** (<htcite0>), dedicado a explicar las bases de las comparaciones.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeiros pasos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Comparaciones</b><br /><br />Antes de profundizar en el texto, reflexionemos sobre nuestro conocimiento actual:<br /><br />En este momento, ¿consideras que hubo alguna civilización mayor que otra? Si es así, ¿por qué lo crees?<br /><br />Si consideras que no es así, ¿qué te lleva a concluir que no es posible establecer una escala jerárquica entre civilizaciones?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_origin",
+         "text": [
+            {
+               "text": "### ¿Personas mejores que otras?\n\nComo discutimos anteriormente, hoy existe un consenso de que nuestra especie se originó en África hace al menos 250.000 años y se expandió por el planeta Tierra",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2be849f1-551b-44eb-8fc6-87027dbf8a68",
+                     "text": "Mounier, A., & Mirazón Lahr, M.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cff99ec5-cb25-40ef-b2ee-410a75e73a6e",
+                     "text": "National Geographic Education",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "27864fd8-e7f7-4a2f-85c7-e1453e3c5234",
+                     "text": "Abdul Karim Khan",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
+                     "text": "González Redondo, Francisco A., 00:41:51",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "dd34414b-8f55-4e5e-877a-c0e111e871be",
+                     "text": "Wang, Richard J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eda6e242-751a-46b3-b5f7-0c4489d9b374",
+                     "text": "History Tracers Team",
+                     "page": "Origen",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"originmigration\" src=\"images/Mapswire/mapswire-world-political-white-equal_earth_journey.png\" class=\"imgcenter\" onclick=\"htImageZoom('originmigration', '0%')\" />Figura 1: Mapa de la migración humana <span id=\"OriginHTMW\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al tener el mismo origen, si un grupo de personas fuera considerado \"mejor\" que otros, hasta el punto de hacer una cultura \"superior\", esto debería estar reflejado en la genética de esas personas. Sin embargo, los estudios más recientes sobre nuestra especie muestran que simplemente no hay diferencias significativas que justifiquen la existencia de razas (<htcite0>; <htcite1>). El hecho de que no sea posible encontrar cambios genéticos significativos que justifiquen la división en razas nos lleva a una nueva reflexión:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Factores externos</b><br /><br />No tenemos, internamente, algo que permita a un grupo sentirse superior a otro.<br /><br />¿Consideras esto suficiente? ¿O habría factores externos que aún no se han considerado?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_culture",
+         "text": [
+            {
+               "text": "### Cultura vs. Civilización\n\nExisten diversas definiciones del concepto de cultura. Hasta hoy, muchos aún se basan en la definición clásica formulada en el siglo XIX, según el calendario gregoriano, por el antropólogo Edward Burnett Tylor",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                     "text": "White, L. A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "8",
+                        "day": "5"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><ul class=\"citation\"><li><i>\"Cultura... un todo complejo que incluye conocimiento, creencias, arte, leyes, costumbres y cualquier otra capacidad y hábito adquiridos por el hombre como miembro de una sociedad.\"</i></li> </ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Sin embargo, esta definición ha sido refinada con el avance de la antropología. En <htdate0>, por ejemplo, A. L. Kroeber y Clyde Kluckhohn presentaron 164 definiciones diferentes para el término. Esta multiplicidad de interpretaciones evidencia la complejidad del concepto de cultura y su relación con la civilización",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                     "text": "White, L. A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "8",
+                        "day": "5"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1952",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "Thorsten Botz-Bornstein llama la atención sobre más de 250 años de confusión entre los términos \"cultura\" y \"civilización\" (<htcite0>). Destaca que, aunque algunos autores han considerado ambos conceptos como distintos, Tylor terminó por descartar esta distinción, eliminando la idea de que la cultura sería inferior a la civilización.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
+                     "text": "Botz-Bornstein, Thorsten, pp. 11 - 13",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "No obstante, como señala Botz-Bornstein en su obra, tratar cultura y civilización como equivalentes no se convirtió en una regla universal (<htcite0>). La supuesta diferencia entre ambos conceptos fue utilizada frecuentemente para justificar conflictos, especialmente durante las guerras mundiales del siglo XX, según el calendario gregoriano.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
+                     "text": "Botz-Bornstein, Thorsten, pp. 13 - 25",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Tanto en el artículo de Leslie A. White como en el trabajo de Thorsten Botz-Bornstein, queda claro que no hay cultura sin civilización (<htcite0>; <htcite1>). Desde los inicios de la cultura, hace miles de años, estos dos conceptos han estado intrínsecamente ligados a nuestra especie, a pesar de los intentos arbitrarios de separarlos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                     "text": "White, L. A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "8",
+                        "day": "5"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
+                     "text": "Botz-Bornstein, Thorsten",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_selfdeclaration",
+         "text": [
+            {
+               "text": "### Autodeclaración de superioridad\n\nDebido a la falta de documentación exhaustiva sobre todas las poblaciones, nos centraremos en dos casos conocidos. Sin embargo, los ejemplos aquí presentados posiblemente no sean los únicos existentes.\n\n#### Griegos\n\nQuizás el caso más conocido para los occidentales sea el de los griegos. Como demostró Hyun Jin Kim, entre las últimas décadas del siglo VI y las primeras décadas del siglo V a.E.C. (según el calendario gregoriano), se desarrolló entre los jonios la antítesis entre griegos y bárbaros, que posteriormente se extendió por toda Grecia",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "223b0a94-010d-494b-8cfc-8dfb77c961b0",
+                     "text": "Kim, H. J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgAthens\" onclick=\"htImageZoom('imgAthens', '0%')\" src=\"images/Athens/Erechtheion.jpg\" class=\"imgcenter\"/>Figura 2: Templo Erechtheion en Atenas, Grecia (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('38444844-0e52-4748-89f7-025ebd713e10'); return false;\"><i>The Acropolis Museum</i></a>). Foto tomada en <htdate0> durante una visita al sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2019",
+                     "month": "8",
+                     "day": "31"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### China\n\nDe forma independiente a Grecia, se observa en China un fenómeno similar. El momento exacto en que surgió esta idea también ha sido objeto de estudios profundos, con conclusiones variadas.\n\nYuri Pines, al analizar textos antiguos chinos, aborda la dicotomía \"chino-bárbaros\". Comienza con la compleja identificación de lo que en Occidente llamamos \"China\", pasando por el período preimperial hasta llegar al imperio chino. En el período preimperial, algunos textos no expresaban ideas raciales, como pueden concluyr algunos estudiosos y lectores. Sin embargo, a partir del período imperial, la idea de superioridad china se hizo evidente en parte de la población imperial, culminando siglos después en la construcción de la Gran Muralla y en el abandono de la idea de universalización cultural",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bbffa480-a748-4c03-bc37-6f1082136d3b",
+                     "text": "Pines, Y.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2005",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img class=\"imgcenter\" src=\"images/UNESCO/site_0438_0002.jpg\" id=\"imgCW\" onclick=\"htImageZoom('imgCW', '0%')\"/>Figura 3: Gran Muralla China. Fotografía tomada por Giovanni Boccardi y disponible en el sitio web de la UNESCO (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('674939ef-1f42-4c1d-a614-17bd22aba67e'); return false;\">UNESCO</a>). Compartido bajo la licencia <a href=\"https://whc.unesco.org/en/licenses/6\" target=\"_blank\">Creative Commons Attribution-ShareAlike 3.0 IGO</a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Puntos comunes\n\nLas autodeclaraciones de superioridad de los griegos y los chinos presentan al menos dos puntos en común, como es posible observar en los trabajos de Hyun Jin Kim y Yuri Pines",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "223b0a94-010d-494b-8cfc-8dfb77c961b0",
+                     "text": "Kim, h. j.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "bbffa480-a748-4c03-bc37-6f1082136d3b",
+                     "text": "Pines, y., p. 21",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2005",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><ul> <li><b>Declaración de superioridad:</b> Ambas culturas llegaron a esta conclusión al elegir características propias como superiores. No hay evidencias de que características biológicas o físicas justifiquen esta supuesta superioridad, ni siquiera en una comparación directa entre las dos culturas.</li> <li><b>Guerras:</b> Tanto griegos como chinos libraron guerras contra sus vecinos. Una posible unificación en una única cultura podría haber evitado conflictos, pero la historia muestra que las expansiones frecuentemente resultaron en más guerras.</li> </ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Basándonos en lo expuesto, podemos continuar la reflexión y construir nuestro conocimiento:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Sobre conocimientos</b><br /><br />¿Sabías que griegos y chinos compartían la idea de superioridad, a pesar de haber llegado a esta conclusión de forma aislada?<br /><br />¿Crees que lo sabes todo sobre estas dos civilizaciones?<br /><br />¿El desconocimiento de otras culturas puede llevarnos a conclusiones erróneas?<br /><br />Salgamos un poco del tema cultural, pero aplicando la misma lógica: ¿alguna vez has probado un alimento que considerabas malo, pero cambiaste de opinión al probarlo?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Nos gustaría cerrar esta subsección con una frase de Leslie A. White mencionada en su artículo, que resume perfectamente la relación entre las culturas abordada aquí: \"Cultura es contagiosa\"",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                     "text": "White, L. A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "8",
+                        "day": "5"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_origin",
+         "text": [
+            {
+               "text": "### El Origen de los Elementos Culturales\n\nUn equívoco común al comparar culturas es ignorar cómo una determinada cultura fue construida. Frecuentemente, las culturas absorben elementos de otras, creando un intercambio que enriquece y transforma sus propias tradiciones. En esta sección, nos enfocaremos en la cultura griega, ya que no conocemos los detalles sobre la creación de elementos de la cultura china.\n\nEs indiscutible la influencia de la cultura griega en la formación de la civilización occidental. Sin embargo, muchos de los elementos atribuidos a los griegos no fueron creados por ellos, sino adaptados a partir de otras culturas. Los griegos supieron aprovechar el conocimiento de otros pueblos, integrándolo de manera única en su propia tradición.\n\n#### El Alfabeto\n\nEl alfabeto griego, por ejemplo, fue desarrollado con base en el alfabeto fenício. Los fenícios son frecuentemente considerados los precursores del sistema de escritura adoptado por los griegos, quienes lo adaptaron y expandieron para satisfacer sus necesidades",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "03cede22-8d42-40ab-8eeb-2fd8df5415cd",
+                     "text": "Britannica, T. Editors of Encyclopaedia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "11",
+                        "day": "20"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "977bd44c-ed89-4a56-8a69-348549b68f44",
+                     "text": "Thamis",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### La Matemática\n\nEn el ámbito de la matemática, el famoso teorema atribuido a Pitágoras ya era conocido por los babilonios mucho antes de ser formalizado por los griegos. Descubrimientos arqueológicos recientes confirman que los babilonios utilizaban conceptos similares al \"triángulo de Pitágoras\" en sus cálculos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5488872a-27c1-4ea8-8580-2ecc5aeb0cbf",
+                     "text": "Mansfield, D. F.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f140d8d6-80cc-4d82-b9f7-c3ba06bf2ed3",
+                     "text": "History Tracers Team",
+                     "page": "Atlas",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### La Religión\n\nEn la religión, la diosa Afrodita pudo haber sido influenciada por la diosa sumeria *Inanna*, conocida como *Ishtar* en Babilonia. Esta influencia habría llegado a los griegos a través de los fenicios, y no se detuvo allí. Estas creencias continuaron transformándose y diseminándose, llegando incluso a influir en creencias actuales",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "47bb57e9-73ff-4892-a2ac-0010e483a0ba",
+                     "text": "Marcovich, M.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1996",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "Nos limitamos a estos tres ejemplos para ilustrar cómo la cultura griega fue influenciada por otras civilizaciones. Esto demuestra que ninguna cultura surge de forma aislada, sino a partir de un complejo proceso de intercambios y adaptaciones.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: Sobre los Orígenes</b><br /><br />La cultura griega fue influenciada por otras civilizaciones, así como también ejerció una influencia sobre otras. Si consideramos las culturas como diferentes pero interconectadas, y buscamos aprender de sus particularidades, ¿no estaríamos promoviendo un escenario menos conflictivo que la imposición cultural por medio de guerras?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_misunderstanding",
+         "text": [
+            {
+               "text": "### Desentendimientos\n\nA pesar del vasto conocimiento acumulado hasta la actualidad, sigue siendo común encontrar comentarios en redes sociales o conversaciones cotidianas que evidencian cómo los temas abordados en este texto continúan impactando a las personas. En esta sección, analizaremos algunos equívocos que conducen a interpretaciones distorsionadas sobre los orígenes culturales y la creencia en falsas superioridades.\n\n#### Inexistencia de algo\n\nEl desconocimiento de las tecnologías utilizadas por determinadas culturas puede llevar a conclusiones erróneas. Un claro ejemplo es la visión eurocéntrica que reduce las civilizaciones indígenas de las Américas (*Abya Yala*) a sociedades que \"vivían en la Edad de Piedra\". Esta perspectiva ignora los avances tecnológicos y culturales de estos pueblos, además de evidenciar una falta de comprensión sobre antropología y arqueología. Como se destaca en el texto *Cronología*, diferentes regiones tienen tiempos arqueológicos distintos, y existen evidencias del uso de diversos metales en Sudamérica (*Abya Yala*)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cff9edbf-cd50-44cd-8ef7-54197d68c82b",
+                     "text": "History Tracers Team",
+                     "page": "Cronología",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "Durante el período inicial de la colonización, el etnocentrismo —la práctica de evaluar otras culturas desde la propia— llevó a clasificaciones erróneas sobre sociedades nunca antes visitadas por los europeos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                     "text": "White, L. A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "8",
+                        "day": "5"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Supuestos orígenes\n\nLa **Figura 1**, presentada en la parte superior de esta página, fue elaborada a partir de investigaciones científicas publicadas y revisadas a lo largo de los siglos. Gracias a estos avances, hoy sabemos que las poblaciones humanas, aunque comparten un origen común en África, estuvieron separadas durante milenios. Este aislamiento solo se rompió en los últimos siglos, lo que explica la existencia de distintas cunas civilizatorias que se desarrollaron de manera independiente, como se ha discutido en textos anteriores de esta sección",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2be849f1-551b-44eb-8fc6-87027dbf8a68",
+                     "text": "Mounier, A., & Mirazón Lahr, M.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "867968ea-62d6-4a8a-b3a0-8b82c76d86bf",
+                     "text": "History Tracers Team",
+                     "page": "História General",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
+                     "text": "González Redondo, Francisco A.",
+                     "page": "00:41:51",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMWPWEEC\" onclick=\"htImageZoom('imgMWPWEEC', '0%')\" src=\"images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png\" class=\"imgcenterlarge\"/>Figura 4: Cunas civilizatorias. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Compartida bajo la licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Sin embargo, algunas personas insisten en establecer conexiones entre sociedades distintas sin respaldo en evidencias arqueológicas o genéticas, basándose en comparaciones superficiales. Un ejemplo de ello son las pirámides encontradas en las Américas y en Egipto, que, pese a sus similitudes visuales, no presentan ninguna conexión histórica o cultural comprobada",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c00ac25c-8ea5-4463-95ac-f681cc1ee13c",
+                     "text": "White, L. A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "8",
+                        "day": "5"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCaralPiramideH1\" onclick=\"htImageZoom('imgCaralPiramideH1', '0%')\" src=\"images/Caral/CaralPiramideH1.jpg\" class=\"imgcenter\"/>Figura 5: Pirámide H1 en el sitio arqueológico de Caral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <htdate1></a>). Foto tomada en <htdate2> durante una visita al sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2017",
+                     "month": "6",
+                     "day": "13"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Algunos de los puntos discutidos en esta subsección ya han sido abordados en los textos *Orígenes* y en el primer apéndice de la sección *Interpretación de Textos*. Estos equívocos surgen de la lectura descontextualizada de textos antiguos, especialmente del Mediterráneo, sin considerar que el significado y el alcance de las palabras cambian con el tiempo. Esto puede llevar a generalizaciones infundadas sobre eventos descritos en contextos locales",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2806b294-0d2a-4ca2-8008-b2b82791427a",
+                     "text": "History Tracers Team",
+                     "page": "Interpretando Textos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eda6e242-751a-46b3-b5f7-0c4489d9b374",
+                     "text": "History Tracers Team.",
+                     "page": " Orígenes",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Intento de dominación\n\nEntre todos los problemas derivados de la mala interpretación de las culturas, quizá el más grave sea el uso de estos equívocos como justificación para la guerra. Atribuir inferioridad a un pueblo facilita su deshumanización, haciendo más aceptable su agresión y dominación. Este fenómeno fue ampliamente observado durante la colonización de las Américas (*Abya Yala*)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "323fe559-9c25-4893-9da7-97ca43d9202e",
+                     "text": "Botz-Bornstein, Thorsten, pp. 20 - 21",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e46a809d-bea1-4107-8b21-86a87b3fbaaa",
+                     "text": "History Tracers Team",
+                     "page": "¿Quién dijo que los indígenas son diferentes?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nA lo largo de este texto, hemos visto cómo la definición de cultura ha experimentado transformaciones con el tiempo y cómo está intrínsecamente ligada al concepto de civilización.\n\nTambién analizamos que las llamadas ‘superioridades culturales’ no tienen ninguna base genética. A menudo, los grupos humanos seleccionan ciertas características para diferenciarse, con el propósito de alcanzar objetivos específicos.\n\nEste es el último texto de este capítulo. En los próximos, continuaremos abordando a todas las personas de manera igualitaria, pero destacando las divisiones que la humanidad ha construido a lo largo de la historia.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿Se pueden usar factores genéticos para afirmar que un grupo de personas es superior a otro?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "En realidad, lo que observamos es exactamente lo contrario. Las diferencias genéticas en nuestra especie son tan mínimas que no existe ninguna base científica para afirmar que un grupo de personas es superior a otro."
+      },
+      {
+         "question": "¿La cultura griega se desarrolló de forma completamente independiente de otras culturas?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Los datos arqueológicos demuestran que los griegos absorbieron conocimientos y aspectos culturales de otros pueblos. Del mismo modo, diversas culturas incorporaron elementos de la civilización griega."
+      },
+      {
+         "question": "¿Los conceptos de cultura y civilización están interconectados?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como hemos visto a lo largo de este texto, aunque algunos investigadores han intentado separar los conceptos de cultura y civilización —llegando incluso a considerar la cultura como inferior a la civilización—, estos términos están intrínsecamente conectados."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
 }

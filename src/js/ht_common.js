@@ -28,6 +28,7 @@ var htAtlas = [];
 var loadedIdx = [];
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
+var htHistoryIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htMathGamesIdx = new Map();
 var htIndigenousWhoIdx = new Map();
@@ -92,13 +93,87 @@ function htEnableEdition() {
     */
 }
 
+
+//
+//    Navigation Section
+//
+
 function htScroolToID(id) {
     $('html, body').scrollTop($(id).offset().top);
 }
 
+function htImageZoom(id, translate) {
+    var $element = $("#" + id);
+    var isZoomed = $element.hasClass("zoomed");
+
+    if (!isZoomed) {
+        var scale = (window.innerWidth < 800) ? 1.5 : 2.0;
+        $element.css("transform", "scale(" + scale + ") translate(" + translate + ")");
+    } else {
+        $element.css("transform", "scale(1) translate(0, 0)");
+    }
+
+    $element.toggleClass("zoomed");
+}
+
+
+//
+//    Reset Section
+//
+
 function htResetGenealogicalStats() {
     return { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "social_media_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
 }
+
+function htResetAllIndexes()
+{
+    loadedIdx = [];
+    const indexMaps = [
+        htHistoryIdx,
+        htLiteratureIdx,
+        htHistoryIdx,
+        htFirstStepsIdx,
+        htMathGamesIdx,
+        htFamilyIdx,
+        htIndigenousWhoIdx,
+        htMythsBelievesIdx,
+        htHistoricalEventsIdx,
+        htBiologyIdx,
+        htChemicalIdx,
+        htPhysicsIdx
+    ];
+
+    indexMaps.forEach(map => {
+        if (map && typeof map.clear === 'function') {
+            map.clear();
+        }
+    });
+}
+
+function htResetAnswers(vector)
+{
+    if (!Array.isArray(vector)) {
+        return;
+    }
+
+    const exerciseCount = vector.length;
+
+    for (let i = 0; i < exerciseCount; i++) {
+        const exerciseId = i;
+
+        $(`#answer${exerciseId}`).text('');
+        $(`input[name="exercise${exerciseId}"]`).prop('checked', false);
+
+        $(`#explanation${exerciseId}`).css({
+            display: 'none',
+            visibility: 'hidden'
+        });
+    }
+}
+
+//
+//    Reflection Section
+//
 
 function htAddTreeReflection(elementId, keywordIndex)
 {
@@ -147,6 +222,130 @@ function htAddPaperDivs(generalID, id, text, before, later, i)
     $(generalID).append(div);
 }
 
+//
+//    Print Section
+//
+
+function htFillSourceContentToPrint(text, map, id)
+{
+    if (map.size == 0 || text.size == 0) {
+        return text;
+    }
+
+    var mention = "";
+    map.forEach((value, key) => {
+        var textDate = "";
+        if (value.date != undefined && value.date != null && value.date.length > 0) {
+            var dateVector = value.date.split("-");
+            textDate = htFillHTDate(dateVector);
+        } else if (value.date_time != undefined && value.date_time != null && value.date_time.length > 0) {
+            var dateVector = value.date_time.split("-");
+            textDate = htFillHTDate(dateVector);
+        }
+        var urlValue = (value.url != undefined && value.url != null && value.url.length > 0) ? urlValue = keywords[23]+"  "+value.url : "";
+        var dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
+        mention += "<p>"+value.citation+" "+dateValue +" "+urlValue+"</p>";
+    });
+
+    const replacement = `<div id="${id}" class="cited-text">${mention}</div>`;
+    return text.replace(`<div id="${id}" class="cited-text"></div>`, replacement);
+}
+
+function htPrintContent(header, body)
+{
+    try {
+        if (!header || !body) {
+            throw new Error('Header and body selectors are required');
+        }
+
+        const $header = $(header);
+        const $body = $(body);
+        const $sources = $(".right-sources");
+
+        if (!$header.length || !$body.length || !$sources.length) {
+            throw new Error('Required elements not found in the DOM');
+        }
+
+        const pageHeader = $header.html();
+        const pageBody = $body.html();
+        let pageCitation = $sources.html();
+
+        // Process all source maps
+        const sourceMaps = [
+            { map: primarySourceMap, id: 'tree-source' },
+            { map: refSourceMap, id: 'tree-ref' },
+            { map: holyRefSourceMap, id: 'tree-holy-ref' },
+            { map: smSourceMap, id: 'tree-sm-ref' }
+        ];
+
+        sourceMaps.forEach(({ map, id }) => {
+            pageCitation = htFillSourceContentToPrint(pageCitation, map, id);
+        });
+
+        // Create print document with proper HTML structure
+        const printDocument = `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Document</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cited-text {
+            margin-top: 30px;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+        @media print {
+            body { margin: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>${pageHeader}</h1>
+    <div>${pageBody}</div>
+    <div class="cited-text">${pageCitation}</div>
+</body>
+</html>`;
+
+        // Open print window
+        const printWindow = window.open('', 'PRINT', 'height=600,width=800');
+
+        if (!printWindow) {
+            throw new Error('Popup blocked. Please allow popups for this site.');
+        }
+
+        printWindow.document.write(printDocument);
+        printWindow.document.close();
+
+        // Wait for content to load before printing
+        printWindow.onload = function() {
+            printWindow.focus();
+
+            // Add slight delay to ensure content is rendered
+            setTimeout(() => {
+                printWindow.print();
+            }, 250);
+        };
+
+    } catch (error) {
+        console.error('Printing failed:', error);
+        alert('Printing failed: ' + error.message);
+    }
+}
+
+//
+//    Date Section
+//
+
 function htShowDateRef()
 {
     var src = "John Walker - Fourmilab . [ Accessed on Apr 26, 2024 ]. Retrieved from <a href=\"https://www.fourmilab.ch/documents/calendar/\" target=\"_blank\">https://www.fourmilab.ch/documents/calendar/</a>"
@@ -162,72 +361,28 @@ function htUpdateCurrentDateOnIndex()
     $("#current_day").html(keywords[42]+" "+text+" <sup><a href=\"#\" onclick=\"htCleanSources(); htShowDateRef();  return false;\">Walker, J.</a></sup>");
 }
 
-function htFillSourceContentToPrint(text, map, id)
-{
-    if (map.size == 0 || text.size == 0) {
-        return text;
-    }
-
-    var mention = "";
-    for (let [key, value] of map) {
-        var dateValue = "";
-        if (value.date != undefined && value.date != null && value.date.length > 0) {
-            var dateVector = value.date.split("-");
-            var textDate = htFillHTDate(dateVector);
-            dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
-        } else if (value.date_time != undefined && value.date_time != null && value.date_time.length > 0) {
-            var dateVector = value.date_time.split("-");
-            var textDate = htFillHTDate(dateVector);
-            dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
-        }
-        var urlValue = "";
-        if (value.url != undefined && value.url != null && value.url.length > 0) {
-            urlValue = keywords[23]+"  "+value.url;
-        }
-        mention += "<p>"+value.citation+" "+dateValue +" "+urlValue+"</p>";
-    }
-
-    text = text.replace("<div id=\""+id+"\" class=\"cited-text\"></div>", "<div id=\""+id+"\" class=\"cited-text\">"+mention+"</div>");
-    return text;
-}
-
-function htPrintContent(header, body)
-{
-    // Code inspired by https://jsfiddle.net/gFtUY/
-    var pageHeader = $(header).html();
-    var pageBody = $(body).html();
-    var pageCitation = $(".right-sources").html();
-
-    pageCitation = htFillSourceContentToPrint(pageCitation, primarySourceMap, 'tree-source');
-    pageCitation = htFillSourceContentToPrint(pageCitation, refSourceMap, 'tree-ref');
-    pageCitation = htFillSourceContentToPrint(pageCitation, holyRefSourceMap, 'tree-holy-ref');
-    pageCitation = htFillSourceContentToPrint(pageCitation, smSourceMap, 'tree-sm-ref');
-
-    var printMe = "<p><h1><center>" + pageHeader + "</center></h1></p><p>" + pageBody + "</p><p>" + pageCitation + "</p>";
-    var printScreen = window.open('', 'PRINT');
-
-    printScreen.document.write(printMe);
-
-    printScreen.document.close();
-
-    printScreen.window.focus();
-    printScreen.window.print();
-}
-
 function htAdjustGregorianZeroYear(text)
 {
-    var parsed = text.split(" ");
-    var finalText = parsed[0] +" ";
-    var end = parsed.length - 1;
-    for (let i = 1; i < end; i++) {
-        finalText += parsed[i] +" ";
+    if (typeof text !== 'string' || !text.trim()) {
+        return text || '';
     }
 
-    return finalText + "0";
+    const parts = text.trim().split(/\s+/);
+    if (parts.length <= 1) {
+        return '0';
+    }
+
+    parts[parts.length - 1] = '0';
+    return parts.join(' ');
 }
 
-function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
+function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDate)
 {
+    if (!calendarType || !locale) {
+        console.error('Missing required parameters: calendarType and locale');
+        return '';
+    }
+
     var ct = undefined;
     var intEpoch = undefined;
     var jd = undefined;
@@ -249,13 +404,14 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
     } else {
         return;
     }
+
     ct.toLocaleString(locale, { timeZone: 'UTC' })
     var julianDays = gregorian_to_jd(jd[0], jd[1], jd[2]);
 
     var text = "";
     var year = " "+keywords[43];
     var mesoamericanPeriod = 0;
-    switch(test) {
+    switch(calendarType) {
         case "gregory":
         case "hebrew":
         case "islamic":
@@ -289,7 +445,7 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
         case "hispanic":
             intEpoch += 1199188800;
         default:
-            test = "gregory";
+            calendarType = "gregory";
             break;
     }
 
@@ -297,9 +453,9 @@ function htConvertDate(test, locale, unixEpoch, julianEpoch, gregorianDate)
         ct.setUTCSeconds(intEpoch);
     }
 
-    text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: test }).format(ct);
+    text = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', calendar: calendarType }).format(ct);
 
-    if (test == "gregory") { 
+    if (calendarType == "gregory") { 
         var yearValue = ct.getFullYear();
         if (yearValue < 0) {
             text += " "+keywords[43];
@@ -368,13 +524,13 @@ function htConvertGregorianYear(test, gregoryYear)
                 return text;
             case "french":
                 var frCals = jd_to_french_revolutionary(jd);
-                year = (frCals[0] < 0 ) ? mod(frCals[0]) + keywords[43] : frCals[0]; 
+                year = (frCals[0] < 0 ) ? Math.abs(frCals[0]) + " "+ keywords[43] : frCals[0]; 
     
                 text = "" + year;
                 return text;
             case "shaka":
                 var indianCal = jd_to_indian_civil(jd);
-                year = (indianCal[0] < 0 ) ? mod(indianCal[0]) + year : indianCal[0]; 
+                year = (indianCal[0] < 0 ) ? Math.abs(indianCal[0]) + " "+  keywords[43] : indianCal[0]; 
     
                 text = ""+year;
                 return text;
@@ -416,8 +572,202 @@ function htConvertJulianDate(test, locale, julianEpoch)
     return htConvertDate(test, locale, undefined, julianEpoch, undefined);
 }
 
-function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
-    if (last_update <= 0) {
+//
+//    Mount Page Section
+//
+
+function htFillHistorySourcesSelectFunction(id)
+{
+    const map = {
+        0: "htFillPrimarySource",
+        1: "htFillReferenceSource",
+        2: "htFillHolySource",
+        3: "htFillSMSource"
+    };
+
+    return map[id] || map[3];
+}
+
+function htSelectIndexMap(index)
+{
+    const map = {
+        history: htHistoryIdx,
+        literature: htLiteratureIdx,
+        first_steps: htFirstStepsIdx,
+        math_games: htMathGamesIdx,
+        families: htFamilyIdx,
+        indigenous_who: htIndigenousWhoIdx,
+        myths_believes: htMythsBelievesIdx,
+        historical_events: htHistoricalEventsIdx,
+        physics: htPhysicsIdx,
+        chemistry: htChemicalIdx,
+        biology: htBiologyIdx
+    };
+
+    return map[index];
+}
+
+function htSelectIndexName(index) {
+    const map = {
+        families: keywords[8],
+        first_steps: keywords[121],
+        atlas: "Atlas",
+        literature: keywords[122],
+        indigenous_who: keywords[123],
+        myths_believes: keywords[124],
+        history: keywords[125],
+        math_games: keywords[126],
+        physics: keywords[127],
+        chemistry: keywords[128],
+        biology: keywords[129],
+        historical_events: keywords[130]
+    };
+
+    return map[index] || "Undefined";
+}
+
+function htUpdateNavigationTitle(currentIdx, title, indexName)
+{
+    var pageHeader = $("#header").html();
+
+    if (currentIdx == 0) {
+        $("#header").removeClass();
+        $("#header").removeAttr("style");
+        $("#header").addClass("top-bar-inside-left");
+        pageHeader = title+" ("+indexName+")";
+    } else {
+        const ww = window.innerWidth;
+        var fontSize = 0;
+        if (ww < 992) {
+            fontSize = 0.8;
+        } else if (ww < 1200) {
+            fontSize = 1.0;
+        } else {
+            fontSize = 1.2;
+        }
+
+        $("#header").css("font-size", fontSize+"em");
+        $("#header").css("font-weight", "bold");
+        pageHeader += "; "+title+" ("+indexName+")";
+    }
+
+    $(header).html(pageHeader);
+}
+
+function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
+{
+    var prev = "";
+    var pageName = "";
+    var selector = "";
+    if (ptr.prev == index) {
+        prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></a>";
+    } else {
+        var prevPtr = idx.get(ptr.prev);
+        selector = ptr.prev.split(":");
+        pageName = (index == "families" || prevPtr.additional != undefined) ? "tree" : "class_content";
+        var lprev = "";
+        if (prevPtr.additional != undefined) {
+            lprev = (prevPtr.additional.length > 1) ? selector[0]+"&person_id="+prevPtr.additional: selector[0];
+        } else {
+            lprev = selector[0];
+        }
+
+        prev = "<a href=\"index.html?page="+pageName+"&arg="+lprev+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lprev+"', false); return false;\">"+prevPtr.name+"</a>";
+    }
+
+    var next = "";
+    if (ptr.next == undefined) {
+        next = "&nbsp;";
+    } else {
+        var nextPtr = idx.get(ptr.next);
+        selector = ptr.next.split(":");
+        pageName = (index == "families" || nextPtr.additional != undefined) ? "tree" : "class_content";
+
+        var lnext = "";
+        if (nextPtr.additional != undefined) {
+            lnext = (nextPtr.additional.length > 1) ? selector[0]+"&person_id="+nextPtr.additional: selector[0];
+        } else {
+            lnext = selector[0];
+        }
+
+        next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
+    }
+
+    var navigation = "<tr style=\"background-color: "+bgColor+";\"><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+idxName+"</span></td><td>"+next+"</td></tr>";
+
+    return navigation;
+}
+
+function htBuildNavigation(index, currentIdx, initialBgColor)
+{
+    var urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('arg')) {
+        return null;
+    }
+
+    var arg = urlParams.get('arg');
+
+    var idx = htSelectIndexMap(index);
+
+    var ptr = idx.get(arg);
+    if (ptr == undefined) {
+        return "";
+    }
+
+    var idxName = htSelectIndexName(index);
+    htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
+    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
+
+    if (loadedIdx.length == 1) {
+        return navigation;
+    }
+
+    var end = ptr.total+2;
+    for (let i = 0; i < end; i++) {
+        var color = (i % 2) ? "#FFFFE0" : initialBgColor;
+        var j = ptr.total+1;
+        var next = arg+":"+j;
+        ptr = idx.get(next);
+        if (ptr == undefined) {
+            break;
+        }
+        htUpdateNavigationTitle(j+1, ptr.name, idxName);
+        navigation += htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
+    }
+
+    return navigation;
+}
+
+function htWriteNavigation()
+{
+    if (loadedIdx.length == 0) {
+        return;
+    }
+    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
+    for (const i in loadedIdx) {
+        var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
+        navigation += htBuildNavigation(loadedIdx[i], i, color);
+    }
+    navigation += "</table></p>";
+    $(".dynamicNavigation").attr('data-after-content', keywords[132]);
+    $(".dynamicNavigation").each(function() {
+        $(this).html(navigation);
+    });
+}
+
+function htFillPIXQRCode(id, size) {
+    var $element = $(id);
+
+    if ($element.is(':empty')) {
+        $('<img>', {
+            src: 'images/HistoryTracers/qrcodePix.png',
+            width: size
+        }).appendTo($element);
+    }
+}
+
+function htFillDivAuthorsContent(target, lastUpdate, authors, reviewers) {
+    if (lastUpdate <= 0 || !target) {
         return;
     }
 
@@ -425,76 +775,101 @@ function htFillDivAuthorsContent(target, last_update, authors, reviewers) {
         return;
     }
 
-    var dateDiv = "<p><div id=\"paper-title\" class=\"paper-title-style\"><div id=\"paper-date\" class=\"paper-date-style\">";
-    var local_lang = $("#site_language").val();
-    var local_calendar = $("#site_calendar").val();
-    var text = htConvertDate(local_calendar, local_lang, last_update, undefined, undefined);
+    const $target = $(target);
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
 
-    if (keywords.length > 33) {
-        dateDiv += keywords[34] + " : " + authors + ".<br />";
+    const formattedDate = htConvertDate(localCalendar, localLang, lastUpdate);
+
+    let content = `
+        <p>
+            <div id="paper-title" class="paper-title-style">
+                <div id="paper-date" class="paper-date-style">
+    `;
+
+    if (keywords) {
+        content += `${keywords[34]} : ${authors}.<br />`;
+        content += `${keywords[36]} : ${reviewers}.<br />`;
+        content += `${keywords[33]} : ${formattedDate}.`;
     }
 
-    if (keywords.length > 35) {
-        dateDiv += keywords[36] + " : " + reviewers + ".<br />";
-    }
-    dateDiv += keywords[33] + " : " + text+ ".";
+    content += `
+                </div>
+                <div id="paper-print" class="paper-print-style">
+                    <a href="#" class="fa-solid fa-print" onclick="htPrintContent('#header', '#page_data'); return false;"></a>
+                </div>
+            </div>
+            <br />
+            <i>${keywords[24]} ${keywords[38]}</i>
+        </p>
+    `;
 
-    dateDiv += "</div><div id=\"paper-print\" class=\"paper-print-style\"><a href=\"#\" class=\"fa-solid fa-print\" onclick=\"htPrintContent('#header', '#page_data'); return false;\"></a></div></div><br /><i>"+keywords[24]+" "+keywords[38]+"</i></p>";
-
-    $(target).append(dateDiv);
+    $target.append(content);
 }
 
 function htLoadPageMountURL(page, arg, dir)
 {
-    var url = "lang/"; 
+    const baseUrl = "lang/";
 
-    var lang = $("#site_language").val();
-    // Use default language
-    if (lang == null || lang == undefined) {
+    let lang = $("#site_language").val();
+    if (!lang) {
         lang = htDetectLanguage();
     }
 
-    if (arg == "source") {
-        url += arg+"s/";
+    let url = baseUrl;
+
+    if (arg === "source") {
+        url += `${arg}s/`;
     } else {
-        url  += lang+"/";
+        url += `${lang}/`;
     }
 
-    if (dir.length != 0) {
-        url += dir+"/";
+    if (dir && dir.length > 0) {
+        url += `${dir}/`;
     }
 
-    url += page+".json";
+    url += `${page}.json`;
 
     return url;
 }
 
 function htOverwriteHTDateWithText(text, localDate, localLang, localCalendar) {
-    if (localDate == undefined  || localDate.length == 0) {
+    if (!localDate || !Array.isArray(localDate) || localDate.length === 0) {
         return text;
     }
 
-    var ret = text;
-    for (const i in localDate) {
-        var changed = ret.replace("<htdate"+i+">", htMountSpecificDate(localDate[i], localLang, localCalendar));
-        ret = changed;
+    if (typeof text !== 'string' || !localLang || !localCalendar) {
+        return text;
     }
 
-    return ret;
+    let result = text;
+    for (let i = 0; i < localDate.length; i++) {
+        const dateReplacement = htMountSpecificDate(localDate[i], localLang, localCalendar);
+        result = result.replace(`<htdate${i}>`, dateReplacement);
+    }
+
+    return result;
+}
+
+function htGetTextWithDateReplacements(localObj, localLang, localCalendar) {
+    if (localObj.date_time) {
+        return htOverwriteHTDateWithText(localObj.text, localObj.date_time, localLang, localCalendar);
+    } else if (localObj.fill_dates) {
+        return htOverwriteHTDateWithText(localObj.text, localObj.fill_dates, localLang, localCalendar);
+    }
+    return localObj.text || '';
 }
 
 function htParagraphFromObject(localObj, localLang, localCalendar) {
-    var format = (localObj.format == undefined) ? "html" : localObj.format;
-    var originalText = "";
-    if (localObj.fill_dates != undefined) {
-        originalText = htOverwriteHTDateWithText(localObj.text, localObj.fill_dates, localLang, localCalendar);
-    } else if (localObj.date_time != undefined) {
-        originalText = htOverwriteHTDateWithText(localObj.text, localObj.date_time, localLang, localCalendar);
-    } else {
-        originalText = localObj.text;
+    if (!localObj || typeof localObj !== 'object') {
+        return '<p></p>';
     }
 
-    var text = (format == "html") ? "<p>" : ""; 
+    const format = localObj.format || 'html';
+
+    let originalText = htGetTextWithDateReplacements(localObj, localLang, localCalendar);
+
+    let text = (format === 'html') ? '<p>' : '';
     text += htFormatText(originalText, format, localObj.isTable);
 
     if (localObj.source != undefined && localObj.source != null) {
@@ -529,10 +904,14 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
             text += citeSources+ ")";
         }
     }
-    text += (localObj.PostMention != undefined && localObj.PostMention.length > 0) ? localObj.PostMention : "";
+    text += (localObj.PostMention) ? localObj.PostMention : "";
     text += "</p>"; 
     return text;
 }
+
+//
+//    Scientific Method Game Section
+//
 
 function htFillSMGameData(data) {
     if (data == undefined || data.content.length == 0) { 
@@ -654,20 +1033,6 @@ function htFillSMGameData(data) {
     });
 }
 
-function htImageZoom(id, translate) {
-    var name = $("#"+id).prop("name");
-    if (name.length == 0) {
-        $("#"+id).attr("name", "zoomin");
-        var setScale = (window.innerWidth < 800) ? 1.5 : 2.0;
-        $("#"+id).css("transform", "scale("+setScale+")");
-        $("#"+id).css("translate", translate);
-    } else {
-        $("#"+id).attr("name", "");
-        $("#"+id).css("transform", "scale(1)");
-        $("#"+id).css("translate", "0%");
-    }
-}
-
 function htModifyAtlasIndexMap(id) {
     var next = parseInt(id) + 1;
     $("#atlasindex option[value="+next+"]").prop('selected', true);
@@ -774,11 +1139,10 @@ function htProccessData(data, optional) {
             break;
     }
 
-    if (data.fill_dates != undefined && data.fill_dates.constructor === vectorConstructor) {
-        htFillHTDate(data.fill_dates);
-    }
-    else if (data.date_time != undefined && data.date_time.constructor === vectorConstructor) {
+    if (data.date_time != undefined && data.date_time.constructor === vectorConstructor) {
         htFillHTDate(data.date_time);
+    } else if (data.fill_dates != undefined && data.fill_dates.constructor === vectorConstructor) {
+        htFillHTDate(data.fill_dates);
     }
 
     if ($("#family_common_sn").length > 0) {
@@ -787,11 +1151,18 @@ function htProccessData(data, optional) {
 
 }
 
-function htFillPIXQRCode(id, size) {
-    var htmlSize = $(id).html();
-    if (htmlSize.length == 0) {
-        $(id).html("<img src=\"images/HistoryTracers/qrcodePix.png\" width=\""+size+"\"/>");
-    }
+//
+//    Load Page Section
+//
+
+function htOnlyLoadHtml(appendPage, page, ext, unixEpoch) {
+        primarySourceMap.clear();
+        refSourceMap.clear();
+        holyRefSourceMap.clear();
+        smSourceMap.clear();
+
+        var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
+        $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 }
 
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {
@@ -830,9 +1201,11 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
 
             htProccessData(data, optional);
 
+            /*
             if (arg != source) {
                 htEnableEdition();
             }
+            */
 
             return false;
         },
@@ -895,14 +1268,8 @@ function htLoadPage(page, ext, arg, reload) {
     }
 
     var unixEpoch = Date.now();
-    if (ext == "html") {
-        primarySourceMap.clear();
-        refSourceMap.clear();
-        holyRefSourceMap.clear();
-        smSourceMap.clear();
-
-        var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
-        $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
+    if (ext === "html") {
+        htOnlyLoadHtml(appendPage, page, ext, unixEpoch);
 
         return false;
     }
@@ -1020,10 +1387,10 @@ function htFillStringOnPage(data, idx, page)
     if (data.content[idx].html_value != undefined && data.content[idx].html_value.length > 0 && data.content[idx].target == undefined) {
         var modifiedText = (data.content[idx].date_time == undefined) ? data.content[idx].html_value : htOverwriteHTDateWithText(data.content[idx].html_value, data.content[idx].date_time, localLang, localCalendar);
         $("#"+data.content[idx].id).append(modifiedText);
-    } else if (data.content[idx].id != undefined && data.content[idx].id == "fill_dates") {
+    } else if (data.content[idx].id != undefined && data.content[idx].id == "date_time") {
         htFillHTDate(data.content[idx].text);
         return;
-    } else if (data.content[idx].id != undefined && data.content[idx].id == "date_time") {
+    } else if (data.content[idx].id != undefined && data.content[idx].id == "fill_dates") {
         htFillHTDate(data.content[idx].text);
         return;
     }
@@ -1184,11 +1551,11 @@ function htFillWebPage(page, data)
                     htFillPaperContent(data.content[i].value, last_update, page_authors, page_reviewers, data.index);
                 }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].id != undefined) {
-                if (data.content[i].id != "fill_dates") {
+                if (data.content[i].id != "date_time") {
                     for (const j in data.content[i].value) {
                         $("#"+data.content[i].id).append(data.content[i].value[j]);
                     }
-                } else if (data.content[i].id != "date_time") {
+                } else if (data.content[i].id != "fill_dates") {
                     for (const j in data.content[i].value) {
                         $("#"+data.content[i].id).append(data.content[i].value[j]);
                     }
@@ -1262,19 +1629,23 @@ function htFillWebPage(page, data)
     htFillClassWithText(".htIndexText", keywords[60]);
 
     if ($("#family_common_sn").length > 0) {
-        $("#family_common_sn").html(keywords[52]);
+        htAddTreeReflection("#family_common_sn", 52);
     }
 
     if ($("#htZoomImageMsg").length > 0) {
-        $("#htZoomImageMsg").html(keywords[84]);
+        htAddTreeReflection("#htZoomImageMsg", 84);
     }
 
     if ($("#htChartMsg").length > 0) {
-        $("#htChartMsg").html(keywords[112]);
+        htAddTreeReflection("#htChartMsg", 112);
     }
 
     if ($("#htAmericaAbyaYalaMsg").length > 0) {
-        $("#htAmericaAbyaYalaMsg").html(keywords[85]);
+        htAddTreeReflection("#htAmericaAbyaYalaMsg", 85);
+    }
+
+    if ($("#htAgeMsg").length > 0) {
+        htAddTreeReflection("#htAgeMsg", 131);
     }
 
     if ($("#tree-common-stats").length <= 0) {
@@ -1291,209 +1662,6 @@ function htFillWebPage(page, data)
     var counter = 0;
     Object.values(genealogicalStats).forEach(val => {
         $(htmlValues[counter++]).html(val);
-    });
-}
-
-function htFillHistorySourcesSelectFunction(id)
-{
-    switch (id) {
-        case 0:
-            return "htFillPrimarySource";
-        case 1:
-            return "htFillReferenceSource";
-        case 2:
-            return "htFillHolySource";
-        case 3:
-        default:
-            return "htFillSMSource";
-    }
-}
-
-function htSelectIndexMap(index)
-{
-    if (index == "history") {
-        return htHistoryIdx;
-    } else if (index == "literature") {
-        return htLiteratureIdx;
-    } else if (index == "first_steps") {
-        return htFirstStepsIdx;
-    } else if (index == "math_games") {
-        return htMathGamesIdx;
-    } else if (index == "families") {
-        return htFamilyIdx;
-    } else if (index == "indigenous_who") {
-        return htIndigenousWhoIdx;
-    } else if (index == "myths_believes") {
-        return htMythsBelievesIdx;
-    } else if (index == "historical_events") {
-        return htHistoricalEventsIdx;
-    } else if (index == "physics") {
-        return htPhysicsIdx;
-    } else if (index == "chemistry") {
-        return htChemicalIdx;
-    } else if (index == "biology") {
-        return htBiologyIdx;
-    }
-
-    return undefined;
-}
-
-function htSelectIndexName(index) {
-    if (index == "families") {
-        return keywords[8];
-    } else if (index == "first_steps") {
-        return keywords[121];
-    } else if (index == "atlas") {
-        return "Atlas";
-    } else if (index == "literature") {
-        return keywords[122];
-    } else if (index == "indigenous_who") {
-        return keywords[123];
-    } else if (index == "myths_believes") {
-        return keywords[124];
-    } else if (index == "history") {
-        return keywords[125];
-    } else if (index == "math_games") {
-        return keywords[126];
-    } else if (index == "physics") {
-        return keywords[127];
-    } else if (index == "chemistry") {
-        return keywords[128];
-    } else if (index == "biology") {
-        return keywords[129];
-    } else if (index == "historical_events") {
-        return keywords[130];
-    }
-
-     return "Undefined";
-}
-
-function htBuildNavigationSteps(ptr, idx, index, idxName)
-{
-    var prev = "";
-    var pageName = "";
-    var selector = "";
-    if (ptr.prev == index) {
-        prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></a>";
-    } else {
-        var prevPtr = idx.get(ptr.prev);
-        selector = ptr.prev.split(":");
-        pageName = (index == "families" || prevPtr.additional != undefined) ? "tree" : "class_content";
-        var lprev = "";
-        if (prevPtr.additional != undefined) {
-            lprev = (prevPtr.additional.length > 1) ? selector[0]+"&person_id="+prevPtr.additional: selector[0];
-        } else {
-            lprev = selector[0];
-        }
-
-        prev = "<a href=\"index.html?page="+pageName+"&arg="+lprev+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lprev+"', false); return false;\">"+prevPtr.name+"</a>";
-    }
-
-    var next = "";
-    if (ptr.next == undefined) {
-        next = "&nbsp;";
-    } else {
-        var nextPtr = idx.get(ptr.next);
-        selector = ptr.next.split(":");
-        pageName = (index == "families" || nextPtr.additional != undefined) ? "tree" : "class_content";
-
-        var lnext = "";
-        if (nextPtr.additional != undefined) {
-            lnext = (nextPtr.additional.length > 1) ? selector[0]+"&person_id="+nextPtr.additional: selector[0];
-        } else {
-            lnext = selector[0];
-        }
-
-        next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
-    }
-
-    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr><tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></td><td>"+next+"</td></tr></table></p>";
-
-    return navigation;
-}
-
-function htUpdateNavigationTitle(currentIdx, title, indexName)
-{
-    var pageHeader = $("#header").html();
-
-    if (currentIdx == 0) {
-        $("#header").removeClass();
-        $("#header").removeAttr("style");
-        $("#header").addClass("top-bar-inside-left");
-        pageHeader = title+" ("+indexName+")";
-    } else {
-        const ww = window.innerWidth;
-        var fontSize = 0;
-        if (ww < 992) {
-            fontSize = 1.0;
-        } else if (ww < 1200) {
-            fontSize = 1.5;
-        } else {
-            fontSize = 2.0;
-        }
-
-        fontSize -= (0.75 * currentIdx);
-        if (fontSize < 0.8) {
-            fontSize = 0.8;
-        }
-        $("#header").css("font-size", fontSize+"em");
-        $("#header").css("font-weight", "bold");
-        pageHeader += "<br />"+title+" ("+indexName+")";
-    }
-
-    $(header).html(pageHeader);
-}
-
-function htBuildNavigation(index, currentIdx)
-{
-    var urlParams = new URLSearchParams(window.location.search);
-    if (!urlParams.has('arg')) {
-        return null;
-    }
-
-    var arg = urlParams.get('arg');
-
-    var idx = htSelectIndexMap(index);
-
-    var ptr = idx.get(arg);
-    if (ptr == undefined) {
-        return "";
-    }
-
-    var idxName = htSelectIndexName(index);
-    htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
-    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
-
-    if (loadedIdx.length == 1) {
-        return navigation;
-    }
-
-    var end = ptr.total+2;
-    for (let i = 0; i < end; i++) {
-        var j = ptr.total+1;
-        var next = arg+":"+j;
-        ptr = idx.get(next);
-        if (ptr == undefined) {
-            break;
-        }
-        htUpdateNavigationTitle(j+1, ptr.name, idxName);
-        navigation += htBuildNavigationSteps(ptr, idx, index, idxName);
-    }
-
-    return navigation;
-}
-
-function htWriteNavigation()
-{
-    if (loadedIdx.length == 0) {
-        return;
-    }
-    var navigation = "";
-    for (const i in loadedIdx) {
-        navigation += htBuildNavigation(loadedIdx[i], i);
-    }
-    $(".dynamicNavigation").each(function() {
-        $(this).html(navigation);
     });
 }
 
@@ -1587,22 +1755,6 @@ function htFillTopIdx(idx, data, first)
     }
 }
 
-function htResetAllIndexes()
-{
-    loadedIdx = [];
-    htHistoryIdx.clear();
-    htLiteratureIdx.clear();
-    htFirstStepsIdx.clear();
-    htMathGamesIdx.clear();
-    htFamilyIdx.clear();
-    htIndigenousWhoIdx.clear();
-    htMythsBelievesIdx.clear();
-    htHistoricalEventsIdx.clear();
-    htBiologyIdx.clear();
-    htChemicalIdx.clear();
-    htPhysicsIdx.clear();
-}
-
 function htLoadIndex(data, arg, page)
 {
     if (data != undefined && data.index != undefined) {
@@ -1626,6 +1778,9 @@ function htLoadIndex(data, arg, page)
         return;
     } else if (page == "literature" && htLiteratureIdx.has("literature") == false) {
         htFillTopIdx(htLiteratureIdx, data, "literature");
+        return;
+    } else if (page == "history" && htHistoryIdx.has("history") == false) {
+        htFillTopIdx(htHistoryIdx, data, "history");
         return;
     } else if (page == "families" && htFamilyIdx.has("families") == false) {
         htFillTopIdx(htFamilyIdx, data, "families");
@@ -1742,11 +1897,11 @@ function htFillMathKeywords(table) {
 function htFillFamilyList(table, target) {
     for (const i in table) {
         if (table[i].target == undefined) {
-            if (table[i].id != undefined && table[i].id == "fill_dates") {
+            if (table[i].id != undefined && table[i].id == "date_time") {
                 if (table[i].text.constructor === vectorConstructor) {
                     htFillHTDate(table[i].text);
                 }
-            } else if (table[i].id != undefined && table[i].id == "date_time") {
+            } else if (table[i].id != undefined && table[i].id == "fill_dates") {
                 if (table[i].text.constructor === vectorConstructor) {
                     htFillHTDate(table[i].text);
                 }
@@ -1849,17 +2004,6 @@ function htCheckExerciseAnswer(val0, val1, answer, explanation) {
     }
 
     return false;
-}
-
-function htResetAnswers(vector)
-{
-    for (let i = 0; i < vector.length; i++) {
-        $("#answer"+i).text("");
-        $("input[name=exercise"+i+"]").prop("checked", false);
-
-        $("#explanation"+i).css("display","none");
-        $("#explanation"+i).css("visibility","hidden");
-    }
 }
 
 function htWriteGame(table, later, idx)
@@ -2227,11 +2371,10 @@ function htFillFamilies(page, table) {
         htWriteGame(table.game_v1, "", 1);
     }
 
-    if (table.fill_dates != undefined && table.fill_dates.constructor === vectorConstructor) {
-        htFillHTDate(table.fill_dates);
-    }
-    else if (table.date_time != undefined && table.date_time.constructor === vectorConstructor) {
+    if (table.date_time != undefined && table.date_time.constructor === vectorConstructor) {
         htFillHTDate(table.date_time);
+    } else if (table.fill_dates != undefined && table.fill_dates.constructor === vectorConstructor) {
+        htFillHTDate(table.fill_dates);
     }
 
     $("#loading_msg").hide();

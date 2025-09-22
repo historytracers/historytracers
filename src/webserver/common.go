@@ -20,7 +20,8 @@ import (
 )
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
-var indexFiles []string = []string{"science", "history", "indigenous_who", "first_steps", "literature"}
+
+var indexFiles []string = []string{"first_steps", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology", "history"}
 
 var commonKeywords []string
 
@@ -721,12 +722,12 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 	var err error
 
 	if txt.Format == "html" {
-		work := txt.Text
-
-		ret := strings.ReplaceAll(work, "<span id=\"htZoomImageMsg\"></span>", commonKeywords[84])
-		work = strings.ReplaceAll(ret, "<span id=\"htAmericaAbyaYalaMsg\"></span>", commonKeywords[85])
-		work = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span>", commonKeywords[52])
-		ret = strings.ReplaceAll(work, "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div>", "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\">"+commonKeywords[69]+"</div>")
+		ret := strings.ReplaceAll(txt.Text, "<span id=\"htZoomImageMsg\"></span>", commonKeywords[84])
+		ret = strings.ReplaceAll(ret, "<span id=\"htAmericaAbyaYalaMsg\"></span>", commonKeywords[85])
+		ret = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span>", commonKeywords[52])
+		ret = strings.ReplaceAll(ret, "<span id=\"htChartMsg\"></span>", commonKeywords[112])
+		ret = strings.ReplaceAll(ret, "<span id=\"htAgeMsg\"></span>", commonKeywords[131])
+		ret = strings.ReplaceAll(ret, "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div>", "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\">"+commonKeywords[69]+"</div>")
 
 		htmlText = htOverwriteDates(ret, txt.FillDates, "", "", dateAbbreviation) + "<br />"
 	} else if txt.Format == "markdown" {

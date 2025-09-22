@@ -1,428 +1,1245 @@
 {
-    "title" : "Cunas civilizatorias (Parte II)",
-    "header" : "Cunas civilizatorias (Parte II)",
-    "sources" : [ "ee37e639-0850-4f1e-a278-be7558204c74" ],
-    "scripts" : [ "ee37e639-0850-4f1e-a278-be7558204c74" ],
-    "index" : [ "history" ],
-    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
-    "last_update" : [ "1734799335" ],
-    "authors" : null,
-    "reviewers" : null,
-    "version" : 1,
-    "type" : "class",
-    "content" : [
-        {
-            "target" : "group_list",
-            "value_type" : "paper",
-            "value" : [
-                {
-                    "id" : "prerequisites",
-                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
-                                "<p class=\"topdesc\"><i>Las siglas A.E.C. (Antes de la Era Comun), B.C.E. (Before common Era) y los años negativos son convenciones generales para representar eras anteriores a las primeras fechas registradas en los calendarios.</i></p>",
-                                { "text" : "### Prerrequisitos\n\nRecomendamos al lector leer la primera parte sobre las cunas civilizatorias antes de continuar con este texto",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "893e651f-8354-4d9a-b182-893512a3bbbe",
-                                                "text": "<i>History Tracers Editors. Berços Civilizatórios (Parte I)</i>",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }} ],
-                                  "isTable" : false,
-                                  "format" : "markdown"
-                               },
-                               "<p>En este texto, nos enfocaremos en las tres cunas civilizatorias aún no estudiadas: Egipto, el Valle del Indo y China.</p>",
-                                "<p class=\"desc\"><img id=\"imgMWPWEEC\" onclick=\"htImageZoom('imgMWPWEEC', '0%')\" src=\"images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png\" class=\"imgcenterlarge\"/>Figura 1: Cunas civilizatorias. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Compartido sob la licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</p>"
-                    ]
-                },
-                {
-                    "id" : "egypt",
-                    "text" : [ 
-                                { "text" : "### Egipto Predinástico\n\nEstamos en <htdate0>, pero nuestra especie tiene al menos 250.000 años de edad. Durante muchos milenios, vivimos en África, el continente donde surgió una de las civilizaciones más antiguas: Egipto. Aunque Egipto es más conocido por su período dinástico y sus pirámides, milenios antes ya existían comunidades establecidas que domesticaban animales y plantas",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "2be849f1-551b-44eb-8fc6-87027dbf8a68",
-                                                "text": "Mounier, A., & Mirazón Lahr, M.",
-                                                "date" :  {"type" : "gregory", "year" : "2019", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
-                                                "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>.",
-                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "now", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "format" : "markdown"
-                               },
-                               "<p class=\"desc\"><img id=\"imgMWPWEEJ\" onclick=\"htImageZoom('imgMWPWEEJ', '0%')\" src=\"images/Mapswire/mapswire-continent_af-physical-map-africa-lambert-az-hemi-265_egypt_001.jpg\" class=\"imgcenter\"/>Figura 2: Migración humana. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Compartido sob licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</p>",
-                               { "text" : "#### El Mundo Está Vivo\n\nEn el atlas <i>History Tracers</i>, hemos explorado artículos que muestran cómo los continentes se han desplazado a lo largo del tiempo. Sin embargo, estas no han sido las únicas transformaciones en nuestro planeta. Por ejemplo, el norte de África, hoy predominantemente desértico, fue en el pasado una región mucho más húmeda",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "412e4ddc-54ac-453f-9014-4affa2e96b83",
-                                                "text": "History Tracers Editors",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "59c0b962-d032-4b6c-9498-2341e089510b",
-                                                "text": "Allmon, D. W. et al",
-                                                "date": { "type": "gregory", "year": "2024", "month": "10", "day": "28" } },
-                                              { "type": 1,
-                                                "uuid": "750e84b5-9330-4f99-92b0-72469a6a64f4",
-                                                "text": "Allmon, D. W. et al" },
-                                              { "type": 1,
-                                                "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
-                                                "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 2, 13",
-                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### Faiyum\n\nUno de los sitios arqueológicos más antiguos del período predinástico es Faiyum. En este lugar se han encontrado evidencias de domesticación de animales que datan de aproximadamente <htdate0>. El descubrimiento de huesos de animales domésticos junto con cestas, como la representada en la Figura 3, sugiere que los habitantes usaban estas cestas para almacenamiento y transporte, indicando un estilo de vida sedentario y organizado",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "5b00d8de-5d74-4516-8c90-aab6a5395b44",
-                                                "text": "Cy, 03:18",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "15f68de8-4571-4f5f-b7db-85c30fa8b616",
-                                                "text": "Köhler E. Christiana, pp. 18",
-                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "3464d1ee-c40a-4bdc-8876-46d5e611b13a",
-                                                "text": "Mark, J. J.",
-                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "18" }},
-                                              { "type": 1,
-                                                "uuid": "5f232e60-6d02-4d20-9ddf-1b19d372fcab",
-                                                "text": "Doman, Peter F., <i>et al</i>"},
-                                              { "type": 1,
-                                                "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
-                                                "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 6 - 13",
-                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "-5400", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               },
-                               "<p class=\"desc\"><img id=\"imgMid001\" onclick=\"htImageZoom('imgMid001', '0%')\" src=\"images/BritshMuseum/mid_00108766_001.jpg\" class=\"imgcenter\"/>Figura 3: Cesta oblonga de junco trenzado. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('07e20bf5-f3b4-4093-8a92-ab6933be279a'); return false;\"><i>The British Museum</i></a>). Shared under a <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>.</p>",
-                               { "text" : "#### Merimde\n\nAunque no se ha podido fechar con precisión el sitio de Merimde, se estima que su ocupación ocurrió entre <htdate0> y <htdate1>. Los hallazgos arqueológicos indican una sociedad bien establecida, donde las actividades agrícolas desempeñaban un papel central",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "5b00d8de-5d74-4516-8c90-aab6a5395b44",
-                                                "text": "Cy, 09:03",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "15f68de8-4571-4f5f-b7db-85c30fa8b616",
-                                                "text": "Köhler E. Christiana, pp. 18",
-                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
-                                                "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 6 - 13",
-                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "-4900", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-4700", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### El Omari\n\nAl igual que los habitantes de Merimde, los de El Omari cazaban hipopótamos, posiblemente para proteger sus cultivos. Esta cultura destacó por el desarrollo de herramientas, como cuchillos y navajas",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "5b00d8de-5d74-4516-8c90-aab6a5395b44",
-                                                "text": "Cy, 10:49",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "15f68de8-4571-4f5f-b7db-85c30fa8b616",
-                                                "text": "Köhler E. Christiana, pp. 18 - 19",
-                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "3464d1ee-c40a-4bdc-8876-46d5e611b13a",
-                                                "text": "Mark, J. J.",
-                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "18" }},
-                                              { "type": 1,
-                                                "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
-                                                "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 16",
-                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### Badari\n\nLa cultura Badari, situada en el Alto Egipto (<i>Upper Egypt</i>), floreció entre <htdate0> y <htdate1>, y se caracterizó por comunidades que vivían en cabañas móviles. Evidencias indican que, además de la pesca estacional, esta cultura utilizaba cementerios para enterrar a sus muertos. En la Figura 2 se representa la región de Maghar Dendera, un área asociada a esta cultura",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "5b00d8de-5d74-4516-8c90-aab6a5395b44",
-                                                "text": "Cy, 10:49",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "15f68de8-4571-4f5f-b7db-85c30fa8b616",
-                                                "text": "Köhler E. Christiana, pp. 19 - 20",
-                                                "date" :  {"type" : "gregory", "year" : "2011", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "1d5e3549-3ba7-4d74-8a0b-85e3917bdc30",
-                                                "text": "The Editors of Encylopedia Britannica"},
-                                              { "type": 1,
-                                                "uuid": "3464d1ee-c40a-4bdc-8876-46d5e611b13a",
-                                                "text": "Mark, J. J.",
-                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "18" }},
-                                              { "type": 1,
-                                                "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
-                                                "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 16",
-                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "-4500", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-4000", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### Naqada\n\nEl período Naqada (<htdate0> - <htdate1>) marcó el surgimiento de características clásicas del Egipto antiguo. Se han encontrado evidencias de comercio que alcanzaba regiones tan lejanas como el actual Irán, además de los primeros indicios de prácticas de momificación. En este período también aparecieron los primeros jeroglíficos, fechados entre <hdate2> y <htdate3>, aunque aún no se han encontrado textos completos",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "5b00d8de-5d74-4516-8c90-aab6a5395b44",
-                                                "text": "Cy, 10:49",
-                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "3464d1ee-c40a-4bdc-8876-46d5e611b13a",
-                                                "text": "Mark, J. J.",
-                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "18" }},
-                                              { "type": 1,
-                                                "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
-                                                "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 16",
-                                                "date" :  {"type" : "gregory", "year" : "2014", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "-3800", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-2686", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-3400", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-3200", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### Continuación\n\nEn esta sección hemos explorado algunas de las principales culturas y sitios arqueológicos del Egipto predinástico. Para profundizar en el tema, recomendamos consultar los artículos y videos utilizados como base para este estudio.",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               }
-                         ]
-                },
-                {
-                    "id" : "indus_valley",
-                    "text" : [ { "text" : "### Civilización del Valle del Indo\n\nLa Figura 1 muestra la civilización del Valle del Indo, que abarcaba las regiones que hoy conocemos como India y Pakistán. Estas áreas permanecieron unidas hasta la promulgación del Acta de Independencia de la India el <htdate0>. Esta civilización debe su nombre al río Indo, ubicado en el actual territorio de Pakistán. Sin embargo, su influencia se extendió más allá de estas dos naciones, ya que se han encontrado sitios arqueológicos en Nepal y Afganistán",
-                                 "source" : [ { "type": 0,
-                                                "uuid": "e4d3ebbb-5693-4a66-b9bb-5e08afc77e17",
-                                                "text": "<i>UK Paralament</i>",
-                                                "date" :  {"type" : "gregory", "year" : "1947", "month" : "7", "day" : "18" }},
-                                              { "type": 0,
-                                                "uuid": "8ffbbcdc-27d9-42bb-b9fa-0084df24be5c",
-                                                "text": "<i>UK Public General Acts</i>",
-                                                "date" :  {"type" : "gregory", "year" : "1947", "month" : "7", "day" : "18" }},
-                                              { "type": 1,
-                                                "uuid": "bab5560b-8092-4cd1-9b31-415e0381a946",
-                                                "text": "Mark, J. J.",
-                                                "date" :  {"type" : "gregory", "year" : "2020", "month" : "10", "day" : "7" }},
-                                              { "type": 1,
-                                                "uuid": "b2f2b9dc-e8d0-4589-8b36-529ea7f24e09",
-                                                "text": "Abdul Karim Khan, 05:10",
-                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }},
-                                              { "type": 0,
-                                                "uuid": "04e14d94-3088-4daa-ab96-9e4b2b8d7c1d",
-                                                "text": "Madella, M., & Fuller, D. Q., pp. 1284",
-                                                "date" :  {"type" : "gregory", "year" : "2006", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "1947", "month" : "7", "day" : "18" }
-                                 ],
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### Desarrollo\n\nLos datos disponibles indican que agricultura en las comunidades de esta región comenzó entre el <htdate0> y <hdate1>, aunque las etapas iniciales de los asentamientos podrían estar aún sin descubrir. La consolidación de estas comunidades tuvo lugar entre el <htdate2> y <htdate3>. A partir de este período, se observó un desarrollo constante en la organización urbana, las ideologías y los aspectos sociales de esta civilización",
-                                 "source" : [ 
-                                              { "type": 1,
-                                                "uuid": "b2f2b9dc-e8d0-4589-8b36-529ea7f24e09",
-                                                "text": "Abdul Karim Khan, 15:29",
-                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "bab5560b-8092-4cd1-9b31-415e0381a946",
-                                                "text": "Mark, J. J.",
-                                                "date" :  {"type" : "gregory", "year" : "2020", "month" : "10", "day" : "7" }},
-                                              { "type": 0,
-                                                "uuid": "04e14d94-3088-4daa-ab96-9e4b2b8d7c1d",
-                                                "text": "Madella, M., & Fuller, D. Q., pp. 1284 - 1285",
-                                                "date" :  {"type" : "gregory", "year" : "2006", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "-7000", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-4300", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-4300", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-3200", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### Sociedad\n\nAunque Harappa desarrolló un sistema de escritura, como se muestra en la Figura 4, este aún no ha sido descifrado, lo que limita nuestro conocimiento sobre los aspectos más detallados de su sociedad. No obstante, se sabe que las construcciones urbanas, como las de Harappa, fueron cuidadosamente planificadas y realizadas con ladrillos estandarizados. Uno de los aspectos más destacados de esta planificación son los avanzados sistemas de higiene, evidenciados en viviendas que contaban con baños privados conectados directamente a un sistema de alcantarillado subterráneo",
-                                 "source" : [ 
-                                              { "type": 1,
-                                                "uuid": "b2f2b9dc-e8d0-4589-8b36-529ea7f24e09",
-                                                "text": "Abdul Karim Khan, 18:29",
-                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "89b0df4e-5e0f-4343-9912-07bc95ea3d7c",
-                                                "text": "Violatti, C.",
-                                                "date" :  {"type" : "gregory", "year" : "2015", "month" : "7", "day" : "5" }},
-                                              { "type": 1,
-                                                "uuid": "bab5560b-8092-4cd1-9b31-415e0381a946",
-                                                "text": "Mark, J. J.",
-                                                "date" :  {"type" : "gregory", "year" : "2020", "month" : "10", "day" : "7" }}
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               },
-                               "<p class=\"desc\"><img id=\"imgHarappaW\" onclick=\"htImageZoom('imgHarappaW', '0%')\" src=\"images/Ashmolean/28932.jpg\" class=\"imgcenter\"/>Figura 4: Sello de Harappa. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1696d647-d450-44e3-9067-18aac69bce3d'); return false;\">Ashmolean Museum Oxford</a>). Compartido sob la licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</p>",
-                               { "text" : "#### Declive\n\nLas causas del declive de esta civilización siguen siendo inciertas. Entre las hipótesis destacan factores naturales, como cambios en el curso del río, e invasiones externas. Sin embargo, no existe consenso entre los investigadores sobre la causa exacta",
-                                 "source" : [ 
-                                              { "type": 1,
-                                                "uuid": "b2f2b9dc-e8d0-4589-8b36-529ea7f24e09",
-                                                "text": "Abdul Karim Khan, 01:10:20",
-                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "bab5560b-8092-4cd1-9b31-415e0381a946",
-                                                "text": "Mark, J. J.",
-                                                "date" :  {"type" : "gregory", "year" : "2020", "month" : "10", "day" : "7" }},
-                                              { "type": 1,
-                                                "uuid": "1a679cc3-8238-4ece-9035-93993f0827f7",
-                                                "text": "Giosan, L. <i>et al</i>",
-                                                "date" :  {"type" : "gregory", "year" : "2012", "month" : "-1", "day" : "-1" }},
-                                              { "type": 0,
-                                                "uuid": "04e14d94-3088-4daa-ab96-9e4b2b8d7c1d",
-                                                "text": "Madella, M., & Fuller, D. Q., pp. 1285 - 1298",
-                                                "date" :  {"type" : "gregory", "year" : "2006", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               }
-                    ]
-                },
-                {
-                    "id" : "chinese",
-                    "text" : [ { "text" : "### Civilización China\n\nCuando hablamos de los inicios de la civilización china, es crucial distinguir entre eventos históricos verificables y aquellos que podrían considerarse legendarios.",
-                                 "source" : null,
-                                 "isTable" : false,
-                                 "fill_dates" : null,
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### Hechos Iniciales\n\nEl aislamiento geográfico desempeñó un papel fundamental en la formación de esta civilización. Este aislamiento fue facilitado por barreras naturales como el Himalaya y las selvas al sur, el Mar de China Oriental al este, y el desierto de Gobi al norte. Al igual que la civilización del Valle del Indo, la civilización china se desarrolló en torno a un río, el río Amarillo",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "cf5ef4bb-268a-4885-98ee-6a9af3c221d3",
-                                                "text": "Abdul Karim Khan, 03:56",
-                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "1947", "month" : "7", "day" : "18" }
-                                 ],
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### La Primera Dinastía\n\nAl abordar la primera dinastía china, es necesario diferenciar entre tradiciones históricas y evidencias arqueológicas. Según la tradición, la primera dinastía fue la Xia, que habría comenzado con el emperador Yu, conocido por su labor en el control de las inundaciones del río Amarillo. La dinastía Xia supuestamente existió entre <htdate0> y <htdate1>. Sin embargo, su existencia sigue siendo objeto de debate, ya que las evidencias disponibles son indirectas y no hay consenso entre los estudiosos",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "cf5ef4bb-268a-4885-98ee-6a9af3c221d3",
-                                                "text": "Abdul Karim Khan, 42:22",
-                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "d49fa3da-118d-4f4d-bc29-60be879a857c",
-                                                "text": "The Editors of Encylopedia Britannica"},
-                                              { "type": 1,
-                                                "uuid": "4494bc0f-6ce0-49dc-9c6b-c2c5dbea56f7",
-                                                "text": "Mark, E.",
-                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "10" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "-2070", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-1600", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "format" : "markdown"
-                               },
-                               { "text" : "En este contexto, la historia documentada de China suele iniciarse con la dinastía Shang, que gobernó entre <htdate0> y <htdate1>, cayendo entre <htdate2> y <htdate3>. Esta dinastía se desarrolló durante la etapa final de la Edad del Bronce. Las primeras evidencias concretas de su existencia incluyen inscripciones en huesos, como las ilustradas en la Figura 5",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "cf5ef4bb-268a-4885-98ee-6a9af3c221d3",
-                                                "text": "Abdul Karim Khan, 42:22",
-                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "d49fa3da-118d-4f4d-bc29-60be879a857c",
-                                                "text": "The Editors of Encylopedia Britannica"},
-                                              { "type": 1,
-                                                "uuid": "4494bc0f-6ce0-49dc-9c6b-c2c5dbea56f7",
-                                                "text": "Mark, E.",
-                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "10" }},
-                                              { "type": 1,
-                                                "uuid": "2fe34b9b-e1a3-4ade-ad5c-4f090fd015e1",
-                                                "text": "Menzies, James M., pp. 549 - 551",
-                                                "date" :  {"type" : "gregory", "year" : "1931", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "-1766", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-1520", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-1122", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-1046", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "format" : "markdown"
-                               },
-                               "<p class=\"desc\"><img id=\"imgChinese\" onclick=\"htImageZoom('imgChinese', '0%')\" src=\"images/BritshMuseum/mid_RRC5932_14.jpg\" class=\"imgcenter\"/>Figura 5: Punta de flecha hecha de hueso con inscripciones. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('874a8d48-a892-4ad3-8bc4-b34190bd4eba'); return false;\"><i>The British Museum</i></a> ).</p>",
-                               { "text" : "Durante la dinastía Shang, los reyes trasladaron sus capitales varias veces. Su sistema de gobierno incluía la designación de gobernadores regionales, junto con una nobleza claramente definida. También desarrollaron un calendario de 360 días, dividido en 12 meses de 30 días cada uno. Además, fue en esta época cuando surgió el sistema de escritura china. Según James M. Menzies, no se han encontrado conexiones entre la escritura china y la escritura sumeria, desarrollada más de un milenio antes",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "cf5ef4bb-268a-4885-98ee-6a9af3c221d3",
-                                                "text": "Abdul Karim Khan, 53:18",
-                                                "date" :  {"type" : "gregory", "year" : "2013", "month" : "-1", "day" : "-1" }},
-                                              { "type": 1,
-                                                "uuid": "acbe09fb-994a-4ac0-9a6c-9b8111f74a2b",
-                                                "text": "The Editors of Encylopedia Britannica"},
-                                              { "type": 1,
-                                                "uuid": "76a88415-6144-4d1b-8a8d-9c9475090d50",
-                                                "text": "Mark, E.",
-                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "28" }},
-                                              { "type": 1,
-                                                "uuid": "2fe34b9b-e1a3-4ade-ad5c-4f090fd015e1",
-                                                "text": "Menzies, James M., pp. 551 - 553",
-                                                "date" :  {"type" : "gregory", "year" : "1931", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               },
-                               { "text" : "Otro aspecto destacado de este período fue el uso extensivo del jade, empleado tanto en la creación de objetos decorativos como en la fabricación de armas",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "acbe09fb-994a-4ac0-9a6c-9b8111f74a2b",
-                                                "text": "The Editors of Encylopedia Britannica"},
-                                              { "type": 1,
-                                                "uuid": "76a88415-6144-4d1b-8a8d-9c9475090d50",
-                                                "text": "Mark, E.",
-                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "28" }},
-                                              { "type": 1,
-                                                "uuid": "2fe34b9b-e1a3-4ade-ad5c-4f090fd015e1",
-                                                "text": "Menzies, James M., pp. 557 - 558",
-                                                "date" :  {"type" : "gregory", "year" : "1931", "month" : "-1", "day" : "-1" }}
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               },
-                               { "text" : "#### Declive\n\nLa dinastía Shang experimentó un declive inicial antes de la fundación de Anyang, alrededor de <htdate0>. No obstante, su caída definitiva ocurrió en <htdate1>, cuando fue reemplazada por la dinastía Zhou",
-                                 "source" : [ { "type": 1,
-                                                "uuid": "76a88415-6144-4d1b-8a8d-9c9475090d50",
-                                                "text": "Mark, E.",
-                                                "date" :  {"type" : "gregory", "year" : "2016", "month" : "1", "day" : "28" }}
-                                 ],
-                                 "fill_dates" : [
-                                    {"type" : "gregory", "year" : "-1300", "month" : "-1", "day" : "-1" },
-                                    {"type" : "gregory", "year" : "-1046", "month" : "-1", "day" : "-1" }
-                                 ],
-                                 "isTable" : false,
-                                 "format" : "markdown"
-                               },
-                               "<h3>Conclusión</h3><p>En los textos anteriores y en este, hemos explorado las seis principales cunas civilizatorias. Sin embargo, este tema no se agota aquí. En los próximos capítulos y en la sección de Genealogía de <i>History Tracers</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8abed0b5-2e6f-49b4-85bf-c62aad3bbcd1'); return false;\"><i>History Tracers Team</i></a>), añadiremos mas detalles sobre cada una de ellas.</p>",
-                                "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Sobre las Cunas Civilizatorias</b><br /><br />Identificar estas seis regiones como puntos de partida de grandes civilizaciones no significa que el resto del mundo estuviera deshabitado. Estas regiones son destacadas porque, a lo largo del tiempo, sus historias y creencias influyeron significativamente en otros pueblos.<br /><br />¿Ya conocías estas cunas civilizatorias antes de estudiar este material?\"</div></div></center></p>",
-                               "<p>Basándonos en lo que hemos aprendido, podemos utilizar las matemáticas, el lenguaje de la naturaleza, para expresar estas ideas de manera más clara. Cada cuna civilizatoria puede representarse con un círculo y una letra que la identifique (A - Andes, M - Mesopotamia, O - Mesoamérica, E - Egipto, I - Valle del Indo, C - China). Estos círculos se ubicarán dentro de un círculo mayor (h), que simboliza a la humanidad más allá de las cunas. Finalmente, todos los círculos pueden fusionarse en uno solo (H), representando a toda la humanidad como un conjunto unificado:</p>",
-                               "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"145\" cy=\"75\" r=\"70\"></circle> <text x=\"140\" y=\"80\" font-size=\"2em\">h</text> <circle cx=\"110\" cy=\"50\" r=\"10\"></circle>  <text x=\"105\" y=\"55\" font-size=\"1.4em\">A</text> <circle cx=\"148\" cy=\"30\" r=\"10\"></circle>  <text x=\"142\" y=\"35\" font-size=\"1.4em\">M</text>  <circle cx=\"185\" cy=\"50\" r=\"10\"></circle>  <text x=\"180\" y=\"55\" font-size=\"1.4em\">O</text> <circle cx=\"110\" cy=\"90\" r=\"10\"></circle>  <text x=\"105\" y=\"95\" font-size=\"1.4em\">E</text> <circle cx=\"148\" cy=\"120\" r=\"10\"></circle>  <text x=\"146\" y=\"125\" font-size=\"1.4em\">I</text>  <circle cx=\"185\" cy=\"90\" r=\"10\"></circle>  <text x=\"180\" y=\"95\" font-size=\"1.4em\">C</text> </svg></p>",
-                                "<p class=\"desc\">Figura 6: Representación de las cunas civilizatorias dentro de un círculo mayor que abarca a la humanidad fuera de las cunas.</p>",
-                        "<p><center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"> <i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\" style=\"font-size: 1em;\"></i><i class=\"fa-solid fa-dna\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Matemática y Biología en la Historia</b><br /><br />Cuando aislamos poblaciones en una región, como Mesoamérica (O), no las convertimos en menos humanas ni en superiores a otros grupos. Biológicamente, siguen siendo iguales a los demás <i>Homo sapiens</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('82544083-aaad-4760-963b-f433bd3e8729'); return false;\"><i>History Tracers Team</i></a>). Esta separación es simplemente un método utilizado para estudiar grupos con características culturales comunes.<br /><br />Sin embargo, si dejamos de analizar los desarrollos aislados de cada cuna civilizatoria y nos enfocamos únicamente en el ADN humano, esas divisiones culturales desaparecen. Podemos entonces visualizar a la humanidad como un todo, conectada desde el inicio de su evolución. Esta conexión se puede representar matemáticamente mediante la operación de unión (&cup;):<br /><br />H = A &cup; M &cup; O &cup; E &cup; C &cup; I &cup; h<br /><br />El resultado de esta operación nos lleva a un punto común, como aproximadamente hace 250.000 años (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd34414b-8f55-4e5e-877a-c0e111e871be'); return false;\">Wang, Richard J., <i>et al.</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eda6e242-751a-46b3-b5f7-0c4489d9b374'); return false;\"><i>History Tracers Team</i></a>). En ese periodo, no existían diferencias culturales ni regionales; solo existía la especie <i>Homo sapiens</i>. Esta idea de unidad está representada en la Figura 7, simbolizando a una humanidad sin divisiones, basada en el respeto mutuo y en la conexión genética compartida.</div></div></center></p>",
-                      "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"145\" cy=\"75\" r=\"70\"></circle> <text x=\"140\" y=\"80\" font-size=\"2em\">H</text> </svg></p>",
-                      "<p class=\"desc\">Figura 7: Representación de la humanidad como un todo, sin divisiones, fundamentada en el respeto mutuo y la conexión genética compartida.</p>"
-                    ]
-                }
-            ]
-        }
-    ]
-} 
+   "title": "Cunas civilizatorias (Parte II)",
+   "header": "Cunas civilizatorias (Parte II)",
+   "sources": [
+      "ee37e639-0850-4f1e-a278-be7558204c74"
+   ],
+   "scripts": [
+      "ee37e639-0850-4f1e-a278-be7558204c74"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/ee37e639-0850-4f1e-a278-be7558204c74_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5VUkgtyZPeEhyi0kAUfpIN?si=SQ_ifEONQk6uFSiZl2qT9A",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "history"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1758474794"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAgeMsg\"></span></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nRecomendamos al lector leer la primera parte sobre las cunas civilizatorias antes de continuar con este texto",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "893e651f-8354-4d9a-b182-893512a3bbbe",
+                     "text": "History Tracers Team. Cunas Civilizatorias (Parte I)</i>",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nEn este texto, nos enfocaremos en las tres cunas civilizatorias aún no estudiadas: Egipto, el Valle del Indo y China.\n\nA pesar de que nos centramos únicamente en seis cunas civilizatorias presentadas en la Figura 1, nada impide que investigaciones futuras revelen nuevos hallazgos y amplíen el número de cunas civilizatorias conocidas. Este hecho nos conduce a una reflexión:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Sobre las civilizaciones</b><br /><br />Además de las seis cunas ya reconocidas, ¿añadirías alguna más a esta lista?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMWPWEEC\" onclick=\"htImageZoom('imgMWPWEEC', '0%')\" src=\"images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png\" class=\"imgcenterlarge\"/>Figura 1: Cunas civilizatorias. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Compartido sob la licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_Egypt",
+         "text": [
+            {
+               "text": "### Egipto Predinástico\n\nEstamos en <htdate0>, pero nuestra especie tiene al menos 250.000 años de edad. Durante muchos milenios, vivimos en África, el continente donde surgió una de las civilizaciones más antiguas: Egipto. Aunque Egipto es más conocido por su período dinástico y sus pirámides, milenios antes ya existían comunidades establecidas que domesticaban animales y plantas",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2be849f1-551b-44eb-8fc6-87027dbf8a68",
+                     "text": "Mounier, A., & Mirazón Lahr, M.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
+                     "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "now",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMWPWEEJ\" onclick=\"htImageZoom('imgMWPWEEJ', '0%')\" src=\"images/Mapswire/mapswire-continent_af-physical-map-africa-lambert-az-hemi-265_egypt_001.jpg\" class=\"imgcenter\"/>Figura 2: Migración humana. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Compartido sob licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El Mundo Está Vivo\n\nEn el atlas <i>History Tracers</i>, hemos explorado artículos que muestran cómo los continentes se han desplazado a lo largo del tiempo. Sin embargo, estas no han sido las únicas transformaciones en nuestro planeta. Por ejemplo, el norte de África, hoy predominantemente desértico, fue en el pasado una región mucho más húmeda",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "412e4ddc-54ac-453f-9014-4affa2e96b83",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "59c0b962-d032-4b6c-9498-2341e089510b",
+                     "text": "Allmon, D. W. et al",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "10",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "750e84b5-9330-4f99-92b0-72469a6a64f4",
+                     "text": "Allmon, D. W. et al",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
+                     "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 2, 13",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Faiyum\n\nUno de los sitios arqueológicos más antiguos del período predinástico es Faiyum. En este lugar se han encontrado evidencias de domesticación de animales que datan de aproximadamente <htdate0>. El descubrimiento de huesos de animales domésticos junto con cestas, como la representada en la Figura 3, sugiere que los habitantes usaban estas cestas para almacenamiento y transporte, indicando un estilo de vida sedentario y organizado",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5b00d8de-5d74-4516-8c90-aab6a5395b44",
+                     "text": "Cy, 03:18",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "15f68de8-4571-4f5f-b7db-85c30fa8b616",
+                     "text": "Köhler E. Christiana, pp. 18",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3464d1ee-c40a-4bdc-8876-46d5e611b13a",
+                     "text": "Mark, J. J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "1",
+                        "day": "18"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5f232e60-6d02-4d20-9ddf-1b19d372fcab",
+                     "text": "Doman, Peter F., <i>et al</i>",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
+                     "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 6 - 13",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-5400",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMid001\" onclick=\"htImageZoom('imgMid001', '0%')\" src=\"images/BritshMuseum/mid_00108766_001.jpg\" class=\"imgcenter\"/>Figura 3: Cesta oblonga de junco trenzado. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('07e20bf5-f3b4-4093-8a92-ab6933be279a'); return false;\"><i>The British Museum</i></a>). Shared under a <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5b00d8de-5d74-4516-8c90-aab6a5395b44",
+                     "text": "Cy, 09:03",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "15f68de8-4571-4f5f-b7db-85c30fa8b616",
+                     "text": "Köhler E. Christiana, pp. 18",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
+                     "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 6 - 13",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-4900",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-4700",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El Omari\n\nAl igual que los habitantes de Merimde, los de El Omari cazaban hipopótamos, posiblemente para proteger sus cultivos. Esta cultura destacó por el desarrollo de herramientas, como cuchillos y navajas",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5b00d8de-5d74-4516-8c90-aab6a5395b44",
+                     "text": "Cy, 10:49",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "15f68de8-4571-4f5f-b7db-85c30fa8b616",
+                     "text": "Köhler E. Christiana, pp. 18 - 19",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3464d1ee-c40a-4bdc-8876-46d5e611b13a",
+                     "text": "Mark, J. J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "1",
+                        "day": "18"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
+                     "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 16",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Badari\n\nLa cultura Badari, situada en el Alto Egipto, floreció entre <htdate0> y <htdate1>, y se caracterizó por comunidades que vivían en cabañas móviles. Evidencias indican que, además de la pesca estacional, esta cultura utilizaba cementerios para enterrar a sus muertos. En la Figura 2 se representa la región de Maghar Dendera, un área asociada a esta cultura",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5b00d8de-5d74-4516-8c90-aab6a5395b44",
+                     "text": "Cy, 10:49",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "15f68de8-4571-4f5f-b7db-85c30fa8b616",
+                     "text": "Köhler E. Christiana, pp. 19 - 20",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1d5e3549-3ba7-4d74-8a0b-85e3917bdc30",
+                     "text": "The Editors of Encylopedia Britannica",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3464d1ee-c40a-4bdc-8876-46d5e611b13a",
+                     "text": "Mark, J. J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "1",
+                        "day": "18"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
+                     "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 16",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-4500",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-4000",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Naqada\n\nEl período Naqada (<htdate0> - <htdate1>) marcó el surgimiento de características clásicas del Egipto antiguo. Se han encontrado evidencias de comercio que alcanzaba regiones tan lejanas como el actual Irán, además de los primeros indicios de prácticas de momificación. En este período también aparecieron los primeros jeroglíficos, fechados entre <hdate2> y <htdate3>, aunque aún no se han encontrado textos completos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5b00d8de-5d74-4516-8c90-aab6a5395b44",
+                     "text": "Cy, 10:49",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3464d1ee-c40a-4bdc-8876-46d5e611b13a",
+                     "text": "Mark, J. J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "1",
+                        "day": "18"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1fac1f5e-4274-43f9-a8cf-01ca1c3b1450",
+                     "text": "Linseele V, Van Neer W, Thys S, Phillipps R, Cappers R, Wendrich W, <i>et al</i>., pp. 16",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-3800",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-2686",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-3400",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-3200",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Continuación\n\nEn esta sección hemos explorado algunas de las principales culturas y sitios arqueológicos del Egipto predinástico. Para profundizar en el tema, recomendamos consultar los artículos y videos utilizados como base para este estudio.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_indus_valley",
+         "text": [
+            {
+               "text": "### Civilización del Valle del Indo\n\nLa Figura 1 muestra la civilización del Valle del Indo, que abarcaba las regiones que hoy conocemos como India y Pakistán. Estas áreas permanecieron unidas hasta la promulgación del Acta de Independencia de la India el <htdate0>. Esta civilización debe su nombre al río Indo, ubicado en el actual territorio de Pakistán. Sin embargo, su influencia se extendió más allá de estas dos naciones, ya que se han encontrado sitios arqueológicos en Nepal y Afganistán",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "e4d3ebbb-5693-4a66-b9bb-5e08afc77e17",
+                     "text": "<i>UK Paralament</i>",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1947",
+                        "month": "7",
+                        "day": "18"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "8ffbbcdc-27d9-42bb-b9fa-0084df24be5c",
+                     "text": "<i>UK Public General Acts</i>",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1947",
+                        "month": "7",
+                        "day": "18"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "bab5560b-8092-4cd1-9b31-415e0381a946",
+                     "text": "Mark, J. J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "10",
+                        "day": "7"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b2f2b9dc-e8d0-4589-8b36-529ea7f24e09",
+                     "text": "Abdul Karim Khan, 05:10",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "04e14d94-3088-4daa-ab96-9e4b2b8d7c1d",
+                     "text": "Madella, M., & Fuller, D. Q., pp. 1284",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1947",
+                     "month": "7",
+                     "day": "18"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Desarrollo\n\nLos datos disponibles indican que agricultura en las comunidades de esta región comenzó entre el <htdate0> y <hdate1>, aunque las etapas iniciales de los asentamientos podrían estar aún sin descubrir. La consolidación de estas comunidades tuvo lugar entre el <htdate2> y <htdate3>. A partir de este período, se observó un desarrollo constante en la organización urbana, las ideologías y los aspectos sociales de esta civilización",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b2f2b9dc-e8d0-4589-8b36-529ea7f24e09",
+                     "text": "Abdul Karim Khan, 15:29",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "bab5560b-8092-4cd1-9b31-415e0381a946",
+                     "text": "Mark, J. J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "10",
+                        "day": "7"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "04e14d94-3088-4daa-ab96-9e4b2b8d7c1d",
+                     "text": "Madella, M., & Fuller, D. Q., pp. 1284 - 1285",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-7000",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-4300",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-4300",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-3200",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Sociedad\n\nAunque Harappa desarrolló un sistema de escritura, como se muestra en la Figura 4, este aún no ha sido descifrado, lo que limita nuestro conocimiento sobre los aspectos más detallados de su sociedad. No obstante, se sabe que las construcciones urbanas, como las de Harappa, fueron cuidadosamente planificadas y realizadas con ladrillos estandarizados. Uno de los aspectos más destacados de esta planificación son los avanzados sistemas de higiene, evidenciados en viviendas que contaban con baños privados conectados directamente a un sistema de alcantarillado subterráneo",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b2f2b9dc-e8d0-4589-8b36-529ea7f24e09",
+                     "text": "Abdul Karim Khan, 18:29",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "89b0df4e-5e0f-4343-9912-07bc95ea3d7c",
+                     "text": "Violatti, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2015",
+                        "month": "7",
+                        "day": "5"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "bab5560b-8092-4cd1-9b31-415e0381a946",
+                     "text": "Mark, J. J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "10",
+                        "day": "7"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgHarappaW\" onclick=\"htImageZoom('imgHarappaW', '0%')\" src=\"images/Ashmolean/28932.jpg\" class=\"imgcenter\"/>Figura 4: Sello de Harappa. © Ashmolean Museum, University of Oxford (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1696d647-d450-44e3-9067-18aac69bce3d'); return false;\">Ashmolean Museum Oxford</a>). Compartido sob la licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Declive\n\nLas causas del declive de esta civilización siguen siendo inciertas. Entre las hipótesis destacan factores naturales, como cambios en el curso del río, e invasiones externas. Sin embargo, no existe consenso entre los investigadores sobre la causa exacta",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b2f2b9dc-e8d0-4589-8b36-529ea7f24e09",
+                     "text": "Abdul Karim Khan, 01:10:20",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "bab5560b-8092-4cd1-9b31-415e0381a946",
+                     "text": "Mark, J. J.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "10",
+                        "day": "7"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1a679cc3-8238-4ece-9035-93993f0827f7",
+                     "text": "Giosan, L. <i>et al</i>",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "04e14d94-3088-4daa-ab96-9e4b2b8d7c1d",
+                     "text": "Madella, M., & Fuller, D. Q., pp. 1285 - 1298",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_chienese",
+         "text": [
+            {
+               "text": "### Civilización China\n\nCuando hablamos de los inicios de la civilización china, es crucial distinguir entre eventos históricos verificables y aquellos que podrían considerarse legendarios.\n\n#### Hechos Iniciales\n\nEl aislamiento geográfico desempeñó un papel fundamental en la formación de esta civilización. Este aislamiento fue facilitado por barreras naturales como el Himalaya y las selvas al sur, el Mar de China Oriental al este, y el desierto de Gobi al norte. Al igual que la civilización del Valle del Indo, la civilización china se desarrolló en torno a un río, el río Amarillo",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cf5ef4bb-268a-4885-98ee-6a9af3c221d3",
+                     "text": "Abdul Karim Khan, 03:56",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1947",
+                     "month": "7",
+                     "day": "18"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### La Primera Dinastía\n\nAl abordar la primera dinastía china, es necesario diferenciar entre tradiciones históricas y evidencias arqueológicas. Según la tradición, la primera dinastía fue la Xia, que habría comenzado con el emperador Yu, conocido por su labor en el control de las inundaciones del río Amarillo. La dinastía Xia supuestamente existió entre <htdate0> y <htdate1>. Sin embargo, su existencia sigue siendo objeto de debate, ya que las evidencias disponibles son indirectas y no hay consenso entre los estudiosos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cf5ef4bb-268a-4885-98ee-6a9af3c221d3",
+                     "text": "Abdul Karim Khan, 42:22",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d49fa3da-118d-4f4d-bc29-60be879a857c",
+                     "text": "The Editors of Encylopedia Britannica",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4494bc0f-6ce0-49dc-9c6b-c2c5dbea56f7",
+                     "text": "Mark, E.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "1",
+                        "day": "10"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-2070",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-1600",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "En este contexto, la historia documentada de China suele iniciarse con la dinastía Shang, que gobernó entre <htdate0> y <htdate1>, cayendo entre <htdate2> y <htdate3>. Esta dinastía se desarrolló durante la etapa final de la Edad del Bronce. Las primeras evidencias concretas de su existencia incluyen inscripciones en huesos, como las ilustradas en la Figura 5",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cf5ef4bb-268a-4885-98ee-6a9af3c221d3",
+                     "text": "Abdul Karim Khan, 42:22",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d49fa3da-118d-4f4d-bc29-60be879a857c",
+                     "text": "The Editors of Encylopedia Britannica",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4494bc0f-6ce0-49dc-9c6b-c2c5dbea56f7",
+                     "text": "Mark, E.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "1",
+                        "day": "10"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2fe34b9b-e1a3-4ade-ad5c-4f090fd015e1",
+                     "text": "Menzies, James M., pp. 549 - 551",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1931",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-1766",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-1520",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-1122",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-1046",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgChinese\" onclick=\"htImageZoom('imgChinese', '0%')\" src=\"images/BritshMuseum/mid_RRC5932_14.jpg\" class=\"imgcenter\"/>Figura 5: Punta de flecha hecha de hueso con inscripciones. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('874a8d48-a892-4ad3-8bc4-b34190bd4eba'); return false;\"><i>The British Museum</i></a> ).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Durante la dinastía Shang, los reyes trasladaron sus capitales varias veces. Su sistema de gobierno incluía la designación de gobernadores regionales, junto con una nobleza claramente definida. También desarrollaron un calendario de 360 días, dividido en 12 meses de 30 días cada uno. Además, fue en esta época cuando surgió el sistema de escritura china. Según James M. Menzies, no se han encontrado conexiones entre la escritura china y la escritura sumeria, desarrollada más de un milenio antes",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cf5ef4bb-268a-4885-98ee-6a9af3c221d3",
+                     "text": "Abdul Karim Khan, 53:18",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "acbe09fb-994a-4ac0-9a6c-9b8111f74a2b",
+                     "text": "The Editors of Encylopedia Britannica",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "76a88415-6144-4d1b-8a8d-9c9475090d50",
+                     "text": "Mark, E.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "1",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2fe34b9b-e1a3-4ade-ad5c-4f090fd015e1",
+                     "text": "Menzies, James M., pp. 551 - 553",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1931",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "Otro aspecto destacado de este período fue el uso extensivo del jade, empleado tanto en la creación de objetos decorativos como en la fabricación de armas",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "acbe09fb-994a-4ac0-9a6c-9b8111f74a2b",
+                     "text": "The Editors of Encylopedia Britannica",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "76a88415-6144-4d1b-8a8d-9c9475090d50",
+                     "text": "Mark, E.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "1",
+                        "day": "28"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2fe34b9b-e1a3-4ade-ad5c-4f090fd015e1",
+                     "text": "Menzies, James M., pp. 557 - 558",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1931",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Declive\n\nLa dinastía Shang experimentó un declive inicial antes de la fundación de Anyang, alrededor de <htdate0>. No obstante, su caída definitiva ocurrió en <htdate1>, cuando fue reemplazada por la dinastía Zhou",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "76a88415-6144-4d1b-8a8d-9c9475090d50",
+                     "text": "Mark, E.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "1",
+                        "day": "28"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-1300",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "-1046",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<h3>Conclusión</h3><p>En los textos anteriores y en este, hemos explorado las seis principales cunas civilizatorias. Sin embargo, este tema no se agota aquí. En los próximos capítulos y en la sección de Genealogía de <i>History Tracers</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('8abed0b5-2e6f-49b4-85bf-c62aad3bbcd1'); return false;\"><i>History Tracers Team</i></a>), añadiremos mas detalles sobre cada una de ellas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Sobre las Cunas Civilizatorias</b><br /><br />Identificar estas seis regiones como puntos de partida de grandes civilizaciones no significa que el resto del mundo estuviera deshabitado. Estas regiones son destacadas porque, a lo largo del tiempo, sus historias y creencias influyeron significativamente en otros pueblos.<br /><br />¿Ya conocías estas cunas civilizatorias antes de estudiar este material?\"</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Basándonos en lo que hemos aprendido, podemos utilizar las matemáticas, el lenguaje de la naturaleza, para expresar estas ideas de manera más clara. Cada cuna civilizatoria puede representarse con un círculo y una letra que la identifique (A - Andes, M - Mesopotamia, O - Mesoamérica, E - Egipto, I - Valle del Indo, C - China). Estos círculos se ubicarán dentro de un círculo mayor (h), que simboliza a la humanidad más allá de las cunas. Finalmente, todos los círculos pueden fusionarse en uno solo (H), representando a toda la humanidad como un conjunto unificado:</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"145\" cy=\"75\" r=\"70\"></circle> <text x=\"140\" y=\"80\" font-size=\"2em\">h</text> <circle cx=\"110\" cy=\"50\" r=\"10\"></circle>  <text x=\"105\" y=\"55\" font-size=\"1.4em\">A</text> <circle cx=\"148\" cy=\"30\" r=\"10\"></circle>  <text x=\"142\" y=\"35\" font-size=\"1.4em\">M</text>  <circle cx=\"185\" cy=\"50\" r=\"10\"></circle>  <text x=\"180\" y=\"55\" font-size=\"1.4em\">O</text> <circle cx=\"110\" cy=\"90\" r=\"10\"></circle>  <text x=\"105\" y=\"95\" font-size=\"1.4em\">E</text> <circle cx=\"148\" cy=\"120\" r=\"10\"></circle>  <text x=\"146\" y=\"125\" font-size=\"1.4em\">I</text>  <circle cx=\"185\" cy=\"90\" r=\"10\"></circle>  <text x=\"180\" y=\"95\" font-size=\"1.4em\">C</text> </svg></p><p class=\"desc\">Figura 6: Representación de las cunas civilizatorias dentro de un círculo mayor que abarca a la humanidad fuera de las cunas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"> <i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\" style=\"font-size: 1em;\"></i><i class=\"fa-solid fa-dna\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Matemática y Biología en la Historia</b><br /><br />Cuando aislamos poblaciones en una región, como Mesoamérica (O), no las convertimos en menos humanas ni en superiores a otros grupos. Biológicamente, siguen siendo iguales a los demás <i>Homo sapiens</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('82544083-aaad-4760-963b-f433bd3e8729'); return false;\"><i>History Tracers Team</i></a>). Esta separación es simplemente un método utilizado para estudiar grupos con características culturales comunes.<br /><br />Sin embargo, si dejamos de analizar los desarrollos aislados de cada cuna civilizatoria y nos enfocamos únicamente en el ADN humano, esas divisiones culturales desaparecen. Podemos entonces visualizar a la humanidad como un todo, conectada desde el inicio de su evolución. Esta conexión se puede representar matemáticamente mediante la operación de unión (&cup;):<br /><br />H = A &cup; M &cup; O &cup; E &cup; C &cup; I &cup; h<br /><br />El resultado de esta operación nos lleva a un punto común, como aproximadamente hace 250.000 años (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd34414b-8f55-4e5e-877a-c0e111e871be'); return false;\">Wang, Richard J., <i>et al.</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eda6e242-751a-46b3-b5f7-0c4489d9b374'); return false;\"><i>History Tracers Team</i></a>). En ese periodo, no existían diferencias culturales ni regionales; solo existía la especie <i>Homo sapiens</i>. Esta idea de unidad está representada en la Figura 7, simbolizando a una humanidad sin divisiones, basada en el respeto mutuo y en la conexión genética compartida.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"145\" cy=\"75\" r=\"70\"></circle> <text x=\"140\" y=\"80\" font-size=\"2em\">H</text> </svg></p><p class=\"desc\">Figura 7: Representación de la humanidad como un todo, sin divisiones, fundamentada en el respeto mutuo y la conexión genética compartida.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
