@@ -654,7 +654,7 @@ function htUpdateNavigationTitle(currentIdx, title, indexName)
     $(header).html(pageHeader);
 }
 
-function htBuildNavigationSteps(ptr, idx, index, idxName)
+function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
 {
     var prev = "";
     var pageName = "";
@@ -693,12 +693,12 @@ function htBuildNavigationSteps(ptr, idx, index, idxName)
         next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
     }
 
-    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr><tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></td><td>"+next+"</td></tr></table></p>";
+    var navigation = "<tr style=\"background-color: "+bgColor+";\"><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></td><td>"+next+"</td></tr>";
 
     return navigation;
 }
 
-function htBuildNavigation(index, currentIdx)
+function htBuildNavigation(index, currentIdx, initialBgColor)
 {
     var urlParams = new URLSearchParams(window.location.search);
     if (!urlParams.has('arg')) {
@@ -716,7 +716,7 @@ function htBuildNavigation(index, currentIdx)
 
     var idxName = htSelectIndexName(index);
     htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
-    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
+    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
 
     if (loadedIdx.length == 1) {
         return navigation;
@@ -724,6 +724,7 @@ function htBuildNavigation(index, currentIdx)
 
     var end = ptr.total+2;
     for (let i = 0; i < end; i++) {
+        var color = (i % 2) ? "#FFFFE0" : initialBgColor;
         var j = ptr.total+1;
         var next = arg+":"+j;
         ptr = idx.get(next);
@@ -731,7 +732,7 @@ function htBuildNavigation(index, currentIdx)
             break;
         }
         htUpdateNavigationTitle(j+1, ptr.name, idxName);
-        navigation += htBuildNavigationSteps(ptr, idx, index, idxName);
+        navigation += htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
     }
 
     return navigation;
@@ -742,10 +743,13 @@ function htWriteNavigation()
     if (loadedIdx.length == 0) {
         return;
     }
-    var navigation = "";
+    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
     for (const i in loadedIdx) {
-        navigation += htBuildNavigation(loadedIdx[i], i);
+        var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
+        navigation += htBuildNavigation(loadedIdx[i], i, color);
     }
+    navigation += "</table></p>";
+    $(".dynamicNavigation").attr('data-after-content', keywords[132]);
     $(".dynamicNavigation").each(function() {
         $(this).html(navigation);
     });

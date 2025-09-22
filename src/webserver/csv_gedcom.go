@@ -596,18 +596,19 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 		}
 
 		newPerson := htSetCSVBasicPerson(marr.Name, marr.ID, lang, nil)
-		if oldPerson, ok := peopleMap[marr.ID]; !ok {
+		//if oldPerson, ok := peopleMap[marr.ID]; !ok {
+		if _, ok := peopleMap[marr.ID]; !ok {
 			peopleMap[marr.ID] = newPerson
 			// TODO: NEXT TWO SHOULD BE REMOVED FROM HERE WHEN WE HAVE THE SAME PEOPLE IN DIFFERENT FILES
 			htFamilyPeopleCSV = append(htFamilyPeopleCSV, newPerson)
 			htFamiliesPeopleCSV = append(htFamiliesPeopleCSV, newPerson)
-		} else {
+		} /* else { BROTHERS MARRIAGE
 			if oldPerson[1] == newPerson[1] {
 				if verboseFlag {
 					fmt.Fprintln(os.Stderr, "The person", marr.Name, "(", marr.ID, ")", "appears more than one time in", fileName)
 				}
 			}
-		}
+		}*/
 
 	}
 }
