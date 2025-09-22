@@ -28,6 +28,7 @@ var htAtlas = [];
 var loadedIdx = [];
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
+var htHistoryIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htMathGamesIdx = new Map();
 var htIndigenousWhoIdx = new Map();
@@ -101,6 +102,20 @@ function htScroolToID(id) {
     $('html, body').scrollTop($(id).offset().top);
 }
 
+function htImageZoom(id, translate) {
+    var $element = $("#" + id);
+    var isZoomed = $element.hasClass("zoomed");
+
+    if (!isZoomed) {
+        var scale = (window.innerWidth < 800) ? 1.5 : 2.0;
+        $element.css("transform", "scale(" + scale + ") translate(" + translate + ")");
+    } else {
+        $element.css("transform", "scale(1) translate(0, 0)");
+    }
+
+    $element.toggleClass("zoomed");
+}
+
 
 //
 //    Reset Section
@@ -116,6 +131,7 @@ function htResetAllIndexes()
     const indexMaps = [
         htHistoryIdx,
         htLiteratureIdx,
+        htHistoryIdx,
         htFirstStepsIdx,
         htMathGamesIdx,
         htFamilyIdx,
@@ -560,6 +576,192 @@ function htConvertJulianDate(test, locale, julianEpoch)
 //    Mount Page Section
 //
 
+function htFillHistorySourcesSelectFunction(id)
+{
+    const map = {
+        0: "htFillPrimarySource",
+        1: "htFillReferenceSource",
+        2: "htFillHolySource",
+        3: "htFillSMSource"
+    };
+
+    return map[id] || map[3];
+}
+
+function htSelectIndexMap(index)
+{
+    const map = {
+        history: htHistoryIdx,
+        literature: htLiteratureIdx,
+        first_steps: htFirstStepsIdx,
+        math_games: htMathGamesIdx,
+        families: htFamilyIdx,
+        indigenous_who: htIndigenousWhoIdx,
+        myths_believes: htMythsBelievesIdx,
+        historical_events: htHistoricalEventsIdx,
+        physics: htPhysicsIdx,
+        chemistry: htChemicalIdx,
+        biology: htBiologyIdx
+    };
+
+    return map[index];
+}
+
+function htSelectIndexName(index) {
+    const map = {
+        families: keywords[8],
+        first_steps: keywords[121],
+        atlas: "Atlas",
+        literature: keywords[122],
+        indigenous_who: keywords[123],
+        myths_believes: keywords[124],
+        history: keywords[125],
+        math_games: keywords[126],
+        physics: keywords[127],
+        chemistry: keywords[128],
+        biology: keywords[129],
+        historical_events: keywords[130]
+    };
+
+    return map[index] || "Undefined";
+}
+
+function htUpdateNavigationTitle(currentIdx, title, indexName)
+{
+    var pageHeader = $("#header").html();
+
+    if (currentIdx == 0) {
+        $("#header").removeClass();
+        $("#header").removeAttr("style");
+        $("#header").addClass("top-bar-inside-left");
+        pageHeader = title+" ("+indexName+")";
+    } else {
+        const ww = window.innerWidth;
+        var fontSize = 0;
+        if (ww < 992) {
+            fontSize = 0.8;
+        } else if (ww < 1200) {
+            fontSize = 1.0;
+        } else {
+            fontSize = 1.2;
+        }
+
+        $("#header").css("font-size", fontSize+"em");
+        $("#header").css("font-weight", "bold");
+        pageHeader += "; "+title+" ("+indexName+")";
+    }
+
+    $(header).html(pageHeader);
+}
+
+function htBuildNavigationSteps(ptr, idx, index, idxName)
+{
+    var prev = "";
+    var pageName = "";
+    var selector = "";
+    if (ptr.prev == index) {
+        prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></a>";
+    } else {
+        var prevPtr = idx.get(ptr.prev);
+        selector = ptr.prev.split(":");
+        pageName = (index == "families" || prevPtr.additional != undefined) ? "tree" : "class_content";
+        var lprev = "";
+        if (prevPtr.additional != undefined) {
+            lprev = (prevPtr.additional.length > 1) ? selector[0]+"&person_id="+prevPtr.additional: selector[0];
+        } else {
+            lprev = selector[0];
+        }
+
+        prev = "<a href=\"index.html?page="+pageName+"&arg="+lprev+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lprev+"', false); return false;\">"+prevPtr.name+"</a>";
+    }
+
+    var next = "";
+    if (ptr.next == undefined) {
+        next = "&nbsp;";
+    } else {
+        var nextPtr = idx.get(ptr.next);
+        selector = ptr.next.split(":");
+        pageName = (index == "families" || nextPtr.additional != undefined) ? "tree" : "class_content";
+
+        var lnext = "";
+        if (nextPtr.additional != undefined) {
+            lnext = (nextPtr.additional.length > 1) ? selector[0]+"&person_id="+nextPtr.additional: selector[0];
+        } else {
+            lnext = selector[0];
+        }
+
+        next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
+    }
+
+    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr><tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></td><td>"+next+"</td></tr></table></p>";
+
+    return navigation;
+}
+
+function htBuildNavigation(index, currentIdx)
+{
+    var urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.has('arg')) {
+        return null;
+    }
+
+    var arg = urlParams.get('arg');
+
+    var idx = htSelectIndexMap(index);
+
+    var ptr = idx.get(arg);
+    if (ptr == undefined) {
+        return "";
+    }
+
+    var idxName = htSelectIndexName(index);
+    htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
+    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
+
+    if (loadedIdx.length == 1) {
+        return navigation;
+    }
+
+    var end = ptr.total+2;
+    for (let i = 0; i < end; i++) {
+        var j = ptr.total+1;
+        var next = arg+":"+j;
+        ptr = idx.get(next);
+        if (ptr == undefined) {
+            break;
+        }
+        htUpdateNavigationTitle(j+1, ptr.name, idxName);
+        navigation += htBuildNavigationSteps(ptr, idx, index, idxName);
+    }
+
+    return navigation;
+}
+
+function htWriteNavigation()
+{
+    if (loadedIdx.length == 0) {
+        return;
+    }
+    var navigation = "";
+    for (const i in loadedIdx) {
+        navigation += htBuildNavigation(loadedIdx[i], i);
+    }
+    $(".dynamicNavigation").each(function() {
+        $(this).html(navigation);
+    });
+}
+
+function htFillPIXQRCode(id, size) {
+    var $element = $(id);
+
+    if ($element.is(':empty')) {
+        $('<img>', {
+            src: 'images/HistoryTracers/qrcodePix.png',
+            width: size
+        }).appendTo($element);
+    }
+}
+
 function htFillDivAuthorsContent(target, lastUpdate, authors, reviewers) {
     if (lastUpdate <= 0 || !target) {
         return;
@@ -703,7 +905,6 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
     return text;
 }
 
-
 //
 //    Scientific Method Game Section
 //
@@ -828,20 +1029,6 @@ function htFillSMGameData(data) {
     });
 }
 
-function htImageZoom(id, translate) {
-    var name = $("#"+id).prop("name");
-    if (name.length == 0) {
-        $("#"+id).attr("name", "zoomin");
-        var setScale = (window.innerWidth < 800) ? 1.5 : 2.0;
-        $("#"+id).css("transform", "scale("+setScale+")");
-        $("#"+id).css("translate", translate);
-    } else {
-        $("#"+id).attr("name", "");
-        $("#"+id).css("transform", "scale(1)");
-        $("#"+id).css("translate", "0%");
-    }
-}
-
 function htModifyAtlasIndexMap(id) {
     var next = parseInt(id) + 1;
     $("#atlasindex option[value="+next+"]").prop('selected', true);
@@ -960,11 +1147,18 @@ function htProccessData(data, optional) {
 
 }
 
-function htFillPIXQRCode(id, size) {
-    var htmlSize = $(id).html();
-    if (htmlSize.length == 0) {
-        $(id).html("<img src=\"images/HistoryTracers/qrcodePix.png\" width=\""+size+"\"/>");
-    }
+//
+//    Load Page Section
+//
+
+function htOnlyLoadHtml(appendPage, page, ext, unixEpoch) {
+        primarySourceMap.clear();
+        refSourceMap.clear();
+        holyRefSourceMap.clear();
+        smSourceMap.clear();
+
+        var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
+        $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 }
 
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {
@@ -1070,14 +1264,8 @@ function htLoadPage(page, ext, arg, reload) {
     }
 
     var unixEpoch = Date.now();
-    if (ext == "html") {
-        primarySourceMap.clear();
-        refSourceMap.clear();
-        holyRefSourceMap.clear();
-        smSourceMap.clear();
-
-        var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
-        $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
+    if (ext === "html") {
+        htOnlyLoadHtml(appendPage, page, ext, unixEpoch);
 
         return false;
     }
@@ -1473,209 +1661,6 @@ function htFillWebPage(page, data)
     });
 }
 
-function htFillHistorySourcesSelectFunction(id)
-{
-    switch (id) {
-        case 0:
-            return "htFillPrimarySource";
-        case 1:
-            return "htFillReferenceSource";
-        case 2:
-            return "htFillHolySource";
-        case 3:
-        default:
-            return "htFillSMSource";
-    }
-}
-
-function htSelectIndexMap(index)
-{
-    if (index == "history") {
-        return htHistoryIdx;
-    } else if (index == "literature") {
-        return htLiteratureIdx;
-    } else if (index == "first_steps") {
-        return htFirstStepsIdx;
-    } else if (index == "math_games") {
-        return htMathGamesIdx;
-    } else if (index == "families") {
-        return htFamilyIdx;
-    } else if (index == "indigenous_who") {
-        return htIndigenousWhoIdx;
-    } else if (index == "myths_believes") {
-        return htMythsBelievesIdx;
-    } else if (index == "historical_events") {
-        return htHistoricalEventsIdx;
-    } else if (index == "physics") {
-        return htPhysicsIdx;
-    } else if (index == "chemistry") {
-        return htChemicalIdx;
-    } else if (index == "biology") {
-        return htBiologyIdx;
-    }
-
-    return undefined;
-}
-
-function htSelectIndexName(index) {
-    if (index == "families") {
-        return keywords[8];
-    } else if (index == "first_steps") {
-        return keywords[121];
-    } else if (index == "atlas") {
-        return "Atlas";
-    } else if (index == "literature") {
-        return keywords[122];
-    } else if (index == "indigenous_who") {
-        return keywords[123];
-    } else if (index == "myths_believes") {
-        return keywords[124];
-    } else if (index == "history") {
-        return keywords[125];
-    } else if (index == "math_games") {
-        return keywords[126];
-    } else if (index == "physics") {
-        return keywords[127];
-    } else if (index == "chemistry") {
-        return keywords[128];
-    } else if (index == "biology") {
-        return keywords[129];
-    } else if (index == "historical_events") {
-        return keywords[130];
-    }
-
-     return "Undefined";
-}
-
-function htBuildNavigationSteps(ptr, idx, index, idxName)
-{
-    var prev = "";
-    var pageName = "";
-    var selector = "";
-    if (ptr.prev == index) {
-        prev = "<a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></a>";
-    } else {
-        var prevPtr = idx.get(ptr.prev);
-        selector = ptr.prev.split(":");
-        pageName = (index == "families" || prevPtr.additional != undefined) ? "tree" : "class_content";
-        var lprev = "";
-        if (prevPtr.additional != undefined) {
-            lprev = (prevPtr.additional.length > 1) ? selector[0]+"&person_id="+prevPtr.additional: selector[0];
-        } else {
-            lprev = selector[0];
-        }
-
-        prev = "<a href=\"index.html?page="+pageName+"&arg="+lprev+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lprev+"', false); return false;\">"+prevPtr.name+"</a>";
-    }
-
-    var next = "";
-    if (ptr.next == undefined) {
-        next = "&nbsp;";
-    } else {
-        var nextPtr = idx.get(ptr.next);
-        selector = ptr.next.split(":");
-        pageName = (index == "families" || nextPtr.additional != undefined) ? "tree" : "class_content";
-
-        var lnext = "";
-        if (nextPtr.additional != undefined) {
-            lnext = (nextPtr.additional.length > 1) ? selector[0]+"&person_id="+nextPtr.additional: selector[0];
-        } else {
-            lnext = selector[0];
-        }
-
-        next = "<a href=\"index.html?page="+pageName+"&arg="+lnext+"\" onclick=\"htLoadPage('"+pageName+"', 'html', '"+lnext+"', false); return false;\">"+nextPtr.name+"</a>";
-    }
-
-    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr><tr><td>"+prev+"</td> <td><a href=\"index.html?page="+index+"\" onclick=\"htLoadPage('"+index+"','html', '', false); return false;\"><span>"+keywords[60]+" ("+idxName+")</span></td><td>"+next+"</td></tr></table></p>";
-
-    return navigation;
-}
-
-function htUpdateNavigationTitle(currentIdx, title, indexName)
-{
-    var pageHeader = $("#header").html();
-
-    if (currentIdx == 0) {
-        $("#header").removeClass();
-        $("#header").removeAttr("style");
-        $("#header").addClass("top-bar-inside-left");
-        pageHeader = title+" ("+indexName+")";
-    } else {
-        const ww = window.innerWidth;
-        var fontSize = 0;
-        if (ww < 992) {
-            fontSize = 1.0;
-        } else if (ww < 1200) {
-            fontSize = 1.5;
-        } else {
-            fontSize = 2.0;
-        }
-
-        fontSize -= (0.75 * currentIdx);
-        if (fontSize < 0.8) {
-            fontSize = 0.8;
-        }
-        $("#header").css("font-size", fontSize+"em");
-        $("#header").css("font-weight", "bold");
-        pageHeader += "<br />"+title+" ("+indexName+")";
-    }
-
-    $(header).html(pageHeader);
-}
-
-function htBuildNavigation(index, currentIdx)
-{
-    var urlParams = new URLSearchParams(window.location.search);
-    if (!urlParams.has('arg')) {
-        return null;
-    }
-
-    var arg = urlParams.get('arg');
-
-    var idx = htSelectIndexMap(index);
-
-    var ptr = idx.get(arg);
-    if (ptr == undefined) {
-        return "";
-    }
-
-    var idxName = htSelectIndexName(index);
-    htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
-    var navigation = htBuildNavigationSteps(ptr, idx, index, idxName);
-
-    if (loadedIdx.length == 1) {
-        return navigation;
-    }
-
-    var end = ptr.total+2;
-    for (let i = 0; i < end; i++) {
-        var j = ptr.total+1;
-        var next = arg+":"+j;
-        ptr = idx.get(next);
-        if (ptr == undefined) {
-            break;
-        }
-        htUpdateNavigationTitle(j+1, ptr.name, idxName);
-        navigation += htBuildNavigationSteps(ptr, idx, index, idxName);
-    }
-
-    return navigation;
-}
-
-function htWriteNavigation()
-{
-    if (loadedIdx.length == 0) {
-        return;
-    }
-    var navigation = "";
-    for (const i in loadedIdx) {
-        navigation += htBuildNavigation(loadedIdx[i], i);
-    }
-    $(".dynamicNavigation").each(function() {
-        $(this).html(navigation);
-    });
-}
-
 function htUpdateLoadedIdx(idx) {
     for (const i in loadedIdx) {
         if (loadedIdx[i] == idx) {
@@ -1789,6 +1774,9 @@ function htLoadIndex(data, arg, page)
         return;
     } else if (page == "literature" && htLiteratureIdx.has("literature") == false) {
         htFillTopIdx(htLiteratureIdx, data, "literature");
+        return;
+    } else if (page == "history" && htHistoryIdx.has("history") == false) {
+        htFillTopIdx(htHistoryIdx, data, "history");
         return;
     } else if (page == "families" && htFamilyIdx.has("families") == false) {
         htFillTopIdx(htFamilyIdx, data, "families");
