@@ -21,6 +21,7 @@ audio {
   cursor: pointer;
   transition: max-height 0.4s ease;
   padding-bottom: 2em;
+  background: #fff;
 }
 
 .dynamicNavigation::after {
@@ -31,8 +32,10 @@ audio {
   width: 100%;
   text-align: center;
   padding: 0.3em 0;
-  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.95));
+  background: #ffffff;
+  border-top: 1px solid #ddd;
   font-size: 0.9em;
+  pointer-events: none;
   color: #333;
   font-style: italic;
   pointer-events: none;
@@ -45,6 +48,7 @@ audio {
 
 .dynamicNavigation:hover::after {
   background: none;
+  border: none;
 }
 
 .selSize {
