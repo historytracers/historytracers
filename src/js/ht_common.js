@@ -1212,6 +1212,16 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     });
 }
 
+function htCallFillPIXQRCode() {
+    if ($("#htPixQRCode").length > 0 ) {
+        htFillPIXQRCode("#htPixQRCode", "10%");
+    }
+
+    if ($("#htPixSideQRCode").length > 0 ) {
+        htFillPIXQRCode("#htPixSideQRCode", "25%");
+    }
+}
+
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
     $("#ht_index_latex").append("");
@@ -1296,13 +1306,7 @@ function htLoadPage(page, ext, arg, reload) {
 
             htFillWebPage(page, data);
 
-            if ($("#htPixQRCode").length > 0 ) {
-                htFillPIXQRCode("#htPixQRCode", "10%");
-            }
-
-            if ($("#htPixSideQRCode").length > 0 ) {
-                htFillPIXQRCode("#htPixSideQRCode", "25%");
-            }
+            htCallFillPIXQRCode();
 
             return false;
         },
@@ -1333,7 +1337,6 @@ function htDetectLanguage()
             }
         }
 
-        // address browsers that stores only lower case values.
         var country = lang.substring(3).toUpperCase();
         llang =  lang.substring(0, 2).toLowerCase();
         lang = llang+'-'+country;
@@ -1344,9 +1347,11 @@ function htDetectLanguage()
 function htMountSpecificDate(dateObj, localLang, localCalendar)
 {
     var updateText = "";
-    if (dateObj == undefined) {
+    if (!dateObj || typeof dateObj !== 'object') {
+        console.warn('htMountSpecificDate: Invalid dateObj parameter');
         return updateText;
     }
+
     switch (dateObj.type) {
         case "gregory":
             if (dateObj.day > 0) {
@@ -1367,14 +1372,18 @@ function htMountSpecificDate(dateObj, localLang, localCalendar)
 
 function htFillHTDate(vector)
 {
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
     var j = 0;
     $(".htdate").each(function() {
-        if (j == vector.length) {
-            return;
+        if (j >= vector.length) {
+            return false;
         }
         var w = vector[j++];
+        if (!w || typeof w !== 'object') {
+            console.warn(`htFillHTDate: Invalid date object at index ${index}`);
+            return true; // Continue to next element
+        }
         var updateText = htMountSpecificDate(w, localLang, localCalendar);
         $(this).html(updateText);
     });
