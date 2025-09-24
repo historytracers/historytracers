@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector245b24d9);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
     $("#OriginHTMW").html(keywords[82]+" "+keywords[83]);
 

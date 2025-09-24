@@ -281,7 +281,7 @@ function htChangeCalcTable6481070f0 (tableId) {
 }
 
 
-function htLoadExercise() {
+function htLoadContent() {
     $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
         $("input[name='yupanaradio']").prop("checked", false);
         var value = $(this).val();

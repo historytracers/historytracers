@@ -69,7 +69,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVectorc742c649);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
 
     localCounterc742c649 = 0;

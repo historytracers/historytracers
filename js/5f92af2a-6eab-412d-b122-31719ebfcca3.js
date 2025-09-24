@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
     htAddTreeReflection("#myFirstReflection", 55);
     $("#bndPortugal").html(keywords[88]);

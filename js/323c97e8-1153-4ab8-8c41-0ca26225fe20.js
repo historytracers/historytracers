@@ -29,7 +29,7 @@ function htUpdateYupanaScreen323c97e8(n) {
     $("#andesIndoArabic").html(valueFormat);
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     $(".fa-play").on("click", function() {
         var name = $(this).attr('name');
         var value = 0;

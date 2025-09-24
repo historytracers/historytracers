@@ -12,7 +12,7 @@ function htModifycbf361bb(value)
     return value;
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     localCountercbf361bb = 0;
     localCountercbf361bb = htModifycbf361bb(localCountercbf361bb);
 

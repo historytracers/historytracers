@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVectorf899e6cf);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
     htAddReligionReflection("#htReligiousReflection");
 

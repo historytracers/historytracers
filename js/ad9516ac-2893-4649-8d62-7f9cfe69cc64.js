@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVectorad9516ac);
     }
+}
 
+function htLoadContent() {
     htWriteMultiplicationTable("#mParent4", 4);
     htWriteMultiplicationTable("#mParent5", 5);
 

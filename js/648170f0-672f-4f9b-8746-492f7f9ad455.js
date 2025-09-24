@@ -221,7 +221,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector648170f0);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
 
     var times = $("#ia2yupana1").val();

@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
 
     var divRadius = parseInt($(".htCircle[name='fig1']").width());

@@ -164,13 +164,7 @@ function htAdditionAddCommonTable(id)
     }
 }
 
-function htLoadExercise() {
-    if (localAnswerVector687a38b5 == undefined) {
-        localAnswerVector687a38b5 = htLoadAnswersFromExercise();
-    } else {
-        htResetAnswers(localAnswerVector687a38b5);
-    }
-
+function htLoadContent() {
     htWriteNavigation();
 
     $(".sumexample1").hover(function(){
@@ -184,6 +178,14 @@ function htLoadExercise() {
     htAdditionAddCommonTable("0");
     htAdditionDescRow("0")
     htNewAddition();
+}
+
+function htLoadExercise() {
+    if (localAnswerVector687a38b5 == undefined) {
+        localAnswerVector687a38b5 = htLoadAnswersFromExercise();
+    } else {
+        htResetAnswers(localAnswerVector687a38b5);
+    }
 
     return false;
 }

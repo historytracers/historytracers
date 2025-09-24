@@ -83,7 +83,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector24e520);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
 
     $("#updateEnv").on("click", function() {

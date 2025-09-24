@@ -3,6 +3,7 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -128,6 +129,26 @@ func htUpdateTimestamp() string {
 	newStr := fmt.Sprintf("%d", time.Now().Unix())
 
 	return newStr
+}
+
+func htCountLines(filePath string) (int, error) {
+	file, err := os.Open(filePath)
+	if err != nil {
+		return 0, err
+	}
+	file.Close()
+
+	scanner := bufio.NewScanner(file)
+	lineCount := 0
+	for scanner.Scan() {
+		lineCount++
+	}
+
+	if err := scanner.Err(); err != nil {
+		return 0, err
+	}
+
+	return lineCount, nil
 }
 
 func htOpenFileReadClose(fileName string) ([]byte, error) {

@@ -14,7 +14,7 @@ function htPlusDivs(n) {
     htShowSlideDivs(x, slideIndex9d4c7f85);
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     htAddAlterQImages(".htSlides");
     htPlusDivs(0);
     htFillSequenceTable("#sequenceNum", 0, 99);

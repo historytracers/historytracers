@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVectorbef0d876);
     }
+}
 
+function htLoadContent() {
     htAddTreeReflection("#myFirstReflection", 55);
     $("#bndPortugal").html(keywords[88]);
     $("#ANTTPortugal1").html(keywords[89]);

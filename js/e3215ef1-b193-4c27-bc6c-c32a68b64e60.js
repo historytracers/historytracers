@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
 
     htWriteMultiplicationTable("#mParent7", 7);

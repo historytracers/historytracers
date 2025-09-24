@@ -1212,6 +1212,16 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
     });
 }
 
+function htCallFillPIXQRCode() {
+    if ($("#htPixQRCode").length > 0 ) {
+        htFillPIXQRCode("#htPixQRCode", "10%");
+    }
+
+    if ($("#htPixSideQRCode").length > 0 ) {
+        htFillPIXQRCode("#htPixSideQRCode", "25%");
+    }
+}
+
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
     $("#ht_index_latex").append("");
@@ -1296,13 +1306,7 @@ function htLoadPage(page, ext, arg, reload) {
 
             htFillWebPage(page, data);
 
-            if ($("#htPixQRCode").length > 0 ) {
-                htFillPIXQRCode("#htPixQRCode", "10%");
-            }
-
-            if ($("#htPixSideQRCode").length > 0 ) {
-                htFillPIXQRCode("#htPixSideQRCode", "25%");
-            }
+            htCallFillPIXQRCode();
 
             return false;
         },
@@ -1333,7 +1337,6 @@ function htDetectLanguage()
             }
         }
 
-        // address browsers that stores only lower case values.
         var country = lang.substring(3).toUpperCase();
         llang =  lang.substring(0, 2).toLowerCase();
         lang = llang+'-'+country;
@@ -1344,9 +1347,11 @@ function htDetectLanguage()
 function htMountSpecificDate(dateObj, localLang, localCalendar)
 {
     var updateText = "";
-    if (dateObj == undefined) {
+    if (!dateObj || typeof dateObj !== 'object') {
+        console.warn('htMountSpecificDate: Invalid dateObj parameter');
         return updateText;
     }
+
     switch (dateObj.type) {
         case "gregory":
             if (dateObj.day > 0) {
@@ -1367,14 +1372,18 @@ function htMountSpecificDate(dateObj, localLang, localCalendar)
 
 function htFillHTDate(vector)
 {
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
     var j = 0;
     $(".htdate").each(function() {
-        if (j == vector.length) {
-            return;
+        if (j >= vector.length) {
+            return false;
         }
         var w = vector[j++];
+        if (!w || typeof w !== 'object') {
+            console.warn(`htFillHTDate: Invalid date object at index ${index}`);
+            return true; // Continue to next element
+        }
         var updateText = htMountSpecificDate(w, localLang, localCalendar);
         $(this).html(updateText);
     });
@@ -1382,114 +1391,139 @@ function htFillHTDate(vector)
 
 function htFillStringOnPage(data, idx, page)
 {
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    if (data.content[idx].html_value != undefined && data.content[idx].html_value.length > 0 && data.content[idx].target == undefined) {
-        var modifiedText = (data.content[idx].date_time == undefined) ? data.content[idx].html_value : htOverwriteHTDateWithText(data.content[idx].html_value, data.content[idx].date_time, localLang, localCalendar);
-        $("#"+data.content[idx].id).append(modifiedText);
-    } else if (data.content[idx].id != undefined && data.content[idx].id == "date_time") {
-        htFillHTDate(data.content[idx].text);
-        return;
-    } else if (data.content[idx].id != undefined && data.content[idx].id == "fill_dates") {
-        htFillHTDate(data.content[idx].text);
+    const item = data.content?.[idx];
+    if (!item) return;
+
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+
+    const hasHtmlValue = item.html_value && item.html_value.length > 0;
+    const hasDateTime = item.date_time !== undefined;
+
+    const modifiedText = hasHtmlValue
+        ? (hasDateTime
+            ? htOverwriteHTDateWithText(item.html_value, item.date_time, localLang, localCalendar)
+            : item.html_value)
+        : "";
+
+    // Handle special IDs
+    if (item.id === "date_time" || item.id === "fill_dates") {
+        htFillHTDate(item.text);
         return;
     }
 
-    var text = "";
-    if (data.content[idx].html_value != undefined && data.content[idx].html_value.length > 0) {
-        var modifiedText = (data.content[idx].date_time == undefined) ? data.content[idx].html_value : htOverwriteHTDateWithText(data.content[idx].html_value, data.content[idx].date_time, localLang, localCalendar);
+    // Case 1: append if html_value exists and no target
+    if (hasHtmlValue && !item.target) {
+        $("#" + item.id).append(modifiedText);
+        return;
+    }
+
+    // Case 2: determine text to fill
+    let text = "";
+    if (hasHtmlValue) {
         text = modifiedText;
-    } else if (data.content[idx].value != undefined) {
-        text = data.content[idx].value;
+    } else if (item.value !== undefined) {
+        text = item.value;
     } else {
         return;
     }
 
-    if ($("#"+data.content[idx].id).length > 0) {
-        $("#"+data.content[idx].id).html(text);
-    } else if ((page == "families" || page == "history" ||page == "literature" ||page == "first_steps" || page == "indigenous_who" || page == "myths_believes" || page == "math_games" || page == "historical_events" || page == "biology" || page == "physics" || page == "chemistry") && (data.content[idx].target != undefined)) {
-        $("#group-map").append("<ul><b><span id=\""+data.content[idx].id+"\">"+text+"</span></b><ol id=\""+data.content[idx].target+"\"></ol></ul><br />");
+    const $target = $("#" + item.id);
+    if ($target.length > 0) {
+        $target.html(text);
+        return;
+    }
+
+    // Case 3: append to group-map for specific pages
+    const allowedPages = [
+        "families", "history", "literature", "first_steps",
+        "indigenous_who", "myths_believes", "math_games",
+        "historical_events", "biology", "physics", "chemistry"
+    ];
+
+    if (allowedPages.includes(page) && item.target) {
+        $("#group-map").append(
+            `<ul>
+                <b><span id="${item.id}">${text}</span></b>
+                <ol id="${item.target}"></ol>
+            </ul><br />`
+        );
     }
 }
 
 function htFillWebPage(page, data)
 {
-    if (data.title != undefined && data.title != null && data.title.length > 0) {
-        $(document).prop('title', data.title);
+    if (data?.title?.length) {
+        $(document).prop("title", data.title);
     }
 
-    if (data.header != undefined && data.header != null && data.header.length > 0) {
+    // Header
+    if (data?.header?.length) {
         $("#header").html(data.header);
-    } else  if (data.nothing != undefined && data.nothing != null && data.nothing.length > 0) {
+    } else if (data?.nothing?.length) {
         // Used when a new language has been added
-        $(document).prop('title', data.nothing);
+        $(document).prop("title", data.nothing);
         $("#header").html(data.nothing);
         return;
     }
 
-    if (data.common != undefined && data.common != null && data.common.length > 0) {
-        var localLang = $("#site_language").val();
-        var localCalendar = $("#site_calendar").val();
-        for (const i in data.common) {
-            var commonObj = data.common[i];
-            var commonText = (commonObj.constructor === stringConstructor) ? commonObj : htParagraphFromObject(commonObj, localLang, localCalendar);
+     if (data?.common?.length) {
+        const localLang = $("#site_language").val();
+        const localCalendar = $("#site_calendar").val();
+
+        data.common.forEach(commonObj => {
+            const commonText =
+                (typeof commonObj === "string")
+                    ? commonObj
+                    : htParagraphFromObject(commonObj, localLang, localCalendar);
 
             $("#common").append(commonText);
-        }
+        });
     }
 
-    var last_update = 0;
-    if (data.last_update != undefined && data.last_update != null) {
-        last_update = data.last_update;
-    }
+    const last_update = data?.last_update ?? 0;
+    let page_authors = (keywords.length > 34) ? keywords[35] : "Editors of History Tracers";
+    let page_reviewers = (keywords.length > 36) ? keywords[37] : "Reviewers of History Tracers";
 
-    var page_authors = (keywords.length > 34 ) ? keywords[35] : "Editors of History Tracers";
-    var page_reviewers = (keywords.length > 36 ) ? keywords[37] : "Reviewers of History Tracers";
-    if (data.authors != undefined && data.authors != null && data.authors.length > 0) {
-        page_authors = data.authors;
-    }
+    if (data?.authors?.length) page_authors = data.authors;
+    if (data?.reviewers?.length) page_reviewers = data.reviewers;
 
-    if (data.reviewers != undefined && data.reviewers != null && data.reviewers.length > 0) {
-        page_reviewers = data.reviewers;
-    }
-
-    if ($("#extpaper").length > 0 && last_update > 0) {
+    if ($("#extpaper").length && last_update > 0) {
         htFillDivAuthorsContent("#extpaper", last_update, page_authors, page_reviewers);
     }
 
-    if ($("#htaudio").length > 0 && data.audio != undefined && data.audio != null) {
+    if ($("#htaudio").length && data?.audio) {
         htAddAudio(data.audio);
     }
 
-    if (data.languages != undefined) {
+    if (data?.languages) {
         htFillIndexSelector(data.languages, "#site_language");
         $("#loading_msg").hide();
-        $(':focus').blur()
+        $(":focus").blur();
         return;
     }
-    else if (data.calendars != undefined) {
+    if (data?.calendars) {
         htFillIndexSelector(data.calendars, "#site_calendar");
         $("#loading_msg").hide();
-        $(':focus').blur()
+        $(":focus").blur();
         return;
     }
-    else if (data.themes != undefined) {
+    if (data?.themes) {
         htFillIndexSelector(data.themes, "#site_theme");
-        for (const i in data.themes) {
-            theme = data.themes[i];
-            $("#"+theme.dir).html(theme.text);
-        }
+        data.themes.forEach(theme => {
+            $("#" + theme.dir).html(theme.text);
+        });
     }
 
-    if (data.families != undefined) {
+    if (data?.families) {
         htFillFamilies(page, data);
-    } else if (data.keywords != undefined) {
+    } else if (data?.keywords) {
         htFillKeywords(data.keywords);
         $("#loading_msg").hide();
-    } else if (data.math_keywords != undefined) {
+    } else if (data?.math_keywords) {
         htFillMathKeywords(data.math_keywords);
         $("#loading_msg").hide();
-    } else if (data.type != undefined && data.version == 2) {
+    } else if (data?.type && data.version == 2) {
         if (data.type == "class") {
             htFillClassContentV2(data, last_update, page_authors, page_reviewers, data.index);
         } else if (data.type == "atlas") {
@@ -1592,35 +1626,24 @@ function htFillWebPage(page, data)
         }
     }
 
-    if (data.scripts != undefined && data.scripts != null) {
-        for (const i in data.scripts) {
-            var jsURL = "js/" + data.scripts[i] + ".js";
-            $.getScript( jsURL, function() {
-                if (typeof htLoadContent !== "undefined") {
-                    htLoadContent();
-                } else if (typeof htLoadExercise !== "undefined") {
-                    htLoadExercise();
-                }
+    if (data?.scripts?.length) {
+        data.scripts.forEach(script => {
+            const jsURL = `js/${script}.js`;
+            $.getScript(jsURL, () => {
+                if (typeof htLoadContent !== "undefined") htLoadContent();
+                if (typeof htLoadExercise !== "undefined") htLoadExercise();
 
-                if ($("#btncheck").length > 0) {
-                    $("#btncheck").on( "click", function() {
-                        if (typeof htCheckAnswers !== "undefined") {
-                            htCheckAnswers();
-                        }
-                        return false;
-                    });
-                }
+                $("#btncheck").off("click").on("click", e => {
+                    e.preventDefault();
+                    if (typeof htCheckAnswers !== "undefined") htCheckAnswers();
+                });
 
-                if ($("#btnnew").length > 0) {
-                    $("#btnnew").on( "click", function() {
-                        if (typeof htLoadExercise !== "undefined") {
-                            htLoadExercise();
-                        }
-                        return false;
-                    });
-                }
+                $("#btnnew").off("click").on("click", e => {
+                    e.preventDefault();
+                    if (typeof htLoadExercise !== "undefined") htLoadExercise();
+                });
             });
-        }
+        });
     }
 
     htFillClassWithText(".htPrevText", keywords[56]);
@@ -1628,42 +1651,46 @@ function htFillWebPage(page, data)
     htFillClassWithText(".htNextText", keywords[58]);
     htFillClassWithText(".htIndexText", keywords[60]);
 
-    if ($("#family_common_sn").length > 0) {
-        htAddTreeReflection("#family_common_sn", 52);
+    const reflections = {
+        "#family_common_sn": 52,
+        "#htZoomImageMsg": 84,
+        "#htChartMsg": 112,
+        "#htAmericaAbyaYalaMsg": 85,
+        "#htAgeMsg": 131
+    };
+
+    for (const [selector, code] of Object.entries(reflections)) {
+        if ($(selector).length) {
+            htAddTreeReflection(selector, code);
+        }
     }
 
-    if ($("#htZoomImageMsg").length > 0) {
-        htAddTreeReflection("#htZoomImageMsg", 84);
-    }
+    if (!$("#tree-common-stats").length) return false;
 
-    if ($("#htChartMsg").length > 0) {
-        htAddTreeReflection("#htChartMsg", 112);
-    }
+    const htmlFields = [
+        "#tree-common-stats", "#statsDescription", "#genStatRow00", "#genStatRow01",
+        "#genStatRow10", "#genStatRow20", "#genStatRow30", "#genStatRow40",
+        "#genStatRow50", "#genStatRow60", "#genStatRow70"
+    ];
+    const labelIndexes = [61, 62, 63, 64, 5, 6, 7, 65, 66, 67, 68, 69];
 
-    if ($("#htAmericaAbyaYalaMsg").length > 0) {
-        htAddTreeReflection("#htAmericaAbyaYalaMsg", 85);
-    }
+    htmlFields.forEach((selector, i) => {
+        $(selector).html(keywords[labelIndexes[i]]);
+    });
 
-    if ($("#htAgeMsg").length > 0) {
-        htAddTreeReflection("#htAgeMsg", 131);
-    }
+    const htmlValues = [
+        "#genStatRow11", "#genStatRow21", "#genStatRow31",
+        "#genStatRow41", "#genStatRow51", "#genStatRow61", "#genStatRow71"
+    ];
 
-    if ($("#tree-common-stats").length <= 0) {
-        return false;
-    }
-
-    var htmlFields = [ "#tree-common-stats", "#statsDescription", "#genStatRow00", "#genStatRow01", "#genStatRow10", "#genStatRow20", "#genStatRow30", "#genStatRow40", "#genStatRow50", "#genStatRow60", "#genStatRow70"];
-    var labelIndexes = [ 61, 62, 63, 64, 5, 6, 7, 65, 66, 67, 68, 69];
-    for (let i = 0; i < htmlFields.length; i++) {
-        $(htmlFields[i]).html(keywords[labelIndexes[i]]);
-    }
-
-    var htmlValues = [ "#genStatRow11", "#genStatRow21", "#genStatRow31", "#genStatRow41", "#genStatRow51", "#genStatRow61", "#genStatRow71"];
-    var counter = 0;
-    Object.values(genealogicalStats).forEach(val => {
-        $(htmlValues[counter++]).html(val);
+    Object.values(genealogicalStats).forEach((val, i) => {
+        $(htmlValues[i]).html(val);
     });
 }
+
+//
+//    Index Section
+//
 
 function htUpdateLoadedIdx(idx) {
     for (const i in loadedIdx) {
@@ -1831,6 +1858,10 @@ function htLoadIndex(data, arg, page)
         },
     });
 }
+
+//
+//    Source Section
+//
 
 function htLoadSources(data, arg, page)
 {

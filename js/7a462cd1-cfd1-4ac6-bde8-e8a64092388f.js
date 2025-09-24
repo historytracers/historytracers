@@ -29,7 +29,7 @@ function htUpdateMembers() {
     htFillMesoamericanVigesimalValues(localCounter7a462cd1, 2, 6, undefined);
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     $("#yupana1 #tc5f1").html("<span class=\"text_to_paint\">"+localCounter7a462cd1+"</span>");
     htSetImageForMembers('#leftHandImg1', 'Left_Hand_Small.png', '#rightHandImg1', 'Right_Hand_Small.png', 0);
     htSetImageForMembers('#leftFootImg1', 'LeftFoot.png', '#rightFootImg1', 'RightFoot.png', 0);

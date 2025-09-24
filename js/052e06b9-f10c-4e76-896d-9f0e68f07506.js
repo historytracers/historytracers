@@ -173,7 +173,7 @@ function htCheckAnswer(startValue) {
     htSetAnswer();
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     $("#nextLevel").hide();
     htWriteNavigation();
 

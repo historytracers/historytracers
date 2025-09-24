@@ -35,7 +35,7 @@ function htAddAlterQImages(id)
     htPlusDivs(0);
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     htAddAlterQImages(".htSlides");
 
     $("#traineeUp0").on("click", function() {

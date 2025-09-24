@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector376a5f3c);
     }
+}
 
+function htLoadContent() {
     htAddReligionReflection("#htReligiousReflection");
     $("#SumerianKingListDesc").html(keywords[90]);
 
