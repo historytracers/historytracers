@@ -715,7 +715,7 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
     }
 
     var idxName = htSelectIndexName(index);
-    htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
+    // htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
     var navigation = htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
 
     if (loadedIdx.length == 1) {
@@ -731,7 +731,7 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
         if (ptr == undefined) {
             break;
         }
-        htUpdateNavigationTitle(j+1, ptr.name, idxName);
+        // htUpdateNavigationTitle(j+1, ptr.name, idxName);
         navigation += htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
     }
 
@@ -743,7 +743,7 @@ function htWriteNavigation()
     if (loadedIdx.length == 0) {
         return;
     }
-    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
+    var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
     for (const i in loadedIdx) {
         var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
         navigation += htBuildNavigation(loadedIdx[i], i, color);
