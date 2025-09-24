@@ -1650,39 +1650,6 @@ function htFillWebPage(page, data)
     htFillClassWithText(".htTopText", keywords[57]);
     htFillClassWithText(".htNextText", keywords[58]);
     htFillClassWithText(".htIndexText", keywords[60]);
-    /*
-    if (data.scripts != undefined && data.scripts != null) {
-        for (const i in data.scripts) {
-            var jsURL = "js/" + data.scripts[i] + ".js";
-            $.getScript( jsURL, function() {
-                if (typeof htLoadContent !== "undefined") {
-                    htLoadContent();
-                } else if (typeof htLoadExercise !== "undefined") {
-                    htLoadExercise();
-                }
-
-                if ($("#btncheck").length > 0) {
-                    $("#btncheck").on( "click", function() {
-                        if (typeof htCheckAnswers !== "undefined") {
-                            htCheckAnswers();
-                        }
-                        return false;
-                    });
-                }
-
-                if ($("#btnnew").length > 0) {
-                    $("#btnnew").on( "click", function() {
-                        if (typeof htLoadExercise !== "undefined") {
-                            htLoadExercise();
-                        }
-                        return false;
-                    });
-                }
-            });
-        }
-    }
-
-    */
 
     const reflections = {
         "#family_common_sn": 52,
@@ -1720,6 +1687,10 @@ function htFillWebPage(page, data)
         $(htmlValues[i]).html(val);
     });
 }
+
+//
+//    Index Section
+//
 
 function htUpdateLoadedIdx(idx) {
     for (const i in loadedIdx) {
@@ -1887,6 +1858,10 @@ function htLoadIndex(data, arg, page)
         },
     });
 }
+
+//
+//    Source Section
+//
 
 function htLoadSources(data, arg, page)
 {

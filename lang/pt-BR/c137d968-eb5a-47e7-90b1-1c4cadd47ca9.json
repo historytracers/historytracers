@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1758662463"
+      "1758743456"
    ],
    "authors": null,
    "reviewers": null,
@@ -44,9 +44,16 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
                "source": null,
-               "date_time": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
                "isTable": false,
                "imgdesc": "",
                "format": "html",
@@ -249,7 +256,7 @@
                "PostMention": ""
             },
             {
-               "text": "Quando as primeiras partículas e a luz surgiram a partir da transformação da energia em matéria, as partículas adquiriram o que conhecemos como massa. Como consequência, surgiu essa dimensão adicional que chamamos profundidade. Já a luz, não possui massa.\n\nA razão pela qual as partículas possuem massa foi proposta por Higgs em <htdate0> e confirmada nos laboratórios do CERN em <htdate1>. Segundo Higgs, o fato de as partículas terem massa ocorre por uma interação com algo invisível aos nossos olhos: o campo. A luz, por não interagir com esse campo, não possui massa (<htcite0>).",
+               "text": "Quando as primeiras partículas e a luz surgiram a partir da transformação da energia em matéria, as partículas adquiriram o que conhecemos como massa. Como consequência, surgiu essa dimensão adicional que chamamos profundidade. Já a luz, não possui massa.\n\nA razão pela qual as partículas possuem massa foi proposta por Higgs em <htdate0> e confirmada nos laboratórios do CERN em <htdate1>. Segundo Higgs, as partículas adquirem massa por meio da interação com algo invisível aos nossos olhos, mas que as afeta: um campo. A luz, por não interagir com esse campo específico, não possui massa (<htcite0>). Esses campos presentes no universo seriam comparáveis à nossa atmosfera: embora não possamos vê-la, ela está presente e podemos medir algumas de suas propriedades, como a velocidade do vento, que nos ajuda a prever o tempo (<htcite1>; <htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -261,6 +268,30 @@
                         "year": "",
                         "month": "",
                         "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "15779436-6cf9-40fa-8670-eb8927e2d432",
+                     "text": "Strassler, Matt",
+                     "page": "Que são campos?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "3",
+                        "day": "21"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "985c8aa3-2680-49bb-be25-505d786b1030",
+                     "text": "Strassler, Matt",
+                     "page": "Ch. 13, 14",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "3",
+                        "day": "5"
                      }
                   }
                ],
@@ -293,13 +324,254 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_3view",
+         "text": [
+            {
+               "text": "### Descobrindo as dimensões\n\nNão é difícil encontrarmos exemplos em que a divisão em apenas duas dimensões não consegue explicar o todo. Algumas situações, entretanto, são tão perturbadoras que desejamos voltar à simplicidade de apenas duas. Vejamos alguns exemplos.\n\n#### Visão de três regiões do universo\n\nHá milênios deixamos de pensar que existiam apenas o céu e a terra.\n\nAs crenças mesoamericanas concebiam o universo como dividido em céu, mundo e inframundo. Essa visão está representada no jogo de bola mesoamericano (Figura 3), como observa Aguilar-Moreno:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "87a40e3a-c09b-466a-8a15-37091ddd38a5",
+                     "text": "Aguilar-Moreno",
+                     "page": "pp. 76 - 78",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2015",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<ul class=\"citation\"><li><i>\"...as quadras de jogo simbolizavam o universo, sendo o movimento da bola uma metáfora para os corpos celestes - especialmente o Sol, a Lua e Vênus. A passagem da bola representava o sol (a luz, o día, a vida) viajando dentro e fora do inframundo...\"</i></li> </ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"Copan\" onclick=\"htImageZoom('Copan', '0%')\" src=\"images/Copan/JuegoDePelotaCopan.jpg\" class=\"imgcenter\"/>Figura 3: Vista do \"Juego de Pelota\" de Copán, em Honduras. Foto tirada em <htdate0> durante uma visita ao sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "30"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Os Mundos\n\nA visão inicial de um dos descobrimentos europeus do continente americano (*Abya Yala*) era extremamente limitada, como descreveu Américo Vespúcio em carta a Lorenzo Pietro di Medici. Já em seu parágrafo inicial, observamos que, mais do que descrever um continente, ele o menciona como um \"novo mundo\" (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a1c70359-55eb-4f7e-b332-11aa3de7035a",
+                     "text": "Americo Vespucio",
+                     "page": "pp. 1",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1916",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"margin: auto; width: 100%;\"><iframe src=\"https://archive.org/details/mundusnovuslette00vesp/page/n9/mode/2up\" width=\"100%\" height=\"560\" frameborder=\"0\" webkitallowfullscreen=\"true\" mozallowfullscreen=\"true\" allowfullscreen></iframe></p><p class=\"desc\">Livro 1: Página 1 da carta de Américo Vespúcio.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Com o passar do tempo, essa divisão mostrou-se insuficiente. Dependendo do que estudamos — e das diferentes disputas territoriais e sociais — surgia a necessidade de novas classificações. Por exemplo, vejamos a Figura 4.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMWPWEEC\" onclick=\"htImageZoom('imgMWPWEEC', '0%')\" src=\"images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png\" class=\"imgcenterlarge\"/>Figura 4: Berços civilizatórios. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Compartilhado sob a licença <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A figura traz não apenas os continentes, mas também os países do mundo atual. Sobre eles, com fins didáticos, foram destacadas as regiões que abrigaram seis berços civilizatórios (<htcite0>; <htcite1>). Dependendo do objeto de estudo, ainda poderíamos propor outras divisões.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "893e651f-8354-4d9a-b182-893512a3bbbe",
+                     "text": "History Tracers Team",
+                     "page": "Berços Civilizatórios (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b8e8452c-55fc-4f5b-aa3c-10669fa3cd54",
+                     "text": "History Tracers Team",
+                     "page": "Berços Civilizatórios (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: Separando os mapas</b><br /><br />Qual outra divisão você faria utilizando o mapa da Figura 4?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### As ideias\n\nQuando falamos de ideias humanas, enfrentamos o caso mais complexo: aceitar que apenas dois lados ou duas perspectivas não são capazes de explicar algo. Comecemos com uma reflexão:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 5: Quando dois são, na verdade, um</b><br /><br />Você gosta de estar certo?<br /><br />Você gosta de dominar algo?<br /><br />Já pensou que, às vezes, desejamos que algo tenha apenas dois lados, porque assim é mais fácil centralizar em nós mesmos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para compreender melhor essa reflexão, retomemos o exemplo da folha dividida pela metade, apresentado no texto anterior (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "112e532d-e8af-40d6-b1b5-527978ee42f3",
+                     "text": "History Tracers Team",
+                     "page": "Dois Lados",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"2\">Folha dividida</th></tr><tr><td style=\"height: 300px;\"></td><td style=\"height: 300px;\"></td></tr> </table></p><p class=\"desc\">Tabela 1: Folha dividida em dois pedaços.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Suponha que esses dois lados representem ideias diferentes: uma que você aprecia e outra que não. Agora imagine que começa a dividir cada lado de maneira igual, como fizemos anteriormente. Obviamente, tentar reunir tudo em uma única unidade torna-se cada vez mais difícil à medida que surgem mais pedaços a serem unidos.\n\nA limitação em apenas dois lados gera ainda outro problema: aprisiona ideias e pessoas a desejos que não são os delas. Afinal, nunca existiram — e nunca existirão — duas pessoas exatamente iguais, como continuaremos estudando ao longo deste e dos próximos capítulos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto aprendemos que fazemos parte de um universo que possui ao menos três dimensões, e que a confirmação do modelo que explica por que a matéria tem massa só ocorreu em <htdate0> (<htcite0>). Isso implica que o universo — e nós, que somos parte da mesma matéria que o constitui — temos pelo menos três dimensões.\n\nAlém disso, vimos que não podemos reduzir o universo a um simples plano, devido à profundidade que ele apresenta. Também observamos que, embora em alguns momentos tenhamos dividido certas coisas em apenas duas regiões — como “céu e terra” —, à medida que avançamos em nossos conhecimentos e em nossas relações humanas, fomos obrigados a realizar novas divisões. Isso nos levou, entre outras consequências, a termos hoje mais de 190 países no mundo.\n\nPor fim, compreendemos que reduzir algo a apenas dois lados pode ser uma forma de nos limitar e de lutar contra a nossa própria natureza.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ae8d4e6a-8916-4d56-97a5-af126bc7e620",
+                     "text": "CERN",
+                     "page": "O Bóson de Higgs",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2012",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
          "question": "Tudo no universo é plano?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Quando falamos em plano, estamos excluindo profundidade que assuntos e a natureza possuí, limitando nosso conhecimento e explicações sobre algo. Apesar de ser tentador nos limitarmos a isto, devemos tentar ir além, evitando reduzir ainda mais ao eu."
+         "additionalInfo": "Quando falamos em plano, excluímos a profundidade que os assuntos e a própria natureza possuem, limitando nosso conhecimento e as explicações sobre o mundo. Embora seja tentador reduzir tudo a essa simplificação, precisamos ir além, evitando restringir ainda mais nossa compreensão ao \"eu\"."
+      },
+      {
+         "question": "Sempre tivemos as divisões do mundo como atualmente?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "A Terra, como a conhecemos hoje, é muito diferente do que foi há bilhões de anos. Além das divisões naturais, nós, seres humanos, também criamos diversas divisões artificiais sobre ela."
       }
    ],
    "game_v2": null,
