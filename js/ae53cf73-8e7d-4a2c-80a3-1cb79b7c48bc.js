@@ -16,7 +16,7 @@ function htPlusDivs(n) {
     htShowSlideDivs(x, slideIndexae53cf73);
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     htAddAlterQImages(".htSlides");
     htPlusDivs(0);
 

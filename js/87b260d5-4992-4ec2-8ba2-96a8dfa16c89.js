@@ -29,7 +29,7 @@ function htUpdateYupanaScreen87b260d5(n) {
     $("#andesIndoArabic").html(yupanaValue87b260d5);
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     $(".upArrowWithFA").on("click", function() {
         var name = $(this).attr('name');
         if (name == "mesoUp") {

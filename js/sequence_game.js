@@ -307,7 +307,7 @@ function htUpdateSequenceOrder()
     }
 }
 
-function htLoadExercise()
+function htLoadContent()
 {
     $("input[name='htNumericalSystem']").on( "change", function() {
         var sel = $(this).val();

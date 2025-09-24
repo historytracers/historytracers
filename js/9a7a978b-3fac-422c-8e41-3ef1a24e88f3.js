@@ -20,7 +20,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector9a7a978b);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
 
     var times = $("#ia2yupana1").val();

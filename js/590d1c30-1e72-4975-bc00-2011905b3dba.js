@@ -45,7 +45,7 @@ function htShowTrainee1() {
     }
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     localCounter590d1c30 = 0;
     localCounter590d1c30b = 0;
     $("#tc7f1").html("<span class=\"text_to_paint\">"+localCounter590d1c30+"</span>");

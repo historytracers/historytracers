@@ -12,7 +12,7 @@ function htModify03bb4b8e(value)
     return value;
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     localCounter03bb4b8e = 1;
     localCounter03bb4b8e = htModify03bb4b8e(localCounter03bb4b8e);
 

@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector2c7a1281);
     }
+}
 
+function htLoadContent() {
     var applied = 0;
     htWriteNavigation();
     $('table').each(function() {

@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
 
     htFillMultiplicationTable("chart4", 0, 5, false, true);

@@ -8,7 +8,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVectorcc5d9e97);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
 
     return false;

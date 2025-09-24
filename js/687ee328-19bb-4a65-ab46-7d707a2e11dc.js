@@ -16,7 +16,7 @@ function htAddElementTo687ee328Table(tableID, rowID, rows)
     }
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     localCounter687ee328 = 0;
     localCounter687ee328 = htModifyArrow('.htUpArrow', localCounter687ee328);
     localCounter687ee328 = htModifyArrow('.htDownArrow', localCounter687ee328);

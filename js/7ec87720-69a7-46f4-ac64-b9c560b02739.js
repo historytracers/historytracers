@@ -237,7 +237,7 @@ function htLoadRandomTranslation() {
     htTranslationCheckRandomAnswer();
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     $("#firstMethod").html(mathKeywords[8]);
     $("#secondMethod").html(mathKeywords[9]);
     $("#playButton").val(mathKeywords[10]);

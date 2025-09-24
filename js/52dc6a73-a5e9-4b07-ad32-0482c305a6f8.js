@@ -162,7 +162,7 @@ function htMemoryClickEvents() {
 
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     if (firstLoad) {
         $("#playButton").val(mathKeywords[10]);
         htMemorySetRepresentation(totalCards);

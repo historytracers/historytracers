@@ -9,7 +9,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector1ae03186);
     }
+}
 
+function htLoadContent() {
     $("#traineeUp0").on("click", function() {
         localCounter1ae03186++;
         localCounter1ae03186 = htModifyArrow('.htUpArrow', localCounter1ae03186);

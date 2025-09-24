@@ -23,7 +23,6 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
-    htLoadExercise();
 
     return false;
 }

@@ -40,7 +40,7 @@ function htPlotPie() {
 
 }
 
-function htLoadExercise() {
+function htLoadContent() {
     $(document).ready(function() {
         htPlotPie();
         var divRadius = parseInt($(".htCircle").width());

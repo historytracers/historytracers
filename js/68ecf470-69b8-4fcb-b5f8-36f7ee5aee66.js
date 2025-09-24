@@ -124,7 +124,9 @@ function htLoadExercise() {
     } else {
         htResetAnswers(localAnswerVector68ecf470);
     }
+}
 
+function htLoadContent() {
     htWriteNavigation();
 
     $( "input[name='yupanaradio']" ).on( "change", function() {
