@@ -437,7 +437,7 @@ func htFamiliesToAudio() {
 // Index Files
 func htParseIndexText(index *classIdx) string {
 	var ret string = index.Title + ".\n\n"
-	txt := HTText{Source: nil, IsTable: false, ImgDesc: "", PostMention: ""}
+	txt := HTText{Source: nil, IsTable: false, ImgDesc: "", PostMention: "", Format: "markdown"}
 	for i := 0; i < len(index.Content); i++ {
 		content := &index.Content[i]
 		var htmlText = ""
@@ -447,17 +447,13 @@ func htParseIndexText(index *classIdx) string {
 		}
 
 		if len(content.HTMLValue) > 0 {
-			txt.Text = content.HTMLValue
-			txt.FillDates = content.DateTime
-			txt.Format = "html"
-			htmlText = htTextToHumanText(&txt, false)
+			htmlText = content.HTMLValue
 		} else {
 			if len(content.Value) > 0 {
 				for j := 0; j < len(content.Value); j++ {
 					value := &content.Value[j]
 					txt.Text = value.Desc
 					txt.FillDates = content.DateTime
-					txt.Format = "markdown"
 					htmlText += "<p>" + value.Name + ": " + htTextToHumanText(&txt, false) + "</p>"
 				}
 			}
