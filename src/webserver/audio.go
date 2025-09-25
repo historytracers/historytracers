@@ -340,6 +340,13 @@ func htFamilyAudio(fileName string, lang string) error {
 		return err
 	}
 
+	if verboseFlag {
+		lines, errL := htCountLines(localPath)
+		if errL == nil {
+			fmt.Println("LINES: ", localPath, ":", lines)
+		}
+	}
+
 	return nil
 }
 
@@ -359,6 +366,13 @@ func htLoadTreeData(lang string) {
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR", err)
 		panic(err)
+	}
+
+	if verboseFlag {
+		lines, errL := htCountLines(localPath)
+		if errL == nil {
+			fmt.Println("LINES: ", localPath, ":", lines)
+		}
 	}
 }
 
@@ -490,6 +504,12 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 		panic(err)
 	}
 
+	if verboseFlag {
+		lines, errL := htCountLines(localPath)
+		if errL == nil {
+			fmt.Println("LINES: ", localPath, ":", lines)
+		}
+	}
 	return nil
 }
 
@@ -532,6 +552,12 @@ func htConvertClassesToAudio(pages []string) {
 			err = os.Remove(newFile)
 			if err != nil {
 				panic(err)
+			}
+			if verboseFlag {
+				lines, errL := htCountLines(localPath)
+				if errL == nil {
+					fmt.Println("LINES: ", localPath, ":", lines)
+				}
 			}
 		}
 	}
@@ -626,6 +652,13 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 	err = os.Remove(newFile)
 	if err != nil {
 		panic(err)
+	}
+
+	if verboseFlag {
+		lines, errL := htCountLines(localPath)
+		if errL == nil {
+			fmt.Println("LINES: ", localPath, ":", lines)
+		}
 	}
 }
 

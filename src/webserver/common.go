@@ -136,7 +136,6 @@ func htCountLines(filePath string) (int, error) {
 	if err != nil {
 		return 0, err
 	}
-	file.Close()
 
 	scanner := bufio.NewScanner(file)
 	lineCount := 0
@@ -145,9 +144,11 @@ func htCountLines(filePath string) (int, error) {
 	}
 
 	if err := scanner.Err(); err != nil {
+		file.Close()
 		return 0, err
 	}
 
+	file.Close()
 	return lineCount, nil
 }
 

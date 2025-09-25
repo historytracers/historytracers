@@ -1693,47 +1693,38 @@ function htFillWebPage(page, data)
 //
 
 function htUpdateLoadedIdx(idx) {
-    for (const i in loadedIdx) {
-        if (loadedIdx[i] == idx) {
-            return;
-        }
+    if (!loadedIdx.includes(idx)) {
+        loadedIdx.push(idx);
     }
-    loadedIdx.push(idx);
 }
 
 function htIsIndexLoaded(idx) {
-    if (idx == undefined) {
+    if (idx == null) {
         return true;
     }
 
-    var test = [];
-    if (idx.constructor === stringConstructor) {
-        test.push(idx);
-    } else if (idx.constructor === vectorConstructor) {
-        test = idx;
-    } else {
+    const test = Array.isArray(idx) ? idx :
+                typeof idx === 'string' ? [idx] :
+                null;
+
+    if (!test) {
         return false;
     }
 
-    var counter = 0;
-    for (const i in test) {
-        var value = test[i];
-        var idx = htSelectIndexMap(value);
-        if (idx != undefined && Object.keys(idx).length > 0) {
-            counter++;
-            continue;
-        }
-    }
-
-    return (counter == test.length);
+    return test.every(value => {
+        const indexMap = htSelectIndexMap(value);
+        return indexMap && Object.keys(indexMap).length > 0;
+    });
 }
 
 function htFillTopIdx(idx, data, first)
 {
     htUpdateLoadedIdx(first);
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    var prev = first;
+
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+    let prev = first;
+
     idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57], "additional": undefined, "total": 0});
     for (const i in data.content) {
         if (data.content[i].html_value != undefined && data.content[i].html_value.length > 0 || data.content[i].value.constructor !== vectorConstructor || data.content[i].page == undefined) {
