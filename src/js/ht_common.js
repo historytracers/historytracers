@@ -743,7 +743,7 @@ function htWriteNavigation()
     if (loadedIdx.length == 0) {
         return;
     }
-    var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
+    var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr style=\"background-color: #FFFFE0;\"><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
     for (const i in loadedIdx) {
         var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
         navigation += htBuildNavigation(loadedIdx[i], i, color);
@@ -1785,45 +1785,26 @@ function htLoadIndex(data, arg, page)
         }
     }
 
-    if (page == "history" && htHistoryIdx.has("history") == false) {
-        htFillTopIdx(htHistoryIdx, data, "history");
-        return;
-    } else if (page == "first_steps" && htFirstStepsIdx.has("first_steps") == false) {
-        htFillTopIdx(htFirstStepsIdx, data, "first_steps");
-        return;
-    } else if (page == "math_games" && htMathGamesIdx.has("math_games") == false) {
-        htFillTopIdx(htMathGamesIdx, data, "math_games");
-        return;
-    } else if (page == "literature" && htLiteratureIdx.has("literature") == false) {
-        htFillTopIdx(htLiteratureIdx, data, "literature");
-        return;
-    } else if (page == "history" && htHistoryIdx.has("history") == false) {
-        htFillTopIdx(htHistoryIdx, data, "history");
-        return;
-    } else if (page == "families" && htFamilyIdx.has("families") == false) {
-        htFillTopIdx(htFamilyIdx, data, "families");
-        return;
-    } else if (page == "indigenous_who" && htIndigenousWhoIdx.has("indigenous_who") == false) {
-        htFillTopIdx(htIndigenousWhoIdx, data, "indigenous_who");
-        return;
-    } else if (page == "myths_believes" && htMythsBelievesIdx.has("myths_believes") == false) {
-        htFillTopIdx(htMythsBelievesIdx, data, "myths_believes");
-        return;
-    } else if (page == "historical_events" && htHistoricalEventsIdx.has("historical_events") == false) {
-        htFillTopIdx(htHistoricalEventsIdx, data, "historical_events");
-        return;
-    } else if (page == "biology" && htBiologyIdx.has("biology") == false) {
-        htFillTopIdx(htBiologyIdx, data, "biology");
-        return;
-    } else if (page == "chemistry" && htChemicalIdx.has("chemistry") == false) {
-        htFillTopIdx(htChemicalIdx, data, "chemistry");
-        return;
-    } else if (page == "physics" && htPhysicsIdx.has("physics") == false) {
-        htFillTopIdx(htPhysicsIdx, data, "physics");
+    const pageConfig = {
+        biology: htBiologyIdx,
+        chemistry: htChemicalIdx,
+        families: htFamilyIdx,
+        first_steps: htFirstStepsIdx,
+        history: htHistoryIdx,
+        historical_events: htHistoricalEventsIdx,
+        indigenous_who: htIndigenousWhoIdx,
+        literature: htLiteratureIdx,
+        math_games: htMathGamesIdx,
+        myths_believes: htMythsBelievesIdx,
+        physics: htPhysicsIdx
+    };
+
+    if (page && pageConfig[page] && !pageConfig[page].has(page)) {
+        htFillTopIdx(pageConfig[page], data, page);
         return;
     }
 
-    if (data.index == undefined) {
+    if (!data.index) {
         return;
     }
 
@@ -1881,11 +1862,9 @@ function htLoadSources(data, arg, page)
 }
 
 function htFillIndexSelector(table, target) {
-    // Avoid duplication
     var current = $(target).val();
     $(target).find("option").remove();
 
-    // Fill selector
     for (const i in table) {
         $(target).append(new Option(table[i].text, table[i].dir));
     }

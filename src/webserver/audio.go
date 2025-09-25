@@ -16,6 +16,7 @@ import (
 )
 
 var familyMarriagesMap map[string]string
+var linesMap map[string]int
 var defaultFamilyTop string = ""
 
 // COMMON
@@ -343,7 +344,11 @@ func htFamilyAudio(fileName string, lang string) error {
 	if verboseFlag {
 		lines, errL := htCountLines(localPath)
 		if errL == nil {
-			fmt.Println("LINES: ", localPath, ":", lines)
+			if cmp, ok := linesMap[fileName]; !ok {
+				linesMap[fileName] = lines
+			} else if cmp != lines {
+				fmt.Println("LINES: ", fileName, ":", lines, " ", cmp)
+			}
 		}
 	}
 
@@ -371,7 +376,11 @@ func htLoadTreeData(lang string) {
 	if verboseFlag {
 		lines, errL := htCountLines(localPath)
 		if errL == nil {
-			fmt.Println("LINES: ", localPath, ":", lines)
+			if cmp, ok := linesMap["tree"]; !ok {
+				linesMap["tree"] = lines
+			} else if cmp != lines {
+				fmt.Println("LINES: tree:", lines, " ", cmp)
+			}
 		}
 	}
 }
@@ -507,7 +516,11 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 	if verboseFlag {
 		lines, errL := htCountLines(localPath)
 		if errL == nil {
-			fmt.Println("LINES: ", localPath, ":", lines)
+			if cmp, ok := linesMap[localPath]; !ok {
+				linesMap[localPath] = lines
+			} else if cmp != lines {
+				fmt.Println("LINES: ", localPath, ": ", lines, " ", cmp)
+			}
 		}
 	}
 	return nil
@@ -556,7 +569,11 @@ func htConvertClassesToAudio(pages []string) {
 			if verboseFlag {
 				lines, errL := htCountLines(localPath)
 				if errL == nil {
-					fmt.Println("LINES: ", localPath, ":", lines)
+					if cmp, ok := linesMap[page]; !ok {
+						linesMap[page] = lines
+					} else if cmp != lines {
+						fmt.Println("LINES: ", page, ": ", lines, " ", cmp)
+					}
 				}
 			}
 		}
@@ -657,7 +674,11 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 	if verboseFlag {
 		lines, errL := htCountLines(localPath)
 		if errL == nil {
-			fmt.Println("LINES: ", localPath, ":", lines)
+			if cmp, ok := linesMap[idxName]; !ok {
+				linesMap[idxName] = lines
+			} else if cmp != lines {
+				fmt.Println("LINES: ", idxName, ": ", lines, " ", cmp)
+			}
 		}
 	}
 }
@@ -675,6 +696,7 @@ func htIndexesToAudio() {
 }
 
 func htConvertTextsToAudio() {
+	linesMap = make(map[string]int)
 	htConvertOverallTextToAudio()
 	htFamiliesToAudio()
 	htConvertAtlasToAudio()
