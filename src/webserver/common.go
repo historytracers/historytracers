@@ -152,6 +152,23 @@ func htCountLines(filePath string) (int, error) {
 	return lineCount, nil
 }
 
+func htReportErrLineCounter(localPath string, fileName string, lang string) {
+	// Files expected to have different content across languages
+	exception := "052e06b9-f10c-4e76-896d-9f0e68f07506"
+	if fileName == exception {
+		return
+	}
+
+	lines, errL := htCountLines(localPath)
+	if errL == nil {
+		if cmp, ok := linesMap[fileName]; !ok {
+			linesMap[fileName] = lines
+		} else if cmp != lines {
+			fmt.Println("MISMATCHING LINES: ", fileName, " (", lang, ") :", lines, " : prev:", cmp)
+		}
+	}
+}
+
 func htOpenFileReadClose(fileName string) ([]byte, error) {
 	contentFile, err := os.Open(fileName)
 	if err != nil {

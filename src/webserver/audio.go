@@ -342,14 +342,7 @@ func htFamilyAudio(fileName string, lang string) error {
 	}
 
 	if verboseFlag {
-		lines, errL := htCountLines(localPath)
-		if errL == nil {
-			if cmp, ok := linesMap[fileName]; !ok {
-				linesMap[fileName] = lines
-			} else if cmp != lines {
-				fmt.Println("LINES: ", fileName, " (", lang, ") :", lines, " : prev:", cmp)
-			}
-		}
+		htReportErrLineCounter(localPath, fileName, lang)
 	}
 
 	return nil
@@ -374,14 +367,7 @@ func htLoadTreeData(lang string) {
 	}
 
 	if verboseFlag {
-		lines, errL := htCountLines(localPath)
-		if errL == nil {
-			if cmp, ok := linesMap["tree"]; !ok {
-				linesMap["tree"] = lines
-			} else if cmp != lines {
-				fmt.Println("LINES: tree (", lang, ") :", lines, " : prev:", cmp)
-			}
-		}
+		htReportErrLineCounter(localPath, "tree", lang)
 	}
 }
 
@@ -514,14 +500,7 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 	}
 
 	if verboseFlag {
-		lines, errL := htCountLines(localPath)
-		if errL == nil {
-			if cmp, ok := linesMap[localPath]; !ok {
-				linesMap[localPath] = lines
-			} else if cmp != lines {
-				fmt.Println("LINES: ", localPath, "(", lang, "): ", lines, " : prev:", cmp)
-			}
-		}
+		htReportErrLineCounter(localPath, localPath, lang)
 	}
 	return nil
 }
@@ -567,14 +546,7 @@ func htConvertClassesToAudio(pages []string) {
 				panic(err)
 			}
 			if verboseFlag {
-				lines, errL := htCountLines(localPath)
-				if errL == nil {
-					if cmp, ok := linesMap[page]; !ok {
-						linesMap[page] = lines
-					} else if cmp != lines {
-						fmt.Println("LINES: ", page, "(", lang, "): ", lines, " : prev:", cmp)
-					}
-				}
+				htReportErrLineCounter(localPath, page, lang)
 			}
 		}
 	}
@@ -672,14 +644,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 	}
 
 	if verboseFlag {
-		lines, errL := htCountLines(localPath)
-		if errL == nil {
-			if cmp, ok := linesMap[idxName]; !ok {
-				linesMap[idxName] = lines
-			} else if cmp != lines {
-				fmt.Println("LINES: ", idxName, "(", lang, "): ", lines, " : prev:", cmp)
-			}
-		}
+		htReportErrLineCounter(localPath, idxName, lang)
 	}
 }
 
