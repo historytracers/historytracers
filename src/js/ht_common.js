@@ -576,6 +576,50 @@ function htConvertJulianDate(test, locale, julianEpoch)
 //    Mount Page Section
 //
 
+function htFillIndexSelector(table, target) {
+    if (!Array.isArray(table)) return;
+
+    const $target = $(target);
+    const currentValue = $target.val();
+
+    $target.find("option").remove();
+
+    for (const i in table) {
+        $(target).append(new Option(table[i].text, table[i].dir));
+    }
+
+    $(target).val(currentValue);
+}
+
+function htFillKeywords(table) {
+    if (!Array.isArray(table)) { return; }
+
+    const MIN_LENGTH = 75;
+    if (table.length < MIN_LENGTH) {
+        console.warn(`Insufficient keywords: need ${MIN_LENGTH}, got ${table.length}`);
+        return;
+    }
+
+    keywords = [];
+    for (const i in table) {
+        keywords.push(table[i]);
+    }
+
+    $("#index_lang").html(keywords[39]);
+    $("#index_calendar").html(keywords[40]);
+    $("#index_theme").html(keywords[74]);
+    htUpdateCurrentDateOnIndex();
+}
+
+function htFillMathKeywords(table) {
+    if (!Array.isArray(table)) { return; }
+
+    mathKeywords = [];
+    for (const i in table) {
+        mathKeywords.push(table[i]);
+    }
+}
+
 function htFillHistorySourcesSelectFunction(id)
 {
     const map = {
@@ -1032,6 +1076,11 @@ function htFillSMGameData(data) {
         }
     });
 }
+
+
+//
+//    Atlas Section
+//
 
 function htModifyAtlasIndexMap(id) {
     var next = parseInt(id) + 1;
@@ -1838,88 +1887,83 @@ function htLoadIndex(data, arg, page)
 function htLoadSources(data, arg, page)
 {
     if (data.sources != undefined) {
-        for (const i in data.sources) {
-            htLoadPage(data.sources[i], 'json', 'source', false);
-        }
-    } else {
-        if (arg != 'source') {
-            return true;
-        }
-
-        htFillMapSource(primarySourceMap, data.primary_sources);
-        htFillMapSource(refSourceMap, data.reference_sources);
-        htFillMapSource(holyRefSourceMap, data.religious_sources);
-        htFillMapSource(smSourceMap, data.social_media_sources);
-
-        if (page.length == 36) {
-            genealogicalStats.primary_src = (data.primary_sources != undefined) ? data.primary_sources.length : 0;
-            genealogicalStats.reference_src = (data.reference_sources != undefined) ? data.reference_sources.length : 0;
-            genealogicalStats.holy_src =  (data.religious_sources != undefined) ? data.religious_sources.length : 0;
-            genealogicalStats.social_media_src =  (data.social_media_sources != undefined) ? data.social_media_sources.length : 0;
-        }
-    }
-    return true;
-}
-
-function htFillIndexSelector(table, target) {
-    var current = $(target).val();
-    $(target).find("option").remove();
-
-    for (const i in table) {
-        $(target).append(new Option(table[i].text, table[i].dir));
-    }
-
-    $(target).val(current);
-}
-
-function htFillKeywords(table) {
-    keywords = [];
-    // Fill keyword
-    for (const i in table) {
-        keywords.push(table[i]);
-    }
-    if (keywords.length < 40)
+        data.sources.forEach(source => {
+            htLoadPage(source, 'json', 'source', false);
+        });
         return;
+    }
 
-    $("#index_lang").html(keywords[39]);
-    $("#index_calendar").html(keywords[40]);
-    $("#index_theme").html(keywords[74]);
-    htUpdateCurrentDateOnIndex();
+    if (arg !== 'source') {
+        return;
+    }
+
+    if (!data) {
+        console.warn('Invalid data structure provided to htLoadSources');
+        return;
+    }
+
+    const sourceMappings = [
+        { map: primarySourceMap, sources: data.primary_sources },
+        { map: refSourceMap, sources: data.reference_sources },
+        { map: holyRefSourceMap, sources: data.religious_sources },
+        { map: smSourceMap, sources: data.social_media_sources }
+    ];
+
+    sourceMappings.forEach(({ map, sources }) => {
+        htFillMapSource(map, sources || []);
+    });
+
+    if (page && page.length === 36) {
+        genealogicalStats.primary_src = data.primary_sources?.length || 0;
+        genealogicalStats.reference_src = data.reference_sources?.length || 0;
+        genealogicalStats.holy_src = data.religious_sources?.length || 0;
+        genealogicalStats.social_media_src = data.social_media_sources?.length || 0;
+    }
 }
 
-function htFillMathKeywords(table) {
-    mathKeywords = [];
-    // Fill keyword
-    for (const i in table) {
-        mathKeywords.push(table[i]);
+//
+//    Family Section
+//
+
+function htHandleSpecialItem(item) {
+    const specialCases = {
+        'date_time': true,
+        'fill_dates': true
+    };
+
+    if (item.id && specialCases[item.id] &&
+        item.text && item.text.constructor === vectorConstructor) {
+        htFillHTDate(item.text);
     }
 }
 
 function htFillFamilyList(table, target) {
+    if (!Array.isArray(table)) { return; }
+
+    const siteLanguage = $('#site_language').val();
+    const siteCalendar = $('#site_calendar').val();
+
     for (const i in table) {
-        if (table[i].target == undefined) {
-            if (table[i].id != undefined && table[i].id == "date_time") {
-                if (table[i].text.constructor === vectorConstructor) {
-                    htFillHTDate(table[i].text);
-                }
-            } else if (table[i].id != undefined && table[i].id == "fill_dates") {
-                if (table[i].text.constructor === vectorConstructor) {
-                    htFillHTDate(table[i].text);
-                }
-            }
+        let item = table[i];
+        if (item.target == undefined) {
+            htHandleSpecialItem(item);
             continue;
         }
 
-        $("#"+table[i].target).append("<div id=\"bottom"+table[i].id+"\"><h3>"+table[i].id+"</h3></div>");
-        if (table[i].value.constructor === vectorConstructor) {
-            var rows = table[i].value;
-            $("#bottom"+table[i].id).append("<ul id=\"bottomList"+table[i].id+"\"></ul>");
+        $("#"+item.target).append("<div id=\"bottom"+item.id+"\"><h3>"+item.id+"</h3></div>");
+        if (item.value.constructor === vectorConstructor) {
+            var rows = item.value;
+            $("#bottom"+item.id).append("<ul id=\"bottomList"+item.id+"\"></ul>");
             for (const k in rows) {
-                $("#bottomList"+table[i].id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+rows[k].id+"', false); return false;\" >"+rows[k].value+"</a></li>");
+                $("#bottomList"+item.id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"&lang="+siteLanguage+"&cal="+siteCalendar+"\" onclick=\"htLoadPage('tree', 'html', '"+rows[k].id+"', false); return false;\" >"+rows[k].value+"</a></li>");
             }
         }
     }
 }
+
+//
+//    Reorganize Section
+//
 
 function htFillMapList(table, target, page, date_time) {
     var localLang = $("#site_language").val();
