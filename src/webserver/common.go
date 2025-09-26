@@ -164,7 +164,7 @@ func htReportErrLineCounter(localPath string, fileName string, lang string) {
 		if cmp, ok := linesMap[fileName]; !ok {
 			linesMap[fileName] = lines
 		} else if cmp != lines {
-			fmt.Println("MISMATCHING LINES: ", fileName, " (", lang, ") :", lines, " : prev:", cmp)
+			fmt.Fprintf(os.Stderr, "MISMATCHING LINES: %s (%s): %d: first stored: %d\n", fileName, lang, lines, cmp)
 		}
 	}
 }
