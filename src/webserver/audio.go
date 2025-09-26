@@ -347,7 +347,7 @@ func htFamilyAudio(fileName string, lang string) error {
 			if cmp, ok := linesMap[fileName]; !ok {
 				linesMap[fileName] = lines
 			} else if cmp != lines {
-				fmt.Println("LINES: ", fileName, ":", lines, " ", cmp)
+				fmt.Println("LINES: ", fileName, " (", lang, ") :", lines, " : prev:", cmp)
 			}
 		}
 	}
@@ -379,7 +379,7 @@ func htLoadTreeData(lang string) {
 			if cmp, ok := linesMap["tree"]; !ok {
 				linesMap["tree"] = lines
 			} else if cmp != lines {
-				fmt.Println("LINES: tree:", lines, " ", cmp)
+				fmt.Println("LINES: tree (", lang, ") :", lines, " : prev:", cmp)
 			}
 		}
 	}
@@ -519,7 +519,7 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 			if cmp, ok := linesMap[localPath]; !ok {
 				linesMap[localPath] = lines
 			} else if cmp != lines {
-				fmt.Println("LINES: ", localPath, ": ", lines, " ", cmp)
+				fmt.Println("LINES: ", localPath, "(", lang, "): ", lines, " : prev:", cmp)
 			}
 		}
 	}
@@ -572,7 +572,7 @@ func htConvertClassesToAudio(pages []string) {
 					if cmp, ok := linesMap[page]; !ok {
 						linesMap[page] = lines
 					} else if cmp != lines {
-						fmt.Println("LINES: ", page, ": ", lines, " ", cmp)
+						fmt.Println("LINES: ", page, "(", lang, "): ", lines, " : prev:", cmp)
 					}
 				}
 			}
@@ -677,7 +677,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 			if cmp, ok := linesMap[idxName]; !ok {
 				linesMap[idxName] = lines
 			} else if cmp != lines {
-				fmt.Println("LINES: ", idxName, ": ", lines, " ", cmp)
+				fmt.Println("LINES: ", idxName, "(", lang, "): ", lines, " : prev:", cmp)
 			}
 		}
 	}
