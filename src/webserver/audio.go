@@ -461,7 +461,7 @@ func htParseIndexText(index *classIdx) string {
 		}
 
 		if len(content.HTMLValue) > 0 {
-			htmlText = content.HTMLValue
+			htmlText = htChangeTag2Keywords(content.HTMLValue)
 		} else {
 			if len(content.Value) > 0 {
 				for j := 0; j < len(content.Value); j++ {

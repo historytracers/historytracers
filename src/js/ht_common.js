@@ -1723,6 +1723,7 @@ function htModifyAtlasIndexMap(id) {
     var myURL = 'index.html?page=atlas&atlas_page='+next;
     window.history.replaceState(null, null, myURL);
     $("#atlas").val(next);
+    $("#atlasindex").val(next);
 }
 
 function htFormatText(text, format, table) {
