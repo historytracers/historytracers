@@ -102,6 +102,14 @@ function htScroolToID(id) {
     $('html, body').scrollTop($(id).offset().top);
 }
 
+function htScroolTree(id)
+{
+    var destination = $(id).val();
+    if (destination != undefined) {
+        $('html, body').scrollTop($(id).offset().top);
+    }
+}
+
 function htImageZoom(id, translate) {
     var $element = $("#" + id);
     var isZoomed = $element.hasClass("zoomed");
@@ -120,6 +128,14 @@ function htImageZoom(id, translate) {
 //
 //    Reset Section
 //
+
+function htCleanSources()
+{
+    $("#tree-source").html("");
+    $("#tree-ref").html("");
+    $("#tree-holy-ref").html("");
+    $("#tree-sm-ref").html("");
+}
 
 function htResetGenealogicalStats() {
     return { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "social_media_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
@@ -632,8 +648,233 @@ function htCopyLink(familyID, id, changeTextId)
 }
 
 //
-//    Mount Page Section
+//    Source Section
 //
+
+function htLoadSources(data, arg, page)
+{
+    if (data.sources) {
+        data.sources.forEach(source => {
+            htLoadPage(source, 'json', 'source', false);
+        });
+        return;
+    }
+
+    if (arg !== 'source') {
+        return;
+    }
+
+    if (!data) {
+        console.warn('Invalid data structure provided to htLoadSources');
+        return;
+    }
+
+    const sourceMappings = [
+        { map: primarySourceMap, sources: data.primary_sources },
+        { map: refSourceMap, sources: data.reference_sources },
+        { map: holyRefSourceMap, sources: data.religious_sources },
+        { map: smSourceMap, sources: data.social_media_sources }
+    ];
+
+    sourceMappings.forEach(({ map, sources }) => {
+        htFillMapSource(map, sources || []);
+    });
+
+    if (page && page.length === 36) {
+        genealogicalStats.primary_src = data.primary_sources?.length || 0;
+        genealogicalStats.reference_src = data.reference_sources?.length || 0;
+        genealogicalStats.holy_src = data.religious_sources?.length || 0;
+        genealogicalStats.social_media_src = data.social_media_sources?.length || 0;
+    }
+}
+
+function htFillHistorySources(divId, histID, history, useClass, personID)
+{
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+    if (history) {
+        for (const i in history) {
+            var localObj = history[i];
+            var text = (localObj.text != undefined && localObj.format != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : "<p>"+localObj+"</p>";
+            $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");
+        }
+    }
+}
+
+function htFillMapSource(myMap, data)
+{
+    if (!data) {
+        return;
+    }
+
+    const currentLanguage = $("#site_language").val();
+    const currentCalendar = $("#site_calendar").val();
+    for (const i in data) {
+        var ids = myMap.has(data[i].id);
+        if (ids == false) {
+            var finalDate = "";
+            if (data[i].date != undefined ) {
+                var dateVector = data[i].date.split('-');
+                if (dateVector.length == 3) {
+                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
+                }
+            } else if  (data[i].date_time != undefined ){
+                var dateVector = data[i].date_time.split('-');
+                if (dateVector.length == 3) {
+                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
+                }
+            }
+            myMap.set(data[i].id, {"citation" : data[i].citation, "date" : finalDate, "url" : data[i].url});
+        }
+    }
+}
+
+function htLoadSource(divID, sourceMap, listMap, theID)
+{
+    $(divID).html("");
+    var ps = listMap.has(theID);
+    if (ps) {
+        var localMap = listMap.get(theID);
+        var arr = localMap.split(';');
+        if (arr.length > 0 ) {
+            for (let i = 0 ; i < arr.length; i++) {
+                htFillSource(divID, sourceMap, arr[i]);
+            }
+        }
+    }
+}
+
+function htFillSource(divID, sourceMap, id)
+{
+    const src = sourceMap.get(id);
+    if (src) {
+        var dateValue = "";
+        if (src.date_time && src.date_time.length > 0) {
+            dateValue = ". [ "+keywords[22]+" "+src.date_time+" ].";
+        }
+        var urlValue = "";
+        if (src.url && src.url.length > 0) {
+            urlValue = keywords[23]+" <a target=\"_blank\" href=\""+src.url+"\"> "+src.url+"</a>";
+        }
+        $(divID).append("<p>"+src.citation+" "+dateValue +" "+urlValue+"</p>");
+    }
+}
+
+//
+//    Mount Family Page Section
+//
+
+function htMountPersonEvent(name, data, localLang, localCalendar) {
+    var ret = "<b>"+name+"</b> ";
+    for (const i in data) {
+        var ptr = data[i];
+        if (!ptr.date_time) {
+            continue;
+        }
+
+        if (i) {
+            ret += " "+keywords[91]+" ";
+        }
+        const selDate = (ptr.date != undefined) ? ptr.date : ptr.date_time;
+        ret += htMountSpecificDate(selDate[0], localLang, localCalendar)+" (";
+        var sources = ptr.sources;
+        for (const i in sources) { 
+            let source = sources[i];
+            if (i != 0) {
+                ret += " ; ";
+            }
+            const fcnt = htFillHistorySourcesSelectFunction(source.type);
+            const selLocalDate = source.date_time;
+            let dateText = (source.date != undefined) ? ", "+htMountSpecificDate(selLocalDate, localLang, localCalendar) : "";
+            ret += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+source.uuid+"'); return false;\"><i>"+source.text+" "+dateText+"</i></a>";
+        }
+
+        ret += ")";
+    }
+    return ret;
+}
+
+function htMountPersonEvents(table) {
+    var ret = "";
+    if (!table.is_real) {
+        return "<div class=\"no_personal_events_class\">"+keywords[95]+keywords[96]+keywords[97]+"</div>";
+    }
+
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
+
+    ret = "<div class=\"personal_events_class\">"+keywords[95];
+    var begin = ret;
+
+    var sex_gender = "";
+
+    if (table.haplogroup != undefined && table.haplogroup.length > 0) {
+        ret += "<b>"+keywords[103]+"</b>: ";
+        for (const i in table.haplogroup) {
+            var haplogroup = table.haplogroup[i]
+            if (i != 0) {
+                ret += ", ";
+            }
+
+            var sources = haplogroup.sources;
+            var lnk = "";
+            for (const i in sources) { 
+                let source = sources[i];
+                if (i != 0) {
+                    text += " ; ";
+                }
+                var fcnt = htFillHistorySourcesSelectFunction(source.type);
+                var dateText = "";
+                if  (source.date_time) {
+                    dateText =  ", "+htMountSpecificDate(source.date_time, localLang, localCalendar);
+                }
+
+                lnk += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+source.uuid+"'); return false;\"><i>"+source.text+" "+dateText+"</i></a>";
+            }
+            ret += haplogroup.haplogroup+" ("+haplogroup.type+") ("+lnk+")" ;
+        }
+        ret += "<br />" ;
+    }
+
+    if (table.sex && table.sex.length > 0) {
+        sex_gender = table.sex;
+    }
+
+    if (table.gender && table.gender.length > 0) {
+        sex_gender += " / "+table.gender;
+    }
+
+    if (sex_gender.length > 0) {
+        ret += "<b>"+keywords[100]+"/"+keywords[101]+"</b>: "+sex_gender+"<br />";
+    }
+
+    if (table.birth) {
+        ret += htMountPersonEvent(keywords[92], table.birth, localLang, localCalendar)+"<br />";
+    }
+
+    if (table.baptism) {
+        ret += htMountPersonEvent(keywords[93], table.baptism, localLang, localCalendar)+"<br />";
+    }
+
+    if (table.surname) {
+        ret += "<b>"+keywords[104]+"</b>: "+table.surname+"<br />";
+    }
+
+    if (table.patronymic) {
+        ret += "<b>"+keywords[105]+"</b>: "+table.patronymic+"<br />";
+    }
+
+    if (table.death) {
+        ret += htMountPersonEvent(keywords[94], table.death, localLang, localCalendar)+"<br />";
+    }
+
+    if (begin.length == ret.length) {
+        ret += keywords[99];
+    }
+    ret += "</div>";
+
+    return ret;
+}
 
 function htSetMapFamily(id, father, mother, type)
 {
@@ -812,6 +1053,30 @@ function htFillFamilies(page, table) {
     }
 
     $("#loading_msg").hide();
+}
+
+//
+//    Mount Overall Page Section
+//
+
+function htFillPrimarySource(id)
+{
+    htFillSource("#tree-source", primarySourceMap, id);
+}
+
+function htFillReferenceSource(id)
+{
+    htFillSource("#tree-ref", refSourceMap, id);
+}
+
+function htFillHolySource(id)
+{
+    htFillSource("#tree-holy-ref", holyRefSourceMap, id);
+}
+
+function htFillSMSource(id)
+{
+    htFillSource("#tree-sm-ref", smSourceMap, id);
 }
 
 function htFillClassContentV2(table, last_update, page_authors, page_reviewers, index) {
@@ -2244,47 +2509,6 @@ function htLoadIndex(data, arg, page)
 }
 
 //
-//    Source Section
-//
-
-function htLoadSources(data, arg, page)
-{
-    if (data.sources != undefined) {
-        data.sources.forEach(source => {
-            htLoadPage(source, 'json', 'source', false);
-        });
-        return;
-    }
-
-    if (arg !== 'source') {
-        return;
-    }
-
-    if (!data) {
-        console.warn('Invalid data structure provided to htLoadSources');
-        return;
-    }
-
-    const sourceMappings = [
-        { map: primarySourceMap, sources: data.primary_sources },
-        { map: refSourceMap, sources: data.reference_sources },
-        { map: holyRefSourceMap, sources: data.religious_sources },
-        { map: smSourceMap, sources: data.social_media_sources }
-    ];
-
-    sourceMappings.forEach(({ map, sources }) => {
-        htFillMapSource(map, sources || []);
-    });
-
-    if (page && page.length === 36) {
-        genealogicalStats.primary_src = data.primary_sources?.length || 0;
-        genealogicalStats.reference_src = data.reference_sources?.length || 0;
-        genealogicalStats.holy_src = data.religious_sources?.length || 0;
-        genealogicalStats.social_media_src = data.social_media_sources?.length || 0;
-    }
-}
-
-//
 //    Family Section
 //
 
@@ -2449,122 +2673,6 @@ function htLoadGameData()
 //
 //    Rewrite Section
 //
-
-function htMountPersonEvent(name, data, localLang, localCalendar) {
-    var ret = "<b>"+name+"</b> ";
-    for (const i in data) {
-        var ptr = data[i];
-        if (ptr.date == undefined && ptr.date_time == undefined) {
-            continue;
-        }
-
-        if (i != 0) {
-            ret += " "+keywords[91]+" ";
-        }
-        var selDate = (ptr.date != undefined) ? ptr.date : ptr.date_time;
-        ret += htMountSpecificDate(selDate[0], localLang, localCalendar)+" (";
-        var sources = ptr.sources;
-        for (const i in sources) { 
-            if (i != 0) {
-                ret += " ; ";
-            }
-            var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            var selLocalDate = (sources[i].date != undefined) ? sources[i].date : sources[i].date_time;
-            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(selLocalDate, localLang, localCalendar) : "";
-            ret += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
-        }
-
-        ret += ")";
-    }
-    return ret;
-}
-
-function htMountPersonEvents(table) {
-    var ret = "";
-    if (table.is_real == undefined) {
-        return ret;
-    }
-
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-
-    if (table.is_real) {
-        ret = "<div class=\"personal_events_class\">"+keywords[95];
-        var begin = ret;
-
-        var sex_gender = "";
-
-        if (table.haplogroup != undefined && table.haplogroup.length > 0) {
-            ret += "<b>"+keywords[103]+"</b>: ";
-            for (const i in table.haplogroup) {
-                var haplogroup = table.haplogroup[i]
-                if (i != 0) {
-                    ret += ", ";
-                }
-
-                var sources = haplogroup.sources;
-                var lnk = "";
-                for (const i in sources) { 
-                    if (i != 0) {
-                        text += " ; ";
-                    }
-                    var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-                    var dateText = "";
-                    if (sources[i].date != undefined) {
-                        dateText =  ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
-                    } else if  (sources[i].date_time != undefined) {
-                        dateText =  ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
-                    }
-
-                    lnk += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
-                }
-                ret += haplogroup.haplogroup+" ("+haplogroup.type+") ("+lnk+")" ;
-            }
-            ret += "<br />" ;
-        }
-
-        if (table.sex != undefined && table.sex.length > 0) {
-            sex_gender = table.sex;
-        }
-
-        if (table.gender != undefined && table.gender.length > 0) {
-            sex_gender += " / "+table.gender;
-        }
-
-        if (sex_gender.length > 0) {
-            ret += "<b>"+keywords[100]+"/"+keywords[101]+"</b>: "+sex_gender+"<br />";
-        }
-
-        if (table.birth != undefined) {
-            ret += htMountPersonEvent(keywords[92], table.birth, localLang, localCalendar)+"<br />";
-        }
-
-        if (table.baptism != undefined) {
-            ret += htMountPersonEvent(keywords[93], table.baptism, localLang, localCalendar)+"<br />";
-        }
-
-        if (table.surname != undefined) {
-            ret += "<b>"+keywords[104]+"</b>: "+table.surname+"<br />";
-        }
-
-        if (table.patronymic != undefined) {
-            ret += "<b>"+keywords[105]+"</b>: "+table.patronymic+"<br />";
-        }
-
-        if (table.death != undefined) {
-            ret += htMountPersonEvent(keywords[94], table.death, localLang, localCalendar)+"<br />";
-        }
-
-        if (begin.length == ret.length) {
-            ret += keywords[99];
-        }
-        ret += "</div>";
-    } else {
-        ret = "<div class=\"no_personal_events_class\">"+keywords[95]+keywords[96]+keywords[97]+"</div>";
-    }
-
-    return ret;
-}
 
 function htAppendFamilyData(prefix, id, familyID, name, table, page) {
     var history = table.history;
@@ -2766,108 +2874,6 @@ function htAppendFamilyData(prefix, id, familyID, name, table, page) {
     }
 }
 
-function htFillHistorySources(divId, histID, history, useClass, personID)
-{
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    if (history != undefined) {
-        for (const i in history) {
-            var localObj = history[i];
-            var text = (localObj.text != undefined && localObj.format != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : "<p>"+localObj+"</p>";
-            $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");
-        }
-    }
-}
-
-function htFillMapSource(myMap, data)
-{
-    if (data == undefined) {
-        return;
-    }
-
-    var currentLanguage = $("#site_language").val();
-    var currentCalendar = $("#site_calendar").val();
-    for (const i in data) {
-        var ids = myMap.has(data[i].id);
-        if (ids == false) {
-            var finalDate = "";
-            if (data[i].date != undefined ) {
-                var dateVector = data[i].date.split('-');
-                if (dateVector.length == 3) {
-                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
-                }
-            } else if  (data[i].date_time != undefined ){
-                var dateVector = data[i].date_time.split('-');
-                if (dateVector.length == 3) {
-                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
-                }
-            }
-            myMap.set(data[i].id, {"citation" : data[i].citation, "date" : finalDate, "url" : data[i].url});
-        }
-    }
-}
-
-function htLoadSource(divID, sourceMap, listMap, theID)
-{
-    $(divID).html("");
-    var ps = listMap.has(theID);
-    if (ps) {
-        var localMap = listMap.get(theID);
-        var arr = localMap.split(';');
-        if (arr.length > 0 ) {
-            for (let i = 0 ; i < arr.length; i++) {
-                htFillSource(divID, sourceMap, arr[i]);
-            }
-        }
-    }
-}
-
-function htCleanSources()
-{
-    $("#tree-source").html("");
-    $("#tree-ref").html("");
-    $("#tree-holy-ref").html("");
-    $("#tree-sm-ref").html("");
-}
-
-function htFillSource(divID, sourceMap, id)
-{
-    var src = sourceMap.get(id);
-    if (src != undefined) {
-        var dateValue = "";
-        if (src.date != undefined && src.date != null && src.date.length > 0) {
-            dateValue = ". [ "+keywords[22]+" "+src.date+" ].";
-        } else if (src.date_time != undefined && src.date_time != null && src.date_time.length > 0) {
-            dateValue = ". [ "+keywords[22]+" "+src.date_time+" ].";
-        }
-        var urlValue = "";
-        if (src.url != undefined && src.url != null && src.url.length > 0) {
-            urlValue = keywords[23]+" <a target=\"_blank\" href=\""+src.url+"\"> "+src.url+"</a>";
-        }
-        $(divID).append("<p>"+src.citation+" "+dateValue +" "+urlValue+"</p>");
-    }
-}
-
-function htFillPrimarySource(id)
-{
-    htFillSource("#tree-source", primarySourceMap, id);
-}
-
-function htFillReferenceSource(id)
-{
-    htFillSource("#tree-ref", refSourceMap, id);
-}
-
-function htFillHolySource(id)
-{
-    htFillSource("#tree-holy-ref", holyRefSourceMap, id);
-}
-
-function htFillSMSource(id)
-{
-    htFillSource("#tree-sm-ref", smSourceMap, id);
-}
-
 function htHideTree(level, grandpaLevel) {
     if (level > 1 ) {
         $("#child").hide();
@@ -2888,14 +2894,6 @@ function htHideTree(level, grandpaLevel) {
             $("#grandfather02").hide();
             $("#grandmother02").hide();
         }
-    }
-}
-
-function htScroolTree(id)
-{
-    var destination = $(id).val();
-    if (destination != undefined) {
-        $('html, body').scrollTop($(id).offset().top);
     }
 }
 
