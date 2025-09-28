@@ -755,6 +755,16 @@ func htLoadKeywordFile(name string, lang string) error {
 	return nil
 }
 
+func htPrepareQuestions(questions []HTExercise) string {
+	strQuestions := commonKeywords[50] + ".\n\n"
+	for i := 0; i < len(questions); i++ {
+		quest := &questions[i]
+		strQuestions += quest.Question + ".\n" + quest.AdditionalInfo + "\n\n"
+	}
+
+	return strQuestions
+}
+
 func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 	var finalText string = ""
 	var htmlText string

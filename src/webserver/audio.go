@@ -303,8 +303,13 @@ func htTextFamily(families *Family, lang string) string {
 		}
 	}
 
+	if families.Exercises != nil {
+		finalText += htPrepareQuestions(families.Exercises)
+	}
+
 	return finalText + "\n"
 }
+
 func htFamilyAudio(fileName string, lang string) error {
 	familyMarriagesMap = make(map[string]string)
 	localPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, fileName)
@@ -523,7 +528,11 @@ func htConvertClassesToAudio(pages []string) {
 			}
 
 			audioTxt := htLoopThroughContentFiles(ctf.Title, ctf.Content)
+			if ctf.Exercises != nil {
+				audioTxt += htPrepareQuestions(ctf.Exercises)
+			}
 			audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+
 			err = htWriteAudioFile(page, lang, audioTxt)
 			if err != nil {
 				panic(err)
