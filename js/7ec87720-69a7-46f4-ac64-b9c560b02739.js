@@ -48,7 +48,7 @@ function htTranslationLoadIndigenous(tableID, field, selector, value)
 
 function htTranslationFillData(type, max)
 {
-    var selector = getRandomArbitrary(0, 100);
+    var selector = htGetRandomArbitrary(0, 100);
     for (let i = 0, j = 1; j <= max; i++, j++) {
         if (htGameTranslationModel == "ha") {
             htTranslationLoadHA("#yupana0", "#tc"+j+"f1", selector, htGameTranslationVector[i]);
@@ -97,7 +97,7 @@ function htTranslationFillRandomVector(min, max, end)
     var vector = [];
 
     for (let i = 0; i < end; i++) {
-        var value = Math.floor(getRandomArbitrary(min, max));
+        var value = Math.floor(htGetRandomArbitrary(min, max));
         vector.push(value);
     }
 
@@ -156,7 +156,7 @@ function htTranslationCheckRandomAnswer() {
         return;
     }
 
-    var idx = Math.floor(getRandomArbitrary(0, localGameUseVector7ec87720.length -1));
+    var idx = Math.floor(htGetRandomArbitrary(0, localGameUseVector7ec87720.length -1));
                   
     if (htGameTranslationCurrentLevel < 9) { 
         var imgName = htGameUseTranslationImages[idx];
@@ -250,7 +250,7 @@ function htLoadContent() {
 
     $( "input[name='selModel']" ).on( "change", function() {
         htGameTranslationModel = $(this).val();
-        var ra = getRandomArbitrary(0, 600);
+        var ra = htGetRandomArbitrary(0, 600);
         ra = Math.floor(ra / 100);
 
         htGameTranslationVector = htTranslationFillVector(ra, maxValue);

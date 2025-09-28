@@ -124,7 +124,6 @@ function htImageZoom(id, translate) {
     $element.toggleClass("zoomed");
 }
 
-
 //
 //    Reset Section
 //
@@ -763,6 +762,318 @@ function htFillSource(divID, sourceMap, id)
 //
 //    Mount Family Page Section
 //
+
+function htAppendFamilyParentsData(prefix, id, familyID, table, page) {
+    var parents = table.parents;
+    for (const i in parents) {
+        var couple = parents[i];
+        var parents_id = prefix+"-parents-"+id;
+        var father = couple.father_id;
+        var mother = couple.mother_id;
+        if (father && mother) {
+            $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[0] + "</b>: " + keywords[10]+"</p></div>");
+
+            familyMap.set(id, "null&null&t");
+        } else {
+            var parentsLink = "";
+            var name = "";
+            if (father && couple.father_family.length > 0) {
+                parents_id += father + "-";
+                name = personNameMap.get(father);
+                if (name) {
+                    if (couple.father_family != undefined && couple.father_family.length > 0) {
+                        if (couple.father_family == familyID || (couple.father_external_family_file != undefined && couple.father_external_family_file == false)) {
+                            parentsLink += "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+father+"'); htFillTree('"+father+"'); htSetCurrentLinkBasis('"+page+"', '"+father+"',"+undefined+");\">" +name+"</a>";
+                        } else {
+                            parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+name+"</a>";
+                        }
+                    } else {
+                        parentsLink += couple.father_name;
+                    }
+                } else if (couple.father_name && couple.father_family && couple.father_family != familyID && couple.father_family > 0) {
+                    parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+couple.father_name+"</a>";
+                } else {
+                    parentsLink += couple.father_name;
+                }
+            } else {
+            parentsLink += couple.father_name;
+            }
+            parents_id += "-";
+
+            if (mother) {
+                parents_id += mother + "-";
+                name = personNameMap.get(mother);
+                if (name) {
+                    if (couple.mother_family != undefined && couple.mother_family.length > 0) {
+                        if (couple.mother_family == familyID || (couple.mother_external_family_file != undefined && couple.mother_external_family_file == false)) {
+                            parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+mother+"'); htFillTree('"+mother+"'); htSetCurrentLinkBasis('"+page+"', '"+mother+"',"+undefined+");\">" +name+"</a>";
+                        } else {
+                            parentsLink += " & <a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+name+"</a>";
+                        }
+                    } else {
+                        parentsLink += " & " +name;
+                    }
+                } else if (couple.mother_name && couple.mother_family && couple.mother_family != familyID && couple.mother_family > 0) {
+                    parentsLink += " & <a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+couple.mother_name+"</a>";
+                } else {
+                    parentsLink += " & " +couple.mother_name;
+                }
+            }
+
+            var use_keyword;
+            var use_class;
+            if (couple.type == "theory") {
+                use_keyword = keywords[0];
+                use_class = "tree-real-family-text";
+            } else {
+                use_keyword = keywords[1];
+                use_class = "tree-hipothetical-family-text";
+            }
+
+            if (parentsLink.length == 0) {
+                parentsLink += couple.father_name+" & "+couple.mother_name;
+            }
+            $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\""+use_class+"\"><p><b>"+use_keyword + "</b>: " +parentsLink+"</p></div>");
+        }
+    }
+}
+
+function htAppendFamilyMarriagesData(prefix, id, familyID, table, page) {
+    var marriages = table.marriages;
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+
+    genealogicalStats.marriages += marriages.length;
+    for (const i in marriages) {
+        var marriage = marriages[i];
+        var rel_id = prefix+"-relationship-"+marriage.id;
+
+        var marriage_class;
+        var type = marriage.type; 
+        var official = marriage.official; 
+        var marriage_keyword;
+
+        if (marriage.id == undefined) {
+            $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[17]+"</b>: "+keywords[19]+"</p></div>");
+        } else {
+            var msg = "";
+            if (type == "theory") {
+                marriage_class = "tree-real-family-text";
+                marriage_keyword = keywords[17];
+            } else {
+                marriage_class = "tree-hipothetical-family-text";
+                marriage_keyword = keywords[18];
+                msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
+            }
+
+            if (official != undefined && official == false) {
+                marriage_keyword = keywords[86];
+            }
+            var marriageLink = "";
+            var datetime = "";
+            if (marriage.date_time != undefined && marriage.date_time.sources != null) {
+                datetime = htMountPersonEvent(" ", marriage.date_time, localLang, localCalendar);
+            }
+
+            if (marriage.family_id == undefined || marriage.family_id.length == 0 || familyID == undefined) {
+                marriageLink = marriage.name;
+            } else if ((familyID == marriage.family_id) || (marriage.external_family_file != undefined && marriage.external_family_file == false)) {
+                marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>"+datetime;
+            } else {
+                marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>"+datetime;
+            }
+
+            $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b> "+marriageLink+".</p>"+msg+"</div>");
+           htFillHistorySources(marriage.id, "#"+rel_id, marriage.history, "tree-default-align", marriage.id);
+
+            var showTree = personNameMap.has(marriage.id);
+            if (showTree == false) {
+                personNameMap.set(marriage.id, marriage.name);
+            }
+        }
+    }
+}
+
+function htAppendFamilyChildrenData(prefix, id, familyID, table, page) {
+    var children = table.children;
+    genealogicalStats.children += children.length;
+    for (const i in children) {
+        var child = children[i];
+        var child_id = prefix+"-children-"+child.id;
+        var relationship_id = prefix+"-relationship-";
+        if (child.marriage_id != undefined) {
+            relationship_id += child.marriage_id;
+        }
+
+        var child_class;
+        var type = child.type; 
+        var child_keyword;
+        var msg = "";
+        if (type == "theory") {
+            child_class = "tree-real-child-text";
+            child_keyword = keywords[20];
+        } else {
+            child_class = "tree-hipothetical-child-text";
+            child_keyword = keywords[21];
+            msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
+        }
+
+        var childLink = "";
+        if (child.family_id == undefined || child.family_id.length == 0 || ((child.external_family_file != undefined && child.external_family_file == false) && child.add_link == false)) {
+            childLink = child_keyword+" "+child.name;
+        } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
+            childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child_keyword+" "+child.name+"</a>";
+        } else { 
+            childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child_keyword+" "+child.name+"</a>";
+        }
+
+        $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+childLink+"</b>: </p>"+msg+"</div>");
+        $("#"+child_id).append("<div id=\"with-parent-"+child.id+"\" class=\""+child_class+"\"></div>");
+        htFillHistorySources("parent-"+child.id, "#with-parent-"+child.id, child.history, "", child.id);
+        htSetMapFamily(child.id, id, child.marriage_id, child.type);
+        personNameMap.set(child.id, child.name);
+    }
+}
+
+function htAppendFamilyData(prefix, id, familyID, name, table, page) {
+    var history = table.history;
+    var parents = table.parents;
+    var marriages = table.marriages;
+
+    if (history != undefined) {
+        var title;
+        var goToTop;
+        if ((parents == undefined || marriages == undefined) && (prefix != "tree")) {
+            title = keywords[8];
+            goToTop ="<a href=\"javascript:void(0);\" onclick=\"htScroolToID('#index_list');\">"+keywords[78]+"</a>";
+        } else {
+            title = keywords[9];
+            goToTop ="";
+        }
+        var personalEvents = htMountPersonEvents(table);
+        $("#"+prefix+"-"+id).append("<h3 id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+page+"', '"+id+"',"+undefined+");\">"+title + " : " +name+" (<a id=\""+prefix+"_"+id+"link\" href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"', '"+prefix+"_"+id+"link'); return false;\" >"+keywords[26]+"</a>). "+goToTop+"</h3><p>"+personalEvents+"</p>");
+    }
+
+    var primary_source = table.primary_source;
+    var references = table.references;
+    var holy_references = table.holy_references;
+    htFillHistorySources(id, "#"+prefix+"-"+id, history, "tree-default-align", id);
+
+    if (parents) {
+        htAppendFamilyParentsData(prefix, id, familyID, table, page);
+    }
+
+    if (table.marriages) {
+        htAppendFamilyMarriagesData(prefix, id, familyID, table, page);
+    }
+
+    if (table.children) {
+        htAppendFamilyChildrenData(prefix, id, familyID, table, page);
+    }
+}
+
+function htHideTree(level, grandpaLevel) {
+    if (level > 1 ) {
+        $("#child").hide();
+    }
+
+    if (level > 0) {
+        $("#father").hide();
+        $("#mother").hide();
+    }
+
+    if (level > -1) {
+        if (level > 1 ) {
+            $("#grandfather01").hide();
+            $("#grandmother01").hide();
+        }
+
+        if (level > 0 ) {
+            $("#grandfather02").hide();
+            $("#grandmother02").hide();
+        }
+    }
+}
+
+function htFillTree(personID)
+{
+    htHideTree(2, 2);
+    if (personID == undefined) {
+        return;
+    }
+    
+    var type = "theory";
+    var parents = htFillDivTree("#child", personID, type);
+    if (parents == undefined) {
+        htHideTree(1, 2);
+        return;
+    }
+
+    var parentsId = parents.split('&');
+    if (parentsId.length == 0) {
+        htHideTree(1, 2);
+        return;
+    }
+
+    type = (parentsId[2] == 't') ? 'theory' : 'hypothetical';
+    var grandparents0 = htFillDivTree("#father", parentsId[0], type);
+    if (grandparents0 == undefined) {
+        htHideTree(0, 1);
+    } else {
+        var grandParentsId0 = grandparents0.split('&');
+        if (grandParentsId0.length != 3) {
+            htHideTree(0, 1);
+        } else {
+            var grandpatype = (grandParentsId0[2] == 't') ? 'theory' : 'hypothetical';
+            var secgrandparents0 = htFillDivTree("#grandfather01", grandParentsId0[0], grandpatype);
+            var secgrandparents1 = htFillDivTree("#grandmother01", grandParentsId0[1], grandpatype);
+        }
+    }
+
+    var grandparents1 = htFillDivTree("#mother", parentsId[1], type);
+    if (grandparents1 == undefined) {
+        htHideTree(0, 2);
+    } else {
+        var grandParentsId1 = grandparents1.split('&');
+        if (grandParentsId1.length != 3) {
+            htHideTree(0, 2);
+        } else {
+
+            type = (grandParentsId1[2] == 't') ? 'theory' : 'hypothetical';
+            var secgrandparents2 = htFillDivTree("#grandmother02", grandParentsId1[0], type);
+            var secgrandparents3 = htFillDivTree("#grandfather02", grandParentsId1[1], type);
+        }
+    }
+}
+
+function htFillDivTree(divID, personID, type)
+{
+    if (personID == undefined || personID == "null") {
+        $(divID).hide();
+        return undefined;
+    }
+
+    var name = personNameMap.get(personID);
+    if (name == undefined) {
+        return undefined;
+    }
+
+    $(divID).html("");
+    var value = name;
+    var idx = name.search("\\(");
+    
+    $(divID).append(value.substring(0, (idx != -1)? idx : 32));
+    if (type == "theory") {
+        $(divID).css('border-style', 'solid');
+        $(divID).css('font-style', 'normal');
+    } else {
+        $(divID).css('border-style', 'dashed');
+        $(divID).css('font-style', 'italic');
+    }
+    $(divID).show();
+
+    return familyMap.get(personID);
+}
 
 function htMountPersonEvent(name, data, localLang, localCalendar) {
     var ret = "<b>"+name+"</b> ";
@@ -1617,7 +1928,7 @@ function htFillSMGameData(data) {
             }
         }
 
-        var imgIndex = getRandomArbitrary(0, htGameImages.length - 5);
+        var imgIndex = htGetRandomArbitrary(0, htGameImages.length - 5);
         $(opt0ac0098b.target).append("<p class=\"desc\"><img class=\"imgGameSizeWithOpacity\" src=\"images/"+htGameImages[imgIndex]+"\"><br />"+keywords[71]+" "+htGameImagesLocation[imgIndex]+".</p>");
     }
 
@@ -2672,314 +2983,11 @@ function htLoadGameData()
 }
 
 //
-//    Rewrite Section
+//    Games Section
 //
 
-function htAppendFamilyData(prefix, id, familyID, name, table, page) {
-    var history = table.history;
-    var parents = table.parents;
-    var marriages = table.marriages;
-
-    if (history != undefined) {
-        var title;
-        var goToTop;
-        if ((parents == undefined || marriages == undefined) && (prefix != "tree")) {
-            title = keywords[8];
-            goToTop ="<a href=\"javascript:void(0);\" onclick=\"htScroolToID('#index_list');\">"+keywords[78]+"</a>";
-        } else {
-            title = keywords[9];
-            goToTop ="";
-        }
-        var personalEvents = htMountPersonEvents(table);
-        $("#"+prefix+"-"+id).append("<h3 id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+page+"', '"+id+"',"+undefined+");\">"+title + " : " +name+" (<a id=\""+prefix+"_"+id+"link\" href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"', '"+prefix+"_"+id+"link'); return false;\" >"+keywords[26]+"</a>). "+goToTop+"</h3><p>"+personalEvents+"</p>");
-    }
-
-    var primary_source = table.primary_source;
-    var references = table.references;
-    var holy_references = table.holy_references;
-    htFillHistorySources(id, "#"+prefix+"-"+id, history, "tree-default-align", id);
-
-    var global_father = null;
-    if (parents != undefined) {
-        for (const i in parents) {
-            var couple = parents[i];
-            var parents_id = prefix+"-parents-"+id;
-            var father = (couple.father_id) ? couple.father_id : couple.father;
-            var mother = (couple.mother_id) ? couple.mother_id : couple.mother;
-            if (father == undefined && mother == undefined) {
-                $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[0] + "</b>: " + keywords[10]+"</p></div>");
-
-                familyMap.set(id, "null&null&t");
-            } else {
-                var parentsLink = "";
-                var name = "";
-                if (father != undefined && father != null && couple.father_family.length > 0) {
-                    global_father = father;
-                    parents_id += father + "-";
-
-                    name = personNameMap.get(father);
-                    if (name != undefined) {
-                        if (couple.father_family != undefined && couple.father_family.length > 0) {
-                            if (couple.father_family == familyID || (couple.father_external_family_file != undefined && couple.father_external_family_file == false)) {
-                                parentsLink += "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+father+"'); htFillTree('"+father+"'); htSetCurrentLinkBasis('"+page+"', '"+father+"',"+undefined+");\">" +name+"</a>";
-                            } else {
-                                parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+name+"</a>";
-                            }
-                        } else {
-                            parentsLink += couple.father_name;
-                        }
-                    } else if (couple.father_name != undefined && couple.father_family != undefined && couple.father_family != familyID && couple.father_family > 0) {
-                        parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+couple.father_name+"</a>";
-                    } else {
-                        parentsLink += couple.father_name;
-                    }
-                } else {
-                    parentsLink += couple.father_name;
-                }
-                parents_id += "-";
-
-                if (mother != null && mother != undefined) {
-                    parents_id += mother + "-";
-
-                    name = personNameMap.get(mother);
-                    if (name != undefined) {
-                        if (couple.mother_family != undefined && couple.mother_family.length > 0) {
-                            if (couple.mother_family == familyID || (couple.mother_external_family_file != undefined && couple.mother_external_family_file == false)) {
-                                parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+mother+"'); htFillTree('"+mother+"'); htSetCurrentLinkBasis('"+page+"', '"+mother+"',"+undefined+");\">" +name+"</a>";
-                            } else {
-                                parentsLink += " & <a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+name+"</a>";
-                            }
-                        } else {
-                            parentsLink += " & " +name;
-                        }
-                    } else if (couple.mother_name != undefined && couple.mother_family != undefined && couple.mother_family != familyID && couple.mother_family > 0) {
-                        parentsLink += " & <a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+couple.mother_name+"</a>";
-                    } else {
-                        parentsLink += " & " +couple.mother_name;
-                    }
-                }
-
-                var use_keyword;
-                var use_class;
-                if (couple.type == "theory") {
-                    use_keyword = keywords[0];
-                    use_class = "tree-real-family-text";
-                } else {
-                    use_keyword = keywords[1];
-                    use_class = "tree-hipothetical-family-text";
-                }
-
-                if (parentsLink.length == 0) {
-                    parentsLink += couple.father_name+" & "+couple.mother_name;
-                }
-                $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\""+use_class+"\"><p><b>"+use_keyword + "</b>: " +parentsLink+"</p></div>");
-            }
-        }
-    }
-
-    if (marriages != undefined) {
-        var localLang = $("#site_language").val();
-        var localCalendar = $("#site_calendar").val();
-
-        genealogicalStats.marriages += marriages.length;
-        for (const i in marriages) {
-            var marriage = marriages[i];
-            var rel_id = prefix+"-relationship-"+marriage.id;
-
-            var marriage_class;
-            var type = marriage.type; 
-            var official = marriage.official; 
-            var marriage_keyword;
-
-            if (marriage.id == undefined) {
-                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[17]+"</b>: "+keywords[19]+"</p></div>");
-            } else {
-                var msg = "";
-                if (type == "theory") {
-                    marriage_class = "tree-real-family-text";
-                    marriage_keyword = keywords[17];
-                } else {
-                    marriage_class = "tree-hipothetical-family-text";
-                    marriage_keyword = keywords[18];
-                    msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
-                }
-
-                if (official != undefined && official == false) {
-                    marriage_keyword = keywords[86];
-                }
-                var marriageLink = "";
-                var datetime = "";
-                if (marriage.date_time != undefined && marriage.date_time.sources != null) {
-                    datetime = htMountPersonEvent(" ", marriage.date_time, localLang, localCalendar);
-                }
-
-                if (marriage.family_id == undefined || marriage.family_id.length == 0 || familyID == undefined) {
-                    marriageLink = marriage.name;
-                } else if ((familyID == marriage.family_id) || (marriage.external_family_file != undefined && marriage.external_family_file == false)) {
-                    marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>"+datetime;
-                } else {
-                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>"+datetime;
-                }
-
-                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b> "+marriageLink+".</p>"+msg+"</div>");
-               htFillHistorySources(marriage.id, "#"+rel_id, marriage.history, "tree-default-align", marriage.id);
-
-                var showTree = personNameMap.has(marriage.id);
-                if (showTree == false) {
-                    personNameMap.set(marriage.id, marriage.name);
-                }
-            }
-
-        }
-    }
-
-    var children = table.children;
-    if (children != undefined) {
-        genealogicalStats.children += children.length;
-        for (const i in children) {
-            var child = children[i];
-            var child_id = prefix+"-children-"+child.id;
-            var relationship_id = prefix+"-relationship-";
-            if (child.marriage_id != undefined) {
-                relationship_id += child.marriage_id;
-            }
-
-            var child_class;
-            var type = child.type; 
-            var child_keyword;
-            var msg = "";
-            if (type == "theory") {
-                child_class = "tree-real-child-text";
-                child_keyword = keywords[20];
-            } else {
-                child_class = "tree-hipothetical-child-text";
-                child_keyword = keywords[21];
-                msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
-            }
-
-            var childLink = "";
-            if (child.family_id == undefined || child.family_id.length == 0 || ((child.external_family_file != undefined && child.external_family_file == false) && child.add_link == false)) {
-                childLink = child_keyword+" "+child.name;
-            } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
-                childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child_keyword+" "+child.name+"</a>";
-            } else { 
-                childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child_keyword+" "+child.name+"</a>";
-            }
-
-            $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+childLink+"</b>: </p>"+msg+"</div>");
-            $("#"+child_id).append("<div id=\"with-parent-"+child.id+"\" class=\""+child_class+"\"></div>");
-            htFillHistorySources("parent-"+child.id, "#with-parent-"+child.id, child.history, "", child.id);
-            htSetMapFamily(child.id, id, child.marriage_id, child.type);
-            personNameMap.set(child.id, child.name);
-        }
-    }
-}
-
-function htHideTree(level, grandpaLevel) {
-    if (level > 1 ) {
-        $("#child").hide();
-    }
-
-    if (level > 0) {
-        $("#father").hide();
-        $("#mother").hide();
-    }
-
-    if (level > -1) {
-        if (level > 1 ) {
-            $("#grandfather01").hide();
-            $("#grandmother01").hide();
-        }
-
-        if (level > 0 ) {
-            $("#grandfather02").hide();
-            $("#grandmother02").hide();
-        }
-    }
-}
-
-function htFillTree(personID)
-{
-    htHideTree(2, 2);
-    if (personID == undefined) {
-        return;
-    }
-    
-    var type = "theory";
-    var parents = htFillDivTree("#child", personID, type);
-    if (parents == undefined) {
-        htHideTree(1, 2);
-        return;
-    }
-
-    var parentsId = parents.split('&');
-    if (parentsId.length == 0) {
-        htHideTree(1, 2);
-        return;
-    }
-
-    type = (parentsId[2] == 't') ? 'theory' : 'hypothetical';
-    var grandparents0 = htFillDivTree("#father", parentsId[0], type);
-    if (grandparents0 == undefined) {
-        htHideTree(0, 1);
-    } else {
-        var grandParentsId0 = grandparents0.split('&');
-        if (grandParentsId0.length != 3) {
-            htHideTree(0, 1);
-        } else {
-            var grandpatype = (grandParentsId0[2] == 't') ? 'theory' : 'hypothetical';
-            var secgrandparents0 = htFillDivTree("#grandfather01", grandParentsId0[0], grandpatype);
-            var secgrandparents1 = htFillDivTree("#grandmother01", grandParentsId0[1], grandpatype);
-        }
-    }
-
-    var grandparents1 = htFillDivTree("#mother", parentsId[1], type);
-    if (grandparents1 == undefined) {
-        htHideTree(0, 2);
-    } else {
-        var grandParentsId1 = grandparents1.split('&');
-        if (grandParentsId1.length != 3) {
-            htHideTree(0, 2);
-        } else {
-
-            type = (grandParentsId1[2] == 't') ? 'theory' : 'hypothetical';
-            var secgrandparents2 = htFillDivTree("#grandmother02", grandParentsId1[0], type);
-            var secgrandparents3 = htFillDivTree("#grandfather02", grandParentsId1[1], type);
-        }
-    }
-}
-
-function htFillDivTree(divID, personID, type)
-{
-    if (personID == undefined || personID == "null") {
-        $(divID).hide();
-        return undefined;
-    }
-
-    var name = personNameMap.get(personID);
-    if (name == undefined) {
-        return undefined;
-    }
-
-    $(divID).html("");
-    var value = name;
-    var idx = name.search("\\(");
-    
-    $(divID).append(value.substring(0, (idx != -1)? idx : 32));
-    if (type == "theory") {
-        $(divID).css('border-style', 'solid');
-        $(divID).css('font-style', 'normal');
-    } else {
-        $(divID).css('border-style', 'dashed');
-        $(divID).css('font-style', 'italic');
-    }
-    $(divID).show();
-
-    return familyMap.get(personID);
-}
-
 // Copied from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random [2024-01-13]
-function getRandomArbitrary(min, max) {
+function htGetRandomArbitrary(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
