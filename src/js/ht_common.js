@@ -576,6 +576,68 @@ function htConvertJulianDate(test, locale, julianEpoch)
 //    Mount Page Section
 //
 
+function htFillMixedMapList(table, target, time_vector) {
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+    for (const i in table) {
+        let item = table[i];
+        var text = (item.date_time != undefined) ? htOverwriteHTDateWithText(item.desc, item.date_time, localLang, localCalendar) : item.desc;
+        if (item.family_id != undefined && item.family_id.length > 0) {
+            var person =  (item.person_id != undefined && item.person_id.length > 0 )? item.family_id+"&person_id="+item.person_id : item.family_id ;
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+person+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+person+"', false); return false;\" >"+item.name+"</a>: "+text+"</li>");
+        } else if (item.id != undefined && item.name != undefined && item.desc != undefined) {
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+item.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+item.id+"', false); return false;\" >"+item.name+"</a>: "+text+"</li>"); 
+        }
+    }
+}
+
+
+function htFillGroupList(table, target, page, date_time) {
+    const $target = $("#" + target);
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+    for (const i in table) {
+        const item = table[i];
+        var additional = "";
+        if (item.id != "fill_dates" && item.id != "date_time") {
+            const links = [];
+            if (item.csv) {
+                links.push(`<a href="${item.csv}" target="_blank">CSV</a>`);
+            }
+            if (item.gedcom) {
+                links.push(`<a href="${item.gedcom}" target="_blank">GEDCOM</a>`);
+            }
+            const additional = links.length ? ` (${links.join(", ")})` : "";
+
+            const modifiedText = (date_time == undefined) ? item.name : htOverwriteHTDateWithText(item.name, date_time, localLang, localCalendar);
+
+            $target.append("<li id=\""+item.id+"\"><a href=\"index.html?page="+page+"&arg="+item.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+item.id+"', false); return false;\" >"+modifiedText+"</a>: "+item.desc+" "+additional+"</li>");
+        } else {
+            if (item.text.constructor === vectorConstructor) {
+                htFillHTDate(item.text);
+            }
+        }
+    }
+}
+
+function htFillSubMapList(table, target) {
+    for (const i in table) {
+        const item = table[i];
+        switch(item.page) {
+            case "class_content":
+                if (item.id != undefined && item.name != undefined && item.desc != undefined) {
+                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+item.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+item.id+"', false); return false;\" >"+item.name+"</a>: "+item.desc+"</li>"); 
+                }
+                break;
+            case "tree":
+            default:
+                if (item.person_id != undefined && item.family_id != undefined && item.family_id.length > 0 && item.fullname != undefined && item.desc != undefined) {
+                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+item.family_id+"&person_id="+item.person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+item.family_id+"&person_id="+item.person_id+"', false); return false;\" >"+item.fullname+"</a>: "+item.desc+"</li>");
+                }
+        }
+    }
+}
+
 function htFillIndexSelector(table, target) {
     if (!Array.isArray(table)) return;
 
@@ -1589,7 +1651,7 @@ function htFillWebPage(page, data)
                     if (data.content[i].id != undefined && data.content[i].id != null && data.content[i].id.length > 0 && data.content[i].desc != undefined && data.content[i].desc.length > 0) {
                         $("#"+data.content[i].id).html(data.content[i].desc);
                     }
-                    htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
+                    htFillGroupList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
                 } else if (data.content[i].value_type == "mixed-group-list") {
                     htFillMixedMapList(data.content[i].value, data.content[i].target, data.content[i].date_time);
                 }
@@ -1627,7 +1689,7 @@ function htFillWebPage(page, data)
                     if (data.content[i].id != undefined && data.content[i].id != null && data.content[i].id.length > 0 && data.content[i].desc != undefined && data.content[i].desc.length > 0) {
                         $("#"+data.content[i].id).html(data.content[i].desc);
                     }
-                    htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
+                    htFillGroupList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
                 } else if (data.content[i].value_type == "subgroup") {
                     htFillSubMapList(data.content[i].value, data.content[i].target);
                 } else if (data.content[i].value_type == "paper") {
@@ -1944,7 +2006,7 @@ function htFillFamilyList(table, target) {
     const siteCalendar = $('#site_calendar').val();
 
     for (const i in table) {
-        let item = table[i];
+        const item = table[i];
         if (item.target == undefined) {
             htHandleSpecialItem(item);
             continue;
@@ -1964,66 +2026,6 @@ function htFillFamilyList(table, target) {
 //
 //    Reorganize Section
 //
-
-function htFillMapList(table, target, page, date_time) {
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    for (const i in table) {
-        var additional = "";
-        if (table[i].id != "fill_dates" && table[i].id != "date_time") {
-            if (table[i].csv != undefined && table[i].csv.length > 0) {
-                additional += "(<a href=\""+table[i].csv+"\" target=\"_blank\">CSV</a>";
-            }
-
-            if (table[i].gedcom != undefined && table[i].gedcom.length > 0) {
-                additional += (additional.length == 0)? "(" : ", ";
-                additional += " <a href=\""+table[i].gedcom+"\" target=\"_blank\">GEDCOM</a>)";
-            } else {
-                additional += (additional.length == 0)? "" : ")";
-            }
-
-            var modifiedText = (date_time == undefined) ? table[i].name : htOverwriteHTDateWithText(table[i].name, date_time, localLang, localCalendar);
-
-            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+modifiedText+"</a>: "+table[i].desc+" "+additional+"</li>");
-        } else {
-            if (table[i].text.constructor === vectorConstructor) {
-                htFillHTDate(table[i].text);
-            }
-        }
-    }
-}
-
-function htFillSubMapList(table, target) {
-    for (const i in table) {
-        switch(table[i].page) {
-            case "class_content":
-                if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
-                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>"); 
-                }
-                break;
-            case "tree":
-            default:
-                if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].family_id.length > 0 && table[i].fullname != undefined && table[i].desc != undefined) {
-                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].fullname+"</a>: "+table[i].desc+"</li>");
-                }
-        }
-    }
-}
-
-function htFillMixedMapList(table, target, time_vector) {
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    for (const i in table) {
-        var text = (table[i].date_time != undefined) ? htOverwriteHTDateWithText(table[i].desc, table[i].date_time, localLang, localCalendar) : table[i].desc;
-        if (table[i].family_id != undefined && table[i].family_id.length > 0) {
-            var person =  (table[i].person_id != undefined && table[i].person_id.length > 0 )? table[i].family_id+"&person_id="+table[i].person_id : table[i].family_id ;
-            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+person+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+person+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>");
-        } else if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
-            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>"); 
-        }
-    }
-}
-
 
 function htCheckExerciseAnswer(val0, val1, answer, explanation) {
     var ans = parseInt($("input[name="+val0+"]:checked").val());
