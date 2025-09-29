@@ -22,20 +22,20 @@ function htSelectValue(selector)
         case 6:
             return "<div class=\"htCircle\"></div>";
         case 8:
-            value = getRandomArbitrary(0, 3);
+            value = htGetRandomArbitrary(0, 3);
             break;
         case 10:
             return htYupanaDrawSecondSquare();
         case 12:
             return htYupanaDrawThirdSquare();
         case 14:
-            value = getRandomArbitrary(4, 6);
+            value = htGetRandomArbitrary(4, 6);
             break;
         case 16:
-            value = getRandomArbitrary(7, 9);
+            value = htGetRandomArbitrary(7, 9);
             break;
         default:
-            value = getRandomArbitrary(selector, selector + 3);
+            value = htGetRandomArbitrary(selector, selector + 3);
             return ""+value;
     }
 
@@ -50,7 +50,7 @@ function htMemoryFillBack()
 
     var useThis = "";
     for (let i = 0; i < htMemDefaultVector.length; i++) {
-        var fill = Math.floor(getRandomArbitrary(0, htMemUseVector.length));
+        var fill = Math.floor(htGetRandomArbitrary(0, htMemUseVector.length));
         var idx = htMemUseVector[fill];
         if ((i % 2) == 0) {
             useThis =  htSelectValue(i)

@@ -242,7 +242,7 @@ function htSequenceFillYupana()
 function htSetUpdateIdx(min, max)
 {
     if (updatingIdx == -1) {
-        updatingIdx = getRandomArbitrary(min, max);
+        updatingIdx = htGetRandomArbitrary(min, max);
     } else {
         updatingIdx++;
         if (updatingIdx > max) {
@@ -268,7 +268,7 @@ function htLoadTest(opt)
     gameBegin = true;
     var min = startValue + currentLevel * width;
     var max = min + width;
-    workingValue = getRandomArbitrary(min, max);
+    workingValue = htGetRandomArbitrary(min, max);
 
     var adjust = workingValue % 10;
     currentStartPoint = workingValue - adjust;

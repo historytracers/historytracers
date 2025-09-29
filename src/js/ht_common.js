@@ -102,6 +102,14 @@ function htScroolToID(id) {
     $('html, body').scrollTop($(id).offset().top);
 }
 
+function htScroolTree(id)
+{
+    var destination = $(id).val();
+    if (destination != undefined) {
+        $('html, body').scrollTop($(id).offset().top);
+    }
+}
+
 function htImageZoom(id, translate) {
     var $element = $("#" + id);
     var isZoomed = $element.hasClass("zoomed");
@@ -116,10 +124,17 @@ function htImageZoom(id, translate) {
     $element.toggleClass("zoomed");
 }
 
-
 //
 //    Reset Section
 //
+
+function htCleanSources()
+{
+    $("#tree-source").html("");
+    $("#tree-ref").html("");
+    $("#tree-holy-ref").html("");
+    $("#tree-sm-ref").html("");
+}
 
 function htResetGenealogicalStats() {
     return { "primary_src" : 0, "reference_src" : 0, "holy_src": 0, "social_media_src": 0, "families": 0, "people": 0, "marriages": 0, "children": 0 };
@@ -572,9 +587,984 @@ function htConvertJulianDate(test, locale, julianEpoch)
     return htConvertDate(test, locale, undefined, julianEpoch, undefined);
 }
 
+
 //
-//    Mount Page Section
+//    Link Section
 //
+
+function htMountCurrentLinkBasis(familyID, id)
+{
+    const url = window.location.href;
+    var remove = url.search("#");
+    if (remove < 0) {
+        remove = url.search("\\?");
+    }
+
+    var userURL = (remove > 0 )? url.substring(0, remove) : url;
+
+    userURL += "?page=tree&arg="+familyID;
+
+    if (id) {
+        var myTree = url.search("page=tree");
+        if (myTree >= 0) {
+            userURL += "&person_id=" + id;
+        }
+    }
+
+    return userURL;
+}
+
+function htSetCurrentLinkBasis(familyID, id, finalURL)
+{
+    const myURL = (finalURL == undefined) ? htMountCurrentLinkBasis(familyID, id) : finalURL;
+    window.history.replaceState(null, null, myURL);
+
+    return false;
+}
+
+function htCopyLink(familyID, id, changeTextId)
+{
+    var userURL = htMountCurrentLinkBasis(familyID, id);
+    htSetCurrentLinkBasis(familyID, id, userURL);
+
+    userURL += "&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val();
+
+    var temp = $("<input>");
+    $("body").append(temp);
+    temp.val(userURL).select();
+    document.execCommand("copy");
+    temp.remove();
+
+    const $link = $("#"+changeTextId);
+    const originalText = $link.text();
+
+    $link.text(keywords[133]);
+    setTimeout(() => {
+        $link.text(originalText);
+    }, 3000);
+
+    return false;
+}
+
+//
+//    Source Section
+//
+
+function htLoadSources(data, arg, page)
+{
+    if (data.sources) {
+        data.sources.forEach(source => {
+            htLoadPage(source, 'json', 'source', false);
+        });
+        return;
+    }
+
+    if (arg !== 'source') {
+        return;
+    }
+
+    if (!data) {
+        console.warn('Invalid data structure provided to htLoadSources');
+        return;
+    }
+
+    const sourceMappings = [
+        { map: primarySourceMap, sources: data.primary_sources },
+        { map: refSourceMap, sources: data.reference_sources },
+        { map: holyRefSourceMap, sources: data.religious_sources },
+        { map: smSourceMap, sources: data.social_media_sources }
+    ];
+
+    sourceMappings.forEach(({ map, sources }) => {
+        htFillMapSource(map, sources || []);
+    });
+
+    if (page && page.length === 36) {
+        genealogicalStats.primary_src = data.primary_sources?.length || 0;
+        genealogicalStats.reference_src = data.reference_sources?.length || 0;
+        genealogicalStats.holy_src = data.religious_sources?.length || 0;
+        genealogicalStats.social_media_src = data.social_media_sources?.length || 0;
+    }
+}
+
+function htFillHistorySources(divId, histID, history, useClass, personID)
+{
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+    if (history) {
+        for (const i in history) {
+            var localObj = history[i];
+            var text = (localObj.text != undefined && localObj.format != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : "<p>"+localObj+"</p>";
+            $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");
+        }
+    }
+}
+
+function htFillMapSource(myMap, data)
+{
+    if (!data) {
+        return;
+    }
+
+    const currentLanguage = $("#site_language").val();
+    const currentCalendar = $("#site_calendar").val();
+    for (const i in data) {
+        var ids = myMap.has(data[i].id);
+        if (ids == false) {
+            var finalDate = "";
+            if (data[i].date != undefined ) {
+                var dateVector = data[i].date.split('-');
+                if (dateVector.length == 3) {
+                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
+                }
+            } else if  (data[i].date_time != undefined ){
+                var dateVector = data[i].date_time.split('-');
+                if (dateVector.length == 3) {
+                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
+                }
+            }
+            myMap.set(data[i].id, {"citation" : data[i].citation, "date" : finalDate, "url" : data[i].url});
+        }
+    }
+}
+
+function htLoadSource(divID, sourceMap, listMap, theID)
+{
+    $(divID).html("");
+    var ps = listMap.has(theID);
+    if (ps) {
+        var localMap = listMap.get(theID);
+        var arr = localMap.split(';');
+        if (arr.length > 0 ) {
+            for (let i = 0 ; i < arr.length; i++) {
+                htFillSource(divID, sourceMap, arr[i]);
+            }
+        }
+    }
+}
+
+function htFillSource(divID, sourceMap, id)
+{
+    const src = sourceMap.get(id);
+    if (src) {
+        var dateValue = "";
+        if (src.date_time && src.date_time.length > 0) {
+            dateValue = ". [ "+keywords[22]+" "+src.date_time+" ].";
+        }
+        var urlValue = "";
+        if (src.url && src.url.length > 0) {
+            urlValue = keywords[23]+" <a target=\"_blank\" href=\""+src.url+"\"> "+src.url+"</a>";
+        }
+        $(divID).append("<p>"+src.citation+" "+dateValue +" "+urlValue+"</p>");
+    }
+}
+
+//
+//    Mount Family Page Section
+//
+
+function htAppendFamilyParentsData(prefix, id, familyID, table, page) {
+    var parents = table.parents;
+    for (const i in parents) {
+        var couple = parents[i];
+        var parents_id = prefix+"-parents-"+id;
+        var father = couple.father_id;
+        var mother = couple.mother_id;
+        if (father && mother) {
+            $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[0] + "</b>: " + keywords[10]+"</p></div>");
+
+            familyMap.set(id, "null&null&t");
+        } else {
+            var parentsLink = "";
+            var name = "";
+            if (father && couple.father_family.length > 0) {
+                parents_id += father + "-";
+                name = personNameMap.get(father);
+                if (name) {
+                    if (couple.father_family != undefined && couple.father_family.length > 0) {
+                        if (couple.father_family == familyID || (couple.father_external_family_file != undefined && couple.father_external_family_file == false)) {
+                            parentsLink += "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+father+"'); htFillTree('"+father+"'); htSetCurrentLinkBasis('"+page+"', '"+father+"',"+undefined+");\">" +name+"</a>";
+                        } else {
+                            parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+name+"</a>";
+                        }
+                    } else {
+                        parentsLink += couple.father_name;
+                    }
+                } else if (couple.father_name && couple.father_family && couple.father_family != familyID && couple.father_family > 0) {
+                    parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+couple.father_name+"</a>";
+                } else {
+                    parentsLink += couple.father_name;
+                }
+            } else {
+            parentsLink += couple.father_name;
+            }
+            parents_id += "-";
+
+            if (mother) {
+                parents_id += mother + "-";
+                name = personNameMap.get(mother);
+                if (name) {
+                    if (couple.mother_family != undefined && couple.mother_family.length > 0) {
+                        if (couple.mother_family == familyID || (couple.mother_external_family_file != undefined && couple.mother_external_family_file == false)) {
+                            parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+mother+"'); htFillTree('"+mother+"'); htSetCurrentLinkBasis('"+page+"', '"+mother+"',"+undefined+");\">" +name+"</a>";
+                        } else {
+                            parentsLink += " & <a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+name+"</a>";
+                        }
+                    } else {
+                        parentsLink += " & " +name;
+                    }
+                } else if (couple.mother_name && couple.mother_family && couple.mother_family != familyID && couple.mother_family > 0) {
+                    parentsLink += " & <a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+couple.mother_name+"</a>";
+                } else {
+                    parentsLink += " & " +couple.mother_name;
+                }
+            }
+
+            var use_keyword;
+            var use_class;
+            if (couple.type == "theory") {
+                use_keyword = keywords[0];
+                use_class = "tree-real-family-text";
+            } else {
+                use_keyword = keywords[1];
+                use_class = "tree-hipothetical-family-text";
+            }
+
+            if (parentsLink.length == 0) {
+                parentsLink += couple.father_name+" & "+couple.mother_name;
+            }
+            $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\""+use_class+"\"><p><b>"+use_keyword + "</b>: " +parentsLink+"</p></div>");
+        }
+    }
+}
+
+function htAppendFamilyMarriagesData(prefix, id, familyID, table, page) {
+    var marriages = table.marriages;
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+
+    genealogicalStats.marriages += marriages.length;
+    for (const i in marriages) {
+        var marriage = marriages[i];
+        var rel_id = prefix+"-relationship-"+marriage.id;
+
+        var marriage_class;
+        var type = marriage.type; 
+        var official = marriage.official; 
+        var marriage_keyword;
+
+        if (marriage.id == undefined) {
+            $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[17]+"</b>: "+keywords[19]+"</p></div>");
+        } else {
+            var msg = "";
+            if (type == "theory") {
+                marriage_class = "tree-real-family-text";
+                marriage_keyword = keywords[17];
+            } else {
+                marriage_class = "tree-hipothetical-family-text";
+                marriage_keyword = keywords[18];
+                msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
+            }
+
+            if (official != undefined && official == false) {
+                marriage_keyword = keywords[86];
+            }
+            var marriageLink = "";
+            var datetime = "";
+            if (marriage.date_time != undefined && marriage.date_time.sources != null) {
+                datetime = htMountPersonEvent(" ", marriage.date_time, localLang, localCalendar);
+            }
+
+            if (marriage.family_id == undefined || marriage.family_id.length == 0 || familyID == undefined) {
+                marriageLink = marriage.name;
+            } else if ((familyID == marriage.family_id) || (marriage.external_family_file != undefined && marriage.external_family_file == false)) {
+                marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>"+datetime;
+            } else {
+                marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>"+datetime;
+            }
+
+            $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b> "+marriageLink+".</p>"+msg+"</div>");
+           htFillHistorySources(marriage.id, "#"+rel_id, marriage.history, "tree-default-align", marriage.id);
+
+            var showTree = personNameMap.has(marriage.id);
+            if (showTree == false) {
+                personNameMap.set(marriage.id, marriage.name);
+            }
+        }
+    }
+}
+
+function htAppendFamilyChildrenData(prefix, id, familyID, table, page) {
+    var children = table.children;
+    genealogicalStats.children += children.length;
+    for (const i in children) {
+        var child = children[i];
+        var child_id = prefix+"-children-"+child.id;
+        var relationship_id = prefix+"-relationship-";
+        if (child.marriage_id != undefined) {
+            relationship_id += child.marriage_id;
+        }
+
+        var child_class;
+        var type = child.type; 
+        var child_keyword;
+        var msg = "";
+        if (type == "theory") {
+            child_class = "tree-real-child-text";
+            child_keyword = keywords[20];
+        } else {
+            child_class = "tree-hipothetical-child-text";
+            child_keyword = keywords[21];
+            msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
+        }
+
+        var childLink = "";
+        if (child.family_id == undefined || child.family_id.length == 0 || ((child.external_family_file != undefined && child.external_family_file == false) && child.add_link == false)) {
+            childLink = child_keyword+" "+child.name;
+        } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
+            childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child_keyword+" "+child.name+"</a>";
+        } else { 
+            childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child_keyword+" "+child.name+"</a>";
+        }
+
+        $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+childLink+"</b>: </p>"+msg+"</div>");
+        $("#"+child_id).append("<div id=\"with-parent-"+child.id+"\" class=\""+child_class+"\"></div>");
+        htFillHistorySources("parent-"+child.id, "#with-parent-"+child.id, child.history, "", child.id);
+        htSetMapFamily(child.id, id, child.marriage_id, child.type);
+        personNameMap.set(child.id, child.name);
+    }
+}
+
+function htAppendFamilyData(prefix, id, familyID, name, table, page) {
+    var history = table.history;
+    var parents = table.parents;
+    var marriages = table.marriages;
+
+    if (history != undefined) {
+        var title;
+        var goToTop;
+        if ((parents == undefined || marriages == undefined) && (prefix != "tree")) {
+            title = keywords[8];
+            goToTop ="<a href=\"javascript:void(0);\" onclick=\"htScroolToID('#index_list');\">"+keywords[78]+"</a>";
+        } else {
+            title = keywords[9];
+            goToTop ="";
+        }
+        var personalEvents = htMountPersonEvents(table);
+        $("#"+prefix+"-"+id).append("<h3 id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+page+"', '"+id+"',"+undefined+");\">"+title + " : " +name+" (<a id=\""+prefix+"_"+id+"link\" href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"', '"+prefix+"_"+id+"link'); return false;\" >"+keywords[26]+"</a>). "+goToTop+"</h3><p>"+personalEvents+"</p>");
+    }
+
+    var primary_source = table.primary_source;
+    var references = table.references;
+    var holy_references = table.holy_references;
+    htFillHistorySources(id, "#"+prefix+"-"+id, history, "tree-default-align", id);
+
+    if (parents) {
+        htAppendFamilyParentsData(prefix, id, familyID, table, page);
+    }
+
+    if (table.marriages) {
+        htAppendFamilyMarriagesData(prefix, id, familyID, table, page);
+    }
+
+    if (table.children) {
+        htAppendFamilyChildrenData(prefix, id, familyID, table, page);
+    }
+}
+
+function htHideTree(level, grandpaLevel) {
+    if (level > 1 ) {
+        $("#child").hide();
+    }
+
+    if (level > 0) {
+        $("#father").hide();
+        $("#mother").hide();
+    }
+
+    if (level > -1) {
+        if (level > 1 ) {
+            $("#grandfather01").hide();
+            $("#grandmother01").hide();
+        }
+
+        if (level > 0 ) {
+            $("#grandfather02").hide();
+            $("#grandmother02").hide();
+        }
+    }
+}
+
+function htFillTree(personID)
+{
+    htHideTree(2, 2);
+    if (personID == undefined) {
+        return;
+    }
+    
+    var type = "theory";
+    var parents = htFillDivTree("#child", personID, type);
+    if (parents == undefined) {
+        htHideTree(1, 2);
+        return;
+    }
+
+    var parentsId = parents.split('&');
+    if (parentsId.length == 0) {
+        htHideTree(1, 2);
+        return;
+    }
+
+    type = (parentsId[2] == 't') ? 'theory' : 'hypothetical';
+    var grandparents0 = htFillDivTree("#father", parentsId[0], type);
+    if (grandparents0 == undefined) {
+        htHideTree(0, 1);
+    } else {
+        var grandParentsId0 = grandparents0.split('&');
+        if (grandParentsId0.length != 3) {
+            htHideTree(0, 1);
+        } else {
+            var grandpatype = (grandParentsId0[2] == 't') ? 'theory' : 'hypothetical';
+            var secgrandparents0 = htFillDivTree("#grandfather01", grandParentsId0[0], grandpatype);
+            var secgrandparents1 = htFillDivTree("#grandmother01", grandParentsId0[1], grandpatype);
+        }
+    }
+
+    var grandparents1 = htFillDivTree("#mother", parentsId[1], type);
+    if (grandparents1 == undefined) {
+        htHideTree(0, 2);
+    } else {
+        var grandParentsId1 = grandparents1.split('&');
+        if (grandParentsId1.length != 3) {
+            htHideTree(0, 2);
+        } else {
+
+            type = (grandParentsId1[2] == 't') ? 'theory' : 'hypothetical';
+            var secgrandparents2 = htFillDivTree("#grandmother02", grandParentsId1[0], type);
+            var secgrandparents3 = htFillDivTree("#grandfather02", grandParentsId1[1], type);
+        }
+    }
+}
+
+function htFillDivTree(divID, personID, type)
+{
+    if (personID == undefined || personID == "null") {
+        $(divID).hide();
+        return undefined;
+    }
+
+    var name = personNameMap.get(personID);
+    if (name == undefined) {
+        return undefined;
+    }
+
+    $(divID).html("");
+    var value = name;
+    var idx = name.search("\\(");
+    
+    $(divID).append(value.substring(0, (idx != -1)? idx : 32));
+    if (type == "theory") {
+        $(divID).css('border-style', 'solid');
+        $(divID).css('font-style', 'normal');
+    } else {
+        $(divID).css('border-style', 'dashed');
+        $(divID).css('font-style', 'italic');
+    }
+    $(divID).show();
+
+    return familyMap.get(personID);
+}
+
+function htMountPersonEvent(name, data, localLang, localCalendar) {
+    var ret = "<b>"+name+"</b> ";
+    for (const i in data) {
+        var ptr = data[i];
+        if (!ptr.date_time) {
+            continue;
+        }
+
+        if (i) {
+            ret += " "+keywords[91]+" ";
+        }
+        const selDate = (ptr.date != undefined) ? ptr.date : ptr.date_time;
+        ret += htMountSpecificDate(selDate[0], localLang, localCalendar)+" (";
+        var sources = ptr.sources;
+        for (const i in sources) { 
+            let source = sources[i];
+            if (i != 0) {
+                ret += " ; ";
+            }
+            const fcnt = htFillHistorySourcesSelectFunction(source.type);
+            const selLocalDate = source.date_time;
+            let dateText = (source.date != undefined) ? ", "+htMountSpecificDate(selLocalDate, localLang, localCalendar) : "";
+            ret += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+source.uuid+"'); return false;\"><i>"+source.text+" "+dateText+"</i></a>";
+        }
+
+        ret += ")";
+    }
+    return ret;
+}
+
+function htMountPersonEvents(table) {
+    var ret = "";
+    if (!table.is_real) {
+        return "<div class=\"no_personal_events_class\">"+keywords[95]+keywords[96]+keywords[97]+"</div>";
+    }
+
+    var localLang = $("#site_language").val();
+    var localCalendar = $("#site_calendar").val();
+
+    ret = "<div class=\"personal_events_class\">"+keywords[95];
+    var begin = ret;
+
+    var sex_gender = "";
+
+    if (table.haplogroup != undefined && table.haplogroup.length > 0) {
+        ret += "<b>"+keywords[103]+"</b>: ";
+        for (const i in table.haplogroup) {
+            var haplogroup = table.haplogroup[i]
+            if (i != 0) {
+                ret += ", ";
+            }
+
+            var sources = haplogroup.sources;
+            var lnk = "";
+            for (const i in sources) { 
+                let source = sources[i];
+                if (i != 0) {
+                    text += " ; ";
+                }
+                var fcnt = htFillHistorySourcesSelectFunction(source.type);
+                var dateText = "";
+                if  (source.date_time) {
+                    dateText =  ", "+htMountSpecificDate(source.date_time, localLang, localCalendar);
+                }
+
+                lnk += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+source.uuid+"'); return false;\"><i>"+source.text+" "+dateText+"</i></a>";
+            }
+            ret += haplogroup.haplogroup+" ("+haplogroup.type+") ("+lnk+")" ;
+        }
+        ret += "<br />" ;
+    }
+
+    if (table.sex && table.sex.length > 0) {
+        sex_gender = table.sex;
+    }
+
+    if (table.gender && table.gender.length > 0) {
+        sex_gender += " / "+table.gender;
+    }
+
+    if (sex_gender.length > 0) {
+        ret += "<b>"+keywords[100]+"/"+keywords[101]+"</b>: "+sex_gender+"<br />";
+    }
+
+    if (table.birth) {
+        ret += htMountPersonEvent(keywords[92], table.birth, localLang, localCalendar)+"<br />";
+    }
+
+    if (table.baptism) {
+        ret += htMountPersonEvent(keywords[93], table.baptism, localLang, localCalendar)+"<br />";
+    }
+
+    if (table.surname) {
+        ret += "<b>"+keywords[104]+"</b>: "+table.surname+"<br />";
+    }
+
+    if (table.patronymic) {
+        ret += "<b>"+keywords[105]+"</b>: "+table.patronymic+"<br />";
+    }
+
+    if (table.death) {
+        ret += htMountPersonEvent(keywords[94], table.death, localLang, localCalendar)+"<br />";
+    }
+
+    if (begin.length == ret.length) {
+        ret += keywords[99];
+    }
+    ret += "</div>";
+
+    return ret;
+}
+
+function htSetMapFamily(id, father, mother, type)
+{
+    if (!father && !mother) {
+        familyMap.set(id, "null&null&t");
+        return;
+    }
+
+    var parent_idx = (father) ? father : "null";
+    parent_idx += (mother) ? "&"+mother : "null";
+    parent_idx += (type == "theory") ? "&t" : "&h";
+
+    familyMap.set(id, parent_idx);
+}
+
+function htFillFamilies(page, table) {
+    if (table.title) {
+        $(document).prop('title', table.title);
+    }
+
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+    if (table.documentsInfo && $("#overallInfo").length > 0) {
+        var dIText = "<p><h3>"+keywords[53]+"</h3>"+keywords[59]+"</p>";
+        if (table.documentsInfo.length == 4) {
+            dIText += table.documentsInfo[3];
+        }
+
+        $("#overallInfo").html(dIText);
+
+        if ($("#documentsInfoLang").length > 0) { $("#documentsInfoLang").html(table.documentsInfo[0]); }
+        if ($("#documentsInfoCalendarName").length > 0) { $("#documentsInfoCalendarName").html(table.documentsInfo[1]); }
+        if ($("#documentsInfoCalendarVisibleOption").length > 0) { $("#documentsInfoCalendarVisibleOption").html(table.documentsInfo[2]); }
+    }
+
+    if (table.periodOfTime && $("#periodOfTime").length > 0) {
+        if (table.periodOfTime.length == 2) {
+            var pOTText = "<p><h3>"+keywords[76]+"</h3>"+keywords[77]+"</p>";
+
+            $("#periodOfTime").html(pOTText);
+
+            if ($("#documentsPeriodOrigin").length > 0) { $("#documentsPeriodOrigin").html(table.periodOfTime[0]); }
+            if ($("#documentsPeriodTime").length > 0) { $("#documentsPeriodTime").html(table.periodOfTime[1]); }
+        }
+    }
+
+    if ($("#files").length > 0) {
+        var csvgedtxt = keywords[108]+"<p><ul>";
+        const csvgedLength = csvgedtxt.length;
+        if (table.csv) {
+            csvgedtxt += "<li><a href=\""+table.csv+"\" target=\"_blank\">CSV</a>: "+keywords[109]+"</li>";
+        }
+
+        if (table.gedcom) {
+            csvgedtxt += "<li><a href=\""+table.gedcom+"\" target=\"_blank\">GEDCOM</a>: "+keywords[110]+"</li>";
+        }
+        if (csvgedLength != csvgedtxt.length) {
+            csvgedtxt += "</ul></p>"+keywords[111];
+            $("#files").html(csvgedtxt);
+        }
+    }
+
+    if (table.maps && $("#maps").length > 0) {
+        var textMap = "<p><h3>"+keywords[79]+"</h3>"+keywords[80]+"</p>";
+
+        for (const i in table.maps) {
+            var currMap = table.maps[i];
+            if (currMap.text == undefined || currMap.img == undefined) {
+                continue;
+            }
+
+            var map_desc = htOverwriteHTDateWithText(currMap.text, currMap.date_time, localLang, localCalendar);
+            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" id=\"imgFamilyMap"+currMap.order+"\" onclick=\"htImageZoom('imgFamilyMap"+currMap.order+"', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+map_desc+" "+keywords[82]+" "+keywords[83]+"</p>";
+        }
+
+        $("#maps").html(textMap);
+    }
+
+    if (table.prerequisites && $("#pre_requisites").length > 0) {
+        var preRequisites = "";
+        for (const i in table.prerequisites) {
+            let pr = table.prerequisites[i];
+            preRequisites += "<p>"+ pr + "</p>";
+        }
+        preRequisites += "</ul></p>";
+        $("#pre_requisites").html(preRequisites);
+    }
+
+    if ($("#contribution").length > 0) {
+        $("#contribution").html(keywords[54]);
+    }
+
+    $("#sources-lbl").html(keywords[5]);
+    $("#tree-sources-lbl").html(keywords[5]);
+    $("#tree-references-lbl").html(keywords[6]);
+    $("#references-lbl").html(keywords[6]);
+    $("#tree-holy_references-lbl").html(keywords[7]);
+    $("#holy_references-lbl").html(keywords[7]);
+    $("#tree-sm-references-lbl").html(keywords[75]);
+    $("#tree-sm-lbl").html(keywords[75]);
+
+    $("#child").html(keywords[9]);
+    $("#father").html(keywords[2]);
+    $("#mother").html(keywords[3]);
+    $("#grandfather01").html(keywords[11]);
+    $("#grandmother01").html(keywords[12]);
+    $("#grandfather02").html(keywords[13]);
+    $("#grandmother02").html(keywords[14]);
+
+    genealogicalStats.families = (table.families != undefined) ? table.families.length : 0;
+    var totalPeople = 0;
+    for (const i in table.families) {
+        let family = table.families[i];
+        if (family.id == undefined ||
+            family.name == undefined) {
+            continue;
+        }
+
+        var family_id = family.id;
+        $("#index_list").append("<li id=\"lnk-"+family_id+"\"><a href=\"javascript:void(0);\" onclick=\"htScroolTree('#hist-"+family_id+"');\">"+keywords[8] + " : " +family.name+"</a></li>");
+
+        $("#trees").append("<div id=\"hist-"+family_id+"\"></div>");
+
+        htAppendFamilyData("hist",
+                   family_id,
+                   undefined,
+                   family.name,
+                   family,
+                   page);
+
+        if (family.people == undefined) {
+            continue;
+        }
+
+        var people = family.people;
+        totalPeople += people.length;
+        for (const j in people) {
+            if (people[j].id == undefined ||
+                people[j].name == undefined) {
+                continue;
+            }
+
+            var person_id = people[j].id;
+            $("#hist-"+family_id).append("<div id=\"tree-"+person_id+"\" class=\"tree-person-text\"></div>");
+
+            personNameMap.set(people[j].id, people[j].fullname);
+            htAppendFamilyData("tree",
+                       person_id,
+                       family_id,
+                       people[j].fullname,
+                       people[j],
+                       page);
+        }
+    }
+    genealogicalStats.people = totalPeople;
+
+
+    var destination = $("#selector").val();
+    if (destination != undefined && destination != null && destination.length > 1) {
+        var localObject = $("#name-"+destination).val();
+        if (localObject != undefined) {
+            htScroolToID("#name-"+destination);
+            htFillTree(destination);
+        }
+    }
+    htLoadPage('tree','json', '', false);
+ 
+    if (table.exercise_v2 != undefined && table.exercise_v2.constructor === vectorConstructor) {
+        htWriteQuestions(table.exercise_v2, "", 0);
+    }
+
+    if (table.date_time != undefined && table.date_time.constructor === vectorConstructor) {
+        htFillHTDate(table.date_time);
+    } else if (table.fill_dates != undefined && table.fill_dates.constructor === vectorConstructor) {
+        htFillHTDate(table.fill_dates);
+    }
+
+    $("#loading_msg").hide();
+}
+
+//
+//    Mount Overall Page Section
+//
+
+function htFillPrimarySource(id)
+{
+    htFillSource("#tree-source", primarySourceMap, id);
+}
+
+function htFillReferenceSource(id)
+{
+    htFillSource("#tree-ref", refSourceMap, id);
+}
+
+function htFillHolySource(id)
+{
+    htFillSource("#tree-holy-ref", holyRefSourceMap, id);
+}
+
+function htFillSMSource(id)
+{
+    htFillSource("#tree-sm-ref", smSourceMap, id);
+}
+
+function htFillClassContentV2(table, last_update, page_authors, page_reviewers, index) {
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+
+    if ($("#htaudio").length > 0 && table.audio) {
+        htAddAudio(table.audio);
+    }
+    htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
+
+    var idx = 0;
+    var navigationPage = "";
+    if (index) {
+        navigationPage = "<p class=\"dynamicNavigation\"></p>";
+        htAddPaperDivs("#paper", "indexTop", navigationPage, "", "<hr class=\"limit\" />", idx);
+        idx++;
+    }
+
+    for (const i in table.content) {
+        let content = table.content[i];
+
+        for (const j in content.text) {
+            var localObj = content.text[j];
+            var text = (localObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
+            if ($("#"+content.id).length > 0) {
+                $("#"+content.id).html(text);
+            } else {
+                htAddPaperDivs("#paper", content.id + "_"+j, text, "", "", idx);
+            }
+        }
+        idx++;
+    }
+
+    if (table.exercise_v2) {
+        htWriteQuestions(table.exercise_v2, "", idx);
+    }
+
+    if (table.game_v2) {
+        htWriteGame(table.game_v2, "", 1);
+    }
+
+    if (table.date_time) {
+        htFillHTDate(table.date_time);
+    }
+
+    htAddPaperDivs("#paper", "repeat-index", navigationPage, "<hr class=\"limit\" />", "", idx);
+}
+
+function htAddAudio(data) {
+    var audioText = keywords[106];
+    var counter = 0;
+    for (const i in data) {
+        var audio = data[i];
+        if (audio.url == undefined || audio.length == 0) {
+            continue;
+        }
+
+        if (i % 2 == 0) {
+            counter++;
+        }
+
+        if (audio.spotify != undefined && audio.spotify == true) {
+            audioText +=  ": <a href=\""+audio.url+"\" target=\"_blank\"> <i class=\"fa-brands fa-spotify\" target=\"_blank\" style=\"font-size: 1.0em;\"></i> "+keywords[107]+" "+counter+"</a>";
+        } else {
+            var audioURL = (audio.external != undefined && audio.external == false) ? "audio/"+audio.url : audio.url;
+            audioText += " <audio controls preload=\"none\"><source src=\""+audioURL+"\" type=\"audio/ogg\"></audio>";
+        }
+    }
+    $("#htaudio").html(audioText);
+}
+
+function htFillMixedMapList(table, target, time_vector) {
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+    for (const i in table) {
+        let item = table[i];
+        var text = (item.date_time != undefined) ? htOverwriteHTDateWithText(item.desc, item.date_time, localLang, localCalendar) : item.desc;
+        if (item.family_id != undefined && item.family_id.length > 0) {
+            var person =  (item.person_id != undefined && item.person_id.length > 0 )? item.family_id+"&person_id="+item.person_id : item.family_id ;
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+person+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+person+"', false); return false;\" >"+item.name+"</a>: "+text+"</li>");
+        } else if (item.id != undefined && item.name != undefined && item.desc != undefined) {
+            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+item.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+item.id+"', false); return false;\" >"+item.name+"</a>: "+text+"</li>"); 
+        }
+    }
+}
+
+
+function htFillGroupList(table, target, page, date_time) {
+    const $target = $("#" + target);
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+    for (const i in table) {
+        const item = table[i];
+        var additional = "";
+        if (item.id != "date_time") {
+            const links = [];
+            if (item.csv) {
+                links.push(`<a href="${item.csv}" target="_blank">CSV</a>`);
+            }
+            if (item.gedcom) {
+                links.push(`<a href="${item.gedcom}" target="_blank">GEDCOM</a>`);
+            }
+            const additional = links.length ? ` (${links.join(", ")})` : "";
+
+            const modifiedText = (date_time == undefined) ? item.name : htOverwriteHTDateWithText(item.name, date_time, localLang, localCalendar);
+
+            $target.append("<li id=\""+item.id+"\"><a href=\"index.html?page="+page+"&arg="+item.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+item.id+"', false); return false;\" >"+modifiedText+"</a>: "+item.desc+" "+additional+"</li>");
+        } else {
+            if (item.text.constructor === vectorConstructor) {
+                htFillHTDate(item.text);
+            }
+        }
+    }
+}
+
+function htFillSubMapList(table, target) {
+    for (const i in table) {
+        const item = table[i];
+        switch(item.page) {
+            case "class_content":
+                if (item.id != undefined && item.name != undefined && item.desc != undefined) {
+                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+item.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+item.id+"', false); return false;\" >"+item.name+"</a>: "+item.desc+"</li>"); 
+                }
+                break;
+            case "tree":
+            default:
+                if (item.person_id != undefined && item.family_id != undefined && item.family_id.length > 0 && item.fullname != undefined && item.desc != undefined) {
+                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+item.family_id+"&person_id="+item.person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+item.family_id+"&person_id="+item.person_id+"', false); return false;\" >"+item.fullname+"</a>: "+item.desc+"</li>");
+                }
+        }
+    }
+}
+
+function htFillIndexSelector(table, target) {
+    if (!Array.isArray(table)) return;
+
+    const $target = $(target);
+    const currentValue = $target.val();
+
+    $target.find("option").remove();
+
+    for (const i in table) {
+        $(target).append(new Option(table[i].text, table[i].dir));
+    }
+
+    $(target).val(currentValue);
+}
+
+function htFillKeywords(table) {
+    if (!Array.isArray(table)) { return; }
+
+    const MIN_LENGTH = 75;
+    if (table.length < MIN_LENGTH) {
+        console.warn(`Insufficient keywords: need ${MIN_LENGTH}, got ${table.length}`);
+        return;
+    }
+
+    keywords = [];
+    for (const i in table) {
+        keywords.push(table[i]);
+    }
+
+    $("#index_lang").html(keywords[39]);
+    $("#index_calendar").html(keywords[40]);
+    $("#index_theme").html(keywords[74]);
+    htUpdateCurrentDateOnIndex();
+}
+
+function htFillMathKeywords(table) {
+    if (!Array.isArray(table)) { return; }
+
+    mathKeywords = [];
+    for (const i in table) {
+        mathKeywords.push(table[i]);
+    }
+}
 
 function htFillHistorySourcesSelectFunction(id)
 {
@@ -715,7 +1705,7 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
     }
 
     var idxName = htSelectIndexName(index);
-    htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
+    // htUpdateNavigationTitle(currentIdx, ptr.name, idxName);
     var navigation = htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
 
     if (loadedIdx.length == 1) {
@@ -731,7 +1721,7 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
         if (ptr == undefined) {
             break;
         }
-        htUpdateNavigationTitle(j+1, ptr.name, idxName);
+        // htUpdateNavigationTitle(j+1, ptr.name, idxName);
         navigation += htBuildNavigationSteps(ptr, idx, index, idxName, initialBgColor);
     }
 
@@ -743,7 +1733,7 @@ function htWriteNavigation()
     if (loadedIdx.length == 0) {
         return;
     }
-    var navigation = "<p><table class=\"book_navigation\"><tr><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
+    var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr style=\"background-color: #FFFFE0;\"><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
     for (const i in loadedIdx) {
         var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
         navigation += htBuildNavigation(loadedIdx[i], i, color);
@@ -939,7 +1929,7 @@ function htFillSMGameData(data) {
             }
         }
 
-        var imgIndex = getRandomArbitrary(0, htGameImages.length - 5);
+        var imgIndex = htGetRandomArbitrary(0, htGameImages.length - 5);
         $(opt0ac0098b.target).append("<p class=\"desc\"><img class=\"imgGameSizeWithOpacity\" src=\"images/"+htGameImages[imgIndex]+"\"><br />"+keywords[71]+" "+htGameImagesLocation[imgIndex]+".</p>");
     }
 
@@ -1033,6 +2023,11 @@ function htFillSMGameData(data) {
     });
 }
 
+
+//
+//    Atlas Section
+//
+
 function htModifyAtlasIndexMap(id) {
     var next = parseInt(id) + 1;
     $("#atlasindex option[value="+next+"]").prop('selected', true);
@@ -1040,6 +2035,7 @@ function htModifyAtlasIndexMap(id) {
     var myURL = 'index.html?page=atlas&atlas_page='+next;
     window.history.replaceState(null, null, myURL);
     $("#atlas").val(next);
+    $("#atlasindex").val(next);
 }
 
 function htFormatText(text, format, table) {
@@ -1051,7 +2047,7 @@ function htFormatText(text, format, table) {
     if (table != undefined && table == true || table == 1) {
         converter.setOption('tables', true);
     }
-    var html      = converter.makeHtml(text);
+    var html = converter.makeHtml(text);
 
     if (html.length < 4 ) {
         return html;
@@ -1099,8 +2095,8 @@ function htFillAtlas(data) {
     }
 
     var localAtlas = data.atlas;
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
     for (i in localAtlas) {
         var text = "";
         for (const j in localAtlas[i].text) {
@@ -1407,7 +2403,7 @@ function htFillStringOnPage(data, idx, page)
         : "";
 
     // Handle special IDs
-    if (item.id === "date_time" || item.id === "fill_dates") {
+    if (item.id === "date_time") {
         htFillHTDate(item.text);
         return;
     }
@@ -1540,7 +2536,7 @@ function htFillWebPage(page, data)
                     if (data.content[i].id != undefined && data.content[i].id != null && data.content[i].id.length > 0 && data.content[i].desc != undefined && data.content[i].desc.length > 0) {
                         $("#"+data.content[i].id).html(data.content[i].desc);
                     }
-                    htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
+                    htFillGroupList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
                 } else if (data.content[i].value_type == "mixed-group-list") {
                     htFillMixedMapList(data.content[i].value, data.content[i].target, data.content[i].date_time);
                 }
@@ -1578,18 +2574,12 @@ function htFillWebPage(page, data)
                     if (data.content[i].id != undefined && data.content[i].id != null && data.content[i].id.length > 0 && data.content[i].desc != undefined && data.content[i].desc.length > 0) {
                         $("#"+data.content[i].id).html(data.content[i].desc);
                     }
-                    htFillMapList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
+                    htFillGroupList(data.content[i].value, data.content[i].target, data.content[i].page, data.content[i].date_time);
                 } else if (data.content[i].value_type == "subgroup") {
                     htFillSubMapList(data.content[i].value, data.content[i].target);
-                } else if (data.content[i].value_type == "paper") {
-                    htFillPaperContent(data.content[i].value, last_update, page_authors, page_reviewers, data.index);
                 }
             } else if (data.content[i].value.constructor === vectorConstructor && data.content[i].id != undefined) {
                 if (data.content[i].id != "date_time") {
-                    for (const j in data.content[i].value) {
-                        $("#"+data.content[i].id).append(data.content[i].value[j]);
-                    }
-                } else if (data.content[i].id != "fill_dates") {
                     for (const j in data.content[i].value) {
                         $("#"+data.content[i].id).append(data.content[i].value[j]);
                     }
@@ -1693,47 +2683,38 @@ function htFillWebPage(page, data)
 //
 
 function htUpdateLoadedIdx(idx) {
-    for (const i in loadedIdx) {
-        if (loadedIdx[i] == idx) {
-            return;
-        }
+    if (!loadedIdx.includes(idx)) {
+        loadedIdx.push(idx);
     }
-    loadedIdx.push(idx);
 }
 
 function htIsIndexLoaded(idx) {
-    if (idx == undefined) {
+    if (idx == null) {
         return true;
     }
 
-    var test = [];
-    if (idx.constructor === stringConstructor) {
-        test.push(idx);
-    } else if (idx.constructor === vectorConstructor) {
-        test = idx;
-    } else {
+    const test = Array.isArray(idx) ? idx :
+                typeof idx === 'string' ? [idx] :
+                null;
+
+    if (!test) {
         return false;
     }
 
-    var counter = 0;
-    for (const i in test) {
-        var value = test[i];
-        var idx = htSelectIndexMap(value);
-        if (idx != undefined && Object.keys(idx).length > 0) {
-            counter++;
-            continue;
-        }
-    }
-
-    return (counter == test.length);
+    return test.every(value => {
+        const indexMap = htSelectIndexMap(value);
+        return indexMap && Object.keys(indexMap).length > 0;
+    });
 }
 
 function htFillTopIdx(idx, data, first)
 {
     htUpdateLoadedIdx(first);
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    var prev = first;
+
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+    let prev = first;
+
     idx.set(first, {"prev" : first, "next" : undefined, "name" : keywords[57], "additional": undefined, "total": 0});
     for (const i in data.content) {
         if (data.content[i].html_value != undefined && data.content[i].html_value.length > 0 || data.content[i].value.constructor !== vectorConstructor || data.content[i].page == undefined) {
@@ -1794,45 +2775,26 @@ function htLoadIndex(data, arg, page)
         }
     }
 
-    if (page == "history" && htHistoryIdx.has("history") == false) {
-        htFillTopIdx(htHistoryIdx, data, "history");
-        return;
-    } else if (page == "first_steps" && htFirstStepsIdx.has("first_steps") == false) {
-        htFillTopIdx(htFirstStepsIdx, data, "first_steps");
-        return;
-    } else if (page == "math_games" && htMathGamesIdx.has("math_games") == false) {
-        htFillTopIdx(htMathGamesIdx, data, "math_games");
-        return;
-    } else if (page == "literature" && htLiteratureIdx.has("literature") == false) {
-        htFillTopIdx(htLiteratureIdx, data, "literature");
-        return;
-    } else if (page == "history" && htHistoryIdx.has("history") == false) {
-        htFillTopIdx(htHistoryIdx, data, "history");
-        return;
-    } else if (page == "families" && htFamilyIdx.has("families") == false) {
-        htFillTopIdx(htFamilyIdx, data, "families");
-        return;
-    } else if (page == "indigenous_who" && htIndigenousWhoIdx.has("indigenous_who") == false) {
-        htFillTopIdx(htIndigenousWhoIdx, data, "indigenous_who");
-        return;
-    } else if (page == "myths_believes" && htMythsBelievesIdx.has("myths_believes") == false) {
-        htFillTopIdx(htMythsBelievesIdx, data, "myths_believes");
-        return;
-    } else if (page == "historical_events" && htHistoricalEventsIdx.has("historical_events") == false) {
-        htFillTopIdx(htHistoricalEventsIdx, data, "historical_events");
-        return;
-    } else if (page == "biology" && htBiologyIdx.has("biology") == false) {
-        htFillTopIdx(htBiologyIdx, data, "biology");
-        return;
-    } else if (page == "chemistry" && htChemicalIdx.has("chemistry") == false) {
-        htFillTopIdx(htChemicalIdx, data, "chemistry");
-        return;
-    } else if (page == "physics" && htPhysicsIdx.has("physics") == false) {
-        htFillTopIdx(htPhysicsIdx, data, "physics");
+    const pageConfig = {
+        biology: htBiologyIdx,
+        chemistry: htChemicalIdx,
+        families: htFamilyIdx,
+        first_steps: htFirstStepsIdx,
+        history: htHistoryIdx,
+        historical_events: htHistoricalEventsIdx,
+        indigenous_who: htIndigenousWhoIdx,
+        literature: htLiteratureIdx,
+        math_games: htMathGamesIdx,
+        myths_believes: htMythsBelievesIdx,
+        physics: htPhysicsIdx
+    };
+
+    if (page && pageConfig[page] && !pageConfig[page].has(page)) {
+        htFillTopIdx(pageConfig[page], data, page);
         return;
     }
 
-    if (data.index == undefined) {
+    if (!data.index) {
         return;
     }
 
@@ -1860,159 +2822,51 @@ function htLoadIndex(data, arg, page)
 }
 
 //
-//    Source Section
+//    Family Section
 //
 
-function htLoadSources(data, arg, page)
-{
-    if (data.sources != undefined) {
-        for (const i in data.sources) {
-            htLoadPage(data.sources[i], 'json', 'source', false);
-        }
-    } else {
-        if (arg != 'source') {
-            return true;
-        }
+function htHandleSpecialItem(item) {
+    const specialCases = {
+        'date_time': true,
+        'fill_dates': true
+    };
 
-        htFillMapSource(primarySourceMap, data.primary_sources);
-        htFillMapSource(refSourceMap, data.reference_sources);
-        htFillMapSource(holyRefSourceMap, data.religious_sources);
-        htFillMapSource(smSourceMap, data.social_media_sources);
-
-        if (page.length == 36) {
-            genealogicalStats.primary_src = (data.primary_sources != undefined) ? data.primary_sources.length : 0;
-            genealogicalStats.reference_src = (data.reference_sources != undefined) ? data.reference_sources.length : 0;
-            genealogicalStats.holy_src =  (data.religious_sources != undefined) ? data.religious_sources.length : 0;
-            genealogicalStats.social_media_src =  (data.social_media_sources != undefined) ? data.social_media_sources.length : 0;
-        }
-    }
-    return true;
-}
-
-function htFillIndexSelector(table, target) {
-    // Avoid duplication
-    var current = $(target).val();
-    $(target).find("option").remove();
-
-    // Fill selector
-    for (const i in table) {
-        $(target).append(new Option(table[i].text, table[i].dir));
-    }
-
-    $(target).val(current);
-}
-
-function htFillKeywords(table) {
-    keywords = [];
-    // Fill keyword
-    for (const i in table) {
-        keywords.push(table[i]);
-    }
-    if (keywords.length < 40)
-        return;
-
-    $("#index_lang").html(keywords[39]);
-    $("#index_calendar").html(keywords[40]);
-    $("#index_theme").html(keywords[74]);
-    htUpdateCurrentDateOnIndex();
-}
-
-function htFillMathKeywords(table) {
-    mathKeywords = [];
-    // Fill keyword
-    for (const i in table) {
-        mathKeywords.push(table[i]);
+    if (item.id && specialCases[item.id] &&
+        item.text && item.text.constructor === vectorConstructor) {
+        htFillHTDate(item.text);
     }
 }
 
 function htFillFamilyList(table, target) {
+    if (!Array.isArray(table)) { return; }
+
+    const siteLanguage = $('#site_language').val();
+    const siteCalendar = $('#site_calendar').val();
+
     for (const i in table) {
-        if (table[i].target == undefined) {
-            if (table[i].id != undefined && table[i].id == "date_time") {
-                if (table[i].text.constructor === vectorConstructor) {
-                    htFillHTDate(table[i].text);
-                }
-            } else if (table[i].id != undefined && table[i].id == "fill_dates") {
-                if (table[i].text.constructor === vectorConstructor) {
-                    htFillHTDate(table[i].text);
-                }
-            }
+        const item = table[i];
+        if (item.target == undefined) {
+            htHandleSpecialItem(item);
             continue;
         }
 
-        $("#"+table[i].target).append("<div id=\"bottom"+table[i].id+"\"><h3>"+table[i].id+"</h3></div>");
-        if (table[i].value.constructor === vectorConstructor) {
-            var rows = table[i].value;
-            $("#bottom"+table[i].id).append("<ul id=\"bottomList"+table[i].id+"\"></ul>");
+        $("#"+item.target).append("<div id=\"bottom"+item.id+"\"><h3>"+item.id+"</h3></div>");
+        if (item.value.constructor === vectorConstructor) {
+            var rows = item.value;
+            $("#bottom"+item.id).append("<ul id=\"bottomList"+item.id+"\"></ul>");
             for (const k in rows) {
-                $("#bottomList"+table[i].id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+rows[k].id+"', false); return false;\" >"+rows[k].value+"</a></li>");
+                $("#bottomList"+item.id).append("<li id=\""+rows[k].id+"\"><a href=\"index.html?page=tree&arg="+rows[k].id+"&lang="+siteLanguage+"&cal="+siteCalendar+"\" onclick=\"htLoadPage('tree', 'html', '"+rows[k].id+"', false); return false;\" >"+rows[k].value+"</a></li>");
             }
         }
     }
 }
 
-function htFillMapList(table, target, page, date_time) {
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    for (const i in table) {
-        var additional = "";
-        if (table[i].id != "fill_dates" && table[i].id != "date_time") {
-            if (table[i].csv != undefined && table[i].csv.length > 0) {
-                additional += "(<a href=\""+table[i].csv+"\" target=\"_blank\">CSV</a>";
-            }
-
-            if (table[i].gedcom != undefined && table[i].gedcom.length > 0) {
-                additional += (additional.length == 0)? "(" : ", ";
-                additional += " <a href=\""+table[i].gedcom+"\" target=\"_blank\">GEDCOM</a>)";
-            } else {
-                additional += (additional.length == 0)? "" : ")";
-            }
-
-            var modifiedText = (date_time == undefined) ? table[i].name : htOverwriteHTDateWithText(table[i].name, date_time, localLang, localCalendar);
-
-            $("#"+target).append("<li id=\""+table[i].id+"\"><a href=\"index.html?page="+page+"&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('"+page+"', 'html', '"+table[i].id+"', false); return false;\" >"+modifiedText+"</a>: "+table[i].desc+" "+additional+"</li>");
-        } else {
-            if (table[i].text.constructor === vectorConstructor) {
-                htFillHTDate(table[i].text);
-            }
-        }
-    }
-}
-
-function htFillSubMapList(table, target) {
-    for (const i in table) {
-        switch(table[i].page) {
-            case "class_content":
-                if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
-                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+table[i].desc+"</li>"); 
-                }
-                break;
-            case "tree":
-            default:
-                if (table[i].person_id != undefined && table[i].family_id != undefined && table[i].family_id.length > 0 && table[i].fullname != undefined && table[i].desc != undefined) {
-                    $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+table[i].family_id+"&person_id="+table[i].person_id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+table[i].family_id+"&person_id="+table[i].person_id+"', false); return false;\" >"+table[i].fullname+"</a>: "+table[i].desc+"</li>");
-                }
-        }
-    }
-}
-
-function htFillMixedMapList(table, target, time_vector) {
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    for (const i in table) {
-        var text = (table[i].date_time != undefined) ? htOverwriteHTDateWithText(table[i].desc, table[i].date_time, localLang, localCalendar) : table[i].desc;
-        if (table[i].family_id != undefined && table[i].family_id.length > 0) {
-            var person =  (table[i].person_id != undefined && table[i].person_id.length > 0 )? table[i].family_id+"&person_id="+table[i].person_id : table[i].family_id ;
-            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=tree&arg="+person+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+person+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>");
-        } else if (table[i].id != undefined && table[i].name != undefined && table[i].desc != undefined) {
-            $("#"+target).append("<li id=\""+i+"\"><a href=\"index.html?page=class_content&arg="+table[i].id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('class_content', 'html', '"+table[i].id+"', false); return false;\" >"+table[i].name+"</a>: "+text+"</li>"); 
-        }
-    }
-}
-
+//
+//    Exercise Section
+//
 
 function htCheckExerciseAnswer(val0, val1, answer, explanation) {
-    var ans = parseInt($("input[name="+val0+"]:checked").val());
+    const ans = parseInt($("input[name="+val0+"]:checked").val());
     var text = "";
     var format = "";
     if (ans == val1) {
@@ -2024,39 +2878,14 @@ function htCheckExerciseAnswer(val0, val1, answer, explanation) {
     }
 
     if ($(answer).length > 0) {
-        $(answer).text(text);
-        $(answer).css("color", format);
+        $(answer).text(text).css("color", format);
     }
 
     if ($(explanation).length > 0) {
-        $(explanation).css("color", format);
-        $(explanation).css("display","block");
-        $(explanation).css("visibility","visible");
+        $(explanation).css("color", format).css("display","block").css("visibility","visible");
     }
 
     return false;
-}
-
-function htWriteGame(table, later, idx)
-{
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    var tmpData = "<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";
-    var total = 0;
-    for (const i in table) {
-        var finalText = table[i].imageDesc;
-        if (table[i].date_time != undefined) {
-            localDate = table[i].date_time;
-            for (const j in localDate) {
-                finalText = finalText.replace("<htdate"+j+">", htMountSpecificDate(localDate[j], localLang, localCalendar));
-            }
-        }
-        tmpData += finalText+"|";
-        total++;
-    }
-
-    tmpData += "</span><span id=\"htTotalGameData\">"+total+"</span></p>";
-    htAddPaperDivs("#paper", "game1", tmpData, "", later, idx+1000);
 }
 
 function htWriteQuestions(table, later, idx)
@@ -2065,8 +2894,9 @@ function htWriteQuestions(table, later, idx)
     var tmpAnswers = "<p class=\"ht_description\"><span id=\"htAnswersToBeUsed\">";
     var total = 0;
     for (const i in table) {
-        questions += "<li>"+table[i].question+" <input type=\"radio\" id=\"ans"+i+"yes\" name=\"exercise"+i+"\" value=\"1\" /> <b><label>"+keywords[31]+"</label></b> <input type=\"radio\" id=\"ans"+i+"no\" name=\"exercise"+i+"\" value=\"0\" /> <b><label>"+keywords[32]+"</label></b>. <span class=\"ht_description\" id=\"explanation"+i+"\"><span id=\"answer"+i+"\"></span> "+table[i].additionalInfo+"</span></li>";
-        tmpAnswers += (table[i].yesNoAnswer == "Yes") ? 1+";" : 0+";";
+        let item = table[i];
+        questions += "<li>"+item.question+" <input type=\"radio\" id=\"ans"+i+"yes\" name=\"exercise"+i+"\" value=\"1\" /> <b><label>"+keywords[31]+"</label></b> <input type=\"radio\" id=\"ans"+i+"no\" name=\"exercise"+i+"\" value=\"0\" /> <b><label>"+keywords[32]+"</label></b>. <span class=\"ht_description\" id=\"explanation"+i+"\"><span id=\"answer"+i+"\"></span> "+item.additionalInfo+"</span></li>";
+        tmpAnswers += (item.yesNoAnswer == "Yes") ? 1+";" : 0+";";
         total = i;
     }
     if (total > 0) {
@@ -2079,36 +2909,12 @@ function htWriteQuestions(table, later, idx)
     htAddPaperDivs("#paper", "exercises1", tmpAnswers, "", later, idx+1000);
 }
 
-function htLoadGameData()
-{
-    var ret = [];
-    var tmpData = "<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";
-    var end = parseInt($("#htTotalGameData").html());
-
-    if (end == undefined) {
-        return end;
-    }
-
-    var htmlValues = $("#htGameDataToBeUsed").html();
-    if (htmlValues == undefined) {
-        return end;
-    }
-
-    var values = htmlValues.split("|");
-    for (let i = 0; i < end; i++) {
-        ret.push( { "imageDesc" : values[i] });
-    }
-
-    $("#htAnswersToBeUsed").html("");
-    return ret;
-}
-
 function htLoadAnswersFromExercise()
 {
     var ret = [];
-    var end = parseInt($("#htTotalQuestions").html());
+    const end = parseInt($("#htTotalQuestions").html());
 
-    if (end == undefined) {
+    if (!end) {
         return end;
     }
 
@@ -2126,893 +2932,63 @@ function htLoadAnswersFromExercise()
     return ret;
 }
 
-function htAddAudio(data) {
-    var audioText = keywords[106];
-    var counter = 0;
-    for (const i in data) {
-        var audio = data[i];
-        if (audio.url == undefined || audio.length == 0) {
-            continue;
-        }
+//
+//    Game Section
+//
 
-        if (i % 2 == 0) {
-            counter++;
-        }
-
-        if (audio.spotify != undefined && audio.spotify == true) {
-            audioText +=  ": <a href=\""+audio.url+"\" target=\"_blank\"> <i class=\"fa-brands fa-spotify\" target=\"_blank\" style=\"font-size: 1.0em;\"></i> "+keywords[107]+" "+counter+"</a>";
-        } else {
-            var audioURL = (audio.external != undefined && audio.external == false) ? "audio/"+audio.url : audio.url;
-            audioText += " <audio controls preload=\"none\"><source src=\""+audioURL+"\" type=\"audio/ogg\"></audio>";
-        }
-    }
-    $("#htaudio").html(audioText);
-}
-
-function htFillClassContentV2(table, last_update, page_authors, page_reviewers, index) {
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-
-    if ($("#htaudio").length > 0 && table.audio != undefined && table.audio != null) {
-        htAddAudio(table.audio);
-    }
-    htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
-
-    var idx = 0;
-    var navigationPage = "<p class=\"dynamicNavigation\"></p>";
-    if (index) {
-        htAddPaperDivs("#paper", "indexTop", navigationPage, "", "<hr class=\"limit\" />", idx);
-        idx++;
-    }
-
-    var later = "";
-    for (const i in table.content) {
-        var content = table.content[i];
-
-        for (const j in content.text) {
-            var localObj = content.text[j];
-            var text = (localObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
-            if ($("#"+content.id).length > 0) {
-                $("#"+content.id).html(text);
-            } else {
-                htAddPaperDivs("#paper", content.id + "_"+j, text, "", later, idx);
-            }
-        }
-        idx++;
-    }
-
-    if (table.exercise_v2 != undefined) {
-        htWriteQuestions(table.exercise_v2, later, idx);
-    }
-
-    if (table.game_v2 != undefined) {
-        htWriteGame(table.game_v2, "", 1);
-    }
-
-    if (table.date_time != undefined) {
-        htFillHTDate(table.date_time);
-    }
-
-    htAddPaperDivs("#paper", "repeat-index", navigationPage, "<hr class=\"limit\" />", "", idx);
-}
-
-function htFillPaperContent(table, last_update, page_authors, page_reviewers, index) {
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-
-    var navigationPage = table[0].text;
-    var idx = 0;
-    var later = "";
+function htWriteGame(table, later, idx)
+{
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
+    var finalData = "<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";
+    var total = 0;
     for (const i in table) {
-        if (i == 1) {
-            htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
-        }
-
-        if (index && i == 0) {
-            navigationPage = "<p class=\"dynamicNavigation\"></p>";
-            htAddPaperDivs("#paper", "indexTop", navigationPage, "", "<hr class=\"limit\" />", idx);
-            idx++;
-            later = "";
-        } else {
-            //TODO: REMOVE THESE LINE AFTER TO UPDATE ALL CHILDPAGES
-            if (table[i].id == "navigation") {
-                navigationPage = table[0].text;
-            }
-            later = (i == 0 && last_update > 0 && table[i].id == "navigation") ? "<hr class=\"limit\" />" : "";
-        }
-
-        if (table[i].text.constructor === stringConstructor) {
-            htAddPaperDivs("#paper", table[i].id, table[i].text, "", later, idx);
-        } else if (table[i].text.constructor === vectorConstructor) {
-            if (table[i].id == "exercise_v2") {
-                htWriteQuestions(table[i].text, later, idx);
-            } else if (table[i].id == "game_v1") {
-                htWriteGame(table[i].text, later, idx);
-            } else if (table[i].id != "fill_dates" && table[i].id != "date_time") {
-                for (const j in table[i].text) {
-                    var localObj = table[i].text[j];
-                    var text = (localObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
-                    htAddPaperDivs("#paper", table[i].id + "_"+j, text, "", later, idx);
-                }
-            } else {
-                htFillHTDate(table[i].text);
+        let item = table[i];
+        var finalText = item.imageDesc;
+        if (item.date_time) {
+            localDate = item.date_time;
+            for (const j in localDate) {
+                finalText = finalText.replace("<htdate"+j+">", htMountSpecificDate(localDate[j], localLang, localCalendar));
             }
         }
-        idx++;
+        finalData += finalText+"|";
+        total++;
     }
 
-    if (navigationPage.length > 0 && index != undefined) {
-        htAddPaperDivs("#paper", "repeat-index", navigationPage, "<hr class=\"limit\" />", "", 100000);
-    }
+    finalData += "</span><span id=\"htTotalGameData\">"+total+"</span></p>";
+    htAddPaperDivs("#paper", "game1", finalData, "", later, idx+1000);
 }
 
-function htFillFamilies(page, table) {
-    if (table.title != undefined) {
-        $(document).prop('title', table.title);
-    }
-
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    if (table.documentsInfo != undefined && table.documentsInfo != null && $("#overallInfo").length > 0) {
-        var dIText = "<p><h3>"+keywords[53]+"</h3>"+keywords[59]+"</p>";
-        if (table.documentsInfo.length == 4) {
-            dIText += table.documentsInfo[3];
-        }
-
-        $("#overallInfo").html(dIText);
-
-        if ($("#documentsInfoLang").length > 0) { $("#documentsInfoLang").html(table.documentsInfo[0]); }
-        if ($("#documentsInfoCalendarName").length > 0) { $("#documentsInfoCalendarName").html(table.documentsInfo[1]); }
-        if ($("#documentsInfoCalendarVisibleOption").length > 0) { $("#documentsInfoCalendarVisibleOption").html(table.documentsInfo[2]); }
-    }
-
-    if (table.periodOfTime != undefined && table.periodOfTime != null && $("#periodOfTime").length > 0) {
-        if (table.periodOfTime.length == 2) {
-            var pOTText = "<p><h3>"+keywords[76]+"</h3>"+keywords[77]+"</p>";
-
-            $("#periodOfTime").html(pOTText);
-
-            if ($("#documentsPeriodOrigin").length > 0) { $("#documentsPeriodOrigin").html(table.periodOfTime[0]); }
-            if ($("#documentsPeriodTime").length > 0) { $("#documentsPeriodTime").html(table.periodOfTime[1]); }
-        }
-    }
-
-    if ((table.gedcom != undefined || table.csv != undefined) && $("#files").length > 0) {
-        var csvgedtxt = keywords[108]+"<p><ul>";
-        if (table.csv != undefined) {
-            csvgedtxt += "<li><a href=\""+table.csv+"\" target=\"_blank\">CSV</a>: "+keywords[109]+"</li>";
-        }
-
-        if (table.gedcom != undefined) {
-            csvgedtxt += "<li><a href=\""+table.gedcom+"\" target=\"_blank\">GEDCOM</a>: "+keywords[110]+"</li>";
-        }
-        csvgedtxt += "</ul></p>"+keywords[111];
-        $("#files").html(csvgedtxt);
-    }
-
-    if (table.maps != undefined && table.maps != null && $("#maps").length > 0) {
-        var textMap = "<p><h3>"+keywords[79]+"</h3>"+keywords[80]+"</p>";
-
-        for (const i in table.maps) {
-            var currMap = table.maps[i];
-            if (currMap.text == undefined || currMap.img == undefined) {
-                continue;
-            }
-
-            var map_desc = htOverwriteHTDateWithText(currMap.text, currMap.date_time, localLang, localCalendar);
-            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" id=\"imgFamilyMap"+currMap.order+"\" onclick=\"htImageZoom('imgFamilyMap"+currMap.order+"', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+map_desc+" "+keywords[82]+" "+keywords[83]+"</p>";
-        }
-
-        $("#maps").html(textMap);
-    }
-
-    if (table.prerequisites != undefined && table.prerequisites != null && $("#pre_requisites").length > 0) {
-        var preRequisites = "";
-        for (const i in table.prerequisites) {
-            preRequisites += (i == 0) ? "<p><ul><li>"+table.prerequisites[i] + "</li>" :  "<li>"+ table.prerequisites[i] + "</li>";
-        }
-        preRequisites += "</ul></p>";
-        $("#pre_requisites").html(preRequisites);
-    }
-
-    if ($("#contribution").length > 0) {
-        $("#contribution").html(keywords[54]);
-    }
-
-    $("#sources-lbl").html(keywords[5]);
-    $("#tree-sources-lbl").html(keywords[5]);
-    $("#tree-references-lbl").html(keywords[6]);
-    $("#references-lbl").html(keywords[6]);
-    $("#tree-holy_references-lbl").html(keywords[7]);
-    $("#holy_references-lbl").html(keywords[7]);
-    $("#tree-sm-references-lbl").html(keywords[75]);
-    $("#tree-sm-lbl").html(keywords[75]);
-
-    $("#child").html(keywords[9]);
-    $("#father").html(keywords[2]);
-    $("#mother").html(keywords[3]);
-    $("#grandfather01").html(keywords[11]);
-    $("#grandmother01").html(keywords[12]);
-    $("#grandfather02").html(keywords[13]);
-    $("#grandmother02").html(keywords[14]);
-
-    genealogicalStats.families = (table.families != undefined) ? table.families.length : 0;
-    var totalPeople = 0;
-    for (const i in table.families) {
-        if (table.families[i].id == undefined ||
-            table.families[i].name == undefined) {
-            continue;
-        }
-
-        var family_id = table.families[i].id;
-        $("#index_list").append("<li id=\"lnk-"+family_id+"\"><a href=\"javascript:void(0);\" onclick=\"htScroolTree('#hist-"+family_id+"');\">"+keywords[8] + " : " +table.families[i].name+"</a></li>");
-
-        $("#trees").append("<div id=\"hist-"+family_id+"\"></div>");
-
-        var family = table.families[i];
-        htAppendFamilyData("hist",
-                   family_id,
-                   undefined,
-                   family.name,
-                   family,
-                   page);
-
-        if (family.people == undefined) {
-            continue;
-        }
-
-        var people = family.people;
-        totalPeople += people.length;
-        for (const j in people) {
-            if (people[j].id == undefined ||
-                people[j].name == undefined) {
-                continue;
-            }
-
-            var person_id = people[j].id;
-            $("#hist-"+family_id).append("<div id=\"tree-"+person_id+"\" class=\"tree-person-text\"></div>");
-
-            personNameMap.set(people[j].id, people[j].fullname);
-            htAppendFamilyData("tree",
-                       person_id,
-                       family_id,
-                       people[j].fullname,
-                       people[j],
-                       page);
-        }
-    }
-    genealogicalStats.people = totalPeople;
-
-
-    var destination = $("#selector").val();
-    if (destination != undefined && destination != null && destination.length > 1) {
-        var localObject = $("#name-"+destination).val();
-        if (localObject != undefined) {
-            htScroolToID("#name-"+destination);
-            htFillTree(destination);
-        }
-    }
-    htLoadPage('tree','json', '', false);
- 
-    if (table.exercise_v2 != undefined && table.exercise_v2.constructor === vectorConstructor) {
-        htWriteQuestions(table.exercise_v2, "", 0);
-    }
-
-    if (table.game_v1 != undefined && table.game_v1.constructor === vectorConstructor) {
-        htWriteGame(table.game_v1, "", 1);
-    }
-
-    if (table.date_time != undefined && table.date_time.constructor === vectorConstructor) {
-        htFillHTDate(table.date_time);
-    } else if (table.fill_dates != undefined && table.fill_dates.constructor === vectorConstructor) {
-        htFillHTDate(table.fill_dates);
-    }
-
-    $("#loading_msg").hide();
-}
-
-function htSetMapFamily(id, father, mother, type)
+function htLoadGameData()
 {
-    if (father == null && mother == null) {
-        familyMap.set(id, "null&null&t");
-        return;
+    var ret = [];
+    var tmpData = "<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";
+    var end = parseInt($("#htTotalGameData").html());
+
+    if (!end) {
+        return end;
     }
 
-    var parent_idx = "";
-    if (father != undefined && father != null) {
-        parent_idx += father;
-    } else {
-        parent_idx += "null";
+    var htmlValues = $("#htGameDataToBeUsed").html();
+    if (!htmlValues) {
+        return end;
     }
 
-    if (mother != undefined && mother != null) {
-        parent_idx += "&"+mother;
-    } else {
-        parent_idx += "&null";
+    var values = htmlValues.split("|");
+    for (let i = 0; i < end; i++) {
+        ret.push( { "imageDesc" : values[i] });
     }
 
-    parent_idx += (type == "theory") ? "&t" : "&h";
-
-    familyMap.set(id, parent_idx);
-}
-
-function htMountCurrentLinkBasis(familyID, id)
-{
-    var url = window.location.href;
-    var remove = url.search("#");
-    if (remove < 0) {
-        remove = url.search("\\?");
-    }
-
-    var userURL = (remove > 0 )? url.substring(0, remove) : url;
-
-    userURL += "?page=tree&arg="+familyID;
-
-    if (id != undefined) {
-        var myTree = url.search("page=tree");
-        if (myTree >= 0) {
-            userURL += "&person_id=" + id;
-        }
-    }
-
-    return userURL;
-}
-
-function htSetCurrentLinkBasis(familyID, id, finalURL)
-{
-    var myURL = (finalURL == undefined) ? htMountCurrentLinkBasis(familyID, id) : finalURL;
-    window.history.replaceState(null, null, myURL);
-
-    return false;
-}
-
-function htCopyLink(familyID, id)
-{
-    var userURL = htMountCurrentLinkBasis(familyID, id);
-    htSetCurrentLinkBasis(familyID, id, userURL);
-
-    userURL += "&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val();
-
-    var temp = $("<input>");
-    $("body").append(temp);
-    temp.val(userURL).select();
-    document.execCommand("copy");
-    temp.remove();
-
-    return false;
-}
-
-function htMountPersonEvent(name, data, localLang, localCalendar) {
-    var ret = "<b>"+name+"</b> ";
-    for (const i in data) {
-        var ptr = data[i];
-        if (ptr.date == undefined && ptr.date_time == undefined) {
-            continue;
-        }
-
-        if (i != 0) {
-            ret += " "+keywords[91]+" ";
-        }
-        var selDate = (ptr.date != undefined) ? ptr.date : ptr.date_time;
-        ret += htMountSpecificDate(selDate[0], localLang, localCalendar)+" (";
-        var sources = ptr.sources;
-        for (const i in sources) { 
-            if (i != 0) {
-                ret += " ; ";
-            }
-            var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            var selLocalDate = (sources[i].date != undefined) ? sources[i].date : sources[i].date_time;
-            var dateText = (sources[i].date != undefined) ? ", "+htMountSpecificDate(selLocalDate, localLang, localCalendar) : "";
-            ret += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
-        }
-
-        ret += ")";
-    }
+    $("#htAnswersToBeUsed").html("");
     return ret;
 }
 
-function htMountPersonEvents(table) {
-    var ret = "";
-    if (table.is_real == undefined) {
-        return ret;
-    }
-
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-
-    if (table.is_real) {
-        ret = "<div class=\"personal_events_class\">"+keywords[95];
-        var begin = ret;
-
-        var sex_gender = "";
-
-        if (table.haplogroup != undefined && table.haplogroup.length > 0) {
-            ret += "<b>"+keywords[103]+"</b>: ";
-            for (const i in table.haplogroup) {
-                var haplogroup = table.haplogroup[i]
-                if (i != 0) {
-                    ret += ", ";
-                }
-
-                var sources = haplogroup.sources;
-                var lnk = "";
-                for (const i in sources) { 
-                    if (i != 0) {
-                        text += " ; ";
-                    }
-                    var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-                    var dateText = "";
-                    if (sources[i].date != undefined) {
-                        dateText =  ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
-                    } else if  (sources[i].date_time != undefined) {
-                        dateText =  ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
-                    }
-
-                    lnk += "<a href=\"#\" onclick=\"htCleanSources(); "+fcnt+"('"+sources[i].uuid+"'); return false;\"><i>"+sources[i].text+" "+dateText+"</i></a>";
-                }
-                ret += haplogroup.haplogroup+" ("+haplogroup.type+") ("+lnk+")" ;
-            }
-            ret += "<br />" ;
-        }
-
-        if (table.sex != undefined && table.sex.length > 0) {
-            sex_gender = table.sex;
-        }
-
-        if (table.gender != undefined && table.gender.length > 0) {
-            sex_gender += " / "+table.gender;
-        }
-
-        if (sex_gender.length > 0) {
-            ret += "<b>"+keywords[100]+"/"+keywords[101]+"</b>: "+sex_gender+"<br />";
-        }
-
-        if (table.birth != undefined) {
-            ret += htMountPersonEvent(keywords[92], table.birth, localLang, localCalendar)+"<br />";
-        }
-
-        if (table.baptism != undefined) {
-            ret += htMountPersonEvent(keywords[93], table.baptism, localLang, localCalendar)+"<br />";
-        }
-
-        if (table.surname != undefined) {
-            ret += "<b>"+keywords[104]+"</b>: "+table.surname+"<br />";
-        }
-
-        if (table.patronymic != undefined) {
-            ret += "<b>"+keywords[105]+"</b>: "+table.patronymic+"<br />";
-        }
-
-        if (table.death != undefined) {
-            ret += htMountPersonEvent(keywords[94], table.death, localLang, localCalendar)+"<br />";
-        }
-
-        if (begin.length == ret.length) {
-            ret += keywords[99];
-        }
-        ret += "</div>";
-    } else {
-        ret = "<div class=\"no_personal_events_class\">"+keywords[95]+keywords[96]+keywords[97]+"</div>";
-    }
-
-    return ret;
-}
-
-function htAppendFamilyData(prefix, id, familyID, name, table, page) {
-    var history = table.history;
-    var parents = table.parents;
-    var marriages = table.marriages;
-
-    if (history != undefined) {
-        var title;
-        var goToTop;
-        if ((parents == undefined || marriages == undefined) && (prefix != "tree")) {
-            title = keywords[8];
-            goToTop ="<a href=\"javascript:void(0);\" onclick=\"htScroolToID('#index_list');\">"+keywords[78]+"</a>";
-        } else {
-            title = keywords[9];
-            goToTop ="";
-        }
-        var personalEvents = htMountPersonEvents(table);
-        $("#"+prefix+"-"+id).append("<h3 id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+page+"', '"+id+"',"+undefined+");\">"+title + " : " +name+" (<a href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"'); return false;\" >"+keywords[26]+"</a>). "+goToTop+"</h3><p>"+personalEvents+"</p>");
-    }
-
-    var primary_source = table.primary_source;
-    var references = table.references;
-    var holy_references = table.holy_references;
-    htFillHistorySources(id, "#"+prefix+"-"+id, history, "tree-default-align", id);
-
-    var global_father = null;
-    if (parents != undefined) {
-        for (const i in parents) {
-            var couple = parents[i];
-            var parents_id = prefix+"-parents-"+id;
-            var father = (couple.father_id) ? couple.father_id : couple.father;
-            var mother = (couple.mother_id) ? couple.mother_id : couple.mother;
-            if (father == undefined && mother == undefined) {
-                $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[0] + "</b>: " + keywords[10]+"</p></div>");
-
-                familyMap.set(id, "null&null&t");
-            } else {
-                var parentsLink = "";
-                var name = "";
-                if (father != undefined && father != null && couple.father_family.length > 0) {
-                    global_father = father;
-                    parents_id += father + "-";
-
-                    name = personNameMap.get(father);
-                    if (name != undefined) {
-                        if (couple.father_family != undefined && couple.father_family.length > 0) {
-                            if (couple.father_family == familyID || (couple.father_external_family_file != undefined && couple.father_external_family_file == false)) {
-                                parentsLink += "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+father+"'); htFillTree('"+father+"'); htSetCurrentLinkBasis('"+page+"', '"+father+"',"+undefined+");\">" +name+"</a>";
-                            } else {
-                                parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+name+"</a>";
-                            }
-                        } else {
-                            parentsLink += couple.father_name;
-                        }
-                    } else if (couple.father_name != undefined && couple.father_family != undefined && couple.father_family != familyID && couple.father_family > 0) {
-                        parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+couple.father_name+"</a>";
-                    } else {
-                        parentsLink += couple.father_name;
-                    }
-                } else {
-                    parentsLink += couple.father_name;
-                }
-                parents_id += "-";
-
-                if (mother != null && mother != undefined) {
-                    parents_id += mother + "-";
-
-                    name = personNameMap.get(mother);
-                    if (name != undefined) {
-                        if (couple.mother_family != undefined && couple.mother_family.length > 0) {
-                            if (couple.mother_family == familyID || (couple.mother_external_family_file != undefined && couple.mother_external_family_file == false)) {
-                                parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+mother+"'); htFillTree('"+mother+"'); htSetCurrentLinkBasis('"+page+"', '"+mother+"',"+undefined+");\">" +name+"</a>";
-                            } else {
-                                parentsLink += " & <a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+name+"</a>";
-                            }
-                        } else {
-                            parentsLink += " & " +name;
-                        }
-                    } else if (couple.mother_name != undefined && couple.mother_family != undefined && couple.mother_family != familyID && couple.mother_family > 0) {
-                        parentsLink += " & <a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+couple.mother_name+"</a>";
-                    } else {
-                        parentsLink += " & " +couple.mother_name;
-                    }
-                }
-
-                var use_keyword;
-                var use_class;
-                if (couple.type == "theory") {
-                    use_keyword = keywords[0];
-                    use_class = "tree-real-family-text";
-                } else {
-                    use_keyword = keywords[1];
-                    use_class = "tree-hipothetical-family-text";
-                }
-
-                if (parentsLink.length == 0) {
-                    parentsLink += couple.father_name+" & "+couple.mother_name;
-                }
-                $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\""+use_class+"\"><p><b>"+use_keyword + "</b>: " +parentsLink+"</p></div>");
-            }
-        }
-    }
-
-    if (marriages != undefined) {
-        var localLang = $("#site_language").val();
-        var localCalendar = $("#site_calendar").val();
-
-        genealogicalStats.marriages += marriages.length;
-        for (const i in marriages) {
-            var marriage = marriages[i];
-            var rel_id = prefix+"-relationship-"+marriage.id;
-
-            var marriage_class;
-            var type = marriage.type; 
-            var official = marriage.official; 
-            var marriage_keyword;
-
-            if (marriage.id == undefined) {
-                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[17]+"</b>: "+keywords[19]+"</p></div>");
-            } else {
-                var msg = "";
-                if (type == "theory") {
-                    marriage_class = "tree-real-family-text";
-                    marriage_keyword = keywords[17];
-                } else {
-                    marriage_class = "tree-hipothetical-family-text";
-                    marriage_keyword = keywords[18];
-                    msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
-                }
-
-                if (official != undefined && official == false) {
-                    marriage_keyword = keywords[86];
-                }
-                var marriageLink = "";
-                var datetime = "";
-                if (marriage.date_time != undefined && marriage.date_time.sources != null) {
-                    datetime = htMountPersonEvent(" ", marriage.date_time, localLang, localCalendar);
-                }
-
-                if (marriage.family_id == undefined || marriage.family_id.length == 0 || familyID == undefined) {
-                    marriageLink = marriage.name;
-                } else if ((familyID == marriage.family_id) || (marriage.external_family_file != undefined && marriage.external_family_file == false)) {
-                    marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>"+datetime;
-                } else {
-                    marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>"+datetime;
-                }
-
-                $("#"+prefix+"-"+id).append("<div id=\""+rel_id+"\" class=\""+marriage_class+"\"><p><b>"+marriage_keyword+"</b> "+marriageLink+".</p>"+msg+"</div>");
-               htFillHistorySources(marriage.id, "#"+rel_id, marriage.history, "tree-default-align", marriage.id);
-
-                var showTree = personNameMap.has(marriage.id);
-                if (showTree == false) {
-                    personNameMap.set(marriage.id, marriage.name);
-                }
-            }
-
-        }
-    }
-
-    var children = table.children;
-    if (children != undefined) {
-        genealogicalStats.children += children.length;
-        for (const i in children) {
-            var child = children[i];
-            var child_id = prefix+"-children-"+child.id;
-            var relationship_id = prefix+"-relationship-";
-            if (child.marriage_id != undefined) {
-                relationship_id += child.marriage_id;
-            }
-
-            var child_class;
-            var type = child.type; 
-            var child_keyword;
-            var msg = "";
-            if (type == "theory") {
-                child_class = "tree-real-child-text";
-                child_keyword = keywords[20];
-            } else {
-                child_class = "tree-hipothetical-child-text";
-                child_keyword = keywords[21];
-                msg = "<div class=\"no_personal_events_class\"><p>"+keywords[102]+keywords[96]+keywords[98]+"</p></div>";
-            }
-
-            var childLink = "";
-            if (child.family_id == undefined || child.family_id.length == 0 || ((child.external_family_file != undefined && child.external_family_file == false) && child.add_link == false)) {
-                childLink = child_keyword+" "+child.name;
-            } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
-                childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child_keyword+" "+child.name+"</a>";
-            } else { 
-                childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child_keyword+" "+child.name+"</a>";
-            }
-
-            $("#"+relationship_id).append("<div id=\""+child_id+"\" class=\""+child_class+"\"><p><b>"+childLink+"</b>: </p>"+msg+"</div>");
-            $("#"+child_id).append("<div id=\"with-parent-"+child.id+"\" class=\""+child_class+"\"></div>");
-            htFillHistorySources("parent-"+child.id, "#with-parent-"+child.id, child.history, "", child.id);
-            htSetMapFamily(child.id, id, child.marriage_id, child.type);
-            personNameMap.set(child.id, child.name);
-        }
-    }
-}
-
-function htFillHistorySources(divId, histID, history, useClass, personID)
-{
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
-    if (history != undefined) {
-        for (const i in history) {
-            var localObj = history[i];
-            var text = (localObj.text != undefined && localObj.format != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : "<p>"+localObj+"</p>";
-            $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");
-        }
-    }
-}
-
-function htFillMapSource(myMap, data)
-{
-    if (data == undefined) {
-        return;
-    }
-
-    var currentLanguage = $("#site_language").val();
-    var currentCalendar = $("#site_calendar").val();
-    for (const i in data) {
-        var ids = myMap.has(data[i].id);
-        if (ids == false) {
-            var finalDate = "";
-            if (data[i].date != undefined ) {
-                var dateVector = data[i].date.split('-');
-                if (dateVector.length == 3) {
-                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
-                }
-            } else if  (data[i].date_time != undefined ){
-                var dateVector = data[i].date_time.split('-');
-                if (dateVector.length == 3) {
-                    finalDate = htConvertGregorianDate(currentCalendar, currentLanguage, dateVector[0], dateVector[1], dateVector[2]);
-                }
-            }
-            myMap.set(data[i].id, {"citation" : data[i].citation, "date" : finalDate, "url" : data[i].url});
-        }
-    }
-}
-
-function htLoadSource(divID, sourceMap, listMap, theID)
-{
-    $(divID).html("");
-    var ps = listMap.has(theID);
-    if (ps) {
-        var localMap = listMap.get(theID);
-        var arr = localMap.split(';');
-        if (arr.length > 0 ) {
-            for (let i = 0 ; i < arr.length; i++) {
-                htFillSource(divID, sourceMap, arr[i]);
-            }
-        }
-    }
-}
-
-function htCleanSources()
-{
-    $("#tree-source").html("");
-    $("#tree-ref").html("");
-    $("#tree-holy-ref").html("");
-    $("#tree-sm-ref").html("");
-}
-
-function htFillSource(divID, sourceMap, id)
-{
-    var src = sourceMap.get(id);
-    if (src != undefined) {
-        var dateValue = "";
-        if (src.date != undefined && src.date != null && src.date.length > 0) {
-            dateValue = ". [ "+keywords[22]+" "+src.date+" ].";
-        } else if (src.date_time != undefined && src.date_time != null && src.date_time.length > 0) {
-            dateValue = ". [ "+keywords[22]+" "+src.date_time+" ].";
-        }
-        var urlValue = "";
-        if (src.url != undefined && src.url != null && src.url.length > 0) {
-            urlValue = keywords[23]+" <a target=\"_blank\" href=\""+src.url+"\"> "+src.url+"</a>";
-        }
-        $(divID).append("<p>"+src.citation+" "+dateValue +" "+urlValue+"</p>");
-    }
-}
-
-function htFillPrimarySource(id)
-{
-    htFillSource("#tree-source", primarySourceMap, id);
-}
-
-function htFillReferenceSource(id)
-{
-    htFillSource("#tree-ref", refSourceMap, id);
-}
-
-function htFillHolySource(id)
-{
-    htFillSource("#tree-holy-ref", holyRefSourceMap, id);
-}
-
-function htFillSMSource(id)
-{
-    htFillSource("#tree-sm-ref", smSourceMap, id);
-}
-
-function htHideTree(level, grandpaLevel) {
-    if (level > 1 ) {
-        $("#child").hide();
-    }
-
-    if (level > 0) {
-        $("#father").hide();
-        $("#mother").hide();
-    }
-
-    if (level > -1) {
-        if (level > 1 ) {
-            $("#grandfather01").hide();
-            $("#grandmother01").hide();
-        }
-
-        if (level > 0 ) {
-            $("#grandfather02").hide();
-            $("#grandmother02").hide();
-        }
-    }
-}
-
-function htScroolTree(id)
-{
-    var destination = $(id).val();
-    if (destination != undefined) {
-        $('html, body').scrollTop($(id).offset().top);
-    }
-}
-
-function htFillTree(personID)
-{
-    htHideTree(2, 2);
-    if (personID == undefined) {
-        return;
-    }
-    
-    var type = "theory";
-    var parents = htFillDivTree("#child", personID, type);
-    if (parents == undefined) {
-        htHideTree(1, 2);
-        return;
-    }
-
-    var parentsId = parents.split('&');
-    if (parentsId.length == 0) {
-        htHideTree(1, 2);
-        return;
-    }
-
-    type = (parentsId[2] == 't') ? 'theory' : 'hypothetical';
-    var grandparents0 = htFillDivTree("#father", parentsId[0], type);
-    if (grandparents0 == undefined) {
-        htHideTree(0, 1);
-    } else {
-        var grandParentsId0 = grandparents0.split('&');
-        if (grandParentsId0.length != 3) {
-            htHideTree(0, 1);
-        } else {
-            var grandpatype = (grandParentsId0[2] == 't') ? 'theory' : 'hypothetical';
-            var secgrandparents0 = htFillDivTree("#grandfather01", grandParentsId0[0], grandpatype);
-            var secgrandparents1 = htFillDivTree("#grandmother01", grandParentsId0[1], grandpatype);
-        }
-    }
-
-    var grandparents1 = htFillDivTree("#mother", parentsId[1], type);
-    if (grandparents1 == undefined) {
-        htHideTree(0, 2);
-    } else {
-        var grandParentsId1 = grandparents1.split('&');
-        if (grandParentsId1.length != 3) {
-            htHideTree(0, 2);
-        } else {
-
-            type = (grandParentsId1[2] == 't') ? 'theory' : 'hypothetical';
-            var secgrandparents2 = htFillDivTree("#grandmother02", grandParentsId1[0], type);
-            var secgrandparents3 = htFillDivTree("#grandfather02", grandParentsId1[1], type);
-        }
-    }
-}
-
-function htFillDivTree(divID, personID, type)
-{
-    if (personID == undefined || personID == "null") {
-        $(divID).hide();
-        return undefined;
-    }
-
-    var name = personNameMap.get(personID);
-    if (name == undefined) {
-        return undefined;
-    }
-
-    $(divID).html("");
-    var value = name;
-    var idx = name.search("\\(");
-    
-    $(divID).append(value.substring(0, (idx != -1)? idx : 32));
-    if (type == "theory") {
-        $(divID).css('border-style', 'solid');
-        $(divID).css('font-style', 'normal');
-    } else {
-        $(divID).css('border-style', 'dashed');
-        $(divID).css('font-style', 'italic');
-    }
-    $(divID).show();
-
-    return familyMap.get(personID);
-}
+//
+//    Games Section
+//
 
 // Copied from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random [2024-01-13]
-function getRandomArbitrary(min, max) {
+function htGetRandomArbitrary(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);

@@ -136,7 +136,6 @@ func htCountLines(filePath string) (int, error) {
 	if err != nil {
 		return 0, err
 	}
-	file.Close()
 
 	scanner := bufio.NewScanner(file)
 	lineCount := 0
@@ -145,10 +144,29 @@ func htCountLines(filePath string) (int, error) {
 	}
 
 	if err := scanner.Err(); err != nil {
+		file.Close()
 		return 0, err
 	}
 
+	file.Close()
 	return lineCount, nil
+}
+
+func htReportErrLineCounter(localPath string, fileName string, lang string) {
+	// Files expected to have different content across languages
+	exception := "052e06b9-f10c-4e76-896d-9f0e68f07506"
+	if fileName == exception {
+		return
+	}
+
+	lines, errL := htCountLines(localPath)
+	if errL == nil {
+		if cmp, ok := linesMap[fileName]; !ok {
+			linesMap[fileName] = lines
+		} else if cmp != lines {
+			fmt.Fprintf(os.Stderr, "MISMATCHING LINES: %s (%s): %d: first stored: %d\n", fileName, lang, lines, cmp)
+		}
+	}
 }
 
 func htOpenFileReadClose(fileName string) ([]byte, error) {
@@ -737,18 +755,34 @@ func htLoadKeywordFile(name string, lang string) error {
 	return nil
 }
 
+func htPrepareQuestions(questions []HTExercise) string {
+	strQuestions := commonKeywords[50] + ".\n\n"
+	for i := 0; i < len(questions); i++ {
+		quest := &questions[i]
+		strQuestions += quest.Question + ".\n" + quest.AdditionalInfo + "\n\n"
+	}
+
+	return strQuestions
+}
+
+func htChangeTag2Keywords(text string) string {
+	ret := strings.ReplaceAll(text, "<span id=\"htZoomImageMsg\"></span>", commonKeywords[84])
+	ret = strings.ReplaceAll(ret, "<span id=\"htAmericaAbyaYalaMsg\"></span>", commonKeywords[85])
+	ret = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span>", commonKeywords[52])
+	ret = strings.ReplaceAll(ret, "<span id=\"htChartMsg\"></span>", commonKeywords[112])
+	ret = strings.ReplaceAll(ret, "<span id=\"htAgeMsg\"></span>", commonKeywords[131])
+	ret = strings.ReplaceAll(ret, "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div>", "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\">"+commonKeywords[69]+"</div>")
+
+	return ret
+}
+
 func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 	var finalText string = ""
 	var htmlText string
 	var err error
 
 	if txt.Format == "html" {
-		ret := strings.ReplaceAll(txt.Text, "<span id=\"htZoomImageMsg\"></span>", commonKeywords[84])
-		ret = strings.ReplaceAll(ret, "<span id=\"htAmericaAbyaYalaMsg\"></span>", commonKeywords[85])
-		ret = strings.ReplaceAll(ret, "<span id=\"family_common_sn\"></span>", commonKeywords[52])
-		ret = strings.ReplaceAll(ret, "<span id=\"htChartMsg\"></span>", commonKeywords[112])
-		ret = strings.ReplaceAll(ret, "<span id=\"htAgeMsg\"></span>", commonKeywords[131])
-		ret = strings.ReplaceAll(ret, "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div>", "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\">"+commonKeywords[69]+"</div>")
+		ret := htChangeTag2Keywords(txt.Text)
 
 		htmlText = htOverwriteDates(ret, txt.FillDates, "", "", dateAbbreviation) + "<br />"
 	} else if txt.Format == "markdown" {

@@ -16,6 +16,7 @@ import (
 )
 
 var familyMarriagesMap map[string]string
+var linesMap map[string]int
 var defaultFamilyTop string = ""
 
 // COMMON
@@ -302,8 +303,13 @@ func htTextFamily(families *Family, lang string) string {
 		}
 	}
 
+	if families.Exercises != nil {
+		finalText += htPrepareQuestions(families.Exercises)
+	}
+
 	return finalText + "\n"
 }
+
 func htFamilyAudio(fileName string, lang string) error {
 	familyMarriagesMap = make(map[string]string)
 	localPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, fileName)
@@ -340,6 +346,10 @@ func htFamilyAudio(fileName string, lang string) error {
 		return err
 	}
 
+	if verboseFlag {
+		htReportErrLineCounter(localPath, fileName, lang)
+	}
+
 	return nil
 }
 
@@ -359,6 +369,10 @@ func htLoadTreeData(lang string) {
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR", err)
 		panic(err)
+	}
+
+	if verboseFlag {
+		htReportErrLineCounter(localPath, "tree", lang)
 	}
 }
 
@@ -447,7 +461,7 @@ func htParseIndexText(index *classIdx) string {
 		}
 
 		if len(content.HTMLValue) > 0 {
-			htmlText = content.HTMLValue
+			htmlText = htChangeTag2Keywords(content.HTMLValue)
 		} else {
 			if len(content.Value) > 0 {
 				for j := 0; j < len(content.Value); j++ {
@@ -490,6 +504,9 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 		panic(err)
 	}
 
+	if verboseFlag {
+		htReportErrLineCounter(localPath, localPath, lang)
+	}
 	return nil
 }
 
@@ -511,7 +528,11 @@ func htConvertClassesToAudio(pages []string) {
 			}
 
 			audioTxt := htLoopThroughContentFiles(ctf.Title, ctf.Content)
+			if ctf.Exercises != nil {
+				audioTxt += htPrepareQuestions(ctf.Exercises)
+			}
 			audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+
 			err = htWriteAudioFile(page, lang, audioTxt)
 			if err != nil {
 				panic(err)
@@ -532,6 +553,9 @@ func htConvertClassesToAudio(pages []string) {
 			err = os.Remove(newFile)
 			if err != nil {
 				panic(err)
+			}
+			if verboseFlag {
+				htReportErrLineCounter(localPath, page, lang)
 			}
 		}
 	}
@@ -627,6 +651,10 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 	if err != nil {
 		panic(err)
 	}
+
+	if verboseFlag {
+		htReportErrLineCounter(localPath, idxName, lang)
+	}
 }
 
 func htIndexesToAudio() {
@@ -642,6 +670,7 @@ func htIndexesToAudio() {
 }
 
 func htConvertTextsToAudio() {
+	linesMap = make(map[string]int)
 	htConvertOverallTextToAudio()
 	htFamiliesToAudio()
 	htConvertAtlasToAudio()

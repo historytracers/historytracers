@@ -118,7 +118,7 @@ function htLoadContent() {
     var strfYear = htConvertGregorianYear(local_calendar, fyear);
     $("#firstYear").html(strfYear);
 
-    var iyear = getRandomArbitrary(fyear, year);
+    var iyear = htGetRandomArbitrary(fyear, year);
     selectedYear = iyear;
     if (selectedYear == NaN) {
         selecterYear = year;

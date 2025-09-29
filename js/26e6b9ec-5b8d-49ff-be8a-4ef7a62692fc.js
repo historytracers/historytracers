@@ -68,7 +68,7 @@ function htLoadExercise() {
         }
     });
 
-    var last = getRandomArbitrary(10000, 99999);
+    var last = htGetRandomArbitrary(10000, 99999);
     $("#seq0").html(last);
     htSplitDecimalDigit("#seq", 5, last, 10);
 

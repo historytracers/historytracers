@@ -50,11 +50,11 @@ function htNewAddition() {
     }
     $("#tc1f3").html("<span class=\"text_to_paint\">+</span>");
 
-    topValue = getRandomArbitrary(100, 999);
+    topValue = htGetRandomArbitrary(100, 999);
     strTopValue = topValue.toString();
     htWriteValueOnLine("2", strTopValue);
 
-    bottomValue =  getRandomArbitrary(100, 999);
+    bottomValue =  htGetRandomArbitrary(100, 999);
     strBottomValue = bottomValue.toString();
     htWriteValueOnLine("3", bottomValue.toString());
     $("#tc1f5").html(mathKeywords[11]+" <b>"+topValue+" + "+bottomValue+"</b><br />"+mathKeywords[12]+"<b>("+strTopValue[vectorIdx]+" + "+strBottomValue[vectorIdx]+")</b>");

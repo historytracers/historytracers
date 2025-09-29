@@ -32,12 +32,12 @@ function htGetVowel(value, idx) {
 
     var selector = 0;
     if (value < 0) {
-        selector = getRandomArbitrary(0, 4);
+        selector = htGetRandomArbitrary(0, 4);
     } else {
         if (intPrevious < 70) {
-            selector = getRandomArbitrary(2, 4);
+            selector = htGetRandomArbitrary(2, 4);
         } else {
-            selector = getRandomArbitrary(0, 1);
+            selector = htGetRandomArbitrary(0, 1);
         }
     }
 
@@ -47,7 +47,7 @@ function htGetVowel(value, idx) {
 }
 
 function htGetConsonant(min, max, idx) {
-    var vidx = getRandomArbitrary(min, max);
+    var vidx = htGetRandomArbitrary(min, max);
 
     gameVectorVowel052e06b9[idx] = false;
     var c =  consonants[vidx];
@@ -56,7 +56,7 @@ function htGetConsonant(min, max, idx) {
 
 function htGetLetter(idx)
 {
-    var value = getRandomArbitrary(65, 90);
+    var value = htGetRandomArbitrary(65, 90);
     var ch = String.fromCharCode(value);
 
     var isVowel = htTestVowel(value);
@@ -71,7 +71,7 @@ function htThreeLetters()
 
     gameVectorVowel052e06b9[0] = gameVectorVowel052e06b9[1] = false;
     gameVectorVowel052e06b9[2] = true;
-    var idx = getRandomArbitrary(0, combinations.length - 1);
+    var idx = htGetRandomArbitrary(0, combinations.length - 1);
 
     return combinations[idx] + htGetVowel(-1, 2);
 }
@@ -119,7 +119,7 @@ function htWriteValuesOnScreen()
 }
 
 function htSetAnswer() {
-    var idx = Math.floor(getRandomArbitrary(0, localGameUseVector052e06b9.length -1));
+    var idx = Math.floor(htGetRandomArbitrary(0, localGameUseVector052e06b9.length -1));
     if (level052e06b9 < 9) { 
         var imgName = htGameUseTranslationImages[idx];
         var obj = localGameUseVector052e06b9[idx];
