@@ -770,7 +770,7 @@ function htAppendFamilyParentsData(prefix, id, familyID, table, page) {
         var parents_id = prefix+"-parents-"+id;
         var father = couple.father_id;
         var mother = couple.mother_id;
-        if (father && mother) {
+        if (!father && !mother) {
             $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\"tree-real-family-text\"><p><b>"+keywords[0] + "</b>: " + keywords[10]+"</p></div>");
 
             familyMap.set(id, "null&null&t");
