@@ -1400,8 +1400,9 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
 
     var idx = 0;
-    var navigationPage = "<p class=\"dynamicNavigation\"></p>";
+    var navigationPage = "";
     if (index) {
+        navigationPage = "<p class=\"dynamicNavigation\"></p>";
         htAddPaperDivs("#paper", "indexTop", navigationPage, "", "<hr class=\"limit\" />", idx);
         idx++;
     }
@@ -2046,7 +2047,7 @@ function htFormatText(text, format, table) {
     if (table != undefined && table == true || table == 1) {
         converter.setOption('tables', true);
     }
-    var html      = converter.makeHtml(text);
+    var html = converter.makeHtml(text);
 
     if (html.length < 4 ) {
         return html;
@@ -2094,8 +2095,8 @@ function htFillAtlas(data) {
     }
 
     var localAtlas = data.atlas;
-    var localLang = $("#site_language").val();
-    var localCalendar = $("#site_calendar").val();
+    const localLang = $("#site_language").val();
+    const localCalendar = $("#site_calendar").val();
     for (i in localAtlas) {
         var text = "";
         for (const j in localAtlas[i].text) {
