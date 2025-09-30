@@ -2646,7 +2646,8 @@ function htFillWebPage(page, data)
         "#htZoomImageMsg": 84,
         "#htChartMsg": 112,
         "#htAmericaAbyaYalaMsg": 85,
-        "#htAgeMsg": 131
+        "#htAgeMsg": 131,
+        "#htImgCopyright": 83
     };
 
     for (const [selector, code] of Object.entries(reflections)) {
