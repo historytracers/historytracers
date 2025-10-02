@@ -477,7 +477,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><math><mi><b>Total de soportes</b></mi> <mo>=</mo> <mi><b>Total de piezas</b></mi> <mo>agrupadas</mo> <mi><b>con la misma cantidad de soportes.</b></mi> </math></center></p><p class=\"desc\">Fórmula 1: Total de soportes agrupados en una determinada cantidad de piezas.</p>",
+               "text": "<p><center><math><mi><b>Total de soportes</b></mi> <mo>=</mo> <mi><b>Total de piezas</b></mi> <mo>×</mo> <mi><b>cantidad de soportes</b></mi> </math></center></p><p class=\"desc\">Fórmula 1: Total de soportes agrupados en una determinada cantidad de piezas.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -562,18 +562,32 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, comenzamos mostrando que, cuando limitamos nuestro análisis a solo dos lados, además de omitir detalles, conducimos las ideas a conclusiones extremas. A continuación, evaluamos el cuerpo humano en más de dos grupos y observamos que cada grupo aún puede contener subdivisiones internas. Esto nos lleva a la necesidad de expandir aún más la división en grupos para explicar mejor lo que vemos y pensamos.\n\nPor otro lado, dividir en tres no es necesariamente malo. A través de las culturas indígenas de América (*Abya Yala*), percibimos que el número 3 fue utilizado no solo en sus ideas, sino también en artefactos cotidianos.\n\nObviamente, existen muchos otros casos en los que están presentes grupos de tres, pero ese será el tema del próximo texto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Nosso corpo possuí mais que duas divisões?",
+         "question": "¿Nuestro cuerpo posee más de dos divisiones?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Neste texto, opitamos por separar o corpo em 3 partes, mas nada impede que possamos mapeá-los em mais parte, para poder explicá-lo melhor."
+         "additionalInfo": "En este texto, optamos por separar el cuerpo en 3 partes, pero nada impide que sea mapeado en aún más partes, para así explicarlo mejor."
       },
       {
-         "question": "Dividir em apenas dois explicatudo?",
+         "question": "¿Dividir en solo dos grupos explica todo?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Mesmo quando dividimos uma folha em apenas dois pedaços, foi possível ver que por melhor que aproximássemos, ainda temos um centro, um terceiro elemento. Logo, dividir em apenas dois pode ser apenas uma simplificação que pode omitir detalhes."
+         "additionalInfo": "Incluso cuando dividimos una hoja en solo dos pedazos, percibimos que, por más precisa que sea la división, aún existe un centro —un tercer elemento. Así, dividir en solo dos puede ser una simplificación que termina omitiendo detalles."
       }
    ],
    "game_v2": null,
