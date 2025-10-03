@@ -2029,6 +2029,9 @@ function htFillSMGameData(data) {
 //
 
 function htModifyAtlasIndexMap(id) {
+    if (!id) {
+        return;
+    }
     $("#atlasindex option[value="+id+"]").prop('selected', true);
 
     var myURL = 'index.html?page=atlas&atlas_page='+id;
@@ -2112,11 +2115,15 @@ function htFillAtlas(data) {
     const localCalendar = $("#site_calendar").val();
     var firstIdx = "";
     var prevIdx = undefined;
+    var idx = $("#atlas").val();
     for (i in localAtlas) {
         var item = localAtlas[i];
         if (i == 0) {
             firstIdx = item.uuid;
-            $("#atlas").val(item.uuid);
+            if (idx.length == 0) {
+                $("#atlas").val(item.uuid);
+                idx = item.uuid;
+            }
         } else {
             var prevMap = htAtlas.get(prevIdx);
             if (prevMap) {
@@ -2140,7 +2147,6 @@ function htFillAtlas(data) {
         prevIdx = item.uuid;
     }
 
-    var idx = ($("#atlas").length > 0 ) ? $("#atlas").val() : firstIdx;
     htModifyAtlasIndexMap(idx);
     htSelectAtlasMap(idx);
 }

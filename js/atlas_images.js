@@ -3,6 +3,9 @@
 function htSelectAtlas(direction) {
     const pos = $("#atlasindex").find(":selected");
     var value = (direction > 0) ? pos.next().val() : pos.prev().val();
+    if (!value) {
+        return;
+    }
 
     $("#atlasindex option[value="+value+"]").prop('selected', true);
     htSelectAtlasMap(value);
@@ -25,7 +28,7 @@ function htLoadContent() {
     $("#atlas_sn").html(keywords[52]);
 
     var id = $("#atlas").val();
-    if (!isNaN(id)) { 
+    if (id.length > 0) { 
         $("#atlasindex option[value=\""+id+"\"]").prop('selected', true);
     }
 
