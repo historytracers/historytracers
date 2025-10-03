@@ -589,6 +589,10 @@ func htConvertAtlasToAudio() {
 		if err != nil {
 			panic(err)
 		}
+
+		if verboseFlag {
+			htReportErrLineCounter(fileName, "atlas", lang)
+		}
 	}
 }
 
