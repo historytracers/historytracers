@@ -23,7 +23,7 @@ var genealogicalStats = {};
 var smGame = [];
 var smGameTimeoutID = 0;
 
-var htAtlas = [];
+var htAtlas = new Map();
 
 var loadedIdx = [];
 var htHistoryIdx = new Map();
@@ -2029,13 +2029,15 @@ function htFillSMGameData(data) {
 //
 
 function htModifyAtlasIndexMap(id) {
-    var next = parseInt(id) + 1;
-    $("#atlasindex option[value="+next+"]").prop('selected', true);
+    if (!id) {
+        return;
+    }
+    $("#atlasindex option[value="+id+"]").prop('selected', true);
 
-    var myURL = 'index.html?page=atlas&atlas_page='+next;
+    var myURL = 'index.html?page=atlas&atlas_page='+id;
     window.history.replaceState(null, null, myURL);
-    $("#atlas").val(next);
-    $("#atlasindex").val(next);
+    $("#atlas").val(id);
+    $("#atlasindex").val(id);
 }
 
 function htFormatText(text, format, table) {
@@ -2058,13 +2060,13 @@ function htFormatText(text, format, table) {
 }
 
 function htSelectAtlasMap(id) {
-    if (htAtlas.length < id || id < 0) {
+    if (!id || id.length == 0) {
         return;
     }
 
-    var vector = htAtlas[id];
+    var vector = htAtlas.get(id);
     var author = "";
-    if (vector.author != null) {
+    if (vector.author) {
         if (vector.author == "HTMW" || vector.author.length == 0) {
             author = keywords[82];
         } else {
@@ -2078,49 +2080,74 @@ function htSelectAtlasMap(id) {
         formattedText = "<p>"+formattedText+"</p>";
     }
 
+    var prevIdx = "&nbsp;";
+    if (vector.prev) {
+        var prevMap = htAtlas.get(vector.prev);
+        if (prevMap) {
+            prevIdx = prevMap.name;
+        }
+    }
+
+    var nextIdx = "&nbsp;";
+    if (vector.next) {
+        var nextMap = htAtlas.get(vector.next);
+        if (nextMap) {
+            nextIdx = nextMap.name;
+        }
+    }
+
     var text = (vector.image.length > 0) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+".</p>"+formattedText : formattedText;
-    var prevIdx = id - 1;
-    var nextIdx = id + 1;
-    var prevText = (prevIdx >= 0) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+prevIdx+"); htModifyAtlasIndexMap("+prevIdx+");\">"+htAtlas[prevIdx].name+"</a>" : "&nbsp;";
-    var nextText = (nextIdx < htAtlas.length) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap("+nextIdx+"); htModifyAtlasIndexMap("+nextIdx+");\">"+htAtlas[nextIdx].name+"</a>" : "&nbsp;";
+    var prevText = (vector.prev) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap('"+vector.prev+"'); htModifyAtlasIndexMap('"+vector.prev+"');\">"+prevIdx+"</a>" : "&nbsp;";
+    var nextText = (vector.next) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap('"+vector.next+"'); htModifyAtlasIndexMap('"+vector.next+"');\">"+nextIdx+"</a>" : "&nbsp;";
     text += "<p><hr /></p><p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p><p>&nbsp;</p>";
     $("#rightcontent").html(text);
 }
 
 function htFillAtlas(data) {
-    htAtlas = [];
-
     if (data.atlas.length == 0) {
         return;
     }
 
+    htAtlas.clear();
+
     var localAtlas = data.atlas;
     const localLang = $("#site_language").val();
     const localCalendar = $("#site_calendar").val();
+    var firstIdx = "";
+    var prevIdx = undefined;
+    var idx = $("#atlas").val();
     for (i in localAtlas) {
+        var item = localAtlas[i];
+        if (i == 0) {
+            firstIdx = item.uuid;
+            if (idx.length == 0) {
+                $("#atlas").val(item.uuid);
+                idx = item.uuid;
+            }
+        } else {
+            var prevMap = htAtlas.get(prevIdx);
+            if (prevMap) {
+                prevMap.next = item.uuid;
+            }
+        }
+
         var text = "";
-        for (const j in localAtlas[i].text) {
-            var localObj = localAtlas[i].text[j];
+        for (const j in item.text) {
+            var localObj = item.text[j];
             text += htParagraphFromObject(localObj, localLang, localCalendar);
         }
-        var author = (localAtlas[i].author != undefined && localAtlas[i].author.length > 0) ? localAtlas[i].author : null ;
-        var isTable = (localAtlas[i].isTable != undefined) ? localAtlas[i].isTable : false ;
-        var format = (localAtlas[i].format != undefined) ? localAtlas[i].format : "html" ;
-        htAtlas.push({"name": localAtlas[i].index, "image" : localAtlas[i].image, "author": author, "text" : text, "format": format, "isTable": isTable});
+        var author = (item.author != undefined && item.author.length > 0) ? item.author : null ;
+        var isTable = (item.isTable != undefined) ? item.isTable : false ;
+        var format = (item.format != undefined) ? item.format : "html" ;
+        htAtlas.set(item.uuid, {"name": item.index, "image" : item.image, "author": author, "text" : text, "format": format, "isTable": isTable, "prev": prevIdx, "next": undefined});
 
         var showIdx = parseInt(i) + 1;
-        var o = new Option(showIdx+". "+localAtlas[i].index, showIdx);
+        var o = new Option(showIdx+". "+item.index, item.uuid);
         $("#atlasindex").append(o);
+        prevIdx = item.uuid;
     }
 
-    var idx = ($("#atlas").length > 0 ) ? $("#atlas").val() : 0;
-    if (isNaN(idx) || idx.length == 0) {
-        htModifyAtlasIndexMap(1);
-        idx = 1;
-    } else {
-        idx -= 1;
-        htModifyAtlasIndexMap(idx);
-    }
+    htModifyAtlasIndexMap(idx);
     htSelectAtlasMap(idx);
 }
 
@@ -2152,13 +2179,13 @@ function htProccessData(data, optional) {
 //
 
 function htOnlyLoadHtml(appendPage, page, ext, unixEpoch) {
-        primarySourceMap.clear();
-        refSourceMap.clear();
-        holyRefSourceMap.clear();
-        smSourceMap.clear();
+    primarySourceMap.clear();
+    refSourceMap.clear();
+    holyRefSourceMap.clear();
+    smSourceMap.clear();
 
-        var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
-        $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
+    var additional = (appendPage.length == 0) ? '&' : appendPage+'&';
+    $("#page_data").load("bodies/"+page+"."+ext+"?load="+additional+'nocache='+unixEpoch);
 }
 
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {

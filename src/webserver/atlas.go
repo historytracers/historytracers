@@ -11,6 +11,7 @@ import (
 )
 
 type atlasTemplateContent struct {
+	ID     string   `json:"uuid"`
 	Image  string   `json:"image"`
 	Author string   `json:"author"`
 	Index  string   `json:"index"`
