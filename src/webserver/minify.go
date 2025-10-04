@@ -34,8 +34,31 @@ const (
 	HTLastFile
 )
 
-var htDirectories []string = []string{"bodies", "css", "csv", "gedcom", "images", "js", "lang", "lang/sources", "lang/en-US", "lang/en-US/smGame", "lang/es-ES", "lang/es-ES/smGame", "lang/pt-BR", "lang/pt-BR/smGame", "webfonts"}
-var htFiles [HTLastFile]string = [HTLastFile]string{"ht_common.css", "ht_math.css", "ht_common.js", "ht_math.js", "ht_chart.js"}
+var htFiles [HTLastFile]string = [HTLastFile]string{"ht_common.css", "ht_math.css", "ht_common.js",
+	"ht_math.js", "ht_chart.js"}
+
+const (
+	HTDirBodies = iota
+	HTDirCSS
+	HTDirCSV
+	HTDirGEDCOM
+	HTDirImages
+	HTDirJS
+	HTDirLang
+	HTDirLangSources
+	HTDirLangEnUS
+	HTDirLangEnUSGames
+	HTDirLangEsES
+	HTDirLangEsESGames
+	HTDirLangPtBR
+	HTDirLangPtBRGames
+	HTDirWebFonts
+)
+
+var htDirectories []string = []string{"bodies", "css", "csv", "gedcom", "images", "js", "lang",
+	"lang/sources", "lang/en-US", "lang/en-US/smGame",
+	"lang/es-ES", "lang/es-ES/smGame", "lang/pt-BR",
+	"lang/pt-BR/smGame", "webfonts"}
 
 var readmePattern = regexp.MustCompile("^README")
 var htPattern = regexp.MustCompile("^ht_")
@@ -49,8 +72,8 @@ func htMinifyCreateDirectories() {
 	htCreateDirectory(CFG.ContentPath)
 	var localPath string
 
-	for i := 0; i < len(htDirectories); i++ {
-		localPath = fmt.Sprintf("%s%s", CFG.ContentPath, htDirectories[i])
+	for _, dir := range htDirectories {
+		localPath = CFG.ContentPath + dir
 		if verboseFlag {
 			fmt.Println("Creating directory", localPath)
 		}
@@ -151,7 +174,7 @@ func htMinifyCSSFile(m *minify.M, inFile string, outFile string) error {
 	return htMinifyCommonFile(m, "text/css", inFile, outFile)
 }
 
-func htMinifyCSS() error {
+func htMinifyCSS() {
 	var outFile string
 	var inFile string
 
@@ -163,7 +186,7 @@ func htMinifyCSS() error {
 	inBodies := fmt.Sprintf("%scss/", CFG.SrcPath)
 	entries, err := os.ReadDir(inBodies)
 	if err != nil {
-		return err
+		panic(err)
 	}
 
 	for _, fileName := range entries {
@@ -175,8 +198,6 @@ func htMinifyCSS() error {
 		inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
 		HTCopyFilesWithoutChanges(outFile, inFile)
 	}
-
-	return nil
 }
 
 // JSON
@@ -201,7 +222,7 @@ func htMinifyJSONFile(m *minify.M, inFile string, outFile string) error {
 	return htMinifyCommonFile(m, "application/json", inFile, outFile)
 }
 
-func htMinifyJSON() error {
+func htMinifyJSON() {
 	var outFile string
 	var inFile string
 	var err error
@@ -209,12 +230,12 @@ func htMinifyJSON() error {
 	m := minify.New()
 	m.AddFunc("application/json", json.Minify)
 
-	for i := 7; i < 14; i++ {
+	for i := HTDirLangSources; i < HTDirWebFonts; i++ {
 		outBodies := fmt.Sprintf("%s%s/", CFG.ContentPath, htDirectories[i])
 		inBodies := fmt.Sprintf("%s%s/", CFG.SrcPath, htDirectories[i])
 		entries, err1 := os.ReadDir(inBodies)
 		if err1 != nil {
-			return err1
+			panic(err1)
 		}
 
 		for _, fileName := range entries {
@@ -226,12 +247,19 @@ func htMinifyJSON() error {
 			inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
 			err = htMinifyJSONFile(m, inFile, outFile)
 			if err != nil {
-				return err
+				panic(err)
 			}
 		}
 	}
+}
 
-	return nil
+func htCopyJSONWithoutChanges() {
+	dstFile := fmt.Sprintf("%slang/lang_list.json", CFG.ContentPath)
+	srcFile := fmt.Sprintf("%slang/lang_list.json", CFG.SrcPath)
+	err := HTCopyFilesWithoutChanges(dstFile, srcFile)
+	if err != nil {
+		panic(err)
+	}
 }
 
 // JS
@@ -270,7 +298,7 @@ func htParseJS(fileName string, dstFile string, srcFile string) bool {
 	return true
 }
 
-func htMinifyJS() error {
+func htMinifyJS() {
 	var outFile string
 	var inFile string
 
@@ -282,7 +310,7 @@ func htMinifyJS() error {
 	inBodies := fmt.Sprintf("%sjs/", CFG.SrcPath)
 	entries, err1 := os.ReadDir(inBodies)
 	if err1 != nil {
-		return err1
+		panic(err1)
 	}
 
 	for _, fileName := range entries {
@@ -294,14 +322,12 @@ func htMinifyJS() error {
 
 		err = htMinifyJSFile(m, inFile, outFile)
 		if err != nil {
-			return err
+			panic(err)
 		}
 	}
-
-	return nil
 }
 
-func htUpdateHTJS() error {
+func htUpdateHTJS() {
 	var finalFile string
 	var outFile string
 	var inFile string
@@ -312,8 +338,7 @@ func htUpdateHTJS() error {
 	srcBodies := fmt.Sprintf("%ssrc/js/", CFG.SrcPath)
 	entries, err := os.ReadDir(srcBodies)
 	if err != nil {
-		fmt.Println("ERROR", err)
-		return err
+		panic(err)
 	}
 
 	inBodies := fmt.Sprintf("%sjs/", CFG.SrcPath)
@@ -345,11 +370,8 @@ func htUpdateHTJS() error {
 
 	err = os.Remove(tmpFile)
 	if err != nil {
-		fmt.Println("ERROR", err)
-		return err
+		panic(err)
 	}
-
-	return nil
 }
 
 // HTML
@@ -394,7 +416,7 @@ func htMinifyHTMLFile(m *minify.M, inFile string, outFile string) error {
 	return htMinifyCommonFile(m, "text/html", inFile, outFile)
 }
 
-func htMinifyHTML() error {
+func htMinifyHTML() {
 	var outFile string
 	var inFile string
 
@@ -407,14 +429,14 @@ func htMinifyHTML() error {
 
 	err0 := htMinifyHTMLFile(m, inFile, outFile)
 	if err0 != nil {
-		return err0
+		panic(err0)
 	}
 
 	outBodies := fmt.Sprintf("%sbodies/", CFG.ContentPath)
 	inBodies := fmt.Sprintf("%sbodies/", CFG.SrcPath)
 	entries, err1 := os.ReadDir(inBodies)
 	if err1 != nil {
-		return err1
+		panic(err1)
 	}
 
 	for _, fileName := range entries {
@@ -422,11 +444,9 @@ func htMinifyHTML() error {
 		inFile = fmt.Sprintf("%s%s", inBodies, fileName.Name())
 		err = htMinifyHTMLFile(m, inFile, outFile)
 		if err != nil {
-			return err
+			panic(err)
 		}
 	}
-
-	return nil
 }
 
 func htCopyWebFonts() {
@@ -546,33 +566,23 @@ func HTMinifyAllFiles() {
 	// Rewrite Sources
 	htRewriteSources()
 
-	var err error
-	err = htMinifyJS()
-	if err != nil {
-		panic(err)
-	}
+	htMinifyJS()
 
 	htUpdateHTJS()
 
-	err = htMinifyJSON()
-	if err != nil {
-		panic(err)
-	}
+	htMinifyJSON()
 
-	err = htMinifyCSS()
-	if err != nil {
-		panic(err)
-	}
+	htCopyJSONWithoutChanges()
+
+	htMinifyCSS()
 
 	htUpdateHTCSS()
 
 	if rewriteHTML {
 		htUpdateIndex()
 	}
-	err = htMinifyHTML()
-	if err != nil {
-		panic(err)
-	}
+
+	htMinifyHTML()
 
 	htCopyWebFonts()
 	htCopyCSV()

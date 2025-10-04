@@ -3,7 +3,6 @@ www/*
 audios/*_*
 
 *.tmp
-historytracers
 
 scripts/bash/models/*.onnx*
 
@@ -18,3 +17,22 @@ src/js/node_modules/
 src/js/package-lock.json
 src/js/package.json
 
+## Building
+build-aux/*.*
+build/
+Makefile.am
+config.h.in~
+configure.ac
+configure~
+Makefile
+Makefile.in
+aclocal.m4
+autom4te.cache/
+build-aux/
+config.h
+config.h.in
+config.log
+config.status
+configure
+stamp-h1
+historytracers.log

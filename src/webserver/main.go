@@ -93,6 +93,16 @@ func htRunStopFlags() {
 	htFillModifiedGit()
 
 	var stopRun bool = false
+	if ValidateFlag {
+		fmt.Println("TODO: Validate is creating empty files, it is necessary to fix it.")
+		/*
+			htValidateGEDCOM()
+			htValidateClassFormats()
+			htValidateAtlasFormats()
+		*/
+		stopRun = true
+	}
+
 	if GedcomFlag {
 		htCreateGEDCOM()
 		stopRun = true
@@ -103,18 +113,6 @@ func htRunStopFlags() {
 		stopRun = true
 	}
 
-	if AudioFlag {
-		htConvertTextsToAudio()
-		stopRun = true
-	}
-
-	if ValidateFlag {
-		htValidateGEDCOM()
-		htValidateClassFormats()
-		htValidateAtlasFormats()
-		stopRun = true
-	}
-
 	if len(classTemplate) > 0 {
 		htCreateNewClass()
 		stopRun = true
@@ -122,6 +120,11 @@ func htRunStopFlags() {
 
 	if MinifyFlag {
 		HTMinifyAllFiles()
+		stopRun = true
+	}
+
+	if AudioFlag {
+		htConvertTextsToAudio()
 		stopRun = true
 	}
 

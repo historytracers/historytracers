@@ -195,11 +195,11 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 }
 
 func htCreateOrTestClass(fileName string) {
-	for i := 0; i < len(htLangPaths); i++ {
+	for _, dir := range htLangPaths {
 		localClassIDXUpdate = false
-		idxPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[i], classTemplate)
+		idxPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, dir, classTemplate)
 		fmt.Println("Working with", idxPath)
-		err := htOpenClassIdx(idxPath, fileName, htLangPaths[i])
+		err := htOpenClassIdx(idxPath, fileName, dir)
 		if err != nil {
 			panic(err)
 		}
@@ -249,6 +249,5 @@ func htCreateNewClass() {
 func htValidateClassFormats() {
 	for i := 0; i < len(indexFiles); i++ {
 		classTemplate = indexFiles[i]
-		htCreateOrTestClass("")
 	}
 }
