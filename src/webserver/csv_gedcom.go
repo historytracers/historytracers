@@ -215,9 +215,7 @@ func htInitializeCSVPeople() [][]string {
 }
 
 func htCSVSelectFirstSource(sources []HTSource) (string, int) {
-	for i := 0; i < len(sources); i++ {
-		src := &sources[i]
-
+	for _, src := range sources {
 		element, ok := sourceMap[src.UUID]
 		if ok {
 			var url string = ""
@@ -235,9 +233,8 @@ func htCSVSelectFirstSource(sources []HTSource) (string, int) {
 func htSelectCSVSource(sources []HTSource) (string, int) {
 	var uuid string = ""
 	var idx int = 0
-	for i := 0; i < len(sources); i++ {
-		src := &sources[i]
-
+	var i int = 0
+	for _, src := range sources {
 		if src.Type == 0 {
 			idx = i
 			uuid = src.UUID
@@ -246,6 +243,7 @@ func htSelectCSVSource(sources []HTSource) (string, int) {
 			idx = i
 			uuid = src.UUID
 		}
+		i++
 	}
 
 	if len(uuid) > 0 {

@@ -46,8 +46,7 @@ func htUpdateAtlasSources(localTemplateFile *atlasTemplateFile) {
 				continue
 			}
 
-			for i := 0; i < len(textData.Source); i++ {
-				src := &textData.Source[i]
+			for _, src := range textData.Source {
 				element, ok := sourceMap[src.UUID]
 				if ok {
 					dt := &src.Date
@@ -85,9 +84,7 @@ func htUpdateAtlasSources(localTemplateFile *atlasTemplateFile) {
 
 func htLoopThroughAtlasFiles(Content []atlasTemplateContent) string {
 	var ret string = ""
-	for i := 0; i < len(Content); i++ {
-		content := &Content[i]
-
+	for _, content := range Content {
 		for j := 0; j < len(content.Text); j++ {
 			text := &content.Text[j]
 			ret += htTextToHumanText(text, false)
@@ -132,7 +129,7 @@ func htRewriteAtlas(lang string) {
 }
 
 func htValidateAtlasFormats() {
-	for i := 0; i < len(htLangPaths); i++ {
-		htRewriteAtlas(htLangPaths[i])
+	for _, dir := range htLangPaths {
+		htRewriteAtlas(dir)
 	}
 }

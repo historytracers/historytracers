@@ -757,8 +757,7 @@ func htLoadKeywordFile(name string, lang string) error {
 
 func htPrepareQuestions(questions []HTExercise) string {
 	strQuestions := commonKeywords[50] + ".\n\n"
-	for i := 0; i < len(questions); i++ {
-		quest := &questions[i]
+	for _, quest := range questions {
 		strQuestions += quest.Question + ".\n" + quest.AdditionalInfo + "\n\n"
 	}
 
@@ -862,9 +861,7 @@ func htLoopThroughContentFiles(Title string, Content []classTemplateContent) str
 	if len(Title) > 0 {
 		ret = Title + ".\n\n"
 	}
-	for i := 0; i < len(Content); i++ {
-		content := &Content[i]
-
+	for _, content := range Content {
 		for j := 0; j < len(content.Text); j++ {
 			text := &content.Text[j]
 			ret += htTextToHumanText(text, false)

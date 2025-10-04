@@ -153,9 +153,7 @@ func htTextFamily(families *Family, lang string) string {
 
 	if families.Maps != nil {
 		finalText += commonKeywords[79] + ".\n\n" + commonKeywords[80] + "\n"
-		for i := 0; i < len(families.Maps); i++ {
-			maps := &families.Maps[i]
-
+		for _, maps := range families.Maps {
 			finalText += fmt.Sprintf("%s %d: ", commonKeywords[81], maps.Order)
 			htmlText = htOverwriteDates(maps.Text, maps.DateTime, ".", lang, false)
 			finalText += htHTML2Text(htmlText)
@@ -163,9 +161,7 @@ func htTextFamily(families *Family, lang string) string {
 	}
 
 	if families.Common != nil {
-		for i := 0; i < len(families.Common); i++ {
-			comm := &families.Common[i]
-
+		for _, comm := range families.Common {
 			if comm.Format == "html" {
 				htmlText += htOverwriteDates(comm.Text, comm.FillDates, "", lang, false)
 			} else if comm.Format == "markdown" {
@@ -179,8 +175,7 @@ func htTextFamily(families *Family, lang string) string {
 		finalText += htHTML2Text(htmlText)
 	}
 
-	for i := 0; i < len(families.Families); i++ {
-		family := &families.Families[i]
+	for _, family := range families.Families {
 		finalText += htTextFamilyIntroduction(family.Name)
 
 		if family.History != nil {
@@ -395,13 +390,11 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 	}
 
 	var indexTxt string = ""
-	for i := 0; i < len(index.Contents); i++ {
-		content := &index.Contents[i]
-
+	for _, content := range index.Contents {
 		if verboseFlag {
 			fmt.Println("Making audio for", content.ID)
 		}
-		indexTxt += htTextFamilyIndex(content, lang)
+		indexTxt += htTextFamilyIndex(&content, lang)
 
 		value := content.Value
 		for j := 0; j < len(value); j++ {
@@ -435,12 +428,12 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 }
 
 func htFamiliesToAudio() {
-	for i := 0; i < len(htLangPaths); i++ {
-		htLoadKeywordFile("common_keywords", htLangPaths[i])
-		htLoadTreeData(htLangPaths[i])
+	for _, dir := range htLangPaths {
+		htLoadKeywordFile("common_keywords", dir)
+		htLoadTreeData(dir)
 
-		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, htLangPaths[i])
-		err := htLoadFamilyIndex(localPath, htLangPaths[i])
+		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, dir)
+		err := htLoadFamilyIndex(localPath, dir)
 		if err != nil {
 			panic(err)
 			return
@@ -452,8 +445,7 @@ func htFamiliesToAudio() {
 func htParseIndexText(index *classIdx) string {
 	var ret string = index.Title + ".\n\n"
 	txt := HTText{Source: nil, IsTable: false, ImgDesc: "", PostMention: "", Format: "markdown"}
-	for i := 0; i < len(index.Content); i++ {
-		content := &index.Content[i]
+	for _, content := range index.Content {
 		var htmlText = ""
 
 		if len(content.HTMLValue) > 0 && len(content.Value) > 0 {
@@ -512,9 +504,8 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 
 // Overall Files
 func htConvertClassesToAudio(pages []string) {
-	for i := 0; i < len(htLangPaths); i++ {
-		lang := htLangPaths[i]
-		htLoadKeywordFile("common_keywords", lang)
+	for _, dir := range htLangPaths {
+		htLoadKeywordFile("common_keywords", dir)
 
 		for _, page := range pages {
 			var ctf classTemplateFile
@@ -522,7 +513,7 @@ func htConvertClassesToAudio(pages []string) {
 				continue
 			}
 
-			localPath, err := htLoadClassFileFormat(&ctf, page, lang)
+			localPath, err := htLoadClassFileFormat(&ctf, page, dir)
 			if err != nil {
 				panic(err)
 			}
@@ -533,12 +524,12 @@ func htConvertClassesToAudio(pages []string) {
 			}
 			audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
 
-			err = htWriteAudioFile(page, lang, audioTxt)
+			err = htWriteAudioFile(page, dir, audioTxt)
 			if err != nil {
 				panic(err)
 			}
 
-			newFile, err := htWriteTmpFile(lang, &ctf)
+			newFile, err := htWriteTmpFile(dir, &ctf)
 			equal, err := HTAreFilesEqual(newFile, localPath)
 			if !equal && err == nil || updateDateFlag == true {
 				ctf.LastUpdate[0] = htUpdateTimestamp()
@@ -546,7 +537,7 @@ func htConvertClassesToAudio(pages []string) {
 				if err != nil {
 					panic(err)
 				}
-				newFile, err = htWriteTmpFile(lang, &ctf)
+				newFile, err = htWriteTmpFile(dir, &ctf)
 			}
 
 			HTCopyFilesWithoutChanges(localPath, newFile)
@@ -555,7 +546,7 @@ func htConvertClassesToAudio(pages []string) {
 				panic(err)
 			}
 			if verboseFlag {
-				htReportErrLineCounter(localPath, page, lang)
+				htReportErrLineCounter(localPath, page, dir)
 			}
 		}
 	}
@@ -563,10 +554,9 @@ func htConvertClassesToAudio(pages []string) {
 
 func htConvertAtlasToAudio() {
 	htValidateAtlasFormats()
-	for i := 0; i < len(htLangPaths); i++ {
-		lang := htLangPaths[i]
-		htLoadKeywordFile("common_keywords", lang)
-		fileName := fmt.Sprintf("%slang/%s/atlas.json", CFG.SrcPath, lang)
+	for _, dir := range htLangPaths {
+		htLoadKeywordFile("common_keywords", dir)
+		fileName := fmt.Sprintf("%slang/%s/atlas.json", CFG.SrcPath, dir)
 
 		byteValue, err := htOpenFileReadClose(fileName)
 		if err != nil {
@@ -585,13 +575,13 @@ func htConvertAtlasToAudio() {
 		audioTxt := contentTxt + "\n\n" + atlasTxt
 		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
 
-		err = htWriteAudioFile("atlas", lang, audioTxt)
+		err = htWriteAudioFile("atlas", dir, audioTxt)
 		if err != nil {
 			panic(err)
 		}
 
 		if verboseFlag {
-			htReportErrLineCounter(fileName, "atlas", lang)
+			htReportErrLineCounter(fileName, "atlas", dir)
 		}
 	}
 }
@@ -662,13 +652,12 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 }
 
 func htIndexesToAudio() {
-	for i := 0; i < len(htLangPaths); i++ {
-		lang := htLangPaths[i]
-		htLoadKeywordFile("common_keywords", lang)
+	for _, dir := range htLangPaths {
+		htLoadKeywordFile("common_keywords", dir)
 
 		for _, idx := range indexFiles {
-			fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, idx)
-			htConvertIndexTextToAudio(idx, fileName, lang)
+			fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, dir, idx)
+			htConvertIndexTextToAudio(idx, fileName, dir)
 		}
 	}
 }
