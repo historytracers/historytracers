@@ -168,7 +168,7 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 		htAddNewClassToIdx(&index, newFile)
 	}
 
-	_, fileWasModified := htGitModifiedMap[fileName]
+	_, fileWasModified := tGitModifiedMap[fileName]
 	if fileWasModified {
 		index.LastUpdate[0] = htUpdateTimestamp()
 	}
@@ -249,6 +249,5 @@ func htCreateNewClass() {
 func htValidateClassFormats() {
 	for i := 0; i < len(indexFiles); i++ {
 		classTemplate = indexFiles[i]
-		htCreateOrTestClass("")
 	}
 }

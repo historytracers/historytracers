@@ -120,6 +120,11 @@ func htRewriteAtlas(lang string) {
 	htLoadSourceFromFile(localTemplateFile.Sources)
 	htUpdateAtlasSources(&localTemplateFile)
 
+	_, fileWasModified := htGitModifiedMap[fileName]
+	if fileWasModified {
+		localTemplateFile.LastUpdate[0] = htUpdateTimestamp()
+	}
+
 	newFile, err := htWriteTmpFile(lang, &localTemplateFile)
 	HTCopyFilesWithoutChanges(fileName, newFile)
 	err = os.Remove(newFile)
