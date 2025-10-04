@@ -94,9 +94,12 @@ func htRunStopFlags() {
 
 	var stopRun bool = false
 	if ValidateFlag {
+		fmt.Println("TODO: Validate is creating empty files, it is necessary to fix it.", localPath)
+		/*
 		htValidateGEDCOM()
 		htValidateClassFormats()
 		htValidateAtlasFormats()
+		*/
 		stopRun = true
 	}
 

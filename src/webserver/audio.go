@@ -583,6 +583,18 @@ func htConvertAtlasToAudio() {
 		if verboseFlag {
 			htReportErrLineCounter(fileName, "atlas", dir)
 		}
+
+		_, fileWasModified := htGitModifiedMap[fileName]
+		if fileWasModified {
+			localTemplateFile.LastUpdate[0] = htUpdateTimestamp()
+		}
+
+		newFile, err := htWriteTmpFile(lang, &localTemplateFile)
+		HTCopyFilesWithoutChanges(fileName, newFile)
+		err = os.Remove(newFile)
+		if err != nil {
+			panic(err)
+		}
 	}
 }
 
