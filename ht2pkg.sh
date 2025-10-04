@@ -14,7 +14,7 @@ ht_create_directories () {
 }
 
 ht_copy_files () {
-    cp historytracers artifacts/usr/bin/
+    cp ./build/historytracers artifacts/usr/bin/
     cp src/conf/historytracers.conf artifacts/etc/historytracers/
     cp -r www/* artifacts/var/www/htdocs/historytracers/www
     cp -r index.html audios bodies css gedcom images js lang webfonts artifacts/var/www/htdocs/historytracers/
@@ -31,7 +31,9 @@ fi
 ht_create_directories
 
 # Clean everything
-make maintainer-clean
+if [ -d build ]; then
+    make maintainer-clean
+fi
 rm -rf build-aux autom4te.cache aclocal.m4 configure config.h.in config.h config.log config.status Makefile.in Makefile
 
 # Compile history tracers
@@ -40,7 +42,7 @@ autoreconf -f -i
 make all
 
 # Run History Tracers
-./build/historytracers -minify -audiofiles -gedcom -verbose
+./build/historytracers -minify -audiofiles -gedcom -verbose > historytracers.log
 
 ht_copy_files
 
