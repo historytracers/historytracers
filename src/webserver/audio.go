@@ -589,7 +589,7 @@ func htConvertAtlasToAudio() {
 			localTemplateFile.LastUpdate[0] = htUpdateTimestamp()
 		}
 
-		newFile, err := htWriteTmpFile(lang, &localTemplateFile)
+		newFile, err := htWriteTmpFile(dir, &localTemplateFile)
 		HTCopyFilesWithoutChanges(fileName, newFile)
 		err = os.Remove(newFile)
 		if err != nil {

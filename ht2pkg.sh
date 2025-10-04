@@ -1,17 +1,13 @@
-#!/bin/bash
-
-set -e
-
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 # Script used to generate History Tracers package
 
-if ! command -v go >/dev/null 2>&1; then    
-    echo "You must install \"go\" to use this script"
-    exit 1
-fi
+#!/bin/bash
+
+set -e
 
 ht_create_directories () {
+    mkdir -p build-aux
     mkdir -p artifacts/usr/bin/
     mkdir -p artifacts/etc/historytracers/
     mkdir -p artifacts/var/www/htdocs/historytracers/www
@@ -34,11 +30,17 @@ fi
 
 ht_create_directories
 
+# Clean everything
+make maintainer-clean
+rm -rf build-aux autom4te.cache aclocal.m4 configure config.h.in config.h config.log config.status Makefile.in Makefile
+
 # Compile history tracers
-make
+autoreconf -f -i
+./configure
+make all
 
 # Run History Tracers
-./historytracers -minify -audiofiles -gedcom -verbose
+./build/historytracers -minify -audiofiles -gedcom -verbose
 
 ht_copy_files
 
