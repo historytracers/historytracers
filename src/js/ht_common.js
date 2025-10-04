@@ -1522,19 +1522,31 @@ function htFillSubMapList(table, target) {
     }
 }
 
-function htFillIndexSelector(table, target) {
+function htUpdateIndexSelector(table, targetId) {
     if (!Array.isArray(table)) return;
 
-    const $target = $(target);
-    const currentValue = $target.val();
-
-    $target.find("option").remove();
-
     for (const i in table) {
-        $(target).append(new Option(table[i].text, table[i].dir));
+        let item = table[i];
+        if ($(targetId+' option[value="'+item.dir+'"]').length > 0) {
+            $(targetId+' option[value="'+item.dir+'"]').text(item.text);
+        }
     }
 
-    $(target).val(currentValue);
+    const $target = $(targetId);
+    const currentValue = $target.val();
+
+    $(targetId).val(currentValue);
+}
+
+function htUpdateAvailableLanguages(table) {
+    if (!Array.isArray(table)) return;
+
+    for (const i in table) {
+        let item = table[i];
+        if ($('#site_language option[value="'+item.dir+'"]').length > 0 && !item.available) {
+            $('#site_language option[value="'+item.dir+'"]').remove();
+        }
+    }
 }
 
 function htFillKeywords(table) {
@@ -1800,6 +1812,10 @@ function htFillDivAuthorsContent(target, lastUpdate, authors, reviewers) {
 function htLoadPageMountURL(page, arg, dir)
 {
     const baseUrl = "lang/";
+
+    if (page == "lang_list") {
+        return baseUrl+page+".json";
+    }
 
     let lang = $("#site_language").val();
     if (!lang) {
@@ -2520,19 +2536,26 @@ function htFillWebPage(page, data)
     }
 
     if (data?.languages) {
-        htFillIndexSelector(data.languages, "#site_language");
+        htUpdateIndexSelector(data.languages, "#site_language");
         $("#loading_msg").hide();
         $(":focus").blur();
         return;
     }
+
+    if (data?.lang_list) {
+        htUpdateAvailableLanguages(data.lang_list);
+        return;
+    }
+
     if (data?.calendars) {
-        htFillIndexSelector(data.calendars, "#site_calendar");
+        htUpdateIndexSelector(data.calendars, "#site_calendar");
         $("#loading_msg").hide();
         $(":focus").blur();
         return;
     }
+
     if (data?.themes) {
-        htFillIndexSelector(data.themes, "#site_theme");
+        htUpdateIndexSelector(data.themes, "#site_theme");
         data.themes.forEach(theme => {
             $("#" + theme.dir).html(theme.text);
         });

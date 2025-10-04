@@ -88,6 +88,7 @@ function htParseIndexRequest() {
 
     htLoadPage('index','json', '', false);
     htLoadPage('language','json', '', false);
+    htLoadPage('lang_list','json', '', false);
     htLoadPage('calendars','json', '', false);
     htLoadPage('common_keywords','json', '', false);
     htLoadPage('math_keywords','json', '', false);
