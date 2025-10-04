@@ -77,6 +77,9 @@ function htParseIndexRequest() {
 
     if (urlParams.has('atlas_page')) {
         var selAtlas = urlParams.get('atlas_page');
+        if (selAtlas.length < 10) {
+            selAtlas = "29cd915c-1d1b-4769-a3d2-50e157a4de4a";
+        }
         $("#atlas").val(selAtlas);
     }
 
@@ -85,6 +88,7 @@ function htParseIndexRequest() {
 
     htLoadPage('index','json', '', false);
     htLoadPage('language','json', '', false);
+    htLoadPage('lang_list','json', '', false);
     htLoadPage('calendars','json', '', false);
     htLoadPage('common_keywords','json', '', false);
     htLoadPage('math_keywords','json', '', false);
