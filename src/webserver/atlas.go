@@ -88,7 +88,6 @@ func htLoopThroughAtlasFiles(Content []atlasTemplateContent) string {
 	for i := 0; i < len(Content); i++ {
 		content := &Content[i]
 
-		ret += content.Index + ".\n\n"
 		for j := 0; j < len(content.Text); j++ {
 			text := &content.Text[j]
 			ret += htTextToHumanText(text, false)
