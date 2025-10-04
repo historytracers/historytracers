@@ -68,3 +68,13 @@ $ bash create_language.sh --path "es-ES" --msg "Aguardando traducción"
 
 Por fim, você poderá adicionar conteúdo em outro idioma. Recomenda-se começar trabalhando com os arquivos cujos nomes não seguem o formato [Universal Unique Identifier](https://developer.mozilla.org/en-US/docs/Glossary/UUID).
 
+## Como compilar o *History Tracers*
+
+O *History Tracers* utiliza o **GNU Autoconf** como sistema de compilação.
+
+Para simplificar o processo, adicionamos o script `ht2pkg.sh`, que executa automaticamente todas as etapas necessárias para gerar os pacotes:
+
+```sh
+$ ./ht2pkg.sh
+```
+
