@@ -133,7 +133,13 @@ func htRunStopFlags() {
 	}
 }
 
+func htInitializeCommonMaps() {
+	sourceMap = make(map[string]HTSourceElement)
+	allSourceMap = make(map[string]HTSourceElement)
+}
+
 func main() {
+	htInitializeCommonMaps()
 	HTParseArg()
 	HTLoadConfig()
 	DaemonLog := htOpenLogs("daemon.log")

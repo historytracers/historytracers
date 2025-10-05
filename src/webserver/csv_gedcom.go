@@ -984,15 +984,12 @@ func htCreateGEDCOM() {
 
 	htCleanCSVGEDWorkDirectory("csv")
 	htCleanCSVGEDWorkDirectory("gedcom")
-	sourceMap = make(map[string]HTSourceElement)
 
 	htUpdateAllFamilies(true)
 }
 
 // Validate
 func htValidateGEDCOM() {
-	sourceMap = make(map[string]HTSourceElement)
-
 	htUpdateAllFamilies(false)
 }
 
