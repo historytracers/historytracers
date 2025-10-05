@@ -44,7 +44,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p><p><span id=\"htAgeMsg\"></span></p>",
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
                "source": null,
                "date_time": [
                   {
@@ -60,91 +60,74 @@
                "PostMention": ""
             },
             {
-               "text": "",
+               "text": "### Pré-requisitos\n\nNeste texto, continuamos estudando a divisão por três. Por isso, recomendamos a leitura do texto anterior, que introduz o tema (<htcite0>).",
                "source": [
                   {
-                     "type": 3210,
-                     "uuid": "Unique identifier (UUID) for the current citation.",
-                     "text": "The accompanying text that will be displayed with the citation.",
-                     "page": "The specific page in the publication where this information appears.",
+                     "type": 1,
+                     "uuid": "3c81aa4a-3030-4767-861a-25f13272776f",
+                     "text": "History Tracers Team",
+                     "page": "Sempre presente",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2010",
+                        "year": "2025",
                         "month": "-1",
                         "day": "-1"
                      }
                   }
                ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2010",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "unix",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  },
-                  {
-                     "type": "julian",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  }
-               ],
+               "date_time": null,
                "isTable": false,
-               "imgdesc": "A description of an image included in the text.",
-               "format": "markdown or html",
-               "PostMention": "A character used after a mention to include citations."
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       },
       {
-         "id": "SECTION_NAME",
+         "id": "SECTION_introduction",
          "text": [
             {
-               "text": "",
+               "text": "### Introdução\n\nNeste capítulo, desenvolvemos a ideia de que a divisão revela algo presente na natureza: um processo de redistribuição sem perdas. Quando a matéria é dividida, ela não desaparece — é conservada, como concluiu Antoine Lavoisier (<htcite0>; <htcite1>).\n\nEntretanto, a divisão não deve ser vista apenas como algo que separa. Em muitos casos, é necessário definir grupos a partir de divisões antes de construir algo. Esse fato nos leva à seguinte reflexão:",
                "source": [
                   {
-                     "type": 3210,
-                     "uuid": "Unique identifier (UUID) for the current citation.",
-                     "text": "The accompanying text that will be displayed with the citation.",
-                     "page": "The specific page in the publication where this information appears.",
+                     "type": 1,
+                     "uuid": "68227419-2430-4359-b902-f6cf87b8941d",
+                     "text": "Holmes, F. L.",
+                     "page": "",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2010",
+                        "year": "1985",
                         "month": "-1",
                         "day": "-1"
                      }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2010",
-                     "month": "-1",
-                     "day": "-1"
                   },
                   {
-                     "type": "unix",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  },
-                  {
-                     "type": "julian",
-                     "year": "",
-                     "month": "",
-                     "day": ""
+                     "type": 1,
+                     "uuid": "3f68de7c-d729-4b62-9bb1-36c6f518fea4",
+                     "text": "History Tracers Editors.",
+                     "page": "Simplicidade vs. Complexidade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
+               "date_time": null,
                "isTable": false,
-               "imgdesc": "A description of an image included in the text.",
-               "format": "markdown or html",
-               "PostMention": "A character used after a mention to include citations."
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Dividindo para multiplicar</b><br /><br />É mais fácil construir algo movendo peças gigantes e pesadas que você não consegue carregar?<br /><br />Ou é mais simples construir algo com peças que você consegue carregar?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             }
          ]
       }
@@ -156,18 +139,6 @@
          "additionalInfo": "The correct answer is 'Yes' because ..."
       }
    ],
-   "game_v2": [
-      {
-         "imageDesc": "A description for the associated image.",
-         "date_time": [
-            {
-               "type": "gregory",
-               "year": "2010",
-               "month": "-1",
-               "day": "-1"
-            }
-         ]
-      }
-   ],
+   "game_v2": null,
    "date_time": null
 }
