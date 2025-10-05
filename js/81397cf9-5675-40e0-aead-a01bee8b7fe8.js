@@ -21,8 +21,20 @@ function htCheckAnswers()
     }
 }
 
+function htFillLocalCutTable(id, min, max) {
+    let i = min;
+    while (i <= max) {
+        let value = "<tr style=\"background-color: white;\">";
+        for (let j =0 ; j < 10; j++, i++) {
+            value += "<td>&nbsp;</td>";
+        }
+        $(id+" tr:last").after(value+"</tr>");
+    }
+}
+
 function htLoadContent() {
     htWriteNavigation();
+    htFillLocalCutTable("#cutTable", 0, 99);
 
     return false;
 }
