@@ -327,7 +327,8 @@ func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
 func htCompareSources(first *HTSourceElement, second *HTSourceElement) bool {
 	if first.ID == second.ID &&
 		first.Citation == second.Citation &&
-		first.Date == second.Date &&
+		// Date can be changed to confirm data is still available
+		// first.Date == second.Date &&
 		first.PublishDate == second.PublishDate &&
 		first.URL == second.URL {
 		return true
@@ -346,7 +347,7 @@ func htFillSourceMap(src []HTSourceElement) {
 			allSourceMap[element.ID] = element
 		} else if ok {
 			if !htCompareSources(&stored, &element) {
-				fmt.Fprintf(os.Stderr, "The UUID %s is not unique: STORED (%s, %s, %s, %s) && ELEMENT (%s, %s, %s, %s).\n", element.ID, stored.Citation, stored.Date, stored.PublishDate, stored.URL, element.Citation, element.Date, element.PublishDate, element.URL)
+				fmt.Fprintf(os.Stderr, "The UUID %s is not unique: STORED (%s, %s, %s, %s) && ELEMENT (%s, %s, %s, %s).\n", element.ID, stored.Citation, stored.PublishDate, stored.URL, element.Citation, element.PublishDate, element.URL)
 			}
 		}
 	}
