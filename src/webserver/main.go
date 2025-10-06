@@ -93,6 +93,11 @@ func htRunStopFlags() {
 	htFillModifiedGit()
 
 	var stopRun bool = false
+	if ShowCompilationFlag {
+		htPrintOptions()
+		os.Exit(0)
+	}
+
 	if ValidateFlag {
 		fmt.Println("TODO: Validate is creating empty files, it is necessary to fix it.")
 		/*

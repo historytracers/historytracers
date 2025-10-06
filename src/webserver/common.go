@@ -344,9 +344,9 @@ func htFillSourceMap(src []HTSourceElement) {
 
 		if stored, ok := allSourceMap[element.ID]; !ok {
 			allSourceMap[element.ID] = element
-		} else {
+		} else if ok {
 			if !htCompareSources(&stored, &element) {
-				fmt.Fprintf(os.Stderr, "The UUID %s is not unique: STORED (%s, %s, %s, %s) && ELEMENT (%s, %s, %s, %s)", element.ID, stored.Citation, stored.Date, stored.PublishDate, stored.URL, element.Citation, element.Date, element.PublishDate, element.URL)
+				fmt.Fprintf(os.Stderr, "The UUID %s is not unique: STORED (%s, %s, %s, %s) && ELEMENT (%s, %s, %s, %s).\n", element.ID, stored.Citation, stored.Date, stored.PublishDate, stored.URL, element.Citation, element.Date, element.PublishDate, element.URL)
 			}
 		}
 	}

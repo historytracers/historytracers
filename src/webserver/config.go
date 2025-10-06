@@ -19,21 +19,22 @@ type htConfig struct {
 }
 
 var (
-	updateDateFlag bool   = false
-	devFlag        bool   = false
-	MinifyFlag     bool   = false
-	GedcomFlag     bool   = false
-	verboseFlag    bool   = false
-	ValidateFlag   bool   = false
-	AudioFlag      bool   = false
-	FamilyFlag     bool   = false
-	portFlag       int    = 12345
-	confPath       string = "/etc/historytracers/"
-	srcPath        string = "/var/www/historytracers/"
-	logPath        string = "/var/log/historytracers/"
-	contentPath    string = "/var/www/historytracers/www/"
-	classTemplate  string = ""
-	CFG            *htConfig
+	updateDateFlag      bool   = false
+	devFlag             bool   = false
+	MinifyFlag          bool   = false
+	GedcomFlag          bool   = false
+	verboseFlag         bool   = false
+	ValidateFlag        bool   = false
+	AudioFlag           bool   = false
+	FamilyFlag          bool   = false
+	ShowCompilationFlag bool   = false
+	portFlag            int    = 12345
+	confPath            string = "/etc/historytracers/"
+	srcPath             string = "/var/www/historytracers/"
+	logPath             string = "/var/log/historytracers/"
+	contentPath         string = "/var/www/historytracers/www/"
+	classTemplate       string = ""
+	CFG                 *htConfig
 )
 
 func HTParseArg() {
@@ -47,6 +48,7 @@ func HTParseArg() {
 	flag.BoolVar(&verboseFlag, "verbose", false, "Hide information messages during file processing. (default: false)")
 	flag.BoolVar(&AudioFlag, "audiofiles", false, "Converting JSON to TXT for Piper Input. (default: false)")
 	flag.BoolVar(&FamilyFlag, "family", false, "Create a foundation for a new family. (default: false)")
+	flag.BoolVar(&ShowCompilationFlag, "compilation", false, "Show options software was compiled. (default: false)")
 	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
 
 	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files.")
@@ -85,13 +87,7 @@ func htUpdateConfig(cfg *htConfig) {
 }
 
 func htPrintOptions() {
-	if CFG.DevMode == false {
-		return
-	}
-
-	if verboseFlag {
-		fmt.Println("Config Dir:", confPath, "Dev Mode:", CFG.DevMode, "Port:", CFG.Port, "Source Path:", CFG.SrcPath, "Content Path:", CFG.ContentPath, "Log Path:", CFG.LogPath)
-	}
+	fmt.Println("History Tracers was compiled with the following options:\n\nConfig Dir:", confPath, "\nSource Path:", CFG.SrcPath, "\nContent Path:", CFG.ContentPath, "\nLog Path:", CFG.LogPath, "\n\n")
 }
 
 func HTLoadConfig() {
@@ -109,5 +105,4 @@ func HTLoadConfig() {
 	}
 
 	htUpdateConfig(&cfg)
-	htPrintOptions()
 }
