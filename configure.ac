@@ -1,5 +1,5 @@
 # Initialize Autoconf
-AC_INIT([historytracers], [1.0.0], [your-email@example.com])
+AC_INIT([historytracers], [1.0.0], [historytracers@gmail.com])
 
 # Set package name and version
 AC_CONFIG_SRCDIR([src/webserver/main.go])
