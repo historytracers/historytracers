@@ -272,7 +272,7 @@
          "id": "SECTION_non_quantum",
          "text": [
             {
-               "text": "### Modelos atômicos orbitais\n\nO estudo profundo dos átomos e entendimento de como o Universo é formado demorou alguns milênios para começar. Destes estudos, o primeiro que fazemos referência é o de John Dalton (Livro 1). Em seus estudos, Dalton concluí que a matéria é feita de elementos menores. Além disto, inferiu pelo estudo de fluídos propriedades como o peso dos elementos (<htcite0>).",
+               "text": "### Modelos Atômicos Clássicos\n\nO estudo aprofundado dos átomos e o entendimento de como o Universo é formado demoraram milênios para começar. O primeiro pesquisador a quem fazemos referência é John Dalton (Livro 1). Em seus estudos, Dalton concluiu que a matéria é composta por pequenas partículas chamadas átomos. Além disso, ao estudar fluidos, inferiu propriedades como o peso dos elementos (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -303,7 +303,7 @@
                "PostMention": ""
             },
             {
-               "text": "Outro importante avanço no entendimento dos átomos foi a descoberta por J. J. Thomson, através de experimentos, que átomos possuem uma partícula subatômica com carga. Esta partícula subatômica é conhecida como elétron (<htcite0>).\n\nJ. J. Thomson também propôs uma teoria para explicar o motivo para partículas carregadas serem espalhadas quando passadas por uma pequena quantidade de matéria. Teoria que foi confirmada com experimentos de Ernest Rutherford. De acordo com o modelo, o átomo teria elétrons circulando uma esfera com partículas possuíndo cargas positivas no centro (<htcite1>).",
+               "text": "Outro avanço importante no entendimento dos átomos foi feito por J. J. Thomson, que, por meio de experimentos, descobriu que os átomos possuem partículas subatômicas carregadas. Essa partícula é conhecida como elétron (<htcite0>).\n\nThomson também propôs uma teoria para explicar por que partículas carregadas são desviadas ao atravessar pequenas quantidades de matéria — teoria posteriormente confirmada pelos experimentos de Ernest Rutherford.\n\nDe acordo com o modelo proposto, o átomo seria formado por elétrons que orbitam uma esfera com carga positiva concentrada no centro (<htcite1>).",
                "source": [
                   {
                      "type": 1,
@@ -337,7 +337,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Construindo o modelo de Rutherford</b><br /><br />1. Pegue três folhas do mesmo tamanho.<br /><br />2. Pinte-as de cores diferentes.<br /><br />3. Escolha uma folha e amasse-a fazendo o formato de uma bola.<br /><br />4. Pegue uma outra folha, corte-a em pedaços menores de tamanhos iguais e também amasse-as. Coloque-as ao redor da primeira bola maior. Estas bolas representam nossos elétrons.<br /><br />5. </div></div></center>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Construindo o Modelo de Rutherford</b><br /><br />Vamos utilizar folhas de papel para recriar o Gráfico 1.<br /><br />1. Pegue três folhas do mesmo tamanho.<br /><br />2. Pinte-as de cores diferentes.<br /><br />3. Escolha uma folha e amasse-a formando uma bola. Ela representará o **núcleo do átomo**.<br /><br />4. Pegue outra folha, corte-a em pedaços menores de tamanhos iguais e amasse-os. Coloque-os ao redor da primeira bola maior — eles representarão os **elétrons**.<br /><br />5. Repita a etapa 4 com a folha restante e faça com que os “elétrons” passem pelos caminhos <b>A</b>, <b>B</b> e <b>C</b> do gráfico.</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -346,12 +346,96 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"> <line x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\" style=\"stroke:black;stroke-width:3\" />   <line x1=\"0\" y1=\"150\" x2=\"300\" y2=\"150\" style=\"stroke:black;stroke-width:3\" /> <circle cx=\"145\" cy=\"75\" r=\"30\"></circle> <circle cx=\"145\" cy=\"25\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"27\" font-size=\"1em\">-</text>  <circle cx=\"75\" cy=\"75\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"73\" y=\"80\" font-size=\"1em\">-</text> <text x=\"120\" y=\"80\" font-size=\"1em\">+</text> <text x=\"140\" y=\"60\" font-size=\"1em\">+</text> <text x=\"140\" y=\"100\" font-size=\"1em\">+</text>  <text x=\"160\" y=\"80\" font-size=\"1em\">+</text> <circle cx=\"205\" cy=\"75\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"202\" y=\"80\" font-size=\"1em\">-</text>  <circle cx=\"145\" cy=\"125\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"127\" font-size=\"1em\">-</text>  </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representação do modelo de Rutherford.</p>",
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"0\" y1=\"15\" x2=\"250\" y2=\"15\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"15\" font-size=\"1em\">A</text> <line x1=\"0\" y1=\"134\" x2=\"250\" y2=\"134\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"134\" font-size=\"1em\">A</text> <line x1=\"0\" y1=\"114\" x2=\"250\" y2=\"114\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"114\" font-size=\"1em\">A</text> <line x1=\"0\" y1=\"64\" x2=\"115\" y2=\"64\" stroke=\"black\" />  <line x1=\"115\" y1=\"64\" x2=\"50\" y2=\"50\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"35\" y=\"50\" font-size=\"1em\">B</text>  <line x1=\"0\" y1=\"36\" x2=\"155\" y2=\"36\" stroke=\"black\" /> <line x1=\"155\" y1=\"36\" x2=\"250\" y2=\"50\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"50\" font-size=\"1em\">C</text> <circle cx=\"145\" cy=\"75\" r=\"30\"></circle> <circle cx=\"145\" cy=\"25\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"27\" font-size=\"1em\">-</text>  <circle cx=\"75\" cy=\"75\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"73\" y=\"80\" font-size=\"1em\">-</text> <text x=\"120\" y=\"80\" font-size=\"1em\">+</text> <text x=\"140\" y=\"60\" font-size=\"1em\">+</text> <text x=\"140\" y=\"100\" font-size=\"1em\">+</text>  <text x=\"160\" y=\"80\" font-size=\"1em\">+</text> <circle cx=\"205\" cy=\"75\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"202\" y=\"80\" font-size=\"1em\">-</text>  <circle cx=\"145\" cy=\"125\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"127\" font-size=\"1em\">-</text>  </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representação do modelo de Rutherford.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
-               "imgdesc": "A letra W está desenhada no centro de um círculo.",
+               "imgdesc": "Representação do átomo de Rutherford onde há um grande núcleo positivo e pequenos elétrons ao redor com carga negativa.",
                "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O modelo de átomo de Rutherford mostra que o átomo não é sólido, mas dividido em duas regiões (<htcite0>): um núcleo denso e positivo e uma região externa, onde se encontram os elétrons negativos.\n\nRutherford chegou a essa conclusão ao disparar partículas alfa (as “terceiras bolinhas amassadas” da Prática 2) contra uma lâmina de ouro. Ao observar a trajetória dessas partículas, percebeu que elas podiam ser desviadas em diferentes direções — evidência de que o átomo possui espaços vazios internos (<htcite1>; <htcite2>), pois, se fosse totalmente sólido, as partículas não o atravessariam.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "112e532d-e8af-40d6-b1b5-527978ee42f3",
+                     "text": "History Tracers Team",
+                     "page": "Dois Lados",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "77a4d152-7328-47bb-bfea-1b1274649317",
+                     "text": "Rutherford, Ernest",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1911",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7cfbddbd-b600-4b9d-8ad5-dbaf7d508617",
+                     "text": "The Editors of Encyclopaedia Britannica",
+                     "page": "Modelo de Rutherford",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "7",
+                        "day": "18"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Ciência é Prática</b><br /><br />O modelo desenvolvido por Demócrito era uma ideia correta, mas não foi testada em seu tempo. Por isso, não podemos dizer que ele estava realmente fazendo ciência.<br /><br />Quando J. J. Thomson propôs um modelo e Ernest Rutherford o testou, aprimorando nosso conhecimento, tivemos a ciência sendo colocada em prática — a teoria sendo formada a partir da experimentação.<br /><br />Você já ouviu a visão distorcida de que a ciência não envolve prática?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Embora esse modelo atômico com duas regiões explicasse algumas observações, ele não conseguia justificar todas as medições realizadas. Diante desse cenário, em <htdate0> James Chadwick realizou novos experimentos que comprovaram que, além dos prótons e elétrons, existia ainda outra partícula no núcleo do átomo — uma partícula sem carga elétrica, que passou a ser conhecida como nêutron (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b03b3ae2-51a7-4054-80ec-4e5c3ef83e58",
+                     "text": "The Editors of Encyclopaedia Britannica",
+                     "page": "James Chadwick",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "8",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1932",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
@@ -362,6 +446,11 @@
          "question": "A primeira idéia de átomo de Demócrito é igual a que temos hoje?",
          "yesNoAnswer": "No",
          "additionalInfo": "O átomo que entendemos hoje é bem diferente do conceito de Demócrito. Isto foi melhorado através de diferentes estudos e experimentos nos últimos séculos."
+      },
+      {
+         "question": "Ciências não possuem experimentos, são crenças inquestionávies. Esta frase está correta?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Um dado só é reconhecido como uma teoria científica a partir do momento que se tem testes e provas de sua realidade. Por mais bela e profunda que possa ser uma proposta em um texto, ela não pode ser considerada ciência se não pode ser medida."
       }
    ],
    "game_v2": null,
