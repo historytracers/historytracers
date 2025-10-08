@@ -21,6 +21,7 @@ Los siguientes subdirectorios están disponibles en este directorio:
 - `BibliotecaNacionalDigital`: Contiene imágenes originales de la [Biblioteca Nacional Digital](https://bndigital.bnportugal.gov.pt/).
 - `BritishMuseum`: Contiene imágenes originales del [British Museum](https://www.britishmuseum.org/collection/).
 - `Caral`: Contiene fotos tomadas durante un viaje a [Caral](https://www.zonacaral.gob.pe), Perú.
+- `CERN`: Contiene imágenes orignales de la Organización Europea para Pesquisas Nucleares [CERN](https://home.cern/).
 - `Copan`: Contiene fotos tomadas durante un viaje a [Copán](https://ihah.hn/parque-arqueologico-copan/), Honduras.
 - `CreativeCommons`: Contiene imágenes originales de [Creative Commons](https://creativecommons.org/).
 - `ESA`: Contiene imágenes originales de la Agencia Espacial Europea [ESA](https://www.esa.int/).
