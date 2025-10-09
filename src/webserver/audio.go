@@ -554,6 +554,8 @@ func htConvertClassesToAudio(pages []string) {
 
 func htConvertAtlasToAudio() {
 	htValidateAtlasFormats()
+	var atlasSources []string = []string{"atlas"}
+	htLoadSourceFromFile(atlasSources)
 	for _, dir := range htLangPaths {
 		htLoadKeywordFile("common_keywords", dir)
 		fileName := fmt.Sprintf("%slang/%s/atlas.json", CFG.SrcPath, dir)

@@ -93,6 +93,11 @@ func htRunStopFlags() {
 	htFillModifiedGit()
 
 	var stopRun bool = false
+	if ShowCompilationFlag {
+		htPrintOptions()
+		os.Exit(0)
+	}
+
 	if ValidateFlag {
 		fmt.Println("TODO: Validate is creating empty files, it is necessary to fix it.")
 		/*
@@ -133,7 +138,13 @@ func htRunStopFlags() {
 	}
 }
 
+func htInitializeCommonMaps() {
+	sourceMap = make(map[string]HTSourceElement)
+	allSourceMap = make(map[string]HTSourceElement)
+}
+
 func main() {
+	htInitializeCommonMaps()
 	HTParseArg()
 	HTLoadConfig()
 	DaemonLog := htOpenLogs("daemon.log")

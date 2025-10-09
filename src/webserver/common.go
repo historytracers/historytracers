@@ -79,6 +79,7 @@ type HTSourceFile struct {
 }
 
 var sourceMap map[string]HTSourceElement
+var allSourceMap map[string]HTSourceElement
 
 type HTText struct {
 	Text        string     `json:"text"`
@@ -323,10 +324,31 @@ func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
 }
 
 // Sources
+func htCompareSources(first *HTSourceElement, second *HTSourceElement) bool {
+	if first.ID == second.ID &&
+		first.Citation == second.Citation &&
+		// Date can be changed to confirm data is still available
+		// first.Date == second.Date &&
+		first.PublishDate == second.PublishDate &&
+		first.URL == second.URL {
+		return true
+	}
+
+	return false
+}
+
 func htFillSourceMap(src []HTSourceElement) {
 	for _, element := range src {
 		if _, ok := sourceMap[element.ID]; !ok {
 			sourceMap[element.ID] = element
+		}
+
+		if stored, ok := allSourceMap[element.ID]; !ok {
+			allSourceMap[element.ID] = element
+		} else if ok {
+			if !htCompareSources(&stored, &element) {
+				fmt.Fprintf(os.Stderr, "The UUID %s is not unique: STORED (%s, %s, %s, %s) && ELEMENT (%s, %s, %s, %s).\n", element.ID, stored.Citation, stored.PublishDate, stored.URL, element.Citation, element.PublishDate, element.URL)
+			}
 		}
 	}
 }
