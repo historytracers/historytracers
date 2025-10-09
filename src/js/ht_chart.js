@@ -48,7 +48,13 @@ function htPlotConstantChart(dest, yValue, xLable, yLable)
         return;
     }
 
+    const canvas = document.getElementById(dest);
+    const existing = Chart.getChart(canvas);
     const ctx = document.getElementById(dest).getContext("2d");
+    if (existing) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
     var chartId = new Chart(ctx, {
          maintainAspectRatio: false,
          type: 'bubble',
