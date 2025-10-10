@@ -54,7 +54,7 @@ func HTParseArg() {
 	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files.")
 	flag.StringVar(&CFG.LogPath, "log", logPath, "Directory containing all log files.")
 	flag.StringVar(&CFG.ContentPath, "www", contentPath, "Directory for user-facing content.")
-	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration file.")
+	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration direction.")
 	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (history, indigenous_who, first_steps, literature, biology, chemistry, physics, historical_events).")
 
 	flag.Parse()
