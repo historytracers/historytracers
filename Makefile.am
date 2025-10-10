@@ -37,13 +37,6 @@ install-exec-local:
 	$(MKDIR_P) $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(BINARY_NAME) $(DESTDIR)$(bindir)/$(BINARY_NAME)
 
-# Go linker flags with configured paths
-#GO_LDFLAGS = -X 'main.confPath=$(CONF_PATH)' \
-#             -X 'main.srcPath=$(SRC_PATH)' \
-#             -X 'main.contentPath=$(CONTENT_PATH)' \
-#             -X 'main.logPath=$(LOG_PATH)' \
-#             $(LDFLAGS)
-
 # Create package
 #.PHONY: pkg
 #pkg: all
