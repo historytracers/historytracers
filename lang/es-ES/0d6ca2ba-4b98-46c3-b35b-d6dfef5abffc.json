@@ -1,0 +1,185 @@
+{
+   "title": "Límites y contextos",
+   "header": "Límites y contextos",
+   "sources": [
+      "0d6ca2ba-4b98-46c3-b35b-d6dfef5abffc"
+   ],
+   "scripts": [
+      "0d6ca2ba-4b98-46c3-b35b-d6dfef5abffc"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "literature"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1760124145"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p><p><span id=\"htAgeMsg\"></span></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste texto es una continuación del anterior (htcite0>); por lo tanto, recomendamos su lectura previa. Además, sugerimos estudiar *Límites de la Naturaleza* (<htcite1>), pois nele é apresentado um conceito fundamental que exploraremos aqui.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "efd81f99-fe84-43cc-81aa-5efe294b702c",
+                     "text": "History Tracers Team",
+                     "page": "Literatura y ciencias",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Límites de la Naturaleza",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nAl leer un texto —o incluso una fórmula matemática—, a menudo nos sentimos tentados a asumir de inmediato que lo comprendemos y, en consecuencia, que es correcto.\n\nExisten diversos motivos que nos conducen a esa conclusión. Sin embargo, en esta introducción destacaremos uno de ellos: la necesidad de seguridad, el consuelo de tener razón, en contraste con la inseguridad y los miedos que nos acompañan desde los primeros momentos de la vida (<htcite0>).\n\nEste hecho nos lleva a una reflexión:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e7e25a56-56ae-4e3c-8b00-a55a32a0f945",
+                     "text": "Freud, Sigmund",
+                     "page": "pp. 244, notas al pie",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1913",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Seguridad</b><br /><br />¿Te sientes incómodo cuando no tienes respuestas?<br /><br />¿Te sientes incómodo con tus errores?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para ayudarnos en esta reflexión, trabajaremos en paralelo con el libro sagrado del pueblo maya, el *Popol-Vuh* (<htcite0>; <htcite1>), originario de Mesoamérica (*Abya Yala*), y con la relación entre fuerza y aceleración propuesta por Isaac Newton (<htcite2>).",
+               "source": [
+                  {
+                     "type": 2,
+                     "uuid": "8fcee36c-411a-4fc8-8217-b9a07a34d3da",
+                     "text": "Popol Vuh, Español",
+                     "page": "pp. 39",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 2,
+                     "uuid": "74bdb72d-1770-4694-8f8e-71e680f1d49c",
+                     "text": "Popol Vuh, English",
+                     "page": "Ch. 3, pp. 8",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1954",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee",
+                     "text": "Newton, Isaac",
+                     "page": "pp. 5",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1686",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "WRITE A QUESTION",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "The correct answer is 'Yes' because ..."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
