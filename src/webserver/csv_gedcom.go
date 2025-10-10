@@ -834,7 +834,7 @@ func htRewriteFamilyFileTemplate() Family {
 
 // Index
 func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
-	families.GEDCOM = fmt.Sprintf("gedcom/families-%s.ged", lang)
+	families.GEDCOM = fmt.Sprintf("gedcom/families_%s.ged", lang)
 	if verboseFlag {
 		fmt.Println("Setting INDEX GEDCOM file to: ", families.GEDCOM)
 	}
@@ -842,7 +842,7 @@ func htParseIndexSetGEDCOM(families *IdxFamily, lang string) {
 }
 
 func htParseIndexSetCSV(families *IdxFamily, lang string) {
-	families.CSV = fmt.Sprintf("csv/families-%s.csv", lang)
+	families.CSV = fmt.Sprintf("csv/families_%s.csv", lang)
 	if verboseFlag {
 		fmt.Println("Setting INDEX CSV file to: ", families.CSV)
 	}
