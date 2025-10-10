@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1759617703"
+      "1760055140"
    ],
    "authors": null,
    "reviewers": null,
@@ -408,12 +408,56 @@
       },
       {
          "uuid": "59a6e7eb-1c41-43f3-9d20-0462de72e866",
-         "image": "",
-         "author": "",
-         "index": "El Origen de los Planetas",
+         "image": "images/ESA/Webb_s_view_of_planet-forming_disc_IRAS_04302_2247.jpg",
+         "author": "©ESA/Webb, NASA & CSA, M. Villenave et al. Compartilado sob a licença CC BY 4.0 INT IGO.",
+         "index": "¿Cómo se forma un planeta?",
          "text": [
             {
-               "text": "<h3>El Origen de los Planetas</h3>Los planetas se forman a partir de nubes de polvo cósmico. Al inicio de este proceso, la cantidad de partículas de polvo es bastante pequeña. A medida que la nube colapsa, los granos de polvo se acercan y colisionan, formando aglomerados mayores llamados planetesimales",
+               "text": "### ¿Cómo se forma un planeta?\n\nLa imagen de esta sección muestra el disco de un planeta en formación. Esta región se conoce como **IRAS 04302+2247** y está ubicada a 525 años luz de la Tierra, lo que equivale aproximadamente a 4,97 cuatrillones de kilómetros (4.966.920.000.000.000 km) de distancia (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c7877ca6-2d32-4999-b87d-7fd35429e58c",
+                     "text": "ESA/Webb, NASA & CSA, M. Villenave et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "8",
+                        "day": "29"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i> <i class=\"fa-solid fa-atom\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Matemáticas y Física en la Geografía</b><br /><br />¿Alguna vez te has detenido a pensar qué significan 525 años luz como distancia?<br /><br />Como el año es una unidad de tiempo, primero necesitamos entender qué representa en este contexto.<br />Un año luz es la distancia que la luz recorre en un año. Esto significa que, cuando observamos algo a 525 años luz de distancia, en realidad estamos viendo el pasado (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4a1aea2e-aa0d-49b1-9e69-27743bd2c8e5'); return false;\">ESA, <htdate0></a>), ya que la luz ha viajado durante 525 años para llegar hasta nosotros.<br /><br />Sabiendo que los fotones viajaron sin interrupciones hasta alcanzarnos, entendemos que su trayectoria se extendió durante 525 años, recorriendo la misma distancia cada segundo. En otras palabras, estamos sumando la misma cantidad de distancia año tras año (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eaa59295-fb80-4c33-b1e4-bcdf3c11dabf'); return false;\">History Tracers Team, <htdate1>, Sumando los mismos números</a>).<br />Por lo tanto, para calcular la distancia total, basta con sumar la distancia recorrida en un año 525 veces.<br /><br />¿Cuál es esa distancia?<br /><br />Sabemos que la luz viaja aproximadamente a 300.000 km por segundo.<br />Entonces, debemos multiplicar ese valor por el número de segundos en un año, y luego multiplicar el resultado por los 525 años.<br />La forma más sencilla de expresar esto es mediante una multiplicación:<br /><br />525 años luz = Años × Distancia por año<br />525 años luz = Años × (distancia por segundo × segundos por año)<br />525 años luz = Años × [(distancia por segundo) × (segundos por día × días por año)]<br /><br />Sustituyendo los valores, obtenemos:<br/>525 años luz= 525 × [(300000) × (864000 × 365)] = <b>4.966.920.000.000.000 Km </b></div></div></center>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2004",
+                     "month": "5",
+                     "day": "19"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2025",
+                     "month": "5",
+                     "day": "9"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Este resultado es una aproximación, que se perfeccionará a medida que estudiemos la Tierra en el Atlas.\n\n#### Todos somos polvo\n\nLos planetas se forman a partir de nubes de polvo, al igual que las estrellas (<htcite0>).\n\nAl inicio de este proceso, la cantidad de partículas es muy pequeña. A medida que la nube colapsa, los granos de polvo se acercan y colisionan, formando aglomerados más grandes, llamados planetesimales (<htcite1>; <htcite2>; <htcite3>).\n\n#### Crecimiento del planeta\n\nEstos planetesimales continúan chocando con otras partículas, dando origen a una estructura aún mayor, conocida como protoplaneta.\n\nCon el tiempo, el protoplaneta acumula más materia y eventualmente alcanza la etapa de planeta completo (<htcite4>).",
                "source": [
                   {
                      "type": 1,
@@ -462,17 +506,7 @@
                         "month": "",
                         "day": ""
                      }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "Estos planetesimales continúan haciendo colisión con otras partículas, generando una estructura aún mayor conocida como protoplaneta. Gradualmente, el protoplaneta acumula más materia y, con el tiempo, alcanza el estado de planeta completo",
-               "source": [
+                  },
                   {
                      "type": 1,
                      "uuid": "722f0c13-990d-4452-bd95-6cc9f7031bf1",
@@ -489,11 +523,11 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
+               "format": "markdown",
+               "PostMention": ""
             },
             {
-               "text": "Hoy en día existe un consenso relativo sobre el proceso de formación planetaria. Sin embargo, la definición de planeta ha sido actualizada recientemente: para ser considerado un planeta, un objeto debe ser lo suficientemente grande para adoptar una forma esférica debido a su propia gravedad, orbitar una estrella y ser capaz de limpiar su órbita de otros objetos cercanos",
+               "text": "#### ¿Qué es un planeta?\n\nHoy en día existe un consenso general sobre el proceso de formación planetaria.\n\nSin embargo, la definición de planeta se ha actualizado recientemente: para que un cuerpo celeste sea considerado un planeta, debe ser lo suficientemente grande como para adoptar una forma esférica debido a su propia gravedad, orbitar una estrella y limpiar su órbita de otros objetos cercanos (<htcite0>; <htcite1>).\n\n#### Aplicando el método científico\n\nEl conocimiento sobre la formación de los planetas es relativamente reciente. Antes de <htdate0>, se creía que los planetas no podían formarse en las fases iniciales del universo.\n\nSin embargo, las mediciones realizadas por el telescopio Hubble mostraron que los planetas ya se formaban en las primeras etapas de la historia cósmica.\n\nEsto posiblemente ocurría porque los discos que dan origen a los planetas permanecían más tiempo en el universo primitivo, creando las condiciones necesarias para su formación (<htcite2>).\n\nEste descubrimiento refuerza que, en las ciencias, el conocimiento está en constante actualización y expansión.",
                "source": [
                   {
                      "type": 1,
@@ -518,13 +552,32 @@
                         "month": "",
                         "day": ""
                      }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1d824036-c7fa-433d-99a1-4d962991226f",
+                     "text": "ESA",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "16"
+                     }
                   }
                ],
-               "date_time": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2003",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
                "isTable": false,
                "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       },
