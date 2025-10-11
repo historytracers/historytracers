@@ -62,7 +62,7 @@ func htLogging(logger *log.Logger) func(http.Handler) http.Handler {
 }
 
 // Normal URL when we are not developing
-var validURL = regexp.MustCompile("^/|^/bodies/*$|^/css/*$|^/images/*$|^/js/*.js$|^/lang*$|^/webfonts/*$|^/*.html$|")
+var validURL = regexp.MustCompile("^/|^/bodies/*$|^/css/*$|^/csv/*$|^/gedcom/*$|^/images/*$|^/js/*.js$|^/lang*$|^/webfonts/*$|^/*.html$|")
 
 func htIsJSONRequest(r *http.Request) bool {
 	// Check based on URL path pattern, query parameter, or Content-Type
