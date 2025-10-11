@@ -79,10 +79,10 @@ clean-local:
 
 # Development build (with debug information)
 .PHONY: dev
-dev: GO_LDFLAGS = -X 'main.confPath=$(CONF_PATH)' \
-                  -X 'main.srcPath=$(SRC_PATH)' \
-                  -X 'main.contentPath=$(CONTENT_PATH)' \
-                  -X 'main.logPath=$(LOG_PATH)'
+dev: export GO_LDFLAGS = -X 'main.confPath=$(CONF_PATH)' \
+                  	 -X 'main.srcPath=$(SRC_PATH)' \
+                  	 -X 'main.contentPath=$(CONTENT_PATH)' \
+                  	 -X 'main.logPath=$(LOG_PATH)'
 dev: all
 
 # Production build (stripped and optimized)
