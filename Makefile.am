@@ -28,8 +28,8 @@ LOG_PATH = @LOG_PATH@
 $(BINARY_NAME): $(historytracers_SOURCES)
 	@echo "Building $(BINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	cd $(SRC_DIR) && go fmt ./...
-	cd $(SRC_DIR) && go build -ldflags="$(GO_LDFLAGS)" -o ../../$(BUILD_DIR)/$(BINARY_NAME) .
+	cd $(SRC_DIR) && $(GO_COMPILER) fmt ./...
+	cd $(SRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(BINARY_NAME) .
 
 # Install hook
 install-exec-local:
@@ -79,10 +79,7 @@ clean-local:
 
 # Development build (with debug information)
 .PHONY: dev
-dev: GO_LDFLAGS = -X 'main.confPath=$(CONF_PATH)' \
-                  -X 'main.srcPath=$(SRC_PATH)' \
-                  -X 'main.contentPath=$(CONTENT_PATH)' \
-                  -X 'main.logPath=$(LOG_PATH)'
+dev: 
 dev: all
 
 # Production build (stripped and optimized)

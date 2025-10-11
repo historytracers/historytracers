@@ -48,49 +48,13 @@ var htSequenceGame = [ "CeramicaAntropologiaPeru.jpg", "CahalPech/ChocolatPot.jp
 var htSequenceGameLocation = [ "Lima, Peru", "Cahal Pech, Belize", "Ciudad de Guatemala, Guatemala", "Kaminaljuyu - Ciudad de Guatemala, Guatemala", "San Jose, Costa Rica", "Teotihuacan, Mexico", "San Jose, Costa Rica", "San Salvador, El Salvador", "Copan, Honduras", "San Jose, Costa Rica" ];
 
 var htEditable = undefined;
-var htEditableCheck = true;
 
-function htEnableEdition() {
-    /*
-    if (htEditableCheck == false || htEditable != undefined) {
-        return;
+function htEnableEdition(data) {
+    if (htEditable) {
+        $(".htEditor").each(function() {
+            $(this).css('visibility', 'visible');
+        });
     }
-    htEditableCheck = false;
-
-    $("#loading_msg").hide();
-    $("#messages").hide();
-    var unixEpoch = Date.now();
-    $.ajax({
-        type: 'GET',
-        url: 'edit/',
-        contentType: 'application/json; charset=utf-8',
-        data: 'nocache='+unixEpoch,
-        async: true,
-        dataType: 'json',
-        success: function(data) {
-            if (data.length == 0) {
-                $("#loading_msg").hide();
-                return false;
-            }
-
-            if (data.editable != undefined) {
-                htEditable = data.editable;
-                htEditableCheck = true;
-
-                $(".htEditor").each(function() {
-                    $(this).css('visibility','visible');
-                });
-            }
-
-            return false;
-        },
-        error: function(data) {
-            $(".htEditor").each(function() {
-                $(this).css('visibility','hidden');
-            });
-        },
-    });
-    */
 }
 
 
@@ -2240,11 +2204,9 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
 
             htProccessData(data, optional);
 
-            /*
             if (arg != source) {
                 htEnableEdition();
             }
-            */
 
             return false;
         },
