@@ -99,11 +99,11 @@ AC_MSG_RESULT([$GO_COMPILER_TYPE])
 # Set build flags based on compiler type
 case "$GO_COMPILER_TYPE" in
     gccgo)
-        GO_BUILD_FLAGS="-gccgoflags"
+        GO_BUILD_FLAGS=""
         AC_MSG_NOTICE([Using gccgo-specific build flags])
         ;;
     go)
-        GO_BUILD_FLAGS="-ldflags"
+        GO_BUILD_FLAGS='-ldflags "-X main.confPath=$CONF_PATH -X main.srcPath=$SRC_PATH -X main.contentPath=$CONTENT_PATH -X main.logPath=$LOG_PATH'
         AC_MSG_NOTICE([Using standard Go build flags])
         ;;
     *)
