@@ -4,8 +4,10 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -60,21 +62,63 @@ func htLogging(logger *log.Logger) func(http.Handler) http.Handler {
 }
 
 // Normal URL when we are not developing
-var validURL = regexp.MustCompile("^/|^/bodies/*$|^/css/*$|^/images/*$|^/js/*.js$|^/lang*$|^/webfonts/*$|^/*.html$|")
+var validURL = regexp.MustCompile("^/|^/bodies/*$|^/css/*$|^/csv/*$|^/gedcom/*$|^/images/*$|^/js/*.js$|^/lang*$|^/webfonts/*$|^/*.html$|")
 
-func htCommonHandler(w http.ResponseWriter, r *http.Request) {
-	if strings.Contains(r.URL.Path, "edit") {
-		htIsEditionEnabled(w, r)
-		return
+func htIsJSONRequest(r *http.Request) bool {
+	// Check based on URL path pattern, query parameter, or Content-Type
+	return strings.HasSuffix(r.URL.Path, ".json") ||
+		r.URL.Query().Get("format") == "json" ||
+		r.Header.Get("Accept") == "application/json" ||
+		r.Header.Get("Content-Type") == "application/json"
+}
+
+func htLoadJSONRequest(filePath string) ([]byte, error) {
+	data, err := os.ReadFile(filePath)
+	if err != nil {
+		return nil, err
 	}
 
+	var jsonData map[string]interface{}
+	if err := json.Unmarshal(data, &jsonData); err != nil {
+		return nil, err
+	}
+
+	if CFG.DevMode {
+		jsonData["editing"] = true
+	}
+
+	retData, err := json.Marshal(jsonData)
+	if err != nil {
+		return nil, err
+	}
+
+	return retData, nil
+}
+
+func htCommonHandler(w http.ResponseWriter, r *http.Request) {
 	m := validURL.FindStringSubmatch(r.URL.Path)
 	if m == nil {
 		http.NotFound(w, r)
 		ErrorLog.Printf("Blocked request: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
 		return
 	}
-	http.ServeFile(w, r, r.URL.Path[1:])
+
+	if !htIsJSONRequest(r) {
+		http.ServeFile(w, r, r.URL.Path[1:])
+		return
+	}
+
+	fileName := fmt.Sprintf("%s%s", CFG.SrcPath, r.URL.Path[1:])
+	data, err := htLoadJSONRequest(fileName)
+	if err != nil {
+		http.NotFound(w, r)
+		ErrorLog.Printf("Error to load JSON: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write(data)
 }
 
 func htIsEditionEnabled(w http.ResponseWriter, r *http.Request) {
