@@ -212,7 +212,7 @@ func HTCopyFilesWithoutChanges(dstFile string, srcFile string) error {
 	}
 
 	if verboseFlag {
-		fmt.Println("Copying file", dstFile)
+		fmt.Println("Copying file", srcFile, " to ", dstFile)
 	}
 	return nil
 }

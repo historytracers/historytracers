@@ -169,7 +169,7 @@ func htParseCSS(fileName string) bool {
 
 func htMinifyCSSFile(m *minify.M, inFile string, outFile string) error {
 	if verboseFlag {
-		fmt.Println("Minifying CSS", inFile)
+		fmt.Println("Minifying CSS", outFile)
 	}
 	return htMinifyCommonFile(m, "text/css", inFile, outFile)
 }
@@ -217,7 +217,7 @@ func htParseJSON(fileName string) bool {
 
 func htMinifyJSONFile(m *minify.M, inFile string, outFile string) error {
 	if verboseFlag {
-		fmt.Println("Minifying JSON", inFile)
+		fmt.Println("Minifying JSON", outFile)
 	}
 	return htMinifyCommonFile(m, "application/json", inFile, outFile)
 }
@@ -265,7 +265,7 @@ func htCopyJSONWithoutChanges() {
 // JS
 func htMinifyJSFile(m *minify.M, inFile string, outFile string) error {
 	if verboseFlag {
-		fmt.Println("Minifying JS", inFile)
+		fmt.Println("Minifying JS", outFile)
 	}
 	return htMinifyCommonFile(m, "application/javascript", inFile, outFile)
 }
@@ -411,7 +411,7 @@ func htUpdateIndex() {
 
 func htMinifyHTMLFile(m *minify.M, inFile string, outFile string) error {
 	if verboseFlag {
-		fmt.Println("Minifying HTML", inFile)
+		fmt.Println("Minifying HTML", outFile)
 	}
 	return htMinifyCommonFile(m, "text/html", inFile, outFile)
 }
