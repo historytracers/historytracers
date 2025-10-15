@@ -14,6 +14,7 @@ Todas as imagens adicionadas a este diretório devem:
 
 Os seguintes subdiretórios estão disponíveis neste diretório:
 
+- `AntropologyPeru`: Contém imagens originais do [Museo Nacional de Arqueología y Antropología e Historia del Perú](https://mnaahp.cultura.pe/).
 - `ANTT`: Contém imagens originais do [Arquivo Nacional da Torre do Tombo](https://digitarq.arquivos.pt/).
 - `Archive`: Contém imagens originais do [Internet Archive](https://archive.org/).
 - `Ashmolean`: Contém imagens originais do [Ashmolean Museum, Oxford](https://www.ashmolean.org/).
@@ -38,5 +39,6 @@ Os seguintes subdiretórios estão disponíveis neste diretório:
 - `SanJoseCRMuseo`: Contém imagens originais do [Museu de Antropologia de San José](https://www.museocostarica.go.cr/).
 - `Teotihuacan`: Contém fotos tiradas durante uma viagem a Teotihuacán, México.
 - `Tikal`: Contém fotos tiradas durante uma viagem a [Tikal](https://tikalnationalpark.org/), Guatemala.
+- `Tula`: Contém fotos tiradas durante uma viagem a [Ciudad de Tula](https://inah.gob.mx/zonas/zona-arqueologica-y-museo-de-sitio-de-tula), México.
 - `UNESCO`: Contém imagens originais da [UNESCO](https://whc.unesco.org/).
 - `USGS`: Contém imagens originais do [Serviço Geológico dos Estados Unidos](https://www.usgs.gov/media/images/water-cycle-png).
