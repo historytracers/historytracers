@@ -20,10 +20,12 @@ Os seguintes subdiretórios estão disponíveis neste diretório:
 - `Athens`: Contém fotos tiradas durante uma viagem a Atenas, Grécia.
 - `BibliotecaNacionalDigital`: Contém imagens originais da [Biblioteca Nacional Digital](https://bndigital.bnportugal.gov.pt/).
 - `BritishMuseum`: Contém imagens originais do [British Museum](https://www.britishmuseum.org/collection/).
+- `Caracol`: Contém fotos tiradas durante uma viagem a [Caracol](https://www.travelbelize.org/attraction/caracol/), Belize.
 - `Caral`: Contém fotos tiradas durante uma viagem a [Caral](https://www.zonacaral.gob.pe), Peru.
 - `CERN`: Contém imagens orignais da Organização Européia para Pesquisas Nucleares [CERN](https://home.cern/).
 - `Copan`: Contém fotos tiradas durante uma viagem a [Copán](https://ihah.hn/parque-arqueologico-copan/), Honduras.
 - `CreativeCommons`: Contém imagens originais da [Creative Commons](https://creativecommons.org/).
+- `ElSalvadorMuseo`: Contém imagens originais do [Museo Nacional de Antropología](https://www.cultura.gob.sv/marco-institucional/direccion-nacional-de-museos-y-salas-de-exposicion/museo-nacional-de-antropologia-muna/) de El Salvador.
 - `ESA`: Contém imagens orignais da Agência Espacial Européia [ESA](https://www.esa.int/).
 - `HistoryTracers`: Contém fotos criadas pela equipe do History Tracers.
 - `JoyaCeren`: Contém fotos tiradas durante uma viagem a Joya de Cerén, El Salvador.
