@@ -7,6 +7,10 @@ var slideIndexae2acc8c3a = 0;
 
 function htPlusDivs(n) {
     var x = document.getElementsByClassName("htSlide");
+    if (!x) {
+        return;
+    }
+
     slideIndexae2acc8c3a += n;
     if (slideIndexae2acc8c3a == x.length) {
         slideIndexae2acc8c3a = 0;
