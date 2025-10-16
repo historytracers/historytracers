@@ -21,13 +21,14 @@ The following subdirectories are available in this directory:
 - `Athens`: Contains photos taken during a trip to Athens, Greece.
 - `BibliotecaNacionalDigital`: Contains original images from the [Biblioteca Nacional Digital](https://bndigital.bnportugal.gov.pt/).
 - `BritishMuseum`: Contains original images from the [British Museum](https://www.britishmuseum.org/collection/).
+- `CahalPech`: Contains photos taken during a trip to [CahalPech](https://nichbelize.org/ia-sites/cahal-pech/), Belize.
 - `Caracol`: Contains photos taken during a trip to [Caracol](https://www.travelbelize.org/attraction/caracol/), Belize.
 - `Caral`: Contains photos taken during a trip to [Caral](https://www.zonacaral.gob.pe), Peru.
 - `CERN`: Contains original images from European Organization for Nuclear Research [CERN](https://home.cern/).
 - `Copan`: Contains photos taken during a trip to [Copán](https://ihah.hn/parque-arqueologico-copan/), Honduras.
 - `CreativeCommons`: Contains original images from [Creative Commons](https://creativecommons.org/).
-- `CostaRicaJade`: Contains photos taken during a visit to [Museo de Jade](https://museodeljade.grupoins.com/?fbclid=PAZXh0bgNhZW0CMTEAAaedoThLrhTJOxtqMYovjhsiqnujApHqSSqGRYLyrikivkB37EdFS_zVQNt_jg_aem_S-2PICTiqbEfmGVkLFIdTA), Costa Rica.
-- `ElSalvadorMuseo`: Contains original images from [Museo Nacional de Antropología](https://www.cultura.gob.sv/marco-institucional/direccion-nacional-de-museos-y-salas-de-exposicion/museo-nacional-de-antropologia-muna/), El Salvador.
+- `Cuzco`: Contains photos taken during a trip to [Cuzco](https://www.peru.travel/es/destinos/cusco), Peru.
+- `ElSalvadorMuseo`: Contains photos taken during a visit to [Museo Nacional de Antropología](https://www.cultura.gob.sv/marco-institucional/direccion-nacional-de-museos-y-salas-de-exposicion/museo-nacional-de-antropologia-muna/), El Salvador.
 - `ESA`: Contains original images from European Space Agency [ESA](https://www.esa.int/).
 - `GuatemalaAntropologia`: Contains photos taken during a visit to [Museo Nacional de Arqueología y Etnología](https://museosdeguatemala.org/museo/museo-nacional-de-arqueologia-y-etnologia/), Guatemala.
 - `GuatemalaKaminaljuyu`: Contains photos taken during a trip to [Kaminaljuyu](https://museosdeguatemala.org/museo/parque-arqueologico-kaminaljuyu/), Guatemala.
@@ -40,6 +41,7 @@ The following subdirectories are available in this directory:
 - `Nature`: Contains original images from [Nature Open Access](https://www.nature.com/nature-portfolio/open-access).
 - `PeruPucllana`: Contains photos taken during a trip to [Sítio de Pucllana](http://researchgate.net/), Peru.
 - `ResearchGate`: Contains original images from [ResearchGate](http://researchgate.net/).
+- `SanJoseCRJade`: Contains photos taken during a visit to [Museo de Jade](https://museodeljade.grupoins.com/?fbclid=PAZXh0bgNhZW0CMTEAAaedoThLrhTJOxtqMYovjhsiqnujApHqSSqGRYLyrikivkB37EdFS_zVQNt_jg_aem_S-2PICTiqbEfmGVkLFIdTA), Costa Rica.
 - `SanJoseCRMuseo`: Contains original images from the [San José Museo de Antropología](https://www.museocostarica.go.cr/).
 - `Teotihuacan`: Contains photos taken during a trip to [Teotihuacán](https://inah.gob.mx/zonas/23-zona-arqueologica-de-teotihuacan), Mexico.
 - `Tikal`: Contains photos taken during a trip to [Tikal](https://tikalnationalpark.org/), Guatemala.
