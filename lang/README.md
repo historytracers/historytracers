@@ -14,5 +14,6 @@ The following subdirectories are present in this directory:
 
 -  `aa-BB`: These are the language directories, where `aa` represents the language code, and  `BB` is the country code.
 -  `aa-BB/smGame`: Files for the *Scientific Method* Game.
+-  `lang_list.json`: When installing History Tracers using packaging, it is not necessary to install all available languages. This file is used to inform the dashboard about the available languages.
 -  `source`: This directory contains files with the sources referenced in each language file.
 
