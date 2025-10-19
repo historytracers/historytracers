@@ -24,5 +24,8 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    var year = new Date().getFullYear() - 378;
+    $("#iage").html(year);
+
     return false;
 }
