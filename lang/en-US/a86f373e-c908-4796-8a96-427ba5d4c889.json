@@ -23,7 +23,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1760755014"
+      "1760898294"
    ],
    "authors": null,
    "reviewers": null,
@@ -35,7 +35,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "<p><hr /></p>",
+               "text": "<p><hr /></p><p><span id=\"htZoomImageMsg\"></span></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -104,8 +104,21 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"Experiment\" onclick=\"htImageZoom('Experiment', '0%')\" src=\"images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg\" class=\"imgcenter\"/><b>Figure 1</b>: Description of the experiments by Ibn Al-Haytham. Image extracted from Archive (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('de651eda-c584-444f-9ec0-67f1a43aa4a6'); return false;\">The Optics Of Ibn Al Haytham, Books I III, On Direct Vision</a>)</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"Experiment\" onclick=\"htImageZoom('Experiment', '0%')\" src=\"images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg\" class=\"imgcenter\"/><b>Figure 1</b>: Description of the experiments by Ibn Al-Haytham. Image extracted from Archive (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "de651eda-c584-444f-9ec0-67f1a43aa4a6",
+                     "text": "The Optics Of Ibn Al Haytham, Books I III, On Direct Vision",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -156,7 +169,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### United Contribution\n\nBoth works significantly contributed to the development of science as we know it, helping us explain and understand natural phenomena. These contributions have enabled important advances in our lives, such as the treatment of diseases.",
+               "text": "#### United Contribution\n\nBoth works contributed to the development of science as we know it, helping us explain and understand the nature. These contributions have enabled important advances in our lives, such as the treatment of diseases.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -224,7 +237,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: Confirming Results</b><br />Obtain another small box made of a noise-generating material.<br /><br />Choose three new small objects, ensuring they are smaller than the box. Consider using different objects from those in the first experiment, such as a grain of rice, granulated sugar, and a small piece of crumpled paper.<br /><br />Create an ordered list similar to the one used in the first experiment.<br /><br />Repeat the process of placing one object inside the box at a time, shaking it, and comparing the observed sound with your hypothesis.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: Confirming Results</b><br />Now, obtain three different objects from those in the first experiment, such as a grain of rice, granulated sugar, and a small piece of crumpled paper.<br /><br />Create an ordered list similar to the one used in the first experiment.<br /><br />Repeat the process of placing one object inside the box at a time, shaking it, and comparing the observed sound with your hypothesis.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -265,8 +278,44 @@
                "PostMention": ""
             },
             {
-               "text": "We must approach terms like \"correct\" and \"wrong\" with caution. New research may reveal limitations in prior findings without invalidating them completely.\n\nFor example, we shouldn't discard Newton's law of gravitation in favor of Einstein's theory of relativity. While Newton's model can't explain all cosmic phenomena, it remains valid for most Earth-based observations",
+               "text": "We must approach terms like \"correct\" and \"wrong\" with caution (<htcite0>; <htcite1>; <htcite2>). New research may reveal limitations in prior findings without invalidating them completely.\n\nFor example, we shouldn't discard Newton's law of gravitation in favor of Einstein's theory of relativity. While Newton's model can't explain all cosmic phenomena, it remains valid for most Earth-based observations (<htcite3>; <htcite4>; <htcite5>; <htcite6>; <htcite7>).",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6f9bd52-c0cb-497e-9217-1f9677d5b491",
+                     "text": "History Tracers Team",
+                     "page": "Ampliando...",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3c81aa4a-3030-4767-861a-25f13272776f",
+                     "text": "History Tracers Team",
+                     "page": "Sempre presente",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f208f755-08ef-4cff-8699-8bd62ddd3035",
+                     "text": "History Tracers Team",
+                     "page": "Limites e contextos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee",
@@ -332,7 +381,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
                "text": "#### Limits of Science\n\nPhrases like \"scientific results are just theories\" are common, leading us to a reflection:",

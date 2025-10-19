@@ -23,7 +23,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1760755014"
+      "1760898294"
    ],
    "authors": null,
    "reviewers": null,
@@ -35,7 +35,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "<p><hr /></p>",
+               "text": "<p><hr /></p><p><span id=\"htZoomImageMsg\"></span></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -104,8 +104,21 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"Experiment\" onclick=\"htImageZoom('Experiment', '0%')\" src=\"images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg\" class=\"imgcenter\"/><b>Figura 1</b>: Descripción de los experimentos de Ibn Al-Haytham. Imagen extraída de Archive (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('de651eda-c584-444f-9ec0-67f1a43aa4a6'); return false;\">The Optics Of Ibn Al Haytham, Books I III, On Direct Vision</a>)</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"Experiment\" onclick=\"htImageZoom('Experiment', '0%')\" src=\"images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg\" class=\"imgcenter\"/><b>Figura 1</b>: Descripción de los experimentos de Ibn Al-Haytham. Imagen extraída de Archive (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "de651eda-c584-444f-9ec0-67f1a43aa4a6",
+                     "text": "The Optics Of Ibn Al Haytham, Books I III, On Direct Vision",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -156,7 +169,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Contribución conjunta\n\nAmbos trabajos contribuyeron significativamente al desarrollo de la ciencia tal como la conocemos, ayudándonos a explicar y entender fenómenos naturales. Estas contribuciones permitieron avances importantes en nuestras vidas, como el tratamiento de enfermedades.",
+               "text": "#### Contribución conjunta\n\nAmbos trabajos contribuyeron al desarrollo de la ciencia tal como la conocemos, ayudándonos a explicar y entender la naturaleza. Estas contribuciones permitieron avances importantes en nuestras vidas, como el tratamiento de enfermedades.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -224,7 +237,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Confirmación del resultado</b><br />Seleccione otra pequeña caja hecha de un material que produzca ruido al golpear su lateral.<br /><br />Ahora, escoja tres objetos pequeños que quepan dentro de la caja, dejando un espacio entre ellos y las paredes de la caja. Prefiera seleccionar objetos completamente diferentes a los de la primera práctica. Por ejemplo, un grano de arroz, un poco de azúcar y un trozo de papel arrugado.<br /><br />Haga una lista ordenada, similar a la lista de la práctica 1.<br /><br />Repita el procedimiento de agitar un objeto a la vez dentro de la caja y verifique si los resultados coinciden con su hipótesis.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Confirmación del resultado</b><<br /><br />Ahora, escoja tres objetos pequeños completamente diferentes a los de la primera práctica. Por ejemplo, un grano de arroz, un poco de azúcar y un trozo de papel arrugado.<br /><br />Haga una lista ordenada, similar a la lista de la práctica 1.<br /><br />Repita el procedimiento de agitar un objeto a la vez dentro de la caja y verifique si los resultados coinciden con su hipótesis.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -265,8 +278,44 @@
                "PostMention": ""
             },
             {
-               "text": "Debemos ser cautelosos con términos como \"correcto\" e \"incorrecto\", ya que podríamos estar simplemente frente a una investigación que ha identificado una limitación en un resultado anterior, lo que no necesariamente hace que el resultado previo sea incorrecto.\n\nPor ejemplo, no deberíamos descartar la ley de la gravitación propuesta por Sir Isaac Newton y adoptar exclusivamente la teoría de la relatividad de Albert Einstein, ya que los resultados de Newton explican fenómenos observados en la Tierra, aunque no explican fenómenos en el universo",
+               "text": "Debemos ser cautelosos con términos como \"correcto\" e \"incorrecto\" (<htcite0>; <htcite1>; <htcite2>), ya que podríamos estar simplemente frente a una investigación que ha identificado una limitación en un resultado anterior, lo que no necesariamente hace que el resultado previo sea incorrecto.\n\nPor ejemplo, no deberíamos descartar la ley de la gravitación propuesta por Sir Isaac Newton y adoptar exclusivamente la teoría de la relatividad de Albert Einstein, ya que los resultados de Newton explican fenómenos observados en la Tierra, aunque no explican fenómenos en el universo (<htcite3>; <htcite4>; <htcite5>; <htcite6>; <htcite7>).",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6f9bd52-c0cb-497e-9217-1f9677d5b491",
+                     "text": "History Tracers Team",
+                     "page": "Ampliando...",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3c81aa4a-3030-4767-861a-25f13272776f",
+                     "text": "History Tracers Team",
+                     "page": "Sempre presente",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f208f755-08ef-4cff-8699-8bd62ddd3035",
+                     "text": "History Tracers Team",
+                     "page": "Limites e contextos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee",
@@ -332,7 +381,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
                "text": "#### Límites de las Ciencias\n\nNo es raro escuchar frases como: \"los resultados científicos son solo teorías\". Esto nos lleva a una nueva reflexión:",
