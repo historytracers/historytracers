@@ -23,7 +23,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1760019691"
+      "1760898294"
    ],
    "authors": null,
    "reviewers": null,
@@ -35,7 +35,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "<p><hr /></p>",
+               "text": "<p><hr /></p><p><span id=\"htZoomImageMsg\"></span></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -44,7 +44,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Introdução\n\nNa vida, estamos sempre em busca de explicações para os eventos que ocorrem ao nosso redor. Algumas dessas explicações, embora utilizem palavras que, à primeira vista, podem parecer corretas, não resistem quando submetidas a testes e comprovações. Por outro lado, há explicações que surgem sólidas e consistentes, e, toda vez que as avaliamos, conseguimos confirmar e validar sua precisão. Mas, afinal, como podemos determinar se uma explicação é boa ou não?",
+               "text": "### Introdução\n\nNa vida, estamos sempre em busca de explicações para os acontecimentos ao nosso redor. Algumas dessas explicações, embora usem palavras que à primeira vista possam parecer corretas, não resistem quando são testadas em experimentos. Por outro lado, há explicações que se mostram fortes e, toda vez que as testamos novamente, conseguimos confirmá-las. Mas, afinal, como saber se uma explicação é realmente boa?",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -58,7 +58,7 @@
          "id": "SECTION_propose",
          "text": [
             {
-               "text": "### A proposta do método\n\nA utilização de um método de investigação ocorreu em momentos distintos e em locais diferentes. Neste texto, seguindo a ordem cronológica, descrevemos parte dos trabalhos de Ibn Al-Haytham e Sir Francis Bacon.\n\n#### Ibn Al-Haytham\n\nAo estudarmos o trabalho de Ibn Al-Haytham, observamos uma descrição precisa dos experimentos, que o levaram a concluir que, ao atingir um objeto, a luz reflete nos olhos. Os experimentos e as conclusões corretas alcançadas por ele fornecem um modelo para compreender a natureza",
+               "text": "### A proposta do método\n\nO uso de um método de investigação ocorreu em momentos distintos e em locais diferentes. Neste texto, estudaremos os trabalhos de Ibn Al-Haytham e Sir Francis Bacon.\n\n#### Ibn Al-Haytham\n\nAo estudarmos o trabalho de Ibn Al-Haytham, observamos uma descrição precisa de seus experimentos, que o levaram a concluir que enxergamos algo porque a luz atinge um objeto e reflete em nossos olhos (<htcite0>; <htcite1>; <htcite2>).\n\nOs experimentos científicos, como os de Ibn Al-Haytham, nos auxiliam a confirmar os modelos que criamos para explicar a natureza: não adianta apenas dizer que algo funciona de uma determinada maneira se não podemos comprovar essa explicação por meio de medições.",
                "source": [
                   {
                      "type": 1,
@@ -101,11 +101,24 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"Experiment\" onclick=\"htImageZoom('Experiment', '0%')\" src=\"images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg\" class=\"imgcenter\"/><b>Figura 1</b>: Descrição de experimentos de Ibn Al-Haytham. Imagem extraída de Archive (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('de651eda-c584-444f-9ec0-67f1a43aa4a6'); return false;\">The Optics Of Ibn Al Haytham, Books I III, On Direct Vision</a>)</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"Experiment\" onclick=\"htImageZoom('Experiment', '0%')\" src=\"images/Archive/The_Optics_of_Ibn_al-Haytham_22.jpg\" class=\"imgcenter\"/><b>Figura 1</b>: Descrição de experimentos de Ibn Al-Haytham. Imagem extraída de Archive (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "de651eda-c584-444f-9ec0-67f1a43aa4a6",
+                     "text": "The Optics Of Ibn Al Haytham, Books I III, On Direct Vision",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -156,7 +169,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Contribuição conjunta\n\nAmbos os trabalhos contribuíram significativamente para o desenvolvimento das ciências como as conhecemos, ajudando-nos a explicar e entender fenômenos naturais. Essas contribuições permitiram avanços importantes em nossas vidas, como o tratamento de doenças.",
+               "text": "#### Contribuição conjunta\n\nAmbos os trabalhos contribuíram para o desenvolvimento das ciências como as conhecemos, ajudando-nos a explicar e entender a natureza. Essas contribuições permitiram avanços importantes em nossas vidas, como o tratamento de doenças.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -206,7 +219,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Aplicando o método para testar som</b><br /><br />Escolha uma caixa feita de um material que produza som quando algo bate em sua lateral.<br /><br />Agora, selecione três objetos pequenos que sejam menores que a caixa. Por exemplo, você pode escolher um feijão, uma pequena pedra e um pedaço de algodão.<br /><br />Pegue uma folha de papel e escreva o nome dos objetos escolhidos. Descreva o tipo de som que você espera que cada um produza e atribua números de 1 a 3 para indicar o nível de intensidade do som, em comparação com os outros objetos. Por exemplo:<br /><br /><b>Algodão - barulho pequeno - 1</b><br /><b>Feijão: barulho moderado – 2</b><br /><b>Pedra: barulho alto – 3</b><br /><br />Esta folha de papel contém sua hipótese. Agora, é hora de testá-la. Coloque um objeto de cada vez na caixa, feche-a e agite-a. Verifique se os resultados correspondem às suas anotações.<br /><br />Se os resultados estiverem de acordo com suas anotações, sua hipótese será confirmada. Se o experimento revelar problemas com a ordem inicial, ajuste a ordem conforme necessário. Se os resultados forem completamente diferentes, será necessário descartar a hipótese.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Aplicando o método para testar som</b><br /><br />Escolha uma caixa feita de um material que produza som quando algo bate em sua lateral.<br /><br />Agora, selecione três objetos pequenos que sejam menores que a caixa. Por exemplo, você pode escolher um feijão, uma pequena pedra e um pedaço de algodão.<br /><br />Pegue uma folha de papel e escreva o nome dos objetos escolhidos. Descreva o tipo de som que você espera que cada um produza e atribua números de 1 a 3 para indicar o nível de intensidade do som, em comparação com os outros objetos. Por exemplo:<br /><br /><b>Algodão - barulho pequeno - 1</b><br /><b>Feijão: barulho moderado – 2</b><br /><b>Pedra: barulho alto – 3</b><br /><br />Esta folha de papel contém sua hipótese. Agora, é hora de testá-la. Coloque um objeto de cada vez na caixa, feche-a e agite-a. Verifique se os resultados são iguais às suas anotações.<br /><br />Se os resultados estiverem de acordo com suas anotações, sua hipótese será confirmada. Se o experimento revelar problemas com a ordem inicial, ajuste a ordem conforme necessário. Se os resultados forem completamente diferentes, será necessário descartar a hipótese.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -224,7 +237,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Confirmando o resultado</b><br />Escolha outra pequena caixa feita de um material que produza som quando algo bate em sua lateral.<br /><br />Selecione três objetos pequenos que caibam dentro da caixa, deixando um espaço entre eles e as paredes da caixa. Procure usar objetos diferentes dos escolhidos anteriormente. Por exemplo, você pode escolher um grão de arroz, uma borracha e um pedaço de papel amassado.<br /><br />Faça uma lista ordenada semelhante à lista da prática 1.<br /><br />Repita o procedimento de agitar um objeto de cada vez e verifique se os resultados correspondem à sua hipótese.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Confirmando o resultado</b><br /><br />Agora, escolha três objetos pequenos diferentes dos escolhidos anteriormente. Por exemplo, você pode escolher um grão de arroz, uma borracha e um pedaço de papel amassado.<br /><br />Faça uma lista ordenada semelhante à lista da prática 1.<br /><br />Repita o procedimento de agitar um objeto de cada vez e verifique se os resultados correspondem à sua hipótese.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -265,8 +278,44 @@
                "PostMention": ""
             },
             {
-               "text": "É importante ter cuidado ao usar os termos \"certo\" e \"errado\" na ciência, pois muitas vezes uma nova pesquisa revela apenas as limitações do conhecimento anterior, sem necessariamente torná-lo falso.\n\nPor exemplo, não devemos descartar completamente a teoria da gravitação proposta por Sir Isaac Newton em favor da teoria da relatividade geral de Albert Einstein. Os resultados de Newton continuam a explicar muitos fenômenos observados na Terra, mesmo que não expliquem tudo o que vemos no espaço",
+               "text": "É importante ter cuidado ao usar os termos \"certo\" e \"errado\" na ciência (<htcite0>; <htcite1>; <htcite2>), pois muitas vezes uma nova pesquisa revela apenas as limitações do conhecimento anterior, sem necessariamente torná-lo falso.\n\nPor exemplo, não devemos descartar completamente a teoria da gravitação proposta por Sir Isaac Newton em favor da teoria da relatividade geral de Albert Einstein. Os resultados de Newton continuam a explicar muitos fenômenos observados na Terra, mesmo que não expliquem tudo o que vemos no espaço (<htcite3>; <htcite4>; <htcite5>; <htcite6>; <htcite7>).",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6f9bd52-c0cb-497e-9217-1f9677d5b491",
+                     "text": "History Tracers Team",
+                     "page": "Ampliando...",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3c81aa4a-3030-4767-861a-25f13272776f",
+                     "text": "History Tracers Team",
+                     "page": "Sempre presente",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f208f755-08ef-4cff-8699-8bd62ddd3035",
+                     "text": "History Tracers Team",
+                     "page": "Limites e contextos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
                   {
                      "type": 1,
                      "uuid": "9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee",
@@ -332,7 +381,7 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
-               "PostMention": "."
+               "PostMention": ""
             },
             {
                "text": "#### Limites da ciência\n\nNão é incomum ouvirmos frases como: \"os resultados científicos são apenas teorias\". Isso nos leva a uma nova reflexão:",
