@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1760982577"
+      "1761069070"
    ],
    "authors": null,
    "reviewers": null,
@@ -43,22 +43,6 @@
       {
          "id": "SECTION_prerequisites",
          "text": [
-            {
-               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p><p><span id=\"htAgeMsg\"></span></p>",
-               "source": null,
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2011",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
             {
                "text": "### Prerequisites\n\nThis text continues the study of division by four. Therefore, we recommend reading the previous text (<htcite0>) before proceeding.",
                "source": [
@@ -87,7 +71,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introduction\n\nAs we have seen, to divide means to transform matter into something different without any loss of quantity (<htcite0>). When we divide something once and then divide it again, the conservation of matter still holds true.\n\nDividing again means repeating an action that has already been performed. This is the same idea we observed in the case of multiplication (<htcite2>).",
+               "text": "### Introduction\n\nAs we have seen, to divide means to transform matter into something different without any loss of material—despite the separation—a principle that was named the Law of Conservation of Matter (<htcite0>; <htcite1>).\n\nDividing again means repeating an action that has already been performed. This is the same idea we observed in the case of multiplication (<htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -406,18 +390,37 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, based on the knowledge we have gained about addition and multiplication, we saw that successive division can be derived from these earlier concepts through the multiplication of fractions.\n\nIf, for some reason, the fact that we were dividing went unnoticed, that’s not a problem.\n\nThe most important thing here is to understand that previous operations are connected to new ones.\n\nThe knowledge learned in this text represents another important step in building our understanding of the universe, since it forms one of the foundations of various fields — from the use of money to buy our food to the principles that help us understand the universe itself, which we will explore again in the next text.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "O numerador de uma fração representa o todo?",
+         "question": "Does the numerator of a fraction represent the whole?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "A parte superior da fração representa a totalidade que está sendo compartilhada entre as quantidades no denominador, a parte inferior."
+         "additionalInfo": "The top part of the fraction represents the whole that is being divided among the quantities indicated in the denominator, the bottom part."
       },
       {
-         "question": "Na multiplicação da fração, multiplicamos o todo (numerador) pelo todo e as partes (denominador) pelas partes?",
+         "question": "In fraction multiplication, do we multiply the whole (numerator) by the whole and the parts (denominator) by the parts?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Quando realizamos multiplicação entre frações, sempre multiplicamos quantidades iguais."
+         "additionalInfo": "When multiplying fractions, we multiply numerators with numerators and denominators with denominators — in other words, equivalent quantities."
+      },
+      {
+         "question": "Let’s return to Calculation 1. Suppose we now want to divide the halves into 3 parts. Does this mean that, in the end, we’ll have 3 parts (1/3)?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "<br /><p><center><math mathsize=\"1.5em\"> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn>  <mn>1</mn> <mn>)</mn><mo>=</mo> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn> <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> <mn>)</mn>  <mo>+</mo> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> <mn>)</mn> </math></p><p><center><math mathsize=\"1.5em\"> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn> <mfrac mathsize=\"big\"> <mrow> <mn>1</mn></mrow><mrow><mn>1</mn><mrow> </mfrac>  <mn>)</mn><mo>=</mo> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn> <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> <mn>)</mn>  <mo>+</mo> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> <mn>)</mn> </math></p><p><center><math mathsize=\"1.5em\"> <mfrac mathsize=\"big\"> <mrow> <mn>3 × 1</mn></mrow><mrow><mn>3 × 1</mn><mrow> </mfrac> <mo>=</mo>  <mfrac> <mrow> <mn>3 × 1</mn></mrow><mrow><mn>3 × 2</mn><mrow> </mfrac>  <mo>+</mo>  <mfrac> <mrow> <mn>3 × 1</mn></mrow><mrow><mn>3 × 2</mn><mrow> </mfrac> </math></p><p><center><math mathsize=\"1.5em\"> <mn>1</mn> <mo>=</mo> <mfrac> <mrow> <mn>3</mn></mrow><mrow><mn>6</mn><mrow> </mfrac>  <mo>+</mo>  <mfrac> <mrow> <mn>3</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>=</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac>  </math></p>"
       }
    ],
    "game_v2": null,

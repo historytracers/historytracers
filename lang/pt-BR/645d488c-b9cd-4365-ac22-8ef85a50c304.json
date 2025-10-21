@@ -32,7 +32,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1760982577"
+      "1761069070"
    ],
    "authors": null,
    "reviewers": null,
@@ -43,22 +43,6 @@
       {
          "id": "SECTION_prerequisites",
          "text": [
-            {
-               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p><p><span id=\"htAgeMsg\"></span></p>",
-               "source": null,
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2011",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
             {
                "text": "### Pré-requisitos\n\nEste texto dá continuidade ao estudo da divisão por quatro. Por isso, recomendamos a leitura do texto anterior (<htcite0>) antes de prosseguir.",
                "source": [
@@ -87,7 +71,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introdução\n\nComo temos visto, dividir significa transformar a matéria em algo diferente sem perda de quantidade (<htcite0>). Quando dividimos algo uma vez e voltamos a dividi-lo, a conservação da matéria permanece.\n\nDividir novamente significa repetir uma ação já realizada anteriormente. Essa é a mesma ideia que observamos no caso da multiplicação (<htcite2>).",
+               "text": "### Introdução\n\nComo temos visto, dividir significa transformar a matéria em algo diferente, sem perda de matéria - apesar da separação - que foi denominada Lei da Conservação da Matéria (<htcite0>; <htcite1>). Quando dividimos algo uma vez e voltamos a dividi-lo, a conservação da matéria permanece.\n\nDividir novamente significa repetir uma ação já realizada anteriormente. Essa é a mesma ideia que observamos no caso da multiplicação (<htcite2>).",
                "source": [
                   {
                      "type": 1,
@@ -406,18 +390,37 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, a partir dos conhecimentos adquiridos sobre soma e multiplicação, vimos que a divisão consecutiva pode ser derivada desses conceitos anteriores por meio da multiplicação de frações.\n\nSe, por algum motivo, o fato de estarmos dividindo passou despercebido, isso não é um problema.\n\nO mais importante aqui é compreender que as operações anteriores estão relacionadas com as novas.\n\nO conhecimento aprendido neste texto representa mais um passo importante na construção do nosso entendimento sobre o universo, pois é um dos fundamentos de diversas áreas — desde o uso do dinheiro para comprar nossos alimentos até as bases para compreender o próprio universo, tema que voltaremos a explorar no próximo texto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
          "question": "O numerador de uma fração representa o todo?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "A parte superior da fração representa a totalidade que está sendo compartilhada entre as quantidades no denominador, a parte inferior."
+         "additionalInfo": "A parte superior da fração representa a totalidade que está sendo dividida entre as quantidades indicadas no denominador, a parte inferior."
       },
       {
-         "question": "Na multiplicação da fração, multiplicamos o todo (numerador) pelo todo e as partes (denominador) pelas partes?",
+         "question": "Na multiplicação de frações, multiplicamos o todo (numerador) pelo todo e as partes (denominador) pelas partes?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Quando realizamos multiplicação entre frações, sempre multiplicamos quantidades iguais."
+         "additionalInfo": "Ao multiplicar frações, multiplicamos numeradores entre si e denominadores entre si, ou seja, quantidades equivalentes."
+      },
+      {
+         "question": "Voltemos ao Cálculo 1. Suponha que agora desejamos dividir as metades em 3 partes. Isso significa que, ao final, teremos 3 partes (1/3)?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "<br /><p><center><math mathsize=\"1.5em\"> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn>  <mn>1</mn> <mn>)</mn><mo>=</mo> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn> <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> <mn>)</mn>  <mo>+</mo> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> <mn>)</mn> </math></p><p><center><math mathsize=\"1.5em\"> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn> <mfrac mathsize=\"big\"> <mrow> <mn>1</mn></mrow><mrow><mn>1</mn><mrow> </mfrac>  <mn>)</mn><mo>=</mo> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn> <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> <mn>)</mn>  <mo>+</mo> <mfrac mathsize=\"big\"> <mrow> <mn>3</mn></mrow><mrow><mn>3</mn><mrow> </mfrac> <mn>(</mn>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>2</mn><mrow> </mfrac> <mn>)</mn> </math></p><p><center><math mathsize=\"1.5em\"> <mfrac mathsize=\"big\"> <mrow> <mn>3 × 1</mn></mrow><mrow><mn>3 × 1</mn><mrow> </mfrac> <mo>=</mo>  <mfrac> <mrow> <mn>3 × 1</mn></mrow><mrow><mn>3 × 2</mn><mrow> </mfrac>  <mo>+</mo>  <mfrac> <mrow> <mn>3 × 1</mn></mrow><mrow><mn>3 × 2</mn><mrow> </mfrac> </math></p><p><center><math mathsize=\"1.5em\"> <mn>1</mn> <mo>=</mo> <mfrac> <mrow> <mn>3</mn></mrow><mrow><mn>6</mn><mrow> </mfrac>  <mo>+</mo>  <mfrac> <mrow> <mn>3</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>=</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac> <mo>+</mo>  <mfrac> <mrow> <mn>1</mn></mrow><mrow><mn>6</mn><mrow> </mfrac>  </math></p>"
       }
    ],
    "game_v2": null,
