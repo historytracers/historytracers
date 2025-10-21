@@ -780,7 +780,7 @@ func htLoadKeywordFile(name string, lang string) error {
 func htPrepareQuestions(questions []HTExercise) string {
 	strQuestions := commonKeywords[50] + ".\n\n"
 	for _, quest := range questions {
-		strQuestions += quest.Question + ".\n" + quest.AdditionalInfo + "\n\n"
+		strQuestions += quest.Question + ".\n\n" + quest.AdditionalInfo + "\n\n"
 	}
 
 	return strQuestions
