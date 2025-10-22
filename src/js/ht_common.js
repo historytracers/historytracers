@@ -2539,6 +2539,8 @@ function htFillWebPage(page, data)
 
             if (data.atlas != undefined) {
                 htFillAtlas(data);
+
+                if (typeof htLoadContent !== "undefined") htLoadContent();
             }
         } else if (data.type == "index") {
             for (const i in data.content) {
