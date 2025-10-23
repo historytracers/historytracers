@@ -22,7 +22,7 @@ function htCheckAnswers()
 }
 
 function htLoadContent() {
-    htAddReligionReflection("#htReligiousReflection");
+    htAddTreeReflection("#myFirstReflection", 55);
     $("#SumerianKingListDesc").html(keywords[90]);
 
     htWriteNavigation();
