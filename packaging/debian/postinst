@@ -1,0 +1,49 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    configure)
+        # Create user and group if they don't exist
+        if ! getent group historytracers >/dev/null; then
+            addgroup --system historytracers
+        fi
+        
+        if ! getent passwd historytracers >/dev/null; then
+            adduser --system --ingroup historytracers --no-create-home \
+                    --home /usr/share/historytracers --shell /bin/false \
+                    --gecos "History Tracers User" historytracers
+        fi
+        
+        # Set permissions on web directories
+        chown -R historytracers:historytracers /usr/share/historytracers/www
+        chmod 755 /usr/share/historytracers/www
+        chmod 755 /usr/share/historytracers/www/bodies
+        chmod 755 /usr/share/historytracers/www/css
+        
+        # Reload systemd and enable service
+        systemctl daemon-reload >/dev/null 2>&1 || true
+        
+        # If the service should be enabled by default
+        if [ "$2" = "" ] || [ "$2" = configure ]; then
+            if systemctl is-enabled historytracers.service >/dev/null 2>&1; then
+                systemctl restart historytracers.service || true
+            else
+                systemctl enable historytracers.service >/dev/null 2>&1 || true
+                systemctl start historytracers.service >/dev/null 2>&1 || true
+            fi
+        fi
+    ;;
+    
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+    
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+# dh_installsystemd
+deb-systemd-invoke restart historytracers.service >/dev/null 2>&1 || true
+
+exit 0

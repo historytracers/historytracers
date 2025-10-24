@@ -67,14 +67,14 @@ ht_build_rpm() {
     # cp packaging/historytracers.spec ~/rpmbuild/SPECS
     #
     # Create Structure
-    # mkdir -p ~/rpmbuild/SOURCES/etc/historytracers/
     # mkdir -p ~/rpmbuild/SOURCES/usr/bin
     # mkdir -p ~/rpmbuild/SOURCES/usr/share/historytracers/
     #
     # Copies
-    # cp packaging/conf/historytracers.conf ~/rpmbuild/SOURCES/etc/historytracers/
-    # cp build/historytracers ~/rpmbuild/SOURCES/usr/bin
-    # cp -R www/{bodies,css,csv,gedcom,images,index.html,js,lang/en-US,webfonts} ~/rpmbuild/SOURCES/usr/share/historytracers/
+    # cp packaging/conf/historytracers.conf ~/rpmbuild/SOURCES/
+    # cp build/historytracers ~/rpmbuild/SOURCES/
+    # cp -R www/{bodies,css,csv,gedcom,images,index.html,js,lang/en-US,lang/sources/,webfonts} ~/rpmbuild/SOURCES/usr/share/historytracers/
+    # cp LICENSE README.md packaging/service/historytracers.service ~/rpmbuild/SOURCES/
     #
     # Build Package
     # rpmbuild -bb ~/rpmbuild/SPECS/historytracers.spec

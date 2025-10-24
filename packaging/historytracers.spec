@@ -41,6 +41,7 @@ install -d %{buildroot}%{_datadir}/historytracers/www/css
 install -d %{buildroot}%{_datadir}/historytracers/www/csv
 install -d %{buildroot}%{_datadir}/historytracers/www/gedcom
 install -d %{buildroot}%{_datadir}/historytracers/www/js
+install -d %{buildroot}%{_datadir}/historytracers/www/lang
 install -d %{buildroot}%{_datadir}/historytracers/www/webfonts
 
 # Install web content if it exists in source
@@ -50,6 +51,8 @@ install -d %{buildroot}%{_datadir}/historytracers/www/webfonts
 [ -d www/gedcom ] && cp -r www/gedcom/* %{buildroot}%{_datadir}/historytracers/www/gedcom/ 2>/dev/null || :
 [ -d www/index.html ] && cp www/index.html %{buildroot}%{_datadir}/historytracers/www/index.html 2>/dev/null || :
 [ -d www/js ] && cp -r www/js/* %{buildroot}%{_datadir}/historytracers/www/js/ 2>/dev/null || :
+[ -d www/lang ] && cp -r www/lang/en-US %{buildroot}%{_datadir}/historytracers/www/lang/ 2>/dev/null || :
+[ -d www/sources ] && cp -r www/lang/en-US %{buildroot}%{_datadir}/historytracers/www/lang/ 2>/dev/null || :
 [ -d www/webfonts ] && cp -r www/webfonts/* %{buildroot}%{_datadir}/historytracers/www/webfonts/ 2>/dev/null || :
 
 # Create runtime directory
