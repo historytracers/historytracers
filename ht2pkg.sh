@@ -82,6 +82,17 @@ ht_build_rpm() {
 
 ht_build_deb() {
     echo "Building DEB package"
+    # Install dependencies
+    # apt-get update
+    # apt-get install devscripts debhelper dh-systemd build-essential
+    #
+    # cp -R packaging/debian/ .
+    # chmod +x debian/rules
+    #
+    # dpkg-buildpackage -us -uc
+    # debuild -us -uc
+    #
+    # rm -rf debian
 }
 
 ht_build_slackware() {
