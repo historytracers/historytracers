@@ -1,10 +1,14 @@
+#!/bin/bash
+
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 # Script used to generate History Tracers package
 
-#!/bin/bash
-
 set -e
+
+MAKERPM="0"
+MAKEDEB="0"
+MAKESLACKWARE="0"
 
 ht_create_directories () {
     mkdir -p build-aux
@@ -45,4 +49,62 @@ make all
 ./build/historytracers -minify -audiofiles -gedcom -verbose > historytracers.log
 
 ht_copy_files
+
+ht_usage() {
+    cat <<HTDOC
+        bash ht2pkg".sh --deb --rpm --slackbuild
+        Create installer packages."
+HTDOC
+}
+
+ht_build_rpm() {
+    echo "Building RPM package"
+}
+
+ht_build_deb() {
+    echo "Building DEB package"
+}
+
+ht_build_slackware() {
+    echo "Building Slackware package"
+}
+
+if [ $# -lt 1 ]; then
+    exit 0
+fi
+
+while [[ $# -gt 0 ]]; do
+    case "${1}" in
+        "--rpm" | "-r")
+            MAKERPM="1"
+            shift #pass argument
+            ;;
+        "--deb" | "-d")
+            MAKEDEB="1"
+            shift #pass argument
+            ;;
+        "--slackbuild" | "-s")
+            MAKESLACKWARE="1"
+            shift #pass argument
+            ;;
+        "--help" | "-h")
+            ;;
+        *)
+            ht_usage;
+            exit 0;
+            ;;
+    esac
+done
+
+if [ "${MAKERPM}" == "1" ]; then
+    ht_build_rpm
+fi
+
+if [ "${MAKEDEB}" == "1" ]; then
+    ht_build_deb
+fi
+
+if [ "${MAKESLACKWARE}" == "1" ]; then
+    ht_build_slackware
+fi
 
