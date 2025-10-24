@@ -38,6 +38,10 @@ install -d %{buildroot}%{_sysconfdir}/historytracers
 # Create web directories
 install -d %{buildroot}%{_datadir}/historytracers/www/bodies
 install -d %{buildroot}%{_datadir}/historytracers/www/css
+install -d %{buildroot}%{_datadir}/historytracers/www/csv
+install -d %{buildroot}%{_datadir}/historytracers/www/gedcom
+install -d %{buildroot}%{_datadir}/historytracers/www/js
+install -d %{buildroot}%{_datadir}/historytracers/www/webfonts
 
 # Install web content if it exists in source
 [ -d www/bodies ] && cp -r www/bodies/* %{buildroot}%{_datadir}/historytracers/www/bodies/ 2>/dev/null || :

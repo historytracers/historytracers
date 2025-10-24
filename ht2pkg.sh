@@ -59,6 +59,25 @@ HTDOC
 
 ht_build_rpm() {
     echo "Building RPM package"
+    # Create initial structure
+    # mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+    # echo "%_topdir %(echo $HOME)/rpmbuild" > ~/.rpmmacros
+    #
+    # Copy SPEC
+    # cp packaging/historytracers.spec ~/rpmbuild/SPECS
+    #
+    # Create Structure
+    # mkdir -p ~/rpmbuild/SOURCES/etc/historytracers/
+    # mkdir -p ~/rpmbuild/SOURCES/usr/bin
+    # mkdir -p ~/rpmbuild/SOURCES/usr/share/historytracers/
+    #
+    # Copies
+    # cp packaging/conf/historytracers.conf ~/rpmbuild/SOURCES/etc/historytracers/
+    # cp build/historytracers ~/rpmbuild/SOURCES/usr/bin
+    # cp -R www/{bodies,css,csv,gedcom,images,index.html,js,lang/en-US,webfonts} ~/rpmbuild/SOURCES/usr/share/historytracers/
+    #
+    # Build Package
+    # rpmbuild -bb ~/rpmbuild/SPECS/historytracers.spec
 }
 
 ht_build_deb() {
