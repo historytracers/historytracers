@@ -1,0 +1,16 @@
+[Unit]
+Description=History Tracers
+After=network.target
+
+[Service]
+Type=simple
+User=historytracers
+Group=historytracers
+WorkingDirectory=/var/www/htdocs/historytracers
+ExecStart=/usr/bin/historytracers
+Restart=on-failure
+RestartSec=10
+SyslogIdentifier=historytracers
+
+[Install]
+WantedBy=multi-user.target

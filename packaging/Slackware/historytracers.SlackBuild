@@ -1,0 +1,89 @@
+#!/bin/sh
+
+# SlackBuild for historytracers
+# Builds a Slackware package from source
+
+PRGNAM=historytracers
+VERSION=${VERSION:-1.0.0}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+
+if [ -z "$ARCH" ]; then
+  case "$(uname -m)" in
+    x86_64) ARCH=x86_64 ;;
+    i?86) ARCH=i586 ;;
+    arm*) ARCH=arm ;;
+    *) ARCH=$(uname -m) ;;
+  esac
+fi
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+# Set source directory
+SRCDIR=$CWD
+
+# Check for source
+if [ ! -d "$SRCDIR" ]; then
+  echo "Source directory $SRCDIR not found"
+  exit 1
+fi
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+
+cd $SRCDIR
+
+# Create package directory structure
+mkdir -p $PKG/usr/bin
+mkdir -p $PKG/usr/share/$PRGNAM/www/bodies
+mkdir -p $PKG/usr/share/$PRGNAM/www/css
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+mkdir -p $PKG/install
+mkdir -p $PKG/etc/$PRGNAM
+mkdir -p $PKG/var/lib/$PRGNAM
+
+./ht2pkg
+
+# Install the binary
+install -m 755 historytracers $PKG/usr/bin/historytracers
+
+# Install script
+if [ -f packaging/sysvinit-script/rc.historytracers ]; then
+  install -m 644 packaging/sysvinit-script/rc.historytracers $PKG/etc/rc.d/
+fi
+
+# Install content
+if [ -d "www/" ]; then
+  cp -R www/* $PKG/usr/share/$PRGNAM/www/ 2>/dev/null || true
+fi
+
+# Install documentation
+if [ -f LICENSE ]; then
+  install -m 644 LICENSE $PKG/usr/doc/$PRGNAM-$VERSION/
+fi
+if [ -f README.md ]; then
+  install -m 644 README.md $PKG/usr/doc/$PRGNAM-$VERSION/
+fi
+
+# Create doinst.sh script for post-installation
+
+chmod 755 $PKG/install/doinst.sh
+
+# Fix permissions
+find $PKG -type d -exec chmod 755 {} \;
+chown -R root:root $PKG
+find $PKG -type f -perm 755 -exec chmod 755 {} \;
+find $PKG -type f -perm 644 -exec chmod 644 {} \;
+
+# Build the package
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.txz
+
+echo
+echo "Package built: $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.txz"
+echo
