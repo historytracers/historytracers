@@ -86,7 +86,7 @@ ht_build_deb() {
     # apt-get update
     # apt-get install devscripts debhelper dh-systemd build-essential
     #
-    # cp -R packaging/debian/ .
+    # cp -R packaging/Debian/ debian
     # chmod +x debian/rules
     #
     # dpkg-buildpackage -us -uc
