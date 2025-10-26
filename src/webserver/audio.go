@@ -109,6 +109,11 @@ func htTextPersonIntroduction(name string) string {
 
 func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 string) string {
 	var intro string = ""
+	if sex != "masculine" && sex != "masculino" && sex != "feminino" && sex != "femenino" && sex != "feminine" {
+		text := fmt.Sprintf("%s is an Invalid value: 'masculine', 'masculino', 'feminino' and 'feminine'.", sex)
+		panic(text)
+	}
+
 	if lang == "pt-BR" {
 		if sex == "masculine" || sex == "masculino" {
 			intro = "Filho de "
