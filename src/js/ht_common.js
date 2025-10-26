@@ -907,14 +907,17 @@ function htAppendFamilyData(prefix, id, familyID, name, table, page) {
     if (history != undefined) {
         var title;
         var goToTop;
+        var personalEvents;
         if ((parents == undefined || marriages == undefined) && (prefix != "tree")) {
             title = keywords[8];
             goToTop ="<a href=\"javascript:void(0);\" onclick=\"htScroolToID('#index_list');\">"+keywords[78]+"</a>";
+            personalEvents = "";
         } else {
             title = keywords[9];
             goToTop ="";
+            personalEvents = htMountPersonEvents(table);
         }
-        var personalEvents = htMountPersonEvents(table);
+        
         $("#"+prefix+"-"+id).append("<h3 id=\"name-"+id+"\" onclick=\"htFillTree('"+id+"'); htSetCurrentLinkBasis('"+page+"', '"+id+"',"+undefined+");\">"+title + " : " +name+" (<a id=\""+prefix+"_"+id+"link\" href=\"javascript:void(0);\" onclick=\"htCopyLink('"+page+"', '"+id+"', '"+prefix+"_"+id+"link'); return false;\" >"+keywords[26]+"</a>). "+goToTop+"</h3><p>"+personalEvents+"</p>");
     }
 

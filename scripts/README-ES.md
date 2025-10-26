@@ -48,3 +48,4 @@ Todos los scripts actuales producen imágenes para la sección *Primeros Pasos*.
 
 - **Utilidades**
   - `geographical2mathcoord.py` - Conversión de sistemas de coordenadas
+  - `csv_to_gedcom.py` - Conversión de History Tracers CSV a GEDCOM
