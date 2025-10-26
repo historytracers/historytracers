@@ -8,6 +8,7 @@ import (
 	"github.com/BurntSushi/toml"
 	"log"
 	"os"
+	"strings"
 )
 
 type htConfig struct {
@@ -87,7 +88,7 @@ func htUpdateConfig(cfg *htConfig) {
 }
 
 func htPrintOptions() {
-	fmt.Println("History Tracers was compiled with the following options:\n\nConfig Dir:", confPath, "\nSource Path:", CFG.SrcPath, "\nContent Path:", CFG.ContentPath, "\nLog Path:", CFG.LogPath, "\n\n")
+	fmt.Println("History Tracers was compiled with the following options:\n\nConfig Dir:", strings.TrimSpace(confPath), "\nSource Path:", strings.TrimSpace(CFG.SrcPath), "\nContent Path:", strings.TrimSpace(CFG.ContentPath), "\nLog Path:", strings.TrimSpace(CFG.LogPath), "\n\n")
 }
 
 func HTLoadConfig() {

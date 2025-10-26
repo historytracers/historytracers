@@ -133,7 +133,7 @@ AC_ARG_WITH([src-path],
 
 AC_ARG_WITH([content-path],
     [AS_HELP_STRING([--with-content-path=PATH],
-        [Content directory path @<:@default=/var/www/htdocs/historytracers/www/@:>@])],
+        [Content directory path @<:@default=/usr/share/historytracers/www/@:>@])],
     [CONTENT_PATH=$withval],
     [CONTENT_PATH=/var/www/htdocs/historytracers/www/])
 
