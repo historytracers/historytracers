@@ -779,8 +779,18 @@ func htLoadKeywordFile(name string, lang string) error {
 
 func htPrepareQuestions(questions []HTExercise) string {
 	strQuestions := commonKeywords[50] + ".\n\n"
+	// Write Questions
+	i := 1
 	for _, quest := range questions {
-		strQuestions += quest.Question + ".\n\n" + quest.AdditionalInfo + "\n\n"
+		strQuestions += strconv.Itoa(i) + ". " + quest.Question + ".\n\n"
+		i++
+	}
+
+	i = 1
+	strQuestions += commonKeywords[134] + "s.\n\n"
+	for _, ans := range questions {
+		strQuestions += commonKeywords[134] + " " + strconv.Itoa(i) + ". " + ans.AdditionalInfo + "\n\n"
+		i++
 	}
 
 	return strQuestions
