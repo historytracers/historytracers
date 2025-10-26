@@ -1,0 +1,432 @@
+{
+   "title": "Textos como vetores",
+   "header": "Textos como vetores",
+   "sources": [
+      "3cbf2fbf-2cbb-401c-a880-49c05a23d770"
+   ],
+   "scripts": [
+      "3cbf2fbf-2cbb-401c-a880-49c05a23d770"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/3cbf2fbf-2cbb-401c-a880-49c05a23d770_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/dvNbR6TdwVb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "literature"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1760576188"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste texto dá continuidade ao anterior sobre o agrupamento de textos, sendo recomendada a leitura do texto anterior antes deste. Além disso, utilizaremos conceitos de contagem e escalas abordados nos dois primeiros capítulos da seção \"Primeiros Passos\"",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "846ec33f-3360-4fd1-b446-5e254ef13712",
+                     "text": "History Tracers Team",
+                     "page": "Agrupando as Frações",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeiros Passos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nAo abrirmos livros de física cujo tema central é a Mecânica — geralmente o primeiro assunto tratado nas escolas brasileiras — encontramos logo nos capítulos iniciais o conceito de vetor. Nesse estágio, como os alunos ainda estão na fase de uma *proto-matemática*, os vetores são apresentados como possuindo três características fundamentais: tamanho, direção e sentido",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "86c912ce-4205-4d25-957e-4438d8476200",
+                     "text": "Mendes Guimarães, Luiz A. e Fonte Boa, Marcelo C.",
+                     "page": "Livro 1, Cap. 6, pp. 75",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "70fde2da-6b60-4d69-9cb7-525291ee09ff",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "696e5833-e134-4b57-ad3f-8438fe0ec495",
+                     "text": "González Redondo, Francisco A.",
+                     "page": "00:07:50",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p>Neste texto, exploraremos esses conceitos e sua analogia ao estudo de textos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_magnitud",
+         "text": [
+            {
+               "text": "### Tamanho\n\nAo falarmos de tamanho, geralmente pensamos em dimensões como comprimentos, que são medidos com um metro, conforme ilustrado na Figura 1.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMeter\" src=\"images/HistoryTracers/Meter.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('imgMeter', '0%')\" /><b>Figura 1</b>: Representação de escala métrica dividida em 100 centímetros.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No caso dos textos, o tamanho é medido de maneira distinta. Vejamos alguns exemplos:\n\n#### Medidas físicas\n\nChamamos de *medidas físicas* aquelas características identificáveis a olho nu, mesmo sem análise aprofundada do texto, como o número de páginas, colunas ou linhas que compõem um livro ou documento.\n\n#### Medindo os versos\n\nQuando trabalhamos com poemas, observamos a presença de versos métricos, que são agrupados ou classificados conforme seu tamanho em sílabas. Um exemplo clássico de textos com versos bem definidos é a *Odisseia* de Homero. Abaixo, transcrevemos um trecho",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "cd4f68e0-123f-428b-b4ff-8c625062630b",
+                     "text": "Dicionário da Língua Portuguesa",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "56c54c06-24c8-4216-9275-3b58390947c6",
+                     "text": "Homer",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1805",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<ul class=\"citation\"><li><i>\"And Pallas now, to raise the rivals’ fires,</i></li> <li><i>With her own art Penelope inspires.</i></li> <li><i>Who now can bend Ulysses’ bow, and wing</i></li> <li><i>The well-aim’d arrow through the distant ring,</i></li> <li><i>Shall end the strife, and win th’ imperial dame;\"</i></li> </ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Medidas subjetivas\n\nO subjetivo é o aspecto que mais confunde os leitores, pois, por definição, não pode ser mensurado com ferramentas (<htcite0>).\n\nIsso é evidente quando os leitores acreditam que algo foi escrito literalmente, embora palavras possam mudar de sentido ao longo do tempo, e autores tenham a liberdade de empregar figuras de linguagem que alteram os significados (<htcite1>; <htcite2>; <htcite3>).\n\nA complexidade aumenta quando nos deparamos com dados estatísticos que contradizem expectativas ou com a fabricação de fatos históricos. Um exemplo notável é a \"fábrica de judeus\" da Inquisição Portuguesa, descrita por Antonio José Saraiva. A Inquisição produziu documentos falsos para condenar cristãos (<htcite4>).",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "2783a930-c242-48a6-8a4c-4da5177850d7",
+                     "text": "Dicionário da Língua Portuguesa",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "2783a930-c242-48a6-8a4c-4da5177850d7",
+                     "text": "Dicionário da Língua Portuguesa",
+                     "page": "figura, n.21",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "79ea767b-924d-43e3-9bea-a8195b536dde",
+                     "text": "Sabino, Marilei A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0c59c0de-f385-4bf2-8190-166d53e158b5",
+                     "text": "Portuese, Ludovico & Pallavidini, Marta",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d960f232-9cfe-4cb3-8ba2-23af2207799f",
+                     "text": "Saraiva, Antonio José",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1969",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Medindo o...</b><br /><br />Já conseguiu entender o que estamos medindo?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Toda essa explicação visa mostrar que não é simples medir a distância entre um evento físico ou histórico e uma descrição textual. Essa dificuldade ocorre porque o texto pode apresentar uma conexão com os fatos, mas, devido à forma como foi escrito, pode distorcer completamente as dimensões do que realmente aconteceu.\n\nEm resumo, estamos medindo o tamanho da distância entre o fato e o texto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_direction",
+         "text": [
+            {
+               "text": "### Direção [e sentido] na escrita\n\nDurante a elaboração deste texto, observamos que materiais educativos combinam as características de direção e sentido em uma única abordagem. Por isto, os trataremos juntos.\n\n#### Começamos de...\n\nAo analisar um texto, a primeira direção que consideramos é a direção de leitura. Dependendo da cultura e do sistema de escrita, é comum que os leitores se acostumem com leituras predominantemente horizontais. Para leitores que utilizam o alfabeto latino, por exemplo, a leitura ocorre da esquerda para a direita. Já no alfabeto árabe, a leitura segue da direita para a esquerda.\n\nUm exemplo interessante é a transcrição do nome Maomé nos dois sistemas de escrita:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table  class=\"tawapukllay\"> <tr><th>Português</th><th>Árabe</th> <tr><td rowspan=\"2\">Maomé</td><td>محمد</td></tr> <tr><td>dmhM</td></tr> </table></p><p class=\"desc\"><b>Tabela 1</b>: Escrita do nome Maomé/Muhammad em diferentes idiomas, respeitando os sentidos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Na tabela acima, observamos que a versão em árabe vogais curtas e repetições de fonemas não eram explicitamente representadas, gerando dificuldades de tradução e interpretação por outros povos. Nos dias atuais, no entanto, textos árabes podem indicar essas vogais e fonemas adicionais, como no caso de **مُحَمَّد** (Muhammad).\n\nIndependente do sistema de escrita, ambas as direções horizontais compartilham uma característica em comum: ao final de uma linha, o texto segue uma nova direção vertical, movendo-se de cima para baixo.\n\nPor outro lado, alguns sistemas de escrita, como o mongol e os hieróglifos mesoamericanos, adotam uma direção vertical que segue de cima para baixo. Um exemplo deste último pode ser observado na estela da Figura 2",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "584c8615-81f9-44c7-bf73-12cd92d43bbd",
+                     "text": "Erdenechimeg, M. and Moore, R.",
+                     "page": "pp. 2 - 4",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1997",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgEstela\" onclick=\"htImageZoom('imgEstela', '0%')\" src=\"images/GuatemalaAntropologia/EstelaAntropologiaGuatemala.jpg\" class=\"imgcenter\"/><b>Figura 2</b>: Estela no Museu de Antropologia de Ciudad de Guatemala, Guatemala. Foto tirada em <htdate0></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2014",
+                     "month": "10",
+                     "day": "21"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Nesta imagem, há um texto hieroglífico disposto em duas colunas.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Direções tridimensionais na escrita\n\nA escrita não se limita a um objeto plano; textos possuem profundidade e contextos tridimensionais que refletem as ideias e perspectivas de sua época. Assim, a direção e o sentido de um texto vão além da superfície física.\n\nA profundidade textual é especialmente relevante na construção de narrativas. Textos baseados em fragmentos isolados ou fora de contexto frequentemente carecem de riqueza informativa podendo conter erros, enquanto aqueles que documentam eventos detalhadamente, após anos de pesquisa, atingem maior complexidade e profundidade. O jogo **Método Científico**, do **History Tracers**, explora essa diferença ao ilustrar casos práticos em diferentes fases da história",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "96f3d3af-15c3-4c37-9d0e-e4b7db0db1db",
+                     "text": "History Tracers Team",
+                     "page": "Método Científico",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, analisamos características dos vetores que permitem estabelecer analogias com textos. Um estudo mais detalhado sobre coordenadas pode ser encontrado no atlas *History Tracers*, de onde extraímos a imagem apresentada na Figura 3",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f140d8d6-80cc-4d82-b9f7-c3ba06bf2ed3",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCoord\" src=\"images/Mapswire/continent_af-where-is-africa_coordinates.png\" class=\"imgcenter\" onclick=\"htImageZoom('imgCoord', '0%')\" /><b>Figura 3</b>: Coordenadas geográficas com vetores representados sobre a superfície terrestre.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Embora não tenhamos explorado as componentes de um vetor em profundidade, como as coordenadas geográficas expressas em raio, colatitude e longitude, destacamos que textos também podem ser analisados de forma análoga. Essa perspectiva será aprofundada em capítulos futuros.\n\nDestacamos que textos possuem características mensuráveis, como tamanho, e podem ser analisados em relação à distância que os aproxima de eventos ou fatos. Além disso, assim como nos vetores, conceitos de direção e sentido podem ser aplicados para compreender as influências externas sobre o autor e seu impacto no texto final.\n\nPor fim, enfatizamos que este texto não trata de transformar textos em vetores matemáticos. Nosso objetivo foi demonstrar como ideias podem ser conectadas, ampliando a compreensão tanto de textos quanto de conceitos matemáticos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

@@ -1,0 +1,424 @@
+{
+   "title": "Sumando los mismos números",
+   "header": "Sumando los mismos números",
+   "sources": [
+      "d862242c-0538-4b18-8b32-4a84d4a5858e"
+   ],
+   "scripts": [
+      "d862242c-0538-4b18-8b32-4a84d4a5858e"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/d862242c-0538-4b18-8b32-4a84d4a5858e_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/GljMWlWiVUb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "myths_believes"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1760227142"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "prerequisites",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste texto profundizará en el concepto de adición. Por ello, se recomienda estudiar los capítulos previos, así como sus respectivos prerrequisitos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeros Pasos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nEn los capítulos anteriores, nos enfocamos en el conteo mediante la elevación de los dedos y, como consecuencia, sumábamos los números uno a uno. Observemos nuevamente dos manos en la Figura 1 y, a continuación, reflexionemos",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/HistoryTracers/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/HistoryTracers/Right_Hand.png\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\"><b>Figura 1</b>: Representación de las manos. Código fuente presente en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fuente</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En la figura, se observan las dos manos de una persona extendidas con todos los dedos levantados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Sumando en grupos?</b><br /><br />Imagine la siguiente situación: hay tres personas reunidas y queremos saber el número total de dedos que tienen en las manos. Sabiendo que cada persona tiene cinco dedos en cada mano, ¿cuál es el total de dedos?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "grouping",
+         "text": [
+            {
+               "text": "### Agrupamiento\n\n### Una visión general\n\nPara facilitar la comprensión de esta reflexión, construiremos una tabla con las manos de las personas mencionadas",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><table class=\"tawapukllay\"><tr><th colspan=\"2\">Primera persona</th><th colspan=\"2\">Segunda persona</th><th colspan=\"2\">Tercera persona</th><th>Total</th></tr>  <tr><td><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/HistoryTracers/5Left_Hand_Small.png\" /></td><td><img id=\"img2\" onclick=\"htImageZoom('img2', '0%')\" src=\"images/HistoryTracers/5Right_Hand_Small.png\" /></td><td><img id=\"img3\" onclick=\"htImageZoom('img3', '0%')\" src=\"images/HistoryTracers/5Left_Hand_Small.png\" /></td><td><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" src=\"images/HistoryTracers/5Right_Hand_Small.png\" /></td><td><img id=\"img5\" onclick=\"htImageZoom('img5', '0%')\" src=\"images/HistoryTracers/5Left_Hand_Small.png\" /></td><td><img id=\"img6\" onclick=\"htImageZoom('img6', '0%')\" src=\"images/HistoryTracers/5Right_Hand_Small.png\" /></td><td><span class=\"text_to_paint\">?</span></td></tr></table></p><p class=\"desc\"><b>Tabla 1</b>: Representación de las manos en la reflexión 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "La tabla contiene seis manos, cada una con cinco dedos levantados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A partir de la Tabla 1, podríamos sumar todos los dedos uno a uno para obtener el resultado",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>30</mi> </math></p><p class=\"desc\"><b>Cálculo 1</b>: Suma de todos los dedos de las manos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿La vida es tan complicada?</b><br /><br />A primera vista, el Cálculo 1 parece extenso. Después de todo, debemos escribir treinta veces el número uno (1) y luego sumarlo.<br /><br />¿No sería mejor simplificarlo?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Simplificando la escritura\n\nPara representar operaciones como esta de forma más sencilla, los matemáticos introdujeron el concepto de sumatorio, utilizando la letra griega sigma (Σ)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7b080e09-91f4-426d-8feb-c440249078d1",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>30</mn></mrow> </munderover> <mi>1</mi> <mo>=</mo> <mi>30 × (1)</mi>  <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\"><b>Cálculo 2</b>: Suma de todos los dedos de las manos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al comparar el Cálculo 2 con el Cálculo 1, observamos que el símbolo sigma (Σ) cumple la función del signo de suma (+). Debajo del sigma colocamos el valor inicial del índice (n = 1), arriba el valor final (30) y, al lado, el número que se está sumando (en este caso, 1). Notamos que, tras el primer signo igual, no aparece directamente el número 30, sino una multiplicación: 30 × 1, lo que indica que el número 1 se repite 30 veces",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Podemos simplificar aún más?</b><br /><br />Escribir menos no siempre significa calcular menos. ¿Sería posible simplificarlo aún más?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Agrupando con las manos\n\nDescribir elementos individualmente, como hicimos con los dedos, puede generar un trabajo innecesario. Al observar la naturaleza, encontramos formas de agrupar datos para simplificar operaciones como el Cálculo 2.\n\nPor ejemplo, al observar las manos, notamos que siempre hay cinco dedos por mano. En lugar de contar uno por uno, podemos contar de cinco en cinco. Así, solo necesitamos sumar cinco dedos seis veces",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>6</mn></mrow> </munderover> <mi>5</mi> <mo>=</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>=</mo> <mi>6 × (5)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\"><b>Cálculo 3</b>: Suma de cinco dedos por mano.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Agrupando por persona\n\nEl agrupamiento por manos no es la única opción. Podemos simplificar aún más el conteo considerando diez dedos por persona. Así, realizamos solo tres sumas",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>3</mn></mrow> </munderover> <mi>10</mi> <mo>=</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>+</mo> <mi>10</mi> <mo>=</mo> <mi>3 × (10)</mi> <mo>=</mo> <mi>30</mi></math></p><p class=\"desc\"><b>Cálculo 4</b>: Suma de diez dedos por persona.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "nature",
+         "text": [
+            {
+               "text": "### Nuestras repeticiones\n\nEl ser humano siempre aprende de la naturaleza y crea patrones repetitivos. De hecho, ya presentamos un altar que contiene las generaciones de los *ajawob* (reyes) de Copán",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "40720958-0917-420e-8504-8c73be6da1bd",
+                     "text": "History Tracers Team",
+                     "page": "Indígenas (Copán)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><div class=\"htSlides\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Diapositiva 1</b>: Imágenes del Altar Q, ubicado en el sitio arqueológico de Copán, Honduras. Fotografía tomada durante una visita al sitio el <htdate0>.<br />Los nombres de los reyes (<i>ajawob</i>) se detallan en el trabajo de Anastasia Hutnick (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate1>, pp. 18, 35 - 67.</a>).<br />El código fuente para este slide se inspiró en el modelo de (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cf7adc72-d340-412e-8d48-953ac64cb670'); return false;\">W3Schools</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "El altar tiene forma de una gran caja cerrada, con inscripciones en la parte superior y figuras humanas esculpidas en sus laterales.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En el Altar Q de Copán puede observarse que hay cuatro *ajawob* (reyes) en cada lado. Por tanto, en lugar de contarlos uno por uno, podemos agruparlos de cuatro en cuatro",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>4</mn></mrow> </munderover> <mi>4</mi> <mo>=</mo> <mi>4</mi> <mo>+</mo> <mi>4</mi> <mo>+</mo> <mi>4</mi> <mo>+</mo> <mi>4</mi> <mo>=</mo> <mi>4 × (4)</mi> <mo>=</mo> <mi>16</mi></math></p><p class=\"desc\"><b>Cálculo 4</b>: Total de <i>ajawob</i> (reyes) por lado del altar.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1</b><br /><br />Además de usar los dedos, observe a su alrededor e identifique objetos que puedan contarse en grupos.</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "multiplication2",
+         "text": [
+            {
+               "text": "### Multiplicación\n\nEstas simplificaciones que realizamos son ejemplos de multiplicación, definida como",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fc77d792-25d3-4c13-ace0-0378f3aaec70",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><ul class=\"citation\"><li><i>\"el cálculo de un resultado cuando un número es tomado varias veces\"</i></li> </ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Aunque la definición no menciona explícitamente la adición, como hemos visto, existe una relación intrínseca entre ambas operaciones. Esto es natural, ya que los nuevos conocimientos se construyen a partir de los anteriores",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "final",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este capítulo introdujimos una nueva forma de contar: la multiplicación, una operación matemática fundamental que está íntimamente relacionada con la adición.\n\nEn los próximos textos continuaremos ampliando nuestro conocimiento sobre esta operación, siempre relacionándola con la adición",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿Es posible sumar números diferentes y obtener el mismo resultado?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como se demostró en el ejemplo del conteo de dedos, podemos obtener un total de 30 dedos mediante distintos métodos: Sumando cada dedo individualmente, agrupando los dedos por mano, y combinando los dedos de ambas manos."
+      },
+      {
+         "question": "¿Existe relación entre la multiplicación y la suma?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Dado que la multiplicación implica sumas repetidas, existe una relación intrínseca entre estas dos operaciones matemáticas fundamentales"
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

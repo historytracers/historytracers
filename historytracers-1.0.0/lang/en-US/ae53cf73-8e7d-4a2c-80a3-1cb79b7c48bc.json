@@ -1,0 +1,402 @@
+{
+   "title": "Inversion",
+   "header": "Inversion",
+   "sources": [
+      "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc"
+   ],
+   "scripts": [
+      "ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/ae53cf73-8e7d-4a2c-80a3-1cb79b7c48bc_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/BdLzcq18UUb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1760227140"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "prerequisites_section",
+         "text": [
+            {
+               "text": "<span id=\"htZoomImageMsg\"></span>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nWe recommend reading the previous text and its respective prerequisites before proceeding",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cf2853c5-db17-4793-a5f9-110b71eae84d",
+                     "text": "History Tracers Team",
+                     "page": "Running Among the Numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "introduction_section",
+         "text": [
+            {
+               "text": "### Introduction\n\nWhen studying the addition operation, we learn that numbers follow the commutative property. This means that the result remains the same regardless of the order in which the numbers are added",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adding the same numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Inheritance of Properties</b><br /><br />Addition is commutative.<br /><br />Multiplication is a sequence of additions.<br /><br />Given these two premises, can we expect multiplication to also preserve its result when the numbers are reversed?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "square_section",
+         "text": [
+            {
+               "text": "### Equal Numbers\n\nLet us begin by studying equal numbers. For this, we will use the same altar mentioned in the previous text",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adding the same numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htSlides\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Slide 1</b>: Images of Altar Q at the archaeological site of Copán, Honduras. Photo taken during a visit on <htdate0>.<br />The names of the kings (<i>ajawob</i>) are detailed in the work of Anastasia Hutnick (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate1>, pp. 18, 35 - 67.</a>).<br />The slide's source code was inspired by a template from (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cf7adc72-d340-412e-8d48-953ac64cb670'); return false;\">W3Schools</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "The altar is shaped like a big box, with inscriptions on top and sculpted human figures on its sides.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "On Altar Q in Copán, we can observe four ajawob (kings) on each side. Thus, regardless of order, we are always multiplying 4 by 4\n\nTo make this operation clearer, we will represent it using squares, each with a side length of one unit",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><svg width=\"230\" height=\"230\"> <rect x=\"30\" y=\"0\" width=\"200\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />            <rect x=\"80\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"130\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"180\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"50\" y=\"222\">1</text> <text x=\"100\" y=\"222\">2</text> <text x=\"150\" y=\"222\">3</text> <text x=\"200\" y=\"222\">4</text>        <text x=\"5\" y=\"30\">4</text> <text x=\"5\" y=\"80\">3</text> <text x=\"5\" y=\"130\">2</text> <text x=\"5\" y=\"180\">1</text>     </svg></p><p class=\"desc\"><b>Chart 1</b>: Squares representing the multiplication of 4 by 4.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "A larger square composed of sixteen smaller squares. On the left side, the squares are numbered from 1 to 4 (bottom to top). On the bottom side, the squares are numbered from 1 to 4 (left to right).",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "We use squares to demonstrate multiplication for a specific reason. In addition to the visual representation in Chart 1, the result of multiplying a number by itself is also called a square",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0c1967a-f27a-4191-82f1-c5e44c44a297",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "stelae",
+         "text": [
+            {
+               "text": "### Different Numbers\n\nCommutativity with equal numbers is expected. Now, let us explore the case of distinct numbers.\n\nIn this section, we will use Stela A, located in the Archaeological Museum of Copán, as shown in Figure 1",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanA\" onclick=\"htImageZoom('imgCopanA', '0%')\" src=\"images/Copan/StelaACopan.jpg\" class=\"imgcenter\"/><b>Figure 1</b>: Stela A in the Copán Museum. Photo taken on <htdate0>.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Stelae are vertical monuments. In this particular case, it represents a king and contains inscriptions on its sides and back.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "When observing Stela A in Figure 1, we notice that the hieroglyphs are organized into two columns. To simplify comparison with the previous scenario, we will work with only the first four rows. Again, we will represent them with squares",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><svg width=\"130\" height=\"230\"> <rect x=\"30\" y=\"0\" width=\"100\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />           <rect x=\"80\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"55\" y=\"222\">1</text> <text x=\"105\" y=\"222\">2</text>  <text x=\"5\" y=\"30\">4</text> <text x=\"5\" y=\"80\">3</text> <text x=\"5\" y=\"130\">2</text> <text x=\"5\" y=\"180\">1</text>     </svg></p><p class=\"desc\"><b>Chart 2</b>: Squares representing the multiplication of 4 by 2.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "A larger rectangle composed of smaller squares. On the left side, the squares are numbered from 1 to 4 (bottom to top). On the bottom, the numbers go from 1 to 2 (left to right).",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Before drawing any conclusions about the commutativity of multiplication, let us rearrange the squares from Chart 2, keeping the same total number",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><svg width=\"230\" height=\"130\"> <rect x=\"30\" y=\"0\" width=\"200\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"100\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />            <rect x=\"80\" y=\"0\" width=\"1\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"130\" y=\"0\" width=\"1\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"180\" y=\"0\" width=\"1\" height=\"100\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"50\" y=\"122\">1</text> <text x=\"100\" y=\"122\">2</text> <text x=\"150\" y=\"122\">3</text> <text x=\"200\" y=\"122\">4</text>        <text x=\"5\" y=\"30\">2</text> <text x=\"5\" y=\"80\">1</text>     </svg></p><p class=\"desc\"><b>Chart 3</b>: Squares representing the multiplication of 2 by 4.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "A larger rectangle composed of smaller squares. On the left side, the squares are numbered from 1 to 2 (bottom to top). On the bottom, the numbers go from 1 to 4 (left to right).",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Comparing</b><br /><br />Compare Chart 2 and Chart 3. Is it possible for the multiplication (the sum of squares in groups) to yield a result different from eight (8)?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Answering the reflection: Despite the visual difference when we invert the order of the numbers, the number of elements being multiplied (or added) remains the same. Thus, multiplication—like addition—also possesses the commutative property.\n\nThe commutativity of multiplication is known as a mathematical axiom, and it can be expressed as",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7a9c733b-ca13-40f5-8849-19012540b028",
+                     "text": "Ernst, Dana",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><ul class=\"citation\"><li><i>\"ab = ba\"</i></li> </ul></p><p class=\"desc\"><b>Calculation 1</b>: Commutativity of multiplication.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In this calculation, the letters *a* and *b* represent numbers",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "result_section",
+         "text": [
+            {
+               "text": "### Equal results\n\nBefore concluding this text, we propose one final reflection",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: On the Results</b><br /><br />Adding 1 + 1 yields 2. Similarly, multiplying 2 × 1 also gives 2.<br /><br />Can we conclude that these operations are equal just because they produce the same result?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Although it may be tempting to say that these operations are the same due to their equal outcomes",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>2 × (1)</mi></math><math display=\"block\"> <mi>2</mi> <mo>=</mo> <mi>2</mi></math></p><p class=\"desc\"><b>Calculation 2</b>: Addition and multiplication with equal results.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "These comparisons conceal important details—known as context—which, if ignored, can lead to incorrect conclusions, much like comparing two similar-looking images that are not actually the same.\n\nAs we saw in this text (and in the previous one), the results are the same because, on both sides of the equation, we are performing equivalent mathematical operations—either directly or indirectly—through addition",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "conclusion_section",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we reinforced our understanding of multiplication by visualizing commutativity through geometric representations. Additionally, we observed the direct relationship between addition and multiplication, consolidating the idea that the order of numbers does not affect the final result",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Is the term \"square\" used to describe the operation of multiplying a number by itself?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "This term refers both to a geometric shape and to the operation of multiplying a number by itself."
+      },
+      {
+         "question": "Is multiplication a commutative operation?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Like addition, multiplication is also commutative - meaning the order in which we perform the operation (which represents repeated addition) does not affect the final result."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

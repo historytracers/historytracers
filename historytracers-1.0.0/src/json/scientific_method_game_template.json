@@ -1,0 +1,60 @@
+{
+    "sources" : [ "File containing all the sources referenced in the text." ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED" ],
+    "last_update" : [ "The time of the last file update, represented as Unix Epoch time." ],
+    "authors" : "Names of the individuals who contributed to editing the text.",
+    "reviewers" : "Names of the individuals who reviewed the text.",
+    "version" : 1,
+    "type" : "sm_game",
+   "editing": false,
+    "content" : [
+        {
+            "id" : "Unique identifier for the current section.",
+            "text" : [ { "text" : "A text to be written on game screen.",
+                         "source" : [
+                            { "type": "Citation type identifier (Integer). Valid values: 0 = Primary, 1 = Reference, 2 = Holy Text, 3 = Social Media.",
+                                  "uuid": "Unique identifier (UUID) for the current citation.",
+                                  "text": "The accompanying text that will be displayed with the citation.",
+                                  "date": {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" }}
+                            ],
+                            "fill_dates" : [
+                                {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+                                {"type" : "unix", "epoch" : "0" },
+                                {"type" : "julian",  "epoch" : "0" }
+                            ],
+                            "isTable" : "This option determines whether the collector displays data as a table (true) or as plain text (false).",
+                            "format" : "markdown or html",
+                            "PostMention": "A character used after a mention to include citations."
+                       }
+            ],
+            "desc": [ "Additional description for the text displayed on screen."],
+            "next" : "ID of the next section.",
+            "prev" : "ID of the previous section",
+            "jumpTo" : "ID of the section to jump to.",
+            "answer": "Value indicating the correct answer to be selected.",
+            "score" : "Numeric value awarded when the reader reaches the goal. It is recommended to assign at least one point to encourage learning.",
+            "position": "Position of the content on screen: top/center/topCenter"
+        }
+    ],
+    "levels": [
+        {
+            "type": "topLevel",
+            "id": "Unique identifier for the top-level section",
+            "name": "Name displayed on screen.",
+            "desc": "Description of the top-level section."
+        },
+        {
+            "type": "level",
+            "id": "Unique identifier for the level.",
+            "name": "Name displayed on screen.",
+            "desc": "Description of the level",
+            "target" : "ID of the top-level section this level is associated with.",
+            "loadID": "ID of the file to be loaded."
+        }
+    ],
+    "fill_dates" : [
+        {"type" : "gregory", "year" : "2010", "month" : "-1", "day" : "-1" },
+        {"type" : "unix", "epoch" : "0" },
+        {"type" : "julian",  "epoch" : "0" }
+    ]
+} 

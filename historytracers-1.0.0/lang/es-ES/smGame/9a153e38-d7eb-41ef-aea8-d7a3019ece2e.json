@@ -1,0 +1,113 @@
+{
+    "sources" : null,
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1723601508" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "sm_game",
+    "content" : [
+        {
+            "id" : "b4b88e00",
+            "text" : [ "<p style=\"font-size:1.5em;\">¿Alguna vez te has hecho una pregunta?</p>" ],
+            "desc": null,
+            "next" : "c88e8c4c",
+            "prev" : null,
+            "jumpTo" : "smGameLevels",
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "c88e8c4c",
+            "text" : [ "<p style=\"font-size:1.5em;\">¿Alguna vez has comparado colores, comidas, ropas u otros objetos?</p>" ],
+            "desc": null,
+            "next" : "ac120fc2",
+            "prev" : null,
+            "jumpTo" : "smGameLevels",
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "ac120fc2",
+            "text" : [ "<p style=\"font-size:1.5em;\">En la vida, muchas veces necesitamos elegir, y una buena manera de hacerlo es haciendo preguntas.</p>" ],
+            "desc": null,
+            "next" : "fb8e75b9",
+            "prev" : null,
+            "jumpTo" : "smGameLevels",
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "fb8e75b9",
+            "text" : [ "<p style=\"font-size:1.5em;\">Si ya te has preguntado o comparado algo, entonces estás preparado para nuevas descubrimientos con el...</p>" ],
+            "desc": null,
+            "next" : "9848036a",
+            "prev" : null,
+            "jumpTo" : "smGameLevels",
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "9848036a",
+            "text" : [ "<p style=\"font-size:4.0em;\">MÉTODO CIENTÍFICO</p>", "<p style=\"font-size:1.5em;\"> Click en <i class=\"fa-solid fa-angle-double-right\"></i> para empezar.</p>" ],
+            "desc": null,
+            "next" : null,
+            "prev" : null,
+            "jumpTo" : "smGameLevels",
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        }
+    ],
+    "levels" : [
+        {
+            "type": "topLevel",
+            "id": "f7379046",
+            "name": "Entrenamiento",
+            "desc": "En este nivel de aprendizaje, exploramos el método científico aplicado a diversas situaciones cotidianas."
+        },
+        {
+            "type": "level",
+            "id": "477e32ea",
+            "name": "Figuras",
+            "desc": "Uso del método científico para analizar figuras geométricas.",
+            "target" : "f7379046",
+            "loadID": "326445ab-e030-4375-9557-ada06b6ef88f"
+        },
+        {
+            "type": "topLevel",
+            "id": "5e87518e",
+            "name": "Historia",
+            "desc": "Estudiamos la historia general mediante el uso del método científico."
+        },
+        {
+            "type": "level",
+            "id": "cc3bdb82",
+            "name": "El nombre es ...",
+            "desc": "¿Es posible rastrear el nombre de un ancestro en ausencia de documentos?",
+            "target" : "5e87518e",
+            "loadID": "f866455d-713d-4e3c-b25a-c151f1a05296"
+        },
+        {
+            "type": "level",
+            "id": "f952fb69",
+            "name": "Inquisición Portuguesa",
+            "desc": "La fabricación de \"judíos\" y el control social.",
+            "target" : "5e87518e",
+            "loadID": "f952fb69-fcf9-4980-9b31-38be2ecfe971"
+        },
+        {
+            "type": "level",
+            "id": "0f1a022b",
+            "name": "El/Los descubridore(s)",
+            "desc": "¿Quién descubrió realmente América (Abya Ayala)?",
+            "target" : "5e87518e",
+            "loadID": "c450185c-7bcf-45c4-b93c-9f5ae10a126a"
+        }
+    ],
+    "date_time" : null
+} 

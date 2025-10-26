@@ -1,0 +1,639 @@
+{
+   "title": "Evolución del conocimiento: el átomo",
+   "header": "Evolución del conocimiento: el átomo",
+   "sources": [
+      "81397cf9-5675-40e0-aead-a01bee8b7fe8"
+   ],
+   "scripts": [
+      "81397cf9-5675-40e0-aead-a01bee8b7fe8"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/81397cf9-5675-40e0-aead-a01bee8b7fe8_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/3ex66hYUs9UbU0Kpu5LWuq?si=YHwdXskKQuejT4bGJ-8lMQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "physics",
+      "chemistry",
+      "biology",
+      "literature",
+      "history"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1760288682"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEn este texto continuamos estudiando la división por tres. Por ello, recomendamos leer el texto anterior, que introduce el tema (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3c81aa4a-3030-4767-861a-25f13272776f",
+                     "text": "History Tracers Team",
+                     "page": "Siempre presente",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nEn este capítulo desarrollamos la idea de que la división revela algo presente en la naturaleza: un proceso de redistribución sin pérdidas. Cuando la materia se divide, no desaparece — se conserva, como concluyó Antoine Lavoisier (<htcite0>; <htcite1>).\n\nSin embargo, la división no debe verse solo como algo que separa. En muchos casos, es necesario definir grupos a partir de divisiones antes de construir algo. Este hecho nos lleva a la siguiente reflexión:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "68227419-2430-4359-b902-f6cf87b8941d",
+                     "text": "Holmes, F. L.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1985",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3f68de7c-d729-4b62-9bb1-36c6f518fea4",
+                     "text": "History Tracers Team",
+                     "page": "Simplicidade vs. Complexidade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Dividir para multiplicar</b><br /><br />¿Es más fácil construir algo moviendo piezas gigantes y pesadas que no puedes cargar?<br /><br />¿O es más sencillo construir algo con piezas que sí puedes cargar?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_philosophy",
+         "text": [
+            {
+               "text": "### Primera idea\n\nEn el texto anterior (<htcite0>), al retomar el ejemplo de la hoja dividida, observamos que existe al menos un elemento más: el centro, que muchas veces se ignora porque estamos enfocados en los extremos.\n\nVamos a realizar algunas divisiones más utilizando solo una mitad de la hoja:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3f68de7c-d729-4b62-9bb1-36c6f518fea4",
+                     "text": "History Tracers Team",
+                     "page": "Simplicidad vs. Complejidad",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Cortando...</b><br /><br />1. Toma una hoja y córtala en pedazos. No es necesario seguir el patrón mostrado en la Figura 1.<br /><br />2. Córtala hasta cansarte o hasta donde desees.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"cutTable\" class=\"tableTen tableTenBgBlue\"><tr><th colspan=\"10\"><i>Hoja picada</i></th></tr> </table> </p><p class=\"desc\"><b>Tabla 1</b>: Representación visual de la hoja cortada en 100 pedazos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El máximo posible\n\nEn el caso de *History Tracers*, decidimos detener la división en 100 pequeños pedazos, para no consumir demasiados recursos del ordenador al crear la tabla.\n\nCuando realizaste la práctica, probablemente también te detuviste por algún motivo.\n\nEsto nos lleva a una cuestión sobre posibles límites:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Lo más pequeño</b><br /><br />Si, por algún motivo, no logramos dividir más una hoja debido a nuestra propia naturaleza, ¿significa eso que la hoja ya no puede dividirse más?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### La primera idea\n\nLas primeras ideas de que la naturaleza podría contener algo indivisible se remontan a milenios atrás. El primero en proponer esta hipótesis habría sido Demócrito, quien nació alrededor del año <htdate0>.\n\nSegún su modelo de materia indivisible, la materia estaba compuesta por cuatro elementos fundamentales: tierra, agua, aire y fuego (<htcite0>).\n\nLa idea inicial de Demócrito se basaba en algunos puntos importantes (<htcite1>):\n- Los átomos poseerían un “número infinito”. Es importante notar que infinito no es un número, sino algo mayor que cualquier cantidad (<htcite2>). Por lo tanto, lo más correcto sería decir que **el número de átomos tiende al infinito** (<htcite3>).\n- Los átomos tendrían diferentes tamaños.\n- Serían sólidos.\n- No habría espacios entre ellos.\n\nEste modelo, con solo cuatro elementos y átomos completamente sólidos, se representa en la **Figura 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "424fb1ac-867e-4895-8a04-367655e6f1ea",
+                     "text": "Stweart, Ken",
+                     "page": "Modelo Atómico",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5e2b9861-0f98-4414-ac8b-134cefa6b213",
+                     "text": "Berryman, Sylvia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0c9df30a-8452-4111-9220-2761c6675cab",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Límites Naturales",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-460",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgAP\" src=\"images/HistoryTracers/Atom_Philosophical.png\" class=\"imgcenter\" onclick=\"htImageZoom('imgAP', '0%')\" style=\"width: 12.5%;\" /><b>Figura 1</b>: Modelo de átomo filosófico. © History Tracers. <span id=\"htImgCopyright\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_non_quantum",
+         "text": [
+            {
+               "text": "### Modelos Atómicos Clásicos\n\nEl estudio profundo de los átomos y la comprensión de cómo está formado el Universo tardaron milenios en desarrollarse. El primer investigador al que hacemos referencia es John Dalton (Livro 1). En sus estudios, Dalton concluyó que la materia está compuesta por pequeñas partículas llamadas átomos. Además, al estudiar los fluidos, dedujo propiedades como el peso de los elementos (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "97997331-20c2-4b5b-b13f-9677789dbb9d",
+                     "text": "Dalton, John",
+                     "page": "pp. 73",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1808",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"margin: auto; width: 100%;\"><iframe src=\"https://archive.org/details/newsystemofchemi01daltuoft/page/72/mode/2up\" width=\"100%\" height=\"560\" frameborder=\"0\" webkitallowfullscreen=\"true\" mozallowfullscreen=\"true\" allowfullscreen></iframe></p><p class=\"desc\"><b>Livro 1</b>: Página 73 da obra de John Dalton.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Otro avance importante en la comprensión de los átomos fue realizado por J. J. Thomson, quien, mediante experimentos, descubrió que los átomos poseen partículas subatómicas cargadas. Esta partícula se conoce como electrón (<htcite0>).\n\nThomson también propuso una teoría para explicar por qué las partículas cargadas se desvían al atravesar pequeñas cantidades de materia, teoría que fue confirmada posteriormente por los experimentos de Ernest Rutherford.\n\nSegún el modelo propuesto, el átomo estaría formado por electrones que orbitan una esfera con carga positiva concentrada en el centro (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "638ebc79-9824-4485-a48b-f466f6aeaabf",
+                     "text": "New, Charlotte",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "77a4d152-7328-47bb-bfea-1b1274649317",
+                     "text": "Rutherford, Ernest",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1911",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Construyendo el Modelo de Rutherford</b><br /><br />Usaremos hojas de papel para recrear el Gráfico 1.<br /><br />1. Toma tres hojas del mismo tamaño.<br /><br />2. Píntalas de diferentes colores.<br /><br />3. Elige una hoja y arrúgala formando una bola. Representará el **núcleo del átomo**.<br /><br />4. Toma otra hoja, córtala en pedazos pequeños de igual tamaño y arrúgalos. Colócalos alrededor de la primera bola más grande — representarán los **electrones**.<br /><br />5. Repite el paso 4 con la hoja restante y haz que los “electrones” sigan los caminos <b>A</b>, <b>B</b> y <b>C</b> del gráfico.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"0\" y1=\"15\" x2=\"250\" y2=\"15\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"15\" font-size=\"1em\">A</text> <line x1=\"0\" y1=\"134\" x2=\"250\" y2=\"134\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"134\" font-size=\"1em\">A</text> <line x1=\"0\" y1=\"114\" x2=\"250\" y2=\"114\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"114\" font-size=\"1em\">A</text> <line x1=\"0\" y1=\"64\" x2=\"115\" y2=\"64\" stroke=\"black\" />  <line x1=\"115\" y1=\"64\" x2=\"50\" y2=\"50\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"35\" y=\"50\" font-size=\"1em\">B</text>  <line x1=\"0\" y1=\"36\" x2=\"155\" y2=\"36\" stroke=\"black\" /> <line x1=\"155\" y1=\"36\" x2=\"250\" y2=\"50\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"50\" font-size=\"1em\">C</text> <circle cx=\"145\" cy=\"75\" r=\"30\"></circle> <circle cx=\"145\" cy=\"25\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"27\" font-size=\"1em\">-</text>  <circle cx=\"75\" cy=\"75\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"73\" y=\"80\" font-size=\"1em\">-</text> <text x=\"120\" y=\"80\" font-size=\"1em\">+</text> <text x=\"140\" y=\"60\" font-size=\"1em\">+</text> <text x=\"140\" y=\"100\" font-size=\"1em\">+</text>  <text x=\"160\" y=\"80\" font-size=\"1em\">+</text> <circle cx=\"205\" cy=\"75\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"202\" y=\"80\" font-size=\"1em\">-</text>  <circle cx=\"145\" cy=\"125\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"127\" font-size=\"1em\">-</text>  </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representación del modelo de Rutherford.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Representación del átomo de Rutherford, que muestra un gran núcleo positivo y pequeños electrones con carga negativa a su alrededor.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El modelo atómico de Rutherford muestra que el átomo no es sólido, sino que está dividido en dos regiones (<htcite0>): un núcleo denso y positivo y una región externa donde se encuentran los electrones negativos.\n\nRutherford llegó a esta conclusión al disparar partículas alfa (las “terceras bolitas arrugadas” de la Práctica 2) contra una lámina de oro. Al observar la trayectoria de estas partículas, notó que podían desviarse en diferentes direcciones, lo que indicaba que el átomo posee espacios vacíos internos (<htcite1>; <htcite2>), pues si fuera totalmente sólido, las partículas no lo atravesarían.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "112e532d-e8af-40d6-b1b5-527978ee42f3",
+                     "text": "History Tracers Team",
+                     "page": "Dos Lados",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "77a4d152-7328-47bb-bfea-1b1274649317",
+                     "text": "Rutherford, Ernest",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1911",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7cfbddbd-b600-4b9d-8ad5-dbaf7d508617",
+                     "text": "The Editors of Encyclopaedia Britannica",
+                     "page": "Modelo de Rutherford",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "7",
+                        "day": "18"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: La Ciencia es Práctica</b><br /><br />El modelo desarrollado por Demócrito era una idea correcta, pero no fue puesta a prueba en su tiempo. Por esta razón, no podemos decir que realmente estaba haciendo ciencia.<br /><br />Cuando J. J. Thomson propuso un modelo y Ernest Rutherford lo comprobó experimentalmente, mejorando nuestro conocimiento, vimos la ciencia en acción: la teoría se formó a partir de la práctica y la experimentación.<br /><br />¿Alguna vez has escuchado la idea equivocada de que la ciencia no tiene práctica?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Aunque este modelo atómico con dos regiones explicaba algunas observaciones, no lograba justificar todas las mediciones realizadas. Ante este escenario, en <htdate0>, James Chadwick llevó a cabo nuevos experimentos que demostraron que, además de los protones y electrones, existía otra partícula en el núcleo del átomo: una partícula sin carga eléctrica, que pasó a conocerse como el neutrón (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b03b3ae2-51a7-4054-80ec-4e5c3ef83e58",
+                     "text": "The Editors of Encyclopaedia Britannica",
+                     "page": "James Chadwick",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "8",
+                        "day": "30"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1932",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_breaking",
+         "text": [
+            {
+               "text": "### Profundizando el conocimiento\n\nA medida que avanzamos en nuestros estudios, se realizaron nuevos experimentos y nuestra comprensión de los átomos fue actualizándose constantemente.\n\nAdemás de experimentos como el de James Chadwick, quien disparaba partículas diferentes contra otras (<htcite0>), también es posible acelerar partículas idénticas unas contra otras para obtener un conocimiento aún más profundo de la materia y la energía. Este es el principio de funcionamiento de los aceleradores de partículas, como el que existe en el CERN. Entre los descubrimientos de estos experimentos destaca la confirmación de la existencia del bosón de Higgs, propuesto en <htdate0> y comprobado en <htdate1>, partícula responsable de que tengamos masa (<htcite1>; <htcite2>).\n\nLos aceleradores de partículas también demostraron que los protones y neutrones no son indivisibles; es decir, un átomo no debe entenderse simplemente como compuesto por protones, electrones y neutrones.\n\nEn <htdate2>, dos científicos propusieron la existencia de partículas que, si estuvieran presentes dentro de los protones y neutrones —también conocidos como hadrones—, podrían explicar ciertas observaciones experimentales. Cuatro años después, en <htdate3>, estas partículas internas, llamadas quarks, fueron detectadas, ayudándonos a comprender aún más la estructura del universo (<htcite3>; <htcite4>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b03b3ae2-51a7-4054-80ec-4e5c3ef83e58",
+                     "text": "The Editors of Encyclopaedia Britannica",
+                     "page": "James Chadwick",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "8",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ae8d4e6a-8916-4d56-97a5-af126bc7e620",
+                     "text": "CERN",
+                     "page": "El Bosón de Higgs",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b6f9bd52-c0cb-497e-9217-1f9677d5b491",
+                     "text": "History Tracers Team",
+                     "page": "Ampliando...",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b2598dc1-391e-4598-97eb-3bb358d2ade3",
+                     "text": "Cian O'Luanaigh",
+                     "page": "50 anos de quarks",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "1",
+                        "day": "17"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4bcebe85-7913-45e0-9e6d-5e4d5c1f82bd",
+                     "text": "CERN",
+                     "page": "Recreating Big Bang matter on Earth",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1964",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2012",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1964",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1968",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgALICE\" src=\"images/CERN/2ALICEimages.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('imgALICE', '0%')\" /><b>Figura 2</b>: Partículas producidas durante la colisión de protones. © CERN. (<htcite0>). </p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1a21963e-5a89-4c1d-8448-e8e80f913f76",
+                     "text": "Jacquemod, Melissa Marie",
+                     "page": "CERN",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2017",
+                        "month": "4",
+                        "day": "24"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Con estos descubrimientos, pasamos de una comprensión inicial en la que los átomos se consideraban formados por tres partículas fundamentales (protones, electrones y neutrones) a reconocer que los protones y neutrones están compuestos por tres quarks cada uno, y que ambos forman el núcleo del átomo. Alrededor de este núcleo orbitan los electrones.\n\nEstos quarks fueron las primeras partículas en surgir en el universo, cuando este tenía menos de tres minutos de existencia, como se muestra en la Figura 3 (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a1a7c478-9061-4160-ba43-301c081733e9",
+                     "text": "ESA",
+                     "page": "La historia del Universo.",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/ESA/Planck_history_of_Universe.jpg\" id=\"imgESA2\" onclick=\"htImageZoom('imgESA2', '0%')\" class=\"imgcenter\"/><b>Figura 3</b>: Planck, La historia del Universo. ©ESA – C. Carreau (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a1a7c478-9061-4160-ba43-301c081733e9'); return false;\"><i>ESA</i></a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como este texto está centrado en grupos y divisiones por tres, nos limitamos, por ahora, a estas explicaciones sobre el átomo. En futuros textos continuaremos explorando la estructura de la materia y lo que comprendemos sobre la evolución del universo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto observamos cómo la materia puede agruparse o dividirse en conjuntos de tres, con un enfoque en la evolución de nuestro conocimiento sobre los átomos que componen la materia. Comenzamos con la idea filosófica, avanzamos hacia los experimentos realizados en el siglo XIX, según el calendario gregoriano, y finalmente analizamos la relación entre hipótesis y prácticas que actualizan constantemente nuestra comprensión de la naturaleza, mostrando que la ciencia es un proceso dinámico.\n\nAún queda mucho por explorar respecto a las divisiones. En los próximos textos, comenzaremos a estudiar los grupos de cuatro presentes en el universo y, en consecuencia, en nuestra vida cotidiana.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿La primera idea del átomo de Demócrito es igual a la que tenemos hoy?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "El átomo que comprendemos hoy es muy diferente del concepto propuesto por Demócrito. Esta comprensión fue perfeccionada a través de diversos estudios y experimentos realizados a lo largo de los últimos siglos."
+      },
+      {
+         "question": "¿El núcleo del átomo contiene solo protones y neutrones?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Durante un tiempo, este fue el entendimiento predominante. Sin embargo, los experimentos demostraron que los hadrones (protones y neutrones) están formados por otras partículas —una de ellas presentada en este texto: los quarks."
+      },
+      {
+         "question": "Las ciencias no tienen experimentos, son creencias incuestionables. ¿Esta afirmación es correcta?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Un conocimiento solo se reconoce como teoría científica cuando puede ser probado y verificado. Por más bella o profunda que sea una propuesta teórica, no puede considerarse ciencia si no puede ser observada o medida."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

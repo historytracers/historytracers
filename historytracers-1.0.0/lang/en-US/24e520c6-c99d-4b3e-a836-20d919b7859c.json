@@ -1,0 +1,568 @@
+{
+   "title": "Ages and Pyramids",
+   "header": "Ages and Pyramids",
+   "sources": [
+      "24e520c6-c99d-4b3e-a836-20d919b7859c"
+   ],
+   "scripts": [
+      "24e520c6-c99d-4b3e-a836-20d919b7859c"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/24e520c6-c99d-4b3e-a836-20d919b7859c_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/Ezz2lxSVeWb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1756425714"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis text will make use of the concepts of addition and multiplication. For better understanding, we recommend studying the section *Scientific Method*, and chapters 2, 3, and 4 of the *First Steps* section (<htcite0>) before continuing.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9a82e769-0cf6-4b17-8b98-63f27de3123e",
+                     "text": "History Tracers Team",
+                     "page": "Scientific Method",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "First Steps",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nMathematics is present everywhere, and we often experience it without even noticing. This leads us to our first exercise:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Where are they?</b><br /><br />Based on what we have studied so far, look around you and identify situations in which you could apply addition or multiplication.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "At first glance, the exercise seems to suggest choosing between addition and multiplication. However, as we have already seen, multiplication is nothing more than repeated addition (<htcite0>). Therefore, it is not possible to completely separate multiplication from addition.\n\nAlthough this might give the impression that the exercise is incorrect, in reality it introduces the central theme of this text: the combined use of multiplication and addition to understand nature.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando los mismos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_happybirth",
+         "text": [
+            {
+               "text": "### My Birthday\n\nMathematics is the oldest science developed by human beings (<htcite0>; <htcite1>). As we learned more about it, we developed what we call *mathematical modeling*, that is, representations of reality through mathematics (<htcite2>).\n\n#### The Questions\n\nSince this will be our first modeling exercise, we’ll start by getting to know ourselves through mathematics.\n\nIn the **Year** box below, History Tracers randomly selected a year between <span id=\"firstYear\"></span> and <span id=\"lastYear\"></span>. We suggest replacing it with the year you were born and then clicking **update** (<i class=\"fa-solid fa-circle-check\" style=\"font-size: 1.2em; color: green;\"></i>), so that all the content of the page adjusts accordingly.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
+                     "text": "González Redondo, Francisco A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "12c1baeb-fe38-42ce-b337-d88d3a15d91e",
+                     "text": "The Editors of Encyclopaedia Britannica",
+                     "page": "mathematical model",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "7",
+                        "day": "13"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><b>Year:</b> <input type=\"number\" id=\"birthYear\" /> <i class=\"fa-solid fa-circle-check\" style=\"font-size: 1.5em; color: green;\" id=\"updateEnv\"></i> <span id=\"statusUpdate\"></span> </center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The first step is to choose the question(s) we want to answer. In our case, they are:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: My Birthday</b><br /><br />How old am I now?<br /><br />How old will I be in 5 years?<br /><br />In what year did I turn 30?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Initial Observation\n\nTo answer the first question, let’s remember how we celebrate birthdays. When we are born, we are zero years old. Our first birthday happens one year after birth. To turn two, we need another full year to pass.\n\nSo, each year that passes we add one more to our life. This pattern follows the **Multiplication Table of 1** (Chart 1):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Figure 1</b>: Points from the Table of 1. Graph made with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Graph 1 only shows 50 years for simplicity. We wish the reader a long life and remind them that the graph does not represent their exact life trajectory.\n\nAlso, it does not show the year given in the **Questions** section, which leads us to reflect:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: The Missing Part</b><br /><br />Graph 1 shows years starting from zero, ignoring the year chosen in the <b>Year</b> box.<br /><br />What is missing so that the vertical values indicate years starting, for example, from <span id=\"yearQuestion\"></span>?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Deepening the Knowledge\n\nLet’s recall the general formula of multiplication tables (Formula 1) and compare it to Graph 1, which shows the relationship between ages and lived years:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Figure 1</b>: General formula of multiplication tables.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In the table of 1, we saw that *r* is the result of the multiplication, *a* equals *1*, and *N* corresponds to the number being multiplied (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the multiplication table (0 and 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Figure 2</b>: Result of multiplying by 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Applying Formula 2, we get:</p><p><div id=\"mParent1\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Making an analogy between our life and the stars in the multiplication table, the stars that appear when hovering over a multiplication correspond to each new year of life that a person completes.\n\nThis data helps us understand the role of factor a in Formula 1: it represents the rate of change, that is, how much *N*. grows. This becomes evident when comparing the tables from 0 to 9 in **Graph 2**: the larger the value of a, the further the result moves from the horizontal line.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Figure 2</b>: Points from the tables of 0 to 9 connected, forming straight lines. Graph created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Adding a Term\n\nNow that we understand the variable term (a × N), let’s think about what’s missing to adapt Formula 2 and Graph 1 to our birthday.\n\nThe graph must still increase by 1 each year, so we don’t need to change the variable term. What’s missing is shifting the start. Instead of starting at zero, it must start in the year we were born. That shift is done by adding a constant (C), which represents the year of birth (<htcite0>).\n\nThus, our years of life are expressed with:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team",
+                     "page": "Walking Among Numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>Y</mi><mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> <mo>+</mo> <mi>C</mi> </math></center></p><p class=\"desc\"><b>Figure 3</b>: Birthdays in our life.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In Formula 3:\n\n- **Y**: year in which we have a birthday.\n- **1 × N**: rate of change (1 per year), with N being the number of birthdays.\n- **C**: year of birth (constant).\n\nFor greater clarity, **Table 1** shows the first 4 moments of the life of someone born in <span id=\"yearBeforeChart\"></span>.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"emptyGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">Y (year)</td><td style=\"background-color: lightblue\"><b>Moment (<i>1 × N</i>)</b></td><td style=\"background-color: lightblue\"><b>Start (C)</b></td></tr>  <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable0\"></span></b></td><td>1 × 0</td><td><span id=\"constantTable0\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable1\"></span></b></td><td>1 × 1</td><td><span id=\"constantTable1\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable2\"></span></b></td><td>1 × 2</td><td><span id=\"constantTable2\"></span></td></tr> <tr><td style=\"background-color: lightblue\"><b><span id=\"resultTable3\"></span></b></td><td>1 × 3</td><td><span id=\"constantTable3\"></span></td></tr> </table></p> <p class=\"desc\">Table 1 – Relationship between age and year for someone born in <span id=\"yearLable\"></span>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Figure 3</b>: Relationship between years and birthdays, connected by straight lines. Graph created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_indigenous",
+         "text": [
+            {
+               "text": "### Indigenous Constructions\n\nThe relationship between addition and multiplication can also be observed in indigenous constructions presented in the text *Learning from nature* (<htcite0>), where we analyzed only the slope of the roof, without considering that it did not begin at ground level.\n\n#### The Missing Constant\n\nLook again at the slanted roof, such as the one found in *Mi Pueblito*, Panama (Figura 1). The roof does not start at the ground; on the contrary, it is elevated from a region we call the **initial height.**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fddfb494-8fb6-4dee-bf73-ba3bb0fc88fd",
+                     "text": "History Tracers Team",
+                     "page": "Learning from nature",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"miPueblito\" onclick=\"htImageZoom('miPueblito', '0%')\" src=\"images/MiPueblito/MiPueblito.jpg\" class=\"imgcenter\"/><b>Figure 1</b>: Indigenous constructions in <i>Mi Pueblito</i>, Panama. Photo taken on January <htdate0>, during a visit to the site.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "1",
+                     "day": "17"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Similarly, when entering Temple 16 of Copán (Figure 2), we can observe that the roof of this structure also has a slope that can be modeled using multiplication. However, multiplication alone is not enough to describe exactly where the roof begins.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanTemple2\" onclick=\"htImageZoom('imgCopanTemple2', '0%')\" src=\"images/Copan/Templo16Inside.jpg\" class=\"imgcenter\" style=\"width:40%;\"/><b>Figure 2</b>: Interior view of Temple 16 at Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Photo taken on <htdate1>, during a site visit.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Another view of Temple 16, we observe a hall doing transition between consecutive steps of Figura 1.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "By observing these two constructions, it becomes clear that, for a more complete description of slanted roofs, we need to add a constant: the height from which the roof starts.\n\n#### Comparing Age with the Roof\n\nBefore making the comparison, let’s consider a reflection:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Equality</b><br /><br />Compare Graph 3, which shows years of life and ages, with indigenous roofs. What do these two measures have in common?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To highlight the similarities, let us rewrite Formula 3 in a more explicit way and then create a formula for the roof:\n\n- **Years versus age**: Year = (1 × age) + year of birth\n- **Roof height**: Roof height = (Slope factor × distance from the roof’s starting point) + initial height",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Figure 4</b>: Relationship between years of life and the roof.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Notice that, both in the case of our birthday and the height of the roof, there is always a starting point that does not change (the constant we add). To this value, a rate is added, which is multiplied by a variable.\n- For years of life, the variable is age.\n- For the roof, the variable is the distance from the point where it begins.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: Model It Yourself</b><br /><br />Inclinations starting from a point can be found everywhere. Therefore, we suggest that you also create a model to describe something:<br /><br />1. Hold an object in your hand at an angle.<br />2. Rest your elbow on a surface.<br />3. Now, write a formula similar to Formula 4 to describe what you are doing.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nThe union between multiplication and division goes far beyond the examples we have analyzed. In <htdate0>, Edwin Hubble, upon discovering the expansion of the universe (<htcite0>), presented a mathematical formula similar to those we have studied in this text. However, we will leave the analysis of his work for a future study.\n\nIn this page, we saw that the operations of addition and multiplication help us understand not only aspects of our own lives but also nature in a broader sense. There are also other mathematical operations that will allow us to understand the universe in greater depth—operations that are related to those we have already studied and that we will begin to explore in the next chapter.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1af85131-52aa-49ee-8f9b-2409eb806900",
+                     "text": "Hubble, Edwin",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1929",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1929",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Can the years of our birthdays be modeled by adding the 1-times table to our year of birth?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "The year we are born is a constant that does not change. From that point on, each passing year we add one more year to our life. This yearly variation (always adding 1 each year) is exactly the variation represented by the 1-times table."
+      },
+      {
+         "question": "Are years of life and roof slopes in constructions completely different things?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Although we might initially think so, in this text we saw that mathematics helps us relate these ideas and explain them in a similar way."
+      },
+      {
+         "question": "If in Formula 3 we set the age <i>N</i> to 30 years and the year of birth <i>C</i> as <span id=\"exercise0\"></span>, do we find that the person turned 30 in <span id=\"exercise1\"></span>?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Since the rate at which age increases is always the same, regardless of the person, whenever we add 30 years to the year of birth, we obtain the year in which the person turns 30."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

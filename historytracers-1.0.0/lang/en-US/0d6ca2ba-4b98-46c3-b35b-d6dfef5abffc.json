@@ -1,0 +1,718 @@
+{
+   "title": "Limits and contexts",
+   "header": "Limits and contexts",
+   "sources": [
+      "0d6ca2ba-4b98-46c3-b35b-d6dfef5abffc"
+   ],
+   "scripts": [
+      "0d6ca2ba-4b98-46c3-b35b-d6dfef5abffc"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/0d6ca2ba-4b98-46c3-b35b-d6dfef5abffc_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5m5Z201XV70vHhGABYk57v?si=EEr3TBixSwmSQ2lM9b6zbQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "literature"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1760899080"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p><p><span id=\"htAgeMsg\"></span></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis text is a continuation of the previous one (<htcite0>); therefore, we recommend reading that first. In addition, we suggest studying *Natural Limits* (<htcite1>), as it presents a fundamental concept that we will explore here.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "efd81f99-fe84-43cc-81aa-5efe294b702c",
+                     "text": "History Tracers Team",
+                     "page": "Literature and Sciences",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Natural Limits",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nWhen reading a text—or even a mathematical formula—we are often tempted to assume immediately that we understand it and, consequently, that it is correct.\n\nThere are several reasons that lead us to this conclusion. However, in this introduction we will highlight one of them: the need for security, the comfort of being right, as opposed to the insecurity and fears that have accompanied us since our earliest moments of life (<htcite0>).\n\nThis fact leads us to a reflection:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e7e25a56-56ae-4e3c-8b00-a55a32a0f945",
+                     "text": "Freud, Sigmund",
+                     "page": "pp. 244, footnotes",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1913",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Security</b><br /><br />Do you feel uncomfortable when you don’t have answers?<br /><br />Do you feel uncomfortable with your mistakes?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To help us in this reflection, we will work in parallel with the sacred book of the Maya people, the *Popol-Vuh* (<htcite0>; <htcite1>), originating from Mesoamerica (*Abya Yala*), and with the relationship between force and movement proposed by Isaac Newton (<htcite2>).",
+               "source": [
+                  {
+                     "type": 2,
+                     "uuid": "8fcee36c-411a-4fc8-8217-b9a07a34d3da",
+                     "text": "Popol Vuh, Español",
+                     "page": "pp. 39",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 2,
+                     "uuid": "74bdb72d-1770-4694-8f8e-71e680f1d49c",
+                     "text": "Popol Vuh, English",
+                     "page": "Ch. 3",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1954",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee",
+                     "text": "Newton, Isaac",
+                     "page": "pp. 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1686",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_popolvuh",
+         "text": [
+            {
+               "text": "### Indigenous Writing\n\nIn the region known today as Mesoamerica (*Abya Yala*) (<htcite0>), a hieroglyphic writing system was developed. These texts were inscribed on various media, such as stelae found in Copán, Honduras.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d720f02-051c-4469-b425-7d020f2c2f9b",
+                     "text": "Creamer, W.",
+                     "page": "pp. 37 - 55",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1987",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanStelaA\" onclick=\"htImageZoom('imgCopanStelaA', '0%')\" src=\"images/Copan/StelaACopan.jpg\" class=\"imgcenter\" style=\"width:30%\"/><b>Figure 4</b>: Stela A at the Copán Archaeological Museum, featuring inscriptions referencing Copán, Tikal, Calakmul, and Palenque in sequence (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Photo taken on <htdate1> during site visit.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "30"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "This image displays a hieroglyphic text arranged in two columns.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In addition to the stelae, Indigenous peoples such as the Maya also wrote texts in the form of codices. Unfortunately, many of these codices were burned by Diego de Landa, who was unable to understand them (<htcite0>).\n\nThe destruction caused by Landa was not mirrored among all clergy. This context led, between <htdate0> and <htdate1>, to the compilation of ancient beliefs in what we now know as the **Popol Vuh** (<htcite1>). This event had consequences that went beyond the simple preservation of traditions. According to studies by Miguel R. Dourado, some texts do not reflect the original Mayan beliefs exactly, as they show Christian influences (<htcite2>).\n\n#### Popol Vuh\n\nThe sacred book of the Kʼicheʼ Maya expresses their understanding of cosmology and creation before the arrival of Christianity with the colonizers (<htcite3>).\n\nOriginally, the *Popol Vuh* possibly composed of a single poem. When translated into European languages, it was divided into four distinct parts that narrate the attempts to create humankind (<htcite4>).\n\nNext, we will examine a narrative found in the *Popol Vuh*. But first, another reflection:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b7fa522f-cdc0-47e1-b0a5-049a2bb463db",
+                     "text": "Timmer, David E.",
+                     "page": "pp. 479-480",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "3",
+                        "day": "21"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "85cb27e2-5854-456d-9a0a-2123fa5c0975",
+                     "text": "Mark, J. J.",
+                     "page": "Popol Vuh",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "3",
+                        "day": "21"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0fe64269-28a5-4f86-a0a2-aaf78619183f",
+                     "text": "Dourado, Miguel R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "85cb27e2-5854-456d-9a0a-2123fa5c0975",
+                     "text": "Mark, J. J.",
+                     "page": "Popol Vuh",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "3",
+                        "day": "21"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "85cb27e2-5854-456d-9a0a-2123fa5c0975",
+                     "text": "Mark, J. J.",
+                     "page": "Popol Vuh",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "3",
+                        "day": "21"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1554",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1558",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Contradictions</b><br /><br />When you encounter an idea that contradicts your own, do you immediately classify it as wrong?<br /><br />Or do you stop, think, and study that opposing idea?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Inorganic Matter and Life\n\nToday, when we speak of living beings, we often limit ourselves to plants and animals—but it has not always been this way. Many ancient peoples believed in “lightning stones,” to which they attributed great importance in relation to life (<htcite0>).\n\nWhen reading the *Popol Vuh*, we observe narratives that are unusual to our eyes. For example, according to the text, in ancient times (<htcite1>; <htcite2>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "56169de2-3737-4ca2-a857-ffc29bf9fb35",
+                     "text": "Garcia Castro, Juan Antonio",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1988",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 2,
+                     "uuid": "8fcee36c-411a-4fc8-8217-b9a07a34d3da",
+                     "text": "Popol Vuh, Espanhol",
+                     "page": "pp. 39",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 2,
+                     "uuid": "74bdb72d-1770-4694-8f8e-71e680f1d49c",
+                     "text": "Popol Vuh, English",
+                     "page": "Ch. 3",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1954",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><ul class=\"citation\"><li><i>...the grinding stones said: \"We were tormented by you; every day, every day, at night, at dawn, all the time our faces...\"</i></li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "At first glance, this relationship between stones, texts, and beliefs might lead us to conclude that such ideas are mistaken. On the other hand, it may also show that certain perspectives only consider two extremes, leading to polarized thinking (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3c81aa4a-3030-4767-861a-25f13272776f",
+                     "text": "History Tracers Team",
+                     "page": "Sempre presente",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Limits 1</b><br /><br />What if the <i>Popol Vuh</i> was not written literally, but symbolically—as an abstraction?<br ></br>Before this reflection, had the possibility that the texts might not be literal ever crossed your mind?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Abstraction and Facts\n\nIn the 19th century, according to the Gregorian calendar, Charles S. Peirce proposed that thought should not be considered exclusive to human beings. He even extended this idea to crystals (<htcite0>).\n\nAstronomical measurements made with telescopes show that the universe is expanding (<htcite1>), which indicates that in the past it was contracted—as explained in Chapter 4 of the *Literature* section and also in the *Atlas* of *History Tracers* (<htcite2>; <htcite3>). These data suggest that there is a connection among all elements present in nature.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f2efe0a4-6e8b-4ec1-8c7e-ebfd28ffa67f",
+                     "text": "Santaella, Lucia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1af85131-52aa-49ee-8f9b-2409eb806900",
+                     "text": "Hubble, Edwin",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1929",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2806b294-0d2a-4ca2-8008-b2b82791427a",
+                     "text": "History Tracers Team",
+                     "page": "Undestandig Texts",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "22"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f140d8d6-80cc-4d82-b9f7-c3ba06bf2ed3",
+                     "text": "History Tracers Team",
+                     "page": "Atlas",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/ESA/Planck_history_of_Universe.jpg\" id=\"imgESA2\" onclick=\"htImageZoom('imgESA2', '0%')\" class=\"imgcenter\"/><b>Figure 2</b>: Planck history of Universe. ©ESA – C. Carreau (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a1a7c478-9061-4160-ba43-301c081733e9'); return false;\"><i>ESA</i></a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Context\n\nVarious Mesoamerican peoples used grinding stones (Figure 3) in the preparation of their food; that is, the stone was directly connected to the everyday life of these communities. Thus, this connection could be transformed into something more abstract.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"metate3\" src=\"images/Teotihuacan/MetateTeotihuacan.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate3', '0%')\" /><b>Figure 3</b>: Metate from Mexico. Photo taken on <htdate0>, during a visit to the Achaeological Site of Teotihuacan, México.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "In this metate, we see two front supports (“legs”) and a rear support located at the center of a curved rectangular piece. On the top, there is a roller used to grind corn.",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_newton",
+         "text": [
+            {
+               "text": "### Scientific Texts\n\nIt is not only in literary works that people attempt to understand content in a literal and complete way; this also occurs in scientific texts, which often leads to interpretation errors. To illustrate this issue, let us analyze the relationship between force and motion, discovered by Isaac Newton (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee",
+                     "text": "Newton, Isaac",
+                     "page": "pp. 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1686",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><ul class=\"citation\"><li><i>An impressed force is an action exerted upon a body in order to change its state, whether from rest or from uniform motion forward in a straight line.</i></li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 4: Limits 2</b><br /><br />If an applied force changes the state of motion, this could imply that by increasing the force, the body would move increasingly faster.<br /><br />But does this actually occur in nature?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The Atoms\n\nIsaac Newton’s model (<htcite0>) was proposed at a time when human knowledge was focused on the visible world.\n\nWhen models such as Rutherford’s atomic model emerged (see Graph 1) (<htcite1>), researchers sought to apply known principles to verify their validity. However, as these models failed to fully explain experimental results, the need arose to develop new theories.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee",
+                     "text": "Newton, Isaac",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1686",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2fd2e872-c5d8-4f1b-91dc-97df40597c4e",
+                     "text": "History Tracers Team",
+                     "page": "Evolution of Knowledge: The Atom",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"0\" y1=\"15\" x2=\"250\" y2=\"15\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"15\" font-size=\"1em\">A</text> <line x1=\"0\" y1=\"134\" x2=\"250\" y2=\"134\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"134\" font-size=\"1em\">A</text> <line x1=\"0\" y1=\"114\" x2=\"250\" y2=\"114\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"114\" font-size=\"1em\">A</text> <line x1=\"0\" y1=\"64\" x2=\"115\" y2=\"64\" stroke=\"black\" />  <line x1=\"115\" y1=\"64\" x2=\"50\" y2=\"50\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"35\" y=\"50\" font-size=\"1em\">B</text>  <line x1=\"0\" y1=\"36\" x2=\"155\" y2=\"36\" stroke=\"black\" /> <line x1=\"155\" y1=\"36\" x2=\"250\" y2=\"50\" stroke=\"black\" marker-end=\"url(#arrow)\" /> <text x=\"270\" y=\"50\" font-size=\"1em\">C</text> <circle cx=\"145\" cy=\"75\" r=\"30\"></circle> <circle cx=\"145\" cy=\"25\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"27\" font-size=\"1em\">-</text>  <circle cx=\"75\" cy=\"75\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"73\" y=\"80\" font-size=\"1em\">-</text> <text x=\"120\" y=\"80\" font-size=\"1em\">+</text> <text x=\"140\" y=\"60\" font-size=\"1em\">+</text> <text x=\"140\" y=\"100\" font-size=\"1em\">+</text>  <text x=\"160\" y=\"80\" font-size=\"1em\">+</text> <circle cx=\"205\" cy=\"75\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"202\" y=\"80\" font-size=\"1em\">-</text>  <circle cx=\"145\" cy=\"125\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"127\" font-size=\"1em\">-</text>  </svg></p><p class=\"desc\"><b>Chart 1</b>: Representation of Rutherford model.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Representation of Rutherford's atom, which features a large positive nucleus and small, negatively charged electrons around it.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The Aether\n\nThe explanation that increasing force automatically leads to a proportional increase in velocity was not the only model inconsistent with experimental data.\n\nAt the beginning of the twentieth century, according to the Gregorian calendar, the idea that the universe was filled with an “aether” still persisted. This concept made it difficult to interpret Lorentz’s work on light, which agreed with Newtonian mechanics only at low velocities (<htcite0>).\n\n#### The Solution\n\nBoth problems were solved by Albert Einstein in <htdate0>, when he proposed that Lorentz’s transformations were not limited to light alone. Furthermore, he demonstrated that velocity measurements depend on the observer.\n\nHis theory eliminated the need for the ether hypothesis and introduced the idea of a universal maximum speed (<htcite1>; <htcite2>).\n\n#### The Context\n\nNewton’s proposals were formulated based on an inertial frame of reference, derived from macroscopic studies. In contrast, when dealing with light and extremely small matter such as atoms, we enter a different scenario, even though both involve material phenomena.\n\nThe models of Einstein and Lorentz, as well as Newton’s, each accurately explain phenomena within their respective contexts. Moreover, it is possible to establish a relationship between them by considering the magnitude of velocity involved.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6857cf8f-b7cd-4479-b728-3c26b29b5ae0",
+                     "text": "Likharev, Konstantin K.",
+                     "page": "Ch. 9",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6857cf8f-b7cd-4479-b728-3c26b29b5ae0",
+                     "text": "Likharev, Konstantin K.",
+                     "page": "Ch. 9",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "bc393b41-96db-46cd-8bdf-5810f4e433d4",
+                     "text": "Anber, M. M., & Donoghue, J. F.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1905",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nWhen studying the *Popol Vuh*, we observe that the “living rocks” could be related to the fact that stones were used in the preparation of food.\n\nWhen analyzing Isaac Newton’s model, we notice that it refers to forces applied to macroscopic systems. On the other hand, Einstein and Lorentz addressed an invisible context, showing that scientific models could be connected in some way.\n\nReligious poems and scientific models share several important aspects:\n- The need to look beyond the text to fully understand their proposals.\n- The importance of identifying natural limits (<htcite0>), which help us both to understand the inspiration behind a religious poem and to determine where to apply a mathematical model.\n- The choice to avoid a dualistic view of right and wrong (<htcite1>; <htcite2>; <htcite3>), since although such a view may provide an illusion of safety, it ultimately creates barriers to knowledge.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "efd81f99-fe84-43cc-81aa-5efe294b702c",
+                     "text": "History Tracers Team",
+                     "page": "Literature and Sciences",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b6f9bd52-c0cb-497e-9217-1f9677d5b491",
+                     "text": "History Tracers Team",
+                     "page": "Ampliando...",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f208f755-08ef-4cff-8699-8bd62ddd3035",
+                     "text": "History Tracers Team",
+                     "page": "Limites e contextos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3c81aa4a-3030-4767-861a-25f13272776f",
+                     "text": "History Tracers Team",
+                     "page": "Sempre presente",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Should every text be understood literally?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "A literal description of events is expected in fields such as science, which seek models to describe the universe. In other areas, such restrictions may exist, but they are not mandatory."
+      },
+      {
+         "question": "Are scientific models purely theoretical and therefore always correct?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Scientific models, when supported by experiments, explain various phenomena in the universe. However, claiming that they explain the entire universe is a premature conclusion, since any model can be improved — and that is not a problem.<br />In fact, Newton clearly stated the context in which his model was proposed, but we often focus only on three letters (F, m, a), which do not even appear in his original text."
+      },
+      {
+         "question": "Is expecting that texts or formulas contain something beyond what is explicit the ideal way to understand them?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Although mathematical formulas convey a general idea of the natural phenomena they describe, and authors may provide as much detail as possible in their poems, it is important to remember that our knowledge is in constant evolution. Therefore, we can always discover something beyond what we initially perceive."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

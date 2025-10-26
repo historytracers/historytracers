@@ -1,0 +1,633 @@
+{
+   "title": "Entendendo a Tabuada (8 e 9)",
+   "header": "Entendendo a Tabuada (8 e 9)",
+   "sources": [
+      "e730ab7c-ed0b-4b3c-8f57-3dea7965ff2e"
+   ],
+   "scripts": [
+      "e730ab7c-ed0b-4b3c-8f57-3dea7965ff2e"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/e730ab7c-ed0b-4b3c-8f57-3dea7965ff2e_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/mj7UqzvCTUb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1759966937"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nRecomendamos que o leitor revise os textos anteriores deste capítulo antes de prosseguir",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "Hitory Tracers Team",
+                     "page": "Primeiros Passos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nQuando estudamos as tabuadas de quatro (4) e cinco (5), mencionamos que podemos utilizar figuras desenhadas no plano — como quadrados e triângulos — para aproximar formas naturais (<htcite0>). Entretanto, não explicamos como nos aproximamos, por meio da matemática, do mundo real.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "text": "History Tracers Team",
+                     "page": "Entendendo a Tabuada (4 e 5)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: O elemento que falta</b><br /><br />Ao trabalharmos com figuras planas, multiplicávamos dois números. Agora, nosso objetivo é trabalhar fora do plano.<br />O que estaria faltando para nos aproximarmos do mundo real?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_measure",
+         "text": [
+            {
+               "text": "### Medir é multiplicar\n\nDescobrir o tamanho de um objeto ou de uma pessoa vai além de simplesmente obter um número. Para medir, somamos as pequenas partes do que desejamos medir e, como essas partes têm rigorosamente o mesmo tamanho, realizamos multiplicações.\n\n#### Medindo uma linha\n\nVamos começar revisando a medição de uma linha reta, em que somamos todos os pequenos segmentos até atingir o comprimento total. Posicionamos o zero (0) em uma extremidade da linha e observamos até onde ela se estende em uma régua (<htcite0>), conforme ilustrado na **Figura 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a05ccb5a-182d-4321-8105-f30ee47edfc6",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgRule\" onclick=\"htImageZoom('imgRule', '0%')\" src=\"images/HistoryTracers/RuleQuipu.jpg\" class=\"imgcenter\"/><b>Figura 1</b>: Representação de uma régua medindo uma linha. Código-fonte disponível no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0></a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Medindo uma área\n\nQuando aprendemos que a ordem dos fatores em uma multiplicação não altera o resultado, também descobrimos que o produto de dois números iguais é chamado de quadrado (<htcite0>), como mostrado no **Gráfico 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fbd5bb5a-58fd-4c14-a7b8-7cab2ed2560b",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><svg width=\"230\" height=\"230\"> <rect x=\"30\" y=\"0\" width=\"200\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"50\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"100\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"30\" y=\"150\" width=\"200\" height=\"1\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" />            <rect x=\"80\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"130\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <rect x=\"180\" y=\"0\" width=\"1\" height=\"200\" style=\"fill:rgb(255,255,255);stroke-width:4;stroke:rgb(0,0,0)\" /> <text x=\"50\" y=\"222\">1</text> <text x=\"100\" y=\"222\">2</text> <text x=\"150\" y=\"222\">3</text> <text x=\"200\" y=\"222\">4</text>        <text x=\"5\" y=\"30\">4</text> <text x=\"5\" y=\"80\">3</text> <text x=\"5\" y=\"130\">2</text> <text x=\"5\" y=\"180\">1</text>     </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Quadrados representando a multiplicação de 4 por 4.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Um quadrado maior composto por dezesseis quadrados menores. No lado esquerdo, os quadrados são numerados de 1 a 4 (da base até o topo). Na parte inferior, a numeração segue de 1 a 4 (da esquerda para a direita)",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Podemos ir além com esse gráfico para entender a medição de área. Observe que, na horizontal, ao somarmos unidade por unidade (1 + 1 + 1 + 1 = 4), obtemos um total de quatro quadrados. Como discutido neste capítulo, isso também significa multiplicar quatro por um (4 × 1 = 4) — o mesmo processo usado para medir o comprimento na **Figura 1**.\n\nAinda analisando o **Gráfico 1**, vemos que, na vertical, a estrutura se repete: há linhas consecutivas de quatro quadrados. Portanto, para calcular a área da figura, basta somar todas as linhas de comprimento quatro, o que equivale a multiplicar o comprimento da linha (4) pela quantidade de linhas: **4 × 4 = 16**.\n\n#### Medindo um volume\n\nAlém do comprimento e da área, existe outra grandeza chamada volume, que está diretamente relacionada ao que vimos até agora. Novamente, partiremos de uma visualização — o **Gráfico 2**, que representa um cubo — antes de explorar sua conexão com a multiplicação:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><svg width=\"300\" height=\"300\" viewBox=\"-25 -25 50 50\"><line x1=\"5\" y1=\"20\" x2=\"20\" y2=\"5\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"-5\" x2=\"-5\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"5\" y1=\"-5\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"20\" x2=\"5\" y2=\"20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"-5\" x2=\"5\" y2=\"-5\" style=\"stroke:#000;\"/>  <line x1=\"-5\" y1=\"-20\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/>  <line x1=\"-20\" y1=\"20\" x2=\"-20\" y2=\"-5\" style=\"stroke:#000;\"/>   <line x1=\"5\" y1=\"20\" x2=\"5\" y2=\"-5\" style=\"stroke:#000;\"/> <line x1=\"20\" y1=\"5\" x2=\"20\" y2=\"-20\" style=\"stroke:#000;\"/> <line x1=\"-20\" y1=\"20\" x2=\"-5\" y2=\"5\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <line x1=\"-5\" y1=\"5\" x2=\"20\" y2=\"5\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <line x1=\"-5\" y1=\"5\" x2=\"-5\" y2=\"-20\" style=\"stroke:#000;stroke-dasharray:1,1;\"/> <text x=\"-8\" y=\"25\" font-size=\"5px\">2</text> <text x=\"16\" y=\"14\" font-size=\"5px\">2</text> <text x=\"21\" y=\"-5\" font-size=\"5px\">2</text></svg></center></p><p class=\"desc\"><b>Gráfico 2</b>: Representação de um cubo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Por definição, um cubo tem todos os lados iguais, formados por faces quadradas (<htcite0>). Para calcular a área de um quadrado, somamos todas as linhas até obter seu tamanho total. Da mesma forma, para determinar o volume do cubo, somamos todas as áreas dos quadrados que o compõem. No caso do **Gráfico 2**, a medição do volume segue estas etapas:\n- **Cálculo do comprimento**: Ao medir um lado do cubo, obtemos o valor **2**, como indicado no gráfico.\n- **Cálculo da área**: Como todos os lados são iguais, a soma das linhas também resulta em **2**, logo a área é: **2 × 2 = 4**.\n- **Cálculo do volume**: Somando todas as áreas dos quadrados na vertical, chegamos ao volume por meio da multiplicação: **4 × 2 = 8**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c30a9ff1-c7ca-4995-b4b2-06297b0e1e37",
+                     "text": "Weisstein, Eric W",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_eight",
+         "text": [
+            {
+               "text": "### Multiplicando por Oito (8)\n\nO número oito (8), como resultado do volume calculado, não foi escolhido por acaso. Entre os números de zero (0) a nove (9) que estudamos até o momento, ele é o único, além do um (1), que é resultado cúbico de um número inteiro — no caso, o dois: **2 × 2 × 2 = 8**",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Montando a Tabuada\n\nPara montar a tabuada do oito (8), aplicamos a **Fórmula 1**, atribuindo ao fator **a** o valor oito (8), obtendo os seguintes resultados:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Figure 1</b>: Fórmula geral das tabuadas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent8\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Desenhando a Tabuada\n\nNovamente, desenhamos pontos e os unimos em um único gráfico:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: pontos da tabuada de oito conectados, formando uma reta. gráfico gerado com a biblioteca <a href=\"#\" onclick=\"htcleansources(); htfillreferencesource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Um último reforço que gostaríamos de fazer, relacionado à ligação entre o quadrado de dois, o número quatro (4), e o cubo de dois, o número oito (8), é que, devido à relação de múltiplos entre eles:\n- Ao multiplicarmos qualquer número da tabuada de dois (2) por dois (2), temos a tabuada de quatro (4).\n- Por sua vez, ao multiplicarmos a de quatro por dois, temos a de oito (8).\n\nDe forma equivalente, ao multiplicarmos a tabuada de dois por quatro, obtemos os mesmos valores da tabuada de oito:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: pontos da tabuada de dois, quatro e oito conectados, formando uma reta. gráfico feito com a biblioteca <a href=\"#\" onclick=\"htcleansources(); htfillreferencesource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_tikal",
+         "text": [
+            {
+               "text": "### O Uso dos Números\n\nÀ medida que avançamos no entendimento da natureza, aprendemos que certos números sempre estarão presentes. Por exemplo, sempre que conectamos os pontos que formam a tabuada (excluindo a tabuada de zero), formamos a imagem de um triângulo retângulo que apresenta uma conexão entre uma linha horizontal e uma vertical, formando um ângulo de 90 graus (representado como um quadrado no **Gráfico 5**) (<htdate0>).\n\nPor outro lado, também não é incomum encontrarmos situações em que a humanidade propôs utilização de números, mas nunca os comprovou a proposta.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg preserveAspectRatio=\"xMidYMid meet\" height=\"245\" width=\"450\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M425 5 L75 200 L425 200 Z\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><rect x=\"404\" y=\"179\" width=\"20\" height=\"20\" stroke=\"lightgreen\" fill=\"none\" stroke-width=\"3\" /><text x=\"125\" y=\"192\" font-size=\"1.5em\">α</text><text x=\"401\" y=\"45\" font-size=\"1.5em\">β</text><text x=\"235\" y=\"95\" font-size=\"2.5em\">c</text><text x=\"428\" y=\"120\" font-size=\"2.5em\">b</text><text x=\"265\" y=\"230\" font-size=\"2.5em\">a</text></svg></p><p class=\"desc\"><b>Gráfico 5</b>: Triângulo retângulo com suas componentes.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### O Eixo do Mundo na Mesoamérica\n\nDe acordo com crenças ancestrais mesoamericanas, o universo teria três níveis (Inframundo, Terra e Céu) (<htcite0>), sendo dois deles subdivididos da seguinte maneira:\n- **Céu**: Composto de 13 níveis.\n- **Inframundo**: Composto por 9 níveis.\n\nEssas subdivisões eram diretamente refletidas em suas construções, como no *Templo Grande Jaguar* de Tikal, Guatemala, representado na **Figura 2**, que possui nove níveis principais representando os níveis do Inframundo  (<htcite1>; <htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "11d69209-b960-4987-a055-b23762d3b0f4",
+                     "text": "Muñoz, Sarai R.",
+                     "page": "pp. 1-5",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "11d69209-b960-4987-a055-b23762d3b0f4",
+                     "text": "Muñoz, Sarai R.",
+                     "page": "pp. 11",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7ee4e8f6-3f68-4dbc-ad17-3b39f9964ef2",
+                     "text": "Parque Nacional Tikal",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"gc\" onclick=\"htImageZoom('gc', '0%')\" src=\"images/Tikal/GranJaguar.jpg\" class=\"imgcenter\" style=\"width:30%\"/><b>Figura 2</b>: Templo Grande Jaguar em Tikal, Guatemala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7ee4e8f6-3f68-4dbc-ad17-3b39f9964ef2'); return false;\">Parque Nacional Tikal</a>). Foto tirada em <htdate0>, durante uma visita ao sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "22"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Nesta figura, observa-se um templo composto por nove níveis, com uma grande escada que conduz ao topo. No ápice, há um templo dividido em três espaços distintos.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Essa concepção de universo em três níveis também se manifestava no *jogo de bola* mesoamericano (**Figura 3**), um ritual em que o movimento da bola simbolizava a trajetória do sol – que, após atravessar o Inframundo, renascia ao amanhece (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "87a40e3a-c09b-466a-8a15-37091ddd38a5",
+                     "text": "Aguilar-Moreno",
+                     "page": "pp. 76 - 78",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2015",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<ul class=\"citation\"><li><i>\"...as quadras de jogo simbolizavam o universo, sendo o movimento da bola uma metáfora para os corpos celestes - especialmente o Sol, a Lua e Vênus. A passagem da bola representava o sol (a luz, o día, a vida) viajando dentro e fora do inframundo...\"</i></li> </ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"Copan\" onclick=\"htImageZoom('Copan', '0%')\" src=\"images/Copan/JuegoDePelotaCopan.jpg\" class=\"imgcenter\"/><b>Figura 3</b>: Vista do \"Juego de Pelota\" de Copán, em Honduras. Foto tirada em <span class=\"htdate\"></span>, durante uma visita ao sítio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "30"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Os Níveis na Mesopotâmia\n\nA visão da Terra e do Céu como níveis não ocorreu apenas na Mesoamérica. Ao cruzarmos o mundo, podemos observar que, milênios antes das construções mesoamericanas - de maneira completamente independente -, *Enmerkar e o Senhor de Aratta* revela que os sumérios já viam o céu como um nível habitável, havendo ainda uma árvore que conectava a Terra ao paraíso (<htcite0> ; <htcite1>). Além disso, como destacado por Samuel Noah Kramer, acreditavam que o sol percorria o mundo dos mortos à noite, retornando ao céu diariamente (<htcite2>; <htcite3>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5faa95a5-54fa-4f31-a979-98081a4a7709",
+                     "text": "Black, J.A. et al., Enmerkar e o senhor de Aratta",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1998",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "35d9c25b-a7b7-4f4a-bdef-d737d33fcb61",
+                     "text": "Black, J.A. et al. (tradução), Enmerkar e o senhor de Aratta",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1998",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "91ab37c8-4b55-452b-919c-5628a5b8c99c",
+                     "text": "Radau, H.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1902",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ba82728d-cba2-42d9-a524-e371ba8ca5a5",
+                     "text": "Kramer, Samuel Noah",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1972",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_nine",
+         "text": [
+            {
+               "text": "### Multiplicação por nove (9)\n\nAlém dos nove níveis presentes na **Figura 2**, o templo superior também possui três espaços (<htcite0>). Esses dois números que aparecem na construção estão relacionados pelo fato de que 9 é o quadrado de 3 (3 × 3 = 9). A tabuada de três já foi analisada anteriormente (<htcite1>), e agora passamos ao estudo da tabuada de 9.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "11d69209-b960-4987-a055-b23762d3b0f4",
+                     "text": "Muñoz, Sarai R.",
+                     "page": "pp. 11",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "Entendendo a Tabuada (2 e 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Montando a Tabuada\n\nPara montar a tabuada do nove (9), aplicamos a **Fórmula 1**, atribuindo ao fator **a** o valor nove (9), obtendo os seguintes resultados:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent7\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Desenhando a Tabuada\n\nO **Gráfico 6** apresenta os valores da tabuada de nove (9):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 6</b>: Pontos da tabuada de nove conectados, formando uma reta. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No próximo gráfico, representaremos essa tabuada juntamente com as já estudadas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 7</b>: Pontos das tabuadas de zero a nove conectados, formando as retas. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Interno e Externo</b><br /><br />Ao analisar o Gráfico 7, além dos pontos destacados nos textos anteriores - como o fato de que, quanto maior a tabuada, mais nos afastamos da linha horizontal - também é possível observar que as áreas formadas pelos triângulos das tabuadas menores sempre estão contidas dentro das áreas dos triângulos maiores.<br /><br />Você havia observado esse padrão nos gráficos dos outros textos?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, exploramos as tabuadas de 8 e 9 e a relação de tabuadas com sistemas de medidas. Observamos como os números podem ser matematicamente comprovados em certas medidas, enquanto em outros casos são associados a conceitos sem uma medição direta — o que, ainda assim, impulsionou avanços em áreas como a arquitetura.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Existe relação entre comprimento, área e volume?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Estas unidades de medida estão relacionadas por medirem comprimentos em diferentes superfícies. Como consequência disso, podemos aplicar multiplicações (somas consecutivas) para medi-las."
+      },
+      {
+         "question": "No passado, diferentes civilizações interpretavam o céu e a terra como níveis distintos?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Por não possuírem o conhecimento do universo que temos atualmente, encontramos diferentes definições para o céu e a terra, tendo em comum a concepção de níveis distintos."
+      },
+      {
+         "question": "Tanto o 8 quanto o 9 são quadrados de números no sistema decimal, mas apenas o 8 é um cubo?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "O quadrado de um número implica que um valor multiplicado por si mesmo resulta em outro número. Isto não ocorre com o oito quando repetimos os mesmos números. O nove é o quadrado de três (3 × 3 = 9), mas o oito não resulta da multiplicação dos números anteriores a ele no sistema decimal. Por outro lado, o oito é o cubo de dois (2 × 2 × 2 = 8)."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

@@ -1,0 +1,408 @@
+{
+   "title": "Jogos de tradução",
+   "header": "Jogos de tradução",
+   "sources": [
+      "7ec87720-69a7-46f4-ac64-b9c560b02739"
+   ],
+   "scripts": [
+      "7ec87720-69a7-46f4-ac64-b9c560b02739"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/7ec87720-69a7-46f4-ac64-b9c560b02739_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/OXlRXcDs3Ub",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1757170687"
+   ],
+   "authors": null,
+   "reviewers": [
+      "Dhavit Prem"
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Pré-requisitos</h3>Este jogo tem como objetivo reforçar os conhecimentos sobre os sistemas numéricos indígenas e os sistemas que usamos atualmente. Antes de começar, é recomendado estudar as seguintes páginas anteriores:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('20b14681-88c0-438a-a273-a0902ae5db38'); return false;\">Nossos lados são iguais</a>: mostra-se que seu corpo tem simetria.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3874d1e8-0f76-4432-9ee2-d8c8c9dccf53'); return false;\">Contando</a>: introduzimos a ideia de contagem a partir do próprio corpo.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">Além dos Dedos</a>: explorando as limitações e a necessidade de novas ferramentas para contar.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_trainee",
+         "text": [
+            {
+               "text": "<p><h3>Fase de Treinamento</h3><b>Objetivo:</b> Existe uma relação entre nossos dedos e os símbolos que usamos para contar. Nesta etapa do treinamento de tradutor, sua missão é completar a sequência de contagem com diferentes modelos. Este treinamento ajudará a fixar o aprendizado.</p><p><b>Regras:</b> Escolha a maneira de representar uma contagem. Metade dos valores será carregada automaticamente e a outra metade você deverá completar usando as setas ao lado. Ao terminar, você poderá reiniciar o treinamento clicando no botão \"Jogar novamente\". </p><p>Modelo de contagem: <input type=\"radio\" value=\"ha\" name=\"selModel\" /> <b><span id=\"firstMethod\"></span></b> <input type=\"radio\" value=\"indigenous\" name=\"selModel\" /> <b><span id=\"secondMethod\"></span></b> <input id=\"playButton\" type=\"button\" /></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Traduza a segunda linha usando as setas ao lado.</th><th>Aumentar</th><th>Diminuir</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\">&nbsp;</td> <td id=\"tc2f1\">&nbsp;</td> <td id=\"tc3f1\">&nbsp;</td> <td id=\"tc4f1\">&nbsp;</td><td id=\"tc5f1\" rowspan=\"3\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"traineeUp\"></i> </td><td id=\"tc6f1\" rowspan=\"3\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"traineeDown\"></i></td></tr> <tr id=\"tf2\"><td id=\"tc1f2\">&nbsp;</td> <td id=\"tc2f2\">&nbsp;</td> <td id=\"tc3f2\">&nbsp;</td> <td id=\"tc4f2\">&nbsp;</td></tr> <tr><td colspan=\"4\"><span id=\"gameMessage\"></span></td></tr> </table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Descobrindo a América (<i>Abya Ayala</i>)</h3><b>Objetivo e regras:</b> Traduzir a numeração indígena que aparecerá, seja na <i>Yupana</i> ou no formato Mesoamericano. A cada valor traduzido, você será apresentado a uma região indígena da América (<i>Abya Ayala</i>). Para passar para a próxima missão, clique em <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>. Ao final, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) pelo seu trabalho.</p><p><b>Recordação:</b> Para ler um número na <i>Yupana</i>, é necessário observar os quatro quadrantes. Em contraste, os números mesoamericanos são representados em um único quadrante.</p><p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Traduza a primeira linha e descubra construções indígenas.</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\">&nbsp;</td> <td id=\"tc2f1\">&nbsp;</td> <td id=\"tc3f1\">&nbsp;</td> <td id=\"tc4f1\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\">&nbsp;</div></td> <td id=\"tc2f2\">&nbsp;</td> <td id=\"tc3f2\">&nbsp;</td> <td id=\"tc4f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td colspan=\"3\" id=\"tc1f3\"><span id=\"gameImage\"></span></td><td id=\"tc4f3\"><div id=\"descImage\"></div> <span style=\"font-size: 3em; color: Tomato;\"><i id=\"nextLevel\" class=\"fa-solid fa-play\"></i></span></td></tr> </table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Nós utilizamos a <i>Yupana</i> através do método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) da Associação Yupanki (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0></a>).<br />A aplicação dos números mesoamericanos é baseada no trabalho de Orlando Josué Casares Contreras, José M. Gamboa Cetina e Venus Sarahí Estrella Cabrera (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate1>, (ResearchGate)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate2>, (Revista)</a>).  Além disso, incorporamos dados dos trabalhos de Francisco Barriga Puente e Ximena Catepillán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <htdate3></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ced67eaf-7378-4589-9166-07f799969e3e'); return false;\">Catepillán, Ximena, <htdate4></a>).<br />Por fim, empregamos diversos métodos de contagem inspirados pelo trabalho de Francisco A. González Redondo <i>et al.</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a4f22e25-5839-407f-a1aa-634521d52b42'); return false;\">González Redondo, Francisco A., et al., <htdate5></a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2023",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": [
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Machu Picchu, Peru.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2017",
+               "month": "8",
+               "day": "16"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Xunantunich, Belize.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "7",
+               "day": "22"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Teotihuacan, México.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "10",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Teotihuacan, México.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "10",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Caral, Peru ©ZonaArqueólogicaCaral (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <htdate1></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a7abe0b7-b3bf-44d6-ab4d-e7d32d2586ad'); return false;\">Moras, Roberto., <htdate2></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d76a60c6-1eaa-4e1e-9b72-2135509101c1'); return false;\">Legado Ancestral, <htdate3>, Caral parte 2 - Tecnología en el año 4.000 A.C.</a>).",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2024",
+               "month": "-1",
+               "day": "-1"
+            },
+            {
+               "type": "gregory",
+               "year": "2024",
+               "month": "-1",
+               "day": "-1"
+            },
+            {
+               "type": "gregory",
+               "year": "2024",
+               "month": "-1",
+               "day": "-1"
+            },
+            {
+               "type": "gregory",
+               "year": "2024",
+               "month": "-1",
+               "day": "-1"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita a cidade de Cusco, Perú.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2017",
+               "month": "8",
+               "day": "17"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Cahal Pech, Belize.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "7",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Caracol, Belize.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "7",
+               "day": "23"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Joya de Cerén, El Salvador.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "7",
+               "day": "24"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de San Andres, El Salvador.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "7",
+               "day": "24"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Tikal, Guatemala.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "10",
+               "day": "22"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Tula, México.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "10",
+               "day": "18"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Huaca Pucllana, Peru.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2018",
+               "month": "4",
+               "day": "28"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao complexo turístico de Mi Pueblito , Panama.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "1",
+               "day": "17"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Copán, Honduras.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "4",
+               "day": "26"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Copán, Honduras.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "4",
+               "day": "26"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Copán, Honduras.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "4",
+               "day": "26"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Copán, Honduras.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "4",
+               "day": "26"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Copán, Honduras.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "4",
+               "day": "26"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Copán, Honduras.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "4",
+               "day": "26"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Kaminaljuyu, Guatemala.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2014",
+               "month": "10",
+               "day": "19"
+            }
+         ]
+      }
+   ],
+   "date_time": null
+}

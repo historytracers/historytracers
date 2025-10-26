@@ -1,0 +1,214 @@
+{
+   "title": "Limites na Natureza",
+   "header": "Limites na Natureza",
+   "sources": [
+      "7a462cd1-cfd1-4ac6-bde8-e8a64092388f"
+   ],
+   "scripts": [
+      "7a462cd1-cfd1-4ac6-bde8-e8a64092388f"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/7a462cd1-cfd1-4ac6-bde8-e8a64092388f_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/A82ifZl6YUb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1759466133"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nOs dois primeiros capítulos da seção \"Primeiros passos\" explicam como realizar contagens e comparações. Por isso, recomendamos o estudo prévio desses conteúdos antes de avançar",
+               "source": [
+                  {
+                     "type": 3210,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeiros Passos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Introdução</h3>Em dois textos anteriores sobre sistemas numéricos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b1a262fc-0148-489b-8b70-5266a85c1e67'); return false;\">History Tracers, <htdate0>, Famílias numéricas (Parte II)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6fd2997b-caf1-4620-a58f-1140388ab8c1'); return false;\">History Tracers, <htdate1>, Mudança de direção (Parte II)</a>), levantamos duas reflexões importantes para os leitores:</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Existe um Limite para os Números?</b><br />Os números decimais são compostos por dígitos que variam de zero (0) a nove (9). Estes são os limites de cada posição nesse sistema. Vimos que, ao atingir o valor máximo em uma posição, sempre podemos continuar escrevendo outros números seguindo determinadas regras. Mas será que existe um último número?</div></div></center></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 2: Existe um Limite para os Números?</b><br />Ao considerar outros sistemas numéricos, usados em diversas contagens, não há indicação de que deveríamos parar de adicionar números. Será que existe um último número nesses sistemas?</div></div></center></p><p>Neste texto, vamos explorar essas questões e aprofundar nosso entendimento sobre o conceito matemático de limite.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_maxmin",
+         "text": [
+            {
+               "text": "<p><h3>Máximos e mínimos</h3>Neste capítulo, estudamos dois sistemas decimais, o Hindú-Arábico e o dos <i>Quipus</i>, além do sistema vigesimal Mesoamericano. Esses sistemas representam uma evolução significativa em relação aos métodos primitivos de contagem desenvolvidos há milênios (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a4f22e25-5839-407f-a1aa-634521d52b42'); return false;\">González Redondo, Francisco A., et al., <htdate0>, pp. 174 - 177, 180 - 182</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <htdate1>, pp. 21 - 23</a>). Ao compararmos a quantidade de símbolos usados para representar números nesses sistemas, observamos que eles possuem uma relação direta com nossos membros, especificamente mãos e pés. Abaixo, você pode explorar a relação, utilizando as setas</p><p><table class=\"tawapukllay\" id=\"yupana1\"><tr><th colspan=\"2\">Pés</th><th colspan=\"2\">Mãos</th><th>Hindú-Arábico</th><th>Mesoamericano</th><th>Setas</th></tr>  <tr><td rowspan=\"2\"><img onclick=\"htImageZoom('leftFootImg1', '0%')\" id=\"leftFootImg1\" src=\"\" class=\"smallFeet\" /></td><td rowspan=\"2\"><img id=\"rightFootImg1\" onclick=\"htImageZoom('rightFootImg1', '0%')\" src=\"\" class=\"smallFeet\" /></td><td rowspan=\"2\"><img id=\"leftHandImg1\" onclick=\"htImageZoom('leftHandImg1', '0%')\" src=\"\" /></td><td rowspan=\"2\"><img id=\"rightHandImg1\" onclick=\"htImageZoom('rightHandImg1', '0%')\" src=\"\" /></td><td id=\"tc5f1\" rowspan=\"2\">&nbsp;</td><td id=\"tf6f1\"><img src=\"\" id=\"tmc6l1\" onclick=\"htImageZoom('tmc6l1', '0%')\" /></td><td rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp1\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown1\"></i></td></tr> <tr><td id=\"tf6f2\" style=\"background-color:white;\"><img src=\"\" id=\"tmc6l2\" onclick=\"htImageZoom('tmc6l2', '0%')\" />&nbsp;</td></tr></table></p><p class=\"desc\"><b>Tabela 1</b>: Relação entre números e o corpo humano.</p><p>Com base na <b>Tabela 1</b>, podemos tirar as seguintes conclusões:</p><p><ul><li>Existe um mínimo comum nas contagens que utilizam mãos, pés e sistemas numéricos: o zero (0).</li><li>Quando utilizamos apenas as mãos ou os pés, o valor máximo é dez (10).</li><li>Ao combinarmos mãos e pés, o valor máximo alcançado é vinte (20).</li><li>Entre o valor mínimo e o máximo, existem outros valores intermediários.</li></ul></p><p>Essas conclusões mostram que o máximo e o mínimo representam os extremos de um intervalo. À medida que os números aumentam, tendemos ao valor máximo: dez (10) quando usamos apenas as mãos, e vinte (20) ao incluir os pés. Por outro lado, ao diminuirmos os valores, tendemos ao mínimo, que é o zero (0).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_volume",
+         "text": [
+            {
+               "text": "<p><h3>Volume</h3>Quando utilizamos uma vasilha para armazenar um líquido ou outro objeto, a capacidade da vasilha é limitada. Se ultrapassarmos esse limite, o conteúdo transbordará. Vamos considerar, por exemplo, um pote de chocolate mesoamericano:</p><p class=\"desc\"><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\" src=\"images/CahalPech/ChocolatPot.jpg\" class=\"imgcenter\"/><b>Figura 1</b>: Pote de cerâmica mesoamericano. Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Cahal Pech, Belize.</p><p>Este pote de cerâmica, como qualquer vasilha aberta, possui um limite superior. Para preenchê-lo, podemos adicionar chocolate até a borda. Se excedermos essa quantidade, o líquido transbordará, escapando para fora do pote.</p><p>Diante disso, surge a questão: quanto chocolate esse pote pode conter? Para responder a essa pergunta com maior precisão, utilizamos números e fazemos marcações no pote que nos ajudam a identificar o volume exato. Por exemplo, podemos marcar diferentes valores no pote, começando do zero, e assim determinar a capacidade. Para simplificar ainda mais, atribuímos nomes específicos para diferenciar quando estamos falando de quantidades líquidas ou sólidas. A partir de agora, ao nos referirmos a uma pequena quantidade de líquidos, utilizaremos a unidade de volume, expressa em mililitros. Quando nos referirmos a uma pequena quantidade de sólidos, estaremos falando de massa, expressa em gramas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94f66ad2-1965-40cd-bb5f-1f7951ea708d'); return false;\">NIST, <htdate1>, Volume</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('568dc837-f824-4039-bc10-4d68876ef6fb'); return false;\">NIST, <htdate2>, Mass</a>). Para ficar mais claro, vamos fazer marcações no pote de chocolate:</p><div class=\"htSlidesGame\" style=\"margin-left:25%;\"><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/CahalPech/ChocolatPot.jpg\" class=\"imgGameSize\"/><div style=\"position: absolute; bottom: 20%; left: 1.6em; font-weight: bold;\">0</div><div style=\"position: absolute; bottom: 40%; left: 1.6em; font-weight: bold;\">500</div><div style=\"position: absolute; bottom: 70%; left: 1.6em; font-weight: bold;\">800</div></div></p><p class=\"desc\"><b>Figura 2</b>: Pote com marcações de volume.</p><p>Considerando que armazenaremos chocolate líquido na vasilha, podemos ver na <b>Figura 2</b> que o pote tem capacidade para até 800 mililitros de chocolate.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_definition",
+         "text": [
+            {
+               "text": "<p><h3>O que é um limite?</h3>Como estamos estudando números, precisamos simplificar a definição científica de limites para utilizá-la. Por isso, por enquanto, vamos assumir o seguinte:</p><p><ul class=\"citation\"><li>Limite é um número dentro de uma sequência numérica, que pode ou não ser um dos extremos (máximo ou mínimo).</li></ul></p><p>Com essa definição, podemos também considerar valores internos como limites. Por exemplo, na <b>Figura 2</b> não somos obrigados a encher o pote completamente. Às vezes, queremos apenas chocolate até o início do bico. Nesse caso, o limite desejado seria 500 mililitros.</p><p>À medida que avançarmos em nossos estudos, iremos refinar nossa definição de limite, até alcançar o conceito utilizado nas ciências (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('960011db-78ac-4a14-bf41-f8b816ee46e5'); return false;\">Stover, Christopher, Limit</a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_answer",
+         "text": [
+            {
+               "text": "<p><h3>Respondendo às Reflexões</h3>Finalmente, podemos responder às reflexões propostas. Independentemente do sistema numérico escolhido, sempre será possível encontrar um número maior que o anterior. No sistema Hindu-Árabe, isso ocorre adicionando algarismos diferentes de zero à esquerda, enquanto nos sistemas numéricos indígenas, os números crescem com a adição na parte superior. Diante dessa perspectiva, não há um \"último número\".</p><p>Mas, se não existe um último número, como definimos o limite no extremo máximo? Neste caso, sabemos que os números continuarão crescendo indefinidamente, ou seja, estamos lidando com o conceito de infinito, representado pelo símbolo <b>∞</b>. À medida que os números aumentam, o limite tende ao infinito, mas, como o infinito não é um número, ele nunca pode ser alcançado. Portanto, não há um valor máximo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<p><h3>Conclusão</h3>Neste texto, exploramos um dos conceitos fundamentais da matemática: o conceito de limite. Esse conceito, no entanto, não se restringe apenas à matemática; ele também está presente de forma implícita em diversas outras ciências, o que pode dificultar sua percepção pelos alunos. A partir deste texto, utilizaremos o conceito de limite com maior frequência para aprofundar nosso entendimento sobre os temas estudados.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

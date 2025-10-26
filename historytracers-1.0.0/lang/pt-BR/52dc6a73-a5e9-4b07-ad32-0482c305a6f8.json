@@ -1,0 +1,149 @@
+{
+   "title": "Jogo de memória",
+   "header": "Jogo de memória",
+   "sources": [
+      "52dc6a73-a5e9-4b07-ad32-0482c305a6f8"
+   ],
+   "scripts": [
+      "52dc6a73-a5e9-4b07-ad32-0482c305a6f8"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/52dc6a73-a5e9-4b07-ad32-0482c305a6f8_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/Tufz4Ahq3Ub",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1757170687"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Pré-requisitos</h3>Este jogo tem como objetivo reforçar os conhecimentos sobre os sistemas numéricos indígenas e os sistemas que usamos atualmente. Antes de começar, é recomendado estudar as seguintes páginas anteriores:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('20b14681-88c0-438a-a273-a0902ae5db38'); return false;\">Nossos lados são iguais</a>: mostra-se que seu corpo tem simetria.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3874d1e8-0f76-4432-9ee2-d8c8c9dccf53'); return false;\">Contando</a>: introduzimos a ideia de contagem a partir do próprio corpo.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">Além dos Dedos</a>: explorando as limitações e a necessidade de novas ferramentas para contar.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Regras gerais</h3>Os quadrados com interrogação escondem diferentes imagens. Seu objetivo é encontrar os pares correspondentes. Cada vez que encontrar um par, o número total de pares encontrados será atualizado no lado direito da tela. Ao encontrar todos os pares, você receberá duas medalhas (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i> <i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>Jogo de memória</h3>Ao completar o jogo, você poderá reiniciá-lo clicando em <input id=\"playButton\" type=\"button\" />.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Jogo de memória</th><th>Contagem</th><th colspan=\"2\">Representação</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"></td> <td id=\"tc2f1\"></td> <td id=\"tc3f1\"></td> <td id=\"tc4f1\"></td> <td id=\"tc5f1\">Com as mãos<td id=\"tc6f1\">&nbsp;</td><td id=\"tc7f1\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\"></td> <td id=\"tc2f2\"></td> <td id=\"tc3f2\"></td> <td id=\"tc4f2\"></td><td id=\"tc5f2\" rowspan=\"2\">Indígena americano</td><td id=\"tc6f2\" rowspan=\"2\" colspan=\"2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\"></td> <td id=\"tc2f3\"></td> <td id=\"tc3f3\"></td> <td id=\"tc4f3\"></td></tr> <tr id=\"tf4\"><td id=\"tc1f4\"></td> <td id=\"tc2f4\"></td> <td id=\"tc3f4\"></td> <td id=\"tc4f4\"></td><td id=\"tc5f4\" rowspan=\"2\">Hindú-arábico</td><td id=\"tc6f4\" rowspan=\"2\" colspan=\"2\">&nbsp;</td></tr> <tr id=\"tf5\"></td> <td id=\"tc1f5\"></td> <td id=\"tc2f5\"></td> <td id=\"tc3f5\"></td> <td id=\"tc4f5\"></td></tr></table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Nós utilizamos a <i>Yupana</i> através do método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) da Associação Yupanki (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0></a>).<br />A aplicação dos números mesoamericanos é baseada no trabalho de Orlando Josué Casares Contreras, José M. Gamboa Cetina e Venus Sarahí Estrella Cabrera (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate1>, (ResearchGate)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate2>, (Revista)</a>). Além disso, incorporamos dados dos trabalhos de Francisco Barriga Puente e Ximena Catepillán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <htdate3></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ced67eaf-7378-4589-9166-07f799969e3e'); return false;\">Catepillán, Ximena, <htdate4></a>).<br />Por fim, empregamos diversos métodos de contagem inspirados pelo trabalho de Francisco A. González Redondo <i>et al.</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a4f22e25-5839-407f-a1aa-634521d52b42'); return false;\">González Redondo, Francisco A., et al., <htdate5></a>).<br />O código do jogo foi inicialmente inspirado no código fonte presente em CodePEN (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1502abc2-78f9-4f10-8581-8cb8666e9e0f'); return false;\">CodePEN</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2023",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

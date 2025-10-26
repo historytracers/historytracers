@@ -1,0 +1,116 @@
+{
+    "sources" : [ "326445ab-e030-4375-9557-ada06b6ef88f" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1724198672" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "sm_game",
+    "content" : [
+        {
+            "id" : "0b8aee44",
+            "text" : [ "<p class=\"smGameTextSize\">Nesta fase, o seu objetivo é buscar respostas e compreender as etapas do método científico (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span class=\"htdate\"></span>): Scientific Method</a>).</p>", "<p class=\"smGameTextSize\">Nas ciências, quando temos uma ideia, devemos testá-la para verificar se ela explica algo. A ciência não é sobre aceitar sem questionamento, nem sobre acreditar em algo cegamente e rejeitar o oposto. A ciência é um processo contínuo de aprendizado e descoberta.</p>" ],
+            "desc": null,
+            "next" : "fdeb3ea4",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "fdeb3ea4",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Apresentação</span><p class=\"smGameTextSize\">Vamos verificar se as figuras abaixo, que possuem as mesmas larguras e alturas, são iguais.</p>", "<p class=\"smGameTextSize\"><table class=\"tawapukllay\" style=\"width: 50%;\"><tr><th>Quadrado</th><th>Círculo</th></tr> <tr><td><div class=\"square\" style=\"background-color:lightblue;width:5.5vw;height:5.5vw\"></div></td> <td><i class=\"fa-solid fa-circle\" style=\"color:#FFCCCB;font-size:6vw;\"></i></td></tr></table></p>" ],
+            "desc": null,
+            "next" : "d90fb213",
+            "prev" : "0b8aee44",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "d90fb213",
+            "text" : [ "<p class=\"smGameTextSize\">Nosso primeiro passo é criar uma pergunta:</p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Sobre a igualdade</b><br />Um quadrado e um círculo são iguais?</div></div></p>"  ],
+            "desc": null,
+            "next" : "ddbe5fc2",
+            "prev" : "fdeb3ea4",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "ddbe5fc2",
+            "text" : [ "<p class=\"smGameTextSize\">Precisamos definir as hipóteses, ou seja, as possíveis respostas que queremos testar:</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESE 1</b>: As figuras são iguais.</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESE 2</b>: As figuras são diferentes.</p>", "<p class=\"smGameTextSize\">Vamos realizar alguns testes para chegar à <b>teoria</b>, ou resposta desejada (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span class=\"htdate\"></span>): Scientific Method</a>).</p>"],
+            "desc": null,
+            "next" : "ad817f54",
+            "prev" : "d90fb213",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "ad817f54",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Comparando partes</span><p class=\"smGameTextSize\">Vamos colocar uma parte do círculo sobre uma parte do quadrado.</p>", "<p class=\"smGameTextSize\"><div class=\"desc\"><div class=\"square\" style=\"width:3vw;height:3vw;background-color:lightblue;\"><div class=\"quartercircle\" style=\"width:3vw;height:3vw;background-color:#FFCCCB;\"></div></div></div></p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>As partes</b><br />A parte do círculo cobre completamente a parte do quadrado?</div></div></p>"  ],
+            "desc": [ "Ao usar apenas partes do mesmo tamanho, é possível ver parte do quadrado." ],
+            "next" : "1fbddce8",
+            "prev" : "ddbe5fc2",
+            "jumpTo" : null,
+            "answer": 0,
+            "score" : 2,
+            "position": "topCenter"
+        },
+        {
+            "id" : "1fbddce8",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Comparando as figuras</span><p class=\"smGameTextSize\">Agora, vamos sobrepor as figuras completas uma sobre a outra.</p>", "<p class=\"smGameTextSize\"><div class=\"desc\"><div class=\"square\" style=\"width:6vw;height:6vw;background-color:lightblue;\"><div class=\"circle\" style=\"width:6vw;height:6vw;background-color:#FFCCCB;\"></div></div></div></p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>O todo</b><br />O círculo cobre completamente o quadrado?</div></div></p>"  ],
+            "desc": [ "Com as figuras completas, ainda é possível ver parte do quadrado." ],
+            "next" : "3a59cb22",
+            "prev" : "ad817f54",
+            "jumpTo" : null,
+            "answer": 0,
+            "score" : 2,
+            "position": "topCenter"
+        },
+        {
+            "id" : "3a59cb22",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Tabelando</span><p class=\"smGameTextSize\">Após os experimentos, organizamos os resultados em uma tabela para comparação:</p>", "<p class=\"smGameTextSize\"><table class=\"indigenous_period\"><tr><th>Experimentos</th><th>Figuras iguais</th><th>Figuras diferentes</th></tr> <tr><th>Partes de figuras</th><td>&nbsp;</td><td><b>X</b></td></tr> <tr><th>Figuras completas</th><td>&nbsp;</td><td><b>X</b></td></tr> </table>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Sobre os resultados</b><br />Comparando os resultados, podemos dizer que as figuras são diferentes?</div></div></p>"  ],
+            "desc": [ "Com base nos resultados, podemos concluir que as figuras são diferentes." ],
+            "next" : "a7b28774",
+            "prev" : "1fbddce8",
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 2,
+            "position": "topCenter"
+        },
+        {
+            "id" : "a7b28774",
+            "text" : [ "<span class=\"smGameTextTitleSize\">A teoria (1/2)</span><p class=\"smGameTextSize\">Inicialmente, trabalhamos com duas hipóteses:</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESE 1</b>: As figuras são iguais.</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESE 2</b>: As figuras são diferentes.</p>" ],
+            "desc": null,
+            "next" : "832d6882",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "832d6882",
+            "text" : [ "<span class=\"smGameTextTitleSize\">A teoria (2/2)</span><p class=\"smGameTextSize\">Após os experimentos, podemos desconsiderar a <b>HIPÓTESE 1</b> e desenvolver a <b>teoria</b> de que um quadrado é diferente de um círculo, conforme demonstrado no método científico (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span class=\"htdate\"></span>): Scientific Method</a>).</p>", "<p class=\"smGameTextSize\"><center><i class=\"fa-solid fa-medal\" style=\"color:gold; font-size: 5vw\"></i></center></p>" ],
+            "desc": null,
+            "next" : null,
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 1,
+            "position": "center"
+        }
+    ],
+    "levels": null,
+    "date_time" : [
+        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+    ]
+} 

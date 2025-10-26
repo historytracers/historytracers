@@ -1,0 +1,112 @@
+{
+    "title" : "Introduction to groups",
+    "header" : "Introduction to groups",
+    "sources" : [ "31cbdd3c-3ada-4477-8d05-23adb86136be" ],
+    "scripts" : [ "31cbdd3c-3ada-4477-8d05-23adb86136be" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1737314752" ],
+    "content" : [
+        {
+            "id" : "families",
+            "target" : "group_list",
+            "value_type" : "paper",
+            "value" : [
+                {
+                    "id" : "navigation",
+                    "text" : "<p><table class=\"book_navigation\"><tr><td><span class=\"htPrevText\"></span></td> <td> <span class=\"htTopText\"></span> </td> <td><span class=\"htNextText\"></span></td></tr><tr><td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td> <td><a href=\"index.html?page=sciense\" onclick=\"htLoadPage('science','html', '', false); return false;\"><span class=\"htIndexText\"></span></a></td><td><a href=\"index.html?page=class_content&arg=c83c7c27-b37a-4eeb-a2ca-95e12f0a05b3\" onclick=\"htLoadPage('class_content', 'html', 'c83c7c27-b37a-4eeb-a2ca-95e12f0a05b3', false); return false;\">Groups of the life</a></td></tr></table></p>"
+                },
+                {
+                    "id" : "prerequisites",
+                    "text" : [ "<p><span id=\"htZoomImageMsg\"></span></p>",
+                        { "text" : "### Prerequisites\n\nThe first two chapters of the \"First Steps\" section explain how to perform counting and comparisons. Therefore, we recommend studying these chapters before proceeding with this text.",
+                                 "source" : [ { "type": 1,
+                                                "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                                                "text": "History Tracers Team, <i>Primeros Pasos</i>",
+                                                "date" :  {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }} ],
+                                  "isTable" : false,
+                                  "format" : "markdown",
+                                  "PostMention": "."
+                               }]
+                },
+                {
+                    "id" : "introduction",
+                    "text" : [ "<p><h3>Everything together</h3>Our lifespan, typically capped at just over 100 years (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('66c80cb5-4531-44f7-bbd4-3dd0ac7110e9'); return false;\">Steenstrup, Troels, et al., <span class=\"htdate\"></span></a>), often presents challenges in conceptualizing vast spans of time. Moreover, the inability to perceive the unseen adds another layer of complexity, underscoring the importance of approaching this material with patience and care.</p><p>As inhabitants of this planet, our gaze upwards on a nightly basis reveals but a glimpse of the stars. Over millennia, these observations have shaped our understanding of the cosmos, with outdated notions like Ptolemaic geocentrism falling by the wayside as our knowledge advances (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d501d41a-c2aa-4180-9c32-116f555fc924'); return false;\">Jones, A. Raymond, <span class=\"htdate\"></span></a>). Let's delve into some key discoveries: <ul><li>The transition from geocentrism to heliocentrism prompts questions: Could the works of the Maragha observatory have influenced Nicolau Copérnico's heliocentric model? While debated, consensus remains elusive (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7a66289e-7b37-41b4-83e9-f5641e03ad65'); return false;\">Elshaikh, Eman M.</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('82b11e77-377e-4121-bca3-f54f50045ca2'); return false;\">Goddu, André., <span class=\"htdate\"></span>, pp. 5, 6</a>). We do not have doubt that Nicolau Copérnico's showed that our planet is not the center of the universe, but rather orbits the Sun (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ce58b238-5908-4b41-a22d-2df0a84d6c88'); return false;\">Copernicus, Nicolaus, <span class=\"htdate\"></span></a>).</li><li>Sir Isaac Newton's elucidation of planetary motion in subsequent centuries (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9f86c1c9-1fd7-4d22-95f6-a1b5ed13b1ee'); return false;\">Newton, Isaac, <span class=\"htdate\"></span>, pp. 401 - 510</a>).</li><li>It was necessary centuries for Albert Einstein to expand our understanding about gravitation (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('902815ac-30e7-46d2-8883-57ad754c1630'); return false;\">Einstein Relativity Easy, <span class=\"htdate\"></span></a>).</li><li>Edwin Hubble's revelation of an expanding universe (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1af85131-52aa-49ee-8f9b-2409eb806900'); return false;\">Hubble, Edwin, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6fc380c7-3f17-44bb-9a92-3c7334034646'); return false;\">Palma, Christopher</a>).</li></ul></p><p>Let's engage in a physical exercise to deepen our understanding of Hubble's work:</p>",
+                        "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Expanding like the universe</b><br />Start by crossing your arms, reducing the space you occupy. Then, slowly begin to open them until they are fully extended.<br />Hubble observed a phenomenon similar to this in the universe.</div></div></p>",
+                        "<p>The discovery of the universe's expansion (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('5cfb5d5a-f66b-408f-b150-fd456df7e000'); return false;\">Bahcall, Neta A., <span class=\"htdate\"></span></a>) led to a profound realization: in the distant past, all observable matter was condensed into a single point, referred to as the singularity. Simplified, a singularity is a region in space where an immense amount of matter is compressed into an extremely small volume. This was followed by a monumental expansion event known as the \"Big Bang\" (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('294f232f-9857-4cc0-bf87-04bf41fa323a'); return false;\">Williams, Matt, <span class=\"htdate\"></span></a>).</p><p>As the universe emerged from the <b>singularity</b>, it entered the Planck epoch, the initial phase of its existence. Subsequently, the first discernible entities, known as forces, began to appear (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('294f232f-9857-4cc0-bf87-04bf41fa323a'); return false;\">Williams, Matt, <span class=\"htdate\"></span></a>).</p><p>At this juncture in our study, we are providing a broad overview and introducing the works of various scientists. For a deeper understanding of the Big Bang theory, we recommend watching presentations by Sabine Hossenfelder (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('91043d9b-68cd-43cc-b97f-702fd0bc1463'); return false;\">Hossenfelder, Sabine, <span class=\"htdate\"></span></a>), Dr. Rebecca  Smethurst (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a220c5f3-f6c6-438c-9595-cc868661fa18'); return false;\">Smethurst, Rebecca. <span class=\"htdate\"></span></a>), Space Today (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d7243fd4-4bf5-4018-ab27-9d9bdd5696e3'); return false;\">Sacani, Sérgio. <span class=\"htdate\"></span></a>) and Quantum Fracture (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('923690fa-e3d2-4754-a6e0-470aa7e4d25e'); return false;\">QuantumFracture, <span class=\"htdate\"></span></a>).</p>" ]
+                },
+                {
+                    "id" : "nucleosynthesis",
+                    "text" : "<p><h3>From the smallest to the biggest</h3>The early stages of the universe were marked by considerable turbulence, hindering the formation of the smallest structures we now recognize (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('294f232f-9857-4cc0-bf87-04bf41fa323a'); return false;\">Williams, Matt, <span class=\"htdate\"></span></a>). It took three minutes after the universe emerged from the singularity for the first nuclei to appear, while the formation of the first atoms took thousands of years (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6dfe4b3b-8338-46ab-8149-2e073414907e'); return false;\">NASA, Universe</a>). Our understanding of these entities is relatively recent: <ul><li>Democritus was the first to conceptualize the atom as a minuscule entity (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('424fb1ac-867e-4895-8a04-367655e6f1ea'); return false;\">Stewart, Ken, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b00593f7-e4a9-4c4e-8b5b-8869ff3a433f'); return false;\">Berryman, Sylvia, <span class=\"htdate\"></span></a>).</li><li>John Dalton's groundbreaking scientific work laid the foundation for our understanding of atoms (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('97997331-20c2-4b5b-b13f-9677789dbb9d'); return false;\">Dalton, John, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('424fb1ac-867e-4895-8a04-367655e6f1ea'); return false;\">Stewart, Ken, <span class=\"htdate\"></span></a>)</li><li>J. J. Thomson's experimentation on Dalton's model revealed the existence of subatomic particles, such as the electron (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('638ebc79-9824-4485-a48b-f466f6aeaabf'); return false;\">New, Charlotte, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('424fb1ac-867e-4895-8a04-367655e6f1ea'); return false;\">Stewart, Knn, <span class=\"htdate\"></span></a>).</li><li>Ernest Rutherford's experiments proposed a model reminiscent of the solar system, with a central nucleus and orbiting electrons (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('77a4d152-7328-47bb-bfea-1b1274649317'); return false;\">Rutherford, Ernest, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c8871620-6d61-4300-aefa-96f95456bd2c'); return false;\">Britannica, T. Editors of Encyclopaedia</a>).</li><li>Niels Bohr introduced a model featuring atomic orbitals (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('180f7b84-32a7-4c74-840c-84827f7d9d98'); return false;\">Bohr, Niels, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('424fb1ac-867e-4895-8a04-367655e6f1ea'); return false;\">Stewart, Ken, <span class=\"htdate\"></span></a>)</li><li>Erwin Schrödinger proposed a equation that delivers the probability to find an atomic particle in a region (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('35f9a553-247a-45dd-a756-65550d49f0ed'); return false;\">Schrödinger, Erwin, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('424fb1ac-867e-4895-8a04-367655e6f1ea'); return false;\">Stewart, Ken, <span class=\"htdate\"></span></a>).</li></ul></p><p><table><tr><th>Philosophical atom</th><th>Niels Bohr atom</th><th>Quantum atom</th></tr><tr><td><img src=\"images/HistoryTracers/Atom_Philosophical.png\" /></td><td><img src=\"images/HistoryTracers/Atom_Bohr.png\" /></td><td><img src=\"images/HistoryTracers/Atom_Quantum.png\" /></td></tr><tr><td colspan=\"3\" style=\"text-align: center; font-size: 70%;\"><b>Figure 1</b>: Simplified representation of Hydrogen Atom with different models. The source code is available in GitHub of the project (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers, <span class=\"htdate\"></span></a>)</td></tr></table></p><p>Notice how we start with the concept of something small and immutable: the atom (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('424fb1ac-867e-4895-8a04-367655e6f1ea'); return false;\">Stewart, Ken, <span class=\"htdate\"></span></a>). Over time, scientific inquiry refined this notion, cementing the atom's status as a fundamental building block (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('97997331-20c2-4b5b-b13f-9677789dbb9d'); return false;\">Dalton, John, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('424fb1ac-867e-4895-8a04-367655e6f1ea'); return false;\">Stewart, Ken, <span class=\"htdate\"></span></a>). Decades later, we uncovered an even smaller realm within the atom (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('638ebc79-9824-4485-a48b-f466f6aeaabf'); return false;\">New, Charlotte, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('424fb1ac-867e-4895-8a04-367655e6f1ea'); return false;\">Stewart, Ken, <span class=\"htdate\"></span></a>), leading to the identification of subatomic particles (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3548a9a9-e135-4cd2-bc9b-4c6d17fe3a25'); return false;\">Sutton, Christine</a>). Our understanding of the smallest unit has evolved, yet the fundamental principle remains: matter progresses from the minute to the massive (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6dfe4b3b-8338-46ab-8149-2e073414907e'); return false;\">NASA, Universe</a>).</p><p>Similarly, our perception of the atom's structure has undergone a transformation. Referencing <b>Figure 1</b>, we initially conceived of the atom as indivisible, progressing to models featuring orbitals reminiscent of the solar system. Ultimately, we arrived at a nuanced understanding allowing for the approximate localization of electrons. Further elucidation awaits in forthcoming texts.</p>"
+                },
+                {
+                    "id" : "star",
+                    "text" : "<p><h3>Star formation</h3>The process of star formation did not commence immediately in the universe; it took millions of years for the first stars to appear (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('c0a6fd42-b5b9-4745-b242-f0b2a84aaccf'); return false;\">Yoshii, Yuzuru, et al., <span class=\"htdate\"></span></a>). This delay was due to the insufficient matter available to form massive dust clouds. However, when these clouds collapse, they give rise to dense and hot nuclei capable of fusing hydrogen (H) atoms into helium atoms (He) — the very fuel of stars (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d4ed59c5-0332-4f5a-a662-dcf5549616ba'); return false;\">NASA, Stars</a>). It's important to note that not all the mass within dust clouds undergoes this transformation; some remains as planetary material, comets, or persists as dust (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d4ed59c5-0332-4f5a-a662-dcf5549616ba'); return false;\">NASA, Stars</a>). For a deeper understanding, we recommend watching PBS and Space Today videos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('87856c77-7a50-48ef-98b6-a22211d28b0f'); return false;\">PBS/NASA, <span class=\"htdate\"></span></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e6b9585f-6b26-4e01-b801-536609492251'); return false;\">Sacani, Sérgio, <span class=\"htdate\"></span></a>).</p><p>Throughout a star's lifespan, small atoms undergo fusion processes, transforming into larger atoms. However, not all known atoms are synthesized within stars. The formation of atoms is closely tied to the size of the star. The largest element produced within stars is iron (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('46509df0-5c91-4267-b6a8-d5d4b8f2cd04'); return false;\">Penovich, Kipp, Smoot et al.</a>), while other elements are formed during cataclysmic events known as supernovae (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b8c23194-5823-419c-8e2d-9f5cf2c46461'); return false;\">Hajian, Allie et al.</a>).</p><p>The formation of stars ultimately gives rise to larger groupings known as galaxies (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6dfe4b3b-8338-46ab-8149-2e073414907e'); return false;\">NASA, Universe</a>).<p>"
+                },
+                {
+                    "id" : "conclusion",
+                    "text" : "<p><h3>Conclusion</h3>Entities that can be assembled, grouped, have been emerging in the universe since the earliest moments after its departure from the singularity. These formations have evolved from the smallest particles to colossal structures. In our next session, we will delve further into the formations that facilitated the emergence of life.<p>"
+                },
+                {
+                    "id" : "exercise_v2",
+                    "text" : [ 
+                        {
+                            "question" : "Do the universe always had the size we observe?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "For a period of time, the idea of a static universe dominated over other hypotheses. However, Edwin Hubble's measurements, followed by others, confirmed that the universe is expanding."
+                        },
+                        {
+                            "question" : "First the matter we cannot see appear, the atoms, and later the matter we see appeared. Is this sentence correct?",
+                            "yesNoAnswer" : "Yes",
+                            "additionalInfo" : "The observable structures in the universe are formed from smaller groupings of matter; thus, everything we see is organized from the smallest to the largest."
+                        },
+                        {
+                            "question" : "Everything we see comes from a unique place, the singularity, is it possible to say: I have something different of other people?",
+                            "yesNoAnswer" : "No",
+                            "additionalInfo" : "Some people mistakenly consider themselves different from others, but everything shares the same origin, whether it’s other humans, other animals, or any other matter around us."
+                        }
+                    ]
+                },
+                {
+                    "id": "fill_dates",
+                    "text": [
+                        {  "type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2019", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1543", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1686", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1929", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2015", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2015", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2015", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2019", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2017", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2015", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1808", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1911", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1913", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1926", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "1808", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2022", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+                        {  "type" : "gregory", "year" : "2019", "month" : "-1", "day" : "-1" }
+                    ]
+                }
+            ]
+        }
+    ]
+} 

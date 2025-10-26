@@ -1,0 +1,39 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+
+<script>
+    var treeUnixEpoch = Date.now();
+    var treeFile = document.createElement("script");
+    treeFile.setAttribute("src", "js/tree.js?nocache="+treeUnixEpoch);
+    document.head.appendChild(treeFile);
+</script>
+
+<div class="left-tree">
+    <div class="paper-data" id="extpaper">
+    </div>
+
+    <div class="tree-introduction-text" id="space">
+        <p>&nbsp;</p>
+    </div>
+
+    <div class="tree-introduction-text" id="introduction">
+    </div>
+
+    <p>
+    <div class="tree-introduction-text" id="common">
+    </div>
+    </p>
+
+    <div class="main-data" id="index">
+        <p>
+        <ul id="group_list">
+        </ul>
+        </p>
+    </div>
+
+    <div class="main-data" id="index2">
+        <p>
+        <ul id="group_list_review" style="font-style: italic;">
+        </ul>
+        </i>
+    </div>
+</div>

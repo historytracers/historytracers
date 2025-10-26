@@ -1,0 +1,116 @@
+{
+    "sources" : [ "326445ab-e030-4375-9557-ada06b6ef88f" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1724198672" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "sm_game",
+    "content" : [
+        {
+            "id" : "0b8aee44",
+            "text" : [ "<p class=\"smGameTextSize\">In this phase, your goal is to seek answers and follow the steps of the scientific method (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span class=\"htdate\"></span>): Scientific Method</a>).</p>", "<p class=\"smGameTextSize\">In science, when we have an idea, we must test it to see if it can explain something. Science is not about accepting ideas without questioning. It is not about believing one thing and dismissing everything else. Science is a process of continually growing knowledge.</p>" ],
+            "desc": null,
+            "next" : "fdeb3ea4",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "fdeb3ea4",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Presentation</span><p class=\"smGameTextSize\">We want to verify whether the pictures below, which have the same length and height, are equal.</p>", "<p class=\"smGameTextSize\"><table class=\"tawapukllay\" style=\"width: 50%;\"><tr><th>Square</th><th>Circle</th></tr> <tr><td><div class=\"square\" style=\"background-color:lightblue;width:5.5vw;height:5.5vw\"></div></td> <td><i class=\"fa-solid fa-circle\" style=\"color:#FFCCCB;font-size:6vw;\"></i></td></tr></table></p>" ],
+            "desc": null,
+            "next" : "d90fb213",
+            "prev" : "0b8aee44",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "d90fb213",
+            "text" : [ "<p class=\"smGameTextSize\">Our first step is to create a question we wish to answer:</p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>The question</b><br />Are a square and a circle equal?</div></div></p>"  ],
+            "desc": null,
+            "next" : "ddbe5fc2",
+            "prev" : "fdeb3ea4",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "ddbe5fc2",
+            "text" : [ "<p class=\"smGameTextSize\">Now, we need to define the hypotheses (possible answers) we want to test:</p>", "<p class=\"smGameTextSize\"><b>HIPOTHESIS 1</b>: The square and circle are equal.</p>", "<p class=\"smGameTextSize\"><b>HIPOTHESIS 2</b>: The square and circle are different.</p>", "<p class=\"smGameTextSize\">Let’s conduct some tests before reaching our <b>theory</b> (conclusion) (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span class=\"htdate\"></span>): Scientific Method</a>).</p>"],
+            "desc": null,
+            "next" : "ad817f54",
+            "prev" : "d90fb213",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "ad817f54",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Comparing parts</span><p class=\"smGameTextSize\">Let’s place part of a circle over a square:</p>", "<p class=\"smGameTextSize\"><div class=\"desc\"><div class=\"square\" style=\"width:3vw;height:3vw;background-color:lightblue;\"><div class=\"quartercircle\" style=\"width:3vw;height:3vw;background-color:#FFCCCB;\"></div></div></div></p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>About these figures</b><br />Can the square part completely hide the circle part?</div></div></p>"  ],
+            "desc": [ "When we overlay part of the circle on the square, some of the square is still visible." ],
+            "next" : "1fbddce8",
+            "prev" : "ddbe5fc2",
+            "jumpTo" : null,
+            "answer": 0,
+            "score" : 2,
+            "position": "topCenter"
+        },
+        {
+            "id" : "1fbddce8",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Comparing the whole figures</span><p class=\"smGameTextSize\">Since the parts are not equal, we have evidence that they are different. To confirm this, let’s overlay the entire figures:</p>", "<p class=\"smGameTextSize\"><div class=\"desc\"><div class=\"square\" style=\"width:6vw;height:6vw;background-color:lightblue;\"><div class=\"circle\" style=\"width:6vw;height:6vw;background-color:#FFCCCB;\"></div></div></div></p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>The whole figures</b><br />Can the circle completely hide the square?</div></div></p>"  ],
+            "desc": [ "When we overlay the entire figures, some of the square is still visible." ],
+            "next" : "3a59cb22",
+            "prev" : "ad817f54",
+            "jumpTo" : null,
+            "answer": 0,
+            "score" : 2,
+            "position": "top"
+        },
+        {
+            "id" : "3a59cb22",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Using tables</span><p class=\"smGameTextSize\">After conducting these two experiments, we can summarize the results in a table:</p>", "<p class=\"smGameTextSize\"><table class=\"indigenous_period\"><tr><th>Experiment</th><th>Images are equal</th><th>Images are different</th></tr> <tr><th>Part of images</th><td>&nbsp;</td><td><b>X</b></td></tr> <tr><th>Whole image</th><td>&nbsp;</td><td><b>X</b></td></tr> </table>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Analyzing the results</b><br />Let’s compare the results: Can we conclude that the figures are different?</div></div></p>"  ],
+            "desc": [ "Both experiments show that the figures are not equal." ],
+            "next" : "a7b28774",
+            "prev" : "1fbddce8",
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 2,
+            "position": "top"
+        },
+        {
+            "id" : "a7b28774",
+            "text" : [ "<span class=\"smGameTextTitleSize\">The theory (1/2)</span><p class=\"smGameTextSize\">We began with two hypotheses:</p>", "<p class=\"smGameTextSize\"><b>HIPOTHESIS 1</b>: The square and circle are equal.</p>", "<p class=\"smGameTextSize\"><b>HIPHOTESIS 2</b>: The square and circle are different.</p>" ],
+            "desc": null,
+            "next" : "832d6882",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 2,
+            "position": "center"
+        },
+        {
+            "id" : "832d6882",
+            "text" : [ "<span class=\"smGameTextTitleSize\">The theory (2/2)</span><p class=\"smGameTextSize\">After conducting the experiments, we can discard <b>HIPHOTESIS 1</b> and conclude with a <b>theory</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span class=\"htdate\"></span>): Scientific Method</a>) that a square is not equal to a circle.</p>", "<p class=\"smGameTextSize\"><center><i class=\"fa-solid fa-medal\" style=\"color:gold; font-size: 5vw\"></i></center></p>" ],
+            "desc": null,
+            "next" : null,
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 1,
+            "position": "center"
+        }
+    ],
+    "levels": null,
+    "date_time" : [
+        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+    ]
+} 

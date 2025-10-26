@@ -1,0 +1,236 @@
+{
+   "title": "Jogo de sequência (Parte I)",
+   "header": "Jogo de sequência (Parte I)",
+   "sources": [
+      "fb9dca2c-cd76-4951-b7d0-4b2c694e8056"
+   ],
+   "scripts": [
+      "sequence_game"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/5f349c3b-944c-42ae-a7f0-00a4c8d4ba10_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/9rXsTBy0ZUb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1757170687"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Pré-requisitos</h3>Neste jogo, reforçamos o conhecimento sobre sistemas numéricos. Para uma compreensão mais detalhada, recomendamos primeiramente a leitura de:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9618a83e-f232-49db-84f6-fc3455a3f1d1'); return false;\">Desenhando para contar</a>: Uma análise de como substituímos nossos dedos por figuras geométricas.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('00f3ab60-2017-420a-99dc-56de384243e8'); return false;\">Famílias numéricas</a>: Mostra-se ao leitor uma possível relação entre nossos ancestrais e os números.</li></ul></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "<p><h3>Regras</h3>O objetivo do jogo é completar sequências numéricas, respeitando os limites máximos e mínimos de cada sistema. Antes de começar, escolha a fase e o sistema numérico que deseja utilizar. Em cada etapa, dois números serão apresentados, e sua tarefa será determinar o terceiro número, utilizando os controles disponíveis. A cada acerto, uma ferramenta indígena será revelada. Ao finalizar a fase, clique em \"Avançar\" (<i class=\"fa-solid fa-chevron-right\" style=\"font-size:1.0vw;\"></i>), para continuar. Após completar as 10 etapas, você será recompensado com uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).</p><p>Os sistemas numéricos Hindu-Arábico e Mesoamericano são apresentados em uma única tabela. No modo <i>Yupana</i>, as comparações envolvem diferentes tabelas, com os valores menores localizados nas tabelas inferiores.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "<p><h3>O jogo</h3>Selecione um sistema numérico: <input type=\"radio\" name=\"htNumericalSystem\" value=\"ha\" /> Hindu-Arábico <input type=\"radio\" name=\"htNumericalSystem\" value=\"yupana\" /> <i>Yupana</i> <input type=\"radio\" name=\"htNumericalSystem\" value=\"mesoamerican\" /> Mesoamericano</p><p class=\"htSequenceGame\" id=\"cmp0\"><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete a sequência</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp1\"><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete a sequência</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"htSequenceGame\" id=\"cmp2\"><table id=\"yupana2\" class=\"tawapukllay\"><tr><th colspan=\"4\">Complete a sequência</th><th colspan=\"2\">Controles</th></tr> </table></p><p class=\"desc\">Nós utilizamos a <i>Yupana</i> através do método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) da Associação Yupanki (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0></a>).<br />A aplicação dos números mesoamericanos é baseada no trabalho de Orlando Josué Casares Contreras, José M. Gamboa Cetina e Venus Sarahí Estrella Cabrera (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate1>, (ResearchGate)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate2>, (Revista)</a>). Além disso, incorporamos as contribuições de Francisco Barriga Puente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <htdate3></a>).<br />Por fim, empregamos diversos métodos de contagem inspirados pelo trabalho de Francisco A. González Redondo <i>et al.</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a4f22e25-5839-407f-a1aa-634521d52b42'); return false;\">González Redondo, Francisco A., et al., <htdate4></a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2022",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": [
+      {
+         "imageDesc": "Figura 1: Cerâmicas andinas do período formativo. Foto tirada em <htdate0>, durante uma visita ao Museu de Antropologia em Lima, Peru.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2017",
+               "month": "5",
+               "day": "28"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figura 2: Pote de cerâmica mesoamericano. Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Cahal Pech, Belize.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "7",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figura 3: Estela Maia. Foto tirada em <htdate0>, durante uma visita ao Museu de Antropologia de Ciudad de Guatemala, Guatemala.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2014",
+               "month": "10",
+               "day": "21"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figura 4: Estela Maia. Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Kaminaljuyu, Guatemala.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2014",
+               "month": "10",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figura 5: Texto Maia. Foto tirada em <htdate0>, durante uma visita ao Museu de Jade de San José, Costa Rica.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "2",
+               "day": "6"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figura 6: Metate para moer milho. Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Teotihuacan, Mexico.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "10",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figura 7: Metate para moer milho - Pós-classico. Foto tirada em <htdate0>, durante uma visita ao Museu de Antropologia de San José, Costa Rica.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "10",
+               "day": "17"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figura 8: Metate para moer milho - Pós-classico. Foto tirada em <htdate0>, durante uma visita ao Museu de Antropologia de San Salvador, El Salvador.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "7",
+               "day": "25"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figura 9: Estela 'A' Maia. Foto tirada em <htdate0>, durante uma visita ao sítio arqueológico de Copan, Honduras.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "4",
+               "day": "26"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figura 10: Instrumentos musicais. Foto tirada em <htdate0>, durante uma visita ao Museu de Antropologia de San José, Costa Rica.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "10",
+               "day": "17"
+            }
+         ]
+      }
+   ],
+   "date_time": null
+}

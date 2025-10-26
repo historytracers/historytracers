@@ -1,0 +1,670 @@
+{
+   "title": "Entendiendo la tabla de multiplicar (2 y 3)",
+   "header": "Entendiendo la tabla de multiplicar (2 y 3)",
+   "sources": [
+      "f7f4988d-1427-4e26-a6a8-c375c57924c7"
+   ],
+   "scripts": [
+      "f7f4988d-1427-4e26-a6a8-c375c57924c7"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/f7f4988d-1427-4e26-a6a8-c375c57924c7_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/Y5cV5EkRUUb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1760227141"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nRecomendamos que el lector estudie el texto anterior y sus prerrequisitos antes de continuar con este",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nAl iniciar nuestros estudios sobre la tabla de multiplicar, observamos que es posible, con el auxilio de una hoja cuadriculada, representar las tablas de forma gráfica, obteniendo figuras como líneas y triángulos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "En este texto, profundizaremos nuestros conocimientos sobre los triángulos, explorando también su relación con otras dos tablas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_triangle",
+         "text": [
+            {
+               "text": "### Triángulo\n\nAntes de continuar, para clarificar aún más los conceptos iniciados en el texto anterior y lo que se abordará a continuación, completaremos el triángulo inferior formado al conectar los puntos de la tabla de multiplicar del uno",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Puntos de la tabla de multiplicar del uno conectados, formando una línea recta. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Defina el triángulo</b><br /><br />Observando el Gráfico 1, donde el área del triángulo inferior está resaltada, ¿cómo describiría usted esta figura?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ahora, compare su definición con una versión simplificada de la definición presentada por Eric W. Weisstein",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triángulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<ul class=\"citation\"><li><i>\"Los triángulos son figuras cerradas con tres lados y tres ángulos (formados por la unión de los lados)...\"</i></li> </ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Además de esta definición, Weisstein menciona que el triángulo rectángulo mostrado en el gráfico tiene componentes con nombres específicos. En el Gráfico 2, se identifican y etiquetan estas partes, en la secuencia, las nombramos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triangulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
+                     "text": "Weisstein, Eric W., Triangulo Retangulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg height=\"245\" width=\"450\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M425 5 L75 200 L425 200 Z\" style=\"fill:none;stroke:green;stroke-width:3\" /><rect x=\"404\" y=\"179\" width=\"20\" height=\"20\" stroke=\"green\" fill=\"none\" stroke-width=\"3\" /><text x=\"125\" y=\"192\" font-size=\"1.5em\">α</text><text x=\"401\" y=\"45\" font-size=\"1.5em\">β</text><text x=\"235\" y=\"95\" font-size=\"2.5em\">c</text><text x=\"428\" y=\"120\" font-size=\"2.5em\">b</text><text x=\"265\" y=\"230\" font-size=\"2.5em\">a</text></svg></p><p class=\"desc\"><b>Gráfico 2</b>: Triángulo rectángulo con sus componentes.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **a**, **b** e **c**: Son los lados del triángulo. Los lados **a** y **b** se denominan **catetos**, mientras que **c** es la **hipotenusa**.\n- **α**, **β**, y <i class=\"fa-regular fa-square\"></i>: Son los ángulos formados por la unión de los lados. El símbolo de cuadrado ( <i class=\"fa-regular fa-square\"></i> ) que marca el ángulo entre el lado horizontal y el vertical se llama **ángulo recto**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_general_formula",
+         "text": [
+            {
+               "text": "### Una fórmula general\n\nEn la tabla de multiplicar, se multiplican diferentes números **N** por un valor fijo, obteniendo así sus resultados. En el primer texto, realizamos estas etapas y concluimos que existen las siguientes fórmulas para las tablas del cero y del uno",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Figure 1</b>: Fórmulas utilizadas en las tablas del cero y del uno.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Estas dos fórmulas pueden escribirse de manera más general",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "79d126c9-39ac-4679-904b-4ab69558e44e",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Figure 2</b>: Fórmula general de las tablas de multiplicación.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En esta fórmula:\n- *r*: es el resultado de la multiplicación.\n *N*: es el factor que representa un número contable.\n- *a*: además de ser uno de los factores de la multiplicación, recibe diferentes nombres en distintas situaciones de la vida. Sin embargo, independientemente del nombre, su función en la multiplicación sigue siendo la misma: modificar la posición de un punto en relación con la línea horizontal. Por este motivo, uno de sus nombres es *coeficiente angular*.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: El factor *a*</b><br /><br />Cuando **a = 0**, los resultados se transforman en puntos alineados sobre la horizontal.<br />Cuando a = 1, los resultados forman puntos en la diagonal, dividiendo una hoja cuadriculada en dos triángulos iguales.<br /><br />¿Qué esperas que ocurra cuando <b>a</b> tome los valores 2 y 3?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_two",
+         "text": [
+            {
+               "text": "### Multiplicando por Dos (2)\n\nAl iniciar nuestro estudio en esta sección de History Tracers, el primer tema relacionado con el cuerpo humano que abordamos fue su simetría, es decir, la existencia de dos lados que se reflejan mutuamente",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "20b14681-88c0-438a-a273-a0902ae5db38",
+                     "text": "History Tracers Team",
+                     "page": "Nuestros lados son iguales",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/HistoryTracers/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/HistoryTracers/Right_Hand.png\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\"><b>Figura 1</b>: Representación de las manos. Código fuente disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <span class=\"htdate\"></span>, La Fuente</a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "En la figura, se observan las dos manos de una persona extendidas con todos los dedos levantados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El Dr. Francisco Barriga Puente, en sus estudios sobre los sistemas numéricos de los indígenas brasileños, identificó sistemas binarios basados en los números uno (1) y dos (2). Para representar cantidades mayores, como el seis (6), utilizaban sumas repetidas",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "pp. 33",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>2</mi> <mo>y</mo> <mi>2</mi> <mo>y</mo> <mi>2</mi> </math></center></p><p class=\"desc\">Representación del número seis en sistemas binarios indígenas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Estos ejemplos nos ayudan a construir la tabla del dos.\n#### Construyendo la Tabla\n\nPara elaborar la tabla del dos (2), aplicamos la Fórmula 2, asignando al factor *a* el valor dos (2), lo que nos da los siguientes resultados:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Representación Gráfica\n\nA diferencia del método anterior —que consistía en dibujar puntos y conectarlos en gráficos separados—, esta vez usaremos el mismo gráfico, siguiendo los pasos descritos en el texto previo",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Puntos de la tabla del dos conectados, formando una línea recta. Elaborado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al comparar el Gráfico 3 con el Gráfico 1, las figuras parecen idénticas. Sin embargo, las diferencias se hacen evidentes al superponer las tablas del 1 y del 2 en un solo gráfico:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Puntos de las tablas del uno y del dos conectados, formando dos rectas. Gráfico hecho con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En el Gráfico 4, observamos que, además de dividir la hoja cuadriculada por la mitad, los valores del eje vertical son mayores debido a los productos generados al multiplicar por dos. Asimismo, hay un mayor distanciamiento de la línea horizontal, lo que resulta en un ángulo más pronunciado.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_three",
+         "text": [
+            {
+               "text": "### Multiplicando por Tres (3)\n\nAdemás del triángulo rectángulo, en este y en los próximos textos también utilizaremos el triángulo isósceles, que posee al menos dos lados iguales. Como consecuencia, si trazamos una línea desde el vértice dónde se encuntran los lados iguales hasta el lado opuesto, obtenemos lados simétricos, como se ilustra en el **Gráfico 5**",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "61e568be-8a3a-4f53-bd2d-e9ce113cf68b",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg width=\"450\" height=\"300\"><polygon points=\"265,10 125,280 405,280\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><text x=\"140\" y=\"270\" font-size=\"1.5em\">α</text><text x=\"370\" y=\"270\" font-size=\"1.5em\">α</text><g fill=\"none\" stroke=\"black\" stroke-width=\"1\"><path stroke-dasharray=\"5,5\" d=\"M265 14 l0 270\" /></g></svg></p><p class=\"desc\"><b>Gráfico 5</b>: Triángulo isósceles con ángulos y lados iguales.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El número tres también aparece en diferentes objetos y construcciones, como el Complejo Tipo E en Caracol, Belice. En él, observamos tres estructuras, que aún no han sido completamente comprendidos (<htcite0>). Sin embargo, algunos estudios sugieren que pudieron haber sido utilizados para medir las estaciones del año (<htcite1>; <htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "8ecdaf57-d55d-4d95-bad5-f76e0f671483",
+                     "text": "Šprajc, I.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e7c7458b-0c63-4485-9c7b-4640edcd9122",
+                     "text": "Inomata, T.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2017",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "dfab6e33-fe94-4aec-8d9b-ed02ca8402c8",
+                     "text": "Martz de la Vega, H.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "<p class=\"desc\"><iframe src=\"https://www.youtube.com/embed/UBMUR-3hHz0?si=mn22_mrWLJ23ueeO\" title=\"YouTube video player\" frameborder=\"0\" allowfullscreen style=\"aspect-ratio: 16 / 9; width: 55% !important;\"></iframe><br />Video 1: Complejo Tipo E en Caracol, Belice. Grabado durante una visita al sitio el <htdate0>.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Construyendo la Tabla\n\nPara elaborar la tabla del tres (3), aplicamos nuevamente la **Fórmula 2**, asignando al factor **a** el valor tres (3), obteniendo los siguientes resultados:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent3\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Dibujando la Tabla\n\nEl **Gráfico 6** muestra los valores de la tabla del 3:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 6</b>: Puntos de la tabla del tres conectados, formando una línea recta. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Relación entre Números</b><br /><br />La tabla del uno (1) generó puntos alejados de la línea horizontal. Al usar la tabla del dos (2), nos alejamos aún más de dicha línea.<br /><br />¿La tabla del tres (3) hace que los puntos queden más cerca o más lejos de la línea horizontal?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para visualizarlo mejor, dibujemos las tres tablas juntas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 7</b>: Puntos de las tablas del uno, dos y tres conectados, formando tres rectas. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El **Gráfico 7** muestra las tres tablas con sus respectivos puntos graficados y conectados. A partir de ello, podemos concluir:\n- A medida que aumentamos el factor **a** (coeficiente angular), se espera que el alejamiento (y el ángulo) también aumente.\n- El valor seis (6) aparece en la tabla del dos (2) cuando **N = 3**, mientras que el mismo valor (6) surge en la tabla del tres (3) cuando **N = 2**. Esto ilustra que el orden de los factores no altera el producto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, ampliamos nuestro conocimiento sobre la tabla de multiplicación al analizar la relación entre el producto de dos factores y el alejamiento de los puntos respecto a la línea horizontal. Además, profundizamos en el estudio de los triángulos y sus propiedades.\n\nEn el próximo texto, exploraremos cómo la tabla de multiplicación y los triángulos pueden aplicarse en la naturaleza.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿Un triángulo es una figura cerrada con tres lados y tres ángulos?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Esta es la definición básica de triángulo que estamos utilizando en este capítulo, pero existen más aspectos que complementarán este concepto y que serán presentados posteriormente."
+      },
+      {
+         "question": "Al multiplicar tres por un número <b>N</b>, ¿el resultado (producto) será siempre mayor que cuando usamos números menores que él por <b>N</b>?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Todo número multiplicado por cero da como resultado cero, por lo que siempre obtenemos valores iguales en este caso."
+      },
+      {
+         "question": "¿Cuanto mayor sea el valor del factor <b>a</b> en la <b>Fórmula 2</b> de la multiplicación, más se alejará un punto de la línea horizontal?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "La multiplicación consiste en el producto entre dos factores: uno de ellos, como hemos visto, corresponde a los números del eje horizontal; el otro, que denominamos coeficiente angular (representado por <b>a</b>). Observamos que al aumentar el valor de este coeficiente (excepto cuando multiplicamos por cero), los puntos en el gráfico alcanzan valores más elevados. Por lo tanto, al conectar estos puntos, obtenemos una recta con mayor inclinación."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

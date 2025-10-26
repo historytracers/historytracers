@@ -1,0 +1,177 @@
+{
+    "sources" : [ "f866455d-713d-4e3c-b25a-c151f1a05296" ],
+    "license" : [ "SPDX-License-Identifier: GPL-3.0-or-later" ],
+    "last_update" : [ "1724203853" ],
+    "authors" : null,
+    "reviewers" : null,
+    "version" : 1,
+    "type" : "sm_game",
+    "content" : [
+        {
+            "id" : "37a24d98",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Nesta fase, vamos explorar:</span><p class=\"smGameTextSize\">Na ciência, após criarmos uma hipótese, é fundamental testá-la.</p>", "<p class=\"smGameTextSize\">Respostas fáceis para problemas difíceis podem estar erradas.</p>", "<p class=\"smGameTextSize\">A escolha das palavras em uma hipótese pode torná-la mais forte ou mais fraca.</p>" ],
+            "desc": null,
+            "next" : "2b51fdcd",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "2b51fdcd",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Introdução</span><p class=\"smGameTextSize\">Na ausência de documentos ou registros que mencionem nomes, uma pesquisa poderia ser encerrada.</p>", "<p class=\"smGameTextSize\">Alternativamente, poderíamos considerar a possibilidade de estimar conexões.</p>" ],
+            "desc": null,
+            "next" : "66e35ab6",
+            "prev" : "37a24d98",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "66e35ab6",
+            "text" : [ "<p class=\"smGameTextSize\">Nesta fase do jogo, seu objetivo é responder à seguinte pergunta:</p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Sobre os avós</b><br />Os primogênitos recebiam o nome de seus avós?</div></div></p>" ],
+            "desc": null,
+            "next" : "b21f8f9a",
+            "prev" : "2b51fdcd",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "b21f8f9a",
+            "text" : [ "<p class=\"smGameTextSize\">Precisamos definir as hipóteses, ou seja, as possíveis respostas que desejamos testar:</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESE 1</b>: Todo primogênito recebe o nome de um dos avós.</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESE 2</b>: Isso ocorre em alguns casos, mas não é uma regra.</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESE 3</b>: Isso nunca ocorre.</p>" ],
+            "desc": null,
+            "next" : "fe861392",
+            "prev" : "66e35ab6",
+            "jumpTo" : null,
+            "answer": null,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "fe861392",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Validando a <b>HIPÓTESE 1</b></span><p class=\"smGameTextSize\">Vamos analisar alguns inventários de São Paulo, Brasil, para verificar essa hipótese. Começaremos com o inventário de Lucrécia Leme, esposa de Fernão Dias Paes:</p>", "<p class=\"desc\"><img id=\"imgLL\" onclick=\"htImageZoom('imgLL', '0%')\" class=\"imgcenter\" src=\"images/Archive/LucreciaLeme.png\" style=\"width: 30%;\" /><b>Figura 1</b>: Trecho do inventário de Lucrécia Leme (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3a98a6a5-5261-4d8a-b10b-05f7ff97b790'); return false;\">Inventários e Testamentos, <span class=\"htdate\"></span>, Volume 14, pp. 314</a>)</p>" ],
+            "desc": null,
+            "next" : "9cd577d9",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 0,
+            "score" : 1,
+            "position": "top"
+        },
+        {
+            "id" : "9cd577d9",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Validando a <b>HIPÓTESE 1</b></span><p class=\"smGameTextSize\">Agora, vamos estudar um trecho do inventário de um dos seus filhos, Pedro Dias:</p>", "<p class=\"desc\"><img id=\"imgPD\" onclick=\"htImageZoom('imgPD', '0%')\" class=\"imgGameSize\" src=\"images/Archive/PedroDias.png\" /><br /><b>Figura 2</b>: Trecho do inventário de Pedro Dias (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3a98a6a5-5261-4d8a-b10b-05f7ff97b790'); return false;\">Inventários e Testamentos, <span class=\"htdate\"></span>, Volume 20, pp. 56 </a>).</p>" ],
+            "desc": null,
+            "next" : "b21f8f9a",
+            "prev" : "fe861392",
+            "jumpTo" : null,
+            "answer": 0,
+            "score" : 1,
+            "position": "top"
+        },
+        {
+            "id" : "b21f8f9a",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Validando a <b>HIPÓTESE 1</b></span><p class=\"smGameTextSize\">Embora não conheçamos o nome do pai de Fernão Dias Paes, sabemos que seu filho, Pedro Dias (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3a98a6a5-5261-4d8a-b10b-05f7ff97b790'); return false;\">Inventários e Testamentos, <span class=\"htdate\"></span>, Volume 14, pp. 314</a>), nomeou seu primogênito, Paschoal Leite, com o nome de seu sogro, Paschoal Leite (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('7bc10acc-8d54-41f3-b59d-deab9444f737'); return false;\">De Genere João Leite, <span class=\"htdate\"></span>, img. 49</a>). O segundo filho, Fernão Dias Paes, recebeu o nome do pai (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('3a98a6a5-5261-4d8a-b10b-05f7ff97b790'); return false;\">Inventários e Testamentos, <span class=\"htdate\"></span>, Volume 20, pp. 56 </a>).</p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Será isso suficiente?</b><br />Um único exemplo pode validar uma hipótese e descartar as outras?</div></div></p>" ],
+            "desc": [ "Basear conclusões em um único exemplo é arriscado, pois pode refletir apenas um caso específico que confirma um desejo pré-existente. Devemos utilizar o máximo de informações disponíveis para fortalecer uma hipótese." ],
+            "next" : "fccc3b4e",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 0,
+            "score" : 1,
+            "position": "top"
+        },
+        {
+            "id" : "fccc3b4e",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Continuando com a <b>HIPÓTESE 1</b></span><p class=\"smGameTextSize\">Ao analisarmos mais detalhes da família Leme, observamos que o primogênito de Fernão Dias Paes, o neto, nomeou seu filho, Garcia Roiz, com o nome de seu sogro (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('baab6f07-714e-40ca-abea-775fb55e1968'); return false;\">Torre do Tombo, Tribunal do Santo Ofício: Conselho Geral, Habilitações, Pedro, mç. 25, doc. 476, img. 159</a>).</p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><b>Mais uma confirmação</b><br />Mais uma vez, parece haver uma confirmação. Mas podemos realmente descartar as outras hipóteses?</div></div></p>" ],
+            "desc": [ "Embora um padrão esteja se formando, estamos observando apenas uma família ao longo de algumas gerações. Isso não nos permite generalizar o caso. Vamos agora analisar outra família e outro período histórico. Se o padrão se repetir, então Fernão Dias Paes, o avô, pode também ter tido um avô com o mesmo nome." ],
+            "next" : null,
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 0,
+            "score" : 1,
+            "position": "top"
+        },
+        {
+            "id" : "ea5cb1cb",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Validando a <b>HIPÓTESE 2</b></span><p class=\"smGameTextSize\">Com base no que sabemos sobre a genealogia dos Banu Qasi, podemos esperar que Musa ibn Musa tenha nomeado seu filho primogênito de Musa (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('14fbd9a7-f358-4824-b16d-6ce5090b68f6'); return false;\">History Tracers, <span class=\"htdate\"></span></a>)...</p>", "<p class=\"desc\"><img id=\"imgMMF\" onclick=\"htImageZoom('imgMMF', '0%')\" class=\"imgGameSize\" src=\"images/HistoryTracers/MusaMusaFortun.png\" /><br /><b>Figura 3</b>: Trecho da árvore genealógica de Musa ibn Musa (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('14fbd9a7-f358-4824-b16d-6ce5090b68f6'); return false;\">History Tracers, <span class=\"htdate\"></span></a>).</p>" ],
+            "desc": null,
+            "next" : "e4c51277",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 1,
+            "position": "top"
+        },
+        {
+            "id" : "e4c51277",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Validando a <b>HIPÓTESE 2</b></span><p class=\"smGameTextSize\">..., no entanto, ao estudarmos a família Banu Qasi, percebemos que isso não ocorreu (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b43eff03-c370-4692-875a-2455e2c99d03'); return false;\">Juste, Alberto C., <span class=\"htdate\"></span>, pp. 87</a>). Além do mais, ele também deveria se chamar Fortun ibn Musa, ao invés de Musa ibn Musa. Essas exceções também foram observadas em outras gerações.</p>", "<p class=\"smGameTextSize\"><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection smGameTextSize\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Descartamos uma hipótese</b><br />Esta pesquisa refuta a <b>HIPÓTESE 1</b>?</div></div></p>" ],
+            "desc": [ "Sim, a análise desta família descarta a <b>HIPÓTESE 1</b>, com base na observação de que o padrão esperado na linhagem patrilinear não se mantém. Além disso, na ausência de evidências concretas sobre a linhagem materna, não há elementos suficientes para concluir que o nome do avô materno é utilizado." ],
+            "next" : "85647ec8",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 1,
+            "position": "top"
+        },
+        {
+            "id" : "85647ec8",
+            "text" : [ "<span class=\"smGameTextTitleSize\">A <b>HIPÓTESE 3</b></span><p class=\"smGameTextSize\">A <b>HIPÓTESE 1</b> foi descartada após a validação da <b>HIPÓTESE 2</b>. Como a <b>HIPÓTESE 3</b> não pode ser verdadeira se qualquer uma das outras hipóteses for válida, a <b>HIPÓTESE 3</b> também foi descartada com base na validação da <b>HIPÓTESE 2</b></p>" ],
+            "desc": null,
+            "next" : "6759bfc9",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "6759bfc9",
+            "text" : [ "<span class=\"smGameTextTitleSize\">Tabelando</span><p class=\"smGameTextSize\">Após realizar os experimentos, os resultados foram organizados em uma tabela para facilitar a análise e a formulação da teoria:</p>", "<p class=\"smGameTextSize\"><table class=\"indigenous_period\"><tr><th>Experimentos</th><th>HIPÓTESE 1</th><th>HIPÓTESE 2</th><th>HIPÓTESE 3</th></tr> <tr><th>3 gerações dos Leme</th><td><b>X</b></td><td><b>X</b></td><td>&nbsp;</td></tr>  <tr><th>Outra geração dos Leme</th><td><b>X</b></td><td><b>X</b></td><td>&nbsp;</td></tr> <tr><th>Os Banu Qasi</th><td>&nbsp;</td><td><b>X</b></td><td>&nbsp;</td></tr> </table>"  ],
+            "desc": null,
+            "next" : "6bb8aabf",
+            "prev" : "85647ec8",
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 1,
+            "position": "center"
+        },
+        {
+            "id" : "6bb8aabf",
+            "text" : [ "<span class=\"smGameTextTitleSize\">A teoria (1/2)</span><p class=\"smGameTextSize\">Começamos com três hipóteses:</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESE 1</b>: Todo primogênito recebe o nome de um dos avós.</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESE 2</b>: Isso ocorre em alguns casos, mas não é uma regra geral.</p>", "<p class=\"smGameTextSize\"><b>HIPÓTESE 3</b>: Isso nunca ocorre.</p>" ],
+            "desc": null,
+            "next" : "568bd351",
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 2,
+            "position": "center"
+        },
+        {
+            "id" : "568bd351",
+            "text" : [ "<span class=\"smGameTextTitleSize\">A teoria (2/2)</span><p class=\"smGameTextSize\">Após os experimentos, confirmamos que apenas a <b>HIPÓTESE 2</b> é verdadeira. Portanto, a teoria que propomos é que os primogênitos recebem o nome dos avós apenas ocasionalmente (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('44acb900-ee84-4e42-8d9b-a947351af2cd'); return false;\">History Tracers (<span class=\"htdate\"></span>): Scientific Method</a>).</p>", "<p class=\"smGameTextSize\"><center><i class=\"fa-solid fa-medal\" style=\"color:gold; font-size: 5vw\"></i></center></p>" ],
+            "desc": null,
+            "next" : null,
+            "prev" : null,
+            "jumpTo" : null,
+            "answer": 1,
+            "score" : 1,
+            "position": "center"
+        }
+    ],
+    "levels": null,
+    "date_time" : [
+        {"type" : "gregory", "year" : "1921", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "1920", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "1921", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "1657", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "1920", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "2023", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "1980", "month" : "-1", "day" : "-1" },
+        {"type" : "gregory", "year" : "2024", "month" : "-1", "day" : "-1" }
+    ]
+} 

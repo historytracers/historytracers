@@ -1,0 +1,973 @@
+{
+   "title": "Mesoamerican sums",
+   "header": "Mesoamerican sums",
+   "sources": [
+      "68ecf470-69b8-4fcb-b5f8-36f7ee5aee66"
+   ],
+   "scripts": [
+      "68ecf470-69b8-4fcb-b5f8-36f7ee5aee66"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/68ecf470-69b8-4fcb-b5f8-36f7ee5aee66_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/NwINvluNRVb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1759617703"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis text addresses the Mesoamerican numerical system. Before proceeding, we suggest studying the following texts:\n- **Yupana (Adition)**: presents how to do sum operation with *Yupana* (<htcite0>).\n- **Overcoming limits**: presents the Mesoamerican vigesimal calendrical system (<htcite1>).\n- **Change of Direction (Part II)**: explains how orders are used in an exclusively vigesimal system (<htcite2>).\n- **Chapter 5 (First Steps):** previous texts from this chapter in the *First Steps* section (<htcite3>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (Adição)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "36dcbdd0-8d4d-48ac-a1cc-57bf9c8beaa4",
+                     "text": "History Tracers Team",
+                     "page": "Overcoming limits",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6fd2997b-caf1-4620-a58f-1140388ab8c1",
+                     "text": "History Tracers Team",
+                     "page": "Change of Direction (Part II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "First Steps",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nMesoamerican numbers were used in a chronological system, as evidenced by archaeological findings (<htcite0>; <htcite1>; <htcite2>). As a result, we cannot perform calculations with them in the same way we do with our numbers, nor as in the *\"Yupana Inka Tawa Pukllay\"*, method, developed and published by Dhavit Prem of the *Associação Yupanki* (<htcite3>; <htcite4>).\n\nHowever, the fact that we cannot use them in the same way does not mean we cannot apply our knowledge to infer how they might have been used. With this in mind, we invite you to reflect:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ced67eaf-7378-4589-9166-07f799969e3e",
+                     "text": "Catepillán, Ximena",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Changing Systems</b><br /><br />Knowing that Mesoamerican numbers were written vertically, how would you perform addition with them?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_iupana",
+         "text": [
+            {
+               "text": "### Recalling the *Yupana Inka Tawa Pukllay* Method\n\n#### The Quipus\n\nWhen studying the Andean peoples, we observe that in the Andes, quipus were developed that may date back more than four millennia (<htcite0>). These *quipus* (Figure 1), like Mesoamerican numbers, were also written vertically, but they used the decimal base (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c2ff41fc-7833-4dc2-8882-eaed12a065b7",
+                     "text": "Mann, Charles C.",
+                     "page": "pp. 1008",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2005",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6e9bef8c-6ec5-4c04-b583-aea8e6bbec5b",
+                     "text": "Quesada, Eugenio de",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgQuipuPanel\" onclick=\"htImageZoom('imgQuipuPanel', '0%')\" src=\"images/Caral/QuipuPanel.png\" class=\"imgcenter\"/><b>Figure 1</b>: Panel at the Caral archaeological site, ©ZonaArqueólogicaCaral, (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('720f6dfd-4b86-4e07-a887-1010e1041a4d'); return false;\">Ruta Caral, <htdate0></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('03c3743c-d268-4730-ba8e-d36b5c49e781'); return false;\">Youtube - Caral Perú Oficial, <htdate1></a>). Photo taken on <htdate2>, during a visit to the site.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2017",
+                     "month": "6",
+                     "day": "13"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The *Yupana*\n\nWe also learned that reading the quipu was done with the help of tools such as the yupana, which also records numbers vertically, as we can see in the work of Felipe Guaman Poma de Ayala:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"margin: auto; width: 100%;\"><iframe src=\"https://archive.org/details/primer-nueva-coronica-y-buen-gobierno-manuscrito/page/n361/mode/2up\" width=\"100%\" height=\"560\" frameborder=\"0\" webkitallowfullscreen=\"true\" mozallowfullscreen=\"true\" allowfullscreen></iframe></p><p class=\"desc\"><b>Book 1</b>: Page 362, Felipe Guaman Poma de Ayala's book.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "On this image, we see an Indigenous man holding a quipu (knotted cords), with a numerical value indicated on the right. To the left, there is a Yupana—a board with dots representing numbers, possibly associated with finger counting.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The Method\n\nSince no known Inca texts describe how the yupana was used, it is necessary to carry out studies that attempt to understand how it might have been employed. One such study was conducted by Dhavit Prem, who identified five possible movements to perform with the yupana, enabling mathematical operations (<htcite0>; <htcite1>). These movements were explained in detail in his article and also when we teach addition with the *yupana* (<htcite2>).\n\nBelow, select the movement you wish to perform on the yupana and then use the arrow <i class=\"fa-solid fa-arrows-left-right\" style=\"color:#0f0;\"></i> to move the circles, and <i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i> to update the fingers of the hands, and return to the original position:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (Adição)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><input type=\"radio\" value=\"0\" name=\"yupanaradio\" /> <i>ISKAY</i> <input type=\"radio\" value=\"1\" name=\"yupanaradio\" /> <i>KIMSA</i> <input type=\"radio\" value=\"2\" name=\"yupanaradio\" /> <i>PISQA</i> <input type=\"radio\" value=\"3\" name=\"yupanaradio\" /> <i>PICHANA</i> <input type=\"radio\" value=\"4\" name=\"yupanaradio\" /> <i>KINKIN</i> </center></p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Left Hand</th><th>Right Hand</th><th>Arrows</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\" rowspan=\"2\"><img id=\"leftHandImg3\" onclick=\"htImageZoom('leftHandImg3', '0%')\" src=\"images/HistoryTracers/5Left_Hand_Small.png\" /></td><td id=\"tc5f1\" rowspan=\"2\"><img id=\"rightHandImg3\" onclick=\"htImageZoom('rightHandImg3', '0%')\" src=\"images/HistoryTracers/5Right_Hand_Small.png\" /></td><td id=\"tc7f1\" rowspan=\"2\"><i class=\"fa-solid fa-arrows-left-right upArrowWithFA\" id=\"traineeUp3\"></i> <i class=\"fa-solid fa-arrows-rotate downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown3\"></i></td><tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td></tr></tr></table></p><p class=\"desc\">Table 1 – Representation of the movements of the <i>Yupana Inka Tawa Pukllay</i> method. CSS inspired by <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a> W3Schools code.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_sum",
+         "text": [
+            {
+               "text": "### Adding an Order\n\nJust as we have done throughout this section, we will begin with only one order, known by the Maya as the *K'iin* (equivalent to our units, but representing days) (<htcite0>; <htcite1>), expanding our knowledge as we progress through the text.\n\nTo carry out the addition of Mesoamerican numbers, we will use the algorithms proposed by Ruy D. Díaz (<htcite2>). Since we do not know the symbols that Indigenous peoples used to represent addition and equality, we will adapt these operations by using the current symbols for addition (+) and equality (=).\n\nIn this first stage, we present a small table (Calculation 1) in which it is possible to modify the values using the side arrows. The final result will always change within the permitted range, from 0 to 19. If the value exceeds the minimum or maximum limit, the page will automatically adjust the other value, respecting the established limits:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9e7d0cea-d968-4bd5-886e-bc08c824e7ca",
+                     "text": "Díaz, Ruy D.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"oneOrder\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Left Control</b></td><td style=\"background-color: lightblue\"><b>Value</b></td><td style=\"background-color: lightblue\"><b>Addition Sign</b></td><td style=\"background-color: lightblue\"><b>Value</b></td><td style=\"background-color: lightblue\"><b>Equals Sign</b></td><td style=\"background-color: lightblue\"><b>Result</b></td><td style=\"background-color: lightblue\"><b>Right Control</b></td></tr>  <tr><td rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"traineeUpL\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"traineeDownL\"></i></td><td><img id=\"imgml0\" onclick=\"htImageZoom('imgml0', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td> + </td><td><img id=\"imgmr0\" onclick=\"htImageZoom('imgmr0', '0%')\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td> = </td><td><img id=\"imgme0\" onclick=\"htImageZoom('imgme0', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" name=\"traineeUpR\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" name=\"traineeDownR\"></i> </td></tr>  <tr><td><span id=\"leftVL0\">19</span></td><td> + </td><td><span id=\"rightVR0\">0</span></td><td> = </td><td><span id=\"totalVE0\">19</span></td></tr></table></p><p class=\"desc\"><b>Calculation 1</b>: Addition of numbers whose maximum result is 19.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_one_more_order",
+         "text": [
+            {
+               "text": "### Adding Two Orders\n\nThe second numerical order of the Mesoamericans is known by the Maya as *Winal* (corresponding to our tens, but understood as \"the person\") (<htcite0>; <htcite1>). This order follows the pattern of a vigesimal system, meaning that any number placed in this position represents the number multiplied by 20.\n\nBefore continuing, let’s see how we write the number 25 using the decimal and chronological numerical orders already explored in the previous text (<htcite2>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1388be6c-13c5-47a8-b945-56020b798c5f",
+                     "text": "History Tracers Team",
+                     "page": "Calendários mesoamericanos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><p><math display=\"block\">  <mo><b>a)</b></mo> <mn>25</mn> <mo> = (</mo> <mn>2</mn> <mo>×</mo> <mn>10</mn><mo>) + </mo> <mo>(</mo> <mn>5</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p><p style=\"text-align=center\"><p><math display=\"block\">  <mo><b>b)</b></mo> <mn>25</mn> <mo> = (</mo> <mn>1</mn> <mo>×</mo> <mn>20</mn><mo>) + </mo> <mo>(</mo> <mn>5</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p><p class=\"desc\"><b>Calculation 2</b>: Rewriting the number 25, making the numerical orders explicit in decimal base (a) and chronological base (b).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Adding Within Limits\n\nNext, we perform the sum 25 + 25 using decimal numbers and Mesoamerican numbers. In the Mesoamerican case, we follow the algorithm proposed by Ruy D. Díaz (<htcite0>). It is worth noting that, since none of the orders contain values greater than 19, no additional adjustments are necessary:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9e7d0cea-d968-4bd5-886e-bc08c824e7ca",
+                     "text": "Díaz, Ruy D.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmoc2\">1 </span>&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmtc2\">2</span><span class=\"sumexample1\" id=\"cmtc1\">5</span> <br />+&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmbc2\">2</span><span class=\"sumexample1\" id=\"cmbc1\">5 </span><br />____________<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmrc2\">5</span><span class=\"sumexample1\" id=\"cmrc1\">0 </span></center></p><p class=\"desc\"><b>Calculation 3</b>: Addition of 25 + 25.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"twoOrders\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Value</b></td><td style=\"background-color: lightblue\"><b>Addition Sign</b></td><td style=\"background-color: lightblue\"><b>Value</b></td><td style=\"background-color: lightblue\"><b>Equal Sign</b></td><td style=\"background-color: lightblue\"><b>Result</b></td></tr> <tr><td><img id=\"imgml1\" onclick=\"htImageZoom('imgml1', '0%')\" src=\"images/HistoryTracers/Maya_2.png\" /></td><td rowspan=\"2\"> + </td><td><img id=\"imgmr2\" onclick=\"htImageZoom('imgmr2', '0%')\" src=\"images/HistoryTracers/Maya_2.png\" /></td><td rowspan=\"2\"> = </td><td><img id=\"imgme3\" onclick=\"htImageZoom('imgme3', '0%')\" src=\"images/HistoryTracers/Maya_4.png\" /></td></tr> <tr><td><img id=\"imgml4\" onclick=\"htImageZoom('imgml4', '0%')\" src=\"images/HistoryTracers/Maya_5.png\" /></td><td><img id=\"imgmr5\" onclick=\"htImageZoom('imgmr5', '0%')\" src=\"images/HistoryTracers/Maya_5.png\" /></td><td><img id=\"imgme6\" onclick=\"htImageZoom('imgme6', '0%')\" src=\"images/HistoryTracers/Maya_10.png\" /></td></tr>   <tr><td><span id=\"leftVL1\">25</span></td><td> + </td><td><span id=\"rightVR1\">25</span></td><td> = </td><td><span id=\"totalVE1\">50</span></td></tr></table></p><p class=\"desc\"><b>Calculation 4</b>: Addition of 25 + 25 using vigesimal numbers.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Adjusting the Values\n\nWhen a sum exceeds the values allowed in an order, adjustments must be made. In the *Yupana Inka Tawa Pukllay*, method, Dhavit Prem proposes five adjustments, presented in **Table 1** (<htcite0>; <htcite1>).\n\nFor decimal numbers, the excess value is carried over to the next order, as in **Calculation 3**. In contrast, in the Mesoamerican system, Ruy D. Díaz suggests first performing the addition horizontally and then applying the adjustments (<htcite2>).\n\nTo illustrate, let’s add 19 + 19:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9e7d0cea-d968-4bd5-886e-bc08c824e7ca",
+                     "text": "Díaz, Ruy D.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"twoOrders\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Value</b></td><td style=\"background-color: lightblue\"><b>Addition Sign</b></td><td style=\"background-color: lightblue\"><b>Value</b></td><td style=\"background-color: lightblue\"><b>Equal Sign</b></td><td style=\"background-color: lightblue\"><b>Result Without Adjustments</b></td><td style=\"background-color: lightblue\"><b>Equal Sign</b></td><td style=\"background-color: lightblue\"><b>Final Result</b></td></tr> <tr><td><img id=\"imgml10\" onclick=\"htImageZoom('imgml10', '0%')\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td rowspan=\"2\"> + </td><td><img id=\"imgmr11\" onclick=\"htImageZoom('imgmr11', '0%')\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td rowspan=\"2\"> = </td><td><img id=\"imgme12\" onclick=\"htImageZoom('imgme12', '0%')\" src=\"images/HistoryTracers/Maya_0.png\" /></td><td rowspan=\"2\"> = </td><td><img id=\"imgme13\" onclick=\"htImageZoom('imgme13', '0%')\" src=\"images/HistoryTracers/Maya_1.png\" /></td></tr> <tr><td><img id=\"imgml14\" onclick=\"htImageZoom('imgml14', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td><img id=\"imgmr15\" onclick=\"htImageZoom('imgmr15', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td><img id=\"imgme16\" onclick=\"htImageZoom('imgme16', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /><img id=\"imgme17\" onclick=\"htImageZoom('imgme17', '0%')\" src=\"images/HistoryTracers/Maya_19.png\" /></td><td><img id=\"imgme18\" onclick=\"htImageZoom('imgme18', '0%')\" src=\"images/HistoryTracers/Maya_18.png\" /></td></tr>   <tr><td><span id=\"leftVL1\">19</span></td><td> + </td><td><span id=\"rightVR1\">19</span></td><td> = </td><td><span id=\"totalVE1\">38</span></td><td> = </td><td><span id=\"totalVE1\">38</span></td></tr></table></p><p class=\"desc\"><b>Calculation 5</b>: Addition of 19 + 19 using vigesimal numbers.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To convert the value in the **Result Without Adjustments** column to the **Resultado Final** column, it is necessary to remember that the second order, *Winal*, always has its numbers multiplied by 20. Thus, the transformation of 38 is carried out as follows:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><math display=\"block\">  <mn>38</mn> <mo> = (</mo> <mn>0</mn> <mo>×</mo> <mn>20</mn><mo>) + </mo> <mo>(</mo> <mn>38</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p> <p style=\"text-align=center\"><p><math display=\"block\"> <mn>38</mn> <mo> = (</mo> <mn>0</mn> <mo>×</mo> <mn>20</mn><mo>) + </mo> <mo>(</mo> <mn>20</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> <mo>+ (</mo> <mn>18</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p><p style=\"text-align=center\"><math display=\"block\">  <mn>38</mn> <mo> = (</mo> <mn>1</mn> <mo>×</mo> <mn>20</mn><mo>) + </mo> <mo>(</mo> <mn>18</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p> <p class=\"desc\"><b>Calculation 6</b>: Rewriting 38, making the numerical orders explicit in vigesimal base.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As we can see in **Calculation 6**, after identifying multiples of 20 in the first order (*K'iin*), these are transferred to the second order (Winal). Details of these identifications will be presented in the next chapter.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_orders",
+         "text": [
+            {
+               "text": "### Higher Orders\n\nTo perform additions with higher orders using Mesoamerican numbers, the first step is to decide whether we will use vigesimal numbers, as proposed by Ruy D. Díaz (<htcite0>), or adopt a calendrical system, as used by the Maya (<htcite1>; <htcite2>; <htcite3>; <htcite4>). Regardless of how we organize the numerical orders, the final result will be the same when converted to decimal numbers; however, the way the result is represented will be different.\n\nLet us begin by exploring the numerical orders:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9e7d0cea-d968-4bd5-886e-bc08c824e7ca",
+                     "text": "Díaz, Ruy D.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ced67eaf-7378-4589-9166-07f799969e3e",
+                     "text": "Catepillán, Ximena",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"twoOrders\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Decimal Order</b></td><td style=\"background-color: lightblue\"><b>Decimal Factor</b></td><td style=\"background-color: lightblue\"><b>Vigesimal Order</b></td><td style=\"background-color: lightblue\"><b>Vigesimal Factor</b></td><td style=\"background-color: lightblue\"><b>Calendrical Order</b></td><td style=\"background-color: lightblue\"><b>Calendrical Factor</b></td></tr> <tr><td>Units</td><td>1</td><td>&nbsp;</td><td>1</td><td><i>K'iin</i></td><td>1</td></tr>  <tr><td>Tens</td><td>10</td><td>&nbsp;</td><td>20</td><td><i>Winal</i></td><td>20</td></tr> <tr><td>Hundreds</td><td>100</td><td>&nbsp;</td><td>400</td><td><i>Tun</i></td><td>360</td></tr> <tr><td>Thousands</td><td>1,000</td><td>&nbsp;</td><td>8,000</td><td><i>K'atun</i></td><td>7,200</td></tr> <tr><td>Ten-Thousands</td><td>10,000</td><td>&nbsp;</td><td>160,000</td><td><i>Bak'atun</i></td><td>144,000</td></tr></table></p> <p class=\"desc\">Table 2 – Comparison of Numerical Orders.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The numerical orders listed in **Table 2** are not the only ones known to the ancient Maya (<htcite0>; <htcite1>; <htcite2>). However, for this study we will limit ourselves to these.\n\nAs an example, we represent the number 6,586, presented as the result of an addition by Dr. Ruy D. Díaz (Díaz, Ruy D., 2006), in the three numerical systems and their respective orders:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "pp. 35 - 36, 106 - 107",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9e7d0cea-d968-4bd5-886e-bc08c824e7ca",
+                     "text": "Díaz, Ruy D.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><math display=\"block\">  <mo><b>a)</b></mo> <mn>6586</mn> <mo>= (</mo> <mn>6</mn> <mo>×</mo> <mn>1000</mn><mo>) + </mo> <mo>(</mo> <mn>5</mn> <mo>×</mo> <mn>100</mn> <mo>) + </mo> <mo>(</mo> <mn>8</mn> <mo>×</mo> <mn>10</mn> <mo>) + </mo> <mo>(</mo> <mn>6</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p> <p style=\"text-align=center\"><p><math display=\"block\">  <mo><b>b)</b></mo> <mn>6586</mn> <mo> = (</mo> <mn>16</mn> <mo>×</mo> <mn>400</mn><mo>) + </mo> <mo>(</mo> <mn>9</mn> <mo>×</mo> <mn>20</mn> <mo>)</mo> <mo> + (</mo> <mn>6</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p> <p style=\"text-align=center\"><p><math display=\"block\">  <mo><b>c)</b></mo> <mn>6586</mn> <mo> = (</mo> <mn>18</mn> <mo>×</mo> <mn>360</mn><mo>) + </mo> <mo>(</mo> <mn>5</mn> <mo>×</mo> <mn>20</mn> <mo>)</mo> <mo> + (</mo> <mn>6</mn> <mo>×</mo> <mn>1</mn> <mo>)</mo> </math></p><p class=\"desc\"><b>Calculation 7</b>: Rewriting the number 6,586, making the numerical orders explicit in decimal (a), vigesimal (b), and chronological (c) bases.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Table 2**, we can see that, starting from the third order, there is a divergence in the factors of vigesimal numbers. This occurs because, while in the vigesimal system the transition from one order to the next is always made by multiplying by 20, in the calendrical system, in the third order, the multiplication is done by 18, and then the following order returns to multiplying by 20 (<htcite0>; <htcite1>; <htcite2>).\n\nIn **Table 3**, we present the calculation of the multiplication factors of the orders:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ced67eaf-7378-4589-9166-07f799969e3e",
+                     "text": "Catepillán, Ximena",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"onlyOrders\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Decimal Order</b></td><td style=\"background-color: lightblue\"><b>Decimal Factor</b></td><td style=\"background-color: lightblue\"><b>Vigesimal Order</b></td><td style=\"background-color: lightblue\"><b>Vigesimal Factor</b></td><td style=\"background-color: lightblue\"><b>Calendrical Order</b></td><td style=\"background-color: lightblue\"><b>Calendrical Factor</b></td></tr> <tr><td>Units</td><td>1</td><td>&nbsp;</td><td>1</td><td><i>K'iin</i></td><td>1</td></tr>  <tr><td>Tens</td><td>10 × 1 = 10</td><td>&nbsp;</td><td>20 × 1 = 20</td><td><i>Winal</i></td><td>20 × 1 = 20</td></tr> <tr><td>Hundreds</td><td>10 × 10 = 100</td><td>&nbsp;</td><td>20 × 20 = 400</td><td><i>Tun</i></td><td>20 × 18 = 360</td></tr> <tr><td>Thousands</td><td>100 × 10 = 1.000</td><td>&nbsp;</td><td>400 × 20 = 8.000</td><td><i>K'atun</i></td><td>360 × 20 = 7.200</td></tr> <tr><td>Ten-Thousands</td><td>1.000 × 10 = 10.000</td><td>&nbsp;</td><td>8.000 × 20 = 160.000</td><td><i>Bak'atun</i></td><td>7.200 × 20 = 144.000</td></tr></table></p> <p class=\"desc\">Table 3 – Comparison of numerical orders.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As the final example of addition, let us redo the operation **1438 + 5148 = 6586**, carried out by Ruy D. Díaz (<htcite0>). However, unlike the researcher, we will use the calendrical system:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9e7d0cea-d968-4bd5-886e-bc08c824e7ca",
+                     "text": "Díaz, Ruy D.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2006",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"twoOrders\" class=\"tableTen\"><tr><td style=\"background-color: lightblue\"><b>Value</b></td><td style=\"background-color: lightblue\"><b>Addition Sign</b></td><td style=\"background-color: lightblue\"><b>Value</b></td><td style=\"background-color: lightblue\"><b>Equals Sign</b></td><td style=\"background-color: lightblue\"><b>Result without Adjustments</b></td><td style=\"background-color: lightblue\"><b>Equals Sign</b></td><td style=\"background-color: lightblue\"><b>Final Result</b></td></tr> <tr><td><img id=\"imgml100\" onclick=\"htImageZoom('imgml100', '0%')\" src=\"images/HistoryTracers/Maya_3.png\" /></td><td rowspan=\"3\"> + </td><td><img id=\"imgmr110\" onclick=\"htImageZoom('imgmr110', '0%')\" src=\"images/HistoryTracers/Maya_14.png\" /></td><td rowspan=\"3\"> = </td><td><img id=\"imgme120\" onclick=\"htimagezoom('imgme120', '0%')\" src=\"images/HistoryTracers/Maya_17.png\" /></td><td rowspan=\"3\"> = </td><td><img id=\"imgme180\" onclick=\"htImageZoom('imgme180', '0%')\" src=\"images/HistoryTracers/Maya_18.png\" /></td></tr> <tr><td><img id=\"imgml140\" onclick=\"htImageZoom('imgml140', '0%')\" src=\"images/HistoryTracers/Maya_17.png\" /></td><td><img id=\"imgmr150\" onclick=\"htImageZoom('imgmr150', '0%')\" src=\"images/HistoryTracers/Maya_5.png\" /></td><td><img id=\"imgme160\" onclick=\"htImageZoom('imgme160', '0%')\" src=\"images/HistoryTracers/Maya_17.png\" /><img id=\"imgme170\" onclick=\"htImageZoom('imgme170', '0%')\" src=\"images/HistoryTracers/Maya_5.png\" /></td><td><img id=\"imgme180\" onclick=\"htImageZoom('imgme180', '0%')\" src=\"images/HistoryTracers/Maya_5.png\" /></td></tr>  <tr><td><img id=\"imgml1400\" onclick=\"htImageZoom('imgml1400', '0%')\" src=\"images/HistoryTracers/Maya_18.png\" /></td><td><img id=\"imgmr1500\" onclick=\"htImageZoom('imgmr1500', '0%')\" src=\"images/HistoryTracers/Maya_8.png\" /></td><td><img id=\"imgme1600\" onclick=\"htImageZoom('imgme1600', '0%')\" src=\"images/HistoryTracers/Maya_18.png\" /><img id=\"imgme1700\" onclick=\"htImageZoom('imgme1700', '0%')\" src=\"images/HistoryTracers/Maya_8.png\" /></td><td><img id=\"imgme1800\" onclick=\"htImageZoom('imgme1800', '0%')\" src=\"images/HistoryTracers/Maya_6.png\" /></td></tr>    <tr><td><span id=\"leftVL1\">1438</span></td><td> + </td><td><span id=\"rightVR1\">5148</span></td><td> = </td><td><span id=\"totalVE1\">6586</span></td><td> = </td><td><span id=\"totalVE1\">6586</span></td></tr></table></p><p class=\"desc\"><b>Calculation 8</b>: Addition of 1438 + 5148 = 6586 using the calendrical system.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Below, we will rewrite **Calculation 8**, detailing the transition from the **Result without Adjustments** column to the **Final Result** column:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><math display=\"block\">  <mo><b>1)</b></mo> <mo>(</mo> <mn>1438</mn><mo>) + </mo> <mo>(</mo> <mn>5148</mn> <mo>) = </mo> <mn>6586</mn> </math></p>  <p style=\"text-align=center\"><math display=\"block\">  <mo><b>2)</b></mo> <mo>[ (</mo> <mn>3</mn> <mo>×</mo> <mn>360</mn> <mo>) + (</mo> <mn>17</mn> <mo>×</mo> <mn>20</mn> <mo>) + (</mo>  <mn>18</mn> <mo>×</mo> <mn>1</mn> <mo>) ] </mo> <mo>+ [ (</mo> <mn>14</mn> <mo>×</mo> <mn>360</mn> <mo>) + (</mo> <mn>5</mn> <mo>×</mo> <mn>20</mn> <mo>) + (</mo> <mn>8</mn> <mo>×</mo> <mn>1</mn>  <mo>) ] = </mo> <mn>6586</mn> </math></p>  <p style=\"text-align=center\"><math display=\"block\">  <mo><b>3)</b></mo> <mo>[ (</mo> <mn>17</mn> <mo>×</mo> <mn>360</mn> <mo>) + (</mo> <mn>22</mn> <mo>×</mo> <mn>20</mn> <mo> ) + (</mo> <mn>26</mn> <mo>×</mo> <mn>1</mn> <mo>)] = </mo> <mn>6586</mn> </math></p> <p style=\"text-align=center\"><math display=\"block\"><mo><b>4)</b></mo> <mo>[ (</mo> <mn>17</mn> <mo>×</mo> <mn>360</mn> <mo>) + (</mo> <mn>23</mn> <mo>×</mo> <mn>20</mn> <mo> ) + (</mo> <mn>6</mn> <mo>×</mo> <mn>1</mn> <mo>)] = </mo> <mn>6586</mn> </math></p> <p style=\"text-align=center\"><math display=\"block\"><mo><b>5)</b></mo> <mo>{ (</mo> <mn>17</mn> <mo>×</mo> <mn>360</mn> <mo>) + [(</mo> <mn>18</mn> <mo>×</mo> <mn>20</mn> <mo> ) + (</mo> <mn>5</mn> <mo>×</mo> <mn>20</mn> <mo>) ] + (</mo> <mn>6</mn> <mo>×</mo> <mn>1</mn> <mo>) } = </mo> <mn>6586</mn> </math></p> <p style=\"text-align=center\"><math display=\"block\"><mo><b>6)</b></mo> <mo>{ (</mo> <mn>17</mn> <mo>×</mo> <mn>360</mn> <mo>) + [(</mo> <mn>360</mn> <mo> ) + (</mo> <mn>5</mn> <mo>×</mo> <mn>20</mn> <mo>) ] + (</mo> <mn>6</mn> <mo>×</mo> <mn>1</mn> <mo>) } = </mo> <mn>6586</mn> </math></p>  <p style=\"text-align=center\"><math display=\"block\"><mo><b>7)</b></mo> <mo>[ (</mo> <mn>18</mn> <mo>×</mo> <mn>360</mn> <mo>) + </mo> </mo> <mn>5</mn> <mo>×</mo> <mn>20</mn> <mo>) + (</mo> <mn>6</mn> <mo>×</mo> <mn>1</mn> <mo>)] = </mo> <mn>6586</mn> </math></p> <p class=\"desc\"><b>Calculation 9</b>: Rewriting the operation 1438 + 5148 = 6586.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Highlights from the steps in Calculation 9: **Cálculo 9**:\n- The transition from the first order (*K'iin*) to the second (*Winal*), shown in steps 3 and 4, only occurs when there are more than 20 units in the first order.\n- The transition from the second order (*Winal*) to the third order (*Tun*), as illustrated in steps 6 and 7, occurs whenever the second order contains values greater than 360 (18 × 20).\n- Calculations are always carried out starting from the lower orders.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_usage",
+         "text": [
+            {
+               "text": "### Real-life use\n\nThe main application of the calendrical system, as its name suggests, was the dating of events (<htcite0>; <htcite1>; <htcite2>; <htcite3>). In Figure 1, the first lines of the hieroglyphic text found in Copán, Honduras, present the date that begins the inscription (<htcite4>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí.",
+                     "page": "pp. 34",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ced67eaf-7378-4589-9166-07f799969e3e",
+                     "text": "Catepillán, Ximena",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "pp. 35 - 36",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "16142a90-9aa0-4da7-9b6c-798340b2d293",
+                     "text": "Stuart, D.",
+                     "page": "pp. 222",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1990",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanStelaA\" onclick=\"htImageZoom('imgCopanStelaA', '0%')\" src=\"images/Copan/StelaACopan.jpg\" class=\"imgcenter\" style=\"width:30%\"/><b>Figure 1</b>: Stela A, in the Museum of the Archaeological Site of Copán, mentioning the cities of Copán, Tikal, Calakmul, and Palenque, in that order (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Photo taken on <htdate1>, during a visit to the site.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "30"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "This image displays a hieroglyphic text arranged in two columns.",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nAlthough we cannot categorically state that the Mesoamericans performed additions in the manner presented in this text, we have seen that they could have carried out similar operations.\n\nThis conclusion is reinforced by the method developed by Dhavit Prem, *Yupana Inka Tawa Pukllay*, which allows us to use a tool created by the Incas.\n\nIn addition, we also examined how the calendrical system works, which we will continue to use in the next text.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "When working with numbers written vertically, should we rewrite them horizontally before adding?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "It is not necessary to rewrite numbers horizontally to add them; numbers written vertically can be added exactly as they are. In fact, tools such as the yupana were created to perform addition in this format."
+      },
+      {
+         "question": "Can we write numbers greater than 9 in the orders of Mesoamerican numbers?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Because they used a calendrical counting system with twenty digits, it is possible to write values from 0 to 19 in each order (position)."
+      },
+      {
+         "question": "Are the factors used in multiplying in the vigesimal order the same as those in the calendrical order?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Although the first two orders are the same, from the third order (<i>Tun</i>) onward, the factors are different."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

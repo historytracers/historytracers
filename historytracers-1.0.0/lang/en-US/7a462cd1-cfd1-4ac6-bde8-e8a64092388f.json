@@ -1,0 +1,214 @@
+{
+   "title": "Natural limits",
+   "header": "Natural limits",
+   "sources": [
+      "7a462cd1-cfd1-4ac6-bde8-e8a64092388f"
+   ],
+   "scripts": [
+      "7a462cd1-cfd1-4ac6-bde8-e8a64092388f"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/7a462cd1-cfd1-4ac6-bde8-e8a64092388f_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/v8EgZf25YUb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1759466132"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThe first two chapters of the \"First Steps\" section explain how to perform counting and comparisons. Therefore, we recommend studying these chapters before proceeding with this text",
+               "source": [
+                  {
+                     "type": 3210,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeiros Passos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "<p><h3>Introduction</h3>In two of our previous texts discussing numerical systems (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b1a262fc-0148-489b-8b70-5266a85c1e67'); return false;\">History Tracers, <htdate0>, Numerical families (Part II)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6fd2997b-caf1-4620-a58f-1140388ab8c1'); return false;\">History Tracers, <htdate1>, Change of direction (Part II)</a>),  we posed the following reflections:</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflection 1: Is there a limit to numbers?</b><br />Decimal numbers consist of ten digits, ranging from zero (0) to nine (9). These digits set the limit for each position in the system. As we've seen, when a position reaches its maximum value, we can always add another digit by following specific rules. But this raises a critical question: is there a final number?</div></div></center></p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflection 2: Is there a last number?</b><br />We explored various numerical systems used for different types of counting, and in none did we find a rule that prevents the addition of more numbers. Could there be a final number in these systems?</div></div></center></p><p>In this text, we will address these reflections by delving deeper into the mathematical concept of limits.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_maxmin",
+         "text": [
+            {
+               "text": "<p><h3>Maximum and Minimum</h3>In this chapter, we studied two decimal numerical systems (Hindu-Arabic and <i>Quipus</i>) and the Mesoamerican vigesimal system. These systems represent a significant advancement from the original counting methods developed millennia ago (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a4f22e25-5839-407f-a1aa-634521d52b42'); return false;\">González Redondo, Francisco A., et al., <htdate0>, pp. 174 - 177, 180 - 182</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <htdate1>, pp. 21 - 23</a>). By comparing the number of symbols used to represent numbers in these systems, we concluded that they were developed based on our hands and feet. Using arrows in <b>Table 1</b>, you can verify this relationship</p><p><table class=\"tawapukllay\" id=\"yupana1\"><tr><th colspan=\"2\">Feet</th><th colspan=\"2\">Hands</th><th>Hindu-Arabic</th><th>Mesoamerican</th><th>Arrows</th></tr> <tr><td rowspan=\"2\"><img onclick=\"htImageZoom('leftFootImg1', '0%')\" id=\"leftFootImg1\" src=\"\" class=\"smallFeet\" /></td><td rowspan=\"2\"><img id=\"rightFootImg1\" onclick=\"htImageZoom('rightFootImg1', '0%')\" src=\"\" class=\"smallFeet\" /></td><td rowspan=\"2\"><img id=\"leftHandImg1\" onclick=\"htImageZoom('leftHandImg1', '0%')\" src=\"\" /></td><td rowspan=\"2\"><img id=\"rightHandImg1\" onclick=\"htImageZoom('rightHandImg1', '0%')\" src=\"\" /></td><td id=\"tc5f1\" rowspan=\"2\">&nbsp;</td><td id=\"tf6f1\"><img src=\"\" id=\"tmc6l1\" onclick=\"htImageZoom('tmc6l1', '0%')\" /></td><td rowspan=\"2\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp1\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown1\"></i></td></tr> <tr><td id=\"tf6f2\" style=\"background-color:white;\"><img src=\"\" id=\"tmc6l2\" onclick=\"htImageZoom('tmc6l2', '0%')\" />&nbsp;</td></tr></table></p><p class=\"desc\"><b>Table 1</b>: The numbers and our body.</p><p>Working with the data in <b>Table 1</b>, we can draw the following conclusions:</p><p><ul><li>There is a common counting minimum across our hands, feet, and numerical systems: zero (0).</li><li>When using only our hands or feet, the maximum is ten (10).</li><li>When using both hands and feet, the maximum is twenty (20).</li><li>Moving from the minimum to the maximum does not occur directly; there are intermediate values.</li></ul></p><p>From these conclusions, we observe that maximum and minimum values represent the extremes in a numerical system. As numbers increase, we approach the maximum value: ten (10) for hands alone, or twenty (20) when including the feet. Conversely, as numbers decrease, we move towards the minimum value, zero (0).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2020",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_volume",
+         "text": [
+            {
+               "text": "<p><h3>Volume</h3>When we drink a liquid or store something in a container, there is always a limit. If we exceed this limit, what we intended to store will spill over. Let's consider a Mesoamerican chocolate pot as an example:</p><p class=\"desc\"><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\" src=\"images/CahalPech/ChocolatPot.jpg\" class=\"imgcenter\"/><b>Figure 1</b>: Mesoamerican Chocolate Pot. Photo taken on <htdate0>, during a visit to the archaeological site of Cahal Pech, Belize.</p><p>This open pot has an upper limit. As we fill it with chocolate, we can add more until it reaches the brim, but if we continue adding beyond that point, the liquid will overflow.</p><p>With this information, a question arises: how much chocolate can the pot hold? To answer this precisely, we use numbers and make markings on the pot to indicate its exact volume. For example, we can mark distinct values on the pot, starting from zero and continuing up to its maximum capacity. To simplify further, we assign specific terms to differentiate between liquid and solid quantities. From now on, when referring to a small amount of liquid, we will use volume, expressed in milliliters. When referring to a small amount of solids, we will use mass, expressed in grams (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('94f66ad2-1965-40cd-bb5f-1f7951ea708d'); return false;\">NIST, <htdate1>, Volume</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('568dc837-f824-4039-bc10-4d68876ef6fb'); return false;\">NIST, <htdate2>, Mass</a>). For greater clarity, we will mark the chocolate pot with the following values:</p><p class=\"desc\"><div class=\"htSlidesGame\" style=\"margin-left:25%;\"><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\" src=\"images/CahalPech/ChocolatPot.jpg\" class=\"imgGameSize\"/><div style=\"position: absolute; bottom: 20%; left: 1.6em; font-weight: bold;\">0</div><div style=\"position: absolute; bottom: 40%; left: 1.6em; font-weight: bold;\">500</div><div style=\"position: absolute; bottom: 70%; left: 1.6em; font-weight: bold;\">800</div></div><p class=\"desc\"><b>Figure 2</b>: Pot with volume markings.</p><p>Assuming we are going to store liquid chocolate in this pot, we can see from <b>Figure 2</b> that its capacity is up to 800 milliliters.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_definition",
+         "text": [
+            {
+               "text": "<p><h3>What is a limit?</h3>As we study numbers, it is essential to simplify the scientific definition of a \"limit\" for practical use. For now, let's define it as follows:</p><p><ul class=\"citation\"><li>A limit is a value within a numerical sequence that may or may not represent an extreme (maximum or minimum).</li></ul></p><p>This definition allows for the possibility of internal limits. For instance, in <b>Figure 2</b>, we don’t always need to fill the entire pot; sometimes we stop at a certain point, such as when we only need 500 milliliters.</p><p>As we continue our study, we will gradually develop a more precise understanding of the concept of limits, progressing toward the scientific definition (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('960011db-78ac-4a14-bf41-f8b816ee46e5'); return false;\">Stover, Christopher, Limit</a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_answer",
+         "text": [
+            {
+               "text": "<p><h3>Answering the Reflexions</h3>Now, let’s address the proposed reflections. Regardless of the numerical system, we can always find a larger number. In the Hindu-Arabic system, this is done by adding digits to the left. In indigenous numerical systems, numbers increase vertically. From this perspective, there is no \"last number\".</p><p>So, how do we define an extreme value if there's no last number? When numbers increase indefinitely, we are dealing with the concept of infinity, symbolized by <b>∞</b>. Numbers tend toward infinity, but since infinity is not an actual number, it can never be reached—meaning there is no maximum value.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "<p><h3>Conclusion</h3>In this text, we have introduced the fundamental mathematical concept of a limit. This idea is not limited to mathematics; it also appears—often implicitly—in other areas of science, which can make it difficult for students to grasp. Moving forward, we will use this concept frequently as we deepen our understanding of the topics at hand.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

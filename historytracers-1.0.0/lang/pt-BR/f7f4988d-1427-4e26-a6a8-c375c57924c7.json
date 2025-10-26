@@ -1,0 +1,670 @@
+{
+   "title": "Entendendo a Tabuada (2 e 3)",
+   "header": "Entendendo a Tabuada (2 e 3)",
+   "sources": [
+      "f7f4988d-1427-4e26-a6a8-c375c57924c7"
+   ],
+   "scripts": [
+      "f7f4988d-1427-4e26-a6a8-c375c57924c7"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/f7f4988d-1427-4e26-a6a8-c375c57924c7_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/AoqNZDkRUUb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1760227141"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nRecomendamos que o leitor revise o texto anterior e seus pré-requisitos antes de prosseguir",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nAo iniciarmos nossos estudos sobre a tabuada, percebemos que é possível representá-la graficamente ao conectar os resultados dela usando uma folha quadriculada. Essa representação forma figuras como linhas e triângulos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            },
+            {
+               "text": "Neste texto, vamos aprofundar os conhecimentos sobre triângulos, explorando sua relação com as tabuadas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_triangle",
+         "text": [
+            {
+               "text": "### Triângulo\n\nPara reforçar o que vimos no texto anterior e introduzir o conteúdo novo, conectaremos os pontos da tabuada do um (1) e preencheremos o triângulo formado",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Pontos da tabuada de um (1) conectados, formando uma reta. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: O que é um triângulo?</b><br /><br />Observando o Gráfico 1, com a área do triângulo inferior destacada, como você descreveria essa figura?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora, compare sua definição com uma versão simplificada da definição apresentada por Eric W. Weisstein",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triângulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<ul class=\"citation\"><li><i>\"Triângulos são figuras fechadas com três lados e três ângulos (formados pela conexão entre os lados)...\"</i></li> </ul>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Além dessa definição, no texto de Weisstein há também uma menção que o triângulo retângulo formado no gráfico possui componentes com nomes específicos. No Gráfico 2, destacamos essas partes e as nomeamos na sequência",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f33dbf7c-924c-453f-bee5-a19388e75109",
+                     "text": "Weisstein, Eric W., Triângulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "56edda64-d96e-4106-b1f8-676a235b818c",
+                     "text": "Weisstein, Eric W., Triângulo Retângulo",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg height=\"245\" width=\"450\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M425 5 L75 200 L425 200 Z\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><rect x=\"404\" y=\"179\" width=\"20\" height=\"20\" stroke=\"lightgreen\" fill=\"none\" stroke-width=\"3\" /><text x=\"125\" y=\"192\" font-size=\"1.5em\">α</text><text x=\"401\" y=\"45\" font-size=\"1.5em\">β</text><text x=\"235\" y=\"95\" font-size=\"2.5em\">c</text><text x=\"428\" y=\"120\" font-size=\"2.5em\">b</text><text x=\"265\" y=\"230\" font-size=\"2.5em\">a</text></svg></p><p class=\"desc\"><b>Gráfico 2</b>: Triângulo retângulo com suas componentes.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "- **a**, **b** e **c**: são os lados do triângulo. Os lados **a** e **b** são chamados **catetos**, enquanto **c** é o nome da **hipotenusa**.\n- **α**, **β**, e <i class=\"fa-regular fa-square\"></i>: são os ângulos formatos pela união dos lados do triângulo. O quadrado ( <i class=\"fa-regular fa-square\"></i> ) que representa a conexão entre as linhas horizontal e vertical é chamado **ângulo reto**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_general_formula",
+         "text": [
+            {
+               "text": "### Uma Fórmula Geral\n\nNa tabuada, multiplicamos diferentes números **N** por um valor fixo, obtendo seus resultados. No primeiro texto, realizamos essas etapas e concluímos que existem as seguintes fórmulas para as tabuadas do zero e do um",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>0</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Figure 1</b>: Fórmulas utilizadas nas tabuadas do zero e do um.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Essas duas fórmulas podem ser escritas de maneira mais geral",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "79d126c9-39ac-4679-904b-4ab69558e44e",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Figure 2</b>: Fórmula geral das tabuadas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Nesta fórmula:\n- *r*: é o resultado da multiplicação.\n *N*: é o fator que representa um número que contamos.\n- *a*: além de ser um dos fatores da multiplicação, recebe diferentes nomes em diferentes situações da vida. No entanto, independente do nome, sua função na multiplicação permanece a mesma: modificar a posição do ponto em relação à linha horizontal. Por esse motivo, um de seus nomes é **coeficiente angular**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: O Fator *a*</b><br /><br />Quando **a = 0**, os resultados se transformam em pontos alinhados sobre a horizontal.<br />Quando a = 1, os resultados formam pontos na diagonal, dividindo uma folha quadriculada em dois triângulos iguais.<br /><br />O que você espera quando *a* assumir os valores dois e três?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_two",
+         "text": [
+            {
+               "text": "### Multiplicando por Dois (2)\n\nAo iniciarmos nosso estudo nesta seção do History Tracers, o primeiro tema relacionado ao corpo humano que abordamos foi sua simetria — ou seja, a existência de dois lados que espelham um ao outro",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "20b14681-88c0-438a-a273-a0902ae5db38",
+                     "text": "History Tracers Team",
+                     "page": "Nossos lados são iguais",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mão esquerda</td><td>Mão direita</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/HistoryTracers/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/HistoryTracers/Right_Hand.png\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\"><b>Figura 1</b>: Representação das mãos mostrando sua simetria. Código-fonte presente no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <span class=\"htdate\"></span>, Código Fonte</a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "Na figura, observam-se as duas mãos de uma pessoa, estendidas com todos os dedos esticados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O Dr. Francisco Barriga Puente, em seus estudos sobre os sistemas numéricos dos indígenas brasileiros, identificou sistemas binários baseados nos números um (1) e dois (2). Para representar quantidades maiores, como o seis (6), eles utilizam a soma repetida",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "pp. 33",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>2</mi> <mo>e</mo> <mi>2</mi> <mo>e</mo> <mi>2</mi> </math></center></p><p class=\"desc\">Representação do número seis em sistemas binários indígenas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Esses exemplos nos auxiliam na construção da tabuada do dois.\n\n#### Montando a Tabuada\n\nPara montar a tabuada de dois (2), aplicamos a **Fórmula 2**, atribuindo ao fator *a* o valor dois (2), obtendo os seguintes resultados:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Desenhando a Tabuada\n\nAo invés de desenharmos pontos em um gráfico e uní-los em outro, desta vez utilizaremos o mesmo gráfico, seguindo as etapas descritas no texto anterior",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ":"
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Pontos da tabuada de dois conectados, formando uma reta. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ao compararmos o **Gráfico 3** com o **Gráfico 1**, as figuras parecem idênticas. No entanto, as diferenças tornam-se evidentes quando desenhamos as tabuadas de um (1) e de dois (2) em um único gráfico:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Pontos das tabuadas de um e dois conectados, formando duas retas. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Gráfico 4**, observamos que, além de dividir a folha quadriculada ao meio, os valores do eixo vertical são maiores devido aos produtos gerados pela multiplicação por dois. Além disto, há um aumento no afastamento da linha horizontal, resultando em um ângulo maior.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_three",
+         "text": [
+            {
+               "text": "### Multiplicando por Três (3)\n\nAlém do triângulo retângulo, utilizaremos também, neste e nos próximos textos, o triângulo isósceles, que possui pelo menos dois lados iguais. Como consequência, se traçarmos uma linha do vértice onde os lados se encontram até o lado oposto, obtemos lados simétricos, conforme ilustrado no **Gráfico 5**",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "61e568be-8a3a-4f53-bd2d-e9ce113cf68b",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"imgcenterresponsive\"><svg width=\"450\" height=\"300\"><polygon points=\"265,10 125,280 405,280\" style=\"fill:none;stroke:lightgreen;stroke-width:3\" /><text x=\"140\" y=\"270\" font-size=\"1.5em\">α</text><text x=\"370\" y=\"270\" font-size=\"1.5em\">α</text><g fill=\"none\" stroke=\"black\" stroke-width=\"1\"><path stroke-dasharray=\"5,5\" d=\"M265 14 l0 270\" /></g></svg></p><p class=\"desc\"><b>Gráfico 5</b>: Triângulo isósceles contendo ângulos e lados iguais.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O número três também aparece em diferentes objetos e construções, como o Complexo Tipo E em Caracol, Belize. Nele, observamos três estruturas, que ainda não foram totalmente compreendidos (<htcite0>). Entretanto, alguns estudos sugerem que poderiam ter sido utilizados para medir as estações do ano (<htcite1>; <htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "8ecdaf57-d55d-4d95-bad5-f76e0f671483",
+                     "text": "Šprajc, I.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e7c7458b-0c63-4485-9c7b-4640edcd9122",
+                     "text": "Inomata, T.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2017",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "dfab6e33-fe94-4aec-8d9b-ed02ca8402c8",
+                     "text": "Martz de la Vega, H.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><iframe src=\"https://www.youtube.com/embed/UBMUR-3hHz0?si=mn22_mrWLJ23ueeO\" title=\"YouTube video player\" frameborder=\"0\" allowfullscreen style=\"aspect-ratio: 16 / 9; width: 55% !important;\"></iframe><br />Video 1: Complexo Tipo E em Caracol, Belize. Gravado durante uma visita ao site em <htdate0>.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Montando a Tabuada\n\nPara construir a tabuada do três (3), aplicamos novamente a **Fórmula 2**, atribuindo ao fator **a** o valor três (3), obtendo os seguintes resultados:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent3\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Desenhando a Tabuada\n\nO **Gráfico 6** mostra os valores da tabuada de 3:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 6</b>: Pontos da tabuada de três conectados, formando uma reta. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Relação entre Números</b><br /><br />A tabuada de 1 criou pontos afastados da reta horizontal. Ao usarmos a tabuada de 2, nos afatamos ainda mais da linha horizontal.<br /><br />A tabuada de 3 aproxima os pontos da reta horizontal ou os afasta ainda mais?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para visualizar melhor, vamos desenhar as três tabuadas juntas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 7</b>: Pontos das tabuadas um, dois e três conectados, formando três retas. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O **Gráfico 7** mostra as três tabuadas com seus respectivos pontos plotados e interligados. A partir dele, podemos concluir:\n- À medida que aumentamos o fator **a** (coeficiente angular), espera-se que o afastamento (e o ângulo) também aumente.\n- O valor seis (6) aparece na tabuada de dois (2) quando **N = 3**, enquanto o mesmo valor (6) surge na tabuada de três (3) quando **N = 2**. Isso ilustra que a ordem dos fatores não altera o produto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, expandimos nosso conhecimento sobre a tabuada ao analisar a relação entre o produto de dois fatores e o afastamento dos pontos em relação à reta. Além disso, aprofundamos nosso entendimento sobre triângulos e suas propriedades.\n\nNo próximo texto, exploraremos como a tabuada e os triângulos podem ser aplicados na natureza.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Um triângulo é uma figura fechada com três lados e três ângulos?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Esta é a definição básica de triângulo que estamos utilizando neste capítulo, mas ainda há mais informações que complementarão esse conceito e serão apresentadas posteriormente."
+      },
+      {
+         "question": "Ao multiplicarmos três por um número <b>N</b>, o resultado (produto) será sempre maior do que quando usamos números menores que ele por <b>N</b>?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Todo número multiplicado por zero resulta em zero, logo sempre temos valores iguais."
+      },
+      {
+         "question": "Quanto maior o valor do fator <b>a</b> na Fórmula 2 da multiplicação, mais um ponto se afasta da reta horizontal?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "A multiplicação consiste no produto entre dois fatores: um deles, como vimos, são os números do eixo horizontal; o outro, que denominamos coeficiente angular (representado por <b>a</b>). Observamos que, ao aumentarmos o valor desse coeficiente (exceto quando multiplicamos por zero), os pontos no gráfico atingem valores mais elevados. Logo, ao conectarmos esses pontos, obtemos uma reta com maior inclinação."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
