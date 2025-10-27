@@ -30,7 +30,7 @@ var (
 	FamilyFlag          bool   = false
 	ShowCompilationFlag bool   = false
 	portFlag            int    = 12345
-	confPath            string = "/etc/historytracers/"
+	confPath            string = "/etc/historytracers/historytracers.conf"
 	srcPath             string = "/var/www/historytracers/"
 	logPath             string = "/var/log/historytracers/"
 	contentPath         string = "/var/www/historytracers/www/"
@@ -55,7 +55,7 @@ func HTParseArg() {
 	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files.")
 	flag.StringVar(&CFG.LogPath, "log", logPath, "Directory containing all log files.")
 	flag.StringVar(&CFG.ContentPath, "www", contentPath, "Directory for user-facing content.")
-	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration direction.")
+	flag.StringVar(&confPath, "conf", confPath, "Path to the configuration file.")
 	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (history, indigenous_who, first_steps, literature, biology, chemistry, physics, historical_events).")
 
 	flag.Parse()
@@ -65,45 +65,19 @@ func NewHTConfig() *htConfig {
 	return &htConfig{DevMode: devFlag, Port: portFlag, SrcPath: srcPath, ContentPath: contentPath}
 }
 
-func htUpdateConfig(cfg *htConfig) {
-	if cfg.DevMode != devFlag {
-		CFG.DevMode = cfg.DevMode
-	}
-
-	if cfg.Port != portFlag {
-		CFG.Port = cfg.Port
-	}
-
-	if cfg.SrcPath != srcPath {
-		CFG.SrcPath = cfg.SrcPath
-	}
-
-	if cfg.LogPath != logPath {
-		CFG.LogPath = cfg.LogPath
-	}
-
-	if cfg.ContentPath != contentPath {
-		CFG.ContentPath = cfg.ContentPath
-	}
-}
-
 func htPrintOptions() {
 	fmt.Println("History Tracers was compiled with the following options:\n\nConfig Dir:", strings.TrimSpace(confPath), "\nSource Path:", strings.TrimSpace(CFG.SrcPath), "\nContent Path:", strings.TrimSpace(CFG.ContentPath), "\nLog Path:", strings.TrimSpace(CFG.LogPath), "\n\n")
 }
 
 func HTLoadConfig() {
-	fileName := fmt.Sprintf("%s/historytracers.conf", confPath)
-	_, err := os.Stat(fileName)
+	_, err := os.Stat(confPath)
 	if err != nil {
+		fmt.Println("Config not found. Runnin with default options.")
 		return
 	}
 
-	var cfg htConfig
-
-	if _, err := toml.DecodeFile(fileName, &cfg); err != nil {
+	if _, err := toml.DecodeFile(confPath, CFG); err != nil {
 		log.Fatalf("Error: %s", err)
 		return
 	}
-
-	htUpdateConfig(&cfg)
 }

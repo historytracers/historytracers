@@ -30,7 +30,7 @@ autoreconf -f -i
 make all
 
 # Run History Tracers
-./build/historytracers -minify -audiofiles -gedcom -verbose > historytracers.log
+./build/historytracers -minify -audiofiles -gedcom -verbose -conf ./packaging/build_historytracers.conf  > historytracers.log
 
 ht_usage() {
     cat <<HTDOC
@@ -41,7 +41,11 @@ HTDOC
 
 ht_build_rpm() {
     echo "Building RPM package"
+    # Install dependencies
+    # dnf update
+    # dnf install make gcc python3-devel
     # Create initial structure
+
     mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
     echo "%_topdir %(echo $HOME)/rpmbuild" > ~/.rpmmacros
 
@@ -81,10 +85,12 @@ ht_build_deb() {
 
 ht_build_slackware() {
     echo "Building Slackware package"
+    # Install dependencies
 
     # shellcheck source=./packaging/Slackware/historytracers.info
     source packaging/Slackware/historytracers.info
 
+    local DST
     DST="historytracers-${VERSION}"
     # Create historytracers.tar.gz
     if [ -d "historytracers/" ]; then
@@ -104,10 +110,11 @@ ht_build_slackware() {
     # Create historytracers-VERSION.tar.xz
     make clean
 
-    local DST
     mkdir -p "${DST}/www"
     cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv gedcom ht2pkg.sh images index.html js lang packaging scripts src webfonts "${DST}"
     tar -acvf "artifacts/historytracers-${VERSION}.tar.xz" "${DST}"
+
+    rm -rf historytracers/ "${DST}"
 }
 
 if [ $# -lt 1 ]; then

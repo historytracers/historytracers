@@ -75,7 +75,6 @@ fmt:
 clean-local:
 	@echo "Cleaning build artifacts..."
 	rm -rf $(BUILD_DIR)
-	rm -f $(BINARY_NAME)
 
 # Development build (with debug information)
 .PHONY: dev
