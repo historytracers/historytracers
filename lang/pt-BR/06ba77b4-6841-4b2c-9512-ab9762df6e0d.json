@@ -116,7 +116,7 @@
          "id": "SECTION_models",
          "text": [
             {
-               "text": "### Modelos Atômicos\n\nA primeira explicação do átomo que estudamos, o modelo de Rutherford, propunha um um átomo com núcleo sólido com cargas positivas, o próton, com elétrons movendo ao seu redor. No mesmo estudo, também vimos que anos depois foi descoberta outra partícua no núcleo de átomos pesados, as quais chamamos neutrons (<htcite0>).\n\n#### Quase lá\n\nO modelo de Rutherford explicava algumas medidas que observavamos no átomo, mas não todas. Ou seja, era um modelo que precisava de algumas melhorias. Mas, o que ele não explicava?\n\n#### O Hidrogênio\n\nPara entendermos melhor o que faltava, iremos estudar o menor átomo que conhecemos, o átomo de Hidrogênio. Nossos estudos sobre o átomo de Hidrogênio mostram que internamente ele possuí (<htcite1>):\n- Apenas um próton em seu núcleo;\n- 1 elétron girando ao redor do núcleo;\n\nConsiderando o que já estudamos sobre frações (<htcite2>), poderíamos dizer que um átomo de Hidrogênio poderia ser representado como:",
+               "text": "### Modelos Atômicos\n\nA primeira explicação do átomo que estudamos — o modelo de Rutherford — propunha um átomo com um núcleo sólido composto por cargas positivas, os prótons, e com elétrons movendo-se ao seu redor. No mesmo estudo, vimos que, anos depois, foi descoberta outra partícula no núcleo de átomos pesados: o nêutron (<htcite0>).\n\n#### Quase lá\n\nO modelo de Rutherford explicava algumas medições observadas no átomo, mas não todas. Ou seja, era um modelo que ainda precisava de melhorias. Mas o que exatamente ele não explicava?\n\n#### O Hidrogênio\n\nPara entendermos melhor o que faltava, estudaremos o menor átomo que conhecemos: o átomo de hidrogênio. Nossos estudos sobre o átomo de hidrogênio mostram que ele possui internamente (<htcite1>):\n- Apenas um próton em seu núcleo;\n- Um elétron girando ao redor do núcleo.\n\nConsiderando o que já estudamos sobre frações (<htcite2>), poderíamos dizer que um átomo de hidrogênio pode ser representado como:",
                "source": [
                   {
                      "type": 1,
@@ -171,7 +171,7 @@
                "PostMention": ""
             },
             {
-               "text": "O **Cálculo 1** nos mostra como podemos representar o átomo através de frações. Podemos lê-la da seguinte maneira: 1 átomo de Hidrogênio possuí duas componentes (2/2). Uma parte é representada pelo elétron ao redor do núcleo (1/2), a outra parte é representada pelo próton no núcleo (1/2).\n\nUtilizando o modelo de Rutherford, poderíamos desenhá-lo como:",
+               "text": "O **Cálculo 1** mostra como podemos representar o átomo por meio de frações. Podemos lê-lo da seguinte forma: um átomo de hidrogênio possui duas componentes (2/2) — uma parte representada pelo elétron ao redor do núcleo (1/2) e a outra pelo próton no núcleo (1/2).\n\nUtilizando o modelo de Rutherford, poderíamos desenhá-lo assim:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -180,7 +180,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <circle cx=\"145\" cy=\"75\" r=\"30\"></circle> <circle cx=\"145\" cy=\"25\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"27\" font-size=\"1em\">-</text> <text x=\"145\" y=\"80\" font-size=\"1em\">+</text> </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representação do Hidrogênio com o modelo de Rutherford.</p>",
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <circle cx=\"145\" cy=\"75\" r=\"30\"></circle> <circle cx=\"145\" cy=\"25\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"27\" font-size=\"1em\">-</text> <text x=\"145\" y=\"80\" font-size=\"1em\">+</text> </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representação do hidrogênio segundo o modelo de Rutherford.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -189,8 +189,44 @@
                "PostMention": ""
             },
             {
-               "text": "No **Gráfico 1** é possível observar que o próton, representado pelo círculo branco maior com um sinal positivo (+), é bem maior que o elétron, círculo menor laranja com o sinal negativo (-).\n\nCom estas informações, agora podemos nos concentrar em algo que o modelo de Rutherford não nos auxilia a explicar.\n\n#### O átomo de Bohr\n\nQuando observamos energia (luz) emitida por átomos, temos algo como demonstado no Gráfico 2:",
+               "text": "No **Gráfico 1**, observamos que o próton, representado pelo círculo branco maior com o sinal positivo (+), é bem maior que o elétron, o círculo menor laranja com o sinal negativo (–).\n\nCom essas informações, podemos agora nos concentrar em algo que o modelo de Rutherford não conseguia explicar.\n\n#### O átomo de Bohr\n\nAo olharmos para uma estrela, podemos saber exatamente do que ela é formada observando a luz que ela emite em nossa direção (<htcite0>).\n\nEm laboratório, podemos realizar um experimento semelhante. Ao emitir luz contínua sobre um gás e observar quais comprimentos de onda não estão presentes (pois foram absorvidos), podemos identificar os elementos existentes nesse gás (<htcite1>).\n\nO **Gráfico 2** mostra uma simplificação do espectro do átomo de hidrogênio, estudado por Lyman, Balmer e Paschen (<htcite2>):",
                "source": [
+                  {
+                     "type": 1,
+                     "uuid": "27bde378-4d52-470b-8d67-1d50e1a48d36",
+                     "text": "Merrill, P. W., & Wilson, O. C.",
+                     "page": "pp. 20 - 21",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1934",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "20a0b1ed-87f1-4fed-bb1a-d31f863a10bc",
+                     "text": "Fowler, Michael",
+                     "page": "1.4: O Espectro atômico do Hidrogênio",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "20a0b1ed-87f1-4fed-bb1a-d31f863a10bc",
+                     "text": "Fowler, Michael",
+                     "page": "1.4: O Espectro atômico do Hidrogênio",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
                ],
                "date_time": null,
                "isTable": false,
@@ -199,11 +235,42 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><svg width=\"800\" height=\"180\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"800\" height=\"180\" fill=\"#0f172a\"/><text x=\"400\" y=\"30\" text-anchor=\"middle\" fill=\"#e2e8f0\" font-family=\"Arial, sans-serif\" font-size=\"20\" font-weight=\"bold\">Representação da emissão do átomo de Hidrogênio</text> <g transform=\"translate(50, 80)\"><line x1=\"0\" y1=\"70\" x2=\"700\" y2=\"70\" stroke=\"#64748b\" stroke-width=\"2\"/><text x=\"0\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">1 &#8491;</text><text x=\"700\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">23.000 &#8491;</text><text x=\"350\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">Comprimento de onda</text><text x=\"50\" y=\"0\" text-anchor=\"middle\" fill=\"#fbbf24\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Lyman</text><text x=\"200\" y=\"0\" text-anchor=\"middle\" fill=\"#34d399\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Balmer</text><text x=\"450\" y=\"0\" text-anchor=\"middle\" fill=\"#60a5fa\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Paschen</text> <text x=\"600\" y=\"0\" text-anchor=\"middle\" fill=\"#c084fc\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Brackett</text><rect x=\"175\" y=\"15\" width=\"350\" height=\"40\" fill=\"url(#visibleGradient)\" opacity=\"0.3\"/> <text x=\"350\" y=\"0\" text-anchor=\"middle\" fill=\"#e2e8f0\" font-family=\"Arial, sans-serif\" font-size=\"10\">Visible Light</text><line x1=\"30\" y1=\"15\" x2=\"30\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"3\"/><line x1=\"40\" y1=\"15\" x2=\"40\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"3\"/><line x1=\"55\" y1=\"15\" x2=\"55\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"3\"/><line x1=\"400\" y1=\"15\" x2=\"400\" y2=\"55\" stroke=\"#ef4444\" stroke-width=\"4\"/>text x=\"400\" y=\"10\" text-anchor=\"middle\" fill=\"#ef4444\" font-family=\"Arial, sans-serif\" font-size=\"10\">Hα</text><line x1=\"280\" y1=\"15\" x2=\"280\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"4\"/><text x=\"280\" y=\"10\" text-anchor=\"middle\" fill=\"#22c55e\" font-family=\"Arial, sans-serif\" font-size=\"10\">Hβ</text><line x1=\"240\" y1=\"15\" x2=\"240\" y2=\"55\" stroke=\"#3b82f6\" stroke-width=\"4\"/><text x=\"240\" y=\"10\" text-anchor=\"middle\" fill=\"#3b82f6\" font-family=\"Arial, sans-serif\" font-size=\"10\">Hγ</text><line x1=\"220\" y1=\"15\" x2=\"220\" y2=\"55\" stroke=\"#8b5cf6\" stroke-width=\"4\"/><text x=\"220\" y=\"10\" text-anchor=\"middle\" fill=\"#8b5cf6\" font-family=\"Arial, sans-serif\" font-size=\"10\">Hδ</text><line x1=\"480\" y1=\"15\" x2=\"480\" y2=\"55\" stroke=\"#60a5fa\" stroke-width=\"3\"/><line x1=\"520\" y1=\"15\" x2=\"520\" y2=\"55\" stroke=\"#60a5fa\" stroke-width=\"3\"/><line x1=\"550\" y1=\"15\" x2=\"550\" y2=\"55\" stroke=\"#60a5fa\" stroke-width=\"3\"/><line x1=\"620\" y1=\"15\" x2=\"620\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"3\"/><line x1=\"650\" y1=\"15\" x2=\"650\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"3\"/><defs><linearGradient id=\"visibleGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#8b5cf6\"/><stop offset=\"20%\" stop-color=\"#3b82f6\"/><stop offset=\"40%\" stop-color=\"#22c55e\"/><stop offset=\"60%\" stop-color=\"#eab308\"/><stop offset=\"80%\" stop-color=\"#f97316\"/><stop offset=\"100%\" stop-color=\"#ef4444\"/></linearGradient></defs></svg></p><p class=\"desc\"><b>Gráfico 2</b>: Espectro do átomo de Hidrogênio.</p>",
+               "text": "<p class=\"desc\"><svg viewbox=\"0 0 800 200\"><rect width=\"800\" height=\"180\" fill=\"#0f172a\"/><text x=\"400\" y=\"30\" text-anchor=\"middle\" fill=\"#e2e8f0\" font-family=\"Arial, sans-serif\" font-size=\"20\" font-weight=\"bold\">Representação da emissão do átomo de Hidrogênio</text> <g transform=\"translate(50, 80)\"><line x1=\"0\" y1=\"70\" x2=\"700\" y2=\"70\" stroke=\"#64748b\" stroke-width=\"2\"/><text x=\"0\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">1</text><text x=\"80\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">90</text><text x=\"115\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">130</text><text x=\"165\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">365</text><text x=\"518\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">700</text><text x=\"590\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">820</text><text x=\"350\" y=\"80\" text-anchor=\"middle\" fill=\"#94a3b8\" font-family=\"Arial, sans-serif\" font-size=\"12\">Comprimento de onda (nm)</text><text x=\"100\" y=\"0\" text-anchor=\"middle\" fill=\"#fbbf24\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Lyman</text><text x=\"200\" y=\"0\" text-anchor=\"middle\" fill=\"#34d399\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Balmer</text><text x=\"600\" y=\"0\" text-anchor=\"middle\" fill=\"#c084fc\" font-family=\"Arial, sans-serif\" font-size=\"10\" font-weight=\"bold\">Paschen</text><rect x=\"175\" y=\"15\" width=\"350\" height=\"40\" fill=\"url(#visibleGradient)\" opacity=\"0.3\"/> <text x=\"350\" y=\"0\" text-anchor=\"middle\" fill=\"#e2e8f0\" font-family=\"Arial, sans-serif\" font-size=\"10\">Luz visível</text><line x1=\"91\" y1=\"15\" x2=\"91\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"1\"/><line x1=\"93\" y1=\"15\" x2=\"93\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"3\"/><line x1=\"102\" y1=\"15\" x2=\"102\" y2=\"55\" stroke=\"#fbbf24\" stroke-width=\"1\"/> <line x1=\"175\" y1=\"15\" x2=\"175\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"2.0\"/><line x1=\"180\" y1=\"15\" x2=\"180\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"3.0\"/><line x1=\"185\" y1=\"15\" x2=\"185\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"3.0\"/><line x1=\"190\" y1=\"15\" x2=\"190\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"3.0\"/><line x1=\"200\" y1=\"15\" x2=\"200\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/> <line x1=\"224\" y1=\"15\" x2=\"224\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/><line x1=\"274\" y1=\"15\" x2=\"274\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/><line x1=\"455\" y1=\"15\" x2=\"455\" y2=\"55\" stroke=\"#22c55e\" stroke-width=\"1.5\"/> <line x1=\"600\" y1=\"15\" x2=\"600\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"3.0\"/> <line x1=\"605\" y1=\"15\" x2=\"605\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"3.0\"/><line x1=\"609\" y1=\"15\" x2=\"609\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"612\" y1=\"15\" x2=\"612\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"620\" y1=\"15\" x2=\"620\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"630\" y1=\"15\" x2=\"630\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"650\" y1=\"15\" x2=\"650\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><line x1=\"675\" y1=\"15\" x2=\"675\" y2=\"55\" stroke=\"#c084fc\" stroke-width=\"1.5\"/><defs><linearGradient id=\"visibleGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#8b5cf6\"/><stop offset=\"20%\" stop-color=\"#3b82f6\"/><stop offset=\"40%\" stop-color=\"#22c55e\"/><stop offset=\"60%\" stop-color=\"#eab308\"/><stop offset=\"80%\" stop-color=\"#f97316\"/><stop offset=\"100%\" stop-color=\"#ef4444\"/></linearGradient></defs></svg></p><p class=\"desc\"><b>Gráfico 2</b>: Espectro do átomo de hidrogênio.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
-               "imgdesc": "Representação do expectro do átomo de Hidrogênio ",
+               "imgdesc": "O espectro é formado por linhas na vertical espaçadas de acordo com as medições realizadas.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A falta de linhas que cobrem toda a imagem, como visto no Gráfico 2, levou Bohr a aprimorar o modelo atômico proposto por Rutherford.\n\nDe acordo com Bohr, os elétrons não podem mover-se livremente ao redor do núcleo; em vez disso, movem-se apenas em órbitas bem definidas.\n\nEles se deslocam para órbitas maiores ao receber energia (luz) e retornam para órbitas menores ao emitir luz (<htcite0>).\n\nO Gráfico 3 mostra o modelo de Bohr para o átomo de hidrogênio. Nesta representação, o núcleo foi pintado de amarelo para diferenciar as órbitas possíveis do elétron.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c72c0fc7-eb03-46ab-ac97-16e6e849e4af",
+                     "text": "The Editors of Encyclopaedia Britannica",
+                     "page": "Átomo de Bohr",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "10",
+                        "day": "15"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <circle cx=\"145\" cy=\"75\" r=\"46\"></circle> <circle cx=\"145\" cy=\"75\" r=\"30\"></circle> <circle cx=\"145\" cy=\"75\" r=\"20\" fill=\"#FFFF00\"></circle> <circle cx=\"145\" cy=\"26\" r=\"7\" fill=\"#FF9999\"></circle><text x=\"143\" y=\"27\" font-size=\"1em\">-</text> <text x=\"145\" y=\"80\" font-size=\"1em\">+</text> </svg></p><p class=\"desc\"><b>Gráfico 3</b>: Representação do hidrogênio segundo o modelo de Bohr.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
                "format": "html",
                "PostMention": ""
             }
