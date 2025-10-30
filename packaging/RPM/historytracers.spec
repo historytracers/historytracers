@@ -10,9 +10,9 @@ BuildArch: x86_64
 BuildRequires: systemd
 
 %description
-Teaching is often a daily challenge for both students and teachers,
-each for different reasons.
-Our goal is to support both sides of the learning process by providing diverse tools.
+Teaching is often a daily challenge for both students and
+teachers, each for different reasons. Our goal is to support
+both sides of the learning process by providing diverse tools.
 
 %prep
 %setup -q
