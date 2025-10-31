@@ -10,32 +10,43 @@ MAKERPM="0"
 MAKEDEB="0"
 MAKESLACKWARE="0"
 
-echo "Formating and publishing content"
+ht_compile() {
+    echo "Formating and publishing content"
 
-if [ ! -d artifacts ]; then
-    mkdir artifacts;
-else
-    rm -rf artifacts/*
-fi
+    if [ ! -d artifacts ]; then
+        mkdir artifacts;
+    else
+        rm -rf artifacts/*
+    fi
 
-# Clean everything
-if [ -d build ]; then
-    make maintainer-clean
-fi
-rm -rf build-aux autom4te.cache aclocal.m4 configure config.h.in config.h config.log config.status Makefile.in Makefile
+    # Clean everything
+    if [ -d build ]; then
+        make maintainer-clean
+    fi
+    rm -rf build-aux autom4te.cache aclocal.m4 configure config.h.in config.h config.log config.status Makefile.in Makefile
 
-# Compile history tracers
-autoreconf -f -i
-./configure
-make all
+    # Compile history tracers
+    autoreconf -f -i
+    ./configure
+    make all
 
-# Run History Tracers
-./build/historytracers -minify -audiofiles -gedcom -verbose -conf ./packaging/build_historytracers.conf  > historytracers.log
+    # Run History Tracers
+    ./build/historytracers -minify -audiofiles -gedcom -verbose -conf ./packaging/build_historytracers.conf  > historytracers.log
+}
+
+ht_validate_myself() {
+    shellcheck -x ./ht2pkg.sh
+}
 
 ht_usage() {
     cat <<HTDOC
-        bash ht2pkg".sh --deb --rpm --slackbuild
-        Create installer packages."
+        bash ht2pkg.sh [OPTIONS]
+
+        --deb, -d               Create Debian package
+        --rpm, -r               Create RPM package
+        --slackbuild, -s        Create SlackBuilds files
+        --validate, -v          Check if current script has issues.
+        --help, -h              Show this Help
 HTDOC
 }
 
@@ -117,10 +128,6 @@ ht_build_slackware() {
     rm -rf historytracers/ "${DST}"
 }
 
-if [ $# -lt 1 ]; then
-    exit 0
-fi
-
 while [[ $# -gt 0 ]]; do
     case "${1}" in
         "--rpm" | "-r")
@@ -135,7 +142,13 @@ while [[ $# -gt 0 ]]; do
             MAKESLACKWARE="1"
             shift #pass argument
             ;;
+        "--validate" | "-v")
+            ht_validate_myself;
+            exit 0;
+            ;;
         "--help" | "-h")
+            ht_usage;
+            exit 0;
             ;;
         *)
             ht_usage;
@@ -143,6 +156,8 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
+
+ht_compile
 
 if [ "${MAKERPM}" == "1" ]; then
     ht_build_rpm
