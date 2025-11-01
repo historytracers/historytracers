@@ -25,6 +25,10 @@ ht_compile() {
     fi
     rm -rf build-aux autom4te.cache aclocal.m4 configure config.h.in config.h config.log config.status Makefile.in Makefile
 
+    if [ ! -d audios ]; then
+        mkdir audios;
+    fi
+
     # Compile history tracers
     autoreconf -f -i
     ./configure
@@ -57,7 +61,14 @@ ht_build_rpm() {
     # dnf install make gcc python3-devel
     # Create initial structure
 
-    mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+    if [ -d ~/rpmbuild/BUILD ]; then
+        rm -rf ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+    fi
+    if ! command -v rpmdev-setuptree >/dev/null 2>&1; then
+        mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+    else
+        rpmdev-setuptree
+    fi
     echo "%_topdir %(echo $HOME)/rpmbuild" > ~/.rpmmacros
 
     # Copy SPEC
