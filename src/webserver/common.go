@@ -4,6 +4,7 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -17,7 +18,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"jaytaylor.com/html2text"
+	"golang.org/x/net/html"
 )
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
@@ -807,6 +808,62 @@ func htChangeTag2Keywords(text string) string {
 	return ret
 }
 
+type HTMLToTextConverter struct {
+	buffer bytes.Buffer
+}
+
+func (c *HTMLToTextConverter) htHTMLConvertNode(n *html.Node) {
+	switch n.Type {
+	case html.TextNode:
+		text := strings.TrimSpace(n.Data)
+		if text != "" {
+			// Add space before text if buffer is not empty
+			if c.buffer.Len() > 0 && c.buffer.Bytes()[c.buffer.Len()-1] != '\n' {
+				c.buffer.WriteString(" ")
+			}
+			c.buffer.WriteString(text)
+		}
+
+	case html.ElementNode:
+		switch n.Data {
+		case "p", "div", "br", "h1", "h2", "h3", "h4", "h5", "h6":
+			if c.buffer.Len() > 0 {
+				c.buffer.WriteString("\n")
+			}
+		case "li":
+			c.buffer.WriteString("\n• ")
+		}
+
+		// Process children
+		for child := n.FirstChild; child != nil; child = child.NextSibling {
+			c.htHTMLConvertNode(child)
+		}
+
+		// Add newline after block elements
+		switch n.Data {
+		case "p", "div", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "li":
+			c.buffer.WriteString("\n")
+		}
+	}
+}
+
+func htHTML2Text(htmlContent string) (string, error) {
+	doc, err := html.Parse(strings.NewReader(htmlContent))
+	if err != nil {
+		return "", err
+	}
+
+	converter := &HTMLToTextConverter{}
+	converter.htHTMLConvertNode(doc)
+
+	result := strings.TrimSpace(converter.buffer.String())
+	// Clean up multiple newlines
+	result = strings.ReplaceAll(result, "\n\n", "\n")
+	result = strings.ReplaceAll(result, "\n\n", "\n")
+
+	return result, nil
+}
+
 func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 	var finalText string = ""
 	var htmlText string
@@ -832,7 +889,7 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 		txt.PostMention = ""
 	}
 
-	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
+	finalText, err = htHTML2Text(htmlText)
 	if err != nil {
 		panic(err)
 	}
@@ -880,7 +937,7 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 		return finalText
 	}
 
-	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true})
+	finalText, err = htHTML2Text(htmlText)
 	if err != nil {
 		panic(err)
 	}
