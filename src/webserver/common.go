@@ -4,7 +4,6 @@ package main
 
 import (
 	"bufio"
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -808,60 +807,134 @@ func htChangeTag2Keywords(text string) string {
 	return ret
 }
 
-type HTMLToTextConverter struct {
-	buffer bytes.Buffer
-}
-
-func (c *HTMLToTextConverter) htHTMLConvertNode(n *html.Node) {
-	switch n.Type {
-	case html.TextNode:
-		text := strings.TrimSpace(n.Data)
-		if text != "" {
-			// Add space before text if buffer is not empty
-			if c.buffer.Len() > 0 && c.buffer.Bytes()[c.buffer.Len()-1] != '\n' {
-				c.buffer.WriteString(" ")
-			}
-			c.buffer.WriteString(text)
-		}
-
-	case html.ElementNode:
-		switch n.Data {
-		case "p", "div", "br", "h1", "h2", "h3", "h4", "h5", "h6":
-			if c.buffer.Len() > 0 {
-				c.buffer.WriteString("\n")
-			}
-		case "li":
-			c.buffer.WriteString("\n• ")
-		}
-
-		// Process children
-		for child := n.FirstChild; child != nil; child = child.NextSibling {
-			c.htHTMLConvertNode(child)
-		}
-
-		// Add newline after block elements
-		switch n.Data {
-		case "p", "div", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "li":
-			c.buffer.WriteString("\n")
-		}
-	}
-}
-
-func htHTML2Text(htmlContent string) (string, error) {
-	doc, err := html.Parse(strings.NewReader(htmlContent))
+func htHTML2Text(htmlStr string) (string, error) {
+	doc, err := html.Parse(strings.NewReader(htmlStr))
 	if err != nil {
 		return "", err
 	}
+	var b strings.Builder
 
-	converter := &HTMLToTextConverter{}
-	converter.htHTMLConvertNode(doc)
+	isHidden := func(n *html.Node) bool {
+		if n.Type != html.ElementNode {
+			return false
+		}
+		switch n.Data {
+		case "script", "style", "noscript", "head", "meta", "link":
+			return true
+		}
+		return false
+	}
 
-	result := strings.TrimSpace(converter.buffer.String())
-	// Clean up multiple newlines
-	result = strings.ReplaceAll(result, "\n\n", "\n")
-	result = strings.ReplaceAll(result, "\n\n", "\n")
+	blockTags := map[string]bool{
+		"p": true, "div": true, "br": true,
+		"h1": true, "h2": true, "h3": true, "h4": true, "h5": true, "h6": true,
+		"li": true, "ul": true, "ol": true, "table": true, "tr": true,
+	}
 
-	return result, nil
+	// helper to collect text from a node (used for links)
+	var collectAnchorText func(*html.Node, *strings.Builder)
+	collectAnchorText = func(node *html.Node, ab *strings.Builder) {
+		if node == nil {
+			return
+		}
+		if node.Type == html.TextNode {
+			ab.WriteString(strings.TrimSpace(node.Data))
+			ab.WriteByte(' ')
+		}
+		for c := node.FirstChild; c != nil; c = c.NextSibling {
+			collectAnchorText(c, ab)
+		}
+	}
+
+	// main recursive traversal
+	var walk func(*html.Node, bool)
+	walk = func(n *html.Node, hidden bool) {
+		if n == nil {
+			return
+		}
+		if isHidden(n) {
+			hidden = true
+		}
+
+		switch n.Type {
+		case html.TextNode:
+			if !hidden {
+				text := strings.TrimSpace(n.Data)
+				if text != "" {
+					if b.Len() > 0 {
+						last := b.String()[b.Len()-1]
+						if last != ' ' && last != '\n' {
+							b.WriteByte(' ')
+						}
+					}
+					b.WriteString(text)
+				}
+			}
+
+		case html.ElementNode:
+			if blockTags[n.Data] {
+				if b.Len() > 0 && !strings.HasSuffix(b.String(), "\n") {
+					b.WriteByte('\n')
+				}
+			}
+
+			if n.Data == "a" {
+				var ab strings.Builder
+				collectAnchorText(n, &ab)
+				anchorText := strings.TrimSpace(ab.String())
+				href := ""
+				for _, a := range n.Attr {
+					if a.Key == "href" {
+						href = a.Val
+						break
+					}
+				}
+				if anchorText != "" {
+					if b.Len() > 0 {
+						last := b.String()[b.Len()-1]
+						if last != ' ' && last != '\n' {
+							b.WriteByte(' ')
+						}
+					}
+					b.WriteString(anchorText)
+				}
+				if href != "" {
+					b.WriteString(" (")
+					b.WriteString(href)
+					b.WriteString(")")
+				}
+			} else {
+				for c := n.FirstChild; c != nil; c = c.NextSibling {
+					walk(c, hidden)
+				}
+			}
+
+			if blockTags[n.Data] {
+				if b.Len() > 0 && !strings.HasSuffix(b.String(), "\n") {
+					b.WriteByte('\n')
+				}
+			}
+
+		default:
+			for c := n.FirstChild; c != nil; c = c.NextSibling {
+				walk(c, hidden)
+			}
+		}
+	}
+
+	walk(doc, false)
+
+	// Normalize whitespace and remove empty lines
+	result := strings.ReplaceAll(b.String(), "\r", "")
+	lines := strings.Split(result, "\n")
+	finalLines := make([]string, 0, len(lines))
+	for _, ln := range lines {
+		trim := strings.TrimSpace(ln)
+		if trim != "" {
+			finalLines = append(finalLines, trim)
+		}
+	}
+	return strings.Join(finalLines, "\n\n"), nil
 }
 
 func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
