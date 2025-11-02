@@ -11,8 +11,6 @@ import (
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
 	"github.com/gomarkdown/markdown/parser"
-
-	"jaytaylor.com/html2text"
 )
 
 var familyMarriagesMap map[string]string
@@ -58,7 +56,7 @@ func htTextFamilyIndex(idx *IdxFamilyContent, lang string) string {
 		return finalText
 	}
 
-	finalText, err = html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
+	finalText, err = htHTML2Text(htmlText)
 	if err != nil {
 		panic(err)
 	}
@@ -138,12 +136,12 @@ func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 
 	return intro + parent1 + " and " + parent2 + ".\n"
 }
 
-func htHTML2Text(htmlText string) string {
+func htLocalHTML2Text(htmlText string) string {
 	var finalText string = ""
 	if len(htmlText) > 0 {
 		ret := strings.ReplaceAll(htmlText, "<div class=\"first_steps_reflection\" id=\"myFirstReflection\">", commonKeywords[55])
 
-		partial, err := html2text.FromString(ret, html2text.Options{PrettyTables: true, OmitLinks: true})
+		partial, err := htHTML2Text(ret)
 		if err != nil {
 			panic(err)
 		}
@@ -161,7 +159,7 @@ func htTextFamily(families *Family, lang string) string {
 		for _, maps := range families.Maps {
 			finalText += fmt.Sprintf("%s %d: ", commonKeywords[81], maps.Order)
 			htmlText = htOverwriteDates(maps.Text, maps.DateTime, ".", lang, false)
-			finalText += htHTML2Text(htmlText)
+			finalText += htLocalHTML2Text(htmlText)
 		}
 	}
 
@@ -177,7 +175,7 @@ func htTextFamily(families *Family, lang string) string {
 			}
 		}
 
-		finalText += htHTML2Text(htmlText)
+		finalText += htLocalHTML2Text(htmlText)
 	}
 
 	for _, family := range families.Families {
@@ -202,7 +200,7 @@ func htTextFamily(families *Family, lang string) string {
 				}
 			}
 
-			finalText += htHTML2Text(htmlText)
+			finalText += htLocalHTML2Text(htmlText)
 		}
 
 		if family.People == nil {
@@ -232,7 +230,7 @@ func htTextFamily(families *Family, lang string) string {
 					}
 				}
 
-				finalText += htHTML2Text(htmlText)
+				finalText += htLocalHTML2Text(htmlText)
 			}
 
 			if person.Parents != nil {
@@ -268,7 +266,7 @@ func htTextFamily(families *Family, lang string) string {
 						}
 					}
 
-					finalText += htHTML2Text(htmlText)
+					finalText += htLocalHTML2Text(htmlText)
 				}
 			}
 
@@ -297,7 +295,7 @@ func htTextFamily(families *Family, lang string) string {
 						}
 					}
 
-					finalText += htHTML2Text(htmlText)
+					finalText += htLocalHTML2Text(htmlText)
 				}
 			}
 		}
@@ -470,7 +468,7 @@ func htParseIndexText(index *classIdx) string {
 			}
 		}
 
-		finalText, err := html2text.FromString(htmlText, html2text.Options{PrettyTables: true, OmitLinks: true})
+		finalText, err := htHTML2Text(htmlText)
 		if err != nil {
 			panic(err)
 		}

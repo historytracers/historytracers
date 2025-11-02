@@ -393,6 +393,13 @@ function htMesoamericanNumberOrder(dividend)
     return ret;
 }
 
+function htMayaImageName(id) {
+    if (id < 0  && id > -20) {
+        id = - id;
+    }
+    return "images/HistoryTracers/Maya_"+id+".png";
+}
+
 function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimalColumn)
 {
     var localMax = 20**rows;
@@ -406,18 +413,18 @@ function htFillMesoamericanVigesimalValues(dividend, rows, outputColumn, decimal
         if (decimalColumn != undefined) {
             $("#tmc"+decimalColumn+"l"+top2bottom).html(0);
         }
-        $("#tmc"+outputColumn+"l"+top2bottom).attr('src', 'images/HistoryTracers/Maya_0.png');
+        $("#tmc"+outputColumn+"l"+top2bottom).attr("src", htMayaImageName("0"));
         start /= 20;
         top2bottom++;
     }
 
     var output = htMesoamericanNumberOrder(dividend);
     for (let i = 0, bottom2top = rows; i < output.length; i++, bottom2top--) {
-        var rest = output[i];
+        var r = output[i];
         if (decimalColumn != undefined) {
-            $("#tmc"+decimalColumn+"l"+bottom2top).html(rest);
+            $("#tmc"+decimalColumn+"l"+bottom2top).html(r);
         }
-        $("#tmc"+outputColumn+"l"+bottom2top).attr('src', 'images/HistoryTracers/Maya_'+rest+'.png');
+        $("#tmc"+outputColumn+"l"+bottom2top).attr("src", htMayaImageName(r.toString()));
     }
 }
 

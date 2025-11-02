@@ -56,8 +56,7 @@ deps:
 .PHONY: update-deps
 update-deps:
 	@echo "Updating dependencies..."
-	cd $(SRC_DIR) && go get -u all
-	cd $(SRC_DIR) && go mod tidy
+	cd $(SRC_DIR) && go get -u all && go mod tidy
 
 # Run tests
 .PHONY: test
@@ -75,7 +74,6 @@ fmt:
 clean-local:
 	@echo "Cleaning build artifacts..."
 	rm -rf $(BUILD_DIR)
-	rm -f $(BINARY_NAME)
 
 # Development build (with debug information)
 .PHONY: dev
