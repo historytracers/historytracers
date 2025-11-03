@@ -556,7 +556,7 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
         "ymax": yMax,
         "useCallBack": false
     };
-    htPlotConstantContinuousChart(chartOptions);
+    return htPlotConstantContinuousChart(chartOptions);
 }
 
 function htDrawMultiplicationTable(target, angularC, repeat) {

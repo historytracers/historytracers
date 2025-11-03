@@ -1,0 +1,232 @@
+{
+   "title": "Multiplying the Findings",
+   "header": "Multiplying the Findings",
+   "sources": [
+      "4f0474ba-3c05-43cd-8528-d3f383eae556"
+   ],
+   "scripts": [
+      "4f0474ba-3c05-43cd-8528-d3f383eae556"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/4f0474ba-3c05-43cd-8528-d3f383eae556_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/22mnX4osUgBxFUvJFKrm3G?si=jZVurhqzS_mnvpvfSgu7uA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1762101533"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis game aims to reinforce knowledge of the multiplication table and the concept of multiplication as the repetition of sums of the same quantity (<htcite0>). Before playing, we recommend that the reader study the texts in Chapter 4 of the *First Steps* section of **History Tracers** (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adding the Same Numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "First Steps",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_rules",
+         "text": [
+            {
+               "text": "### Rules\n\nOn the left side, you will find the mathematical operation whose result you need to obtain. On the left side, you will find the mathematical operation whose result must be calculated. By default, the numbers are chosen randomly in the **Multiplication Table** field, but if you wish to study only one, you can select the table from 0 to 9.\n\nTo solve it, use the arrows (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) on the right until the correct result appears.\n\nIn addition to the arrows and the operation, the graph of the corresponding multiplication table and the number of stars representing repetition are also displayed.\n\nWhen you reach the correct result, you will be introduced to archaeological sites and tools used in such contexts.\n\nTo perform a new calculation, click the Next arrow (<i class=\"fa-solid fa-chevron-right\"></i>).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><b>Multiplication Table:</b> <select id=\"mtValues\"><option value=\"-1\">Randomly</option></select></p><p class=\"htSequenceGame\" id=\"cmp0\"><div id=\"parent\" style=\"position: relative;\"><div id=\"history\" style=\"visibility: hidden; display: none; border: 3px solid black; position: absolute; z-index: 100; left: 10%; width: 80%; background-color: white;\"><br /><a href=\"#\" onclick=\"closeDiv(); return false;\" />Close</a><center><img src=\"\" id=\"imgSeqGame\" onclick=\"htImageZoom('imgSeqGame', '0%')\" style=\"width: 30%;\" /></center><br /><center><span id=\"desc\"></span></center></div><table id=\"yupana0\" class=\"tawapukllay\"><tr><th>Multiplication</th><th>Stars</th><th colspan=\"2\">Arrows</th><th colspan=\"4\">Chart</th></tr> <tr><td id=\"exercise\"> </td><td rowspan=\"3\" style=\"background-color:lightblue;\" id=\"visual\"></td><td rowspan=\"3\" style=\"background-color:white;\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"moveUp\" onclick=\"htSequenceUpdateValue(1);\"></i></td><td rowspan=\"3\" style=\"background-color:white;\"><i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"moveDown\" onclick=\"htSequenceUpdateValue(-1);\"></i></td><td colspan=\"4\" rowspan=\"3\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></td></tr> <tr><td style=\"height: 5px; background-color: white;\" style=\"background-color:white;\"></td> </tr> <tr><td><spam id=\"finalResult\" class=\"text_to_paint\"></spam></td></tr> </table></div></p><p class=\"desc\"><b>Tabela 1</b>: Exercício de Multiplicação de números.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": [
+      {
+         "imageDesc": "Figure 1: Ceramic andian during formative period. Photo taken on <htdate0>, during a visit to the Antropological Museum in Lima, Peru.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2017",
+               "month": "5",
+               "day": "28"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figure 2: Mesoamerican ceramic. Photo taken on <htdate0>, during a visit to the Archaeological Site of Cahal Pech, Belize.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "7",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figure 3: Stela Maia. Photo taken on <htdate0>, during a visit to the Antropological Museum of de Ciudad de Guatemala, Guatemala.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2014",
+               "month": "10",
+               "day": "21"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figure 4: Stela Maia. Photo taken on <htdate0>, during a visit to the Archaeological Site of Kaminaljuyu, Guatemala.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2014",
+               "month": "10",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figure 5: Maia text. Photo taken on <htdate0>, during a visit to the Museuum of Jade in San José, Costa Rica.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "2",
+               "day": "6"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figure 6: Metate to grind corn. Photo taken on <htdate0>, during a visit to the Archaeological Site of Teotihuacan, Mexico.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2016",
+               "month": "10",
+               "day": "19"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figure 7: Metate  to grind corn during Posclassico. Photo taken on <htdate0>, during a visit to the Antropological Museum in San José, Costa Rica.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "10",
+               "day": "17"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figure 8: Metate  to grind corn during Posclassico. Photo taken on <htdate0>, during a visit to the Antropological Museum in San Salvador, El Salvador.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "7",
+               "day": "25"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figure 9: Stela 'A' Maia. Photo taken on <htdate0>, during a visit to the Archaeological Site of Copan, Honduras.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "4",
+               "day": "26"
+            }
+         ]
+      },
+      {
+         "imageDesc": "Figure 10: Musical instruments. Photo taken on <htdate0>, during a visit to the Antropological Museum in San José, Costa Rica.",
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "2015",
+               "month": "10",
+               "day": "17"
+            }
+         ]
+      }
+   ],
+   "date_time": null
+}
