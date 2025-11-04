@@ -789,7 +789,13 @@ func htPrepareQuestions(questions []HTExercise) string {
 	i = 1
 	strQuestions += commonKeywords[134] + "s.\n\n"
 	for _, ans := range questions {
-		strQuestions += commonKeywords[134] + " " + strconv.Itoa(i) + ". " + ans.AdditionalInfo + "\n\n"
+		strQuestions += commonKeywords[134] + " " + strconv.Itoa(i) + ". "
+		ansText, err := htHTML2Text(ans.AdditionalInfo)
+		if err != nil {
+			strQuestions += ansText + "\n\n"
+		} else {
+			strQuestions += ans.AdditionalInfo + "\n\n"
+		}
 		i++
 	}
 
