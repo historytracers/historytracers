@@ -222,6 +222,118 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_pattern",
+         "text": [
+            {
+               "text": "### Construyendo patrones\n\nCuando hay resto en las divisiones, esto no significa necesariamente que haya habido un error de cálculo. Los restos forman parte de las etapas constructivas.\n\n#### Construcción de la tabla de multiplicar\n\nLas tablas de multiplicar, por ejemplo, se construyen eligiendo los números que deseamos ordenar y el tamaño del grupo, que corresponde a la tabla.\n\nPor ejemplo, ordenemos los números del 1 al 40 en la tabla del 4 (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la tabla de multiplicar (4 y 5)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"4\">Tabla del 4</th></tr><tr><td>1</td><td>2</td><td>3</td><td style=\"background-color: lightblue; text-aligh: center;\">4</td></tr> <tr><td>5</td><td>6</td><td>7</td><td style=\"background-color: lightblue; text-aligh: center;\">8</td></tr><tr><td>9</td><td>10</td><td>11</td><td style=\"background-color: lightblue; text-aligh: center;\">12</td></tr><tr><td>13</td><td>14</td><td>15</td><td style=\"background-color: lightblue; text-aligh: center;\">16</td></tr><tr><td>17</td><td>18</td><td>19</td><td style=\"background-color: lightblue; text-aligh: center;\">20</td></tr><tr><td>21</td><td>22</td><td>23</td><td style=\"background-color: lightblue; text-aligh: center;\">24</td></tr><tr><td>25</td><td>26</td><td>27</td><td style=\"background-color: lightblue; text-aligh: center;\">28</td></tr><tr><td>29</td><td>30</td><td>31</td><td style=\"background-color: lightblue; text-aligh: center;\">32</td></tr><tr><td>33</td><td>34</td><td>35</td><td style=\"background-color: lightblue; text-aligh: center;\">36</td></tr><tr><td>37</td><td>38</td><td>39</td><td style=\"background-color: lightblue; text-aligh: center;\">40</td></tr></table></p><p class=\"desc\"><b>Tabla 3</b>: Tabla del 4.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para comprender las sobras (restos) de las divisiones, observemos también la siguiente tabla:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"2\">Hoja dividida en 4</th></tr><tr><td style=\"height: 100px;\"><spam class=\"text_to_paint\">1</spam></td><td style=\"height: 100px;\"><spam class=\"text_to_paint\">2</spam></td></tr><tr><td style=\"height: 100px;\"><spam class=\"text_to_paint\">3</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">0</spam></td></tr> </table></p><p class=\"desc\"><b>Tabla 4</b>: Tabla con los restos de la división</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "La **Tabla 3** contiene la tabla del 4, con sus valores destacados en azul. Del mismo modo, la **Tabla 4** también destaca en azul el valor 0. Al comparar ambas tablas, podemos concluir:\n- Siempre que un número es múltiplo de 4 —es decir, está en la tabla del 4—, el resto de la división es cero.\n- A medida que nos alejamos de un múltiplo, el resto va aumentando hasta alcanzar el número inmediatamente anterior al divisor de la tabla. En el caso de la tabla del 4, el resto máximo es 3. Cuando llegamos al siguiente múltiplo, el resto vuelve a ser 0.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Y los restos anteriores?</b><br /><br />Si en la tabla del 4 el mayor resto posible es 3, ¿cuál será el mayor resto posible en las tablas del 3 y del 2?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En cualquier tabla de multiplicar, el mayor resto posible al dividir un número es siempre el número inmediatamente anterior al divisor.\n\nAsí:\n- En la tabla del 3, el mayor resto es 2.\n- En la tabla del 2, el mayor resto es 1.\n\n#### Construcciones\n\nAl observar diferentes sitios arqueológicos en el continente americano (*Abya Yala*), también podemos encontrar estructuras que revelan patrones de múltiplos y restos.\n\nUn ejemplo de ello se encuentra en la ciudad de Copán, en Honduras (Figura 1).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanWholeTextSA\" onclick=\"htImageZoom('imgCopanWholeTextSA', '0%')\" src=\"images/Copan/CopanWholeTextStelaAltar.png\" class=\"imgcenter\"/><b>Figura 1</b>: Altar, estela y el texto jeroglífico más largo existente en el sitio de Copán (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Foto tomada el <htdate1> durante una visita al sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "La construcción del texto que aparece en la Figura 1 muestra que los jeroglifos también siguen un patrón de múltiplos. Así, siempre que un jeroglifo es más grande que el límite esperado en una fila, debe ser trasladado a la siguiente línea.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -229,6 +341,11 @@
          "question": "É possível o numerador ser maior que o denominador?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Quando temos mais valores para distribuir que o total disponível, como vimos neste texto, o numerador terá um valor maior que o denominador."
+      },
+      {
+         "question": "Existe resto na tabuada de 1?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Quando dividimos (compartilhamos) qualquer quantidade por 1, temos a concentração daquela quantidade. Desta forma, nunca haverá restos quando dividimos por 1."
       }
    ],
    "game_v2": null,

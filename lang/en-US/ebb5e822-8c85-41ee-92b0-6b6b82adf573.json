@@ -222,6 +222,118 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_pattern",
+         "text": [
+            {
+               "text": "### Building Patterns\n\nWhen there is a remainder in divisions, this does not necessarily mean that there was a calculation error. Remainders are part of the constructive steps.\n\n#### Building the Multiplication Table\n\nMultiplication tables, for example, are built by choosing the numbers we want to arrange and the size of the group, which corresponds to the table.\n\nFor example, let’s arrange the numbers from 1 to 40 in the table of 4 (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (4 and 5)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"4\">Table of 4</th></tr><tr><td>1</td><td>2</td><td>3</td><td style=\"background-color: lightblue; text-aligh: center;\">4</td></tr> <tr><td>5</td><td>6</td><td>7</td><td style=\"background-color: lightblue; text-aligh: center;\">8</td></tr><tr><td>9</td><td>10</td><td>11</td><td style=\"background-color: lightblue; text-aligh: center;\">12</td></tr><tr><td>13</td><td>14</td><td>15</td><td style=\"background-color: lightblue; text-aligh: center;\">16</td></tr><tr><td>17</td><td>18</td><td>19</td><td style=\"background-color: lightblue; text-aligh: center;\">20</td></tr><tr><td>21</td><td>22</td><td>23</td><td style=\"background-color: lightblue; text-aligh: center;\">24</td></tr><tr><td>25</td><td>26</td><td>27</td><td style=\"background-color: lightblue; text-aligh: center;\">28</td></tr><tr><td>29</td><td>30</td><td>31</td><td style=\"background-color: lightblue; text-aligh: center;\">32</td></tr><tr><td>33</td><td>34</td><td>35</td><td style=\"background-color: lightblue; text-aligh: center;\">36</td></tr><tr><td>37</td><td>38</td><td>39</td><td style=\"background-color: lightblue; text-aligh: center;\">40</td></tr></table></p><p class=\"desc\"><b>Table 3</b>: Table of 4</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To understand the remainders of divisions, let’s also look at the following table:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"sequenceNum\" class=\"tableTen\"><tr><th colspan=\"2\">Sheet divided by 4Sheet divided by 4</th></tr><tr><td style=\"height: 100px;\"><spam class=\"text_to_paint\">1</spam></td><td style=\"height: 100px;\"><spam class=\"text_to_paint\">2</spam></td></tr><tr><td style=\"height: 100px;\"><spam class=\"text_to_paint\">3</spam></td><td style=\"height: 100px; background-color: lightblue; text-aligh: center;\"><spam class=\"text_to_paint\">0</spam></td></tr> </table></p><p class=\"desc\"><b>Table 4</b>: Table with division remainders</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "**Table 3** contains the table of 4, with its values highlighted in blue. Likewise, Table 4 also highlights the value 0 in blue. By comparing both tables, we can conclude:\n- Whenever a number is a multiple of 4 — that is, it appears in the table of 4 — the remainder of the division is zero.\n- As we move away from a multiple, the remainder increases until it reaches the number immediately before the divisor of the table. In the case of the table of 4, the maximum remainder is 3. When we reach the next multiple, the remainder returns to 0.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: What About the Previous Remainders?</b><br /><br />If, in the table of 4, the largest possible remainder is 3, what would be the largest possible remainder in the tables of 3 and 2?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In any multiplication table, the largest possible remainder when dividing a number is always the number immediately before the divisor.\n\nThus:\n- In the table of 3, the largest remainder is 2.\n- In the table of 2, the largest remainder is 1.\n\n#### Constructions\n\nWhen observing different archaeological sites across the American continent (Abya Yala), we can also find structures that reveal patterns of multiples and remainders.\n\nOne example can be found in the city of Copán, in Honduras (Figure 1).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCopanWholeTextSA\" onclick=\"htImageZoom('imgCopanWholeTextSA', '0%')\" src=\"images/Copan/CopanWholeTextStelaAltar.png\" class=\"imgcenter\"/><b>Figure 1</b>: Altar, stela, and the longest hieroglyphic text found at the Copán site (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Photo taken on <htdate1>, during a visit to the site.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "4",
+                     "day": "26"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The construction of the text shown in Figure 1 demonstrates that hieroglyphs also follow a pattern of multiples. Thus, whenever a hieroglyph is larger than the expected limit in a row, it must be moved to the next line.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -229,6 +341,11 @@
          "question": "É possível o numerador ser maior que o denominador?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Quando temos mais valores para distribuir que o total disponível, como vimos neste texto, o numerador terá um valor maior que o denominador."
+      },
+      {
+         "question": "Existe resto na tabuada de 1?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Quando dividimos (compartilhamos) qualquer quantidade por 1, temos a concentração daquela quantidade. Desta forma, nunca haverá restos quando dividimos por 1."
       }
    ],
    "game_v2": null,
