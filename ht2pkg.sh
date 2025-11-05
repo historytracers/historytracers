@@ -56,38 +56,17 @@ HTDOC
 
 ht_build_rpm() {
     echo "Building RPM package"
-    # Install dependencies
-    # dnf update
-    # dnf install make gcc python3-devel
-    # Create initial structure
-
-    if [ -d ~/rpmbuild/BUILD ]; then
-        rm -rf ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-    fi
-    if ! command -v rpmdev-setuptree >/dev/null 2>&1; then
-        mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-    else
-        rpmdev-setuptree
-    fi
-    echo "%_topdir %(echo $HOME)/rpmbuild" > ~/.rpmmacros
-
-    # Copy SPEC
-    cp packaging/RPM/historytracers.spec ~/rpmbuild/SPECS
-
-    # Create Structure
-    mkdir -p ~/rpmbuild/SOURCES/usr/bin
-    mkdir -p ~/rpmbuild/SOURCES/usr/share/historytracers/
-
-    # Copies
-    cp packaging/conf/historytracers.conf ~/rpmbuild/SOURCES/
-    cp build/historytracers ~/rpmbuild/SOURCES/
-    cp LICENSE README packaging/service/historytracers.service ~/rpmbuild/SOURCES/
-    SRC=$(./build/historytracers -compilation | grep Content | cut -d: -f2)
-    tSRC=$(echo "$SRC" | xargs)
-    cp -r "$tSRC" ~/rpmbuild/SOURCES/usr/share/historytracers/www
 
     # Build Package
-    rpmbuild -bb ~/rpmbuild/SPECS/historytracers.spec
+    rpmbuild -bb ./packaging/RPM/historytracers.spec \
+        --define "_sourcedir $(pwd)" \
+        --define "_builddir $(pwd)" \
+        --define "_srcrpmdir $(pwd)/rpmbuild" \
+        --define "_rpmdir $(pwd)/rpmbuild" \
+        --define "_topdir $(pwd)/rpmbuild" #\
+#        --define "_build_name_fmt %%{NAME}-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm"
+    cp rpmbuild/x86_64/historytracers-1.0.0-1.fc41.x86_64.rpm artifacts/
+    rm -rf rpmbuild
 }
 
 ht_build_deb() {
