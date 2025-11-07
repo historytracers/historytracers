@@ -33,7 +33,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1762454688"
+      "1762481607"
    ],
    "authors": "",
    "reviewers": "Gilber R. Rangel",
@@ -246,10 +246,10 @@
    "families": [
       {
          "id": "c84262d5-20e4-41af-b7be-ea73911fb3e6",
-         "name": "A família Dias (Machado)",
+         "name": "Díaz (Machado)",
          "history": [
             {
-               "text": "A família Dias (Machado) em São Vicente tem sua origem em Portugal (<htcite0>), mas não podemos precisar nem a região que nasceram nem quem são os pais dos irmãos Lopo Dias e Rui Dias Machado que viveram em São Vicente e São Paulo de Piratininga.\n\nAlém de não sabermos o nome dos pais, tão pouco podemos afirmar qual dos irmãos seria o mais velho com os dados que dispomos atualmente.\n\nPor outro lado, um fato que podemos destacar da vida desta família é sua fé cristã como será demonstrado na descrição da vida das pessoas.",
+               "text": "La familia Díaz (Machado), establecida en São Vicente, tiene su origen en Portugal (<htcite0>). Sin embargo, no es posible determinar con precisión la región de nacimiento ni la identidad de los padres de los hermanos Lopo Díaz y Rui Díaz Machado, quienes vivieron en São Vicente y en São Paulo de Piratininga.\n\nAdemás de desconocer los nombres de los padres, tampoco podemos afirmar, con base en los datos actualmente disponibles, cuál de los hermanos era el mayor.\n\nPor otro lado, un aspecto notable de la historia de esta familia es su profunda fe cristiana, como se demostrará en la descripción de la vida de sus miembros.",
                "source": [
                   {
                      "type": 1,
@@ -273,18 +273,174 @@
          ],
          "people": [
             {
-               "id": "a559e6f5-66c0-43f4-b879-7f155af8605b",
-               "name": "Lopo Dias",
-               "surname": "Dias",
+               "id": "10c033c0-a783-4566-aefb-eb0999d7ea00",
+               "name": "Desconhecido",
+               "surname": "",
                "patronymic": "",
-               "fullname": "Lopo Dias",
+               "fullname": "Desconhecido",
                "sex": "masculino",
                "gender": "masculino",
                "is_real": false,
                "haplogroup": null,
                "history": [
                   {
-                     "text": "Viveu em Santo André entre os anos <htdate0> e <htdate1> (<htcite0>), mas já residia em São Paulo de Piratininga em <htdate2> (<htcite1>).\n\nTeve uma vida longa, como demonstra sua declaração no inventário de seu filho no ano de <htdate3> (<htcite2>):",
+                     "text": "De acuerdo con las investigaciones, solo es posible afirmar que poseía origen portugués, sin poder precisar la localidad exacta de nacimiento (<htcite0>)",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "b1c45fb5-1ac1-4e88-bb9c-7d8111de671c",
+                           "text": "de Moura, Américo",
+                           "page": "pp. 346",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1951",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "format": "markdown",
+                     "PostMention": ""
+                  }
+               ],
+               "parents": [
+                  {
+                     "type": "theory",
+                     "father_external_family_file": false,
+                     "father_family": "",
+                     "father_id": "0afeefb0-aca5-4918-93a7-b114820c1ef2",
+                     "father_name": "Desconocido",
+                     "mother_external_family_file": false,
+                     "mother_family": "",
+                     "mother_id": "a26d2e19-3d76-455b-9ea8-d365d7938d9c",
+                     "mother_name": "Desconocida"
+                  }
+               ],
+               "birth": null,
+               "baptism": null,
+               "marriages": [
+                  {
+                     "type": "theory",
+                     "id": "455f9a56-4f07-4873-8f56-fa44ba702b35",
+                     "gedcom_id": "F0f4a51c3-be76-493b",
+                     "official": true,
+                     "family_id": "",
+                     "external_family_file": false,
+                     "name": "Desconhecida",
+                     "history": [
+                        {
+                           "text": "Nada se sabe acerca de esta persona. Sin embargo, considerando que dos hermanos emigraron a Brasil, se presume la necesidad de su existencia dentro del contexto familiar.",
+                           "source": null,
+                           "date_time": null,
+                           "isTable": false,
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
+                        }
+                     ],
+                     "date_time": {
+                        "date": null,
+                        "address": "",
+                        "city_id": "",
+                        "city": "",
+                        "state_id": "",
+                        "state": "",
+                        "pc": "",
+                        "country_id": "",
+                        "country": "",
+                        "sources": null
+                     }
+                  }
+               ],
+               "divorced": null,
+               "children": [
+                  {
+                     "type": "theory",
+                     "id": "a559e6f5-66c0-43f4-b879-7f155af8605b",
+                     "marriage_id": "455f9a56-4f07-4873-8f56-fa44ba702b35",
+                     "name": "Lopo Díaz",
+                     "family_id": "c84262d5-20e4-41af-b7be-ea73911fb3e6",
+                     "external_family_file": false,
+                     "add_link": true,
+                     "history": [
+                        {
+                           "text": "Se creó la familia porque supimos que su hermano también fue a Brasil (<htcite0>).",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "ec81d3ea-1e5c-4f4a-985c-df0c1265fdda",
+                                 "text": "Viotti, Hélio A.",
+                                 "page": "pp. 23",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1996",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
+                           "date_time": null,
+                           "isTable": false,
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
+                        }
+                     ],
+                     "adopted_child": false
+                  },
+                  {
+                     "type": "theory",
+                     "id": "c32aea2f-5a35-464e-aba4-f795fa45c621",
+                     "marriage_id": "455f9a56-4f07-4873-8f56-fa44ba702b35",
+                     "name": "Rui Díaz Machado",
+                     "family_id": "c84262d5-20e4-41af-b7be-ea73911fb3e6",
+                     "external_family_file": false,
+                     "add_link": true,
+                     "history": [
+                        {
+                           "text": "Se creó la familia porque supimos que su hermano también fue a Brasil (<htcite0>).",
+                           "source": [
+                              {
+                                 "type": 0,
+                                 "uuid": "ec81d3ea-1e5c-4f4a-985c-df0c1265fdda",
+                                 "text": "Viotti, Hélio A.",
+                                 "page": "pp. 23",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "1996",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
+                           "date_time": null,
+                           "isTable": false,
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
+                        }
+                     ],
+                     "adopted_child": false
+                  }
+               ],
+               "death": null
+            },
+            {
+               "id": "a559e6f5-66c0-43f4-b879-7f155af8605b",
+               "name": "Lopo Díaz",
+               "surname": "Díaz",
+               "patronymic": "",
+               "fullname": "Lopo Díaz",
+               "sex": "masculino",
+               "gender": "masculino",
+               "is_real": true,
+               "haplogroup": null,
+               "history": [
+                  {
+                     "text": "Lopo Díaz vivió en Santo André entre los años <htdate0> y <htdate1> (<htcite0>), y ya residía en São Paulo de Piratininga en <htdate2> (<htcite1>).\n\nTuvo una vida larga, como lo demuestra su declaración en el inventario de su hijo, fechado en <htdate3> (<htcite2>):",
                      "source": [
                         {
                            "type": 1,
@@ -355,7 +511,7 @@
                      "PostMention": ""
                   },
                   {
-                     "text": "<p><ul class=\"citation\"><li><i>\"Pesa-me senhores juizes escusar de ser curador de meus netos filhos de Belchior Carneiro porque eu não ...... de o poder ser assim por minha idade como por me ter entregue ..... padres do Carmo para irmão seu assim podem fazer curador quem lhes parecer e aqui me assigno hoje .1 .. de janeiro de 609.\"</i></li> </ul></p>",
+                     "text": "<p><ul class=\"citation\"><li><i>\"Pesa-me, señores jueces, excusarme de ser curador de mis nietos, hijos de Belchior Carneiro, porque no ... puedo serlo, tanto por mi edad, como por haberme entregado ... a los padres del Carmen como hermano suyo; así pueden nombrar como curador a quien les parezca, y aquí firmo hoy, 1. de enero de 609.\"</i></li> </ul></p>",
                      "source": null,
                      "date_time": null,
                      "isTable": false,
@@ -364,7 +520,7 @@
                      "PostMention": ""
                   },
                   {
-                     "text": "Além da sua relação explícita com a Ordem do Carmo (<htcite0>; <htcite1>), Lopo Dias foi uma das pessoas que assinaram para construir a igreja matriz na cidade de São Paulo (<htcite2>).\n\nSua geração será exposta junto a sua esposa em respeito as tradições indígenas (<htcite3>).",
+                     "text": "Además de su relación explícita con la Orden del Carmen, que incluso resultó en donaciones de tierras a dicha orden (<htcite0>; <htcite1>; <htcite2>), Lopo Díaz fue también uno de los firmantes de la construcción de la iglesia matriz en la ciudad de São Paulo (<htcite3>).\n\nSiglos después de su fallecimiento, Lopo Díaz fue mencionado erróneamente como judío, debido a ser homónimo de un individuo de origen judío (<htcite4>). Sin embargo, esta hipótesis presenta inconsistencias:\n- Como se expuso en la introducción, no existía una sola familia Díaz;\n- Los documentos contemporáneos lo vinculan directamente con la Orden del Carmen y con la Iglesia de São Paulo, lo que indica una profunda conexión con la fe cristiana;\n\n- El nombre “Lopo” (o “Lubb”) no pertenece exclusivamente a una fe específica —familias islámicas como los Banu Qasi también lo utilizaban—, lo que demuestra que el uso del nombre no está restringido a un solo grupo religioso (<htcite5>).\n\nPor lo tanto, no es posible definir su identidad religiosa únicamente en base al nombre.\n\nSu descendencia será presentada junto a la de su esposa, en respeto a las tradiciones indígenas (<htcite6>).",
                      "source": [
                         {
                            "type": 0,
@@ -391,6 +547,18 @@
                            }
                         },
                         {
+                           "type": 1,
+                           "uuid": "f2abb18c-b8f0-4c40-8b35-2b1c45990a8c",
+                           "text": "Santos, D. M. dos.",
+                           "page": "pp. 46",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
                            "type": 0,
                            "uuid": "32903d58-ff1b-40b0-bf64-31c8604f47ce",
                            "text": "Atas de São Paulo",
@@ -398,6 +566,54 @@
                            "date_time": {
                               "type": "",
                               "year": "",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "ce3bccc1-9c94-487a-8129-9483e176f468",
+                           "text": "Salvador, José G.",
+                           "page": "pp. 132, 197",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1976",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "87e702cc-121f-428b-bbdf-14047bc8df77",
+                           "text": "History Tracers Team",
+                           "page": "Lubb ibn Musa",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "ebf06437-05d8-4153-8faf-97aa6a4a9acb",
+                           "text": "Engels, Frederick",
+                           "page": "pp. 708-711",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1988",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "1070f062-f6c1-4cc5-8732-83b31c8e5137",
+                           "text": "History Tracers Team",
+                           "page": "Indígenas de <i>Abya Yala</i> (América)",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2025",
                               "month": "",
                               "day": ""
                            }
@@ -416,11 +632,11 @@
                      "father_external_family_file": false,
                      "father_family": "",
                      "father_id": "10c033c0-a783-4566-aefb-eb0999d7ea00",
-                     "father_name": "Desconhecido",
+                     "father_name": "Desconocido",
                      "mother_external_family_file": false,
                      "mother_family": "",
                      "mother_id": "455f9a56-4f07-4873-8f56-fa44ba702b35",
-                     "mother_name": "Desconhecida"
+                     "mother_name": "Desconocida"
                   }
                ],
                "birth": null,
@@ -429,14 +645,14 @@
                   {
                      "type": "theory",
                      "id": "a666565e-1022-4812-8ff1-d66d78972380",
-                     "gedcom_id": "F38cef1f1-158e-470d",
+                     "gedcom_id": "F7fa82d86-3871-4e7b",
                      "official": true,
                      "family_id": "5391fd9a-ac20-44f4-8158-9990b21e27f4",
                      "external_family_file": false,
-                     "name": "Beatriz Dias",
+                     "name": "Beatriz Díaz",
                      "history": [
                         {
-                           "text": "Relacionamento mencionado pela filha no processo de canonização de São José de Anchieta (<htcite0>).",
+                           "text": "La relación es mencionada por su hija en el proceso de canonización de San José de Anchieta (<htcite0>).",
                            "source": [
                               {
                                  "type": 0,
@@ -481,9 +697,9 @@
    ],
    "exercise_v2": [
       {
-         "question": "Existe uma única família Dias?",
+         "question": "Existe uma única família Díaz?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Não há qualquer possibilidade de fazer conexão a uma única pessoa para as famílias Dias, pois o sobrenome é oriundo de um patronímico."
+         "additionalInfo": "Não há qualquer possibilidade de fazer conexão a uma única pessoa para as famílias Díaz, pois o sobrenome é oriundo de um patronímico."
       }
    ],
    "date_time": null
