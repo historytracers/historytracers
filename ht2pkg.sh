@@ -55,6 +55,9 @@ HTDOC
 }
 
 ht_build_rpm() {
+    # Install depencies
+    # dnf update
+    # dnf install -y rpmdevtools rpm-build make gcc golang autoconf automake which && dnf clean all
     echo "Building RPM package"
 
     # Build Package
@@ -73,13 +76,16 @@ ht_build_deb() {
     echo "Building DEB package"
     # Install dependencies
     # apt-get update
-    # apt-get install devscripts debhelper dh-systemd build-essential
-    #
-    # cp -R packaging/Debian/ debian
-    # chmod +x debian/rules
-    #
-    # dpkg-buildpackage -us -uc
-    # debuild -us -uc
+    # apt-get install devscripts debhelper build-essential golang-go
+    # snap install go --classic (Ubuntu)
+    if [ -d debian ]; then
+        rm -rf debian
+    fi
+    cp -R packaging/Debian/ debian
+    chmod +x debian/rules
+
+    dpkg-buildpackage -us -uc
+    debuild -us -uc
     #
     # rm -rf debian
 }
