@@ -83,6 +83,7 @@ ht_build_deb() {
     fi
     cp -R packaging/Debian/ debian
     chmod +x debian/rules
+    cp packaging/service/historytracers.service debian/historytracers.service
 
     dpkg-buildpackage -us -uc
     debuild -us -uc
