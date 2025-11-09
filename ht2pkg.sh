@@ -87,8 +87,9 @@ ht_build_deb() {
 
     dpkg-buildpackage -us -uc
     debuild -us -uc
-    #
-    # rm -rf debian
+
+    mv ../*.deb artifacts
+    rm -rf debian
 }
 
 ht_build_slackware() {

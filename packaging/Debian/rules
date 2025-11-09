@@ -19,6 +19,9 @@ override_dh_auto_test:
 override_dh_auto_clean:
 	@echo "Skipping auto-clean - preserving pre-built binaries"
 
+override_dh_dwz:
+	@echo "Skipping dwz compression for Go binary"
+
 override_dh_install:
 	install -D -m 755 $(CURDIR)/build/historytracers debian/historytracers/usr/bin/historytracers
 	install -D -m 644 $(CURDIR)/packaging/service/historytracers.service debian/historytracers/lib/systemd/system/historytracers.service
