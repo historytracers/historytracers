@@ -813,6 +813,12 @@ func htChangeTag2Keywords(text string) string {
 	return ret
 }
 
+func htReplaceAllExceptions(text string) string {
+	ret := strings.ReplaceAll(text, "(#)", "")
+
+	return ret
+}
+
 func htHTML2Text(htmlStr string) (string, error) {
 	doc, err := html.Parse(strings.NewReader(htmlStr))
 	if err != nil {
@@ -976,6 +982,8 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 	if len(txt.ImgDesc) > 0 {
 		finalText += "\n" + txt.ImgDesc
 	}
+
+	finalText = htReplaceAllExceptions(finalText)
 
 	return finalText
 }
