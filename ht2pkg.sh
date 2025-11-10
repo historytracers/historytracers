@@ -85,10 +85,11 @@ ht_build_deb() {
     chmod +x debian/rules
     cp packaging/service/historytracers.service debian/historytracers.service
 
-    dpkg-buildpackage -us -uc
-    debuild -us -uc
+    dpkg-buildpackage -us -uc --build=binary
 
     mv ../*.deb artifacts
+    mv ../*.ddeb artifacts
+
     rm -rf debian
 }
 
