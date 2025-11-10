@@ -147,6 +147,7 @@ func htLocalHTML2Text(htmlText string) string {
 		}
 		finalText += partial + ".\n\n"
 	}
+	finalText = htReplaceAllExceptions(finalText)
 	return finalText
 }
 
@@ -604,7 +605,7 @@ func htConvertAtlasToAudio() {
 }
 
 func htConvertOverallTextToAudio() {
-	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5", "a86f373e-c908-4796-8a96-427ba5d4c889", "sources", "genealogical_first_steps", "genealogical_faq", "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0", "partnership"}
+	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5", "a86f373e-c908-4796-8a96-427ba5d4c889", "sources", "genealogical_first_steps", "genealogical_faq", "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0", "partnership", "tree"}
 	htConvertClassesToAudio(pages)
 }
 
