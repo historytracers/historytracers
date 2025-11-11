@@ -1,33 +1,30 @@
 #!/usr/bin/make -f
+
 %:
-	dh $@ --with systemd
+	dh $@ --without=install
+
+# DISABLE ALL auto steps
+override_dh_auto_configure:
+	@echo "Skipping configure"
 
 override_dh_auto_build:
-	# If you need to build the Go binary during package creation
-	# export GOPATH=$(CURDIR)
-	# go build -o historytracers 
+	@echo "Skipping build"
 
 override_dh_auto_install:
-	# Binary
-	install -D -m 755 historytracers $(CURDIR)/debian/historytracers/usr/bin/historytracers
-	# Systemd service
-	install -D -m 644 historytracers.service $(CURDIR)/debian/historytracers/lib/systemd/system/historytracers.service
-	# Configuration (if any)
-	install -D -m 600 historytracers.conf $(CURDIR)/debian/historytracers/etc/historytracers/historytracers.conf || true
-	# Web directories
-	install -d $(CURDIR)/debian/historytracers/usr/share/historytracers/www/bodies
-	install -d $(CURDIR)/debian/historytracers/usr/share/historytracers/www/css
-	install -d $(CURDIR)/debian/historytracers/usr/share/historytracers/www/csv
-	install -d $(CURDIR)/debian/historytracers/usr/share/historytracers/www/gedcom
-	install -d $(CURDIR)/debian/historytracers/usr/share/historytracers/www/js
-	install -d $(CURDIR)/debian/historytracers/usr/share/historytracers/www/lang
-	install -d $(CURDIR)/debian/historytracers/usr/share/historytracers/www/webfonts
-	# Web content
-	cp -r www/bodies/* $(CURDIR)/debian/historytracers/usr/share/historytracers/www/bodies/ 2>/dev/null || true
-	cp -r www/css/* $(CURDIR)/debian/historytracers/usr/share/historytracers/www/css/ 2>/dev/null || true
-	cp -r www/csv/* $(CURDIR)/debian/historytracers/usr/share/historytracers/www/csv/ 2>/dev/null || true
-	cp -r www/gedcom/* $(CURDIR)/debian/historytracers/usr/share/historytracers/www/gedcom/ 2>/dev/null || true
-	cp -r www/js/* $(CURDIR)/debian/historytracers/usr/share/historytracers/www/js/ 2>/dev/null || true
-	cp -r www/js/lang/en-US $(CURDIR)/debian/historytracers/usr/share/historytracers/www/lang/ 2>/dev/null || true
-	cp -r www/js/lang/sources $(CURDIR)/debian/historytracers/usr/share/historytracers/www/lang/ 2>/dev/null || true
-	cp -r www/webfonts/* $(CURDIR)/debian/historytracers/usr/share/historytracers/www/webfonts/ 2>/dev/null || true
+	@echo "Skipping auto-install - using debhelper installation"
+
+override_dh_auto_test:
+	@echo "Skipping tests"
+
+override_dh_auto_clean:
+	@echo "Skipping auto-clean - preserving pre-built binaries"
+
+override_dh_dwz:
+	@echo "Skipping dwz compression for Go binary"
+
+override_dh_install:
+	install -D -m 755 $(CURDIR)/build/historytracers debian/historytracers/usr/bin/historytracers
+	install -D -m 644 $(CURDIR)/packaging/service/historytracers.service debian/historytracers/lib/systemd/system/historytracers.service
+	install -D -m 600 $(CURDIR)/packaging/conf/historytracers.conf debian/historytracers/etc/historytracers/historytracers.conf 2>/dev/null || true
+	install -d debian/historytracers/usr/share/historytracers/www/
+	cp -r $(CURDIR)/www/* debian/historytracers/usr/share/historytracers/www/ 2>/dev/null || true

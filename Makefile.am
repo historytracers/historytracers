@@ -28,7 +28,7 @@ LOG_PATH = @LOG_PATH@
 $(BINARY_NAME): $(historytracers_SOURCES)
 	@echo "Building $(BINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	cd $(SRC_DIR) && $(GO_COMPILER) fmt ./...
+	cd $(SRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
 	cd $(SRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(BINARY_NAME) .
 
 # Install hook
@@ -56,7 +56,7 @@ deps:
 .PHONY: update-deps
 update-deps:
 	@echo "Updating dependencies..."
-	cd $(SRC_DIR) && go get -u all && go mod tidy
+	cd $(SRC_DIR) && go get all && go mod tidy
 
 # Run tests
 .PHONY: test
