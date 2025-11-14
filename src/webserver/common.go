@@ -783,6 +783,12 @@ func htPrepareQuestions(questions []HTExercise) string {
 	i := 1
 	for _, quest := range questions {
 		strQuestions += strconv.Itoa(i) + ". " + quest.Question + ".\n\n"
+		questText, err := htHTML2Text(quest.Question)
+		if err != nil {
+			strQuestions += questText + "\n\n"
+		} else {
+			strQuestions += quest.Question + "\n\n"
+		}
 		i++
 	}
 
