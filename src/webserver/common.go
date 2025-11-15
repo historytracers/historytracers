@@ -782,7 +782,7 @@ func htPrepareQuestions(questions []HTExercise) string {
 	// Write Questions
 	i := 1
 	for _, quest := range questions {
-		strQuestions += strconv.Itoa(i) + ". " + quest.Question + ".\n\n"
+		strQuestions += strconv.Itoa(i) + ". "
 		questText, err := htHTML2Text(quest.Question)
 		if err != nil {
 			strQuestions += questText + "\n\n"
@@ -828,6 +828,7 @@ func htReplaceAllExceptions(text string) string {
 func htHTML2Text(htmlStr string) (string, error) {
 	doc, err := html.Parse(strings.NewReader(htmlStr))
 	if err != nil {
+		fmt.Fprintf(os.Stderr, "%s", err)
 		return "", err
 	}
 	var b strings.Builder
