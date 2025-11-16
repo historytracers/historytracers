@@ -77,7 +77,16 @@ function htImageZoom(id, translate) {
     var isZoomed = $element.hasClass("zoomed");
 
     if (!isZoomed) {
-        var scale = (window.innerWidth < 800) ? 1.5 : 2.0;
+        var scale = 1.5;
+        if (window.innerWidth < 600) {
+            scale = 1.1;
+        } else if (window.innerWidth < 768) {
+            scale = 1.2;
+        } else if (window.innerWidth < 992) {
+            scale = 1.3;
+        } else if (window.innerWidth < 1200) {
+            scale = 1.3;
+        }
         $element.css("transform", "scale(" + scale + ") translate(" + translate + ")");
     } else {
         $element.css("transform", "scale(1) translate(0, 0)");
