@@ -2973,7 +2973,7 @@ function htWriteGame(table, later, idx)
         total++;
     }
 
-    var finalData = "<span id=\"htTotalGameData\">"+total+"</span></p>";
+    var finalData = "<span id=\"htTotalGameData\" style=\"visibility: hidden;\">"+total+"</span></p>";
     htAddPaperDivs("#paper", "game1", finalData, "", later, idx+1000);
 }
 
