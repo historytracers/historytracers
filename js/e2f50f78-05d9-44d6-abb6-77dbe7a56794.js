@@ -82,9 +82,11 @@ function htFillResultsVector() {
 function htMakeTable() {
     var value = "";
     var textClass = "text_to_paint";
+    var textClassFinal = "text_to_paint_small";
     controlSize = "5";
     if (window.innerWidth < 975) {
         textClass = "text_to_paint_really_small";
+        textClassFinal = "text_to_paint_really_small";
         controlSize = "3";
     }
 
@@ -92,9 +94,9 @@ function htMakeTable() {
         if ( (i > 0) && ((i % 5) == 0)) {
             var localSymbol = "";
             if (i == 5) {
-                localSymbol = "<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: "+controlSize+"em\" name=\"traineeUp\"></i>";
+                localSymbol = "<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: "+controlSize+"em; visibility: visible; display: block;\" name=\"traineeUp\" id=\"traineeUp\"></i><br /><i class=\"fa-solid fa-medal\" style=\"font-size: "+controlSize+"em; color:gold; visibility: hidden; display: none;\"></i>";
             } else if (i == 10) {
-                localSymbol = "<i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: "+controlSize+"em\" name=\"traineeDown\"></i>";
+                localSymbol = "<i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: "+controlSize+"em; visibility: visible; display: block;\" name=\"traineeDown\" id=\"traineeDown\"></i><i class=\"fa-solid fa-medal\" style=\"font-size: "+controlSize+"em; color:gold; visibility: hidden; display: none;\"></i>";
             } else {
                 localSymbol = "<i class=\"fa-solid fa-chevron-right\" id=\"NextLevel\" style=\"font-size: "+controlSize+"em; visibility: hidden; display: none;\"></i>";
             }
@@ -137,7 +139,7 @@ function htMakeTable() {
     }
 
     for (let i = 0, row = 0; i < 3; i++, row += 33) {
-        $("#parentGame").append("<div id=\"ans"+i+"\" style=\"border: 3px solid black; position: absolute; z-index: 100; left: 72%; top: "+row+"%; width: 12%; height: 33%; background-color: lightblue; text-align: center; vertical-align: middle;\"><span id=\"anstxt"+i+"\" class=\"text_to_paint_really_small\"></span></div>");
+        $("#parentGame").append("<div id=\"ans"+i+"\" style=\"border: 3px solid black; position: absolute; z-index: 100; left: 72%; top: "+row+"%; width: 12%; height: 33%; background-color: lightblue; text-align: center; vertical-align: middle;\"><span id=\"anstxt"+i+"\" class=\""+textClassFinal+"\"></span></div>");
     }
 }
 
@@ -197,10 +199,10 @@ function htHideDivs() {
     carriers = 0;
     if (currentRow == 2) {
         $("#NextLevel").css("display","block").css("visibility","visible");
+        $(".fa-medal").css("display","block").css("visibility","visible");
+        $("#traineeUp").css("display","none").css("visibility","hidden");
+        $("#traineeDown").css("display","none").css("visibility","hidden");
         stop = 1;
-
-        if (currentLevel && (currentLevel % 5) == 0) {
-        }
     }
 }
 
@@ -302,9 +304,14 @@ function htLoadContent() {
     });
 
     $("#NextLevel").on("click", function() {
-        $(".updSuccess").css("display","block").css("visibility","visible");
+        $("#NextLevel").css("display","none").css("visibility","hidden");
+        $(".fa-medal").css("display","none").css("visibility","hidden");
+        $("#traineeUp").css("display","block").css("visibility","visible");
+        $("#traineeDown").css("display","block").css("visibility","visible");
         $(".text_to_paint").html("");
         $(".text_to_paint_really_small").html("");
+        $(".text_to_paint_small").html("");
+        $(".updSuccess").css("display","block").css("visibility","visible");
         currentRow = 0;
         stop = 0;
         currentValue = 0;
@@ -313,7 +320,6 @@ function htLoadContent() {
         suffix = "";
         htFillImage();
         htRewriteTable();
-        $("#NextLevel").css("display","none").css("visibility","hidden");
     });
 
 
