@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1763123762"
+      "1763351233"
    ],
    "authors": null,
    "reviewers": null,
@@ -82,7 +82,7 @@
          "id": "SECTION_rules",
          "text": [
             {
-               "text": "### Rules\n\nThe main objective of this game is to reinforce the idea that even when we perform additions with large or consecutive numbers, we always add two numbers at a time.\n\nTo play, use the side arrows (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) to perform the additions; however, we suggest trying to calculate them first.\n\nWith each correct result, the operation will shift to the side, and a part of an archaeological site or museum will be displayed.\n\nUpon completion, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can perform a new calculation by clicking the corresponding button (<i class=\"fa-solid fa-chevron-right\"></i>).",
+               "text": "### Rules\n\nThe main objective of this game is to reinforce the idea that even when we perform additions with large or consecutive numbers, we always add two numbers at a time.\n\nTo play, use the side arrows (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\"></i>) to perform the additions; however, we suggest trying to calculate them first.\n\nWith each correct result, the operation will shift to the side, and a part of an archaeological site or museum will be displayed.\n\nUpon completion, you will receive a medal (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) and can perform a new calculation by clicking the corresponding button (<i class=\"fa-solid fa-chevron-right\"></i>).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -91,7 +91,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><div id=\"parent\" style=\"position: relative;\"><div id=\"history\" style=\"visibility: hidden; display: none; border: 3px solid black; position: absolute; z-index: 100; left: 30%; width: 60%; background-color: white;\"></div><center><img src=\"\" id=\"imgGame\" onclick=\"htImageZoom('imgGame', '0%')\" style=\"width: 60%;\" /><br /><span id=\"imgText\"></span></center> </div></p>",
+               "text": "<p class=\"htSequenceGame\"><div id=\"parentGame\" style=\"position: relative;\">  <img src=\"\" id=\"imgGame\" onclick=\"htImageZoom('imgGame', '0%')\" style=\"width: 60%;\" /><br /><span id=\"imgText\" style=\"display: inline-block; width: 250px; font-size: 0.8em\"></span> </div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -125,18 +125,6 @@
                "year": "2016",
                "month": "7",
                "day": "22"
-            }
-         ]
-      },
-      {
-         "imagePath": "images/Teotihuacan/TeotihuacanGeneral.jpg",
-         "imageDesc": "Photo taken on <htdate0>, during a visit to the archaeological site of Teotihuacan, México.",
-         "date_time": [
-            {
-               "type": "gregory",
-               "year": "2016",
-               "month": "10",
-               "day": "19"
             }
          ]
       },
@@ -179,18 +167,6 @@
                "year": "2024",
                "month": "-1",
                "day": "-1"
-            }
-         ]
-      },
-      {
-         "imagePath": "images/Cuzco/PachacutiCuzco.jpg",
-         "imageDesc": "Photo taken on <htdate0>, during a visit to the city of Cusco, Peru.",
-         "date_time": [
-            {
-               "type": "gregory",
-               "year": "2017",
-               "month": "8",
-               "day": "17"
             }
          ]
       },

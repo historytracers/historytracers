@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1763123762"
+      "1763351234"
    ],
    "authors": null,
    "reviewers": null,
@@ -82,7 +82,7 @@
          "id": "SECTION_rules",
          "text": [
             {
-               "text": "### Reglas\n\nEl objetivo principal de este juego es reforzar la idea de que, incluso cuando realizamos sumas de números grandes o consecutivas, siempre sumamos dos números a la vez.\n\nPara jugar, utiliza las flechas laterales (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>) para realizar las sumas; sin embargo, sugerimos que intentes calcularlas primero.\n\nCon cada resultado correcto, la operación se desplazará hacia un lado y se mostrará una parte de un sitio arqueológico o un museo.\n\nAl finalizar, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y podrás realizar un nuevo cálculo haciendo clic en el botón correspondiente (<i class=\"fa-solid fa-chevron-right\"></i>).",
+               "text": "### Reglas\n\nEl objetivo principal de este juego es reforzar la idea de que, incluso cuando realizamos sumas de números grandes o consecutivas, siempre sumamos dos números a la vez.\n\nPara jugar, utiliza las flechas laterales (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\"></i>) para realizar las sumas; sin embargo, sugerimos que intentes calcularlas primero.\n\nCon cada resultado correcto, la operación se desplazará hacia un lado y se mostrará una parte de un sitio arqueológico o un museo.\n\nAl finalizar, recibirás una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) y podrás realizar un nuevo cálculo haciendo clic en el botón correspondiente (<i class=\"fa-solid fa-chevron-right\"></i>).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -91,7 +91,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"htSequenceGame\" id=\"cmp0\"><div id=\"parent\" style=\"position: relative;\"><div id=\"history\" style=\"visibility: hidden; display: none; border: 3px solid black; position: absolute; z-index: 100; left: 30%; width: 60%; background-color: white;\"></div><center><img src=\"\" id=\"imgGame\" onclick=\"htImageZoom('imgGame', '0%')\" style=\"width: 60%;\" /><br /><span id=\"imgText\"></span></center> </div></p>",
+               "text": "<p class=\"htSequenceGame\"><div id=\"parentGame\" style=\"position: relative;\">  <img src=\"\" id=\"imgGame\" onclick=\"htImageZoom('imgGame', '0%')\" style=\"width: 60%;\" /><br /><span id=\"imgText\" style=\"display: inline-block; width: 250px; font-size: 0.8em\"></span> </div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -125,18 +125,6 @@
                "year": "2016",
                "month": "7",
                "day": "22"
-            }
-         ]
-      },
-      {
-         "imagePath": "images/Teotihuacan/TeotihuacanGeneral.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita al sítio de Teotihuacan, México.",
-         "date_time": [
-            {
-               "type": "gregory",
-               "year": "2016",
-               "month": "10",
-               "day": "19"
             }
          ]
       },
@@ -179,18 +167,6 @@
                "year": "2024",
                "month": "-1",
                "day": "-1"
-            }
-         ]
-      },
-      {
-         "imagePath": "images/Cuzco/PachacutiCuzco.jpg",
-         "imageDesc": "Foto tomada en <htdate0>, durante una visita a ciudad de Cusco, Perú.",
-         "date_time": [
-            {
-               "type": "gregory",
-               "year": "2017",
-               "month": "8",
-               "day": "17"
             }
          ]
       },
