@@ -16,6 +16,7 @@ type classTemplateContent struct {
 }
 
 type HTGameDesc struct {
+	ImagePath string   `json:"imagePath"`
 	ImageDesc string   `json:"imageDesc"`
 	DateTime  []HTDate `json:"date_time"`
 }
@@ -36,7 +37,7 @@ type classTemplateFile struct {
 	Editing    bool                   `json:"editing"`
 	Content    []classTemplateContent `json:"content"`
 	Exercises  []HTExercise           `json:"exercise_v2"`
-	GameV1     []HTGameDesc           `json:"game_v2"`
+	GameV2     []HTGameDesc           `json:"game_v2"`
 	DateTime   []HTDate               `json:"date_time"`
 }
 

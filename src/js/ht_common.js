@@ -43,9 +43,7 @@ var extLatexIdx = 0;
 
 var htGameImages = [ "MachuPicchu/MachuPicchu.jpg", "Xunantunich/WitzXunantunich.jpg", "Teotihuacan/TeotihuacanGeneral.jpg", "Teotihuacan/TeotihuacanMountains.jpg", "Caral/CaralPiramideH1.jpg", "Cuzco/PachacutiCuzco.jpg", "CahalPech/CahalPechPyramid.jpg", "Caracol/CaracolWitz.jpg", "JoyaCeren/JoyaCeren.jpg", "SanAndres/SanAndresPyramid.jpg", "Tikal/NecropoleTikal.jpg", "Tula/CiudadTula.jpg", "PeruPucllana/Huaca.jpg", "MiPueblito/MiPueblito.jpg", "Copan/CopanAltarGenealogy0.jpg", "Copan/CopanAltarGenealogy1.jpg", "Copan/CopanAltarGenealogy2.jpg", "Copan/CopanAltarGenealogy3.jpg", "Copan/StelaACopan.jpg", "Copan/CopanWholeTextStelaAltar.png", "GuatemalaKaminaljuyu/Kaminaljuyu.jpg" ];
 var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teotihuacan, México", "Caral, Perú", "Cusco, Perú", "Cahal Pech, Belieze", "Caracol, Belieze", "Joya de Ceren, El Salvador", "San Andres, El Salvador", "Tikal, Guatemala", "Ciudad de Tula, México", "Huaca Puclana, Perú", "Mi Pueblito, Panamá", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Copan, Honduras", "Teotihuacan, México", "Copan, Honduras", "Copan, Honduras", "Kaminaljuyu, Guatemala" ];
-
-var htSequenceGame = [ "AntopologyPeru/CeramicaAntropologiaPeru.jpg", "CahalPech/ChocolatPot.jpg", "GuatemalaAntropologia/EstelaAntropologiaGuatemala.jpg", "GuatemalaKaminaljuyu/Kaminaljuyu.jpg", "SanJoseCRJade/MayaCRJade.jpg", "Teotihuacan/MetateTeotihuacan.jpg", "SanJoseCRMuseo/SanJoseCRAntropologia.jpg", "ElSalvadorMuseo/SanSalvadorESAntropologia.jpg", "Copan/StelaACopan.jpg", "SanJoseCRMuseo/MusicCR.jpg" ];
-var htSequenceGameLocation = [ "Lima, Peru", "Cahal Pech, Belize", "Ciudad de Guatemala, Guatemala", "Kaminaljuyu - Ciudad de Guatemala, Guatemala", "San Jose, Costa Rica", "Teotihuacan, Mexico", "San Jose, Costa Rica", "San Salvador, El Salvador", "Copan, Honduras", "San Jose, Costa Rica" ];
+let htGameImageList = [ ];
 
 var htEditable = undefined;
 
@@ -62,11 +60,11 @@ function htEnableEdition(data) {
 //    Navigation Section
 //
 
-function htScroolToID(id) {
+function htScrollToID(id) {
     $('html, body').scrollTop($(id).offset().top);
 }
 
-function htScroolTree(id)
+function htScrollTree(id)
 {
     var destination = $(id).val();
     if (destination != undefined) {
@@ -79,7 +77,16 @@ function htImageZoom(id, translate) {
     var isZoomed = $element.hasClass("zoomed");
 
     if (!isZoomed) {
-        var scale = (window.innerWidth < 800) ? 1.5 : 2.0;
+        var scale = 1.5;
+        if (window.innerWidth < 600) {
+            scale = 1.1;
+        } else if (window.innerWidth < 768) {
+            scale = 1.2;
+        } else if (window.innerWidth < 992) {
+            scale = 1.3;
+        } else if (window.innerWidth < 1200) {
+            scale = 1.3;
+        }
         $element.css("transform", "scale(" + scale + ") translate(" + translate + ")");
     } else {
         $element.css("transform", "scale(1) translate(0, 0)");
@@ -747,7 +754,7 @@ function htAppendFamilyParentsData(prefix, id, familyID, table, page) {
                 if (name) {
                     if (couple.father_family != undefined && couple.father_family.length > 0) {
                         if (couple.father_family == familyID || (couple.father_external_family_file != undefined && couple.father_external_family_file == false)) {
-                            parentsLink += "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+father+"'); htFillTree('"+father+"'); htSetCurrentLinkBasis('"+page+"', '"+father+"',"+undefined+");\">" +name+"</a>";
+                            parentsLink += "<a href=\"javascript:void(0);\" onclick=\"htScrollTree('#name-"+father+"'); htFillTree('"+father+"'); htSetCurrentLinkBasis('"+page+"', '"+father+"',"+undefined+");\">" +name+"</a>";
                         } else {
                             parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+name+"</a>";
                         }
@@ -770,7 +777,7 @@ function htAppendFamilyParentsData(prefix, id, familyID, table, page) {
                 if (name) {
                     if (couple.mother_family != undefined && couple.mother_family.length > 0) {
                         if (couple.mother_family == familyID || (couple.mother_external_family_file != undefined && couple.mother_external_family_file == false)) {
-                            parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+mother+"'); htFillTree('"+mother+"'); htSetCurrentLinkBasis('"+page+"', '"+mother+"',"+undefined+");\">" +name+"</a>";
+                            parentsLink += " & <a href=\"javascript:void(0);\" onclick=\"htScrollTree('#name-"+mother+"'); htFillTree('"+mother+"'); htSetCurrentLinkBasis('"+page+"', '"+mother+"',"+undefined+");\">" +name+"</a>";
                         } else {
                             parentsLink += " & <a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+name+"</a>";
                         }
@@ -842,7 +849,7 @@ function htAppendFamilyMarriagesData(prefix, id, familyID, table, page) {
             if (marriage.family_id == undefined || marriage.family_id.length == 0 || familyID == undefined) {
                 marriageLink = marriage.name;
             } else if ((familyID == marriage.family_id) || (marriage.external_family_file != undefined && marriage.external_family_file == false)) {
-                marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>"+datetime;
+                marriageLink = "<a href=\"javascript:void(0);\" onclick=\"htScrollTree('#name-"+marriage.id+"'); htFillTree('"+marriage.id+"'); htSetCurrentLinkBasis('"+page+"', '"+marriage.id+"',"+undefined+");\">"+marriage.name+"</a>"+datetime;
             } else {
                 marriageLink = "<a href=\"index.html?page=tree&arg="+marriage.family_id+"&person_id="+marriage.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+marriage.family_id+"&person_id="+marriage.id+"', false); return false;\">"+marriage.name+"</a>"+datetime;
             }
@@ -886,7 +893,7 @@ function htAppendFamilyChildrenData(prefix, id, familyID, table, page) {
         if (child.family_id == undefined || child.family_id.length == 0 || ((child.external_family_file != undefined && child.external_family_file == false) && child.add_link == false)) {
             childLink = child_keyword+" "+child.name;
         } else if (familyID == child.family_id || (child.external_family_file != undefined && child.external_family_file == false)) {
-            childLink = "<a href=\"javascript:void(0);\" onclick=\"htScroolTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child_keyword+" "+child.name+"</a>";
+            childLink = "<a href=\"javascript:void(0);\" onclick=\"htScrollTree('#name-"+child.id+"'); htFillTree('"+child.id+"'); htSetCurrentLinkBasis('"+page+"', '"+child.id+"',"+undefined+");\">"+child_keyword+" "+child.name+"</a>";
         } else { 
             childLink = "<a href=\"index.html?page=tree&arg="+child.family_id+"&person_id="+child.id+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+child.family_id+"&person_id="+child.id+"', false);\">"+child_keyword+" "+child.name+"</a>";
         }
@@ -910,7 +917,7 @@ function htAppendFamilyData(prefix, id, familyID, name, table, page) {
         var personalEvents;
         if ((parents == undefined || marriages == undefined) && (prefix != "tree")) {
             title = keywords[8];
-            goToTop ="<a href=\"javascript:void(0);\" onclick=\"htScroolToID('#index_list');\">"+keywords[78]+"</a>";
+            goToTop ="<a href=\"javascript:void(0);\" onclick=\"htScrollToID('#index_list');\">"+keywords[78]+"</a>";
             personalEvents = "";
         } else {
             title = keywords[9];
@@ -1262,6 +1269,8 @@ function htFillFamilies(page, table) {
     $("#grandfather02").html(keywords[13]);
     $("#grandmother02").html(keywords[14]);
 
+    $("#index-identifier").html(keywords[135]);
+
     genealogicalStats.families = (table.families != undefined) ? table.families.length : 0;
     var totalPeople = 0;
     for (const i in table.families) {
@@ -1272,7 +1281,7 @@ function htFillFamilies(page, table) {
         }
 
         var family_id = family.id;
-        $("#index_list").append("<li id=\"lnk-"+family_id+"\"><a href=\"javascript:void(0);\" onclick=\"htScroolTree('#hist-"+family_id+"');\">"+keywords[8] + " : " +family.name+"</a></li>");
+        $("#index_list").append("<li id=\"lnk-"+family_id+"\"><a href=\"javascript:void(0);\" onclick=\"htScrollTree('#hist-"+family_id+"');\">"+keywords[8] + " : " +family.name+"</a></li>");
 
         $("#trees").append("<div id=\"hist-"+family_id+"\"></div>");
 
@@ -1314,7 +1323,7 @@ function htFillFamilies(page, table) {
     if (destination != undefined && destination != null && destination.length > 1) {
         var localObject = $("#name-"+destination).val();
         if (localObject != undefined) {
-            htScroolToID("#name-"+destination);
+            htScrollToID("#name-"+destination);
             htFillTree(destination);
         }
     }
@@ -2958,7 +2967,7 @@ function htWriteGame(table, later, idx)
 {
     const localLang = $("#site_language").val();
     const localCalendar = $("#site_calendar").val();
-    var finalData = "<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";
+    htGameImageList = [];
     var total = 0;
     for (const i in table) {
         let item = table[i];
@@ -2969,36 +2978,17 @@ function htWriteGame(table, later, idx)
                 finalText = finalText.replace("<htdate"+j+">", htMountSpecificDate(localDate[j], localLang, localCalendar));
             }
         }
-        finalData += finalText+"|";
+        htGameImageList.push( { "imageDesc" : finalText, "imagePath": item.imagePath });
         total++;
     }
 
-    finalData += "</span><span id=\"htTotalGameData\">"+total+"</span></p>";
+    var finalData = "<span id=\"htTotalGameData\" style=\"visibility: hidden;\">"+total+"</span></p>";
     htAddPaperDivs("#paper", "game1", finalData, "", later, idx+1000);
 }
 
 function htLoadGameData()
 {
-    var ret = [];
-    var tmpData = "<p class=\"ht_description\"><span id=\"htGameDataToBeUsed\">";
-    var end = parseInt($("#htTotalGameData").html());
-
-    if (!end) {
-        return end;
-    }
-
-    var htmlValues = $("#htGameDataToBeUsed").html();
-    if (!htmlValues) {
-        return end;
-    }
-
-    var values = htmlValues.split("|");
-    for (let i = 0; i < end; i++) {
-        ret.push( { "imageDesc" : values[i] });
-    }
-
-    $("#htAnswersToBeUsed").html("");
-    return ret;
+    return htGameImageList;
 }
 
 //

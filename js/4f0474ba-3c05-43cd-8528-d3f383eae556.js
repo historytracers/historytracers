@@ -20,12 +20,11 @@ function closeDiv() {
 }
 
 function htFillImage() {
-    var imgName = htSequenceGame[currentLevel];
     var obj = localGameVectorfb9dca2c[currentLevel];
-    $("#imgSeqGame").attr("src", "images/"+imgName);
+    $("#imgSeqGame").attr("src", obj.imagePath);
     $("#desc").html(obj.imageDesc);
     currentLevel++;
-    if (currentLevel == htSequenceGame.length) {
+    if (currentLevel == localGameVectorfb9dca2c.length) {
         currentLevel = 0;
     }
 }

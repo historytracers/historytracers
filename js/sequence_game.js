@@ -71,9 +71,8 @@ function htSequenceSetCurrValue(again)
     }
 
     if (workingValue == stopValue && again == 0) {
-        var imgName = htSequenceGame[currentLevel];
         var obj = localGameVectorfb9dca2c[currentLevel];
-        $("#gameImage"+imgIdx).html("<img class=\"imgGameSize\" src=\"images/"+imgName+"\" id=\"imgSeqGame\" onclick=\"htImageZoom('imgSeqGame', '0%')\" /><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
+        $("#gameImage"+imgIdx).html("<img class=\"imgGameSize\" src=\""+obj.imagePath+"\" id=\"imgSeqGame\" onclick=\"htImageZoom('imgSeqGame', '0%')\" /><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
 
         currentLevel++;
         return false;

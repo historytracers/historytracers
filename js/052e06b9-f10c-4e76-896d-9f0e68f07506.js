@@ -123,7 +123,7 @@ function htSetAnswer() {
     if (level052e06b9 < 9) { 
         var imgName = htGameUseTranslationImages[idx];
         var obj = localGameUseVector052e06b9[idx];
-        $("#gameImage").html("<img class=\"imgGameSize\" id=\"imgCorrect\" onclick=\"htImageZoom('imgCorrect', '0%')\" src=\"images/"+imgName+"\"/><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
+        $("#gameImage").html("<img class=\"imgGameSize\" id=\"imgCorrect\" onclick=\"htImageZoom('imgCorrect', '0%')\" src=\""+obj.imagePath+"\"/><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
 
         htGameUseTranslationImages.splice(idx, 1);
         localGameUseVector052e06b9.splice(idx, 1);
@@ -134,7 +134,7 @@ function htSetAnswer() {
     }
 
     if (htGameUseTranslationImages.length == 0) {
-        htGameUseTranslationImages = [].concat(htGameImages);
+        htGameUseTranslationImages = [].concat(localGameVector052e06b9);
         localGameUseVector052e06b9 = [].concat(localGameVector05e06b9);
     }
     $("#nextLevel").show();
@@ -197,7 +197,7 @@ function htLoadContent() {
     });
 
     localGameVector052e06b9 = htLoadGameData();
-    htGameUseTranslationImages = [].concat(htGameImages);
+    htGameUseTranslationImages = [].concat(localGameVector052e06b9);
     localGameUseVector052e06b9 = [].concat(localGameVector052e06b9);
 
     var local_lang = $("#site_language").val();
