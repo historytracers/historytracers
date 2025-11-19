@@ -229,7 +229,7 @@
          "id": "SECTION_metate",
          "text": [
             {
-               "text": "### Moendo\n\nAlguns ingredientes usados na preparação dos alimentos passam por um longo processo desde a colheita até chegarem ao mercado. Mas isso nem sempre foi assim.\n\nMuito antes da existência dos mercados, e ainda hoje em algumas regiões do mundo, algumas famílias preservam a tradição de usar ferramentas antigas que servem para transformar os grãos de milho em farinha. Essa ferramenta é conhecida como metate ou pedra de moer (<htcite0>) e está representada na Figura 1.",
+               "text": "### Os ingredientes\n\nAlguns ingredientes usados na preparação dos alimentos passam por um longo processo desde a colheita até chegarem ao mercado. Mas isso nem sempre foi assim.\n\n#### Moendo o milho\n\nMuito antes da existência dos mercados, e ainda hoje em algumas regiões do mundo, algumas famílias preservam a tradição de usar ferramentas antigas que servem para transformar os grãos de milho em farinha. Essa ferramenta é conhecida como metate ou pedra de moer (<htcite0>) e está representada na Figura 1.",
                "source": [
                   {
                      "type": 1,
@@ -251,7 +251,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"metate3\" src=\"images/Teotihuacan/MetateTeotihuacan.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate3', '0%')\" /><b>Figura 2</b>: Metate do México. Fotografia tirada em <htdate0>, durante uma visita ao Sitio Arqueológico de Teotihuacan, México (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0059a36e-b134-4859-bec0-c89e7239d07c'); return false;\">INAH. Teotihuacan</a>).</p>",
+               "text": "<p class=\"desc\"><img id=\"metate3\" src=\"images/Teotihuacan/MetateTeotihuacan.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate3', '0%')\" /><b>Figura 1</b>: Metate do México. Fotografia tirada em <htdate0>, durante uma visita ao Sitio Arqueológico de Teotihuacan, México (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0059a36e-b134-4859-bec0-c89e7239d07c'); return false;\">INAH. Teotihuacan</a>).</p>",
                "source": null,
                "date_time": [
                   {
@@ -265,9 +265,102 @@
                "imgdesc": "Neste metate, vemos dois suportes frontais (“pernas”) e um suporte traseiro localizado no centro de uma peça retangular curvada. Na parte superior, há um rolo utilizado para triturar o milho.",
                "format": "html",
                "PostMention": ""
+            },
+            {
+               "text": "#### Água\n\nHoje em dia muitas fontes de água, principalmente dentro das cidades, estão poluídas e não podem ser usadas para consumo.\n\nMesmo com essa poluição elevada, o ciclo da água permanece inalterado, como mostrado na Figura 2. Graças a isso, podemos obter água potável para preparar nossa tortilha.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png\" id=\"imgUSG\" onclick=\"htImageZoom('imgUSG', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: Ciclo da água. Imagem de domínio público do Serviço Geológico dos Estados Unidos da América (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('490bc885-d393-4e26-a2c2-1ae2474b25f1'); return false;\">Ciclo d'água, <htdate0>, <i>U.S. Geological Survey</i></a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2013",
+                     "month": "10",
+                     "day": "13"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A partir da Figura 2, podemos concluir que é possível obter água para cozinhar diretamente da chuva por meio da construção de reservatórios (<htcite0>), como foi feito pelos Maias em Tikal (Figura 3).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7db2a258-e133-4f78-b4bf-28b1627a5653",
+                     "text": "Ghisi, E., Bressan, D. L., & Martini, M.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2007",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"gc\" onclick=\"htImageZoom('gc', '0%')\" src=\"images/Tikal/TikalReservorio.jpg\" class=\"imgcenter\" style=\"width:60%\"/><b>Figura 3</b>: Reservatório de água em Tikal, Guatemala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7ee4e8f6-3f68-4dbc-ad17-3b39f9964ef2'); return false;\">Parque Nacional Tikal</a>). Foto tirada em <htdate0>, durante uma visita ao sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "22"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_cooking",
+         "text": [
+            {
+               "text": "### A receita\n\nApós sabermos a origem dos ingredientes, está na hora de uní-los. No texto focaremos a operação de movimento (subtração) de ingredientes de um local para o outro, deixando as demais operações matemática para o exercício.\n\n#### Mixturando\n\nVamos partir do fato que ao triturarmos o milho, conseguimos o total de 1 quilograma de milho (ou compramos no mercado), mas nossa receita necessita de 175 gramas para fazer 12 tortilhas.\n\nSeparamos 175 gramas de farinha do total, e colocamos em um recipiente, em seguida vamos adicionando água aos poucos até ela atingir consitência desejada.\n\nFinalmente, cozinhamo ela em um forno até chegar ao ponto da tortilha e podemos servir",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_again",
+         "text": [
+            {
+               "text": "### E o que sobrou\n\n",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       }
+   ],
+   "exercise_v2": [
    ],
    "exercise_v2": [
       {
