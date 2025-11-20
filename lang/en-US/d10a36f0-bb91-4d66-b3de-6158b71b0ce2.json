@@ -1,0 +1,683 @@
+{
+   "title": "Cooking",
+   "header": "Cooking",
+   "sources": [
+      "d10a36f0-bb91-4d66-b3de-6158b71b0ce2"
+   ],
+   "scripts": [
+      "d10a36f0-bb91-4d66-b3de-6158b71b0ce2"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/d10a36f0-bb91-4d66-b3de-6158b71b0ce2_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6paaE5u4jhqSBtuzZKkHWb?si=WdD25OVOSqePbusecXGDsA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "biology",
+      "chemistry",
+      "physics"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1763662775"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis text continues the study of subtraction as movement. For a better understanding, we suggest studying the previous text (<htcite0>) and its prerequisites.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73cb1665-6b60-4725-a231-2aff976e7e6d",
+                     "text": "History Tracers Team",
+                     "page": "Returning",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nWhen we look at a recipe, we generally find the list of ingredients that must be added to a container to prepare the food.\n\nOften the dish requires a smaller amount than what is available in the package we bought or in what we gathered from the forest. This leads us to a reflection:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Better to have too much than too little</b><br /><br />When we move an amount of an ingredient from one place to another, are we performing a mathematical operation?<br /><br />Have you ever stopped to think that the food you consider delicious is only possible because someone has mastered different sciences, even without knowing how to name them?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "When we think that mathematics is just about formulas on paper, we fail to understand what this powerful language of nature truly represents. It is present in every corner of the universe.\n\nA good example of the profound use of mathematics is the act of cooking, whether in the Shona culture (<htcite0>) or in our own home.\n\nIn this text, we will begin to study the mathematics involved in food preparation.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cc162709-bdc3-469b-a208-e900f4570842",
+                     "text": "Sadomba, Zvakanyorwa Wilbert",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_crop",
+         "text": [
+            {
+               "text": "### The Harvest\n\nTo better understand the process of movement, let's assume we brought 1 kilogram of corn flour and 1 liter of water from the market. Now, reflect:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: How this arrived at the location</b><br /><br />We often go to the market, and the convenience leads us to ignore the entire production process. Even though it is largely industrial today, in many places there is still family and artisanal production.<br /><br />Would you know how to prepare the flour from the corn harvested in a field?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Cultivation (Artificial Selection)\n\nTo cook, the first step is to choose exactly what we want to make. In this example, we are going to prepare a corn tortilla.\n\nThe cultivation of corn is one of the oldest in the American continent (*Abya Yala*) (<htcite0>). The process of domesticating plants, although the term is more common for animals, also applies to plants. This process led to the repeated cultivation of the varieties that best met our needs. This allowed for the emergence of different species or types of beans and corns, as observed by Darwin in the 19th century (<htcite1>; <htcite2>).\n\nThis process of species (type of plants) selection by humans is known as artificial selection (<htcite3>). Through it, we choose the changes in plants that are most useful to us.\n\n#### Choices for Cooking\n\nWhen selecting the ears of corn from the stalk, we perform mathematical operations we have already learned. Let's assume we have a stalk with 8 ears and we want to harvest 4:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9477cdbb-4c80-4626-94ce-b16793541307",
+                     "text": "Chacón Sanchez, María Isabel",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2009",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "57763a8f-035c-490b-8612-8e4c7cd4c10a",
+                     "text": "Darwin, Charles",
+                     "page": "Cap. IX e X",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9477cdbb-4c80-4626-94ce-b16793541307",
+                     "text": "Chacón Sanchez, María Isabel",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2009",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "bc2dc378-7d5b-4f46-b035-577ae8296c56",
+                     "text": "Britannica Editors",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "2",
+                        "day": "7"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"emptyGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">Text</td><td style=\"background-color: lightblue\"><b>Operation</b></td><td style=\"background-color: lightblue\"><b>Calculation</b></td></tr>  <tr><td style=\"background-color: white\">We take four ears from the stalk and place them in a basket to transport.</td><td style=\"background-color: white\">Sum</td><td style=\"background-color: white\">1 + 1 + 1 + 1 = 4</td></tr> <tr><td style=\"background-color: white\">We take four ears from the stalk and place them in a basket to transport.</td><td style=\"background-color: white\">Multiplication</td><td style=\"background-color: white\">4 × 1 = 4</td></tr> <tr><td style=\"background-color: white\">We remove half of the ears from the stalk.</td><td style=\"background-color: white\">Division</td><td style=\"background-color: white\">8/2 = 4</td></tr>  <tr><td style=\"background-color: white\">We remove four ears from the stalk.</td><td style=\"background-color: white\">Subtraction</td><td style=\"background-color: white\">8 - 4 = 4</td></tr></table></p> <p class=\"desc\"><b>Table 1</b>: Different ways of representing a harvest.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: Then and now</b><br /><br />Did you notice that the harvesting process can be viewed from different perspectives, all involving mathematics?<br /><br />Did you notice that matter is conserved and that no ear of corn disappears?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_metate",
+         "text": [
+            {
+               "text": "### The ingredients\n\nSome ingredients used in food preparation undergo a long process from harvest until they reach the market. But it was not always this way.\n\n#### Grinding the corn\n\nLong before the existence of markets, and still today in some regions of the world, some families preserve the tradition of using ancient tools to transform corn kernels into flour. This tool is known as a metate or grinding stone (<htcite0>) and is represented in Figure 1.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cb2e20fc-2620-4793-9153-257be4931371",
+                     "text": "Rodríguez Yc, J. R.",
+                     "page": "pp. 22",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"metate3\" src=\"images/Teotihuacan/MetateTeotihuacan.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate3', '0%')\" /><b>Figure 1</b>: Metate from Mexico. Photo taken on <htdate0>, during a visit to the Achaeological Site of Teotihuacan, México (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0059a36e-b134-4859-bec0-c89e7239d07c'); return false;\">INAH. Teotihuacan</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "In this metate, we see two front supports (“legs”) and a rear support located at the center of a curved rectangular piece. On the top, there is a roller used to grind corn.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Water\n\nNowadays, many water sources, primarily within cities, are polluted and cannot be used for consumption.\n\nEven with this high level of pollution, the water cycle remains unchanged, as shown in Figure 2. Thanks to this, we can obtain potable water to prepare our tortilla.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/USGS/USGS_WaterCycle_English_ONLINE_20230302.png\" id=\"imgUSG\" onclick=\"htImageZoom('imgUSG', '0%')\" class=\"imgcenter\"/><b>Figure 2</b>: Water Cycle. Public domain image from the U.S. Geological Survey (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('490bc885-d393-4e26-a2c2-1ae2474b25f1'); return false;\">Water Cycle, <htdate0>, <i>U.S. Geological Survey</i></a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2013",
+                     "month": "10",
+                     "day": "13"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "From Figure 2, we can conclude that it is possible to obtain water for cooking directly from rain by building reservoirs (<htcite0>), as was done by the Maya in Tikal (Figure 3).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7db2a258-e133-4f78-b4bf-28b1627a5653",
+                     "text": "Ghisi, E., Bressan, D. L., & Martini, M.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2007",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"gc\" onclick=\"htImageZoom('gc', '0%')\" src=\"images/Tikal/TikalReservorio.jpg\" class=\"imgcenter\" style=\"width:60%\"/><b>Figure 3</b>: Water reservoir in Tikal, Guatemala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7ee4e8f6-3f68-4dbc-ad17-3b39f9964ef2'); return false;\">Parque Nacional Tikal</a>). Photo taken on <htdate0>, during a visit to the site.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "22"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_cooking",
+         "text": [
+            {
+               "text": "### The Recipe\n\nAfter learning the origin of the ingredients, it is time to combine them.\n\nLet's consider that by grinding the corn, we obtained 1 kilogram of corn flour, or that we bought a 1-kilogram package at the market. However, our recipe only needs 175 grams to prepare 12 tortillas.\n\n#### Preparation\n\nWe separate 175 grams of flour from the total and place it in a container (**Figure 4**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"JC\" onclick=\"htImageZoom('JC', '0%')\" src=\"images/JoyaCeren/JoyaCerenCocina.jpg\" class=\"imgcenter\"/><b>Figure 4</b>: Ceramic bowls found at Joya de Cerén, El Salvador. Photo taken on <htdate0>, during a visit to the site.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "24"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Then, we add water little by little until the mixture reaches the desired consistency (**Figure 5**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"c0\" onclick=\"htImageZoom('c0', '0%')\" src=\"images/HistoryTracers/TortillaFinal1.png\" class=\"imgcenter\"/><b>Figure 5</b>: Photo of corn tortilla dough in a container different from indigenous containers.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Finally, we cook the dough on the griddle until it reaches the stage of a tortilla and is ready to serve (**Figure 6**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"c1\" onclick=\"htImageZoom('c1', '0%')\" src=\"images/HistoryTracers/TortillaFinal2.png\" class=\"imgcenter\"/><b>Figure 6</b>: Corn tortilla ready for consumption.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_next_stepping",
+         "text": [
+            {
+               "text": "### Next Steps\n\nAfter finishing cooking, we observed that not all the corn obtained from the harvest was used. This allows us to plan new recipes, but first, we need to know how much is left.\n\nIn the previous text (<htcite0>), we worked with subtraction as movement. Now, we will deepen this concept.\n\n#### Without Movements\n\nWe know we could only cook because there were ingredients, but what about when we don't have any?",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73cb1665-6b60-4725-a231-2aff976e7e6d",
+                     "text": "History Tracers Team",
+                     "page": "Returning",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 4: Where is...</b><br /><br />Is it possible to move something we don't have?<br /><br />Is it possible to make a corn tortilla without corn?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Stages\n\nWhen we perform subtraction (movements), it is necessary to have something to move.\n\nWhen we perform subtraction, just like the other operations we know, we also work with two numbers. But sometimes, the units digit is smaller than the other we wish to subtract. Therefore, we must reflect once more.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 5: What would you do?</b><br /><br />Considering what we have already studied, how would you perform the subtraction of 1000 − 175?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Recalling the Path\n\n**Graph 1** shows us the path with the numbers.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg width=\"420\" height=\"100\"  fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"15\" x2=\"400\" y2=\"15\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"40\" font-size=\"1.5em\">0</text> <text x=\"40\" y=\"40\" font-size=\"1.5em\">1</text> <text x=\"80\" y=\"40\" font-size=\"1.5em\">2</text> <text x=\"120\" y=\"40\" font-size=\"1.5em\">3</text> <text x=\"160\" y=\"40\" font-size=\"1.5em\">4</text> <text x=\"200\" y=\"40\" font-size=\"1.5em\">5</text> <text x=\"240\" y=\"40\" font-size=\"1.5em\">6</text> <text x=\"280\" y=\"40\" font-size=\"1.5em\">7</text> <text x=\"320\" y=\"40\" font-size=\"1.5em\">8</text> <text x=\"360\" y=\"40\" font-size=\"1.5em\">9</text> <line x1=\"5\" y1=\"15\" x2=\"5\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"45\" y1=\"15\" x2=\"45\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"15\" x2=\"85\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"125\" y1=\"15\" x2=\"125\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"165\" y1=\"15\" x2=\"165\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"205\" y1=\"15\" x2=\"205\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"245\" y1=\"15\" x2=\"245\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"285\" y1=\"15\" x2=\"285\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"325\" y1=\"15\" x2=\"325\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"365\" y1=\"15\" x2=\"365\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" />  </svg></p><p class=\"desc\"><b>Graph 1</b>: shows us the path with the numbers.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "When we wish to subtract a number that is to the left of another, it means there are quantities we can take away (move). Let's see some examples:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>9</mn> <mo>-</mo> <mn>1</mn> <mo>=</mo> <mn>8</mn> </math></p><p><math display=\"block\"> <mn>8</mn> <mo>-</mo> <mn>2</mn> <mo>=</mo> <mn>6</mn> </math></p><p><math display=\"block\"> <mn>7</mn> <mo>-</mo> <mn>3</mn> <mo>=</mo> <mn>4</mn> </math></p><p><math display=\"block\"> <mn>6</mn> <mo>-</mo> <mn>5</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>5</mn> <mo>-</mo> <mn>5</mn> <mo>=</mo> <mn>0</mn> </math></p><p class=\"desc\"><b>Calculation 1</b>: Subtraction of numbers further to the right by numbers further to the left.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "From this, we can conclude that we can subtract 175 from 1000, because as we expand the number in Graph 1, we first pass 175 and only later reach 1000.\n\n#### Memories\n\nIf we were to add the two desired numbers, instead of subtracting them, we would have:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmtc4\">1 </span><span class=\"sumexample1\" id=\"cmtc3\">0 </span><span class=\"sumexample1\" id=\"cmtc2\">0 </span><span class=\"sumexample1\" id=\"cmtc1\">0 </span> <br />+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmbc3\">1 </span><span class=\"sumexample1\" id=\"cmbc2\">7 </span><span class=\"sumexample1\" id=\"cmbc1\">5 </span><br />____________<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmrc4\">1 </span><span class=\"sumexample1\" id=\"cmrc3\">1 </span><span class=\"sumexample1\" id=\"cmrc2\">7 </span><span class=\"sumexample1\" id=\"cmrc1\">5 </span></center></p><p class=\"desc\"><b>Calculation 2</b>: Addition of the numbers 1000 and 175.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 2**, by hovering the mouse (or finger) over the numbers, we see that we add column by column, always from right to left.\n\nNow, let's write it in the subtraction format:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"smtc4\">1 </span><span id=\"smtc3\">0 </span><span id=\"smtc2\">0 </span><span id=\"smtc1\">0 </span> <br />-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"smbc3\">1 </span><span id=\"smbc2\">7 </span><span id=\"smbc1\">5 </span><br />____________</center></p><p class=\"desc\"><b>Calculation 3</b>: Subtraction of the numbers 1000 and 175.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "When we observe what we want to subtract, it's possible to notice that for units, tens, and hundreds, it is not possible to move something directly, because we have the number zero, which represents emptiness (<htcite0>).\n\n#### Using the Orders (Place Values)\n\nWhen we re-read numbers, we learned that each number we write contains an internal multiplication (<htcite1>). For example, the numbers we want to subtract can be rewritten as:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
+                     "text": "Musa, Auwalu",
+                     "page": "pp. 44, 46 - 48",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "text": "History Tracers Team",
+                     "page": "Rereading",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>1000</mn> <mo>=</mo> <mn>1 ×(10×10×10)</mn> <mo>+</mo> <mn>0 × (10×10)</mn> <mo>+</mo> <mn>0 ×(10)</mn> <mo>+</mo> <mn>0 × (1)</mn></math></p><p><math display=\"block\"> <mn>175</mn> <mo>=</mo><mn>1 × (10×10)</mn> <mo>+</mo> <mn>7 ×(10)</mn> <mo>+</mo> <mn>5 × (1)</mn></math></p><p class=\"desc\"><b>Calculation 4</b>: Factorization of numbers.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "With this information, we can move quantities between the orders so that we can perform an operation in that specific order. To do this, it is enough to move a single element from a previous order, which, as we saw, corresponds to 10 times the number of one order. Let's do the subtraction step by step to make this clearer:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>1000</mn> <mo>-</mo> <mn>175</mn></math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>100</mn><mo>-</mo> <mn>175</mn> </math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>-</mo> <mn>175</mn> </math></p><p class=\"desc\"><b>Calculation 5</b>: Factorization of the number to be subtracted from.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Now, we can also separate the second number into its orders:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>-</mo> <mn>175</mn></math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>- (</mo> <mn>100</mn> <mo>+</mo> <mn>75</mn> <mo>)</mo></math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>- (</mo> <mn>100</mn> <mo>+</mo> <mn>70</mn> <mo>+</mo> <mn>5</mn> <mo>)</mo></math></p><p class=\"desc\"><b>Calculation 6</b>: Factorization of the second number to be subtracted.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As the next step, let's rewrite the numbers with the same orders:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\">  <mo>(</mo> <mn>900</mn> <mo>-</mo> <mn>100</mn> <mo>) + (</mo> <mn>90</mn> <mo>-</mo> <mn>70</mn>  <mo>) + (</mo> <mn>10</mn> <mo>-</mo> <mn>5</mn>  <mo>)</mo> </math></p><p class=\"desc\"><b>Calculation 7</b>: Reorganization of the calculation.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Note that in **Calculation 7**, all the factors that make up the number 175 continue with the subtraction sign, even after we reorganized the numbers by order.\n\nFinally, we can perform the subtractions and obtain the final result:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\">  <mo>(</mo> <mn>900</mn> <mo>-</mo> <mn>100</mn> <mo>) + (</mo> <mn>90</mn> <mo>-</mo> <mn>70</mn>  <mo>) + (</mo> <mn>10</mn> <mo>-</mo> <mn>5</mn>  <mo>)</mo> </math></p><p><math display=\"block\">  <mo>(</mo> <mn>800</mn> <mo>) + (</mo> <mn>20</mn>  <mo>)  + (</mo> <mn>5</mn>  <mo>)</mo> </math></p><p><math display=\"block\">  <mn>825</mn> </math></p><p class=\"desc\"><b>Calculation 8</b>: Obtaining the final result.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we learned that when subtracting one number from another, even though we always perform the operation between two numbers, it doesn't mean that using higher orders during the process won't be necessary.\n\nFurthermore, we saw that mathematics is present in one of the most important areas of our lives: food preparation (<htcite0>). And mathematics isn't the only science present in the kitchen, as we will see in upcoming texts.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cc162709-bdc3-469b-a208-e900f4570842",
+                     "text": "Sadomba, Zvakanyorwa Wilbert",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Is addition the only operation we use in a harvest?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "There are different ways to interpret the act of harvesting, and in each one, it's possible to associate a type of mathematical operation we have studied."
+      },
+      {
+         "question": "Is it possible to perform the subtraction 754 – 728?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Even though the units of the second value are larger than those of the first, we can reorganize the orders of the first number to perform the operation:<br />754 - 728<br />700 + 50 + 4 - (700 + 20 + 8)<br />700 + 40 + 14 - (700 + 20 + 8)<br /> (700 - 700) + (40 - 20) + (14 - 8)<br />(0) + (20) + (6)<br />26"
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

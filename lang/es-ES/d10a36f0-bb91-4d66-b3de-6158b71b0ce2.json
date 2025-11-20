@@ -1,0 +1,683 @@
+{
+   "title": "Cocinando",
+   "header": "Cocinando",
+   "sources": [
+      "d10a36f0-bb91-4d66-b3de-6158b71b0ce2"
+   ],
+   "scripts": [
+      "d10a36f0-bb91-4d66-b3de-6158b71b0ce2"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/d10a36f0-bb91-4d66-b3de-6158b71b0ce2_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/d6MeujeksYb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "biology",
+      "chemistry",
+      "physics"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1763662775"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste texto continúa el estudio de la sustracción como movimiento. Para una mejor comprensión, sugerimos estudiar el texto anterior (<htcite0>) y sus prerrequisitos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73cb1665-6b60-4725-a231-2aff976e7e6d",
+                     "text": "History Tracers Team",
+                     "page": "Retornando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nCuando miramos una receta, generalmente encontramos la lista de ingredientes que deben añadirse a un recipiente para preparar la comida.\n\nA menudo el plato requiere una cantidad menor que la disponible en el paquete que compramos o en lo que recolectamos del bosque. Esto nos lleva a una reflexión:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Mejor que sobre a que falte</b><br /><br />Al mover la cantidad de un ingrediente de un lugar a otro, ¿estamos realizando alguna operación matemática?<br /><br />¿Alguna vez has pensado que la comida que consideras deliciosa solo es posible porque alguien domina diferentes ciencias, incluso sin saber nombrarlas?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Cuando pensamos que las matemáticas se resumen a fórmulas en el papel, dejamos de entender lo que este poderoso lenguaje de la naturaleza realmente representa. Está presente en todos los lugares del universo.\n\nUn buen ejemplo del uso profundo de las matemáticas es el acto de cocinar, ya sea en la cultura Shona (<htcite0>) o en nuestra propia casa.\n\nEn este texto, comenzaremos a estudiar las matemáticas involucradas en la preparación de los alimentos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cc162709-bdc3-469b-a208-e900f4570842",
+                     "text": "Sadomba, Zvakanyorwa Wilbert",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_crop",
+         "text": [
+            {
+               "text": "### La Cosecha\n\nPara entender mejor el proceso de movimiento, supongamos que trajimos del mercado 1 kilogramo de harina de maíz y 1 litro de agua. Ahora, reflexione:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Cómo llegó esto al lugar</b><br /><br />A menudo vamos al mercado y la practicidad hace que ignoremos todo el proceso de producción. Aunque hoy en día sea ampliamente industrial, en muchos lugares todavía existe la producción familiar y artesanal.<br /><br />¿Sabrías preparar la harina a partir del maíz cosechado en una plantación?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Plantación (selección artificial)\n\nPara cocinar, el primer paso es elegir exactamente lo que queremos hacer. En este ejemplo, vamos a preparar una tortilla de maíz.\n\nEl cultivo del maíz es uno de los más antiguos del continente americano (*Abya Yala*) (<htcite0>). El proceso de domesticación de vegetales, aunque el término sea más común para los animales, también se aplica a las plantas. Este proceso llevó al cultivo repetido de las variedades que mejor satisfacían nuestras necesidades. Esto permitió el surgimiento de diferentes especies o tipos de frijoles y maíces, como observó Darwin en el siglo XIX (<htcite1>; <htcite2>).\n\nEste proceso de selección de especies (tipos de plantas) por parte de los humanos se conoce como selección artificial (<htcite3>). A través de él, elegimos los cambios en las plantas que son más útiles para nosotros.\n\n#### Elecciones para cocinar\n\nEn el momento de elegir las mazorcas de maíz en la planta, realizamos operaciones matemáticas que ya hemos aprendido. Supongamos que tenemos una planta con 8 mazorcas y queremos cosechar 4:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9477cdbb-4c80-4626-94ce-b16793541307",
+                     "text": "Chacón Sanchez, María Isabel",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2009",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "57763a8f-035c-490b-8612-8e4c7cd4c10a",
+                     "text": "Darwin, Charles",
+                     "page": "Cap. IX e X",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9477cdbb-4c80-4626-94ce-b16793541307",
+                     "text": "Chacón Sanchez, María Isabel",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2009",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "bc2dc378-7d5b-4f46-b035-577ae8296c56",
+                     "text": "Britannica Editors",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "2",
+                        "day": "7"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"emptyGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">Texto</td><td style=\"background-color: lightblue\"><b>Operación</b></td><td style=\"background-color: lightblue\"><b>Cálculo</b></td></tr>  <tr><td style=\"background-color: white\">Cogemos cuatro mazorcas de la planta y las colocamos en una cesta para transportar.</td><td style=\"background-color: white\">Suma</td><td style=\"background-color: white\">1 + 1 + 1 + 1 = 4</td></tr> <tr><td style=\"background-color: white\">Cogemos cuatro mazorcas de la planta y las colocamos en una cesta para transportar.</td><td style=\"background-color: white\">Multiplicación</td><td style=\"background-color: white\">4 × 1 = 4</td></tr> <tr><td style=\"background-color: white\">Quitamos la mitad de las mazorcas de la planta.</td><td style=\"background-color: white\">División</td><td style=\"background-color: white\">8/2 = 4</td></tr>  <tr><td style=\"background-color: white\">Quitamos la mitad de las mazorcas de la planta.</td><td style=\"background-color: white\">Resta</td><td style=\"background-color: white\">8 - 4 = 4</td></tr></table></p> <p class=\"desc\"><b>Tabla 1</b>: Diferentes maneras de representar una cosecha.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Antes y ahora</b><br /><br />¿Notaste que el proceso de cosecha puede verse desde diferentes puntos de vista, todos involucrando matemáticas?<br /><br />¿Notaste que la materia se conserva y que ninguna mazorca desaparece?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_metate",
+         "text": [
+            {
+               "text": "### Los ingredientes\n\nAlgunos ingredientes utilizados en la preparación de los alimentos pasan por un largo proceso desde la cosecha hasta que llegan al mercado. Pero esto no siempre fue así.\n\n#### Moliendo la maíz\n\nMucho antes de la existencia de los mercados, y aún hoy en algunas regiones del mundo, algunas familias preservan la tradición de utilizar herramientas antiguas que sirven para transformar los granos de maíz en harina. Esta herramienta se conoce como metate o piedra de moler (<htcite0>) y está representada en la Figura 1.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cb2e20fc-2620-4793-9153-257be4931371",
+                     "text": "Rodríguez Yc, J. R.",
+                     "page": "pp. 22",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"metate3\" src=\"images/Teotihuacan/MetateTeotihuacan.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate3', '0%')\" /><b>Figura 1</b>: Metate do México. Fotografia tirada em <htdate0>, durante uma visita ao Sitio Arqueológico de Teotihuacan, México (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0059a36e-b134-4859-bec0-c89e7239d07c'); return false;\">INAH. Teotihuacan</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En este metate vemos dos soportes frontales (“piernas”) y un soporte trasero ubicado en el centro de una pieza rectangular curvada. En la parte superior, hay un rodillo utilizado para triturar el maíz.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Agua\n\nHoy en día muchas fuentes de agua, principalmente dentro de las ciudades, están contaminadas y no pueden usarse para consumo.\n\nAun con esta elevada contaminación, el ciclo del agua permanece inalterado, como se muestra en la Figura 2. Gracias a esto, podemos obtener agua potable para preparar nuestra tortilla.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png\" id=\"imgUSG\" onclick=\"htImageZoom('imgUSG', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: Ciclo del agua. Imagen de dominio público del Servicio Geológico de los Estados Unidos de América (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('490bc885-d393-4e26-a2c2-1ae2474b25f1'); return false;\">Ciclo d'água, <htdate0>, <i>U.S. Geological Survey</i></a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2013",
+                     "month": "10",
+                     "day": "13"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A partir de la Figura 2, podemos concluir que es posible obtener agua para cocinar directamente de la lluvia mediante la construcción de reservorios (<htcite0>), como hicieron los Mayas en Tikal (Figura 3).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7db2a258-e133-4f78-b4bf-28b1627a5653",
+                     "text": "Ghisi, E., Bressan, D. L., & Martini, M.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2007",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"gc\" onclick=\"htImageZoom('gc', '0%')\" src=\"images/Tikal/TikalReservorio.jpg\" class=\"imgcenter\" style=\"width:60%\"/><b>Figura 3</b>: Reservorio de agua en Tikal, Guatemala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7ee4e8f6-3f68-4dbc-ad17-3b39f9964ef2'); return false;\">Parque Nacional Tikal</a>). Foto tomada el <htdate0>, durante una visita al sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "22"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_cooking",
+         "text": [
+            {
+               "text": "### La receta\n\nDespués de conocer el origen de los ingredientes, es hora de unirlos.\n\nConsideremos que, al triturar el maíz, obtuvimos 1 kilogramo de harina de maíz, o que compramos en el mercado un paquete de 1 kilo. Sin embargo, nuestra receta necesita solo 175 gramos para preparar 12 tortillas.\n\n#### Preparación\n\nSeparamos 175 gramas de harina del total y la ponemos en un recipiente (**Figura 4**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"JC\" onclick=\"htImageZoom('JC', '0%')\" src=\"images/JoyaCeren/JoyaCerenCocina.jpg\" class=\"imgcenter\"/><b>Figura 4</b>: Vasijas de cerámica encontradas en Joya de Cerén, El Salvador. Foto tomada el <htdate0>, durante una visita al lugar.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "24"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Luego, añadimos agua poco a poco hasta que la mezcla alcance la consistencia deseada (**Figura 5**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"c0\" onclick=\"htImageZoom('c0', '0%')\" src=\"images/HistoryTracers/TortillaFinal1.png\" class=\"imgcenter\"/><b>Figura 5</b>: Foto de la masa de tortilla de maíz dentro de un recipiente diferente de los recipientes indígenas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Por último, cocinamos la masa en el horno hasta que alcance el punto de tortilla y esté lista para servir (**Figura 6**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"c1\" onclick=\"htImageZoom('c1', '0%')\" src=\"images/HistoryTracers/TortillaFinal2.png\" class=\"imgcenter\"/><b>Figura 6</b>: Tortilla de maíz lista para el consumo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_next_stepping",
+         "text": [
+            {
+               "text": "### Próximos pasos\n\nAl terminar de cocinar, observamos que no todo el maíz obtenido en la cosecha fue utilizado. Esto nos permite planificar nuevas recetas, pero, primero, necesitamos saber cuánto sobró.\n\nEn el texto anterior (<htcite0>), trabajamos con la resta como movimiento. Ahora, profundizaremos en ese concepto.\n\n#### Sin movimientos\n\nSabemos que solo pudimos cocinar porque había ingredientes, pero ¿y cuando no tenemos?",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73cb1665-6b60-4725-a231-2aff976e7e6d",
+                     "text": "History Tracers Team",
+                     "page": "Retornando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: ¿Dónde está...?</b><br /><br />¿Es posible mover algo que no tenemos?<br /><br />¿Es posible hacer una tortilla de maíz sin maíz?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Etapas\n\nAl realizar la resta (movimientos), es necesario tener algo para mover.\n\nAl realizar la resta, al igual que en las otras operaciones que conocemos, también trabajamos con dos números. Pero, a veces, la cifra de las unidades es menor que la otra que deseamos restar. Por lo tanto, debemos reflexionar una vez más.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 5: ¿Qué harías?</b><br /><br />Considerando lo que ya hemos estudiado, ¿cómo realizarías la resta de 1000 − 175?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Recordando el camino\n\nEl **Gráfico 1** nos muestra el camino con los números.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg width=\"420\" height=\"100\"  fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"15\" x2=\"400\" y2=\"15\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"40\" font-size=\"1.5em\">0</text> <text x=\"40\" y=\"40\" font-size=\"1.5em\">1</text> <text x=\"80\" y=\"40\" font-size=\"1.5em\">2</text> <text x=\"120\" y=\"40\" font-size=\"1.5em\">3</text> <text x=\"160\" y=\"40\" font-size=\"1.5em\">4</text> <text x=\"200\" y=\"40\" font-size=\"1.5em\">5</text> <text x=\"240\" y=\"40\" font-size=\"1.5em\">6</text> <text x=\"280\" y=\"40\" font-size=\"1.5em\">7</text> <text x=\"320\" y=\"40\" font-size=\"1.5em\">8</text> <text x=\"360\" y=\"40\" font-size=\"1.5em\">9</text> <line x1=\"5\" y1=\"15\" x2=\"5\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"45\" y1=\"15\" x2=\"45\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"15\" x2=\"85\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"125\" y1=\"15\" x2=\"125\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"165\" y1=\"15\" x2=\"165\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"205\" y1=\"15\" x2=\"205\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"245\" y1=\"15\" x2=\"245\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"285\" y1=\"15\" x2=\"285\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"325\" y1=\"15\" x2=\"325\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"365\" y1=\"15\" x2=\"365\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" />  </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representación de un camino.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Cuando deseamos restar un número que está a la izquierda de otro, eso quiere decir que hay cantidades que podemos quitar (mover). Veamos algunos ejemplos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>9</mn> <mo>-</mo> <mn>1</mn> <mo>=</mo> <mn>8</mn> </math></p><p><math display=\"block\"> <mn>8</mn> <mo>-</mo> <mn>2</mn> <mo>=</mo> <mn>6</mn> </math></p><p><math display=\"block\"> <mn>7</mn> <mo>-</mo> <mn>3</mn> <mo>=</mo> <mn>4</mn> </math></p><p><math display=\"block\"> <mn>6</mn> <mo>-</mo> <mn>5</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>5</mn> <mo>-</mo> <mn>5</mn> <mo>=</mo> <mn>0</mn> </math></p><p class=\"desc\"><b>Cálculo 1</b>: Resta de números más a la derecha por números más a la izquierda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Con esto, podemos concluir que podemos restar de 1000 el valor 175, pues, a medida que expandimos el número del **Gráfico 1**, primero pasamos por el 175 para, solo después, llegar al 1000.\n\n#### Recuerdos\n\nSi fuésemos a sumar los dos números deseados, en vez de restarlos, tendríamos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmtc4\">1 </span><span class=\"sumexample1\" id=\"cmtc3\">0 </span><span class=\"sumexample1\" id=\"cmtc2\">0 </span><span class=\"sumexample1\" id=\"cmtc1\">0 </span> <br />+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmbc3\">1 </span><span class=\"sumexample1\" id=\"cmbc2\">7 </span><span class=\"sumexample1\" id=\"cmbc1\">5 </span><br />____________<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmrc4\">1 </span><span class=\"sumexample1\" id=\"cmrc3\">1 </span><span class=\"sumexample1\" id=\"cmrc2\">7 </span><span class=\"sumexample1\" id=\"cmrc1\">5 </span></center></p><p class=\"desc\"><b>Cálculo 2</b>: Adición de los números 1000 y 175.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En el **Cálculo 2**, al pasar el mouse (o el dedo) sobre los números, vemos que sumamos columna por columna, siempre de derecha a izquierda.\n\nAhora, escribamos en el formato de resta:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"smtc4\">1 </span><span id=\"smtc3\">0 </span><span id=\"smtc2\">0 </span><span id=\"smtc1\">0 </span> <br />-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"smbc3\">1 </span><span id=\"smbc2\">7 </span><span id=\"smbc1\">5 </span><br />____________</center></p><p class=\"desc\"><b>Cálculo 3</b>: Resta de los números 1000 y 175.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al observar lo que deseamos restar, es posible notar que, para unidades, decenas y centenas, no es posible mover algo directamente, pues tenemos el número cero, que representa el vacío (<htcite0>).\n\n#### Usando los órdenes\n\nCuando releemos los números, aprendimos que cada número que escribimos posee internamente una multiplicación (<htcite1>). Por ejemplo, los números que deseamos restar pueden reescribirse como:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
+                     "text": "Musa, Auwalu",
+                     "page": "pp. 44, 46 - 48",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "text": "History Tracers Team",
+                     "page": "Releyendo",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>1000</mn> <mo>=</mo> <mn>1 ×(10×10×10)</mn> <mo>+</mo> <mn>0 × (10×10)</mn> <mo>+</mo> <mn>0 ×(10)</mn> <mo>+</mo> <mn>0 × (1)</mn></math></p><p><math display=\"block\"> <mn>175</mn> <mo>=</mo><mn>1 × (10×10)</mn> <mo>+</mo> <mn>7 ×(10)</mn> <mo>+</mo> <mn>5 × (1)</mn></math></p><p class=\"desc\"><b>Cálculo 4</b>: Factorización de números.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Con esta información, podemos mover cantidades entre los órdenes de modo que podamos realizar una operación en aquel orden específico. Para eso, basta con mover un único elemento de un orden anterior, que, como vimos, corresponde a 10 veces el número de un orden. Hagamos la resta por etapas para dejar esto más claro:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>1000</mn> <mo>-</mo> <mn>175</mn></math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>100</mn><mo>-</mo> <mn>175</mn> </math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>-</mo> <mn>175</mn> </math></p><p class=\"desc\"><b>Cálculo 5</b>: Factorización del número que será restado.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ahora, podemos también separar el segundo número en órdenes:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>-</mo> <mn>175</mn></math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>- (</mo> <mn>100</mn> <mo>+</mo> <mn>75</mn> <mo>)</mo></math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>- (</mo> <mn>100</mn> <mo>+</mo> <mn>70</mn> <mo>+</mo> <mn>5</mn> <mo>)</mo></math></p><p class=\"desc\"><b>Cálculo 6</b>: Factorización del segundo número a restar.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como próximo paso, reescribamos los números con los mismos órdenes:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\">  <mo>(</mo> <mn>900</mn> <mo>-</mo> <mn>100</mn> <mo>) + (</mo> <mn>90</mn> <mo>-</mo> <mn>70</mn>  <mo>) + (</mo> <mn>10</mn> <mo>-</mo> <mn>5</mn>  <mo>)</mo> </math></p><p class=\"desc\"><b>Cálculo 7</b>: Reorganización del cálculo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Observe que, en el **Cálculo 7** todos los factores que componen el número 175 continúan con el signo de resta, incluso después de reorganizar los números por orden.\n\nFinalmente, podemos realizar las restas y obtener el resultado final:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\">  <mo>(</mo> <mn>900</mn> <mo>-</mo> <mn>100</mn> <mo>) + (</mo> <mn>90</mn> <mo>-</mo> <mn>70</mn>  <mo>) + (</mo> <mn>10</mn> <mo>-</mo> <mn>5</mn>  <mo>)</mo> </math></p><p><math display=\"block\">  <mo>(</mo> <mn>800</mn> <mo>) + (</mo> <mn>20</mn>  <mo>)  + (</mo> <mn>5</mn>  <mo>)</mo> </math></p><p><math display=\"block\">  <mn>825</mn> </math></p><p class=\"desc\"><b>Cálculo 8</b>: Obteniendo el resultado final.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, aprendimos que al realizar la resta de un número por otro, aunque efectuemos la operación siempre entre dos números, eso no significa que no será necesario utilizar órdenes mayores durante el proceso.\n\nAdemás, vimos que las matemáticas están presentes en una de las áreas más importantes de nuestra vida: la preparación de los alimentos (<htcite0>). Y las matemáticas no son la única ciencia presente en la cocina, como veremos en los próximos textos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cc162709-bdc3-469b-a208-e900f4570842",
+                     "text": "Sadomba, Zvakanyorwa Wilbert",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿La suma es la única operación que usamos en una cosecha?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Há diferentes maneiras de interpretar o ato de colher, e, em cada uma delas, é possível associar um tipo de operação matemática que estudamos."
+      },
+      {
+         "question": "¿Es posible realizar la resta 754 – 728?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Aunque las unidades del segundo valor sean mayores que las del primero, podemos reorganizar los órdenes del primer número para realizar la operación:<br />754 - 728<br />700 + 50 + 4 - (700 + 20 + 8)<br />700 + 40 + 14 - (700 + 20 + 8)<br /> (700 - 700) + (40 - 20) + (14 - 8)<br />(0) + (20) + (6)<br />26"
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

@@ -507,51 +507,47 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 }
 
 // Overall Files
-func htConvertClassesToAudio(pages []string) {
-	for _, dir := range htLangPaths {
-		htLoadKeywordFile("common_keywords", dir)
+func htConvertClassesToAudio(pages []string, lang string) {
+	for _, page := range pages {
+		var ctf classTemplateFile
+		if len(page) == 0 {
+			continue
+		}
 
-		for _, page := range pages {
-			var ctf classTemplateFile
-			if len(page) == 0 {
-				continue
-			}
+		localPath, err := htLoadClassFileFormat(&ctf, page, lang)
+		if err != nil {
+			panic(err)
+		}
 
-			localPath, err := htLoadClassFileFormat(&ctf, page, dir)
-			if err != nil {
-				panic(err)
-			}
+		audioTxt := htLoopThroughContentFiles(ctf.Title, ctf.Content)
+		if ctf.Exercises != nil {
+			audioTxt += htPrepareQuestions(ctf.Exercises)
+		}
+		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
 
-			audioTxt := htLoopThroughContentFiles(ctf.Title, ctf.Content)
-			if ctf.Exercises != nil {
-				audioTxt += htPrepareQuestions(ctf.Exercises)
-			}
-			audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+		err = htWriteAudioFile(page, lang, audioTxt)
+		if err != nil {
+			panic(err)
+		}
 
-			err = htWriteAudioFile(page, dir, audioTxt)
-			if err != nil {
-				panic(err)
-			}
-
-			newFile, err := htWriteTmpFile(dir, &ctf)
-			equal, err := HTAreFilesEqual(newFile, localPath)
-			if !equal && err == nil || updateDateFlag == true {
-				ctf.LastUpdate[0] = htUpdateTimestamp()
-				err = os.Remove(newFile)
-				if err != nil {
-					panic(err)
-				}
-				newFile, err = htWriteTmpFile(dir, &ctf)
-			}
-
-			HTCopyFilesWithoutChanges(localPath, newFile)
+		newFile, err := htWriteTmpFile(lang, &ctf)
+		equal, err := HTAreFilesEqual(newFile, localPath)
+		if !equal && err == nil || updateDateFlag == true {
+			ctf.LastUpdate[0] = htUpdateTimestamp()
 			err = os.Remove(newFile)
 			if err != nil {
 				panic(err)
 			}
-			if verboseFlag {
-				htReportErrLineCounter(localPath, page, dir)
-			}
+			newFile, err = htWriteTmpFile(lang, &ctf)
+		}
+
+		HTCopyFilesWithoutChanges(localPath, newFile)
+		err = os.Remove(newFile)
+		if err != nil {
+			panic(err)
+		}
+		if verboseFlag {
+			htReportErrLineCounter(localPath, page, lang)
 		}
 	}
 }
@@ -606,7 +602,11 @@ func htConvertAtlasToAudio() {
 
 func htConvertOverallTextToAudio() {
 	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5", "a86f373e-c908-4796-8a96-427ba5d4c889", "sources", "genealogical_first_steps", "genealogical_faq", "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0", "partnership", "tree"}
-	htConvertClassesToAudio(pages)
+	for _, dir := range htLangPaths {
+		htLoadKeywordFile("common_keywords", dir)
+
+		htConvertClassesToAudio(pages, dir)
+	}
 }
 
 func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
@@ -633,7 +633,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 		}
 	}
 
-	htConvertClassesToAudio(pages)
+	htConvertClassesToAudio(pages, lang)
 
 	audioTxt := htParseIndexText(&index)
 	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)

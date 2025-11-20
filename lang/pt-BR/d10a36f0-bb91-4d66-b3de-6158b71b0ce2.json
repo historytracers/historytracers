@@ -1,0 +1,683 @@
+{
+   "title": "Cozinhando",
+   "header": "Cozinhando",
+   "sources": [
+      "d10a36f0-bb91-4d66-b3de-6158b71b0ce2"
+   ],
+   "scripts": [
+      "d10a36f0-bb91-4d66-b3de-6158b71b0ce2"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/d10a36f0-bb91-4d66-b3de-6158b71b0ce2_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4tdjLpIYFn4stwAhI3utAA?si=emOKtcCYRJqiXSDMNHdkfQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "biology",
+      "chemistry",
+      "physics"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1763662777"
+   ],
+   "authors": null,
+   "reviewers": null,
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste texto continua o estudo da subtração como movimento. Para um melhor entendimento, sugerimos estudar o texto anterior (<htcite0>) e seus pré-requisitos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73cb1665-6b60-4725-a231-2aff976e7e6d",
+                     "text": "History Tracers Team",
+                     "page": "Retornando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nQuando olhamos uma receita, geralmente encontramos a lista de ingredientes que devem ser adicionados a um recipiente para preparar o alimento.\n\nMuitas vezes o prato exige uma quantidade menor do que a disponível no pacote que compramos ou no que recolhemos da floresta. Isso nos leva a uma reflexão:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Melhor sobrar do que faltar</b><br /><br />Ao movermos a quantidade de um ingrediente de um lugar para outro, estamos realizando alguma operação matemática?<br /><br />Já parou para pensar que a comida que você considera deliciosa só é possível porque alguém domina diferentes conhecimentos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Quando pensamos que matemática se resume a fórmulas no papel, deixamos de entender o que essa poderosa linguagem da natureza realmente representa. Ela está presente em todos os lugares do universo.\n\nUm bom exemplo do uso profundo da matemática é o ato de cozinhar, seja na cultura Shona (<htcite0>) ou na nossa própria casa.\n\nNeste texto, começaremos a estudar a matemática envolvida no preparo dos alimentos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cc162709-bdc3-469b-a208-e900f4570842",
+                     "text": "Sadomba, Zvakanyorwa Wilbert",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_crop",
+         "text": [
+            {
+               "text": "### A colheita\n\nPara entender melhor o processo de movimento, vamos supor que trouxemos do mercado 1 quilograma de farinha de milho e 1 litro de água. Agora, reflita:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Como isso entrou no local</b><br /><br />Muitas vezes vamos ao mercado e a praticidade faz com que ignoremos todo o processo de produção. Mesmo que hoje ele seja amplamente industrial, em muitos lugares ainda existe produção familiar e artesanal.<br /><br />Você saberia preparar a farinha a partir do milho colhido em uma plantação?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Plantação (seleção artificial)\n\nPara cozinhar, o primeiro passo é escolher exatamente o que queremos fazer. Neste exemplo, vamos preparar uma tortilha de milho.\n\nA cultura do milho é uma das mais antigas do continente americano (*Abya Yala*) (<htcite0>). O processo de domesticação de vegetais, embora o termo seja mais comum para animais, também se aplica às plantas. Esse processo levou ao cultivo repetido das variedades que melhor atendiam às nossas necessidades. Isso permitiu o surgimento de diferentes espécies ou tipos de feijões e milhos, como observado por Darwin no século XIX (<htcite1>; <htcite2>).\n\nEsse processo de seleção de espécies (tipos de plantas) por parte dos humanos é conhecido como seleção artificial (<htcite3>). Por meio dele, escolhemos as mudanças nas plantas que são mais úteis para nós.\n\n#### Escolhas para cozinhar\n\nNo momento de escolher as espigas de milho no pé, realizamos operações matemáticas que já aprendemos. Vamos supor que temos um pé com 8 espigas e queremos colher 4:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9477cdbb-4c80-4626-94ce-b16793541307",
+                     "text": "Chacón Sanchez, María Isabel",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2009",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "57763a8f-035c-490b-8612-8e4c7cd4c10a",
+                     "text": "Darwin, Charles",
+                     "page": "Cap. IX e X",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9477cdbb-4c80-4626-94ce-b16793541307",
+                     "text": "Chacón Sanchez, María Isabel",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2009",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "bc2dc378-7d5b-4f46-b035-577ae8296c56",
+                     "text": "Britannica Editors",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "2",
+                        "day": "7"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"emptyGrid\" class=\"tableTen\"> <tr><td style=\"background-color: lightblue\">Texto</td><td style=\"background-color: lightblue\"><b>Operação</b></td><td style=\"background-color: lightblue\"><b>Cálculo</b></td></tr>  <tr><td style=\"background-color: white\">Pegamos quatro espigas do pé e colocamos em uma cesta para transportar.</td><td style=\"background-color: white\">Soma</td><td style=\"background-color: white\">1 + 1 + 1 + 1 = 4</td></tr> <tr><td style=\"background-color: white\">Pegamos quatro espigas do pé e colocamos em uma cesta para transportar.</td><td style=\"background-color: white\">Multiplicação</td><td style=\"background-color: white\">4 × 1 = 4</td></tr> <tr><td style=\"background-color: white\">Tiramos metade das espigas do pé.</td><td style=\"background-color: white\">Divisão</td><td style=\"background-color: white\">8/2 = 4</td></tr>  <tr><td style=\"background-color: white\">Tiramos quatro espigas do pé.</td><td style=\"background-color: white\">Subtração</td><td style=\"background-color: white\">8 - 4 = 4</td></tr></table></p> <p class=\"desc\"><b>Tabela 1</b>: Diferentes maneiras de representar uma colheita.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Antes e agora</b><br /><br />Percebeu que o processo de colheita pode ser visto sob diferentes pontos de vista, todos envolvendo matemática?<br /><br />Percebeu que a matéria é conservada e que nenhuma espiga desaparece?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_metate",
+         "text": [
+            {
+               "text": "### Os ingredientes\n\nAlguns ingredientes usados na preparação dos alimentos passam por um longo processo desde a colheita até chegarem ao mercado. Mas isso nem sempre foi assim.\n\n#### Moendo o milho\n\nMuito antes da existência dos mercados, e ainda hoje em algumas regiões do mundo, algumas famílias preservam a tradição de usar ferramentas antigas que servem para transformar os grãos de milho em farinha. Essa ferramenta é conhecida como metate ou pedra de moer (<htcite0>) e está representada na Figura 1.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cb2e20fc-2620-4793-9153-257be4931371",
+                     "text": "Rodríguez Yc, J. R.",
+                     "page": "pp. 22",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"metate3\" src=\"images/Teotihuacan/MetateTeotihuacan.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('metate3', '0%')\" /><b>Figura 1</b>: Metate do México. Fotografia tirada em <htdate0>, durante uma visita ao Sitio Arqueológico de Teotihuacan, México (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0059a36e-b134-4859-bec0-c89e7239d07c'); return false;\">INAH. Teotihuacan</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "19"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Neste metate, vemos dois suportes frontais (“pernas”) e um suporte traseiro localizado no centro de uma peça retangular curvada. Na parte superior, há um rolo utilizado para triturar o milho.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Água\n\nHoje em dia muitas fontes de água, principalmente dentro das cidades, estão poluídas e não podem ser usadas para consumo.\n\nMesmo com essa poluição elevada, o ciclo da água permanece inalterado, como mostrado na Figura 2. Graças a isso, podemos obter água potável para preparar nossa tortilha.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png\" id=\"imgUSG\" onclick=\"htImageZoom('imgUSG', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: Ciclo da água. Imagem de domínio público do Serviço Geológico dos Estados Unidos da América (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('490bc885-d393-4e26-a2c2-1ae2474b25f1'); return false;\">Ciclo d'água, <htdate0>, <i>U.S. Geological Survey</i></a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2013",
+                     "month": "10",
+                     "day": "13"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A partir da Figura 2, podemos concluir que é possível obter água para cozinhar diretamente da chuva por meio da construção de reservatórios (<htcite0>), como foi feito pelos Maias em Tikal (Figura 3).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7db2a258-e133-4f78-b4bf-28b1627a5653",
+                     "text": "Ghisi, E., Bressan, D. L., & Martini, M.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2007",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"gc\" onclick=\"htImageZoom('gc', '0%')\" src=\"images/Tikal/TikalReservorio.jpg\" class=\"imgcenter\" style=\"width:60%\"/><b>Figura 3</b>: Reservatório de água em Tikal, Guatemala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7ee4e8f6-3f68-4dbc-ad17-3b39f9964ef2'); return false;\">Parque Nacional Tikal</a>). Foto tirada em <htdate0>, durante uma visita ao sitio.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "10",
+                     "day": "22"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_cooking",
+         "text": [
+            {
+               "text": "### A receita\n\nDepois de conhecer a origem dos ingredientes, é hora de uni-los.\n\nVamos considerar que, ao triturar o milho, obtivemos 1 quilograma de farinha de milho, ou que compramos no mercado um pacote de 1 quilo. No entanto, nossa receita precisa de apenas 175 gramas para preparar 12 tortilhas.\n\n#### Preparação\n\nSeparamos 175 gramas de farinha do total e colocamos em um recipiente (**Figura 4**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"JC\" onclick=\"htImageZoom('JC', '0%')\" src=\"images/JoyaCeren/JoyaCerenCocina.jpg\" class=\"imgcenter\"/><b>Figura 4</b>: Vasilhas de cerâmica encontradas em Joya de Ceren, El Salvador. Foto tirada em <htdate0>, durante uma visita ao local.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "24"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Em seguida, adicionamos água aos poucos até que a mistura atinja a consistência desejada (**Figura 5**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"c0\" onclick=\"htImageZoom('c0', '0%')\" src=\"images/HistoryTracers/TortillaFinal1.png\" class=\"imgcenter\"/><b>Figura 5</b>: Foto da massa de tortilha de milho dentro de um recipiente diferente dos recipientes indígenas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Por fim, cozinhamos a massa no fogão até que atinja o ponto de tortilha e esteja pronta para servir (**Figura 6**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"c1\" onclick=\"htImageZoom('c1', '0%')\" src=\"images/HistoryTracers/TortillaFinal2.png\" class=\"imgcenter\"/><b>Figura 6</b>: Tortilha de milho pronta para o consumo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_next_stepping",
+         "text": [
+            {
+               "text": "### Próximos passos\n\nAo terminarmos de cozinhar, observamos que nem todo o milho obtido na colheita foi utilizado. Isso nos permite planejar as novas receitas, mas, primeiramente, precisamos saber quanto sobrou.\n\nNo texto anterior (<htcite0>), trabalhamos com a subtração como movimento. Agora, iremos aprofundar esse conceito.\n\n#### Sem movimentos\n\nSabemos que só conseguimos cozinhar porque havia ingredientes, mas e quando não temos?",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73cb1665-6b60-4725-a231-2aff976e7e6d",
+                     "text": "History Tracers Team",
+                     "page": "Retornando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: Onde está...</b><br /><br />É possível mover algo que não temos?<br /><br />É possível fazer uma tortilla de milho sem milho?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Etapas\n\nAo realizarmos subtração (movimentos), é necessário ter algo para mover.\n\nAo realizarmos a subtração, assim como nas outras operações que conhecemos, também trabalhamos com dois números. Mas, algumas vezes, o número da unidade é menor que o outro que desejamos subtrair. Logo, devemos refletir mais uma vez.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 5: O que vocẽ faria?</b><br /><br />Considerando o que já estudamos, como você realizaria a subtração de 1000 − 175?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Recordando o caminho\n\nO **Gráfico 1** nos mostra o caminho com os números.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg width=\"420\" height=\"100\"  fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"15\" x2=\"400\" y2=\"15\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"40\" font-size=\"1.5em\">0</text> <text x=\"40\" y=\"40\" font-size=\"1.5em\">1</text> <text x=\"80\" y=\"40\" font-size=\"1.5em\">2</text> <text x=\"120\" y=\"40\" font-size=\"1.5em\">3</text> <text x=\"160\" y=\"40\" font-size=\"1.5em\">4</text> <text x=\"200\" y=\"40\" font-size=\"1.5em\">5</text> <text x=\"240\" y=\"40\" font-size=\"1.5em\">6</text> <text x=\"280\" y=\"40\" font-size=\"1.5em\">7</text> <text x=\"320\" y=\"40\" font-size=\"1.5em\">8</text> <text x=\"360\" y=\"40\" font-size=\"1.5em\">9</text> <line x1=\"5\" y1=\"15\" x2=\"5\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"45\" y1=\"15\" x2=\"45\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"15\" x2=\"85\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"125\" y1=\"15\" x2=\"125\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"165\" y1=\"15\" x2=\"165\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"205\" y1=\"15\" x2=\"205\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"245\" y1=\"15\" x2=\"245\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"285\" y1=\"15\" x2=\"285\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"325\" y1=\"15\" x2=\"325\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"365\" y1=\"15\" x2=\"365\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" />  </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representação de um caminho.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Quando desejamos subtrair um número que está à esquerda do outro, isso quer dizer que há quantidades que podemos tirar (mover). Vejamos alguns exemplos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>9</mn> <mo>-</mo> <mn>1</mn> <mo>=</mo> <mn>8</mn> </math></p><p><math display=\"block\"> <mn>8</mn> <mo>-</mo> <mn>2</mn> <mo>=</mo> <mn>6</mn> </math></p><p><math display=\"block\"> <mn>7</mn> <mo>-</mo> <mn>3</mn> <mo>=</mo> <mn>4</mn> </math></p><p><math display=\"block\"> <mn>6</mn> <mo>-</mo> <mn>5</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>5</mn> <mo>-</mo> <mn>5</mn> <mo>=</mo> <mn>0</mn> </math></p><p class=\"desc\"><b>Cálculo 1</b>: Subtração de números mais à direita por números mais à esquerda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Com isso, podemos concluir que podemos subtrair de 1000 o valor 175, pois, à medida que expandimos o número do **Gráfico 1**, primeiro passamos pelo 175 para, só depois, chegarmos ao 1000.\n\n#### Recordações\n\nSe fôssemos somar os dois números desejados, em vez de subtraí-los, teríamos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmtc4\">1 </span><span class=\"sumexample1\" id=\"cmtc3\">0 </span><span class=\"sumexample1\" id=\"cmtc2\">0 </span><span class=\"sumexample1\" id=\"cmtc1\">0 </span> <br />+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmbc3\">1 </span><span class=\"sumexample1\" id=\"cmbc2\">7 </span><span class=\"sumexample1\" id=\"cmbc1\">5 </span><br />____________<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"sumexample1\" id=\"cmrc4\">1 </span><span class=\"sumexample1\" id=\"cmrc3\">1 </span><span class=\"sumexample1\" id=\"cmrc2\">7 </span><span class=\"sumexample1\" id=\"cmrc1\">5 </span></center></p><p class=\"desc\"><b>Cálculo 2</b>: Adição dos números 1000 e 175.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Cálculo 2**, ao passar o mouse (ou o dedo) sobre os números, vemos que somamos coluna por coluna, sempre da direita para a esquerda.\n\nAgora, vamos escrever no formato de subtração:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"smtc4\">1 </span><span id=\"smtc3\">0 </span><span id=\"smtc2\">0 </span><span id=\"smtc1\">0 </span> <br />-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"smbc3\">1 </span><span id=\"smbc2\">7 </span><span id=\"smbc1\">5 </span><br />____________</center></p><p class=\"desc\"><b>Cálculo 3</b>: Subtração dos números 1000 e 175.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ao observarmos o que desejamos subtrair, é possível notar que, para unidades, dezenas e centenas, não é possível movermos algo diretamente, pois temos o número zero, que representa o vazio (<htcite0>).\n\n#### Usando as ordens\n\nQuando relemos os números, aprendemos que cada número que escrevemos possui internamente uma multiplicação (<htcite1>). Por exemplo, os números que desejamos subtrair podem ser reescritos como:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
+                     "text": "Musa, Auwalu",
+                     "page": "pp. 44, 46 - 48",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4ee22ab8-e17c-48a8-8289-c8538aba77bf",
+                     "text": "History Tracers Team",
+                     "page": "Releitura",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>1000</mn> <mo>=</mo> <mn>1 ×(10×10×10)</mn> <mo>+</mo> <mn>0 × (10×10)</mn> <mo>+</mo> <mn>0 ×(10)</mn> <mo>+</mo> <mn>0 × (1)</mn></math></p><p><math display=\"block\"> <mn>175</mn> <mo>=</mo><mn>1 × (10×10)</mn> <mo>+</mo> <mn>7 ×(10)</mn> <mo>+</mo> <mn>5 × (1)</mn></math></p><p class=\"desc\"><b>Cálculo 4</b>: Fatoramento de números.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Com essa informação, podemos mover quantidades entre as ordens de modo que possamos realizar uma operação naquela ordem específica. Para isso, basta mover um único elemento de uma ordem anterior, que, como vimos, corresponde a 10 vezes o número de uma ordem. Façamos a subtração por etapas para deixar isso mais claro:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>1000</mn> <mo>-</mo> <mn>175</mn></math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>100</mn><mo>-</mo> <mn>175</mn> </math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>-</mo> <mn>175</mn> </math></p><p class=\"desc\"><b>Cálculo 5</b>: Fatoramento do número que será subtraído.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora, podemos também separar o segundo número em ordens:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>-</mo> <mn>175</mn></math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>- (</mo> <mn>100</mn> <mo>+</mo> <mn>75</mn> <mo>)</mo></math></p><p><math display=\"block\"> <mn>900</mn> <mo>+</mo> <mn>90</mn> <mo>+</mo> <mn>10</mn> <mo>- (</mo> <mn>100</mn> <mo>+</mo> <mn>70</mn> <mo>+</mo> <mn>5</mn> <mo>)</mo></math></p><p class=\"desc\"><b>Cálculo 6</b>: Fatoramento do segundo número a ser subtraído.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como próximo passo, vamos reescrever os números com as mesmas ordens:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\">  <mo>(</mo> <mn>900</mn> <mo>-</mo> <mn>100</mn> <mo>) + (</mo> <mn>90</mn> <mo>-</mo> <mn>70</mn>  <mo>) + (</mo> <mn>10</mn> <mo>-</mo> <mn>5</mn>  <mo>)</mo> </math></p><p class=\"desc\"><b>Cálculo 7</b>: Reorganização do cálculo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Observe que, no **Cálculo 7** todos os fatores que compõem o número 175 continuam com o sinal de subtração, mesmo após reorganizarmos os números por ordem.\n\nFinalmente, podemos realizar as subtrações e obter o resultado final:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\">  <mo>(</mo> <mn>900</mn> <mo>-</mo> <mn>100</mn> <mo>) + (</mo> <mn>90</mn> <mo>-</mo> <mn>70</mn>  <mo>) + (</mo> <mn>10</mn> <mo>-</mo> <mn>5</mn>  <mo>)</mo> </math></p><p><math display=\"block\">  <mo>(</mo> <mn>800</mn> <mo>) + (</mo> <mn>20</mn>  <mo>)  + (</mo> <mn>5</mn>  <mo>)</mo> </math></p><p><math display=\"block\">  <mn>825</mn> </math></p><p class=\"desc\"><b>Cálculo 8</b>: Obtendo o resultado final.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, aprendemos que, ao realizarmos a subtração de um número por outro, apesar de efetuarmos a operação sempre entre dois números, isso não significa que não será necessário utilizar ordens maiores durante o processo.\n\nAlém disso, vimos que a matemática está presente em uma das áreas mais importantes de nossa vida: a preparação dos alimentos (<htcite0>). E a matemática não é a única ciência presente na cozinha, como veremos nos próximos textos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cc162709-bdc3-469b-a208-e900f4570842",
+                     "text": "Sadomba, Zvakanyorwa Wilbert",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "A soma é a única operação que usamos em uma colheita?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Há diferentes maneiras de interpretar o ato de colher, e, em cada uma delas, é possível associar um tipo de operação matemática que estudamos."
+      },
+      {
+         "question": "É possível realizar a subtração 754 – 728?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Mesmo que as unidades do segundo valor sejam maiores do que as do primeiro, podemos reorganizar as ordens do primeiro número para realizar a operação:<br />754 - 728<br />700 + 50 + 4 - (700 + 20 + 8)<br />700 + 40 + 14 - (700 + 20 + 8)<br /> (700 - 700) + (40 - 20) + (14 - 8)<br />(0) + (20) + (6)<br />26"
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
