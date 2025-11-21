@@ -1,7 +1,7 @@
 # Build configuration
 BINARY_NAME = historytracers
 BUILD_DIR = build
-SRC_DIR = src/webserver
+WEBSERVERSRC_DIR = src/webserver
 
 # Go build flags - these will be set by configure
 LDFLAGS = -s -w
@@ -10,10 +10,10 @@ LDFLAGS = -s -w
 bin_PROGRAMS = $(BINARY_NAME)
 
 # Source files (assuming main.go is the entry point)
-historytracers_SOURCES = $(SRC_DIR)/main.go
+historytracers_SOURCES = $(WEBSERVERSRC_DIR)/main.go
 
 # We need to specify that this is a Go project
-GO_BUILD = cd $(SRC_DIR) && go build
+GO_BUILD = cd $(WEBSERVERSRC_DIR) && go build
 
 # Installation paths from configure
 install_bin_dir = $(bindir)
@@ -28,8 +28,8 @@ LOG_PATH = @LOG_PATH@
 $(BINARY_NAME): $(historytracers_SOURCES)
 	@echo "Building $(BINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	cd $(SRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
-	cd $(SRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(BINARY_NAME) .
+	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
+	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(BINARY_NAME) .
 
 # Install hook
 install-exec-local:
@@ -47,7 +47,7 @@ install-exec-local:
 .PHONY: deps
 deps:
 	@echo "Installing dependencies..."
-	cd $(SRC_DIR) && \
+	cd $(WEBSERVERSRC_DIR) && \
 	go get github.com/google/uuid && \
 	go get -u github.com/tdewolff/minify/v2 && \
 	go get github.com/BurntSushi/toml@latest
@@ -56,19 +56,19 @@ deps:
 .PHONY: update-deps
 update-deps:
 	@echo "Updating dependencies..."
-	cd $(SRC_DIR) && go get all && go mod tidy
+	cd $(WEBSERVERSRC_DIR) && go get all && go mod tidy
 
 # Run tests
 .PHONY: test
 test:
 	@echo "Running tests..."
-	cd $(SRC_DIR) && go test ./...
+	cd $(WEBSERVERSRC_DIR) && go test ./...
 
 # Format code
 .PHONY: fmt
 fmt:
 	@echo "Formatting code..."
-	cd $(SRC_DIR) && go fmt ./...
+	cd $(WEBSERVERSRC_DIR) && go fmt ./...
 
 # Clean build artifacts
 clean-local:
