@@ -4,6 +4,10 @@ $(document).ready(function(){
     htLoadPage('atlas','json', '', false);
 });
 
+function htAddAngleToTriangle(x, y, text) {
+    return "<text x=\""+x+"\" y=\""+y+"\" font-size=\"1.3em\" font-weight=\"bold\">"+text+"</text>";
+}
+
 function htMakePythagorasSideTriangle(x, y, end, color, angle) {
     let counter = 1;
     var html = "";
@@ -21,9 +25,10 @@ function htMakePythagorasTriangle() {
     $(".pythagorasTriangle").each(function() {
         let htmlSVG = "<svg viewbox=\"0 0 600 300\">";
         let id = $(this).attr('id');
-        htmlSVG +=  htMakePythagorasSideTriangle(210, 190, 4, "blue", 0);
-        htmlSVG +=  htMakePythagorasSideTriangle(318, 109, 3, "red", 0);
-        htmlSVG +=  htMakePythagorasSideTriangle(236, 0, 5, "green", 53);
+        htmlSVG += htMakePythagorasSideTriangle(210, 190, 4, "blue", 0);
+        htmlSVG += htMakePythagorasSideTriangle(318, 109, 3, "red", 0);
+        htmlSVG += htMakePythagorasSideTriangle(236, 0, 5, "green", 53);
+        htmlSVG += htAddAngleToTriangle(240, 186, "θ");
         htmlSVG += "</svg>";
         $("#"+id).html(htmlSVG);
     });
