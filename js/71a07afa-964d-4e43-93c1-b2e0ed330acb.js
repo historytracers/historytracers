@@ -10,6 +10,7 @@ var currentValue = 0;
 var stop = 0;
 var stopValue = 0;
 var carriers = 0;
+var multiple = 0;
 
 var partial = 0;
 var suffix = "";
@@ -59,19 +60,19 @@ function htSetWorkingValue(topValue, bottomValue)
 }
 
 function htFillResultsVector() {
-    let begin = 0, end = 9;
+    // REMOVE STR
+    multiple = htGetRandomArbitrary(1, 10);
     let prev = 0;
-    for (let i =0, j =1, k = 2; i < 10; i += 3, j += 3, k += 3) {
+    for (let i =0, j =1, k = 2; i < 9; i += 3, j += 3, k += 3) {
         if (!i) {
-            results[i] = htGetRandomArbitrary(begin, end);
+            results[i] = multiple;
+            results[j] = 1;
         } else {
             results[i] = prev;
+            results[j] = multiple;
         }
-        results[j] = htGetRandomArbitrary(begin, end);
-        prev = results[k] = results[i] + results[j];
-
-        begin = end + 1;
-        end = (begin *10) - 1;
+        prev = results[k] = (i != 3) ? results[i] * results[j]: results[i] + results[j];
+        console.log(results[i]+" "+results[j]+" "+results[k]);
     }
 
     strTopValue = results[0].toString();
@@ -117,7 +118,7 @@ function htMakeTable() {
             case 1:
             case 6:
             case 11:
-                value = "+";
+                value = (i == 6) ? "+" : "×";
                 break;
             case 7:
                 value = results[4];
@@ -267,9 +268,9 @@ function htSetValues(dir) {
 
     if ($("#txt"+resResult).html().length > 0) {
         if (dir > 0) {
-            currentValue++;
+            currentValue += multiple;
         } else if (dir < 0) {
-            currentValue--;
+            currentValue -= multiple;
         }
     }
 
