@@ -9,22 +9,18 @@ var currentRow = 0;
 var currentValue = 0;
 var stop = 0;
 var stopValue = 0;
-var carriers = 0;
 var multiple = 0;
 
 var partial = 0;
 var suffix = "";
 var controlSize = "5";
 
-var strTopValue = "";
-var strBottomValue = "";
-
 function htProcessNextValue()
 {
     return (currentValue == stopValue) ? false : true;
 }
 
-function htSetWorkingValue(topValue, bottomValue)
+function htSetWorkingValue()
 {
     if (!currentRow) {
         currentValue = 0;
@@ -40,16 +36,15 @@ function htFillResultsVector() {
     for (let i =0, j =1, k = 2; i < 9; i += 3, j += 3, k += 3) {
         if (!i) {
             results[i] = multiple;
-            results[j] = htGetRandomArbitrary(1, 3);
+            results[j] = htGetRandomArbitrary(1, 8);
         } else {
             results[i] = prev;
             results[j] = multiple;
         }
-        prev = results[k] = (i != 3) ? results[i] * results[j]: results[i] + results[j];
-        console.log(results[i]+" "+results[j]+" "+results[k]);
+        prev = results[k] = (i < 3) ? results[i] * results[j]: results[i] + results[j];
     }
 
-    htSetWorkingValue(results[0], results[1]);
+    htSetWorkingValue();
 }
 
 function htMakeTable() {
@@ -90,7 +85,7 @@ function htMakeTable() {
             case 1:
             case 6:
             case 11:
-                value = (i == 6) ? "+" : "×";
+                value = (i > 1) ? "+" : "×";
                 break;
             case 7:
                 value = results[4];
@@ -127,7 +122,7 @@ function htRewriteTable() {
             case 1:
             case 6:
             case 11:
-                value = (i == 6) ? "+" : "×";
+                value = (i > 1) ? "+" : "×";
                 break;
             case 7:
                 value = results[4];
@@ -164,13 +159,12 @@ function htFillImage() {
 function htHideDivs() {
     let end = (currentRow + 1)*5;
     let ansIdx = currentRow*3;;
-    let signal = (currentRow == 1) ? "+" : "×";
+    let signal = (currentRow > 0) ? "+" : "×";
     $("#anstxt"+currentRow).html(results[ansIdx]+" "+signal+" "+results[ansIdx + 1]+" = "+results[ansIdx + 2]);
     for (let i = 5*currentRow; i < end; i++) {
         $("#num"+i).css("display","none").css("visibility","hidden");
     }
 
-    carriers = 0;
     if (currentRow == 2) {
         $("#NextLevel").css("display","block").css("visibility","visible");
         $(".fa-medal").css("display","block").css("visibility","visible");
@@ -205,7 +199,7 @@ function htResetGoNext(topIdx, bottomIdx) {
     partial = 0;
     suffix = "";
 
-    htSetWorkingValue(results[topIdx], results[bottomIdx]);
+    htSetWorkingValue();
 }
 
 function htCheckResults(resIdx) {
