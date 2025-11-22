@@ -10,8 +10,13 @@ AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 # Check for required programs
+AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_MKDIR_P
+
+# Enable dependency tracking
+AM_PROG_CC_C_O
+AC_PROG_MAKE_SET
 
 # Check for Go compiler
 # Go compiler selection options
@@ -103,6 +108,7 @@ case "$GO_COMPILER_TYPE" in
         AC_MSG_NOTICE([Using gccgo-specific build flags])
         ;;
     go)
+        #GO_BUILD_FLAGS='-ldflags "-s -w -X main.confPath=$CONF_PATH -X main.srcPath=$SRC_PATH -X main.contentPath=$CONTENT_PATH -X main.logPath=$LOG_PATH'
         GO_BUILD_FLAGS='-ldflags "-X main.confPath=$CONF_PATH -X main.srcPath=$SRC_PATH -X main.contentPath=$CONTENT_PATH -X main.logPath=$LOG_PATH'
         AC_MSG_NOTICE([Using standard Go build flags])
         ;;
