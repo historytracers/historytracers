@@ -21,52 +21,26 @@ var strBottomValue = "";
 
 function htProcessNextValue()
 {
-    if (currentValue == stopValue) {
-        if (partial >= strTopValue.length &&  partial >= strBottomValue.length) { 
-            return false;
-        }
-
-        suffix = currentValue.toString() + suffix;
-        partial++;
-        var first = (strTopValue.length > partial) ? strTopValue[partial] : "0";
-        var second = (strBottomValue.length > partial) ? strBottomValue[partial] : "0";
-        htSetWorkingValue(first, second);
-    }
-
-    return true;
+    return (currentValue == stopValue) ? false : true;
 }
 
 function htSetWorkingValue(topValue, bottomValue)
 {
-    var tv = parseInt(topValue);
-    var bv = parseInt(bottomValue);
-
     if (!currentRow) {
         currentValue = 0;
         stopValue = results[2];
         return;
-    } else {
-        currentValue = 0; 
     }
-
-    var tot = tv + bv + carriers;
-    if (tot < 10) {
-        stopValue = tot;
-        carriers = 0;
-    } else {
-        stopValue = tot - 10;
-        carriers = 1;
-    }
+    stopValue = results[2+currentRow*3];
 }
 
 function htFillResultsVector() {
-    // REMOVE STR
     multiple = htGetRandomArbitrary(1, 10);
     let prev = 0;
     for (let i =0, j =1, k = 2; i < 9; i += 3, j += 3, k += 3) {
         if (!i) {
             results[i] = multiple;
-            results[j] = 1;
+            results[j] = htGetRandomArbitrary(1, 3);
         } else {
             results[i] = prev;
             results[j] = multiple;
@@ -75,9 +49,7 @@ function htFillResultsVector() {
         console.log(results[i]+" "+results[j]+" "+results[k]);
     }
 
-    strTopValue = results[0].toString();
-    strBottomValue = results[1].toString();
-    htSetWorkingValue(strTopValue, strBottomValue);
+    htSetWorkingValue(results[0], results[1]);
 }
 
 function htMakeTable() {
@@ -155,7 +127,7 @@ function htRewriteTable() {
             case 1:
             case 6:
             case 11:
-                value = "+";
+                value = (i == 6) ? "+" : "×";
                 break;
             case 7:
                 value = results[4];
@@ -192,7 +164,8 @@ function htFillImage() {
 function htHideDivs() {
     let end = (currentRow + 1)*5;
     let ansIdx = currentRow*3;;
-    $("#anstxt"+currentRow).html(results[ansIdx]+" + "+results[ansIdx + 1]+" = "+results[ansIdx + 2]);
+    let signal = (currentRow == 1) ? "+" : "×";
+    $("#anstxt"+currentRow).html(results[ansIdx]+" "+signal+" "+results[ansIdx + 1]+" = "+results[ansIdx + 2]);
     for (let i = 5*currentRow; i < end; i++) {
         $("#num"+i).css("display","none").css("visibility","hidden");
     }
@@ -232,11 +205,7 @@ function htResetGoNext(topIdx, bottomIdx) {
     partial = 0;
     suffix = "";
 
-    strTopValue = results[topIdx].toString();
-    strTopValue = strTopValue.split('').reverse().join('');
-    strBottomValue = results[bottomIdx].toString();
-    strBottomValue = strBottomValue.split('').reverse().join('');
-    htSetWorkingValue(strTopValue[0], strBottomValue[0]);
+    htSetWorkingValue(results[topIdx], results[bottomIdx]);
 }
 
 function htCheckResults(resIdx) {
