@@ -1,105 +1,63 @@
 # Build configuration
 BINARY_NAME = historytracers
+EDITORBINARY_NAME = historytracers-editor
 BUILD_DIR = build
 WEBSERVERSRC_DIR = src/webserver
+EDITORSRC_DIR = src/editor
 
-# Go build flags - these will be set by configure
-LDFLAGS = -s -w
+# We're not building C programs, so tell Automake this is foreign
+AUTOMAKE_OPTIONS = foreign
 
-# Default target
-bin_PROGRAMS = $(BINARY_NAME)
+# What to distribute
+EXTRA_DIST = $(WEBSERVERSRC_DIR)/main.go $(EDITORSRC_DIR)/main.go
 
-# Source files (assuming main.go is the entry point)
-historytracers_SOURCES = $(WEBSERVERSRC_DIR)/main.go
+# Custom targets for Go building
+all-local: webserver editor
 
-# We need to specify that this is a Go project
-GO_BUILD = cd $(WEBSERVERSRC_DIR) && go build
-
-# Installation paths from configure
-install_bin_dir = $(bindir)
-
-# Custom variables that will be set by configure
-CONF_PATH = @CONF_PATH@
-SRC_PATH = @SRC_PATH@
-CONTENT_PATH = @CONTENT_PATH@
-LOG_PATH = @LOG_PATH@
-
-# Build rule for the binary
-$(BINARY_NAME): $(historytracers_SOURCES)
+webserver:
 	@echo "Building $(BINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
 	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
 	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(BINARY_NAME) .
 
-# Install hook
+editor:
+	@echo "Building $(EDITORBINARY_NAME)..."
+	@mkdir -p $(BUILD_DIR)
+	cd $(EDITORSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
+	cd $(EDITORSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
+
 install-exec-local:
-	@echo "Installing $(BINARY_NAME) to $(DESTDIR)$(bindir)..."
+	@echo "Installing binaries to $(DESTDIR)$(bindir)..."
 	$(MKDIR_P) $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(BINARY_NAME) $(DESTDIR)$(bindir)/$(BINARY_NAME)
+	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(EDITORBINARY_NAME) $(DESTDIR)$(bindir)/$(EDITORBINARY_NAME)
 
-# Create package
-#.PHONY: pkg
-#pkg: all
-#	@echo "Creating package..."
-#	@bash ./ht2pkg.sh
-
-# Install dependencies
-.PHONY: deps
-deps:
-	@echo "Installing dependencies..."
-	cd $(WEBSERVERSRC_DIR) && \
-	go get github.com/google/uuid && \
-	go get -u github.com/tdewolff/minify/v2 && \
-	go get github.com/BurntSushi/toml@latest
-
-# Update dependencies
-.PHONY: update-deps
-update-deps:
-	@echo "Updating dependencies..."
-	cd $(WEBSERVERSRC_DIR) && go get all && go mod tidy
-
-# Run tests
-.PHONY: test
-test:
-	@echo "Running tests..."
-	cd $(WEBSERVERSRC_DIR) && go test ./...
-
-# Format code
-.PHONY: fmt
-fmt:
-	@echo "Formatting code..."
-	cd $(WEBSERVERSRC_DIR) && go fmt ./...
-
-# Clean build artifacts
 clean-local:
 	@echo "Cleaning build artifacts..."
 	rm -rf $(BUILD_DIR)
 
-# Development build (with debug information)
-.PHONY: dev
+# Phony targets for additional functionality
+.PHONY: deps update-deps test fmt dev prod
+
+deps:
+	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) get github.com/google/uuid
+	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) get -u github.com/tdewolff/minify/v2
+	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) get github.com/BurntSushi/toml@latest
+	cd $(EDITORSRC_DIR) && $(GO_COMPILER) get fyne.io/fyne/v2@latest
+
+update-deps:
+	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
+	cd $(EDITORSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
+
+test:
+	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) test ./...
+	cd $(EDITORSRC_DIR) && $(GO_COMPILER) test ./...
+
+fmt:
+	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) fmt ./...
+	cd $(EDITORSRC_DIR) && $(GO_COMPILER) fmt ./...
+
 dev: 
-dev: all
+	$(MAKE) GO_BUILD_FLAGS="" all
 
-# Production build (stripped and optimized)
-.PHONY: prod
-prod: GO_LDFLAGS += -s -w
 prod: all
-
-# Show help
-.PHONY: help
-help:
-	@echo "Available targets:"
-	@echo "  all          - Build the application (default)"
-	@echo "  install      - Install the binary to system"
-#	@echo "  pkg          - Create package using ht2pkg.sh"
-	@echo "  deps         - Install dependencies"
-	@echo "  update-deps  - Update all dependencies"
-	@echo "  test         - Run tests"
-	@echo "  fmt          - Format source code"
-	@echo "  clean        - Remove build artifacts"
-	@echo "  dev          - Build development version"
-	@echo "  prod         - Build production version (stripped)"
-	@echo "  help         - Show this help message"
-
-# Default target
-.DEFAULT_GOAL = help

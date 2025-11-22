@@ -5,7 +5,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"os"
 	"path/filepath"
 	"strings"
 
@@ -15,7 +14,6 @@ import (
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/storage"
 	"fyne.io/fyne/v2/widget"
-	"fyne.io/fyne/v2/menu"
 )
 
 type TextEditor struct {
@@ -56,11 +54,12 @@ func (e *TextEditor) setupUI() {
 	e.createMenu()
 
 	// Create toolbar
-	toolbar := e.createToolbar()
+	// toolbar := e.createToolbar()
 
 	// Layout
 	content := container.NewBorder(
-		toolbar,
+		//toolbar,
+		nil,
 		e.statusBar,
 		nil, nil,
 		e.textArea,
@@ -71,24 +70,24 @@ func (e *TextEditor) setupUI() {
 }
 
 func (e *TextEditor) createMenu() {
-	fileMenu := menu.NewMenu("File",
-		menu.NewItem("New", e.newFile),
-		menu.NewItem("Open", e.openFile),
-		menu.NewItem("Save", e.saveFile),
-		menu.NewItem("Save As", e.saveAsFile),
-		menu.NewSeparator(),
-		menu.NewItem("Exit", e.quit),
+	fileMenu := fyne.NewMenu("File",
+		fyne.NewMenuItem("New", e.newFile),
+		fyne.NewMenuItem("Open", e.openFile),
+		fyne.NewMenuItem("Save", e.saveFile),
+		fyne.NewMenuItem("Save As", e.saveAsFile),
+		fyne.NewMenuItemSeparator(),
+		fyne.NewMenuItem("Exit", e.quit),
 	)
 
-	editMenu := menu.NewMenu("Edit",
-		menu.NewItem("Cut", e.cutText),
-		menu.NewItem("Copy", e.copyText),
-		menu.NewItem("Paste", e.pasteText),
-		menu.NewItem("Select All", e.selectAll),
+	editMenu := fyne.NewMenu("Edit",
+		fyne.NewMenuItem("Cut", e.cutText),
+		fyne.NewMenuItem("Copy", e.copyText),
+		fyne.NewMenuItem("Paste", e.pasteText),
+		fyne.NewMenuItem("Select All", e.selectAll),
 	)
 
-	helpMenu := menu.NewMenu("Help",
-		menu.NewItem("About", e.showAbout),
+	helpMenu := fyne.NewMenu("Help",
+		fyne.NewMenuItem("About", e.showAbout),
 	)
 
 	mainMenu := fyne.NewMainMenu(
@@ -100,6 +99,7 @@ func (e *TextEditor) createMenu() {
 	e.window.SetMainMenu(mainMenu)
 }
 
+/*
 func (e *TextEditor) createToolbar() *widget.Toolbar {
 	return widget.NewToolbar(
 		widget.NewToolbarAction(theme.DocumentCreateIcon(), e.newFile),
@@ -113,6 +113,7 @@ func (e *TextEditor) createToolbar() *widget.Toolbar {
 		widget.NewToolbarAction(theme.InfoIcon(), e.showAbout),
 	)
 }
+*/
 
 func (e *TextEditor) newFile() {
 	if e.checkSave() {
@@ -306,4 +307,3 @@ func main() {
 	editor := NewTextEditor()
 	editor.Run()
 }
-
