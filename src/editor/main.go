@@ -257,7 +257,7 @@ func (e *TextEditor) openFile() {
 		e.updateStatus("Opened: " + filepath.Base(filePath))
 	}, e.window)
 
-	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".go", ".md", ".json", ".xml", ".html", ".css", ".js", ".tmpl", ".tpl"}))
+	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".md", ".json", ".html", ".css", ".js"}))
 	dialog.Show()
 }
 
@@ -306,7 +306,7 @@ func (e *TextEditor) openInNewTab() {
 		e.updateStatus("Opened in new tab: " + filepath.Base(filePath))
 	}, e.window)
 
-	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".go", ".md", ".json", ".xml", ".html", ".css", ".js", ".tmpl", ".tpl"}))
+	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".md", ".json", ".html", ".css", ".js"}))
 	dialog.Show()
 }
 
@@ -368,12 +368,12 @@ func (e *TextEditor) saveAsFile() {
 	}, e.window)
 
 	// Set default filename based on current content
-	defaultName := "untitled.txt"
+	defaultName := "untitled.json"
 	if e.currentDoc.filePath != "" {
 		defaultName = filepath.Base(e.currentDoc.filePath)
 	}
 	dialog.SetFileName(defaultName)
-	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".go", ".md", ".json", ".xml", ".html", ".css", ".js", ".tmpl"}))
+	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".md", ".json", ".html", ".css", ".js"}))
 	dialog.Show()
 }
 
@@ -604,27 +604,195 @@ func (e *TextEditor) updateTitle() {
 	}
 }
 
-// Rest of the template functionality remains the same but with safe tab updates
 func (e *TextEditor) showTemplateWindow() {
-	if e.templateWindow != nil {
-		e.templateWindow.Show()
-		e.refreshTemplateList()
-		return
+	// Always create a new window to avoid state issues
+	e.templateWindow = e.app.NewWindow("Load Template")
+	e.templateWindow.Resize(fyne.NewSize(500, 400))
+
+	// Template directory selection
+	dirEntry := widget.NewEntry()
+	dirEntry.SetPlaceHolder("Template directory path...")
+	if e.templatePath != "" {
+		dirEntry.SetText(e.templatePath)
 	}
 
-	// Create template window (same as before, but ensure safe tab updates)
-	// ... template window code remains unchanged ...
+	// Selection info label
+	selectionLabel := widget.NewLabel("Selected: None")
+
+	// Template list
+	templateList := widget.NewList(
+		func() int {
+			if e.templatePath == "" {
+				return 0
+			}
+			files, err := e.getTemplateFiles()
+			if err != nil {
+				return 0
+			}
+			return len(files)
+		},
+		func() fyne.CanvasObject {
+			return widget.NewLabel("Template file")
+		},
+		func(i widget.ListItemID, o fyne.CanvasObject) {
+			if e.templatePath == "" {
+				return
+			}
+			files, err := e.getTemplateFiles()
+			if err != nil || i >= len(files) {
+				return
+			}
+			o.(*widget.Label).SetText(filepath.Base(files[i]))
+		},
+	)
+
+	// Track selection locally for this window
+	var selectedTemplateID widget.ListItemID = -1
+
+	// Set up selection callback
+	templateList.OnSelected = func(id widget.ListItemID) {
+		selectedTemplateID = id
+		files, err := e.getTemplateFiles()
+		if err == nil && id < len(files) {
+			selectionLabel.SetText("Selected: " + filepath.Base(files[id]))
+		}
+	}
+
+	templateList.OnUnselected = func(id widget.ListItemID) {
+		selectedTemplateID = -1
+		selectionLabel.SetText("Selected: None")
+	}
+
+	// Browse button for directory
+	browseBtn := widget.NewButton("Browse", func() {
+		dialog := dialog.NewFolderOpen(func(list fyne.ListableURI, err error) {
+			if err != nil {
+				dialog.ShowError(err, e.templateWindow)
+				return
+			}
+			if list != nil {
+				e.templatePath = list.Path()
+				dirEntry.SetText(e.templatePath)
+				templateList.Refresh()
+				selectionLabel.SetText("Directory set: " + filepath.Base(e.templatePath))
+			}
+		}, e.templateWindow)
+		dialog.Show()
+	})
+
+	// Set directory button
+	setDirBtn := widget.NewButton("Set Directory", func() {
+		path := dirEntry.Text
+		if path == "" {
+			dialog.ShowInformation("Empty Path", "Please enter a directory path", e.templateWindow)
+			return
+		}
+
+		// Validate the directory exists
+		if info, err := os.Stat(path); err != nil || !info.IsDir() {
+			dialog.ShowError(fmt.Errorf("directory does not exist or is not accessible: %s", path), e.templateWindow)
+			return
+		}
+
+		e.templatePath = path
+		templateList.Refresh()
+		selectionLabel.SetText("Directory set: " + filepath.Base(e.templatePath))
+	})
+
+	// Load template button
+	loadBtn := widget.NewButton("Load Template", func() {
+		if selectedTemplateID == -1 {
+			dialog.ShowInformation("No Selection", "Please select a template file first", e.templateWindow)
+			return
+		}
+
+		files, err := e.getTemplateFiles()
+		if err != nil {
+			dialog.ShowError(err, e.templateWindow)
+			return
+		}
+
+		if selectedTemplateID < len(files) {
+			e.loadTemplateFile(files[selectedTemplateID])
+			e.templateWindow.Close() // Close after loading
+		}
+	})
+
+	// Refresh button
+	refreshBtn := widget.NewButton("Refresh", func() {
+		if e.templatePath == "" {
+			dialog.ShowInformation("No Directory", "Please set a template directory first", e.templateWindow)
+			return
+		}
+		templateList.Refresh()
+		selectionLabel.SetText("Templates refreshed")
+	})
+
+	// Close button
+	closeBtn := widget.NewButton("Close", func() {
+		e.templateWindow.Close()
+	})
+
+	// Directory controls
+	dirControls := container.NewHBox(
+		dirEntry,
+		browseBtn,
+		setDirBtn,
+	)
+
+	// Layout
+	content := container.NewBorder(
+		container.NewVBox(
+			widget.NewLabel("Template Directory:"),
+			dirControls,
+			selectionLabel,
+			widget.NewSeparator(),
+			widget.NewLabel("Select a template file and click 'Load Template'"),
+		),
+		container.NewHBox(
+			refreshBtn,
+			loadBtn,
+			closeBtn,
+		),
+		nil, nil,
+		templateList,
+	)
+
+	e.templateWindow.SetContent(content)
+
+	// Set up close handler to clear the reference
+	e.templateWindow.SetOnClosed(func() {
+		e.templateWindow = nil
+	})
+
+	e.templateWindow.Show()
+}
+
+func (e *TextEditor) refreshTemplateListWithCount() {
+	if e.templateList != nil {
+		e.templateList.Refresh()
+
+		// Update file count
+		files, err := e.getTemplateFiles()
+		if err == nil {
+			// We need to find and update the fileCountLabel in the window
+			// For now, we'll just print it and rely on the initial setup
+			fmt.Printf("Template files found: %d\n", len(files))
+		} else {
+			fmt.Printf("Error getting template files: %v\n", err)
+		}
+	}
 }
 
 func (e *TextEditor) loadTemplateFile(filePath string) {
 	if e.currentDoc == nil {
-		dialog.ShowInformation("No Document", "Please create or select a document first", e.templateWindow)
+		dialog.ShowInformation("No Document", "Please create or select a document first", e.window)
 		return
 	}
 
 	file, err := os.Open(filePath)
 	if err != nil {
-		dialog.ShowError(err, e.templateWindow)
+		dialog.ShowError(err, e.window)
 		return
 	}
 	defer file.Close()
@@ -649,24 +817,19 @@ func (e *TextEditor) loadTemplateFile(filePath string) {
 					e.currentDoc.content.SetText(content.String())
 					e.currentDoc.isModified = true
 					e.updateTabTitle(e.currentDoc)
+					e.updateTitle()
 					e.updateStatus("Template loaded: " + filepath.Base(filePath))
-					if e.templateWindow != nil {
-						e.templateWindow.Hide()
-					}
 				}
 			}, e.window)
 	} else {
 		e.currentDoc.content.SetText(content.String())
 		e.currentDoc.isModified = true
 		e.updateTabTitle(e.currentDoc)
+		e.updateTitle()
 		e.updateStatus("Template loaded: " + filepath.Base(filePath))
-		if e.templateWindow != nil {
-			e.templateWindow.Hide()
-		}
 	}
 }
 
-// Rest of template methods remain the same...
 func (e *TextEditor) setTemplateDirectory() {
 	dialog.ShowFolderOpen(func(list fyne.ListableURI, err error) {
 		if err != nil {
@@ -676,9 +839,6 @@ func (e *TextEditor) setTemplateDirectory() {
 		if list != nil {
 			e.templatePath = list.Path()
 			e.updateStatus("Template directory set: " + e.templatePath)
-			if e.templateWindow != nil {
-				e.refreshTemplateList()
-			}
 		}
 	}, e.window)
 }
@@ -688,20 +848,32 @@ func (e *TextEditor) refreshTemplates() {
 		dialog.ShowInformation("No Directory", "Please set a template directory first", e.window)
 		return
 	}
-	e.refreshTemplateList()
 	e.updateStatus("Templates refreshed")
 }
 
 func (e *TextEditor) refreshTemplateList() {
 	if e.templateList != nil {
+		fmt.Println("Refreshing template list...")
 		e.templateList.Refresh()
-		e.selectedTemplateID = -1
+
+		// Debug: print file count
+		files, err := e.getTemplateFiles()
+		if err != nil {
+			fmt.Printf("Error refreshing: %v\n", err)
+		} else {
+			fmt.Printf("Template files available: %d\n", len(files))
+		}
 	}
 }
 
 func (e *TextEditor) getTemplateFiles() ([]string, error) {
 	if e.templatePath == "" {
 		return nil, fmt.Errorf("no template directory set")
+	}
+
+	// Check if directory exists
+	if _, err := os.Stat(e.templatePath); os.IsNotExist(err) {
+		return nil, fmt.Errorf("template directory does not exist: %s", e.templatePath)
 	}
 
 	var templateFiles []string
@@ -711,14 +883,20 @@ func (e *TextEditor) getTemplateFiles() ([]string, error) {
 		}
 		if !info.IsDir() {
 			ext := strings.ToLower(filepath.Ext(path))
+			// Support common template/text file extensions
 			switch ext {
-			case ".txt", ".tmpl", ".tpl", ".template", ".go", ".md", ".html", ".css", ".js", ".json", ".xml":
+			case ".md", ".html", ".css", ".js", ".json":
 				templateFiles = append(templateFiles, path)
 			}
 		}
 		return nil
 	})
-	return templateFiles, err
+
+	if err != nil {
+		return nil, err
+	}
+
+	return templateFiles, nil
 }
 
 // Edit operations
