@@ -39,7 +39,7 @@ type TextEditor struct {
 
 func NewTextEditor() *TextEditor {
 	editor := &TextEditor{
-		app:                app.NewWithID("com.example.texteditor"),
+		app:                app.NewWithID("org.historytracers"),
 		documents:          make([]*Document, 0),
 		selectedTemplateID: -1,
 	}
@@ -49,7 +49,7 @@ func NewTextEditor() *TextEditor {
 
 func (e *TextEditor) setupUI() {
 	// Create main window
-	e.window = e.app.NewWindow("Go Text Editor")
+	e.window = e.app.NewWindow("History Tracers Editor")
 	e.window.SetMaster()
 	e.window.Resize(fyne.NewSize(1000, 700))
 
@@ -82,11 +82,58 @@ func (e *TextEditor) setupUI() {
 
 	e.window.SetContent(content)
 
+	e.setupShortcuts()
+
 	// Create initial empty document
 	e.newFile()
 }
 
+type customShortcut struct {
+	key  fyne.KeyName
+	mod  fyne.KeyModifier
+	name string
+}
+
+// Implement the Shortcut interface
+func (s *customShortcut) Key() fyne.KeyName {
+	return s.key
+}
+
+func (s *customShortcut) Mod() fyne.KeyModifier {
+	return s.mod
+}
+
+func (s *customShortcut) ShortcutName() string {
+	return s.name
+}
+
+func (e *TextEditor) setupShortcuts() {
+	// Helper function to add shortcuts
+	addShortcut := func(key fyne.KeyName, mod fyne.KeyModifier, action func()) {
+		shortcut := &customShortcut{key: key, mod: mod, name: fmt.Sprintf("%v+%v", mod, key)}
+		e.window.Canvas().AddShortcut(shortcut, func(fyne.Shortcut) {
+			action()
+		})
+	}
+
+	// File operations
+	addShortcut(fyne.KeyN, fyne.KeyModifierControl, e.newFile)
+	addShortcut(fyne.KeyO, fyne.KeyModifierControl, e.openFile)
+	addShortcut(fyne.KeyS, fyne.KeyModifierControl, e.saveFile)
+	addShortcut(fyne.KeyW, fyne.KeyModifierControl, e.closeCurrentTab)
+
+	// Tab navigation
+	addShortcut(fyne.KeyTab, fyne.KeyModifierControl, e.nextTab)
+	addShortcut(fyne.KeyTab, fyne.KeyModifierControl|fyne.KeyModifierShift, e.previousTab)
+
+	// Quit - handled by window close intercept
+	e.window.SetCloseIntercept(func() {
+		e.quit()
+	})
+}
+
 func (e *TextEditor) createMenu() {
+	// File menu with shortcuts
 	fileMenu := fyne.NewMenu("File",
 		fyne.NewMenuItem("New", e.newFile),
 		fyne.NewMenuItem("Open", e.openFile),
@@ -103,6 +150,7 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("Exit", e.quit),
 	)
 
+	// Edit menu with shortcuts
 	editMenu := fyne.NewMenu("Edit",
 		fyne.NewMenuItem("Cut", e.cutText),
 		fyne.NewMenuItem("Copy", e.copyText),
@@ -110,6 +158,7 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("Select All", e.selectAll),
 	)
 
+	// Tabs menu with shortcuts
 	tabsMenu := fyne.NewMenu("Tabs",
 		fyne.NewMenuItem("Next Tab", e.nextTab),
 		fyne.NewMenuItem("Previous Tab", e.previousTab),
@@ -117,12 +166,14 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("List All Tabs", e.showTabList),
 	)
 
+	// Template menu with shortcuts
 	templateMenu := fyne.NewMenu("Templates",
 		fyne.NewMenuItem("Load Template", e.showTemplateWindow),
 		fyne.NewMenuItem("Set Template Directory", e.setTemplateDirectory),
 		fyne.NewMenuItem("Refresh Templates", e.refreshTemplates),
 	)
 
+	// Help menu with shortcut
 	helpMenu := fyne.NewMenu("Help",
 		fyne.NewMenuItem("About", e.showAbout),
 	)
@@ -257,7 +308,7 @@ func (e *TextEditor) openFile() {
 		e.updateStatus("Opened: " + filepath.Base(filePath))
 	}, e.window)
 
-	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".md", ".json", ".html", ".css", ".js"}))
+	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".md", ".json", ".html", ".css", ".js"}))
 	dialog.Show()
 }
 
@@ -306,7 +357,7 @@ func (e *TextEditor) openInNewTab() {
 		e.updateStatus("Opened in new tab: " + filepath.Base(filePath))
 	}, e.window)
 
-	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".md", ".json", ".html", ".css", ".js"}))
+	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".md", ".json", ".html", ".css", ".js"}))
 	dialog.Show()
 }
 
@@ -373,7 +424,7 @@ func (e *TextEditor) saveAsFile() {
 		defaultName = filepath.Base(e.currentDoc.filePath)
 	}
 	dialog.SetFileName(defaultName)
-	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".md", ".json", ".html", ".css", ".js"}))
+	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".md", ".json", ".html", ".css", ".js"}))
 	dialog.Show()
 }
 
@@ -885,7 +936,7 @@ func (e *TextEditor) getTemplateFiles() ([]string, error) {
 			ext := strings.ToLower(filepath.Ext(path))
 			// Support common template/text file extensions
 			switch ext {
-			case ".md", ".html", ".css", ".js", ".json":
+			case ".txt", ".md", ".html", ".css", ".js", ".json":
 				templateFiles = append(templateFiles, path)
 			}
 		}
