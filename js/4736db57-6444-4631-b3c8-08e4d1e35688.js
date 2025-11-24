@@ -2,6 +2,8 @@
 
 var localAnswerVector = undefined;
 
+var strReorganizedValue = [ ];
+
 var strTopValue = "";
 var topValue = 0;
 
@@ -50,6 +52,8 @@ function htNewSubtraction() {
     currentTop = 0;
     currentBottom = 0;
     stop = 0;
+    strReorganizedValue = [];
+    carriers = 0;
 
     currentIdx = 4;
     vectorIdx = 2;
@@ -74,11 +78,47 @@ function htNewSubtraction() {
 
     strBottomValue = bottomValue.toString();
     htWriteValueOnLine("3", bottomValue.toString());
-    $("#tc1f5").html(mathKeywords[30]+" <b>"+topValue+" - "+bottomValue+"</b><br />"+mathKeywords[31]+"<b>("+strTopValue[vectorIdx]+" + "+strBottomValue[vectorIdx]+")</b>");
 
     totalValue = topValue - bottomValue;
     htSetWorkingValue(strTopValue[vectorIdx], strBottomValue[vectorIdx]);
     htWriteValueOnScreen("#tc"+currentIdx+"f4", 0);
+
+    $("#tc1f5").html(mathKeywords[30]+" <b>"+topValue+" - "+bottomValue+"</b><br />"+mathKeywords[31]+"<b>("+strTopValue[vectorIdx]+" + "+strBottomValue[vectorIdx]+")</b>");
+
+    var c = 10;
+    var c1 = 1;
+    var carr = 0;
+    strReorganizedValue = [];
+    for (let i = 2; i >= 0; i--) {
+        var tv = topValue % c;
+        var bv = bottomValue % c;
+
+        tv = parseInt(tv / c1);
+        bv = parseInt(bv / c1);
+        if (carr == 1) {
+            if (tv == 0) {
+                tv = c1;
+            } else {
+                tv -= 1;
+                carr = 0;
+            }
+        }
+        let end = tv;
+        if (carr && tv == 0) {
+            end = 9;
+            carr = 1;
+        } else if (bv > tv) {
+            end += 10;
+            carr = 1;
+        }
+        strReorganizedValue.push(end);
+
+        c *= 10;
+        c1 *= 10;
+        topValue -= tv;
+        bottomValue -= bv;
+    }
+    console.log(strReorganizedValue);
 }
 
 function htMoveAhead()
