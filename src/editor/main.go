@@ -13,6 +13,7 @@ import (
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
+	"fyne.io/fyne/v2/driver/desktop"
 	"fyne.io/fyne/v2/widget"
 )
 
@@ -87,43 +88,45 @@ func (e *TextEditor) setupUI() {
 	e.newFile()
 }
 
-type customShortcut struct {
-	key  fyne.KeyName
-	mod  fyne.KeyModifier
-	name string
-}
-
-// Implement the Shortcut interface
-func (s *customShortcut) Key() fyne.KeyName {
-	return s.key
-}
-
-func (s *customShortcut) Mod() fyne.KeyModifier {
-	return s.mod
-}
-
-func (s *customShortcut) ShortcutName() string {
-	return s.name
-}
-
 func (e *TextEditor) setupShortcuts() {
-	// Helper function to add shortcuts
-	addShortcut := func(key fyne.KeyName, mod fyne.KeyModifier, action func()) {
-		shortcut := &customShortcut{key: key, mod: mod, name: fmt.Sprintf("%v+%v", mod, key)}
-		e.window.Canvas().AddShortcut(shortcut, func(fyne.Shortcut) {
+	addShortcut := func(key fyne.KeyName, action func()) {
+		// Use fyne.KeyModifierShortcutDefault to handle OS differences (Ctrl on Win/Linux, Cmd on macOS)
+		shortcut := &desktop.CustomShortcut{
+			KeyName:  key,
+			Modifier: fyne.KeyModifierShortcutDefault,
+		}
+
+		// Add the shortcut to the canvas
+		e.window.Canvas().AddShortcut(shortcut, func(s fyne.Shortcut) {
+			fmt.Printf("Shortcut triggered: %s\n", s.ShortcutName())
 			action()
 		})
 	}
 
 	// File operations
-	addShortcut(fyne.KeyN, fyne.KeyModifierControl, e.newFile)
-	addShortcut(fyne.KeyO, fyne.KeyModifierControl, e.openFile)
-	addShortcut(fyne.KeyS, fyne.KeyModifierControl, e.saveFile)
-	addShortcut(fyne.KeyW, fyne.KeyModifierControl, e.closeCurrentTab)
+	// Note: Modifier is handled inside addShortcut using fyne.KeyModifierShortcutDefault
+	addShortcut(fyne.KeyN, e.newFile)
+	addShortcut(fyne.KeyO, e.openFile)
+	addShortcut(fyne.KeyS, e.saveFile)
+	addShortcut(fyne.KeyW, e.closeCurrentTab)
 
-	// Tab navigation
-	addShortcut(fyne.KeyTab, fyne.KeyModifierControl, e.nextTab)
-	addShortcut(fyne.KeyTab, fyne.KeyModifierControl|fyne.KeyModifierShift, e.previousTab)
+	// Tab navigation (Ctrl+Tab and Ctrl+Shift+Tab)
+	// For specific, multi-modifier shortcuts, you need a separate handler
+
+	// Ctrl+Tab (Next Tab)
+	nextTabShortcut := &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl}
+	e.window.Canvas().AddShortcut(nextTabShortcut, func(fyne.Shortcut) {
+		e.nextTab()
+	})
+
+	// Ctrl+Shift+Tab (Previous Tab)
+	prevTabShortcut := &desktop.CustomShortcut{
+		KeyName:  fyne.KeyTab,
+		Modifier: fyne.KeyModifierControl | fyne.KeyModifierShift,
+	}
+	e.window.Canvas().AddShortcut(prevTabShortcut, func(fyne.Shortcut) {
+		e.previousTab()
+	})
 
 	// Quit - handled by window close intercept
 	e.window.SetCloseIntercept(func() {
@@ -132,6 +135,13 @@ func (e *TextEditor) setupShortcuts() {
 }
 
 func (e *TextEditor) createMenu() {
+	// Template menu with shortcuts
+	templateMenu := fyne.NewMenu("Templates",
+		fyne.NewMenuItem("Load Template", e.showTemplateWindow),
+		fyne.NewMenuItem("Set Template Directory", e.setTemplateDirectory),
+		fyne.NewMenuItem("Refresh Templates", e.refreshTemplates),
+	)
+
 	// File menu with shortcuts
 	fileMenu := fyne.NewMenu("File",
 		fyne.NewMenuItem("New", e.newFile),
@@ -163,13 +173,6 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("Previous Tab", e.previousTab),
 		fyne.NewMenuItemSeparator(),
 		fyne.NewMenuItem("List All Tabs", e.showTabList),
-	)
-
-	// Template menu with shortcuts
-	templateMenu := fyne.NewMenu("Templates",
-		fyne.NewMenuItem("Load Template", e.showTemplateWindow),
-		fyne.NewMenuItem("Set Template Directory", e.setTemplateDirectory),
-		fyne.NewMenuItem("Refresh Templates", e.refreshTemplates),
 	)
 
 	// Help menu with shortcut
