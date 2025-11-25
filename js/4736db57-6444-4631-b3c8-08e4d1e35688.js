@@ -27,25 +27,20 @@ function htSetWorkingValue(topValue, bottomValue)
     var tv = parseInt(topValue);
     var bv = parseInt(bottomValue);
 
-    var tot = tv - bv;
-    if (tot < 0) {
-        stopValue = (tv + 10) - bv;
-        carriers = 1;
-    } else {
-        stopValue = tot;
-    }
+    stopValue = tv - bv;
     workingValue = 0;
 }
 
-function htWriteValueOnScreen(cell, value)
+function htWriteValueOnScreen(cell, value, possibleOverline)
 {
-    $(cell).html("<span class=\"text_to_paint\">"+value+"</span>");
+    var localClass = (carriers && possibleOverline) ? "text_to_paint_overline" : "text_to_paint";
+    $(cell).html("<span class=\""+localClass+"\">"+value+"</span>");
 }
 
-function htWriteValueOnLine(line, value)
+function htWriteValueOnLine(line, value, possibleOverline)
 {
     for (let i = 0, j = 2; i < 3; i++, j++) {
-        htWriteValueOnScreen("#tc"+j+"f"+line, value[i]);
+        htWriteValueOnScreen("#tc"+j+"f"+line, value[i], possibleOverline);
     }
 }
 
@@ -58,6 +53,7 @@ function htNewSubtraction() {
 
     currentIdx = 4;
     vectorIdx = 2;
+    carriers = 0;
 
     for (let j = 1; j < 5; j++) {
         for (let i = 1; i < 4; i++) {
@@ -75,22 +71,20 @@ function htNewSubtraction() {
     }
 
     strTopValue = topValue.toString();
-    htWriteValueOnLine("2", strTopValue);
 
     strBottomValue = bottomValue.toString();
-    htWriteValueOnLine("3", bottomValue.toString());
 
     totalValue = topValue - bottomValue;
-    htWriteValueOnScreen("#tc"+currentIdx+"f4", 0);
-
-    var finalText = mathKeywords[30]+" <b>"+topValue+" - "+bottomValue+"</b><br />"+mathKeywords[31]+"<b>("+strTopValue[vectorIdx]+" + "+strBottomValue[vectorIdx]+")</b>";
+    htWriteValueOnScreen("#tc"+currentIdx+"f4", 0, false);
 
     var c = 10;
     var c1 = 1;
     var carr = 0;
+    var workTopValue = topValue;
+    var workBottomValue = bottomValue;
     for (let i = 2; i >= 0; i--) {
-        var tv = topValue % c;
-        var bv = bottomValue % c;
+        var tv = workTopValue % c;
+        var bv = workBottomValue % c;
 
         tv = parseInt(tv / c1);
         cmpTopValue.push(tv);
@@ -107,23 +101,32 @@ function htNewSubtraction() {
         if (carr && tv == 0) {
             end = 9;
             carr = 1;
+            carriers = 1;
         } else if (bv > tv) {
             end += 10;
             carr = 1;
+            carriers = 1;
         }
         reorganizedValue.push(end);
 
         c *= 10;
         c1 *= 10;
-        topValue -= tv;
-        bottomValue -= bv;
+        workTopValue -= tv;
+        workBottomValue -= bv;
     }
-    if (cmpTopValue[0] != reorganizedValue[0]) {
+    reorganizedValue.reverse();
+    cmpTopValue.reverse();
+    var finalText = mathKeywords[30]+" <b>"+topValue+" - "+bottomValue+"</b><br />"+mathKeywords[31]+"<b>("+reorganizedValue[vectorIdx]+" - "+strBottomValue[vectorIdx]+")</b>";
+    if (carriers) {
+        for (let i = vectorIdx, j = currentIdx; i >= 0; i--, j--) {
+            htWriteValueOnScreen("#tc"+j+"f1", reorganizedValue[i], false);
+        }
         finalText += "<br />"+mathKeywords[32];
     }
-    htSetWorkingValue(reorganizedValue[0], strBottomValue[vectorIdx]);
-    console.log(reorganizedValue);
+    htSetWorkingValue(reorganizedValue[vectorIdx], strBottomValue[vectorIdx]);
 
+    htWriteValueOnLine("2", strTopValue, true);
+    htWriteValueOnLine("3", strBottomValue, false);
     $("#tc1f5").html(finalText);
 }
 
@@ -133,32 +136,29 @@ function htMoveAhead()
         return false;
     }
 
-    htWriteValueOnScreen("#tc"+currentIdx+"f4", workingValue);
+    htWriteValueOnScreen("#tc"+currentIdx+"f4", workingValue, false);
     currentIdx -= 1;
     vectorIdx -= 1;
     if (currentIdx > 1) {
-        htWriteValueOnScreen("#tc"+currentIdx+"f4", 0);
+        htWriteValueOnScreen("#tc"+currentIdx+"f4", 0, false);
     } else {
         stop = 1;
     }
 
-    var bottomV = parseInt(strBottomValue[vectorIdx])+ carriers;
-    if (carriers == 1) {
-        htWriteValueOnScreen("#tc"+currentIdx+"f1", carriers);
+    var bottomV = parseInt(strBottomValue[vectorIdx]);
+    if (cmpTopValue[vectorIdx] != reorganizedValue[vectorIdx]) {
+        htWriteValueOnScreen("#tc"+currentIdx+"f1", reorganizedValue[vectorIdx], false);
     }
 
     if (!stop) {
-        var message = mathKeywords[31]+" <b>("+strTopValue[vectorIdx]+" - "+strBottomValue[vectorIdx]+")</b>";
+        var message = mathKeywords[31]+" <b>("+reorganizedValue[vectorIdx]+" - "+strBottomValue[vectorIdx]+")</b>";
+        if (carriers) {
+            message += "<br />"+mathKeywords[32];
+        }
         $("#tc1f5").html(message);
-        htSetWorkingValue(strTopValue[vectorIdx], bottomV.toString());
+        htSetWorkingValue(reorganizedValue[vectorIdx], bottomV.toString());
     } else {
         $("#tc1f5").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
-        if (stop && carriers) {
-            htWriteValueOnScreen("#tc1f1", carriers);
-        }
-        if (carriers) {
-            htWriteValueOnScreen("#tc1f4", 1);
-        }
     }
 
     return false;
@@ -182,7 +182,7 @@ function htSubtractionUpdateValue(n)
     }  else if (workingValue < 0) {
         workingValue = 0;
     }  
-    htWriteValueOnScreen("#tc"+currentIdx+"f4", workingValue);
+    htWriteValueOnScreen("#tc"+currentIdx+"f4", workingValue, false);
 
     if (workingValue == stopValue) {
         htSubtractionUpdateValue(0);
