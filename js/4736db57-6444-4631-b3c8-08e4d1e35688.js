@@ -64,6 +64,7 @@ function htNewSubtraction() {
 
     topValue = htGetRandomArbitrary(100, 999);
     bottomValue =  htGetRandomArbitrary(100, 999);
+
     if (topValue < bottomValue) {
         var change = bottomValue;
         bottomValue = topValue;
@@ -90,15 +91,19 @@ function htNewSubtraction() {
         cmpTopValue.push(tv);
         bv = parseInt(bv / c1);
         if (carr == 1) {
-            if (tv == 0) {
-                tv = c1;
+            if (i != 0) {
+                if (tv == 0) {
+                    tv = c1;
+                } else {
+                    tv -= 1;
+                    carr = 0;
+                }
             } else {
                 tv -= 1;
-                carr = 0;
             }
         }
         let end = tv;
-        if (carr && tv == 0) {
+        if (carr && tv == 10) {
             end = 9;
             carr = 1;
             carriers = 1;
