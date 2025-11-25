@@ -126,7 +126,9 @@ function htNewSubtraction() {
         for (let i = vectorIdx, j = currentIdx; i >= 0; i--, j--) {
             htWriteValueOnScreen("#tc"+j+"f1", reorganizedValue[i], false);
         }
-        finalText += "<br />"+mathKeywords[32];
+        if (reorganizedValue[vectorIdx] > cmpTopValue[vectorIdx]) {
+            finalText += "<br />"+mathKeywords[32];
+        }
     }
     htSetWorkingValue(reorganizedValue[vectorIdx], strBottomValue[vectorIdx]);
 
@@ -158,7 +160,9 @@ function htMoveAhead()
     if (!stop) {
         var message = mathKeywords[31]+" <b>("+reorganizedValue[vectorIdx]+" - "+strBottomValue[vectorIdx]+")</b>";
         if (carriers) {
-            message += "<br />"+mathKeywords[32];
+            if (reorganizedValue[vectorIdx] > cmpTopValue[vectorIdx]) {
+                message += "<br />"+mathKeywords[32];
+            }
         }
         $("#tc1f5").html(message);
         htSetWorkingValue(reorganizedValue[vectorIdx], bottomV.toString());
