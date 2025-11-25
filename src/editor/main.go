@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	// "time"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -591,6 +592,7 @@ func (e *TextEditor) updateStatus(message string) {
 }
 
 func (e *TextEditor) Run() {
+	HTParseArg()
 	e.window.ShowAndRun()
 }
 

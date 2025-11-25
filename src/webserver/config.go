@@ -62,7 +62,7 @@ func HTParseArg() {
 }
 
 func NewHTConfig() *htConfig {
-	return &htConfig{DevMode: devFlag, Port: portFlag, SrcPath: srcPath, ContentPath: contentPath}
+	return &htConfig{DevMode: devFlag, Port: portFlag, SrcPath: srcPath, ContentPath: contentPath, LogPath: logPath}
 }
 
 func htPrintOptions() {
