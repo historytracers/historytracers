@@ -2,7 +2,8 @@
 
 var localAnswerVector = undefined;
 
-var strReorganizedValue = [ ];
+var reorganizedValue = [ ];
+var cmpTopValue = [ ];
 
 var strTopValue = "";
 var topValue = 0;
@@ -52,8 +53,8 @@ function htNewSubtraction() {
     currentTop = 0;
     currentBottom = 0;
     stop = 0;
-    strReorganizedValue = [];
-    carriers = 0;
+    reorganizedValue = [];
+    cmpTopValue = [ ];
 
     currentIdx = 4;
     vectorIdx = 2;
@@ -80,20 +81,19 @@ function htNewSubtraction() {
     htWriteValueOnLine("3", bottomValue.toString());
 
     totalValue = topValue - bottomValue;
-    htSetWorkingValue(strTopValue[vectorIdx], strBottomValue[vectorIdx]);
     htWriteValueOnScreen("#tc"+currentIdx+"f4", 0);
 
-    $("#tc1f5").html(mathKeywords[30]+" <b>"+topValue+" - "+bottomValue+"</b><br />"+mathKeywords[31]+"<b>("+strTopValue[vectorIdx]+" + "+strBottomValue[vectorIdx]+")</b>");
+    var finalText = mathKeywords[30]+" <b>"+topValue+" - "+bottomValue+"</b><br />"+mathKeywords[31]+"<b>("+strTopValue[vectorIdx]+" + "+strBottomValue[vectorIdx]+")</b>";
 
     var c = 10;
     var c1 = 1;
     var carr = 0;
-    strReorganizedValue = [];
     for (let i = 2; i >= 0; i--) {
         var tv = topValue % c;
         var bv = bottomValue % c;
 
         tv = parseInt(tv / c1);
+        cmpTopValue.push(tv);
         bv = parseInt(bv / c1);
         if (carr == 1) {
             if (tv == 0) {
@@ -111,14 +111,20 @@ function htNewSubtraction() {
             end += 10;
             carr = 1;
         }
-        strReorganizedValue.push(end);
+        reorganizedValue.push(end);
 
         c *= 10;
         c1 *= 10;
         topValue -= tv;
         bottomValue -= bv;
     }
-    console.log(strReorganizedValue);
+    if (cmpTopValue[0] != reorganizedValue[0]) {
+        finalText += "<br />"+mathKeywords[32];
+    }
+    htSetWorkingValue(reorganizedValue[0], strBottomValue[vectorIdx]);
+    console.log(reorganizedValue);
+
+    $("#tc1f5").html(finalText);
 }
 
 function htMoveAhead()
@@ -142,12 +148,7 @@ function htMoveAhead()
     }
 
     if (!stop) {
-        var message = mathKeywords[31]+" <b>("+strTopValue[vectorIdx]+" + "+strBottomValue[vectorIdx];
-        if (carriers) {
-            message += ") + "+carriers+"</b><br />"+mathKeywords[13];
-        } else {
-            message += ")</b>";
-        }
+        var message = mathKeywords[31]+" <b>("+strTopValue[vectorIdx]+" - "+strBottomValue[vectorIdx]+")</b>";
         $("#tc1f5").html(message);
         htSetWorkingValue(strTopValue[vectorIdx], bottomV.toString());
     } else {
