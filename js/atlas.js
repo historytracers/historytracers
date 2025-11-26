@@ -34,6 +34,20 @@ function htMakePythagorasTriangle() {
     });
 }
 
+function htMakeCircleWithTriangle() {
+    var first = true;
+    $(".unitaryCircle").each(function() {
+        let html = "";
+        if (first) {
+            html += "<style>.circle-draw circle {stroke: #e74c3c; stroke-width: 4; fill: none; stroke-linecap: round; stroke-dasharray: 302; stroke-dashoffset: 302; animation: draw 2s linear forwards;} </style><style>@keyframes draw { to {stroke-dashoffset: 0; } }</style>";
+            first = false;
+        }
+        html += "<div class=\"atlasCircleContainer\"><svg viewbox=\"0 0 600 300\" class=\"circle-draw\"> <circle cx=\"50\" cy=\"50\" r=\"48\" /></svg></div>";
+        let id = $(this).attr('id');
+        $("#"+id).html(html);
+    });
+}
+
 function htLoadContent() {
     var divRadius = parseInt($(".htCircle[name='fig2']").width());
 
@@ -43,6 +57,7 @@ function htLoadContent() {
         $(this).animate({ width: divRadius, height: divRadius }, 'slow');
     });
     htMakePythagorasTriangle();
+    htMakeCircleWithTriangle();
 
     return false;
 }
