@@ -39,10 +39,10 @@ function htMakeCircleWithTriangle() {
     $(".unitaryCircle").each(function() {
         let html = "";
         if (first) {
-            html += "<style>.circle-draw circle {stroke: #e74c3c; stroke-width: 4; fill: none; stroke-linecap: round; stroke-dasharray: 302; stroke-dashoffset: 302; animation: draw 2s linear forwards;} </style><style>@keyframes draw { to {stroke-dashoffset: 0; } }</style>";
+             html += "<style>.circle-draw circle, .circle-draw line {stroke: #e74c3c; stroke-width: 4; stroke-linecap: round; fill: none;}</style><style> .circle-draw circle { stroke-dasharray: 302; stroke-dashoffset: 302; animation: drawCircle 2s linear forwards;}</style><style>.radius-line { transform-origin: 50px 50px; animation: rotateRadius 2s linear forwards;}</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } }</style>";
             first = false;
         }
-        html += "<div class=\"atlasCircleContainer\"><svg viewbox=\"0 0 600 300\" class=\"circle-draw\"> <circle cx=\"50\" cy=\"50\" r=\"48\" /></svg></div>";
+        html += "<div class=\"atlasCircleContainer\"><svg viewbox=\"0 0 600 300\" class=\"circle-draw\"> <circle cx=\"50\" cy=\"50\" r=\"48\" transform=\"scale(-1 1) translate(-100 0)  rotate(180 50 50)\" /> <line class=\"radius-line\" x1=\"50\" y1=\"50\" x2=\"98\" y2=\"50\" /></svg></div>";
         let id = $(this).attr('id');
         $("#"+id).html(html);
     });
