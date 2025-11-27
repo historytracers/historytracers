@@ -4,6 +4,7 @@ $(document).ready(function(){
     htLoadPage('atlas','json', '', false);
 });
 
+/*
 function htAddAngleToTriangle(x, y, text) {
     return "<text x=\""+x+"\" y=\""+y+"\" font-size=\"1.3em\" font-weight=\"bold\">"+text+"</text>";
 }
@@ -23,8 +24,8 @@ function htMakePythagorasSideTriangle(x, y, end, color, angle) {
 
 function htMakePythagorasTriangle() {
     $(".pythagorasTriangle").each(function() {
-        let htmlSVG = "<svg viewbox=\"0 0 600 300\">";
         let id = $(this).attr('id');
+        let htmlSVG = "<svg viewbox=\"0 0 600 300\" id=\"svg"+id+"\">";
         htmlSVG += htMakePythagorasSideTriangle(210, 190, 4, "blue", 0);
         htmlSVG += htMakePythagorasSideTriangle(318, 109, 3, "red", 0);
         htmlSVG += htMakePythagorasSideTriangle(236, 0, 5, "green", 53);
@@ -33,20 +34,22 @@ function htMakePythagorasTriangle() {
         $("#"+id).html(htmlSVG);
     });
 }
+*/
 
 function htMakeCircleWithTriangle() {
     var first = true;
     $(".unitaryCircle").each(function() {
         let html = "";
         if (first) {
-             html += "<style>.circle-draw circle, .circle-draw line {stroke: #e74c3c; stroke-width: 4; stroke-linecap: round; fill: none;}</style><style> .circle-draw circle { stroke-dasharray: 302; stroke-dashoffset: 302; animation: drawCircle 2s linear forwards;}</style><style>.radius-line { transform-origin: 50px 50px; animation: rotateRadius 2s linear forwards;}</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } }</style>";
+             html += "<style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 150px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }</style>";
             first = false;
         }
-        html += "<div class=\"atlasCircleContainer\"><svg viewbox=\"0 0 600 300\" class=\"circle-draw\"> <circle cx=\"50\" cy=\"50\" r=\"48\" transform=\"scale(-1 1) translate(-100 0)  rotate(180 50 50)\" /> <line class=\"radius-line\" x1=\"50\" y1=\"50\" x2=\"98\" y2=\"50\" /></svg></div>";
         let id = $(this).attr('id');
+        html += "<div class=\"atlasCircleContainer\"><svg viewbox=\"0 0 600 300\" class=\"circle-draw\" id=\"svg"+id+"\"> <circle cx=\"300\" cy=\"150\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 150)\" /> <line class=\"radius-line\" x1=\"300\" y1=\"148\" x2=\"448\" y2=\"148\" /> <line class=\"radius-45\" x1=\"300\" y1=\"148\" x2=\"406\" y2=\"46\" />  <line class=\"vertical45\" x1=\"406\" y1=\"46\" x2=\"406\" y2=\"146\" /></svg></div>";
         $("#"+id).html(html);
     });
 }
+
 
 function htLoadContent() {
     var divRadius = parseInt($(".htCircle[name='fig2']").width());
@@ -56,7 +59,9 @@ function htLoadContent() {
     }).mouseleave(function(){
         $(this).animate({ width: divRadius, height: divRadius }, 'slow');
     });
-    htMakePythagorasTriangle();
+
+ // Calling during loading was not working.   
+ //   htMakePythagorasTriangle();
     htMakeCircleWithTriangle();
 
     return false;
