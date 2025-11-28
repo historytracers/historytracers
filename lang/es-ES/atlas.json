@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1763747839"
+      "1764363347"
    ],
    "authors": null,
    "reviewers": null,
@@ -846,7 +846,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"htCircle\" style=\"height: 40vh; width: 40vh; background-color: white; border:1px solid black;\" name=\"fig2\"></div></center><p class=\"desc\"><b>Figura 2</b>: Círculo que representa la contracción del universo.</p>",
+               "text": "<center><div class=\"htCircle\" style=\"height: 40vh; width: 40vh; background-color: white; border:1px solid black;\" name=\"fig2\"></div></center><p class=\"desc\"><b>Figura 2</b>: Círculo que representa la contracción del universo.</p><script>var divRadius = parseInt($(\".htCircle[name='fig2']\").width()); $(\".htCircle\").mouseenter(function(){ $(this).animate({ width: divRadius/4, height: divRadius/4 }, 'slow'); }).mouseleave(function(){ $(this).animate({ width: divRadius, height: divRadius }, 'slow'); });</script>",
                "source": null,
                "date_time": null,
                "isTable": false,

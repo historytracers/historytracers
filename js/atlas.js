@@ -51,6 +51,8 @@ function htMakeCircleWithTriangle() {
 */
 
 function htLoadContent() {
+ // Calling during loading was not working.   
+    /*
     var divRadius = parseInt($(".htCircle[name='fig2']").width());
 
     $(".htCircle").mouseenter(function(){
@@ -58,8 +60,8 @@ function htLoadContent() {
     }).mouseleave(function(){
         $(this).animate({ width: divRadius, height: divRadius }, 'slow');
     });
+    */
 
- // Calling during loading was not working.   
  //   htMakePythagorasTriangle();
  //   htMakeCircleWithTriangle();
 
