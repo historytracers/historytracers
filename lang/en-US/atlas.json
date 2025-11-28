@@ -2002,7 +2002,7 @@
          "index": "The Theorem and the Circle",
          "text": [
             {
-               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 150px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 300\" class=\"circle-draw\" id=\"svgcirctri0\"> <circle cx=\"300\" cy=\"150\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 150)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"148\" x2=\"448\" y2=\"148\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"148\" x2=\"406\" y2=\"46\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"46\" x2=\"406\" y2=\"146\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"68\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"138\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"390\" y=\"108\" font-size=\"1.3em\" font-weight=\"bold\">b</text>  <text class=\"atlasTextRadius\" x=\"320\" y=\"145\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Gráfico 1</b>: Circulo com raio 1 contendo um triângulo retângulo.</p>",
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 150px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 300\" class=\"circle-draw\" id=\"svgcirctri0\"> <circle cx=\"300\" cy=\"150\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 150)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"148\" x2=\"448\" y2=\"148\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"148\" x2=\"406\" y2=\"46\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"46\" x2=\"406\" y2=\"146\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"68\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"138\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"390\" y=\"108\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"145\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"155\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"405\" y=\"162\" font-size=\"1.3em\" font-weight=\"bold\">Q</text></svg></div></p><p class=\"desc\"><b>Chart 1</b>: Circle with a radius of 1 containing a right triangle.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2011,12 +2011,144 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>The Theorem and the Circle</h3>The image in this section presents data that may raise questions for some people. In fact, a few have already asked me, \"Why do I need to learn the Pythagorean Theorem?\" To help illustrate the value of this knowledge, we will break down the image in stages and demonstrate the relationship between the theorem and geographic coordinates, which are used, among other things, in the GPS on your smartphone.</p>",
+               "text": "### The Theorem and the Circle\n\nCircles and lines have some common elements, but these can often go unnoticed. Something similar happens when we compare a plane and space. Therefore, before we continue, let's reflect:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Pythagoras in an Atlas?</b><br /><br />A right triangle is a flat, two-dimensional figure, while an atlas shows images of an ellipsoidal planet—a sphere with flattened extremes (<htcite0>; <htcite1>).<br /><br />How is it possible to use the Pythagorean theorem on our planet to locate ourselves?</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "924f3991-5eec-4639-b307-5ce39447f6f6",
+                     "text": "NASA",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "44d06c2e-afbc-4248-95cb-5b507205e532",
+                     "text": "Hu, X., Shum, C.K. & Bevis, M.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Drawing a Circle\n\nNowadays, there are tools that allow us to draw circles, but we will use a method that makes explicit everything we need to understand it:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: My Circle</b><br /><br />Take a piece of string, a pencil, or any object that can stay straight. In this exercise, we will assume you selected a string.<br /><br />1. Hold one end of the string firmly with one hand and stretch the rest of it with the other, keeping it stretched horizontally.<br />2. Now, rotate the stretched string counterclockwise around your fixed hand.</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The string (or extended object) you used to make the circle, always kept at the same distance from the origin (called **O** in **Chart 1**), is known as the **radius** (<htcite0>). In the same **Chart 1**, we have highlighted only two lines towards the origin **O** and named them **c**.\n\n#### The Triangle in the Circle\n\nWhen we draw two lines **c** from the origin **O**, we create an angle between them, which we call **theta (θ)**.\n\nNow, to form a triangle, we draw a vertical line from the end of the slanted line (point **P**) which we call **b**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b67b9bfb-b7cf-47f1-8c20-d0da72ef3ed8",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Radius",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: I've Seen This Before</b><br /><br />The radius <b>c</b> of the circle is a constant. And, looking back at the previous topic in the <i>Atlas</i>, we can associate it with the hypotenuse of the right triangle.<br /><br />As a consequence of this association, the sides <b>a</b> and <b>b</b> of the triangle are the <b>legs</b> (or catheti).<br /><br />After finding the triangle inside the circle, does this change in the legs remind you of anything else?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Angles and Multiplication\n\nMoving away from the origin is something we study from our earliest years, but it is introduced gradually.\n\nObserve the multiplication tables from 0 to 9 plotted with their results connected in **Chart 2**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 2</b>: Points from the zero to nine multiplication tables connected, forming lines. Chart created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p><script> htFillMultiplicationTable(\"chart1\", 0, 9, false, true);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: Rotating</b><br /><br />Let's perform the same rotation we did with the string, but using <b>Chart 2</b><br /><br />1. Click on the line names at the top of <b>Chart 2</b>; they are called <i>legends</i>. This will cause the lines to be hidden.<br />2. Now, starting from the <b>Table of 0</b> up to the <b>Table of 9</b>, click on each legend again, observing what happens.</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As you can see, as we multiply the same number by larger numbers, we are moving away from the horizontal. Since the radius was moved away from the horizontal in different practices, in all of them we were implicitly multiplying (<htcite0>).\n\n#### Locating Ourselves\n\nFinally, we can begin to locate ourselves on a circle, or on the surface of a planet, using the right triangle.\n\nNote that in **Chart 1** , we have point **P**, which is the meeting point between the radius **c** (the hypotenuse) and the vertical line **b** (the leg opposite angle θ). Furthermore, at the other end of the vertical line, we also have point **Q**, which is the meeting point between legs **a** and **b**.\n\nWe can conclude, therefore, that all the elements (legs, angle, and hypotenuse) of the right triangle are directly linked to positions on the surface of a circle or a sphere.\n\nIn the next texts of the *Atlas*, we will explore this connection in more detail.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeros Pasos, Capítulo 4",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
