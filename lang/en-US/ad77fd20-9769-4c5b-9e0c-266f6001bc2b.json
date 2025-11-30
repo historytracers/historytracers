@@ -364,6 +364,51 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_generalization",
+         "text": [
+            {
+               "text": "### General Comparison\n\nNow that we have identified which operation we will use to measure the differences, and knowing that the result of the measurements will be zero when there are no differences, we can generalize the operation performed. Thus, we can write that the difference between the left hand (L) and the right hand (R) is zero, always respecting the conservation of matter, meaning we perform the same operations on both sides of the equality (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers",
+                     "page": "On Equality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mn>I</mn> <mo>=</mo> <mn>D</mn></math></center></p><p><center><math mathsize=\"1.5em\"> <mn>I</mn> <mo>-</mo> <mn>D</mn> <mo>=</mo> <mn>D</mn> <mo>-</mo> <mn>D</mn></math></center></p><p><center><math mathsize=\"1.5em\"> <mn>I</mn> <mo>-</mo> <mn>D</mn> <mo>=</mo> <mn>0</mn></math></center></p><p class=\"desc\"><b>Calculation 5</b>: Comparison Between Two Hands.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Each line of **Calculation 5** is actually a text describing exactly what we have presented:\n- <b>Line 1:</b> The left hand is equal to the right hand.\n- <b>Line 2:</b> This means that the difference between the left hand (L) and the right hand (R) is equivalent to comparing a right hand (R) with itself.\n- <b>Line 3:</b> The difference between the left hand (L) and the right hand (R) is non-existent—it is zero—indicating that they are equal.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -371,6 +416,11 @@
          "question": "Todas as operações matemáticas podem levar a um resultado igual a zero, logo todas elas expressam a diferença?",
          "yesNoAnswer": "No",
          "additionalInfo": "Atingir um resultado não necessariamente quer dizer estar correto. A medida de distância entre algo que comparamos, ou suas respecitivas igualdades são feitas através de subtração."
+      },
+      {
+         "question": "Em uma cesta branca (B) com 6 maçãs, em uma segunda azul (A) cesta temos 2 maçãs, a quantidade de maçãs nestas cestas é diferente?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Ao realizarmos a subtração da cesta branca com a cesta azul (B - A = 6 - 2 = 4), temos um resultado diferente de zero. Isto quer dizer que a quantidade de maçãs na cesta branca é maior que a quantidade da cesta azul."
       }
    ],
    "game_v2": null,
