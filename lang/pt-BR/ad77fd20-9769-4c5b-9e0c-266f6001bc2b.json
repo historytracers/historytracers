@@ -364,6 +364,51 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_generalization",
+         "text": [
+            {
+               "text": "### Comparação Geral\n\nAgora que identificamos qual operação usaremos para medir as diferenças, e sabendo que o resultado das medições será igual a zero quando não houver diferenças, podemos generalizar a operação realizada. Assim, podemos escrever que a diferença entre a mão esquerda (E) e a mão direita (D) é igual a zero, sempre respeitando a conservação da matéria, ou seja, realizando as mesmas operações em ambos os lados da igualdade (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers",
+                     "page": "Sobre igualdade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mn>E</mn> <mo>=</mo> <mn>D</mn></math></center></p><p><center><math mathsize=\"1.5em\"> <mn>E</mn> <mo>-</mo> <mn>D</mn> <mo>=</mo> <mn>D</mn> <mo>-</mo> <mn>D</mn></math></center></p><p><center><math mathsize=\"1.5em\"> <mn>E</mn> <mo>-</mo> <mn>D</mn> <mo>=</mo> <mn>0</mn></math></center></p><p class=\"desc\"><b>Cálculo 5</b>: Comparação entre duas mãos</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Cada linha do **Cálculo 5** é, na verdade, um texto descrevendo exatamente o que apresentamos:\n- <b>Linha 1:</b> A mão esquerda é igual à mão direita.\n- <b>Linha 2:</b> Isso quer dizer que a diferença entre a mão esquerda (E) e a mão direita (D) é equivalente a compararmos uma mão direita (D) com ela mesma.\n- <b>Linha 3:</b> A diferença entre a mão esquerda (E) e a mão direita (D) é inexistente — é igual a zero —, indicando que são iguais.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -371,6 +416,11 @@
          "question": "Todas as operações matemáticas podem levar a um resultado igual a zero, logo todas elas expressam a diferença?",
          "yesNoAnswer": "No",
          "additionalInfo": "Atingir um resultado não necessariamente quer dizer estar correto. A medida de distância entre algo que comparamos, ou suas respecitivas igualdades são feitas através de subtração."
+      },
+      {
+         "question": "Em uma cesta branca (B) com 6 maçãs, em uma segunda azul (A) cesta temos 2 maçãs, a quantidade de maçãs nestas cestas é diferente?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Ao realizarmos a subtração da cesta branca com a cesta azul (B - A = 6 - 2 = 4), temos um resultado diferente de zero. Isto quer dizer que a quantidade de maçãs na cesta branca é maior que a quantidade da cesta azul."
       }
    ],
    "game_v2": null,
