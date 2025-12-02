@@ -311,6 +311,60 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_who",
+         "text": [
+            {
+               "text": "### Ser ou não ser?\n\nDa definição do Hidrogênio e seus isótopos, agora podemos genralizar as informações pra os demais átomos e saber quando estamos falando de um átomo em específico.\n\n####Átomos diferentes\n\nPara sabermos se estamos trabalhando com um único tipo de átomo, ou vários átomos em conjunto, precisamos comparar os números atômicos - número de prótons - dos átomos (<htcite0>).\n\nPor exemplo, vejamos o átomo de Hidrogênio (H), que possuí um único próton em seu núcleo, e o átomo de Hélio (He), que possuí dois prótons.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "19e9bbd7-ef72-462e-993b-70e6bbdc966b",
+                     "text": "Britannica Editors",
+                     "page": "atomic number",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "9",
+                        "day": "6"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mn>Total Prótons</mn> <mo>=</mo> <mn>He</mn> <mo>-</mo> <mn>H</mn></math></center></p> <p><center><math mathsize=\"1.5em\"> <mn>Total Prótons</mn> <mo>=</mo> <mn>2</mn> <mo>-</mo> <mn>1</mn></math></center></p><p><center><math mathsize=\"1.5em\"> <mn>Total Prótons</mn> <mo>=</mo> <mn>1</mn></math></center></p> <p class=\"desc\"><b>Cálculo 1</b>: Comparação entre números de prótons entre átomos de Hélio e átomos de Hidrogênio.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como o resultado do Cálculo 1 nos mostra um valor diferente de zero, isto implica dizer que Hélio e Hidrogênio não são os mesmos átomos.\n\n#### Os isótopos\n\nAo trabalharmos com o mesmo átomo, o **Cálculo 1** sempre será igual a zero, mas o número de neutrons deles pode ser diferente, indicando que estamos trabalhando com isótopos. Por exemplo, para o átomo de Hidrogênio, o átomo possuí zero neutros, por outro lado, o deutério (D) tem um neutron, como consequência podemos saber se estamos trabalhando com isótopos medindo o número de neutrons do mesmo átomo da seguinte maneira:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mn>Total Neutrons</mn> <mo>=</mo> <mn>D</mn> <mo>-</mo> <mn>H</mn></math></center></p> <p><center><math mathsize=\"1.5em\"> <mn>Total Neutrons</mn> <mo>=</mo> <mn>1</mn> <mo>-</mo> <mn>0</mn></math></center></p><p><center><math mathsize=\"1.5em\"> <mn>Total Prótons</mn> <mo>=</mo> <mn>1</mn></math></center></p> <p class=\"desc\"><b>Cálculo 1</b>: Comparação entre números de neutrons entre Hidrogênio e Deutério.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -318,6 +372,11 @@
          "question": "Átomos são definidos pela quantidade de neutrons?",
          "yesNoAnswer": "No",
          "additionalInfo": "O isótopo tem relação com o número atômico, ou seja, o número de prótons que um átomo possuí. Os neutrons são justamente a parte que pode variar."
+      },
+      {
+         "question": "O Tritium é um isótopo do Hidrogênio?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "O Tritium é um isótopo de Hidrogênio, pois ambos possuí o mesmo número de prótons (Prótons do Tritium - Prótons do Hidrogênio = 1 -1 = 0), e de neutrons diferentes (Neutrons do Tritium - Neutrons do Hidrogênio = 2 - 0 = 2)."
       }
    ],
    "game_v2": null,
