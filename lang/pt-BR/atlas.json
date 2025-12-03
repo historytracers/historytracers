@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1764363347"
+      "1764764037"
    ],
    "authors": null,
    "reviewers": null,
@@ -2157,7 +2157,7 @@
          "uuid": "8fccfdf4-8c44-4513-983f-d9713489519d",
          "image": "",
          "author": "",
-         "index": "Seno e Cosseno",
+         "index": "Trigonometria (Cosseno)",
          "text": [
             {
                "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 320\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"300\" y1=\"169\" x2=\"470\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"168\" x2=\"448\" y2=\"168\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"168\" x2=\"406\" y2=\"66\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"66\" x2=\"406\" y2=\"166\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"188\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"390\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"175\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"405\" y=\"182\" font-size=\"1.3em\" font-weight=\"bold\">Q</text></svg></div></p><p class=\"desc\"><b>Gráfico 1</b>: Círculo com raio 1 contendo um triângulo retângulo.</p>",
@@ -2169,9 +2169,8 @@
                "PostMention": ""
             },
             {
-               "text": "#### Seno e Cosseno\n\nNo texto anterior exploramos como desenhar um triângulo retângulo e vimos que através dos catetos do triângulo, ou da hipotenusa dele, a partir do centro poderíamos chegar a qualquer ponto P localizado sobre o círculo.\n\nAlém dos caminhos pelo triângulo, também aprendemos que a medida que um raio vai se afastando da reta horizontal, vamos criando um ângulo θ que não exploramos ainda. Fato que nos leva a uma reflexão.",
-               "source": [
-               ],
+               "text": "#### Trigonometria (Cosseno)\n\nNo texto anterior exploramos como desenhar um triângulo retângulo e vimos que através dos catetos do triângulo, ou da hipotenusa dele, a partir do centro poderíamos chegar a qualquer ponto P localizado sobre o círculo.\n\nAlém dos caminhos pelo triângulo, também aprendemos que a medida que um raio vai se afastando da reta horizontal, vamos criando um ângulo θ que não exploramos ainda. Fato que nos leva a uma reflexão.",
+               "source": [],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -2188,7 +2187,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### A Trigonometria\n\nAntes de criarmos a relação entre o ângulo com os catetos e a hipotenusa, é necessário observar exatamente o que ocorre quando o raio (a hipotenusa do triângulo retângulo) está fazendo ao girar para criar o círculo, para que possamos ter relações que consigam reproduzir exatamente o que estamos observando.\n\nVamos fazer uma lista com tudo que precisamos repoduzir com as relações:\n- O ângulo cresce a partir da horizontal, no sentido anti-horário (da direita para esquerda).\n- #### Cosseno\n\nA função cosseno, por sua vez, representa a coordenada horizontal de um ponto no arco do círculo unitário. Sua definição é apresentada pela Fórmula 2, e os componentes mostrados na subimagem \"(f)\" da Figura 1",
+               "text": "#### A Trigonometria\n\nAntes de criarmos a relação entre o ângulo com os catetos e a hipotenusa, é necessário observar exatamente o que ocorre quando o raio (a hipotenusa do triângulo retângulo) está fazendo ao girar para criar o círculo, para que possamos ter relações que consigam reproduzir exatamente o que estamos observando.\n\nVamos fazer uma lista com tudo que precisamos repoduzir com as relações:\n- O ângulo cresce a partir da horizontal, no sentido anti-horário (da direita para esquerda).\n- O cateto horizontal **a** tem seu maior tamanho quando o raio que gira está na posição horizontal. Enquanto o cateto vertical **b** tem seu maior tamanho quando o raio que gira está nas posições verticais.\n- Com relação ao menor tamanho, dos catetos horizontais e verticais, elas ocorrem justamente quando os outros catetos estão com seu maior tamanho. Ou seja, o cateto horizontal **a** tem seu maior tamanho quando o cateto vertical **b** tem seu maior valor, e vice-versa.\n- Para todos os cenários descritos o raio (a hipotenusa) sempre possuirá um único tamanho. Com os catetos horizontal e vertical atingindo seu maiores tamanhos ao igualarem o tamanho do raio.\n\nO estudo detalhado destas relações que descrevemos é conhecida como trigonometria (<htcite0>). Este estudo é feito através de funções trigonométricas que introduzimos na sequência.\n\n#### Cosseno\n\n",
                "source": [
                   {
                      "type": 1,
