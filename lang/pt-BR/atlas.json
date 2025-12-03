@@ -2155,18 +2155,46 @@
       },
       {
          "uuid": "8fccfdf4-8c44-4513-983f-d9713489519d",
-         "image": "images/HistoryTracers/Trigonometry.png",
-         "author": "History Tracers Team",
+         "image": "",
+         "author": "",
          "index": "Seno e Cosseno",
          "text": [
             {
-               "text": "<h3>Seno e Cosseno</h3>As funções trigonométricas, como seno e cosseno, são geralmente definidas por meio de um círculo unitário, como ilustrado na subimagem \"(c)\" da Figura 1. Elas nos ajudam a compreender e calcular ângulos no estudo da trigonometria. Nesta seção, focaremos em duas dessas funções: o seno e o cosseno. O ângulo utilizado para definir essas funções é o ângulo θ, que é medido em sentido anti-horário a partir do eixo <i>x</i>",
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 320\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"300\" y1=\"169\" x2=\"470\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"168\" x2=\"448\" y2=\"168\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"168\" x2=\"406\" y2=\"66\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"66\" x2=\"406\" y2=\"166\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"188\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"390\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"175\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"405\" y=\"182\" font-size=\"1.3em\" font-weight=\"bold\">Q</text></svg></div></p><p class=\"desc\"><b>Gráfico 1</b>: Círculo com raio 1 contendo um triângulo retângulo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Seno e Cosseno\n\nNo texto anterior exploramos como desenhar um triângulo retângulo e vimos que através dos catetos do triângulo, ou da hipotenusa dele, a partir do centro poderíamos chegar a qualquer ponto P localizado sobre o círculo.\n\nAlém dos caminhos pelo triângulo, também aprendemos que a medida que um raio vai se afastando da reta horizontal, vamos criando um ângulo θ que não exploramos ainda. Fato que nos leva a uma reflexão.",
+               "source": [
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: Como posso te ajudar?</b><br /><br />Sabendo que o ângulo teta é tem relação com o raio que por sua vez representa a hipotenusa do triângulo retângulo.<br /><br />Como podemos ligar este ângulo com os catetos?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### A Trigonometria\n\nAntes de criarmos a relação entre o ângulo com os catetos e a hipotenusa, é necessário observar exatamente o que ocorre quando o raio (a hipotenusa do triângulo retângulo) está fazendo ao girar para criar o círculo, para que possamos ter relações que consigam reproduzir exatamente o que estamos observando.\n\nVamos fazer uma lista com tudo que precisamos repoduzir com as relações:\n- O ângulo cresce a partir da horizontal, no sentido anti-horário (da direita para esquerda).\n- #### Cosseno\n\nA função cosseno, por sua vez, representa a coordenada horizontal de um ponto no arco do círculo unitário. Sua definição é apresentada pela Fórmula 2, e os componentes mostrados na subimagem \"(f)\" da Figura 1",
                "source": [
                   {
                      "type": 1,
                      "uuid": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
                      "text": "Weisstein, Eric W.",
-                     "page": "",
+                     "page": "Trigonometria",
                      "date_time": {
                         "type": "",
                         "year": "",
@@ -2174,6 +2202,37 @@
                         "day": ""
                      }
                   },
+                  {
+                     "type": 1,
+                     "uuid": "eb59db91-042f-4acb-8211-47eac4348c94",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Cosseno",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>cateto adjacente</mi><mi>hipotenusa</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definição da função cosseno.</p><p>Na Figura 2, observamos o gráfico das funções seno e cosseno, que mostram como esses valores variam em relação ao ângulo θ. Note que os valores no eixo vertical sempre se mantêm entre -1 e 1, que correspondem aos limites determinados pelo raio do círculo unitário.</p><p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" /><b>Figura 2</b>: Gráfico das funções seno e cosseno. O código-fonte das representações e gráficos está disponível no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Team</a>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>Seno</h4>A função seno corresponde à coordenada vertical de um ponto no arco do círculo unitário. Em livros de matemática, sua definição é dada pela Fórmula 1, demonstrada na subimagem \"(e)\" da Figura 1",
+               "source": [
                   {
                      "type": 1,
                      "uuid": "eb59db91-042f-4acb-8211-47eac4348c94",
@@ -2197,17 +2256,7 @@
                         "month": "",
                         "day": ""
                      }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "<h4>Seno</h4>A função seno corresponde à coordenada vertical de um ponto no arco do círculo unitário. Em livros de matemática, sua definição é dada pela Fórmula 1, demonstrada na subimagem \"(e)\" da Figura 1",
-               "source": [
+                  },
                   {
                      "type": 1,
                      "uuid": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
@@ -2241,49 +2290,6 @@
             },
             {
                "text": "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>lado oposto</mi><mi>hipotenusa</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 1</b>: Definição da função seno.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "<h4>Cosseno</h4>A função cosseno, por sua vez, representa a coordenada horizontal de um ponto no arco do círculo unitário. Sua definição é apresentada pela Fórmula 2, e os componentes mostrados na subimagem \"(f)\" da Figura 1",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "eb59db91-042f-4acb-8211-47eac4348c94",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ":"
-            },
-            {
-               "text": "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>cateto adjacente</mi><mi>hipotenusa</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definição da função cosseno.</p><p>Na Figura 2, observamos o gráfico das funções seno e cosseno, que mostram como esses valores variam em relação ao ângulo θ. Note que os valores no eixo vertical sempre se mantêm entre -1 e 1, que correspondem aos limites determinados pelo raio do círculo unitário.</p><p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" /><b>Figura 2</b>: Gráfico das funções seno e cosseno. O código-fonte das representações e gráficos está disponível no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Team</a>).</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
