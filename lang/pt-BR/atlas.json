@@ -2239,7 +2239,7 @@
                "PostMention": ""
             },
             {
-               "text": "Para responder a essa reflexão, precisamos analisar todos os pontos listados ao falarmos de trigonometria. Para simplificar nosso entendimento, faremos isso isolando partes do **Gráfico 1** que correspondem ao estudo que estamos desenvolvendo.\n\nQuando o raio **c** está exatamente sobre a linha horizontal, isso faz com que o cateto **a** tenha o mesmo comprimento que ele (**Gráfico 2**):",
+               "text": "#### O valor máximo\n\nPara responder a essa reflexão, precisamos analisar todos os pontos listados ao falarmos de trigonometria. Para simplificar nosso entendimento, faremos isso isolando partes do **Gráfico 1** que correspondem ao estudo que estamos desenvolvendo.\n\nQuando o raio **c** está exatamente sobre a linha horizontal, isso faz com que o cateto **a** tenha o mesmo comprimento que ele (**Gráfico 2**):",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2248,7 +2248,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 40\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"200\" y1=\"22\" x2=\"370\" y2=\"22\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"21\" x2=\"348\" y2=\"21\"></line> <text class=\"atlasTextRadius\" x=\"260\" y=\"16\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"36\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"350\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"260\" y=\"36\" font-size=\"1.3em\" font-weight=\"bold\">a</text> </svg></div></p><p class=\"desc\"><b>Gráfico 2</b>: Cateto adjacente ao ângulo teta (θ), associado ao raio do círculo.</p>",
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 40\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"200\" y1=\"22\" x2=\"370\" y2=\"22\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"21\" x2=\"348\" y2=\"21\"></line> <text class=\"atlasTextRadius\" x=\"260\" y=\"16\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"36\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"350\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"260\" y=\"36\" font-size=\"1.3em\" font-weight=\"bold\">a</text> </svg></div></p><p class=\"desc\"><b>Gráfico 2</b>: A hipotenusa sobre o cateto adjacente sem o ângulo teta (θ).</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2280,6 +2280,42 @@
             },
             {
                "text": "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>cateto adjacente</mi><mi>hipotenusa</mi></mfrac> <mo>=</mo> <mfrac><mi>a</mi><mi>c</mi></mfrac> <mo>=</mo> <mfrac><mi>c</mi><mi>c</mi></mfrac> <mo>=</mo> <mn>1</mn> </math></p><p class=\"desc\"><b>Cálculo 1</b>: Valor máximo obtido para o cosseno de teta (θ).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Valores intermediários\n\nAgora, passamos a verificar o que ocorre com o cosseno de teta (θ) a partir do momento que um raio começa a girar fazendo o ângulo teta (θ) maior que zero, como demonstrado no **Gráfico 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"320\" y2=\"149\"></line> <line class=\"radius-line\" x1=\"319\" y1=\"149\" x2=\"320\" y2=\"67\"></line> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"319\" y2=\"67\"></line> <text class=\"atlasTextRadius\" x=\"250\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"260\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Gráfico 3</b>: Ângulo teta (θ) entre a hipotenusa e o cateto adjacente.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Além do ângulo teta (θ), devemos observar que o cateto **a** começa a diminuir seu tamanho a medida que a hipotenusa **c** está girando. Este fato não ocorre por acaso. Isto ocorre, porque o cateto **a** representa a projeção da hipotenusa **c** na base.\n\nPor este cateto (projeção) estar diminuindo a medida que a hipotenusa se afasta, o valor de cosseno de teta (θ) também se aproxima de zero.\n\n#### O menor valor\n\nO menor valor possível que estamos visualizando nos gráficos desta página, ocorrerá quando o cateto **a** possuí um comprimento igual a zero. Isto ocorre quando o raio (nossa hipotenusa) fica totalmente na vertical, como demonstrado no **Gráfico 4**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"200\" y2=\"4\"></line> <text class=\"atlasTextRadius\" x=\"180\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"15\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Gráfico 4</b>: Raio completamente inclinado.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
