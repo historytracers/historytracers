@@ -2286,6 +2286,60 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": ""
+            },
+            {
+               "text": "#### Valores intermedios\n\nCuando el radio comienza a girar, el ángulo theta (θ) pasa a asumir un valor diferente de cero, como se muestra en el **Gráfico 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"320\" y2=\"149\"></line> <line class=\"radius-line\" x1=\"319\" y1=\"149\" x2=\"320\" y2=\"67\"></line> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"319\" y2=\"67\"></line> <text class=\"atlasTextRadius\" x=\"250\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"260\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Gráfico 3</b>: Ángulo theta (θ) entre la hipotenusa y el cateto adyacente.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Otra consecuencia observada de este giro del radio es la disminución del tamaño del cateto **a**. Este hecho no ocurre por casualidad: ocurre porque el cateto a representa la proyección de la hipotenusa **c** en la base.\n\nEstos dos comportamientos que describimos tienen consecuencias directas en el coseno de theta (θ). A medida que el cateto **a** (la proyección) reduce su tamaño, el valor del coseno también disminuye, ya que estamos dividiendo valores menores de un cateto por una constante, la hipotenusa.\n\n#### El valor menor\n\nEl menor valor posible que estamos visualizando en los gráficos de esta página ocurrirá cuando el cateto **a** tenga longitud igual a cero. Esto sucederá siempre que el radio (nuestra hipotenusa) esté totalmente vertical, como se muestra en el **Gráfico 4**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"200\" y2=\"4\"></line> <text class=\"atlasTextRadius\" x=\"180\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"15\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Gráfico 4</b>: Radio completamente inclinado.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Algo más debe ser dicho sobre el **Gráfico 4**. A pesar de que la proyección del radio en la horizontal es cero cuando el radio está en vertical, el ángulo theta (θ) continúa presente.\n\n#### Conclusiones\n\nEl coseno de theta (θ) representa perfectamente la proyección del cateto a a medida que el radio gira alrededor del centro **O**. Esta información incluso está demostrada en la **Fórmula 1** y puede ser explicada al multiplicar ambos lados de ella por la hipotenusa (el radio **c**):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>a</mi><mi>c</mi></mfrac></math></p> <p><math display=\"block\"><mn>(c) cos (θ)</mn> <mo>=</mo> <mfrac><mi>a</mi><mi>c</mi></mfrac> <mn>(c)</mn></math></p> <p><math display=\"block\"><mn>(c) cos (θ)</mn> <mo>=</mo> <mn>a (1)</mn></math></p> <p><math display=\"block\"><mn>(c) cos (θ)</mn> <mo>=</mo> <mn>a</mn></math></p> <p class=\"desc\"><b>Cálculo 2</b>: Proyección de la hipotenusa en el eje horizontal.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             }
          ]
       },

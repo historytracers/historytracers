@@ -2288,7 +2288,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Valores intermediários\n\nAgora, passamos a verificar o que ocorre com o cosseno de teta (θ) a partir do momento que um raio começa a girar fazendo o ângulo teta (θ) maior que zero, como demonstrado no **Gráfico 3**.",
+               "text": "#### Valores intermediários\n\nQuando o raio começa a girar, o ângulo teta (θ) passa a assumir um valor diferente de zero, como demonstrado no **Gráfico 3**.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2306,7 +2306,7 @@
                "PostMention": ""
             },
             {
-               "text": "Além do ângulo teta (θ), devemos observar que o cateto **a** começa a diminuir seu tamanho a medida que a hipotenusa **c** está girando. Este fato não ocorre por acaso. Isto ocorre, porque o cateto **a** representa a projeção da hipotenusa **c** na base.\n\nPor este cateto (projeção) estar diminuindo a medida que a hipotenusa se afasta, o valor de cosseno de teta (θ) também se aproxima de zero.\n\n#### O menor valor\n\nO menor valor possível que estamos visualizando nos gráficos desta página, ocorrerá quando o cateto **a** possuí um comprimento igual a zero. Isto ocorre quando o raio (nossa hipotenusa) fica totalmente na vertical, como demonstrado no **Gráfico 4**.",
+               "text": "Outra consequência observada desse giro do raio é a diminuição do tamanho do cateto **a**. Esse fato não ocorre por acaso: ele ocorre porque o cateto **a** representa a projeção da hipotenusa **c** na base.\n\nEsses dois comportamentos que descrevemos possuem consequências diretas no cosseno de teta (θ). À medida que o cateto **a** (a projeção) reduz de tamanho, o valor do cosseno também diminui, pois estamos dividindo valores menores de um cateto por uma constante, a hipotenusa.\n\n#### O menor valor\n\nO menor valor possível que estamos visualizando nos gráficos desta página ocorrerá quando o cateto **a** possuir comprimento igual a zero. Isso acontecerá sempre que o raio (nossa hipotenusa) estiver totalmente vertical, como demonstrado no **Gráfico 4**.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2321,6 +2321,33 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Algo mais precisa ser dito sobre o **Gráfico 4**. Apesar de a projeção do raio na horizontal ser zero quando o raio está na vertical, o ângulo teta (θ) continua presente.\n\n#### Conclusões\n\nO cosseno de teta (θ) representa perfeitamente a projeção do cateto **a** à medida que o raio gira em torno do centro **O**. Essa informação inclusive está demonstrada na **Fórmula 1** e pode ser explicitada ao multiplicarmos ambos os lados dela pela hipotenusa (o raio **c**):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>a</mi><mi>c</mi></mfrac></math></p> <p><math display=\"block\"><mn>(c) cos (θ)</mn> <mo>=</mo> <mfrac><mi>a</mi><mi>c</mi></mfrac> <mn>(c)</mn></math></p> <p><math display=\"block\"><mn>(c) cos (θ)</mn> <mo>=</mo> <mn>a (1)</mn></math></p> <p><math display=\"block\"><mn>(c) cos (θ)</mn> <mo>=</mo> <mn>a</mn></math></p> <p class=\"desc\"><b>Cálculo 2</b>: Projeção da hipotenusa no eixo horizontal.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A partir do **Cálculo 2**, podemos confirmar os dados presentes na Lista realizada na seção *Trigonometria* acima:\n- **Linha 1**: Esta linha nos diz que a medida que o cateto **a** vai crescendo a partir do centro **O**, ele alcançará seu maior tamanho quando ele tiver o maior tamanho possível dentro do círculo, o tamanho do raio **c**. E por consequência o cosseno neste caso será igual a 1. Por outro lado, a medida que o cateto diminuí a partir da borda do círculo, o cosseno de teta irá reduzindo até chegar a zero, que corresponde ao centro. Esta descrição corresponde aos ítens *1, 3 e 4* da seção *Trigonometria*.\n- **Linha 2**: O raio **c** trabalha como limitador em ambos os lados do cálculo, para entendermos como o cateto é influenciado por ele e o ângulo, necessitamos somar ambos os lados repetidamente até que atinja o tamanho do raio, ou seja, multiplicamos ambos os lados por **c**.\n- **Linha 3**: Como no lado direito já dividiamos pelo tamanho do raio, isto quer dizer que neste lado obtivemos o valor total, o que nos permite substituir por 1.\n- **Linha 4**: Finalmente, esta linha nos informa que a medida que o valor do cosseno vai diminuindo, o cateto **a** irá reduzindo seu valor. Este evento ocorre justamente por causa que o ângulo está aumentando, e como consequência a projeção **a** vai diminuindo. Esta última linha é justamente o *ítem 2* demonstrado na lista da seção *Trigonometria*.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
