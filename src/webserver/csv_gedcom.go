@@ -1076,7 +1076,7 @@ func htOpenFamilyIdx(fileName string, newFile string, lang string) error {
 
 func htUpdateIndexes(newFile string) {
 	for _, dir := range htLangPaths {
-		idxPath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, dir, classTemplate)
+		idxPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, dir)
 		err := htOpenFamilyIdx(idxPath, newFile, dir)
 		if err != nil {
 			panic(err)
