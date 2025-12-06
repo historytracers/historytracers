@@ -44,8 +44,8 @@
    ],
    "maps": [
       {
-         "text": "Description or information to be displayed alongside the map.",
-         "img": "File path to the map image.",
+         "text": "Migração do povo Bantu através do continente africano nos últimos 5.000 anos.",
+         "img": "images/Mapswire/continent_af-physical-map-africa-lambert-az-hemi-265_Bantu.jpg",
          "order": 1,
          "date_time": [
             {
@@ -59,50 +59,60 @@
    ],
    "common": [
       {
-         "text": "A detailed description of the person's life history and marital status.",
+         "text": "<span id=\"htAmericaAbyaYalaMsg\"></span>",
          "source": [
             {
-               "type": 3210,
-               "uuid": "Unique identifier (UUID) for the current citation.",
-               "text": "The accompanying text that will be displayed with the citation.",
-               "page": "The specific page in the publication where this information appears.",
+               "type": 1,
+               "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+               "text": "Porto-Gonçalves, Carlos Walter",
+               "page": "pp. 39-43",
                "date_time": {
                   "type": "gregory",
-                  "year": "2010",
+                  "year": "2011",
                   "month": "",
                   "day": ""
                }
             }
          ],
-         "date_time": [
+         "date_time": null,
+         "isTable": false,
+         "imgdesc": "",
+         "format": "html",
+         "PostMention": "."
+      },
+      {
+         "text": "### Expansão Bantu\n\nAo estudarmos as linguas faladas no continente africano, chama a atenção que há diversidade de linguas, apesar da extensão territorial, é menor quando comparamos com América (*Abya Yala*) e Ásia (<htcite0>). Este fato nos leva a refletir:",
+         "source": [
             {
-               "type": "gregory",
-               "year": "2010",
-               "month": "",
-               "day": ""
-            },
-            {
-               "type": "unix",
-               "year": "",
-               "month": "",
-               "day": ""
-            },
-            {
-               "type": "julian",
-               "year": "",
-               "month": "",
-               "day": ""
+               "type": 1,
+               "uuid": "baffbb52-eb8f-41ee-8842-91b89ae393bb",
+               "text": "Bostoen, K.",
+               "page": "pp. 227",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2018",
+                  "month": "",
+                  "day": ""
+               }
             }
          ],
+         "date_time": null,
          "isTable": false,
-         "imgdesc": "A description of an image included in the text.",
-         "format": "markdown or html",
-         "PostMention": "A character used after a mention to include citations."
+         "imgdesc": "",
+         "format": "markdown",
+         "PostMention": ""
+      },
+      {
+         "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre variedades</b><br /><br />Como é possível um continente tão grande, ter uma variedade de linguas pequena?</div></div></center>",
+         "source": null,
+         "date_time": null,
+         "isTable": false,
+         "imgdesc": "",
+         "format": "html",
+         "PostMention": "."
       }
    ],
-   "prerequisites": [
-      "List of prerequisites needed to understand the text."
-   ],
+   "prerequisites": null,
    "gedcom": "gedcom/dc535ed8-e70b-4a92-8c83-fd85b56c474a_pt-BR.ged",
    "csv": "csv/dc535ed8-e70b-4a92-8c83-fd85b56c474a_pt-BR.csv",
    "version": 1,
@@ -110,24 +120,24 @@
    "type": "family_tree",
    "families": [
       {
-         "id": "Unique identifier for the family.",
-         "name": "Name displayed at the top of the page.",
+         "id": "cb593eb5-4ada-4cfd-b67d-60d9f40be73e",
+         "name": "Os Bantu originários",
          "history": [
             {
                "text": "A detailed description of the person's life history and marital status.",
                "source": [
-                  {
-                     "type": 3210,
-                     "uuid": "Unique identifier (UUID) for the current citation.",
-                     "text": "The accompanying text that will be displayed with the citation.",
-                     "page": "The specific page in the publication where this information appears.",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2010",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
+            {
+               "type": 1,
+               "uuid": "baffbb52-eb8f-41ee-8842-91b89ae393bb",
+               "text": "Bostoen, K.",
+               "page": "pp. 227",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2018",
+                  "month": "",
+                  "day": ""
+               }
+            }
                ],
                "date_time": [
                   {
