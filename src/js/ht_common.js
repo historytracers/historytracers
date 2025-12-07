@@ -1098,7 +1098,7 @@ function htMountPersonEvents(table) {
         for (const i in table.haplogroup) {
             var haplogroup = table.haplogroup[i]
             if (i != 0) {
-                ret += ", ";
+                ret += "<br /> ";
             }
 
             var sources = haplogroup.sources;
