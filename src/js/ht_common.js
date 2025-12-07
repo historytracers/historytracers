@@ -1105,9 +1105,6 @@ function htMountPersonEvents(table) {
             var lnk = "";
             for (const i in sources) { 
                 let source = sources[i];
-                if (i != 0) {
-                    text += " ; ";
-                }
                 var fcnt = htFillHistorySourcesSelectFunction(source.type);
                 var dateText = "";
                 if  (source.date_time) {
