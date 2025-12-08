@@ -262,7 +262,7 @@ func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
 		return ""
 	}
 
-	if dt.Month == "-1" || dt.Day == "-1" {
+	if dt.Month == "-1" || dt.Day == "-1" || dt.Month == "" || dt.Day == "" {
 		ret := fmt.Sprintf("%d%s", year, suffix)
 		return ret
 	}
@@ -314,9 +314,11 @@ func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
 		month = months[10]
 		break
 	case "12":
-	default:
 		month = months[11]
 		break
+	default:
+		ret := fmt.Sprintf("%d%s", year, suffix)
+		return ret
 	}
 	ret := fmt.Sprintf("%s %s %d%s", dt.Day, month, year, suffix)
 
