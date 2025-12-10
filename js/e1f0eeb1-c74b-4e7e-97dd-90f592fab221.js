@@ -22,6 +22,7 @@ function htCheckAnswers()
 }
 
 function htLoadContent() {
+    htWriteMultiplicationTable("#mParent5", 5);
     htWriteNavigation();
 
     return false;
