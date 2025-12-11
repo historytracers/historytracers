@@ -23,6 +23,8 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteMultiplicationTable("#mParent5", 5);
+    htWriteMultiplicationTable("#mParent6", 6);
+    htWriteMultiplicationTable("#mParent4", 4);
     htWriteNavigation();
 
     return false;

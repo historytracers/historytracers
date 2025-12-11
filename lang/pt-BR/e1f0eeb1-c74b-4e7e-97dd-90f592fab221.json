@@ -575,7 +575,7 @@
                "PostMention": ""
             },
             {
-               "text": "Este método de realizar a divisão só chega ao fim quando não é possível termos números maiores que a quantidade que estamos dividindo. Dessa forma, realizaremos mais uma subtração para verificar a necessidade de também dividir as unidades:",
+               "text": "A divisão só chega ao fim quando atingimos as unidades. Dessa forma, realizaremos mais uma subtração para verificar a necessidade de também dividir as unidades:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -660,6 +660,83 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, estudamos um pouco mais de diferentes cozinhas ao redor do mundo, Shona no Zimbabue e mesoamericana na América (*Abya Yala*).\n\nNeste processo, expandimos os conhecimentos matemáticos utilizado na cozinha que vão desde o limite, necessário para se saber a quantidade que estamos usando para cozinhar. Passando pelo volume que utiilizamos para realizar medições, e finalmente a divisão utilizada para realizar pratos de diferentes tamanhos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practicing",
+         "text": [
+            {
+               "text": "### Praticando\n\nUm prato de comida fica saboroso devido a prática de inúmeras pessoas ao redor do mundo, que testam em suas cozinhas (laboratórios) não só diferentes ingredientes, mas quantidades que precisamos adicionar.\n\nAlém disto, na hora de servir, não podemos colocar muito pouco em um prato, para ficarmos com fome, e nem colocar muito para dixarmos e jogar fora.\n\nEm outras, palavras, precisamos treinar bem a divisão para cozinhar e nos alimentarmos bem. Diante deste cenário, veja a Figura 3 já utilizada em outro texto (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "12eda13a-c136-4994-9276-502ecaf4c210",
+                     "text": "History Tracers Team",
+                     "page": "Cozinhando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"c1\" onclick=\"htImageZoom('c1', '0%')\" src=\"images/HistoryTracers/TortillaFinal2.png\" class=\"imgcenter\"/><b>Figura 3</b>: Tortilha de milho pronta para o consumo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Este prato tem uma porção de 6 tortilhas, e não 5 tortilhas. Para facilitar nos exercícios do final da página, adicionamos as tabuadas de 6 e de 4 que auxiiliaram a descobrir quanto cada tortilha terá de massa nos exercícios.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent6\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent4\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -667,6 +744,16 @@
          "question": "Apenas operações fundamentais são utilizadas na cozinha?",
          "yesNoAnswer": "No",
          "additionalInfo": "A cozinha, em qualquer lugar no mundo, necessita de diferentes tipos de conhecimentos matemáticos, mesmo que as pessoas não tenham conhecimento que o que faz está diretamente ligada a matemática, como os limites."
+      },
+      {
+         "question": "Ao usarmos a mesma quantidade de massa (320 gramas) para fazermos 6 tortilhas, o resultado final também será 64 gramas?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "A medida que aumentamos a quantidade final de tortilhas, estamos fazendo torilhas menores, pois elas possuem a mesma quantidade inicial.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 6 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 300 </td><td>53</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 20 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 18 </td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2</td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 1</b>: Divisão de 320 por 6.</p>"
+      },
+      {
+         "question": "Ao usarmos a mesma quantidade de massa (320 gramas) para fazermos 4 tortilhas, o resultado final também será 64 gramas?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "A medida que diminuímos a quantidade final de tortilhas, estamos fazendo torilhas maiores, pois elas possuem a mesma quantidade inicial.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 320 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 4 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 320 </td><td>80</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 0 </td><td> &nbsp; </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- &nbsp; 0 </td><td> &nbsp; </td></tr> <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</td><td> &nbsp; </td></tr> </table></p><p class=\"desc\"><b>Cálculo 1</b>: Divisão de 320 por 4.</p>"
       }
    ],
    "game_v2": null,
