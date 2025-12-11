@@ -678,7 +678,7 @@ func htUpdateClassSources(localTemplateFile *classTemplateFile) {
 	for _, classData := range localTemplateFile.Content {
 		for _, textData := range classData.Text {
 			if textData.Format != "markdown" && textData.Format != "html" {
-				log.Fatalf("Invalid type : %s", textData.Format)
+				log.Fatalf("Invalid format '%s' for text: %s", textData.Format, textData.Text)
 			}
 
 			if textData.Source == nil {
