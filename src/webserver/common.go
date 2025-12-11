@@ -678,7 +678,7 @@ func htUpdateClassSources(localTemplateFile *classTemplateFile) {
 	for _, classData := range localTemplateFile.Content {
 		for _, textData := range classData.Text {
 			if textData.Format != "markdown" && textData.Format != "html" {
-				log.Fatalf("Invalid type : %s", textData.Format)
+				log.Fatalf("Invalid format '%s' for text: %s", textData.Format, textData.Text)
 			}
 
 			if textData.Source == nil {
@@ -785,7 +785,7 @@ func htPrepareQuestions(questions []HTExercise) string {
 	i := 1
 	for _, quest := range questions {
 		strQuestions += strconv.Itoa(i) + ". "
-		questText, err := htHTML2Text(quest.Question)
+		questText, err := htHTML2Text("<p>" + quest.Question + "</p>")
 		if err != nil {
 			strQuestions += questText + "\n\n"
 		} else {
@@ -798,7 +798,7 @@ func htPrepareQuestions(questions []HTExercise) string {
 	strQuestions += commonKeywords[134] + "s.\n\n"
 	for _, ans := range questions {
 		strQuestions += commonKeywords[134] + " " + strconv.Itoa(i) + ". "
-		ansText, err := htHTML2Text(ans.AdditionalInfo)
+		ansText, err := htHTML2Text("<p>" + ans.AdditionalInfo + "</p>")
 		if err != nil {
 			strQuestions += ansText + "\n\n"
 		} else {

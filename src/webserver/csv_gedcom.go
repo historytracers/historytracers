@@ -1007,9 +1007,9 @@ func htNewFamilySetDefaultValues(family *Family, lang string, fileName string) {
 func htCreateNewFamily(id string, family *Family) {
 	htAddNewSourceToDirectory(id)
 	htAddNewJSToDirectory(id)
-	for i := 0; i < len(htLangPaths); i++ {
-		htNewFamilySetDefaultValues(family, htLangPaths[i], id)
-		pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[i], id)
+	for _, dir := range htLangPaths {
+		htNewFamilySetDefaultValues(family, dir, id)
+		pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, dir, id)
 
 		fp, err := os.Create(pathFile)
 		if err != nil {
