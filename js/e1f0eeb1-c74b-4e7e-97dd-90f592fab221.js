@@ -25,6 +25,7 @@ function htLoadContent() {
     htWriteMultiplicationTable("#mParent5", 5);
     htWriteMultiplicationTable("#mParent6", 6);
     htWriteMultiplicationTable("#mParent4", 4);
+    htWriteMultiplicationTable("#mParent2", 2);
     htWriteNavigation();
 
     return false;
