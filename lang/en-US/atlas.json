@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1764903071"
+      "1765570433"
    ],
    "authors": null,
    "reviewers": null,
@@ -2203,7 +2203,7 @@
                   },
                   {
                      "type": 1,
-                     "uuid": "eb59db91-042f-4acb-8211-47eac4348c94",
+                     "uuid": "92e66bd4-1d7f-4f28-bed2-f62210493341",
                      "text": "Weisstein, Eric W.",
                      "page": "Cossine",
                      "date_time": {
@@ -2343,6 +2343,234 @@
             },
             {
                "text": "From **Calculation 2**, we can confirm the data present in the list provided in the *Trigonometry* section above:\n- **Line 1**: This line tells us that as leg **a** grows from the center **O**, it will reach its greatest size when it attains the maximum possible length within the circle: the length of the radius **c**. Consequently, the cosine, in this case, will be equal to 1. On the other hand, as the leg decreases from the edge of the circle, the cosine of theta will reduce until it reaches zero, which corresponds to the center. This description matches items *1, 3 and 4* of the *Trigonometry* section.\n- **Line 2**: The radius **c** functions as a limiter on both sides of the calculation. To understand how the leg is influenced by it and by the angle, it is necessary to add both sides repeatedly until the size of the radius **c**, is reached; that is, we multiply both sides by **c**.\n- **Line 3**: Since on the right side we were already dividing by the size of the radius, this means that on that side, we obtained the total value, which allows us to replace it with 1.\n- **Line 4**: Finally, this line informs us that as the value of the cosine decreases, leg **a** reduces its length. This event occurs precisely because the angle is increasing, and as a consequence, the projection **a** is decreasing. This last line corresponds exactly to *item 2* of the list in the *Trigonometry* section.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "uuid": "dc29a98c-70c2-49b3-b3a7-431b040dbfed",
+         "image": "",
+         "author": "",
+         "index": "Trigonometry (Sine)",
+         "text": [
+            {
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } }  @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path class=\"radius-30\" d=\"M 320 147 A 30 30 0 0 1 340.0 170.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"300\" y1=\"169\" x2=\"470\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"448\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"169\" x2=\"406\" y2=\"66\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"66\" x2=\"406\" y2=\"166\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"188\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"390\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"405\" y=\"182\" font-size=\"1.3em\" font-weight=\"bold\">Q</text></svg></div></p><p class=\"desc\"><b>Chart 1</b>: Circle with a radius of 1 containing a right triangle.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Trigonometry (Sine)\n\nIn the second text on the Pythagorean Theorem (<htcite0>), we explored how to draw a right triangle and saw that, through the triangle's legs or the hypotenuse, from the center, we could reach any point **P** located on the circle.\n\nFollowing that, we explored the relationship of the angle theta (θ) with the adjacent leg through the cosine of the angle (<htcite1>).\n\nThese two texts lead us to a reflection:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c9870ac9-4722-489a-a51c-52576dd5f2c6",
+                     "text": "History Tracers Team",
+                     "page": "The Theorem and the Circle",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Cosine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: What about the other one?</b><br /><br />The right triangle has two legs. How does the opposite leg relate to the angle theta (θ)?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Sine\n\nThe detailed study of the relationships between the angle and the triangle's elements is known as trigonometry (<htcite0>). Through trigonometry, we study functions like the sine, which is defined in **Formula 1** (<htcite1>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Trigonometry",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eb59db91-042f-4acb-8211-47eac4348c94",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Sine",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>cateto oposto</mi><mi>hipotenusa</mi></mfrac></p></p><p class=\"desc\"><b>Formula1</b>: Definition of sine.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Let's see if the sine function also effectively describes what happens with the opposite leg. We will conduct the study in the same order in which we performed the cosine analysis (<htcite0>), to facilitate comparisons.\n\n#### The Maximum Value\n\nTo simplify our understanding, we will do this by isolating parts of **Graph 1** that correspond to the study we are developing.\n\nWhen the radius **c** is exactly on the vertical line, it causes leg **b** to have the same length as it (**Graph 2**):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Cosine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 170\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 170 A 168 168 0 0 0 200 22\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <path class=\"radius-30\" d=\"M 200 140 A 30 30 0 0 1 230.0 168.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"168\" x2=\"370\" y2=\"168\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"169\" x2=\"200\" y2=\"23\"></line> <text class=\"atlasTextRadius\" x=\"180\" y=\"77\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"169\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"200\" y=\"19\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"205\" y=\"77\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"208\" y=\"166\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Graph 2</b>: The hypotenuse over the opposite leg with the angle theta (θ) equal to 90 degrees.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Since leg **b** has the same length as radius radio **c** in **Graph 2**, that is, **b = c**, the sine of theta (θ) —for when there is a right angle (90 degrees) separating two radii— will be the highest possible value: 1, as shown in **Calculation 1** (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "112e532d-e8af-40d6-b1b5-527978ee42f3",
+                     "text": "History Tracers Team",
+                     "page": "Two Sides",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>cateto oposto</mi><mi>hipotenusa</mi></mfrac> <mo>=</mo> <mfrac><mi>b</mi><mi>c</mi></mfrac> <mo>=</mo> <mfrac><mi>c</mi><mi>c</mi></mfrac> <mo>=</mo> <mn>1</mn> </math></p><p class=\"desc\"><b>Calculation 1</b>: Maximum value obtained for the sine of theta (θ).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Intermediate Values\n\nWhen the radius begins to rotate, the angle theta (θ) starts to take on a value different from zero, as demonstrated in **Graph 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <path class=\"radius-30\" d=\"M 230 130 A 30 30 0 0 1 240.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"320\" y2=\"149\"></line> <line class=\"radius-line\" x1=\"319\" y1=\"149\" x2=\"320\" y2=\"67\"></line> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"319\" y2=\"67\"></line> <text class=\"atlasTextRadius\" x=\"250\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"300\" y=\"116\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Graph 3</b>: Angle theta (θ) between the hypotenuse and the adjacent leg.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Another observed consequence of this rotation of the radius is the increase in the length of leg **b**. This fact does not happen by chance: it happens because leg **b** represents the projection of the hypotenuse **c** onto the side opposite the angle.\n\nThese two behaviors we describe have direct consequences on the sine of theta (θ). As leg **b** (the projection) increases in size, the value of the sine also increases, because we are dividing larger values of a leg by a constant: the hypotenuse.\n\n#### The Minimum Value\n\nThe smallest possible value we are visualizing in the graphs on this page will occur when leg **b** has a length equal to zero. This will happen whenever the radius (our hypotenuse) is completely horizontal, as demonstrated in **Graph 4**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"345\" y2=\"149\"></line> <text class=\"atlasTextRadius\" x=\"280\" y=\"138\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"350\" y=\"147\" font-size=\"1.3em\" font-weight=\"bold\">P</text> </svg></div></p><p class=\"desc\"><b>Graph 4</b>: Radius completely horizontal.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Conclusions\n\nThe sine of theta (θ) perfectly represents the projection of leg **b** as the radius rotates around the center **O**. This information is even demonstrated in **Formula 1** and can be made explicit by multiplying both sides of it by the hypotenuse (the radius **c**):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>b</mi><mi>c</mi></mfrac></math></p> <p><math display=\"block\"><mn>(c) sin (θ)</mn> <mo>=</mo> <mfrac><mi>b</mi><mi>c</mi></mfrac> <mn>(c)</mn></math></p> <p><math display=\"block\"><mn>(c) sin (θ)</mn> <mo>=</mo> <mn>b (1)</mn></math></p> <p><math display=\"block\"><mn>(c) sin (θ)</mn> <mo>=</mo> <mn>b</mn></math></p> <p class=\"desc\"><b>Calculation 2</b>: Projection of the hypotenuse onto the horizontal axis.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "From **Calculation 2**, we can confirm that:\n- **Line 1**: This line tells us that as leg **b** grows from the horizontal, it will reach its greatest size when it achieves the greatest possible length within the circle: the size of the radius **c**. Consequently, the sine, in that case, will be equal to 1. On the other hand, as the leg decreases from the edge of the circle, the sine of theta will reduce until it reaches zero, which corresponds to the radius being completely horizontal.\n- **Line 2**: The radius **c** functions as a limiter on both sides of the calculation. To understand how the leg is influenced by it and by the angle, it is necessary to add both sides repeatedly until the size of the radius **c** is reached, that is, we multiply both sides by **c**.\n- **Line 3**: Since on the right side we were already dividing by the size of the radius, that means on that side we obtained the total value, which allows us to substitute it with 1.\n- **Line 4**: Finally, this line informs us that as the value of the sine decreases, leg **b** reduces its length. This event occurs precisely because the angle is decreasing and, as a consequence, the projection **b** is decreasing.",
                "source": null,
                "date_time": null,
                "isTable": false,
