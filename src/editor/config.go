@@ -3,25 +3,30 @@
 package main
 
 import (
+	// "encoding/json"
+
 	"errors"
 	"flag"
 	"os"
 )
 
 type htConfig struct {
-	Port        int
-	SrcPath     string
-	ContentPath string
-	LogPath     string
+	Port        int    `json:"port"`
+	SrcPath     string `json:"src"`
+	ContentPath string `json:"content"`
+	ConfPath    string `json:"content"`
+	LogPath     string `json:"log"`
+	confPath    string `json:"config"`
 }
 
 var (
-	portFlag    int    = 12345
-	confPath    string = "/etc/historytracers/historytracers.conf"
-	srcPath     string = "/var/www/historytracers/"
-	contentPath string = "/var/www/historytracers/www/"
-	logPath     string = "/var/log/historytracers/"
-	CFG         *htConfig
+	portFlag     int    = 12345
+	confPath     string = "/etc/historytracers/historytracers.conf"
+	personalPath string = "~/.config/historytracers/historytracers.conf"
+	srcPath      string = "/var/www/historytracers/"
+	contentPath  string = "/var/www/historytracers/www/"
+	logPath      string = "/var/log/historytracers/"
+	CFG          *htConfig
 )
 
 func HTParseArg() {
@@ -31,6 +36,7 @@ func HTParseArg() {
 	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files.")
 	flag.StringVar(&CFG.LogPath, "log", logPath, "Directory containing all log files.")
 	flag.StringVar(&CFG.ContentPath, "www", contentPath, "Directory for user-facing content.")
+	flag.StringVar(&CFG.ConfPath, "conf", confPath, "Directory for user personal options.")
 }
 
 func NewHTConfig() *htConfig {

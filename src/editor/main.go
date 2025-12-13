@@ -592,7 +592,6 @@ func (e *TextEditor) updateStatus(message string) {
 }
 
 func (e *TextEditor) Run() {
-	HTParseArg()
 	e.window.ShowAndRun()
 }
 
@@ -622,6 +621,9 @@ var theme = struct {
 }
 
 func main() {
+	HTParseArg()
+	HTCreateDir()
+
 	editor := NewTextEditor()
 	editor.Run()
 }
