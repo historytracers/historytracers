@@ -1007,9 +1007,9 @@ func htNewFamilySetDefaultValues(family *Family, lang string, fileName string) {
 func htCreateNewFamily(id string, family *Family) {
 	htAddNewSourceToDirectory(id)
 	htAddNewJSToDirectory(id)
-	for i := 0; i < len(htLangPaths); i++ {
-		htNewFamilySetDefaultValues(family, htLangPaths[i], id)
-		pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, htLangPaths[i], id)
+	for _, dir := range htLangPaths {
+		htNewFamilySetDefaultValues(family, dir, id)
+		pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, dir, id)
 
 		fp, err := os.Create(pathFile)
 		if err != nil {
@@ -1025,6 +1025,65 @@ func htCreateNewFamily(id string, family *Family) {
 	}
 }
 
+func htAddNewFamilyToIdx(index *IdxFamily, newFile string) {
+	lastContent := len(index.Contents) - 1
+	if lastContent < 0 {
+		return
+	}
+
+	content := &index.Contents[lastContent]
+
+	newValue := IdxFamilyValue{ID: newFile}
+
+	content.Value = append(content.Value, newValue)
+
+	index.LastUpdate[0] = htUpdateTimestamp()
+}
+
+func htOpenFamilyIdx(fileName string, newFile string, lang string) error {
+	localClassIDXUpdate = len(newFile) > 0
+	if verboseFlag && localClassIDXUpdate {
+		fmt.Println("Adjusting file", fileName)
+	}
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		return err
+	}
+
+	var index IdxFamily
+	err = json.Unmarshal(byteValue, &index)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		return err
+	}
+
+	htAddNewFamilyToIdx(&index, newFile)
+	tmpName, err := htWriteFamilyIndexFile(lang, &index)
+	if err != nil {
+		return err
+	}
+
+	HTCopyFilesWithoutChanges(fileName, tmpName)
+	err = os.Remove(tmpName)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR", err)
+		return err
+	}
+
+	return nil
+}
+
+func htUpdateIndexes(newFile string) {
+	for _, dir := range htLangPaths {
+		idxPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, dir)
+		err := htOpenFamilyIdx(idxPath, newFile, dir)
+		if err != nil {
+			panic(err)
+		}
+	}
+}
+
 func htNewFamily() {
 	id := uuid.New()
 	strID := id.String()
@@ -1033,5 +1092,6 @@ func htNewFamily() {
 	htRewriteSourceFileTemplate()
 
 	htCreateNewFamily(strID, &family)
+	htUpdateIndexes(strID)
 	fmt.Printf("Family %s created\n", strID)
 }

@@ -1098,16 +1098,13 @@ function htMountPersonEvents(table) {
         for (const i in table.haplogroup) {
             var haplogroup = table.haplogroup[i]
             if (i != 0) {
-                ret += ", ";
+                ret += "<br /> ";
             }
 
             var sources = haplogroup.sources;
             var lnk = "";
             for (const i in sources) { 
                 let source = sources[i];
-                if (i != 0) {
-                    text += " ; ";
-                }
                 var fcnt = htFillHistorySourcesSelectFunction(source.type);
                 var dateText = "";
                 if  (source.date_time) {
