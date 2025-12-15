@@ -15,6 +15,7 @@ type atlasTemplateContent struct {
 	Image  string   `json:"image"`
 	Author string   `json:"author"`
 	Index  string   `json:"index"`
+	Audio  string   `json:"audio"`
 	Text   []HTText `json:"text"`
 }
 
