@@ -30,7 +30,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1765993682"
+      "1766001571"
    ],
    "authors": [
       ""
@@ -348,6 +348,69 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_simplify",
+         "text": [
+            {
+               "text": "### Simplificando\n\nDebido a que trabajamos con diferentes calendarios, para que las personas puedan realizar algún tipo de agendamiento, es necesario sincronizar las fechas, de modo que sepamos exactamente de qué estamos hablando.\n\nIncluso cuando no estamos intentando sincronizar calendarios entre sí, también es necesario ajustar cada calendario, precisamente porque un año no resulta en un resto de división igual a cero.\n\nVeamos las soluciones encontradas.\n\n#### Año Bisiesto (Calendario Gregoriano)\n\nCuando trabajamos con días, como hicimos en este y otros textos, estamos manejando una unidad de tiempo relativamente amplia, lo que termina omitiendo algunos detalles. Por ejemplo, la Tierra tiene un año de aproximadamente 365 días y 6 horas, y no exactamente 365 días (<htcite0>). Para corregir este “exceso de horas” y mantener la consistencia en la determinación, entre otras cosas, de las estaciones del año, se utilizan las siguientes reglas para definir si un año es bisiesto (<htcite1>):\n- El año es divisible por 4, pero no es divisible por 100;\n- O el año es divisible por 400.\n\nRecordamos que ser divisible significa ser un múltiplo, es decir, el resto de la división es cero.\n\n#### Conversiones\n\nLas diferencias entre el calendario islámico y el calendario gregoriano llevaron a los islámicos a crear métodos para que su calendario, de menor extensión, pudiera equipararse al calendario solar (<htcite2>). Entre estos métodos, destaca el **Istalahi** en el cual se considera: *\"un ciclo de 30 años lunares, en que los meses alternan entre 29 y 30 días, habiendo 11 años con 355 días y los demás con 354 días\"* (<htcite3>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "924f3991-5eec-4639-b307-5ce39447f6f6",
+                     "text": "NASA",
+                     "page": "Terra",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad027885-dbe9-4eb3-9b00-7524d19439c9",
+                     "text": "Aslaksen, H.",
+                     "page": "pp. 10",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "736b2d0a-62b5-466a-bedb-74ba12752ae5",
+                     "text": "Llyas, M.",
+                     "page": "pp. 427 - 428",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1994",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "736b2d0a-62b5-466a-bedb-74ba12752ae5",
+                     "text": "Llyas, M.",
+                     "page": "pp. 428",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1994",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]

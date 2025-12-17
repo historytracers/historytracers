@@ -30,7 +30,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1765993683"
+      "1766001572"
    ],
    "authors": [
       ""
@@ -348,6 +348,69 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_simplify",
+         "text": [
+            {
+               "text": "### Simplificando\n\nDevido ao fato de trabalharmos com diferentes calendários, para que os povos possam realizar algum tipo de agendamento, é necessário sincronizar as datas, de modo que saibamos exatamente do que estamos falando.\n\nMesmo quando não estamos tentando sincronizar calendários entre si, também é preciso ajustar cada calendário, justamente porque um ano não resulta em resto de divisão igual a zero.\n\nVejamos as soluções encontradas.\n\n#### Ano Bissexto (Calendário Gregoriano)\n\nQuando trabalhamos com dias, como fizemos neste e em outros textos, estamos lidando com uma unidade de tempo relativamente ampla, o que acaba omitindo alguns detalhes. Por exemplo, a Terra possui um ano de aproximadamente 365 dias e 6 horas, e não exatamente 365 dias (<htcite0>). Para corrigir esse “excesso de horas” e manter a consistência na determinação, entre outras coisas, das estações do ano, utilizam-se as seguintes regras para definir se um ano é bissexto (<htcite1>):\n- O ano é divisível por 4, mas não é divisível por 100;\n- Ou o ano é divisível por 400.\n\nLembramos que ser divisível significa ser um múltiplo, ou seja, o resto da divisão é zero.\n\n#### Conversões\n\nAs diferenças entre o calendário islâmico e o calendário gregoriano levaram os islâmicos a criarem métodos para que seu calendário, de menor extensão, pudesse ser equiparado ao calendário solar (<htcite2>). Entre esses métodos, destaca-se o **Istalahi** no qual se considera: *\"um ciclo de 30 anos lunares, em que os meses alternam entre 29 e 30 dias, havendo 11 anos com 355 dias e os demais com 354 dias\"* (<htcite3>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "924f3991-5eec-4639-b307-5ce39447f6f6",
+                     "text": "NASA",
+                     "page": "Terra",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad027885-dbe9-4eb3-9b00-7524d19439c9",
+                     "text": "Aslaksen, H.",
+                     "page": "pp. 10",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "736b2d0a-62b5-466a-bedb-74ba12752ae5",
+                     "text": "Llyas, M.",
+                     "page": "pp. 427 - 428",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1994",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "736b2d0a-62b5-466a-bedb-74ba12752ae5",
+                     "text": "Llyas, M.",
+                     "page": "pp. 428",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1994",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]

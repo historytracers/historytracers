@@ -30,7 +30,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1765993681"
+      "1766001571"
    ],
    "authors": [
       ""
@@ -348,6 +348,69 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_simplify",
+         "text": [
+            {
+               "text": "### Simplifying\n\nSince we work with different calendars, for people to be able to schedule anything, it is necessary to synchronize dates so that we know exactly what we are talking about.\n\nEven when we are not trying to synchronize calendars with each other, it is also necessary to adjust each calendar precisely because a year does not result in a remainder of zero when divided.\n\nLet's look at the solutions found.\n\n#### Leap Year (Gregorian Calendar)\n\nWhen we work with days, as we have done in this and other texts, we are dealing with a relatively broad unit of time, which ends up omitting some details. For example, Earth has a year of approximately 365 days and 6 hours, not exactly 365 days (<htcite0>). To correct this “excess of hours” and maintain consistency in determining, among other things, the seasons of the year, the following rules are used to define whether a year is a leap year (<htcite1>):\n- The year is divisible by 4, but not divisible by 100;\n- Or the year is divisible by 400.\n\nWe remind you that being divisible means being a multiple, i.e., the remainder of the division is zero.\n\n#### Conversions\n\nThe differences between the Islamic calendar and the Gregorian calendar led Islamic scholars to create methods so that their shorter calendar could be equated to the solar calendar (<htcite2>). Among these methods, the **Istalahi** stands out, in which it is considered: *\"a cycle of 30 lunar years, in which the months alternate between 29 and 30 days, with 11 years having 355 days and the others having 354 days\"* (<htcite3>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "924f3991-5eec-4639-b307-5ce39447f6f6",
+                     "text": "NASA",
+                     "page": "Terra",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad027885-dbe9-4eb3-9b00-7524d19439c9",
+                     "text": "Aslaksen, H.",
+                     "page": "pp. 10",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "736b2d0a-62b5-466a-bedb-74ba12752ae5",
+                     "text": "Llyas, M.",
+                     "page": "pp. 427 - 428",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1994",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "736b2d0a-62b5-466a-bedb-74ba12752ae5",
+                     "text": "Llyas, M.",
+                     "page": "pp. 428",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1994",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
