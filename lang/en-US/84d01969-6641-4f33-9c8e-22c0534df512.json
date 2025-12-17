@@ -30,7 +30,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1766001571"
+      "1766009997"
    ],
    "authors": [
       ""
@@ -428,18 +428,73 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_practicing",
+         "text": [
+            {
+               "text": "### Practicing\n\nAlthough the year — the time it takes for the Earth to return to the same position as it orbits the Sun (<htcite0>)Although the year — the time it takes for the Earth to return to the same position as it orbits the Sun.\n\nTo assist with the following exercises, we are providing the multiplication tables for 8 and 9, which will be used in them.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "924f3991-5eec-4639-b307-5ce39447f6f6",
+                     "text": "NASA",
+                     "page": "Terra",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent8\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent9\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Existe apenas um calendário usado em todo o mundo?",
+         "question": "Is there only one calendar used worldwide?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Nos dias atuais, há diferentes calendário sendo utilizados ao redor do mundo. Com a marcação do tempo deles sendo relacionado com a lua ou a rotação da terra ao redor do sol."
+         "additionalInfo": "Nowadays, there are different calendars being used around the world, with timekeeping linked to the Moon or the Earth's orbit around the Sun, as we learned."
       },
       {
-         "question": "Os meses dos calendários islâmico e gregoriano tem pelo menos 4 semanas?",
+         "question": "Do the months of the Islamic and Gregorian calendars have at least 4 weeks?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Como os meses tem entre 28 e 31 dias, todos eles tem pelo menos 4 semanas, mas nunca atingem exatamente 5 por nenhum ter 35 dias."
+         "additionalInfo": "Since the months have between 28 and 31 days, they all have at least four weeks, but they never reach exactly five weeks, as none have 35 days."
+      },
+      {
+         "question": "Imagine that in some place on the planet, they decided the best way to organize the month would be in periods of 8 days, keeping 12 months with 30 days each. Will we also have, at a minimum, 4 periods of 8 days within a month?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Because we increased the length of the period used to organize the days within the month, there will be a decrease in the minimum number of periods. This happens because 8 × 3 = 24, and the next multiple of 8, which is 32 (8 × 4 = 32), is greater than the 30-day month we defined.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 30 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 8 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 24 </td><td>3</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 6 </td><td> &nbsp; </td></tr> </table></p>"
+      },
+      {
+         "question": "Imagine that in another place on the planet, they decided to organize the month into periods of 9 days, keeping 12 months with 30 days each. Will we also have, at a minimum, 3 periods of 9 days within a month?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Because we increased the length of the period used to organize the days within the month even more, but did not change the number of days in the month, we continue to have three periods, as in the previous exercise. This happens because 9 × 3 = 27, and the next multiple of 9, which is 36 (9 × 4 = 36), is greater than the defined 30-day month.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 30 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 9 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 27 </td><td>3</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 3 </td><td> &nbsp; </td></tr> </table></p>"
       }
    ],
    "game_v2": null,

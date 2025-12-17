@@ -30,7 +30,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1766001571"
+      "1766009998"
    ],
    "authors": [
       ""
@@ -428,18 +428,73 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_practicing",
+         "text": [
+            {
+               "text": "### Practicando\n\nAunque el año —el tiempo necesario para que la Tierra vuelva a la misma posición al girar alrededor del Sol (<htcite0>)— sea el mismo para cualquier pueblo, la manera en que las personas organizan la división del tiempo es diferente.\n\nPara ayudar en los siguientes ejercicios, proporcionamos las tablas de multiplicar del 8 y del 9, que serán utilizadas en ellos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "924f3991-5eec-4639-b307-5ce39447f6f6",
+                     "text": "NASA",
+                     "page": "Terra",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent8\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent9\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Existe apenas um calendário usado em todo o mundo?",
+         "question": "¿Existe solo un calendario usado en todo el mundo?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Nos dias atuais, há diferentes calendário sendo utilizados ao redor do mundo. Com a marcação do tempo deles sendo relacionado com a lua ou a rotação da terra ao redor do sol."
+         "additionalInfo": "En la actualidad, hay diferentes calendarios siendo utilizados alrededor del mundo, con la marcación del tiempo ligada a la Luna o a la rotación de la Tierra alrededor del Sol, como aprendimos."
       },
       {
-         "question": "Os meses dos calendários islâmico e gregoriano tem pelo menos 4 semanas?",
+         "question": "¿Los meses de los calendarios islámico y gregoriano tienen al menos 4 semanas?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Como os meses tem entre 28 e 31 dias, todos eles tem pelo menos 4 semanas, mas nunca atingem exatamente 5 por nenhum ter 35 dias."
+         "additionalInfo": "Como los meses tienen entre 28 y 31 días, todos ellos poseen al menos cuatro semanas, pero nunca alcanzan exactamente cinco semanas, pues ninguno tiene 35 días."
+      },
+      {
+         "question": "Imagine que, en algún lugar del planeta, decidieron que la mejor forma de organizar el mes sería en períodos de 8 días, manteniendo 12 meses con 30 días. ¿También tendremos, como mínimo, 4 períodos de 8 días dentro de un mes?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Como aumentamos el tamaño del período usado para organizar los días dentro del mes, habrá una disminución del número mínimo de períodos. Esto ocurre porque 8 × 3 = 24, y el siguiente múltiplo de 8, que es 32 (8 × 4 = 32), es mayor que el mes de 30 días que definimos.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 30 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 8 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 24 </td><td>3</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 6 </td><td> &nbsp; </td></tr> </table></p>"
+      },
+      {
+         "question": "Imagine que, en otro lugar del planeta, decidieron organizar el mes en períodos de 9 días, manteniendo 12 meses con 30 días. ¿También tendremos, como mínimo, 3 períodos de 9 días dentro de un mes?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como aumentamos aún más el tamaño del período utilizado para organizar los días dentro del mes, pero no alteramos la cantidad de días del mes, continuamos teniendo tres períodos, como en el ejercicio anterior. Esto ocurre porque 9 × 3 = 27, y el siguiente múltiplo de 9, que es 36 (9 × 4 = 36), es mayor que el mes de 30 días definido.<br /><p><table style=\"width: 30%; margin-left: auto; margin-right: auto; font-weight: none; border-collapse: collapse;\"><tr><td>&nbsp; 30 </td><td style=\"border-bottom: 2px solid black; border-left: 2px solid black;\"> 9 </td></tr><tr><td style=\"border-bottom: 2px solid black;\">- 27 </td><td>3</td></tr><tr><td>&nbsp;&nbsp;&nbsp; 3 </td><td> &nbsp; </td></tr> </table></p>"
       }
    ],
    "game_v2": null,
