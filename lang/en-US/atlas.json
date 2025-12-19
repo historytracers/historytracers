@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1766108663"
+      "1766171470"
    ],
    "authors": null,
    "reviewers": null,
@@ -2788,6 +2788,173 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The Return of the Theorem\n\nAll this trigonometry part of the *History Tracers Atlas* began when we studied how the Babylonians already had prior knowledge of what Dr. Daniel F. Mansfield called the *\"diagonal triple\"* (<htcite0>). Centuries later, this relationship became known as the Pythagorean Theorem, demonstrated in **Formula 3**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
+                     "text": "Mansfield, D. F.",
+                     "page": "pp. 985 - 1003",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7c5ebbe5-75c5-444c-bceb-b0162bff9888",
+                     "text": "History Tracers Team",
+                     "page": "History of a Theorem",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> </math><p class=\"desc\"><b>Formula 3</b>: Pythagorean Theorem, where <i>a</i> is the adjacent leg, <i>b</i> is the opposite leg, and <i>c</i> is the hypotenuse.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To make clearer what we are studying, let's rename the legs according to the distances traveled:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>(caminho horizontal)</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(caminho vertical)</mi><mn>2</mn></msup>  <mo>=</mo> <msup><mi>(caminho diagonal)</mi> <mn>2</mn></msup> </math></p><p class=\"desc\"><b>Formula 4</b>: Description of paths.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As we saw in previous texts and in this text, the so-called **paths** are projections known as **legs**, while the diagonal is known as the **hypotenuse**. The horizontal leg is projected using the cosine of the angle, while the vertical leg is projected using the sine of the angle (<htcite0>; <htcite1>). Therefore, we can rewrite **Formula 4** as:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Cosine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Sine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>(c × cos (θ))</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(c × sen (θ))</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>(c)</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sen</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p class=\"desc\"><b>Calculo 1</b>: Pythagorean Theorem written based on the angles and the radius.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Since on both sides we have the square of the hypotenuse c&sup2;, we can divide both sides of Calculation <b>Cálculo 1</b> by it:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sen</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><mfrac><mi>c&sup2; cos&sup2; (θ) + c&sup2;sen&sup2; (θ)</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p><p><math display=\"block\"><mfrac><mi>c&sup2; [cos&sup2; (θ) + sen&sup2; (θ)]</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p> <p><math display=\"block\"><mn>1 [cos&sup2; (θ) + sen&sup2; (θ)]</mn> <mn>=</mn> <mi>1</mi></p> <p><math display=\"block\"><mn>cos&sup2; (θ) + sen&sup2; (θ)</mn> <mn>=</mn> <mi>1</mi></p> <p class=\"desc\"><b>Calculation 2</b>: Fundamental trigonometric identity.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "**Calculation 2** provides us with important details about the relationships between lengths and angles linked to location on a circle, as described below:\n- **Line 1**: Informs us that the square of the horizontal projection of the radius **a** (c&sup2; cos &sup2; (θ)), added to the square of its vertical projection **b** (c&sup2; sen &sup2; (θ)) is equal to the square of the total length of the radius (c&sup2;), also known as the **hypotenuse**;\n- **Line 2**: Since the sum of the squares of the projections of the radius is equal to the square of the radius itself, we express the partial quantities in relation to the total in the denominator;\n- **Line 3**: Since both projections have the radius c in common, we factor out this value, separating it from the parts that depend on the angle;\n- **Line 4**: By isolating the whole from its components, we obtain the unit value (&sup2; / &sup), which we have as a single quantity again (1).\n- **Line 5**: As a consequence, it becomes explicit that the sum of the cosine squared of θ and the sine squared of θ is equal to 1.\n\n#### The location on the circle\n\nGiven this information, we can rewrite **Formula 1** in different ways, all representing our exact position on a circle:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(x, y)</mn> </math></center></p><p><center><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(a, b)</mn> </math></center></p><p><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(c × cos (θ), (c × sen (θ))</mn> </math></center></p><p class=\"desc\"><b>Formula 5</b>: Representation of the distances walked from the origin <b>O</b> to point <b>P</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "From **Formula 5**, we conclude that we can describe our position on a circle in the following ways:\n- **Line 1**: Point **P** is at a distance **x** from the origin **O** and at a distance **y** from that same origin **O**.\n- **Line 2**: The distance **x** corresponds to the length of leg **a**, which projects the hypotenuse **c** onto the horizontal, while the distance **y** corresponds to the length of leg **b**, which projects the hypotenuse **c** onto the vertical;\n- **Line 3**: The total length of the projections can be expressed using the radius **c**, which represents the distance from the origin, and the angle θ, which represents the opening of the radius from the horizontal in a counterclockwise direction. Thus, we have the horizontal path expressed as <b>x = a = c × cos (θ)</b>, while the path made vertically can be expressed as <b>y = b = c × sen (θ)</b>.\n\nwhile the path made vertically can be expressed as:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(200, 200)</mn> </math></center></p><p class=\"desc\"><b>Formula 6</b>: Representation of the distances traveled from the origin <b>O</b> to point <b>P</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Conclusion\n\nIn this text, we saw that there are different ways to express a traveled path. Regardless of the approach used, the horizontal and vertical displacements are treated independently, although both represent the total distance traveled.\n\nFurthermore, we observed, through the Pythagorean Theorem, that the relationships between the projections of the hypotenuse onto its legs can also be described using the cosine and sine of the angle formed between the hypotenuse and the horizontal.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
