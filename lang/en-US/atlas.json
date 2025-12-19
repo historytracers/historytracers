@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1765763191"
+      "1766108663"
    ],
    "authors": null,
    "reviewers": null,
@@ -2598,11 +2598,11 @@
          "uuid": "931557c0-ca2b-4b50-b034-1ed53752c58e",
          "image": "",
          "author": "",
-         "index": "Where are we on a circle?",
-         "audio": "https://www.historytracers.org/audios/atlas_en-US.ogg",
+         "index": "Where are we on a disk?",
+         "audio": "https://www.historytracers.org/audios/atlas_pt-BR.ogg",
          "text": [
             {
-               "text": "<p><h3>Where are we on a circle?</h3><p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"75\" cy=\"75\" r=\"70\"></circle> <path d=\"M70,70 L145,70 A70,70 0 0,0 134,35 z\" stroke-width=\"3\"></path> <text x=\"65\" y=\"85\">O</text>  <text x=\"115\" y=\"85\">r</text> <text x=\"115\" y=\"65\" style=\"font-size: 2em\">θ</text> </svg></p>",
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path class=\"radius-30\" d=\"M 320 147 A 30 30 0 0 1 340.0 170.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"300\" y1=\"169\" x2=\"470\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"448\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"169\" x2=\"406\" y2=\"66\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"66\" x2=\"406\" y2=\"166\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"188\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"390\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"405\" y=\"182\" font-size=\"1.3em\" font-weight=\"bold\">Q</text>  <text class=\"atlasTextRadius\" x=\"463\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Chart 1</b>: Circle with a radius of 1 containing a right triangle.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2611,52 +2611,40 @@
                "PostMention": ""
             },
             {
-               "text": "We know that, by definition, a planet is nearly spherical in shape. We also understand that our planet has continents, but we haven’t yet explored how to locate ourselves on it. In everyday life, we use addresses to find locations, but street names can change over time. Therefore, we need a precise and stable system of location",
+               "text": "### Where are we on a disk?\n\n#### Walking\n\nWhen we are walking down a straight street, we can locate ourselves starting from a street corner. For example, if that street is divided into blocks and each block is 50 meters, we will know that after walking 4 blocks, we will have traveled 200 meters from the corner where we began our walk (50 × 4 = 200) (<htcite0>).\n\nWhat we have just described is a measurement in one dimension, meaning we need only one value to obtain the result and describe its measure (<htcite1>).\n\nLooking at **Graph 1** in this section, we can see that if we want to know the distance between points **O** and **Q** (which we will represent from now on as **OQ**), we will be able to perform this measurement precisely because we are talking about a horizontal line, which we will call the **x-axis**.\n\n#### The x-axis\n\nWhen studying the cosine function, we learned that the length of leg a corresponds to the multiplication of the radius of the circle by the cosine of theta (c × cos(θ)). This happens because leg **a** represents the projection of radius **c** onto the adjacent leg (<htcite2>).\n\nIn **Graph 2**, we represent this projection again when there is an angle theta (θ) between the radius and the **eje x**.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "59c0b962-d032-4b6c-9498-2341e089510b",
-                     "text": "Allmon, D. W. et al.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "750e84b5-9330-4f99-92b0-72469a6a64f4",
-                     "text": "Allmon, D. W. et al.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "4326e165-e43d-4436-9d0f-500faac7a633",
-                     "text": "Library of Congress",
-                     "page": "",
+                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (4 and 5)",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2023",
+                        "year": "2025",
                         "month": "",
                         "day": ""
                      }
                   },
                   {
                      "type": 1,
-                     "uuid": "e9951a6d-02aa-48ab-a2ed-77a8282d97d3",
-                     "text": "Hogeback, J.",
-                     "page": "",
+                     "uuid": "7eb77c51-3f08-4c5d-9a87-8c6c5dc0e9d4",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Dimension",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2016",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Cosine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
                         "month": "",
                         "day": ""
                      }
@@ -2665,11 +2653,11 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "html",
+               "format": "markdown",
                "PostMention": "."
             },
             {
-               "text": "<p>Imagine a segment of a sphere in the shape of a flat disc. This disc has a central point, which we’ll call <b>O</b>. From <b>O</b>, we can measure the distance to the edge of the disc, which we’ll refer to as the radius and denote by the letter <b>r</b>. Every straight line drawn from the center to the edge of the disc will have this same length, <b>r</b>.</p>",
+               "text": "<div class=\"atlasCircleContainer1\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri1\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <path class=\"radius-30\" d=\"M 230 130 A 30 30 0 0 1 240.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"320\" y2=\"149\"></line> <line class=\"radius-line\" x1=\"319\" y1=\"149\" x2=\"320\" y2=\"67\"></line> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"319\" y2=\"67\"></line> <text class=\"atlasTextRadius\" x=\"250\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"140\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"380\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">x</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"260\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Graph 2</b>: Angle theta (θ) between the hypotenuse and the adjacent leg.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2678,16 +2666,52 @@
                "PostMention": ""
             },
             {
-               "text": "To specify a particular point on the disc, we need additional information beyond the radius: the angle formed between two lines extending from the center. This angle, called theta (θ), ranges from 0 to 2π radians or from 0 to 360 degrees. Using the pair (r,θ), we can define the position of any point on the disc by moving from the center out to the edge. This is known as the polar coordinate system, where <b>r</b> represents the distance from the center, and theta (<b>θ</b>) ndicates the angular position relative to a starting line",
+               "text": "#### The Y-axis\n\nLet's reflect before proceeding.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: What about upward?</b><br /><br />Could what we wrote about a horizontal path be applied to a vertical axis?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To answer this reflection, let's imagine that after walking 200 meters in one direction, as at the beginning of the text, you turned onto another street and walked another 200 meters.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: 200 that way, 200 this way...</b><br /><br />Ignore houses, trees, people, and animals, and focus only on the distance of 200 meters in a straight line.<br /><br />When walking 200 meters on any straight street, are you walking the same distance?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Possibly, in your reflection, you must have observed that the distance of 200 meters is the same on one street as on the other. That is, in both cases we are on a straight line, and regardless of the direction we walk, we end up covering the same 200 meters.\n\nNow, we can return to the differences. By following a straight street and then turning onto another street and walking a bit more, we are following different paths, despite performing exactly the same type of movement.\n\nThis leads us to conclude that we cannot use a horizontal projection to represent the vertical path. In other words, they are independent paths.\n\nTherefore, we will use what we learned in the text about sines to project the radius of the circle onto the vertical (<htcite0>), as shown in **Graph 3**:",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "1a426c74-8e9c-4022-90dc-2a1b9b4ac129",
-                     "text": "Stover, Christopher and Weisstein, Eric W. Polar Coordinates",
-                     "page": "",
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Sine)",
                      "date_time": {
-                        "type": "",
-                        "year": "",
+                        "type": "gregory",
+                        "year": "2025",
                         "month": "",
                         "day": ""
                      }
@@ -2696,8 +2720,206 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <path class=\"radius-30\" d=\"M 230 130 A 30 30 0 0 1 240.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"320\" y2=\"149\"></line> <line class=\"radius-line\" x1=\"319\" y1=\"149\" x2=\"320\" y2=\"67\"></line> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"319\" y2=\"67\"></line> <text class=\"atlasTextRadius\" x=\"250\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"300\" y=\"116\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Graph 3</b>: Angle theta (θ) between the hypotenuse and the adjacent leg.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
                "format": "html",
-               "PostMention": "."
+               "PostMention": ""
+            },
+            {
+               "text": "Notice that in **Gráfico 3**, we highlight leg **b**, which is related to the projection of the radius onto the vertical. From the previous text, we know that walking in the vertical direction is equivalent to multiplying the sine of theta by the radius of the circle to obtain the projection (c × sen(θ)) (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Sine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Axes Together\n\nAs we have seen, the **axis x and y** are independent of each other, meaning that measurements in one direction do not necessarily depend on the other. Therefore, to determine the position of point **P** in **Graph 1**, we can indicate how far we walked from the origin to **Q** on the **x-axis**, and then how far we walked to point **P** along the **y-axis**, as follows:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math display=\"block\"><mn>P</mn> = <mn>(x, y)</mn> = <mn>(a, b)</mn> </math></center></p><p class=\"desc\"><b>Formula 1</b>: Representation of the distances walked from the origin <b>O</b> to point <b>P</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In the example where we walked 200 meters in one direction and another 200 meters in another, both in straight lines, this means we can write our point **P** as:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math display=\"block\"><mn>P</mn> = <mn>(x, y)</mn> = <mn>(a, b)</mn> = <mn>(200, 200)</mn> </math></center></p><p class=\"desc\"><b>Formula 2</b>: Representation of the distances walked from the origin <b>O</b> to point <b>P</b> in the example.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### A volta do Teorema\n\nToda esta parte de trigonometria do Atlas do **History Tracers** começou ao estudarmos como babilônios já possuíam um conhecimento prévio do que foi chamado pelo Dr. Daniel F. Mansfield de *\"diagonal tripla\"* (<htcite0>). Séculos mais tarde a relação passou a ser conhecida como Teorema de Pitágoras demonstrado na **Fórmula 2**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
+                     "text": "Mansfield, D. F.",
+                     "page": "pp. 985 - 1003",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7c5ebbe5-75c5-444c-bceb-b0162bff9888",
+                     "text": "History Tracers Team",
+                     "page": "História de um Teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> </math><p class=\"desc\"><b>Fórmula 2</b>: Teorema de Pitágoras, onde <i>a</i> é o cateto adjacente, <i>b</i> é o cateto oposto, e <i>c</i> é a hipotenusa.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para ficar mais claro o que estamos estudando, vamos renomear os catetos de acordo com as distâncias percorridas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>(caminho horizontal)</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(caminho vertical)</mi><mn>2</mn></msup>  <mo>=</mo> <msup><mi>(caminho diagonal)</mi> <mn>2</mn></msup> </math></p><p class=\"desc\"><b>Fórmula 3</b>: Descrição de caminhos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como vimos em textos anteriores e neste texto, os chamados caminhos são projeções conhecidas como catetos, enquanto a diagonal é conhecida como hipotenusa. Sendo que o cateto horizontal é projetado através do cosseno do ângulo, enquanto o cateto vertical é projetado com o seno do ângulo (<htcite0>; <htcite1>), logo, podemos reescrever a **Fórmula 3** como:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometria (Cosseno)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometria (Seno)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>(c × cos (θ))</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(c × sen (θ))</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>(c)</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sen</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p class=\"desc\"><b>Cálculo 1</b>: Teoremade Pitágoras escrito com base nos ângulos e raio.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Como em ambos os lados temos o quadrado da hipotenusa c<sup>2</sup>, podemos multiplicar ambos os lados da <b>Cálculo 1</b> por ele:</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sen</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><mfrac><mi>c&sup2; cos&sup2; (θ) + c&sup2;sen&sup2; (θ)</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p><p><math display=\"block\"><mfrac><mi>c&sup2; [cos&sup2; (θ) + sen&sup2; (θ)]</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p> <p><math display=\"block\"><mi>1 [cos&sup2; (θ) + sen&sup2; (θ)] <mn>=</mn> <mi>1</mi></p> <p><math display=\"block\"><mi>cos&sup2; (θ) + sen&sup2; (θ) <mn>=</mn> <mi>1</mi></p> <p class=\"desc\"><b>Cálculo 2</b>: Definição do cosseno.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O **Cálculo 2** nos dá importantes detalhes sobre as relações entre comprimentos e ângulos ligados a localização em um círculo, como detalhado na sequência:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       },
