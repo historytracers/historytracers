@@ -2764,7 +2764,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><math display=\"block\"><mn>P</mn> = <mn>(x, y)</mn> = <mn>(a, b)</mn> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Representação das distâncias caminhadas desde a origem <b>O</b> até o ponto <b>P</b>.</p>",
+               "text": "<p><center><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(x, y)</mn> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Representação das distâncias caminhadas desde a origem <b>O</b> até o ponto <b>P</b>.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2791,7 +2791,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### A volta do Teorema\n\nToda esta parte de trigonometria do Atlas do **History Tracers** começou ao estudarmos como babilônios já possuíam um conhecimento prévio do que foi chamado pelo Dr. Daniel F. Mansfield de *\"diagonal tripla\"* (<htcite0>). Séculos mais tarde a relação passou a ser conhecida como Teorema de Pitágoras demonstrado na **Fórmula 2**:",
+               "text": "#### A volta do Teorema\n\nToda esta parte de trigonometria do Atlas do History Tracers começou quando estudamos como os babilônios já possuíam um conhecimento prévio do que foi chamado pelo Dr. Daniel F. Mansfield de *\"diagonal tripla\"* (<htcite0>). Séculos mais tarde, essa relação passou a ser conhecida como Teorema de Pitágoras, demonstrado na **Fórmula 3**:",
                "source": [
                   {
                      "type": 1,
@@ -2825,7 +2825,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> </math><p class=\"desc\"><b>Fórmula 2</b>: Teorema de Pitágoras, onde <i>a</i> é o cateto adjacente, <i>b</i> é o cateto oposto, e <i>c</i> é a hipotenusa.</p>",
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> </math><p class=\"desc\"><b>Fórmula 3</b>: Teorema de Pitágoras, onde <i>a</i> é o cateto adjacente, <i>b</i> é o cateto oposto, e <i>c</i> é a hipotenusa.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2834,7 +2834,7 @@
                "PostMention": ""
             },
             {
-               "text": "Para ficar mais claro o que estamos estudando, vamos renomear os catetos de acordo com as distâncias percorridas:",
+               "text": "Para deixar mais claro o que estamos estudando, vamos renomear os catetos de acordo com as distâncias percorridas:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2843,7 +2843,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><math display=\"block\"><msup><mi>(caminho horizontal)</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(caminho vertical)</mi><mn>2</mn></msup>  <mo>=</mo> <msup><mi>(caminho diagonal)</mi> <mn>2</mn></msup> </math></p><p class=\"desc\"><b>Fórmula 3</b>: Descrição de caminhos.</p>",
+               "text": "<p><math display=\"block\"><msup><mi>(caminho horizontal)</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(caminho vertical)</mi><mn>2</mn></msup>  <mo>=</mo> <msup><mi>(caminho diagonal)</mi> <mn>2</mn></msup> </math></p><p class=\"desc\"><b>Fórmula 4</b>: Descrição de caminhos.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2852,7 +2852,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como vimos em textos anteriores e neste texto, os chamados caminhos são projeções conhecidas como catetos, enquanto a diagonal é conhecida como hipotenusa. Sendo que o cateto horizontal é projetado através do cosseno do ângulo, enquanto o cateto vertical é projetado com o seno do ângulo (<htcite0>; <htcite1>), logo, podemos reescrever a **Fórmula 3** como:",
+               "text": "Como vimos em textos anteriores e neste texto, os chamados **caminhos** são projeções conhecidas como **catetos**, enquanto a diagonal é conhecida como **hipotenusa**. O cateto horizontal é projetado por meio do cosseno do ângulo, enquanto o cateto vertical é projetado por meio do seno do ângulo (<htcite0>; <htcite1>). Logo, podemos reescrever a **Fórmula 4** como:",
                "source": [
                   {
                      "type": 1,
@@ -2886,7 +2886,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><math display=\"block\"><msup><mi>(c × cos (θ))</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(c × sen (θ))</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>(c)</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sen</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p class=\"desc\"><b>Cálculo 1</b>: Teoremade Pitágoras escrito com base nos ângulos e raio.</p>",
+               "text": "<p><math display=\"block\"><msup><mi>(c × cos (θ))</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(c × sen (θ))</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>(c)</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sen</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p class=\"desc\"><b>Cálculo 1</b>: Teorema de Pitágoras escrito com base nos ângulos e no raio.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2895,7 +2895,16 @@
                "PostMention": ""
             },
             {
-               "text": "<p>Como em ambos os lados temos o quadrado da hipotenusa c<sup>2</sup>, podemos multiplicar ambos os lados da <b>Cálculo 1</b> por ele:</p>",
+               "text": "Como em ambos os lados temos o quadrado da hipotenusa c&sup2;, podemos dividir ambos os lados do <b>Cálculo 1</b> por ele:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "makdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sen</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><mfrac><mi>c&sup2; cos&sup2; (θ) + c&sup2;sen&sup2; (θ)</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p><p><math display=\"block\"><mfrac><mi>c&sup2; [cos&sup2; (θ) + sen&sup2; (θ)]</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p> <p><math display=\"block\"><mn>1 [cos&sup2; (θ) + sen&sup2; (θ)]</mn> <mn>=</mn> <mi>1</mi></p> <p><math display=\"block\"><mn>cos&sup2; (θ) + sen&sup2; (θ)</mn> <mn>=</mn> <mi>1</mi></p> <p class=\"desc\"><b>Cálculo 2</b>: Identidade fundamental da trigonometria.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2904,7 +2913,16 @@
                "PostMention": ""
             },
             {
-               "text": "<p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sen</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><mfrac><mi>c&sup2; cos&sup2; (θ) + c&sup2;sen&sup2; (θ)</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p><p><math display=\"block\"><mfrac><mi>c&sup2; [cos&sup2; (θ) + sen&sup2; (θ)]</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p> <p><math display=\"block\"><mi>1 [cos&sup2; (θ) + sen&sup2; (θ)] <mn>=</mn> <mi>1</mi></p> <p><math display=\"block\"><mi>cos&sup2; (θ) + sen&sup2; (θ) <mn>=</mn> <mi>1</mi></p> <p class=\"desc\"><b>Cálculo 2</b>: Definição do cosseno.</p>",
+               "text": "O **Cálculo 2** nos fornece detalhes importantes sobre as relações entre comprimentos e ângulos ligados à localização em um círculo, conforme descrito a seguir:\n- **Linha 1**: Informa que o quadrado da projeção horizontal do raio **c** (c&sup2; cos &sup2; (θ)), somado ao quadrado de sua projeção vertical (c&sup2; sen &sup2; (θ)) é igual ao quadrado do comprimento total do raio (c&sup2;), também conhecido como a hipotenusa;\n- **Linha 2**: Como a soma dos quadrados das projeções do raio é igual ao quadrado do próprio raio, expressamos as quantidades parciais em relação ao total no denominador;\n- **Linha 3**: Como ambas as projeções têm o raio **c**, em comum, colocamos esse valor em evidência, separando-o das partes que dependem do ângulo;\n- **Linha 4**: Ao isolar o todo de suas componentes, obtemos o valor unitário (&sup2; / &sup), o temos como sendo uma única quantidade novamente (1).\n- **Linha 5**: Como consequência, fica explícito que a soma do cosseno ao quadrado de θ com o seno ao quadrado de θ é igual a 1.\n\n#### A localização no círculo\n\nDiante dessas informações, podemos reescrever a **Fórmula 1** de diferentes maneiras, todas representando nossa posição exata em um círculo:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(x, y)</mn> </math></center></p><p><center><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(a, b)</mn> </math></center></p><p><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(c × cos (θ), (c × sen (θ))</mn> </math></center></p><p class=\"desc\"><b>Fórmula 5</b>: Representação das distâncias caminhadas desde a origem <b>O</b> até o ponto <b>P</b>.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2913,7 +2931,25 @@
                "PostMention": ""
             },
             {
-               "text": "O **Cálculo 2** nos dá importantes detalhes sobre as relações entre comprimentos e ângulos ligados a localização em um círculo, como detalhado na sequência:",
+               "text": "A partir da **Fórmula 5**, concluímos que podemos descrever nossa posição sobre um círculo das seguintes maneiras:\n- **Linha 1**: O ponto **P** está a uma distância **x** da origem **O** e a uma distância **y** dessa mesma origem **O**.\n- **Linha 2**: A distância **x** corresponde ao comprimento do cateto **a**, que projeta a hipotenusa **c** na horizontal, enquanto a distância **y** corresponde ao comprimento do cateto **b**, que projeta a hipotenusa **c** na vertical;\n- **Linha 3**: O comprimento total das projeções pode ser expresso por meio do raio **c**, que representa o afastamento da origem, e do ângulo θ, que representa a abertura do raio a partir da horizontal no sentido anti-horário. Assim, temos o caminho da horizontal expresso como <b>x = a = c × cos (θ)</b>, enquanto o caminho feito na vertical pode ser expresso como <b>y = b = c × sen (θ)</b>.\n\nIndependentemente da forma escolhida para expressar a posição, podemos afirmar que o caminho percorrido no início deste texto é dado por:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(200, 200)</mn> </math></center></p><p class=\"desc\"><b>Fórmula 6</b>: Representação das distâncias percorridas desde a origem <b>O</b> até o ponto <b>P</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Conclusão\n\nNeste texto, vimos que existem diferentes maneiras de expressar um caminho percorrido. Independentemente da abordagem utilizada, os deslocamentos horizontal e vertical são tratados de forma independente, embora ambos representem a distância total percorrida.\n\nAlém disso, observamos, por meio do Teorema de Pitágoras, que as relações entre as projeções da hipotenusa sobre seus catetos também podem ser descritas utilizando o cosseno e o seno do ângulo formado entre a hipotenusa e a horizontal.",
                "source": null,
                "date_time": null,
                "isTable": false,
