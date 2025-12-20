@@ -1025,7 +1025,7 @@ func htCreateNewFamily(id string, family *Family) {
 	}
 }
 
-func htAddNewFamilyToIdx(index *IdxFamily, newFile string) {
+func htAddNewFamilyToIdx(index *IdxFamily, newFile string, lang string) {
 	lastContent := len(index.Contents) - 1
 	if lastContent < 0 {
 		return
@@ -1033,7 +1033,7 @@ func htAddNewFamilyToIdx(index *IdxFamily, newFile string) {
 
 	content := &index.Contents[lastContent]
 
-	newValue := IdxFamilyValue{ID: newFile}
+	newValue := IdxFamilyValue{ID: newFile, GEDCOM: "gedcom/"+newFile+"_"+lang+".ged", CSV: "csv/"+newFile+"_"+lang+".csv"}
 
 	content.Value = append(content.Value, newValue)
 
@@ -1058,7 +1058,7 @@ func htOpenFamilyIdx(fileName string, newFile string, lang string) error {
 		return err
 	}
 
-	htAddNewFamilyToIdx(&index, newFile)
+	htAddNewFamilyToIdx(&index, newFile, lang)
 	tmpName, err := htWriteFamilyIndexFile(lang, &index)
 	if err != nil {
 		return err
