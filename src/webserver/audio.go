@@ -434,6 +434,7 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 func htFamiliesToAudio() {
 	for _, dir := range htLangPaths {
 		htLoadKeywordFile("common_keywords", dir)
+		htLoadKeywordFile("math_keywords", dir)
 		htLoadTreeData(dir)
 
 		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, dir)
@@ -558,6 +559,7 @@ func htConvertAtlasToAudio() {
 	htLoadSourceFromFile(atlasSources)
 	for _, dir := range htLangPaths {
 		htLoadKeywordFile("common_keywords", dir)
+		htLoadKeywordFile("math_keywords", dir)
 		fileName := fmt.Sprintf("%slang/%s/atlas.json", CFG.SrcPath, dir)
 
 		byteValue, err := htOpenFileReadClose(fileName)
@@ -604,6 +606,7 @@ func htConvertOverallTextToAudio() {
 	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5", "a86f373e-c908-4796-8a96-427ba5d4c889", "sources", "genealogical_first_steps", "genealogical_faq", "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0", "partnership", "tree"}
 	for _, dir := range htLangPaths {
 		htLoadKeywordFile("common_keywords", dir)
+		htLoadKeywordFile("math_keywords", dir)
 
 		htConvertClassesToAudio(pages, dir)
 	}
@@ -672,6 +675,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 func htIndexesToAudio() {
 	for _, dir := range htLangPaths {
 		htLoadKeywordFile("common_keywords", dir)
+		htLoadKeywordFile("math_keywords", dir)
 
 		for _, idx := range indexFiles {
 			fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, dir, idx)
