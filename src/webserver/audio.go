@@ -107,8 +107,8 @@ func htTextPersonIntroduction(name string) string {
 
 func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 string) string {
 	var intro string = ""
-	if sex != "masculine" && sex != "masculino" && sex != "feminino" && sex != "femenino" && sex != "feminine" {
-		text := fmt.Sprintf("%s is an Invalid value: 'masculine', 'masculino', 'feminino' and 'feminine'.", sex)
+	if sex != "male" && sex != "masculino" && sex != "feminino" && sex != "femenino" && sex != "female" {
+		text := fmt.Sprintf("%s is an Invalid value: 'male', 'masculino', 'feminino' and 'female'.", sex)
 		panic(text)
 	}
 
@@ -211,6 +211,12 @@ func htTextFamily(families *Family, lang string) string {
 		for j := 0; j < len(family.People); j++ {
 			person := &family.People[j]
 			finalText += "\n\n" + htTextPersonIntroduction(person.Name)
+
+			if person.Sex == "feminine" {
+				person.Sex = "female"
+			} else if person.Sex == "masculine" {
+				person.Sex = "male"
+			}
 
 			if person.History != nil {
 				htmlText = ""

@@ -545,10 +545,16 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 	for i := 0; i < len(person.Marriages); i++ {
 		marr := &person.Marriages[i]
 
-		if person.Sex == "masculine" || person.Sex == "masculino" {
+		if person.Sex == "masculine" || person.Sex == "masculino" || person.Sex == "male" {
+			if person.Sex == "masculine" {
+				person.Sex = "male"
+			}
 			first = person.ID
 			second = marr.ID
 		} else {
+			if person.Sex == "feminine" {
+				person.Sex = "female"
+			}
 			first = marr.ID
 			second = person.ID
 		}
@@ -699,10 +705,16 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 					htFamiliesPeopleCSV = append(htFamiliesPeopleCSV, newPerson)
 				}
 
-				if person.Sex == "masculine" || person.Sex == "masculino" {
+				if person.Sex == "masculine" || person.Sex == "masculino" || person.Sex == "male" {
+					if person.Sex == "masculine" {
+						person.Sex = "male"
+					}
 					first = person.ID
 					second = child.MarriageID
 				} else {
+					if person.Sex == "feminine" {
+						person.Sex = "female"
+					}
 					first = child.MarriageID
 					second = person.ID
 				}
