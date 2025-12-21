@@ -549,11 +549,19 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 			if person.Sex == "masculine" {
 				person.Sex = "male"
 			}
+
+			if person.Gender == "masculine" {
+				person.Gender = "male"
+			}
 			first = person.ID
 			second = marr.ID
 		} else {
 			if person.Sex == "feminine" {
 				person.Sex = "female"
+			}
+
+			if person.Gender == "feminine" {
+				person.Gender = "female"
 			}
 			first = marr.ID
 			second = person.ID
@@ -709,11 +717,19 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 					if person.Sex == "masculine" {
 						person.Sex = "male"
 					}
+
+					if person.Gender == "masculine" {
+						person.Gender = "male"
+					}
 					first = person.ID
 					second = child.MarriageID
 				} else {
 					if person.Sex == "feminine" {
 						person.Sex = "female"
+					}
+
+					if person.Gender == "feminine" {
+						person.Gender = "female"
 					}
 					first = child.MarriageID
 					second = person.ID
