@@ -1033,7 +1033,7 @@ func htAddNewFamilyToIdx(index *IdxFamily, newFile string, lang string) {
 
 	content := &index.Contents[lastContent]
 
-	newValue := IdxFamilyValue{ID: newFile, GEDCOM: "gedcom/"+newFile+"_"+lang+".ged", CSV: "csv/"+newFile+"_"+lang+".csv"}
+	newValue := IdxFamilyValue{ID: newFile, GEDCOM: "gedcom/" + newFile + "_" + lang + ".ged", CSV: "csv/" + newFile + "_" + lang + ".csv"}
 
 	content.Value = append(content.Value, newValue)
 

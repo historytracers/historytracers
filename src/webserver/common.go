@@ -831,7 +831,7 @@ func htReplaceMath(text string) string {
 		return text
 	}
 	ret := strings.ReplaceAll(text, " × ", mathKeywords[33])
-	ret := strings.ReplaceAll(ret, " + ", mathKeywords[34])
+	ret = strings.ReplaceAll(ret, " + ", mathKeywords[34])
 
 	return ret
 }
