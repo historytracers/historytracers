@@ -107,8 +107,8 @@ func htTextPersonIntroduction(name string) string {
 
 func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 string) string {
 	var intro string = ""
-	if sex != "masculine" && sex != "masculino" && sex != "feminino" && sex != "femenino" && sex != "feminine" {
-		text := fmt.Sprintf("%s is an Invalid value: 'masculine', 'masculino', 'feminino' and 'feminine'.", sex)
+	if sex != "male" && sex != "masculino" && sex != "feminino" && sex != "femenino" && sex != "female" {
+		text := fmt.Sprintf("%s is an Invalid value: 'male', 'masculino', 'feminino' and 'female'.", sex)
 		panic(text)
 	}
 
@@ -154,6 +154,12 @@ func htLocalHTML2Text(htmlText string) string {
 func htTextFamily(families *Family, lang string) string {
 	var finalText string = families.Title + ".\n\n" + defaultFamilyTop
 	var htmlText string = ""
+
+	if families.Prerequisites != nil {
+		for _, pre := range families.Prerequisites {
+			finalText += htLocalHTML2Text(pre)
+		}
+	}
 
 	if families.Maps != nil {
 		finalText += commonKeywords[79] + ".\n\n" + commonKeywords[80] + "\n"
@@ -211,6 +217,12 @@ func htTextFamily(families *Family, lang string) string {
 		for j := 0; j < len(family.People); j++ {
 			person := &family.People[j]
 			finalText += "\n\n" + htTextPersonIntroduction(person.Name)
+
+			if person.Sex == "feminine" {
+				person.Sex = "female"
+			} else if person.Sex == "masculine" {
+				person.Sex = "male"
+			}
 
 			if person.History != nil {
 				htmlText = ""
@@ -306,6 +318,7 @@ func htTextFamily(families *Family, lang string) string {
 		finalText += htPrepareQuestions(families.Exercises)
 	}
 
+	finalText = htReplaceMath(finalText)
 	return finalText + "\n"
 }
 
@@ -434,6 +447,7 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 func htFamiliesToAudio() {
 	for _, dir := range htLangPaths {
 		htLoadKeywordFile("common_keywords", dir)
+		htLoadKeywordFile("math_keywords", dir)
 		htLoadTreeData(dir)
 
 		localPath := fmt.Sprintf("%slang/%s/families.json", CFG.SrcPath, dir)
@@ -558,6 +572,7 @@ func htConvertAtlasToAudio() {
 	htLoadSourceFromFile(atlasSources)
 	for _, dir := range htLangPaths {
 		htLoadKeywordFile("common_keywords", dir)
+		htLoadKeywordFile("math_keywords", dir)
 		fileName := fmt.Sprintf("%slang/%s/atlas.json", CFG.SrcPath, dir)
 
 		byteValue, err := htOpenFileReadClose(fileName)
@@ -604,6 +619,7 @@ func htConvertOverallTextToAudio() {
 	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5", "a86f373e-c908-4796-8a96-427ba5d4c889", "sources", "genealogical_first_steps", "genealogical_faq", "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0", "partnership", "tree"}
 	for _, dir := range htLangPaths {
 		htLoadKeywordFile("common_keywords", dir)
+		htLoadKeywordFile("math_keywords", dir)
 
 		htConvertClassesToAudio(pages, dir)
 	}
@@ -672,6 +688,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 func htIndexesToAudio() {
 	for _, dir := range htLangPaths {
 		htLoadKeywordFile("common_keywords", dir)
+		htLoadKeywordFile("math_keywords", dir)
 
 		for _, idx := range indexFiles {
 			fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, dir, idx)
