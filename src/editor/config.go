@@ -8,6 +8,11 @@ import (
 	"errors"
 	"flag"
 	"os"
+	"path/filepath"
+)
+
+const (
+	SoftwareName = "historytracers-editor"
 )
 
 type htConfig struct {
@@ -44,8 +49,13 @@ func NewHTConfig() *htConfig {
 }
 
 func HTCreateDir() error {
-	dirPath := "~/.config/historytracers"
-	_, err := os.Stat(dirPath)
+	configDir, err := os.UserConfigDir()
+	if err != nil {
+		return err
+	}
+
+	dirPath := filepath.Join(configDir, ".config/"+SoftwareName)
+	_, err = os.Stat(dirPath)
 	if errors.Is(err, os.ErrNotExist) {
 		err := os.MkdirAll(dirPath, 0755)
 		if err != nil {
