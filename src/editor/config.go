@@ -3,49 +3,39 @@
 package main
 
 import (
-	// "encoding/json"
+	"encoding/json"
 
 	"errors"
-	"flag"
+	"fmt"
 	"os"
 	"path/filepath"
 )
 
 const (
-	SoftwareName = "historytracers-editor"
+	SoftwareName    = "historytracers-editor"
+	LocalConfigFile = "historytracers.conf"
 )
 
 type htConfig struct {
 	Port        int    `json:"port"`
 	SrcPath     string `json:"src"`
 	ContentPath string `json:"content"`
-	ConfPath    string `json:"content"`
 	LogPath     string `json:"log"`
-	confPath    string `json:"config"`
+	ConfPath    string `json:"config"`
 }
 
 var (
-	portFlag     int    = 12345
-	confPath     string = "/etc/historytracers/historytracers.conf"
-	personalPath string = "~/.config/historytracers/historytracers.conf"
-	srcPath      string = "/var/www/historytracers/"
-	contentPath  string = "/var/www/historytracers/www/"
-	logPath      string = "/var/log/historytracers/"
-	CFG          *htConfig
+	portFlag     int       = 12345
+	confPath     string    = "/etc/historytracers/historytracers.conf"
+	personalPath string    = "~/.config/historytracers/historytracers.conf"
+	srcPath      string    = "/var/www/historytracers/"
+	contentPath  string    = "/var/www/historytracers/www/"
+	logPath      string    = "/var/log/historytracers/"
+	CFG          *htConfig = nil
 )
 
-func HTParseArg() {
-	CFG = NewHTConfig()
-
-	flag.IntVar(&CFG.Port, "port", portFlag, "The port History Tracers listens on.")
-	flag.StringVar(&CFG.SrcPath, "src", srcPath, "Directory containing all source files.")
-	flag.StringVar(&CFG.LogPath, "log", logPath, "Directory containing all log files.")
-	flag.StringVar(&CFG.ContentPath, "www", contentPath, "Directory for user-facing content.")
-	flag.StringVar(&CFG.ConfPath, "conf", confPath, "Directory for user personal options.")
-}
-
 func NewHTConfig() *htConfig {
-	return &htConfig{Port: portFlag, SrcPath: srcPath, ContentPath: contentPath, LogPath: logPath}
+	return &htConfig{Port: portFlag, SrcPath: srcPath, ContentPath: contentPath, LogPath: logPath, ConfPath: personalPath}
 }
 
 func HTCreateDir() error {
@@ -54,7 +44,7 @@ func HTCreateDir() error {
 		return err
 	}
 
-	dirPath := filepath.Join(configDir, ".config/"+SoftwareName)
+	dirPath := filepath.Join(configDir, SoftwareName)
 	_, err = os.Stat(dirPath)
 	if errors.Is(err, os.ErrNotExist) {
 		err := os.MkdirAll(dirPath, 0755)
@@ -64,4 +54,48 @@ func HTCreateDir() error {
 	}
 
 	return nil
+}
+
+func HTCreateConfig(configPath string) error {
+	if CFG == nil {
+		CFG = NewHTConfig()
+	}
+
+	data, err := json.MarshalIndent(CFG, "", "  ")
+	if err != nil {
+		return fmt.Errorf("failed to marshal config: %s", err)
+	}
+
+	if err := os.WriteFile(configPath, data, 0640); err != nil {
+		return fmt.Errorf("failed to write config file: %s", err)
+	}
+
+	return nil
+}
+
+func HTParseConfig(configPath string) error {
+	data, err := os.ReadFile(configPath)
+	if err != nil {
+		return fmt.Errorf("failed to read config file: %s", err)
+	}
+
+	if err := json.Unmarshal(data, CFG); err != nil {
+		return fmt.Errorf("failed to parse JSON: %s", err)
+	}
+	return nil
+}
+
+func HTParseCreateConfig() error {
+	configDir, err := os.UserConfigDir()
+	if err != nil {
+		return err
+	}
+
+	localPath := filepath.Join(configDir, SoftwareName+"/"+LocalConfigFile)
+	_, err = os.Stat(localPath)
+	if errors.Is(err, os.ErrNotExist) {
+		return HTCreateConfig(localPath)
+	}
+
+	return HTParseConfig(localPath)
 }

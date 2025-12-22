@@ -621,8 +621,8 @@ var theme = struct {
 }
 
 func main() {
-	HTParseArg()
 	HTCreateDir()
+	HTParseCreateConfig()
 
 	editor := NewTextEditor()
 	editor.Run()
