@@ -8,12 +8,13 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	// "time"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
-	"fyne.io/fyne/v2/storage"
+	"fyne.io/fyne/v2/driver/desktop"
 	"fyne.io/fyne/v2/widget"
 )
 
@@ -88,43 +89,45 @@ func (e *TextEditor) setupUI() {
 	e.newFile()
 }
 
-type customShortcut struct {
-	key  fyne.KeyName
-	mod  fyne.KeyModifier
-	name string
-}
-
-// Implement the Shortcut interface
-func (s *customShortcut) Key() fyne.KeyName {
-	return s.key
-}
-
-func (s *customShortcut) Mod() fyne.KeyModifier {
-	return s.mod
-}
-
-func (s *customShortcut) ShortcutName() string {
-	return s.name
-}
-
 func (e *TextEditor) setupShortcuts() {
-	// Helper function to add shortcuts
-	addShortcut := func(key fyne.KeyName, mod fyne.KeyModifier, action func()) {
-		shortcut := &customShortcut{key: key, mod: mod, name: fmt.Sprintf("%v+%v", mod, key)}
-		e.window.Canvas().AddShortcut(shortcut, func(fyne.Shortcut) {
+	addShortcut := func(key fyne.KeyName, action func()) {
+		// Use fyne.KeyModifierShortcutDefault to handle OS differences (Ctrl on Win/Linux, Cmd on macOS)
+		shortcut := &desktop.CustomShortcut{
+			KeyName:  key,
+			Modifier: fyne.KeyModifierShortcutDefault,
+		}
+
+		// Add the shortcut to the canvas
+		e.window.Canvas().AddShortcut(shortcut, func(s fyne.Shortcut) {
+			fmt.Printf("Shortcut triggered: %s\n", s.ShortcutName())
 			action()
 		})
 	}
 
 	// File operations
-	addShortcut(fyne.KeyN, fyne.KeyModifierControl, e.newFile)
-	addShortcut(fyne.KeyO, fyne.KeyModifierControl, e.openFile)
-	addShortcut(fyne.KeyS, fyne.KeyModifierControl, e.saveFile)
-	addShortcut(fyne.KeyW, fyne.KeyModifierControl, e.closeCurrentTab)
+	// Note: Modifier is handled inside addShortcut using fyne.KeyModifierShortcutDefault
+	addShortcut(fyne.KeyN, e.newFile)
+	addShortcut(fyne.KeyO, e.openFile)
+	addShortcut(fyne.KeyS, e.saveFile)
+	addShortcut(fyne.KeyW, e.closeCurrentTab)
 
-	// Tab navigation
-	addShortcut(fyne.KeyTab, fyne.KeyModifierControl, e.nextTab)
-	addShortcut(fyne.KeyTab, fyne.KeyModifierControl|fyne.KeyModifierShift, e.previousTab)
+	// Tab navigation (Ctrl+Tab and Ctrl+Shift+Tab)
+	// For specific, multi-modifier shortcuts, you need a separate handler
+
+	// Ctrl+Tab (Next Tab)
+	nextTabShortcut := &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl}
+	e.window.Canvas().AddShortcut(nextTabShortcut, func(fyne.Shortcut) {
+		e.nextTab()
+	})
+
+	// Ctrl+Shift+Tab (Previous Tab)
+	prevTabShortcut := &desktop.CustomShortcut{
+		KeyName:  fyne.KeyTab,
+		Modifier: fyne.KeyModifierControl | fyne.KeyModifierShift,
+	}
+	e.window.Canvas().AddShortcut(prevTabShortcut, func(fyne.Shortcut) {
+		e.previousTab()
+	})
 
 	// Quit - handled by window close intercept
 	e.window.SetCloseIntercept(func() {
@@ -133,6 +136,13 @@ func (e *TextEditor) setupShortcuts() {
 }
 
 func (e *TextEditor) createMenu() {
+	// Template menu with shortcuts
+	templateMenu := fyne.NewMenu("Templates",
+		fyne.NewMenuItem("Load Template", e.showTemplateWindow),
+		fyne.NewMenuItem("Set Template Directory", e.setTemplateDirectory),
+		fyne.NewMenuItem("Refresh Templates", e.refreshTemplates),
+	)
+
 	// File menu with shortcuts
 	fileMenu := fyne.NewMenu("File",
 		fyne.NewMenuItem("New", e.newFile),
@@ -166,13 +176,6 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("List All Tabs", e.showTabList),
 	)
 
-	// Template menu with shortcuts
-	templateMenu := fyne.NewMenu("Templates",
-		fyne.NewMenuItem("Load Template", e.showTemplateWindow),
-		fyne.NewMenuItem("Set Template Directory", e.setTemplateDirectory),
-		fyne.NewMenuItem("Refresh Templates", e.refreshTemplates),
-	)
-
 	// Help menu with shortcut
 	helpMenu := fyne.NewMenu("Help",
 		fyne.NewMenuItem("About", e.showAbout),
@@ -187,423 +190,6 @@ func (e *TextEditor) createMenu() {
 	)
 
 	e.window.SetMainMenu(mainMenu)
-}
-
-/*
-func (e *TextEditor) createToolbar() *widget.Toolbar {
-	return widget.NewToolbar(
-		widget.NewToolbarAction(theme.DocumentCreateIcon(), e.newFile),
-		widget.NewToolbarAction(theme.FolderOpenIcon(), e.openFile),
-		widget.NewToolbarAction(theme.DocumentSaveIcon(), e.saveFile),
-		widget.NewToolbarAction(theme.DocumentSaveIcon(), e.saveAllFiles),
-		widget.NewToolbarSeparator(),
-		widget.NewToolbarAction(theme.ContentCutIcon(), e.cutText),
-		widget.NewToolbarAction(theme.ContentCopyIcon(), e.copyText),
-		widget.NewToolbarAction(theme.ContentPasteIcon(), e.pasteText),
-		widget.NewToolbarSeparator(),
-		widget.NewToolbarAction(theme.MailForwardIcon(), e.nextTab),
-		widget.NewToolbarAction(theme.MailReplyIcon(), e.previousTab),
-		widget.NewToolbarSeparator(),
-		widget.NewToolbarAction(theme.DocumentIcon(), e.showTemplateWindow),
-		widget.NewToolbarAction(theme.InfoIcon(), e.showAbout),
-	)
-}
-*/
-
-func (e *TextEditor) createNewDocument() *Document {
-	// Create text area
-	textArea := widget.NewMultiLineEntry()
-	textArea.Wrapping = fyne.TextWrapWord
-
-	doc := &Document{
-		content:    textArea,
-		filePath:   "",
-		isModified: false,
-		tabItem:    nil, // Initialize as nil, will be set in addDocument
-	}
-
-	return doc
-}
-
-func (e *TextEditor) newFile() {
-	doc := e.createNewDocument()
-	e.addDocument(doc, "Untitled")
-
-	// Set up modification tracking AFTER the document is fully added
-	doc.content.OnChanged = func(_ string) {
-		doc.isModified = true
-		e.updateTabTitle(doc)
-		e.updateTitle()
-	}
-
-	e.updateStatus("New file created")
-}
-
-func (e *TextEditor) addDocument(doc *Document, title string) {
-	// Create tab title
-	tabTitle := title
-	if doc.isModified {
-		tabTitle = "* " + tabTitle
-	}
-
-	doc.tabItem = container.NewTabItem(tabTitle, doc.content)
-	e.tabContainer.Append(doc.tabItem)
-	e.documents = append(e.documents, doc)
-	e.currentDoc = doc
-	e.tabContainer.Select(doc.tabItem)
-	e.updateTitle()
-}
-
-func (e *TextEditor) openFile() {
-	dialog := dialog.NewFileOpen(func(reader fyne.URIReadCloser, err error) {
-		if err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-		if reader == nil {
-			return
-		}
-		defer reader.Close()
-
-		filePath := reader.URI().Path()
-
-		// Check if file is already open
-		for _, doc := range e.documents {
-			if doc.filePath == filePath {
-				e.tabContainer.Select(doc.tabItem)
-				e.updateStatus("File already open: " + filepath.Base(filePath))
-				return
-			}
-		}
-
-		scanner := bufio.NewScanner(reader)
-		var content strings.Builder
-		for scanner.Scan() {
-			content.WriteString(scanner.Text() + "\n")
-		}
-
-		if err := scanner.Err(); err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-
-		doc := e.createNewDocument()
-		doc.filePath = filePath
-
-		// Add document first, then set content to avoid triggering OnChanged before tab is created
-		e.addDocument(doc, filepath.Base(filePath))
-
-		// Now set up the modification tracking
-		doc.content.OnChanged = func(_ string) {
-			doc.isModified = true
-			e.updateTabTitle(doc)
-			e.updateTitle()
-		}
-
-		// Set the content after the callback is established
-		doc.content.SetText(content.String())
-		doc.isModified = false
-		e.updateTabTitle(doc)
-
-		e.updateStatus("Opened: " + filepath.Base(filePath))
-	}, e.window)
-
-	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".md", ".json", ".html", ".css", ".js"}))
-	dialog.Show()
-}
-
-func (e *TextEditor) openInNewTab() {
-	dialog := dialog.NewFileOpen(func(reader fyne.URIReadCloser, err error) {
-		if err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-		if reader == nil {
-			return
-		}
-		defer reader.Close()
-
-		filePath := reader.URI().Path()
-
-		scanner := bufio.NewScanner(reader)
-		var content strings.Builder
-		for scanner.Scan() {
-			content.WriteString(scanner.Text() + "\n")
-		}
-
-		if err := scanner.Err(); err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-
-		doc := e.createNewDocument()
-		doc.filePath = filePath
-
-		// Add document first
-		e.addDocument(doc, filepath.Base(filePath))
-
-		// Set up modification tracking
-		doc.content.OnChanged = func(_ string) {
-			doc.isModified = true
-			e.updateTabTitle(doc)
-			e.updateTitle()
-		}
-
-		// Set content after callback is established
-		doc.content.SetText(content.String())
-		doc.isModified = false
-		e.updateTabTitle(doc)
-
-		e.updateStatus("Opened in new tab: " + filepath.Base(filePath))
-	}, e.window)
-
-	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".md", ".json", ".html", ".css", ".js"}))
-	dialog.Show()
-}
-
-func (e *TextEditor) saveFile() {
-	if e.currentDoc == nil {
-		return
-	}
-
-	if e.currentDoc.filePath == "" {
-		e.saveAsFile()
-		return
-	}
-
-	writer, err := storage.Writer(storage.NewFileURI(e.currentDoc.filePath))
-	if err != nil {
-		dialog.ShowError(err, e.window)
-		return
-	}
-	defer writer.Close()
-
-	_, err = writer.Write([]byte(e.currentDoc.content.Text))
-	if err != nil {
-		dialog.ShowError(err, e.window)
-		return
-	}
-
-	e.currentDoc.isModified = false
-	e.updateTabTitle(e.currentDoc)
-	e.updateTitle()
-	e.updateStatus(fmt.Sprintf("Saved: %s", filepath.Base(e.currentDoc.filePath)))
-}
-
-func (e *TextEditor) saveAsFile() {
-	if e.currentDoc == nil {
-		return
-	}
-
-	dialog := dialog.NewFileSave(func(writer fyne.URIWriteCloser, err error) {
-		if err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-		if writer == nil {
-			return
-		}
-		defer writer.Close()
-
-		e.currentDoc.filePath = writer.URI().Path()
-		_, err = writer.Write([]byte(e.currentDoc.content.Text))
-		if err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-
-		e.currentDoc.isModified = false
-		e.updateTabTitle(e.currentDoc)
-		e.updateTitle()
-		e.updateStatus(fmt.Sprintf("Saved as: %s", filepath.Base(e.currentDoc.filePath)))
-	}, e.window)
-
-	// Set default filename based on current content
-	defaultName := "untitled.json"
-	if e.currentDoc.filePath != "" {
-		defaultName = filepath.Base(e.currentDoc.filePath)
-	}
-	dialog.SetFileName(defaultName)
-	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".md", ".json", ".html", ".css", ".js"}))
-	dialog.Show()
-}
-
-func (e *TextEditor) saveAllFiles() {
-	savedCount := 0
-	for _, doc := range e.documents {
-		if doc.isModified && doc.filePath != "" {
-			writer, err := storage.Writer(storage.NewFileURI(doc.filePath))
-			if err != nil {
-				dialog.ShowError(err, e.window)
-				continue
-			}
-
-			_, err = writer.Write([]byte(doc.content.Text))
-			writer.Close()
-
-			if err != nil {
-				dialog.ShowError(err, e.window)
-				continue
-			}
-
-			doc.isModified = false
-			e.updateTabTitle(doc)
-			savedCount++
-		}
-	}
-
-	e.updateTitle()
-	if savedCount > 0 {
-		e.updateStatus(fmt.Sprintf("Saved %d files", savedCount))
-	} else {
-		e.updateStatus("No files needed saving")
-	}
-}
-
-func (e *TextEditor) closeCurrentTab() {
-	if e.currentDoc != nil {
-		e.closeTab(e.currentDoc.tabItem)
-	}
-}
-
-func (e *TextEditor) closeAllTabs() {
-	// Create a copy of documents to avoid modification during iteration
-	docsToClose := make([]*Document, len(e.documents))
-	copy(docsToClose, e.documents)
-
-	for _, doc := range docsToClose {
-		if !e.closeTab(doc.tabItem) {
-			break // User cancelled one of the close operations
-		}
-	}
-}
-
-func (e *TextEditor) closeTab(tabItem *container.TabItem) bool {
-	// Find the document for this tab
-	var doc *Document
-	var docIndex int = -1
-	for i, d := range e.documents {
-		if d.tabItem == tabItem {
-			doc = d
-			docIndex = i
-			break
-		}
-	}
-
-	if doc == nil {
-		return true
-	}
-
-	// Check if document needs saving
-	if doc.isModified {
-		// Show dialog and handle response
-		dialog.ShowConfirm("Unsaved Changes",
-			fmt.Sprintf("Save changes to %s?", e.getTabTitle(doc)),
-			func(save bool) {
-				if save {
-					if doc.filePath == "" {
-						// For new unsaved files, we need to handle save-as flow
-						// Set as current doc and trigger save-as
-						e.currentDoc = doc
-						e.tabContainer.Select(doc.tabItem)
-						e.saveAsFile()
-						// Note: The tab will remain open until user completes save-as
-						return
-					} else {
-						// For existing files, save and then close
-						e.saveFile()
-					}
-				}
-				// Remove the tab after saving or if user chose not to save
-				e.removeTab(doc, docIndex)
-			}, e.window)
-		return false // We'll handle removal in the callback
-	}
-
-	e.removeTab(doc, docIndex)
-	return true
-}
-
-func (e *TextEditor) removeTab(doc *Document, index int) {
-	if index < 0 || index >= len(e.documents) {
-		return
-	}
-
-	// Remove from documents slice
-	e.documents = append(e.documents[:index], e.documents[index+1:]...)
-
-	// Remove from tab container
-	e.tabContainer.Remove(doc.tabItem)
-
-	// Update current document
-	if len(e.documents) > 0 {
-		e.currentDoc = e.documents[len(e.documents)-1]
-		e.tabContainer.Select(e.currentDoc.tabItem)
-	} else {
-		e.currentDoc = nil
-		// Create a new empty document if all are closed
-		e.newFile()
-	}
-
-	e.updateTitle()
-}
-
-func (e *TextEditor) switchToTab(tabItem *container.TabItem) {
-	for _, doc := range e.documents {
-		if doc.tabItem == tabItem {
-			e.currentDoc = doc
-			e.updateTitle()
-			e.updateStatus("Switched to: " + e.getTabTitle(doc))
-			break
-		}
-	}
-}
-
-func (e *TextEditor) nextTab() {
-	if len(e.documents) <= 1 {
-		return
-	}
-
-	currentIndex := e.getCurrentDocIndex()
-	if currentIndex == -1 {
-		return
-	}
-
-	nextIndex := (currentIndex + 1) % len(e.documents)
-	e.tabContainer.Select(e.documents[nextIndex].tabItem)
-}
-
-func (e *TextEditor) previousTab() {
-	if len(e.documents) <= 1 {
-		return
-	}
-
-	currentIndex := e.getCurrentDocIndex()
-	if currentIndex == -1 {
-		return
-	}
-
-	previousIndex := (currentIndex - 1 + len(e.documents)) % len(e.documents)
-	e.tabContainer.Select(e.documents[previousIndex].tabItem)
-}
-
-func (e *TextEditor) showTabList() {
-	if len(e.documents) == 0 {
-		dialog.ShowInformation("Tabs", "No open tabs", e.window)
-		return
-	}
-
-	var tabNames []string
-	for i, doc := range e.documents {
-		status := ""
-		if doc.isModified {
-			status = " *"
-		}
-		tabNames = append(tabNames, fmt.Sprintf("%d. %s%s", i+1, e.getTabTitle(doc), status))
-	}
-
-	content := strings.Join(tabNames, "\n")
-	dialog.ShowInformation("Open Tabs", content, e.window)
 }
 
 func (e *TextEditor) getCurrentDocIndex() int {
@@ -1035,6 +621,9 @@ var theme = struct {
 }
 
 func main() {
+	HTCreateDir()
+	HTParseCreateConfig()
+
 	editor := NewTextEditor()
 	editor.Run()
 }
