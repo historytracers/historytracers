@@ -155,6 +155,12 @@ func htTextFamily(families *Family, lang string) string {
 	var finalText string = families.Title + ".\n\n" + defaultFamilyTop
 	var htmlText string = ""
 
+	if families.Prerequisites != nil {
+		for _, pre := range families.Prerequisites {
+			finalText += htLocalHTML2Text(pre)
+		}
+	}
+
 	if families.Maps != nil {
 		finalText += commonKeywords[79] + ".\n\n" + commonKeywords[80] + "\n"
 		for _, maps := range families.Maps {
