@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1765763191"
+      "1766188815"
    ],
    "authors": null,
    "reviewers": null,
@@ -2595,203 +2595,14 @@
          ]
       },
       {
-         "uuid": "c1e3d4d2-49ad-47f3-92d0-bebf5df29490",
-         "image": "images/HistoryTracers/Trigonometry.png",
-         "author": "History Tracers Team",
-         "index": "Ángulos y Proyecciones",
-         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
-         "text": [
-            {
-               "text": "<p><h3>Ángulos y Proyecciones</h3><h4>Un Rompecabezas</h4>Antes de explorar los ángulos y proyecciones, hagamos un ejercicio de imaginación para reforzar un concepto importante. Observa la Figura 1, que contiene 8 subimágenes. Si recortamos estas subimágenes, podemos transformarlas en un rompecabezas de 8 piezas, cada una representando una fracción de la imagen principal. Al distribuir estas piezas entre 8 personas, cada una de ellas tendría 1/8 de la imagen original. Cuando todas las piezas se reúnen, la imagen completa es restaurada. Este ejercicio ilustra la idea de que las partes fraccionadas, al reunirse, recrean el todo.</p><h4>Valores del Ángulo θ</h4>La subimagen \"(g)\" en la Figura 1 es muy similar a la subimagen \"(c)\", pero presenta una diferencia importante: incluye valores medidos desde dos perspectivas. Los valores internos del círculo indican la proyección de los ángulos en un círculo, como si camináramos a lo largo de él. En cambio, los valores externos reflejan una caminata en el plano cartesiano, representada fuera del círculo:</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión:  Conectando los Espacios</b><br /><br />En la subimagen \"(g)\", observamos dos tipos de medidas. Los valores internos, definidos por el radio <i>r</i> y el ángulo <i>θ</i>, e conocen como coordenadas polares (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('411ca4da-ce37-4c63-9bd1-b727659fdf09'); return false;\">Stover, Christopher and Weisstein, Eric W.</a>), mientras que los valores externos corresponden al plano cartesiano con ejes <i>x</i> e <i>y</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('69ab4b6c-69b4-466b-9410-7d7b6c2be4fc'); return false;\">Stover, Christopher and Weisstein, Eric W.</a>).<br /><br />¿Sabes cómo expresar coordenadas polares en coordenadas cartesianas? </div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "<p>Para explorar esta relación, recurrimos a la Figura 2 de la sección anterior, que muestra los gráficos de las funciones seno y coseno, además de una tabla con valores específicos.</p><p class=\"desc\"><img id=\"sincosimg\" src=\"images/HistoryTracers/SineCos.jpg\" class=\"imgcenter\" onclick=\"htImageZoom('sincosimg', '-35%')\" /><b>Figura 2</b>: Gráfico de las funciones seno y coseno. El código fuente de las representaciones y gráficos está disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('4f5657f4-4284-4e13-b90f-b0f1a7e50c68'); return false;\">History Tracers Team</a>)</p><p><table class=\"tableTen tableTenBgBlue\"> <tr><th>Ángulo θ</th> <th>cos(θ)</th>  <th>sen(θ)</th> <th>x</th> <th>y</th></tr> <tr><td>0</td> <td>1</td>  <td>0</td> <td>1</td> <td>0</td></tr>  <tr><td>π/2</td> <td>0</td>  <td>1</td> <td>0</td> <td>1</td></tr> <tr><td>π</td> <td>-1</td>  <td>0</td> <td>-1</td> <td>0</td></tr> <tr><td>3π/2</td> <td>0</td>  <td>-1</td> <td>0</td> <td>-1</td></tr> <tr><td>2π</td> <td>1</td>  <td>0</td> <td>1</td> <td>0</td></tr></table> </p><p class=\"desc\"><b>Tabla 1</b>: Relación entre los valores angulares y las coordenadas cartesianas en puntos específicos.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "<h4>Proyección Vertical</h4>En la subimagen \"(c)\" de la Figura 1, vemos que los catetos del triángulo están dados por funciones trigonométricas. Utilizaremos estas relaciones para proyectar el valor del círculo en los ejes <i>x</i> e <i>y</i>. La definición de la función seno se presenta en la Fórmula 1",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "eb59db91-042f-4acb-8211-47eac4348c94",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ":"
-            },
-            {
-               "text": "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>lado opuesto</mi><mi>hipotenusa</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 1</b>: Definición de la función seno.</p><p>Para simplificar, renombramos algunos componentes. La hipotenusa es el radio del círculo, representado por <i>r</i>, y el cateto opuesto, que queremos proyectar en el eje llamamos <i>y</i>.<p><p>Ahora que hemos definido los nombres correspondientes a los ejes cartesianos y observado que multiplicar un número por su inverso da como resultado 1, podemos concluir que la proyección de <i>y</i> está dada por:</p><p><ul class=\"citation\"><li><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>y</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r sen (θ)</mn> <mo>=</mo> <mfrac><mi>y r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r sen (θ)</mn> <mo>=</mo> <mi>y</mi> </li></ul></p><p class=\"desc\"><b>Fórmula 2</b>: Proyección del radio r en el eje y.</p><p>Como el valor de sen (θ) varia entre -1 y 1, la proyección total de <i>r</i> en el eje <i>y</i> ocurre cuando <i>θ</i> es igual a π/2 o 3π/2. En otros ángulos, solo parte del radio es proyectada.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            },
-            {
-               "text": "<h4>Proyección Horizontal</h4>La proyección horizontal sigue una lógica similar a la de la proyección vertical, pero usando la definición de la función coseno, dada en la Fórmula 3",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "0098b5fe-1cb7-4451-82c9-8e5d5d4f20e6",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "92e66bd4-1d7f-4f28-bed2-f62210493341",
-                     "text": "Weisstein, Eric W.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ":"
-            },
-            {
-               "text": "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>cateto adjacente</mi><mi>hipotenusa</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 3</b>: Definición de la función coseno.</p><p>Aquí, mantenemos la hipotenusa como <i>r</i> y designamos el cateto adyacente como <i>x</i>, la proyección deseada. Así:<p><p><ul class=\"citation\"><li><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>x</mi><mi>r</mi></mfrac></math> </li> <li><math display=\"block\"> <mn>r cos (θ)</mn> <mo>=</mo> <mfrac><mi>x r </mi><mi>r</mi></mfrac></math></li> <li><math display=\"block\"><mn>r cos (θ)</mn> <mo>=</mo> <mi>x</mi> </li></ul></p><p class=\"desc\"><b>Fórmula 4</b>: Proyección del radio r en el eje x.</p><p>Como ocurre con el seno, la proyección completa del radio en el eje <i>x</i> solo ocurre en ángulos específicos: 0 y <i>π</i>.</p><p><h4>Proyección del Espacio en el Plano</h4>En la subimagen \"(h)\", además del ángulo <i>θ</i>, aparece otro ángulo, <i>ϕ</i>que mapea datos en el espacio tridimensional. Este ángulo varía de 0 (en la parte superior del eje <i>z</i>) hasta π (en el extremo inferior). La sección \"Nuestras Coordenadas\" detalla este ángulo, pero adelantamos que los cálculos para <i>ϕ</i> son similares a los de las fórmulas 2 y 4, aplicados ahora al ángulo <i>ϕ</i>.</p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            }
-         ]
-      },
-      {
          "uuid": "931557c0-ca2b-4b50-b034-1ed53752c58e",
          "image": "",
          "author": "",
-         "index": "¿Dónde \"estamos\" en un disco?",
-         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
+         "index": "¿Dónde estamos en un disco?",
+         "audio": "https://www.historytracers.org/audios/atlas_pt-BR.ogg",
          "text": [
             {
-               "text": "<p><h3>¿Dónde \"estamos\" en un disco?</h3><p class=\"desc\"><svg fill=\"none\" stroke=\"black\"><circle cx=\"75\" cy=\"75\" r=\"70\"></circle> <path d=\"M70,70 L145,70 A70,70 0 0,0 134,35 z\" stroke-width=\"3\"></path> <text x=\"65\" y=\"85\">O</text>  <text x=\"115\" y=\"85\">r</text> <text x=\"115\" y=\"65\" style=\"font-size: 2em\">θ</text> </svg></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "Sabemos que, por definición, un planeta es una superficie cerca de una esfera. También hemos visto que nuestro planeta tiene continentes, pero aún no hemos explorado cómo ubicarnos en él. En la vida cotidiana, usamos direcciones para orientarnos; sin embargo, los nombres de las calles pueden cambiar con el tiempo. Por eso, necesitamos un sistema de localización que sea estable y preciso",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "59c0b962-d032-4b6c-9498-2341e089510b",
-                     "text": "Allmon, D. W. et al.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "750e84b5-9330-4f99-92b0-72469a6a64f4",
-                     "text": "Allmon, D. W. et al.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "4326e165-e43d-4436-9d0f-500faac7a633",
-                     "text": "Library of Congress",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2023",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "e9951a6d-02aa-48ab-a2ed-77a8282d97d3",
-                     "text": "Hogeback, J.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2016",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "<p>Imaginemos un fragmento de una esfera en forma de disco plano. Este disco tiene un punto central, que llamaremos <b>O</b>. Desde <b>O</b>, podemos medir la distancia hasta el borde del disco, a la cual llamaremos radio y representaremos con la letra <b>r</b>. Toda línea recta que trazamos desde el centro hasta el borde tendrá exactamente esta misma longitud, <b>r</b>.</p>",
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path class=\"radius-30\" d=\"M 320 147 A 30 30 0 0 1 340.0 170.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"300\" y1=\"169\" x2=\"470\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"448\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"169\" x2=\"406\" y2=\"66\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"66\" x2=\"406\" y2=\"166\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"188\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"390\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"405\" y=\"182\" font-size=\"1.3em\" font-weight=\"bold\">Q</text>  <text class=\"atlasTextRadius\" x=\"463\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Gráfico 1</b>: Círculo con radio 1 que contiene un triángulo rectángulo.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -2800,16 +2611,40 @@
                "PostMention": ""
             },
             {
-               "text": "Para ubicar un punto específico en este disco, necesitamos otra información además del radio: el ángulo que se forma entre dos líneas que parten del centro. Este ángulo, que llamaremos zeta (θ), varía de 0 a 2π radianes, o de 0 a 360 grados. Utilizando el par (r,θ), podemos definir la posición de cualquier punto en el disco, partiendo del centro y moviéndonos hasta el borde. Este es el sistema de coordenadas polares, en el cual <b>r</b> representa la distancia al centro, y zeta (<b>θ</b>) indica el desplazamiento angular desde una posición en el borde",
+               "text": "### ¿Dónde estamos en un disco?\n\n#### Caminando\n\nCuando estamos caminando por una calle recta, podemos ubicarnos a partir de una esquina con otra calle. Por ejemplo, si esa calle está dividida en manzanas y cada manzana tiene 50 metros, sabremos que, al caminar 4 manzanas, habremos recorrido 200 metros desde la esquina en que comenzamos nuestro recorrido (50 × 4 = 200) (<htcite0>).\n\nLo que acabamos de describir es una medición en una dimensión, es decir, necesitamos solo un valor para obtener el resultado y describir su medida (<htcite1>).\n\nAl observar el **Gráfico 1** en esta sección, podemos notar que, si deseamos saber la distancia entre los puntos **O** y **Q** (que representaremos, a partir de ahora, como **OQ**), podremos realizar esa medición precisamente porque estamos hablando de una línea horizontal, que pasamos a llamar **eje x**.\n\n#### El eje x\n\nAl estudiar la función coseno, aprendimos que la longitud del cateto a corresponde a la multiplicación del radio del círculo por el coseno de zeta (c × cos(θ)). Esto sucede porque el cateto **a** representa la proyección del radio **c** en el cateto adyacente (<htcite2>).\n\nEn el **Gráfico 2**, representamos nuevamente esa proyección cuando hay un ángulo zeta (θ) entre el radio y el **eje x**.",
                "source": [
                   {
                      "type": 1,
-                     "uuid": "1a426c74-8e9c-4022-90dc-2a1b9b4ac129",
-                     "text": "Stover, Christopher and Weisstein, Eric W. Polar Coordinates",
-                     "page": "",
+                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la Tabla de Multiplicar (4 y 5)",
                      "date_time": {
-                        "type": "",
-                        "year": "",
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7eb77c51-3f08-4c5d-9a87-8c6c5dc0e9d4",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Dimensión",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometría (Coseno)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
                         "month": "",
                         "day": ""
                      }
@@ -2818,8 +2653,322 @@
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
-               "format": "html",
+               "format": "markdown",
                "PostMention": "."
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer1\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri1\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <path class=\"radius-30\" d=\"M 230 130 A 30 30 0 0 1 240.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"320\" y2=\"149\"></line> <line class=\"radius-line\" x1=\"319\" y1=\"149\" x2=\"320\" y2=\"67\"></line> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"319\" y2=\"67\"></line> <text class=\"atlasTextRadius\" x=\"250\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"140\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"380\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">x</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"260\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Gráfico 2</b>: Ángulo zeta (θ) entre la hipotenusa y el cateto adyacente.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El eje Y\n\nHagamos una reflexión antes de continuar.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Y hacia arriba?</b><br /><br />¿Lo que escribimos sobre un camino horizontal podría aplicarse a un eje vertical?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para responder a esta reflexión, imaginemos que, después de caminar 200 metros en una dirección, como al inicio del texto, giraste en otra calle y caminaste 200 metros más.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: 200 para allá, 200 para acá...</b><br /><br />Ignora casas, árboles, personas y animales, y concéntrate solo en la distancia de 200 metros en línea recta.<br /><br />Al caminar 200 metros en cualquier calle recta, ¿estás caminando la misma distancia?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Posiblemente, en tu reflexión, habrás observado que la distancia de 200 metros es la misma tanto en una calle como en la otra. Es decir, en ambos casos estamos en una línea recta e, independientemente de la dirección en que caminemos, al final recorremos los mismos 200 metros.\n\nAhora, podemos volver a las diferencias. Al seguir una calle recta y, luego, girar en otra calle y caminar un poco más, estamos siguiendo trayectorias diferentes, a pesar de realizar exactamente el mismo tipo de movimiento.\n\nDe esta forma, utilizaremos lo que aprendimos en el texto sobre senos para proyectar el radio del círculo en la vertical (<htcite0>), como muestra el **Gráfico 3**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometría (Seno)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <path class=\"radius-30\" d=\"M 230 130 A 30 30 0 0 1 240.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"320\" y2=\"149\"></line> <line class=\"radius-line\" x1=\"319\" y1=\"149\" x2=\"320\" y2=\"67\"></line> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"319\" y2=\"67\"></line> <text class=\"atlasTextRadius\" x=\"250\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"300\" y=\"116\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Gráfico 3</b>: Ángulo zeta (θ) entre la hipotenusa y la horizontal, con el cateto opuesto visible.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Observa que, en el **Gráfico 3** destacamos el cateto **b**, que está relacionado con la proyección del radio en la vertical. Del texto anterior, sabemos que caminar en la dirección vertical equivale a multiplicar el seno de zeta por el radio del círculo para obtener la proyección (c × sen(θ)) (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometría (Seno)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Ejes juntos\n\nComo vimos, los **ejes x e y** son independientes entre sí, lo que quiere decir que las medidas en una dirección no dependen necesariamente de la otra. De esta forma, para determinar la posición del punto **P** en el **Gráfico 1**, podemos indicar cuánto caminamos desde el origen hasta **Q** (**OQ**) en el **eje x**, y, a continuación, cuánto caminamos hasta el punto **P** a lo largo del **eje y**, de la siguiente manera:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Estos datos nos llevan a concluir que no podemos utilizar una proyección horizontal para representar el camino vertical. Es decir, se trata de caminos independientes, lo que nos lleva a concluir que se necesitan dos medidas —o dos dimensiones (<htcite0>)—para describir el camino.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7eb77c51-3f08-4c5d-9a87-8c6c5dc0e9d4",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Dimensión",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(x, y)</mn> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Representación de las distancias caminadas desde el origen <b>O</b> hasta el punto <b>P</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### El Regreso del Teorema\n\nToda esta parte de trigonometría del Atlas do *History Tracers* comenzó cuando estudiamos cómo los babilonios ya poseían un conocimiento previo de lo que el Dr. Daniel F. Mansfield denominó *\"triple diagonal\"* (<htcite0>). Siglos después, esta relación pasó a ser conocida como el Teorema de Pitágoras, demostrado en la **Fórmula 2**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
+                     "text": "Mansfield, D. F.",
+                     "page": "pp. 985 - 1003",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7c5ebbe5-75c5-444c-bceb-b0162bff9888",
+                     "text": "History Tracers Team",
+                     "page": "Historia de un Teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> </math><p class=\"desc\"><b>Fórmula 2</b>: Teorema de Pitágoras, donde <i>a</i> es el cateto adyacente, <i>b</i> es el cateto opuesto, y <i>c</i> es la hipotenusa.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para dejar más claro lo que estamos estudiando, vamos a renombrar los catetos de acuerdo con las distancias recorridas:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>(camino horizontal)</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(camino vertical)</mi><mn>2</mn></msup>  <mo>=</mo> <msup><mi>(camino diagonal)</mi> <mn>2</mn></msup> </math></p><p class=\"desc\"><b>Fórmula 3</b>: Descripción de caminos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como vimos en textos anteriores y en este texto, los llamados **caminos** son proyecciones conocidas como **catetos**, mientras que la diagonal es conocida como **hipotenusa**. El cateto horizontal se proyecta mediante el coseno del ángulo, mientras que el cateto vertical se proyecta mediante el seno del ángulo (<htcite0>; <htcite1>). Por lo tanto, podemos reescribir la **Fórmula 3** como:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometría (Coseno)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometría (Seno)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>(c × cos (θ))</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(c × sen (θ))</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>(c)</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sen</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p class=\"desc\"><b>Cálculo 1</b>: Teorema de Pitágoras escrito en base a los ángulos y al radio.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como en ambos lados tenemos el cuadrado de la hipotenusa c&sup2;, podemos dividir ambos lados del <b>Cálculo 1</b> por él:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sen</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><mfrac><mi>c&sup2; cos&sup2; (θ) + c&sup2;sen&sup2; (θ)</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p><p><math display=\"block\"><mfrac><mi>c&sup2; [cos&sup2; (θ) + sen&sup2; (θ)]</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p> <p><math display=\"block\"><mn>1 [cos&sup2; (θ) + sen&sup2; (θ)]</mn> <mn>=</mn> <mi>1</mi></p> <p><math display=\"block\"><mn>cos&sup2; (θ) + sen&sup2; (θ)</mn> <mn>=</mn> <mi>1</mi></p> <p class=\"desc\"><b>Cálculo 2</b>: Identidad fundamental de la trigonometría.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El **Cálculo 2** nos proporciona detalles importantes sobre las relaciones entre longitudes y ángulos vinculados a la ubicación en un círculo, como se describe a continuación:\n- **Línea 1**: Informa que el cuadrado de la proyección horizontal del radio **a** (c&sup2; cos &sup2; (θ)), sumado al cuadrado de su proyección vertical **b** (c&sup2; sen &sup2; (θ)) es igual al cuadrado de la longitud total del radio (c&sup2;), también conocido como la **hipotenusa**;\n- **Línea 2**: Como la suma de los cuadrados de las proyecciones del radio es igual al cuadrado del propio radio, expresamos las cantidades parciales en relación al total en el denominador;\n- **Línea 3**: Como ambas proyecciones tienen el radio **c** en común, colocamos este valor en evidencia, separándolo de las partes que dependen del ángulo;\n- **Línea 4**: Al aislar el todo de sus componentes, obtenemos el valor unitario (c&sup2; / c&sup2;), que tenemos como una única cantidad nuevamente (1).\n- **Línea 5**: Como consecuencia, queda explícito que la suma del coseno al cuadrado de θ con el seno al cuadrado de θ es igual a 1.\n\n#### La ubicación en el círculo\n\nAnte esta información, podemos reescribir la **Fórmula 1** de diferentes maneras, todas representando nuestra posición exacta en un círculo en el punto **P** (**Gráfico 4**):",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <path class=\"radius-30\" d=\"M 200 120 A 30 30 0 0 1 230.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"200\" y2=\"4\"></line> <text class=\"atlasTextRadius\" x=\"180\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"15\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"208\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Gráfico 4</b>: Radio completamente inclinado.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(x, y)</mn> </math></center></p><p><center><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(a, b)</mn> </math></center></p><p><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(c × cos (θ), (c × sen (θ))</mn> </math></center></p><p class=\"desc\"><b>Fórmula 4</b>: Representación de las distancias caminadas desde el origen <b>O</b> hasta el punto <b>P</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A partir de la **Fórmula 4**, concluimos que podemos describir nuestra posición sobre un círculo de las siguientes maneras:\n- **Línea 1**: El punto **P** está a una distancia **x** del origen **O** y a una distancia **y** de ese mismo origen **O**.\n- **Línea 2**: La distancia **x** corresponde a la longitud del cateto **a**, que proyecta la hipotenusa **c** en la horizontal, mientras que la distancia **y** corresponde a la longitud del cateto **b**, que proyecta la hipotenusa **c** en la vertical;\n- **Línea 3**: La longitud total de las proyecciones puede expresarse mediante el radio **c**, que representa el alejamiento del origen, y del ángulo θ, que representa la apertura del radio a partir de la horizontal en sentido antihorario. Así, tenemos el camino horizontal expresado como <b>x = a = c × cos (θ)</b>, mientras que el camino hecho en la vertical puede expresarse como <b>y = b = c × sen (θ)</b>.\n\nIndependientemente de la forma elegida para expresar la posición, podemos afirmar que el camino recorrido al inicio de este texto está dado por:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(200, 200)</mn> </math></center></p><p class=\"desc\"><b>Fórmula 5</b>: Representación de las distancias recorridas desde el origen <b>O</b> hasta el punto <b>P</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Conclusión\n\nEn este texto, vimos que existen diferentes maneras de expresar un camino recorrido. Independientemente del enfoque utilizado, los desplazamientos horizontal y vertical se tratan de forma independiente, aunque ambos representan la distancia total recorrida.\n\nAdemás, observamos, mediante el Teorema de Pitágoras, que las relaciones entre las proyecciones de la hipotenusa sobre sus catetos también pueden describirse utilizando el coseno y el seno del ángulo formado entre la hipotenusa y la horizontal.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       },
@@ -3995,6 +4144,176 @@
          ]
       },
       {
+         "uuid": "ea01ab6c-26af-4c7a-ba06-5c1731c83d4d",
+         "image": "images/Mapswire/mapswire-continent_sa-printable-map-south-america-lambert-az-hemi-271_Tawantsuyu.jpg",
+         "author": "HTMW",
+         "index": "América: Inca (Tawantinsuyu)",
+         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
+         "text": [
+            {
+               "text": "<p><h3>América: Incas (Tawantinsuyu)</h3>La imagen en esta sección muestra el territorio del Imperio Inca (<i>Tawantinsuyu</i>) superpuesto a los actuales territorios de América del Sur, en la época de la llegada de los colonizadores en <htdate0>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ed31f80e-ddd3-448a-9331-a0b6ac5f82fd",
+                     "text": "Hechler, R. S.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1532",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "El estudio del Imperio Inca (<i>Tawantinsuyu</i>), al igual que otras áreas de la ciencia, está en constante actualización. Crónicas e investigaciones relacionadas con el imperio sugieren un cierto consenso sobre los descendientes de Viracocha; sin embargo, aún podrían existir reyes (<i>Sapa</i>) poco documentados. Además, investigaciones recientes cuestionan la creencia en una rápida expansión territorial, sugiriendo que esta conclusión podría ser errónea",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "47643b61-f223-493f-b58f-8c441b1b5642",
+                     "text": "Harris, K. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2007",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1e873ced-4625-40b2-9e73-00b3855f8292",
+                     "text": "Cartwright, M.",
+                     "page": "Inca Civilization",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2014",
+                        "month": "09",
+                        "day": "15"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
+                     "text": "Lumbreras, Luis G.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1967",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
+                     "text": "Barker, R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "Los años del Imperio Inca (<i>Tawantinsuyu</i>) en el subcontinente sudamericano (<i>Abya Yala</i>) se detallan en la genealogía de los reyes (<i>Sapa</i>) Incas",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "922ae4e4-8a1a-40ed-9fa3-ca7d541a05e1",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ":"
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: Influencias Externas (Parte II)</b><br /><br />Al analizar la descripción que hace el indígena Felipe Guaman Poma de Ayala sobre los gobernantes Incas, observamos que en un fragmento menciona a Jesucristo como hijo de Mama Coca, esposa (<i>Coya</i>) de Sinchi Roca. Es interesante notar que, en otra parte de la misma obra, Guaman Poma presenta a Jesucristo de una manera algo diferente, aunque sigue situándolo anacrónicamente en la época de los reyes (<i>Sapa</i>) Incas (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, pp. 87, 123</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('c5bb1db2-0f10-45c5-91ce-52020e770ca9'); return false;\">Poma de Ayala, Felipe Guaman,  pp. 62, 89</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('33cf32da-87cb-414c-a508-daf964dfef15'); return false;\">Gebran, Philomena, pp. 6 - 7</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('922ae4e4-8a1a-40ed-9fa3-ca7d541a05e1'); return false;\">History Tracers</a>).<br /><br />Imagina que nunca hubieras tenido acceso a ninguna otra versión diferente de la que presenta Felipe Guaman Poma de Ayala; ¿creerías en ella como una verdad indiscutible?<br /><br />En tu opinión, ¿limitarse a fuentes específicas puede restringir el acceso a otros documentos o a la comprensión de diferentes puntos de vista?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "uuid": "f928ce12-1718-4750-ba1d-70d72c20f2e1",
+         "image": "images/Mapswire/mapswire-continent_sa-printable-map-south-america-lambert-az-hemi-271_Brazil_States.jpg",
+         "author": "HTMW",
+         "index": "América: Minas Gerais (BR)",
+         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
+         "text": [
+            {
+               "text": "<h3>Minas Gerais - Brasil</h3>La imagen en esta sección muestra el territorio actual del estado de Minas Gerais, en Brasil (<i>Pindorama</i>). El estado tiene esta forma aproximadamente desde el final del período colonial. El término \"Pindorama\", que significa \"Tierra de las Palmeras\", era el nombre utilizado para referirse al país antes de la llegada de los colonizadores",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "01b6f0e8-66dc-4afb-b895-9dddd4a7c6dd",
+                     "text": "Farias, R.",
+                     "page": "pp. 1017",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1997",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ffc2d22b-dfcc-4a5d-be17-d28c10d5d49f",
+                     "text": "Carrato, José F.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
          "uuid": "79179a04-9d77-414c-93ec-34c8722ee03e",
          "image": "images/Mapswire/continent_na-where-is-north-america.png",
          "author": "HTMW",
@@ -4038,6 +4357,68 @@
          ]
       },
       {
+         "uuid": "8862783b-6213-40e7-9368-c3a048e265b5",
+         "image": "images/Mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica1.jpg",
+         "author": "HTMW",
+         "index": "América: Mesoamérica (El comenzo)",
+         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
+         "text": [
+            {
+               "text": "### Mesoamérica: El comenzo\n\nMapas como lo presentado en la sección *Continente: África* reflejan divisiones históricas que han moldeado las fronteras tal como las conocemos hoy. Sin embargo, no todos los mapas creados por el ser humano tienen como propósito delimitar fronteras. Un ejemplo de ello es el mapa de esta sección, que destaca la región conocida como Mesoamérica. Este concepto no fue creado por los pueblos indígenas de la zona, sino que surgió siglos después, definido por el antropólogo Paul Kirchhoff. Él utilizó este término para agrupar culturas que compartían características comunes en una región específica",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d720f02-051c-4469-b425-7d020f2c2f9b",
+                     "text": "Creamer, W.",
+                     "page": "pp. 35 - 37",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1987",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "uuid": "baba4f82-167b-4030-befb-bb6ae1144ac7",
+         "image": "images/Mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica2.jpg",
+         "author": "HTMW",
+         "index": "América: Mesoamérica (Otras Fronteras)",
+         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
+         "text": [
+            {
+               "text": "### Mesoamérica: Otras Fronteras\n\nEn las páginas siguientes de su trabajo, Winifred Creamer analiza otros estudios que, al considerar factores como los sistemas tecnológicos, amplían y redefinen el concepto original de Mesoamérica propuesto por Paul Kirchhoff. El mapa presentado en esta sección ilustra una región más amplia, tal como se describe en los estudios revisados por Creamer",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d720f02-051c-4469-b425-7d020f2c2f9b",
+                     "text": "Creamer, W.",
+                     "page": "pp. 37 - 55",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1987",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
          "uuid": "5c90611b-96d4-4f83-b4ee-bd1b7f2e15f9",
          "image": "images/Mapswire/continent_eu-where-is-europe.png",
          "author": "HTMW",
@@ -4061,6 +4442,471 @@
                   }
                ],
                "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "uuid": "841a7034-0902-42dd-8a24-e52bb0a9ad58",
+         "image": "images/Mapswire/mapswire-es-plain-map-spain-lcc-118_Visigoth.jpg",
+         "author": "HTMW",
+         "index": "Europa: Visigodos",
+         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
+         "text": [
+            {
+               "text": "<h3>Europa: Visigodos</h3>El origen exacto de los godos es desconocido, ya que no poseían un sistema de escritura. Sin embargo, algunos estudios sugieren que podrían provenir de la actual Polonia. Asimismo, no hay consenso en considerarlos un grupo étnico único; algunos investigadores creen que pudieron haber sido una confederación de pueblos germánicos",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e4d4873d-f83a-4e68-845d-446cf7d1d58e",
+                     "text": "Mark, J. J.",
+                     "page": "Visigoth",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "09",
+                        "day": "16"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "Los visigodos, conocidos como los  \"godos del oeste\", se separaron de los ostrogodos en el siglo IV, según el calendario gregoriano. Entre los episodios más destacados de su historia se encuentra la invasión y saqueo de Roma en el año <htdate0>, liderado por Alarico I, quien falleció poco después. Su sucesor, Ataúlfo, fue responsable de la conquista de la región de la Galia y de la fundación del Reino Visigodo de la Galia",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e4d4873d-f83a-4e68-845d-446cf7d1d58e",
+                     "text": "Mark, J. J.",
+                     "page": "Visigoth",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "09",
+                        "day": "16"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "410",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "Tras la conquista de la Galia, los visigodos continuaron su expansión por la Península Ibérica a partir del año <htdate0>. Para el año <htdate1>, dominaban las áreas destacadas en verde en el mapa de esta sección",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4588cb01-66e8-45e8-84a4-49fc4de02c9b",
+                     "text": "<i>Atlas Nacional de España</i>",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e4d4873d-f83a-4e68-845d-446cf7d1d58e",
+                     "text": "Mark, J. J.",
+                     "page": "Visigoth",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "09",
+                        "day": "16"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9ac63913-6a20-4680-bebf-51ff99a4bb31",
+                     "text": "Britannica, The Editors of Encyclopaedia",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "415",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "624",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "El dominio visigodo terminó en el año <htdate0>. Aunque durante mucho tiempo esta caída fue descrita como una \"invasión\" musulmana, el análisis de los registros contemporáneos sugiere una situación más compleja. Los concilios realizados en territorios visigodos muestran una brutalidad institucional hacia mujeres, judíos y cristianos arrianos. Esta opresión podría haber llevado a parte de la población ibérica a invitar a los musulmanes a atacar a los visigodos y conquistar la región",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "82ba06a3-96ba-4e11-87dd-f200977c6931",
+                     "text": "Montero, Pedro",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1861",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cd1a4bed-9754-4888-aee9-559d59503860",
+                     "text": "Haines, Charles R.",
+                     "page": "pp. 12",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1889",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "27cd346a-a266-4b5a-ae76-2a0c35e8d6c2",
+                     "text": "Ibn El-Kouthya, M. A. Cherbonneau",
+                     "page": "pp. 8 - 9",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1856",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e4d4873d-f83a-4e68-845d-446cf7d1d58e",
+                     "text": "Mark, J. J.",
+                     "page": "Visigoth",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "09",
+                        "day": "16"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9ac63913-6a20-4680-bebf-51ff99a4bb31",
+                     "text": "Britannica, The Editors of Encyclopaedia",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "711",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "uuid": "e8ac213e-b7b7-45a5-b911-902e37f8229c",
+         "image": "images/Mapswire/mapswire-es-plain-map-spain-lcc-118_BanuQasi.jpg",
+         "author": "HTMW",
+         "index": "Europa: Banu Qasi",
+         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
+         "text": [
+            {
+               "text": "<p><h3>Europa: Banu Qasi</h3>En el apogeo de su poder, entre los años <htdate0> y <htdate1>, los Banu Qasi dominaron la zona señalada en verde en la imagen de esta sección",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                     "text": "Juste, Alberto C.",
+                     "page": "pp. 29",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1980",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "852",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "862",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "La unificación de España en una única entidad política es un hecho relativamente reciente, ocurrido en <htdate0>. Esto ha contribuido a la rica diversidad cultural y genética de la población española",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "732ffe6d-b8a9-42af-b070-16c18c82dbce",
+                     "text": "O'Callaghan, J. F. et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "08ac929b-a863-4a22-b7ed-ca86966b7b10",
+                     "text": "Cartwright, M.",
+                     "page": "Reconquista",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "10",
+                        "day": "05"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1492",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "Recientemente, algunos estudios y debates en foros históricos han sugerido posibles vínculos entre los Banu Qasi y futuros monarcas de la Península Ibérica, o incluso con el profeta Mahoma. Sin embargo, hasta ahora no se han encontrado fuentes primarias que respalden estas hipótesis",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
+                     "text": "Juste, Alberto C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1980",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
+                     "text": "Medieval Lands",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6d01fbc4-a193-4adb-bb60-422dcb3729ef",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            }
+         ]
+      },
+      {
+         "uuid": "5adec388-3fce-4543-bd47-66dfeddb81ad",
+         "image": "images/Mapswire/mapswire-es-plain-map-spain-lcc-118_Leon.jpg",
+         "author": "HTMW",
+         "index": "Europa: Reino de León",
+         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
+         "text": [
+            {
+               "text": "<p><h3>Reino de León</h3>La imagen en esta sección muestra el territorio del Reino de León antes de su unión con Castilla en <htdate0>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "297eeedf-c8db-480e-a131-d00843eeb048",
+                     "text": "<i>Atlas Nacional de España</i>",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1037",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "La unificación de España en una única entidad política es un hecho relativamente reciente, ocurrido en <htdate0>. Esto ha contribuido a la rica diversidad cultural y genética de la población española",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "732ffe6d-b8a9-42af-b070-16c18c82dbce",
+                     "text": "O'Callaghan, J. F. et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "08ac929b-a863-4a22-b7ed-ca86966b7b10",
+                     "text": "Cartwright, M.",
+                     "page": "Reconquista",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "10",
+                        "day": "05"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1492",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "El Reino de León fue un reino independiente entre los años <htdate0> y <htdate1>. Actualmente, <i>History Tracers</i> presenta solo la línea patrilineal de sus monarcas, desde Ordoño II hasta Alfonso V",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "250dfecb-b380-4704-af04-7f8921987fa0",
+                     "text": "Britannica, T. Editors of Encyclopaedia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1998",
+                        "month": "07",
+                        "day": "20"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
+                     "text": "Medieval Lands",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "74c5d8b0-9a31-47e2-bb4f-c3c6d85318ed",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "909",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1202",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
                "isTable": false,
                "imgdesc": "",
                "format": "html",
@@ -5009,703 +5855,6 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
-               "PostMention": "."
-            }
-         ]
-      },
-      {
-         "uuid": "841a7034-0902-42dd-8a24-e52bb0a9ad58",
-         "image": "images/Mapswire/mapswire-es-plain-map-spain-lcc-118_Visigoth.jpg",
-         "author": "HTMW",
-         "index": "Visigodos",
-         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
-         "text": [
-            {
-               "text": "<h3>Visigodos</h3>El origen exacto de los godos es desconocido, ya que no poseían un sistema de escritura. Sin embargo, algunos estudios sugieren que podrían provenir de la actual Polonia. Asimismo, no hay consenso en considerarlos un grupo étnico único; algunos investigadores creen que pudieron haber sido una confederación de pueblos germánicos",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "e4d4873d-f83a-4e68-845d-446cf7d1d58e",
-                     "text": "Mark, J. J.",
-                     "page": "Visigoth",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2019",
-                        "month": "09",
-                        "day": "16"
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "Los visigodos, conocidos como los  \"godos del oeste\", se separaron de los ostrogodos en el siglo IV, según el calendario gregoriano. Entre los episodios más destacados de su historia se encuentra la invasión y saqueo de Roma en el año <htdate0>, liderado por Alarico I, quien falleció poco después. Su sucesor, Ataúlfo, fue responsable de la conquista de la región de la Galia y de la fundación del Reino Visigodo de la Galia",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "e4d4873d-f83a-4e68-845d-446cf7d1d58e",
-                     "text": "Mark, J. J.",
-                     "page": "Visigoth",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2019",
-                        "month": "09",
-                        "day": "16"
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "410",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "Tras la conquista de la Galia, los visigodos continuaron su expansión por la Península Ibérica a partir del año <htdate0>. Para el año <htdate1>, dominaban las áreas destacadas en verde en el mapa de esta sección",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "4588cb01-66e8-45e8-84a4-49fc4de02c9b",
-                     "text": "<i>Atlas Nacional de España</i>",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "e4d4873d-f83a-4e68-845d-446cf7d1d58e",
-                     "text": "Mark, J. J.",
-                     "page": "Visigoth",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2019",
-                        "month": "09",
-                        "day": "16"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "9ac63913-6a20-4680-bebf-51ff99a4bb31",
-                     "text": "Britannica, The Editors of Encyclopaedia",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "415",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "gregory",
-                     "year": "624",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "El dominio visigodo terminó en el año <htdate0>. Aunque durante mucho tiempo esta caída fue descrita como una \"invasión\" musulmana, el análisis de los registros contemporáneos sugiere una situación más compleja. Los concilios realizados en territorios visigodos muestran una brutalidad institucional hacia mujeres, judíos y cristianos arrianos. Esta opresión podría haber llevado a parte de la población ibérica a invitar a los musulmanes a atacar a los visigodos y conquistar la región",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "82ba06a3-96ba-4e11-87dd-f200977c6931",
-                     "text": "Montero, Pedro",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1861",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "cd1a4bed-9754-4888-aee9-559d59503860",
-                     "text": "Haines, Charles R.",
-                     "page": "pp. 12",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1889",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "27cd346a-a266-4b5a-ae76-2a0c35e8d6c2",
-                     "text": "Ibn El-Kouthya, M. A. Cherbonneau",
-                     "page": "pp. 8 - 9",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1856",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "e4d4873d-f83a-4e68-845d-446cf7d1d58e",
-                     "text": "Mark, J. J.",
-                     "page": "Visigoth",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2019",
-                        "month": "09",
-                        "day": "16"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "9ac63913-6a20-4680-bebf-51ff99a4bb31",
-                     "text": "Britannica, The Editors of Encyclopaedia",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "711",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            }
-         ]
-      },
-      {
-         "uuid": "e8ac213e-b7b7-45a5-b911-902e37f8229c",
-         "image": "images/Mapswire/mapswire-es-plain-map-spain-lcc-118_BanuQasi.jpg",
-         "author": "HTMW",
-         "index": "Banu Qasi",
-         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
-         "text": [
-            {
-               "text": "<p><h3>Banu Qasi</h3>En el apogeo de su poder, entre los años <htdate0> y <htdate1>, los Banu Qasi dominaron la zona señalada en verde en la imagen de esta sección",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
-                     "text": "Juste, Alberto C.",
-                     "page": "pp. 29",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1980",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "852",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "gregory",
-                     "year": "862",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "La unificación de España en una única entidad política es un hecho relativamente reciente, ocurrido en <htdate0>. Esto ha contribuido a la rica diversidad cultural y genética de la población española",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "732ffe6d-b8a9-42af-b070-16c18c82dbce",
-                     "text": "O'Callaghan, J. F. et al.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "08ac929b-a863-4a22-b7ed-ca86966b7b10",
-                     "text": "Cartwright, M.",
-                     "page": "Reconquista",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2018",
-                        "month": "10",
-                        "day": "05"
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "1492",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "Recientemente, algunos estudios y debates en foros históricos han sugerido posibles vínculos entre los Banu Qasi y futuros monarcas de la Península Ibérica, o incluso con el profeta Mahoma. Sin embargo, hasta ahora no se han encontrado fuentes primarias que respalden estas hipótesis",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "b43eff03-c370-4692-875a-2455e2c99d03",
-                     "text": "Juste, Alberto C.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1980",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "64d5ac73-6974-4a7a-90c5-7970b72243a8",
-                     "text": "Medieval Lands",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2020",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "6d01fbc4-a193-4adb-bb60-422dcb3729ef",
-                     "text": "History Tracers Team",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2023",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            }
-         ]
-      },
-      {
-         "uuid": "5adec388-3fce-4543-bd47-66dfeddb81ad",
-         "image": "images/Mapswire/mapswire-es-plain-map-spain-lcc-118_Leon.jpg",
-         "author": "HTMW",
-         "index": "Reino de León",
-         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
-         "text": [
-            {
-               "text": "<p><h3>Reino de León</h3>La imagen en esta sección muestra el territorio del Reino de León antes de su unión con Castilla en <htdate0>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "297eeedf-c8db-480e-a131-d00843eeb048",
-                     "text": "<i>Atlas Nacional de España</i>",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "1037",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "La unificación de España en una única entidad política es un hecho relativamente reciente, ocurrido en <htdate0>. Esto ha contribuido a la rica diversidad cultural y genética de la población española",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "732ffe6d-b8a9-42af-b070-16c18c82dbce",
-                     "text": "O'Callaghan, J. F. et al.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "08ac929b-a863-4a22-b7ed-ca86966b7b10",
-                     "text": "Cartwright, M.",
-                     "page": "Reconquista",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2018",
-                        "month": "10",
-                        "day": "05"
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "1492",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "El Reino de León fue un reino independiente entre los años <htdate0> y <htdate1>. Actualmente, <i>History Tracers</i> presenta solo la línea patrilineal de sus monarcas, desde Ordoño II hasta Alfonso V",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "250dfecb-b380-4704-af04-7f8921987fa0",
-                     "text": "Britannica, T. Editors of Encyclopaedia",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1998",
-                        "month": "07",
-                        "day": "20"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "755c42c6-3be9-41fd-8655-22f8a6877215",
-                     "text": "Medieval Lands",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2019",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "74c5d8b0-9a31-47e2-bb4f-c3c6d85318ed",
-                     "text": "History Tracers Team",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2023",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "909",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "gregory",
-                     "year": "1202",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            }
-         ]
-      },
-      {
-         "uuid": "ea01ab6c-26af-4c7a-ba06-5c1731c83d4d",
-         "image": "images/Mapswire/mapswire-continent_sa-printable-map-south-america-lambert-az-hemi-271_Tawantsuyu.jpg",
-         "author": "HTMW",
-         "index": "Imperio Inca (Tawantinsuyu)",
-         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
-         "text": [
-            {
-               "text": "<p><h3>Incas (Tawantinsuyu)</h3>La imagen en esta sección muestra el territorio del Imperio Inca (<i>Tawantinsuyu</i>) superpuesto a los actuales territorios de América del Sur, en la época de la llegada de los colonizadores en <htdate0>",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "ed31f80e-ddd3-448a-9331-a0b6ac5f82fd",
-                     "text": "Hechler, R. S.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2022",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "1532",
-                     "month": "-1",
-                     "day": "-1"
-                  }
-               ],
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "El estudio del Imperio Inca (<i>Tawantinsuyu</i>), al igual que otras áreas de la ciencia, está en constante actualización. Crónicas e investigaciones relacionadas con el imperio sugieren un cierto consenso sobre los descendientes de Viracocha; sin embargo, aún podrían existir reyes (<i>Sapa</i>) poco documentados. Además, investigaciones recientes cuestionan la creencia en una rápida expansión territorial, sugiriendo que esta conclusión podría ser errónea",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "47643b61-f223-493f-b58f-8c441b1b5642",
-                     "text": "Harris, K. R.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2007",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "1e873ced-4625-40b2-9e73-00b3855f8292",
-                     "text": "Cartwright, M.",
-                     "page": "Inca Civilization",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2014",
-                        "month": "09",
-                        "day": "15"
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
-                     "text": "Lumbreras, Luis G.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1967",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
-                     "text": "Barker, R.",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2013",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            },
-            {
-               "text": "Los años del Imperio Inca (<i>Tawantinsuyu</i>) en el subcontinente sudamericano (<i>Abya Yala</i>) se detallan en la genealogía de los reyes (<i>Sapa</i>) Incas",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "922ae4e4-8a1a-40ed-9fa3-ca7d541a05e1",
-                     "text": "History Tracers Team",
-                     "page": "",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ":"
-            },
-            {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: Influencias Externas (Parte II)</b><br /><br />Al analizar la descripción que hace el indígena Felipe Guaman Poma de Ayala sobre los gobernantes Incas, observamos que en un fragmento menciona a Jesucristo como hijo de Mama Coca, esposa (<i>Coya</i>) de Sinchi Roca. Es interesante notar que, en otra parte de la misma obra, Guaman Poma presenta a Jesucristo de una manera algo diferente, aunque sigue situándolo anacrónicamente en la época de los reyes (<i>Sapa</i>) Incas (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, pp. 87, 123</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('c5bb1db2-0f10-45c5-91ce-52020e770ca9'); return false;\">Poma de Ayala, Felipe Guaman,  pp. 62, 89</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('33cf32da-87cb-414c-a508-daf964dfef15'); return false;\">Gebran, Philomena, pp. 6 - 7</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('922ae4e4-8a1a-40ed-9fa3-ca7d541a05e1'); return false;\">History Tracers</a>).<br /><br />Imagina que nunca hubieras tenido acceso a ninguna otra versión diferente de la que presenta Felipe Guaman Poma de Ayala; ¿creerías en ella como una verdad indiscutible?<br /><br />En tu opinión, ¿limitarse a fuentes específicas puede restringir el acceso a otros documentos o a la comprensión de diferentes puntos de vista?</div></div></center></p>",
-               "source": null,
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": ""
-            }
-         ]
-      },
-      {
-         "uuid": "f928ce12-1718-4750-ba1d-70d72c20f2e1",
-         "image": "images/Mapswire/mapswire-continent_sa-printable-map-south-america-lambert-az-hemi-271_Brazil_States.jpg",
-         "author": "HTMW",
-         "index": "Minas Gerais - Brasil",
-         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
-         "text": [
-            {
-               "text": "<h3>Minas Gerais - Brasil</h3>La imagen en esta sección muestra el territorio actual del estado de Minas Gerais, en Brasil (<i>Pindorama</i>). El estado tiene esta forma aproximadamente desde el final del período colonial. El término \"Pindorama\", que significa \"Tierra de las Palmeras\", era el nombre utilizado para referirse al país antes de la llegada de los colonizadores",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "01b6f0e8-66dc-4afb-b895-9dddd4a7c6dd",
-                     "text": "Farias, R.",
-                     "page": "pp. 1017",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1997",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
-                  {
-                     "type": 1,
-                     "uuid": "ffc2d22b-dfcc-4a5d-be17-d28c10d5d49f",
-                     "text": "Carrato, José F.",
-                     "page": "",
-                     "date_time": {
-                        "type": "",
-                        "year": "",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "html",
-               "PostMention": "."
-            }
-         ]
-      },
-      {
-         "uuid": "8862783b-6213-40e7-9368-c3a048e265b5",
-         "image": "images/Mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica1.jpg",
-         "author": "HTMW",
-         "index": "Mesoamérica: El comenzo",
-         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
-         "text": [
-            {
-               "text": "### Mesoamérica: El comenzo\n\nMapas como lo presentado en la sección *Continente: África* reflejan divisiones históricas que han moldeado las fronteras tal como las conocemos hoy. Sin embargo, no todos los mapas creados por el ser humano tienen como propósito delimitar fronteras. Un ejemplo de ello es el mapa de esta sección, que destaca la región conocida como Mesoamérica. Este concepto no fue creado por los pueblos indígenas de la zona, sino que surgió siglos después, definido por el antropólogo Paul Kirchhoff. Él utilizó este término para agrupar culturas que compartían características comunes en una región específica",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "2d720f02-051c-4469-b425-7d020f2c2f9b",
-                     "text": "Creamer, W.",
-                     "page": "pp. 35 - 37",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1987",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
-               "PostMention": "."
-            }
-         ]
-      },
-      {
-         "uuid": "baba4f82-167b-4030-befb-bb6ae1144ac7",
-         "image": "images/Mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica2.jpg",
-         "author": "HTMW",
-         "index": "Mesoamérica: Otras Fronteras",
-         "audio": "https://www.historytracers.org/audios/atlas_es-ES.ogg",
-         "text": [
-            {
-               "text": "### Mesoamérica: Otras Fronteras\n\nEn las páginas siguientes de su trabajo, Winifred Creamer analiza otros estudios que, al considerar factores como los sistemas tecnológicos, amplían y redefinen el concepto original de Mesoamérica propuesto por Paul Kirchhoff. El mapa presentado en esta sección ilustra una región más amplia, tal como se describe en los estudios revisados por Creamer",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "2d720f02-051c-4469-b425-7d020f2c2f9b",
-                     "text": "Creamer, W.",
-                     "page": "pp. 37 - 55",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1987",
-                        "month": "",
-                        "day": ""
-                     }
-                  }
-               ],
-               "date_time": null,
-               "isTable": false,
-               "imgdesc": "",
-               "format": "markdown",
                "PostMention": "."
             }
          ]

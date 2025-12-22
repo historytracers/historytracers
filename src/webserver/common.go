@@ -25,6 +25,7 @@ var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
 var indexFiles []string = []string{"first_steps", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology", "history"}
 
 var commonKeywords []string
+var mathKeywords []string
 
 var htMonthCalendarPT []string = []string{"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julio", "agosto", "setembro", "outubro", "novembro", "dezembro"}
 var htMonthCalendarES []string = []string{"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "deciembre"}
@@ -775,7 +776,11 @@ func htLoadKeywordFile(name string, lang string) error {
 		localKeywords = append(localKeywords, element)
 	}
 
-	commonKeywords = localKeywords
+	if name == "common_keywords" {
+		commonKeywords = localKeywords
+	} else if name == "math_keywords" {
+		mathKeywords = localKeywords
+	}
 	return nil
 }
 
@@ -817,6 +822,16 @@ func htChangeTag2Keywords(text string) string {
 	ret = strings.ReplaceAll(ret, "<span id=\"htChartMsg\"></span>", commonKeywords[112])
 	ret = strings.ReplaceAll(ret, "<span id=\"htAgeMsg\"></span>", commonKeywords[131])
 	ret = strings.ReplaceAll(ret, "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div>", "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\">"+commonKeywords[69]+"</div>")
+
+	return ret
+}
+
+func htReplaceMath(text string) string {
+	if len(mathKeywords) == 0 {
+		return text
+	}
+	ret := strings.ReplaceAll(text, " × ", mathKeywords[33])
+	ret = strings.ReplaceAll(ret, " + ", mathKeywords[34])
 
 	return ret
 }
@@ -993,6 +1008,7 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 	}
 
 	finalText = htReplaceAllExceptions(finalText)
+	finalText = htReplaceMath(finalText)
 
 	return finalText
 }
@@ -1037,6 +1053,7 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 	if err != nil {
 		panic(err)
 	}
+	finalText = htReplaceMath(finalText)
 
 	return finalText + "\n"
 }

@@ -545,10 +545,24 @@ func htFamilyFillGEDCOM(person *FamilyPerson, fileName string, lang string) {
 	for i := 0; i < len(person.Marriages); i++ {
 		marr := &person.Marriages[i]
 
-		if person.Sex == "masculine" || person.Sex == "masculino" {
+		if person.Sex == "masculine" || person.Sex == "masculino" || person.Sex == "male" {
+			if person.Sex == "masculine" {
+				person.Sex = "male"
+			}
+
+			if person.Gender == "masculine" {
+				person.Gender = "male"
+			}
 			first = person.ID
 			second = marr.ID
 		} else {
+			if person.Sex == "feminine" {
+				person.Sex = "female"
+			}
+
+			if person.Gender == "feminine" {
+				person.Gender = "female"
+			}
 			first = marr.ID
 			second = person.ID
 		}
@@ -699,10 +713,24 @@ func htParseFamilySetDefaultValues(families *Family, lang string, fileName strin
 					htFamiliesPeopleCSV = append(htFamiliesPeopleCSV, newPerson)
 				}
 
-				if person.Sex == "masculine" || person.Sex == "masculino" {
+				if person.Sex == "masculine" || person.Sex == "masculino" || person.Sex == "male" {
+					if person.Sex == "masculine" {
+						person.Sex = "male"
+					}
+
+					if person.Gender == "masculine" {
+						person.Gender = "male"
+					}
 					first = person.ID
 					second = child.MarriageID
 				} else {
+					if person.Sex == "feminine" {
+						person.Sex = "female"
+					}
+
+					if person.Gender == "feminine" {
+						person.Gender = "female"
+					}
 					first = child.MarriageID
 					second = person.ID
 				}
@@ -1025,7 +1053,7 @@ func htCreateNewFamily(id string, family *Family) {
 	}
 }
 
-func htAddNewFamilyToIdx(index *IdxFamily, newFile string) {
+func htAddNewFamilyToIdx(index *IdxFamily, newFile string, lang string) {
 	lastContent := len(index.Contents) - 1
 	if lastContent < 0 {
 		return
@@ -1033,7 +1061,7 @@ func htAddNewFamilyToIdx(index *IdxFamily, newFile string) {
 
 	content := &index.Contents[lastContent]
 
-	newValue := IdxFamilyValue{ID: newFile}
+	newValue := IdxFamilyValue{ID: newFile, GEDCOM: "gedcom/" + newFile + "_" + lang + ".ged", CSV: "csv/" + newFile + "_" + lang + ".csv"}
 
 	content.Value = append(content.Value, newValue)
 
@@ -1058,7 +1086,7 @@ func htOpenFamilyIdx(fileName string, newFile string, lang string) error {
 		return err
 	}
 
-	htAddNewFamilyToIdx(&index, newFile)
+	htAddNewFamilyToIdx(&index, newFile, lang)
 	tmpName, err := htWriteFamilyIndexFile(lang, &index)
 	if err != nil {
 		return err
