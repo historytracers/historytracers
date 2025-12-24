@@ -126,7 +126,7 @@ function htAdditionUpdateValue(n)
 
     if (workingValue == stopValue) {
         htMoveAhead();
-        return;
+        return false;
     }
 
     workingValue += n;
