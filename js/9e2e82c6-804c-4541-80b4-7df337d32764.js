@@ -7,7 +7,7 @@ var workingValue = 0;
 var divisor = 1;
 var usingValue = "";
 var idx = 2;
-var results = "";
+var results = "&nbsp;";
 
 var dividend = 0;
 var strDividendValue = "";
@@ -18,7 +18,10 @@ function htUpdateView(end) {
 
     var sign = "&nbsp; ";
     if (end) {
+        var nextValue = dividend - localUse;
+        //var loopEnd = (nextValue < divisor) ? nextValue.toString().length : working.toString().length;
         var loopEnd = working.toString().length;
+
         for (let i = localUse.toString().length; i < loopEnd; i++) {
             localUse *= 10;
         }
@@ -28,8 +31,8 @@ function htUpdateView(end) {
     $("#tc1f"+idx).html(sign+""+localUse);
     if (end) {
         var res = idx + 1;
-        working = dividend - localUse;
 
+        working = (idx == 2) ? dividend - localUse : working - localUse;
         if (working < divisor) {
             stop = true;
         }
@@ -42,9 +45,10 @@ function htMoveDivAhead() {
     strDividendValue = working.toString();
 
     // Check length also
-    usingValue = (strDividendValue.length > 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
+    usingValue = (strDividendValue.length >= 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
     stopValue = parseInt(parseInt(usingValue) / divisor);
 
+    $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+mathKeywords[36]);
     workingValue = 0;
 
     idx += 2;
@@ -83,19 +87,20 @@ function htDivisionUpdateValue(n)
 }
 
 function htNewDivision() {
-    if (!stop) {
+    if (!stop || idx > 7) {
         return false;
     }
-    results = "";
+    results = "&nbsp;";
     workingValue = 0;
     idx = 2;
-    working = dividend = htGetRandomArbitrary(10, 99);
+    working = dividend = 63;
     //working = dividend = htGetRandomArbitrary(10, 999);
     strDividendValue = dividend.toString();
 
-    divisor = htGetRandomArbitrary(1, 9);
+    //divisor = htGetRandomArbitrary(1, 9);
+    divisor = 5;
 
-    usingValue = (strDividendValue.length > 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
+    usingValue = (strDividendValue.length >= 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
     stopValue = parseInt(parseInt(usingValue) / divisor);
 
     for (let j = 2; j < 7; j++) {
@@ -105,7 +110,7 @@ function htNewDivision() {
     }
 
     $("#tc1fd1").html("&nbsp; "+working);
-    $("#tc2fds1").html("&nbsp; "+divisor);
+    $("#tc2fds1").html(divisor);
 
     $("#tc2f2").html(workingValue);
 
