@@ -19,13 +19,12 @@ function htUpdateView(end) {
     var sign = "&nbsp; ";
     if (end) {
         var nextValue = dividend - localUse;
-        //var loopEnd = (nextValue < divisor) ? nextValue.toString().length : working.toString().length;
-        var loopEnd = working.toString().length;
+        var loopEnd = (idx < 6) ? working.toString().length : 1;
 
+        sign = "- ";
         for (let i = localUse.toString().length; i < loopEnd; i++) {
             localUse *= 10;
         }
-        sign = "- ";
     }
 
     $("#tc1f"+idx).html(sign+""+localUse);
@@ -44,11 +43,14 @@ function htMoveDivAhead() {
     results = results + stopValue.toString();
     strDividendValue = working.toString();
 
-    // Check length also
     usingValue = (strDividendValue.length >= 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
     stopValue = parseInt(parseInt(usingValue) / divisor);
 
-    $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+mathKeywords[36]);
+    if (stop) {
+        $("#tc1f8").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
+    } else {
+        $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+mathKeywords[36]);
+    }
     workingValue = 0;
 
     idx += 2;
@@ -93,12 +95,14 @@ function htNewDivision() {
     results = "&nbsp;";
     workingValue = 0;
     idx = 2;
-    working = dividend = 63;
-    //working = dividend = htGetRandomArbitrary(10, 999);
+    //working = dividend = 910;
+    //working = dividend = 61;
+    working = dividend = htGetRandomArbitrary(10, 999);
     strDividendValue = dividend.toString();
 
-    //divisor = htGetRandomArbitrary(1, 9);
-    divisor = 5;
+    //divisor = 4;
+    //divisor = 6;
+    divisor = htGetRandomArbitrary(1, 9);
 
     usingValue = (strDividendValue.length >= 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
     stopValue = parseInt(parseInt(usingValue) / divisor);
