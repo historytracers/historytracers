@@ -53,6 +53,11 @@ function htMoveDivAhead() {
     }
     workingValue = 0;
 
+    if (idx == 2 && working < divisor) {
+        let curr = $("#tc2f2").html();
+        $("#tc2f2").html(curr+"0");
+    }
+
     idx += 2;
 }
 
@@ -97,11 +102,13 @@ function htNewDivision() {
     idx = 2;
     //working = dividend = 910;
     //working = dividend = 61;
+    //working = dividend = 492;
     working = dividend = htGetRandomArbitrary(10, 999);
     strDividendValue = dividend.toString();
 
     //divisor = 4;
     //divisor = 6;
+    //divisor = 7;
     divisor = htGetRandomArbitrary(1, 9);
 
     usingValue = (strDividendValue.length >= 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
