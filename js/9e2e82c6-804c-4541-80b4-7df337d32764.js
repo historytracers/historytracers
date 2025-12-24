@@ -18,12 +18,13 @@ function htUpdateView(end) {
 
     var sign = "&nbsp; ";
     if (end) {
-        var nextValue = dividend - localUse;
         var loopEnd = (idx < 6) ? working.toString().length : 1;
 
         sign = "- ";
-        for (let i = localUse.toString().length; i < loopEnd; i++) {
-            localUse *= 10;
+        if ((working - localUse) > divisor) {
+            for (let i = localUse.toString().length; i < loopEnd; i++) {
+                localUse *= 10;
+            }
         }
     }
 
@@ -31,7 +32,7 @@ function htUpdateView(end) {
     if (end) {
         var res = idx + 1;
 
-        working = (idx == 2) ? dividend - localUse : working - localUse;
+        working = working - localUse;
         if (working < divisor) {
             stop = true;
         }
@@ -53,7 +54,7 @@ function htMoveDivAhead() {
     }
     workingValue = 0;
 
-    if (idx == 2 && working < divisor) {
+    if (idx == 2 && working < divisor && dividend > (divisor * 10)) {
         let curr = $("#tc2f2").html();
         $("#tc2f2").html(curr+"0");
     }
@@ -94,27 +95,21 @@ function htDivisionUpdateValue(n)
 }
 
 function htNewDivision() {
-    if (!stop || idx > 7) {
+    if (!stop || (idx > 7 && working > divisor)) {
         return false;
     }
     results = "&nbsp;";
     workingValue = 0;
     idx = 2;
-    //working = dividend = 910;
-    //working = dividend = 61;
-    //working = dividend = 492;
     working = dividend = htGetRandomArbitrary(10, 999);
     strDividendValue = dividend.toString();
 
-    //divisor = 4;
-    //divisor = 6;
-    //divisor = 7;
     divisor = htGetRandomArbitrary(1, 9);
 
     usingValue = (strDividendValue.length >= 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
     stopValue = parseInt(parseInt(usingValue) / divisor);
 
-    for (let j = 2; j < 7; j++) {
+    for (let j = 2; j < 8; j++) {
         for (let i = 1; i < 2; i++) {
             $("#tc"+i+"f"+j).html("&nbsp;");
         }
