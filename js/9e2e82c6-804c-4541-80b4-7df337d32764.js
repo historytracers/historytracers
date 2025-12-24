@@ -13,14 +13,24 @@ var dividend = 0;
 var strDividendValue = "";
 var stop = true;
 
+function htAligTextBeforeWrite(val) {
+    var space = "&nbsp;";
+    var loopEnd = 3 - val.toString().length;
+    for (let i = 0; i  < loopEnd; i++) {
+        space += "&nbsp;&nbsp;"
+    }
+
+    return space;
+}
+
 function htUpdateView(end) {
     var localUse = divisor * workingValue;
 
-    var sign = "&nbsp; ";
+    var sign = "&nbsp;";
     if (end) {
         var loopEnd = (idx < 6) ? working.toString().length : 1;
 
-        sign = "- ";
+        sign = "-";
         if ((working - localUse) > divisor) {
             for (let i = localUse.toString().length; i < loopEnd; i++) {
                 localUse *= 10;
@@ -28,15 +38,18 @@ function htUpdateView(end) {
         }
     }
 
-    $("#tc1f"+idx).html(sign+""+localUse);
+    var space = htAligTextBeforeWrite(localUse);
+    $("#tc1f"+idx).html(sign+""+space+""+localUse);
     if (end) {
         var res = idx + 1;
 
         working = working - localUse;
+        space = htAligTextBeforeWrite(working);
+
         if (working < divisor) {
             stop = true;
         }
-        $("#tc1f"+res).html("&nbsp; "+working);
+        $("#tc1f"+res).html(space+" "+working);
     }
 }
 
