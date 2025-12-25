@@ -117,7 +117,9 @@ function htNewDivision() {
     working = dividend = htGetRandomArbitrary(10, 999);
     strDividendValue = dividend.toString();
 
-    divisor = htGetRandomArbitrary(1, 9);
+
+    var selector = $("#mtValues").val();
+    divisor = (selector == "-1") ? htGetRandomArbitrary(1, 9): parseInt(selector);
     $("#mParentN").html("");
     htWriteMultiplicationTable("#mParentN", divisor);
 
@@ -162,6 +164,31 @@ function htDivisionDescRow(id) {
 
 function htLoadContent() {
     htWriteNavigation();
+
+    if ($("#mtValues").length > 0) {
+        var data = [
+            { text: '0', value: '0' },
+            { text: '1', value: '1' },
+            { text: '2', value: '2' },
+            { text: '3', value: '3' },
+            { text: '4', value: '4' },
+            { text: '5', value: '5' },
+            { text: '6', value: '7' },
+            { text: '8', value: '8' },
+            { text: '9', value: '9' }
+        ];
+
+        $.each(data, function(index, item) {
+            $('#mtValues').append($('<option>', {
+                value: item.value,
+                text: item.text
+            }));
+        });
+
+        $("#mtValues").on( "change", function() {
+            htNewDivision();
+        });
+    }
 
     htDivisionAddCommonTable("0");
     htDivisionDescRow("0");
