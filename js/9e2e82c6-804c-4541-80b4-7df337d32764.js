@@ -118,6 +118,8 @@ function htNewDivision() {
     strDividendValue = dividend.toString();
 
     divisor = htGetRandomArbitrary(1, 9);
+    $("#mParentN").html("");
+    htWriteMultiplicationTable("#mParentN", divisor);
 
     usingValue = (strDividendValue.length >= 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
     stopValue = parseInt(parseInt(usingValue) / divisor);
