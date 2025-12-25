@@ -11,11 +11,12 @@ var results = "&nbsp;";
 
 var dividend = 0;
 var strDividendValue = "";
+var finalResult = "";
 var stop = true;
 
-function htAligTextBeforeWrite(val) {
+function htAlignTextBeforeWrite(val) {
     var space = "&nbsp;";
-    var loopEnd = 3 - val.toString().length;
+    var loopEnd = dividend.toString().length - val.toString().length;
     for (let i = 0; i  < loopEnd; i++) {
         space += "&nbsp;&nbsp;"
     }
@@ -28,23 +29,27 @@ function htUpdateView(end) {
 
     var sign = "&nbsp;";
     if (end) {
-        var loopEnd = (idx < 6) ? working.toString().length : 1;
+        var loopEnd = 1;
 
         sign = "-";
+        var loopEnd = (idx < 6) ? working.toString().length : 1;
         if ((working - localUse) > divisor) {
             for (let i = localUse.toString().length; i < loopEnd; i++) {
                 localUse *= 10;
             }
         }
+        if ((working - localUse) < 0) {
+            localUse = parseInt(localUse / 10);
+        }
     }
 
-    var space = htAligTextBeforeWrite(localUse);
+    var space = htAlignTextBeforeWrite(localUse);
     $("#tc1f"+idx).html(sign+""+space+""+localUse);
     if (end) {
         var res = idx + 1;
 
         working = working - localUse;
-        space = htAligTextBeforeWrite(working);
+        space = htAlignTextBeforeWrite(working);
 
         if (working < divisor) {
             stop = true;
@@ -60,12 +65,13 @@ function htMoveDivAhead() {
     usingValue = (strDividendValue.length >= 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
     stopValue = parseInt(parseInt(usingValue) / divisor);
 
+    workingValue = 0;
+
     if (stop) {
         $("#tc1f8").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
     } else {
         $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+mathKeywords[36]);
     }
-    workingValue = 0;
 
     if (idx == 2 && working < divisor && dividend > (divisor * 10)) {
         let curr = $("#tc2f2").html();
@@ -120,6 +126,9 @@ function htNewDivision() {
 
     var selector = $("#mtValues").val();
     divisor = (selector == "-1") ? htGetRandomArbitrary(1, 9): parseInt(selector);
+    let local_final = parseInt(dividend/divisor);
+    finalResult = local_final.toString();
+
     $("#mParentN").html("");
     htWriteMultiplicationTable("#mParentN", divisor);
 
