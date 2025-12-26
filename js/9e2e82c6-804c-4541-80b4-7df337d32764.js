@@ -89,8 +89,8 @@ function htDivisionUpdateValue(n)
     }
 
     if (workingValue == stopValue) {
-        if (usingValue == stopValue && !parseInt(usingValue)) {
-            $("#tc2fds2").html(results+workingValue);
+        if ( (usingValue == stopValue && !parseInt(usingValue)) || (idx == 6 && !stopValue)) {
+            $("#tc2fds2").html(results+""+0);
         }
         htUpdateView(true);
         htMoveDivAhead();
