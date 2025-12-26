@@ -7,11 +7,11 @@ var workingValue = 0;
 var divisor = 1;
 var usingValue = "";
 var idx = 2;
-var results = "&nbsp;";
+var results = "";
 
 var dividend = 0;
 var strDividendValue = "";
-var finalResult = "";
+var finalResult = 0;
 var stop = true;
 
 function htAlignTextBeforeWrite(val) {
@@ -51,7 +51,8 @@ function htUpdateView(end) {
         working = working - localUse;
         space = htAlignTextBeforeWrite(working);
 
-        if (working < divisor) {
+        let tester = parseInt($("#tc2fds2").html());
+        if ((working < divisor) && (finalResult == tester)) {
             stop = true;
         }
         $("#tc1f"+res).html(space+" "+working);
@@ -74,8 +75,8 @@ function htMoveDivAhead() {
     }
 
     if (idx == 2 && working < divisor && dividend > (divisor * 10)) {
-        let curr = $("#tc2f2").html();
-        $("#tc2f2").html(curr+"0");
+        let curr = $("#tc2fds2").html();
+        $("#tc2fds2").html(curr+"0");
     }
 
     idx += 2;
@@ -88,6 +89,9 @@ function htDivisionUpdateValue(n)
     }
 
     if (workingValue == stopValue) {
+        if (usingValue == stopValue && !parseInt(usingValue)) {
+            $("#tc2fds2").html(results+workingValue);
+        }
         htUpdateView(true);
         htMoveDivAhead();
         return false;
@@ -100,7 +104,7 @@ function htDivisionUpdateValue(n)
         workingValue = 0;
     }
 
-    $("#tc2f2").html(results+workingValue);
+    $("#tc2fds2").html(results+workingValue);
 
     if (workingValue == stopValue) {
         htUpdateView(true);
@@ -117,7 +121,7 @@ function htNewDivision() {
     if (!stop || (idx > 7 && working > divisor)) {
         return false;
     }
-    results = "&nbsp;";
+    results = "";
     workingValue = 0;
     idx = 2;
     working = dividend = htGetRandomArbitrary(10, 999);
@@ -127,7 +131,7 @@ function htNewDivision() {
     var selector = $("#mtValues").val();
     divisor = (selector == "-1") ? htGetRandomArbitrary(1, 9): parseInt(selector);
     let local_final = parseInt(dividend/divisor);
-    finalResult = local_final.toString();
+    finalResult = local_final;
 
     $("#mParentN").html("");
     htWriteMultiplicationTable("#mParentN", divisor);
@@ -144,7 +148,7 @@ function htNewDivision() {
     $("#tc1fd1").html("&nbsp; "+working);
     $("#tc2fds1").html(divisor);
 
-    $("#tc2f2").html(workingValue);
+    $("#tc2fds2").html(workingValue);
 
     $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+mathKeywords[36]);
 
