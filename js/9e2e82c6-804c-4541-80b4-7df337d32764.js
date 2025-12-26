@@ -71,7 +71,8 @@ function htMoveDivAhead() {
     if (stop) {
         $("#tc1f8").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
     } else {
-        $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+mathKeywords[36]);
+        var additionalText = (usingValue.length == 2) ? mathKeywords[36] : "";
+        $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+additionalText);
     }
 
     if (idx == 2 && working < divisor && dividend > (divisor * 10)) {
@@ -150,7 +151,8 @@ function htNewDivision() {
 
     $("#tc2fds2").html(workingValue);
 
-    $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+mathKeywords[36]);
+    var additionalText = (usingValue.length == 2) ? mathKeywords[36] : "";
+    $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+additionalText);
 
     stop = false;
 
