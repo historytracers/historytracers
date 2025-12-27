@@ -10,9 +10,10 @@ var idx = 2;
 var results = "";
 
 var dividend = 0;
-var strDividendValue = "";
-var finalResult = 0;
 var stop = true;
+
+var divisionSteps = [];
+var divisionStepsIdx = 0;
 
 function htAlignTextBeforeWrite(val) {
     var space = "&nbsp;";
@@ -22,6 +23,41 @@ function htAlignTextBeforeWrite(val) {
     }
 
     return space;
+}
+
+function htLongDivision(dividend, divisor) {
+    if (divisor === 0) {
+        throw new Error("Division by zero");
+    }
+
+    const dividendStr = dividend.toString();
+    let currentValue = 0;
+
+    const steps = [];
+    const quotient = [];
+
+    for (let i = 0; i < dividendStr.length; i++) {
+        currentValue = currentValue * 10 + Number(dividendStr[i]);
+
+        const quotientDigit = Math.floor(currentValue / divisor);
+        const remainder = currentValue % divisor;
+
+        quotient.push(quotientDigit);
+
+        steps.push({
+            value: currentValue,
+            quotient: quotientDigit,
+            remainder: remainder
+        });
+
+        currentValue = remainder;
+    }
+
+    return {
+        quotient: Number(quotient.join("")),
+        remainder: currentValue,
+        steps: steps
+    };
 }
 
 function htUpdateView(end) {
@@ -51,20 +87,20 @@ function htUpdateView(end) {
         working = working - localUse;
         space = htAlignTextBeforeWrite(working);
 
-        let tester = parseInt($("#tc2fds2").html());
-        if ((working < divisor) && (finalResult == tester)) {
-            stop = true;
-        }
         $("#tc1f"+res).html(space+" "+working);
     }
 }
 
 function htMoveDivAhead() {
-    results = results + stopValue.toString();
-    strDividendValue = working.toString();
+    divisionStepsIdx++;
+    if (divisionStepsIdx < divisionSteps.steps.length) {
+        results = results + stopValue.toString();
 
-    usingValue = (strDividendValue.length >= 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
-    stopValue = parseInt(parseInt(usingValue) / divisor);
+        usingValue = divisionSteps.steps[divisionStepsIdx].value;
+        stopValue = divisionSteps.steps[divisionStepsIdx].quotient;
+    } else {
+        stop = true;
+    }
 
     workingValue = 0;
 
@@ -126,19 +162,20 @@ function htNewDivision() {
     workingValue = 0;
     idx = 2;
     working = dividend = htGetRandomArbitrary(10, 999);
-    strDividendValue = dividend.toString();
-
 
     var selector = $("#mtValues").val();
     divisor = (selector == "-1") ? htGetRandomArbitrary(1, 9): parseInt(selector);
-    let local_final = parseInt(dividend/divisor);
-    finalResult = local_final;
 
     $("#mParentN").html("");
     htWriteMultiplicationTable("#mParentN", divisor);
 
-    usingValue = (strDividendValue.length >= 2 && parseInt(strDividendValue[0]) < divisor) ? strDividendValue[0]+""+strDividendValue[1] : strDividendValue[0];
-    stopValue = parseInt(parseInt(usingValue) / divisor);
+    divisionSteps = htLongDivision(dividend, divisor);
+    console.log(divisionSteps);
+    if (divisionSteps.steps[divisionStepsIdx].quotient == 0) {
+        divisionStepsIdx++;
+    }
+    usingValue = divisionSteps.steps[divisionStepsIdx].value;
+    stopValue = divisionSteps.steps[divisionStepsIdx].quotient;
 
     for (let j = 2; j < 8; j++) {
         for (let i = 1; i < 2; i++) {
