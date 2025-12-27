@@ -93,8 +93,17 @@ function htUpdateView(end) {
 
 function htMoveDivAhead() {
     divisionStepsIdx++;
+    var additionalText = "";
     if (divisionStepsIdx < divisionSteps.steps.length) {
         results = results + stopValue.toString();
+
+        if (divisionSteps.steps[divisionStepsIdx].quotient == 0) {
+            if (divisionSteps.steps.length < (divisionStepsIdx + 1)) {
+                divisionStepsIdx++;
+            }
+            additionalText = mathKeywords[36];
+            $("#tc2fds2").html(results+""+0);
+        }
 
         usingValue = divisionSteps.steps[divisionStepsIdx].value;
         stopValue = divisionSteps.steps[divisionStepsIdx].quotient;
@@ -107,7 +116,6 @@ function htMoveDivAhead() {
     if (stop) {
         $("#tc1f8").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
     } else {
-        var additionalText = (usingValue.length == 2) ? mathKeywords[36] : "";
         $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+additionalText);
     }
 
@@ -126,9 +134,6 @@ function htDivisionUpdateValue(n)
     }
 
     if (workingValue == stopValue) {
-        if ( (usingValue == stopValue && !parseInt(usingValue)) || (idx == 6 && !stopValue)) {
-            $("#tc2fds2").html(results+""+0);
-        }
         htUpdateView(true);
         htMoveDivAhead();
         return false;
@@ -171,7 +176,9 @@ function htNewDivision() {
 
     divisionSteps = htLongDivision(dividend, divisor);
     console.log(divisionSteps);
+    var additionalText = "";
     if (divisionSteps.steps[divisionStepsIdx].quotient == 0) {
+        additionalText = mathKeywords[36];
         divisionStepsIdx++;
     }
     usingValue = divisionSteps.steps[divisionStepsIdx].value;
@@ -188,7 +195,6 @@ function htNewDivision() {
 
     $("#tc2fds2").html(workingValue);
 
-    var additionalText = (usingValue.length == 2) ? mathKeywords[36] : "";
     $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+additionalText);
 
     stop = false;
