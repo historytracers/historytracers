@@ -97,7 +97,7 @@ function htMoveDivAhead() {
 
     results = results + stopValue.toString();
 
-    if (divisionStepsIdx < divisionSteps.steps.length ) {
+    if (divisionStepsIdx < divisionSteps.steps.length) {
         usingValue = divisionSteps.steps[divisionStepsIdx].value;
         stopValue = divisionSteps.steps[divisionStepsIdx].quotient;
     } else {
@@ -112,6 +112,9 @@ function htMoveDivAhead() {
         $("#tc1f8").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
         return;
     } else {
+        if (divisionSteps.steps[divisionStepsIdx].quotient == 0 &&  divisionSteps.steps[divisionStepsIdx].remainder != 0 && idx == 2) {
+            additionalText = mathKeywords[37];
+        }
         $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+additionalText);
     }
 
@@ -158,6 +161,7 @@ function htNewDivision() {
     results = "";
     workingValue = 0;
     idx = 2;
+    divisionStepsIdx = 0;
     var selector = $("#mtValues").val();
 
     working = dividend = htGetRandomArbitrary(10, 999);
