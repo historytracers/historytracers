@@ -100,8 +100,11 @@ function htMoveDivAhead() {
         if (divisionSteps.steps[divisionStepsIdx].quotient == 0) {
             if (divisionSteps.steps.length < (divisionStepsIdx + 1)) {
                 divisionStepsIdx++;
+            } else if (divisionStepsIdx == 1) {
+                additionalText = mathKeywords[37];
+            } else {
+                additionalText = mathKeywords[36];
             }
-            additionalText = mathKeywords[36];
             $("#tc2fds2").html(results+""+0);
         }
 
@@ -175,7 +178,6 @@ function htNewDivision() {
     htWriteMultiplicationTable("#mParentN", divisor);
 
     divisionSteps = htLongDivision(dividend, divisor);
-    console.log(divisionSteps);
     var additionalText = "";
     if (divisionSteps.steps[divisionStepsIdx].quotient == 0) {
         additionalText = mathKeywords[36];
