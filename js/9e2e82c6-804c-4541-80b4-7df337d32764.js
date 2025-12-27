@@ -94,39 +94,28 @@ function htUpdateView(end) {
 function htMoveDivAhead() {
     divisionStepsIdx++;
     var additionalText = "";
-    if (divisionStepsIdx < divisionSteps.steps.length) {
-        results = results + stopValue.toString();
 
-        if (divisionSteps.steps[divisionStepsIdx].quotient == 0) {
-            if (divisionSteps.steps.length < (divisionStepsIdx + 1)) {
-                divisionStepsIdx++;
-            } else if (divisionStepsIdx == 1) {
-                additionalText = mathKeywords[37];
-            } else {
-                additionalText = mathKeywords[36];
-            }
-            $("#tc2fds2").html(results+""+0);
-        }
+    results = results + stopValue.toString();
 
+    if (divisionStepsIdx < divisionSteps.steps.length ) {
         usingValue = divisionSteps.steps[divisionStepsIdx].value;
         stopValue = divisionSteps.steps[divisionStepsIdx].quotient;
     } else {
+        let curr = parseInt($("#tc2fds2").html());
+        if (curr != divisionSteps.quotient) {
+            $("#tc2fds2").html(curr+""+workingValue);
+        }
         stop = true;
     }
 
-    workingValue = 0;
-
     if (stop) {
         $("#tc1f8").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
+        return;
     } else {
         $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+additionalText);
     }
 
-    if (idx == 2 && working < divisor && dividend > (divisor * 10)) {
-        let curr = $("#tc2fds2").html();
-        $("#tc2fds2").html(curr+"0");
-    }
-
+    workingValue = 0;
     idx += 2;
 }
 
@@ -169,15 +158,17 @@ function htNewDivision() {
     results = "";
     workingValue = 0;
     idx = 2;
+    var selector = $("#mtValues").val();
+
     working = dividend = htGetRandomArbitrary(10, 999);
 
-    var selector = $("#mtValues").val();
     divisor = (selector == "-1") ? htGetRandomArbitrary(1, 9): parseInt(selector);
 
     $("#mParentN").html("");
     htWriteMultiplicationTable("#mParentN", divisor);
 
     divisionSteps = htLongDivision(dividend, divisor);
+    console.log(divisionSteps);
     var additionalText = "";
     if (divisionSteps.steps[divisionStepsIdx].quotient == 0) {
         additionalText = mathKeywords[36];
