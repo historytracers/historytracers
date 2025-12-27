@@ -35,6 +35,9 @@
         "Subtraction is always performed in pairs. At this stage, we are subtracting: ",
         "We take the value from the adjacent place value, which is 10 times greater than the current one. When the adjacent place value is zero, we borrow from the next available place value and then transfer the value.",
         " times ",
-        " plus "
+        " plus ",
+        "Division is always performed from the highest place values to the lowest. Currently, we are dividing: ",
+        "When performing division, if the current place value is less than the divisor, we also use (or bring down) the next digit to continue the process. Besides, we must always go through all the orders before finalizing the division.",
+        "Since the tens digit is smaller than the divisor, we add a zero to the quotient and use the tens and units together to proceed with the division."
     ]
 }

@@ -20,7 +20,7 @@ var currentTop = 0;
 var currentBottom = 0;
 var currentIdx = 4;
 var vectorIdx = 2;
-var stop = 0;
+var stop = 1;
 
 function htSetWorkingValue(topValue, bottomValue)
 {
@@ -45,6 +45,10 @@ function htWriteValueOnLine(line, value, possibleOverline)
 }
 
 function htNewSubtraction() {
+    if (!stop) {
+        return false;
+    }
+
     currentTop = 0;
     currentBottom = 0;
     stop = 0;
