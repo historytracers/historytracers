@@ -172,7 +172,6 @@ function htNewDivision() {
     htWriteMultiplicationTable("#mParentN", divisor);
 
     divisionSteps = htLongDivision(dividend, divisor);
-    console.log(divisionSteps);
     var additionalText = "";
     if (divisionSteps.steps[divisionStepsIdx].quotient == 0) {
         additionalText = mathKeywords[36];
