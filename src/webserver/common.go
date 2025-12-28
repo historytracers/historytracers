@@ -612,6 +612,8 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 	ret = strings.ReplaceAll(ret, "|", ".")
 	ret = strings.ReplaceAll(ret, "*", "")
 	ret = strings.ReplaceAll(ret, "( )", "")
+	ret = htReplaceAllExceptions(ret)
+	ret = htReplaceMath(ret)
 
 	return ret
 }
@@ -830,7 +832,7 @@ func htReplaceMath(text string) string {
 	if len(mathKeywords) == 0 {
 		return text
 	}
-	ret := strings.ReplaceAll(text, " × ", mathKeywords[33])
+	ret := strings.ReplaceAll(text, " x ", mathKeywords[33])
 	ret = strings.ReplaceAll(ret, " + ", mathKeywords[34])
 
 	return ret
@@ -970,7 +972,10 @@ func htHTML2Text(htmlStr string) (string, error) {
 			finalLines = append(finalLines, trim)
 		}
 	}
-	return strings.Join(finalLines, "\n\n"), nil
+
+	ret := strings.Join(finalLines, "\n\n")
+	ret = htReplaceMath(ret)
+	return ret, nil
 }
 
 func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
