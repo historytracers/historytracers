@@ -156,8 +156,6 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("Close All Tabs", e.closeAllTabs),
 		fyne.NewMenuItemSeparator(),
 		fyne.NewMenuItem("Load Template", e.showTemplateWindow),
-		fyne.NewMenuItemSeparator(),
-		fyne.NewMenuItem("Exit", e.quit),
 	)
 
 	// Edit menu with shortcuts
