@@ -20,6 +20,7 @@ Los siguientes subdirectorios están disponibles en este directorio:
 - `Ashmolean`: Contiene imágenes originales del [Ashmolean Museum, Oxford](https://www.ashmolean.org/).
 - `Athens`: Contiene fotos tomadas durante un viaje a Atenas, Grecia.
 - `BibliotecaNacionalDigital`: Contiene imágenes originales de la [Biblioteca Nacional Digital](https://bndigital.bnportugal.gov.pt/).
+- `BingZhao`: Contiene imágenes originales del artículo de la Dra. Bing Zhao [Zhao, Bing (2015)](https://doi.org/10.4000/afriques.1836).
 - `BritishMuseum`: Contiene imágenes originales del [British Museum](https://www.britishmuseum.org/collection/).
 - `CahalPech`: Contiene fotos tomadas durante un viaje a [CahalPech](https://nichbelize.org/ia-sites/cahal-pech/), Belize.
 - `Caracol`: Contiene fotos tomadas durante un viaje a [Caracol](https://www.travelbelize.org/attraction/caracol/), Belice.
