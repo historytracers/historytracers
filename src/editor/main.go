@@ -136,13 +136,6 @@ func (e *TextEditor) setupShortcuts() {
 }
 
 func (e *TextEditor) createMenu() {
-	// Template menu with shortcuts
-	templateMenu := fyne.NewMenu("Templates",
-		fyne.NewMenuItem("Load Template", e.showTemplateWindow),
-		fyne.NewMenuItem("Set Template Directory", e.setTemplateDirectory),
-		fyne.NewMenuItem("Refresh Templates", e.refreshTemplates),
-	)
-
 	// File menu with shortcuts
 	fileMenu := fyne.NewMenu("File",
 		fyne.NewMenuItem("New", e.newFile),
@@ -183,7 +176,6 @@ func (e *TextEditor) createMenu() {
 		fileMenu,
 		editMenu,
 		tabsMenu,
-		templateMenu,
 		helpMenu,
 	)
 
@@ -463,27 +455,6 @@ func (e *TextEditor) loadTemplateFile(filePath string) {
 		e.updateTitle()
 		e.updateStatus("Template loaded: " + filepath.Base(filePath))
 	}
-}
-
-func (e *TextEditor) setTemplateDirectory() {
-	dialog.ShowFolderOpen(func(list fyne.ListableURI, err error) {
-		if err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-		if list != nil {
-			e.templatePath = list.Path()
-			e.updateStatus("Template directory set: " + e.templatePath)
-		}
-	}, e.window)
-}
-
-func (e *TextEditor) refreshTemplates() {
-	if e.templatePath == "" {
-		dialog.ShowInformation("No Directory", "Please set a template directory first", e.window)
-		return
-	}
-	e.updateStatus("Templates refreshed")
 }
 
 func (e *TextEditor) refreshTemplateList() {
