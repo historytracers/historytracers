@@ -24,5 +24,15 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    $(".sumexample1").hover(function(){
+        var id = $(this).attr("id");
+        htChangeSumUniqueDigitStyle(id, "red");
+    }, function(){
+        var id = $(this).attr("id");
+        htChangeSumUniqueDigitStyle(id, "black");
+    });
+
+    htFillMultiplicationTable("chart4", 0, 9, false, true);
+
     return false;
 }
