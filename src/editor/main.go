@@ -311,7 +311,8 @@ func (e *TextEditor) loadTemplate(templateType string) {
 }
 
 func (e *TextEditor) createClassTemplate() classTemplateFile {
-	return classTemplateFile{
+	ct := htUpdateTimestamp()
+	cl := classTemplateFile{
 		Title:   "",
 		Header:  "",
 		Sources: []string{" "},
@@ -330,7 +331,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 		},
 		Index:      []string{" "},
 		License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
-		LastUpdate: []string{"The time of the last file update, represented in Unix Epoch time."},
+		LastUpdate: []string{ct},
 		Authors:    []string{""},
 		Reviewers:  []string{""},
 		Type:       "class",
@@ -445,10 +446,13 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 		},
 		DateTime: nil,
 	}
+
+	return cl
 }
 
 func (e *TextEditor) createFamilyTemplate() Family {
-	return Family{
+	ct := htUpdateTimestamp()
+	fam := Family{
 		Title:   "",
 		Header:  "",
 		Sources: []string{"", "tree"},
@@ -467,7 +471,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 		},
 		Index:      []string{"families"},
 		License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
-		LastUpdate: []string{""},
+		LastUpdate: []string{ct},
 		Authors:    "",
 		Reviewers:  "",
 		DocumentsInfo: []string{
@@ -854,6 +858,8 @@ func (e *TextEditor) createFamilyTemplate() Family {
 		},
 		DateTime: nil,
 	}
+
+	return fam
 }
 
 // Edit operations
