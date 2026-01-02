@@ -286,6 +286,7 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	}
 
 	newDoc := &Document{
+		content:    widget.NewMultiLineEntry(),
 		filePath:   "",
 		isModified: true,
 	}
