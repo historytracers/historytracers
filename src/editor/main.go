@@ -3,7 +3,9 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
+	"strings"
 
 	"fmt"
 	"path/filepath"
@@ -275,11 +277,27 @@ func (e *TextEditor) loadTemplate(templateType string) {
 		return
 	}
 
-	jsonBytes, err := json.MarshalIndent(templateData, "", "  ")
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false) // This is the key change
+	encoder.SetIndent("", "  ")
+
+	err = encoder.Encode(templateData)
 	if err != nil {
 		dialog.ShowError(fmt.Errorf("Error creating template: %v", err), e.window)
 		return
 	}
+
+	// Remove the trailing newline that Encode adds
+	jsonStr := strings.TrimSuffix(buf.String(), "\n")
+
+	/*
+		jsonBytes, err := json.MarshalIndent(templateData, "", "  ")
+		if err != nil {
+			dialog.ShowError(fmt.Errorf("Error creating template: %v", err), e.window)
+			return
+		}
+	*/
 
 	newDoc := &Document{
 		content:    widget.NewMultiLineEntry(),
@@ -287,14 +305,146 @@ func (e *TextEditor) loadTemplate(templateType string) {
 		isModified: true,
 	}
 
-	newDoc.content.SetText(string(jsonBytes))
+	//newDoc.content.SetText(string(jsonBytes))
+	newDoc.content.SetText(jsonStr)
 	e.addDocument(newDoc, "Untitled")
 }
 
 func (e *TextEditor) createClassTemplate() classTemplateFile {
-	ret := classTemplateFile{}
-
-	return ret
+	return classTemplateFile{
+		Title:   "",
+		Header:  "",
+		Sources: []string{" "},
+		Scripts: []string{" "},
+		Audio: []HTAudio{
+			{
+				URL:      "https://www.historytracers.org/audios/",
+				External: true,
+				Spotify:  false,
+			},
+			{
+				URL:      "https://open.spotify.com/episode/",
+				External: true,
+				Spotify:  true,
+			},
+		},
+		Index:      []string{" "},
+		License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
+		LastUpdate: []string{"The time of the last file update, represented in Unix Epoch time."},
+		Authors:    []string{""},
+		Reviewers:  []string{""},
+		Type:       "class",
+		Version:    2,
+		Editing:    false,
+		Content: []classTemplateContent{
+			{
+				ID: "SECTION_prerequisites",
+				Text: []HTText{
+					{
+						Text:   "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAgeMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
+						Source: nil,
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2011",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "",
+						Format:      "html",
+						PostMention: "",
+					},
+					{
+						Text: "",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID) for the current citation.",
+								Text: "",
+								Page: "",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "A character used after a mention to include citations.",
+					},
+				},
+			},
+			{
+				ID: "SECTION_NAME",
+				Text: []HTText{
+					{
+						Text: "",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID) for the current citation.",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "A character used after a mention to include citations.",
+					},
+				},
+			},
+		},
+		Exercises: []HTExercise{
+			{
+				Question:       "WRITE A QUESTION",
+				YesNoAnswer:    "Yes",
+				AdditionalInfo: "The correct answer is 'Yes' because ...",
+			},
+		},
+		GameV2: []HTGameDesc{
+			{
+				ImagePath: "The image path.",
+				ImageDesc: "A description for the associated image.",
+				DateTime: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+			},
+		},
+		DateTime: nil,
+	}
 }
 
 func (e *TextEditor) createFamilyTemplate() Family {
