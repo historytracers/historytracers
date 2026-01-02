@@ -87,45 +87,6 @@ func (e *TextEditor) setupUI() {
 }
 
 func (e *TextEditor) setupShortcuts() {
-	addShortcut := func(key fyne.KeyName, action func()) {
-		// Use fyne.KeyModifierShortcutDefault to handle OS differences (Ctrl on Win/Linux, Cmd on macOS)
-		shortcut := &desktop.CustomShortcut{
-			KeyName:  key,
-			Modifier: fyne.KeyModifierShortcutDefault,
-		}
-
-		// Add the shortcut to the canvas
-		e.window.Canvas().AddShortcut(shortcut, func(s fyne.Shortcut) {
-			fmt.Printf("Shortcut triggered: %s\n", s.ShortcutName())
-			action()
-		})
-	}
-
-	// File operations
-	// Note: Modifier is handled inside addShortcut using fyne.KeyModifierShortcutDefault
-	addShortcut(fyne.KeyN, e.newFile)
-	addShortcut(fyne.KeyO, e.openFile)
-	addShortcut(fyne.KeyS, e.saveFile)
-	addShortcut(fyne.KeyW, e.closeCurrentTab)
-
-	// Tab navigation (Ctrl+Tab and Ctrl+Shift+Tab)
-	// For specific, multi-modifier shortcuts, you need a separate handler
-
-	// Ctrl+Tab (Next Tab)
-	nextTabShortcut := &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl}
-	e.window.Canvas().AddShortcut(nextTabShortcut, func(fyne.Shortcut) {
-		e.nextTab()
-	})
-
-	// Ctrl+Shift+Tab (Previous Tab)
-	prevTabShortcut := &desktop.CustomShortcut{
-		KeyName:  fyne.KeyTab,
-		Modifier: fyne.KeyModifierControl | fyne.KeyModifierShift,
-	}
-	e.window.Canvas().AddShortcut(prevTabShortcut, func(fyne.Shortcut) {
-		e.previousTab()
-	})
-
 	// Quit - handled by window close intercept
 	e.window.SetCloseIntercept(func() {
 		e.quit()
@@ -134,15 +95,27 @@ func (e *TextEditor) setupShortcuts() {
 
 func (e *TextEditor) createMenu() {
 	// File menu with shortcuts
+	newMenuItem := fyne.NewMenuItem("New", e.newFile)
+	newMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyN, Modifier: fyne.KeyModifierShortcutDefault}
+
+	openMenuItem := fyne.NewMenuItem("Open", e.openFile)
+	openMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyO, Modifier: fyne.KeyModifierShortcutDefault}
+
+	saveMenuItem := fyne.NewMenuItem("Save", e.saveFile)
+	saveMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyS, Modifier: fyne.KeyModifierShortcutDefault}
+
+	closeTabMenuItem := fyne.NewMenuItem("Close Tab", e.closeCurrentTab)
+	closeTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyW, Modifier: fyne.KeyModifierShortcutDefault}
+
 	fileMenu := fyne.NewMenu("File",
-		fyne.NewMenuItem("New", e.newFile),
-		fyne.NewMenuItem("Open", e.openFile),
+		newMenuItem,
+		openMenuItem,
 		fyne.NewMenuItem("Open in New Tab", e.openInNewTab),
-		fyne.NewMenuItem("Save", e.saveFile),
+		saveMenuItem,
 		fyne.NewMenuItem("Save As", e.saveAsFile),
 		fyne.NewMenuItem("Save All", e.saveAllFiles),
 		fyne.NewMenuItemSeparator(),
-		fyne.NewMenuItem("Close Tab", e.closeCurrentTab),
+		closeTabMenuItem,
 		fyne.NewMenuItem("Close All Tabs", e.closeAllTabs),
 		fyne.NewMenuItemSeparator(),
 		fyne.NewMenuItem("Load Template", e.showTemplateWindow),
@@ -157,9 +130,15 @@ func (e *TextEditor) createMenu() {
 	)
 
 	// Tabs menu with shortcuts
+	nextTabMenuItem := fyne.NewMenuItem("Next Tab", e.nextTab)
+	nextTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl}
+
+	prevTabMenuItem := fyne.NewMenuItem("Previous Tab", e.previousTab)
+	prevTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl | fyne.KeyModifierShift}
+
 	tabsMenu := fyne.NewMenu("Tabs",
-		fyne.NewMenuItem("Next Tab", e.nextTab),
-		fyne.NewMenuItem("Previous Tab", e.previousTab),
+		nextTabMenuItem,
+		prevTabMenuItem,
 		fyne.NewMenuItemSeparator(),
 		fyne.NewMenuItem("List All Tabs", e.showTabList),
 	)
