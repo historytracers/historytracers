@@ -251,7 +251,7 @@ func (e *TextEditor) showTemplateWindow() {
 		familyBtn,
 		widget.NewLabel("Creates a new Family document structure"),
 		widget.NewSeparator(),
-		widget.NewButton("Cancel", func() {
+		widget.NewButton("Close", func() {
 			e.templateWindow.Close()
 		}),
 	)
@@ -273,10 +273,6 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	default:
 		dialog.ShowError(fmt.Errorf("Unknown template type: %s", templateType), e.window)
 		return
-	}
-
-	if templateData != nil {
-		dialog.ShowError(fmt.Errorf("Success"), e.window)
 	}
 
 	jsonBytes, err := json.MarshalIndent(templateData, "", "  ")
