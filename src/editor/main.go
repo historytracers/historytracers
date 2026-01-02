@@ -448,9 +448,412 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 }
 
 func (e *TextEditor) createFamilyTemplate() Family {
-	ret := Family{}
-
-	return ret
+	return Family{
+		Title:   "",
+		Header:  "",
+		Sources: []string{"", "tree"},
+		Scripts: []string{""},
+		Audio: []HTAudio{
+			{
+				URL:      "https://www.historytracers.org/audios/",
+				External: true,
+				Spotify:  false,
+			},
+			{
+				URL:      "https://open.spotify.com/episode/",
+				External: true,
+				Spotify:  true,
+			},
+		},
+		Index:      []string{"families"},
+		License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
+		LastUpdate: []string{""},
+		Authors:    "",
+		Reviewers:  "",
+		DocumentsInfo: []string{
+			"Languages used in the document.",
+			"Names of calendars referenced.",
+			"Calendar options available on top.",
+			"Additional information (remove this if not needed).",
+		},
+		PeriodOfTime: []string{
+			"Family origin (European, American, Asian, African..).",
+			"A period of time (Middle Ages, Litic, Classic...)",
+		},
+		Maps: []HTMap{
+			{
+				Text:  "Description or information to be displayed alongside the map.",
+				Img:   "File path to the map image.",
+				Order: 1,
+				DateTime: []HTDate{
+					{
+						DateType: "",
+						Year:     "",
+						Month:    "",
+						Day:      "",
+					},
+				},
+			},
+		},
+		Common: []HTText{
+			{
+				Text: "A detailed description of the person's life history and marital status.",
+				Source: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID) for the current citation.",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+				FillDates: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				IsTable:     false,
+				ImgDesc:     "A description of an image included in the text.",
+				Format:      "markdown or html",
+				PostMention: "A character used after a mention to include citations.",
+			},
+		},
+		Prerequisites: []string{"List of prerequisites needed to understand the text."},
+		GEDCOM:        "The name of the GEDCOM file.",
+		CSV:           "",
+		Version:       1,
+		Editing:       false,
+		Type:          "family_tree",
+		Families: []FamilyBody{
+			{
+				ID:   "Unique identifier for the family.",
+				Name: "Name displayed at the top of the page.",
+				History: []HTText{
+					{
+						Text: "A detailed description of the person's life history and marital status.",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID) for the current citation.",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "A character used after a mention to include citations.",
+					},
+				},
+				People: []FamilyPerson{
+					{
+						ID:         "Unique identifier for the person.",
+						Name:       "Name of the person.",
+						Surname:    "",
+						Patronymic: "",
+						FullName:   "",
+						Sex:        "The biological classification of a person.",
+						Gender:     "The gender identity or social role adopted by a person.",
+						IsReal:     false,
+						Haplogroup: []FamilyPersonHaplogroup{
+							{
+								Type:       "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
+								Haplogroup: "The haplogroup value",
+								Sources: []HTSource{
+									{
+										Type: 3210,
+										UUID: "Unique identifier (UUID) for the current citation.",
+										Text: "The accompanying text that will be displayed with the citation.",
+										Page: "The specific page in the publication where this information appears.",
+										Date: HTDate{
+											DateType: "gregory",
+											Year:     "2010",
+											Month:    "",
+											Day:      "",
+										},
+									},
+								},
+							},
+						},
+						History: []HTText{
+							{
+								Text: "A detailed description of the person's life history and marital status.",
+								Source: []HTSource{
+									{
+										Type: 3210,
+										UUID: "Unique identifier (UUID) for the current citation.",
+										Text: "The accompanying text that will be displayed with the citation.",
+										Page: "The specific page in the publication where this information appears.",
+										Date: HTDate{
+											DateType: "gregory",
+											Year:     "2010",
+											Month:    "",
+											Day:      "",
+										},
+									},
+								},
+								FillDates: []HTDate{
+									{
+										DateType: "gregory",
+										Year:     "2010",
+										Month:    "",
+										Day:      "",
+									},
+								},
+								IsTable:     false,
+								ImgDesc:     "A description of an image included in the text.",
+								Format:      "markdown or html",
+								PostMention: "A character used after a mention to include citations.",
+							},
+						},
+						Parents: []FamilyPersonParents{
+							{
+								Type:               "theory or hypothesis",
+								FatherExternalFile: false,
+								FatherFamily:       "Unique identifier for the father's family. It should match the family ID used here.",
+								FatherID:           "Unique identifier for the father.",
+								FatherName:         "Name of the father.",
+								MotherExternalFile: false,
+								MotherFamily:       "Unique identifier for the mother's family.",
+								MotherID:           "Unique identifier for the mother.",
+								MotherName:         "Name of the mother.",
+							},
+						},
+						Birth: []FamilyPersonEvent{
+							{
+								Date: []HTDate{
+									{
+										DateType: "gregory",
+										Year:     "2010",
+										Month:    "",
+										Day:      "",
+									},
+								},
+								Address:   "The address where the marriage took place.",
+								CityID:    "",
+								City:      "The city where the marriage occurred.",
+								StateID:   "",
+								State:     "The state where the marriage took place.",
+								PC:        "The postal code of the marriage location.",
+								CountryID: "",
+								Country:   "The country where the marriage occurred.",
+								Sources: []HTSource{
+									{
+										Type: 3210,
+										UUID: "Unique identifier (UUID) for the current citation.",
+										Text: "The accompanying text that will be displayed with the citation.",
+										Page: "The specific page in the publication where this information appears.",
+										Date: HTDate{
+											DateType: "gregory",
+											Year:     "2010",
+											Month:    "",
+											Day:      "",
+										},
+									},
+								},
+							},
+						},
+						Baptism: []FamilyPersonEvent{
+							{
+								Date: []HTDate{
+									{
+										DateType: "gregory",
+										Year:     "2010",
+										Month:    "",
+										Day:      "",
+									},
+								},
+								Address:   "The address where the marriage took place.",
+								CityID:    "",
+								City:      "The city where the marriage occurred.",
+								StateID:   "",
+								State:     "The state where the marriage took place.",
+								PC:        "The postal code of the marriage location.",
+								CountryID: "",
+								Country:   "The country where the marriage occurred.",
+								Sources: []HTSource{
+									{
+										Type: 3210,
+										UUID: "Unique identifier (UUID) for the current citation.",
+										Text: "The accompanying text that will be displayed with the citation.",
+										Page: "The specific page in the publication where this information appears.",
+										Date: HTDate{
+											DateType: "gregory",
+											Year:     "2010",
+											Month:    "",
+											Day:      "",
+										},
+									},
+								},
+							},
+						},
+						Marriages: []FamilyPersonMarriage{
+							{
+								Type:         "theory or hypothesis",
+								ID:           "Unique identifier for the person.",
+								GEDCOMId:     "",
+								Official:     true,
+								FamilyID:     "Unique identifier for the family.",
+								ExternalFile: false,
+								Name:         "Name of the spouse.",
+								History: []HTText{
+									{
+										Text: "A detailed description of the person's life history and marital status.",
+										Source: []HTSource{
+											{
+												Type: 3210,
+												UUID: "Unique identifier (UUID) for the current citation.",
+												Text: "The accompanying text that will be displayed with the citation.",
+												Page: "The specific page in the publication where this information appears.",
+												Date: HTDate{
+													DateType: "gregory",
+													Year:     "2010",
+													Month:    "",
+													Day:      "",
+												},
+											},
+										},
+										FillDates: []HTDate{
+											{
+												DateType: "gregory",
+												Year:     "2010",
+												Month:    "",
+												Day:      "",
+											},
+										},
+										IsTable:     false,
+										ImgDesc:     "A description of an image included in the text.",
+										Format:      "markdown or html",
+										PostMention: "A character used after a mention to include citations.",
+									},
+								},
+								DateTime: FamilyPersonEvent{
+									Date:      nil,
+									Address:   "",
+									CityID:    "",
+									City:      "",
+									StateID:   "",
+									State:     "",
+									PC:        "",
+									CountryID: "",
+									Country:   "",
+									Sources:   nil,
+								},
+							},
+						},
+						Divorced: nil,
+						Children: []FamilyPersonChild{
+							{
+								Type:         "theory or hypothesis",
+								ID:           "Unique identifier for the child.",
+								MarriageID:   "Unique identifier for the marriage (parental connection).",
+								Name:         "Name of the child.",
+								FamilyID:     "Unique identifier for the child's family, used if the child establishes a new family.",
+								ExternalFile: false,
+								AddLink:      false,
+								History: []HTText{
+									{
+										Text: "A detailed description of the person's life history and marital status.",
+										Source: []HTSource{
+											{
+												Type: 3210,
+												UUID: "Unique identifier (UUID) for the current citation.",
+												Text: "The accompanying text that will be displayed with the citation.",
+												Page: "The specific page in the publication where this information appears.",
+												Date: HTDate{
+													DateType: "gregory",
+													Year:     "2010",
+													Month:    "",
+													Day:      "",
+												},
+											},
+										},
+										FillDates: []HTDate{
+											{
+												DateType: "gregory",
+												Year:     "2010",
+												Month:    "",
+												Day:      "",
+											},
+										},
+										IsTable:     false,
+										ImgDesc:     "A description of an image included in the text.",
+										Format:      "markdown or html",
+										PostMention: "A character used after a mention to include citations.",
+									},
+								},
+								AdoptedChild: false,
+							},
+						},
+						Death: []FamilyPersonEvent{
+							{
+								Date: []HTDate{
+									{
+										DateType: "gregory",
+										Year:     "2010",
+										Month:    "",
+										Day:      "",
+									},
+								},
+								Address:   "The address where the marriage took place.",
+								CityID:    "",
+								City:      "The city where the marriage occurred.",
+								StateID:   "",
+								State:     "The state where the marriage took place.",
+								PC:        "The postal code of the marriage location.",
+								CountryID: "",
+								Country:   "The country where the marriage occurred.",
+								Sources: []HTSource{
+									{
+										Type: 3210,
+										UUID: "Unique identifier (UUID) for the current citation.",
+										Text: "The accompanying text that will be displayed with the citation.",
+										Page: "The specific page in the publication where this information appears.",
+										Date: HTDate{
+											DateType: "gregory",
+											Year:     "2010",
+											Month:    "",
+											Day:      "",
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+		Exercises: []HTExercise{
+			{
+				Question:       "WRITE A QUESTION",
+				YesNoAnswer:    "Yes",
+				AdditionalInfo: "The correct answer is 'Yes' because ...",
+			},
+		},
+		DateTime: nil,
+	}
 }
 
 // Edit operations
