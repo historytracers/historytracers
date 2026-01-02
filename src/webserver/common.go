@@ -79,9 +79,6 @@ type HTSourceFile struct {
 	SocialMediaSources []HTSourceElement `json:"social_media_sources"`
 }
 
-var sourceMap map[string]HTSourceElement
-var allSourceMap map[string]HTSourceElement
-
 type HTText struct {
 	Text        string     `json:"text"`
 	Source      []HTSource `json:"source"`
@@ -125,6 +122,9 @@ type HTKeywordsFormat struct {
 	License  []string `json:"license"`
 	Keywords []string `json:"keywords"`
 }
+
+var sourceMap map[string]HTSourceElement
+var allSourceMap map[string]HTSourceElement
 
 // Common functions
 func htUpdateTimestamp() string {
