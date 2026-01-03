@@ -101,32 +101,48 @@ func (e *TextEditor) createMenu() {
 	openMenuItem := fyne.NewMenuItem("Open", e.openFile)
 	openMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyO, Modifier: fyne.KeyModifierShortcutDefault}
 
+	openInNewTabMenuItem := fyne.NewMenuItem("Open in New Tab", e.openInNewTab)
 	saveMenuItem := fyne.NewMenuItem("Save", e.saveFile)
 	saveMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyS, Modifier: fyne.KeyModifierShortcutDefault}
+
+	saveAsMenuItem := fyne.NewMenuItem("Save As", e.saveAsFile)
+	saveAllMenuItem := fyne.NewMenuItem("Save All", e.saveAllFiles)
 
 	closeTabMenuItem := fyne.NewMenuItem("Close Tab", e.closeCurrentTab)
 	closeTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyW, Modifier: fyne.KeyModifierShortcutDefault}
 
+	closeAllTabsMenuItem := fyne.NewMenuItem("Close All Tabs", e.closeAllTabs)
+	loadTemplateMenuItem := fyne.NewMenuItem("Load Template", e.showTemplateWindow)
+
 	fileMenu := fyne.NewMenu("File",
 		newMenuItem,
 		openMenuItem,
-		fyne.NewMenuItem("Open in New Tab", e.openInNewTab),
+		openInNewTabMenuItem,
 		saveMenuItem,
-		fyne.NewMenuItem("Save As", e.saveAsFile),
-		fyne.NewMenuItem("Save All", e.saveAllFiles),
+		saveAsMenuItem,
+		saveAllMenuItem,
 		fyne.NewMenuItemSeparator(),
 		closeTabMenuItem,
-		fyne.NewMenuItem("Close All Tabs", e.closeAllTabs),
+		closeAllTabsMenuItem,
 		fyne.NewMenuItemSeparator(),
-		fyne.NewMenuItem("Load Template", e.showTemplateWindow),
+		loadTemplateMenuItem,
 	)
 
 	// Edit menu with shortcuts
+	cutMenuItem := fyne.NewMenuItem("Cut", e.cutText)
+	cutMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyX, Modifier: fyne.KeyModifierShortcutDefault}
+	copyMenuItem := fyne.NewMenuItem("Copy", e.copyText)
+	copyMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyC, Modifier: fyne.KeyModifierShortcutDefault}
+	pasteMenuItem := fyne.NewMenuItem("Paste", e.pasteText)
+	pasteMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyV, Modifier: fyne.KeyModifierShortcutDefault}
+	selectAllMenuItem := fyne.NewMenuItem("Select All", e.selectAll)
+	selectAllMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyA, Modifier: fyne.KeyModifierShortcutDefault}
+
 	editMenu := fyne.NewMenu("Edit",
-		fyne.NewMenuItem("Cut", e.cutText),
-		fyne.NewMenuItem("Copy", e.copyText),
-		fyne.NewMenuItem("Paste", e.pasteText),
-		fyne.NewMenuItem("Select All", e.selectAll),
+		cutMenuItem,
+		copyMenuItem,
+		pasteMenuItem,
+		selectAllMenuItem,
 	)
 
 	// Tabs menu with shortcuts
@@ -136,16 +152,21 @@ func (e *TextEditor) createMenu() {
 	prevTabMenuItem := fyne.NewMenuItem("Previous Tab", e.previousTab)
 	prevTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl | fyne.KeyModifierShift}
 
+	listAllTabsMenuItem := fyne.NewMenuItem("List All Tabs", e.showTabList)
+
 	tabsMenu := fyne.NewMenu("Tabs",
 		nextTabMenuItem,
 		prevTabMenuItem,
 		fyne.NewMenuItemSeparator(),
-		fyne.NewMenuItem("List All Tabs", e.showTabList),
+		listAllTabsMenuItem,
 	)
 
 	// Help menu with shortcut
+	aboutMenuItem := fyne.NewMenuItem("About", e.showAbout)
+	aboutMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyH, Modifier: fyne.KeyModifierShortcutDefault}
+
 	helpMenu := fyne.NewMenu("Help",
-		fyne.NewMenuItem("About", e.showAbout),
+		aboutMenuItem,
 	)
 
 	mainMenu := fyne.NewMainMenu(
