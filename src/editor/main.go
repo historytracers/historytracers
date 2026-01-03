@@ -28,14 +28,16 @@ type Document struct {
 }
 
 type TextEditor struct {
-	app            fyne.App
-	window         fyne.Window
-	documents      []*Document
-	currentDoc     *Document
-	tabContainer   *container.DocTabs
-	statusBar      *widget.Label
-	templatePath   string
-	templateWindow fyne.Window
+	app                 fyne.App
+	window              fyne.Window
+	documents           []*Document
+	currentDoc          *Document
+	tabContainer        *container.DocTabs
+	statusBar           *widget.Label
+	templatePath        string
+	templateWindow      fyne.Window
+	toolbar             *widget.Toolbar
+	hideToolbarMenuItem *fyne.MenuItem
 }
 
 func NewTextEditor() *TextEditor {
@@ -70,11 +72,11 @@ func (e *TextEditor) setupUI() {
 	e.createMenu()
 
 	// Create toolbar
-	toolbar := e.createToolbar()
+	e.toolbar = e.createToolbar()
 
 	// Layout - tabs are now the main content area
 	content := container.NewBorder(
-		toolbar,
+		e.toolbar,
 		e.statusBar,
 		nil, nil,
 		e.tabContainer,
@@ -183,14 +185,33 @@ func (e *TextEditor) createMenu() {
 		aboutMenuItem,
 	)
 
+	e.hideToolbarMenuItem = fyne.NewMenuItem("Toolbar", e.toggleToolbar)
+	e.hideToolbarMenuItem.Checked = true
+
+	windowMenu := fyne.NewMenu("Window",
+		e.hideToolbarMenuItem,
+	)
+
 	mainMenu := fyne.NewMainMenu(
 		fileMenu,
 		editMenu,
 		tabsMenu,
+		windowMenu,
 		helpMenu,
 	)
 
 	e.window.SetMainMenu(mainMenu)
+}
+
+func (e *TextEditor) toggleToolbar() {
+	if e.toolbar.Visible() {
+		e.toolbar.Hide()
+		e.hideToolbarMenuItem.Checked = false
+	} else {
+		e.toolbar.Show()
+		e.hideToolbarMenuItem.Checked = true
+	}
+	e.window.MainMenu().Refresh()
 }
 
 func (e *TextEditor) createEditorContent(doc *Document) fyne.CanvasObject {
