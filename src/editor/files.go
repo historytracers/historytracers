@@ -16,29 +16,21 @@ import (
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/storage"
-	"fyne.io/fyne/v2/widget"
 )
 
 func (e *TextEditor) createNewDocument() *Document {
-	// Create text area
-	textArea := widget.NewMultiLineEntry()
-	textArea.Wrapping = fyne.TextWrapWord
-
 	doc := &Document{
-		content:    textArea,
 		filePath:   "",
 		isModified: false,
 		tabItem:    nil, // Initialize as nil, will be set in addDocument
 	}
-
+	editorContent := e.createEditorContent(doc)
+	e.addDocument(doc, "Untitled", editorContent)
 	return doc
 }
 
 func (e *TextEditor) newFile() {
 	doc := e.createNewDocument()
-	e.addDocument(doc, "Untitled")
-
-	// Set up modification tracking AFTER the document is fully added
 	doc.content.OnChanged = func(_ string) {
 		doc.isModified = true
 		e.updateTabTitle(doc)
@@ -48,14 +40,14 @@ func (e *TextEditor) newFile() {
 	e.updateStatus("New file created")
 }
 
-func (e *TextEditor) addDocument(doc *Document, title string) {
+func (e *TextEditor) addDocument(doc *Document, title string, content fyne.CanvasObject) {
 	// Create tab title
 	tabTitle := title
 	if doc.isModified {
 		tabTitle = "* " + tabTitle
 	}
 
-	doc.tabItem = container.NewTabItem(tabTitle, doc.content)
+	doc.tabItem = container.NewTabItem(tabTitle, content)
 	e.tabContainer.Append(doc.tabItem)
 	e.documents = append(e.documents, doc)
 	e.currentDoc = doc
@@ -85,36 +77,8 @@ func (e *TextEditor) openFile() {
 			}
 		}
 
-		scanner := bufio.NewScanner(reader)
-		var content strings.Builder
-		for scanner.Scan() {
-			content.WriteString(scanner.Text() + "\n")
-		}
-
-		if err := scanner.Err(); err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-
 		doc := e.createNewDocument()
-		doc.filePath = filePath
-
-		// Add document first, then set content to avoid triggering OnChanged before tab is created
-		e.addDocument(doc, filepath.Base(filePath))
-
-		// Now set up the modification tracking
-		doc.content.OnChanged = func(_ string) {
-			doc.isModified = true
-			e.updateTabTitle(doc)
-			e.updateTitle()
-		}
-
-		// Set the content after the callback is established
-		doc.content.SetText(content.String())
-		doc.isModified = false
-		e.updateTabTitle(doc)
-
-		e.updateStatus("Opened: " + filepath.Base(filePath))
+		e.loadDocument(doc, reader)
 	}, e.window)
 
 	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".md", ".json", ".html", ".css", ".js"}))
@@ -132,42 +96,31 @@ func (e *TextEditor) openInNewTab() {
 		}
 		defer reader.Close()
 
-		filePath := reader.URI().Path()
-
-		scanner := bufio.NewScanner(reader)
-		var content strings.Builder
-		for scanner.Scan() {
-			content.WriteString(scanner.Text() + "\n")
-		}
-
-		if err := scanner.Err(); err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-
 		doc := e.createNewDocument()
-		doc.filePath = filePath
-
-		// Add document first
-		e.addDocument(doc, filepath.Base(filePath))
-
-		// Set up modification tracking
-		doc.content.OnChanged = func(_ string) {
-			doc.isModified = true
-			e.updateTabTitle(doc)
-			e.updateTitle()
-		}
-
-		// Set content after callback is established
-		doc.content.SetText(content.String())
-		doc.isModified = false
-		e.updateTabTitle(doc)
-
-		e.updateStatus("Opened in new tab: " + filepath.Base(filePath))
+		e.loadDocument(doc, reader)
 	}, e.window)
 
 	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".md", ".json", ".html", ".css", ".js"}))
 	dialog.Show()
+}
+
+func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
+	scanner := bufio.NewScanner(reader)
+	var content strings.Builder
+	for scanner.Scan() {
+		content.WriteString(scanner.Text() + "\n")
+	}
+
+	if err := scanner.Err(); err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	doc.filePath = reader.URI().Path()
+	doc.content.SetText(content.String())
+	doc.isModified = false
+	e.updateTabTitle(doc)
+	e.updateStatus("Opened: " + filepath.Base(doc.filePath))
 }
 
 func (e *TextEditor) saveFile() {

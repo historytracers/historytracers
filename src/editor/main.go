@@ -19,10 +19,11 @@ import (
 )
 
 type Document struct {
-	content    *widget.Entry
-	filePath   string
-	isModified bool
-	tabItem    *container.TabItem
+	content     *widget.Entry
+	filePath    string
+	isModified  bool
+	tabItem     *container.TabItem
+	lineNumbers *widget.Label
 }
 
 type TextEditor struct {
@@ -179,6 +180,28 @@ func (e *TextEditor) createMenu() {
 	e.window.SetMainMenu(mainMenu)
 }
 
+func (e *TextEditor) createEditorContent(doc *Document) fyne.CanvasObject {
+	doc.content = widget.NewMultiLineEntry()
+	doc.lineNumbers = widget.NewLabel("1\n")
+	doc.lineNumbers.Alignment = fyne.TextAlignTrailing
+
+	doc.content.OnChanged = func(s string) {
+		lineCount := strings.Count(s, "\n") + 1
+		numbers := ""
+		for i := 1; i <= lineCount; i++ {
+			numbers += fmt.Sprintf("%d\n", i)
+		}
+		doc.lineNumbers.SetText(numbers)
+		if !doc.isModified {
+			doc.isModified = true
+			e.updateTabTitle(doc)
+			e.updateTitle()
+		}
+	}
+
+	return container.NewScroll(container.NewBorder(nil, nil, doc.lineNumbers, nil, doc.content))
+}
+
 func (e *TextEditor) getCurrentDocIndex() int {
 	for i, doc := range e.documents {
 		if doc == e.currentDoc {
@@ -291,23 +314,10 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	// Remove the trailing newline that Encode adds
 	jsonStr := strings.TrimSuffix(buf.String(), "\n")
 
-	/*
-		jsonBytes, err := json.MarshalIndent(templateData, "", "  ")
-		if err != nil {
-			dialog.ShowError(fmt.Errorf("Error creating template: %v", err), e.window)
-			return
-		}
-	*/
-
-	newDoc := &Document{
-		content:    widget.NewMultiLineEntry(),
-		filePath:   "",
-		isModified: true,
-	}
-
-	//newDoc.content.SetText(string(jsonBytes))
-	newDoc.content.SetText(jsonStr)
-	e.addDocument(newDoc, "Untitled")
+	doc := e.createNewDocument()
+	doc.content.SetText(jsonStr)
+	doc.isModified = true
+	e.updateTabTitle(doc)
 }
 
 func (e *TextEditor) createClassTemplate() classTemplateFile {
