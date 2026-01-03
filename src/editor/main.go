@@ -15,6 +15,7 @@ import (
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/driver/desktop"
+	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 )
 
@@ -69,11 +70,11 @@ func (e *TextEditor) setupUI() {
 	e.createMenu()
 
 	// Create toolbar
-	// toolbar := e.createToolbar()
+	toolbar := e.createToolbar()
 
 	// Layout - tabs are now the main content area
 	content := container.NewBorder(
-		nil,
+		toolbar,
 		e.statusBar,
 		nil, nil,
 		e.tabContainer,
@@ -85,6 +86,18 @@ func (e *TextEditor) setupUI() {
 
 	// Create initial empty document
 	e.newFile()
+}
+
+func (e *TextEditor) createToolbar() *widget.Toolbar {
+	return widget.NewToolbar(
+		widget.NewToolbarAction(theme.DocumentCreateIcon(), e.newFile),
+		widget.NewToolbarAction(theme.FolderOpenIcon(), e.openFile),
+		widget.NewToolbarAction(theme.DocumentSaveIcon(), e.saveFile),
+		widget.NewToolbarSeparator(),
+		widget.NewToolbarAction(theme.ContentCutIcon(), e.cutText),
+		widget.NewToolbarAction(theme.ContentCopyIcon(), e.copyText),
+		widget.NewToolbarAction(theme.ContentPasteIcon(), e.pasteText),
+	)
 }
 
 func (e *TextEditor) setupShortcuts() {
@@ -929,31 +942,6 @@ func (e *TextEditor) updateStatus(message string) {
 
 func (e *TextEditor) Run() {
 	e.window.ShowAndRun()
-}
-
-// Theme workaround
-var theme = struct {
-	DocumentCreateIcon func() fyne.Resource
-	FolderOpenIcon     func() fyne.Resource
-	DocumentSaveIcon   func() fyne.Resource
-	ContentCutIcon     func() fyne.Resource
-	ContentCopyIcon    func() fyne.Resource
-	ContentPasteIcon   func() fyne.Resource
-	DocumentIcon       func() fyne.Resource
-	InfoIcon           func() fyne.Resource
-	MailForwardIcon    func() fyne.Resource
-	MailReplyIcon      func() fyne.Resource
-}{
-	DocumentCreateIcon: nil,
-	FolderOpenIcon:     nil,
-	DocumentSaveIcon:   nil,
-	ContentCutIcon:     nil,
-	ContentCopyIcon:    nil,
-	ContentPasteIcon:   nil,
-	DocumentIcon:       nil,
-	InfoIcon:           nil,
-	MailForwardIcon:    nil,
-	MailReplyIcon:      nil,
 }
 
 func main() {
