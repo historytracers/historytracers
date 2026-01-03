@@ -4,37 +4,33 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"fmt"
 	"path/filepath"
+	"regexp"
+	"strconv"
 	"strings"
+	"unicode/utf8"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/storage"
-	"fyne.io/fyne/v2/widget"
 )
 
 func (e *TextEditor) createNewDocument() *Document {
-	// Create text area
-	textArea := widget.NewMultiLineEntry()
-	textArea.Wrapping = fyne.TextWrapWord
-
 	doc := &Document{
-		content:    textArea,
 		filePath:   "",
 		isModified: false,
 		tabItem:    nil, // Initialize as nil, will be set in addDocument
 	}
-
+	editorContent := e.createEditorContent(doc)
+	e.addDocument(doc, "Untitled", editorContent)
 	return doc
 }
 
 func (e *TextEditor) newFile() {
 	doc := e.createNewDocument()
-	e.addDocument(doc, "Untitled")
-
-	// Set up modification tracking AFTER the document is fully added
 	doc.content.OnChanged = func(_ string) {
 		doc.isModified = true
 		e.updateTabTitle(doc)
@@ -44,14 +40,14 @@ func (e *TextEditor) newFile() {
 	e.updateStatus("New file created")
 }
 
-func (e *TextEditor) addDocument(doc *Document, title string) {
+func (e *TextEditor) addDocument(doc *Document, title string, content fyne.CanvasObject) {
 	// Create tab title
 	tabTitle := title
 	if doc.isModified {
 		tabTitle = "* " + tabTitle
 	}
 
-	doc.tabItem = container.NewTabItem(tabTitle, doc.content)
+	doc.tabItem = container.NewTabItem(tabTitle, content)
 	e.tabContainer.Append(doc.tabItem)
 	e.documents = append(e.documents, doc)
 	e.currentDoc = doc
@@ -81,36 +77,8 @@ func (e *TextEditor) openFile() {
 			}
 		}
 
-		scanner := bufio.NewScanner(reader)
-		var content strings.Builder
-		for scanner.Scan() {
-			content.WriteString(scanner.Text() + "\n")
-		}
-
-		if err := scanner.Err(); err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-
 		doc := e.createNewDocument()
-		doc.filePath = filePath
-
-		// Add document first, then set content to avoid triggering OnChanged before tab is created
-		e.addDocument(doc, filepath.Base(filePath))
-
-		// Now set up the modification tracking
-		doc.content.OnChanged = func(_ string) {
-			doc.isModified = true
-			e.updateTabTitle(doc)
-			e.updateTitle()
-		}
-
-		// Set the content after the callback is established
-		doc.content.SetText(content.String())
-		doc.isModified = false
-		e.updateTabTitle(doc)
-
-		e.updateStatus("Opened: " + filepath.Base(filePath))
+		e.loadDocument(doc, reader)
 	}, e.window)
 
 	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".md", ".json", ".html", ".css", ".js"}))
@@ -128,42 +96,31 @@ func (e *TextEditor) openInNewTab() {
 		}
 		defer reader.Close()
 
-		filePath := reader.URI().Path()
-
-		scanner := bufio.NewScanner(reader)
-		var content strings.Builder
-		for scanner.Scan() {
-			content.WriteString(scanner.Text() + "\n")
-		}
-
-		if err := scanner.Err(); err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
-
 		doc := e.createNewDocument()
-		doc.filePath = filePath
-
-		// Add document first
-		e.addDocument(doc, filepath.Base(filePath))
-
-		// Set up modification tracking
-		doc.content.OnChanged = func(_ string) {
-			doc.isModified = true
-			e.updateTabTitle(doc)
-			e.updateTitle()
-		}
-
-		// Set content after callback is established
-		doc.content.SetText(content.String())
-		doc.isModified = false
-		e.updateTabTitle(doc)
-
-		e.updateStatus("Opened in new tab: " + filepath.Base(filePath))
+		e.loadDocument(doc, reader)
 	}, e.window)
 
 	dialog.SetFilter(storage.NewExtensionFileFilter([]string{".txt", ".md", ".json", ".html", ".css", ".js"}))
 	dialog.Show()
+}
+
+func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
+	scanner := bufio.NewScanner(reader)
+	var content strings.Builder
+	for scanner.Scan() {
+		content.WriteString(scanner.Text() + "\n")
+	}
+
+	if err := scanner.Err(); err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	doc.filePath = reader.URI().Path()
+	doc.content.SetText(content.String())
+	doc.isModified = false
+	e.updateTabTitle(doc)
+	e.updateStatus("Opened: " + filepath.Base(doc.filePath))
 }
 
 func (e *TextEditor) saveFile() {
@@ -176,23 +133,7 @@ func (e *TextEditor) saveFile() {
 		return
 	}
 
-	writer, err := storage.Writer(storage.NewFileURI(e.currentDoc.filePath))
-	if err != nil {
-		dialog.ShowError(err, e.window)
-		return
-	}
-	defer writer.Close()
-
-	_, err = writer.Write([]byte(e.currentDoc.content.Text))
-	if err != nil {
-		dialog.ShowError(err, e.window)
-		return
-	}
-
-	e.currentDoc.isModified = false
-	e.updateTabTitle(e.currentDoc)
-	e.updateTitle()
-	e.updateStatus(fmt.Sprintf("Saved: %s", filepath.Base(e.currentDoc.filePath)))
+	e.validateAndSave(e.currentDoc, e.currentDoc.filePath)
 }
 
 func (e *TextEditor) saveAsFile() {
@@ -210,17 +151,9 @@ func (e *TextEditor) saveAsFile() {
 		}
 		defer writer.Close()
 
-		e.currentDoc.filePath = writer.URI().Path()
-		_, err = writer.Write([]byte(e.currentDoc.content.Text))
-		if err != nil {
-			dialog.ShowError(err, e.window)
-			return
-		}
+		filePath := writer.URI().Path()
+		e.validateAndSave(e.currentDoc, filePath)
 
-		e.currentDoc.isModified = false
-		e.updateTabTitle(e.currentDoc)
-		e.updateTitle()
-		e.updateStatus(fmt.Sprintf("Saved as: %s", filepath.Base(e.currentDoc.filePath)))
 	}, e.window)
 
 	// Set default filename based on current content
@@ -235,32 +168,161 @@ func (e *TextEditor) saveAsFile() {
 
 func (e *TextEditor) saveAllFiles() {
 	savedCount := 0
+	errorCount := 0
+
 	for _, doc := range e.documents {
-		if doc.isModified && doc.filePath != "" {
-			writer, err := storage.Writer(storage.NewFileURI(doc.filePath))
-			if err != nil {
-				dialog.ShowError(err, e.window)
+		if doc.isModified {
+			if doc.filePath == "" {
+				// For untitled documents, we can't save them automatically.
+				// One option is to select them and trigger saveAsFile,
+				// but for now, we'll just skip them.
 				continue
 			}
 
-			_, err = writer.Write([]byte(doc.content.Text))
-			writer.Close()
-
-			if err != nil {
-				dialog.ShowError(err, e.window)
-				continue
+			if !e.validateAndSave(doc, doc.filePath) {
+				errorCount++
+			} else {
+				savedCount++
 			}
-
-			doc.isModified = false
-			e.updateTabTitle(doc)
-			savedCount++
 		}
 	}
 
-	e.updateTitle()
-	if savedCount > 0 {
-		e.updateStatus(fmt.Sprintf("Saved %d files", savedCount))
+	e.updateTitle() // Update window title in case any tab titles changed
+
+	if errorCount > 0 {
+		e.updateStatus(fmt.Sprintf("Saved %d files, but %d files had errors.", savedCount, errorCount))
+	} else if savedCount > 0 {
+		e.updateStatus(fmt.Sprintf("Saved %d files.", savedCount))
 	} else {
-		e.updateStatus("No files needed saving")
+		e.updateStatus("No files needed saving.")
 	}
+}
+
+// validateAndSave checks for JSON errors before saving.
+// It returns true if the save was successful, and false if there was an error.
+func (e *TextEditor) validateAndSave(doc *Document, filePath string) bool {
+	content := doc.content.Text
+
+	// Check if it's a JSON file and validate it
+	if strings.HasSuffix(strings.ToLower(filePath), ".json") {
+		var js json.RawMessage
+		err := json.Unmarshal([]byte(content), &js)
+		if err != nil {
+			// Show a more informative dialog
+			errorDialog := dialog.NewConfirm(
+				"JSON Syntax Error",
+				fmt.Sprintf("Error in %s:\n%v\n\nDo you want to jump to the approximate error location?", filepath.Base(filePath), err),
+				func(confirm bool) {
+					if confirm {
+						e.jumpToError(doc, err)
+					}
+				},
+				e.window,
+			)
+			errorDialog.Show()
+			return false // Indicate that the save was not successful
+		}
+	}
+
+	// Proceed with saving the file
+	writer, err := storage.Writer(storage.NewFileURI(filePath))
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return false
+	}
+	defer writer.Close()
+
+	_, err = writer.Write([]byte(content))
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return false
+	}
+
+	// Update document state
+	doc.filePath = filePath // Update in case of "Save As"
+	doc.isModified = false
+	e.updateTabTitle(doc)
+	e.updateTitle()
+	e.updateStatus(fmt.Sprintf("Saved: %s", filepath.Base(filePath)))
+
+	return true // Indicate success
+}
+
+// jumpToError tries to parse the error and move the cursor
+func (e *TextEditor) jumpToError(doc *Document, err error) {
+	if e.tabContainer.Selected() != doc.tabItem {
+		e.tabContainer.Select(doc.tabItem)
+	}
+	e.window.Canvas().Focus(doc.content)
+
+	if syntaxError, ok := err.(*json.SyntaxError); ok {
+		e.goToByteOffset(doc, int(syntaxError.Offset))
+		return
+	}
+
+	// Fallback for other error types that might contain position info
+	re := regexp.MustCompile(`(line|char|offset)\s+(\d+)`)
+	matches := re.FindStringSubmatch(err.Error())
+
+	if len(matches) == 3 {
+		offset, _ := strconv.Atoi(matches[2])
+		if matches[1] == "line" {
+			e.goToLine(doc, offset)
+		} else {
+			e.goToByteOffset(doc, offset)
+		}
+	}
+}
+
+// goToLine moves the cursor to the beginning of a specific line.
+func (e *TextEditor) goToLine(doc *Document, line int) {
+	if line <= 0 {
+		return
+	}
+
+	scanner := bufio.NewScanner(strings.NewReader(doc.content.Text))
+	currentLine := 1
+	byteOffset := 0
+
+	for scanner.Scan() {
+		if currentLine >= line {
+			break
+		}
+		// Add length of the line + 1 for the newline character
+		byteOffset += len(scanner.Bytes()) + 1
+		currentLine++
+	}
+
+	e.goToByteOffset(doc, byteOffset)
+}
+
+// goToByteOffset moves the cursor to a specific byte offset.
+func (e *TextEditor) goToByteOffset(doc *Document, offset int) {
+	if offset < 0 {
+		offset = 0
+	}
+
+	contentBytes := []byte(doc.content.Text)
+	if offset > len(contentBytes) {
+		offset = len(contentBytes)
+	}
+
+	// We need to find the row and column for the byte offset.
+	// Fyne's Entry widget uses rune counts for columns.
+
+	// Get text up to the offset
+	sub := contentBytes[:offset]
+
+	// Count lines before the offset
+	row := strings.Count(string(sub), "\n")
+
+	// Find the start of the current line
+	lastNewline := strings.LastIndex(string(sub), "\n")
+
+	// column is the number of runes since the last newline
+	col := utf8.RuneCount(contentBytes[lastNewline+1 : offset])
+
+	doc.content.CursorRow = row
+	doc.content.CursorColumn = col
+	doc.content.Refresh()
 }
