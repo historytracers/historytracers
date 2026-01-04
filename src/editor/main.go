@@ -15,6 +15,7 @@ import (
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/driver/desktop"
+	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 )
@@ -290,6 +291,11 @@ func (e *TextEditor) showTemplateWindow() {
 	e.templateWindow = e.app.NewWindow("Load Template")
 	e.templateWindow.Resize(fyne.NewSize(500, 400))
 
+	atlasBtn := widget.NewButton("Atlas Template", func() {
+		e.loadTemplate("atlas")
+		e.templateWindow.Close()
+	})
+
 	classBtn := widget.NewButton("Class Template", func() {
 		e.loadTemplate("class")
 		e.templateWindow.Close()
@@ -303,16 +309,17 @@ func (e *TextEditor) showTemplateWindow() {
 	// Add descriptions
 	content := container.NewVBox(
 		widget.NewLabel("Creates a new Atlas document structure"),
+		container.NewHBox(layout.NewSpacer(), atlasBtn, layout.NewSpacer()),
 		widget.NewSeparator(),
-		classBtn,
 		widget.NewLabel("Creates a new Class document structure"),
+		container.NewHBox(layout.NewSpacer(), classBtn, layout.NewSpacer()),
 		widget.NewSeparator(),
-		familyBtn,
 		widget.NewLabel("Creates a new Family document structure"),
+		container.NewHBox(layout.NewSpacer(), familyBtn, layout.NewSpacer()),
 		widget.NewSeparator(),
-		widget.NewButton("Close", func() {
+		container.NewHBox(layout.NewSpacer(), widget.NewButton("Close", func() {
 			e.templateWindow.Close()
-		}),
+		}), layout.NewSpacer()),
 	)
 
 	e.templateWindow.SetContent(content)
@@ -325,6 +332,8 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	var err error
 
 	switch templateType {
+	case "atlas":
+		templateData = e.createAtlasTemplate()
 	case "class":
 		templateData = e.createClassTemplate()
 	case "family":
@@ -352,6 +361,12 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	doc.content.SetText(jsonStr)
 	doc.isModified = true
 	e.updateTabTitle(doc)
+}
+
+func (e *TextEditor) createAtlasTemplate() classTemplateFile {
+	// ct := htUpdateTimestamp()
+	al := classTemplateFile{}
+	return al
 }
 
 func (e *TextEditor) createClassTemplate() classTemplateFile {
