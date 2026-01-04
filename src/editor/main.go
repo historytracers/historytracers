@@ -309,12 +309,13 @@ func (e *TextEditor) showTemplateWindow() {
 	// Add descriptions
 	content := container.NewVBox(
 		widget.NewLabel("Creates a new Atlas document structure"),
+		widget.NewSeparator(),
 		container.NewHBox(layout.NewSpacer(), atlasBtn, layout.NewSpacer()),
-		widget.NewSeparator(),
 		widget.NewLabel("Creates a new Class document structure"),
-		container.NewHBox(layout.NewSpacer(), classBtn, layout.NewSpacer()),
 		widget.NewSeparator(),
+		container.NewHBox(layout.NewSpacer(), classBtn, layout.NewSpacer()),
 		widget.NewLabel("Creates a new Family document structure"),
+		widget.NewSeparator(),
 		container.NewHBox(layout.NewSpacer(), familyBtn, layout.NewSpacer()),
 		widget.NewSeparator(),
 		container.NewHBox(layout.NewSpacer(), widget.NewButton("Close", func() {
@@ -364,8 +365,124 @@ func (e *TextEditor) loadTemplate(templateType string) {
 }
 
 func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
-	// ct := htUpdateTimestamp()
-	al := atlasTemplateFile{}
+	ct := htUpdateTimestamp()
+	al := atlasTemplateFile{
+		Title:   "The name displayed in the application's or page's title bar.",
+		Header:  "The name shown at the top of the page or section.",
+		Sources: []string{""},
+		Scripts: []string{""},
+		Audio: []HTAudio{
+			{
+				URL:      "https://www.historytracers.org/audios/",
+				External: true,
+				Spotify:  false,
+			},
+			{
+				URL:      "https://open.spotify.com/episode/",
+				External: true,
+				Spotify:  true,
+			},
+		},
+		License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
+		LastUpdate: []string{ct},
+		Authors:    []string{""},
+		Reviewers:  []string{""},
+		Type:       "atlas",
+		Version:    2,
+		Editing:    false,
+		Content: []classTemplateContent{
+			{
+				ID: "SECTION_prerequisites",
+				Text: []HTText{
+					{
+						Text:   "<p><hr /></p><p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p><p><span id=\"htAgeMsg\"></span></p>",
+						Source: nil,
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2011",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "",
+						Format:      "html",
+						PostMention: "",
+					},
+					{
+						Text: "",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID)",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "A character used after a mention to include citations.",
+					},
+				},
+			},
+		},
+		Atlas: []atlasTemplateContent{
+			{
+				ID:     "Unique identifier (UUID)",
+				Image:  "Complete path to filename.",
+				Author: "Map author",
+				Index:  "Name shown in the index.",
+				Audio:  "Link to audio file.",
+				Text: []HTText{
+					{
+						Text: "",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID) for the current citation.",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "",
+					},
+				},
+			},
+		},
+	}
 	return al
 }
 
@@ -443,7 +560,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 						IsTable:     false,
 						ImgDesc:     "A description of an image included in the text.",
 						Format:      "markdown or html",
-						PostMention: "A character used after a mention to include citations.",
+						PostMention: "",
 					},
 				},
 			},
@@ -477,7 +594,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 						IsTable:     false,
 						ImgDesc:     "A description of an image included in the text.",
 						Format:      "markdown or html",
-						PostMention: "A character used after a mention to include citations.",
+						PostMention: "",
 					},
 				},
 			},
@@ -586,7 +703,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 				IsTable:     false,
 				ImgDesc:     "A description of an image included in the text.",
 				Format:      "markdown or html",
-				PostMention: "A character used after a mention to include citations.",
+				PostMention: "",
 			},
 		},
 		Prerequisites: []string{"List of prerequisites needed to understand the text."},
@@ -627,7 +744,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 						IsTable:     false,
 						ImgDesc:     "A description of an image included in the text.",
 						Format:      "markdown or html",
-						PostMention: "A character used after a mention to include citations.",
+						PostMention: "",
 					},
 				},
 				People: []FamilyPerson{
@@ -688,7 +805,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 								IsTable:     false,
 								ImgDesc:     "A description of an image included in the text.",
 								Format:      "markdown or html",
-								PostMention: "A character used after a mention to include citations.",
+								PostMention: "",
 							},
 						},
 						Parents: []FamilyPersonParents{
@@ -809,7 +926,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 										IsTable:     false,
 										ImgDesc:     "A description of an image included in the text.",
 										Format:      "markdown or html",
-										PostMention: "A character used after a mention to include citations.",
+										PostMention: "",
 									},
 								},
 								DateTime: FamilyPersonEvent{
@@ -864,7 +981,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 										IsTable:     false,
 										ImgDesc:     "A description of an image included in the text.",
 										Format:      "markdown or html",
-										PostMention: "A character used after a mention to include citations.",
+										PostMention: "",
 									},
 								},
 								AdoptedChild: false,
