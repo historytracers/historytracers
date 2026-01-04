@@ -162,6 +162,10 @@ func (e *TextEditor) createMenu() {
 		selectAllMenuItem,
 	)
 
+	insertMenu := fyne.NewMenu("Insert",
+		fyne.NewMenuItem("Date", e.insertDate),
+	)
+
 	// Tabs menu with shortcuts
 	nextTabMenuItem := fyne.NewMenuItem("Next Tab", e.nextTab)
 	nextTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl}
@@ -196,6 +200,7 @@ func (e *TextEditor) createMenu() {
 	mainMenu := fyne.NewMainMenu(
 		fileMenu,
 		editMenu,
+		insertMenu,
 		tabsMenu,
 		windowMenu,
 		helpMenu,
@@ -1106,6 +1111,34 @@ func (e *TextEditor) createFamilyTemplate() Family {
 }
 
 // Edit operations
+func (e *TextEditor) insertDate() {
+	if e.currentDoc == nil {
+		return
+	}
+
+	date := HTDate{
+		DateType: "gregory",
+		Year:     "2010",
+		Month:    "",
+		Day:      "",
+	}
+
+	jsonData, err := json.MarshalIndent(date, "", "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	// This is a workaround to insert text at the cursor position.
+	// It's not ideal, but Fyne's Entry widget doesn't have a direct "insert at cursor" method.
+	// We simulate a paste operation.
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(string(jsonData))
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
 func (e *TextEditor) cutText() {
 	if e.currentDoc != nil {
 		e.currentDoc.content.TypedShortcut(&fyne.ShortcutCut{Clipboard: e.window.Clipboard()})
