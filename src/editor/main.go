@@ -5,6 +5,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"regexp"
 	"strings"
 
 	"fmt"
@@ -15,6 +16,7 @@ import (
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/driver/desktop"
+	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 )
@@ -161,6 +163,10 @@ func (e *TextEditor) createMenu() {
 		selectAllMenuItem,
 	)
 
+	insertMenu := fyne.NewMenu("Insert",
+		fyne.NewMenuItem("Date", e.insertDate),
+	)
+
 	// Tabs menu with shortcuts
 	nextTabMenuItem := fyne.NewMenuItem("Next Tab", e.nextTab)
 	nextTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl}
@@ -195,6 +201,7 @@ func (e *TextEditor) createMenu() {
 	mainMenu := fyne.NewMainMenu(
 		fileMenu,
 		editMenu,
+		insertMenu,
 		tabsMenu,
 		windowMenu,
 		helpMenu,
@@ -290,6 +297,11 @@ func (e *TextEditor) showTemplateWindow() {
 	e.templateWindow = e.app.NewWindow("Load Template")
 	e.templateWindow.Resize(fyne.NewSize(500, 400))
 
+	atlasBtn := widget.NewButton("Atlas Template", func() {
+		e.loadTemplate("atlas")
+		e.templateWindow.Close()
+	})
+
 	classBtn := widget.NewButton("Class Template", func() {
 		e.loadTemplate("class")
 		e.templateWindow.Close()
@@ -300,19 +312,29 @@ func (e *TextEditor) showTemplateWindow() {
 		e.templateWindow.Close()
 	})
 
+	sourceBtn := widget.NewButton("Source Template", func() {
+		e.loadTemplate("source")
+		e.templateWindow.Close()
+	})
+
 	// Add descriptions
 	content := container.NewVBox(
 		widget.NewLabel("Creates a new Atlas document structure"),
 		widget.NewSeparator(),
-		classBtn,
+		container.NewHBox(layout.NewSpacer(), atlasBtn, layout.NewSpacer()),
 		widget.NewLabel("Creates a new Class document structure"),
 		widget.NewSeparator(),
-		familyBtn,
+		container.NewHBox(layout.NewSpacer(), classBtn, layout.NewSpacer()),
 		widget.NewLabel("Creates a new Family document structure"),
 		widget.NewSeparator(),
-		widget.NewButton("Close", func() {
+		container.NewHBox(layout.NewSpacer(), familyBtn, layout.NewSpacer()),
+		widget.NewLabel("Creates a new Source document structure"),
+		widget.NewSeparator(),
+		container.NewHBox(layout.NewSpacer(), sourceBtn, layout.NewSpacer()),
+		widget.NewSeparator(),
+		container.NewHBox(layout.NewSpacer(), widget.NewButton("Close", func() {
 			e.templateWindow.Close()
-		}),
+		}), layout.NewSpacer()),
 	)
 
 	e.templateWindow.SetContent(content)
@@ -325,10 +347,14 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	var err error
 
 	switch templateType {
+	case "atlas":
+		templateData = e.createAtlasTemplate()
 	case "class":
 		templateData = e.createClassTemplate()
 	case "family":
 		templateData = e.createFamilyTemplate()
+	case "source":
+		templateData = e.createSourceTemplate()
 	default:
 		dialog.ShowError(fmt.Errorf("Unknown template type: %s", templateType), e.window)
 		return
@@ -352,6 +378,185 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	doc.content.SetText(jsonStr)
 	doc.isModified = true
 	e.updateTabTitle(doc)
+}
+
+func (e *TextEditor) createSourceTemplate() HTSourceFile {
+	ct := htUpdateTimestamp()
+	src := HTSourceFile{
+		License: []string{
+			"SPDX-License-Identifier: GPL-3.0-or-later",
+			"CC BY-NC 4.0 DEED",
+		},
+		LastUpdate: []string{ct},
+		Version:    1,
+		Type:       "sources",
+		PrimarySources: []HTSourceElement{
+			{
+				ID:          "Unique identifier for the specific primary source.",
+				Citation:    "Citation for the primary source.",
+				Date:        "",
+				PublishDate: "Date when the paper was published.",
+				URL:         "External link to access the paper/book.",
+			},
+		},
+		ReferencesSources: []HTSourceElement{
+			{
+				ID:          "160fb48c-1711-491e-a1aa-e1257e7889af",
+				Citation:    "Norma Giarraca (comp.), con colaboración de Miguel Teubal ... [et.al.] (2011). Bicentenarios ( Otros ) Transiciones Y Resistencias, Buenos Aires, Una Ventana. ISBN 978-987-25376-4-7",
+				Date:        "2024-05-11",
+				PublishDate: "2011",
+				URL:         "https://www.ceapedi.com.ar/Imagenes/Biblioteca/libreria/298.pdf",
+			},
+			{
+				ID:          "Unique identifier for the specific reference source.",
+				Citation:    "Citation for the reference that discusses a primary source or person.",
+				Date:        "",
+				PublishDate: "Date when the paper was published.",
+				URL:         "External link to access the paper/book.",
+			},
+		},
+		ReligiousSources: []HTSourceElement{
+			{
+				ID:          "Unique identifier for the specific religious source.",
+				Citation:    "Citation for the religious source.",
+				Date:        "",
+				PublishDate: "Date when the paper was published.",
+				URL:         "External link to access the paper/book.",
+			},
+		},
+		SocialMediaSources: []HTSourceElement{
+			{
+				ID:          "Unique identifier for the specific Social Network source.",
+				Citation:    "Citation for the Social Network source.",
+				Date:        "",
+				PublishDate: "Date when the paper was published.",
+				URL:         "External link to access the Social Network.",
+			},
+		},
+	}
+	return src
+}
+
+func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
+	ct := htUpdateTimestamp()
+	al := atlasTemplateFile{
+		Title:   "The name displayed in the application's or page's title bar.",
+		Header:  "The name shown at the top of the page or section.",
+		Sources: []string{""},
+		Scripts: []string{""},
+		Audio: []HTAudio{
+			{
+				URL:      "https://www.historytracers.org/audios/",
+				External: true,
+				Spotify:  false,
+			},
+			{
+				URL:      "https://open.spotify.com/episode/",
+				External: true,
+				Spotify:  true,
+			},
+		},
+		License:    []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
+		LastUpdate: []string{ct},
+		Authors:    []string{""},
+		Reviewers:  []string{""},
+		Type:       "atlas",
+		Version:    2,
+		Editing:    false,
+		Content: []classTemplateContent{
+			{
+				ID: "SECTION_prerequisites",
+				Text: []HTText{
+					{
+						Text:   "<p><hr /></p><p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p><p><span id=\"htAgeMsg\"></span></p>",
+						Source: nil,
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2011",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "",
+						Format:      "html",
+						PostMention: "",
+					},
+					{
+						Text: "",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID)",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "A character used after a mention to include citations.",
+					},
+				},
+			},
+		},
+		Atlas: []atlasTemplateContent{
+			{
+				ID:     "Unique identifier (UUID)",
+				Image:  "Complete path to filename.",
+				Author: "Map author",
+				Index:  "Name shown in the index.",
+				Audio:  "Link to audio file.",
+				Text: []HTText{
+					{
+						Text: "",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID) for the current citation.",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "",
+					},
+				},
+			},
+		},
+	}
+	return al
 }
 
 func (e *TextEditor) createClassTemplate() classTemplateFile {
@@ -428,7 +633,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 						IsTable:     false,
 						ImgDesc:     "A description of an image included in the text.",
 						Format:      "markdown or html",
-						PostMention: "A character used after a mention to include citations.",
+						PostMention: "",
 					},
 				},
 			},
@@ -462,7 +667,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 						IsTable:     false,
 						ImgDesc:     "A description of an image included in the text.",
 						Format:      "markdown or html",
-						PostMention: "A character used after a mention to include citations.",
+						PostMention: "",
 					},
 				},
 			},
@@ -571,7 +776,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 				IsTable:     false,
 				ImgDesc:     "A description of an image included in the text.",
 				Format:      "markdown or html",
-				PostMention: "A character used after a mention to include citations.",
+				PostMention: "",
 			},
 		},
 		Prerequisites: []string{"List of prerequisites needed to understand the text."},
@@ -612,7 +817,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 						IsTable:     false,
 						ImgDesc:     "A description of an image included in the text.",
 						Format:      "markdown or html",
-						PostMention: "A character used after a mention to include citations.",
+						PostMention: "",
 					},
 				},
 				People: []FamilyPerson{
@@ -673,7 +878,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 								IsTable:     false,
 								ImgDesc:     "A description of an image included in the text.",
 								Format:      "markdown or html",
-								PostMention: "A character used after a mention to include citations.",
+								PostMention: "",
 							},
 						},
 						Parents: []FamilyPersonParents{
@@ -794,7 +999,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 										IsTable:     false,
 										ImgDesc:     "A description of an image included in the text.",
 										Format:      "markdown or html",
-										PostMention: "A character used after a mention to include citations.",
+										PostMention: "",
 									},
 								},
 								DateTime: FamilyPersonEvent{
@@ -849,7 +1054,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 										IsTable:     false,
 										ImgDesc:     "A description of an image included in the text.",
 										Format:      "markdown or html",
-										PostMention: "A character used after a mention to include citations.",
+										PostMention: "",
 									},
 								},
 								AdoptedChild: false,
@@ -907,6 +1112,120 @@ func (e *TextEditor) createFamilyTemplate() Family {
 }
 
 // Edit operations
+func (e *TextEditor) isInsideDateArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:date|date_time)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
+func (e *TextEditor) insertDate() {
+
+	isInside, cursorPos := e.isInsideDateArray()
+
+	if !isInside {
+
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"date_time\" or \"date\" JSON array"), e.window)
+
+		return
+
+	}
+
+	if e.currentDoc == nil {
+
+		return
+
+	}
+
+	date := HTDate{
+
+		DateType: "gregory",
+
+		Year: "2010",
+
+		Month: "",
+
+		Day: "",
+	}
+
+	jsonData, err := json.MarshalIndent(date, "", "  ")
+
+	if err != nil {
+
+		dialog.ShowError(err, e.window)
+
+		return
+
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+
+		if lastChar != '[' && lastChar != ',' {
+
+			insertText = ",\n" + insertText
+
+		}
+
+	}
+
+	content := e.currentDoc.content
+
+	oldClipboard := e.window.Clipboard().Content()
+
+	e.window.Clipboard().SetContent(insertText)
+
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+
+	e.window.Clipboard().SetContent(oldClipboard)
+
+}
+
 func (e *TextEditor) cutText() {
 	if e.currentDoc != nil {
 		e.currentDoc.content.TypedShortcut(&fyne.ShortcutCut{Clipboard: e.window.Clipboard()})

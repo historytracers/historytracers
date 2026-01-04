@@ -567,6 +567,54 @@ func htGetLastChar(line string) (rune, bool) {
 	return []rune(trimmed)[len([]rune(trimmed))-1], true
 }
 
+var romanCache map[string]int = make(map[string]int)
+
+var romanValues map[rune]int = map[rune]int{
+	'I': 1,
+	'V': 5,
+	'X': 10,
+	'L': 50,
+	'C': 100,
+	'D': 500,
+	'M': 1000,
+}
+
+func htRomanToInt(roman string) int {
+	if val, ok := romanCache[roman]; ok {
+		return val
+	}
+
+	result := 0
+	lastValue := 0
+	for _, r := range roman {
+		value := romanValues[r]
+		if value > lastValue {
+			result += value - 2*lastValue
+		} else {
+			result += value
+		}
+		lastValue = value
+	}
+
+	romanCache[roman] = result
+	return result
+}
+
+func htReplaceRoman(text string) string {
+	re := regexp.MustCompile(`\((Part|Parte) (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XII|XIV|XV|XVI|XVII|XVIII|XIX|XX)\)`)
+
+	return re.ReplaceAllStringFunc(text, func(s string) string {
+		submatches := re.FindStringSubmatch(s)
+		if len(submatches) == 3 {
+			part := submatches[1]
+			roman := submatches[2]
+			decimal := htRomanToInt(roman)
+			return fmt.Sprintf("(%s %d)", part, decimal)
+		}
+		return s
+	})
+}
+
 func htAdjustAudioStringBeforeWrite(str string) string {
 	tableLineRegex := regexp.MustCompile(`(?m)^\+\-+(?:\+\-+)+\+$`)
 	dashLineRegex := regexp.MustCompile(`^\s*-+\s*$`)
@@ -602,22 +650,7 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 
 	ret := final
 
-	// Headers
-	ret = strings.ReplaceAll(ret, "(Part I)", "(Part 1)")
-	ret = strings.ReplaceAll(ret, "(Parte I)", "(Parte 1)")
-	ret = strings.ReplaceAll(ret, "(Part II)", "(Part 2)")
-	ret = strings.ReplaceAll(ret, "(Parte II)", "(Parte 2)")
-	ret = strings.ReplaceAll(ret, "(Part III)", "(Part 3)")
-	ret = strings.ReplaceAll(ret, "(Parte III)", "(Parte 3)")
-	ret = strings.ReplaceAll(ret, "(Parte IV)", "(Parte 4)")
-	ret = strings.ReplaceAll(ret, "(Parte V)", "(Parte 5)")
-	ret = strings.ReplaceAll(ret, "(Parte VI)", "(Parte 6)")
-	ret = strings.ReplaceAll(ret, "(Parte VII)", "(Parte 7)")
-	ret = strings.ReplaceAll(ret, "(Parte VIII)", "(Parte 8)")
-	ret = strings.ReplaceAll(ret, "(Parte IX)", "(Parte 9)")
-	ret = strings.ReplaceAll(ret, "(Parte X)", "(Parte 10)")
-	ret = strings.ReplaceAll(ret, "(Parte XI)", "(Parte 11)")
-	ret = strings.ReplaceAll(ret, "(Parte XII)", "(Parte 12)")
+	ret = htReplaceRoman(ret)
 	ret = strings.ReplaceAll(ret, "|", ".")
 	ret = strings.ReplaceAll(ret, "*", "")
 	ret = strings.ReplaceAll(ret, "( )", "")
