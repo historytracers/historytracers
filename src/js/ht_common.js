@@ -2447,6 +2447,7 @@ function htFillStringOnPage(data, idx, page)
     // Case 3: append to group-map for specific pages
     const allowedPages = [
         "families", "history", "literature", "first_steps",
+        "first_steps_menu", "first_steps_volume2",
         "indigenous_who", "myths_believes", "math_games",
         "historical_events", "biology", "physics", "chemistry"
     ];
