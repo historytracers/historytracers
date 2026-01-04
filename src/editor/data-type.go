@@ -308,3 +308,30 @@ type Family struct {
 	Exercises     []HTExercise `json:"exercise_v2"`
 	DateTime      []HTDate     `json:"date_time"`
 }
+
+// Atlas
+type atlasTemplateContent struct {
+	ID     string   `json:"uuid"`
+	Image  string   `json:"image"`
+	Author string   `json:"author"`
+	Index  string   `json:"index"`
+	Audio  string   `json:"audio"`
+	Text   []HTText `json:"text"`
+}
+
+type atlasTemplateFile struct {
+	Title      string                 `json:"title"`
+	Header     string                 `json:"header"`
+	Sources    []string               `json:"sources"`
+	Scripts    []string               `json:"scripts"`
+	Audio      []HTAudio              `json:"audio"`
+	License    []string               `json:"license"`
+	LastUpdate []string               `json:"last_update"`
+	Authors    []string               `json:"authors"`
+	Reviewers  []string               `json:"reviewers"`
+	Type       string                 `json:"type"`
+	Version    int                    `json:"version"`
+	Editing    bool                   `json:"editing"`
+	Content    []classTemplateContent `json:"content"`
+	Atlas      []atlasTemplateContent `json:"atlas"`
+}

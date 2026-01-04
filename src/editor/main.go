@@ -363,9 +363,9 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	e.updateTabTitle(doc)
 }
 
-func (e *TextEditor) createAtlasTemplate() classTemplateFile {
+func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
 	// ct := htUpdateTimestamp()
-	al := classTemplateFile{}
+	al := atlasTemplateFile{}
 	return al
 }
 
