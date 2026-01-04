@@ -306,6 +306,11 @@ func (e *TextEditor) showTemplateWindow() {
 		e.templateWindow.Close()
 	})
 
+	sourceBtn := widget.NewButton("Source Template", func() {
+		e.loadTemplate("source")
+		e.templateWindow.Close()
+	})
+
 	// Add descriptions
 	content := container.NewVBox(
 		widget.NewLabel("Creates a new Atlas document structure"),
@@ -317,6 +322,9 @@ func (e *TextEditor) showTemplateWindow() {
 		widget.NewLabel("Creates a new Family document structure"),
 		widget.NewSeparator(),
 		container.NewHBox(layout.NewSpacer(), familyBtn, layout.NewSpacer()),
+		widget.NewLabel("Creates a new Source document structure"),
+		widget.NewSeparator(),
+		container.NewHBox(layout.NewSpacer(), sourceBtn, layout.NewSpacer()),
 		widget.NewSeparator(),
 		container.NewHBox(layout.NewSpacer(), widget.NewButton("Close", func() {
 			e.templateWindow.Close()
@@ -339,6 +347,8 @@ func (e *TextEditor) loadTemplate(templateType string) {
 		templateData = e.createClassTemplate()
 	case "family":
 		templateData = e.createFamilyTemplate()
+	case "source":
+		templateData = e.createSourceTemplate()
 	default:
 		dialog.ShowError(fmt.Errorf("Unknown template type: %s", templateType), e.window)
 		return
@@ -365,7 +375,59 @@ func (e *TextEditor) loadTemplate(templateType string) {
 }
 
 func (e *TextEditor) createSourceTemplate() HTSourceFile {
-	src := HTSourceFile{}
+	ct := htUpdateTimestamp()
+	src := HTSourceFile{
+		License: []string{
+			"SPDX-License-Identifier: GPL-3.0-or-later",
+			"CC BY-NC 4.0 DEED",
+		},
+		LastUpdate: []string{ct},
+		Version:    1,
+		Type:       "sources",
+		PrimarySources: []HTSourceElement{
+			{
+				ID:          "Unique identifier for the specific primary source.",
+				Citation:    "Citation for the primary source.",
+				Date:        "",
+				PublishDate: "Date when the paper was published.",
+				URL:         "External link to access the paper/book.",
+			},
+		},
+		ReferencesSources: []HTSourceElement{
+			{
+				ID:          "160fb48c-1711-491e-a1aa-e1257e7889af",
+				Citation:    "Norma Giarraca (comp.), con colaboración de Miguel Teubal ... [et.al.] (2011). Bicentenarios ( Otros ) Transiciones Y Resistencias, Buenos Aires, Una Ventana. ISBN 978-987-25376-4-7",
+				Date:        "2024-05-11",
+				PublishDate: "2011",
+				URL:         "https://www.ceapedi.com.ar/Imagenes/Biblioteca/libreria/298.pdf",
+			},
+			{
+				ID:          "Unique identifier for the specific reference source.",
+				Citation:    "Citation for the reference that discusses a primary source or person.",
+				Date:        "",
+				PublishDate: "Date when the paper was published.",
+				URL:         "External link to access the paper/book.",
+			},
+		},
+		ReligiousSources: []HTSourceElement{
+			{
+				ID:          "Unique identifier for the specific religious source.",
+				Citation:    "Citation for the religious source.",
+				Date:        "",
+				PublishDate: "Date when the paper was published.",
+				URL:         "External link to access the paper/book.",
+			},
+		},
+		SocialMediaSources: []HTSourceElement{
+			{
+				ID:          "Unique identifier for the specific Social Network source.",
+				Citation:    "Citation for the Social Network source.",
+				Date:        "",
+				PublishDate: "Date when the paper was published.",
+				URL:         "External link to access the Social Network.",
+			},
+		},
+	}
 	return src
 }
 
