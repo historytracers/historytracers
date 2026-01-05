@@ -169,6 +169,7 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("Source", e.insertSource),
 		fyne.NewMenuItem("Text", e.insertText),
 		fyne.NewMenuItem("Exercise", e.insertExercise),
+		fyne.NewMenuItem("Game", e.insertGame),
 	)
 
 	// Tabs menu with shortcuts
@@ -1341,6 +1342,51 @@ func (e *TextEditor) isInsideExerciseArray() (bool, int) {
 	return false, -1
 }
 
+func (e *TextEditor) isInsideGameArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:game_v2)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
 func (e *TextEditor) getIndentationForInsertion(cursorPos int) string {
 	if e.currentDoc == nil {
 		return ""
@@ -1658,6 +1704,55 @@ func (e *TextEditor) insertExercise() {
 
 	indentation := e.getIndentationForInsertion(cursorPos)
 	jsonData, err := json.MarshalIndent(exercise, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertGame() {
+	isInside, cursorPos := e.isInsideGameArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"game_v2\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	game := HTGameDesc{
+		ImagePath: "The image path.",
+		ImageDesc: "A description for the associated image.",
+		DateTime: []HTDate{
+			{
+				DateType: "gregory",
+				Year:     "2010",
+				Month:    "",
+				Day:      "",
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(game, indentation, "  ")
 	if err != nil {
 		dialog.ShowError(err, e.window)
 		return
