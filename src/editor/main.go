@@ -136,14 +136,14 @@ func (e *TextEditor) createMenu() {
 		newMenuItem,
 		openMenuItem,
 		openInNewTabMenuItem,
+		loadTemplateMenuItem,
+		fyne.NewMenuItemSeparator(),
 		saveMenuItem,
 		saveAsMenuItem,
 		saveAllMenuItem,
 		fyne.NewMenuItemSeparator(),
 		closeTabMenuItem,
 		closeAllTabsMenuItem,
-		fyne.NewMenuItemSeparator(),
-		loadTemplateMenuItem,
 	)
 
 	// Edit menu with shortcuts
@@ -172,12 +172,15 @@ func (e *TextEditor) createMenu() {
 	toolsMenuItem.ChildMenu = toolsMenu
 
 	insertMenu := fyne.NewMenu("Insert",
-		fyne.NewMenuItem("Date", e.insertDate),
-		fyne.NewMenuItem("Source", e.insertSource),
-		fyne.NewMenuItem("Text", e.insertText),
+		fyne.NewMenuItem("Content", nil),
 		toolsMenuItem,
 		fyne.NewMenuItemSeparator(),
 		fyne.NewMenuItem("Family", e.insertFamily),
+	)
+	insertMenu.Items[0].ChildMenu = fyne.NewMenu("Content",
+		fyne.NewMenuItem("Date", e.insertDate),
+		fyne.NewMenuItem("Source", e.insertSource),
+		fyne.NewMenuItem("Text", e.insertText),
 	)
 
 	// Tabs menu with shortcuts
