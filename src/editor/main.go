@@ -163,13 +163,19 @@ func (e *TextEditor) createMenu() {
 		selectAllMenuItem,
 	)
 
-	insertMenu := fyne.NewMenu("Insert",
+	toolsMenu := fyne.NewMenu("Tools",
 		fyne.NewMenuItem("Audio", e.insertAudio),
+		fyne.NewMenuItem("Exercise", e.insertExercise),
+		fyne.NewMenuItem("Game", e.insertGame),
+	)
+	toolsMenuItem := fyne.NewMenuItem("Tools", nil)
+	toolsMenuItem.ChildMenu = toolsMenu
+
+	insertMenu := fyne.NewMenu("Insert",
 		fyne.NewMenuItem("Date", e.insertDate),
 		fyne.NewMenuItem("Source", e.insertSource),
 		fyne.NewMenuItem("Text", e.insertText),
-		fyne.NewMenuItem("Exercise", e.insertExercise),
-		fyne.NewMenuItem("Game", e.insertGame),
+		toolsMenuItem,
 		fyne.NewMenuItemSeparator(),
 		fyne.NewMenuItem("Family", e.insertFamily),
 	)
