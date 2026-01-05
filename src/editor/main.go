@@ -1295,6 +1295,54 @@ func (e *TextEditor) isInsideDateArray() (bool, int) {
 	return false, -1
 }
 
+func (e *TextEditor) getIndentationForInsertion(cursorPos int) string {
+	if e.currentDoc == nil {
+		return ""
+	}
+	fullText := e.currentDoc.content.Text
+	lineStart := strings.LastIndex(fullText[:cursorPos], "\n") + 1
+
+	line := fullText[lineStart:]
+	if endOfLine := strings.Index(line, "\n"); endOfLine != -1 {
+		line = line[:endOfLine]
+	}
+
+	indentation := ""
+	// Extract indentation from the current line
+	for _, r := range line {
+		if r == ' ' || r == '\t' {
+			indentation += string(r)
+		} else {
+			break
+		}
+	}
+
+	// If current line is empty, try to derive from previous line
+	if strings.TrimSpace(line) == "" {
+		if lineStart > 0 {
+			textBefore := fullText[:lineStart-1]
+			prevLineStart := strings.LastIndex(textBefore, "\n") + 1
+			prevLine := fullText[prevLineStart : lineStart-1]
+
+			prevLineIndentation := ""
+			for _, r := range prevLine {
+				if r == ' ' || r == '\t' {
+					prevLineIndentation += string(r)
+				} else {
+					break
+				}
+			}
+
+			indentation = prevLineIndentation
+			trimmedPrevLine := strings.TrimSpace(prevLine)
+			if strings.HasSuffix(trimmedPrevLine, "[") || strings.HasSuffix(trimmedPrevLine, "{") {
+				indentation += "  "
+			}
+		}
+	}
+	return indentation
+}
+
 func (e *TextEditor) insertAudio() {
 
 	isInside, cursorPos := e.isInsideAudioArray()
@@ -1319,7 +1367,8 @@ func (e *TextEditor) insertAudio() {
 		Spotify:  false,
 	}
 
-	jsonData, err := json.MarshalIndent(audio, "", "  ")
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(audio, indentation, "  ")
 
 	if err != nil {
 
@@ -1388,7 +1437,8 @@ func (e *TextEditor) insertDate() {
 		Day: "",
 	}
 
-	jsonData, err := json.MarshalIndent(date, "", "  ")
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(date, indentation, "  ")
 
 	if err != nil {
 
@@ -1452,7 +1502,8 @@ func (e *TextEditor) insertSource() {
 		},
 	}
 
-	jsonData, err := json.MarshalIndent(source, "", "  ")
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(source, indentation, "  ")
 	if err != nil {
 		dialog.ShowError(err, e.window)
 		return
@@ -1517,7 +1568,8 @@ func (e *TextEditor) insertText() {
 		PostMention: "",
 	}
 
-	jsonData, err := json.MarshalIndent(text, "", "  ")
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(text, indentation, "  ")
 	if err != nil {
 		dialog.ShowError(err, e.window)
 		return
