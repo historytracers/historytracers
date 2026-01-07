@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1767740264"
+      "1767799089"
    ],
    "authors": null,
    "reviewers": null,
@@ -91,7 +91,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><svg width=\"450\" height=\"100\"  fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"15\" x2=\"440\" y2=\"15\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"40\" font-size=\"1.5em\">0</text> <text x=\"40\" y=\"40\" font-size=\"1.5em\">1</text> <text x=\"80\" y=\"40\" font-size=\"1.5em\">2</text> <text x=\"120\" y=\"40\" font-size=\"1.5em\">3</text> <text x=\"160\" y=\"40\" font-size=\"1.5em\">4</text> <text x=\"200\" y=\"40\" font-size=\"1.5em\">5</text> <text x=\"240\" y=\"40\" font-size=\"1.5em\">6</text> <text x=\"280\" y=\"40\" font-size=\"1.5em\">7</text> <text x=\"320\" y=\"40\" font-size=\"1.5em\">8</text> <text x=\"360\" y=\"40\" font-size=\"1.5em\">9</text> <text x=\"400\" y=\"40\" font-size=\"1.5em\">10</text> <line x1=\"5\" y1=\"15\" x2=\"5\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"45\" y1=\"15\" x2=\"45\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"15\" x2=\"85\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"125\" y1=\"15\" x2=\"125\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"165\" y1=\"15\" x2=\"165\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"205\" y1=\"15\" x2=\"205\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"245\" y1=\"15\" x2=\"245\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"285\" y1=\"15\" x2=\"285\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"325\" y1=\"15\" x2=\"325\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"365\" y1=\"15\" x2=\"365\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"410\" y1=\"15\" x2=\"410\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" />  </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representación de un camino.</p>",
+               "text": "<p class=\"desc\"><svg width=\"450\" height=\"140\" fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"110\" x2=\"440\" y2=\"110\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"135\" font-size=\"1.5em\">0</text> <text x=\"41\" y=\"135\" font-size=\"1.5em\">1</text> <text x=\"82\" y=\"135\" font-size=\"1.5em\">2</text> <text x=\"123\" y=\"135\" font-size=\"1.5em\">3</text> <text x=\"164\" y=\"135\" font-size=\"1.5em\">4</text> <text x=\"205\" y=\"135\" font-size=\"1.5em\">5</text> <text x=\"246\" y=\"135\" font-size=\"1.5em\">6</text> <text x=\"287\" y=\"135\" font-size=\"1.5em\">7</text> <text x=\"328\" y=\"135\" font-size=\"1.5em\">8</text> <text x=\"369\" y=\"135\" font-size=\"1.5em\">9</text> <text x=\"405\" y=\"135\" font-size=\"1.5em\">10</text> <line x1=\"3\" y1=\"110\" x2=\"3\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"44\" y1=\"110\" x2=\"44\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"110\" x2=\"85\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"126\" y1=\"110\" x2=\"126\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"167\" y1=\"110\" x2=\"167\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"208\" y1=\"110\" x2=\"208\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"249\" y1=\"110\" x2=\"249\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"290\" y1=\"110\" x2=\"290\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"331\" y1=\"110\" x2=\"331\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"372\" y1=\"110\" x2=\"372\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"413\" y1=\"110\" x2=\"413\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representación de un camino.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -181,13 +181,144 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_next_step",
+         "text": [
+            {
+               "text": "### Fraccionando nuevamente\n\nEl rectángulo que ocupa el ancho de todos los números del **Gráfico 2** no resuelve nuestro problema de completar los valores entre los números, ya que es mayor que cualquier intervalo entre ellos.\n\nSi un rectángulo entero no resuelve el problema del relleno, nuestra solución es repetir lo que el universo realizó y fraccionar el todo (<htcite0>; <htcite1>). Comencemos observando nuestras manos (**Figura 2**):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "112e532d-e8af-40d6-b1b5-527978ee42f3",
+                     "text": "History Tracers Team",
+                     "page": "Dos Lados",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b6f9bd52-c0cb-497e-9217-1f9677d5b491",
+                     "text": "History Tracers Team",
+                     "page": "Ampliando...",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mano izquierda</td><td>Mano derecha</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/HistoryTracers/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/HistoryTracers/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\"><b>Figura 2</b>: Representación de las manos. Código fuente disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, La Fuente</a>)</td></tr></table></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En la figura, se observan las dos manos de una persona extendidas con todos los dedos levantados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ahora, comparando las manos (**Figura 2**) con los **Gráficos 1 y 2**, podemos concluir que nuestros dedos tienen exactamente el mismo número de espacios, a pesar de que tenemos 11 números en los gráficos. Esto puede confirmarse restando cada número del anterior en el **Gráfico 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>1</mn> <mo>-</mo> <mn>0</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>2</mn> <mo>-</mo> <mn>1</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>3</mn> <mo>-</mo> <mn>2</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>4</mn> <mo>-</mo> <mn>3</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>5</mn> <mo>-</mo> <mn>4</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>6</mn> <mo>-</mo> <mn>5</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>7</mn> <mo>-</mo> <mn>6</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>8</mn> <mo>-</mo> <mn>7</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>9</mn> <mo>-</mo> <mn>8</mn> <mo>=</mo> <mn>1</mn> </math></p><p><math display=\"block\"> <mn>10</mn> <mo>-</mo> <mn>9</mn> <mo>=</mo> <mn>1</mn> </math></p><p class=\"desc\"><b>Cálculo 1</b>: Midiendo los espacios entre los números.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Luego, sumamos todos los resultados. Como todos tienen el mismo valor, no necesitamos sumar uno por uno; en cambio, podemos multiplicar el total de resultados por 1 (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando los mismos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"> <mn>10</mn> <mo>×</mo> <mn>1</mn> <mo>=</mo> <mn>10</mn> </math></p><p class=\"desc\"><b>Cálculo 2</b>: Contando el número de espacios en el <b>Gráfico 1</b>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ante este escenario, vamos a dividir el rectángulo del **Gráfico 2** en 10 rectángulos de la misma altura, con un ancho de longitud 1:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg width=\"450\" height=\"140\" fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"110\" x2=\"440\" y2=\"110\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"135\" font-size=\"1.5em\">0</text> <text x=\"41\" y=\"135\" font-size=\"1.5em\">1</text> <text x=\"82\" y=\"135\" font-size=\"1.5em\">2</text> <text x=\"123\" y=\"135\" font-size=\"1.5em\">3</text> <text x=\"164\" y=\"135\" font-size=\"1.5em\">4</text> <text x=\"205\" y=\"135\" font-size=\"1.5em\">5</text> <text x=\"246\" y=\"135\" font-size=\"1.5em\">6</text> <text x=\"287\" y=\"135\" font-size=\"1.5em\">7</text> <text x=\"328\" y=\"135\" font-size=\"1.5em\">8</text> <text x=\"369\" y=\"135\" font-size=\"1.5em\">9</text> <text x=\"405\" y=\"135\" font-size=\"1.5em\">10</text> <line x1=\"3\" y1=\"110\" x2=\"3\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"44\" y1=\"110\" x2=\"44\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"110\" x2=\"85\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"126\" y1=\"110\" x2=\"126\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"167\" y1=\"110\" x2=\"167\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"208\" y1=\"110\" x2=\"208\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"249\" y1=\"110\" x2=\"249\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"290\" y1=\"110\" x2=\"290\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"331\" y1=\"110\" x2=\"331\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"372\" y1=\"110\" x2=\"372\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"413\" y1=\"110\" x2=\"413\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <rect x=\"2\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"43\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/>  <rect x=\"84\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/>  <rect x=\"125\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/>  <rect x=\"166\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"207\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"248\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"289\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"330\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"370\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/></svg></p><p class=\"desc\"><b>Gráfico 3</b>: Representación de 10 rectángulos sobre una trayectoria.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Casi allí</b><br /><br />Lo que hemos visto hasta ahora muestra que el <b>Gráfico 3</b>, aunque no es la solución completa, nos da un primer paso hacia la mejor comprensión de los resultados entre los números.<br /><br />Utilizando la idea de los rectángulos y la operación de división, ¿cómo completarías con números el espacio entre 0 y 1?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
+         "question": "Para medir o comprimento de algo, colocamos o zero em um extremo, e vemos o tamanho que ele possuí no outro extremo de um caminho com marcações númericas?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "additionalInfo": "Conforme pode ser observado no Gráfico 2, o retângulo possuí exatamente a largura 10. Isto é reforçado pelos Cálculos 1 e 2 que confirmam este comprimento."
       }
    ],
    "game_v2": null,
