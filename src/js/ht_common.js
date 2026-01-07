@@ -1589,7 +1589,7 @@ function htSelectIndexName(index) {
     const map = {
         families: keywords[8],
         first_steps: keywords[121],
-        first_steps_volume2: keywords[121],
+        first_steps_volume2: keywords[136],
         atlas: "Atlas",
         literature: keywords[122],
         indigenous_who: keywords[123],
