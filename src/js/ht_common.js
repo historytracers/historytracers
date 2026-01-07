@@ -30,6 +30,7 @@ var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htHistoryIdx = new Map();
 var htFirstStepsIdx = new Map();
+var htFirstStepsVolume2Idx = new Map();
 var htMathGamesIdx = new Map();
 var htIndigenousWhoIdx = new Map();
 var htMythsBelievesIdx = new Map();
@@ -119,6 +120,7 @@ function htResetAllIndexes()
         htLiteratureIdx,
         htHistoryIdx,
         htFirstStepsIdx,
+        htFirstStepsVolume2Idx,
         htMathGamesIdx,
         htFamilyIdx,
         htIndigenousWhoIdx,
@@ -1569,6 +1571,7 @@ function htSelectIndexMap(index)
         history: htHistoryIdx,
         literature: htLiteratureIdx,
         first_steps: htFirstStepsIdx,
+        first_steps_volume2: htFirstStepsVolume2Idx,
         math_games: htMathGamesIdx,
         families: htFamilyIdx,
         indigenous_who: htIndigenousWhoIdx,
@@ -1586,6 +1589,7 @@ function htSelectIndexName(index) {
     const map = {
         families: keywords[8],
         first_steps: keywords[121],
+        first_steps_volume2: keywords[121],
         atlas: "Atlas",
         literature: keywords[122],
         indigenous_who: keywords[123],
@@ -2805,6 +2809,7 @@ function htLoadIndex(data, arg, page)
         chemistry: htChemicalIdx,
         families: htFamilyIdx,
         first_steps: htFirstStepsIdx,
+        first_steps_volume2: htFirstStepsVolume2Idx,
         history: htHistoryIdx,
         historical_events: htHistoricalEventsIdx,
         indigenous_who: htIndigenousWhoIdx,
