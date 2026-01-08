@@ -244,54 +244,162 @@ func (e *TextEditor) toggleToolbar() {
 }
 
 func (e *TextEditor) showSettingsWindow() {
+
 	settingsWindow := e.app.NewWindow("Settings")
+
 	settingsWindow.Resize(fyne.NewSize(400, 300))
 
+	htload := widget.NewButton("Load HT File", func() {
+
+		e.openHTFile()
+
+	})
+
+	htsave := widget.NewButton("Save HT File", func() {
+
+		e.saveHTFile()
+
+	})
+
+	htexport := widget.NewButton("Export HT File", func() {
+
+		e.exportHTFile()
+
+	})
+
+	configDir, err := os.UserConfigDir()
+
+	if err != nil {
+
+		settingsWindow.SetContent(container.NewVBox(
+
+			widget.NewLabel("Failed to get config dir"),
+		))
+
+		CFG = NewHTConfig()
+
+	} else {
+
+		localPath := filepath.Join(configDir, SoftwareName+"/"+LocalConfigFile)
+
+		if _, err := os.Stat(localPath); os.IsNotExist(err) {
+
+			if err := HTCreateConfig(localPath); err != nil {
+
+				settingsWindow.SetContent(container.NewVBox(
+
+					widget.NewLabel("Failed to create config"),
+				))
+
+				CFG = NewHTConfig()
+
+			}
+
+		} else {
+
+			if err := HTParseConfig(localPath); err != nil {
+
+				settingsWindow.SetContent(container.NewVBox(
+
+					widget.NewLabel("Failed to read config"),
+				))
+
+				CFG = NewHTConfig()
+
+			}
+
+		}
+
+	}
+
 	portEntry := widget.NewEntry()
+
 	portEntry.SetText(fmt.Sprintf("%d", CFG.Port))
 
 	srcPathEntry := widget.NewEntry()
+
 	srcPathEntry.SetText(CFG.SrcPath)
 
 	contentPathEntry := widget.NewEntry()
+
 	contentPathEntry.SetText(CFG.ContentPath)
 
 	logPathEntry := widget.NewEntry()
+
 	logPathEntry.SetText(CFG.LogPath)
 
 	confPathEntry := widget.NewEntry()
+
 	confPathEntry.SetText(CFG.ConfPath)
 
 	form := &widget.Form{
+
 		Items: []*widget.FormItem{
+
 			{Text: "Port", Widget: portEntry},
+
 			{Text: "Source Path", Widget: srcPathEntry},
+
 			{Text: "Content Path", Widget: contentPathEntry},
+
 			{Text: "Log Path", Widget: logPathEntry},
+
 			{Text: "Config Path", Widget: confPathEntry},
 		},
+
 		OnSubmit: func() {
+
 			fmt.Sscan(portEntry.Text, &CFG.Port)
+
 			CFG.SrcPath = srcPathEntry.Text
+
 			CFG.ContentPath = contentPathEntry.Text
+
 			CFG.LogPath = logPathEntry.Text
+
 			CFG.ConfPath = confPathEntry.Text
 
 			configDir, err := os.UserConfigDir()
+
 			if err != nil {
+
 				dialog.ShowError(err, e.window)
+
 				return
+
 			}
+
 			localPath := filepath.Join(configDir, SoftwareName+"/"+LocalConfigFile)
+
 			if err := HTCreateConfig(localPath); err != nil {
+
 				dialog.ShowError(err, e.window)
+
 			}
+
 			settingsWindow.Close()
+
 		},
 	}
 
-	settingsWindow.SetContent(container.NewVBox(form))
+	settingsWindow.SetContent(container.NewVBox(
+
+		widget.NewLabel("Settings"),
+
+		container.NewGridWithColumns(3,
+
+			htload,
+
+			htsave,
+
+			htexport,
+		),
+
+		form,
+	))
+
 	settingsWindow.Show()
+
 }
 
 func (e *TextEditor) createEditorContent(doc *Document) fyne.CanvasObject {
@@ -2291,7 +2399,12 @@ func (e *TextEditor) updateStatus(message string) {
 	e.statusBar.SetText(message)
 }
 
+func (e *TextEditor) showSettings() {
+	e.showSettingsWindow()
+}
+
 func (e *TextEditor) Run() {
+	go e.showSettings()
 	e.window.ShowAndRun()
 }
 
