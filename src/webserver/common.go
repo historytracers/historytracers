@@ -22,7 +22,7 @@ import (
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
 
-var indexFiles []string = []string{"first_steps", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology", "history"}
+var indexFiles []string = []string{"first_steps_menu", "first_steps", "first_steps_volume2", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology", "history"}
 
 var commonKeywords []string
 var mathKeywords []string
