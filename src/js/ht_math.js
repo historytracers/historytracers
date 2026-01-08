@@ -704,3 +704,31 @@ function htFillWriteMesoTableHeader(tableId, horizontalVector) {
     $tableElement.append(table);
 }
 
+// Cosine
+function htCosineValues(quadrants) {
+    var values = { x: [], y []};
+
+    var end = (2 * Math.PI)/parseFloat(quadrants);
+    var move = end/25.0;
+    for (let i = 0; i < end; i += move) {
+        values.x.push(i);
+        values.y.push(Math.cos(i));
+    }
+
+    return values;
+}
+
+// Sine
+function htSineValues(quadrants) {
+    var values = { x: [], y []};
+
+    var end = (2 * Math.PI)/parseFloat(quadrants);
+    var move = end/25.0;
+    for (let i = 0; i < end; i += move) {
+        values.x.push(i);
+        values.y.push(Math.sin(i));
+    }
+
+    return values;
+}
+
