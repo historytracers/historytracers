@@ -798,7 +798,7 @@ function htPlotSineCosine(target, cosine, sine, quadrants) {
         "xType" : "linear",
         "datasetFill" : false,
         "ymin": (quadrants < 2)? 0: -1,
-        "ymax": 1,
+        "ymax": 1.2,
         "useCallBack": false
     };
     return htPlotConstantContinuousChart(chartOptions);

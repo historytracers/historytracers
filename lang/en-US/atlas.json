@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1767924229"
+      "1767965546"
    ],
    "authors": null,
    "reviewers": null,
@@ -3073,6 +3073,55 @@
             },
             {
                "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcos0\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 1</b>: Graph of the cosine function for the first quadrant of the circle. Graph created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p><script> htPlotSineCosine('chartcos0', true, false, 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Values of the Sine Function\n\nJust as with the cosine function, we recommend reading the text dedicated to the sine function (<htcite0>) before proceeding. From that text, we extract that the function is defined as:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometry (Sine)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>sin (θ)</mn> <mo>=</mo> <mfrac><mi>opposite leg</mi><mi>hypotenuse</mi></mfrac> <mo>=</mo> <mfrac><mi>b</mi><mi>c</mi></mfrac></p><p class=\"desc\"><b>Formula 2</b>: Definition of the sine of theta (θ).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "**Formula 2** informs us that as the hypotenuse approaches the vertical axis—that is, as we raise it—the projection on the vertical axis increases until it reaches the value one, when the hypotenuse is completely vertical. This means that the sine starts at a minimum value (0) and increases until it reaches the maximum value (1), as shown in **Graph 2**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartsin0\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 2</b>: Graph of the sine function for the first quadrant of the circle. Graph created using the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p><script> htPlotSineCosine('chartsin0', false, true, 1);</script>",
                "source": null,
                "date_time": null,
                "isTable": false,

@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1767924229"
+      "1767965546"
    ],
    "authors": null,
    "reviewers": null,
@@ -3073,6 +3073,55 @@
             },
             {
                "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcos0\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Gráfico da função cosseno para o primeiro quadrante do círculo. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotSineCosine('chartcos0', true, false, 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Valores do seno\n\nDa mesma maneira que para a função cosseno, sugerimos a leitura do texto dedicado à função seno (<htcite0>) antes de prosseguir. Desse texto, extraímos que a função é definida como:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometria (Seno)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>cateto oposto</mi><mi>hipotenusa</mi></mfrac> <mo>=</mo> <mfrac><mi>b</mi><mi>c</mi></mfrac></p><p class=\"desc\"><b>Fórmula 2</b>: Definição do seno de teta (θ).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A **Fórmula 2** nos informa que, à medida que a hipotenusa se aproxima do eixo vertical — ou seja, à medida que a levantamos —, a projeção no eixo vertical vai aumentando até atingir o valor um, quando a hipotenusa está totalmente na vertical. Isso significa que o seno começa com um valor mínimo (0) e aumenta até atingir o valor máximo (1), como demonstrado no **Gráfico 2**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartsin0\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Gráfico da função seno para o primeiro quadrante do círculo. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotSineCosine('chartsin0', false, true, 1);</script>",
                "source": null,
                "date_time": null,
                "isTable": false,
