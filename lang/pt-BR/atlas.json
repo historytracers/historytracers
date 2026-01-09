@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1766974681"
+      "1767969216"
    ],
    "authors": null,
    "reviewers": null,
@@ -2963,6 +2963,232 @@
             },
             {
                "text": "#### Conclusão\n\nNeste texto, vimos que existem diferentes maneiras de expressar um caminho percorrido. Independentemente da abordagem utilizada, os deslocamentos horizontal e vertical são tratados de forma independente, embora ambos representem a distância total percorrida.\n\nAlém disso, observamos, por meio do Teorema de Pitágoras, que as relações entre as projeções da hipotenusa sobre seus catetos também podem ser descritas utilizando o cosseno e o seno do ângulo formado entre a hipotenusa e a horizontal.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "uuid": "47db4900-f8b8-48ce-90d6-def1961e7f1a",
+         "image": "",
+         "author": "",
+         "index": "Caminhando sobre o disco",
+         "audio": "https://www.historytracers.org/audios/47db4900-f8b8-48ce-90d6-def1961e7f1a_pt-BR.ogg",
+         "text": [
+            {
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path class=\"radius-30\" d=\"M 320 147 A 30 30 0 0 1 340.0 170.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"300\" y1=\"169\" x2=\"470\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"448\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"169\" x2=\"406\" y2=\"66\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"66\" x2=\"406\" y2=\"166\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"188\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"390\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"405\" y=\"182\" font-size=\"1.3em\" font-weight=\"bold\">Q</text>  <text class=\"atlasTextRadius\" x=\"463\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Gráfico 1</b>: Círculo com raio 1 contendo um triângulo retângulo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Caminhando sobre o disco\n\nApós estudarmos como nos localizar por meio de um ponto no círculo (<htcite0>), neste texto começaremos a observar o que ocorre com as funções trigonométricas ao caminharmos sobre o círculo.\n\nDo texto anterior, sabemos que o cosseno ao quadrado e o seno ao quadrado, quando somados, sempre resultam em 1 (<htcite1>), o que nos leva a uma reflexão:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b49ab1bf-e2ad-4c82-a38b-1725cfa9d03f",
+                     "text": "History Tracers Team",
+                     "page": "Onde estamos em um disco?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b49ab1bf-e2ad-4c82-a38b-1725cfa9d03f",
+                     "text": "History Tracers Team",
+                     "page": "Onde estamos em um disco?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: sobre os dados</b><br /><br />Como seriam os gráficos das funções cosseno e seno no primeiro quadrante de um círculo?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Valores do cosseno\n\nPara um melhor entendimento da função cosseno, leia o texto dedicado a ela (<htcite0>). Desse texto, extraímos que a função é definida como:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometria (Cosseno)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>cos (θ)</mn> <mo>=</mo> <mfrac><mi>cateto adjacente</mi><mi>hipotenusa</mi></mfrac> <mo>=</mo> <mfrac><mi>a</mi><mi>c</mi></mfrac></p><p class=\"desc\"><b>Fórmula 1</b>: Definição do cosseno de teta (θ).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A partir da **Fórmula 1**, podemos observar que, à medida que a hipotenusa se afasta do eixo horizontal — ou seja, à medida que a levantamos —, a projeção no eixo horizontal vai se reduzindo até atingir o valor zero, quando a hipotenusa está totalmente na vertical. Isso significa que o cosseno começa com um valor máximo (1) e diminui até atingir o valor mínimo (0), como demonstrado no **Gráfico 1**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcos0\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Gráfico da função cosseno para o primeiro quadrante do círculo. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotSineCosine('chartcos0', true, false, 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Valores do seno\n\nDa mesma maneira que para a função cosseno, sugerimos a leitura do texto dedicado à função seno (<htcite0>) antes de prosseguir. Desse texto, extraímos que a função é definida como:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                     "text": "History Tracers Team",
+                     "page": "Trigonometria (Seno)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>sen (θ)</mn> <mo>=</mo> <mfrac><mi>cateto oposto</mi><mi>hipotenusa</mi></mfrac> <mo>=</mo> <mfrac><mi>b</mi><mi>c</mi></mfrac></p><p class=\"desc\"><b>Fórmula 2</b>: Definição do seno de teta (θ).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A **Fórmula 2** nos informa que, à medida que a hipotenusa se aproxima do eixo vertical — ou seja, à medida que a levantamos —, a projeção no eixo vertical vai aumentando até atingir o valor um, quando a hipotenusa está totalmente na vertical. Isso significa que o seno começa com um valor mínimo (0) e aumenta até atingir o valor máximo (1), como demonstrado no **Gráfico 2**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartsin0\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Gráfico da função seno para o primeiro quadrante do círculo. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotSineCosine('chartsin0', false, true, 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Soma de valores\n\nComparando os **Gráficos 1 e 2**, é possível observar que, à medida que os valores do cosseno diminuem, o valor do seno do ângulo vai aumentando. Do texto anterior (<htcite0>) sabemos que a relação entre os quadrados é dada de acordo com a **Fórmula 3** a seguir:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b49ab1bf-e2ad-4c82-a38b-1725cfa9d03f",
+                     "text": "History Tracers Team",
+                     "page": "Onde estamos em um disco?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>cos&sup2; (θ) + sen&sup2; (θ)</mn> <mn>=</mn> <mi>1</mi></p> <p class=\"desc\"><b>Fórmula 3</b>: Identidade fundamental da trigonometria.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para melhor visualizarmos a relação entre as grandezas, reunimos os resultados das três fórmulas no **Gráfico 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcossin\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Gráfico das funções seno, cosseno e da identidade trigonométrica que as une no primeiro quadrante do círculo. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotSineCosine('chartcossin', true, true, 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: e o resto do círculo?</b><br /><br />Todos os gráficos foram feitos utilizando apenas um quarto do círculo. Essas fórmulas também funcionam para o restante do círculo?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "É tentador querer confirmar que tudo o que estudamos funciona no resto do círculo também. No entanto, neste momento, o mais importante é compreender como tudo funciona antes de generalizarmos. Por esse motivo, afirmamos apenas que tudo o que foi apresentado é válido para os demais quadrantes do círculo e que eles serão abordados no momento adequado.",
                "source": null,
                "date_time": null,
                "isTable": false,
