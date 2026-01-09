@@ -706,29 +706,100 @@ function htFillWriteMesoTableHeader(tableId, horizontalVector) {
 
 // Cosine
 function htCosineValues(quadrants) {
-    var values = { x: [], y []};
+    var values = { x: [], y: []};
 
-    var end = (2 * Math.PI)/parseFloat(quadrants);
-    var move = end/25.0;
-    for (let i = 0; i < end; i += move) {
-        values.x.push(i);
-        values.y.push(Math.cos(i));
+    var end = 256;
+    var nextStep = 0;
+    const next = 1/256;
+    const step = (Math.PI / 2) / (end - 1);
+    var x = [];
+    var y = [];
+    for (let i = 0, nextStep = 0; i < 256; i++, nextStep += next) {
+        var val = step*i;
+        x.push(nextStep);
+        y.push(Math.cos(val));
     }
+    values.x = x;
+    values.y = y;
 
     return values;
 }
 
 // Sine
 function htSineValues(quadrants) {
-    var values = { x: [], y []};
+    var values = { x: [], y: []};
 
-    var end = (2 * Math.PI)/parseFloat(quadrants);
-    var move = end/25.0;
-    for (let i = 0; i < end; i += move) {
-        values.x.push(i);
-        values.y.push(Math.sin(i));
+    var end = 256;
+    var nextStep = 0;
+    const next = 1/256;
+    const step = (Math.PI / 2) / (end - 1);
+    var x = [];
+    var y = [];
+    for (let i = 0, nextStep = 0; i < 256; i++, nextStep += next) {
+        var val = step*i;
+        x.push(nextStep);
+        y.push(Math.sin(val));
     }
+    values.x = x;
+    values.y = y;
 
     return values;
 }
 
+function htConstantVector(N, value) {
+    return new Array(N).fill(value);
+}
+
+function htPlotSineCosine(target, cosine, sine, quadrants) {
+    var xVector = [];
+    var localSine = undefined;
+    var localCosine = undefined;
+    var obj = undefined;
+    var datasets = [ ];
+
+    if (cosine) {
+        localCosine = htCosineValues(quadrants);
+        xVector = localCosine.x;
+        var obj = {
+                    data : localCosine.y,
+                    label : mathKeywords[38],
+                    fill : false
+                  };
+        datasets.push(obj);
+    }
+
+    if (sine) {
+        localSine = htSineValues(quadrants);
+        xVector = localSine.x;
+        var obj = {
+                    data : localSine.y,
+                    label : mathKeywords[39],
+                    fill : false
+                  };
+        datasets.push(obj);
+    }
+
+    if (sine && cosine) {
+        let one = htConstantVector(N, value);
+        var obj = {
+                    data : one,
+                    label : mathKeywords[40],
+                    fill : false
+                  };
+        datasets.push(obj);
+    }
+
+    var chartOptions = {
+        "datasets": datasets,
+        "chartId" : target,
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": mathKeywords[15],
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin": (quadrants < 2)? 0: -1,
+        "ymax": 1,
+        "useCallBack": false
+    };
+    return htPlotConstantContinuousChart(chartOptions);
+}

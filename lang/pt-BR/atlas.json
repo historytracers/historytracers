@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1766974681"
+      "1767924229"
    ],
    "authors": null,
    "reviewers": null,
@@ -2989,13 +2989,13 @@
                "PostMention": ""
             },
             {
-               "text": "### Caminhando sobre o disco\n\nApós estudarmos como nos localizarmos através de um ponto no círculo (<htcite0>). Neste começaremos a ver o que ocorre com as funções trigonométricas ao caminharmos sobre o círculo.\n\nDo texto anterior, sabemos que o cosseno ao quadrado e o seno ao quadrado somados sempre darão resultado 1 (<htcite1>). O que nos leva a uma reflexão:",
+               "text": "### Caminhando sobre o disco\n\nApós estudarmos como nos localizar por meio de um ponto no círculo (<htcite0>), neste texto começaremos a observar o que ocorre com as funções trigonométricas ao caminharmos sobre o círculo.\n\nDo texto anterior, sabemos que o cosseno ao quadrado e o seno ao quadrado, quando somados, sempre resultam em 1 (<htcite1>), o que nos leva a uma reflexão:",
                "source": [
                   {
                      "type": 1,
                      "uuid": "b49ab1bf-e2ad-4c82-a38b-1725cfa9d03f",
                      "text": "History Tracers Team",
-                     "page": "Caminhando sobre o disco",
+                     "page": "Onde estamos em um disco?",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -3007,7 +3007,7 @@
                      "type": 1,
                      "uuid": "b49ab1bf-e2ad-4c82-a38b-1725cfa9d03f",
                      "text": "History Tracers Team",
-                     "page": "Caminhando sobre o disco",
+                     "page": "Onde estamos em um disco?",
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
@@ -3023,7 +3023,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: sobre textos e dados</b><br /><br />As descrições de um universo criado para o ser humano contrastam com as medições realizadas em diferentes áreas da ciência.<br /><br />Mas isso significa que os épicos antigos estão errados?</div></div></center></p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: sobre os dados</b><br /><br />Como seriam os gráficos das funções cosseno e seno no primeiro quadrante de um círculo?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -3032,7 +3032,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Valores do cosseno\n\nPara um melhor entendimento da função cosseno, leia o texto dedicado a ela (<htcite0>). Deste texto, extraímos que função é definida como:",
+               "text": "#### Valores do cosseno\n\nPara um melhor entendimento da função cosseno, leia o texto dedicado a ela (<htcite0>). Desse texto, extraímos que a função é definida como:",
                "source": [
                   {
                      "type": 1,
@@ -3063,7 +3063,7 @@
                "PostMention": ""
             },
             {
-               "text": "Da fórmula 1, podemos observar que a medida que a hipotenusa se afasta do eixo horizontal, ou seja a levantamos, a projeção no eixo horizontal irá reduzindo até chegar ao tamanho zero, quando ela está totalmente na vertical:",
+               "text": "A partir da **Fórmula 1**, podemos observar que, à medida que a hipotenusa se afasta do eixo horizontal — ou seja, à medida que a levantamos —, a projeção no eixo horizontal vai se reduzindo até atingir o valor zero, quando a hipotenusa está totalmente na vertical. Isso significa que o cosseno começa com um valor máximo (1) e diminui até atingir o valor mínimo (0), como demonstrado no **Gráfico 1**.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -3072,7 +3072,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcos0\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Gráfico da função cosseno para o primeiro quadrante do círculo. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> </script>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcos0\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Gráfico da função cosseno para o primeiro quadrante do círculo. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotSineCosine('chartcos0', true, false, 1);</script>",
                "source": null,
                "date_time": null,
                "isTable": false,
