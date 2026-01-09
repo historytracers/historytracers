@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1767965546"
+      "1767969216"
    ],
    "authors": null,
    "reviewers": null,
@@ -3127,6 +3127,73 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Sum of Values\n\nComparing **Graphs 1 and 2**, it is possible to observe that as the cosine values decrease, the sine value of the angle increases. From the previous text (<htcite0>) we know that the relationship between the squares is given according to **Formula 3**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b49ab1bf-e2ad-4c82-a38b-1725cfa9d03f",
+                     "text": "History Tracers Team",
+                     "page": "Where Are We on a Disk?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>cos&sup2; (θ) + sen&sup2; (θ)</mn> <mn>=</mn> <mi>1</mi></p> <p class=\"desc\"><b>Formula 3</b>: Fundamental trigonometric identity.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To better visualize the relationship between the quantities, we have combined the results of the three formulas in **Graph 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcossin\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 3</b>: Graph of the sine and cosine functions and the trigonometric identity that relates them in the first quadrant of the circle. Graph created using the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p><script> htPlotSineCosine('chartcossin', true, true, 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: What about the rest of the circle?</b><br /><br />All graphs were made using only a quarter of the circle. Do these formulas also work for the rest of the circle?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "It is tempting to want to confirm that everything we have studied also works for the rest of the circle. However, at this point, the most important thing is to understand how everything works before generalizing. For this reason, we only assert that everything presented is valid for the other quadrants of the circle and that they will be addressed at the appropriate time.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]

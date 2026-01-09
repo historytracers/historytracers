@@ -780,7 +780,7 @@ function htPlotSineCosine(target, cosine, sine, quadrants) {
     }
 
     if (sine && cosine) {
-        let one = htConstantVector(N, value);
+        let one = htConstantVector(256, 1);
         var obj = {
                     data : one,
                     label : mathKeywords[40],

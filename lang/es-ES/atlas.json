@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1767965546"
+      "1767969216"
    ],
    "authors": null,
    "reviewers": null,
@@ -3127,6 +3127,73 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Suma de valores\n\nComparando los **Gráficos 1 y 2**, es posible observar que, a medida que los valores del coseno disminuyen, el valor del seno del ángulo va aumentando. Del texto anterior (<htcite0>) sabemos que la relación entre los cuadrados está dada de acuerdo con la siguiente **Fórmula 3**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b49ab1bf-e2ad-4c82-a38b-1725cfa9d03f",
+                     "text": "History Tracers Team",
+                     "page": "¿Dónde estamos en un disco?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>cos&sup2; (θ) + sen&sup2; (θ)</mn> <mn>=</mn> <mi>1</mi></p> <p class=\"desc\"><b>Fórmula 3</b>: Identidad fundamental de la trigonometría.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para visualizar mejor la relación entre las magnitudes, reunimos los resultados de las tres fórmulas en el **Gráfico 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartcossin\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Gráfico de las funciones seno, coseno y de la identidad trigonométrica que las une en el primer cuadrante del círculo. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotSineCosine('chartcossin', true, true, 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿y el resto del círculo?</b><br /><br />Todos los gráficos se hicieron utilizando solo un cuarto del círculo. ¿Estas fórmulas también funcionan para el resto del círculo?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Es tentador querer confirmar que todo lo estudiado funciona en el resto del círculo también. Sin embargo, en este momento, lo más importante es comprender cómo funciona todo antes de generalizar. Por este motivo, afirmamos solo que todo lo presentado es válido para los demás cuadrantes del círculo y que estos serán abordados en el momento adecuado.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
