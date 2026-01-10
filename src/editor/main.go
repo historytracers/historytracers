@@ -176,6 +176,7 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("Haplogroup", e.insertFamilyPersonHaplogroup),
 		fyne.NewMenuItem("Birth", e.insertFamilyPersonBirth),
 		fyne.NewMenuItem("Baptism", e.insertFamilyPersonBaptism),
+		fyne.NewMenuItem("Death", e.insertFamilyPersonDeath),
 		fyne.NewMenuItem("Person", e.insertFamilyPerson),
 		fyne.NewMenuItem("Parents", e.insertFamilyPersonParents),
 		fyne.NewMenuItem("Family", e.insertFamily),
@@ -1701,7 +1702,7 @@ func (e *TextEditor) isInsideEventArray(arrayName string) (bool, int) {
 	}
 	cursorPos += content.CursorColumn
 
-	re := regexp.MustCompile(`"` + arrayName + `"\s*:\s*\[`)
+	re := regexp.MustCompile(`"(?:` + arrayName + `|birth|baptism|death)"\s*:\s*\[`)
 	matches := re.FindAllStringIndex(fullText, -1)
 
 	for _, match := range matches {
@@ -1731,6 +1732,10 @@ func (e *TextEditor) isInsideEventArray(arrayName string) (bool, int) {
 
 func (e *TextEditor) isInsideBirthArray() (bool, int) {
 	return e.isInsideEventArray("birth")
+}
+
+func (e *TextEditor) isInsideDeathArray() (bool, int) {
+	return e.isInsideEventArray("death")
 }
 
 func (e *TextEditor) getIndentationForInsertion(cursorPos int) string {
@@ -2959,6 +2964,10 @@ func (e *TextEditor) insertFamilyPersonBirth() {
 
 func (e *TextEditor) insertFamilyPersonBaptism() {
 	e.insertFamilyPersonEvent("baptism")
+}
+
+func (e *TextEditor) insertFamilyPersonDeath() {
+	e.insertFamilyPersonEvent("death")
 }
 
 func (e *TextEditor) cutText() {
