@@ -174,6 +174,7 @@ func (e *TextEditor) createMenu() {
 
 	familyMenu := fyne.NewMenu("Family",
 		fyne.NewMenuItem("Haplogroup", e.insertFamilyPersonHaplogroup),
+		fyne.NewMenuItem("Birth", e.insertFamilyPersonBirth),
 		fyne.NewMenuItem("Person", e.insertFamilyPerson),
 		fyne.NewMenuItem("Parents", e.insertFamilyPersonParents),
 		fyne.NewMenuItem("Family", e.insertFamily),
@@ -1682,6 +1683,51 @@ func (e *TextEditor) isInsideHaplogroupArray() (bool, int) {
 	return false, -1
 }
 
+func (e *TextEditor) isInsideBirthArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:birth)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
 func (e *TextEditor) getIndentationForInsertion(cursorPos int) string {
 	if e.currentDoc == nil {
 		return ""
@@ -2810,6 +2856,75 @@ func (e *TextEditor) insertFamilyPersonHaplogroup() {
 
 	indentation := e.getIndentationForInsertion(cursorPos)
 	jsonData, err := json.MarshalIndent(haplogroup, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonBirth() {
+	isInside, cursorPos := e.isInsideBirthArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"birth\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	birth := FamilyPersonEvent{
+		Date: []HTDate{
+			{
+				DateType: "gregory",
+				Year:     "2010",
+				Month:    "",
+				Day:      "",
+			},
+		},
+		Address:   "The address where the marriage took place.",
+		CityID:    "",
+		City:      "The city where the marriage occurred.",
+		StateID:   "",
+		State:     "The state where the marriage took place.",
+		PC:        "The postal code of the marriage location.",
+		CountryID: "",
+		Country:   "The country where the marriage occurred.",
+		Sources: []HTSource{
+			{
+				Type: 3210,
+				UUID: "Unique identifier (UUID) for the current citation.",
+				Text: "The accompanying text that will be displayed with the citation.",
+				Page: "The specific page in the publication where this information appears.",
+				Date: HTDate{
+					DateType: "gregory",
+					Year:     "2010",
+					Month:    "",
+					Day:      "",
+				},
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(birth, indentation, "  ")
 	if err != nil {
 		dialog.ShowError(err, e.window)
 		return
