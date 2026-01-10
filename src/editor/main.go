@@ -308,21 +308,20 @@ func (e *TextEditor) showSettingsWindow() {
 			CFG.LogPath = logPathEntry.Text
 			CFG.ConfPath = confPathEntry.Text
 			configDir, err := os.UserConfigDir()
-
 			if err != nil {
 				dialog.ShowError(err, e.window)
-
 				return
-
 			}
-
 			localPath := filepath.Join(configDir, SoftwareName+"/"+LocalConfigFile)
 			if err := HTCreateConfig(localPath); err != nil {
 				dialog.ShowError(err, e.window)
 			}
 			settingsWindow.Close()
-
 		},
+		OnCancel: func() {
+			settingsWindow.Close()
+		},
+		SubmitText: "Save",
 	}
 
 	settingsWindow.SetContent(container.NewVBox(
