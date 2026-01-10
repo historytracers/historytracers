@@ -1702,7 +1702,7 @@ func (e *TextEditor) isInsideEventArray(arrayName string) (bool, int) {
 	}
 	cursorPos += content.CursorColumn
 
-	re := regexp.MustCompile(`"(?:` + arrayName + `|birth|baptism|death)"\s*:\s*\[`)
+	re := regexp.MustCompile(`"` + arrayName + `"\s*:\s*\[`)
 	matches := re.FindAllStringIndex(fullText, -1)
 
 	for _, match := range matches {
@@ -1732,6 +1732,10 @@ func (e *TextEditor) isInsideEventArray(arrayName string) (bool, int) {
 
 func (e *TextEditor) isInsideBirthArray() (bool, int) {
 	return e.isInsideEventArray("birth")
+}
+
+func (e *TextEditor) isInsideBaptismArray() (bool, int) {
+	return e.isInsideEventArray("baptism")
 }
 
 func (e *TextEditor) isInsideDeathArray() (bool, int) {
@@ -2889,10 +2893,10 @@ func (e *TextEditor) insertFamilyPersonHaplogroup() {
 	e.window.Clipboard().SetContent(oldClipboard)
 }
 
-func (e *TextEditor) insertFamilyPersonEvent(arrayName string) {
-	isInside, cursorPos := e.isInsideEventArray(arrayName)
+func (e *TextEditor) insertFamilyPersonBirth() {
+	isInside, cursorPos := e.isInsideBirthArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"%s\" JSON array", arrayName), e.window)
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"birth\" JSON array"), e.window)
 		return
 	}
 
@@ -2958,16 +2962,142 @@ func (e *TextEditor) insertFamilyPersonEvent(arrayName string) {
 	e.window.Clipboard().SetContent(oldClipboard)
 }
 
-func (e *TextEditor) insertFamilyPersonBirth() {
-	e.insertFamilyPersonEvent("birth")
-}
-
 func (e *TextEditor) insertFamilyPersonBaptism() {
-	e.insertFamilyPersonEvent("baptism")
+	isInside, cursorPos := e.isInsideBaptismArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"baptism\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	event := FamilyPersonEvent{
+		Date: []HTDate{
+			{
+				DateType: "gregory",
+				Year:     "2010",
+				Month:    "",
+				Day:      "",
+			},
+		},
+		Address:   "The address where the event took place.",
+		CityID:    "",
+		City:      "The city where the event occurred.",
+		StateID:   "",
+		State:     "The state where the event took place.",
+		PC:        "The postal code of the event location.",
+		CountryID: "",
+		Country:   "The country where the event occurred.",
+		Sources: []HTSource{
+			{
+				Type: 3210,
+				UUID: "Unique identifier (UUID) for the current citation.",
+				Text: "The accompanying text that will be displayed with the citation.",
+				Page: "The specific page in the publication where this information appears.",
+				Date: HTDate{
+					DateType: "gregory",
+					Year:     "2010",
+					Month:    "",
+					Day:      "",
+				},
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(event, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
 }
 
 func (e *TextEditor) insertFamilyPersonDeath() {
-	e.insertFamilyPersonEvent("death")
+	isInside, cursorPos := e.isInsideDeathArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"death\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	event := FamilyPersonEvent{
+		Date: []HTDate{
+			{
+				DateType: "gregory",
+				Year:     "2010",
+				Month:    "",
+				Day:      "",
+			},
+		},
+		Address:   "The address where the event took place.",
+		CityID:    "",
+		City:      "The city where the event occurred.",
+		StateID:   "",
+		State:     "The state where the event took place.",
+		PC:        "The postal code of the event location.",
+		CountryID: "",
+		Country:   "The country where the event occurred.",
+		Sources: []HTSource{
+			{
+				Type: 3210,
+				UUID: "Unique identifier (UUID) for the current citation.",
+				Text: "The accompanying text that will be displayed with the citation.",
+				Page: "The specific page in the publication where this information appears.",
+				Date: HTDate{
+					DateType: "gregory",
+					Year:     "2010",
+					Month:    "",
+					Day:      "",
+				},
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(event, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
 }
 
 func (e *TextEditor) cutText() {
