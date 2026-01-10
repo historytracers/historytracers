@@ -175,6 +175,7 @@ func (e *TextEditor) createMenu() {
 	familyMenu := fyne.NewMenu("Family",
 		fyne.NewMenuItem("Haplogroup", e.insertFamilyPersonHaplogroup),
 		fyne.NewMenuItem("Birth", e.insertFamilyPersonBirth),
+		fyne.NewMenuItem("Baptism", e.insertFamilyPersonBaptism),
 		fyne.NewMenuItem("Person", e.insertFamilyPerson),
 		fyne.NewMenuItem("Parents", e.insertFamilyPersonParents),
 		fyne.NewMenuItem("Family", e.insertFamily),
@@ -1683,7 +1684,7 @@ func (e *TextEditor) isInsideHaplogroupArray() (bool, int) {
 	return false, -1
 }
 
-func (e *TextEditor) isInsideBirthArray() (bool, int) {
+func (e *TextEditor) isInsideEventArray(arrayName string) (bool, int) {
 	if e.currentDoc == nil {
 		return false, -1
 	}
@@ -1700,7 +1701,7 @@ func (e *TextEditor) isInsideBirthArray() (bool, int) {
 	}
 	cursorPos += content.CursorColumn
 
-	re := regexp.MustCompile(`"(?:birth)"\s*:\s*\[`)
+	re := regexp.MustCompile(`"` + arrayName + `"\s*:\s*\[`)
 	matches := re.FindAllStringIndex(fullText, -1)
 
 	for _, match := range matches {
@@ -1726,6 +1727,10 @@ func (e *TextEditor) isInsideBirthArray() (bool, int) {
 	}
 
 	return false, -1
+}
+
+func (e *TextEditor) isInsideBirthArray() (bool, int) {
+	return e.isInsideEventArray("birth")
 }
 
 func (e *TextEditor) getIndentationForInsertion(cursorPos int) string {
@@ -2879,10 +2884,10 @@ func (e *TextEditor) insertFamilyPersonHaplogroup() {
 	e.window.Clipboard().SetContent(oldClipboard)
 }
 
-func (e *TextEditor) insertFamilyPersonBirth() {
-	isInside, cursorPos := e.isInsideBirthArray()
+func (e *TextEditor) insertFamilyPersonEvent(arrayName string) {
+	isInside, cursorPos := e.isInsideEventArray(arrayName)
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"birth\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"%s\" JSON array", arrayName), e.window)
 		return
 	}
 
@@ -2890,7 +2895,7 @@ func (e *TextEditor) insertFamilyPersonBirth() {
 		return
 	}
 
-	birth := FamilyPersonEvent{
+	event := FamilyPersonEvent{
 		Date: []HTDate{
 			{
 				DateType: "gregory",
@@ -2899,14 +2904,14 @@ func (e *TextEditor) insertFamilyPersonBirth() {
 				Day:      "",
 			},
 		},
-		Address:   "The address where the marriage took place.",
+		Address:   "The address where the event took place.",
 		CityID:    "",
-		City:      "The city where the marriage occurred.",
+		City:      "The city where the event occurred.",
 		StateID:   "",
-		State:     "The state where the marriage took place.",
-		PC:        "The postal code of the marriage location.",
+		State:     "The state where the event took place.",
+		PC:        "The postal code of the event location.",
 		CountryID: "",
-		Country:   "The country where the marriage occurred.",
+		Country:   "The country where the event occurred.",
 		Sources: []HTSource{
 			{
 				Type: 3210,
@@ -2924,7 +2929,7 @@ func (e *TextEditor) insertFamilyPersonBirth() {
 	}
 
 	indentation := e.getIndentationForInsertion(cursorPos)
-	jsonData, err := json.MarshalIndent(birth, indentation, "  ")
+	jsonData, err := json.MarshalIndent(event, indentation, "  ")
 	if err != nil {
 		dialog.ShowError(err, e.window)
 		return
@@ -2946,6 +2951,14 @@ func (e *TextEditor) insertFamilyPersonBirth() {
 	e.window.Clipboard().SetContent(insertText)
 	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
 	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonBirth() {
+	e.insertFamilyPersonEvent("birth")
+}
+
+func (e *TextEditor) insertFamilyPersonBaptism() {
+	e.insertFamilyPersonEvent("baptism")
 }
 
 func (e *TextEditor) cutText() {
