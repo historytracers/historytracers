@@ -173,6 +173,7 @@ func (e *TextEditor) createMenu() {
 	toolsMenuItem.ChildMenu = toolsMenu
 
 	familyMenu := fyne.NewMenu("Family",
+		fyne.NewMenuItem("People", e.insertFamilyPerson),
 		fyne.NewMenuItem("Family", e.insertFamily),
 	)
 	familyMenuItem := fyne.NewMenuItem("Family", nil)
@@ -647,14 +648,13 @@ func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
 						Source: []HTSource{
 							{
 								Type: 3210,
-								UUID: "Unique identifier (UUID) for the current citation.",
+								UUID: "Unique identifier (UUID).",
 								Text: "The accompanying text that will be displayed with the citation.",
 								Page: "The specific page in the publication where this information appears.",
-								Date: HTDate{
-									DateType: "gregory",
-									Year:     "2010",
-									Month:    "",
-									Day:      "",
+								Date: HTDate{DateType: "gregory",
+									Year:  "2010",
+									Month: "",
+									Day:   "",
 								},
 							},
 						},
@@ -730,7 +730,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 						Source: []HTSource{
 							{
 								Type: 3210,
-								UUID: "Unique identifier (UUID) for the current citation.",
+								UUID: "Unique identifier (UUID).",
 								Text: "",
 								Page: "",
 								Date: HTDate{
@@ -764,14 +764,13 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 						Source: []HTSource{
 							{
 								Type: 3210,
-								UUID: "Unique identifier (UUID) for the current citation.",
+								UUID: "Unique identifier (UUID).",
 								Text: "The accompanying text that will be displayed with the citation.",
 								Page: "The specific page in the publication where this information appears.",
-								Date: HTDate{
-									DateType: "gregory",
-									Year:     "2010",
-									Month:    "",
-									Day:      "",
+								Date: HTDate{DateType: "gregory",
+									Year:  "2010",
+									Month: "",
+									Day:   "",
 								},
 							},
 						},
@@ -873,7 +872,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 				Source: []HTSource{
 					{
 						Type: 3210,
-						UUID: "Unique identifier (UUID) for the current citation.",
+						UUID: "Unique identifier (UUID).",
 						Text: "The accompanying text that will be displayed with the citation.",
 						Page: "The specific page in the publication where this information appears.",
 						Date: HTDate{
@@ -914,7 +913,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 						Source: []HTSource{
 							{
 								Type: 3210,
-								UUID: "Unique identifier (UUID) for the current citation.",
+								UUID: "Unique identifier (UUID).",
 								Text: "The accompanying text that will be displayed with the citation.",
 								Page: "The specific page in the publication where this information appears.",
 								Date: HTDate{
@@ -1546,6 +1545,51 @@ func (e *TextEditor) isInsideFamilyArray() (bool, int) {
 	return false, -1
 }
 
+func (e *TextEditor) isInsidePeopleArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:people)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
 func (e *TextEditor) getIndentationForInsertion(cursorPos int) string {
 	if e.currentDoc == nil {
 		return ""
@@ -1742,7 +1786,7 @@ func (e *TextEditor) insertSource() {
 
 	source := HTSource{
 		Type: 3210,
-		UUID: "Unique identifier (UUID) for the current citation.",
+		UUID: "Unique identifier (UUID).",
 		Text: "The accompanying text that will be displayed with the citation.",
 		Page: "The specific page in the publication where this information appears.",
 		Date: HTDate{
@@ -1794,7 +1838,7 @@ func (e *TextEditor) insertText() {
 		Source: []HTSource{
 			{
 				Type: 3210,
-				UUID: "Unique identifier (UUID) for the current citation.",
+				UUID: "Unique identifier (UUID).",
 				Text: "The accompanying text that will be displayed with the citation.",
 				Page: "The specific page in the publication where this information appears.",
 				Date: HTDate{
@@ -2260,6 +2304,317 @@ func (e *TextEditor) insertFamily() {
 
 	indentation := e.getIndentationForInsertion(cursorPos)
 	jsonData, err := json.MarshalIndent(family, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPerson() {
+	isInside, cursorPos := e.isInsidePeopleArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"people\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	person := FamilyPerson{
+		ID:         "Unique identifier for the person.",
+		Name:       "Name of the person.",
+		Surname:    "",
+		Patronymic: "",
+		FullName:   "",
+		Sex:        "The biological classification of a person.",
+		Gender:     "The gender identity or social role adopted by a person.",
+		IsReal:     false,
+		Haplogroup: []FamilyPersonHaplogroup{
+			{
+				Type:       "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
+				Haplogroup: "The haplogroup value",
+				Sources: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+			},
+		},
+		History: []HTText{
+			{
+				Text: "A detailed description of the person's life history and marital status.",
+				Source: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+				FillDates: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				IsTable:     false,
+				ImgDesc:     "A description of an image included in the text.",
+				Format:      "markdown or html",
+				PostMention: "",
+			},
+		},
+		Parents: []FamilyPersonParents{
+			{
+				Type:               "theory or hypothesis",
+				FatherExternalFile: false,
+				FatherFamily:       "Unique identifier for the father's family. It should match the family ID used here.",
+				FatherID:           "Unique identifier for the father.",
+				FatherName:         "Name of the father.",
+				MotherExternalFile: false,
+				MotherFamily:       "Unique identifier for the mother's family.",
+				MotherID:           "Unique identifier for the mother.",
+				MotherName:         "Name of the mother.",
+			},
+		},
+		Birth: []FamilyPersonEvent{
+			{
+				Date: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				Address:   "The address where the marriage took place.",
+				CityID:    "",
+				City:      "The city where the marriage occurred.",
+				StateID:   "",
+				State:     "The state where the marriage took place.",
+				PC:        "The postal code of the marriage location.",
+				CountryID: "",
+				Country:   "The country where the marriage occurred.",
+				Sources: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+			},
+		},
+		Baptism: []FamilyPersonEvent{
+			{
+				Date: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				Address:   "The address where the marriage took place.",
+				CityID:    "",
+				City:      "The city where the marriage occurred.",
+				StateID:   "",
+				State:     "The state where the marriage took place.",
+				PC:        "The postal code of the marriage location.",
+				CountryID: "",
+				Country:   "The country where the marriage occurred.",
+				Sources: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+			},
+		},
+		Marriages: []FamilyPersonMarriage{
+			{
+				Type:         "theory or hypothesis",
+				ID:           "Unique identifier for the person.",
+				GEDCOMId:     "",
+				Official:     true,
+				FamilyID:     "Unique identifier for the family.",
+				ExternalFile: false,
+				Name:         "Name of the spouse.",
+				History: []HTText{
+					{
+						Text: "A detailed description of the person's life history and marital status.",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID).",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "",
+					},
+				},
+				DateTime: FamilyPersonEvent{
+					Date:      nil,
+					Address:   "",
+					CityID:    "",
+					City:      "",
+					StateID:   "",
+					State:     "",
+					PC:        "",
+					CountryID: "",
+					Country:   "",
+					Sources:   nil,
+				},
+			},
+		},
+		Divorced: nil,
+		Children: []FamilyPersonChild{
+			{
+				Type:         "theory or hypothesis",
+				ID:           "Unique identifier for the child.",
+				MarriageID:   "Unique identifier for the marriage (parental connection).",
+				Name:         "Name of the child.",
+				FamilyID:     "Unique identifier for the child's family, used if the child establishes a new family.",
+				ExternalFile: false,
+				AddLink:      false,
+				History: []HTText{
+					{
+						Text: "A detailed description of the person's life history and marital status.",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID).",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "",
+					},
+				},
+				AdoptedChild: false,
+			},
+		},
+		Death: []FamilyPersonEvent{
+			{
+				Date: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				Address:   "The address where the marriage took place.",
+				CityID:    "",
+				City:      "The city where the marriage occurred.",
+				StateID:   "",
+				State:     "The state where the marriage took place.",
+				PC:        "The postal code of the marriage location.",
+				CountryID: "",
+				Country:   "The country where the marriage occurred.",
+				Sources: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(person, indentation, "  ")
 	if err != nil {
 		dialog.ShowError(err, e.window)
 		return
