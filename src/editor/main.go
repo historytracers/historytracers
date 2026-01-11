@@ -121,6 +121,7 @@ func (e *TextEditor) createMenu() {
 	openMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyO, Modifier: fyne.KeyModifierShortcutDefault}
 
 	openInNewTabMenuItem := fyne.NewMenuItem("Open in New Tab", e.openInNewTab)
+	documentMenuItemFile := fyne.NewMenuItem("Document", e.insertFamily)
 	saveMenuItem := fyne.NewMenuItem("Save", e.saveFile)
 	saveMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyS, Modifier: fyne.KeyModifierShortcutDefault}
 
@@ -137,6 +138,7 @@ func (e *TextEditor) createMenu() {
 		newMenuItem,
 		openMenuItem,
 		openInNewTabMenuItem,
+		documentMenuItemFile,
 		loadTemplateMenuItem,
 		fyne.NewMenuItemSeparator(),
 		saveMenuItem,
@@ -172,16 +174,17 @@ func (e *TextEditor) createMenu() {
 	toolsMenuItem := fyne.NewMenuItem("Tools", nil)
 	toolsMenuItem.ChildMenu = toolsMenu
 
-	familyMenu := fyne.NewMenu("Family",
+	familyMenu := fyne.NewMenu("Family tree",
 		fyne.NewMenuItem("Haplogroup", e.insertFamilyPersonHaplogroup),
 		fyne.NewMenuItem("Birth", e.insertFamilyPersonBirth),
 		fyne.NewMenuItem("Baptism", e.insertFamilyPersonBaptism),
 		fyne.NewMenuItem("Death", e.insertFamilyPersonDeath),
 		fyne.NewMenuItem("Person", e.insertFamilyPerson),
 		fyne.NewMenuItem("Parents", e.insertFamilyPersonParents),
-		fyne.NewMenuItem("Family", e.insertFamily),
+		fyne.NewMenuItem("Marriage", e.insertFamilyPersonMarriage),
+		fyne.NewMenuItem("Family", e.insertFamilyBody),
 	)
-	familyMenuItem := fyne.NewMenuItem("Family", nil)
+	familyMenuItem := fyne.NewMenuItem("Family tree", nil)
 	familyMenuItem.ChildMenu = familyMenu
 
 	insertMenu := fyne.NewMenu("Insert",
@@ -1730,6 +1733,10 @@ func (e *TextEditor) isInsideEventArray(arrayName string) (bool, int) {
 	return false, -1
 }
 
+func (e *TextEditor) isInsideMarriagesArray() (bool, int) {
+	return e.isInsideEventArray("marriages")
+}
+
 func (e *TextEditor) isInsideBirthArray() (bool, int) {
 	return e.isInsideEventArray("birth")
 }
@@ -2132,6 +2139,23 @@ func (e *TextEditor) insertGame() {
 }
 
 func (e *TextEditor) insertFamily() {
+	if e.currentDoc == nil {
+		return
+	}
+
+	family := e.createFamilyTemplate()
+
+	indentation := e.getIndentationForInsertion(0)
+	jsonData, err := json.MarshalIndent(family, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	e.currentDoc.content.SetText(string(jsonData))
+}
+
+func (e *TextEditor) insertFamilyBody() {
 	isInside, cursorPos := e.isInsideFamilyArray()
 	if !isInside {
 		dialog.ShowError(fmt.Errorf("cursor must be inside a \"families\" JSON array"), e.window)
@@ -2815,6 +2839,95 @@ func (e *TextEditor) insertFamilyPersonParents() {
 
 	indentation := e.getIndentationForInsertion(cursorPos)
 	jsonData, err := json.MarshalIndent(parents, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonMarriage() {
+	isInside, cursorPos := e.isInsideMarriagesArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"marriages\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	marriage := FamilyPersonMarriage{
+		Type:         "theory or hypothesis",
+		ID:           "Unique identifier for the person.",
+		GEDCOMId:     "",
+		Official:     true,
+		FamilyID:     "Unique identifier for the family.",
+		ExternalFile: false,
+		Name:         "Name of the spouse.",
+		History: []HTText{
+			{
+				Text: "A detailed description of the person's life history and marital status.",
+				Source: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID) for the current citation.",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+				FillDates: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				IsTable:     false,
+				ImgDesc:     "A description of an image included in the text.",
+				Format:      "markdown or html",
+				PostMention: "",
+			},
+		},
+		DateTime: FamilyPersonEvent{
+			Date:      nil,
+			Address:   "",
+			CityID:    "",
+			City:      "",
+			StateID:   "",
+			State:     "",
+			PC:        "",
+			CountryID: "",
+			Country:   "",
+			Sources:   nil,
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(marriage, indentation, "  ")
 	if err != nil {
 		dialog.ShowError(err, e.window)
 		return
