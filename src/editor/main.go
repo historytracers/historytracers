@@ -23,11 +23,12 @@ import (
 )
 
 type Document struct {
-	content     *widget.Entry
-	filePath    string
-	isModified  bool
-	tabItem     *container.TabItem
-	lineNumbers *widget.Label
+	content         *widget.Entry
+	filePath        string
+	isModified      bool
+	tabItem         *container.TabItem
+	lineNumbers     *widget.Label
+	scrollContainer *container.Scroll
 }
 
 type TextEditor struct {
@@ -103,6 +104,12 @@ func (e *TextEditor) findNext() {
 		e.currentDoc.content.CursorRow, e.currentDoc.content.CursorColumn = e.posToRowCol(pos, content)
 		e.currentDoc.content.Refresh()
 		e.lastSearchPos = pos + len(e.searchQuery)
+
+		// Scroll to show found text
+		if e.currentDoc.scrollContainer != nil {
+			scrollY := float32(e.currentDoc.content.CursorRow * 20)
+			e.currentDoc.scrollContainer.ScrollToOffset(fyne.NewPos(0, scrollY))
+		}
 	}
 }
 
@@ -456,7 +463,8 @@ func (e *TextEditor) createEditorContent(doc *Document) fyne.CanvasObject {
 		}
 	}
 
-	return container.NewScroll(container.NewBorder(nil, nil, doc.lineNumbers, nil, doc.content))
+	doc.scrollContainer = container.NewScroll(container.NewBorder(nil, nil, doc.lineNumbers, nil, doc.content))
+	return doc.scrollContainer
 }
 
 func (e *TextEditor) getCurrentDocIndex() int {
