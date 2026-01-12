@@ -182,6 +182,7 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("Person", e.insertFamilyPerson),
 		fyne.NewMenuItem("Parents", e.insertFamilyPersonParents),
 		fyne.NewMenuItem("Marriage", e.insertFamilyPersonMarriage),
+		fyne.NewMenuItem("Divorced", e.insertFamilyPersonDivorced),
 		fyne.NewMenuItem("Family", e.insertFamilyBody),
 	)
 	familyMenuItem := fyne.NewMenuItem("Family tree", nil)
@@ -1749,6 +1750,10 @@ func (e *TextEditor) isInsideDeathArray() (bool, int) {
 	return e.isInsideEventArray("death")
 }
 
+func (e *TextEditor) isInsideDivorcedArray() (bool, int) {
+	return e.isInsideEventArray("divorced")
+}
+
 func (e *TextEditor) getIndentationForInsertion(cursorPos int) string {
 	if e.currentDoc == nil {
 		return ""
@@ -2926,6 +2931,114 @@ func (e *TextEditor) insertFamilyPersonMarriage() {
 		},
 	}
 
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(marriage, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonDivorced() {
+	isInside, cursorPos := e.isInsideDivorcedArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"divorced\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	marriage := FamilyPersonMarriage{
+		Type:         "theory or hypothesis",
+		ID:           "Unique identifier for the person.",
+		GEDCOMId:     "",
+		Official:     false, // For divorced, it's not official anymore
+		FamilyID:     "Unique identifier for the family.",
+		ExternalFile: false,
+		Name:         "Name of the spouse.",
+		History: []HTText{
+			{
+				Text: "A detailed description of the person's life history and divorce.",
+				Source: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID) for the current citation.",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+				FillDates: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				IsTable:     false,
+				ImgDesc:     "A description of an image included in the text.",
+				Format:      "markdown or html",
+				PostMention: "",
+			},
+		},
+		DateTime: FamilyPersonEvent{ // This represents the divorce event details
+			Date: []HTDate{
+				{
+					DateType: "gregory",
+					Year:     "2010",
+					Month:    "",
+					Day:      "",
+				},
+			},
+			Address:   "The address where the divorce took place.",
+			CityID:    "",
+			City:      "The city where the divorce occurred.",
+			StateID:   "",
+			State:     "",
+			PC:        "",
+			CountryID: "",
+			Country:   "",
+			Sources: []HTSource{
+				{
+					Type: 3210,
+					UUID: "Unique identifier (UUID) for the current citation.",
+					Text: "The accompanying text that will be displayed with the citation.",
+					Page: "The specific page in the publication where this information appears.",
+					Date: HTDate{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+			},
+		},
+	}
 	indentation := e.getIndentationForInsertion(cursorPos)
 	jsonData, err := json.MarshalIndent(marriage, indentation, "  ")
 	if err != nil {
