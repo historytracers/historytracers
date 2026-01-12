@@ -105,6 +105,11 @@ func (e *TextEditor) findNext() {
 		e.lastSearchPos = pos + len(e.searchQuery)
 	}
 }
+	} else {
+		pos += e.lastSearchPos
+	}
+}	}
+}
 
 func (e *TextEditor) posToRowCol(pos int, content string) (int, int) {
 	row := 0
