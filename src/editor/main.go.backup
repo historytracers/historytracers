@@ -23,12 +23,11 @@ import (
 )
 
 type Document struct {
-	content         *widget.Entry
-	filePath        string
-	isModified      bool
-	tabItem         *container.TabItem
-	lineNumbers     *widget.Label
-	scrollContainer *container.Scroll
+	content     *widget.Entry
+	filePath    string
+	isModified  bool
+	tabItem     *container.TabItem
+	lineNumbers *widget.Label
 }
 
 type TextEditor struct {
@@ -78,9 +77,6 @@ func (e *TextEditor) findText() {
 	}, e.window)
 
 	findDialog.Show()
-
-	// Focus on entry for immediate typing
-	entry.FocusGained()
 }
 
 func (e *TextEditor) findNext() {
@@ -107,13 +103,9 @@ func (e *TextEditor) findNext() {
 		e.currentDoc.content.CursorRow, e.currentDoc.content.CursorColumn = e.posToRowCol(pos, content)
 		e.currentDoc.content.Refresh()
 		e.lastSearchPos = pos + len(e.searchQuery)
-
-		// Scroll to show found text
-		if e.currentDoc.scrollContainer != nil {
-			scrollY := float32(e.currentDoc.content.CursorRow * 20)
-			e.currentDoc.scrollContainer.ScrollToOffset(fyne.NewPos(0, scrollY))
-		}
 	}
+}
+	} else {
 }
 
 func (e *TextEditor) posToRowCol(pos int, content string) (int, int) {
@@ -466,8 +458,7 @@ func (e *TextEditor) createEditorContent(doc *Document) fyne.CanvasObject {
 		}
 	}
 
-	doc.scrollContainer = container.NewScroll(container.NewBorder(nil, nil, doc.lineNumbers, nil, doc.content))
-	return doc.scrollContainer
+	return container.NewScroll(container.NewBorder(nil, nil, doc.lineNumbers, nil, doc.content))
 }
 
 func (e *TextEditor) getCurrentDocIndex() int {
