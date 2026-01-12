@@ -78,6 +78,9 @@ func (e *TextEditor) findText() {
 	}, e.window)
 
 	findDialog.Show()
+
+	// Focus on entry for immediate typing
+	entry.FocusGained()
 }
 
 func (e *TextEditor) findNext() {
