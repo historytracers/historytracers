@@ -5,6 +5,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"os"
 	"regexp"
 	"strings"
 
@@ -120,6 +121,7 @@ func (e *TextEditor) createMenu() {
 	openMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyO, Modifier: fyne.KeyModifierShortcutDefault}
 
 	openInNewTabMenuItem := fyne.NewMenuItem("Open in New Tab", e.openInNewTab)
+	documentMenuItemFile := fyne.NewMenuItem("Document", e.insertFamily)
 	saveMenuItem := fyne.NewMenuItem("Save", e.saveFile)
 	saveMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyS, Modifier: fyne.KeyModifierShortcutDefault}
 
@@ -136,14 +138,15 @@ func (e *TextEditor) createMenu() {
 		newMenuItem,
 		openMenuItem,
 		openInNewTabMenuItem,
+		documentMenuItemFile,
+		loadTemplateMenuItem,
+		fyne.NewMenuItemSeparator(),
 		saveMenuItem,
 		saveAsMenuItem,
 		saveAllMenuItem,
 		fyne.NewMenuItemSeparator(),
 		closeTabMenuItem,
 		closeAllTabsMenuItem,
-		fyne.NewMenuItemSeparator(),
-		loadTemplateMenuItem,
 	)
 
 	// Edit menu with shortcuts
@@ -163,8 +166,38 @@ func (e *TextEditor) createMenu() {
 		selectAllMenuItem,
 	)
 
+	toolsMenu := fyne.NewMenu("Tools",
+		fyne.NewMenuItem("Audio", e.insertAudio),
+		fyne.NewMenuItem("Exercise", e.insertExercise),
+		fyne.NewMenuItem("Game", e.insertGame),
+	)
+	toolsMenuItem := fyne.NewMenuItem("Tools", nil)
+	toolsMenuItem.ChildMenu = toolsMenu
+
+	familyMenu := fyne.NewMenu("Family tree",
+		fyne.NewMenuItem("Haplogroup", e.insertFamilyPersonHaplogroup),
+		fyne.NewMenuItem("Birth", e.insertFamilyPersonBirth),
+		fyne.NewMenuItem("Baptism", e.insertFamilyPersonBaptism),
+		fyne.NewMenuItem("Death", e.insertFamilyPersonDeath),
+		fyne.NewMenuItem("Person", e.insertFamilyPerson),
+		fyne.NewMenuItem("Parents", e.insertFamilyPersonParents),
+		fyne.NewMenuItem("Marriage", e.insertFamilyPersonMarriage),
+		fyne.NewMenuItem("Divorced", e.insertFamilyPersonDivorced),
+		fyne.NewMenuItem("Family", e.insertFamilyBody),
+	)
+	familyMenuItem := fyne.NewMenuItem("Family tree", nil)
+	familyMenuItem.ChildMenu = familyMenu
+
 	insertMenu := fyne.NewMenu("Insert",
+		fyne.NewMenuItem("Content", nil),
+		toolsMenuItem,
+		fyne.NewMenuItemSeparator(),
+		familyMenuItem,
+	)
+	insertMenu.Items[0].ChildMenu = fyne.NewMenu("Content",
 		fyne.NewMenuItem("Date", e.insertDate),
+		fyne.NewMenuItem("Source", e.insertSource),
+		fyne.NewMenuItem("Text", e.insertText),
 	)
 
 	// Tabs menu with shortcuts
@@ -191,6 +224,10 @@ func (e *TextEditor) createMenu() {
 		aboutMenuItem,
 	)
 
+	settingsMenu := fyne.NewMenu("Settings",
+		fyne.NewMenuItem("Open Settings", e.showSettingsWindow),
+	)
+
 	e.hideToolbarMenuItem = fyne.NewMenuItem("Toolbar", e.toggleToolbar)
 	e.hideToolbarMenuItem.Checked = true
 
@@ -204,6 +241,7 @@ func (e *TextEditor) createMenu() {
 		insertMenu,
 		tabsMenu,
 		windowMenu,
+		settingsMenu,
 		helpMenu,
 	)
 
@@ -219,6 +257,97 @@ func (e *TextEditor) toggleToolbar() {
 		e.hideToolbarMenuItem.Checked = true
 	}
 	e.window.MainMenu().Refresh()
+}
+
+func (e *TextEditor) showSettingsWindow() {
+	settingsWindow := e.app.NewWindow("Settings")
+	settingsWindow.Resize(fyne.NewSize(400, 300))
+
+	configDir, err := os.UserConfigDir()
+	if err != nil {
+		settingsWindow.SetContent(container.NewVBox(
+
+			widget.NewLabel("Failed to get config dir"),
+		))
+		CFG = NewHTConfig()
+
+	} else {
+
+		localPath := filepath.Join(configDir, SoftwareName+"/"+LocalConfigFile)
+		if _, err := os.Stat(localPath); os.IsNotExist(err) {
+			if err := HTCreateConfig(localPath); err != nil {
+				settingsWindow.SetContent(container.NewVBox(
+					widget.NewLabel("Failed to create config"),
+				))
+				CFG = NewHTConfig()
+
+			}
+		} else {
+			if err := HTParseConfig(localPath); err != nil {
+				settingsWindow.SetContent(container.NewVBox(
+
+					widget.NewLabel("Failed to read config"),
+				))
+				CFG = NewHTConfig()
+			}
+		}
+	}
+
+	portEntry := widget.NewEntry()
+	portEntry.SetText(fmt.Sprintf("%d", CFG.Port))
+
+	srcPathEntry := widget.NewEntry()
+	srcPathEntry.SetText(CFG.SrcPath)
+
+	contentPathEntry := widget.NewEntry()
+	contentPathEntry.SetText(CFG.ContentPath)
+
+	logPathEntry := widget.NewEntry()
+	logPathEntry.SetText(CFG.LogPath)
+
+	confPathEntry := widget.NewEntry()
+	confPathEntry.SetText(CFG.ConfPath)
+
+	form := &widget.Form{
+		Items: []*widget.FormItem{
+			{Text: "Port", Widget: portEntry},
+			{Text: "Source Path", Widget: srcPathEntry},
+			{Text: "Content Path", Widget: contentPathEntry},
+			{Text: "Log Path", Widget: logPathEntry},
+			{Text: "Config Path", Widget: confPathEntry},
+		},
+
+		OnSubmit: func() {
+			fmt.Sscan(portEntry.Text, &CFG.Port)
+			CFG.SrcPath = srcPathEntry.Text
+			CFG.ContentPath = contentPathEntry.Text
+			CFG.LogPath = logPathEntry.Text
+			CFG.ConfPath = confPathEntry.Text
+			configDir, err := os.UserConfigDir()
+			if err != nil {
+				dialog.ShowError(err, e.window)
+				return
+			}
+			localPath := filepath.Join(configDir, SoftwareName+"/"+LocalConfigFile)
+			if err := HTCreateConfig(localPath); err != nil {
+				dialog.ShowError(err, e.window)
+			}
+			settingsWindow.Close()
+		},
+		OnCancel: func() {
+			settingsWindow.Close()
+		},
+		SubmitText: "Save",
+	}
+
+	settingsWindow.SetContent(container.NewVBox(
+		widget.NewLabel("Settings"),
+
+		form,
+	))
+
+	settingsWindow.Show()
+
 }
 
 func (e *TextEditor) createEditorContent(doc *Document) fyne.CanvasObject {
@@ -528,14 +657,13 @@ func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
 						Source: []HTSource{
 							{
 								Type: 3210,
-								UUID: "Unique identifier (UUID) for the current citation.",
+								UUID: "Unique identifier (UUID).",
 								Text: "The accompanying text that will be displayed with the citation.",
 								Page: "The specific page in the publication where this information appears.",
-								Date: HTDate{
-									DateType: "gregory",
-									Year:     "2010",
-									Month:    "",
-									Day:      "",
+								Date: HTDate{DateType: "gregory",
+									Year:  "2010",
+									Month: "",
+									Day:   "",
 								},
 							},
 						},
@@ -611,7 +739,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 						Source: []HTSource{
 							{
 								Type: 3210,
-								UUID: "Unique identifier (UUID) for the current citation.",
+								UUID: "Unique identifier (UUID).",
 								Text: "",
 								Page: "",
 								Date: HTDate{
@@ -645,14 +773,13 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 						Source: []HTSource{
 							{
 								Type: 3210,
-								UUID: "Unique identifier (UUID) for the current citation.",
+								UUID: "Unique identifier (UUID).",
 								Text: "The accompanying text that will be displayed with the citation.",
 								Page: "The specific page in the publication where this information appears.",
-								Date: HTDate{
-									DateType: "gregory",
-									Year:     "2010",
-									Month:    "",
-									Day:      "",
+								Date: HTDate{DateType: "gregory",
+									Year:  "2010",
+									Month: "",
+									Day:   "",
 								},
 							},
 						},
@@ -754,7 +881,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 				Source: []HTSource{
 					{
 						Type: 3210,
-						UUID: "Unique identifier (UUID) for the current citation.",
+						UUID: "Unique identifier (UUID).",
 						Text: "The accompanying text that will be displayed with the citation.",
 						Page: "The specific page in the publication where this information appears.",
 						Date: HTDate{
@@ -795,7 +922,7 @@ func (e *TextEditor) createFamilyTemplate() Family {
 						Source: []HTSource{
 							{
 								Type: 3210,
-								UUID: "Unique identifier (UUID) for the current citation.",
+								UUID: "Unique identifier (UUID).",
 								Text: "The accompanying text that will be displayed with the citation.",
 								Page: "The specific page in the publication where this information appears.",
 								Date: HTDate{
@@ -1112,6 +1239,141 @@ func (e *TextEditor) createFamilyTemplate() Family {
 }
 
 // Edit operations
+func (e *TextEditor) isInsideTextArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:text|history|common)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
+func (e *TextEditor) isInsideSourceArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:source|sources)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
+func (e *TextEditor) isInsideAudioArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:audio)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
 func (e *TextEditor) isInsideDateArray() (bool, int) {
 	if e.currentDoc == nil {
 		return false, -1
@@ -1157,13 +1419,396 @@ func (e *TextEditor) isInsideDateArray() (bool, int) {
 	return false, -1
 }
 
-func (e *TextEditor) insertDate() {
+func (e *TextEditor) isInsideExerciseArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
 
-	isInside, cursorPos := e.isInsideDateArray()
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:exercise_v2)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
+func (e *TextEditor) isInsideGameArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:game_v2)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
+func (e *TextEditor) isInsideFamilyArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:families)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
+func (e *TextEditor) isInsidePeopleArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:people)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
+func (e *TextEditor) isInsideParentsArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:parents)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
+func (e *TextEditor) isInsideHaplogroupArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:haplogroup)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
+func (e *TextEditor) isInsideEventArray(arrayName string) (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"` + arrayName + `"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
+func (e *TextEditor) isInsideMarriagesArray() (bool, int) {
+	return e.isInsideEventArray("marriages")
+}
+
+func (e *TextEditor) isInsideBirthArray() (bool, int) {
+	return e.isInsideEventArray("birth")
+}
+
+func (e *TextEditor) isInsideBaptismArray() (bool, int) {
+	return e.isInsideEventArray("baptism")
+}
+
+func (e *TextEditor) isInsideDeathArray() (bool, int) {
+	return e.isInsideEventArray("death")
+}
+
+func (e *TextEditor) isInsideDivorcedArray() (bool, int) {
+	return e.isInsideEventArray("divorced")
+}
+
+func (e *TextEditor) getIndentationForInsertion(cursorPos int) string {
+	if e.currentDoc == nil {
+		return ""
+	}
+	fullText := e.currentDoc.content.Text
+	lineStart := strings.LastIndex(fullText[:cursorPos], "\n") + 1
+
+	line := fullText[lineStart:]
+	if endOfLine := strings.Index(line, "\n"); endOfLine != -1 {
+		line = line[:endOfLine]
+	}
+
+	indentation := ""
+	// Extract indentation from the current line
+	for _, r := range line {
+		if r == ' ' || r == '\t' {
+			indentation += string(r)
+		} else {
+			break
+		}
+	}
+
+	// If current line is empty, try to derive from previous line
+	if strings.TrimSpace(line) == "" {
+		if lineStart > 0 {
+			textBefore := fullText[:lineStart-1]
+			prevLineStart := strings.LastIndex(textBefore, "\n") + 1
+			prevLine := fullText[prevLineStart : lineStart-1]
+
+			prevLineIndentation := ""
+			for _, r := range prevLine {
+				if r == ' ' || r == '\t' {
+					prevLineIndentation += string(r)
+				} else {
+					break
+				}
+			}
+
+			indentation = prevLineIndentation
+			trimmedPrevLine := strings.TrimSpace(prevLine)
+			if strings.HasSuffix(trimmedPrevLine, "[") || strings.HasSuffix(trimmedPrevLine, "{") {
+				indentation += "  "
+			}
+		}
+	}
+	return indentation
+}
+
+func (e *TextEditor) insertAudio() {
+
+	isInside, cursorPos := e.isInsideAudioArray()
 
 	if !isInside {
 
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"date_time\" or \"date\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"audio\" JSON array"), e.window)
 
 		return
 
@@ -1175,18 +1820,14 @@ func (e *TextEditor) insertDate() {
 
 	}
 
-	date := HTDate{
-
-		DateType: "gregory",
-
-		Year: "2010",
-
-		Month: "",
-
-		Day: "",
+	audio := HTAudio{
+		URL:      "https://www.historytracers.org/audios/",
+		External: true,
+		Spotify:  false,
 	}
 
-	jsonData, err := json.MarshalIndent(date, "", "  ")
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(audio, indentation, "  ")
 
 	if err != nil {
 
@@ -1224,6 +1865,1465 @@ func (e *TextEditor) insertDate() {
 
 	e.window.Clipboard().SetContent(oldClipboard)
 
+}
+
+func (e *TextEditor) insertDate() {
+
+	isInside, cursorPos := e.isInsideDateArray()
+
+	if !isInside {
+
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"date_time\" or \"date\" JSON array"), e.window)
+
+		return
+
+	}
+
+	if e.currentDoc == nil {
+
+		return
+
+	}
+
+	date := HTDate{
+
+		DateType: "gregory",
+
+		Year: "2010",
+
+		Month: "",
+
+		Day: "",
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(date, indentation, "  ")
+
+	if err != nil {
+
+		dialog.ShowError(err, e.window)
+
+		return
+
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+
+		if lastChar != '[' && lastChar != ',' {
+
+			insertText = ",\n" + insertText
+
+		}
+
+	}
+
+	content := e.currentDoc.content
+
+	oldClipboard := e.window.Clipboard().Content()
+
+	e.window.Clipboard().SetContent(insertText)
+
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+
+	e.window.Clipboard().SetContent(oldClipboard)
+
+}
+
+func (e *TextEditor) insertSource() {
+	isInside, cursorPos := e.isInsideSourceArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"sources\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	source := HTSource{
+		Type: 3210,
+		UUID: "Unique identifier (UUID).",
+		Text: "The accompanying text that will be displayed with the citation.",
+		Page: "The specific page in the publication where this information appears.",
+		Date: HTDate{
+			DateType: "gregory",
+			Year:     "2010",
+			Month:    "",
+			Day:      "",
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(source, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertText() {
+	isInside, cursorPos := e.isInsideTextArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"text\", \"history\" or \"common\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	text := HTText{
+		Text: "A detailed description of the person's life history and marital status.",
+		Source: []HTSource{
+			{
+				Type: 3210,
+				UUID: "Unique identifier (UUID).",
+				Text: "The accompanying text that will be displayed with the citation.",
+				Page: "The specific page in the publication where this information appears.",
+				Date: HTDate{
+					DateType: "gregory",
+					Year:     "2010",
+					Month:    "",
+					Day:      "",
+				},
+			},
+		},
+		FillDates: []HTDate{
+			{
+				DateType: "gregory",
+				Year:     "2010",
+				Month:    "",
+				Day:      "",
+			},
+		},
+		IsTable:     false,
+		ImgDesc:     "A description of an image included in the text.",
+		Format:      "markdown or html",
+		PostMention: "",
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(text, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertExercise() {
+	isInside, cursorPos := e.isInsideExerciseArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"exercise_v2\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	exercise := HTExercise{
+		Question:       "WRITE A QUESTION",
+		YesNoAnswer:    "Yes",
+		AdditionalInfo: "The correct answer is 'Yes' because ...",
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(exercise, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertGame() {
+	isInside, cursorPos := e.isInsideGameArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"game_v2\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	game := HTGameDesc{
+		ImagePath: "The image path.",
+		ImageDesc: "A description for the associated image.",
+		DateTime: []HTDate{
+			{
+				DateType: "gregory",
+				Year:     "2010",
+				Month:    "",
+				Day:      "",
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(game, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamily() {
+	if e.currentDoc == nil {
+		return
+	}
+
+	family := e.createFamilyTemplate()
+
+	indentation := e.getIndentationForInsertion(0)
+	jsonData, err := json.MarshalIndent(family, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	e.currentDoc.content.SetText(string(jsonData))
+}
+
+func (e *TextEditor) insertFamilyBody() {
+	isInside, cursorPos := e.isInsideFamilyArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"families\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	family := FamilyBody{
+		ID:   "Unique identifier for the family.",
+		Name: "Name displayed at the top of the page.",
+		History: []HTText{
+			{
+				Text: "A detailed description of the person's life history and marital status.",
+				Source: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+				FillDates: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				IsTable:     false,
+				ImgDesc:     "A description of an image included in the text.",
+				Format:      "markdown or html",
+				PostMention: "",
+			},
+		},
+		People: []FamilyPerson{
+			{
+				ID:         "Unique identifier for the person.",
+				Name:       "Name of the person.",
+				Surname:    "",
+				Patronymic: "",
+				FullName:   "",
+				Sex:        "The biological classification of a person.",
+				Gender:     "The gender identity or social role adopted by a person.",
+				IsReal:     false,
+				Haplogroup: []FamilyPersonHaplogroup{
+					{
+						Type:       "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
+						Haplogroup: "The haplogroup value",
+						Sources: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID).",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+					},
+				},
+				History: []HTText{
+					{
+						Text: "A detailed description of the person's life history and marital status.",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID).",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "",
+					},
+				},
+				Parents: []FamilyPersonParents{
+					{
+						Type:               "theory or hypothesis",
+						FatherExternalFile: false,
+						FatherFamily:       "Unique identifier for the father's family. It should match the family ID used here.",
+						FatherID:           "Unique identifier for the father.",
+						FatherName:         "Name of the father.",
+						MotherExternalFile: false,
+						MotherFamily:       "Unique identifier for the mother's family.",
+						MotherID:           "Unique identifier for the mother.",
+						MotherName:         "Name of the mother.",
+					},
+				},
+				Birth: []FamilyPersonEvent{
+					{
+						Date: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						Address:   "The address where the marriage took place.",
+						CityID:    "",
+						City:      "The city where the marriage occurred.",
+						StateID:   "",
+						State:     "The state where the marriage took place.",
+						PC:        "The postal code of the marriage location.",
+						CountryID: "",
+						Country:   "The country where the marriage occurred.",
+						Sources: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID) for the current citation.",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+					},
+				},
+				Baptism: []FamilyPersonEvent{
+					{
+						Date: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						Address:   "The address where the marriage took place.",
+						CityID:    "",
+						City:      "The city where the marriage occurred.",
+						StateID:   "",
+						State:     "The state where the marriage took place.",
+						PC:        "The postal code of the marriage location.",
+						CountryID: "",
+						Country:   "The country where the marriage occurred.",
+						Sources: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID) for the current citation.",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+					},
+				},
+				Marriages: []FamilyPersonMarriage{
+					{
+						Type:         "theory or hypothesis",
+						ID:           "Unique identifier for the person.",
+						GEDCOMId:     "",
+						Official:     true,
+						FamilyID:     "Unique identifier for the family.",
+						ExternalFile: false,
+						Name:         "Name of the spouse.",
+						History: []HTText{
+							{
+								Text: "A detailed description of the person's life history and marital status.",
+								Source: []HTSource{
+									{
+										Type: 3210,
+										UUID: "Unique identifier (UUID) for the current citation.",
+										Text: "The accompanying text that will be displayed with the citation.",
+										Page: "The specific page in the publication where this information appears.",
+										Date: HTDate{
+											DateType: "gregory",
+											Year:     "2010",
+											Month:    "",
+											Day:      "",
+										},
+									},
+								},
+								FillDates: []HTDate{
+									{
+										DateType: "gregory",
+										Year:     "2010",
+										Month:    "",
+										Day:      "",
+									},
+								},
+								IsTable:     false,
+								ImgDesc:     "A description of an image included in the text.",
+								Format:      "markdown or html",
+								PostMention: "",
+							},
+						},
+						DateTime: FamilyPersonEvent{
+							Date:      nil,
+							Address:   "",
+							CityID:    "",
+							City:      "",
+							StateID:   "",
+							State:     "",
+							PC:        "",
+							CountryID: "",
+							Country:   "",
+							Sources:   nil,
+						},
+					},
+				},
+				Divorced: nil,
+				Children: []FamilyPersonChild{
+					{
+						Type:         "theory or hypothesis",
+						ID:           "Unique identifier for the child.",
+						MarriageID:   "Unique identifier for the marriage (parental connection).",
+						Name:         "Name of the child.",
+						FamilyID:     "Unique identifier for the child's family, used if the child establishes a new family.",
+						ExternalFile: false,
+						AddLink:      false,
+						History: []HTText{
+							{
+								Text: "A detailed description of the person's life history and marital status.",
+								Source: []HTSource{
+									{
+										Type: 3210,
+										UUID: "Unique identifier (UUID) for the current citation.",
+										Text: "The accompanying text that will be displayed with the citation.",
+										Page: "The specific page in the publication where this information appears.",
+										Date: HTDate{
+											DateType: "gregory",
+											Year:     "2010",
+											Month:    "",
+											Day:      "",
+										},
+									},
+								},
+								FillDates: []HTDate{
+									{
+										DateType: "gregory",
+										Year:     "2010",
+										Month:    "",
+										Day:      "",
+									},
+								},
+								IsTable:     false,
+								ImgDesc:     "A description of an image included in the text.",
+								Format:      "markdown or html",
+								PostMention: "",
+							},
+						},
+						AdoptedChild: false,
+					},
+				},
+				Death: []FamilyPersonEvent{
+					{
+						Date: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						Address:   "The address where the marriage took place.",
+						CityID:    "",
+						City:      "The city where the marriage occurred.",
+						StateID:   "",
+						State:     "The state where the marriage took place.",
+						PC:        "The postal code of the marriage location.",
+						CountryID: "",
+						Country:   "The country where the marriage occurred.",
+						Sources: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID) for the current citation.",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(family, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPerson() {
+	isInside, cursorPos := e.isInsidePeopleArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"people\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	person := FamilyPerson{
+		ID:         "Unique identifier for the person.",
+		Name:       "Name of the person.",
+		Surname:    "",
+		Patronymic: "",
+		FullName:   "",
+		Sex:        "The biological classification of a person.",
+		Gender:     "The gender identity or social role adopted by a person.",
+		IsReal:     false,
+		Haplogroup: []FamilyPersonHaplogroup{
+			{
+				Type:       "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
+				Haplogroup: "The haplogroup value",
+				Sources: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+			},
+		},
+		History: []HTText{
+			{
+				Text: "A detailed description of the person's life history and marital status.",
+				Source: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+				FillDates: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				IsTable:     false,
+				ImgDesc:     "A description of an image included in the text.",
+				Format:      "markdown or html",
+				PostMention: "",
+			},
+		},
+		Parents: []FamilyPersonParents{
+			{
+				Type:               "theory or hypothesis",
+				FatherExternalFile: false,
+				FatherFamily:       "Unique identifier for the father's family. It should match the family ID used here.",
+				FatherID:           "Unique identifier for the father.",
+				FatherName:         "Name of the father.",
+				MotherExternalFile: false,
+				MotherFamily:       "Unique identifier for the mother's family.",
+				MotherID:           "Unique identifier for the mother.",
+				MotherName:         "Name of the mother.",
+			},
+		},
+		Birth: []FamilyPersonEvent{
+			{
+				Date: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				Address:   "The address where the marriage took place.",
+				CityID:    "",
+				City:      "The city where the marriage occurred.",
+				StateID:   "",
+				State:     "The state where the marriage took place.",
+				PC:        "The postal code of the marriage location.",
+				CountryID: "",
+				Country:   "The country where the marriage occurred.",
+				Sources: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+			},
+		},
+		Baptism: []FamilyPersonEvent{
+			{
+				Date: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				Address:   "The address where the marriage took place.",
+				CityID:    "",
+				City:      "The city where the marriage occurred.",
+				StateID:   "",
+				State:     "The state where the marriage took place.",
+				PC:        "The postal code of the marriage location.",
+				CountryID: "",
+				Country:   "The country where the marriage occurred.",
+				Sources: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+			},
+		},
+		Marriages: []FamilyPersonMarriage{
+			{
+				Type:         "theory or hypothesis",
+				ID:           "Unique identifier for the person.",
+				GEDCOMId:     "",
+				Official:     true,
+				FamilyID:     "Unique identifier for the family.",
+				ExternalFile: false,
+				Name:         "Name of the spouse.",
+				History: []HTText{
+					{
+						Text: "A detailed description of the person's life history and marital status.",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID).",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "",
+					},
+				},
+				DateTime: FamilyPersonEvent{
+					Date:      nil,
+					Address:   "",
+					CityID:    "",
+					City:      "",
+					StateID:   "",
+					State:     "",
+					PC:        "",
+					CountryID: "",
+					Country:   "",
+					Sources:   nil,
+				},
+			},
+		},
+		Divorced: nil,
+		Children: []FamilyPersonChild{
+			{
+				Type:         "theory or hypothesis",
+				ID:           "Unique identifier for the child.",
+				MarriageID:   "Unique identifier for the marriage (parental connection).",
+				Name:         "Name of the child.",
+				FamilyID:     "Unique identifier for the child's family, used if the child establishes a new family.",
+				ExternalFile: false,
+				AddLink:      false,
+				History: []HTText{
+					{
+						Text: "A detailed description of the person's life history and marital status.",
+						Source: []HTSource{
+							{
+								Type: 3210,
+								UUID: "Unique identifier (UUID).",
+								Text: "The accompanying text that will be displayed with the citation.",
+								Page: "The specific page in the publication where this information appears.",
+								Date: HTDate{
+									DateType: "gregory",
+									Year:     "2010",
+									Month:    "",
+									Day:      "",
+								},
+							},
+						},
+						FillDates: []HTDate{
+							{
+								DateType: "gregory",
+								Year:     "2010",
+								Month:    "",
+								Day:      "",
+							},
+						},
+						IsTable:     false,
+						ImgDesc:     "A description of an image included in the text.",
+						Format:      "markdown or html",
+						PostMention: "",
+					},
+				},
+				AdoptedChild: false,
+			},
+		},
+		Death: []FamilyPersonEvent{
+			{
+				Date: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				Address:   "The address where the marriage took place.",
+				CityID:    "",
+				City:      "The city where the marriage occurred.",
+				StateID:   "",
+				State:     "The state where the marriage took place.",
+				PC:        "The postal code of the marriage location.",
+				CountryID: "",
+				Country:   "The country where the marriage occurred.",
+				Sources: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(person, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonParents() {
+	isInside, cursorPos := e.isInsideParentsArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"parents\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	parents := FamilyPersonParents{
+		Type:               "theory or hypothesis",
+		FatherExternalFile: false,
+		FatherFamily:       "Unique identifier for the father's family. It should match the family ID used here.",
+		FatherID:           "Unique identifier for the father.",
+		FatherName:         "Name of the father.",
+		MotherExternalFile: false,
+		MotherFamily:       "Unique identifier for the mother's family.",
+		MotherID:           "Unique identifier for the mother.",
+		MotherName:         "Name of the mother.",
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(parents, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonMarriage() {
+	isInside, cursorPos := e.isInsideMarriagesArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"marriages\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	marriage := FamilyPersonMarriage{
+		Type:         "theory or hypothesis",
+		ID:           "Unique identifier for the person.",
+		GEDCOMId:     "",
+		Official:     true,
+		FamilyID:     "Unique identifier for the family.",
+		ExternalFile: false,
+		Name:         "Name of the spouse.",
+		History: []HTText{
+			{
+				Text: "A detailed description of the person's life history and marital status.",
+				Source: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID) for the current citation.",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+				FillDates: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				IsTable:     false,
+				ImgDesc:     "A description of an image included in the text.",
+				Format:      "markdown or html",
+				PostMention: "",
+			},
+		},
+		DateTime: FamilyPersonEvent{
+			Date:      nil,
+			Address:   "",
+			CityID:    "",
+			City:      "",
+			StateID:   "",
+			State:     "",
+			PC:        "",
+			CountryID: "",
+			Country:   "",
+			Sources:   nil,
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(marriage, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonDivorced() {
+	isInside, cursorPos := e.isInsideDivorcedArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"divorced\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	marriage := FamilyPersonMarriage{
+		Type:         "theory or hypothesis",
+		ID:           "Unique identifier for the person.",
+		GEDCOMId:     "",
+		Official:     false, // For divorced, it's not official anymore
+		FamilyID:     "Unique identifier for the family.",
+		ExternalFile: false,
+		Name:         "Name of the spouse.",
+		History: []HTText{
+			{
+				Text: "A detailed description of the person's life history and divorce.",
+				Source: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID) for the current citation.",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+				FillDates: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				IsTable:     false,
+				ImgDesc:     "A description of an image included in the text.",
+				Format:      "markdown or html",
+				PostMention: "",
+			},
+		},
+		DateTime: FamilyPersonEvent{ // This represents the divorce event details
+			Date: []HTDate{
+				{
+					DateType: "gregory",
+					Year:     "2010",
+					Month:    "",
+					Day:      "",
+				},
+			},
+			Address:   "The address where the divorce took place.",
+			CityID:    "",
+			City:      "The city where the divorce occurred.",
+			StateID:   "",
+			State:     "",
+			PC:        "",
+			CountryID: "",
+			Country:   "",
+			Sources: []HTSource{
+				{
+					Type: 3210,
+					UUID: "Unique identifier (UUID) for the current citation.",
+					Text: "The accompanying text that will be displayed with the citation.",
+					Page: "The specific page in the publication where this information appears.",
+					Date: HTDate{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+			},
+		},
+	}
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(marriage, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonHaplogroup() {
+	isInside, cursorPos := e.isInsideHaplogroupArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"haplogroup\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	haplogroup := FamilyPersonHaplogroup{
+		Type:       "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
+		Haplogroup: "The haplogroup value",
+		Sources: []HTSource{
+			{
+				Type: 3210,
+				UUID: "Unique identifier (UUID) for the current citation.",
+				Text: "The accompanying text that will be displayed with the citation.",
+				Page: "The specific page in the publication where this information appears.",
+				Date: HTDate{
+					DateType: "gregory",
+					Year:     "2010",
+					Month:    "",
+					Day:      "",
+				},
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(haplogroup, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonBirth() {
+	isInside, cursorPos := e.isInsideBirthArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"birth\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	event := FamilyPersonEvent{
+		Date: []HTDate{
+			{
+				DateType: "gregory",
+				Year:     "2010",
+				Month:    "",
+				Day:      "",
+			},
+		},
+		Address:   "The address where the event took place.",
+		CityID:    "",
+		City:      "The city where the event occurred.",
+		StateID:   "",
+		State:     "The state where the event took place.",
+		PC:        "The postal code of the event location.",
+		CountryID: "",
+		Country:   "The country where the event occurred.",
+		Sources: []HTSource{
+			{
+				Type: 3210,
+				UUID: "Unique identifier (UUID) for the current citation.",
+				Text: "The accompanying text that will be displayed with the citation.",
+				Page: "The specific page in the publication where this information appears.",
+				Date: HTDate{
+					DateType: "gregory",
+					Year:     "2010",
+					Month:    "",
+					Day:      "",
+				},
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(event, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonBaptism() {
+	isInside, cursorPos := e.isInsideBaptismArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"baptism\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	event := FamilyPersonEvent{
+		Date: []HTDate{
+			{
+				DateType: "gregory",
+				Year:     "2010",
+				Month:    "",
+				Day:      "",
+			},
+		},
+		Address:   "The address where the event took place.",
+		CityID:    "",
+		City:      "The city where the event occurred.",
+		StateID:   "",
+		State:     "The state where the event took place.",
+		PC:        "The postal code of the event location.",
+		CountryID: "",
+		Country:   "The country where the event occurred.",
+		Sources: []HTSource{
+			{
+				Type: 3210,
+				UUID: "Unique identifier (UUID) for the current citation.",
+				Text: "The accompanying text that will be displayed with the citation.",
+				Page: "The specific page in the publication where this information appears.",
+				Date: HTDate{
+					DateType: "gregory",
+					Year:     "2010",
+					Month:    "",
+					Day:      "",
+				},
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(event, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
+}
+
+func (e *TextEditor) insertFamilyPersonDeath() {
+	isInside, cursorPos := e.isInsideDeathArray()
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"death\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	event := FamilyPersonEvent{
+		Date: []HTDate{
+			{
+				DateType: "gregory",
+				Year:     "2010",
+				Month:    "",
+				Day:      "",
+			},
+		},
+		Address:   "The address where the event took place.",
+		CityID:    "",
+		City:      "The city where the event occurred.",
+		StateID:   "",
+		State:     "The state where the event took place.",
+		PC:        "The postal code of the event location.",
+		CountryID: "",
+		Country:   "The country where the event occurred.",
+		Sources: []HTSource{
+			{
+				Type: 3210,
+				UUID: "Unique identifier (UUID) for the current citation.",
+				Text: "The accompanying text that will be displayed with the citation.",
+				Page: "The specific page in the publication where this information appears.",
+				Date: HTDate{
+					DateType: "gregory",
+					Year:     "2010",
+					Month:    "",
+					Day:      "",
+				},
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(event, indentation, "  ")
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+	oldClipboard := e.window.Clipboard().Content()
+	e.window.Clipboard().SetContent(insertText)
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+	e.window.Clipboard().SetContent(oldClipboard)
 }
 
 func (e *TextEditor) cutText() {
