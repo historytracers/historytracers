@@ -303,11 +303,16 @@ func (e *TextEditor) createMenu() {
 		toolsMenuItem,
 		fyne.NewMenuItemSeparator(),
 		e.familyMenuItem,
+		fyne.NewMenuItemSeparator(),
+		fyne.NewMenuItem("Atlas", nil),
 	)
 	insertMenu.Items[0].ChildMenu = fyne.NewMenu("Content",
 		fyne.NewMenuItem("Date", e.insertDate),
 		fyne.NewMenuItem("Source", e.insertSource),
 		fyne.NewMenuItem("Text", e.insertText),
+	)
+	insertMenu.Items[5].ChildMenu = fyne.NewMenu("Atlas",
+		fyne.NewMenuItem("Map", e.insertAtlasMap),
 	)
 
 	// Tabs menu with shortcuts
@@ -1883,6 +1888,51 @@ func (e *TextEditor) isInsideDivorcedArray() (bool, int) {
 	return e.isInsideEventArray("divorced")
 }
 
+func (e *TextEditor) isInsideAtlasArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:atlas)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
 func (e *TextEditor) getIndentationForInsertion(cursorPos int) string {
 	if e.currentDoc == nil {
 		return ""
@@ -1994,6 +2044,89 @@ func (e *TextEditor) insertAudio() {
 
 	e.window.Clipboard().SetContent(oldClipboard)
 
+}
+
+func (e *TextEditor) insertAtlasMap() {
+	isInside, cursorPos := e.isInsideAtlasArray()
+
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"atlas\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	atlasMap := atlasTemplateContent{
+		ID:     "Unique identifier (UUID)",
+		Image:  "Complete path to filename.",
+		Author: "Map author",
+		Index:  "Name shown in the index.",
+		Audio:  "Link to audio file.",
+		Text: []HTText{
+			{
+				Text: "",
+				Source: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+				FillDates: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				IsTable:     false,
+				ImgDesc:     "A description of an image included in the text.",
+				Format:      "markdown or html",
+				PostMention: "",
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(atlasMap, indentation, "  ")
+
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+
+	oldClipboard := e.window.Clipboard().Content()
+
+	e.window.Clipboard().SetContent(insertText)
+
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+
+	e.window.Clipboard().SetContent(oldClipboard)
 }
 
 func (e *TextEditor) insertDate() {
