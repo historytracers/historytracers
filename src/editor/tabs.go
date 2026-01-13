@@ -89,6 +89,8 @@ func (e *TextEditor) removeTab(doc *Document, index int) {
 	if len(e.documents) > 0 {
 		e.currentDoc = e.documents[len(e.documents)-1]
 		e.tabContainer.Select(e.currentDoc.tabItem)
+		isFamily := e.isFamilyDocument(e.currentDoc)
+		e.updateFamilyMenuItems(isFamily)
 	} else {
 		e.currentDoc = nil
 		// Create a new empty document if all are closed
@@ -102,6 +104,8 @@ func (e *TextEditor) switchToTab(tabItem *container.TabItem) {
 	for _, doc := range e.documents {
 		if doc.tabItem == tabItem {
 			e.currentDoc = doc
+			isFamily := e.isFamilyDocument(doc)
+			e.updateFamilyMenuItems(isFamily)
 			e.updateTitle()
 			e.updateStatus("Switched to: " + e.getTabTitle(doc))
 			break

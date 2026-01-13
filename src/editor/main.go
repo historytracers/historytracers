@@ -45,6 +45,8 @@ type TextEditor struct {
 	searchQuery         string
 	lastSearchPos       int
 	searchResults       []int
+	familyMenuItems     []*fyne.MenuItem
+	familyMenuItem      *fyne.MenuItem
 }
 
 func (e *TextEditor) findText() {
@@ -269,9 +271,8 @@ func (e *TextEditor) createMenu() {
 	toolsMenuItem := fyne.NewMenuItem("Tools", nil)
 	toolsMenuItem.ChildMenu = toolsMenu
 
-	familyMenu := fyne.NewMenu("Family tree",
+	e.familyMenuItems = []*fyne.MenuItem{
 		fyne.NewMenuItem("Haplogroup", e.insertFamilyPersonHaplogroup),
-		fyne.NewMenuItemSeparator(),
 		fyne.NewMenuItem("Birth", e.insertFamilyPersonBirth),
 		fyne.NewMenuItem("Baptism", e.insertFamilyPersonBaptism),
 		fyne.NewMenuItem("Death", e.insertFamilyPersonDeath),
@@ -279,17 +280,29 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("Parents", e.insertFamilyPersonParents),
 		fyne.NewMenuItem("Marriage", e.insertFamilyPersonMarriage),
 		fyne.NewMenuItem("Divorced", e.insertFamilyPersonDivorced),
-		fyne.NewMenuItemSeparator(),
 		fyne.NewMenuItem("Family", e.insertFamilyBody),
+	}
+	familyMenu := fyne.NewMenu("Family tree",
+		e.familyMenuItems[0],
+		fyne.NewMenuItemSeparator(),
+		e.familyMenuItems[1],
+		e.familyMenuItems[2],
+		e.familyMenuItems[3],
+		e.familyMenuItems[4],
+		e.familyMenuItems[5],
+		e.familyMenuItems[6],
+		e.familyMenuItems[7],
+		fyne.NewMenuItemSeparator(),
+		e.familyMenuItems[8],
 	)
-	familyMenuItem := fyne.NewMenuItem("Family tree", nil)
-	familyMenuItem.ChildMenu = familyMenu
+	e.familyMenuItem = fyne.NewMenuItem("Family tree", nil)
+	e.familyMenuItem.ChildMenu = familyMenu
 
 	insertMenu := fyne.NewMenu("Insert",
 		fyne.NewMenuItem("Content", nil),
 		toolsMenuItem,
 		fyne.NewMenuItemSeparator(),
-		familyMenuItem,
+		e.familyMenuItem,
 	)
 	insertMenu.Items[0].ChildMenu = fyne.NewMenu("Content",
 		fyne.NewMenuItem("Date", e.insertDate),
@@ -479,6 +492,22 @@ func (e *TextEditor) getCurrentDocIndex() int {
 	return -1
 }
 
+func (e *TextEditor) isFamilyDocument(doc *Document) bool {
+	if doc == nil || doc.content == nil {
+		return false
+	}
+	content := doc.content.Text
+	re := regexp.MustCompile(`"type"\s*:\s*"family_tree"`)
+	return re.MatchString(content)
+}
+
+func (e *TextEditor) updateFamilyMenuItems(isFamily bool) {
+	for _, item := range e.familyMenuItems {
+		item.Disabled = !isFamily
+	}
+	e.window.MainMenu().Refresh()
+}
+
 func (e *TextEditor) getTabTitle(doc *Document) string {
 	if doc.filePath == "" {
 		return "Untitled"
@@ -604,6 +633,8 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	doc := e.createNewDocument()
 	doc.content.SetText(jsonStr)
 	doc.isModified = true
+	isFamily := e.isFamilyDocument(doc)
+	e.updateFamilyMenuItems(isFamily)
 	e.updateTabTitle(doc)
 }
 
