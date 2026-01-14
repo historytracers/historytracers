@@ -47,6 +47,7 @@ type TextEditor struct {
 	searchResults       []int
 	familyMenuItems     []*fyne.MenuItem
 	familyMenuItem      *fyne.MenuItem
+	atlasMapMenuItem    *fyne.MenuItem
 }
 
 func (e *TextEditor) findText() {
@@ -311,8 +312,9 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("Source", e.insertSource),
 		fyne.NewMenuItem("Text", e.insertText),
 	)
+	e.atlasMapMenuItem = fyne.NewMenuItem("Map", e.insertAtlasMap)
 	insertMenu.Items[5].ChildMenu = fyne.NewMenu("Atlas",
-		fyne.NewMenuItem("Map", e.insertAtlasMap),
+		e.atlasMapMenuItem,
 	)
 
 	// Tabs menu with shortcuts
@@ -506,10 +508,24 @@ func (e *TextEditor) isFamilyDocument(doc *Document) bool {
 	return re.MatchString(content)
 }
 
+func (e *TextEditor) isAtlasDocument(doc *Document) bool {
+	if doc == nil || doc.content == nil {
+		return false
+	}
+	content := doc.content.Text
+	re := regexp.MustCompile(`"atlas"\s*:`)
+	return re.MatchString(content)
+}
+
 func (e *TextEditor) updateFamilyMenuItems(isFamily bool) {
 	for _, item := range e.familyMenuItems {
 		item.Disabled = !isFamily
 	}
+	e.window.MainMenu().Refresh()
+}
+
+func (e *TextEditor) updateAtlasMenuItem(isAtlas bool) {
+	e.atlasMapMenuItem.Disabled = !isAtlas
 	e.window.MainMenu().Refresh()
 }
 
@@ -640,6 +656,8 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	doc.isModified = true
 	isFamily := e.isFamilyDocument(doc)
 	e.updateFamilyMenuItems(isFamily)
+	isAtlas := e.isAtlasDocument(doc)
+	e.updateAtlasMenuItem(isAtlas)
 	e.updateTabTitle(doc)
 }
 
