@@ -31,6 +31,29 @@ type Document struct {
 	scrollContainer *container.Scroll
 }
 
+type toolbarActionWithLabel struct {
+	widget.BaseWidget
+	icon   fyne.Resource
+	letter string
+	action func()
+}
+
+func newToolbarActionWithLabel(icon fyne.Resource, letter string, action func()) *toolbarActionWithLabel {
+	t := &toolbarActionWithLabel{icon: icon, letter: letter, action: action}
+	t.ExtendBaseWidget(t)
+	return t
+}
+
+func (t *toolbarActionWithLabel) ToolbarObject() fyne.CanvasObject {
+	return t
+}
+
+func (t *toolbarActionWithLabel) CreateRenderer() fyne.WidgetRenderer {
+	btn := widget.NewButtonWithIcon(t.letter, t.icon, t.action)
+	btn.Importance = widget.MediumImportance
+	return widget.NewSimpleRenderer(btn)
+}
+
 type TextEditor struct {
 	app                    fyne.App
 	window                 fyne.Window
@@ -220,25 +243,39 @@ func (e *TextEditor) createToolbar() *widget.Toolbar {
 }
 
 func (e *TextEditor) createContentToolbar() *widget.Toolbar {
+	dateBtn := newToolbarActionWithLabel(theme.HistoryIcon(), "D", e.insertDate)
+	sourceBtn := newToolbarActionWithLabel(theme.InfoIcon(), "S", e.insertSource)
+	textBtn := newToolbarActionWithLabel(theme.DocumentIcon(), "T", e.insertText)
+
 	return widget.NewToolbar(
-		widget.NewToolbarAction(theme.HistoryIcon(), e.insertDate),
-		widget.NewToolbarAction(theme.InfoIcon(), e.insertSource),
-		widget.NewToolbarAction(theme.DocumentIcon(), e.insertText),
+		dateBtn,
+		sourceBtn,
+		textBtn,
 	)
 }
 
 func (e *TextEditor) createFamilyToolbar() *widget.Toolbar {
+	haplogroupBtn := newToolbarActionWithLabel(theme.InfoIcon(), "H", e.insertFamilyPersonHaplogroup)
+	birthBtn := newToolbarActionWithLabel(theme.InfoIcon(), "B", e.insertFamilyPersonBirth)
+	baptismBtn := newToolbarActionWithLabel(theme.InfoIcon(), "Bp", e.insertFamilyPersonBaptism)
+	deathBtn := newToolbarActionWithLabel(theme.InfoIcon(), "D", e.insertFamilyPersonDeath)
+	personBtn := newToolbarActionWithLabel(theme.AccountIcon(), "P", e.insertFamilyPerson)
+	parentsBtn := newToolbarActionWithLabel(theme.InfoIcon(), "Pr", e.insertFamilyPersonParents)
+	marriageBtn := newToolbarActionWithLabel(theme.InfoIcon(), "M", e.insertFamilyPersonMarriage)
+	divorcedBtn := newToolbarActionWithLabel(theme.InfoIcon(), "Di", e.insertFamilyPersonDivorced)
+	familyBtn := newToolbarActionWithLabel(theme.HomeIcon(), "F", e.insertFamilyBody)
+
 	return widget.NewToolbar(
-		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonHaplogroup),
-		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonBirth),
-		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonBaptism),
-		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonDeath),
-		widget.NewToolbarAction(theme.AccountIcon(), e.insertFamilyPerson),
-		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonParents),
-		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonMarriage),
-		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonDivorced),
+		haplogroupBtn,
+		birthBtn,
+		baptismBtn,
+		deathBtn,
+		personBtn,
+		parentsBtn,
+		marriageBtn,
+		divorcedBtn,
 		widget.NewToolbarSeparator(),
-		widget.NewToolbarAction(theme.HomeIcon(), e.insertFamilyBody),
+		familyBtn,
 	)
 }
 
