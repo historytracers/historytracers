@@ -44,6 +44,8 @@ type TextEditor struct {
 	hideToolbarMenuItem    *fyne.MenuItem
 	contentToolbar         *widget.Toolbar
 	contentToolbarMenuItem *fyne.MenuItem
+	familyToolbar          *widget.Toolbar
+	familyToolbarMenuItem  *fyne.MenuItem
 	toolbarContainer       *fyne.Container
 	searchQuery            string
 	lastSearchPos          int
@@ -176,11 +178,17 @@ func (e *TextEditor) setupUI() {
 	// Create content toolbar
 	e.contentToolbar = e.createContentToolbar()
 
+	// Create family toolbar
+	e.familyToolbar = e.createFamilyToolbar()
+	e.familyToolbar.Hide()
+
 	// Create horizontal container for both toolbars with separator
 	e.toolbarContainer = container.NewHBox(
 		e.toolbar,
 		widget.NewSeparator(),
 		e.contentToolbar,
+		widget.NewSeparator(),
+		e.familyToolbar,
 	)
 
 	// Layout - tabs are now the main content area
@@ -216,6 +224,21 @@ func (e *TextEditor) createContentToolbar() *widget.Toolbar {
 		widget.NewToolbarAction(theme.HistoryIcon(), e.insertDate),
 		widget.NewToolbarAction(theme.InfoIcon(), e.insertSource),
 		widget.NewToolbarAction(theme.DocumentIcon(), e.insertText),
+	)
+}
+
+func (e *TextEditor) createFamilyToolbar() *widget.Toolbar {
+	return widget.NewToolbar(
+		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonHaplogroup),
+		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonBirth),
+		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonBaptism),
+		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonDeath),
+		widget.NewToolbarAction(theme.AccountIcon(), e.insertFamilyPerson),
+		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonParents),
+		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonMarriage),
+		widget.NewToolbarAction(theme.InfoIcon(), e.insertFamilyPersonDivorced),
+		widget.NewToolbarSeparator(),
+		widget.NewToolbarAction(theme.HomeIcon(), e.insertFamilyBody),
 	)
 }
 
@@ -372,9 +395,13 @@ func (e *TextEditor) createMenu() {
 	e.contentToolbarMenuItem = fyne.NewMenuItem("Content", e.toggleContentToolbar)
 	e.contentToolbarMenuItem.Checked = true
 
+	e.familyToolbarMenuItem = fyne.NewMenuItem("Family Tree", e.toggleFamilyToolbar)
+	e.familyToolbarMenuItem.Checked = false
+
 	windowMenu := fyne.NewMenu("Window",
 		e.hideToolbarMenuItem,
 		e.contentToolbarMenuItem,
+		e.familyToolbarMenuItem,
 	)
 
 	mainMenu := fyne.NewMainMenu(
@@ -416,8 +443,21 @@ func (e *TextEditor) toggleContentToolbar() {
 	e.window.MainMenu().Refresh()
 }
 
+func (e *TextEditor) toggleFamilyToolbar() {
+	if e.familyToolbar.Visible() {
+		e.familyToolbar.Hide()
+		e.familyToolbarMenuItem.Checked = false
+	} else {
+		e.familyToolbar.Show()
+		e.familyToolbarMenuItem.Checked = true
+	}
+	e.updateToolbarContainerVisibility()
+	e.toolbarContainer.Refresh()
+	e.window.MainMenu().Refresh()
+}
+
 func (e *TextEditor) updateToolbarContainerVisibility() {
-	if !e.toolbar.Visible() && !e.contentToolbar.Visible() {
+	if !e.toolbar.Visible() && !e.contentToolbar.Visible() && !e.familyToolbar.Visible() {
 		e.toolbarContainer.Hide()
 	} else {
 		e.toolbarContainer.Show()
@@ -569,6 +609,14 @@ func (e *TextEditor) updateFamilyMenuItems(isFamily bool) {
 	for _, item := range e.familyMenuItems {
 		item.Disabled = !isFamily
 	}
+	if isFamily {
+		e.familyToolbar.Show()
+		e.familyToolbarMenuItem.Checked = true
+	} else {
+		e.familyToolbar.Hide()
+		e.familyToolbarMenuItem.Checked = false
+	}
+	e.toolbarContainer.Refresh()
 	e.window.MainMenu().Refresh()
 }
 
