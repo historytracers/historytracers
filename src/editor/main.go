@@ -32,22 +32,25 @@ type Document struct {
 }
 
 type TextEditor struct {
-	app                 fyne.App
-	window              fyne.Window
-	documents           []*Document
-	currentDoc          *Document
-	tabContainer        *container.DocTabs
-	statusBar           *widget.Label
-	templatePath        string
-	templateWindow      fyne.Window
-	toolbar             *widget.Toolbar
-	hideToolbarMenuItem *fyne.MenuItem
-	searchQuery         string
-	lastSearchPos       int
-	searchResults       []int
-	familyMenuItems     []*fyne.MenuItem
-	familyMenuItem      *fyne.MenuItem
-	atlasMapMenuItem    *fyne.MenuItem
+	app                    fyne.App
+	window                 fyne.Window
+	documents              []*Document
+	currentDoc             *Document
+	tabContainer           *container.DocTabs
+	statusBar              *widget.Label
+	templatePath           string
+	templateWindow         fyne.Window
+	toolbar                *widget.Toolbar
+	hideToolbarMenuItem    *fyne.MenuItem
+	contentToolbar         *widget.Toolbar
+	contentToolbarMenuItem *fyne.MenuItem
+	toolbarContainer       *fyne.Container
+	searchQuery            string
+	lastSearchPos          int
+	searchResults          []int
+	familyMenuItems        []*fyne.MenuItem
+	familyMenuItem         *fyne.MenuItem
+	atlasMapMenuItem       *fyne.MenuItem
 }
 
 func (e *TextEditor) findText() {
@@ -170,9 +173,19 @@ func (e *TextEditor) setupUI() {
 	// Create toolbar
 	e.toolbar = e.createToolbar()
 
+	// Create content toolbar
+	e.contentToolbar = e.createContentToolbar()
+
+	// Create horizontal container for both toolbars with separator
+	e.toolbarContainer = container.NewHBox(
+		e.toolbar,
+		widget.NewSeparator(),
+		e.contentToolbar,
+	)
+
 	// Layout - tabs are now the main content area
 	content := container.NewBorder(
-		e.toolbar,
+		e.toolbarContainer,
 		e.statusBar,
 		nil, nil,
 		e.tabContainer,
@@ -195,6 +208,14 @@ func (e *TextEditor) createToolbar() *widget.Toolbar {
 		widget.NewToolbarAction(theme.ContentCutIcon(), e.cutText),
 		widget.NewToolbarAction(theme.ContentCopyIcon(), e.copyText),
 		widget.NewToolbarAction(theme.ContentPasteIcon(), e.pasteText),
+	)
+}
+
+func (e *TextEditor) createContentToolbar() *widget.Toolbar {
+	return widget.NewToolbar(
+		widget.NewToolbarAction(theme.HistoryIcon(), e.insertDate),
+		widget.NewToolbarAction(theme.InfoIcon(), e.insertSource),
+		widget.NewToolbarAction(theme.DocumentIcon(), e.insertText),
 	)
 }
 
@@ -348,8 +369,12 @@ func (e *TextEditor) createMenu() {
 	e.hideToolbarMenuItem = fyne.NewMenuItem("Toolbar", e.toggleToolbar)
 	e.hideToolbarMenuItem.Checked = true
 
+	e.contentToolbarMenuItem = fyne.NewMenuItem("Content", e.toggleContentToolbar)
+	e.contentToolbarMenuItem.Checked = true
+
 	windowMenu := fyne.NewMenu("Window",
 		e.hideToolbarMenuItem,
+		e.contentToolbarMenuItem,
 	)
 
 	mainMenu := fyne.NewMainMenu(
@@ -357,8 +382,8 @@ func (e *TextEditor) createMenu() {
 		editMenu,
 		insertMenu,
 		tabsMenu,
-		windowMenu,
 		settingsMenu,
+		windowMenu,
 		helpMenu,
 	)
 
@@ -373,7 +398,30 @@ func (e *TextEditor) toggleToolbar() {
 		e.toolbar.Show()
 		e.hideToolbarMenuItem.Checked = true
 	}
+	e.updateToolbarContainerVisibility()
+	e.toolbarContainer.Refresh()
 	e.window.MainMenu().Refresh()
+}
+
+func (e *TextEditor) toggleContentToolbar() {
+	if e.contentToolbar.Visible() {
+		e.contentToolbar.Hide()
+		e.contentToolbarMenuItem.Checked = false
+	} else {
+		e.contentToolbar.Show()
+		e.contentToolbarMenuItem.Checked = true
+	}
+	e.updateToolbarContainerVisibility()
+	e.toolbarContainer.Refresh()
+	e.window.MainMenu().Refresh()
+}
+
+func (e *TextEditor) updateToolbarContainerVisibility() {
+	if !e.toolbar.Visible() && !e.contentToolbar.Visible() {
+		e.toolbarContainer.Hide()
+	} else {
+		e.toolbarContainer.Show()
+	}
 }
 
 func (e *TextEditor) showSettingsWindow() {
