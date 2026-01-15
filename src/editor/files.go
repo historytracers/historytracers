@@ -37,6 +37,8 @@ func (e *TextEditor) newFile() {
 		e.updateTitle()
 	}
 
+	e.updateFamilyMenuItems(false)
+	e.updateAtlasMenuItem(false)
 	e.updateStatus("New file created")
 }
 
@@ -52,6 +54,10 @@ func (e *TextEditor) addDocument(doc *Document, title string, content fyne.Canva
 	e.documents = append(e.documents, doc)
 	e.currentDoc = doc
 	e.tabContainer.Select(doc.tabItem)
+	isFamily := e.isFamilyDocument(doc)
+	e.updateFamilyMenuItems(isFamily)
+	isAtlas := e.isAtlasDocument(doc)
+	e.updateAtlasMenuItem(isAtlas)
 	e.updateTitle()
 }
 
@@ -119,6 +125,10 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 	doc.filePath = reader.URI().Path()
 	doc.content.SetText(content.String())
 	doc.isModified = false
+	isFamily := e.isFamilyDocument(doc)
+	e.updateFamilyMenuItems(isFamily)
+	isAtlas := e.isAtlasDocument(doc)
+	e.updateAtlasMenuItem(isAtlas)
 	e.updateTabTitle(doc)
 	e.updateStatus("Opened: " + filepath.Base(doc.filePath))
 }
