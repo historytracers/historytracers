@@ -31,20 +31,51 @@ type Document struct {
 	scrollContainer *container.Scroll
 }
 
+type toolbarActionWithLabel struct {
+	widget.BaseWidget
+	icon   fyne.Resource
+	letter string
+	action func()
+}
+
+func newToolbarActionWithLabel(icon fyne.Resource, letter string, action func()) *toolbarActionWithLabel {
+	t := &toolbarActionWithLabel{icon: icon, letter: letter, action: action}
+	t.ExtendBaseWidget(t)
+	return t
+}
+
+func (t *toolbarActionWithLabel) ToolbarObject() fyne.CanvasObject {
+	return t
+}
+
+func (t *toolbarActionWithLabel) CreateRenderer() fyne.WidgetRenderer {
+	btn := widget.NewButtonWithIcon(t.letter, t.icon, t.action)
+	btn.Importance = widget.MediumImportance
+	return widget.NewSimpleRenderer(btn)
+}
+
 type TextEditor struct {
-	app                 fyne.App
-	window              fyne.Window
-	documents           []*Document
-	currentDoc          *Document
-	tabContainer        *container.DocTabs
-	statusBar           *widget.Label
-	templatePath        string
-	templateWindow      fyne.Window
-	toolbar             *widget.Toolbar
-	hideToolbarMenuItem *fyne.MenuItem
-	searchQuery         string
-	lastSearchPos       int
-	searchResults       []int
+	app                    fyne.App
+	window                 fyne.Window
+	documents              []*Document
+	currentDoc             *Document
+	tabContainer           *container.DocTabs
+	statusBar              *widget.Label
+	templatePath           string
+	templateWindow         fyne.Window
+	toolbar                *widget.Toolbar
+	hideToolbarMenuItem    *fyne.MenuItem
+	contentToolbar         *widget.Toolbar
+	contentToolbarMenuItem *fyne.MenuItem
+	familyToolbar          *widget.Toolbar
+	familyToolbarMenuItem  *fyne.MenuItem
+	toolbarContainer       *fyne.Container
+	searchQuery            string
+	lastSearchPos          int
+	searchResults          []int
+	familyMenuItems        []*fyne.MenuItem
+	familyMenuItem         *fyne.MenuItem
+	atlasMapMenuItem       *fyne.MenuItem
 }
 
 func (e *TextEditor) findText() {
@@ -167,9 +198,25 @@ func (e *TextEditor) setupUI() {
 	// Create toolbar
 	e.toolbar = e.createToolbar()
 
+	// Create content toolbar
+	e.contentToolbar = e.createContentToolbar()
+
+	// Create family toolbar
+	e.familyToolbar = e.createFamilyToolbar()
+	e.familyToolbar.Hide()
+
+	// Create horizontal container for both toolbars with separator
+	e.toolbarContainer = container.NewHBox(
+		e.toolbar,
+		widget.NewSeparator(),
+		e.contentToolbar,
+		widget.NewSeparator(),
+		e.familyToolbar,
+	)
+
 	// Layout - tabs are now the main content area
 	content := container.NewBorder(
-		e.toolbar,
+		e.toolbarContainer,
 		e.statusBar,
 		nil, nil,
 		e.tabContainer,
@@ -192,6 +239,43 @@ func (e *TextEditor) createToolbar() *widget.Toolbar {
 		widget.NewToolbarAction(theme.ContentCutIcon(), e.cutText),
 		widget.NewToolbarAction(theme.ContentCopyIcon(), e.copyText),
 		widget.NewToolbarAction(theme.ContentPasteIcon(), e.pasteText),
+	)
+}
+
+func (e *TextEditor) createContentToolbar() *widget.Toolbar {
+	dateBtn := newToolbarActionWithLabel(theme.HistoryIcon(), "D", e.insertDate)
+	sourceBtn := newToolbarActionWithLabel(theme.InfoIcon(), "S", e.insertSource)
+	textBtn := newToolbarActionWithLabel(theme.DocumentIcon(), "T", e.insertText)
+
+	return widget.NewToolbar(
+		dateBtn,
+		sourceBtn,
+		textBtn,
+	)
+}
+
+func (e *TextEditor) createFamilyToolbar() *widget.Toolbar {
+	haplogroupBtn := newToolbarActionWithLabel(theme.InfoIcon(), "H", e.insertFamilyPersonHaplogroup)
+	birthBtn := newToolbarActionWithLabel(theme.InfoIcon(), "B", e.insertFamilyPersonBirth)
+	baptismBtn := newToolbarActionWithLabel(theme.InfoIcon(), "Bp", e.insertFamilyPersonBaptism)
+	deathBtn := newToolbarActionWithLabel(theme.InfoIcon(), "D", e.insertFamilyPersonDeath)
+	personBtn := newToolbarActionWithLabel(theme.AccountIcon(), "P", e.insertFamilyPerson)
+	parentsBtn := newToolbarActionWithLabel(theme.InfoIcon(), "Pr", e.insertFamilyPersonParents)
+	marriageBtn := newToolbarActionWithLabel(theme.InfoIcon(), "M", e.insertFamilyPersonMarriage)
+	divorcedBtn := newToolbarActionWithLabel(theme.InfoIcon(), "Di", e.insertFamilyPersonDivorced)
+	familyBtn := newToolbarActionWithLabel(theme.HomeIcon(), "F", e.insertFamilyBody)
+
+	return widget.NewToolbar(
+		haplogroupBtn,
+		birthBtn,
+		baptismBtn,
+		deathBtn,
+		personBtn,
+		parentsBtn,
+		marriageBtn,
+		divorcedBtn,
+		widget.NewToolbarSeparator(),
+		familyBtn,
 	)
 }
 
@@ -269,9 +353,8 @@ func (e *TextEditor) createMenu() {
 	toolsMenuItem := fyne.NewMenuItem("Tools", nil)
 	toolsMenuItem.ChildMenu = toolsMenu
 
-	familyMenu := fyne.NewMenu("Family tree",
+	e.familyMenuItems = []*fyne.MenuItem{
 		fyne.NewMenuItem("Haplogroup", e.insertFamilyPersonHaplogroup),
-		fyne.NewMenuItemSeparator(),
 		fyne.NewMenuItem("Birth", e.insertFamilyPersonBirth),
 		fyne.NewMenuItem("Baptism", e.insertFamilyPersonBaptism),
 		fyne.NewMenuItem("Death", e.insertFamilyPersonDeath),
@@ -279,22 +362,40 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItem("Parents", e.insertFamilyPersonParents),
 		fyne.NewMenuItem("Marriage", e.insertFamilyPersonMarriage),
 		fyne.NewMenuItem("Divorced", e.insertFamilyPersonDivorced),
-		fyne.NewMenuItemSeparator(),
 		fyne.NewMenuItem("Family", e.insertFamilyBody),
+	}
+	familyMenu := fyne.NewMenu("Family tree",
+		e.familyMenuItems[0],
+		fyne.NewMenuItemSeparator(),
+		e.familyMenuItems[1],
+		e.familyMenuItems[2],
+		e.familyMenuItems[3],
+		e.familyMenuItems[4],
+		e.familyMenuItems[5],
+		e.familyMenuItems[6],
+		e.familyMenuItems[7],
+		fyne.NewMenuItemSeparator(),
+		e.familyMenuItems[8],
 	)
-	familyMenuItem := fyne.NewMenuItem("Family tree", nil)
-	familyMenuItem.ChildMenu = familyMenu
+	e.familyMenuItem = fyne.NewMenuItem("Family tree", nil)
+	e.familyMenuItem.ChildMenu = familyMenu
 
 	insertMenu := fyne.NewMenu("Insert",
 		fyne.NewMenuItem("Content", nil),
 		toolsMenuItem,
 		fyne.NewMenuItemSeparator(),
-		familyMenuItem,
+		e.familyMenuItem,
+		fyne.NewMenuItemSeparator(),
+		fyne.NewMenuItem("Atlas", nil),
 	)
 	insertMenu.Items[0].ChildMenu = fyne.NewMenu("Content",
 		fyne.NewMenuItem("Date", e.insertDate),
 		fyne.NewMenuItem("Source", e.insertSource),
 		fyne.NewMenuItem("Text", e.insertText),
+	)
+	e.atlasMapMenuItem = fyne.NewMenuItem("Map", e.insertAtlasMap)
+	insertMenu.Items[5].ChildMenu = fyne.NewMenu("Atlas",
+		e.atlasMapMenuItem,
 	)
 
 	// Tabs menu with shortcuts
@@ -328,8 +429,16 @@ func (e *TextEditor) createMenu() {
 	e.hideToolbarMenuItem = fyne.NewMenuItem("Toolbar", e.toggleToolbar)
 	e.hideToolbarMenuItem.Checked = true
 
+	e.contentToolbarMenuItem = fyne.NewMenuItem("Content", e.toggleContentToolbar)
+	e.contentToolbarMenuItem.Checked = true
+
+	e.familyToolbarMenuItem = fyne.NewMenuItem("Family Tree", e.toggleFamilyToolbar)
+	e.familyToolbarMenuItem.Checked = false
+
 	windowMenu := fyne.NewMenu("Window",
 		e.hideToolbarMenuItem,
+		e.contentToolbarMenuItem,
+		e.familyToolbarMenuItem,
 	)
 
 	mainMenu := fyne.NewMainMenu(
@@ -337,8 +446,8 @@ func (e *TextEditor) createMenu() {
 		editMenu,
 		insertMenu,
 		tabsMenu,
-		windowMenu,
 		settingsMenu,
+		windowMenu,
 		helpMenu,
 	)
 
@@ -353,7 +462,43 @@ func (e *TextEditor) toggleToolbar() {
 		e.toolbar.Show()
 		e.hideToolbarMenuItem.Checked = true
 	}
+	e.updateToolbarContainerVisibility()
+	e.toolbarContainer.Refresh()
 	e.window.MainMenu().Refresh()
+}
+
+func (e *TextEditor) toggleContentToolbar() {
+	if e.contentToolbar.Visible() {
+		e.contentToolbar.Hide()
+		e.contentToolbarMenuItem.Checked = false
+	} else {
+		e.contentToolbar.Show()
+		e.contentToolbarMenuItem.Checked = true
+	}
+	e.updateToolbarContainerVisibility()
+	e.toolbarContainer.Refresh()
+	e.window.MainMenu().Refresh()
+}
+
+func (e *TextEditor) toggleFamilyToolbar() {
+	if e.familyToolbar.Visible() {
+		e.familyToolbar.Hide()
+		e.familyToolbarMenuItem.Checked = false
+	} else {
+		e.familyToolbar.Show()
+		e.familyToolbarMenuItem.Checked = true
+	}
+	e.updateToolbarContainerVisibility()
+	e.toolbarContainer.Refresh()
+	e.window.MainMenu().Refresh()
+}
+
+func (e *TextEditor) updateToolbarContainerVisibility() {
+	if !e.toolbar.Visible() && !e.contentToolbar.Visible() && !e.familyToolbar.Visible() {
+		e.toolbarContainer.Hide()
+	} else {
+		e.toolbarContainer.Show()
+	}
 }
 
 func (e *TextEditor) showSettingsWindow() {
@@ -477,6 +622,44 @@ func (e *TextEditor) getCurrentDocIndex() int {
 		}
 	}
 	return -1
+}
+
+func (e *TextEditor) isFamilyDocument(doc *Document) bool {
+	if doc == nil || doc.content == nil {
+		return false
+	}
+	content := doc.content.Text
+	re := regexp.MustCompile(`"type"\s*:\s*"family_tree"`)
+	return re.MatchString(content)
+}
+
+func (e *TextEditor) isAtlasDocument(doc *Document) bool {
+	if doc == nil || doc.content == nil {
+		return false
+	}
+	content := doc.content.Text
+	re := regexp.MustCompile(`"atlas"\s*:`)
+	return re.MatchString(content)
+}
+
+func (e *TextEditor) updateFamilyMenuItems(isFamily bool) {
+	for _, item := range e.familyMenuItems {
+		item.Disabled = !isFamily
+	}
+	if isFamily {
+		e.familyToolbar.Show()
+		e.familyToolbarMenuItem.Checked = true
+	} else {
+		e.familyToolbar.Hide()
+		e.familyToolbarMenuItem.Checked = false
+	}
+	e.toolbarContainer.Refresh()
+	e.window.MainMenu().Refresh()
+}
+
+func (e *TextEditor) updateAtlasMenuItem(isAtlas bool) {
+	e.atlasMapMenuItem.Disabled = !isAtlas
+	e.window.MainMenu().Refresh()
 }
 
 func (e *TextEditor) getTabTitle(doc *Document) string {
@@ -604,6 +787,10 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	doc := e.createNewDocument()
 	doc.content.SetText(jsonStr)
 	doc.isModified = true
+	isFamily := e.isFamilyDocument(doc)
+	e.updateFamilyMenuItems(isFamily)
+	isAtlas := e.isAtlasDocument(doc)
+	e.updateAtlasMenuItem(isAtlas)
 	e.updateTabTitle(doc)
 }
 
@@ -1852,6 +2039,51 @@ func (e *TextEditor) isInsideDivorcedArray() (bool, int) {
 	return e.isInsideEventArray("divorced")
 }
 
+func (e *TextEditor) isInsideAtlasArray() (bool, int) {
+	if e.currentDoc == nil {
+		return false, -1
+	}
+	content := e.currentDoc.content
+	fullText := content.Text
+
+	lines := strings.Split(fullText, "\n")
+	if content.CursorRow >= len(lines) {
+		return false, -1
+	}
+	cursorPos := 0
+	for i := 0; i < content.CursorRow; i++ {
+		cursorPos += len(lines[i]) + 1
+	}
+	cursorPos += content.CursorColumn
+
+	re := regexp.MustCompile(`"(?:atlas)"\s*:\s*\[`)
+	matches := re.FindAllStringIndex(fullText, -1)
+
+	for _, match := range matches {
+		startIndex := match[1] - 1
+
+		openCount := 0
+		endIndex := -1
+		for i := startIndex + 1; i < len(fullText); i++ {
+			if fullText[i] == '[' {
+				openCount++
+			} else if fullText[i] == ']' {
+				if openCount == 0 {
+					endIndex = i
+					break
+				}
+				openCount--
+			}
+		}
+
+		if endIndex != -1 && cursorPos > startIndex && cursorPos <= endIndex {
+			return true, cursorPos
+		}
+	}
+
+	return false, -1
+}
+
 func (e *TextEditor) getIndentationForInsertion(cursorPos int) string {
 	if e.currentDoc == nil {
 		return ""
@@ -1963,6 +2195,89 @@ func (e *TextEditor) insertAudio() {
 
 	e.window.Clipboard().SetContent(oldClipboard)
 
+}
+
+func (e *TextEditor) insertAtlasMap() {
+	isInside, cursorPos := e.isInsideAtlasArray()
+
+	if !isInside {
+		dialog.ShowError(fmt.Errorf("cursor must be inside a \"atlas\" JSON array"), e.window)
+		return
+	}
+
+	if e.currentDoc == nil {
+		return
+	}
+
+	atlasMap := atlasTemplateContent{
+		ID:     "Unique identifier (UUID)",
+		Image:  "Complete path to filename.",
+		Author: "Map author",
+		Index:  "Name shown in the index.",
+		Audio:  "Link to audio file.",
+		Text: []HTText{
+			{
+				Text: "",
+				Source: []HTSource{
+					{
+						Type: 3210,
+						UUID: "Unique identifier (UUID).",
+						Text: "The accompanying text that will be displayed with the citation.",
+						Page: "The specific page in the publication where this information appears.",
+						Date: HTDate{
+							DateType: "gregory",
+							Year:     "2010",
+							Month:    "",
+							Day:      "",
+						},
+					},
+				},
+				FillDates: []HTDate{
+					{
+						DateType: "gregory",
+						Year:     "2010",
+						Month:    "",
+						Day:      "",
+					},
+				},
+				IsTable:     false,
+				ImgDesc:     "A description of an image included in the text.",
+				Format:      "markdown or html",
+				PostMention: "",
+			},
+		},
+	}
+
+	indentation := e.getIndentationForInsertion(cursorPos)
+	jsonData, err := json.MarshalIndent(atlasMap, indentation, "  ")
+
+	if err != nil {
+		dialog.ShowError(err, e.window)
+		return
+	}
+
+	textBefore := e.currentDoc.content.Text[:cursorPos]
+
+	trimmedTextBefore := strings.TrimRight(textBefore, " \t\n")
+
+	insertText := string(jsonData)
+
+	if len(trimmedTextBefore) > 0 {
+		lastChar := trimmedTextBefore[len(trimmedTextBefore)-1]
+		if lastChar != '[' && lastChar != ',' {
+			insertText = ",\n" + insertText
+		}
+	}
+
+	content := e.currentDoc.content
+
+	oldClipboard := e.window.Clipboard().Content()
+
+	e.window.Clipboard().SetContent(insertText)
+
+	content.TypedShortcut(&fyne.ShortcutPaste{Clipboard: e.window.Clipboard()})
+
+	e.window.Clipboard().SetContent(oldClipboard)
 }
 
 func (e *TextEditor) insertDate() {
