@@ -14,6 +14,7 @@ import (
 	"os"
 
 	"github.com/google/uuid"
+	"github.com/historytracers/common"
 )
 
 // Enum
@@ -801,7 +802,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	htParseFamilySetLicenses(&family, lang)
 	_, fileWasModified := htGitModifiedMap[localPath]
 	if familyUpdated == true || updateDateFlag == true || fileWasModified {
-		family.LastUpdate[0] = htUpdateTimestamp()
+		family.LastUpdate[0] = common.HTUpdateTimestamp()
 	}
 	htParseFamilySetDefaultValues(&family, lang, localPath)
 
@@ -847,7 +848,7 @@ func htRewriteFamilyFileTemplate() Family {
 
 	_, fileWasModified := htGitModifiedMap[fileName]
 	if fileWasModified {
-		family.LastUpdate[0] = htUpdateTimestamp()
+		family.LastUpdate[0] = common.HTUpdateTimestamp()
 	}
 
 	newFile, err := htWriteTmpFile(htLangPaths[0], &family)
@@ -946,7 +947,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 	equal, err := HTAreFilesEqual(fileName, newFile)
 	_, fileWasModified := htGitModifiedMap[fileName]
 	if !equal && err == nil || updateDateFlag == true || fileWasModified {
-		index.LastUpdate[0] = htUpdateTimestamp()
+		index.LastUpdate[0] = common.HTUpdateTimestamp()
 	}
 
 	HTCopyFilesWithoutChanges(fileName, newFile)
@@ -1027,7 +1028,7 @@ func htNewFamilySetDefaultValues(family *Family, lang string, fileName string) {
 	family.Header = ""
 	family.Sources[0] = fileName
 	family.Scripts[0] = fileName
-	family.LastUpdate[0] = htUpdateTimestamp()
+	family.LastUpdate[0] = common.HTUpdateTimestamp()
 	family.GEDCOM = "gedcom/" + fileName + "_" + lang + ".ged"
 	family.CSV = "csv/" + fileName + "_" + lang + ".csv"
 }
@@ -1065,7 +1066,7 @@ func htAddNewFamilyToIdx(index *IdxFamily, newFile string, lang string) {
 
 	content.Value = append(content.Value, newValue)
 
-	index.LastUpdate[0] = htUpdateTimestamp()
+	index.LastUpdate[0] = common.HTUpdateTimestamp()
 }
 
 func htOpenFamilyIdx(fileName string, newFile string, lang string) error {

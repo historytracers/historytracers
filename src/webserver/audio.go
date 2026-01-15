@@ -11,6 +11,7 @@ import (
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
 	"github.com/gomarkdown/markdown/parser"
+	"github.com/historytracers/common"
 )
 
 var familyMarriagesMap map[string]string
@@ -547,7 +548,7 @@ func htConvertClassesToAudio(pages []string, lang string) {
 		newFile, err := htWriteTmpFile(lang, &ctf)
 		equal, err := HTAreFilesEqual(newFile, localPath)
 		if !equal && err == nil || updateDateFlag == true {
-			ctf.LastUpdate[0] = htUpdateTimestamp()
+			ctf.LastUpdate[0] = common.HTUpdateTimestamp()
 			err = os.Remove(newFile)
 			if err != nil {
 				panic(err)
@@ -603,7 +604,7 @@ func htConvertAtlasToAudio() {
 
 		_, fileWasModified := htGitModifiedMap[fileName]
 		if fileWasModified {
-			localTemplateFile.LastUpdate[0] = htUpdateTimestamp()
+			localTemplateFile.LastUpdate[0] = common.HTUpdateTimestamp()
 		}
 
 		newFile, err := htWriteTmpFile(dir, &localTemplateFile)
@@ -660,13 +661,13 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 
 	_, fileWasModified := htGitModifiedMap[localPath]
 	if fileWasModified {
-		index.LastUpdate[0] = htUpdateTimestamp()
+		index.LastUpdate[0] = common.HTUpdateTimestamp()
 	}
 
 	newFile, err := htWriteTmpFile(lang, &index)
 	equal, err := HTAreFilesEqual(newFile, localPath)
 	if !equal && err == nil || updateDateFlag == true {
-		index.LastUpdate[0] = htUpdateTimestamp()
+		index.LastUpdate[0] = common.HTUpdateTimestamp()
 		err = os.Remove(newFile)
 		if err != nil {
 			panic(err)

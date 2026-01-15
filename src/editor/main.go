@@ -20,6 +20,7 @@ import (
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
+	"github.com/historytracers/common"
 )
 
 type Document struct {
@@ -791,7 +792,7 @@ func (e *TextEditor) loadTemplate(templateType string) {
 }
 
 func (e *TextEditor) createSourceTemplate() HTSourceFile {
-	ct := htUpdateTimestamp()
+	ct := common.HTUpdateTimestamp()
 	src := HTSourceFile{
 		License: []string{
 			"SPDX-License-Identifier: GPL-3.0-or-later",
@@ -848,7 +849,7 @@ func (e *TextEditor) createSourceTemplate() HTSourceFile {
 }
 
 func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
-	ct := htUpdateTimestamp()
+	ct := common.HTUpdateTimestamp()
 	al := atlasTemplateFile{
 		Title:   "The name displayed in the application's or page's title bar.",
 		Header:  "The name shown at the top of the page or section.",
@@ -969,7 +970,7 @@ func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
 }
 
 func (e *TextEditor) createClassTemplate() classTemplateFile {
-	ct := htUpdateTimestamp()
+	ct := common.HTUpdateTimestamp()
 	cl := classTemplateFile{
 		Title:   "",
 		Header:  "",
@@ -1108,7 +1109,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 }
 
 func (e *TextEditor) createFamilyTemplate() Family {
-	ct := htUpdateTimestamp()
+	ct := common.HTUpdateTimestamp()
 	fam := Family{
 		Title:   "",
 		Header:  "",

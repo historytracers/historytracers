@@ -8,6 +8,8 @@ import (
 	"log"
 	"os"
 	"strings"
+
+	"github.com/historytracers/common"
 )
 
 type atlasTemplateContent struct {
@@ -123,7 +125,7 @@ func htRewriteAtlas(lang string) {
 
 	_, fileWasModified := htGitModifiedMap[fileName]
 	if fileWasModified {
-		localTemplateFile.LastUpdate[0] = htUpdateTimestamp()
+		localTemplateFile.LastUpdate[0] = common.HTUpdateTimestamp()
 	}
 
 	newFile, err := htWriteTmpFile(lang, &localTemplateFile)

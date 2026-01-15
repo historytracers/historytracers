@@ -9,6 +9,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+
+	"github.com/historytracers/common"
 )
 
 const (
@@ -17,11 +19,8 @@ const (
 )
 
 type htConfig struct {
-	Port        int    `json:"port"`
-	SrcPath     string `json:"src"`
-	ContentPath string `json:"content"`
-	LogPath     string `json:"log"`
-	ConfPath    string `json:"config"`
+	common.HTConfigBase
+	ConfPath string `json:"config"`
 }
 
 var (
@@ -35,7 +34,10 @@ var (
 )
 
 func NewHTConfig() *htConfig {
-	return &htConfig{Port: portFlag, SrcPath: srcPath, ContentPath: contentPath, LogPath: logPath, ConfPath: personalPath}
+	return &htConfig{
+		HTConfigBase: *common.NewHTConfigBase(portFlag, srcPath, contentPath, logPath),
+		ConfPath:     personalPath,
+	}
 }
 
 func HTCreateDir() error {

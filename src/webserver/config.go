@@ -6,17 +6,15 @@ import (
 	"flag"
 	"fmt"
 	"github.com/BurntSushi/toml"
+	"github.com/historytracers/common"
 	"log"
 	"os"
 	"strings"
 )
 
 type htConfig struct {
-	DevMode     bool
-	Port        int
-	SrcPath     string
-	ContentPath string
-	LogPath     string
+	DevMode bool
+	common.HTConfigBase
 }
 
 var (
@@ -62,7 +60,10 @@ func HTParseArg() {
 }
 
 func NewHTConfig() *htConfig {
-	return &htConfig{DevMode: devFlag, Port: portFlag, SrcPath: srcPath, ContentPath: contentPath, LogPath: logPath}
+	return &htConfig{
+		DevMode:      devFlag,
+		HTConfigBase: *common.NewHTConfigBase(portFlag, srcPath, contentPath, logPath),
+	}
 }
 
 func htPrintOptions() {

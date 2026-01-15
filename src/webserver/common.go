@@ -17,6 +17,7 @@ import (
 
 	"github.com/google/uuid"
 
+	"github.com/historytracers/common"
 	"golang.org/x/net/html"
 )
 
@@ -125,13 +126,6 @@ type HTKeywordsFormat struct {
 
 var sourceMap map[string]HTSourceElement
 var allSourceMap map[string]HTSourceElement
-
-// Common functions
-func htUpdateTimestamp() string {
-	newStr := fmt.Sprintf("%d", time.Now().Unix())
-
-	return newStr
-}
 
 func htCountLines(filePath string) (int, error) {
 	file, err := os.Open(filePath)
@@ -790,7 +784,7 @@ func htLoadClassFileFormat(cf *classTemplateFile, name string, lang string) (str
 
 	_, fileWasModified := htGitModifiedMap[fileName]
 	if fileWasModified {
-		cf.LastUpdate[0] = htUpdateTimestamp()
+		cf.LastUpdate[0] = common.HTUpdateTimestamp()
 	}
 
 	return fileName, nil
@@ -1163,7 +1157,7 @@ func htAddNewSourceToDirectory(newFile string) {
 		panic(err)
 	}
 
-	source.LastUpdate[0] = htUpdateTimestamp()
+	source.LastUpdate[0] = common.HTUpdateTimestamp()
 
 	htUpdateSourceFile(&source, dstPath)
 }

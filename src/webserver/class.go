@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/google/uuid"
+	"github.com/historytracers/common"
 )
 
 type classTemplateContent struct {
@@ -87,7 +88,7 @@ func htAddNewClassToIdx(index *classIdx, newFile string) {
 
 	content.Value = append(content.Value, newValue)
 
-	index.LastUpdate[0] = htUpdateTimestamp()
+	index.LastUpdate[0] = common.HTUpdateTimestamp()
 }
 
 func htSetDefaultTemplateValues(fp *classTemplateFile, newFile string) {
@@ -96,7 +97,7 @@ func htSetDefaultTemplateValues(fp *classTemplateFile, newFile string) {
 	fp.Sources[0] = newFile
 	fp.Scripts[0] = newFile
 	fp.Index[0] = classTemplate
-	fp.LastUpdate[0] = htUpdateTimestamp()
+	fp.LastUpdate[0] = common.HTUpdateTimestamp()
 	fp.Authors[0] = ""
 	fp.Reviewers[0] = ""
 	fp.Type = "class"
@@ -171,7 +172,7 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 
 	_, fileWasModified := htGitModifiedMap[fileName]
 	if fileWasModified {
-		index.LastUpdate[0] = htUpdateTimestamp()
+		index.LastUpdate[0] = common.HTUpdateTimestamp()
 	}
 
 	tmpName, err1 := htWriteClassIndexFile(lang, &index)
