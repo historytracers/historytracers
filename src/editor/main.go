@@ -288,14 +288,12 @@ func (e *TextEditor) setupShortcuts() {
 
 func (e *TextEditor) createMenu() {
 	// File menu with shortcuts
-	newMenuItem := fyne.NewMenuItem("New", e.newFile)
-	newMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyN, Modifier: fyne.KeyModifierShortcutDefault}
-
 	openMenuItem := fyne.NewMenuItem("Open", e.openFile)
 	openMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyO, Modifier: fyne.KeyModifierShortcutDefault}
 
 	openInNewTabMenuItem := fyne.NewMenuItem("Open in New Tab", e.openInNewTab)
 	documentMenuItemFile := fyne.NewMenuItem("Document", e.insertFamily)
+	newMenuItem := fyne.NewMenuItem("New", e.showTemplateWindow)
 	saveMenuItem := fyne.NewMenuItem("Save", e.saveFile)
 	saveMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyS, Modifier: fyne.KeyModifierShortcutDefault}
 
@@ -306,14 +304,12 @@ func (e *TextEditor) createMenu() {
 	closeTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyW, Modifier: fyne.KeyModifierShortcutDefault}
 
 	closeAllTabsMenuItem := fyne.NewMenuItem("Close All Tabs", e.closeAllTabs)
-	loadTemplateMenuItem := fyne.NewMenuItem("Load Template", e.showTemplateWindow)
 
 	fileMenu := fyne.NewMenu("File",
 		newMenuItem,
 		openMenuItem,
 		openInNewTabMenuItem,
 		documentMenuItemFile,
-		loadTemplateMenuItem,
 		fyne.NewMenuItemSeparator(),
 		saveMenuItem,
 		saveAsMenuItem,
