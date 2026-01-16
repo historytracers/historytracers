@@ -9,7 +9,7 @@
       "families"
    ],
    "last_update": [
-      "1767226885"
+      "1767990842"
    ],
    "audio": [
       {
@@ -263,12 +263,94 @@
          ]
       },
       {
+         "id": "familyDC",
+         "desc": "",
+         "target": "family-DC",
+         "page": "",
+         "value_type": "",
+         "html_value": "Capítulo 4: Dinastias Chinesas",
+         "value": null,
+         "date_time": null
+      },
+      {
+         "id": "groupsv",
+         "desc": "Livro:",
+         "target": "family-DC",
+         "page": "tree",
+         "value_type": "group-list",
+         "html_value": "",
+         "value": [
+            {
+               "id": "6b792765-ed45-4289-9350-82bc7204d44e",
+               "name": "Dinastia Tang (唐代) (<htdate0> - <htdate1>)",
+               "desc": "Quase 300 anos de muitos avanços, inovações e possíveis relações comerciais distantes.",
+               "gedcom": "gedcom/6b792765-ed45-4289-9350-82bc7204d44e_pt-BR.ged",
+               "csv": "csv/6b792765-ed45-4289-9350-82bc7204d44e_pt-BR.csv"
+            }
+         ],
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "618",
+               "month": "-1",
+               "day": "-1"
+            },
+            {
+               "type": "gregory",
+               "year": "907",
+               "month": "-1",
+               "day": "-1"
+            }
+         ]
+      },
+      {
+         "id": "familyR",
+         "desc": "",
+         "target": "family-r",
+         "page": "",
+         "value_type": "",
+         "html_value": "Capítulo 5: Famílias reais européias",
+         "value": null,
+         "date_time": null
+      },
+      {
+         "id": "groupsr",
+         "desc": "Livro:",
+         "target": "family-r",
+         "page": "tree",
+         "value_type": "group-list",
+         "html_value": "",
+         "value": [
+            {
+               "id": "588c52dc-7b48-490d-acb4-044f07314444",
+               "name": "Reis de Leão (<htdate0> - <htdate1>)",
+               "desc": "A dinastia dos reis de Leão, iniciando com Ordoño II e culminando com Vermudo III.",
+               "gedcom": "gedcom/588c52dc-7b48-490d-acb4-044f07314444_pt-BR.ged",
+               "csv": "csv/588c52dc-7b48-490d-acb4-044f07314444_pt-BR.csv"
+            }
+         ],
+         "date_time": [
+            {
+               "type": "gregory",
+               "year": "914",
+               "month": "-1",
+               "day": "-1"
+            },
+            {
+               "type": "gregory",
+               "year": "1037",
+               "month": "-1",
+               "day": "-1"
+            }
+         ]
+      },
+      {
          "id": "familyI",
          "desc": "",
          "target": "family-i",
          "page": "",
          "value_type": "",
-         "html_value": "Capítulo 4: Indígenas",
+         "html_value": "Capítulo 6: Indígenas",
          "value": null,
          "date_time": null
       },
@@ -354,7 +436,7 @@
          "target": "family-j",
          "page": "",
          "value_type": "",
-         "html_value": "Capítulo 5: Joaquina \"Cabra\"",
+         "html_value": "Capítulo 7: Joaquina \"Cabra\"",
          "value": null,
          "date_time": null
       },
@@ -395,7 +477,7 @@
          "target": "family-l",
          "page": "",
          "value_type": "",
-         "html_value": "Capítulo 6: Lem/Leme",
+         "html_value": "Capítulo 8: Lem/Leme",
          "value": null,
          "date_time": null
       },
@@ -431,53 +513,12 @@
          ]
       },
       {
-         "id": "familyR",
-         "desc": "",
-         "target": "family-r",
-         "page": "",
-         "value_type": "",
-         "html_value": "Capítulo 7: Famílias Reais",
-         "value": null,
-         "date_time": null
-      },
-      {
-         "id": "groupsr",
-         "desc": "Livro:",
-         "target": "family-r",
-         "page": "tree",
-         "value_type": "group-list",
-         "html_value": "",
-         "value": [
-            {
-               "id": "588c52dc-7b48-490d-acb4-044f07314444",
-               "name": "Reis de Leão (<htdate0> - <htdate1>)",
-               "desc": "A dinastia dos reis de Leão, iniciando com Ordoño II e culminando com Vermudo III.",
-               "gedcom": "gedcom/588c52dc-7b48-490d-acb4-044f07314444_pt-BR.ged",
-               "csv": "csv/588c52dc-7b48-490d-acb4-044f07314444_pt-BR.csv"
-            }
-         ],
-         "date_time": [
-            {
-               "type": "gregory",
-               "year": "914",
-               "month": "-1",
-               "day": "-1"
-            },
-            {
-               "type": "gregory",
-               "year": "1037",
-               "month": "-1",
-               "day": "-1"
-            }
-         ]
-      },
-      {
          "id": "familyS",
          "desc": "",
          "target": "family-s",
          "page": "",
          "value_type": "",
-         "html_value": "Capítulo 8: Listas dos Reis Sumérios",
+         "html_value": "Capítulo 9: Listas dos Reis Sumérios",
          "value": null,
          "date_time": null
       },
@@ -498,7 +539,7 @@
             },
             {
                "id": "3b7f79c2-f6f0-4e8a-b233-8170d34cf4f0",
-               "name": "Sumérios - Diasntias de Kish",
+               "name": "Sumérios - Dinastias de Kish",
                "desc": "Apesar de muitas figuras dessa dinastia carecerem de evidências arqueológicas, dois reis possuem comprovação histórica.",
                "gedcom": "gedcom/3b7f79c2-f6f0-4e8a-b233-8170d34cf4f0_pt-BR.ged",
                "csv": "csv/3b7f79c2-f6f0-4e8a-b233-8170d34cf4f0_pt-BR.csv"
@@ -526,7 +567,7 @@
             },
             {
                "id": "30897c65-37fc-40e9-b73d-a1e55e034a41",
-               "name": "Sumérios - Diasntias de Kish (Parte II)",
+               "name": "Sumérios - Dinastias de Kish (Parte II)",
                "desc": "De acordo com a Lista dos Reis Sumérios, após três cidades diferentes dominarem, Kish retoma o controle sendo governada por 3.195 anos.",
                "gedcom": "gedcom/30897c65-37fc-40e9-b73d-a1e55e034a41_pt-BR.ged",
                "csv": "csv/30897c65-37fc-40e9-b73d-a1e55e034a41_pt-BR.csv"
@@ -547,7 +588,7 @@
          "target": "family-v",
          "page": "",
          "value_type": "",
-         "html_value": "Capítulo 9: Visigodos",
+         "html_value": "Capítulo 10: Visigodos",
          "value": null,
          "date_time": null
       },

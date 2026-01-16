@@ -1055,7 +1055,7 @@ function htMountPersonEvent(name, data, localLang, localCalendar) {
     var ret = "<b>"+name+"</b> ";
     for (const i in data) {
         var ptr = data[i];
-        if (!ptr.date_time) {
+        if (!ptr.date_time && !ptr.date) {
             continue;
         }
 
