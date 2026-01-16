@@ -20,7 +20,7 @@ import (
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
-	"github.com/historytracers/common"
+	. "github.com/historytracers/common"
 )
 
 type Document struct {
@@ -792,7 +792,7 @@ func (e *TextEditor) loadTemplate(templateType string) {
 }
 
 func (e *TextEditor) createSourceTemplate() HTSourceFile {
-	ct := common.HTUpdateTimestamp()
+	ct := HTUpdateTimestamp()
 	src := HTSourceFile{
 		License: []string{
 			"SPDX-License-Identifier: GPL-3.0-or-later",
@@ -848,9 +848,9 @@ func (e *TextEditor) createSourceTemplate() HTSourceFile {
 	return src
 }
 
-func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
-	ct := common.HTUpdateTimestamp()
-	al := atlasTemplateFile{
+func (e *TextEditor) createAtlasTemplate() AtlasTemplateFile {
+	ct := HTUpdateTimestamp()
+	al := AtlasTemplateFile{
 		Title:   "The name displayed in the application's or page's title bar.",
 		Header:  "The name shown at the top of the page or section.",
 		Sources: []string{""},
@@ -874,7 +874,7 @@ func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
 		Type:       "atlas",
 		Version:    2,
 		Editing:    false,
-		Content: []classTemplateContent{
+		Content: []ClassTemplateContent{
 			{
 				ID: "SECTION_prerequisites",
 				Text: []HTText{
@@ -926,7 +926,7 @@ func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
 				},
 			},
 		},
-		Atlas: []atlasTemplateContent{
+		Atlas: []AtlasTemplateContent{
 			{
 				ID:     "Unique identifier (UUID)",
 				Image:  "Complete path to filename.",
@@ -969,9 +969,9 @@ func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
 	return al
 }
 
-func (e *TextEditor) createClassTemplate() classTemplateFile {
-	ct := common.HTUpdateTimestamp()
-	cl := classTemplateFile{
+func (e *TextEditor) createClassTemplate() ClassTemplateFile {
+	ct := HTUpdateTimestamp()
+	cl := ClassTemplateFile{
 		Title:   "",
 		Header:  "",
 		Sources: []string{" "},
@@ -996,7 +996,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 		Type:       "class",
 		Version:    2,
 		Editing:    false,
-		Content: []classTemplateContent{
+		Content: []ClassTemplateContent{
 			{
 				ID: "SECTION_prerequisites",
 				Text: []HTText{
@@ -1109,7 +1109,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 }
 
 func (e *TextEditor) createFamilyTemplate() Family {
-	ct := common.HTUpdateTimestamp()
+	ct := HTUpdateTimestamp()
 	fam := Family{
 		Title:   "",
 		Header:  "",
@@ -2206,7 +2206,7 @@ func (e *TextEditor) insertAtlasMap() {
 		return
 	}
 
-	atlasMap := atlasTemplateContent{
+	atlasMap := AtlasTemplateContent{
 		ID:     "Unique identifier (UUID)",
 		Image:  "Complete path to filename.",
 		Author: "Map author",

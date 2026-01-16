@@ -8,75 +8,12 @@ import (
 	"os"
 
 	"github.com/google/uuid"
-	"github.com/historytracers/common"
+	. "github.com/historytracers/common"
 )
-
-type classTemplateContent struct {
-	ID   string   `json:"id"`
-	Text []HTText `json:"text"`
-}
-
-type HTGameDesc struct {
-	ImagePath string   `json:"imagePath"`
-	ImageDesc string   `json:"imageDesc"`
-	DateTime  []HTDate `json:"date_time"`
-}
-
-type classTemplateFile struct {
-	Title      string                 `json:"title"`
-	Header     string                 `json:"header"`
-	Sources    []string               `json:"sources"`
-	Scripts    []string               `json:"scripts"`
-	Audio      []HTAudio              `json:"audio"`
-	Index      []string               `json:"index"`
-	License    []string               `json:"license"`
-	LastUpdate []string               `json:"last_update"`
-	Authors    []string               `json:"authors"`
-	Reviewers  []string               `json:"reviewers"`
-	Type       string                 `json:"type"`
-	Version    int                    `json:"version"`
-	Editing    bool                   `json:"editing"`
-	Content    []classTemplateContent `json:"content"`
-	Exercises  []HTExercise           `json:"exercise_v2"`
-	GameV2     []HTGameDesc           `json:"game_v2"`
-	DateTime   []HTDate               `json:"date_time"`
-}
-
-type classContentValue struct {
-	FamilyId string   `json:"family_id"`
-	PersonId string   `json:"person_id"`
-	ID       string   `json:"id"`
-	Name     string   `json:"name"`
-	Desc     string   `json:"desc"`
-	DateTime []HTDate `json:"date_time"`
-}
-
-type classContent struct {
-	ID        string              `json:"id"`
-	Target    string              `json:"target"`
-	Page      string              `json:"page"`
-	ValueType string              `json:"value_type"`
-	HTMLValue string              `json:"html_value"`
-	Value     []classContentValue `json:"value"`
-	DateTime  []HTDate            `json:"date_time"`
-}
-
-type classIdx struct {
-	Title      string         `json:"title"`
-	Header     string         `json:"header"`
-	Audio      []HTAudio      `json:"audio"`
-	LastUpdate []string       `json:"last_update"`
-	Sources    []string       `json:"sources"`
-	License    []string       `json:"license"`
-	Version    int            `json:"version"`
-	Type       string         `json:"type"`
-	Content    []classContent `json:"content"`
-	DateTime   []HTDate       `json:"date_time"`
-}
 
 var localClassIDXUpdate bool
 
-func htAddNewClassToIdx(index *classIdx, newFile string) {
+func htAddNewClassToIdx(index *ClassIdx, newFile string) {
 	lastContent := len(index.Content) - 1
 	if lastContent < 0 {
 		return
@@ -84,27 +21,27 @@ func htAddNewClassToIdx(index *classIdx, newFile string) {
 
 	content := &index.Content[lastContent]
 
-	newValue := classContentValue{ID: newFile, Name: "", Desc: ""}
+	newValue := ClassContentValue{ID: newFile, Name: "", Desc: ""}
 
 	content.Value = append(content.Value, newValue)
 
-	index.LastUpdate[0] = common.HTUpdateTimestamp()
+	index.LastUpdate[0] = HTUpdateTimestamp()
 }
 
-func htSetDefaultTemplateValues(fp *classTemplateFile, newFile string) {
+func htSetDefaultTemplateValues(fp *ClassTemplateFile, newFile string) {
 	fp.Title = ""
 	fp.Header = ""
 	fp.Sources[0] = newFile
 	fp.Scripts[0] = newFile
 	fp.Index[0] = classTemplate
-	fp.LastUpdate[0] = common.HTUpdateTimestamp()
+	fp.LastUpdate[0] = HTUpdateTimestamp()
 	fp.Authors[0] = ""
 	fp.Reviewers[0] = ""
 	fp.Type = "class"
 	fp.Version = 2
 }
 
-func htWriteTemplateFile(lang string, newFile string, template *classTemplateFile) error {
+func htWriteTemplateFile(lang string, newFile string, template *ClassTemplateFile) error {
 	pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, newFile)
 
 	fp, err := os.Create(pathFile)
@@ -130,7 +67,7 @@ func htAddNewClassTemplateToDirectory(newFile string, lang string) error {
 		return err
 	}
 
-	var localTemplateFile classTemplateFile
+	var localTemplateFile ClassTemplateFile
 	err = json.Unmarshal(byteValue, &localTemplateFile)
 	if err != nil {
 		htCommonJSONError(byteValue, err)
@@ -159,7 +96,7 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 		return err
 	}
 
-	var index classIdx
+	var index ClassIdx
 	err = json.Unmarshal(byteValue, &index)
 	if err != nil {
 		htCommonJSONError(byteValue, err)
@@ -172,7 +109,7 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 
 	_, fileWasModified := htGitModifiedMap[fileName]
 	if fileWasModified {
-		index.LastUpdate[0] = common.HTUpdateTimestamp()
+		index.LastUpdate[0] = HTUpdateTimestamp()
 	}
 
 	tmpName, err1 := htWriteClassIndexFile(lang, &index)
@@ -211,7 +148,7 @@ func htCreateOrTestClass(fileName string) {
 }
 
 func htRewriteClassFileTemplate() {
-	var cf classTemplateFile
+	var cf ClassTemplateFile
 	fileName := fmt.Sprintf("%ssrc/json/class_template.json", CFG.SrcPath)
 	if verboseFlag {
 		fmt.Println("Adjusting file", fileName)

@@ -16,6 +16,8 @@ import (
 	"sync/atomic"
 	"syscall"
 	"time"
+
+	"github.com/historytracers/common"
 )
 
 var (
@@ -139,8 +141,8 @@ func htRunStopFlags() {
 }
 
 func htInitializeCommonMaps() {
-	sourceMap = make(map[string]HTSourceElement)
-	allSourceMap = make(map[string]HTSourceElement)
+	sourceMap = make(map[string]common.HTSourceElement)
+	allSourceMap = make(map[string]common.HTSourceElement)
 }
 
 func main() {

@@ -14,158 +14,8 @@ import (
 	"os"
 
 	"github.com/google/uuid"
-	"github.com/historytracers/common"
+	. "github.com/historytracers/common"
 )
-
-// Enum
-const (
-	HTEventBirth = iota
-	HTEventBaptism
-	HTEventMarriage
-	HTEventDeath
-)
-
-// Index
-type IdxFamilyValue struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Desc   string `json:"desc"`
-	GEDCOM string `json:"gedcom"`
-	CSV    string `json:"csv"`
-}
-
-type IdxFamilyContent struct {
-	ID        string           `json:"id"`
-	Desc      string           `json:"desc"`
-	Target    string           `json:"target"`
-	Page      string           `json:"page"`
-	ValueType string           `json:"value_type"`
-	HTMLValue string           `json:"html_value"`
-	Value     []IdxFamilyValue `json:"value"`
-	FillDates []HTDate         `json:"date_time"`
-}
-
-type IdxFamily struct {
-	Title      string             `json:"title"`
-	Header     string             `json:"header"`
-	License    []string           `json:"license"`
-	Sources    []string           `json:"sources"`
-	LastUpdate []string           `json:"last_update"`
-	Audio      []HTAudio          `json:"audio"`
-	GEDCOM     string             `json:"gedcom"`
-	CSV        string             `json:"csv"`
-	Contents   []IdxFamilyContent `json:"content"`
-	DateTime   []HTDate           `json:"date_time"`
-}
-
-// Family
-type FamilyPersonEvent struct {
-	Date      []HTDate   `json:"date"`
-	Address   string     `json:"address"`
-	CityID    string     `json:"city_id"`
-	City      string     `json:"city"`
-	StateID   string     `json:"state_id"`
-	State     string     `json:"state"`
-	PC        string     `json:"pc"`
-	CountryID string     `json:"country_id"`
-	Country   string     `json:"country"`
-	Sources   []HTSource `json:"sources"`
-}
-
-type FamilyPersonParents struct {
-	Type               string `json:"type"`
-	FatherExternalFile bool   `json:"father_external_family_file"`
-	FatherFamily       string `json:"father_family"`
-	FatherID           string `json:"father_id"`
-	FatherName         string `json:"father_name"`
-	MotherExternalFile bool   `json:"mother_external_family_file"`
-	MotherFamily       string `json:"mother_family"`
-	MotherID           string `json:"mother_id"`
-	MotherName         string `json:"mother_name"`
-}
-
-type FamilyPersonMarriage struct {
-	Type         string            `json:"type"`
-	ID           string            `json:"id"`
-	GEDCOMId     string            `json:"gedcom_id"`
-	Official     bool              `json:"official"`
-	FamilyID     string            `json:"family_id"`
-	ExternalFile bool              `json:"external_family_file"`
-	Name         string            `json:"name"`
-	History      []HTText          `json:"history"`
-	DateTime     FamilyPersonEvent `json:"date_time"`
-}
-
-type FamilyPersonChild struct {
-	Type         string   `json:"type"`
-	ID           string   `json:"id"`
-	MarriageID   string   `json:"marriage_id"`
-	Name         string   `json:"name"`
-	FamilyID     string   `json:"family_id"`
-	ExternalFile bool     `json:"external_family_file"`
-	AddLink      bool     `json:"add_link"`
-	History      []HTText `json:"history"`
-	AdoptedChild bool     `json:"adopted_child"`
-}
-
-type FamilyPersonHaplogroup struct {
-	Type       string     `json:"type"`
-	Haplogroup string     `json:"haplogroup"`
-	Sources    []HTSource `json:"sources"`
-}
-
-type FamilyPerson struct {
-	ID         string                   `json:"id"`
-	Name       string                   `json:"name"`
-	Surname    string                   `json:"surname"`
-	Patronymic string                   `json:"patronymic"`
-	FullName   string                   `json:"fullname"`
-	Sex        string                   `json:"sex"`
-	Gender     string                   `json:"gender"`
-	IsReal     bool                     `json:"is_real"`
-	Haplogroup []FamilyPersonHaplogroup `json:"haplogroup"`
-	History    []HTText                 `json:"history"`
-	Parents    []FamilyPersonParents    `json:"parents"`
-	Birth      []FamilyPersonEvent      `json:"birth"`
-	Baptism    []FamilyPersonEvent      `json:"baptism"`
-	Marriages  []FamilyPersonMarriage   `json:"marriages"`
-	Divorced   []FamilyPersonMarriage   `json:"divorced"`
-	Children   []FamilyPersonChild      `json:"children"`
-	Death      []FamilyPersonEvent      `json:"death"`
-}
-
-type FamilyBody struct {
-	ID      string         `json:"id"`
-	Name    string         `json:"name"`
-	History []HTText       `json:"history"`
-	People  []FamilyPerson `json:"people"`
-}
-
-type Family struct {
-	Title         string       `json:"title"`
-	Header        string       `json:"header"`
-	Sources       []string     `json:"sources"`
-	Scripts       []string     `json:"scripts"`
-	Audio         []HTAudio    `json:"audio"`
-	Index         []string     `json:"index"`
-	License       []string     `json:"license"`
-	LastUpdate    []string     `json:"last_update"`
-	Authors       string       `json:"authors"`
-	Reviewers     string       `json:"reviewers"`
-	DocumentsInfo []string     `json:"documentsInfo"`
-	PeriodOfTime  []string     `json:"periodOfTime"`
-	Maps          []HTMap      `json:"maps"`
-	Common        []HTText     `json:"common"`
-	Prerequisites []string     `json:"prerequisites"`
-	GEDCOM        string       `json:"gedcom"`
-	CSV           string       `json:"csv"`
-	Version       int          `json:"version"`
-	Editing       bool         `json:"editing"`
-	Type          string       `json:"type"`
-	Families      []FamilyBody `json:"families"`
-	Exercises     []HTExercise `json:"exercise_v2"`
-	DateTime      []HTDate     `json:"date_time"`
-}
 
 var familyUpdated bool
 var indexUpdated bool
@@ -802,7 +652,7 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	htParseFamilySetLicenses(&family, lang)
 	_, fileWasModified := htGitModifiedMap[localPath]
 	if familyUpdated == true || updateDateFlag == true || fileWasModified {
-		family.LastUpdate[0] = common.HTUpdateTimestamp()
+		family.LastUpdate[0] = HTUpdateTimestamp()
 	}
 	htParseFamilySetDefaultValues(&family, lang, localPath)
 
@@ -848,7 +698,7 @@ func htRewriteFamilyFileTemplate() Family {
 
 	_, fileWasModified := htGitModifiedMap[fileName]
 	if fileWasModified {
-		family.LastUpdate[0] = common.HTUpdateTimestamp()
+		family.LastUpdate[0] = HTUpdateTimestamp()
 	}
 
 	newFile, err := htWriteTmpFile(htLangPaths[0], &family)
@@ -947,7 +797,7 @@ func htParseFamilyIndex(fileName string, lang string, rewrite bool) error {
 	equal, err := HTAreFilesEqual(fileName, newFile)
 	_, fileWasModified := htGitModifiedMap[fileName]
 	if !equal && err == nil || updateDateFlag == true || fileWasModified {
-		index.LastUpdate[0] = common.HTUpdateTimestamp()
+		index.LastUpdate[0] = HTUpdateTimestamp()
 	}
 
 	HTCopyFilesWithoutChanges(fileName, newFile)
@@ -1028,7 +878,7 @@ func htNewFamilySetDefaultValues(family *Family, lang string, fileName string) {
 	family.Header = ""
 	family.Sources[0] = fileName
 	family.Scripts[0] = fileName
-	family.LastUpdate[0] = common.HTUpdateTimestamp()
+	family.LastUpdate[0] = HTUpdateTimestamp()
 	family.GEDCOM = "gedcom/" + fileName + "_" + lang + ".ged"
 	family.CSV = "csv/" + fileName + "_" + lang + ".csv"
 }
@@ -1066,7 +916,7 @@ func htAddNewFamilyToIdx(index *IdxFamily, newFile string, lang string) {
 
 	content.Value = append(content.Value, newValue)
 
-	index.LastUpdate[0] = common.HTUpdateTimestamp()
+	index.LastUpdate[0] = HTUpdateTimestamp()
 }
 
 func htOpenFamilyIdx(fileName string, newFile string, lang string) error {
