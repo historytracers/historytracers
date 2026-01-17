@@ -352,6 +352,10 @@ func htFamilyAudio(fileName string, lang string) error {
 	}
 
 	newFile, err := htWriteTmpFile(lang, &family)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR", err)
+		return err
+	}
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
@@ -377,6 +381,10 @@ func htLoadTreeData(lang string) {
 	defaultFamilyTop = htAdjustAudioStringBeforeWrite(defaultFamilyTop)
 
 	newFile, err := htWriteTmpFile(lang, &ctf)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR", err)
+		panic(err)
+	}
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
@@ -509,6 +517,9 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 	}
 
 	newFile, err := htWriteTmpFile(lang, &index)
+	if err != nil {
+		panic(err)
+	}
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
@@ -546,6 +557,9 @@ func htConvertClassesToAudio(pages []string, lang string) {
 		}
 
 		newFile, err := htWriteTmpFile(lang, &ctf)
+		if err != nil {
+			panic(err)
+		}
 		equal, err := HTAreFilesEqual(newFile, localPath)
 		if !equal && err == nil || updateDateFlag == true {
 			ctf.LastUpdate[0] = HTUpdateTimestamp()
@@ -554,6 +568,9 @@ func htConvertClassesToAudio(pages []string, lang string) {
 				panic(err)
 			}
 			newFile, err = htWriteTmpFile(lang, &ctf)
+			if err != nil {
+				panic(err)
+			}
 		}
 
 		HTCopyFilesWithoutChanges(localPath, newFile)
@@ -608,6 +625,9 @@ func htConvertAtlasToAudio() {
 		}
 
 		newFile, err := htWriteTmpFile(dir, &localTemplateFile)
+		if err != nil {
+			panic(err)
+		}
 		HTCopyFilesWithoutChanges(fileName, newFile)
 		err = os.Remove(newFile)
 		if err != nil {
@@ -665,6 +685,9 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 	}
 
 	newFile, err := htWriteTmpFile(lang, &index)
+	if err != nil {
+		panic(err)
+	}
 	equal, err := HTAreFilesEqual(newFile, localPath)
 	if !equal && err == nil || updateDateFlag == true {
 		index.LastUpdate[0] = HTUpdateTimestamp()
@@ -673,6 +696,9 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 			panic(err)
 		}
 		newFile, err = htWriteTmpFile(lang, &index)
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	HTCopyFilesWithoutChanges(localPath, newFile)

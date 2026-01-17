@@ -388,6 +388,9 @@ func htRewriteSourceFileTemplate() {
 	}
 
 	newFile, err := htWriteTmpFile(htLangPaths[0], &src)
+	if err != nil {
+		panic(err)
+	}
 	HTCopyFilesWithoutChanges(fileName, newFile)
 	err = os.Remove(newFile)
 	if err != nil {

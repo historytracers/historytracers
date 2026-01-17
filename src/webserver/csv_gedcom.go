@@ -657,6 +657,9 @@ func htParseFamily(fileName string, lang string, rewrite bool) (error, string, s
 	htParseFamilySetDefaultValues(&family, lang, localPath)
 
 	newFile, err := htWriteTmpFile(lang, &family)
+	if err != nil {
+		return err, "", ""
+	}
 
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
@@ -702,6 +705,9 @@ func htRewriteFamilyFileTemplate() Family {
 	}
 
 	newFile, err := htWriteTmpFile(htLangPaths[0], &family)
+	if err != nil {
+		panic(err)
+	}
 	HTCopyFilesWithoutChanges(fileName, newFile)
 	err = os.Remove(newFile)
 	if err != nil {

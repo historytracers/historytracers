@@ -103,6 +103,9 @@ func htRewriteAtlas(lang string) {
 	}
 
 	newFile, err := htWriteTmpFile(lang, &localTemplateFile)
+	if err != nil {
+		panic(err)
+	}
 	HTCopyFilesWithoutChanges(fileName, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
