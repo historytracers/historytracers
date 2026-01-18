@@ -20,6 +20,7 @@ import (
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
+	. "github.com/historytracers/common"
 )
 
 type Document struct {
@@ -288,14 +289,12 @@ func (e *TextEditor) setupShortcuts() {
 
 func (e *TextEditor) createMenu() {
 	// File menu with shortcuts
-	newMenuItem := fyne.NewMenuItem("New", e.newFile)
-	newMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyN, Modifier: fyne.KeyModifierShortcutDefault}
-
 	openMenuItem := fyne.NewMenuItem("Open", e.openFile)
 	openMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyO, Modifier: fyne.KeyModifierShortcutDefault}
 
 	openInNewTabMenuItem := fyne.NewMenuItem("Open in New Tab", e.openInNewTab)
 	documentMenuItemFile := fyne.NewMenuItem("Document", e.insertFamily)
+	newMenuItem := fyne.NewMenuItem("New", e.showTemplateWindow)
 	saveMenuItem := fyne.NewMenuItem("Save", e.saveFile)
 	saveMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyS, Modifier: fyne.KeyModifierShortcutDefault}
 
@@ -306,14 +305,12 @@ func (e *TextEditor) createMenu() {
 	closeTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyW, Modifier: fyne.KeyModifierShortcutDefault}
 
 	closeAllTabsMenuItem := fyne.NewMenuItem("Close All Tabs", e.closeAllTabs)
-	loadTemplateMenuItem := fyne.NewMenuItem("Load Template", e.showTemplateWindow)
 
 	fileMenu := fyne.NewMenu("File",
 		newMenuItem,
 		openMenuItem,
 		openInNewTabMenuItem,
 		documentMenuItemFile,
-		loadTemplateMenuItem,
 		fyne.NewMenuItemSeparator(),
 		saveMenuItem,
 		saveAsMenuItem,
@@ -795,7 +792,7 @@ func (e *TextEditor) loadTemplate(templateType string) {
 }
 
 func (e *TextEditor) createSourceTemplate() HTSourceFile {
-	ct := htUpdateTimestamp()
+	ct := HTUpdateTimestamp()
 	src := HTSourceFile{
 		License: []string{
 			"SPDX-License-Identifier: GPL-3.0-or-later",
@@ -851,9 +848,9 @@ func (e *TextEditor) createSourceTemplate() HTSourceFile {
 	return src
 }
 
-func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
-	ct := htUpdateTimestamp()
-	al := atlasTemplateFile{
+func (e *TextEditor) createAtlasTemplate() AtlasTemplateFile {
+	ct := HTUpdateTimestamp()
+	al := AtlasTemplateFile{
 		Title:   "The name displayed in the application's or page's title bar.",
 		Header:  "The name shown at the top of the page or section.",
 		Sources: []string{""},
@@ -877,7 +874,7 @@ func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
 		Type:       "atlas",
 		Version:    2,
 		Editing:    false,
-		Content: []classTemplateContent{
+		Content: []ClassTemplateContent{
 			{
 				ID: "SECTION_prerequisites",
 				Text: []HTText{
@@ -929,7 +926,7 @@ func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
 				},
 			},
 		},
-		Atlas: []atlasTemplateContent{
+		Atlas: []AtlasTemplateContent{
 			{
 				ID:     "Unique identifier (UUID)",
 				Image:  "Complete path to filename.",
@@ -972,9 +969,9 @@ func (e *TextEditor) createAtlasTemplate() atlasTemplateFile {
 	return al
 }
 
-func (e *TextEditor) createClassTemplate() classTemplateFile {
-	ct := htUpdateTimestamp()
-	cl := classTemplateFile{
+func (e *TextEditor) createClassTemplate() ClassTemplateFile {
+	ct := HTUpdateTimestamp()
+	cl := ClassTemplateFile{
 		Title:   "",
 		Header:  "",
 		Sources: []string{" "},
@@ -999,7 +996,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 		Type:       "class",
 		Version:    2,
 		Editing:    false,
-		Content: []classTemplateContent{
+		Content: []ClassTemplateContent{
 			{
 				ID: "SECTION_prerequisites",
 				Text: []HTText{
@@ -1112,7 +1109,7 @@ func (e *TextEditor) createClassTemplate() classTemplateFile {
 }
 
 func (e *TextEditor) createFamilyTemplate() Family {
-	ct := htUpdateTimestamp()
+	ct := HTUpdateTimestamp()
 	fam := Family{
 		Title:   "",
 		Header:  "",
@@ -2209,7 +2206,7 @@ func (e *TextEditor) insertAtlasMap() {
 		return
 	}
 
-	atlasMap := atlasTemplateContent{
+	atlasMap := AtlasTemplateContent{
 		ID:     "Unique identifier (UUID)",
 		Image:  "Complete path to filename.",
 		Author: "Map author",

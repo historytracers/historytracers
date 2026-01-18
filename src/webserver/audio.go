@@ -11,6 +11,7 @@ import (
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
 	"github.com/gomarkdown/markdown/parser"
+	. "github.com/historytracers/common"
 )
 
 var familyMarriagesMap map[string]string
@@ -351,6 +352,10 @@ func htFamilyAudio(fileName string, lang string) error {
 	}
 
 	newFile, err := htWriteTmpFile(lang, &family)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR", err)
+		return err
+	}
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
@@ -366,7 +371,7 @@ func htFamilyAudio(fileName string, lang string) error {
 }
 
 func htLoadTreeData(lang string) {
-	var ctf classTemplateFile
+	var ctf ClassTemplateFile
 	localPath, err := htLoadClassFileFormat(&ctf, "tree", lang)
 	if err != nil {
 		panic(err)
@@ -376,6 +381,10 @@ func htLoadTreeData(lang string) {
 	defaultFamilyTop = htAdjustAudioStringBeforeWrite(defaultFamilyTop)
 
 	newFile, err := htWriteTmpFile(lang, &ctf)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR", err)
+		panic(err)
+	}
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
@@ -460,7 +469,7 @@ func htFamiliesToAudio() {
 }
 
 // Index Files
-func htParseIndexText(index *classIdx) string {
+func htParseIndexText(index *ClassIdx) string {
 	var ret string = index.Title + ".\n\n"
 	txt := HTText{Source: nil, IsTable: false, ImgDesc: "", PostMention: "", Format: "markdown"}
 	for _, content := range index.Content {
@@ -500,7 +509,7 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 		return err
 	}
 
-	var index classIdx
+	var index ClassIdx
 	err = json.Unmarshal(byteValue, &index)
 	if err != nil {
 		htCommonJSONError(byteValue, err)
@@ -508,6 +517,9 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 	}
 
 	newFile, err := htWriteTmpFile(lang, &index)
+	if err != nil {
+		panic(err)
+	}
 	HTCopyFilesWithoutChanges(localPath, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
@@ -523,7 +535,7 @@ func htClassIdxAudio(localPath string, indexName string, lang string) error {
 // Overall Files
 func htConvertClassesToAudio(pages []string, lang string) {
 	for _, page := range pages {
-		var ctf classTemplateFile
+		var ctf ClassTemplateFile
 		if len(page) == 0 {
 			continue
 		}
@@ -545,14 +557,20 @@ func htConvertClassesToAudio(pages []string, lang string) {
 		}
 
 		newFile, err := htWriteTmpFile(lang, &ctf)
+		if err != nil {
+			panic(err)
+		}
 		equal, err := HTAreFilesEqual(newFile, localPath)
 		if !equal && err == nil || updateDateFlag == true {
-			ctf.LastUpdate[0] = htUpdateTimestamp()
+			ctf.LastUpdate[0] = HTUpdateTimestamp()
 			err = os.Remove(newFile)
 			if err != nil {
 				panic(err)
 			}
 			newFile, err = htWriteTmpFile(lang, &ctf)
+			if err != nil {
+				panic(err)
+			}
 		}
 
 		HTCopyFilesWithoutChanges(localPath, newFile)
@@ -580,7 +598,7 @@ func htConvertAtlasToAudio() {
 			panic(err)
 		}
 
-		var localTemplateFile atlasTemplateFile
+		var localTemplateFile AtlasTemplateFile
 		err = json.Unmarshal(byteValue, &localTemplateFile)
 		if err != nil {
 			htCommonJSONError(byteValue, err)
@@ -603,10 +621,13 @@ func htConvertAtlasToAudio() {
 
 		_, fileWasModified := htGitModifiedMap[fileName]
 		if fileWasModified {
-			localTemplateFile.LastUpdate[0] = htUpdateTimestamp()
+			localTemplateFile.LastUpdate[0] = HTUpdateTimestamp()
 		}
 
 		newFile, err := htWriteTmpFile(dir, &localTemplateFile)
+		if err != nil {
+			panic(err)
+		}
 		HTCopyFilesWithoutChanges(fileName, newFile)
 		err = os.Remove(newFile)
 		if err != nil {
@@ -632,7 +653,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 		panic(err)
 	}
 
-	var index classIdx
+	var index ClassIdx
 	err = json.Unmarshal(byteValue, &index)
 	if err != nil {
 		htCommonJSONError(byteValue, err)
@@ -660,18 +681,24 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 
 	_, fileWasModified := htGitModifiedMap[localPath]
 	if fileWasModified {
-		index.LastUpdate[0] = htUpdateTimestamp()
+		index.LastUpdate[0] = HTUpdateTimestamp()
 	}
 
 	newFile, err := htWriteTmpFile(lang, &index)
+	if err != nil {
+		panic(err)
+	}
 	equal, err := HTAreFilesEqual(newFile, localPath)
 	if !equal && err == nil || updateDateFlag == true {
-		index.LastUpdate[0] = htUpdateTimestamp()
+		index.LastUpdate[0] = HTUpdateTimestamp()
 		err = os.Remove(newFile)
 		if err != nil {
 			panic(err)
 		}
 		newFile, err = htWriteTmpFile(lang, &index)
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	HTCopyFilesWithoutChanges(localPath, newFile)

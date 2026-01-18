@@ -17,6 +17,7 @@ import (
 
 	"github.com/google/uuid"
 
+	. "github.com/historytracers/common"
 	"golang.org/x/net/html"
 )
 
@@ -32,106 +33,8 @@ var htMonthCalendarES []string = []string{"enero", "febrero", "marzo", "abril", 
 var htMonthCalendarEN []string = []string{"January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
 var htAbbrMonthCalendarEN []string = []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
 
-// Common date type
-type HTDate struct {
-	DateType string `json:"type"`
-	Year     string `json:"year"`
-	Month    string `json:"month"`
-	Day      string `json:"day"`
-}
-
-type HTAudio struct {
-	URL      string `json:"url"`
-	External bool   `json:"external"`
-	Spotify  bool   `json:"spotify"`
-}
-
-type HTExercise struct {
-	Question       string `json:"question"`
-	YesNoAnswer    string `json:"yesNoAnswer"`
-	AdditionalInfo string `json:"additionalInfo"`
-}
-
-type HTSource struct {
-	Type int    `json:"type"`
-	UUID string `json:"uuid"`
-	Text string `json:"text"`
-	Page string `json:"page"`
-	Date HTDate `json:"date_time"`
-}
-
-type HTSourceElement struct {
-	ID          string `json:"id"`
-	Citation    string `json:"citation"`
-	Date        string `json:"date_time"`
-	PublishDate string `json:"published"`
-	URL         string `json:"url"`
-}
-
-type HTSourceFile struct {
-	License            []string          `json:"license"`
-	LastUpdate         []string          `json:"last_update"`
-	Version            int               `json:"version"`
-	Type               string            `json:"type"`
-	PrimarySources     []HTSourceElement `json:"primary_sources"`
-	ReferencesSources  []HTSourceElement `json:"reference_sources"`
-	ReligiousSources   []HTSourceElement `json:"religious_sources"`
-	SocialMediaSources []HTSourceElement `json:"social_media_sources"`
-}
-
-type HTText struct {
-	Text        string     `json:"text"`
-	Source      []HTSource `json:"source"`
-	FillDates   []HTDate   `json:"date_time"`
-	IsTable     bool       `json:"isTable"`
-	ImgDesc     string     `json:"imgdesc"`
-	Format      string     `json:"format"`
-	PostMention string     `json:"PostMention"`
-}
-
-type HTMap struct {
-	Text     string   `json:"text"`
-	Img      string   `json:"img"`
-	Order    int      `json:"order"`
-	DateTime []HTDate `json:"date_time"`
-}
-
-type HTCommonContent struct {
-	ID        string           `json:"id"`
-	Desc      string           `json:"desc"`
-	Target    string           `json:"target"`
-	Page      string           `json:"page"`
-	ValueType string           `json:"value_type"`
-	HTMLValue string           `json:"html_value"`
-	Value     []IdxFamilyValue `json:"value"`
-	FillDates []HTDate         `json:"date_time"`
-}
-
-type HTOldFileFormat struct {
-	Title      string            `json:"title"`
-	Header     string            `json:"header"`
-	License    []string          `json:"license"`
-	Sources    []string          `json:"sources"`
-	LastUpdate []string          `json:"last_update"`
-	Audio      []HTAudio         `json:"audio"`
-	Contents   []HTCommonContent `json:"content"`
-	DateTime   []HTDate          `json:"date_time"`
-}
-
-type HTKeywordsFormat struct {
-	License  []string `json:"license"`
-	Keywords []string `json:"keywords"`
-}
-
 var sourceMap map[string]HTSourceElement
 var allSourceMap map[string]HTSourceElement
-
-// Common functions
-func htUpdateTimestamp() string {
-	newStr := fmt.Sprintf("%d", time.Now().Unix())
-
-	return newStr
-}
 
 func htCountLines(filePath string) (int, error) {
 	file, err := os.Open(filePath)
@@ -485,6 +388,9 @@ func htRewriteSourceFileTemplate() {
 	}
 
 	newFile, err := htWriteTmpFile(htLangPaths[0], &src)
+	if err != nil {
+		panic(err)
+	}
 	HTCopyFilesWithoutChanges(fileName, newFile)
 	err = os.Remove(newFile)
 	if err != nil {
@@ -719,7 +625,7 @@ func htLoadOldFileFormat(cf *HTOldFileFormat, name string, lang string) (string,
 	return fileName, nil
 }
 
-func htUpdateClassSources(localTemplateFile *classTemplateFile) {
+func htUpdateClassSources(localTemplateFile *ClassTemplateFile) {
 	for _, classData := range localTemplateFile.Content {
 		for _, textData := range classData.Text {
 			if textData.Format != "markdown" && textData.Format != "html" {
@@ -767,7 +673,7 @@ func htUpdateClassSources(localTemplateFile *classTemplateFile) {
 	}
 }
 
-func htLoadClassFileFormat(cf *classTemplateFile, name string, lang string) (string, error) {
+func htLoadClassFileFormat(cf *ClassTemplateFile, name string, lang string) (string, error) {
 	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
 	if verboseFlag {
 		fmt.Println("Adjusting file", fileName)
@@ -790,7 +696,7 @@ func htLoadClassFileFormat(cf *classTemplateFile, name string, lang string) (str
 
 	_, fileWasModified := htGitModifiedMap[fileName]
 	if fileWasModified {
-		cf.LastUpdate[0] = htUpdateTimestamp()
+		cf.LastUpdate[0] = HTUpdateTimestamp()
 	}
 
 	return fileName, nil
@@ -1105,7 +1011,7 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 	return finalText + "\n"
 }
 
-func htLoopThroughContentFiles(Title string, Content []classTemplateContent) string {
+func htLoopThroughContentFiles(Title string, Content []ClassTemplateContent) string {
 	var ret string = ""
 	if len(Title) > 0 {
 		ret = Title + ".\n\n"
@@ -1122,7 +1028,7 @@ func htLoopThroughContentFiles(Title string, Content []classTemplateContent) str
 	return ret
 }
 
-func htWriteClassIndexFile(lang string, index *classIdx) (string, error) {
+func htWriteClassIndexFile(lang string, index *ClassIdx) (string, error) {
 	id := uuid.New()
 	strID := id.String()
 
@@ -1163,7 +1069,7 @@ func htAddNewSourceToDirectory(newFile string) {
 		panic(err)
 	}
 
-	source.LastUpdate[0] = htUpdateTimestamp()
+	source.LastUpdate[0] = HTUpdateTimestamp()
 
 	htUpdateSourceFile(&source, dstPath)
 }
