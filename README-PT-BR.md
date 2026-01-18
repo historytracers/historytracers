@@ -70,11 +70,56 @@ Por fim, você poderá adicionar conteúdo em outro idioma. Recomenda-se começa
 
 ## Como compilar o *History Tracers*
 
-O *History Tracers* utiliza o **GNU Autoconf** como sistema de compilação.
+O *History Tracers* utiliza o **GNU Make** como sistema de compilação.
 
-Para simplificar o processo, adicionamos o script `ht2pkg.sh`, que executa automaticamente todas as etapas necessárias para gerar os pacotes:
+### Comandos de Compilação
 
 ```sh
-$ ./ht2pkg.sh
+$ make                    # Compilar ambos os binários (webserver e editor)
+$ make all                # Alias para make
+$ make webserver          # Compilar apenas o servidor web
+$ make editor             # Compilar apenas o editor
+$ make dev                # Compilação de desenvolvimento (sem flags de otimização)
+$ make prod               # Compilação de produção (com otimização)
+```
+
+### Testes
+
+```sh
+$ make test               # Executar todos os testes em src/webserver e src/editor
+```
+
+Para executar um teste específico:
+
+```sh
+$ cd src/webserver && go test -run TestFunctionName ./...
+$ cd src/editor && go test -run TestFunctionName ./...
+```
+
+### Qualidade de Código
+
+```sh
+$ make fmt                # Formatar todo o código Go (go fmt)
+```
+
+Formatação manual:
+
+```sh
+$ cd src/webserver && go fmt ./...
+$ cd src/editor && go fmt ./...
+```
+
+### Gestão de Dependências
+
+```sh
+$ make deps               # Instalar dependências
+$ make update-deps        # Atualizar todas as dependências
+```
+
+### Instalação e Limpeza
+
+```sh
+$ make install            # Instalar binários no sistema
+$ make clean              # Remover artefatos de compilação
 ```
 
