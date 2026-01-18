@@ -615,6 +615,23 @@ func htConvertAtlasToAudio() {
 			panic(err)
 		}
 
+		for _, atlasContent := range localTemplateFile.Atlas {
+			contentAudioTxt := ""
+			for j := 0; j < len(atlasContent.Text); j++ {
+				text := &atlasContent.Text[j]
+				contentAudioTxt += htTextToHumanText(text, false)
+				if len(text.PostMention) > 0 {
+					contentAudioTxt += text.PostMention
+				}
+				contentAudioTxt += ".\n\n"
+			}
+			contentAudioTxt = htAdjustAudioStringBeforeWrite(contentAudioTxt)
+			err = htWriteAudioFile(atlasContent.ID, dir, contentAudioTxt)
+			if err != nil {
+				panic(err)
+			}
+		}
+
 		if verboseFlag {
 			htReportErrLineCounter(fileName, "atlas", dir)
 		}
