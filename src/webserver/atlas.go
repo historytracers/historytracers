@@ -8,35 +8,11 @@ import (
 	"log"
 	"os"
 	"strings"
+
+	. "github.com/historytracers/common"
 )
 
-type atlasTemplateContent struct {
-	ID     string   `json:"uuid"`
-	Image  string   `json:"image"`
-	Author string   `json:"author"`
-	Index  string   `json:"index"`
-	Audio  string   `json:"audio"`
-	Text   []HTText `json:"text"`
-}
-
-type atlasTemplateFile struct {
-	Title      string                 `json:"title"`
-	Header     string                 `json:"header"`
-	Sources    []string               `json:"sources"`
-	Scripts    []string               `json:"scripts"`
-	Audio      []HTAudio              `json:"audio"`
-	License    []string               `json:"license"`
-	LastUpdate []string               `json:"last_update"`
-	Authors    []string               `json:"authors"`
-	Reviewers  []string               `json:"reviewers"`
-	Type       string                 `json:"type"`
-	Version    int                    `json:"version"`
-	Editing    bool                   `json:"editing"`
-	Content    []classTemplateContent `json:"content"`
-	Atlas      []atlasTemplateContent `json:"atlas"`
-}
-
-func htUpdateAtlasSources(localTemplateFile *atlasTemplateFile) {
+func htUpdateAtlasSources(localTemplateFile *AtlasTemplateFile) {
 	for _, atlasData := range localTemplateFile.Atlas {
 		for _, textData := range atlasData.Text {
 			if textData.Format != "markdown" && textData.Format != "html" {
@@ -83,7 +59,7 @@ func htUpdateAtlasSources(localTemplateFile *atlasTemplateFile) {
 	}
 }
 
-func htLoopThroughAtlasFiles(Content []atlasTemplateContent) string {
+func htLoopThroughAtlasFiles(Content []AtlasTemplateContent) string {
 	var ret string = ""
 	for _, content := range Content {
 		for j := 0; j < len(content.Text); j++ {
@@ -111,7 +87,7 @@ func htRewriteAtlas(lang string) {
 		panic(err)
 	}
 
-	var localTemplateFile atlasTemplateFile
+	var localTemplateFile AtlasTemplateFile
 	err = json.Unmarshal(byteValue, &localTemplateFile)
 	if err != nil {
 		htCommonJSONError(byteValue, err)
@@ -123,10 +99,13 @@ func htRewriteAtlas(lang string) {
 
 	_, fileWasModified := htGitModifiedMap[fileName]
 	if fileWasModified {
-		localTemplateFile.LastUpdate[0] = htUpdateTimestamp()
+		localTemplateFile.LastUpdate[0] = HTUpdateTimestamp()
 	}
 
 	newFile, err := htWriteTmpFile(lang, &localTemplateFile)
+	if err != nil {
+		panic(err)
+	}
 	HTCopyFilesWithoutChanges(fileName, newFile)
 	err = os.Remove(newFile)
 	if err != nil {

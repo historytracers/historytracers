@@ -4,6 +4,10 @@ go 1.25.4
 
 require fyne.io/fyne/v2 v2.7.1
 
+replace github.com/historytracers/common => ../common
+
+require github.com/historytracers/common v0.0.0
+
 require (
 	fyne.io/systray v1.11.1-0.20250603113521-ca66a66d8b58 // indirect
 	github.com/BurntSushi/toml v1.5.0 // indirect

@@ -84,12 +84,12 @@ AC_MSG_CHECKING([for Go compiler type])
 GO_VERSION_OUTPUT=`$GO_COMPILER version 2>/dev/null`
 GO_COMPILER_TYPE=unknown
 
-case "$GO_VERSION_OUTPUT" in
+ case "$GO_VERSION_OUTPUT" in
     *gccgo*)
         GO_COMPILER_TYPE=gccgo
         AC_DEFINE([HAVE_GCCGO], [1], [Define to 1 if using gccgo])
         ;;
-    *[Gg]o*[0-9]*)
+    go*version*1.*)
         GO_COMPILER_TYPE=go
         AC_DEFINE([HAVE_GOOGLE_GO], [1], [Define to 1 if using Google Go])
         ;;
@@ -101,35 +101,17 @@ esac
 
 AC_MSG_RESULT([$GO_COMPILER_TYPE])
 
-# Set build flags based on compiler type
-case "$GO_COMPILER_TYPE" in
-    gccgo)
-        GO_BUILD_FLAGS=""
-        AC_MSG_NOTICE([Using gccgo-specific build flags])
-        ;;
-    go)
-        #GO_BUILD_FLAGS='-ldflags "-s -w -X main.confPath=$CONF_PATH -X main.srcPath=$SRC_PATH -X main.contentPath=$CONTENT_PATH -X main.logPath=$LOG_PATH'
-        GO_BUILD_FLAGS='-ldflags "-X main.confPath=$CONF_PATH -X main.srcPath=$SRC_PATH -X main.contentPath=$CONTENT_PATH -X main.logPath=$LOG_PATH'
-        AC_MSG_NOTICE([Using standard Go build flags])
-        ;;
-    *)
-        GO_BUILD_FLAGS=""
-        AC_MSG_WARN([Using default build flags for unknown compiler])
-        ;;
-esac
-
 AC_SUBST([GO_COMPILER])
-AC_SUBST([GO_BUILD_FLAGS])
 
-# Set default installation paths
+ # Set default installation paths
 AC_PREFIX_DEFAULT(/usr)
 
 # Custom installation paths with defaults
 AC_ARG_WITH([conf-path],
     [AS_HELP_STRING([--with-conf-path=PATH],
-        [Configuration directory path @<:@default=/etc/historytracers/@:>@])],
+        [Configuration file path @<:@default=/etc/historytracers/historytracers.conf@:>@])],
     [CONF_PATH=$withval],
-    [CONF_PATH=/etc/historytracers/])
+    [CONF_PATH=/etc/historytracers/historytracers.conf])
 
 AC_ARG_WITH([src-path],
     [AS_HELP_STRING([--with-src-path=PATH],
@@ -149,11 +131,28 @@ AC_ARG_WITH([log-path],
     [LOG_PATH=$withval],
     [LOG_PATH=/var/log/historytracers/])
 
-# Substitute the variables in Makefile
+ # Set build flags based on compiler type
+ case "$GO_COMPILER_TYPE" in
+    gccgo)
+        GO_BUILD_FLAGS=""
+        AC_MSG_NOTICE([Using gccgo-specific build flags])
+        ;;
+    go)
+        GO_BUILD_FLAGS="-ldflags \"-X main.confPath=$CONF_PATH -X main.srcPath=$SRC_PATH -X main.contentPath=$CONTENT_PATH -X main.logPath=$LOG_PATH\""
+        AC_MSG_NOTICE([Using standard Go build flags])
+        ;;
+    *)
+        GO_BUILD_FLAGS=""
+        AC_MSG_WARN([Using default build flags for unknown compiler])
+        ;;
+esac
+
+  # Substitute the variables in Makefile
 AC_SUBST([CONF_PATH])
 AC_SUBST([SRC_PATH])
 AC_SUBST([CONTENT_PATH])
 AC_SUBST([LOG_PATH])
+AC_SUBST([GO_BUILD_FLAGS])
 
 # Generate output files
 AC_CONFIG_FILES([Makefile])
