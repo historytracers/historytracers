@@ -922,7 +922,6 @@ func htHTML2Text(htmlStr string) (string, error) {
 	}
 
 	ret := strings.Join(finalLines, "\n\n")
-	ret = htReplaceMath(ret)
 	return ret, nil
 }
 
@@ -961,7 +960,6 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 	}
 
 	finalText = htReplaceAllExceptions(finalText)
-	finalText = htReplaceMath(finalText)
 
 	return finalText
 }
@@ -1006,7 +1004,6 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 	if err != nil {
 		panic(err)
 	}
-	finalText = htReplaceMath(finalText)
 
 	return finalText + "\n"
 }

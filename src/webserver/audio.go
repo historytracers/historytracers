@@ -319,7 +319,6 @@ func htTextFamily(families *Family, lang string) string {
 		finalText += htPrepareQuestions(families.Exercises)
 	}
 
-	finalText = htReplaceMath(finalText)
 	return finalText + "\n"
 }
 
