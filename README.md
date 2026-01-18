@@ -63,7 +63,59 @@ Lastly, you can incorporate content in another language. It's advisable to comme
 
 ## How to Compile *History Tracers*
 
-*History Tracers* uses **GNU Autoconf** as its build system.
+*History Tracers* uses **GNU Make** as its build system.
+
+### Build Commands
+
+```sh
+$ make                    # Build both webserver and editor binaries
+$ make all                # Alias for make
+$ make webserver          # Build only web server
+$ make editor             # Build only the editor
+$ make dev                # Development build (no optimization flags)
+$ make prod               # Production build (with optimization)
+```
+
+### Testing
+
+```sh
+$ make test               # Run all tests in src/webserver and src/editor
+```
+
+To run a single test:
+
+```sh
+$ cd src/webserver && go test -run TestFunctionName ./...
+$ cd src/editor && go test -run TestFunctionName ./...
+```
+
+### Code Quality
+
+```sh
+$ make fmt                # Format all Go code (go fmt)
+```
+
+Manual formatting:
+
+```sh
+$ cd src/webserver && go fmt ./...
+$ cd src/editor && go fmt ./...
+```
+
+### Dependency Management
+
+```sh
+$ make deps               # Install dependencies
+$ make update-deps        # Update all dependencies
+```
+
+### Installation & Cleanup
+
+```sh
+$ make install            # Install binaries to system
+$ make clean              # Remove build artifacts
+```
+
 
 To simplify the process, we’ve added the script `ht2pkg.sh`, which automatically runs all the steps required to generate the packages:
 
