@@ -72,6 +72,29 @@ Finalmente, podrás modificar el contenido en otro idioma. Te recomendamos comen
 
 *History Tracers* utiliza **GNU Make** como sistema de compilación.
 
+### Configuración
+
+Antes de ejecutar cualquier comando `make`, debe ejecutar el script `./configure` para configurar el entorno de compilación. Este script le permite personalizar las rutas de instalación y las opciones del compilador:
+
+```sh
+$ ./configure [OPCIONES]
+```
+
+Opciones disponibles:
+
+- `--prefix=PREFIJO` - Directorio de prefijo de instalación [/usr]
+- `--with-go-compiler=COMPILADOR` - Especificar el compilador Go (go, gccgo o ruta completa) [auto]
+- `--with-conf-path=RUTA` - Ruta del archivo de configuración [/etc/historytracers/historytracers.conf]
+- `--with-src-path=RUTA` - Ruta del directorio de origen [/var/www/htdocs/historytracers/]
+- `--with-content-path=RUTA` - Ruta del directorio de contenido [/usr/share/historytracers/www/]
+- `--with-log-path=RUTA` - Ruta del directorio de registros [/var/log/historytracers/]
+- `--help` - Mostrar todas las opciones disponibles
+
+Para ver una lista completa de opciones, ejecute:
+```sh
+$ ./configure --help
+```
+
 ### Comandos de Compilación
 
 ```sh
