@@ -822,14 +822,26 @@ func htLoadKeywordsDirect(lang string, name string) ([]string, error) {
 		return nil, err
 	}
 
-	var kf HTKeywordsFormat
-	err = json.Unmarshal(byteValue, &kf)
-	if err != nil {
-		htCommonJSONError(byteValue, err)
-		return nil, err
+	var keywords []string
+	if name == "math_keywords" {
+		var kf HTMathKeywordsFormat
+		err = json.Unmarshal(byteValue, &kf)
+		if err != nil {
+			htCommonJSONError(byteValue, err)
+			return nil, err
+		}
+		keywords = kf.Keywords
+	} else {
+		var kf HTKeywordsFormat
+		err = json.Unmarshal(byteValue, &kf)
+		if err != nil {
+			htCommonJSONError(byteValue, err)
+			return nil, err
+		}
+		keywords = kf.Keywords
 	}
 
-	return kf.Keywords, nil
+	return keywords, nil
 }
 
 func htReplaceAllExceptions(text string) string {
