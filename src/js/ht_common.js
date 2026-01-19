@@ -28,7 +28,6 @@ var htAtlas = new Map();
 var loadedIdx = [];
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
-var htHistoryIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htFirstStepsVolume2Idx = new Map();
 var htMathGamesIdx = new Map();
@@ -230,7 +229,7 @@ function htFillSourceContentToPrint(text, map, id)
             var dateVector = value.date_time.split("-");
             textDate = htFillHTDate(dateVector);
         }
-        var urlValue = (value.url != undefined && value.url != null && value.url.length > 0) ? urlValue = keywords[23]+"  "+value.url : "";
+        var urlValue = (value.url != undefined && value.url != null && value.url.length > 0) ? keywords[23]+"  "+value.url : "";
         var dateValue = ". [ "+keywords[22]+" "+textDate+" ].";
         mention += "<p>"+value.citation+" "+dateValue +" "+urlValue+"</p>";
     });
@@ -393,7 +392,7 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
         return;
     }
 
-    ct.toLocaleString(locale, { timeZone: 'UTC' })
+    ct.toLocaleString(locale, { timeZone: 'UTC' });
     var julianDays = gregorian_to_jd(jd[0], jd[1], jd[2]);
 
     var text = "";
@@ -484,7 +483,7 @@ function htConvertGregorianYear(test, gregoryYear)
             text += Math.abs(year)+" "+keywords[43];
         }
     } else {
-        var coverted = undefined;
+        var converted = undefined;
         var mesoamericanPeriod = 0;
         switch(test) {
             case "hebrew":
@@ -503,7 +502,7 @@ function htConvertGregorianYear(test, gregoryYear)
                 mesoamericanPeriod = jd_to_extended_mayan_count(jd);
             case "mesoamerican":
                 if (mesoamericanPeriod == 0) {
-                    var mesoamericanPeriod = jd_to_mayan_count(jd);
+                    mesoamericanPeriod = jd_to_mayan_count(jd);
                 }
 
                 var haab = jd_to_mayan_haab(jd);
@@ -528,10 +527,12 @@ function htConvertGregorianYear(test, gregoryYear)
             default:
                 return undefined;
         }
-        if (converted[0] >= 0) {
-            text += converted[0];
-        } else {
-            text += Math.abs(converted[0])+" "+keywords[43];
+        if (converted && converted[0] !== undefined) {
+            if (converted[0] >= 0) {
+                text += converted[0];
+            } else {
+                text += Math.abs(converted[0])+" "+keywords[43];
+            }
         }
     }
     return text;
@@ -761,15 +762,15 @@ function htAppendFamilyParentsData(prefix, id, familyID, table, page) {
                             parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+name+"</a>";
                         }
                     } else {
-                        parentsLink += couple.father_name;
+                        parentsLink += couple.father_name || "";
                     }
                 } else if (couple.father_name && couple.father_family && couple.father_family != familyID && couple.father_family > 0) {
                     parentsLink += "<a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.father_family+"&person_id="+father+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.father_family+"&person_id="+father+"', false); return false;\">"+couple.father_name+"</a>";
                 } else {
-                    parentsLink += couple.father_name;
+                    parentsLink += couple.father_name || "";
                 }
             } else {
-            parentsLink += couple.father_name;
+            parentsLink += couple.father_name || "";
             }
             parents_id += "-";
 
@@ -789,7 +790,7 @@ function htAppendFamilyParentsData(prefix, id, familyID, table, page) {
                 } else if (couple.mother_name && couple.mother_family && couple.mother_family != familyID && couple.mother_family > 0) {
                     parentsLink += " & <a target=\"_blank\" href=\"index.html?page=tree&arg="+couple.mother_family+"&person_id="+mother+"&lang="+$('#site_language').val()+"&cal="+$('#site_calendar').val()+"\" onclick=\"htLoadPage('tree', 'html', '"+couple.mother_family+"&person_id="+mother+"', false); return false;\">"+couple.mother_name+"</a>";
                 } else {
-                    parentsLink += " & " +couple.mother_name;
+                    parentsLink += " & " +(couple.mother_name || "");
                 }
             }
 
@@ -804,7 +805,7 @@ function htAppendFamilyParentsData(prefix, id, familyID, table, page) {
             }
 
             if (parentsLink.length == 0) {
-                parentsLink += couple.father_name+" & "+couple.mother_name;
+                parentsLink += (couple.father_name || "")+" & "+(couple.mother_name || "");
             }
             $("#"+prefix+"-"+id).append("<div id=\""+parents_id+"\" class=\""+use_class+"\"><p><b>"+use_keyword + "</b>: " +parentsLink+"</p></div>");
         }
@@ -1417,7 +1418,7 @@ function htAddAudio(data) {
     var counter = 0;
     for (const i in data) {
         var audio = data[i];
-        if (audio.url == undefined || audio.length == 0) {
+        if (audio.url == undefined || audio.url.length == 0) {
             continue;
         }
 
@@ -1630,7 +1631,7 @@ function htUpdateNavigationTitle(currentIdx, title, indexName)
         pageHeader += "; "+title+" ("+indexName+")";
     }
 
-    $(header).html(pageHeader);
+    $("#header").html(pageHeader);
 }
 
 function htBuildNavigationSteps(ptr, idx, index, idxName, bgColor)
@@ -2287,7 +2288,7 @@ function htLoadPage(page, ext, arg, reload) {
         }
     }
 
-    if (ext.length != null && ext.length > 0 &&  ext == "html") {
+    if (ext != null && ext.length > 0 &&  ext == "html") {
         $("#html_loaded").val(page);
     }
 
@@ -2395,7 +2396,7 @@ function htFillHTDate(vector)
         }
         var w = vector[j++];
         if (!w || typeof w !== 'object') {
-            console.warn(`htFillHTDate: Invalid date object at index ${index}`);
+            console.warn(`htFillHTDate: Invalid date object at index ${j - 1}`);
             return true; // Continue to next element
         }
         var updateText = htMountSpecificDate(w, localLang, localCalendar);
@@ -2976,7 +2977,7 @@ function htWriteGame(table, later, idx)
         let item = table[i];
         var finalText = item.imageDesc;
         if (item.date_time) {
-            localDate = item.date_time;
+            var localDate = item.date_time;
             for (const j in localDate) {
                 finalText = finalText.replace("<htdate"+j+">", htMountSpecificDate(localDate[j], localLang, localCalendar));
             }

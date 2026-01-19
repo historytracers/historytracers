@@ -92,7 +92,7 @@ func htTextChildIntroduction(lang string, parent1 string, parent2 string, child 
 		if childType == "hypothesis" {
 			ret += "Hypothetically "
 		}
-		ret += parent1 + " are " + parent2 + " are the parents of " + child + " "
+		ret += parent1 + " and " + parent2 + " are the parents of " + child + " "
 	}
 
 	return ret
