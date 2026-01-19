@@ -174,7 +174,8 @@ func htTextFamily(families *Family, lang string) string {
 	if families.Common != nil {
 		for _, comm := range families.Common {
 			if comm.Format == "html" {
-				htmlText += htOverwriteDates(comm.Text, comm.FillDates, "", lang, false)
+				comm_text := htChangeTag2Keywords(comm.Text)
+				htmlText += htOverwriteDates(comm_text, comm.FillDates, "", lang, false)
 			} else if comm.Format == "markdown" {
 				tmp := htOverwriteDates(comm.Text, comm.FillDates, comm.PostMention, lang, false)
 				htmlText += htMarkdownToHTML(tmp)
