@@ -92,7 +92,7 @@ func htTextChildIntroduction(lang string, parent1 string, parent2 string, child 
 		if childType == "hypothesis" {
 			ret += "Hypothetically "
 		}
-		ret += parent1 + " are " + parent2 + " are the parents of " + child + " "
+		ret += parent1 + " and " + parent2 + " are the parents of " + child + " "
 	}
 
 	return ret
@@ -174,7 +174,8 @@ func htTextFamily(families *Family, lang string) string {
 	if families.Common != nil {
 		for _, comm := range families.Common {
 			if comm.Format == "html" {
-				htmlText += htOverwriteDates(comm.Text, comm.FillDates, "", lang, false)
+				comm_text := htChangeTag2Keywords(comm.Text)
+				htmlText += htOverwriteDates(comm_text, comm.FillDates, "", lang, false)
 			} else if comm.Format == "markdown" {
 				tmp := htOverwriteDates(comm.Text, comm.FillDates, comm.PostMention, lang, false)
 				htmlText += htMarkdownToHTML(tmp)
