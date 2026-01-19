@@ -65,6 +65,29 @@ Lastly, you can incorporate content in another language. It's advisable to comme
 
 *History Tracers* uses **GNU Make** as its build system.
 
+### Configuration
+
+Before running any `make` commands, you must run the `./configure` script to set up the build environment. This script allows you to customize installation paths and compiler options:
+
+```sh
+$ ./configure [OPTIONS]
+```
+
+Available options:
+
+- `--prefix=PREFIX` - Installation prefix directory [/usr]
+- `--with-go-compiler=COMPILER` - Specify Go compiler (go, gccgo, or full path) [auto]
+- `--with-conf-path=PATH` - Configuration file path [/etc/historytracers/historytracers.conf]
+- `--with-src-path=PATH` - Source directory path [/var/www/htdocs/historytracers/]
+- `--with-content-path=PATH` - Content directory path [/usr/share/historytracers/www/]
+- `--with-log-path=PATH` - Log directory path [/var/log/historytracers/]
+- `--help` - Display all available options
+
+For a complete list of options, run:
+```sh
+$ ./configure --help
+```
+
 ### Build Commands
 
 ```sh

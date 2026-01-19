@@ -92,6 +92,11 @@ type HTKeywordsFormat struct {
 	Keywords []string `json:"keywords"`
 }
 
+type HTMathKeywordsFormat struct {
+	License  []string `json:"license"`
+	Keywords []string `json:"math_keywords"`
+}
+
 // Class
 
 type ClassTemplateContent struct {
