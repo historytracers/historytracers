@@ -344,7 +344,7 @@ func htFamilyAudio(fileName string, lang string) error {
 	htLoadSourceFromFile(family.Sources)
 
 	audioTxt := htTextFamily(&family, lang)
-	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
 	err = htWriteAudioFile(fileName, lang, audioTxt)
 	if err != nil {
 		return err
@@ -377,7 +377,7 @@ func htLoadTreeData(lang string) {
 	}
 
 	defaultFamilyTop = htLoopThroughContentFiles(ctf.Title, ctf.Content)
-	defaultFamilyTop = htAdjustAudioStringBeforeWrite(defaultFamilyTop)
+	defaultFamilyTop = htAdjustAudioStringBeforeWrite(defaultFamilyTop, lang)
 
 	newFile, err := htWriteTmpFile(lang, &ctf)
 	if err != nil {
@@ -442,7 +442,7 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 		return err
 	}
 
-	indexTxt = htAdjustAudioStringBeforeWrite(indexTxt)
+	indexTxt = htAdjustAudioStringBeforeWrite(indexTxt, lang)
 	err = htWriteAudioFile("families", lang, indexTxt)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR", err)
@@ -548,7 +548,7 @@ func htConvertClassesToAudio(pages []string, lang string) {
 		if ctf.Exercises != nil {
 			audioTxt += htPrepareQuestions(ctf.Exercises)
 		}
-		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
 
 		err = htWriteAudioFile(page, lang, audioTxt)
 		if err != nil {
@@ -607,7 +607,7 @@ func htConvertAtlasToAudio() {
 		contentTxt := htLoopThroughContentFiles("Atlas", localTemplateFile.Content)
 		atlasTxt := htLoopThroughAtlasFiles(localTemplateFile.Atlas)
 		audioTxt := contentTxt + "\n\n" + atlasTxt
-		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, dir)
 
 		err = htWriteAudioFile("atlas", dir, audioTxt)
 		if err != nil {
@@ -624,7 +624,7 @@ func htConvertAtlasToAudio() {
 				}
 				contentAudioTxt += ".\n\n"
 			}
-			contentAudioTxt = htAdjustAudioStringBeforeWrite(contentAudioTxt)
+			contentAudioTxt = htAdjustAudioStringBeforeWrite(contentAudioTxt, dir)
 			err = htWriteAudioFile(atlasContent.ID, dir, contentAudioTxt)
 			if err != nil {
 				panic(err)
@@ -689,7 +689,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 	htConvertClassesToAudio(pages, lang)
 
 	audioTxt := htParseIndexText(&index)
-	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt)
+	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
 	err = htWriteAudioFile(idxName, lang, audioTxt)
 	if err != nil {
 		panic(err)

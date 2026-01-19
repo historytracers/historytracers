@@ -521,7 +521,7 @@ func htReplaceRoman(text string) string {
 	})
 }
 
-func htAdjustAudioStringBeforeWrite(str string) string {
+func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 	tableLineRegex := regexp.MustCompile(`(?m)^\+\-+(?:\+\-+)+\+$`)
 	dashLineRegex := regexp.MustCompile(`^\s*-+\s*$`)
 	patternLinksRegex := regexp.MustCompile(`\(\s*(?:;+\s*)+\)`)
@@ -561,7 +561,7 @@ func htAdjustAudioStringBeforeWrite(str string) string {
 	ret = strings.ReplaceAll(ret, "*", "")
 	ret = strings.ReplaceAll(ret, "( )", "")
 	ret = htReplaceAllExceptions(ret)
-	ret = htReplaceMath(ret)
+	ret = htReplaceMath(ret, lang)
 
 	return ret
 }
@@ -715,15 +715,28 @@ func htLoadKeywordFile(name string, lang string) error {
 		return err
 	}
 
-	var kf HTKeywordsFormat
-	err = json.Unmarshal(byteValue, &kf)
-	if err != nil {
-		htCommonJSONError(byteValue, err)
-		return err
-	}
+	if name == "common_keywords" {
+		var kf HTKeywordsFormat
+		err = json.Unmarshal(byteValue, &kf)
+		if err != nil {
+			htCommonJSONError(byteValue, err)
+			return err
+		}
 
-	for _, element := range kf.Keywords {
-		localKeywords = append(localKeywords, element)
+		for _, element := range kf.Keywords {
+			localKeywords = append(localKeywords, element)
+		}
+	} else {
+		var kf HTMathKeywordsFormat
+		err = json.Unmarshal(byteValue, &kf)
+		if err != nil {
+			htCommonJSONError(byteValue, err)
+			return err
+		}
+
+		for _, element := range kf.Keywords {
+			localKeywords = append(localKeywords, element)
+		}
 	}
 
 	if name == "common_keywords" {
@@ -776,14 +789,47 @@ func htChangeTag2Keywords(text string) string {
 	return ret
 }
 
-func htReplaceMath(text string) string {
-	if len(mathKeywords) == 0 {
-		return text
+func htReplaceMath(text string, lang string) string {
+	timesStr := " times "
+	plusStr := " plus "
+
+	localKeywords, err := htLoadKeywordsDirect(lang, "math_keywords")
+	if err == nil && len(localKeywords) > 34 {
+		timesStr = localKeywords[33]
+		plusStr = localKeywords[34]
 	}
-	ret := strings.ReplaceAll(text, " x ", mathKeywords[33])
-	ret = strings.ReplaceAll(ret, " + ", mathKeywords[34])
+
+	ret := strings.ReplaceAll(text, " x ", timesStr)
+	ret = strings.ReplaceAll(ret, " + ", plusStr)
+
+	ret = strings.ReplaceAll(ret, "  x  ", " "+timesStr+" ")
+	ret = strings.ReplaceAll(ret, "  +  ", " "+plusStr+" ")
+
+	ret = strings.ReplaceAll(ret, " x", " "+timesStr)
+	ret = strings.ReplaceAll(ret, "x ", timesStr+" ")
+
+	ret = strings.ReplaceAll(ret, " +", " "+plusStr)
+	ret = strings.ReplaceAll(ret, "+ ", plusStr+" ")
 
 	return ret
+}
+
+func htLoadKeywordsDirect(lang string, name string) ([]string, error) {
+	fileName := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, name)
+
+	byteValue, err := htOpenFileReadClose(fileName)
+	if err != nil {
+		return nil, err
+	}
+
+	var kf HTKeywordsFormat
+	err = json.Unmarshal(byteValue, &kf)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		return nil, err
+	}
+
+	return kf.Keywords, nil
 }
 
 func htReplaceAllExceptions(text string) string {
