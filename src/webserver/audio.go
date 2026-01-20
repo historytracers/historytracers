@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"regexp"
 	"strings"
 
 	"github.com/gomarkdown/markdown"
@@ -346,6 +347,7 @@ func htFamilyAudio(fileName string, lang string) error {
 
 	audioTxt := htTextFamily(&family, lang)
 	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
+	audioTxt = htRemoveChineseCharacters(audioTxt)
 	err = htWriteAudioFile(fileName, lang, audioTxt)
 	if err != nil {
 		return err
@@ -379,6 +381,7 @@ func htLoadTreeData(lang string) {
 
 	defaultFamilyTop = htLoopThroughContentFiles(ctf.Title, ctf.Content, lang)
 	defaultFamilyTop = htAdjustAudioStringBeforeWrite(defaultFamilyTop, lang)
+	defaultFamilyTop = htRemoveChineseCharacters(defaultFamilyTop)
 
 	newFile, err := htWriteTmpFile(lang, &ctf)
 	if err != nil {
@@ -444,6 +447,7 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 	}
 
 	indexTxt = htAdjustAudioStringBeforeWrite(indexTxt, lang)
+	indexTxt = htRemoveChineseCharacters(indexTxt)
 	err = htWriteAudioFile("families", lang, indexTxt)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR", err)
@@ -550,6 +554,7 @@ func htConvertClassesToAudio(pages []string, lang string) {
 			audioTxt += htPrepareQuestions(ctf.Exercises)
 		}
 		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
+		audioTxt = htRemoveChineseCharacters(audioTxt)
 
 		err = htWriteAudioFile(page, lang, audioTxt)
 		if err != nil {
@@ -609,6 +614,7 @@ func htConvertAtlasToAudio() {
 		atlasTxt := htLoopThroughAtlasFiles(localTemplateFile.Atlas, dir)
 		audioTxt := contentTxt + "\n\n" + atlasTxt
 		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, dir)
+		audioTxt = htRemoveChineseCharacters(audioTxt)
 
 		err = htWriteAudioFile("atlas", dir, audioTxt)
 		if err != nil {
@@ -626,6 +632,7 @@ func htConvertAtlasToAudio() {
 				contentAudioTxt += ".\n\n"
 			}
 			contentAudioTxt = htAdjustAudioStringBeforeWrite(contentAudioTxt, dir)
+			contentAudioTxt = htRemoveChineseCharacters(contentAudioTxt)
 			err = htWriteAudioFile(atlasContent.ID, dir, contentAudioTxt)
 			if err != nil {
 				panic(err)
@@ -691,6 +698,7 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 
 	audioTxt := htParseIndexText(&index, lang)
 	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
+	audioTxt = htRemoveChineseCharacters(audioTxt)
 	err = htWriteAudioFile(idxName, lang, audioTxt)
 	if err != nil {
 		panic(err)
@@ -776,6 +784,11 @@ func htConvertGreekLetter(letter string, lang string) string {
 		}
 	}
 	return letter
+}
+
+func htRemoveChineseCharacters(text string) string {
+	chineseRegex := regexp.MustCompile(`[\p{Han}]+`)
+	return chineseRegex.ReplaceAllString(text, "")
 }
 
 func htConvertTextsToAudio() {
