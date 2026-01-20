@@ -788,7 +788,12 @@ func htConvertGreekLetter(letter string, lang string) string {
 
 func htRemoveChineseCharacters(text string) string {
 	chineseRegex := regexp.MustCompile(`[\p{Han}]+`)
-	return chineseRegex.ReplaceAllString(text, "")
+	cleaned := chineseRegex.ReplaceAllString(text, "")
+
+	emptyParenRegex := regexp.MustCompile(`\(\s*\)`)
+	cleaned = emptyParenRegex.ReplaceAllString(cleaned, "")
+
+	return cleaned
 }
 
 func htConvertTextsToAudio() {
