@@ -773,6 +773,7 @@ func htConvertGreekLetter(letter string, lang string) string {
 		"τ": {"en-US": "tau", "es-ES": "tau", "pt-BR": "tau"},
 		"υ": {"en-US": "upsilon", "es-ES": "ípsilon", "pt-BR": "ípsilon"},
 		"φ": {"en-US": "phi", "es-ES": "fi", "pt-BR": "fi"},
+		"ϕ": {"en-US": "phi", "es-ES": "fi", "pt-BR": "fi"},
 		"χ": {"en-US": "chi", "es-ES": "ji", "pt-BR": "qui"},
 		"ψ": {"en-US": "psi", "es-ES": "psi", "pt-BR": "psi"},
 		"ω": {"en-US": "omega", "es-ES": "omega", "pt-BR": "omega"},

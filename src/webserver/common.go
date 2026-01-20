@@ -852,7 +852,20 @@ func htReplaceAllExceptions(text string, lang string) string {
 		ret = strings.ReplaceAll(ret, letter, htConvertGreekLetter(letter, lang))
 	}
 
+	ret = htRemoveDuplicateParentheses(ret)
+
 	return ret
+}
+
+func htRemoveDuplicateParentheses(text string) string {
+	duplicateParenRegex := regexp.MustCompile(`(\w+)\s*\(\s*(\w+)\s*\)`)
+	return duplicateParenRegex.ReplaceAllStringFunc(text, func(match string) string {
+		matches := duplicateParenRegex.FindStringSubmatch(match)
+		if len(matches) == 3 && matches[1] == matches[2] {
+			return matches[1]
+		}
+		return match
+	})
 }
 
 func htHTML2Text(htmlStr string) (string, error) {
