@@ -59,12 +59,12 @@ func htUpdateAtlasSources(localTemplateFile *AtlasTemplateFile) {
 	}
 }
 
-func htLoopThroughAtlasFiles(Content []AtlasTemplateContent) string {
+func htLoopThroughAtlasFiles(Content []AtlasTemplateContent, lang string) string {
 	var ret string = ""
 	for _, content := range Content {
 		for j := 0; j < len(content.Text); j++ {
 			text := &content.Text[j]
-			ret += htTextToHumanText(text, false)
+			ret += htTextToHumanText(text, lang, false)
 			if len(text.PostMention) > 0 {
 				ret += text.PostMention
 			}

@@ -560,7 +560,7 @@ func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 	ret = strings.ReplaceAll(ret, "|", ".")
 	ret = strings.ReplaceAll(ret, "*", "")
 	ret = strings.ReplaceAll(ret, "( )", "")
-	ret = htReplaceAllExceptions(ret)
+	ret = htReplaceAllExceptions(ret, lang)
 	ret = htReplaceMath(ret, lang)
 
 	return ret
@@ -845,8 +845,12 @@ func htLoadKeywordsDirect(lang string, name string) ([]string, error) {
 	return keywords, nil
 }
 
-func htReplaceAllExceptions(text string) string {
+func htReplaceAllExceptions(text string, lang string) string {
 	ret := strings.ReplaceAll(text, "(#)", "")
+
+	for _, letter := range []string{"α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "π", "ρ", "σ", "τ", "υ", "φ", "χ", "ψ", "ω"} {
+		ret = strings.ReplaceAll(ret, letter, htConvertGreekLetter(letter, lang))
+	}
 
 	return ret
 }
@@ -984,7 +988,7 @@ func htHTML2Text(htmlStr string) (string, error) {
 	return ret, nil
 }
 
-func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
+func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 	var finalText string = ""
 	var htmlText string
 	var err error
@@ -1018,7 +1022,7 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 		finalText += "\n" + txt.ImgDesc
 	}
 
-	finalText = htReplaceAllExceptions(finalText)
+	finalText = htReplaceAllExceptions(finalText, lang)
 
 	return finalText
 }
@@ -1067,7 +1071,7 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 	return finalText + "\n"
 }
 
-func htLoopThroughContentFiles(Title string, Content []ClassTemplateContent) string {
+func htLoopThroughContentFiles(Title string, Content []ClassTemplateContent, lang string) string {
 	var ret string = ""
 	if len(Title) > 0 {
 		ret = Title + ".\n\n"
@@ -1075,7 +1079,7 @@ func htLoopThroughContentFiles(Title string, Content []ClassTemplateContent) str
 	for _, content := range Content {
 		for j := 0; j < len(content.Text); j++ {
 			text := &content.Text[j]
-			ret += htTextToHumanText(text, false)
+			ret += htTextToHumanText(text, lang, false)
 			ret += text.PostMention + "\n\n"
 		}
 		ret += ".\n\n"
