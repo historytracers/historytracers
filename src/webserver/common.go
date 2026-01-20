@@ -793,24 +793,33 @@ func htChangeTag2Keywords(text string) string {
 func htReplaceMath(text string, lang string) string {
 	timesStr := " times "
 	plusStr := " plus "
+	equalsStr := " equals "
 
 	localKeywords, err := htLoadKeywordsDirect(lang, "math_keywords")
 	if err == nil && len(localKeywords) > 34 {
 		timesStr = localKeywords[33]
 		plusStr = localKeywords[34]
 	}
+	if err == nil && len(localKeywords) > 35 {
+		equalsStr = localKeywords[35]
+	}
 
 	ret := strings.ReplaceAll(text, " x ", timesStr)
 	ret = strings.ReplaceAll(ret, " + ", plusStr)
+	ret = strings.ReplaceAll(ret, " = ", equalsStr)
 
 	ret = strings.ReplaceAll(ret, "  x  ", " "+timesStr+" ")
 	ret = strings.ReplaceAll(ret, "  +  ", " "+plusStr+" ")
+	ret = strings.ReplaceAll(ret, "  =  ", " "+equalsStr+" ")
 
 	ret = strings.ReplaceAll(ret, " x", " "+timesStr)
 	ret = strings.ReplaceAll(ret, "x ", timesStr+" ")
 
 	ret = strings.ReplaceAll(ret, " +", " "+plusStr)
 	ret = strings.ReplaceAll(ret, "+ ", plusStr+" ")
+
+	ret = strings.ReplaceAll(ret, " =", " "+equalsStr)
+	ret = strings.ReplaceAll(ret, "= ", equalsStr+" ")
 
 	return ret
 }
