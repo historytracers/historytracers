@@ -833,6 +833,36 @@ func htRemoveChineseCharacters(text string) string {
 	return cleaned
 }
 
+func htAdjustTrailingDots(text string) string {
+	lines := strings.Split(text, "\n")
+	var result []string
+	var prevWasEmpty bool
+
+	for _, line := range lines {
+		trimmed := strings.TrimSpace(line)
+		if trimmed == "." {
+			continue
+		}
+
+		dotRegex := regexp.MustCompile(`\.{2,}$`)
+		if dotRegex.MatchString(line) {
+			line = dotRegex.ReplaceAllString(line, ".")
+		}
+
+		if trimmed == "" {
+			if !prevWasEmpty {
+				result = append(result, line)
+			}
+			prevWasEmpty = true
+		} else {
+			result = append(result, line)
+			prevWasEmpty = false
+		}
+	}
+
+	return strings.Join(result, "\n")
+}
+
 func htConvertTextsToAudio() {
 	linesMap = make(map[string]int)
 	htConvertOverallTextToAudio()

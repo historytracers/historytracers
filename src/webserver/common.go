@@ -575,6 +575,7 @@ func htWriteAudioFile(fileName string, lang string, content string) error {
 		return err
 	}
 
+	content = htAdjustTrailingDots(content)
 	text := []byte(content)
 
 	fp.Write(text)
