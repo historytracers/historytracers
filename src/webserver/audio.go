@@ -749,6 +749,42 @@ func htIndexesToAudio() {
 	}
 }
 
+func htConvertFunctionAbbreviation(text string, lang string) string {
+	preposition := "de"
+	if lang == "en-US" {
+		preposition = "of"
+	}
+
+	funcMap := map[string]map[string]string{
+		"cos":    {"en-US": "cosine", "es-ES": "coseno", "pt-BR": "cosseno"},
+		"sin":    {"en-US": "sine", "es-ES": "seno", "pt-BR": "seno"},
+		"tan":    {"en-US": "tangent", "es-ES": "tangente", "pt-BR": "tangente"},
+		"sec":    {"en-US": "secant", "es-ES": "secante", "pt-BR": "secante"},
+		"csc":    {"en-US": "cosecant", "es-ES": "cosecante", "pt-BR": "cossecante"},
+		"cot":    {"en-US": "cotangent", "es-ES": "cotangente", "pt-BR": "cotangente"},
+		"arccos": {"en-US": "arc cosine", "es-ES": "arcocoseno", "pt-BR": "arcocosseno"},
+		"arcsin": {"en-US": "arc sine", "es-ES": "arcoseno", "pt-BR": "arcosseno"},
+		"arctan": {"en-US": "arc tangent", "es-ES": "arcotangente", "pt-BR": "arcotangente"},
+		"log":    {"en-US": "logarithm", "es-ES": "logaritmo", "pt-BR": "logaritmo"},
+		"ln":     {"en-US": "natural logarithm", "es-ES": "logaritmo natural", "pt-BR": "logaritmo natural"},
+		"exp":    {"en-US": "exponential", "es-ES": "exponencial", "pt-BR": "exponencial"},
+		"sqrt":   {"en-US": "square root", "es-ES": "raíz cuadrada", "pt-BR": "raiz quadrada"},
+		"abs":    {"en-US": "absolute value", "es-ES": "valor absoluto", "pt-BR": "valor absoluto"},
+		"max":    {"en-US": "maximum", "es-ES": "máximo", "pt-BR": "máximo"},
+		"min":    {"en-US": "minimum", "es-ES": "mínimo", "pt-BR": "mínimo"},
+		"mod":    {"en-US": "modulo", "es-ES": "módulo", "pt-BR": "módulo"},
+	}
+
+	for abbr, langMap := range funcMap {
+		if full, ok := langMap[lang]; ok {
+			pattern := regexp.MustCompile(`\b` + abbr + `\s*\(\s*([^)]+)\s*\)`)
+			text = pattern.ReplaceAllString(text, full+" "+preposition+" $1")
+		}
+	}
+
+	return text
+}
+
 func htConvertGreekLetter(letter string, lang string) string {
 	var greekLetterMap map[string]map[string]string
 
