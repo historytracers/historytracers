@@ -805,14 +805,18 @@ func htReplaceMath(text string, lang string) string {
 		equalsStr = localKeywords[35]
 	}
 
-	ret := strings.ReplaceAll(text, " x ", timesStr)
+	ret := strings.ReplaceAll(text, " × ", timesStr)
+	ret = strings.ReplaceAll(ret, " x ", timesStr)
 	ret = strings.ReplaceAll(ret, " + ", plusStr)
 	ret = strings.ReplaceAll(ret, " = ", equalsStr)
 
+	ret = strings.ReplaceAll(ret, "  ×  ", " "+timesStr+" ")
 	ret = strings.ReplaceAll(ret, "  x  ", " "+timesStr+" ")
 	ret = strings.ReplaceAll(ret, "  +  ", " "+plusStr+" ")
 	ret = strings.ReplaceAll(ret, "  =  ", " "+equalsStr+" ")
 
+	ret = strings.ReplaceAll(ret, " ×", " "+timesStr)
+	ret = strings.ReplaceAll(ret, "× ", timesStr+" ")
 	ret = strings.ReplaceAll(ret, " x", " "+timesStr)
 	ret = strings.ReplaceAll(ret, "x ", timesStr+" ")
 
