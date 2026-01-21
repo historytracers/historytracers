@@ -758,6 +758,7 @@ func htConvertFunctionAbbreviation(text string, lang string) string {
 	funcMap := map[string]map[string]string{
 		"cos":    {"en-US": "cosine", "es-ES": "coseno", "pt-BR": "cosseno"},
 		"sin":    {"en-US": "sine", "es-ES": "seno", "pt-BR": "seno"},
+		"sen":    {"en-US": "sine", "es-ES": "seno", "pt-BR": "seno"},
 		"tan":    {"en-US": "tangent", "es-ES": "tangente", "pt-BR": "tangente"},
 		"sec":    {"en-US": "secant", "es-ES": "secante", "pt-BR": "secante"},
 		"csc":    {"en-US": "cosecant", "es-ES": "cosecante", "pt-BR": "cossecante"},
