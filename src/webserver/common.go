@@ -560,8 +560,9 @@ func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 	ret = strings.ReplaceAll(ret, "|", ".")
 	ret = strings.ReplaceAll(ret, "*", "")
 	ret = strings.ReplaceAll(ret, "( )", "")
-	ret = htReplaceAllExceptions(ret)
+	ret = htReplaceAllExceptions(ret, lang)
 	ret = htReplaceMath(ret, lang)
+	ret = htConvertFunctionAbbreviation(ret, lang)
 
 	return ret
 }
@@ -793,24 +794,37 @@ func htChangeTag2Keywords(text string) string {
 func htReplaceMath(text string, lang string) string {
 	timesStr := " times "
 	plusStr := " plus "
+	equalsStr := " equals "
 
 	localKeywords, err := htLoadKeywordsDirect(lang, "math_keywords")
 	if err == nil && len(localKeywords) > 34 {
 		timesStr = localKeywords[33]
 		plusStr = localKeywords[34]
 	}
+	if err == nil && len(localKeywords) > 35 {
+		equalsStr = localKeywords[35]
+	}
 
-	ret := strings.ReplaceAll(text, " x ", timesStr)
+	ret := strings.ReplaceAll(text, " × ", timesStr)
+	ret = strings.ReplaceAll(ret, " x ", timesStr)
 	ret = strings.ReplaceAll(ret, " + ", plusStr)
+	ret = strings.ReplaceAll(ret, " = ", equalsStr)
 
+	ret = strings.ReplaceAll(ret, "  ×  ", " "+timesStr+" ")
 	ret = strings.ReplaceAll(ret, "  x  ", " "+timesStr+" ")
 	ret = strings.ReplaceAll(ret, "  +  ", " "+plusStr+" ")
+	ret = strings.ReplaceAll(ret, "  =  ", " "+equalsStr+" ")
 
+	ret = strings.ReplaceAll(ret, " ×", " "+timesStr)
+	ret = strings.ReplaceAll(ret, "× ", timesStr+" ")
 	ret = strings.ReplaceAll(ret, " x", " "+timesStr)
 	ret = strings.ReplaceAll(ret, "x ", timesStr+" ")
 
 	ret = strings.ReplaceAll(ret, " +", " "+plusStr)
 	ret = strings.ReplaceAll(ret, "+ ", plusStr+" ")
+
+	ret = strings.ReplaceAll(ret, " =", " "+equalsStr)
+	ret = strings.ReplaceAll(ret, "= ", equalsStr+" ")
 
 	return ret
 }
@@ -845,10 +859,27 @@ func htLoadKeywordsDirect(lang string, name string) ([]string, error) {
 	return keywords, nil
 }
 
-func htReplaceAllExceptions(text string) string {
+func htReplaceAllExceptions(text string, lang string) string {
 	ret := strings.ReplaceAll(text, "(#)", "")
 
+	for _, letter := range []string{"α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "π", "ρ", "σ", "τ", "υ", "φ", "χ", "ψ", "ω"} {
+		ret = strings.ReplaceAll(ret, letter, htConvertGreekLetter(letter, lang))
+	}
+
+	ret = htRemoveDuplicateParentheses(ret)
+
 	return ret
+}
+
+func htRemoveDuplicateParentheses(text string) string {
+	duplicateParenRegex := regexp.MustCompile(`(\w+)\s*\(\s*(\w+)\s*\)`)
+	return duplicateParenRegex.ReplaceAllStringFunc(text, func(match string) string {
+		matches := duplicateParenRegex.FindStringSubmatch(match)
+		if len(matches) == 3 && matches[1] == matches[2] {
+			return matches[1]
+		}
+		return match
+	})
 }
 
 func htHTML2Text(htmlStr string) (string, error) {
@@ -984,7 +1015,7 @@ func htHTML2Text(htmlStr string) (string, error) {
 	return ret, nil
 }
 
-func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
+func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 	var finalText string = ""
 	var htmlText string
 	var err error
@@ -1018,7 +1049,7 @@ func htTextToHumanText(txt *HTText, dateAbbreviation bool) string {
 		finalText += "\n" + txt.ImgDesc
 	}
 
-	finalText = htReplaceAllExceptions(finalText)
+	finalText = htReplaceAllExceptions(finalText, lang)
 
 	return finalText
 }
@@ -1067,7 +1098,7 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 	return finalText + "\n"
 }
 
-func htLoopThroughContentFiles(Title string, Content []ClassTemplateContent) string {
+func htLoopThroughContentFiles(Title string, Content []ClassTemplateContent, lang string) string {
 	var ret string = ""
 	if len(Title) > 0 {
 		ret = Title + ".\n\n"
@@ -1075,7 +1106,7 @@ func htLoopThroughContentFiles(Title string, Content []ClassTemplateContent) str
 	for _, content := range Content {
 		for j := 0; j < len(content.Text); j++ {
 			text := &content.Text[j]
-			ret += htTextToHumanText(text, false)
+			ret += htTextToHumanText(text, lang, false)
 			ret += text.PostMention + "\n\n"
 		}
 		ret += ".\n\n"

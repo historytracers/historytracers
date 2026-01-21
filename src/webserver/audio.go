@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"regexp"
 	"strings"
 
 	"github.com/gomarkdown/markdown"
@@ -137,7 +138,7 @@ func htTextParentsIntroduction(lang string, sex string, parent1 string, parent2 
 	return intro + parent1 + " and " + parent2 + ".\n"
 }
 
-func htLocalHTML2Text(htmlText string) string {
+func htLocalHTML2Text(htmlText string, lang string) string {
 	var finalText string = ""
 	if len(htmlText) > 0 {
 		ret := strings.ReplaceAll(htmlText, "<div class=\"first_steps_reflection\" id=\"myFirstReflection\">", commonKeywords[55])
@@ -148,7 +149,7 @@ func htLocalHTML2Text(htmlText string) string {
 		}
 		finalText += partial + ".\n\n"
 	}
-	finalText = htReplaceAllExceptions(finalText)
+	finalText = htReplaceAllExceptions(finalText, lang)
 	return finalText
 }
 
@@ -158,7 +159,7 @@ func htTextFamily(families *Family, lang string) string {
 
 	if families.Prerequisites != nil {
 		for _, pre := range families.Prerequisites {
-			finalText += htLocalHTML2Text(pre)
+			finalText += htLocalHTML2Text(pre, lang)
 		}
 	}
 
@@ -167,7 +168,7 @@ func htTextFamily(families *Family, lang string) string {
 		for _, maps := range families.Maps {
 			finalText += fmt.Sprintf("%s %d: ", commonKeywords[81], maps.Order)
 			htmlText = htOverwriteDates(maps.Text, maps.DateTime, ".", lang, false)
-			finalText += htLocalHTML2Text(htmlText)
+			finalText += htLocalHTML2Text(htmlText, lang)
 		}
 	}
 
@@ -184,7 +185,7 @@ func htTextFamily(families *Family, lang string) string {
 			}
 		}
 
-		finalText += htLocalHTML2Text(htmlText)
+		finalText += htLocalHTML2Text(htmlText, lang)
 	}
 
 	for _, family := range families.Families {
@@ -209,7 +210,7 @@ func htTextFamily(families *Family, lang string) string {
 				}
 			}
 
-			finalText += htLocalHTML2Text(htmlText)
+			finalText += htLocalHTML2Text(htmlText, lang)
 		}
 
 		if family.People == nil {
@@ -245,7 +246,7 @@ func htTextFamily(families *Family, lang string) string {
 					}
 				}
 
-				finalText += htLocalHTML2Text(htmlText)
+				finalText += htLocalHTML2Text(htmlText, lang)
 			}
 
 			if person.Parents != nil {
@@ -281,7 +282,7 @@ func htTextFamily(families *Family, lang string) string {
 						}
 					}
 
-					finalText += htLocalHTML2Text(htmlText)
+					finalText += htLocalHTML2Text(htmlText, lang)
 				}
 			}
 
@@ -310,7 +311,7 @@ func htTextFamily(families *Family, lang string) string {
 						}
 					}
 
-					finalText += htLocalHTML2Text(htmlText)
+					finalText += htLocalHTML2Text(htmlText, lang)
 				}
 			}
 		}
@@ -346,6 +347,7 @@ func htFamilyAudio(fileName string, lang string) error {
 
 	audioTxt := htTextFamily(&family, lang)
 	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
+	audioTxt = htRemoveChineseCharacters(audioTxt)
 	err = htWriteAudioFile(fileName, lang, audioTxt)
 	if err != nil {
 		return err
@@ -377,8 +379,9 @@ func htLoadTreeData(lang string) {
 		panic(err)
 	}
 
-	defaultFamilyTop = htLoopThroughContentFiles(ctf.Title, ctf.Content)
+	defaultFamilyTop = htLoopThroughContentFiles(ctf.Title, ctf.Content, lang)
 	defaultFamilyTop = htAdjustAudioStringBeforeWrite(defaultFamilyTop, lang)
+	defaultFamilyTop = htRemoveChineseCharacters(defaultFamilyTop)
 
 	newFile, err := htWriteTmpFile(lang, &ctf)
 	if err != nil {
@@ -444,6 +447,7 @@ func htLoadFamilyIndex(fileName string, lang string) error {
 	}
 
 	indexTxt = htAdjustAudioStringBeforeWrite(indexTxt, lang)
+	indexTxt = htRemoveChineseCharacters(indexTxt)
 	err = htWriteAudioFile("families", lang, indexTxt)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "ERROR", err)
@@ -469,7 +473,7 @@ func htFamiliesToAudio() {
 }
 
 // Index Files
-func htParseIndexText(index *ClassIdx) string {
+func htParseIndexText(index *ClassIdx, lang string) string {
 	var ret string = index.Title + ".\n\n"
 	txt := HTText{Source: nil, IsTable: false, ImgDesc: "", PostMention: "", Format: "markdown"}
 	for _, content := range index.Content {
@@ -487,7 +491,7 @@ func htParseIndexText(index *ClassIdx) string {
 					value := &content.Value[j]
 					txt.Text = value.Desc
 					txt.FillDates = content.DateTime
-					htmlText += "<p>" + value.Name + ": " + htTextToHumanText(&txt, false) + "</p>"
+					htmlText += "<p>" + value.Name + ": " + htTextToHumanText(&txt, lang, false) + "</p>"
 				}
 			}
 		}
@@ -545,11 +549,12 @@ func htConvertClassesToAudio(pages []string, lang string) {
 			panic(err)
 		}
 
-		audioTxt := htLoopThroughContentFiles(ctf.Title, ctf.Content)
+		audioTxt := htLoopThroughContentFiles(ctf.Title, ctf.Content, lang)
 		if ctf.Exercises != nil {
 			audioTxt += htPrepareQuestions(ctf.Exercises)
 		}
 		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
+		audioTxt = htRemoveChineseCharacters(audioTxt)
 
 		err = htWriteAudioFile(page, lang, audioTxt)
 		if err != nil {
@@ -605,10 +610,11 @@ func htConvertAtlasToAudio() {
 			panic(err)
 		}
 
-		contentTxt := htLoopThroughContentFiles("Atlas", localTemplateFile.Content)
-		atlasTxt := htLoopThroughAtlasFiles(localTemplateFile.Atlas)
+		contentTxt := htLoopThroughContentFiles("Atlas", localTemplateFile.Content, dir)
+		atlasTxt := htLoopThroughAtlasFiles(localTemplateFile.Atlas, dir)
 		audioTxt := contentTxt + "\n\n" + atlasTxt
 		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, dir)
+		audioTxt = htRemoveChineseCharacters(audioTxt)
 
 		err = htWriteAudioFile("atlas", dir, audioTxt)
 		if err != nil {
@@ -619,13 +625,14 @@ func htConvertAtlasToAudio() {
 			contentAudioTxt := ""
 			for j := 0; j < len(atlasContent.Text); j++ {
 				text := &atlasContent.Text[j]
-				contentAudioTxt += htTextToHumanText(text, false)
+				contentAudioTxt += htTextToHumanText(text, dir, false)
 				if len(text.PostMention) > 0 {
 					contentAudioTxt += text.PostMention
 				}
 				contentAudioTxt += ".\n\n"
 			}
 			contentAudioTxt = htAdjustAudioStringBeforeWrite(contentAudioTxt, dir)
+			contentAudioTxt = htRemoveChineseCharacters(contentAudioTxt)
 			err = htWriteAudioFile(atlasContent.ID, dir, contentAudioTxt)
 			if err != nil {
 				panic(err)
@@ -689,8 +696,9 @@ func htConvertIndexTextToAudio(idxName string, localPath string, lang string) {
 
 	htConvertClassesToAudio(pages, lang)
 
-	audioTxt := htParseIndexText(&index)
+	audioTxt := htParseIndexText(&index, lang)
 	audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
+	audioTxt = htRemoveChineseCharacters(audioTxt)
 	err = htWriteAudioFile(idxName, lang, audioTxt)
 	if err != nil {
 		panic(err)
@@ -739,6 +747,90 @@ func htIndexesToAudio() {
 			htConvertIndexTextToAudio(idx, fileName, dir)
 		}
 	}
+}
+
+func htConvertFunctionAbbreviation(text string, lang string) string {
+	preposition := "de"
+	if lang == "en-US" {
+		preposition = "of"
+	}
+
+	funcMap := map[string]map[string]string{
+		"cos":    {"en-US": "cosine", "es-ES": "coseno", "pt-BR": "cosseno"},
+		"sin":    {"en-US": "sine", "es-ES": "seno", "pt-BR": "seno"},
+		"tan":    {"en-US": "tangent", "es-ES": "tangente", "pt-BR": "tangente"},
+		"sec":    {"en-US": "secant", "es-ES": "secante", "pt-BR": "secante"},
+		"csc":    {"en-US": "cosecant", "es-ES": "cosecante", "pt-BR": "cossecante"},
+		"cot":    {"en-US": "cotangent", "es-ES": "cotangente", "pt-BR": "cotangente"},
+		"arccos": {"en-US": "arc cosine", "es-ES": "arcocoseno", "pt-BR": "arcocosseno"},
+		"arcsin": {"en-US": "arc sine", "es-ES": "arcoseno", "pt-BR": "arcosseno"},
+		"arctan": {"en-US": "arc tangent", "es-ES": "arcotangente", "pt-BR": "arcotangente"},
+		"log":    {"en-US": "logarithm", "es-ES": "logaritmo", "pt-BR": "logaritmo"},
+		"ln":     {"en-US": "natural logarithm", "es-ES": "logaritmo natural", "pt-BR": "logaritmo natural"},
+		"exp":    {"en-US": "exponential", "es-ES": "exponencial", "pt-BR": "exponencial"},
+		"sqrt":   {"en-US": "square root", "es-ES": "raíz cuadrada", "pt-BR": "raiz quadrada"},
+		"abs":    {"en-US": "absolute value", "es-ES": "valor absoluto", "pt-BR": "valor absoluto"},
+		"max":    {"en-US": "maximum", "es-ES": "máximo", "pt-BR": "máximo"},
+		"min":    {"en-US": "minimum", "es-ES": "mínimo", "pt-BR": "mínimo"},
+		"mod":    {"en-US": "modulo", "es-ES": "módulo", "pt-BR": "módulo"},
+	}
+
+	for abbr, langMap := range funcMap {
+		if full, ok := langMap[lang]; ok {
+			pattern := regexp.MustCompile(`\b` + abbr + `\s*\(\s*([^)]+)\s*\)`)
+			text = pattern.ReplaceAllString(text, full+" "+preposition+" $1")
+		}
+	}
+
+	return text
+}
+
+func htConvertGreekLetter(letter string, lang string) string {
+	var greekLetterMap map[string]map[string]string
+
+	greekLetterMap = map[string]map[string]string{
+		"α": {"en-US": "alpha", "es-ES": "alfa", "pt-BR": "alfa"},
+		"β": {"en-US": "beta", "es-ES": "beta", "pt-BR": "beta"},
+		"γ": {"en-US": "gamma", "es-ES": "gama", "pt-BR": "gama"},
+		"δ": {"en-US": "delta", "es-ES": "delta", "pt-BR": "delta"},
+		"ε": {"en-US": "epsilon", "es-ES": "épsilon", "pt-BR": "epsilon"},
+		"ζ": {"en-US": "zeta", "es-ES": "zeta", "pt-BR": "zeta"},
+		"η": {"en-US": "eta", "es-ES": "eta", "pt-BR": "eta"},
+		"θ": {"en-US": "theta", "es-ES": "theta", "pt-BR": "teta"},
+		"ι": {"en-US": "iota", "es-ES": "iota", "pt-BR": "iota"},
+		"κ": {"en-US": "kappa", "es-ES": "kappa", "pt-BR": "kappa"},
+		"λ": {"en-US": "lambda", "es-ES": "lambda", "pt-BR": "lambda"},
+		"μ": {"en-US": "mu", "es-ES": "mu", "pt-BR": "mi"},
+		"ν": {"en-US": "nu", "es-ES": "nu", "pt-BR": "ni"},
+		"ξ": {"en-US": "xi", "es-ES": "xi", "pt-BR": "xi"},
+		"π": {"en-US": "pi", "es-ES": "pi", "pt-BR": "pi"},
+		"ρ": {"en-US": "rho", "es-ES": "rho", "pt-BR": "ro"},
+		"σ": {"en-US": "sigma", "es-ES": "sigma", "pt-BR": "sigma"},
+		"τ": {"en-US": "tau", "es-ES": "tau", "pt-BR": "tau"},
+		"υ": {"en-US": "upsilon", "es-ES": "ípsilon", "pt-BR": "ípsilon"},
+		"φ": {"en-US": "phi", "es-ES": "fi", "pt-BR": "fi"},
+		"ϕ": {"en-US": "phi", "es-ES": "fi", "pt-BR": "fi"},
+		"χ": {"en-US": "chi", "es-ES": "ji", "pt-BR": "qui"},
+		"ψ": {"en-US": "psi", "es-ES": "psi", "pt-BR": "psi"},
+		"ω": {"en-US": "omega", "es-ES": "omega", "pt-BR": "omega"},
+	}
+
+	if langMap, ok := greekLetterMap[letter]; ok {
+		if name, ok := langMap[lang]; ok {
+			return name
+		}
+	}
+	return letter
+}
+
+func htRemoveChineseCharacters(text string) string {
+	chineseRegex := regexp.MustCompile(`[\p{Han}]+`)
+	cleaned := chineseRegex.ReplaceAllString(text, "")
+
+	emptyParenRegex := regexp.MustCompile(`\(\s*\)`)
+	cleaned = emptyParenRegex.ReplaceAllString(cleaned, "")
+
+	return cleaned
 }
 
 func htConvertTextsToAudio() {
