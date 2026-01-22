@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1769028107"
+      "1769045095"
    ],
    "authors": [
       ""
@@ -53,6 +53,15 @@
                      "day": ""
                   }
                ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p>",
+               "source": null,
+               "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
@@ -122,7 +131,7 @@
          "id": "SECTION_names",
          "text": [
             {
-               "text": "### Nombrar\n\nA veces, porque algo se parece a lo que conocemos o tiene funciones similares, sentimos la tentación de nombrarlo de una manera que termina por desdibujar su verdadera naturaleza. Veamos algunos ejemplos.\n\n#### Montañas sagradas\n\nUn ejemplo ya analizado de nombres aplicados a construcciones que no tienen el nombre que aparentan son los *Witz* — montañas sagradas mayas (**Figura 1**) —, a los que algunos llaman “pirámides” (<htcite0>).",
+               "text": "### Nombrar\n\nA veces, porque algo se parece a lo que conocemos o tiene funciones similares, sentimos la tentación de nombrarlo de una manera que termina por desdibujar su verdadera naturaleza. Veamos algunos ejemplos.\n\n#### Montañas sagradas\n\nUn ejemplo ya analizado de nombres aplicados a construcciones que no tienen el nombre que aparentan son los *Witz* — montañas sagradas mayas en América (*Abya Yala*) (**Figura 1**) —, a los que algunos llaman “pirámides” (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -227,7 +236,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Letras diferentes\n\nNo es solo con figuras geométricas que ocurren equivocaciones. Otro ejemplo, asociado a la cuestión cultural, sería comprender los caracteres de China (**Figura 3**) como si fueran letras occidentales, ignorando la complejidad de su estructura (<htcite0>).",
+               "text": "#### Letras diferentes\n\nNo es solo con figuras geométricas que ocurren equivocaciones. Otro ejemplo, asociado a la cuestión cultural, sería comprender los caracteres de China (Zhongguo 中國) (**Figura 3**) como si fueran letras occidentales, ignorando la complejidad de su estructura (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -334,13 +343,148 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_pi",
+         "text": [
+            {
+               "text": "### Ser o no ser\n\nCuando compramos 1 kilogramo de frutas, es equivalente a decir que estamos comprando 1000 gramos de la misma fruta. De esta forma, el prefijo de la **Tabla 1** nos ayuda a expresar la cantidad del alimento. Tampoco es raro escuchar a personas que desean “1 kilo”, haciendo que el prefijo represente los 1000 gramos que deseamos comprar.\n\nEstas abreviaciones hechas con palabras pueden llevarnos a concluir que podemos generalizarlas para otros escenarios, pero esto puede acabar conduciendo a errores. Por ejemplo, en matemáticas definimos la constante pi (π) como la circunferencia —la longitud de un círculo si lo cortáramos y lo estiráramos— **C**, dividida por su diámetro —el ancho del círculo, que no varía— **d**, conforme a la **Fórmula 1** (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a56b7c6c-93ce-4e7f-bf5e-781e4597485d",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 150px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 300\" class=\"circle-draw\" id=\"svgcirctri0\"> <circle cx=\"300\" cy=\"150\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 150)\"></circle>  <line class=\"radius-line\" x1=\"300\" y1=\"148\" x2=\"448\" y2=\"148\"></line>  <line class=\"vertical45\" x1=\"154\" y1=\"148\" x2=\"300\" y2=\"148\"></line> <text class=\"atlasTextRadius\" x=\"300\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">d</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\">C</text> </svg></div></p><p class=\"desc\"><b>Gráfico 1</b>: Círculo con circunferencia C y diámetro d.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mn>π</mn> <mo>=</mo> <mfrac><mrow> <mn>C</mn></mrow><mrow><mn>d</mn><mrow> </mfrac></center></p><p class=\"desc\"><b>Fórmula 1</b>: Definición de la constante π, con los valores presentados en el Gráfico 1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El resultado de la **Fórmula 1** para cualquier círculo viene dado por el **Cálculo 1** (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a56b7c6c-93ce-4e7f-bf5e-781e4597485d",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mn>π</mn> <mo>=</mo> <mfrac><mrow> <mn>C</mn></mrow><mrow><mn>d</mn><mrow> </mfrac> <mo>=</mo> <mn>3,141592653589793238462643383279502884197…</mn></center></p><p class=\"desc\"><b>Cálculo 1</b>: Cálculo del valor de π.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Observe que, a pesar de la gran cantidad de valores después de la coma, a los que llamamos decimales, todavía hay más números representados por “…” al final del número.\n\nEn este escenario, resulta tentador hacer como hacemos con los textos y abreviar, como vimos en el caso de kilogramo y kilo. Sin embargo, como pi (π) es una constante bien definida por la **Fórmula 1**, cuando cortamos números después de la coma, vamos más allá de simplemente simplificar o redondear: estamos dejando de hablar de pi (π).\n\nAnte esta explicación, recuerde siempre que, si algún día usa pi (π) como “3,14”, en realidad ya no estará trabajando con pi (π), sino con el número “3,14” como si fuera π.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto vimos que, entre dos números que usamos en los conteos, como 0 y 1, también hay números que tienden al infinito (<htcite0>).\n\nAdemás, vimos que, a pesar de que en la vida cotidiana realizamos abreviaciones, hay escenarios en los que, al hacerlas, cambiamos completamente el sentido de algo, como en el caso de la constante pi (π).\n\nFinalmente, aprendimos que los números después de la coma se llaman números decimales, hecho que nos lleva a una última reflexión:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Limites naturais",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 5: Más nombres</b><br /><br />¿Cómo podemos expresar la relación entre los números que contamos y los números que están entre ellos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "La respuesta a esta reflexión se presentará en el próximo texto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Qualquer construção -humana ou natural- que começa com uma base grande e termina em um ponto no topo é uma pirâmide?",
+         "question": "¿Cualquier construcción —humana o natural— que comienza con una base grande y termina en un punto en la parte superior es una pirámide?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Para se ter uma pirâmide, obrigatoriamente as laterais da construção devem ser triângulares se unindo no topo."
+         "additionalInfo": "Para que una construcción sea una pirámide, obligatoriamente sus lados deben ser triangulares y unirse en un punto en la parte superior."
+      },
+      {
+         "question": "¿El pi (π) tiene un valor diferente de «3» o «3,1415»?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "El valor de pi (π) es la razón entre la circunferencia y el diámetro, con todos sus infinitos números decimales. Cualquier valor abreviado hace que pi (π) deje de ser pi (π)."
       }
    ],
    "game_v2": null,
