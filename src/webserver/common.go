@@ -749,13 +749,13 @@ func htLoadKeywordFile(name string, lang string) error {
 	return nil
 }
 
-func htPrepareQuestions(questions []HTExercise) string {
+func htPrepareQuestions(questions []HTExercise, lang string) string {
 	strQuestions := commonKeywords[50] + ".\n\n"
 	// Write Questions
 	i := 1
 	for _, quest := range questions {
 		strQuestions += strconv.Itoa(i) + ". "
-		questText, err := htHTML2Text("<p>" + quest.Question + "</p>")
+		questText, err := htHTML2Text("<p>"+quest.Question+"</p>", lang)
 		if err != nil {
 			strQuestions += questText + "\n\n"
 		} else {
@@ -768,7 +768,7 @@ func htPrepareQuestions(questions []HTExercise) string {
 	strQuestions += commonKeywords[134] + "s.\n\n"
 	for _, ans := range questions {
 		strQuestions += commonKeywords[134] + " " + strconv.Itoa(i) + ". "
-		ansText, err := htHTML2Text("<p>" + ans.AdditionalInfo + "</p>")
+		ansText, err := htHTML2Text("<p>"+ans.AdditionalInfo+"</p>", lang)
 		if err != nil {
 			strQuestions += ansText + "\n\n"
 		} else {
@@ -883,7 +883,7 @@ func htRemoveDuplicateParentheses(text string) string {
 	})
 }
 
-func htHTML2Text(htmlStr string) (string, error) {
+func htHTML2Text(htmlStr string, lang string) (string, error) {
 	doc, err := html.Parse(strings.NewReader(htmlStr))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%s", err)
@@ -920,6 +920,23 @@ func htHTML2Text(htmlStr string) (string, error) {
 		}
 		for c := node.FirstChild; c != nil; c = c.NextSibling {
 			collectAnchorText(c, ab)
+		}
+	}
+
+	// helper to collect text from a node for MathML
+	var collectMathMLText func(*html.Node, *strings.Builder, bool)
+	collectMathMLText = func(node *html.Node, ab *strings.Builder, addSpace bool) {
+		if node == nil {
+			return
+		}
+		if node.Type == html.TextNode {
+			ab.WriteString(strings.TrimSpace(node.Data))
+			if addSpace {
+				ab.WriteByte(' ')
+			}
+		}
+		for c := node.FirstChild; c != nil; c = c.NextSibling {
+			collectMathMLText(c, ab, addSpace)
 		}
 	}
 
@@ -979,6 +996,35 @@ func htHTML2Text(htmlStr string) (string, error) {
 					b.WriteString(" (")
 					b.WriteString(href)
 					b.WriteString(")")
+				}
+			} else if n.Data == "mfrac" {
+				var numerator, denominator strings.Builder
+				child := n.FirstChild
+				if child != nil {
+					collectMathMLText(child, &numerator, false)
+					child = child.NextSibling
+					if child != nil {
+						collectMathMLText(child, &denominator, false)
+					}
+				}
+				numText := strings.TrimSpace(numerator.String())
+				denText := strings.TrimSpace(denominator.String())
+				if numText != "" && denText != "" {
+					if b.Len() > 0 {
+						last := b.String()[b.Len()-1]
+						if last != ' ' && last != '\n' {
+							b.WriteByte(' ')
+						}
+					}
+					b.WriteString(numText)
+					dividedByStr := "dividido por"
+					if len(mathKeywords) > 36 {
+						dividedByStr = strings.TrimSpace(mathKeywords[36])
+					}
+					b.WriteByte(' ')
+					b.WriteString(dividedByStr)
+					b.WriteByte(' ')
+					b.WriteString(denText)
 				}
 			} else {
 				for c := n.FirstChild; c != nil; c = c.NextSibling {
@@ -1041,7 +1087,7 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 		txt.PostMention = ""
 	}
 
-	finalText, err = htHTML2Text(htmlText)
+	finalText, err = htHTML2Text(htmlText, lang)
 	if err != nil {
 		panic(err)
 	}
@@ -1091,7 +1137,7 @@ func htTextCommonContent(idx *HTCommonContent, lang string) string {
 		return finalText
 	}
 
-	finalText, err = htHTML2Text(htmlText)
+	finalText, err = htHTML2Text(htmlText, lang)
 	if err != nil {
 		panic(err)
 	}

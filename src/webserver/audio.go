@@ -58,7 +58,7 @@ func htTextFamilyIndex(idx *IdxFamilyContent, lang string) string {
 		return finalText
 	}
 
-	finalText, err = htHTML2Text(htmlText)
+	finalText, err = htHTML2Text(htmlText, lang)
 	if err != nil {
 		panic(err)
 	}
@@ -143,7 +143,7 @@ func htLocalHTML2Text(htmlText string, lang string) string {
 	if len(htmlText) > 0 {
 		ret := strings.ReplaceAll(htmlText, "<div class=\"first_steps_reflection\" id=\"myFirstReflection\">", commonKeywords[55])
 
-		partial, err := htHTML2Text(ret)
+		partial, err := htHTML2Text(ret, lang)
 		if err != nil {
 			panic(err)
 		}
@@ -318,7 +318,7 @@ func htTextFamily(families *Family, lang string) string {
 	}
 
 	if families.Exercises != nil {
-		finalText += htPrepareQuestions(families.Exercises)
+		finalText += htPrepareQuestions(families.Exercises, lang)
 	}
 
 	return finalText + "\n"
@@ -496,7 +496,7 @@ func htParseIndexText(index *ClassIdx, lang string) string {
 			}
 		}
 
-		finalText, err := htHTML2Text(htmlText)
+		finalText, err := htHTML2Text(htmlText, lang)
 		if err != nil {
 			panic(err)
 		}
@@ -551,7 +551,7 @@ func htConvertClassesToAudio(pages []string, lang string) {
 
 		audioTxt := htLoopThroughContentFiles(ctf.Title, ctf.Content, lang)
 		if ctf.Exercises != nil {
-			audioTxt += htPrepareQuestions(ctf.Exercises)
+			audioTxt += htPrepareQuestions(ctf.Exercises, lang)
 		}
 		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
 		audioTxt = htRemoveChineseCharacters(audioTxt)
