@@ -778,8 +778,53 @@ func htConvertFunctionAbbreviation(text string, lang string) string {
 
 	for abbr, langMap := range funcMap {
 		if full, ok := langMap[lang]; ok {
+			// Handle normal function notation: cos(argument)
 			pattern := regexp.MustCompile(`\b` + abbr + `\s*\(\s*([^)]+)\s*\)`)
 			text = pattern.ReplaceAllString(text, full+" "+preposition+" $1")
+
+			// Handle function with superscript: cos²(argument)
+			superscriptPattern := regexp.MustCompile(`\b` + abbr + `([¹²³⁴⁵⁶⁷⁸⁹⁰])\s*\(\s*([^)]+)\s*\)`)
+			text = superscriptPattern.ReplaceAllString(text, full+"$1 "+preposition+" $2")
+		}
+	}
+
+	return text
+}
+
+func htConvertSuperscript(text string, lang string) string {
+	superscriptMap := map[string]map[string]string{
+		"¹": {"en-US": " to the first power", "es-ES": " a la primera potencia", "pt-BR": " à primeira potência"},
+		"²": {"en-US": " squared", "es-ES": " al cuadrado", "pt-BR": " ao quadrado"},
+		"³": {"en-US": " cubed", "es-ES": " al cubo", "pt-BR": " ao cubo"},
+		"⁴": {"en-US": " to the fourth power", "es-ES": " a la cuarta potencia", "pt-BR": " à quarta potência"},
+		"⁵": {"en-US": " to the fifth power", "es-ES": " a la quinta potencia", "pt-BR": " à quinta potência"},
+		"⁶": {"en-US": " to the sixth power", "es-ES": " a la sexta potencia", "pt-BR": " à sexta potência"},
+		"⁷": {"en-US": " to the seventh power", "es-ES": " a la septima potencia", "pt-BR": " à sétima potência"},
+		"⁸": {"en-US": " to the eighth power", "es-ES": " a la octava potencia", "pt-BR": " à oitava potência"},
+		"⁹": {"en-US": " to the ninth power", "es-ES": " a la novena potencia", "pt-BR": " à nona potência"},
+		"⁰": {"en-US": " to the zero power", "es-ES": " a la cero potencia", "pt-BR": " à zero potência"},
+	}
+
+	// Handle implicit multiplication between variables/functions with superscripts
+	// Pattern: variable² function²(argument) or function²(argument) variable²
+	implicitMultPattern := regexp.MustCompile(`(\w+)([¹²³⁴⁵⁶⁷⁸⁹⁰])\s+(\w+)([¹²³⁴⁵⁶⁷⁸⁹⁰])\s*\(`)
+
+	timesStr := " vezes "
+	if lang == "en-US" {
+		timesStr = " times "
+	} else if lang == "es-ES" {
+		timesStr = " por "
+	}
+
+	text = implicitMultPattern.ReplaceAllString(text, "$1$2 "+timesStr+"$3$4(")
+
+	// Handle case where function with superscript comes first
+	reversePattern := regexp.MustCompile(`(\w+)([¹²³⁴⁵⁶⁷⁸⁹⁰])\s*\(\s*([^)]+)\s*\)\s+(\w+)([¹²³⁴⁵⁶⁷⁸⁹⁰])`)
+	text = reversePattern.ReplaceAllString(text, "$1$2($3) "+timesStr+"$4$5")
+
+	for superscript, langMap := range superscriptMap {
+		if replacement, ok := langMap[lang]; ok {
+			text = strings.ReplaceAll(text, superscript, replacement)
 		}
 	}
 

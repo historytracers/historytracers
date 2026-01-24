@@ -562,6 +562,7 @@ func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 	ret = strings.ReplaceAll(ret, "( )", "")
 	ret = htReplaceAllExceptions(ret, lang)
 	ret = htReplaceMath(ret, lang)
+	ret = htConvertSuperscript(ret, lang)
 	ret = htConvertFunctionAbbreviation(ret, lang)
 
 	return ret
