@@ -788,6 +788,7 @@ func htChangeTag2Keywords(text string) string {
 	ret = strings.ReplaceAll(ret, "<span id=\"htChartMsg\"></span>", commonKeywords[112])
 	ret = strings.ReplaceAll(ret, "<span id=\"htAgeMsg\"></span>", commonKeywords[131])
 	ret = strings.ReplaceAll(ret, "<p id=\"htChinaZhongguo\"></p>", commonKeywords[137])
+	ret = strings.ReplaceAll(ret, "<p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p>", commonKeywords[137])
 	ret = strings.ReplaceAll(ret, "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div>", "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\">"+commonKeywords[69]+"</div>")
 
 	return ret
