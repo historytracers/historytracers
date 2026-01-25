@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"os"
 	"regexp"
+	"strconv"
 	"strings"
 
 	"fmt"
@@ -77,6 +78,11 @@ type TextEditor struct {
 	familyMenuItems        []*fyne.MenuItem
 	familyMenuItem         *fyne.MenuItem
 	atlasMapMenuItem       *fyne.MenuItem
+	jsonEditorWindow       fyne.Window
+	jsonEditorTabs         *container.AppTabs
+	jsonHeadersForm        *widget.Form
+	jsonContentEntry       *widget.Entry
+	currentJSONDoc         *Document
 }
 
 func (e *TextEditor) findText() {
@@ -240,6 +246,8 @@ func (e *TextEditor) createToolbar() *widget.Toolbar {
 		widget.NewToolbarAction(theme.ContentCutIcon(), e.cutText),
 		widget.NewToolbarAction(theme.ContentCopyIcon(), e.copyText),
 		widget.NewToolbarAction(theme.ContentPasteIcon(), e.pasteText),
+		widget.NewToolbarSeparator(),
+		widget.NewToolbarAction(theme.SettingsIcon(), e.showJSONEditor),
 	)
 }
 
@@ -599,6 +607,315 @@ func (e *TextEditor) showSettingsWindow() {
 
 }
 
+func (e *TextEditor) showJSONEditor() {
+	if e.jsonEditorWindow != nil {
+		e.jsonEditorWindow.Show()
+		e.jsonEditorWindow.RequestFocus()
+		return
+	}
+
+	if e.currentDoc == nil {
+		dialog.ShowError(fmt.Errorf("No document is currently open"), e.window)
+		return
+	}
+
+	// Check if current document is JSON, if not show message
+	if !e.isJSONDocument(e.currentDoc) {
+		dialog.ShowError(fmt.Errorf("Current document is not a valid JSON file"), e.window)
+		return
+	}
+
+	// Create JSON editor window
+	e.jsonEditorWindow = e.app.NewWindow("JSON Source Editor")
+	e.jsonEditorWindow.Resize(fyne.NewSize(800, 600))
+
+	// Create headers form
+	titleEntry := widget.NewEntry()
+	headerEntry := widget.NewEntry()
+	authorsEntry := widget.NewEntry()
+	reviewersEntry := widget.NewEntry()
+	lastUpdateEntry := widget.NewEntry()
+	versionEntry := widget.NewEntry()
+	licenseEntry := widget.NewEntry()
+	licenseEntry.Wrapping = fyne.TextWrapWord
+	sourcesEntry := widget.NewEntry()
+	sourcesEntry.Wrapping = fyne.TextWrapWord
+	scriptsEntry := widget.NewEntry()
+	scriptsEntry.Wrapping = fyne.TextWrapWord
+	audioEntry := widget.NewEntry()
+	audioEntry.Wrapping = fyne.TextWrapWord
+
+	e.jsonHeadersForm = &widget.Form{
+		Items: []*widget.FormItem{
+			{Text: "Title", Widget: titleEntry},
+			{Text: "Header", Widget: headerEntry},
+			{Text: "Authors", Widget: authorsEntry},
+			{Text: "Reviewers", Widget: reviewersEntry},
+			{Text: "Last Update", Widget: lastUpdateEntry},
+			{Text: "Version", Widget: versionEntry},
+			{Text: "License", Widget: licenseEntry},
+			{Text: "Sources", Widget: sourcesEntry},
+			{Text: "Scripts", Widget: scriptsEntry},
+			{Text: "Audio", Widget: audioEntry},
+		},
+	}
+
+	// Create content editor
+	e.jsonContentEntry = widget.NewEntry()
+	e.jsonContentEntry.Wrapping = fyne.TextWrapWord
+	e.jsonContentEntry.MultiLine = true
+	e.jsonContentEntry.SetPlaceHolder("JSON content will appear here...")
+
+	contentScroll := container.NewScroll(e.jsonContentEntry)
+
+	// Create tabs
+	e.jsonEditorTabs = container.NewAppTabs(
+		container.NewTabItem("Headers", e.jsonHeadersForm),
+		container.NewTabItem("Content", contentScroll),
+	)
+
+	// Create buttons
+	saveButton := widget.NewButton("Save", func() {
+		e.saveJSONEditorChanges()
+	})
+	cancelButton := widget.NewButton("Cancel", func() {
+		e.jsonEditorWindow.Hide()
+	})
+	buttonContainer := container.NewHBox(
+		layout.NewSpacer(),
+		saveButton,
+		cancelButton,
+	)
+
+	// Set window content
+	content := container.NewVBox(
+		e.jsonEditorTabs,
+		widget.NewSeparator(),
+		buttonContainer,
+	)
+
+	e.jsonEditorWindow.SetContent(content)
+
+	// Load current document data
+	e.loadJSONEditorData()
+
+	// Set close handler
+	e.jsonEditorWindow.SetCloseIntercept(func() {
+		e.jsonEditorWindow.Hide()
+	})
+
+	e.jsonEditorWindow.Show()
+}
+
+func (e *TextEditor) loadJSONEditorData() {
+	if e.currentDoc == nil || e.currentDoc.content == nil {
+		return
+	}
+
+	content := e.currentDoc.content.Text
+
+	// Try to parse as JSON
+	var jsonData interface{}
+	if err := json.Unmarshal([]byte(content), &jsonData); err != nil {
+		// Not valid JSON, just show raw content
+		e.jsonContentEntry.SetText(content)
+		return
+	}
+
+	// Extract headers based on JSON structure
+	if dataMap, ok := jsonData.(map[string]interface{}); ok {
+		// Parse headers
+		if title, exists := dataMap["title"]; exists {
+			e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", title))
+		}
+		if header, exists := dataMap["header"]; exists {
+			e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", header))
+		}
+		if authors, exists := dataMap["authors"]; exists {
+			e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", authors))
+		}
+		if reviewers, exists := dataMap["reviewers"]; exists {
+			e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", reviewers))
+		}
+		if lastUpdate, exists := dataMap["last_update"]; exists {
+			if slice, ok := lastUpdate.([]interface{}); ok && len(slice) > 0 {
+				e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", slice[0]))
+			}
+		}
+		if version, exists := dataMap["version"]; exists {
+			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", version))
+		}
+		if license, exists := dataMap["license"]; exists {
+			if slice, ok := license.([]interface{}); ok {
+				licenseText := ""
+				for _, item := range slice {
+					if licenseText != "" {
+						licenseText += "\n"
+					}
+					licenseText += fmt.Sprintf("%v", item)
+				}
+				e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).SetText(licenseText)
+			}
+		}
+		if sources, exists := dataMap["sources"]; exists {
+			if slice, ok := sources.([]interface{}); ok {
+				sourcesText := ""
+				for _, item := range slice {
+					if sourcesText != "" {
+						sourcesText += "\n"
+					}
+					sourcesText += fmt.Sprintf("%v", item)
+				}
+				e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).SetText(sourcesText)
+			}
+		}
+		if scripts, exists := dataMap["scripts"]; exists {
+			if slice, ok := scripts.([]interface{}); ok {
+				scriptsText := ""
+				for _, item := range slice {
+					if scriptsText != "" {
+						scriptsText += "\n"
+					}
+					scriptsText += fmt.Sprintf("%v", item)
+				}
+				e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).SetText(scriptsText)
+			}
+		}
+		if audio, exists := dataMap["audio"]; exists {
+			if slice, ok := audio.([]interface{}); ok {
+				audioText := ""
+				for _, item := range slice {
+					if audioText != "" {
+						audioText += "\n"
+					}
+					audioText += fmt.Sprintf("%v", item)
+				}
+				e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).SetText(audioText)
+			}
+		}
+	}
+
+	// Show full JSON content
+	e.jsonContentEntry.SetText(content)
+}
+
+func (e *TextEditor) saveJSONEditorChanges() {
+	if e.currentDoc == nil || e.currentDoc.content == nil {
+		return
+	}
+
+	// Get current content and parse as JSON
+	content := e.currentDoc.content.Text
+	var jsonData map[string]interface{}
+
+	if err := json.Unmarshal([]byte(content), &jsonData); err != nil {
+		// Not valid JSON, update content from editor
+		e.currentDoc.content.SetText(e.jsonContentEntry.Text)
+		e.currentDoc.isModified = true
+		e.updateTabTitle(e.currentDoc)
+		e.updateTitle()
+		e.jsonEditorWindow.Hide()
+		return
+	}
+
+	// Update headers from form
+	jsonData["title"] = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
+	jsonData["header"] = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
+	jsonData["authors"] = e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).Text
+	jsonData["reviewers"] = e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).Text
+
+	lastUpdateText := e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).Text
+	if lastUpdateText != "" {
+		jsonData["last_update"] = []string{lastUpdateText}
+	}
+
+	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	if versionText != "" {
+		if version, err := strconv.Atoi(versionText); err == nil {
+			jsonData["version"] = version
+		}
+	}
+
+	licenseText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
+	if licenseText != "" {
+		licenseLines := strings.Split(licenseText, "\n")
+		licenseArray := make([]string, 0, len(licenseLines))
+		for _, line := range licenseLines {
+			if strings.TrimSpace(line) != "" {
+				licenseArray = append(licenseArray, strings.TrimSpace(line))
+			}
+		}
+		jsonData["license"] = licenseArray
+	}
+
+	sourcesText := e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).Text
+	if sourcesText != "" {
+		sourcesLines := strings.Split(sourcesText, "\n")
+		sourcesArray := make([]string, 0, len(sourcesLines))
+		for _, line := range sourcesLines {
+			if strings.TrimSpace(line) != "" {
+				sourcesArray = append(sourcesArray, strings.TrimSpace(line))
+			}
+		}
+		jsonData["sources"] = sourcesArray
+	}
+
+	scriptsText := e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).Text
+	if scriptsText != "" {
+		scriptsLines := strings.Split(scriptsText, "\n")
+		scriptsArray := make([]string, 0, len(scriptsLines))
+		for _, line := range scriptsLines {
+			if strings.TrimSpace(line) != "" {
+				scriptsArray = append(scriptsArray, strings.TrimSpace(line))
+			}
+		}
+		jsonData["scripts"] = scriptsArray
+	}
+
+	audioText := e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).Text
+	if audioText != "" {
+		audioLines := strings.Split(audioText, "\n")
+		audioArray := make([]string, 0, len(audioLines))
+		for _, line := range audioLines {
+			if strings.TrimSpace(line) != "" {
+				audioArray = append(audioArray, strings.TrimSpace(line))
+			}
+		}
+		jsonData["audio"] = audioArray
+	}
+
+	// Marshal back to JSON
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+
+	if err := encoder.Encode(jsonData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to encode JSON: %v", err), e.window)
+		return
+	}
+
+	// Remove trailing newline and update content
+	jsonStr := strings.TrimSuffix(buf.String(), "\n")
+	e.currentDoc.content.SetText(jsonStr)
+	e.currentDoc.isModified = true
+	e.updateTabTitle(e.currentDoc)
+	e.updateTitle()
+
+	e.jsonEditorWindow.Hide()
+}
+
+func (e *TextEditor) isJSONDocument(doc *Document) bool {
+	if doc == nil || doc.content == nil {
+		return false
+	}
+	content := doc.content.Text
+
+	// Simple JSON validation
+	var js interface{}
+	return json.Unmarshal([]byte(content), &js) == nil
+}
+
 func (e *TextEditor) createEditorContent(doc *Document) fyne.CanvasObject {
 	doc.content = widget.NewMultiLineEntry()
 	doc.lineNumbers = widget.NewLabel("1\n")
@@ -798,6 +1115,12 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	isAtlas := e.isAtlasDocument(doc)
 	e.updateAtlasMenuItem(isAtlas)
 	e.updateTabTitle(doc)
+
+	// Auto-open JSON editor for new JSON documents
+	if e.isJSONDocument(doc) {
+		e.currentJSONDoc = doc
+		e.showJSONEditor()
+	}
 }
 
 func (e *TextEditor) createSourceTemplate() HTSourceFile {
