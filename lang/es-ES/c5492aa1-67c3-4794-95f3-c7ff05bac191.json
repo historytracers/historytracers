@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1769376606"
+      "1769380577"
    ],
    "authors": null,
    "reviewers": null,
@@ -64,7 +64,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"topdesc\"><i>Los intervalos temporales mostrados en esta página para la región de Europa están basados en la <i>Enciclopedia Británica</i>, pero no existe un período bien delimitado que sea aplicable a toda la región (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('96a670ea-3ae2-4977-84e2-aff25d9f92ab'); return false;\">Barzun, J. et al., <htdate0>, <i>História da Europa</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('80409e32-1657-43c2-a508-eb5164fb3f03'); return false;\">Violatti, C., <htdate1>, <i>Idade da Pedra</i></a>).</i></p><p><h3>Prerrequisitos</h3>Para una mejor comprensión del tema, recomendamos que el lector estudie primero los siguientes contenidos:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('18a901e4-3da3-45d8-a239-fb551e78698e'); return false;\">Limites Naturales</a>: Presenta al lector el concepto de límites a través de ejemplos del cuerpo humano y líquidos.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('75f9c1d6-8510-4ce6-8561-02f376645005'); return false;\">Comprendiendo el tiempo</a>: estudio de cómo diferentes civilizaciones marcaron el tiempo.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('e3a43e25-184d-4c9e-bb6c-a5423f224609'); return false;\">Comprendiendo la continuidad del tiempo</a>: análisis del tiempo en la naturaleza.</li></ul></p>",
+               "text": "<p class=\"topdesc\"><i>Los intervalos temporales mostrados en esta página para la región de Europa están basados en la <i>Enciclopedia Británica</i>, pero no existe un período bien delimitado que sea aplicable a toda la región (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('96a670ea-3ae2-4977-84e2-aff25d9f92ab'); return false;\">Barzun, J. et al., <htdate0>, <i>História da Europa</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('80409e32-1657-43c2-a508-eb5164fb3f03'); return false;\">Violatti, C., <htdate1>, <i>Idade da Pedra</i></a>).</i></p><p><h3>Prerrequisitos</h3>Para una mejor comprensión del tema, recomendamos que el lector estudie primero los siguientes contenidos:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('18a901e4-3da3-45d8-a239-fb551e78698e'); return false;\">Limites Naturales</a>: Presenta al lector el concepto de límites a través de ejemplos del cuerpo humano y líquidos.</li></ul></p>",
                "source": null,
                "date_time": [
                   {
@@ -91,34 +91,55 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "<p><h3>Introducción</h3>Desde los albores del Big Bang, la naturaleza ha propiciado la formación de grupos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('84e30786-a5e3-4dd8-a4a9-f8033439cca9'); return false;\">History Tracers, <htdate0>, <i>Introducción a los grupos</i></a>),  y como seres naturales, seguimos este mismo patrón. Un ejemplo de esta dinámica es la categorización del tiempo en el \"Sistema de Tres Edades\" (<i>Three-Age System</i>), concebido por Christian Jurgensen Thomsen, que dividió la prehistoria humana en la Edad de Piedra, la Edad del Bronce y la Edad del Hierro (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9b03c1cb-ed4a-4f1b-8f7f-64a6d046bb69'); return false;\">Heizer, R. F., <htdate1>, pp. 259</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('96a670ea-3ae2-4977-84e2-aff25d9f92ab'); return false;\">Barzun, J. et al., <htdate2>, <i>Historia de Europa</i></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('80409e32-1657-43c2-a508-eb5164fb3f03'); return false;\">Violatti, C., <htdate3>, <i>Edad de la Piedra</i></a>). Si bien estas conclusiones son pertinentes para el contexto europeo, surge la interrogante: ¿es adecuado aplicarlas también a América (<i>Abya Ayala</i>)?</p>",
-               "source": null,
-               "date_time": [
+               "text": "### Introducción\n\nLa humanidad tiene un origen común que se remonta a millones de años, como veremos a continuación. De esta manera, resulta tentador intentar agrupar a toda la humanidad en períodos de tiempo comunes.\n\nUn ejemplo de sistema temporal desarrollado para este tipo de agrupamiento es el **Sistema de Tres Edades**, concebido por Christian Jurgensen Thomsen para clasificar diferentes períodos de la prehistoria humana: Edad de Piedra, Edad de Bronce y Edad de Hierro (<htcite0>; <htcite1>; <htcite2>). Sin embargo, este tipo de agrupamiento merece una reflexión más cuidadosa.",
+               "source": [
                   {
-                     "type": "gregory",
-                     "year": "2024",
-                     "month": "-1",
-                     "day": "-1"
+                     "type": 1,
+                     "uuid": "9b03c1cb-ed4a-4f1b-8f7f-64a6d046bb69",
+                     "text": "Heizer, R. F.",
+                     "page": "pp. 259",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1962",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": "gregory",
-                     "year": "1962",
-                     "month": "-1",
-                     "day": "-1"
+                     "type": 1,
+                     "uuid": "96a670ea-3ae2-4977-84e2-aff25d9f92ab",
+                     "text": "Barzun, J. et al.",
+                     "page": "Historia de Europa",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": "gregory",
-                     "year": "2023",
-                     "month": "-1",
-                     "day": "-1"
-                  },
-                  {
-                     "type": "gregory",
-                     "year": "2024",
-                     "month": "7",
-                     "day": "18"
+                     "type": 1,
+                     "uuid": "80409e32-1657-43c2-a508-eb5164fb3f03",
+                     "text": "Violatti, C.",
+                     "page": "Edad de Piedra",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "7",
+                        "day": "18"
+                     }
                   }
                ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Metalurgia o Rocas</b><br /><br />¿Sería posible utilizar el sistema de las tres edades para toda la humanidad?</div></div></center>",
+               "source": null,
+               "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "html",
@@ -970,7 +991,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Todos somos...</b><br /><br />¿Alguna vez te has detenido a pensar que todos somos africanos?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Todos somos...</b><br /><br />¿Alguna vez te has detenido a pensar que todos somos africanos?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
