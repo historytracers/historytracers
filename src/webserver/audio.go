@@ -58,7 +58,7 @@ func htTextFamilyIndex(idx *IdxFamilyContent, lang string) string {
 		return finalText
 	}
 
-	finalText, err = htHTML2Text(htmlText)
+	finalText, err = htHTML2Text(htmlText, lang)
 	if err != nil {
 		panic(err)
 	}
@@ -143,7 +143,7 @@ func htLocalHTML2Text(htmlText string, lang string) string {
 	if len(htmlText) > 0 {
 		ret := strings.ReplaceAll(htmlText, "<div class=\"first_steps_reflection\" id=\"myFirstReflection\">", commonKeywords[55])
 
-		partial, err := htHTML2Text(ret)
+		partial, err := htHTML2Text(ret, lang)
 		if err != nil {
 			panic(err)
 		}
@@ -318,7 +318,7 @@ func htTextFamily(families *Family, lang string) string {
 	}
 
 	if families.Exercises != nil {
-		finalText += htPrepareQuestions(families.Exercises)
+		finalText += htPrepareQuestions(families.Exercises, lang)
 	}
 
 	return finalText + "\n"
@@ -496,7 +496,7 @@ func htParseIndexText(index *ClassIdx, lang string) string {
 			}
 		}
 
-		finalText, err := htHTML2Text(htmlText)
+		finalText, err := htHTML2Text(htmlText, lang)
 		if err != nil {
 			panic(err)
 		}
@@ -551,7 +551,7 @@ func htConvertClassesToAudio(pages []string, lang string) {
 
 		audioTxt := htLoopThroughContentFiles(ctf.Title, ctf.Content, lang)
 		if ctf.Exercises != nil {
-			audioTxt += htPrepareQuestions(ctf.Exercises)
+			audioTxt += htPrepareQuestions(ctf.Exercises, lang)
 		}
 		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, lang)
 		audioTxt = htRemoveChineseCharacters(audioTxt)
@@ -758,6 +758,7 @@ func htConvertFunctionAbbreviation(text string, lang string) string {
 	funcMap := map[string]map[string]string{
 		"cos":    {"en-US": "cosine", "es-ES": "coseno", "pt-BR": "cosseno"},
 		"sin":    {"en-US": "sine", "es-ES": "seno", "pt-BR": "seno"},
+		"sen":    {"en-US": "sine", "es-ES": "seno", "pt-BR": "seno"},
 		"tan":    {"en-US": "tangent", "es-ES": "tangente", "pt-BR": "tangente"},
 		"sec":    {"en-US": "secant", "es-ES": "secante", "pt-BR": "secante"},
 		"csc":    {"en-US": "cosecant", "es-ES": "cosecante", "pt-BR": "cossecante"},
@@ -777,8 +778,53 @@ func htConvertFunctionAbbreviation(text string, lang string) string {
 
 	for abbr, langMap := range funcMap {
 		if full, ok := langMap[lang]; ok {
+			// Handle normal function notation: cos(argument)
 			pattern := regexp.MustCompile(`\b` + abbr + `\s*\(\s*([^)]+)\s*\)`)
 			text = pattern.ReplaceAllString(text, full+" "+preposition+" $1")
+
+			// Handle function with superscript: cos²(argument)
+			superscriptPattern := regexp.MustCompile(`\b` + abbr + `([¹²³⁴⁵⁶⁷⁸⁹⁰])\s*\(\s*([^)]+)\s*\)`)
+			text = superscriptPattern.ReplaceAllString(text, full+"$1 "+preposition+" $2")
+		}
+	}
+
+	return text
+}
+
+func htConvertSuperscript(text string, lang string) string {
+	superscriptMap := map[string]map[string]string{
+		"¹": {"en-US": " to the first power", "es-ES": " a la primera potencia", "pt-BR": " à primeira potência"},
+		"²": {"en-US": " squared", "es-ES": " al cuadrado", "pt-BR": " ao quadrado"},
+		"³": {"en-US": " cubed", "es-ES": " al cubo", "pt-BR": " ao cubo"},
+		"⁴": {"en-US": " to the fourth power", "es-ES": " a la cuarta potencia", "pt-BR": " à quarta potência"},
+		"⁵": {"en-US": " to the fifth power", "es-ES": " a la quinta potencia", "pt-BR": " à quinta potência"},
+		"⁶": {"en-US": " to the sixth power", "es-ES": " a la sexta potencia", "pt-BR": " à sexta potência"},
+		"⁷": {"en-US": " to the seventh power", "es-ES": " a la septima potencia", "pt-BR": " à sétima potência"},
+		"⁸": {"en-US": " to the eighth power", "es-ES": " a la octava potencia", "pt-BR": " à oitava potência"},
+		"⁹": {"en-US": " to the ninth power", "es-ES": " a la novena potencia", "pt-BR": " à nona potência"},
+		"⁰": {"en-US": " to the zero power", "es-ES": " a la cero potencia", "pt-BR": " à zero potência"},
+	}
+
+	// Handle implicit multiplication between variables/functions with superscripts
+	// Pattern: variable² function²(argument) or function²(argument) variable²
+	implicitMultPattern := regexp.MustCompile(`(\w+)([¹²³⁴⁵⁶⁷⁸⁹⁰])\s+(\w+)([¹²³⁴⁵⁶⁷⁸⁹⁰])\s*\(`)
+
+	timesStr := " vezes "
+	if lang == "en-US" {
+		timesStr = " times "
+	} else if lang == "es-ES" {
+		timesStr = " por "
+	}
+
+	text = implicitMultPattern.ReplaceAllString(text, "$1$2 "+timesStr+"$3$4(")
+
+	// Handle case where function with superscript comes first
+	reversePattern := regexp.MustCompile(`(\w+)([¹²³⁴⁵⁶⁷⁸⁹⁰])\s*\(\s*([^)]+)\s*\)\s+(\w+)([¹²³⁴⁵⁶⁷⁸⁹⁰])`)
+	text = reversePattern.ReplaceAllString(text, "$1$2($3) "+timesStr+"$4$5")
+
+	for superscript, langMap := range superscriptMap {
+		if replacement, ok := langMap[lang]; ok {
+			text = strings.ReplaceAll(text, superscript, replacement)
 		}
 	}
 
@@ -831,6 +877,36 @@ func htRemoveChineseCharacters(text string) string {
 	cleaned = emptyParenRegex.ReplaceAllString(cleaned, "")
 
 	return cleaned
+}
+
+func htAdjustTrailingDots(text string) string {
+	lines := strings.Split(text, "\n")
+	var result []string
+	var prevWasEmpty bool
+
+	for _, line := range lines {
+		trimmed := strings.TrimSpace(line)
+		if trimmed == "." {
+			continue
+		}
+
+		dotRegex := regexp.MustCompile(`\.{2,}$`)
+		if dotRegex.MatchString(line) {
+			line = dotRegex.ReplaceAllString(line, ".")
+		}
+
+		if trimmed == "" {
+			if !prevWasEmpty {
+				result = append(result, line)
+			}
+			prevWasEmpty = true
+		} else {
+			result = append(result, line)
+			prevWasEmpty = false
+		}
+	}
+
+	return strings.Join(result, "\n")
 }
 
 func htConvertTextsToAudio() {
