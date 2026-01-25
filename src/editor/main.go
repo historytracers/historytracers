@@ -85,15 +85,15 @@ func (e *TextEditor) findText() {
 	}
 
 	entry := widget.NewEntry()
-	entry.SetPlaceHolder("Enter text to find...")
+	entry.SetPlaceHolder(htGetText("find_placeholder"))
 
 	var findDialog dialog.Dialog
-	findNextButton := widget.NewButton("Find Next", func() {
+	findNextButton := widget.NewButton(htGetText("find_next"), func() {
 		e.findNext()
 	})
 	findNextButton.Disable()
 
-	findDialog = dialog.NewCustomConfirm("Find", "Find", "Cancel", container.NewVBox(
+	findDialog = dialog.NewCustomConfirm(htGetText("find"), htGetText("find"), htGetText("close"), container.NewVBox(
 		entry,
 		findNextButton,
 	), func(find bool) {
@@ -176,7 +176,7 @@ func NewTextEditor() *TextEditor {
 
 func (e *TextEditor) setupUI() {
 	// Create main window
-	e.window = e.app.NewWindow("History Tracers Editor")
+	e.window = e.app.NewWindow(htGetText("editor_window_title"))
 	e.window.SetMaster()
 	e.window.Resize(fyne.NewSize(1000, 700))
 
@@ -190,7 +190,7 @@ func (e *TextEditor) setupUI() {
 	}
 
 	// Create status bar
-	e.statusBar = widget.NewLabel("Ready")
+	e.statusBar = widget.NewLabel(htGetText("status_ready"))
 	e.statusBar.Alignment = fyne.TextAlignLeading
 
 	// Create menu
@@ -289,24 +289,24 @@ func (e *TextEditor) setupShortcuts() {
 
 func (e *TextEditor) createMenu() {
 	// File menu with shortcuts
-	openMenuItem := fyne.NewMenuItem("Open", e.openFile)
+	openMenuItem := fyne.NewMenuItem(htGetText("open"), e.openFile)
 	openMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyO, Modifier: fyne.KeyModifierShortcutDefault}
 
-	openInNewTabMenuItem := fyne.NewMenuItem("Open in New Tab", e.openInNewTab)
-	documentMenuItemFile := fyne.NewMenuItem("Document", e.insertFamily)
-	newMenuItem := fyne.NewMenuItem("New", e.showTemplateWindow)
-	saveMenuItem := fyne.NewMenuItem("Save", e.saveFile)
+	openInNewTabMenuItem := fyne.NewMenuItem(htGetText("open_in_new_tab"), e.openInNewTab)
+	documentMenuItemFile := fyne.NewMenuItem(htGetText("document"), e.insertFamily)
+	newMenuItem := fyne.NewMenuItem(htGetText("new"), e.showTemplateWindow)
+	saveMenuItem := fyne.NewMenuItem(htGetText("save"), e.saveFile)
 	saveMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyS, Modifier: fyne.KeyModifierShortcutDefault}
 
-	saveAsMenuItem := fyne.NewMenuItem("Save As", e.saveAsFile)
-	saveAllMenuItem := fyne.NewMenuItem("Save All", e.saveAllFiles)
+	saveAsMenuItem := fyne.NewMenuItem(htGetText("save_as"), e.saveAsFile)
+	saveAllMenuItem := fyne.NewMenuItem(htGetText("save_all"), e.saveAllFiles)
 
-	closeTabMenuItem := fyne.NewMenuItem("Close Tab", e.closeCurrentTab)
+	closeTabMenuItem := fyne.NewMenuItem(htGetText("close_tab"), e.closeCurrentTab)
 	closeTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyW, Modifier: fyne.KeyModifierShortcutDefault}
 
-	closeAllTabsMenuItem := fyne.NewMenuItem("Close All Tabs", e.closeAllTabs)
+	closeAllTabsMenuItem := fyne.NewMenuItem(htGetText("close_all_tabs"), e.closeAllTabs)
 
-	fileMenu := fyne.NewMenu("File",
+	fileMenu := fyne.NewMenu(htGetText("file_menu"),
 		newMenuItem,
 		openMenuItem,
 		openInNewTabMenuItem,
@@ -321,16 +321,16 @@ func (e *TextEditor) createMenu() {
 	)
 
 	// Edit menu with shortcuts
-	cutMenuItem := fyne.NewMenuItem("Cut", e.cutText)
+	cutMenuItem := fyne.NewMenuItem(htGetText("cut"), e.cutText)
 	cutMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyX, Modifier: fyne.KeyModifierShortcutDefault}
-	copyMenuItem := fyne.NewMenuItem("Copy", e.copyText)
+	copyMenuItem := fyne.NewMenuItem(htGetText("copy"), e.copyText)
 	copyMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyC, Modifier: fyne.KeyModifierShortcutDefault}
-	pasteMenuItem := fyne.NewMenuItem("Paste", e.pasteText)
+	pasteMenuItem := fyne.NewMenuItem(htGetText("paste"), e.pasteText)
 	pasteMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyV, Modifier: fyne.KeyModifierShortcutDefault}
-	selectAllMenuItem := fyne.NewMenuItem("Select All", e.selectAll)
+	selectAllMenuItem := fyne.NewMenuItem(htGetText("select_all"), e.selectAll)
 	selectAllMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyA, Modifier: fyne.KeyModifierShortcutDefault}
 
-	editMenu := fyne.NewMenu("Edit",
+	editMenu := fyne.NewMenu(htGetText("edit_menu"),
 		cutMenuItem,
 		copyMenuItem,
 		pasteMenuItem,
@@ -338,30 +338,30 @@ func (e *TextEditor) createMenu() {
 		selectAllMenuItem,
 	)
 
-	findMenuItem := fyne.NewMenuItem("Find", e.findText)
+	findMenuItem := fyne.NewMenuItem(htGetText("find"), e.findText)
 	findMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyF, Modifier: fyne.KeyModifierShortcutDefault}
 	editMenu.Items = append(editMenu.Items, findMenuItem)
 
-	toolsMenu := fyne.NewMenu("Tools",
-		fyne.NewMenuItem("Audio", e.insertAudio),
-		fyne.NewMenuItem("Exercise", e.insertExercise),
-		fyne.NewMenuItem("Game", e.insertGame),
+	toolsMenu := fyne.NewMenu(htGetText("tools"),
+		fyne.NewMenuItem(htGetText("audio"), e.insertAudio),
+		fyne.NewMenuItem(htGetText("exercise"), e.insertExercise),
+		fyne.NewMenuItem(htGetText("game"), e.insertGame),
 	)
-	toolsMenuItem := fyne.NewMenuItem("Tools", nil)
+	toolsMenuItem := fyne.NewMenuItem(htGetText("tools"), nil)
 	toolsMenuItem.ChildMenu = toolsMenu
 
 	e.familyMenuItems = []*fyne.MenuItem{
-		fyne.NewMenuItem("Haplogroup", e.insertFamilyPersonHaplogroup),
-		fyne.NewMenuItem("Birth", e.insertFamilyPersonBirth),
-		fyne.NewMenuItem("Baptism", e.insertFamilyPersonBaptism),
-		fyne.NewMenuItem("Death", e.insertFamilyPersonDeath),
-		fyne.NewMenuItem("Person", e.insertFamilyPerson),
-		fyne.NewMenuItem("Parents", e.insertFamilyPersonParents),
-		fyne.NewMenuItem("Marriage", e.insertFamilyPersonMarriage),
-		fyne.NewMenuItem("Divorced", e.insertFamilyPersonDivorced),
-		fyne.NewMenuItem("Family", e.insertFamilyBody),
+		fyne.NewMenuItem(htGetText("haplogroup"), e.insertFamilyPersonHaplogroup),
+		fyne.NewMenuItem(htGetText("birth"), e.insertFamilyPersonBirth),
+		fyne.NewMenuItem(htGetText("baptism"), e.insertFamilyPersonBaptism),
+		fyne.NewMenuItem(htGetText("death"), e.insertFamilyPersonDeath),
+		fyne.NewMenuItem(htGetText("person"), e.insertFamilyPerson),
+		fyne.NewMenuItem(htGetText("parents"), e.insertFamilyPersonParents),
+		fyne.NewMenuItem(htGetText("marriage"), e.insertFamilyPersonMarriage),
+		fyne.NewMenuItem(htGetText("divorced"), e.insertFamilyPersonDivorced),
+		fyne.NewMenuItem(htGetText("family"), e.insertFamilyBody),
 	}
-	familyMenu := fyne.NewMenu("Family tree",
+	familyMenu := fyne.NewMenu(htGetText("family_tree"),
 		e.familyMenuItems[0],
 		fyne.NewMenuItemSeparator(),
 		e.familyMenuItems[1],
@@ -374,37 +374,37 @@ func (e *TextEditor) createMenu() {
 		fyne.NewMenuItemSeparator(),
 		e.familyMenuItems[8],
 	)
-	e.familyMenuItem = fyne.NewMenuItem("Family tree", nil)
+	e.familyMenuItem = fyne.NewMenuItem(htGetText("family_tree"), nil)
 	e.familyMenuItem.ChildMenu = familyMenu
 
-	insertMenu := fyne.NewMenu("Insert",
-		fyne.NewMenuItem("Content", nil),
+	insertMenu := fyne.NewMenu(htGetText("insert_menu"),
+		fyne.NewMenuItem(htGetText("content"), nil),
 		toolsMenuItem,
 		fyne.NewMenuItemSeparator(),
 		e.familyMenuItem,
 		fyne.NewMenuItemSeparator(),
-		fyne.NewMenuItem("Atlas", nil),
+		fyne.NewMenuItem(htGetText("atlas"), nil),
 	)
-	insertMenu.Items[0].ChildMenu = fyne.NewMenu("Content",
-		fyne.NewMenuItem("Date", e.insertDate),
-		fyne.NewMenuItem("Source", e.insertSource),
-		fyne.NewMenuItem("Text", e.insertText),
+	insertMenu.Items[0].ChildMenu = fyne.NewMenu(htGetText("content"),
+		fyne.NewMenuItem(htGetText("date"), e.insertDate),
+		fyne.NewMenuItem(htGetText("source"), e.insertSource),
+		fyne.NewMenuItem(htGetText("text"), e.insertText),
 	)
-	e.atlasMapMenuItem = fyne.NewMenuItem("Map", e.insertAtlasMap)
-	insertMenu.Items[5].ChildMenu = fyne.NewMenu("Atlas",
+	e.atlasMapMenuItem = fyne.NewMenuItem(htGetText("map"), e.insertAtlasMap)
+	insertMenu.Items[5].ChildMenu = fyne.NewMenu(htGetText("atlas"),
 		e.atlasMapMenuItem,
 	)
 
 	// Tabs menu with shortcuts
-	nextTabMenuItem := fyne.NewMenuItem("Next Tab", e.nextTab)
+	nextTabMenuItem := fyne.NewMenuItem(htGetText("next_tab"), e.nextTab)
 	nextTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl}
 
-	prevTabMenuItem := fyne.NewMenuItem("Previous Tab", e.previousTab)
+	prevTabMenuItem := fyne.NewMenuItem(htGetText("previous_tab"), e.previousTab)
 	prevTabMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: fyne.KeyModifierControl | fyne.KeyModifierShift}
 
-	listAllTabsMenuItem := fyne.NewMenuItem("List All Tabs", e.showTabList)
+	listAllTabsMenuItem := fyne.NewMenuItem(htGetText("list_all_tabs"), e.showTabList)
 
-	tabsMenu := fyne.NewMenu("Tabs",
+	tabsMenu := fyne.NewMenu(htGetText("tabs_menu"),
 		nextTabMenuItem,
 		prevTabMenuItem,
 		fyne.NewMenuItemSeparator(),
@@ -412,27 +412,27 @@ func (e *TextEditor) createMenu() {
 	)
 
 	// Help menu with shortcut
-	aboutMenuItem := fyne.NewMenuItem("About", e.showAbout)
+	aboutMenuItem := fyne.NewMenuItem(htGetText("about"), e.showAbout)
 	aboutMenuItem.Shortcut = &desktop.CustomShortcut{KeyName: fyne.KeyH, Modifier: fyne.KeyModifierShortcutDefault}
 
-	helpMenu := fyne.NewMenu("Help",
+	helpMenu := fyne.NewMenu(htGetText("help_menu"),
 		aboutMenuItem,
 	)
 
-	settingsMenu := fyne.NewMenu("Settings",
-		fyne.NewMenuItem("Open Settings", e.showSettingsWindow),
+	settingsMenu := fyne.NewMenu(htGetText("settings_menu"),
+		fyne.NewMenuItem(htGetText("open_settings"), e.showSettingsWindow),
 	)
 
-	e.hideToolbarMenuItem = fyne.NewMenuItem("Toolbar", e.toggleToolbar)
+	e.hideToolbarMenuItem = fyne.NewMenuItem(htGetText("toolbar"), e.toggleToolbar)
 	e.hideToolbarMenuItem.Checked = true
 
-	e.contentToolbarMenuItem = fyne.NewMenuItem("Content", e.toggleContentToolbar)
+	e.contentToolbarMenuItem = fyne.NewMenuItem(htGetText("content_toolbar"), e.toggleContentToolbar)
 	e.contentToolbarMenuItem.Checked = true
 
-	e.familyToolbarMenuItem = fyne.NewMenuItem("Family Tree", e.toggleFamilyToolbar)
+	e.familyToolbarMenuItem = fyne.NewMenuItem(htGetText("family_toolbar"), e.toggleFamilyToolbar)
 	e.familyToolbarMenuItem.Checked = false
 
-	windowMenu := fyne.NewMenu("Window",
+	windowMenu := fyne.NewMenu(htGetText("window_menu"),
 		e.hideToolbarMenuItem,
 		e.contentToolbarMenuItem,
 		e.familyToolbarMenuItem,
@@ -499,14 +499,14 @@ func (e *TextEditor) updateToolbarContainerVisibility() {
 }
 
 func (e *TextEditor) showSettingsWindow() {
-	settingsWindow := e.app.NewWindow("Settings")
+	settingsWindow := e.app.NewWindow(htGetText("settings"))
 	settingsWindow.Resize(fyne.NewSize(400, 300))
 
 	configDir, err := os.UserConfigDir()
 	if err != nil {
 		settingsWindow.SetContent(container.NewVBox(
 
-			widget.NewLabel("Failed to get config dir"),
+			widget.NewLabel(htGetText("failed_get_config_dir")),
 		))
 		CFG = NewHTConfig()
 
@@ -516,7 +516,7 @@ func (e *TextEditor) showSettingsWindow() {
 		if _, err := os.Stat(localPath); os.IsNotExist(err) {
 			if err := HTCreateConfig(localPath); err != nil {
 				settingsWindow.SetContent(container.NewVBox(
-					widget.NewLabel("Failed to create config"),
+					widget.NewLabel(htGetText("failed_create_config")),
 				))
 				CFG = NewHTConfig()
 
@@ -525,7 +525,7 @@ func (e *TextEditor) showSettingsWindow() {
 			if err := HTParseConfig(localPath); err != nil {
 				settingsWindow.SetContent(container.NewVBox(
 
-					widget.NewLabel("Failed to read config"),
+					widget.NewLabel(htGetText("failed_read_config")),
 				))
 				CFG = NewHTConfig()
 			}
@@ -547,13 +547,23 @@ func (e *TextEditor) showSettingsWindow() {
 	confPathEntry := widget.NewEntry()
 	confPathEntry.SetText(CFG.ConfPath)
 
+	// Add language selector
+	languageSelect := widget.NewSelect(LangConfig.AvailableLanguages, func(selected string) {})
+	languageSelect.SetSelected(LangConfig.CurrentLanguage)
+	languageSelect.OnChanged = func(selected string) {
+		if err := htSetLanguage(selected); err != nil {
+			dialog.ShowError(err, e.window)
+		}
+	}
+
 	form := &widget.Form{
 		Items: []*widget.FormItem{
-			{Text: "Port", Widget: portEntry},
-			{Text: "Source Path", Widget: srcPathEntry},
-			{Text: "Content Path", Widget: contentPathEntry},
-			{Text: "Log Path", Widget: logPathEntry},
-			{Text: "Config Path", Widget: confPathEntry},
+			{Text: htGetText("port"), Widget: portEntry},
+			{Text: htGetText("source_path"), Widget: srcPathEntry},
+			{Text: htGetText("content_path"), Widget: contentPathEntry},
+			{Text: htGetText("log_path"), Widget: logPathEntry},
+			{Text: htGetText("config_path"), Widget: confPathEntry},
+			{Text: htGetText("language"), Widget: languageSelect},
 		},
 
 		OnSubmit: func() {
@@ -576,11 +586,11 @@ func (e *TextEditor) showSettingsWindow() {
 		OnCancel: func() {
 			settingsWindow.Close()
 		},
-		SubmitText: "Save",
+		SubmitText: htGetText("save_button"),
 	}
 
 	settingsWindow.SetContent(container.NewVBox(
-		widget.NewLabel("Settings"),
+		widget.NewLabel(htGetText("settings")),
 
 		form,
 	))
@@ -661,7 +671,7 @@ func (e *TextEditor) updateAtlasMenuItem(isAtlas bool) {
 
 func (e *TextEditor) getTabTitle(doc *Document) string {
 	if doc.filePath == "" {
-		return "Untitled"
+		return htGetText("untitled")
 	}
 	return filepath.Base(doc.filePath)
 }
@@ -682,7 +692,7 @@ func (e *TextEditor) updateTabTitle(doc *Document) {
 
 func (e *TextEditor) updateTitle() {
 	if e.currentDoc == nil {
-		e.window.SetTitle("Go Text Editor")
+		e.window.SetTitle(htGetText("go_text_editor"))
 		return
 	}
 
@@ -693,53 +703,52 @@ func (e *TextEditor) updateTitle() {
 
 	tabCount := len(e.documents)
 	if tabCount > 1 {
-		e.window.SetTitle(fmt.Sprintf("%s (%d tabs) - Go Text Editor", title, tabCount))
+		e.window.SetTitle(fmt.Sprintf("%s (%d tabs) - %s", title, tabCount, htGetText("go_text_editor")))
 	} else {
-		e.window.SetTitle(fmt.Sprintf("%s - Go Text Editor", title))
+		e.window.SetTitle(fmt.Sprintf("%s - %s", title, htGetText("go_text_editor")))
 	}
 }
 
 func (e *TextEditor) showTemplateWindow() {
 	// Always create a new window to avoid state issues
-	e.templateWindow = e.app.NewWindow("Load Template")
+	e.templateWindow = e.app.NewWindow(htGetText("load_template"))
 	e.templateWindow.Resize(fyne.NewSize(500, 400))
 
-	atlasBtn := widget.NewButton("Atlas Template", func() {
+	atlasBtn := widget.NewButton(htGetText("atlas_template"), func() {
 		e.loadTemplate("atlas")
 		e.templateWindow.Close()
 	})
 
-	classBtn := widget.NewButton("Class Template", func() {
+	classBtn := widget.NewButton(htGetText("class_template"), func() {
 		e.loadTemplate("class")
 		e.templateWindow.Close()
 	})
 
-	familyBtn := widget.NewButton("Family Template", func() {
+	familyBtn := widget.NewButton(htGetText("family_template"), func() {
 		e.loadTemplate("family")
 		e.templateWindow.Close()
 	})
 
-	sourceBtn := widget.NewButton("Source Template", func() {
+	sourceBtn := widget.NewButton(htGetText("source_template"), func() {
 		e.loadTemplate("source")
 		e.templateWindow.Close()
 	})
 
 	// Add descriptions
 	content := container.NewVBox(
-		widget.NewLabel("Creates a new Atlas document structure"),
+		widget.NewLabel(htGetText("atlas_desc")),
 		widget.NewSeparator(),
 		container.NewHBox(layout.NewSpacer(), atlasBtn, layout.NewSpacer()),
-		widget.NewLabel("Creates a new Class document structure"),
+		widget.NewLabel(htGetText("class_desc")),
 		widget.NewSeparator(),
 		container.NewHBox(layout.NewSpacer(), classBtn, layout.NewSpacer()),
-		widget.NewLabel("Creates a new Family document structure"),
+		widget.NewLabel(htGetText("family_desc")),
 		widget.NewSeparator(),
 		container.NewHBox(layout.NewSpacer(), familyBtn, layout.NewSpacer()),
-		widget.NewLabel("Creates a new Source document structure"),
+		widget.NewLabel(htGetText("source_desc")),
 		widget.NewSeparator(),
 		container.NewHBox(layout.NewSpacer(), sourceBtn, layout.NewSpacer()),
-		widget.NewSeparator(),
-		container.NewHBox(layout.NewSpacer(), widget.NewButton("Close", func() {
+		container.NewHBox(layout.NewSpacer(), widget.NewButton(htGetText("close"), func() {
 			e.templateWindow.Close()
 		}), layout.NewSpacer()),
 	)
@@ -763,7 +772,7 @@ func (e *TextEditor) loadTemplate(templateType string) {
 	case "source":
 		templateData = e.createSourceTemplate()
 	default:
-		dialog.ShowError(fmt.Errorf("Unknown template type: %s", templateType), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("unknown_template_type"), templateType), e.window)
 		return
 	}
 
@@ -774,7 +783,7 @@ func (e *TextEditor) loadTemplate(templateType string) {
 
 	err = encoder.Encode(templateData)
 	if err != nil {
-		dialog.ShowError(fmt.Errorf("Error creating template: %v", err), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("error_creating_template"), err), e.window)
 		return
 	}
 
@@ -2135,7 +2144,7 @@ func (e *TextEditor) insertAudio() {
 
 	if !isInside {
 
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"audio\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_audio")), e.window)
 
 		return
 
@@ -2198,7 +2207,7 @@ func (e *TextEditor) insertAtlasMap() {
 	isInside, cursorPos := e.isInsideAtlasArray()
 
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"atlas\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_atlas")), e.window)
 		return
 	}
 
@@ -2283,7 +2292,7 @@ func (e *TextEditor) insertDate() {
 
 	if !isInside {
 
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"date_time\" or \"date\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_date")), e.window)
 
 		return
 
@@ -2350,7 +2359,7 @@ func (e *TextEditor) insertDate() {
 func (e *TextEditor) insertSource() {
 	isInside, cursorPos := e.isInsideSourceArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"sources\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_source")), e.window)
 		return
 	}
 
@@ -2399,7 +2408,7 @@ func (e *TextEditor) insertSource() {
 func (e *TextEditor) insertText() {
 	isInside, cursorPos := e.isInsideTextArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"text\", \"history\" or \"common\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_text")), e.window)
 		return
 	}
 
@@ -2465,7 +2474,7 @@ func (e *TextEditor) insertText() {
 func (e *TextEditor) insertExercise() {
 	isInside, cursorPos := e.isInsideExerciseArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"exercise_v2\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_exercise")), e.window)
 		return
 	}
 
@@ -2507,7 +2516,7 @@ func (e *TextEditor) insertExercise() {
 func (e *TextEditor) insertGame() {
 	isInside, cursorPos := e.isInsideGameArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"game_v2\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_game")), e.window)
 		return
 	}
 
@@ -2573,7 +2582,7 @@ func (e *TextEditor) insertFamily() {
 func (e *TextEditor) insertFamilyBody() {
 	isInside, cursorPos := e.isInsideFamilyArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"families\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_family")), e.window)
 		return
 	}
 
@@ -2921,7 +2930,7 @@ func (e *TextEditor) insertFamilyBody() {
 func (e *TextEditor) insertFamilyPerson() {
 	isInside, cursorPos := e.isInsidePeopleArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"people\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_people")), e.window)
 		return
 	}
 
@@ -3232,7 +3241,7 @@ func (e *TextEditor) insertFamilyPerson() {
 func (e *TextEditor) insertFamilyPersonParents() {
 	isInside, cursorPos := e.isInsideParentsArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"parents\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_parents")), e.window)
 		return
 	}
 
@@ -3280,7 +3289,7 @@ func (e *TextEditor) insertFamilyPersonParents() {
 func (e *TextEditor) insertFamilyPersonMarriage() {
 	isInside, cursorPos := e.isInsideMarriagesArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"marriages\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_marriages")), e.window)
 		return
 	}
 
@@ -3369,7 +3378,7 @@ func (e *TextEditor) insertFamilyPersonMarriage() {
 func (e *TextEditor) insertFamilyPersonDivorced() {
 	isInside, cursorPos := e.isInsideDivorcedArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"divorced\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_divorced")), e.window)
 		return
 	}
 
@@ -3477,7 +3486,7 @@ func (e *TextEditor) insertFamilyPersonDivorced() {
 func (e *TextEditor) insertFamilyPersonHaplogroup() {
 	isInside, cursorPos := e.isInsideHaplogroupArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"haplogroup\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_haplogroup")), e.window)
 		return
 	}
 
@@ -3532,7 +3541,7 @@ func (e *TextEditor) insertFamilyPersonHaplogroup() {
 func (e *TextEditor) insertFamilyPersonBirth() {
 	isInside, cursorPos := e.isInsideBirthArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"birth\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_birth")), e.window)
 		return
 	}
 
@@ -3601,7 +3610,7 @@ func (e *TextEditor) insertFamilyPersonBirth() {
 func (e *TextEditor) insertFamilyPersonBaptism() {
 	isInside, cursorPos := e.isInsideBaptismArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"baptism\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_baptism")), e.window)
 		return
 	}
 
@@ -3670,7 +3679,7 @@ func (e *TextEditor) insertFamilyPersonBaptism() {
 func (e *TextEditor) insertFamilyPersonDeath() {
 	isInside, cursorPos := e.isInsideDeathArray()
 	if !isInside {
-		dialog.ShowError(fmt.Errorf("cursor must be inside a \"death\" JSON array"), e.window)
+		dialog.ShowError(fmt.Errorf(htGetText("cursor_must_be_inside_death")), e.window)
 		return
 	}
 
@@ -3761,7 +3770,7 @@ func (e *TextEditor) selectAll() {
 }
 
 func (e *TextEditor) showAbout() {
-	dialog.ShowInformation("About", "History Tracers Editor\n\nEditor used to create History Tracers content.\nVersion 1.0\n\nThis an Open Source software shared under the GPL-3.0-or-later license.", e.window)
+	dialog.ShowInformation(htGetText("about"), "History Tracers Editor\n\nEditor used to create History Tracers content.\nVersion 1.0\n\nThis an Open Source software shared under the GPL-3.0-or-later license.", e.window)
 }
 
 func (e *TextEditor) quit() {
@@ -3774,8 +3783,8 @@ func (e *TextEditor) quit() {
 	}
 
 	if unsavedCount > 0 {
-		dialog.ShowConfirm("Unsaved Changes",
-			fmt.Sprintf("You have %d unsaved documents. Quit anyway?", unsavedCount),
+		dialog.ShowConfirm(htGetText("unsaved_changes"),
+			fmt.Sprintf(htGetText("you_have_unsaved_documents"), unsavedCount),
 			func(quit bool) {
 				if quit {
 					e.app.Quit()
@@ -3797,6 +3806,11 @@ func (e *TextEditor) Run() {
 func main() {
 	HTCreateDir()
 	HTParseCreateConfig()
+
+	// Initialize language system
+	if err := htInitLanguage(); err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR: Failed to initialize language system: %v\n", err)
+	}
 
 	editor := NewTextEditor()
 	editor.Run()
