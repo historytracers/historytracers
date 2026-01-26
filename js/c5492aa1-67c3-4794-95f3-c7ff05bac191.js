@@ -2,6 +2,8 @@
 
 function htLoadContent() {
     htWriteNavigation();
+    $("#htChinaZhongguo").html(keywords[137]);
+    $("#OriginHTMW").html(keywords[82]);
 
     return false;
 }
