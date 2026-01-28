@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1769465812"
+      "1769564399"
    ],
    "authors": [
       ""
@@ -189,7 +189,7 @@
          "id": "SECTION_natural",
          "text": [
             {
-               "text": "### Números Naturais (ℕ)\n\nOs números naturais (ℕ) foram os primeiros números tratados no *History Tracers* (<htcite0>). Através deles, aprendemos a enumerar, somar, multiplicar nos cinco primeiros capítulos da seção *Primeiros Passos* (<htcite1>).\n\nApesar de usarmos estes números constantemente, a definição se os números naturais deveriam ou não incluir o zero pode depender da fonte e do tempo que estamos estudando (<htcite2>).",
+               "text": "### Números Naturais (ℕ)\n\nOs números naturais, identificados por ℕ, foram os primeiros números tratados no *History Tracers* (<htcite0>). Por meio deles, aprendemos a enumerar, somar e multiplicar nos cinco primeiros capítulos da seção *Primeiros Passos* (<htcite1>).\n\n#### Definição\n\nApesar de usarmos esses números constantemente, a definição de se os números naturais devem ou não incluir o zero pode depender do estudioso e do período em que estamos estudando (<htcite2>).\n\n#### Visualização\n\nA visualização dos números naturais pode ser observada por meio do nosso corpo ao realizarmos a contagem com os dedos (**Figura 2**) (<htcite3>).",
                "source": [
                   {
                      "type": 1,
@@ -226,31 +226,71 @@
                         "month": "",
                         "day": ""
                      }
-                  }
-               ],
-               "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2010",
-                     "month": "",
-                     "day": ""
                   },
                   {
-                     "type": "unix",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  },
-                  {
-                     "type": "julian",
-                     "year": "",
-                     "month": "",
-                     "day": ""
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adicionando os mesmos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
                   }
                ],
+               "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Mão esquerda</td><td>Mão direita</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/HistoryTracers/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/HistoryTracers/Right_Hand.png\" class=\"imgcenter\"/></td></tr></table></p><p class=\"desc\"><b>Figura 2</b>: Representação das mãos. Código-fonte presente no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código Fonte</a>).</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Na figura, observam-se as duas mãos de uma pessoa, estendidas com todos os dedos esticados.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Além dos nossos dedos, ao estudarmos a multiplicação, aprendemos que podemos representar os resultados de uma multiplicação por meio de gráficos. Neles, identificamos o valor que estamos multiplicando por um número *N* no eixo horizontal e subimos no eixo vertical até encontrar o resultado, marcando um ponto (<htcite0>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendo a Tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Representação dos pontos da tabuada de um. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]
@@ -258,9 +298,9 @@
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "question": "Os números naturais ℕ são os números que possuem casas decimais?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Números naturais são os números que utilizamos normalmente em contagens de objetos. Em sua definição, eles não incluem números decimais sendo restrito somente a números inteiros que podem incluir o zero dependendo do pesquisador."
       }
    ],
    "game_v2": null,

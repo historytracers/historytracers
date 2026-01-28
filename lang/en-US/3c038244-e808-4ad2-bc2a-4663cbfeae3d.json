@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1769465802"
+      "1769564390"
    ],
    "authors": [
       ""
@@ -184,13 +184,123 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_natural",
+         "text": [
+            {
+               "text": "### Natural Numbers (ℕ)\n\nNatural numbers, identified by ℕ, were the first numbers addressed in *History Tracers* (<htcite0>). Through them, we learn to count, add, and multiply in the first five chapters of the *First Steps* section (<htcite1>).\n\n#### Definition\n\nDespite constantly using these numbers, the definition of whether natural numbers should include zero or not can depend on the scholar and the period being studied (<htcite2>).\n\n#### Visualization\n\nThe visualization of natural numbers can be observed through our body when counting with our fingers (**Figure 2**) (<htcite3>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "First Steps",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "First Steps",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ea43d68d-8004-4fa8-bf58-82b57a6458ae",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adding the Same Numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Left hand</td><td>Right hand</td></tr><tr><td><img id=\"imgLH\" onclick=\"htImageZoom('imgLH', '0%')\" src=\"images/HistoryTracers/Left_Hand.png\" class=\"imgcenter\"/></td><td><img id=\"imgRH\" onclick=\"htImageZoom('imgRH', '0%')\" src=\"images/HistoryTracers/Right_Hand.png\" class=\"imgcenter\"/></td></tr><tr><td colspan=\"2\"><b>Figure 1</b>: Hands reprsentation. The source codes are available in project GitHub (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Source code</a>)</td></tr></table></p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "The figure shows a person's two hands raised with all fingers extended.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Besides our fingers, when studying multiplication, we learn that we can represent the results of multiplication through graphs. In them, we identify the value we are multiplying by a number *N* on the horizontal axis and go up the vertical axis until we find the result, marking a point (<htcite0>)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (0 and 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 1</b>: Representation of the points from the multiplication table for the number one. Graph made using the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "question": "Os números naturais ℕ são os números que possuem casas decimais?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Números naturais são os números que utilizamos normalmente em contagens de objetos. Em sua definição, eles não incluem números decimais sendo restrito somente a números inteiros que podem incluir o zero dependendo do pesquisador."
       }
    ],
    "game_v2": null,
