@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1769643292"
+      "1769656192"
    ],
    "authors": [
       ""
@@ -458,6 +458,73 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_real",
+         "text": [
+            {
+               "text": "### Números Reais (ℝ)\n\nOs números reais, conhecidos pelo símbolo ℝ, são os números que contêm todos os números estudados até o momento (naturais, racionais e irracionais) (<htcite0>), além de outros que ainda iremos estudar.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fba167e6-42f1-4e7a-9dcd-677052cac50f",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: Ainda há mais?</b><br /><br />Antes do parágrafo anterior, você imaginava que, no <i>History Tracers</i>, já havíamos falado de todos os números?<br /><br />Isso modifica a maneira como você estava organizando os números na <b>Figura 1</b>?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Continuidade\n\nOs números reais também são conhecidos como números contínuos (<htcite0>). Esse fato ocorre porque eles preenchem o “vazio” que existe entre os números naturais. Isso quer dizer que, no **Gráfico 1**, se multiplicarmos todos os valores que estão no eixo horizontal por 1, em vez de termos os espaços existentes, teremos como resultado uma linha totalmente interligada, mostrada no **Gráfico 2**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fba167e6-42f1-4e7a-9dcd-677052cac50f",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Resultado da multiplicação por 1 de todos os valores no eixo horizontal, com os números naturais destacados por pontos. Gráfico feito com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -465,6 +532,11 @@
          "question": "Os números naturais ℕ são os números que possuem casas decimais?",
          "yesNoAnswer": "No",
          "additionalInfo": "Números naturais são os números que utilizamos normalmente em contagens de objetos. Em sua definição, eles não incluem números decimais sendo restrito somente a números inteiros que podem incluir o zero dependendo do pesquisador."
+      },
+      {
+         "question": "Os números racionais ℚ são números contínuos?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Números racionais não são contínuos, pois não expressam todos os números. A continuidade é conhecida através dos números reais."
       }
    ],
    "game_v2": null,
