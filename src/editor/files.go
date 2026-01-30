@@ -131,6 +131,12 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 	e.updateAtlasMenuItem(isAtlas)
 	e.updateTabTitle(doc)
 	e.updateStatus("Opened: " + filepath.Base(doc.filePath))
+
+	// Auto-open JSON editor for JSON documents
+	if e.isJSONDocument(doc) {
+		e.currentJSONDoc = doc
+		e.showJSONEditor()
+	}
 }
 
 func (e *TextEditor) saveFile() {
