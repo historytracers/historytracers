@@ -112,6 +112,16 @@ func (e *TextEditor) switchToTab(tabItem *container.TabItem) {
 			e.updateAtlasMenuItem(isAtlas)
 			e.updateTitle()
 			e.updateStatus("Switched to: " + e.getTabTitle(doc))
+
+			// Update JSON editor if it's open and document changed
+			if e.jsonEditorWindow != nil && e.currentJSONDoc != doc {
+				if e.isJSONDocument(doc) {
+					e.currentJSONDoc = doc
+					e.loadJSONEditorData()
+				} else {
+					e.jsonEditorWindow.Hide()
+				}
+			}
 			break
 		}
 	}
