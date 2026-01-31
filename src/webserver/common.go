@@ -224,7 +224,12 @@ func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
 		ret := fmt.Sprintf("%d%s", year, suffix)
 		return ret
 	}
-	ret := fmt.Sprintf("%s %s %d%s", dt.Day, month, year, suffix)
+	var ret string
+	if lang == "pt-BR" || lang == "es-ES" {
+		ret = fmt.Sprintf("%s de %s de %d%s", dt.Day, month, year, suffix)
+	} else {
+		ret = fmt.Sprintf("%s %s, %d%s", month, dt.Day, year, suffix)
+	}
 
 	return ret
 }
