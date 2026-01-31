@@ -47,50 +47,25 @@
    ],
    "common": [
       {
-         "text": "### ",
-         "source": [
-            {
-               "type": 3210,
-               "uuid": "Unique identifier (UUID) for the current citation.",
-               "text": "The accompanying text that will be displayed with the citation.",
-               "page": "The specific page in the publication where this information appears.",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2010",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": [
-            {
-               "type": "gregory",
-               "year": "2010",
-               "month": "",
-               "day": ""
-            },
-            {
-               "type": "unix",
-               "year": "",
-               "month": "",
-               "day": ""
-            },
-            {
-               "type": "julian",
-               "year": "",
-               "month": "",
-               "day": ""
-            }
-         ],
+         "text": "### Quem somos nós?\n\nApesar da pergunta parecer simples, uma resposta precisa exige conhecimento de diferentes áreas como matemática, história, física, biologia, psciologia, pscicanálise entre outras. Apesar de termos diferentes cientistas estudando e entendendo a cada dia quem somos e nossa origens, muitas vezes estas informações não chegam a todas as pessoas que devido seus afazeres diários.\n\nDiante deste cenários, façamos nossa primeira reflexão:",
+         "source": null,
+         "date_time": null,
          "isTable": false,
-         "imgdesc": "A description of an image included in the text.",
-         "format": "markdown or html",
-         "PostMention": "A character used after a mention to include citations."
+         "imgdesc": "",
+         "format": "markdown",
+         "PostMention": ""
+      },
+      {
+         "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Sobre árvores genealógicas</b><span id=\"myFirstReflection\"></span></div></div></center></p>",
+         "source": null,
+         "date_time": null,
+         "isTable": false,
+         "imgdesc": "",
+         "format": "html",
+         "PostMention": ""
       }
    ],
-   "prerequisites": [
-      "List of prerequisites needed to understand the text."
-   ],
+   "prerequisites": null,
    "gedcom": "gedcom/33c83383-b9b5-43ec-987d-68f027f342b2_pt-BR.ged",
    "csv": "csv/33c83383-b9b5-43ec-987d-68f027f342b2_pt-BR.csv",
    "version": 1,
@@ -98,255 +73,162 @@
    "type": "family_tree",
    "families": [
       {
-         "id": "Unique identifier for the family.",
-         "name": "Name displayed at the top of the page.",
+         "id": "a65d5e3e-6e0c-49c2-81a8-2a41b0883731",
+         "name": "Homo rudolfensis",
          "history": [
             {
-               "text": "A detailed description of the person's life history and marital status.",
+               "text": "Esta espécie existiu possivelmente no intervalo entre <htdate0> e <htdate1> (<htcite0>; <htcite1>), sendo portanto uma das espécies humanas mais antigas conhecidas de Homenídeo, como nós.\n\nEsta espécie foi também classificada como sendo de um *\"Homo primitivo\"*",
                "source": [
                   {
-                     "type": 3210,
-                     "uuid": "Unique identifier (UUID) for the current citation.",
-                     "text": "The accompanying text that will be displayed with the citation.",
-                     "page": "The specific page in the publication where this information appears.",
+                     "type": 1,
+                     "uuid": "75d196c9-1c1e-4106-bef5-ce8558d00d31",
+                     "text": "Tattersall, I., & Schwartz, J. H.",
+                     "page": "pp. 69 - 70",
                      "date_time": {
                         "type": "gregory",
                         "year": "2010",
                         "month": "",
                         "day": ""
                      }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "8a71ccc9-0f57-43a9-96ba-93d18d5846e1",
+                     "text": "Hitchcock, Don",
+                     "page": "Homo rudolfensis",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "date_time": [
-                  {
-                     "type": "gregory",
-                     "year": "2010",
-                     "month": "",
-                     "day": ""
-                  },
-                  {
-                     "type": "unix",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  },
-                  {
-                     "type": "julian",
-                     "year": "",
-                     "month": "",
-                     "day": ""
-                  }
+                    {
+                        "type": "gregory",
+                        "year": "-2500000",
+                        "month": "",
+                        "day": ""
+                    },
+                    {
+                        "type": "gregory",
+                        "year": "-1800000",
+                        "month": "",
+                        "day": ""
+                     }
                ],
                "isTable": false,
-               "imgdesc": "A description of an image included in the text.",
-               "format": "markdown or html",
-               "PostMention": "A character used after a mention to include citations."
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ],
          "people": [
             {
-               "id": "Unique identifier for the person.",
-               "name": "Name of the person.",
+               "id": "d6fd3be9-e1aa-420d-a797-d3ecaaf56f98",
+               "name": "Desconhecida",
                "surname": "",
                "patronymic": "",
                "fullname": "",
-               "sex": "The biological classification of a person.",
-               "gender": "The gender identity or social role adopted by a person.",
+               "sex": "feminino",
+               "gender": "feminino",
                "is_real": false,
-               "haplogroup": [
-                  {
-                     "type": "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
-                     "haplogroup": "The haplogroup value",
-                     "sources": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
-                     ]
-                  }
-               ],
+               "haplogroup": null,
                "history": [
                   {
-                     "text": "A detailed description of the person's life history and marital status.",
+                     "text": "Nosso conhecimento sobre esta pessoa está limitada aos registros fósseis devido a espécie ter exiistido a milhões de anos (<htcite0>; <htcite1>).\n\nPor desconhecermos qualquer relação social destes ancestrais longevos, escolhemos representar esta espécie através de uma mulher, por motivos que serão expostos na menção a nossa espécie, os *Homo sapiens* (<htcite2>).",
                      "source": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
+                  {
+                     "type": 1,
+                     "uuid": "75d196c9-1c1e-4106-bef5-ce8558d00d31",
+                     "text": "Tattersall, I., & Schwartz, J. H.",
+                     "page": "pp. 69 - 70",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "8a71ccc9-0f57-43a9-96ba-93d18d5846e1",
+                     "text": "Hitchcock, Don",
+                     "page": "Homo rudolfensis",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "8e1d53ee-6dc5-4f96-a04a-b119477ba0dd",
+                     "text": "Linné, Carl von",
+                     "page": "pp. 7, 20 - 24 ",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1758",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
                      ],
-                     "date_time": [
-                        {
-                           "type": "gregory",
-                           "year": "2010",
-                           "month": "",
-                           "day": ""
-                        },
-                        {
-                           "type": "unix",
-                           "year": "",
-                           "month": "",
-                           "day": ""
-                        },
-                        {
-                           "type": "julian",
-                           "year": "",
-                           "month": "",
-                           "day": ""
-                        }
-                     ],
+                     "date_time": null,
                      "isTable": false,
-                     "imgdesc": "A description of an image included in the text.",
-                     "format": "markdown or html",
-                     "PostMention": "A character used after a mention to include citations."
+                     "imgdesc": "",
+                     "format": "markdown",
+                     "PostMention": ""
                   }
                ],
                "parents": [
                   {
-                     "type": "theory or hypothesis",
-                     "father_external_family_file": false,
-                     "father_family": "Unique identifier for the father's family. It should match the family ID used here.",
-                     "father_id": "Unique identifier for the father.",
-                     "father_name": "Name of the father.",
+                     "type": "theory",
+                     7"father_external_family_file": false,
+                     "father_family": "",
+                     "father_id": "d9d81819-c2f7-481f-a847-548057c629ae",
+                     "father_name": "Desconhecido",
                      "mother_external_family_file": false,
-                     "mother_family": "Unique identifier for the mother's family.",
-                     "mother_id": "Unique identifier for the mother.",
-                     "mother_name": "Name of the mother."
+                     "mother_family": "",
+                     "mother_id": "9bc22818-a4e8-49fd-aa1b-c57e775d1eb4",
+                     "mother_name": "Desconhecida"
                   }
                ],
-               "birth": [
-                  {
-                     "date": [
-                        {
-                           "type": "gregory",
-                           "year": "2010",
-                           "month": "",
-                           "day": ""
-                        }
-                     ],
-                     "address": "The address where the marriage took place.",
-                     "city_id": "Lc841738c-130c-49a7",
-                     "city": "The city where the marriage occurred.",
-                     "state_id": "L06de17fc-eaee-4d77",
-                     "state": "The state where the marriage took place.",
-                     "pc": "The postal code of the marriage location.",
-                     "country_id": "Ld841ed4a-8511-4d23",
-                     "country": "The country where the marriage occurred.",
-                     "sources": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
-                     ]
-                  }
-               ],
-               "baptism": [
-                  {
-                     "date": [
-                        {
-                           "type": "gregory",
-                           "year": "2010",
-                           "month": "",
-                           "day": ""
-                        }
-                     ],
-                     "address": "The address where the marriage took place.",
-                     "city_id": "Lc841738c-130c-49a7",
-                     "city": "The city where the marriage occurred.",
-                     "state_id": "L06de17fc-eaee-4d77",
-                     "state": "The state where the marriage took place.",
-                     "pc": "The postal code of the marriage location.",
-                     "country_id": "Ld841ed4a-8511-4d23",
-                     "country": "The country where the marriage occurred.",
-                     "sources": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
-                     ]
-                  }
-               ],
+               "birth": null,
+               "baptism": null,
                "marriages": [
                   {
-                     "type": "theory or hypothesis",
-                     "id": "Unique identifier for the person.",
+                     "type": "theory",
+                     "id": "0c814db4-2f44-494a-a00b-e1fcd7721dfe",
                      "gedcom_id": "F0a19b665-0f29-47ed",
                      "official": true,
-                     "family_id": "Unique identifier for the family.",
+                     "family_id": "",
                      "external_family_file": false,
-                     "name": "Name of the spouse.",
+                     "name": "Desconhecido",
                      "history": [
                         {
-                           "text": "A detailed description of the person's life history and marital status.",
+                           "text": "Nossa existência comprova que esta espécie se relacionou. Além disto, podemos supor que devam ter tido uma família consanguínea (<htcite0>).",
                            "source": [
                               {
-                                 "type": 3210,
-                                 "uuid": "Unique identifier (UUID) for the current citation.",
-                                 "text": "The accompanying text that will be displayed with the citation.",
-                                 "page": "The specific page in the publication where this information appears.",
+                                 "type": 1,
+                                 "uuid": "ebf06437-05d8-4153-8faf-97aa6a4a9acb",
+                                 "text": "Engels, Frederick",
+                                 "page": "pp. 712 - 719",
                                  "date_time": {
                                     "type": "gregory",
-                                    "year": "2010",
+                                    "year": "1988",
                                     "month": "",
                                     "day": ""
                                  }
                               }
                            ],
-                           "date_time": [
-                              {
-                                 "type": "gregory",
-                                 "year": "2010",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "unix",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "julian",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              }
-                           ],
+                           "date_time": null,
                            "isTable": false,
-                           "imgdesc": "A description of an image included in the text.",
-                           "format": "markdown or html",
-                           "PostMention": "A character used after a mention to include citations."
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
                         }
                      ],
                      "date_time": {
@@ -366,102 +248,37 @@
                "divorced": null,
                "children": [
                   {
-                     "type": "theory or hypothesis",
-                     "id": "Unique identifier for the child.",
-                     "marriage_id": "Unique identifier for the marriage (parental connection).",
-                     "name": "Name of the child.",
-                     "family_id": "Unique identifier for the child's family, used if the child establishes a new family.",
+                     "type": "theory",
+                     "id": "a158bdc5-2d0c-452c-a9a0-000278454dbf",
+                     "marriage_id": "0c814db4-2f44-494a-a00b-e1fcd7721dfe",
+                     "name": "Desconhecida",
+                     "family_id": "a65d5e3e-6e0c-49c2-81a8-2a41b0883731",
                      "external_family_file": false,
                      "add_link": false,
                      "history": [
                         {
-                           "text": "A detailed description of the person's life history and marital status.",
-                           "source": [
-                              {
-                                 "type": 3210,
-                                 "uuid": "Unique identifier (UUID) for the current citation.",
-                                 "text": "The accompanying text that will be displayed with the citation.",
-                                 "page": "The specific page in the publication where this information appears.",
-                                 "date_time": {
-                                    "type": "gregory",
-                                    "year": "2010",
-                                    "month": "",
-                                    "day": ""
-                                 }
-                              }
-                           ],
-                           "date_time": [
-                              {
-                                 "type": "gregory",
-                                 "year": "2010",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "unix",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "julian",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              }
-                           ],
+                           "text": "Mais uma vez podemos concluir que existiu graças a nossa existência atualmente.",
+                           "source": null,
+                           "date_time": null,
                            "isTable": false,
-                           "imgdesc": "A description of an image included in the text.",
-                           "format": "markdown or html",
-                           "PostMention": "A character used after a mention to include citations."
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
                         }
                      ],
                      "adopted_child": false
                   }
                ],
-               "death": [
-                  {
-                     "date": [
-                        {
-                           "type": "gregory",
-                           "year": "2010",
-                           "month": "",
-                           "day": ""
-                        }
-                     ],
-                     "address": "The address where the marriage took place.",
-                     "city_id": "Lc841738c-130c-49a7",
-                     "city": "The city where the marriage occurred.",
-                     "state_id": "L06de17fc-eaee-4d77",
-                     "state": "The state where the marriage took place.",
-                     "pc": "The postal code of the marriage location.",
-                     "country_id": "Ld841ed4a-8511-4d23",
-                     "country": "The country where the marriage occurred.",
-                     "sources": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
-                     ]
-                  }
-               ]
+               "death": null
             }
          ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "question": "Sempre tivemos nomes como os dias de hoje?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Muito provavelmente isto não ocorreu. Considerando que a evolução nos proporcionou uma linha de raciocínio recentemente, possivelmente espécies como <i>Homo rudolfensis</i> não nomeavam seus filhos."
       }
    ],
    "date_time": null
