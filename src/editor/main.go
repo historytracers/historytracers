@@ -709,6 +709,7 @@ func (e *TextEditor) showJSONEditor() {
 
 func (e *TextEditor) loadJSONEditorData() {
 	if e.currentDoc == nil || e.currentDoc.content == nil {
+		e.disableAllFormFields()
 		return
 	}
 
@@ -717,33 +718,58 @@ func (e *TextEditor) loadJSONEditorData() {
 	// Try to parse as JSON
 	var jsonData interface{}
 	if err := json.Unmarshal([]byte(content), &jsonData); err != nil {
-		// Not valid JSON, just show raw content
+		// Not valid JSON, disable all header fields and just show raw content
+		e.disableAllFormFields()
 		e.jsonContentEntry.SetText(content)
 		return
 	}
 
 	// Extract headers based on JSON structure
 	if dataMap, ok := jsonData.(map[string]interface{}); ok {
-		// Parse headers
+		// Parse headers and enable/disable fields based on existence
 		if title, exists := dataMap["title"]; exists {
 			e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", title))
+			e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Enable()
+		} else {
+			e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Disable()
 		}
 		if header, exists := dataMap["header"]; exists {
 			e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", header))
+			e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Enable()
+		} else {
+			e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Disable()
 		}
 		if authors, exists := dataMap["authors"]; exists {
 			e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", authors))
+			e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).Enable()
+		} else {
+			e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).Disable()
 		}
 		if reviewers, exists := dataMap["reviewers"]; exists {
 			e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", reviewers))
+			e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).Enable()
+		} else {
+			e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).Disable()
 		}
 		if lastUpdate, exists := dataMap["last_update"]; exists {
 			if slice, ok := lastUpdate.([]interface{}); ok && len(slice) > 0 {
 				e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", slice[0]))
 			}
+			e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).Enable()
+		} else {
+			e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).Disable()
 		}
 		if version, exists := dataMap["version"]; exists {
 			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", version))
+			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Enable()
+		} else {
+			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Disable()
 		}
 		if license, exists := dataMap["license"]; exists {
 			if slice, ok := license.([]interface{}); ok {
@@ -756,6 +782,10 @@ func (e *TextEditor) loadJSONEditorData() {
 				}
 				e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).SetText(licenseText)
 			}
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Enable()
+		} else {
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Disable()
 		}
 		if sources, exists := dataMap["sources"]; exists {
 			if slice, ok := sources.([]interface{}); ok {
@@ -768,6 +798,10 @@ func (e *TextEditor) loadJSONEditorData() {
 				}
 				e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).SetText(sourcesText)
 			}
+			e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).Enable()
+		} else {
+			e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).Disable()
 		}
 		if scripts, exists := dataMap["scripts"]; exists {
 			if slice, ok := scripts.([]interface{}); ok {
@@ -780,6 +814,10 @@ func (e *TextEditor) loadJSONEditorData() {
 				}
 				e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).SetText(scriptsText)
 			}
+			e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).Enable()
+		} else {
+			e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).Disable()
 		}
 		if audio, exists := dataMap["audio"]; exists {
 			if slice, ok := audio.([]interface{}); ok {
@@ -792,11 +830,29 @@ func (e *TextEditor) loadJSONEditorData() {
 				}
 				e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).SetText(audioText)
 			}
+			e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).Enable()
+		} else {
+			e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).Disable()
 		}
+	} else {
+		// Valid JSON but not an object (e.g., array, string, etc.)
+		// Disable all header fields
+		e.disableAllFormFields()
 	}
 
 	// Show full JSON content
 	e.jsonContentEntry.SetText(content)
+}
+
+func (e *TextEditor) disableAllFormFields() {
+	if e.jsonHeadersForm == nil {
+		return
+	}
+	for i := 0; i < len(e.jsonHeadersForm.Items); i++ {
+		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).SetText("")
+		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).Disable()
+	}
 }
 
 func (e *TextEditor) saveJSONEditorChanges() {
