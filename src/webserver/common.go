@@ -1072,14 +1072,14 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 	if txt.Format == "html" {
 		ret := htChangeTag2Keywords(txt.Text)
 
-		htmlText = htOverwriteDates(ret, txt.FillDates, "", "", dateAbbreviation) + "<br />"
+		htmlText = htOverwriteDates(ret, txt.FillDates, "", lang, dateAbbreviation) + "<br />"
 	} else if txt.Format == "markdown" {
 		work := txt.Text
 		if len(txt.PostMention) > 0 {
 			work += txt.PostMention
 		}
 
-		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, "", dateAbbreviation)
+		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, lang, dateAbbreviation)
 		htmlText = htMarkdownToHTML(work) + "<br />"
 	} else {
 		htFormatNotExpected(txt.Format)
