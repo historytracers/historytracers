@@ -23,6 +23,7 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
+    htAddTreeReflection("#myFirstReflection", 55);
 
     return false;
 }
