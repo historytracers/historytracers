@@ -84,6 +84,12 @@ type TextEditor struct {
 	jsonHeadersForm        *widget.Form
 	jsonContentEntry       *widget.Entry
 	currentJSONDoc         *Document
+	authorsCombo           *widget.Select
+	reviewersCombo         *widget.Select
+	licenseCombo           *widget.Select
+	sourcesCombo           *widget.Select
+	scriptsCombo           *widget.Select
+	audioCombo             *widget.Select
 }
 
 func (e *TextEditor) findText() {
@@ -633,31 +639,186 @@ func (e *TextEditor) showJSONEditor() {
 	// Create headers form
 	titleEntry := widget.NewEntry()
 	headerEntry := widget.NewEntry()
-	authorsEntry := widget.NewEntry()
-	reviewersEntry := widget.NewEntry()
 	lastUpdateEntry := widget.NewDateEntry()
 	versionEntry := widget.NewEntry()
-	licenseEntry := widget.NewEntry()
-	licenseEntry.Wrapping = fyne.TextWrapWord
-	sourcesEntry := widget.NewEntry()
-	sourcesEntry.Wrapping = fyne.TextWrapWord
-	scriptsEntry := widget.NewEntry()
-	scriptsEntry.Wrapping = fyne.TextWrapWord
-	audioEntry := widget.NewEntry()
-	audioEntry.Wrapping = fyne.TextWrapWord
+
+	// Create combo boxes for array fields with add/remove buttons
+	e.authorsCombo = widget.NewSelect(nil, nil)
+	e.reviewersCombo = widget.NewSelect(nil, nil)
+	e.licenseCombo = widget.NewSelect(nil, nil)
+	e.sourcesCombo = widget.NewSelect(nil, nil)
+	e.scriptsCombo = widget.NewSelect(nil, nil)
+	e.audioCombo = widget.NewSelect(nil, nil)
+
+	authorsAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
+		entry := widget.NewEntry()
+		entry.SetPlaceHolder("Enter author...")
+		dialog.ShowCustomConfirm("Add Author", "Add", "Cancel", entry, func(confirmed bool) {
+			if confirmed && entry.Text != "" {
+				e.authorsCombo.Options = append(e.authorsCombo.Options, entry.Text)
+				e.authorsCombo.Refresh()
+			}
+		}, e.jsonEditorWindow)
+	})
+	authorsRemoveBtn := widget.NewButtonWithIcon("", theme.ContentRemoveIcon(), func() {
+		selected := e.authorsCombo.Selected
+		if selected != "" {
+			var newOptions []string
+			for _, opt := range e.authorsCombo.Options {
+				if opt != selected {
+					newOptions = append(newOptions, opt)
+				}
+			}
+			e.authorsCombo.Options = newOptions
+			e.authorsCombo.Selected = ""
+			e.authorsCombo.Refresh()
+		}
+	})
+
+	reviewersAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
+		entry := widget.NewEntry()
+		entry.SetPlaceHolder("Enter reviewer...")
+		dialog.ShowCustomConfirm("Add Reviewer", "Add", "Cancel", entry, func(confirmed bool) {
+			if confirmed && entry.Text != "" {
+				e.reviewersCombo.Options = append(e.reviewersCombo.Options, entry.Text)
+				e.reviewersCombo.Refresh()
+			}
+		}, e.jsonEditorWindow)
+	})
+	reviewersRemoveBtn := widget.NewButtonWithIcon("", theme.ContentRemoveIcon(), func() {
+		selected := e.reviewersCombo.Selected
+		if selected != "" {
+			var newOptions []string
+			for _, opt := range e.reviewersCombo.Options {
+				if opt != selected {
+					newOptions = append(newOptions, opt)
+				}
+			}
+			e.reviewersCombo.Options = newOptions
+			e.reviewersCombo.Selected = ""
+			e.reviewersCombo.Refresh()
+		}
+	})
+
+	licenseAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
+		entry := widget.NewEntry()
+		entry.SetPlaceHolder("Enter license...")
+		dialog.ShowCustomConfirm("Add License", "Add", "Cancel", entry, func(confirmed bool) {
+			if confirmed && entry.Text != "" {
+				e.licenseCombo.Options = append(e.licenseCombo.Options, entry.Text)
+				e.licenseCombo.Refresh()
+			}
+		}, e.jsonEditorWindow)
+	})
+	licenseRemoveBtn := widget.NewButtonWithIcon("", theme.ContentRemoveIcon(), func() {
+		selected := e.licenseCombo.Selected
+		if selected != "" {
+			var newOptions []string
+			for _, opt := range e.licenseCombo.Options {
+				if opt != selected {
+					newOptions = append(newOptions, opt)
+				}
+			}
+			e.licenseCombo.Options = newOptions
+			e.licenseCombo.Selected = ""
+			e.licenseCombo.Refresh()
+		}
+	})
+
+	sourcesAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
+		entry := widget.NewEntry()
+		entry.SetPlaceHolder("Enter source...")
+		dialog.ShowCustomConfirm("Add Source", "Add", "Cancel", entry, func(confirmed bool) {
+			if confirmed && entry.Text != "" {
+				e.sourcesCombo.Options = append(e.sourcesCombo.Options, entry.Text)
+				e.sourcesCombo.Refresh()
+			}
+		}, e.jsonEditorWindow)
+	})
+	sourcesRemoveBtn := widget.NewButtonWithIcon("", theme.ContentRemoveIcon(), func() {
+		selected := e.sourcesCombo.Selected
+		if selected != "" {
+			var newOptions []string
+			for _, opt := range e.sourcesCombo.Options {
+				if opt != selected {
+					newOptions = append(newOptions, opt)
+				}
+			}
+			e.sourcesCombo.Options = newOptions
+			e.sourcesCombo.Selected = ""
+			e.sourcesCombo.Refresh()
+		}
+	})
+
+	scriptsAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
+		entry := widget.NewEntry()
+		entry.SetPlaceHolder("Enter script...")
+		dialog.ShowCustomConfirm("Add Script", "Add", "Cancel", entry, func(confirmed bool) {
+			if confirmed && entry.Text != "" {
+				e.scriptsCombo.Options = append(e.scriptsCombo.Options, entry.Text)
+				e.scriptsCombo.Refresh()
+			}
+		}, e.jsonEditorWindow)
+	})
+	scriptsRemoveBtn := widget.NewButtonWithIcon("", theme.ContentRemoveIcon(), func() {
+		selected := e.scriptsCombo.Selected
+		if selected != "" {
+			var newOptions []string
+			for _, opt := range e.scriptsCombo.Options {
+				if opt != selected {
+					newOptions = append(newOptions, opt)
+				}
+			}
+			e.scriptsCombo.Options = newOptions
+			e.scriptsCombo.Selected = ""
+			e.scriptsCombo.Refresh()
+		}
+	})
+
+	audioAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
+		entry := widget.NewEntry()
+		entry.SetPlaceHolder("Enter audio URL...")
+		dialog.ShowCustomConfirm("Add Audio", "Add", "Cancel", entry, func(confirmed bool) {
+			if confirmed && entry.Text != "" {
+				e.audioCombo.Options = append(e.audioCombo.Options, entry.Text)
+				e.audioCombo.Refresh()
+			}
+		}, e.jsonEditorWindow)
+	})
+	audioRemoveBtn := widget.NewButtonWithIcon("", theme.ContentRemoveIcon(), func() {
+		selected := e.audioCombo.Selected
+		if selected != "" {
+			var newOptions []string
+			for _, opt := range e.audioCombo.Options {
+				if opt != selected {
+					newOptions = append(newOptions, opt)
+				}
+			}
+			e.audioCombo.Options = newOptions
+			e.audioCombo.Selected = ""
+			e.audioCombo.Refresh()
+		}
+	})
+
+	licenseContainer := container.NewHBox(e.licenseCombo, licenseAddBtn, licenseRemoveBtn)
+	sourcesContainer := container.NewHBox(e.sourcesCombo, sourcesAddBtn, sourcesRemoveBtn)
+	scriptsContainer := container.NewHBox(e.scriptsCombo, scriptsAddBtn, scriptsRemoveBtn)
+	audioContainer := container.NewHBox(e.audioCombo, audioAddBtn, audioRemoveBtn)
+	authorsContainer := container.NewHBox(e.authorsCombo, authorsAddBtn, authorsRemoveBtn)
+	reviewersContainer := container.NewHBox(e.reviewersCombo, reviewersAddBtn, reviewersRemoveBtn)
 
 	e.jsonHeadersForm = &widget.Form{
 		Items: []*widget.FormItem{
 			{Text: "Title", Widget: titleEntry},
 			{Text: "Header", Widget: headerEntry},
-			{Text: "Authors", Widget: authorsEntry},
-			{Text: "Reviewers", Widget: reviewersEntry},
+			{Text: "Authors", Widget: authorsContainer},
+			{Text: "Reviewers", Widget: reviewersContainer},
 			{Text: "Last Update", Widget: lastUpdateEntry},
 			{Text: "Version", Widget: versionEntry},
-			{Text: "License", Widget: licenseEntry},
-			{Text: "Sources", Widget: sourcesEntry},
-			{Text: "Scripts", Widget: scriptsEntry},
-			{Text: "Audio", Widget: audioEntry},
+			{Text: "License", Widget: licenseContainer},
+			{Text: "Sources", Widget: sourcesContainer},
+			{Text: "Scripts", Widget: scriptsContainer},
+			{Text: "Audio", Widget: audioContainer},
 		},
 	}
 
@@ -743,18 +904,28 @@ func (e *TextEditor) loadJSONEditorData() {
 			e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Disable()
 		}
 		if authors, exists := dataMap["authors"]; exists {
-			e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", authors))
-			e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).Enable()
+			if slice, ok := authors.([]interface{}); ok {
+				e.authorsCombo.Options = make([]string, 0, len(slice))
+				for _, item := range slice {
+					e.authorsCombo.Options = append(e.authorsCombo.Options, fmt.Sprintf("%v", item))
+				}
+			}
+			e.authorsCombo.Enable()
 		} else {
-			e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).SetText("")
-			e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).Disable()
+			e.authorsCombo.Options = nil
+			e.authorsCombo.Disable()
 		}
 		if reviewers, exists := dataMap["reviewers"]; exists {
-			e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", reviewers))
-			e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).Enable()
+			if slice, ok := reviewers.([]interface{}); ok {
+				e.reviewersCombo.Options = make([]string, 0, len(slice))
+				for _, item := range slice {
+					e.reviewersCombo.Options = append(e.reviewersCombo.Options, fmt.Sprintf("%v", item))
+				}
+			}
+			e.reviewersCombo.Enable()
 		} else {
-			e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).SetText("")
-			e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).Disable()
+			e.reviewersCombo.Options = nil
+			e.reviewersCombo.Disable()
 		}
 		if lastUpdate, exists := dataMap["last_update"]; exists {
 			if slice, ok := lastUpdate.([]interface{}); ok && len(slice) > 0 {
@@ -779,67 +950,51 @@ func (e *TextEditor) loadJSONEditorData() {
 		}
 		if license, exists := dataMap["license"]; exists {
 			if slice, ok := license.([]interface{}); ok {
-				licenseText := ""
+				e.licenseCombo.Options = make([]string, 0, len(slice))
 				for _, item := range slice {
-					if licenseText != "" {
-						licenseText += "\n"
-					}
-					licenseText += fmt.Sprintf("%v", item)
+					e.licenseCombo.Options = append(e.licenseCombo.Options, fmt.Sprintf("%v", item))
 				}
-				e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).SetText(licenseText)
 			}
-			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Enable()
+			e.licenseCombo.Enable()
 		} else {
-			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).SetText("")
-			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Disable()
+			e.licenseCombo.Options = nil
+			e.licenseCombo.Disable()
 		}
 		if sources, exists := dataMap["sources"]; exists {
 			if slice, ok := sources.([]interface{}); ok {
-				sourcesText := ""
+				e.sourcesCombo.Options = make([]string, 0, len(slice))
 				for _, item := range slice {
-					if sourcesText != "" {
-						sourcesText += "\n"
-					}
-					sourcesText += fmt.Sprintf("%v", item)
+					e.sourcesCombo.Options = append(e.sourcesCombo.Options, fmt.Sprintf("%v", item))
 				}
-				e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).SetText(sourcesText)
 			}
-			e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).Enable()
+			e.sourcesCombo.Enable()
 		} else {
-			e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).SetText("")
-			e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).Disable()
+			e.sourcesCombo.Options = nil
+			e.sourcesCombo.Disable()
 		}
 		if scripts, exists := dataMap["scripts"]; exists {
 			if slice, ok := scripts.([]interface{}); ok {
-				scriptsText := ""
+				e.scriptsCombo.Options = make([]string, 0, len(slice))
 				for _, item := range slice {
-					if scriptsText != "" {
-						scriptsText += "\n"
-					}
-					scriptsText += fmt.Sprintf("%v", item)
+					e.scriptsCombo.Options = append(e.scriptsCombo.Options, fmt.Sprintf("%v", item))
 				}
-				e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).SetText(scriptsText)
 			}
-			e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).Enable()
+			e.scriptsCombo.Enable()
 		} else {
-			e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).SetText("")
-			e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).Disable()
+			e.scriptsCombo.Options = nil
+			e.scriptsCombo.Disable()
 		}
 		if audio, exists := dataMap["audio"]; exists {
 			if slice, ok := audio.([]interface{}); ok {
-				audioText := ""
+				e.audioCombo.Options = make([]string, 0, len(slice))
 				for _, item := range slice {
-					if audioText != "" {
-						audioText += "\n"
-					}
-					audioText += fmt.Sprintf("%v", item)
+					e.audioCombo.Options = append(e.audioCombo.Options, fmt.Sprintf("%v", item))
 				}
-				e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).SetText(audioText)
 			}
-			e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).Enable()
+			e.audioCombo.Enable()
 		} else {
-			e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).SetText("")
-			e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).Disable()
+			e.audioCombo.Options = nil
+			e.audioCombo.Disable()
 		}
 	} else {
 		// Valid JSON but not an object (e.g., array, string, etc.)
@@ -855,10 +1010,26 @@ func (e *TextEditor) disableAllFormFields() {
 	if e.jsonHeadersForm == nil {
 		return
 	}
-	for i := 0; i < len(e.jsonHeadersForm.Items); i++ {
+	for i := 0; i < 2; i++ {
 		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).SetText("")
 		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).Disable()
 	}
+	e.authorsCombo.Options = nil
+	e.authorsCombo.Disable()
+	e.reviewersCombo.Options = nil
+	e.reviewersCombo.Disable()
+	for i := 4; i < 6; i++ {
+		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).SetText("")
+		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).Disable()
+	}
+	e.licenseCombo.Options = nil
+	e.licenseCombo.Disable()
+	e.sourcesCombo.Options = nil
+	e.sourcesCombo.Disable()
+	e.scriptsCombo.Options = nil
+	e.scriptsCombo.Disable()
+	e.audioCombo.Options = nil
+	e.audioCombo.Disable()
 }
 
 func (e *TextEditor) saveJSONEditorChanges() {
@@ -883,8 +1054,14 @@ func (e *TextEditor) saveJSONEditorChanges() {
 	// Update headers from form
 	jsonData["title"] = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
 	jsonData["header"] = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
-	jsonData["authors"] = e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).Text
-	jsonData["reviewers"] = e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).Text
+
+	if len(e.authorsCombo.Options) > 0 {
+		jsonData["authors"] = e.authorsCombo.Options
+	}
+
+	if len(e.reviewersCombo.Options) > 0 {
+		jsonData["reviewers"] = e.reviewersCombo.Options
+	}
 
 	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
 	if lastUpdateDate != nil {
@@ -899,52 +1076,20 @@ func (e *TextEditor) saveJSONEditorChanges() {
 		}
 	}
 
-	licenseText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
-	if licenseText != "" {
-		licenseLines := strings.Split(licenseText, "\n")
-		licenseArray := make([]string, 0, len(licenseLines))
-		for _, line := range licenseLines {
-			if strings.TrimSpace(line) != "" {
-				licenseArray = append(licenseArray, strings.TrimSpace(line))
-			}
-		}
-		jsonData["license"] = licenseArray
+	if len(e.licenseCombo.Options) > 0 {
+		jsonData["license"] = e.licenseCombo.Options
 	}
 
-	sourcesText := e.jsonHeadersForm.Items[7].Widget.(*widget.Entry).Text
-	if sourcesText != "" {
-		sourcesLines := strings.Split(sourcesText, "\n")
-		sourcesArray := make([]string, 0, len(sourcesLines))
-		for _, line := range sourcesLines {
-			if strings.TrimSpace(line) != "" {
-				sourcesArray = append(sourcesArray, strings.TrimSpace(line))
-			}
-		}
-		jsonData["sources"] = sourcesArray
+	if len(e.sourcesCombo.Options) > 0 {
+		jsonData["sources"] = e.sourcesCombo.Options
 	}
 
-	scriptsText := e.jsonHeadersForm.Items[8].Widget.(*widget.Entry).Text
-	if scriptsText != "" {
-		scriptsLines := strings.Split(scriptsText, "\n")
-		scriptsArray := make([]string, 0, len(scriptsLines))
-		for _, line := range scriptsLines {
-			if strings.TrimSpace(line) != "" {
-				scriptsArray = append(scriptsArray, strings.TrimSpace(line))
-			}
-		}
-		jsonData["scripts"] = scriptsArray
+	if len(e.scriptsCombo.Options) > 0 {
+		jsonData["scripts"] = e.scriptsCombo.Options
 	}
 
-	audioText := e.jsonHeadersForm.Items[9].Widget.(*widget.Entry).Text
-	if audioText != "" {
-		audioLines := strings.Split(audioText, "\n")
-		audioArray := make([]string, 0, len(audioLines))
-		for _, line := range audioLines {
-			if strings.TrimSpace(line) != "" {
-				audioArray = append(audioArray, strings.TrimSpace(line))
-			}
-		}
-		jsonData["audio"] = audioArray
+	if len(e.audioCombo.Options) > 0 {
+		jsonData["audio"] = e.audioCombo.Options
 	}
 
 	// Marshal back to JSON
