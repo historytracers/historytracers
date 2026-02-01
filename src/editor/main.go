@@ -22,6 +22,7 @@ import (
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 	. "github.com/historytracers/common"
+	"time"
 )
 
 type Document struct {
@@ -634,7 +635,7 @@ func (e *TextEditor) showJSONEditor() {
 	headerEntry := widget.NewEntry()
 	authorsEntry := widget.NewEntry()
 	reviewersEntry := widget.NewEntry()
-	lastUpdateEntry := widget.NewEntry()
+	lastUpdateEntry := widget.NewDateEntry()
 	versionEntry := widget.NewEntry()
 	licenseEntry := widget.NewEntry()
 	licenseEntry.Wrapping = fyne.TextWrapWord
@@ -757,12 +758,17 @@ func (e *TextEditor) loadJSONEditorData() {
 		}
 		if lastUpdate, exists := dataMap["last_update"]; exists {
 			if slice, ok := lastUpdate.([]interface{}); ok && len(slice) > 0 {
-				e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", slice[0]))
+				timestampStr := fmt.Sprintf("%v", slice[0])
+				timestamp, err := strconv.ParseInt(timestampStr, 10, 64)
+				if err == nil {
+					t := time.Unix(timestamp, 0)
+					e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).SetDate(&t)
+				}
 			}
-			e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).Enable()
+			e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Enable()
 		} else {
-			e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).SetText("")
-			e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).Disable()
+			e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).SetDate(nil)
+			e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Disable()
 		}
 		if version, exists := dataMap["version"]; exists {
 			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", version))
@@ -880,9 +886,10 @@ func (e *TextEditor) saveJSONEditorChanges() {
 	jsonData["authors"] = e.jsonHeadersForm.Items[2].Widget.(*widget.Entry).Text
 	jsonData["reviewers"] = e.jsonHeadersForm.Items[3].Widget.(*widget.Entry).Text
 
-	lastUpdateText := e.jsonHeadersForm.Items[4].Widget.(*widget.Entry).Text
-	if lastUpdateText != "" {
-		jsonData["last_update"] = []string{lastUpdateText}
+	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	if lastUpdateDate != nil {
+		timestamp := lastUpdateDate.Unix()
+		jsonData["last_update"] = []string{strconv.FormatInt(timestamp, 10)}
 	}
 
 	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
