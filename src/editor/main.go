@@ -641,6 +641,17 @@ func (e *TextEditor) showJSONEditor() {
 	headerEntry := widget.NewEntry()
 	lastUpdateEntry := widget.NewDateEntry()
 	versionEntry := widget.NewEntry()
+	versionEntry.OnChanged = func(text string) {
+		filtered := ""
+		for _, r := range text {
+			if r >= '0' && r <= '9' {
+				filtered += string(r)
+			}
+		}
+		if filtered != text {
+			versionEntry.SetText(filtered)
+		}
+	}
 
 	// Create combo boxes for array fields with add/remove buttons
 	e.authorsCombo = widget.NewSelect(nil, nil)
