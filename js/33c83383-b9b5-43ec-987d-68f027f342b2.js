@@ -24,6 +24,7 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
     htAddTreeReflection("#myFirstReflection", 55);
+    $("#htChinaZhongguo").html(keywords[137]);
 
     return false;
 }
