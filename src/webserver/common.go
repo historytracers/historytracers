@@ -874,6 +874,10 @@ func htReplaceAllExceptions(text string, lang string) string {
 		ret = strings.ReplaceAll(ret, letter, htConvertGreekLetter(letter, lang))
 	}
 
+	for _, mathSymbol := range []string{"ℕ", "ℤ", "ℚ", "ℝ", "ℂ", "ℙ", "ℕ₀", "ℕ*", "ℕ⁺"} {
+		ret = strings.ReplaceAll(ret, mathSymbol, "")
+	}
+
 	ret = htRemoveDuplicateParentheses(ret)
 
 	return ret
