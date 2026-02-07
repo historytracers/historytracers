@@ -30,6 +30,7 @@ Los siguientes subdirectorios están disponibles en este directorio:
 - `CreativeCommons`: Contiene imágenes originales de [Creative Commons](https://creativecommons.org/).
 - `Cuzco`: Contiene fotos tomadas durante un viaje a [Cuzco](https://www.peru.travel/es/destinos/cusco), Peru.
 - `DonsMaps`: Contiene imágenes originales de [Don's maps](https://donsmaps.com/).
+- `eLife`: Contiene imágenes originales de [Revista eLife](https://elifesciences.org/).
 - `ElSalvadorMuseo`: Contiene fotos tomadas durante una visita a [Museo Nacional de Antropología](https://www.cultura.gob.sv/marco-institucional/direccion-nacional-de-museos-y-salas-de-exposicion/museo-nacional-de-antropologia-muna/), El Salvador.
 - `ESA`: Contiene imágenes originales de la Agencia Espacial Europea [ESA](https://www.esa.int/).
 - `GuatemalaAntropologia`: Contiene fotos tomadas durante una visita a [Museo Nacional de Arqueología y Etnología](https://museosdeguatemala.org/museo/museo-nacional-de-arqueologia-y-etnologia/), Guatemala.
