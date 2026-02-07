@@ -246,7 +246,7 @@ func (e *TextEditor) setupUI() {
 
 func (e *TextEditor) createToolbar() *widget.Toolbar {
 	return widget.NewToolbar(
-		widget.NewToolbarAction(theme.DocumentCreateIcon(), e.newFile),
+		widget.NewToolbarAction(theme.DocumentCreateIcon(), e.showTemplateWindow),
 		widget.NewToolbarAction(theme.FolderOpenIcon(), e.openFile),
 		widget.NewToolbarAction(theme.DocumentSaveIcon(), e.saveFile),
 		widget.NewToolbarSeparator(),
