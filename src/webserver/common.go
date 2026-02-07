@@ -224,7 +224,12 @@ func htDateToString(dt *HTDate, lang string, dateAbbreviation bool) string {
 		ret := fmt.Sprintf("%d%s", year, suffix)
 		return ret
 	}
-	ret := fmt.Sprintf("%s %s %d%s", dt.Day, month, year, suffix)
+	var ret string
+	if lang == "pt-BR" || lang == "es-ES" {
+		ret = fmt.Sprintf("%s de %s de %d%s", dt.Day, month, year, suffix)
+	} else {
+		ret = fmt.Sprintf("%s %s, %d%s", month, dt.Day, year, suffix)
+	}
 
 	return ret
 }
@@ -869,6 +874,10 @@ func htReplaceAllExceptions(text string, lang string) string {
 		ret = strings.ReplaceAll(ret, letter, htConvertGreekLetter(letter, lang))
 	}
 
+	for _, mathSymbol := range []string{"ℕ", "ℤ", "ℚ", "ℝ", "ℂ", "ℙ", "ℕ₀", "ℕ*", "ℕ⁺"} {
+		ret = strings.ReplaceAll(ret, mathSymbol, "")
+	}
+
 	ret = htRemoveDuplicateParentheses(ret)
 
 	return ret
@@ -1072,14 +1081,14 @@ func htTextToHumanText(txt *HTText, lang string, dateAbbreviation bool) string {
 	if txt.Format == "html" {
 		ret := htChangeTag2Keywords(txt.Text)
 
-		htmlText = htOverwriteDates(ret, txt.FillDates, "", "", dateAbbreviation) + "<br />"
+		htmlText = htOverwriteDates(ret, txt.FillDates, "", lang, dateAbbreviation) + "<br />"
 	} else if txt.Format == "markdown" {
 		work := txt.Text
 		if len(txt.PostMention) > 0 {
 			work += txt.PostMention
 		}
 
-		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, "", dateAbbreviation)
+		work = htOverwriteDates(work, txt.FillDates, txt.PostMention, lang, dateAbbreviation)
 		htmlText = htMarkdownToHTML(work) + "<br />"
 	} else {
 		htFormatNotExpected(txt.Format)
