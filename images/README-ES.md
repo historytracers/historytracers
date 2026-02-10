@@ -29,6 +29,8 @@ Los siguientes subdirectorios están disponibles en este directorio:
 - `Copan`: Contiene fotos tomadas durante un viaje a [Copán](https://ihah.hn/parque-arqueologico-copan/), Honduras.
 - `CreativeCommons`: Contiene imágenes originales de [Creative Commons](https://creativecommons.org/).
 - `Cuzco`: Contiene fotos tomadas durante un viaje a [Cuzco](https://www.peru.travel/es/destinos/cusco), Peru.
+- `DonsMaps`: Contiene imágenes originales de [Don's maps](https://donsmaps.com/).
+- `eLife`: Contiene imágenes originales de [Revista eLife](https://elifesciences.org/).
 - `ElSalvadorMuseo`: Contiene fotos tomadas durante una visita a [Museo Nacional de Antropología](https://www.cultura.gob.sv/marco-institucional/direccion-nacional-de-museos-y-salas-de-exposicion/museo-nacional-de-antropologia-muna/), El Salvador.
 - `ESA`: Contiene imágenes originales de la Agencia Espacial Europea [ESA](https://www.esa.int/).
 - `GuatemalaAntropologia`: Contiene fotos tomadas durante una visita a [Museo Nacional de Arqueología y Etnología](https://museosdeguatemala.org/museo/museo-nacional-de-arqueologia-y-etnologia/), Guatemala.
@@ -44,6 +46,7 @@ Los siguientes subdirectorios están disponibles en este directorio:
 - `ResearchGate`: Contiene imágenes originales de [ResearchGate](http://researchgate.net/).
 - `SanJoseCRJade`: Contiene fotos tomadas durante una visita a [Museo de Jade](https://museodeljade.grupoins.com/?fbclid=PAZXh0bgNhZW0CMTEAAaedoThLrhTJOxtqMYovjhsiqnujApHqSSqGRYLyrikivkB37EdFS_zVQNt_jg_aem_S-2PICTiqbEfmGVkLFIdTA), Costa Rica.
 - `SanJoseCRMuseo`: Contiene fotos tomadas durante una visita a [Museo de Antropología de San José](https://www.museocostarica.go.cr/).
+- `TaiChimpanzeeProject`: Contiene imágenes originales de [Taï Chimpanzee Project](https://www.taichimpproject.org/).
 - `Teotihuacan`: Contiene fotos tomadas durante un viaje a [Teotihuacán](https://inah.gob.mx/zonas/23-zona-arqueologica-de-teotihuacan), México.
 - `Tikal`: Contiene fotos tomadas durante un viaje a [Tikal](https://tikalnationalpark.org/), Guatemala.
 - `Tula`: Contiene fotos tomadas durante un viaje a [Ciudad de Tula](https://inah.gob.mx/zonas/zona-arqueologica-y-museo-de-sitio-de-tula), México.

@@ -29,6 +29,8 @@ The following subdirectories are available in this directory:
 - `Copan`: Contains photos taken during a trip to [Copán](https://ihah.hn/parque-arqueologico-copan/), Honduras.
 - `CreativeCommons`: Contains original images from [Creative Commons](https://creativecommons.org/).
 - `Cuzco`: Contains photos taken during a trip to [Cuzco](https://www.peru.travel/es/destinos/cusco), Peru.
+- `DonsMaps`: Contains original images from [Don's maps](https://donsmaps.com/).
+- `eLife`: Contains original images from [eLife magazine](https://elifesciences.org/).
 - `ElSalvadorMuseo`: Contains photos taken during a visit to [Museo Nacional de Antropología](https://www.cultura.gob.sv/marco-institucional/direccion-nacional-de-museos-y-salas-de-exposicion/museo-nacional-de-antropologia-muna/), El Salvador.
 - `ESA`: Contains original images from European Space Agency [ESA](https://www.esa.int/).
 - `GuatemalaAntropologia`: Contains photos taken during a visit to [Museo Nacional de Arqueología y Etnología](https://museosdeguatemala.org/museo/museo-nacional-de-arqueologia-y-etnologia/), Guatemala.
@@ -44,6 +46,7 @@ The following subdirectories are available in this directory:
 - `ResearchGate`: Contains original images from [ResearchGate](http://researchgate.net/).
 - `SanJoseCRJade`: Contains photos taken during a visit to [Museo de Jade](https://museodeljade.grupoins.com/?fbclid=PAZXh0bgNhZW0CMTEAAaedoThLrhTJOxtqMYovjhsiqnujApHqSSqGRYLyrikivkB37EdFS_zVQNt_jg_aem_S-2PICTiqbEfmGVkLFIdTA), Costa Rica.
 - `SanJoseCRMuseo`: Contains original images from the [San José Museo de Antropología](https://www.museocostarica.go.cr/).
+- `TaiChimpanzeeProject`: Contains original images from [Taï Chimpanzee Project](https://www.taichimpproject.org/).
 - `Teotihuacan`: Contains photos taken during a trip to [Teotihuacán](https://inah.gob.mx/zonas/23-zona-arqueologica-de-teotihuacan), Mexico.
 - `Tikal`: Contains photos taken during a trip to [Tikal](https://tikalnationalpark.org/), Guatemala.
 - `Tula`: Contains photos taken during a trip to [Ciudad de Tula](https://inah.gob.mx/zonas/zona-arqueologica-y-museo-de-sitio-de-tula), Mexico.

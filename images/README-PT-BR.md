@@ -29,6 +29,8 @@ Os seguintes subdiretórios estão disponíveis neste diretório:
 - `Copan`: Contém fotos tiradas durante uma viagem a [Copán](https://ihah.hn/parque-arqueologico-copan/), Honduras.
 - `CreativeCommons`: Contém imagens originais da [Creative Commons](https://creativecommons.org/).
 - `Cuzco`: Contém fotos tiradas durante uma viagem a [Cuzco](https://www.peru.travel/es/destinos/cusco), Peru.
+- `DonsMaps`: Contém imagens originais de [Don's maps](https://donsmaps.com/).
+- `eLife`: Contém imagens originais de [Revista eLife](https://elifesciences.org/).
 - `ElSalvadorMuseo`: Contém fotos tiradas durante uma visita ao [Museo Nacional de Antropología](https://www.cultura.gob.sv/marco-institucional/direccion-nacional-de-museos-y-salas-de-exposicion/museo-nacional-de-antropologia-muna/) de El Salvador.
 - `ESA`: Contém imagens orignais da Agência Espacial Européia [ESA](https://www.esa.int/).
 - `GuatemalaAntropologia`: Contém fotos tiradas durante uma visita ao [Museo Nacional de Arqueología y Etnología](https://museosdeguatemala.org/museo/museo-nacional-de-arqueologia-y-etnologia/), Guatemala.
@@ -44,6 +46,7 @@ Os seguintes subdiretórios estão disponíveis neste diretório:
 - `ResearchGate`: Contém imagens originais do [ResearchGate](http://researchgate.net/).
 - `SanJoseCRJade`: Contém fotos tiradas durante uma visita ao [Museo de Jade](https://museodeljade.grupoins.com/?fbclid=PAZXh0bgNhZW0CMTEAAaedoThLrhTJOxtqMYovjhsiqnujApHqSSqGRYLyrikivkB37EdFS_zVQNt_jg_aem_S-2PICTiqbEfmGVkLFIdTA), Costa Rica.
 - `SanJoseCRMuseo`: Contém imagens originais do [Museu de Antropologia de San José](https://www.museocostarica.go.cr/).
+- `TaiChimpanzeeProject`: Contém imagens originais de [Taï Chimpanzee Project](https://www.taichimpproject.org/).
 - `Teotihuacan`: Contém fotos tiradas durante uma viagem a [Teotihuacán](https://inah.gob.mx/zonas/23-zona-arqueologica-de-teotihuacan), México.
 - `Tikal`: Contém fotos tiradas durante uma viagem a [Tikal](https://tikalnationalpark.org/), Guatemala.
 - `Tula`: Contém fotos tiradas durante uma viagem a [Ciudad de Tula](https://inah.gob.mx/zonas/zona-arqueologica-y-museo-de-sitio-de-tula), México.
