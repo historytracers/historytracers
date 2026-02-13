@@ -83,6 +83,7 @@ type TextEditor struct {
 	jsonEditorTabs         *container.AppTabs
 	jsonHeadersForm        *widget.Form
 	jsonContentEntry       *widget.Entry
+	jsonAdditionalEntry    *widget.Entry
 	currentJSONDoc         *Document
 	authorsCombo           *widget.Select
 	reviewersCombo         *widget.Select
@@ -618,6 +619,7 @@ func (e *TextEditor) showJSONEditor() {
 	if e.jsonEditorWindow != nil {
 		e.jsonEditorWindow.Show()
 		e.jsonEditorWindow.RequestFocus()
+		e.loadJSONEditorData()
 		return
 	}
 
@@ -841,9 +843,17 @@ func (e *TextEditor) showJSONEditor() {
 
 	contentScroll := container.NewScroll(e.jsonContentEntry)
 
+	// Create additional fields tab (for JSON parts not in Headers)
+	e.jsonAdditionalEntry = widget.NewEntry()
+	e.jsonAdditionalEntry.Wrapping = fyne.TextWrapWord
+	e.jsonAdditionalEntry.MultiLine = true
+	e.jsonAdditionalEntry.SetPlaceHolder("Additional JSON fields will appear here...")
+	additionalScroll := container.NewScroll(e.jsonAdditionalEntry)
+
 	// Create tabs
 	e.jsonEditorTabs = container.NewAppTabs(
 		container.NewTabItem("Headers", e.jsonHeadersForm),
+		container.NewTabItem("Additional", additionalScroll),
 		container.NewTabItem("Content", contentScroll),
 	)
 
@@ -894,6 +904,7 @@ func (e *TextEditor) loadJSONEditorData() {
 		// Not valid JSON, disable all header fields and just show raw content
 		e.disableAllFormFields()
 		e.jsonContentEntry.SetText(content)
+		e.jsonAdditionalEntry.SetText("")
 		return
 	}
 
@@ -1013,6 +1024,58 @@ func (e *TextEditor) loadJSONEditorData() {
 		e.disableAllFormFields()
 	}
 
+	// Extract additional fields based on template type
+	if dataMap, ok := jsonData.(map[string]interface{}); ok {
+		additionalFields := make(map[string]interface{})
+		headerFields := []string{"title", "header", "authors", "reviewers", "last_update", "version", "license", "sources", "scripts", "audio"}
+
+		// Detect template type and define additional fields
+		var templateType string
+		if t, exists := dataMap["type"]; exists {
+			templateType = fmt.Sprintf("%v", t)
+		}
+
+		var templateAdditionalFields []string
+		switch templateType {
+		case "family_tree":
+			templateAdditionalFields = []string{"families", "common", "gedcom", "csv", "documentsInfo", "periodOfTime", "maps", "prerequisites", "exercise_v2", "date_time"}
+		case "atlas":
+			templateAdditionalFields = []string{"atlas", "content"}
+		case "class":
+			templateAdditionalFields = []string{"content", "exercise_v2", "date_time", "index"}
+		default:
+			// For unknown types, extract all non-header fields
+			for k, v := range dataMap {
+				isHeaderField := false
+				for _, hf := range headerFields {
+					if k == hf {
+						isHeaderField = true
+						break
+					}
+				}
+				if !isHeaderField {
+					additionalFields[k] = v
+				}
+			}
+		}
+
+		// Extract template-specific fields
+		if len(templateAdditionalFields) > 0 {
+			for _, k := range templateAdditionalFields {
+				if v, exists := dataMap[k]; exists {
+					additionalFields[k] = v
+				}
+			}
+		}
+
+		if len(additionalFields) > 0 {
+			additionalJSON, _ := json.MarshalIndent(additionalFields, "", "  ")
+			e.jsonAdditionalEntry.SetText(string(additionalJSON))
+		} else {
+			e.jsonAdditionalEntry.SetText("{}")
+		}
+	}
+
 	// Show full JSON content
 	e.jsonContentEntry.SetText(content)
 }
@@ -1041,6 +1104,7 @@ func (e *TextEditor) disableAllFormFields() {
 	e.scriptsCombo.Disable()
 	e.audioCombo.Options = nil
 	e.audioCombo.Disable()
+	e.jsonAdditionalEntry.SetText("")
 }
 
 func (e *TextEditor) saveJSONEditorChanges() {
@@ -1101,6 +1165,17 @@ func (e *TextEditor) saveJSONEditorChanges() {
 
 	if len(e.audioCombo.Options) > 0 {
 		jsonData["audio"] = e.audioCombo.Options
+	}
+
+	// Merge additional fields
+	additionalText := e.jsonAdditionalEntry.Text
+	if additionalText != "" && additionalText != "{}" {
+		var additionalData map[string]interface{}
+		if err := json.Unmarshal([]byte(additionalText), &additionalData); err == nil {
+			for k, v := range additionalData {
+				jsonData[k] = v
+			}
+		}
 	}
 
 	// Marshal back to JSON
