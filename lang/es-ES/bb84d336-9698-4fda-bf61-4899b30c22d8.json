@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1770928760"
+      "1770991955"
    ],
    "authors": [
       ""
@@ -239,13 +239,77 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_circle",
+         "text": [
+            {
+               "text": "### Circulando\n\nPara realizar el paso de los grupos numéricos de la montaña sagrada mesoamericana al plano que representa una cocina Shona, debemos respetar algunas etapas realizadas anteriormente:\n- Los grupos numéricos mayores deben continuar englobando a los menores;\n- Los números irracionales precisan continuar aislados en una región específica;\n- Aún tenemos que respetar el hecho de que desconocemos algunos números que serán estudiados en los próximos capítulos.\n\nCon estas etapas definidas, ahora podemos volver al diagrama de la **Figura 2**, a fin de introducir los números dentro de la cocina Shona. Utilizaremos las paredes como un límite máximo para los números; como consecuencia, ellos se convierten en los números reales ℝ. Otro punto que debemos recordar en el diagrama son los límites internos que se definen, como la región donde está el fuego. Por ser esta la más interior, haremos de ella el conjunto de los números naturales ℕ. Y, entre los números naturales y el límite de los números reales, añadiremos regiones para los demás círculos, llegando al **Gráfico 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg fill=\"none\" stroke=\"black\" > <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <circle cx=\"153\" cy=\"75\" r=\"75\" fill=\"#b28a8a\"></circle> <circle cx=\"153\" cy=\"75\" r=\"55\" fill=\"#ac8761\"></circle> <circle cx=\"153\" cy=\"75\" r=\"30\" fill=\"#aa293d\"></circle> <circle cx=\"153\" cy=\"75\" r=\"20\" fill=\"#768976\"></circle>  <circle cx=\"112\" cy=\"60\" r=\"10\" fill=\"#4CAF50\"></circle> <text x=\"145\" y=\"80\" font-size=\"1.8em\">ℕ</text> <text x=\"178\" y=\"60\" font-size=\"1.8em\">ℚ</text> <text x=\"104\" y=\"65\" font-size=\"1.8em\">π</text> <text x=\"98\" y=\"35\" font-size=\"1.8em\">ℝ</text> </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representación de la relación entre los grupos numéricos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Con el **Gráfico 1** conteniendo los grupos numéricos, podemos observar las siguientes aproximaciones:\n- **Números Naturales (ℕ)**: Fueron colocados en el centro, representando la menor cantidad de números, a pesar de también tender al infinito (<htcite0>). Con esta aproximación, deseábamos mostrar que, a pesar de estar hablando del menor grupo de números, éste aún posee muchos elementos.\n- **La región roja**: No posee grupos numéricos directamente asociados, pues éstos aún serán estudiados en otros capítulos.\n- **Números Racionales (ℚ)**: En el **Gráfico 1**, la región amarilla, que representa los números racionales, parece aislada de las demás, pero ella no existiría sin las bases coloridas internas; es decir, al utilizarla, también utilizamos los números interiores a ella.\n- **Números irracionales**: Observe que fue insertado un círculo de color verde al mismo nivel de los números racionales, en el cual incluimos el número pi (π), indicando que allí se encuentran los números irracionales como él. A pesar de haber citado solo uno en *History Tracers*, otros aún serán estudiados.\n- **Números Reales (ℝ)**: Finalmente, colocamos los números reales en el círculo más externo, demostrando que ese grupo abarca todos los números ya estudiados y algunos que aún no hemos estudiado.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Límites naturales",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto aprendemos como geralmente números são representados em textos de matemática. Para isto, saímos de uma visão que tínhamos destes números através das construções mesoamericanas na veritical, passando pelo diagrama da cozinha Shona na África, e finalmente chegamos aos círculos normalmente utilizados.\n\nEstas etapas mostram que quando entendemos um conceito, ele pode ser generalizado de acordo com nossas necessidades.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "question": "Os números reais ℝ possuem um significado diferente quando o colocamos em círculos ao invés de montanhas sagradas?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Os números reais possuem o mesmo significado, independente da figura que desejamos atribuir a ele."
+      },
+      {
+         "question": "A representação em círculos é a única possível de se aceitar para grupos numéricos?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Limitar o entendimento a um único exemplo pode criar mais dificuldades que auxiliar pessoas a a aprender um determinado conteúdo."
       }
    ],
    "game_v2": null,
