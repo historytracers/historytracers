@@ -44,6 +44,7 @@ Os seguintes subdiretórios estão disponíveis neste diretório:
 - `Nature`: Contém imagens originais da [Nature Open Access](https://www.nature.com/nature-portfolio/open-access).
 - `PeruPucllana`: Contém fotos tiradas durante uma visita a [Sítio de Pucllana](http://researchgate.net/), Peru.
 - `ResearchGate`: Contém imagens originais do [ResearchGate](http://researchgate.net/).
+- `Sadomba`: Contém imagens originais do artigo do Dr. Zvakanyorwa Wilbert Sadomba [Zvakanyorwa Wilbert Sadomba (2024)](https://journalofmathematicsandculture.wordpress.com/wp-content/uploads/2024/08/17-sadomba.pdf).
 - `SanJoseCRJade`: Contém fotos tiradas durante uma visita ao [Museo de Jade](https://museodeljade.grupoins.com/?fbclid=PAZXh0bgNhZW0CMTEAAaedoThLrhTJOxtqMYovjhsiqnujApHqSSqGRYLyrikivkB37EdFS_zVQNt_jg_aem_S-2PICTiqbEfmGVkLFIdTA), Costa Rica.
 - `SanJoseCRMuseo`: Contém imagens originais do [Museu de Antropologia de San José](https://www.museocostarica.go.cr/).
 - `TaiChimpanzeeProject`: Contém imagens originais de [Taï Chimpanzee Project](https://www.taichimpproject.org/).
