@@ -1449,7 +1449,7 @@
                      "name": "Li Xian (李顯)",
                      "family_id": "aac00dab-9201-418f-8997-5b7150de3035",
                      "external_family_file": false,
-                     "add_link": false,
+                     "add_link": true,
                      "history": [
                         {
                            "text": "De acordo com informações da *World History Encyclopedia* (<htcite0>).",
@@ -1610,6 +1610,202 @@
                               "day": "1"
                            }
                         }
+                     ]
+                  }
+               ]
+            },
+            {
+               "id": "19ba71c0-4cf2-4092-9316-6eba39da7ed9",
+               "name": "Li Xian (李顯)",
+               "surname": "Li",
+               "patronymic": "",
+               "fullname": "Li Xian (李顯)",
+               "sex": "masculino",
+               "gender": "masculino",
+               "is_real": true,
+               "haplogroup": null,
+               "history": [
+                  {
+                     "text": "A detailed description of the person's life history and marital status.",
+                     "source": [
+                     ],
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "2010",
+                           "month": "",
+                           "day": ""
+                        },
+                        {
+                           "type": "unix",
+                           "year": "",
+                           "month": "",
+                           "day": ""
+                        },
+                        {
+                           "type": "julian",
+                           "year": "",
+                           "month": "",
+                           "day": ""
+                        }
+                     ],
+                     "isTable": false,
+                     "imgdesc": "",
+                     "format": "markdown",
+                     "PostMention": ""
+                  }
+               ],
+               "parents": [
+                  {
+                     "type": "theory",
+                     "father_external_family_file": false,
+                     "father_family": "aac00dab-9201-418f-8997-5b7150de3035",
+                     "father_id": "61312414-3632-4a70-b19f-5093c8026a42",
+                     "father_name": "Li Zhi (李治)",
+                     "mother_external_family_file": true,
+                     "mother_family": "f2eccef4-4a0c-44c7-a64b-1b72d1a5a78f",
+                     "mother_id": "ff76cad8-9368-4a23-ad62-71335abc2595",
+                     "mother_name": "Wu Zetian (武則天)"
+                  }
+               ],
+               "birth": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "653",
+                           "month": "",
+                           "day": ""
+                        }
+                     ],
+                     "address": "",
+                     "city_id": "",
+                     "city": "",
+                     "state_id": "",
+                     "state": "",
+                     "pc": "",
+                     "country_id": "L4ba64989-bee8-432c",
+                     "country": "China (Zhongguo 中國)",
+                     "sources": [
+                              {
+                                 "type": 1,
+                                 "uuid": "64961bd5-4418-4c44-a1dd-8b9d247619dc",
+                                 "text": "Mark, E.",
+                                 "page": "Wu Zetian",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2016",
+                                    "month": "03",
+                                    "day": "17"
+                                 }
+                              }
+                     ]
+                  }
+               ],
+               "baptism": null,
+               "marriages": [
+                  {
+                     "type": "theory",
+                     "id": "efef5f13-894e-4642-9ee7-c6231d109c61",
+                     "gedcom_id": "",
+                     "official": true,
+                     "family_id": "",
+                     "external_family_file": false,
+                     "name": "Wei (韋)",
+                     "history": [
+                        {
+                           "text": "De acordo com diferentes fontes (<htcite0>; <htcite1>).",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "64961bd5-4418-4c44-a1dd-8b9d247619dc",
+                                 "text": "Mark, E.",
+                                 "page": "Wu Zetian",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2016",
+                                    "month": "03",
+                                    "day": "17"
+                                 }
+                              },
+                              {
+                                 "type": 1,
+                                 "uuid": "bcd7d569-3d94-4630-8881-f5fb7cb531c9",
+                                 "text": "Jinhua, C.",
+                                 "page": "pp. 128",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
+                           "date_time": null,
+                           "isTable": false,
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
+                        }
+                     ],
+                     "date_time": {
+                        "date": null,
+                        "address": "",
+                        "city_id": "",
+                        "city": "",
+                        "state_id": "",
+                        "state": "",
+                        "pc": "",
+                        "country_id": "",
+                        "country": "",
+                        "sources": null
+                     }
+                  }
+               ],
+               "divorced": null,
+               "children": [
+                  {
+                     "type": "theory",
+                     "id": "c26d7ab6-28fb-45ac-a829-61e6282fb160",
+                     "marriage_id": "efef5f13-894e-4642-9ee7-c6231d109c61",
+                     "name": "",
+                     "family_id": "aac00dab-9201-418f-8997-5b7150de3035",
+                     "external_family_file": false,
+                     "add_link": false,
+                     "history": [
+                        {
+                           "text": "A detailed description of the person's life history and marital status.",
+                           "source": [
+                           ],
+                           "date_time": null,
+                           "isTable": false,
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
+                        }
+                     ],
+                     "adopted_child": false
+                  }
+               ],
+               "death": [
+                  {
+                     "date": [
+                        {
+                           "type": "gregory",
+                           "year": "710",
+                           "month": "",
+                           "day": ""
+                        }
+                     ],
+                     "address": "",
+                     "city_id": "",
+                     "city": "",
+                     "state_id": "",
+                     "state": "",
+                     "pc": "",
+                     "country_id": "L4ba64989-bee8-432c",
+                     "country": "China (Zhongguo 中國)",
+                     "sources": [
                      ]
                   }
                ]
