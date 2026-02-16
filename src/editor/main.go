@@ -1112,8 +1112,28 @@ func (e *TextEditor) saveJSONEditorChanges() {
 		return
 	}
 
-	// Get current content and parse as JSON
 	content := e.currentDoc.content.Text
+
+	if e.isAtlasDocument(e.currentDoc) {
+		e.saveAtlasDocument()
+		return
+	}
+
+	if e.isClassDocument(e.currentDoc) {
+		e.saveClassDocument()
+		return
+	}
+
+	if e.isFamilyDocument(e.currentDoc) {
+		e.saveFamilyDocument()
+		return
+	}
+
+	if e.isSourceDocument(e.currentDoc) {
+		e.saveSourceDocument()
+		return
+	}
+
 	var jsonData map[string]interface{}
 
 	if err := json.Unmarshal([]byte(content), &jsonData); err != nil {
@@ -1258,6 +1278,269 @@ func (e *TextEditor) isAtlasDocument(doc *Document) bool {
 	content := doc.content.Text
 	re := regexp.MustCompile(`"atlas"\s*:`)
 	return re.MatchString(content)
+}
+
+func (e *TextEditor) isClassDocument(doc *Document) bool {
+	if doc == nil || doc.content == nil {
+		return false
+	}
+	content := doc.content.Text
+	re := regexp.MustCompile(`"type"\s*:\s*"class"`)
+	return re.MatchString(content)
+}
+
+func (e *TextEditor) isSourceDocument(doc *Document) bool {
+	if doc == nil || doc.content == nil {
+		return false
+	}
+	content := doc.content.Text
+	re := regexp.MustCompile(`"type"\s*:\s*"sources"`)
+	return re.MatchString(content)
+}
+
+func (e *TextEditor) saveAtlasDocument() {
+	content := e.currentDoc.content.Text
+
+	var atlasData AtlasTemplateFile
+	if err := json.Unmarshal([]byte(content), &atlasData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to parse atlas JSON: %v", err), e.window)
+		return
+	}
+
+	atlasData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
+	atlasData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
+	atlasData.Authors = e.authorsCombo.Options
+	atlasData.Reviewers = e.reviewersCombo.Options
+
+	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	if lastUpdateDate != nil {
+		atlasData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
+	}
+
+	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	if versionText != "" {
+		if version, err := strconv.Atoi(versionText); err == nil {
+			atlasData.Version = version
+		}
+	}
+
+	atlasData.License = e.licenseCombo.Options
+	atlasData.Sources = e.sourcesCombo.Options
+	atlasData.Scripts = e.scriptsCombo.Options
+
+	audioOptions := make([]HTAudio, len(e.audioCombo.Options))
+	for i, opt := range e.audioCombo.Options {
+		audioOptions[i] = HTAudio{URL: opt, External: true, Spotify: false}
+	}
+	atlasData.Audio = audioOptions
+
+	additionalText := e.jsonAdditionalEntry.Text
+	if additionalText != "" && additionalText != "{}" {
+		var additionalData map[string]interface{}
+		if err := json.Unmarshal([]byte(additionalText), &additionalData); err == nil {
+			if atlasData.Atlas == nil {
+				atlasData.Atlas = []AtlasTemplateContent{}
+			}
+			for k, v := range additionalData {
+				switch k {
+				case "atlas":
+					if atlasArr, ok := v.([]interface{}); ok {
+						atlasData.Atlas = nil
+						for _, item := range atlasArr {
+							if itemMap, ok := item.(map[string]interface{}); ok {
+								entry := AtlasTemplateContent{}
+								if v, ok := itemMap["uuid"].(string); ok {
+									entry.ID = v
+								}
+								if v, ok := itemMap["image"].(string); ok {
+									entry.Image = v
+								}
+								if v, ok := itemMap["author"].(string); ok {
+									entry.Author = v
+								}
+								if v, ok := itemMap["index"].(string); ok {
+									entry.Index = v
+								}
+								if v, ok := itemMap["audio"].(string); ok {
+									entry.Audio = v
+								}
+								atlasData.Atlas = append(atlasData.Atlas, entry)
+							}
+						}
+					}
+				default:
+				}
+			}
+		}
+	}
+
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+
+	if err := encoder.Encode(atlasData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to encode JSON: %v", err), e.window)
+		return
+	}
+
+	jsonStr := strings.TrimSuffix(buf.String(), "\n")
+	e.currentDoc.content.SetText(jsonStr)
+	e.currentDoc.isModified = true
+	e.updateTabTitle(e.currentDoc)
+	e.updateTitle()
+
+	e.jsonEditorWindow.Hide()
+}
+
+func (e *TextEditor) saveClassDocument() {
+	content := e.currentDoc.content.Text
+
+	var classData ClassTemplateFile
+	if err := json.Unmarshal([]byte(content), &classData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to parse class JSON: %v", err), e.window)
+		return
+	}
+
+	classData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
+	classData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
+	classData.Authors = e.authorsCombo.Options
+	classData.Reviewers = e.reviewersCombo.Options
+
+	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	if lastUpdateDate != nil {
+		classData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
+	}
+
+	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	if versionText != "" {
+		if version, err := strconv.Atoi(versionText); err == nil {
+			classData.Version = version
+		}
+	}
+
+	classData.License = e.licenseCombo.Options
+	classData.Sources = e.sourcesCombo.Options
+	classData.Scripts = e.scriptsCombo.Options
+
+	classAudioOptions := make([]HTAudio, len(e.audioCombo.Options))
+	for i, opt := range e.audioCombo.Options {
+		classAudioOptions[i] = HTAudio{URL: opt, External: true, Spotify: false}
+	}
+	classData.Audio = classAudioOptions
+
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+
+	if err := encoder.Encode(classData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to encode JSON: %v", err), e.window)
+		return
+	}
+
+	jsonStr := strings.TrimSuffix(buf.String(), "\n")
+	e.currentDoc.content.SetText(jsonStr)
+	e.currentDoc.isModified = true
+	e.updateTabTitle(e.currentDoc)
+	e.updateTitle()
+
+	e.jsonEditorWindow.Hide()
+}
+
+func (e *TextEditor) saveFamilyDocument() {
+	content := e.currentDoc.content.Text
+
+	var familyData Family
+	if err := json.Unmarshal([]byte(content), &familyData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to parse family JSON: %v", err), e.window)
+		return
+	}
+
+	familyData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
+	familyData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
+
+	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	if lastUpdateDate != nil {
+		familyData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
+	}
+
+	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	if versionText != "" {
+		if version, err := strconv.Atoi(versionText); err == nil {
+			familyData.Version = version
+		}
+	}
+
+	familyData.License = e.licenseCombo.Options
+	familyData.Sources = e.sourcesCombo.Options
+	familyData.Scripts = e.scriptsCombo.Options
+
+	familyAudioOptions := make([]HTAudio, len(e.audioCombo.Options))
+	for i, opt := range e.audioCombo.Options {
+		familyAudioOptions[i] = HTAudio{URL: opt, External: true, Spotify: false}
+	}
+	familyData.Audio = familyAudioOptions
+
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+
+	if err := encoder.Encode(familyData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to encode JSON: %v", err), e.window)
+		return
+	}
+
+	jsonStr := strings.TrimSuffix(buf.String(), "\n")
+	e.currentDoc.content.SetText(jsonStr)
+	e.currentDoc.isModified = true
+	e.updateTabTitle(e.currentDoc)
+	e.updateTitle()
+
+	e.jsonEditorWindow.Hide()
+}
+
+func (e *TextEditor) saveSourceDocument() {
+	content := e.currentDoc.content.Text
+
+	var sourceData HTSourceFile
+	if err := json.Unmarshal([]byte(content), &sourceData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to parse source JSON: %v", err), e.window)
+		return
+	}
+
+	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	if lastUpdateDate != nil {
+		sourceData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
+	}
+
+	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	if versionText != "" {
+		if version, err := strconv.Atoi(versionText); err == nil {
+			sourceData.Version = version
+		}
+	}
+
+	sourceData.License = e.licenseCombo.Options
+
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+
+	if err := encoder.Encode(sourceData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to encode JSON: %v", err), e.window)
+		return
+	}
+
+	jsonStr := strings.TrimSuffix(buf.String(), "\n")
+	e.currentDoc.content.SetText(jsonStr)
+	e.currentDoc.isModified = true
+	e.updateTabTitle(e.currentDoc)
+	e.updateTitle()
+
+	e.jsonEditorWindow.Hide()
 }
 
 func (e *TextEditor) updateFamilyMenuItems(isFamily bool) {
