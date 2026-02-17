@@ -25,6 +25,28 @@ import (
 	"time"
 )
 
+func htFilterEmptyStrings(slice []string) []string {
+	var result []string
+	for _, s := range slice {
+		if s != "" {
+			result = append(result, s)
+		}
+	}
+	return result
+}
+
+func htShouldClearEmptyValues(slice []string) bool {
+	if len(slice) == 0 {
+		return false
+	}
+	for _, s := range slice {
+		if s != "" {
+			return false
+		}
+	}
+	return true
+}
+
 type Document struct {
 	content         *widget.Entry
 	filePath        string
@@ -668,7 +690,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter author...")
 		dialog.ShowCustomConfirm("Add Author", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.authorsCombo.Options = append(e.authorsCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.authorsCombo.Options) {
+					e.authorsCombo.Options = []string{entry.Text}
+				} else {
+					e.authorsCombo.Options = append(e.authorsCombo.Options, entry.Text)
+				}
 				e.authorsCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -693,7 +719,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter reviewer...")
 		dialog.ShowCustomConfirm("Add Reviewer", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.reviewersCombo.Options = append(e.reviewersCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.reviewersCombo.Options) {
+					e.reviewersCombo.Options = []string{entry.Text}
+				} else {
+					e.reviewersCombo.Options = append(e.reviewersCombo.Options, entry.Text)
+				}
 				e.reviewersCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -718,7 +748,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter license...")
 		dialog.ShowCustomConfirm("Add License", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.licenseCombo.Options = append(e.licenseCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.licenseCombo.Options) {
+					e.licenseCombo.Options = []string{entry.Text}
+				} else {
+					e.licenseCombo.Options = append(e.licenseCombo.Options, entry.Text)
+				}
 				e.licenseCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -743,7 +777,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter source...")
 		dialog.ShowCustomConfirm("Add Source", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.sourcesCombo.Options = append(e.sourcesCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.sourcesCombo.Options) {
+					e.sourcesCombo.Options = []string{entry.Text}
+				} else {
+					e.sourcesCombo.Options = append(e.sourcesCombo.Options, entry.Text)
+				}
 				e.sourcesCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -768,7 +806,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter script...")
 		dialog.ShowCustomConfirm("Add Script", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.scriptsCombo.Options = append(e.scriptsCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.scriptsCombo.Options) {
+					e.scriptsCombo.Options = []string{entry.Text}
+				} else {
+					e.scriptsCombo.Options = append(e.scriptsCombo.Options, entry.Text)
+				}
 				e.scriptsCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -793,7 +835,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter audio URL...")
 		dialog.ShowCustomConfirm("Add Audio", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.audioCombo.Options = append(e.audioCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.audioCombo.Options) {
+					e.audioCombo.Options = []string{entry.Text}
+				} else {
+					e.audioCombo.Options = append(e.audioCombo.Options, entry.Text)
+				}
 				e.audioCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
