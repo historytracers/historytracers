@@ -1054,13 +1054,14 @@ function htFillDivTree(divID, personID, type)
 
 function htMountPersonEvent(name, data, localLang, localCalendar) {
     var ret = "<b>"+name+"</b> ";
+    var counter = 0;
     for (const i in data) {
         var ptr = data[i];
         if (!ptr.date_time && !ptr.date) {
             continue;
         }
 
-        if (i) {
+        if (counter) {
             ret += " "+keywords[91]+" ";
         }
         const selDate = (ptr.date != undefined) ? ptr.date : ptr.date_time;
@@ -1078,6 +1079,7 @@ function htMountPersonEvent(name, data, localLang, localCalendar) {
         }
 
         ret += ")";
+        counter++;
     }
     return ret;
 }
