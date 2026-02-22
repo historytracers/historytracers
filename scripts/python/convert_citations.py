@@ -53,6 +53,42 @@ def find_json_citations(text: str) -> List[str]:
     matches = re.findall(pattern, text)
     return matches
 
+def find_htdate_tags(text: str) -> List[str]:
+    """
+    Find HTDate tags in text.
+    
+    Args:
+        text: String containing HTDate tags
+        
+    Returns:
+        List of date tag numbers found
+    """
+    pattern = r"<htdate(\d+)>"
+    matches = re.findall(pattern, text)
+    return matches
+
+def process_source_text(display_text: str) -> Tuple[str, str]:
+    """
+    Process display text: remove htdate tags and split by comma.
+    
+    Args:
+        display_text: The raw display text from HTML citation
+        
+    Returns:
+        Tuple of (processed_text, page)
+    """
+    # Remove htdateX tags
+    text = re.sub(r'<htdate\d+>', '', display_text)
+    
+    # Split by comma - text after comma goes to page
+    page = ""
+    if ',' in text:
+        parts = text.split(',', 1)
+        text = parts[0].strip()
+        page = parts[1].strip().replace(',', '')
+    
+    return text, page
+
 def convert_text_citations(text: str, citation_mapping: Dict[str, int]) -> str:
     """
     Convert HTML citations in text to JSON format using a mapping.
@@ -224,11 +260,17 @@ def analyze_file(filepath: str, source_mapping: Optional[Dict[str, Dict[str, Any
         citation_mapping = {uuid: i for i, uuid in enumerate(sorted(all_uuids))}
         
         # Create HTSource objects for each UUID
+        # Collect display text from HTML citations to use as the text field
+        uuid_to_display_text = {}
+        for citation_info in citations_found:
+            for uuid, display_text in citation_info['html_citations']:
+                if uuid not in uuid_to_display_text:
+                    uuid_to_display_text[uuid] = display_text
+        
         sources_to_add = []
         for uuid in sorted(all_uuids):
             if source_mapping and uuid in source_mapping:
                 source_info = source_mapping[uuid]
-                # Create HTSource object matching the Go struct
                 # Parse date if available, otherwise use default
                 date_time_value = source_info.get('date_time', '')
                 date_time_obj = {
@@ -248,21 +290,27 @@ def analyze_file(filepath: str, source_mapping: Optional[Dict[str, Dict[str, Any
                     if len(date_parts) >= 3 and date_parts[2].isdigit():
                         date_time_obj["day"] = date_parts[2]
                 
+                # Use display text from HTML citation, not from source file
+                # Process: remove htdate tags and split by comma
+                display_text = uuid_to_display_text.get(uuid, f"Source {uuid[:8]}...")
+                processed_text, page_value = process_source_text(display_text)
                 ht_source = {
                     "type": 0,  # Default type
                     "uuid": uuid,
-                    "text": source_info.get('citation', f"Source {uuid}"),
-                    "page": source_info.get('published', ''),
+                    "text": processed_text,
+                    "page": page_value,
                     "date_time": date_time_obj
                 }
                 sources_to_add.append(ht_source)
             else:
                 # Create minimal HTSource for unknown UUID
+                display_text = uuid_to_display_text.get(uuid, f"Unknown source {uuid[:8]}...")
+                processed_text, page_value = process_source_text(display_text)
                 ht_source = {
                     "type": 0,
                     "uuid": uuid,
-                    "text": f"Unknown source {uuid[:8]}...",
-                    "page": "",
+                    "text": processed_text,
+                    "page": page_value,
                     "date_time": {
                         "type": "gregory",
                         "year": "-1",
