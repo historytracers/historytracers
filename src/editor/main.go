@@ -113,6 +113,7 @@ type TextEditor struct {
 	sourcesCombo           *widget.Select
 	scriptsCombo           *widget.Select
 	audioCombo             *widget.Select
+	indexCombo             *widget.Select
 }
 
 func (e *TextEditor) findText() {
@@ -684,6 +685,7 @@ func (e *TextEditor) showJSONEditor() {
 	e.sourcesCombo = widget.NewSelect(nil, nil)
 	e.scriptsCombo = widget.NewSelect(nil, nil)
 	e.audioCombo = widget.NewSelect(nil, nil)
+	e.indexCombo = widget.NewSelect(nil, nil)
 
 	authorsAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
 		entry := widget.NewEntry()
@@ -859,17 +861,48 @@ func (e *TextEditor) showJSONEditor() {
 		}
 	})
 
+	indexAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
+		entry := widget.NewEntry()
+		entry.SetPlaceHolder("Enter index value...")
+		dialog.ShowCustomConfirm("Add Index", "Add", "Cancel", entry, func(confirmed bool) {
+			if confirmed && entry.Text != "" {
+				if htShouldClearEmptyValues(e.indexCombo.Options) {
+					e.indexCombo.Options = []string{entry.Text}
+				} else {
+					e.indexCombo.Options = append(e.indexCombo.Options, entry.Text)
+				}
+				e.indexCombo.Refresh()
+			}
+		}, e.jsonEditorWindow)
+	})
+	indexRemoveBtn := widget.NewButtonWithIcon("", theme.ContentRemoveIcon(), func() {
+		selected := e.indexCombo.Selected
+		if selected != "" {
+			var newOptions []string
+			for _, opt := range e.indexCombo.Options {
+				if opt != selected {
+					newOptions = append(newOptions, opt)
+				}
+			}
+			e.indexCombo.Options = newOptions
+			e.indexCombo.Selected = ""
+			e.indexCombo.Refresh()
+		}
+	})
+
 	licenseContainer := container.NewHBox(e.licenseCombo, licenseAddBtn, licenseRemoveBtn)
 	sourcesContainer := container.NewHBox(e.sourcesCombo, sourcesAddBtn, sourcesRemoveBtn)
 	scriptsContainer := container.NewHBox(e.scriptsCombo, scriptsAddBtn, scriptsRemoveBtn)
 	audioContainer := container.NewHBox(e.audioCombo, audioAddBtn, audioRemoveBtn)
 	authorsContainer := container.NewHBox(e.authorsCombo, authorsAddBtn, authorsRemoveBtn)
 	reviewersContainer := container.NewHBox(e.reviewersCombo, reviewersAddBtn, reviewersRemoveBtn)
+	indexContainer := container.NewHBox(e.indexCombo, indexAddBtn, indexRemoveBtn)
 
 	e.jsonHeadersForm = &widget.Form{
 		Items: []*widget.FormItem{
 			{Text: "Title", Widget: titleEntry},
 			{Text: "Header", Widget: headerEntry},
+			{Text: "Index", Widget: indexContainer},
 			{Text: "Authors", Widget: authorsContainer},
 			{Text: "Reviewers", Widget: reviewersContainer},
 			{Text: "Last Update", Widget: lastUpdateEntry},
@@ -971,6 +1004,18 @@ func (e *TextEditor) loadJSONEditorData() {
 			e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).SetText("")
 			e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Disable()
 		}
+		if index, exists := dataMap["index"]; exists {
+			if slice, ok := index.([]interface{}); ok {
+				e.indexCombo.Options = make([]string, 0, len(slice))
+				for _, item := range slice {
+					e.indexCombo.Options = append(e.indexCombo.Options, fmt.Sprintf("%v", item))
+				}
+			}
+			e.indexCombo.Enable()
+		} else {
+			e.indexCombo.Options = nil
+			e.indexCombo.Disable()
+		}
 		if authors, exists := dataMap["authors"]; exists {
 			if slice, ok := authors.([]interface{}); ok {
 				e.authorsCombo.Options = make([]string, 0, len(slice))
@@ -1001,20 +1046,20 @@ func (e *TextEditor) loadJSONEditorData() {
 				timestamp, err := strconv.ParseInt(timestampStr, 10, 64)
 				if err == nil {
 					t := time.Unix(timestamp, 0)
-					e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).SetDate(&t)
+					e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).SetDate(&t)
 				}
 			}
-			e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Enable()
+			e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Enable()
 		} else {
-			e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).SetDate(nil)
-			e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Disable()
+			e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).SetDate(nil)
+			e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Disable()
 		}
 		if version, exists := dataMap["version"]; exists {
-			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", version))
-			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Enable()
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", version))
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Enable()
 		} else {
-			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).SetText("")
-			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Disable()
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Disable()
 		}
 		if license, exists := dataMap["license"]; exists {
 			if slice, ok := license.([]interface{}); ok {
@@ -1073,7 +1118,7 @@ func (e *TextEditor) loadJSONEditorData() {
 	// Extract additional fields based on template type
 	if dataMap, ok := jsonData.(map[string]interface{}); ok {
 		additionalFields := make(map[string]interface{})
-		headerFields := []string{"title", "header", "authors", "reviewers", "last_update", "version", "license", "sources", "scripts", "audio"}
+		headerFields := []string{"title", "header", "index", "authors", "reviewers", "last_update", "version", "license", "sources", "scripts", "audio"}
 
 		// Detect template type and define additional fields
 		var templateType string
@@ -1088,7 +1133,7 @@ func (e *TextEditor) loadJSONEditorData() {
 		case "atlas":
 			templateAdditionalFields = []string{"atlas", "content"}
 		case "class":
-			templateAdditionalFields = []string{"content", "exercise_v2", "date_time", "index"}
+			templateAdditionalFields = []string{"content", "exercise_v2", "date_time"}
 		default:
 			// For unknown types, extract all non-header fields
 			for k, v := range dataMap {
@@ -1134,11 +1179,13 @@ func (e *TextEditor) disableAllFormFields() {
 		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).SetText("")
 		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).Disable()
 	}
+	e.indexCombo.Options = nil
+	e.indexCombo.Disable()
 	e.authorsCombo.Options = nil
 	e.authorsCombo.Disable()
 	e.reviewersCombo.Options = nil
 	e.reviewersCombo.Disable()
-	for i := 4; i < 6; i++ {
+	for i := 5; i < 7; i++ {
 		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).SetText("")
 		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).Disable()
 	}
@@ -1196,6 +1243,10 @@ func (e *TextEditor) saveJSONEditorChanges() {
 	jsonData["title"] = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
 	jsonData["header"] = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
 
+	if len(e.indexCombo.Options) > 0 {
+		jsonData["index"] = e.indexCombo.Options
+	}
+
 	if len(e.authorsCombo.Options) > 0 {
 		jsonData["authors"] = e.authorsCombo.Options
 	}
@@ -1204,13 +1255,13 @@ func (e *TextEditor) saveJSONEditorChanges() {
 		jsonData["reviewers"] = e.reviewersCombo.Options
 	}
 
-	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
 	if lastUpdateDate != nil {
 		timestamp := lastUpdateDate.Unix()
 		jsonData["last_update"] = []string{strconv.FormatInt(timestamp, 10)}
 	}
 
-	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	versionText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
 	if versionText != "" {
 		if version, err := strconv.Atoi(versionText); err == nil {
 			jsonData["version"] = version
@@ -1358,12 +1409,12 @@ func (e *TextEditor) saveAtlasDocument() {
 	atlasData.Authors = e.authorsCombo.Options
 	atlasData.Reviewers = e.reviewersCombo.Options
 
-	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
 	if lastUpdateDate != nil {
 		atlasData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
 	}
 
-	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	versionText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
 	if versionText != "" {
 		if version, err := strconv.Atoi(versionText); err == nil {
 			atlasData.Version = version
@@ -1450,15 +1501,16 @@ func (e *TextEditor) saveClassDocument() {
 
 	classData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
 	classData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
+	classData.Index = e.indexCombo.Options
 	classData.Authors = e.authorsCombo.Options
 	classData.Reviewers = e.reviewersCombo.Options
 
-	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
 	if lastUpdateDate != nil {
 		classData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
 	}
 
-	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	versionText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
 	if versionText != "" {
 		if version, err := strconv.Atoi(versionText); err == nil {
 			classData.Version = version
@@ -1505,13 +1557,14 @@ func (e *TextEditor) saveFamilyDocument() {
 
 	familyData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
 	familyData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
+	familyData.Index = e.indexCombo.Options
 
-	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
 	if lastUpdateDate != nil {
 		familyData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
 	}
 
-	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	versionText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
 	if versionText != "" {
 		if version, err := strconv.Atoi(versionText); err == nil {
 			familyData.Version = version
@@ -1556,12 +1609,12 @@ func (e *TextEditor) saveSourceDocument() {
 		return
 	}
 
-	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
 	if lastUpdateDate != nil {
 		sourceData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
 	}
 
-	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	versionText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
 	if versionText != "" {
 		if version, err := strconv.Atoi(versionText); err == nil {
 			sourceData.Version = version
