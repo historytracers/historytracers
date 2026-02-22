@@ -116,27 +116,23 @@ def process_source_text(display_text: str) -> Tuple[str, str]:
     
     return text, page
 
-def convert_text_citations(text: str, citation_mapping: Dict[str, int]) -> str:
+def convert_text_citations(text: str) -> str:
     """
-    Convert HTML citations in text to JSON format using a mapping.
+    Convert HTML citations in text to JSON format.
+    Each citation gets a sequential number starting from 0.
     
     Args:
         text: String containing HTML citations
-        citation_mapping: Dictionary mapping UUID to citation number
         
     Returns:
         Text with HTML citations replaced by JSON format
     """
+    counter = [0]  # Use list to allow modification in nested function
+    
     def replace_citation(match):
-        uuid = match.group(2)
-        display_text = match.group(3)
-        
-        if uuid in citation_mapping:
-            citation_num = citation_mapping[uuid]
-            return f"<htcite{citation_num}>"
-        else:
-            # If UUID not found in mapping, keep original
-            return match.group(0)
+        citation_num = counter[0]
+        counter[0] += 1
+        return f"<htcite{citation_num}>"
     
     # Match all source types, preserving order in text
     pattern = r"<a\s+href=\"#\"\s+onclick=\"htCleanSources\(\);\s*(htFill\w+)\('([^']+)'\);\s*return\s*false;\"[^>]*>(.*?)</a>"
@@ -355,7 +351,7 @@ def analyze_file(filepath: str, source_mapping: Optional[Dict[str, Dict[str, Any
         # Show what conversion would look like
         conversion_examples = []
         for citation_info in citations_found:
-            converted_text = convert_text_citations(citation_info['original_text'], citation_mapping)
+            converted_text = convert_text_citations(citation_info['original_text'])
             if converted_text != citation_info['original_text']:
                 conversion_examples.append({
                     'path': citation_info['path'],
@@ -480,57 +476,34 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                         html_citations = find_html_citations(text_value)
                         
                         if html_citations:
-                            # Create local mapping for this HTText object only (starts from 0)
-                            # Keep first occurrence of each UUID and assign sequential numbers
-                            local_mapping = {}
-                            next_num = 0
-                            for uuid, _, _ in html_citations:
-                                if uuid not in local_mapping:
-                                    local_mapping[uuid] = next_num
-                                    next_num += 1
+                            # Convert the text - each citation gets sequential number
+                            item['text'] = convert_text_citations(text_value)
                             
-                            # Convert the text with local mapping
-                            item['text'] = convert_text_citations(text_value, local_mapping)
-                            
-                            # Add sources to this HTText object
+                            # Add sources to this HTText object - one entry per citation
+                            # Create mapping for source assignment
+                            source_mapping = {}
+                            for i, (uuid, _, _) in enumerate(html_citations):
+                                source_mapping[uuid] = i
                             existing_sources = item.get('source', [])
                             if existing_sources is None:
                                 existing_sources = []
                             
-                            # Collect unique sources needed for this text
+                            # Collect existing source UUIDs
+                            existing_uuids = [source.get('uuid', '') for source in existing_sources]
+                            
+                            # Add new sources for each citation
                             text_sources = []
-                            seen_uuids = set(source.get('uuid', '') for source in existing_sources)
+                            for i, (uuid, _, _) in enumerate(html_citations):
+                                global_citation_num = analysis['uuid_mapping'].get(uuid)
+                                if global_citation_num is not None and global_citation_num in sources_by_uuid:
+                                    source_obj = sources_by_uuid[global_citation_num]
+                                    # Create new source object for each citation
+                                    new_source = dict(source_obj)
+                                    new_source['citation_num'] = i
+                                    text_sources.append(new_source)
                             
-                            for uuid, _, _ in html_citations:
-                                if uuid in local_mapping and uuid not in seen_uuids:
-                                    citation_num = local_mapping[uuid]
-                                    # Get source from sources_by_uuid using global mapping
-                                    global_citation_num = analysis['uuid_mapping'].get(uuid)
-                                    if global_citation_num is not None and global_citation_num in sources_by_uuid:
-                                        source_obj = sources_by_uuid[global_citation_num]
-                                        # Update the source with local citation number
-                                        source_obj = dict(source_obj)
-                                        source_obj['citation_num'] = citation_num
-                                        text_sources.append(source_obj)
-                                        seen_uuids.add(uuid)
-                            
-                            # Combine existing and new sources, avoiding duplicates
-                            combined_sources = existing_sources + text_sources
-                            
-                            # Remove duplicates while preserving order
-                            seen_uuids = set()
-                            unique_sources = []
-                            for source in combined_sources:
-                                if isinstance(source, dict) and 'uuid' in source:
-                                    uuid = source['uuid']
-                                    if uuid not in seen_uuids:
-                                        unique_sources.append(source)
-                                        seen_uuids.add(uuid)
-                                else:
-                                    # Keep non-standard sources as-is
-                                    unique_sources.append(source)
-                            
-                            item['source'] = unique_sources
+                            # Combine existing and new sources
+                            item['source'] = existing_sources + text_sources
                     else:
                         convert_text_and_add_sources(item)
                 elif isinstance(item, list):
