@@ -25,6 +25,28 @@ import (
 	"time"
 )
 
+func htFilterEmptyStrings(slice []string) []string {
+	var result []string
+	for _, s := range slice {
+		if strings.TrimSpace(s) != "" {
+			result = append(result, s)
+		}
+	}
+	return result
+}
+
+func htShouldClearEmptyValues(slice []string) bool {
+	if len(slice) == 0 {
+		return false
+	}
+	for _, s := range slice {
+		if strings.TrimSpace(s) != "" {
+			return false
+		}
+	}
+	return true
+}
+
 type Document struct {
 	content         *widget.Entry
 	filePath        string
@@ -83,6 +105,7 @@ type TextEditor struct {
 	jsonEditorTabs         *container.AppTabs
 	jsonHeadersForm        *widget.Form
 	jsonContentEntry       *widget.Entry
+	jsonAdditionalEntry    *widget.Entry
 	currentJSONDoc         *Document
 	authorsCombo           *widget.Select
 	reviewersCombo         *widget.Select
@@ -90,6 +113,7 @@ type TextEditor struct {
 	sourcesCombo           *widget.Select
 	scriptsCombo           *widget.Select
 	audioCombo             *widget.Select
+	indexCombo             *widget.Select
 }
 
 func (e *TextEditor) findText() {
@@ -246,7 +270,7 @@ func (e *TextEditor) setupUI() {
 
 func (e *TextEditor) createToolbar() *widget.Toolbar {
 	return widget.NewToolbar(
-		widget.NewToolbarAction(theme.DocumentCreateIcon(), e.newFile),
+		widget.NewToolbarAction(theme.DocumentCreateIcon(), e.showTemplateWindow),
 		widget.NewToolbarAction(theme.FolderOpenIcon(), e.openFile),
 		widget.NewToolbarAction(theme.DocumentSaveIcon(), e.saveFile),
 		widget.NewToolbarSeparator(),
@@ -618,6 +642,7 @@ func (e *TextEditor) showJSONEditor() {
 	if e.jsonEditorWindow != nil {
 		e.jsonEditorWindow.Show()
 		e.jsonEditorWindow.RequestFocus()
+		e.loadJSONEditorData()
 		return
 	}
 
@@ -660,13 +685,18 @@ func (e *TextEditor) showJSONEditor() {
 	e.sourcesCombo = widget.NewSelect(nil, nil)
 	e.scriptsCombo = widget.NewSelect(nil, nil)
 	e.audioCombo = widget.NewSelect(nil, nil)
+	e.indexCombo = widget.NewSelect(nil, nil)
 
 	authorsAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
 		entry := widget.NewEntry()
 		entry.SetPlaceHolder("Enter author...")
 		dialog.ShowCustomConfirm("Add Author", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.authorsCombo.Options = append(e.authorsCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.authorsCombo.Options) {
+					e.authorsCombo.Options = []string{entry.Text}
+				} else {
+					e.authorsCombo.Options = append(e.authorsCombo.Options, entry.Text)
+				}
 				e.authorsCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -691,7 +721,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter reviewer...")
 		dialog.ShowCustomConfirm("Add Reviewer", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.reviewersCombo.Options = append(e.reviewersCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.reviewersCombo.Options) {
+					e.reviewersCombo.Options = []string{entry.Text}
+				} else {
+					e.reviewersCombo.Options = append(e.reviewersCombo.Options, entry.Text)
+				}
 				e.reviewersCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -716,7 +750,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter license...")
 		dialog.ShowCustomConfirm("Add License", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.licenseCombo.Options = append(e.licenseCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.licenseCombo.Options) {
+					e.licenseCombo.Options = []string{entry.Text}
+				} else {
+					e.licenseCombo.Options = append(e.licenseCombo.Options, entry.Text)
+				}
 				e.licenseCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -741,7 +779,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter source...")
 		dialog.ShowCustomConfirm("Add Source", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.sourcesCombo.Options = append(e.sourcesCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.sourcesCombo.Options) {
+					e.sourcesCombo.Options = []string{entry.Text}
+				} else {
+					e.sourcesCombo.Options = append(e.sourcesCombo.Options, entry.Text)
+				}
 				e.sourcesCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -766,7 +808,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter script...")
 		dialog.ShowCustomConfirm("Add Script", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.scriptsCombo.Options = append(e.scriptsCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.scriptsCombo.Options) {
+					e.scriptsCombo.Options = []string{entry.Text}
+				} else {
+					e.scriptsCombo.Options = append(e.scriptsCombo.Options, entry.Text)
+				}
 				e.scriptsCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -791,7 +837,11 @@ func (e *TextEditor) showJSONEditor() {
 		entry.SetPlaceHolder("Enter audio URL...")
 		dialog.ShowCustomConfirm("Add Audio", "Add", "Cancel", entry, func(confirmed bool) {
 			if confirmed && entry.Text != "" {
-				e.audioCombo.Options = append(e.audioCombo.Options, entry.Text)
+				if htShouldClearEmptyValues(e.audioCombo.Options) {
+					e.audioCombo.Options = []string{entry.Text}
+				} else {
+					e.audioCombo.Options = append(e.audioCombo.Options, entry.Text)
+				}
 				e.audioCombo.Refresh()
 			}
 		}, e.jsonEditorWindow)
@@ -811,17 +861,61 @@ func (e *TextEditor) showJSONEditor() {
 		}
 	})
 
+	indexValues := []string{
+		"first_steps_menu",
+		"first_steps",
+		"first_steps_volume2",
+		"literature",
+		"indigenous_who",
+		"myths_believes",
+		"math_games",
+		"historical_events",
+		"physics",
+		"chemistry",
+		"biology",
+		"history",
+	}
+	indexSelect := widget.NewSelect(indexValues, nil)
+	indexAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
+		dialog.ShowCustomConfirm("Add Index", "Add", "Cancel", indexSelect, func(confirmed bool) {
+			selectedValue := strings.TrimSpace(indexSelect.Selected)
+			if confirmed && selectedValue != "" {
+				if htShouldClearEmptyValues(e.indexCombo.Options) {
+					e.indexCombo.Options = []string{selectedValue}
+				} else {
+					e.indexCombo.Options = append(e.indexCombo.Options, selectedValue)
+				}
+				e.indexCombo.Refresh()
+			}
+		}, e.jsonEditorWindow)
+	})
+	indexRemoveBtn := widget.NewButtonWithIcon("", theme.ContentRemoveIcon(), func() {
+		selected := e.indexCombo.Selected
+		if selected != "" {
+			var newOptions []string
+			for _, opt := range e.indexCombo.Options {
+				if opt != selected {
+					newOptions = append(newOptions, opt)
+				}
+			}
+			e.indexCombo.Options = newOptions
+			e.indexCombo.Refresh()
+		}
+	})
+
 	licenseContainer := container.NewHBox(e.licenseCombo, licenseAddBtn, licenseRemoveBtn)
 	sourcesContainer := container.NewHBox(e.sourcesCombo, sourcesAddBtn, sourcesRemoveBtn)
 	scriptsContainer := container.NewHBox(e.scriptsCombo, scriptsAddBtn, scriptsRemoveBtn)
 	audioContainer := container.NewHBox(e.audioCombo, audioAddBtn, audioRemoveBtn)
 	authorsContainer := container.NewHBox(e.authorsCombo, authorsAddBtn, authorsRemoveBtn)
 	reviewersContainer := container.NewHBox(e.reviewersCombo, reviewersAddBtn, reviewersRemoveBtn)
+	indexContainer := container.NewHBox(e.indexCombo, indexAddBtn, indexRemoveBtn)
 
 	e.jsonHeadersForm = &widget.Form{
 		Items: []*widget.FormItem{
 			{Text: "Title", Widget: titleEntry},
 			{Text: "Header", Widget: headerEntry},
+			{Text: "Index", Widget: indexContainer},
 			{Text: "Authors", Widget: authorsContainer},
 			{Text: "Reviewers", Widget: reviewersContainer},
 			{Text: "Last Update", Widget: lastUpdateEntry},
@@ -841,9 +935,17 @@ func (e *TextEditor) showJSONEditor() {
 
 	contentScroll := container.NewScroll(e.jsonContentEntry)
 
+	// Create additional fields tab (for JSON parts not in Headers)
+	e.jsonAdditionalEntry = widget.NewEntry()
+	e.jsonAdditionalEntry.Wrapping = fyne.TextWrapWord
+	e.jsonAdditionalEntry.MultiLine = true
+	e.jsonAdditionalEntry.SetPlaceHolder("Additional JSON fields will appear here...")
+	additionalScroll := container.NewScroll(e.jsonAdditionalEntry)
+
 	// Create tabs
 	e.jsonEditorTabs = container.NewAppTabs(
 		container.NewTabItem("Headers", e.jsonHeadersForm),
+		container.NewTabItem("Additional", additionalScroll),
 		container.NewTabItem("Content", contentScroll),
 	)
 
@@ -894,6 +996,7 @@ func (e *TextEditor) loadJSONEditorData() {
 		// Not valid JSON, disable all header fields and just show raw content
 		e.disableAllFormFields()
 		e.jsonContentEntry.SetText(content)
+		e.jsonAdditionalEntry.SetText("")
 		return
 	}
 
@@ -913,6 +1016,19 @@ func (e *TextEditor) loadJSONEditorData() {
 		} else {
 			e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).SetText("")
 			e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Disable()
+		}
+		if index, exists := dataMap["index"]; exists {
+			if slice, ok := index.([]interface{}); ok {
+				var options []string
+				for _, item := range slice {
+					options = append(options, fmt.Sprintf("%v", item))
+				}
+				e.indexCombo.Options = htFilterEmptyStrings(options)
+			}
+			e.indexCombo.Enable()
+		} else {
+			e.indexCombo.Options = nil
+			e.indexCombo.Disable()
 		}
 		if authors, exists := dataMap["authors"]; exists {
 			if slice, ok := authors.([]interface{}); ok {
@@ -944,20 +1060,20 @@ func (e *TextEditor) loadJSONEditorData() {
 				timestamp, err := strconv.ParseInt(timestampStr, 10, 64)
 				if err == nil {
 					t := time.Unix(timestamp, 0)
-					e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).SetDate(&t)
+					e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).SetDate(&t)
 				}
 			}
-			e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Enable()
+			e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Enable()
 		} else {
-			e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).SetDate(nil)
-			e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Disable()
+			e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).SetDate(nil)
+			e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Disable()
 		}
 		if version, exists := dataMap["version"]; exists {
-			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", version))
-			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Enable()
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).SetText(fmt.Sprintf("%v", version))
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Enable()
 		} else {
-			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).SetText("")
-			e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Disable()
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).SetText("")
+			e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Disable()
 		}
 		if license, exists := dataMap["license"]; exists {
 			if slice, ok := license.([]interface{}); ok {
@@ -1013,6 +1129,58 @@ func (e *TextEditor) loadJSONEditorData() {
 		e.disableAllFormFields()
 	}
 
+	// Extract additional fields based on template type
+	if dataMap, ok := jsonData.(map[string]interface{}); ok {
+		additionalFields := make(map[string]interface{})
+		headerFields := []string{"title", "header", "index", "authors", "reviewers", "last_update", "version", "license", "sources", "scripts", "audio"}
+
+		// Detect template type and define additional fields
+		var templateType string
+		if t, exists := dataMap["type"]; exists {
+			templateType = fmt.Sprintf("%v", t)
+		}
+
+		var templateAdditionalFields []string
+		switch templateType {
+		case "family_tree":
+			templateAdditionalFields = []string{"families", "common", "gedcom", "csv", "documentsInfo", "periodOfTime", "maps", "prerequisites", "exercise_v2", "date_time"}
+		case "atlas":
+			templateAdditionalFields = []string{"atlas", "content"}
+		case "class":
+			templateAdditionalFields = []string{"content", "exercise_v2", "date_time"}
+		default:
+			// For unknown types, extract all non-header fields
+			for k, v := range dataMap {
+				isHeaderField := false
+				for _, hf := range headerFields {
+					if k == hf {
+						isHeaderField = true
+						break
+					}
+				}
+				if !isHeaderField {
+					additionalFields[k] = v
+				}
+			}
+		}
+
+		// Extract template-specific fields
+		if len(templateAdditionalFields) > 0 {
+			for _, k := range templateAdditionalFields {
+				if v, exists := dataMap[k]; exists {
+					additionalFields[k] = v
+				}
+			}
+		}
+
+		if len(additionalFields) > 0 {
+			additionalJSON, _ := json.MarshalIndent(additionalFields, "", "  ")
+			e.jsonAdditionalEntry.SetText(string(additionalJSON))
+		} else {
+			e.jsonAdditionalEntry.SetText("{}")
+		}
+	}
+
 	// Show full JSON content
 	e.jsonContentEntry.SetText(content)
 }
@@ -1025,11 +1193,13 @@ func (e *TextEditor) disableAllFormFields() {
 		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).SetText("")
 		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).Disable()
 	}
+	e.indexCombo.Options = nil
+	e.indexCombo.Disable()
 	e.authorsCombo.Options = nil
 	e.authorsCombo.Disable()
 	e.reviewersCombo.Options = nil
 	e.reviewersCombo.Disable()
-	for i := 4; i < 6; i++ {
+	for i := 5; i < 7; i++ {
 		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).SetText("")
 		e.jsonHeadersForm.Items[i].Widget.(*widget.Entry).Disable()
 	}
@@ -1041,6 +1211,7 @@ func (e *TextEditor) disableAllFormFields() {
 	e.scriptsCombo.Disable()
 	e.audioCombo.Options = nil
 	e.audioCombo.Disable()
+	e.jsonAdditionalEntry.SetText("")
 }
 
 func (e *TextEditor) saveJSONEditorChanges() {
@@ -1048,8 +1219,28 @@ func (e *TextEditor) saveJSONEditorChanges() {
 		return
 	}
 
-	// Get current content and parse as JSON
 	content := e.currentDoc.content.Text
+
+	if e.isAtlasDocument(e.currentDoc) {
+		e.saveAtlasDocument()
+		return
+	}
+
+	if e.isClassDocument(e.currentDoc) {
+		e.saveClassDocument()
+		return
+	}
+
+	if e.isFamilyDocument(e.currentDoc) {
+		e.saveFamilyDocument()
+		return
+	}
+
+	if e.isSourceDocument(e.currentDoc) {
+		e.saveSourceDocument()
+		return
+	}
+
 	var jsonData map[string]interface{}
 
 	if err := json.Unmarshal([]byte(content), &jsonData); err != nil {
@@ -1066,21 +1257,25 @@ func (e *TextEditor) saveJSONEditorChanges() {
 	jsonData["title"] = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
 	jsonData["header"] = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
 
+	if len(e.indexCombo.Options) > 0 {
+		jsonData["index"] = htFilterEmptyStrings(e.indexCombo.Options)
+	}
+
 	if len(e.authorsCombo.Options) > 0 {
-		jsonData["authors"] = e.authorsCombo.Options
+		jsonData["authors"] = htFilterEmptyStrings(e.authorsCombo.Options)
 	}
 
 	if len(e.reviewersCombo.Options) > 0 {
-		jsonData["reviewers"] = e.reviewersCombo.Options
+		jsonData["reviewers"] = htFilterEmptyStrings(e.reviewersCombo.Options)
 	}
 
-	lastUpdateDate := e.jsonHeadersForm.Items[4].Widget.(*widget.DateEntry).Date
+	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
 	if lastUpdateDate != nil {
 		timestamp := lastUpdateDate.Unix()
 		jsonData["last_update"] = []string{strconv.FormatInt(timestamp, 10)}
 	}
 
-	versionText := e.jsonHeadersForm.Items[5].Widget.(*widget.Entry).Text
+	versionText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
 	if versionText != "" {
 		if version, err := strconv.Atoi(versionText); err == nil {
 			jsonData["version"] = version
@@ -1088,19 +1283,30 @@ func (e *TextEditor) saveJSONEditorChanges() {
 	}
 
 	if len(e.licenseCombo.Options) > 0 {
-		jsonData["license"] = e.licenseCombo.Options
+		jsonData["license"] = htFilterEmptyStrings(e.licenseCombo.Options)
 	}
 
 	if len(e.sourcesCombo.Options) > 0 {
-		jsonData["sources"] = e.sourcesCombo.Options
+		jsonData["sources"] = htFilterEmptyStrings(e.sourcesCombo.Options)
 	}
 
 	if len(e.scriptsCombo.Options) > 0 {
-		jsonData["scripts"] = e.scriptsCombo.Options
+		jsonData["scripts"] = htFilterEmptyStrings(e.scriptsCombo.Options)
 	}
 
 	if len(e.audioCombo.Options) > 0 {
-		jsonData["audio"] = e.audioCombo.Options
+		jsonData["audio"] = htFilterEmptyStrings(e.audioCombo.Options)
+	}
+
+	// Merge additional fields
+	additionalText := e.jsonAdditionalEntry.Text
+	if additionalText != "" && additionalText != "{}" {
+		var additionalData map[string]interface{}
+		if err := json.Unmarshal([]byte(additionalText), &additionalData); err == nil {
+			for k, v := range additionalData {
+				jsonData[k] = v
+			}
+		}
 	}
 
 	// Marshal back to JSON
@@ -1183,6 +1389,274 @@ func (e *TextEditor) isAtlasDocument(doc *Document) bool {
 	content := doc.content.Text
 	re := regexp.MustCompile(`"atlas"\s*:`)
 	return re.MatchString(content)
+}
+
+func (e *TextEditor) isClassDocument(doc *Document) bool {
+	if doc == nil || doc.content == nil {
+		return false
+	}
+	content := doc.content.Text
+	re := regexp.MustCompile(`"type"\s*:\s*"class"`)
+	return re.MatchString(content)
+}
+
+func (e *TextEditor) isSourceDocument(doc *Document) bool {
+	if doc == nil || doc.content == nil {
+		return false
+	}
+	content := doc.content.Text
+	re := regexp.MustCompile(`"type"\s*:\s*"sources"`)
+	return re.MatchString(content)
+}
+
+func (e *TextEditor) saveAtlasDocument() {
+	content := e.currentDoc.content.Text
+
+	var atlasData AtlasTemplateFile
+	if err := json.Unmarshal([]byte(content), &atlasData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to parse atlas JSON: %v", err), e.window)
+		return
+	}
+
+	atlasData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
+	atlasData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
+	atlasData.Authors = htFilterEmptyStrings(e.authorsCombo.Options)
+	atlasData.Reviewers = htFilterEmptyStrings(e.reviewersCombo.Options)
+
+	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
+	if lastUpdateDate != nil {
+		atlasData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
+	}
+
+	versionText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
+	if versionText != "" {
+		if version, err := strconv.Atoi(versionText); err == nil {
+			atlasData.Version = version
+		}
+	}
+
+	atlasData.License = htFilterEmptyStrings(e.licenseCombo.Options)
+	atlasData.Sources = htFilterEmptyStrings(e.sourcesCombo.Options)
+	atlasData.Scripts = htFilterEmptyStrings(e.scriptsCombo.Options)
+
+	filteredAudioOptions := htFilterEmptyStrings(e.audioCombo.Options)
+	audioOptions := make([]HTAudio, len(filteredAudioOptions))
+	for i, opt := range filteredAudioOptions {
+		audioOptions[i] = HTAudio{URL: opt, External: true, Spotify: false}
+	}
+	atlasData.Audio = audioOptions
+
+	additionalText := e.jsonAdditionalEntry.Text
+	if additionalText != "" && additionalText != "{}" {
+		var additionalData map[string]interface{}
+		if err := json.Unmarshal([]byte(additionalText), &additionalData); err == nil {
+			if atlasData.Atlas == nil {
+				atlasData.Atlas = []AtlasTemplateContent{}
+			}
+			for k, v := range additionalData {
+				switch k {
+				case "atlas":
+					if atlasArr, ok := v.([]interface{}); ok {
+						atlasData.Atlas = nil
+						for _, item := range atlasArr {
+							if itemMap, ok := item.(map[string]interface{}); ok {
+								entry := AtlasTemplateContent{}
+								if v, ok := itemMap["uuid"].(string); ok {
+									entry.ID = v
+								}
+								if v, ok := itemMap["image"].(string); ok {
+									entry.Image = v
+								}
+								if v, ok := itemMap["author"].(string); ok {
+									entry.Author = v
+								}
+								if v, ok := itemMap["index"].(string); ok {
+									entry.Index = v
+								}
+								if v, ok := itemMap["audio"].(string); ok {
+									entry.Audio = v
+								}
+								atlasData.Atlas = append(atlasData.Atlas, entry)
+							}
+						}
+					}
+				default:
+				}
+			}
+		}
+	}
+
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+
+	if err := encoder.Encode(atlasData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to encode JSON: %v", err), e.window)
+		return
+	}
+
+	jsonStr := strings.TrimSuffix(buf.String(), "\n")
+	e.currentDoc.content.SetText(jsonStr)
+	e.currentDoc.isModified = true
+	e.updateTabTitle(e.currentDoc)
+	e.updateTitle()
+
+	e.jsonEditorWindow.Hide()
+}
+
+func (e *TextEditor) saveClassDocument() {
+	content := e.currentDoc.content.Text
+
+	var classData ClassTemplateFile
+	if err := json.Unmarshal([]byte(content), &classData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to parse class JSON: %v", err), e.window)
+		return
+	}
+
+	classData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
+	classData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
+	classData.Index = htFilterEmptyStrings(e.indexCombo.Options)
+	classData.Authors = htFilterEmptyStrings(e.authorsCombo.Options)
+	classData.Reviewers = htFilterEmptyStrings(e.reviewersCombo.Options)
+
+	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
+	if lastUpdateDate != nil {
+		classData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
+	}
+
+	versionText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
+	if versionText != "" {
+		if version, err := strconv.Atoi(versionText); err == nil {
+			classData.Version = version
+		}
+	}
+
+	classData.License = htFilterEmptyStrings(e.licenseCombo.Options)
+	classData.Sources = htFilterEmptyStrings(e.sourcesCombo.Options)
+	classData.Scripts = htFilterEmptyStrings(e.scriptsCombo.Options)
+
+	filteredClassAudio := htFilterEmptyStrings(e.audioCombo.Options)
+	classAudioOptions := make([]HTAudio, len(filteredClassAudio))
+	for i, opt := range filteredClassAudio {
+		classAudioOptions[i] = HTAudio{URL: opt, External: true, Spotify: false}
+	}
+	classData.Audio = classAudioOptions
+
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+
+	if err := encoder.Encode(classData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to encode JSON: %v", err), e.window)
+		return
+	}
+
+	jsonStr := strings.TrimSuffix(buf.String(), "\n")
+	e.currentDoc.content.SetText(jsonStr)
+	e.currentDoc.isModified = true
+	e.updateTabTitle(e.currentDoc)
+	e.updateTitle()
+
+	e.jsonEditorWindow.Hide()
+}
+
+func (e *TextEditor) saveFamilyDocument() {
+	content := e.currentDoc.content.Text
+
+	var familyData Family
+	if err := json.Unmarshal([]byte(content), &familyData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to parse family JSON: %v", err), e.window)
+		return
+	}
+
+	familyData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
+	familyData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
+	familyData.Index = htFilterEmptyStrings(e.indexCombo.Options)
+
+	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
+	if lastUpdateDate != nil {
+		familyData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
+	}
+
+	versionText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
+	if versionText != "" {
+		if version, err := strconv.Atoi(versionText); err == nil {
+			familyData.Version = version
+		}
+	}
+
+	familyData.License = htFilterEmptyStrings(e.licenseCombo.Options)
+	familyData.Sources = htFilterEmptyStrings(e.sourcesCombo.Options)
+	familyData.Scripts = htFilterEmptyStrings(e.scriptsCombo.Options)
+
+	filteredFamilyAudio := htFilterEmptyStrings(e.audioCombo.Options)
+	familyAudioOptions := make([]HTAudio, len(filteredFamilyAudio))
+	for i, opt := range filteredFamilyAudio {
+		familyAudioOptions[i] = HTAudio{URL: opt, External: true, Spotify: false}
+	}
+	familyData.Audio = familyAudioOptions
+
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+
+	if err := encoder.Encode(familyData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to encode JSON: %v", err), e.window)
+		return
+	}
+
+	jsonStr := strings.TrimSuffix(buf.String(), "\n")
+	e.currentDoc.content.SetText(jsonStr)
+	e.currentDoc.isModified = true
+	e.updateTabTitle(e.currentDoc)
+	e.updateTitle()
+
+	e.jsonEditorWindow.Hide()
+}
+
+func (e *TextEditor) saveSourceDocument() {
+	content := e.currentDoc.content.Text
+
+	var sourceData HTSourceFile
+	if err := json.Unmarshal([]byte(content), &sourceData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to parse source JSON: %v", err), e.window)
+		return
+	}
+
+	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
+	if lastUpdateDate != nil {
+		sourceData.LastUpdate = []string{strconv.FormatInt(lastUpdateDate.Unix(), 10)}
+	}
+
+	versionText := e.jsonHeadersForm.Items[6].Widget.(*widget.Entry).Text
+	if versionText != "" {
+		if version, err := strconv.Atoi(versionText); err == nil {
+			sourceData.Version = version
+		}
+	}
+
+	sourceData.License = htFilterEmptyStrings(e.licenseCombo.Options)
+
+	var buf bytes.Buffer
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+
+	if err := encoder.Encode(sourceData); err != nil {
+		dialog.ShowError(fmt.Errorf("Failed to encode JSON: %v", err), e.window)
+		return
+	}
+
+	jsonStr := strings.TrimSuffix(buf.String(), "\n")
+	e.currentDoc.content.SetText(jsonStr)
+	e.currentDoc.isModified = true
+	e.updateTabTitle(e.currentDoc)
+	e.updateTitle()
+
+	e.jsonEditorWindow.Hide()
 }
 
 func (e *TextEditor) updateFamilyMenuItems(isFamily bool) {
