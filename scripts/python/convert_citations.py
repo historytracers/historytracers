@@ -25,19 +25,38 @@ import argparse
 from pathlib import Path
 from typing import Dict, List, Tuple, Any, Optional
 
-def find_html_citations(text: str) -> List[Tuple[str, str]]:
+def find_html_citations(text: str) -> List[Tuple[str, str, int]]:
     """
-    Find HTML citations in text and return list of (UUID, display_text) tuples.
+    Find HTML citations in text and return list of (UUID, display_text, source_type) tuples.
+    Source types: 0=primary, 1=reference, 2=holy, 3=social_media
     
     Args:
         text: String containing HTML citations
         
     Returns:
-        List of tuples containing (UUID, display_text)
+        List of tuples containing (UUID, display_text, source_type), in order of appearance
     """
-    pattern = r"<a\s+href=\"#\"\s+onclick=\"htCleanSources\(\);\s*htFillReferenceSource\('([^']+)'\);\s*return\s*false;\"[^>]*>(.*?)</a>"
-    matches = re.findall(pattern, text, re.DOTALL)
-    return matches
+    results = []
+    
+    # Source type mapping
+    source_type_map = {
+        'htFillPrimarySource': 0,
+        'htFillReferenceSource': 1,
+        'htFillHolySource': 2,
+        'htFillSMSource': 3
+    }
+    
+    # Single pattern to find all types, preserving order in text
+    pattern = r"<a\s+href=\"#\"\s+onclick=\"htCleanSources\(\);\s*(htFill\w+)\('([^']+)'\);\s*return\s*false;\"[^>]*>(.*?)</a>"
+    
+    for match in re.finditer(pattern, text, re.DOTALL):
+        func_name = match.group(1)
+        uuid = match.group(2)
+        display_text = match.group(3)
+        source_type = source_type_map.get(func_name, 0)
+        results.append((uuid, display_text, source_type))
+    
+    return results
 
 def find_json_citations(text: str) -> List[str]:
     """
@@ -77,15 +96,23 @@ def process_source_text(display_text: str) -> Tuple[str, str]:
     Returns:
         Tuple of (processed_text, page)
     """
-    # Remove htdateX tags
+    # Remove htdateX tags first
     text = re.sub(r'<htdate\d+>', '', display_text)
     
-    # Split by comma - text after comma goes to page
+    # Check if "pp." is present - if so, page should contain "pp. " and all text after it
     page = ""
-    if ',' in text:
-        parts = text.split(',', 1)
-        text = parts[0].strip()
-        page = parts[1].strip().replace(',', '')
+    pp_match = re.search(r'(pp\.\s*.+)', text)
+    if pp_match:
+        page = pp_match.group(1).strip()
+        text = text[:pp_match.start()].strip()
+    elif ',' in text:
+        last_comma_idx = text.rfind(',')
+        page = text[last_comma_idx + 1:].strip().replace(',', '')
+        text = text[:last_comma_idx].strip()
+    
+    # Ensure text never ends with comma
+    if text.endswith(','):
+        text = text[:-1].strip()
     
     return text, page
 
@@ -101,8 +128,8 @@ def convert_text_citations(text: str, citation_mapping: Dict[str, int]) -> str:
         Text with HTML citations replaced by JSON format
     """
     def replace_citation(match):
-        uuid = match.group(1)
-        display_text = match.group(2)
+        uuid = match.group(2)
+        display_text = match.group(3)
         
         if uuid in citation_mapping:
             citation_num = citation_mapping[uuid]
@@ -111,7 +138,8 @@ def convert_text_citations(text: str, citation_mapping: Dict[str, int]) -> str:
             # If UUID not found in mapping, keep original
             return match.group(0)
     
-    pattern = r"<a\s+href=\"#\"\s+onclick=\"htCleanSources\(\);\s*htFillReferenceSource\('([^']+)'\);\s*return\s*false;\"[^>]*>(.*?)</a>"
+    # Match all source types, preserving order in text
+    pattern = r"<a\s+href=\"#\"\s+onclick=\"htCleanSources\(\);\s*(htFill\w+)\('([^']+)'\);\s*return\s*false;\"[^>]*>(.*?)</a>"
     return re.sub(pattern, replace_citation, text, flags=re.DOTALL)
 
 def load_source_mapping() -> Dict[str, Dict[str, Any]]:
@@ -253,19 +281,21 @@ def analyze_file(filepath: str, source_mapping: Optional[Dict[str, Dict[str, Any
         # Collect all unique UUIDs and assign numbers
         all_uuids = set()
         for citation_info in citations_found:
-            for uuid, _ in citation_info['html_citations']:
+            for uuid, _, _ in citation_info['html_citations']:
                 all_uuids.add(uuid)
         
         # Create mapping: UUID -> citation number
         citation_mapping = {uuid: i for i, uuid in enumerate(sorted(all_uuids))}
         
         # Create HTSource objects for each UUID
-        # Collect display text from HTML citations to use as the text field
+        # Collect display text and source type from HTML citations
         uuid_to_display_text = {}
+        uuid_to_source_type = {}
         for citation_info in citations_found:
-            for uuid, display_text in citation_info['html_citations']:
+            for uuid, display_text, source_type in citation_info['html_citations']:
                 if uuid not in uuid_to_display_text:
                     uuid_to_display_text[uuid] = display_text
+                    uuid_to_source_type[uuid] = source_type
         
         sources_to_add = []
         for uuid in sorted(all_uuids):
@@ -294,8 +324,9 @@ def analyze_file(filepath: str, source_mapping: Optional[Dict[str, Dict[str, Any
                 # Process: remove htdate tags and split by comma
                 display_text = uuid_to_display_text.get(uuid, f"Source {uuid[:8]}...")
                 processed_text, page_value = process_source_text(display_text)
+                source_type = uuid_to_source_type.get(uuid, 0)
                 ht_source = {
-                    "type": 0,  # Default type
+                    "type": source_type,
                     "uuid": uuid,
                     "text": processed_text,
                     "page": page_value,
@@ -306,8 +337,9 @@ def analyze_file(filepath: str, source_mapping: Optional[Dict[str, Dict[str, Any
                 # Create minimal HTSource for unknown UUID
                 display_text = uuid_to_display_text.get(uuid, f"Unknown source {uuid[:8]}...")
                 processed_text, page_value = process_source_text(display_text)
+                source_type = uuid_to_source_type.get(uuid, 0)
                 ht_source = {
-                    "type": 0,
+                    "type": source_type,
                     "uuid": uuid,
                     "text": processed_text,
                     "page": page_value,
@@ -402,7 +434,7 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                 
                 if len(example['html_citations']) > 0:
                     print("Citations found:")
-                    for uuid, text in example['html_citations']:
+                    for uuid, _, _ in example['html_citations']:
                         citation_num = analysis['uuid_mapping'][uuid]
                         print(f"  {uuid[:12]}... -> <htcite{citation_num}>")
         
@@ -434,26 +466,26 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
     # Perform the conversion
     modified_data = json.loads(json.dumps(data))  # Deep copy
     
-    def convert_text_and_add_sources(obj, citation_mapping, sources_by_uuid):
+    def convert_text_and_add_sources(obj):
         if isinstance(obj, dict):
             for key, value in obj.items():
-                if isinstance(value, str):
-                    obj[key] = convert_text_citations(value, citation_mapping)
-                elif isinstance(value, (dict, list)):
-                    convert_text_and_add_sources(value, citation_mapping, sources_by_uuid)
+                if isinstance(value, (dict, list)):
+                    convert_text_and_add_sources(value)
         elif isinstance(obj, list):
             for i, item in enumerate(obj):
-                if isinstance(item, str):
-                    obj[i] = convert_text_citations(item, citation_mapping)
-                elif isinstance(item, dict):
+                if isinstance(item, dict):
                     # Check if this is an HTText object
                     if 'text' in item and 'source' in item:
                         text_value = item['text']
                         html_citations = find_html_citations(text_value)
                         
                         if html_citations:
-                            # Convert the text
-                            item['text'] = convert_text_citations(text_value, citation_mapping)
+                            # Create local mapping for this HTText object only (starts from 0)
+                            uuids_in_text = [uuid for uuid, _, _ in html_citations]
+                            local_mapping = {uuid: i for i, uuid in enumerate(uuids_in_text)}
+                            
+                            # Convert the text with local mapping
+                            item['text'] = convert_text_citations(text_value, local_mapping)
                             
                             # Add sources to this HTText object
                             existing_sources = item.get('source', [])
@@ -464,11 +496,16 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                             text_sources = []
                             seen_uuids = set(source.get('uuid', '') for source in existing_sources)
                             
-                            for uuid, _ in html_citations:
-                                if uuid in citation_mapping and uuid not in seen_uuids:
-                                    citation_num = citation_mapping[uuid]
-                                    if citation_num < len(sources_by_uuid):
-                                        source_obj = sources_by_uuid[citation_num]
+                            for uuid, _, _ in html_citations:
+                                if uuid in local_mapping and uuid not in seen_uuids:
+                                    citation_num = local_mapping[uuid]
+                                    # Get source from sources_by_uuid using global mapping
+                                    global_citation_num = analysis['uuid_mapping'].get(uuid)
+                                    if global_citation_num is not None and global_citation_num in sources_by_uuid:
+                                        source_obj = sources_by_uuid[global_citation_num]
+                                        # Update the source with local citation number
+                                        source_obj = dict(source_obj)
+                                        source_obj['citation_num'] = citation_num
                                         text_sources.append(source_obj)
                                         seen_uuids.add(uuid)
                             
@@ -490,9 +527,9 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                             
                             item['source'] = unique_sources
                     else:
-                        convert_text_and_add_sources(item, citation_mapping, sources_by_uuid)
+                        convert_text_and_add_sources(item)
                 elif isinstance(item, list):
-                    convert_text_and_add_sources(item, citation_mapping, sources_by_uuid)
+                    convert_text_and_add_sources(item)
     
     # Prepare sources array indexed by citation number
     sources_by_uuid = {}
@@ -503,7 +540,7 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                 sources_by_uuid[citation_num] = source
     
     # Apply conversions
-    convert_text_and_add_sources(modified_data, analysis['uuid_mapping'], sources_by_uuid)
+    convert_text_and_add_sources(modified_data)
     
     print(f"\n--- CONVERSION SUMMARY ---")
     print(f"UUIDs converted: {len(analysis['uuid_mapping'])}")
@@ -635,7 +672,7 @@ Examples:
                     
                     if len(example['html_citations']) > 0:
                         print("Citations found:")
-                        for uuid, text in example['html_citations']:
+                        for uuid, _, _ in example['html_citations']:
                             citation_num = analysis['uuid_mapping'][uuid]
                             print(f"  {uuid[:12]}... -> <htcite{citation_num}>")
             
