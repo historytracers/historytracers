@@ -28,7 +28,7 @@ import (
 func htFilterEmptyStrings(slice []string) []string {
 	var result []string
 	for _, s := range slice {
-		if s != "" {
+		if strings.TrimSpace(s) != "" {
 			result = append(result, s)
 		}
 	}
@@ -40,7 +40,7 @@ func htShouldClearEmptyValues(slice []string) bool {
 		return false
 	}
 	for _, s := range slice {
-		if s != "" {
+		if strings.TrimSpace(s) != "" {
 			return false
 		}
 	}
@@ -899,7 +899,6 @@ func (e *TextEditor) showJSONEditor() {
 				}
 			}
 			e.indexCombo.Options = newOptions
-			e.indexCombo.Options = nil
 			e.indexCombo.Refresh()
 		}
 	})
@@ -1263,11 +1262,11 @@ func (e *TextEditor) saveJSONEditorChanges() {
 	}
 
 	if len(e.authorsCombo.Options) > 0 {
-		jsonData["authors"] = e.authorsCombo.Options
+		jsonData["authors"] = htFilterEmptyStrings(e.authorsCombo.Options)
 	}
 
 	if len(e.reviewersCombo.Options) > 0 {
-		jsonData["reviewers"] = e.reviewersCombo.Options
+		jsonData["reviewers"] = htFilterEmptyStrings(e.reviewersCombo.Options)
 	}
 
 	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
@@ -1284,19 +1283,19 @@ func (e *TextEditor) saveJSONEditorChanges() {
 	}
 
 	if len(e.licenseCombo.Options) > 0 {
-		jsonData["license"] = e.licenseCombo.Options
+		jsonData["license"] = htFilterEmptyStrings(e.licenseCombo.Options)
 	}
 
 	if len(e.sourcesCombo.Options) > 0 {
-		jsonData["sources"] = e.sourcesCombo.Options
+		jsonData["sources"] = htFilterEmptyStrings(e.sourcesCombo.Options)
 	}
 
 	if len(e.scriptsCombo.Options) > 0 {
-		jsonData["scripts"] = e.scriptsCombo.Options
+		jsonData["scripts"] = htFilterEmptyStrings(e.scriptsCombo.Options)
 	}
 
 	if len(e.audioCombo.Options) > 0 {
-		jsonData["audio"] = e.audioCombo.Options
+		jsonData["audio"] = htFilterEmptyStrings(e.audioCombo.Options)
 	}
 
 	// Merge additional fields
@@ -1421,8 +1420,8 @@ func (e *TextEditor) saveAtlasDocument() {
 
 	atlasData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
 	atlasData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
-	atlasData.Authors = e.authorsCombo.Options
-	atlasData.Reviewers = e.reviewersCombo.Options
+	atlasData.Authors = htFilterEmptyStrings(e.authorsCombo.Options)
+	atlasData.Reviewers = htFilterEmptyStrings(e.reviewersCombo.Options)
 
 	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
 	if lastUpdateDate != nil {
@@ -1436,12 +1435,13 @@ func (e *TextEditor) saveAtlasDocument() {
 		}
 	}
 
-	atlasData.License = e.licenseCombo.Options
-	atlasData.Sources = e.sourcesCombo.Options
-	atlasData.Scripts = e.scriptsCombo.Options
+	atlasData.License = htFilterEmptyStrings(e.licenseCombo.Options)
+	atlasData.Sources = htFilterEmptyStrings(e.sourcesCombo.Options)
+	atlasData.Scripts = htFilterEmptyStrings(e.scriptsCombo.Options)
 
-	audioOptions := make([]HTAudio, len(e.audioCombo.Options))
-	for i, opt := range e.audioCombo.Options {
+	filteredAudioOptions := htFilterEmptyStrings(e.audioCombo.Options)
+	audioOptions := make([]HTAudio, len(filteredAudioOptions))
+	for i, opt := range filteredAudioOptions {
 		audioOptions[i] = HTAudio{URL: opt, External: true, Spotify: false}
 	}
 	atlasData.Audio = audioOptions
@@ -1517,8 +1517,8 @@ func (e *TextEditor) saveClassDocument() {
 	classData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
 	classData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
 	classData.Index = htFilterEmptyStrings(e.indexCombo.Options)
-	classData.Authors = e.authorsCombo.Options
-	classData.Reviewers = e.reviewersCombo.Options
+	classData.Authors = htFilterEmptyStrings(e.authorsCombo.Options)
+	classData.Reviewers = htFilterEmptyStrings(e.reviewersCombo.Options)
 
 	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
 	if lastUpdateDate != nil {
@@ -1532,12 +1532,13 @@ func (e *TextEditor) saveClassDocument() {
 		}
 	}
 
-	classData.License = e.licenseCombo.Options
-	classData.Sources = e.sourcesCombo.Options
-	classData.Scripts = e.scriptsCombo.Options
+	classData.License = htFilterEmptyStrings(e.licenseCombo.Options)
+	classData.Sources = htFilterEmptyStrings(e.sourcesCombo.Options)
+	classData.Scripts = htFilterEmptyStrings(e.scriptsCombo.Options)
 
-	classAudioOptions := make([]HTAudio, len(e.audioCombo.Options))
-	for i, opt := range e.audioCombo.Options {
+	filteredClassAudio := htFilterEmptyStrings(e.audioCombo.Options)
+	classAudioOptions := make([]HTAudio, len(filteredClassAudio))
+	for i, opt := range filteredClassAudio {
 		classAudioOptions[i] = HTAudio{URL: opt, External: true, Spotify: false}
 	}
 	classData.Audio = classAudioOptions
@@ -1586,12 +1587,13 @@ func (e *TextEditor) saveFamilyDocument() {
 		}
 	}
 
-	familyData.License = e.licenseCombo.Options
-	familyData.Sources = e.sourcesCombo.Options
-	familyData.Scripts = e.scriptsCombo.Options
+	familyData.License = htFilterEmptyStrings(e.licenseCombo.Options)
+	familyData.Sources = htFilterEmptyStrings(e.sourcesCombo.Options)
+	familyData.Scripts = htFilterEmptyStrings(e.scriptsCombo.Options)
 
-	familyAudioOptions := make([]HTAudio, len(e.audioCombo.Options))
-	for i, opt := range e.audioCombo.Options {
+	filteredFamilyAudio := htFilterEmptyStrings(e.audioCombo.Options)
+	familyAudioOptions := make([]HTAudio, len(filteredFamilyAudio))
+	for i, opt := range filteredFamilyAudio {
 		familyAudioOptions[i] = HTAudio{URL: opt, External: true, Spotify: false}
 	}
 	familyData.Audio = familyAudioOptions
@@ -1636,7 +1638,7 @@ func (e *TextEditor) saveSourceDocument() {
 		}
 	}
 
-	sourceData.License = e.licenseCombo.Options
+	sourceData.License = htFilterEmptyStrings(e.licenseCombo.Options)
 
 	var buf bytes.Buffer
 	encoder := json.NewEncoder(&buf)
