@@ -861,15 +861,29 @@ func (e *TextEditor) showJSONEditor() {
 		}
 	})
 
+	indexValues := []string{
+		"first_steps_menu",
+		"first_steps",
+		"first_steps_volume2",
+		"literature",
+		"indigenous_who",
+		"myths_believes",
+		"math_games",
+		"historical_events",
+		"physics",
+		"chemistry",
+		"biology",
+		"history",
+	}
+	indexSelect := widget.NewSelect(indexValues, nil)
 	indexAddBtn := widget.NewButtonWithIcon("", theme.ContentAddIcon(), func() {
-		entry := widget.NewEntry()
-		entry.SetPlaceHolder("Enter index value...")
-		dialog.ShowCustomConfirm("Add Index", "Add", "Cancel", entry, func(confirmed bool) {
-			if confirmed && entry.Text != "" {
+		dialog.ShowCustomConfirm("Add Index", "Add", "Cancel", indexSelect, func(confirmed bool) {
+			selectedValue := strings.TrimSpace(indexSelect.Selected)
+			if confirmed && selectedValue != "" {
 				if htShouldClearEmptyValues(e.indexCombo.Options) {
-					e.indexCombo.Options = []string{entry.Text}
+					e.indexCombo.Options = []string{selectedValue}
 				} else {
-					e.indexCombo.Options = append(e.indexCombo.Options, entry.Text)
+					e.indexCombo.Options = append(e.indexCombo.Options, selectedValue)
 				}
 				e.indexCombo.Refresh()
 			}
@@ -885,7 +899,7 @@ func (e *TextEditor) showJSONEditor() {
 				}
 			}
 			e.indexCombo.Options = newOptions
-			e.indexCombo.Selected = ""
+			e.indexCombo.Options = nil
 			e.indexCombo.Refresh()
 		}
 	})
@@ -1006,10 +1020,11 @@ func (e *TextEditor) loadJSONEditorData() {
 		}
 		if index, exists := dataMap["index"]; exists {
 			if slice, ok := index.([]interface{}); ok {
-				e.indexCombo.Options = make([]string, 0, len(slice))
+				var options []string
 				for _, item := range slice {
-					e.indexCombo.Options = append(e.indexCombo.Options, fmt.Sprintf("%v", item))
+					options = append(options, fmt.Sprintf("%v", item))
 				}
+				e.indexCombo.Options = htFilterEmptyStrings(options)
 			}
 			e.indexCombo.Enable()
 		} else {
@@ -1244,7 +1259,7 @@ func (e *TextEditor) saveJSONEditorChanges() {
 	jsonData["header"] = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
 
 	if len(e.indexCombo.Options) > 0 {
-		jsonData["index"] = e.indexCombo.Options
+		jsonData["index"] = htFilterEmptyStrings(e.indexCombo.Options)
 	}
 
 	if len(e.authorsCombo.Options) > 0 {
@@ -1501,7 +1516,7 @@ func (e *TextEditor) saveClassDocument() {
 
 	classData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
 	classData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
-	classData.Index = e.indexCombo.Options
+	classData.Index = htFilterEmptyStrings(e.indexCombo.Options)
 	classData.Authors = e.authorsCombo.Options
 	classData.Reviewers = e.reviewersCombo.Options
 
@@ -1557,7 +1572,7 @@ func (e *TextEditor) saveFamilyDocument() {
 
 	familyData.Title = e.jsonHeadersForm.Items[0].Widget.(*widget.Entry).Text
 	familyData.Header = e.jsonHeadersForm.Items[1].Widget.(*widget.Entry).Text
-	familyData.Index = e.indexCombo.Options
+	familyData.Index = htFilterEmptyStrings(e.indexCombo.Options)
 
 	lastUpdateDate := e.jsonHeadersForm.Items[5].Widget.(*widget.DateEntry).Date
 	if lastUpdateDate != nil {
