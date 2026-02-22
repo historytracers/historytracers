@@ -481,8 +481,13 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                         
                         if html_citations:
                             # Create local mapping for this HTText object only (starts from 0)
-                            uuids_in_text = [uuid for uuid, _, _ in html_citations]
-                            local_mapping = {uuid: i for i, uuid in enumerate(uuids_in_text)}
+                            # Keep first occurrence of each UUID and assign sequential numbers
+                            local_mapping = {}
+                            next_num = 0
+                            for uuid, _, _ in html_citations:
+                                if uuid not in local_mapping:
+                                    local_mapping[uuid] = next_num
+                                    next_num += 1
                             
                             # Convert the text with local mapping
                             item['text'] = convert_text_citations(text_value, local_mapping)
