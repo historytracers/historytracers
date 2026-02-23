@@ -480,10 +480,10 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                             item['text'] = convert_text_citations(text_value)
                             
                             # Add sources to this HTText object - one entry per citation
-                            # Create mapping for source assignment
-                            source_mapping = {}
+                            # Create mapping for source assignment (local to this HTText)
+                            uuid_to_index = {}
                             for i, (uuid, _, _) in enumerate(html_citations):
-                                source_mapping[uuid] = i
+                                uuid_to_index[uuid] = i
                             existing_sources = item.get('source', [])
                             if existing_sources is None:
                                 existing_sources = []
@@ -492,15 +492,38 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                             existing_uuids = [source.get('uuid', '') for source in existing_sources]
                             
                             # Add new sources for each citation
+                            # Use display text from this specific HTText object's citations, not global mapping
                             text_sources = []
-                            for i, (uuid, _, _) in enumerate(html_citations):
+                            for i, (uuid, display_text, source_type) in enumerate(html_citations):
+                                # Process display text from this specific citation
+                                processed_text, page_value = process_source_text(display_text)
                                 global_citation_num = analysis['uuid_mapping'].get(uuid)
-                                if global_citation_num is not None and global_citation_num in sources_by_uuid:
-                                    source_obj = sources_by_uuid[global_citation_num]
-                                    # Create new source object for each citation
-                                    new_source = dict(source_obj)
-                                    new_source['citation_num'] = i
-                                    text_sources.append(new_source)
+                                date_time_obj = {
+                                    "type": "gregory",
+                                    "year": "-1",
+                                    "month": "-1",
+                                    "day": "-1"
+                                }
+                                if source_mapping and uuid in source_mapping:
+                                    source_info = source_mapping[uuid]
+                                    date_time_value = source_info.get('date_time', '')
+                                    if date_time_value and date_time_value.strip():
+                                        date_parts = date_time_value.strip().split('-')
+                                        if len(date_parts) >= 1 and date_parts[0].isdigit():
+                                            date_time_obj["year"] = date_parts[0]
+                                        if len(date_parts) >= 2 and date_parts[1].isdigit():
+                                            date_time_obj["month"] = date_parts[1]
+                                        if len(date_parts) >= 3 and date_parts[2].isdigit():
+                                            date_time_obj["day"] = date_parts[2]
+                                new_source = {
+                                    "type": source_type,
+                                    "uuid": uuid,
+                                    "text": processed_text,
+                                    "page": page_value,
+                                    "date_time": date_time_obj,
+                                    "citation_num": i
+                                }
+                                text_sources.append(new_source)
                             
                             # Combine existing and new sources
                             item['source'] = existing_sources + text_sources
