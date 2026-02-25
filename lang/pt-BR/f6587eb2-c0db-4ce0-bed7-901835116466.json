@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1771862244"
+      "1772043493"
    ],
    "authors": [
       ""
@@ -297,7 +297,7 @@
          "id": "SECTION_game",
          "text": [
             {
-               "text": "### Batendo palmas\n\nQuando batemos palmas, geramos um som. Este som depende da velocidade com que batemos as mãos. Além disto, podemos bater palmas repetidamente criando rítimos que nos auxiliam a criar músicas.\n\nEste ato de bater palma está diretamente ligado a diferentes culturas, sendo inclusive utilizado em jogos que auxiliam o desenvolvimento intelectual das pessoas. Uma das culturas que podemos observar ter utilizado deste recurso no ensino é a cultura Shona, no Zimbábue (<htcite0>; <htcite1>).\n\nNeste texto, daremos os primeiros passos para utilizar as palmas no aprendizado. No exercício a seguir, escolha uma cor parecida com a sua, modifique com as setas a quantidade de vezes que as mãos irão aplaudir. Na sequência, escolha uma velocidade para bater as mãos. Finalmente aperte o play.",
+               "text": "### Batendo palmas\n\nQuando batemos palmas, geramos um som. Esse som depende da velocidade com que batemos as mãos. Além disso, podemos bater palmas repetidamente, criando ritmos que nos auxiliam a compor músicas.\n\nEsse ato de bater palmas está diretamente ligado a diferentes culturas, sendo inclusive utilizado em jogos que auxiliam no desenvolvimento intelectual das pessoas. Uma das culturas que podemos observar ter utilizado esse recurso no ensino é a cultura Shona, no Zimbábue (<htcite0>; <htcite1>; <htcite2>).\n\nNeste texto, daremos os primeiros passos para utilizar as palmas no aprendizado. A seguir, escolha a quantidade de vezes que as mãos irão bater palmas. Em seguida, escolha a velocidade das palmas e uma cor para as mãos. **Observe que, independentemente da cor escolhida, as palmas serão iguais, pois somos todos iguais, independentemente de nossa cor** (<htcite3>; <htcite4>). Somos todos iguais porque surgimos na África por volta de 300.000 anos atrás (<htcite5>). As diferentes cores da pele ocorrem, basicamente, devido à quantidade de melanina que as populações possuem e ao ambiente em que vivem, sendo as peles mais escuras predominantes em regiões próximas ao Equador — linha imaginária que divide a esfera da Terra ao meio — e as mais claras em regiões mais distantes (<htcite6>).\n\nFinalmente, aperte o play (<i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>) e repita as palmas.",
                "source": [
                   {
                      "type": 1,
@@ -334,6 +334,54 @@
                         "month": "1",
                         "day": "19"
                      }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ab1dda1e-95c2-4087-8299-e851e58bdc6f",
+                     "text": "History Tracers Team",
+                     "page": "Humanos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1c019e7a-adf5-4cb8-9794-e356d667cac4",
+                     "text": "Jablonski, N. G.",
+                     "page": "pp. 590, 599 - 606",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
                   }
                ],
                "date_time": null,
@@ -343,7 +391,7 @@
                "PostMention": ""
             },
             {
-               "text": "<style>.palette{ display:flex; flex-wrap:wrap;justify-content:center; max-width:500px; margin:15px auto; gap:6px; } .color-swatch{ width:28px; height:28px; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:0.2s; } .color-swatch:hover{ transform:scale(1.1); } .color-swatch.active{ border:2px solid #000; } #leftHand{ transform:translateX(-140px); transform-origin:center; } #rightHand{  transform:translateX(140px);  transform-origin:center;} @keyframes clapLeft{ 0%{ transform:translateX(-140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(-140px); } } @keyframes clapRight{  0%{ transform:translateX(140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(140px); } }@keyframes clapLeft{ 0%{ transform:translateX(-140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(-140px); } } @keyframes clapRight{  0%{ transform:translateX(140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(140px); } } .speed-control { margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; } .speed-control label { font-size: 16px; } #speedSlider {  width: 200px;   cursor: pointer; } #speedValue { min-width: 60px; text-align: left; font-weight: bold; }</style><button onclick=\"startClap()\">Bater Palmas</button><div class=\"controls\"><label>Número de palmas:</label> <input type=\"number\" id=\"clapCount\" min=\"0\" max=\"9\" value=\"3\">  <div class=\"speed-control\"> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"400\" max=\"2000\" value=\"800\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label> </div> </div> <div class=\"palette\" id=\"palette\"></div>",
+               "text": "<style>.palette{ display:flex; flex-wrap:wrap;justify-content:center; max-width:500px; margin:15px auto; gap:6px; } .color-swatch{ width:28px; height:28px; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:0.2s; } .color-swatch:hover{ transform:scale(1.1); } .color-swatch.active{ border:2px solid #000; } #leftHand{ transform:translateX(-140px); transform-origin:center; } #rightHand{  transform:translateX(140px);  transform-origin:center;} @keyframes clapLeft{ 0%{ transform:translateX(-140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(-140px); } } @keyframes clapRight{  0%{ transform:translateX(140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(140px); } }@keyframes clapLeft{ 0%{ transform:translateX(-140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(-140px); } } @keyframes clapRight{  0%{ transform:translateX(140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(140px); } } .speed-control { margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; } .speed-control label { font-size: 16px; } #speedSlider {  width: 200px;   cursor: pointer; } #speedValue { min-width: 60px; text-align: left; font-weight: bold; }</style><div class=\"controls\"><label>Número de palmas:</label> <select id=\"clapCount\"></select>  <i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:2em;color:#0f0;\" ></i>  <div class=\"speed-control\"> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"400\" max=\"2000\" value=\"1200\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label> <span style=\"font-size: 4em;\">Contador:</span> <div id=\"clapCounter\" style=\"font-size: 4em;\">0 / 0</div> </div> </div><div class=\"palette\" id=\"palette\"></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -352,7 +400,7 @@
                "PostMention": ""
             },
             {
-               "text": "<svg viewBox=\"0 0 600 500\"><g transform=\"translate(400,0) scale(0.6)\"><g id=\"leftHand\"><path class=\"hand-shape\" fill=\"#F4C2A1\"  d=\"M-268.1,338l21.7-21.7c2.3-2.3,3.5-5.3,3.5-8.5v-55.7c0-5.6,2.2-10.9,6.2-14.9l32.4-32.4 c2.1-2.1,5.8-1.8,7.4,0.8c2.8,4.4,5,11.4-1.4,18.9c-5.1,5.9-10.3,10.9-13.7,14.1 c-2.2,2-2.2,5.4-0.1,7.5c2,2,5.3,2,7.3,0l87.6-87.6c4.6-4.6,12.2-4.6,16.8,0 c4.6,4.6,4.6,12.2,0,16.8l-66.2,66.2c-2.4,2.4-2.4,6.4,0,8.8  c2.4,2.4,6.4,2.4,8.8,0l74.5-75.3c4.6-4.7,12.2-4.7,16.9,0l1.8,1.8  c4.6,4.6,4.6,12.1,0.1,16.8l-70.4,71.3c-2.2,2.3-2.2,5.9,0,8.2 c2.3,2.3,5.9,2.3,8.2,0l61.2-61.2c4.6-4.6,12.2-4.6,16.8,0l0.2,0.2 c4.6,4.6,4.6,12.2,0,16.8l-67.1,67.1c-1.7,1.7-1.7,4.6,0,6.3 c1.7,1.7,4.6,1.7,6.3,0l50.7-50.7c3.9-3.9,10.1-3.9,13.9,0 c3.9,3.9,3.9,10.1,0,13.9l-98.2,98.2z\"/> </g> <g id=\"rightHand\" transform=\"scale(-1,1)\"> <path class=\"hand-shape\" fill=\"#F4C2A1\" d=\"M-268.1,338l21.7-21.7c2.3-2.3,3.5-5.3,3.5-8.5v-55.7c0-5.6,2.2-10.9,6.2-14.9l32.4-32.4 c2.1-2.1,5.8-1.8,7.4,0.8c2.8,4.4,5,11.4-1.4,18.9c-5.1,5.9-10.3,10.9-13.7,14.1 c-2.2,2-2.2,5.4-0.1,7.5c2,2,5.3,2,7.3,0l87.6-87.6c4.6-4.6,12.2-4.6,16.8,0 c4.6,4.6,4.6,12.2,0,16.8l-66.2,66.2c-2.4,2.4-2.4,6.4,0,8.8 c2.4,2.4,6.4,2.4,8.8,0l74.5-75.3c4.6-4.7,12.2-4.7,16.9,0l1.8,1.8 c4.6,4.6,4.6,12.1,0.1,16.8l-70.4,71.3c-2.2,2.3-2.2,5.9,0,8.2 c2.3,2.3,5.9,2.3,8.2,0l61.2-61.2c4.6-4.6,12.2-4.6,16.8,0l0.2,0.2 c4.6,4.6,4.6,12.2,0,16.8l-67.1,67.1c-1.7,1.7-1.7,4.6,0,6.3 c1.7,1.7,4.6,1.7,6.3,0l50.7-50.7c3.9-3.9,10.1-3.9,13.9,0 c3.9,3.9,3.9,10.1,0,13.9l-98.2,98.2z\"/> </g> </svg>",
+               "text": "<svg viewBox=\"0 0 600 200\"><g transform=\"translate(400,0) scale(0.6)\"><g id=\"leftHand\"><path class=\"hand-shape\" fill=\"#F4C2A1\"  d=\"M-268.1,338l21.7-21.7c2.3-2.3,3.5-5.3,3.5-8.5v-55.7c0-5.6,2.2-10.9,6.2-14.9l32.4-32.4 c2.1-2.1,5.8-1.8,7.4,0.8c2.8,4.4,5,11.4-1.4,18.9c-5.1,5.9-10.3,10.9-13.7,14.1 c-2.2,2-2.2,5.4-0.1,7.5c2,2,5.3,2,7.3,0l87.6-87.6c4.6-4.6,12.2-4.6,16.8,0 c4.6,4.6,4.6,12.2,0,16.8l-66.2,66.2c-2.4,2.4-2.4,6.4,0,8.8  c2.4,2.4,6.4,2.4,8.8,0l74.5-75.3c4.6-4.7,12.2-4.7,16.9,0l1.8,1.8  c4.6,4.6,4.6,12.1,0.1,16.8l-70.4,71.3c-2.2,2.3-2.2,5.9,0,8.2 c2.3,2.3,5.9,2.3,8.2,0l61.2-61.2c4.6-4.6,12.2-4.6,16.8,0l0.2,0.2 c4.6,4.6,4.6,12.2,0,16.8l-67.1,67.1c-1.7,1.7-1.7,4.6,0,6.3 c1.7,1.7,4.6,1.7,6.3,0l50.7-50.7c3.9-3.9,10.1-3.9,13.9,0 c3.9,3.9,3.9,10.1,0,13.9l-98.2,98.2z\"/> </g> <g id=\"rightHand\" transform=\"scale(-1,1)\"> <path class=\"hand-shape\" fill=\"#F4C2A1\" d=\"M-268.1,338l21.7-21.7c2.3-2.3,3.5-5.3,3.5-8.5v-55.7c0-5.6,2.2-10.9,6.2-14.9l32.4-32.4 c2.1-2.1,5.8-1.8,7.4,0.8c2.8,4.4,5,11.4-1.4,18.9c-5.1,5.9-10.3,10.9-13.7,14.1 c-2.2,2-2.2,5.4-0.1,7.5c2,2,5.3,2,7.3,0l87.6-87.6c4.6-4.6,12.2-4.6,16.8,0 c4.6,4.6,4.6,12.2,0,16.8l-66.2,66.2c-2.4,2.4-2.4,6.4,0,8.8 c2.4,2.4,6.4,2.4,8.8,0l74.5-75.3c4.6-4.7,12.2-4.7,16.9,0l1.8,1.8 c4.6,4.6,4.6,12.1,0.1,16.8l-70.4,71.3c-2.2,2.3-2.2,5.9,0,8.2 c2.3,2.3,5.9,2.3,8.2,0l61.2-61.2c4.6-4.6,12.2-4.6,16.8,0l0.2,0.2 c4.6,4.6,4.6,12.2,0,16.8l-67.1,67.1c-1.7,1.7-1.7,4.6,0,6.3 c1.7,1.7,4.6,1.7,6.3,0l50.7-50.7c3.9-3.9,10.1-3.9,13.9,0 c3.9,3.9,3.9,10.1,0,13.9l-98.2,98.2z\"/> </g> </svg>",
                "source": null,
                "date_time": null,
                "isTable": false,

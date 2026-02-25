@@ -3,12 +3,12 @@
 var localAnswerVector = undefined;
 
 const skinTones = [
-  "#FFE5D9", "#FCE5D5", "#FAD5C0", "#F8D5B0", "#F5D0A9",
-  "#F4C2A1", "#EEC9A3", "#E0AC69", "#DEB887", "#D9A066",
-  "#D99A6C", "#C68642", "#B97A56", "#B36B3C", "#A5672C",
-  "#8D5524", "#7E4E2B", "#784421", "#6A3E1E", "#5C3B1E",
-  "#4E2E1B", "#4A2A1A", "#3F2A1A", "#362115", "#2E1C12",
-  "#26170F", "#1F130B", "#1A0F08", "#140B06", "#0C0704"
+  "#0C0704", "#140B06", "#1A0F08", "#1F130B", "#26170F",
+  "#2E1C12", "#362115", "#3F2A1A", "#4A2A1A", "#4E2E1B",
+  "#5C3B1E", "#6A3E1E", "#784421", "#7E4E2B", "#8D5524",
+  "#A5672C", "#B36B3C", "#B97A56", "#C68642", "#D99A6C",
+  "#D9A066", "#DEB887", "#E0AC69", "#EEC9A3", "#F4C2A1",
+  "#F5D0A9", "#F8D5B0", "#FAD5C0", "#FCE5D5", "#FFE5D9"
 ];
 
 var palette = undefined;
@@ -20,18 +20,26 @@ let busy = false;
 
 var speedSlider = undefined;
 var speedValue = undefined;
-let clapCycleTime = 800; // default ms (0.8s total per clap)
+let clapCycleTime = 1200;
+
+var counterDisplay = undefined;
 
 async function startClap(){
   if(busy) return;
 
   const count = parseInt(document.getElementById("clapCount").value);
-  if(!count || count < 1) return;
+  if(!count || count < 1) {
+    counterDisplay.innerText = `0 / 0`;
+    return;
+  }
 
   busy = true;
 
-  const animationDuration = clapCycleTime * 0.75; // ms
-  const pauseDuration = clapCycleTime * 0.25;    // ms
+  const animationDuration = clapCycleTime * 0.75;
+  const pauseDuration = clapCycleTime * 0.25;
+
+  let completed = 0;
+  counterDisplay.innerText = `${completed} / ${count}`;
 
   for(let i=0;i<count;i++){
     left.style.animation = `clapLeft ${animationDuration/1000}s ease`;
@@ -41,6 +49,9 @@ async function startClap(){
 
     left.style.animation = "";
     right.style.animation = "";
+
+    completed++;
+    counterDisplay.innerText = `${completed} / ${count}`;
 
     if (i < count - 1) {
       await new Promise(r => setTimeout(r, pauseDuration));
@@ -64,6 +75,8 @@ function htLoadContent() {
         speedValue.textContent = clapCycleTime + " ms";
     });
 
+    counterDisplay = document.getElementById("clapCounter");
+
     skinTones.forEach((color, index)=>{
         const swatch = document.createElement("div");
         swatch.className = "color-swatch";
@@ -79,6 +92,14 @@ function htLoadContent() {
 
         palette.appendChild(swatch);
     });
+
+    for (let i = 0 ; i< 9; i++) {
+        $('#clapCount').append($('<option>', {
+            value: i,
+            text: i
+        }));
+    }
+    $('#clapCount').val(5);
 
     return false;
 }
