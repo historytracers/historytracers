@@ -5,8 +5,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"math"
 	"os"
 	"regexp"
+	"strconv"
 	"strings"
 
 	"github.com/gomarkdown/markdown"
@@ -877,6 +879,83 @@ func htRemoveChineseCharacters(text string) string {
 	cleaned = emptyParenRegex.ReplaceAllString(cleaned, "")
 
 	return cleaned
+}
+
+func htConvertTemperatures(text string, lang string) string {
+	tempRegex := regexp.MustCompile(`(-?\d+(?:\.\d+)?)\s*º?\s*([CF])\s*\(\s*(-?\d+(?:\.\d+)?)\s*º?\s*([CF])\)`)
+
+	tempMap := map[string]map[string]string{
+		"celsius": {
+			"pt-BR": "graus celsius",
+			"es-ES": "grados celsius",
+			"en-US": "degrees celsius",
+		},
+		"fahrenheit": {
+			"pt-BR": "graus fahrenheit",
+			"es-ES": "grados fahrenheit",
+			"en-US": "degrees fahrenheit",
+		},
+		"negativos": {
+			"pt-BR": "negativos",
+			"es-ES": "negativos",
+			"en-US": "negative",
+		},
+		"positivos": {
+			"pt-BR": "positivos",
+			"es-ES": "positivos",
+			"en-US": "positive",
+		},
+		"correspond": {
+			"pt-BR": "que correspondem a",
+			"es-ES": "que corresponden a",
+			"en-US": "which correspond to",
+		},
+	}
+
+	replacement := tempRegex.ReplaceAllStringFunc(text, func(match string) string {
+		parts := tempRegex.FindStringSubmatch(match)
+		if len(parts) != 5 {
+			return match
+		}
+
+		temp1Str := parts[1]
+		unit1 := strings.ToUpper(parts[2])
+		temp2Str := parts[3]
+
+		temp1, _ := strconv.ParseFloat(temp1Str, 64)
+
+		var unit1Name, unit2Name, negPos string
+		var corrText string
+
+		if unit1 == "C" {
+			unit1Name = tempMap["celsius"][lang]
+			unit2Name = tempMap["fahrenheit"][lang]
+		} else {
+			unit1Name = tempMap["fahrenheit"][lang]
+			unit2Name = tempMap["celsius"][lang]
+		}
+
+		if temp1 < 0 {
+			negPos = tempMap["negativos"][lang]
+		} else {
+			negPos = tempMap["positivos"][lang]
+		}
+
+		corrText = tempMap["correspond"][lang]
+
+		absTemp1 := int(math.Abs(temp1))
+		absTemp2, _ := strconv.Atoi(temp2Str)
+
+		if lang == "pt-BR" {
+			return fmt.Sprintf("%d %s %s (%s %d %s %s)", absTemp1, unit1Name, negPos, corrText, absTemp2, unit2Name, negPos)
+		} else if lang == "es-ES" {
+			return fmt.Sprintf("%d %s %s (%s %d %s %s)", absTemp1, unit1Name, negPos, corrText, absTemp2, unit2Name, negPos)
+		} else {
+			return fmt.Sprintf("%d %s %s (%s %d %s %s)", absTemp1, unit1Name, negPos, corrText, absTemp2, unit2Name, negPos)
+		}
+	})
+
+	return replacement
 }
 
 func htAdjustTrailingDots(text string) string {

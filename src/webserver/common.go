@@ -569,6 +569,7 @@ func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 	ret = htReplaceMath(ret, lang)
 	ret = htConvertSuperscript(ret, lang)
 	ret = htConvertFunctionAbbreviation(ret, lang)
+	ret = htConvertTemperatures(ret, lang)
 
 	return ret
 }
