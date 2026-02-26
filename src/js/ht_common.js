@@ -47,6 +47,15 @@ let htGameImageList = [ ];
 
 var htEditable = undefined;
 
+const skinTones = [
+  "#0C0704", "#140B06", "#1A0F08", "#1F130B", "#26170F",
+  "#2E1C12", "#362115", "#3F2A1A", "#4A2A1A", "#4E2E1B",
+  "#5C3B1E", "#6A3E1E", "#784421", "#7E4E2B", "#8D5524",
+  "#A5672C", "#B36B3C", "#B97A56", "#C68642", "#D99A6C",
+  "#D9A066", "#DEB887", "#E0AC69", "#EEC9A3", "#F4C2A1",
+  "#F5D0A9", "#F8D5B0", "#FAD5C0", "#FCE5D5", "#FFE5D9"
+];
+
 function htEnableEdition(data) {
     if (htEditable) {
         $(".htEditor").each(function() {
@@ -2092,6 +2101,13 @@ function htSelectAtlasMap(id) {
         }
     }
 
+    if (vector.audio) {
+        if ($("#htaudio").length) {
+            let obj = [ { "url": vector.audio, "external": true, "spotify": false } ];
+            htAddAudio(obj);
+        }
+    }
+
     var text = (vector.image.length > 0) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+".</p>"+formattedText : formattedText;
     var prevText = (vector.prev) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap('"+vector.prev+"'); htModifyAtlasIndexMap('"+vector.prev+"');\">"+prevIdx+"</a>" : "&nbsp;";
     var nextText = (vector.next) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap('"+vector.next+"'); htModifyAtlasIndexMap('"+vector.next+"');\">"+nextIdx+"</a>" : "&nbsp;";
@@ -2135,7 +2151,7 @@ function htFillAtlas(data) {
         var author = (item.author != undefined && item.author.length > 0) ? item.author : null ;
         var isTable = (item.isTable != undefined) ? item.isTable : false ;
         var format = (item.format != undefined) ? item.format : "html" ;
-        htAtlas.set(item.uuid, {"name": item.index, "image" : item.image, "author": author, "text" : text, "format": format, "isTable": isTable, "prev": prevIdx, "next": undefined});
+        htAtlas.set(item.uuid, {"name": item.index, "image" : item.image, "author": author, "audio": item.audio, "text" : text, "format": format, "isTable": isTable, "prev": prevIdx, "next": undefined});
 
         var showIdx = parseInt(i) + 1;
         var o = new Option(showIdx+". "+item.index, item.uuid);

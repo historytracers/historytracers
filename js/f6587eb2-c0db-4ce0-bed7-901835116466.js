@@ -2,15 +2,6 @@
 
 var localAnswerVector = undefined;
 
-const skinTones = [
-  "#0C0704", "#140B06", "#1A0F08", "#1F130B", "#26170F",
-  "#2E1C12", "#362115", "#3F2A1A", "#4A2A1A", "#4E2E1B",
-  "#5C3B1E", "#6A3E1E", "#784421", "#7E4E2B", "#8D5524",
-  "#A5672C", "#B36B3C", "#B97A56", "#C68642", "#D99A6C",
-  "#D9A066", "#DEB887", "#E0AC69", "#EEC9A3", "#F4C2A1",
-  "#F5D0A9", "#F8D5B0", "#FAD5C0", "#FCE5D5", "#FFE5D9"
-];
-
 var palette = undefined;
 var hands = undefined;
 var left = undefined;
