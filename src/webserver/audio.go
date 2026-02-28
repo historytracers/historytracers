@@ -795,16 +795,19 @@ func htConvertFunctionAbbreviation(text string, lang string) string {
 
 func htConvertSuperscript(text string, lang string) string {
 	superscriptMap := map[string]map[string]string{
-		"¹": {"en-US": " to the first power", "es-ES": " a la primera potencia", "pt-BR": " à primeira potência"},
-		"²": {"en-US": " squared", "es-ES": " al cuadrado", "pt-BR": " ao quadrado"},
-		"³": {"en-US": " cubed", "es-ES": " al cubo", "pt-BR": " ao cubo"},
-		"⁴": {"en-US": " to the fourth power", "es-ES": " a la cuarta potencia", "pt-BR": " à quarta potência"},
-		"⁵": {"en-US": " to the fifth power", "es-ES": " a la quinta potencia", "pt-BR": " à quinta potência"},
-		"⁶": {"en-US": " to the sixth power", "es-ES": " a la sexta potencia", "pt-BR": " à sexta potência"},
-		"⁷": {"en-US": " to the seventh power", "es-ES": " a la septima potencia", "pt-BR": " à sétima potência"},
-		"⁸": {"en-US": " to the eighth power", "es-ES": " a la octava potencia", "pt-BR": " à oitava potência"},
-		"⁹": {"en-US": " to the ninth power", "es-ES": " a la novena potencia", "pt-BR": " à nona potência"},
-		"⁰": {"en-US": " to the zero power", "es-ES": " a la cero potencia", "pt-BR": " à zero potência"},
+		"¹":      {"en-US": " to the first power", "es-ES": " a la primera potencia", "pt-BR": " à primeira potência"},
+		"²":      {"en-US": " squared", "es-ES": " al cuadrado", "pt-BR": " ao quadrado"},
+		"³":      {"en-US": " cubed", "es-ES": " al cubo", "pt-BR": " ao cubo"},
+		"⁴":      {"en-US": " to the fourth power", "es-ES": " a la cuarta potencia", "pt-BR": " à quarta potência"},
+		"⁵":      {"en-US": " to the fifth power", "es-ES": " a la quinta potencia", "pt-BR": " à quinta potência"},
+		"⁶":      {"en-US": " to the sixth power", "es-ES": " a la sexta potencia", "pt-BR": " à sexta potência"},
+		"⁷":      {"en-US": " to the seventh power", "es-ES": " a la septima potencia", "pt-BR": " à sétima potência"},
+		"⁸":      {"en-US": " to the eighth power", "es-ES": " a la octava potencia", "pt-BR": " à oitava potência"},
+		"⁹":      {"en-US": " to the ninth power", "es-ES": " a la novena potencia", "pt-BR": " à nona potência"},
+		"⁰":      {"en-US": " to the zero power", "es-ES": " a la cero potencia", "pt-BR": " à zero potência"},
+		"&sup1;": {"en-US": " to the first power", "es-ES": " a la primera potencia", "pt-BR": " à primeira potência"},
+		"&sup2;": {"en-US": " squared", "es-ES": " al cuadrado", "pt-BR": " ao quadrado"},
+		"&sup3;": {"en-US": " cubed", "es-ES": " al cubo", "pt-BR": " ao cubo"},
 	}
 
 	// Handle implicit multiplication between variables/functions with superscripts
