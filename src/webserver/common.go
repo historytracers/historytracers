@@ -895,6 +895,28 @@ func htRemoveDuplicateParentheses(text string) string {
 	})
 }
 
+func htSuperscriptToWord(exp string, lang string) string {
+	superscriptMap := map[string]map[string]string{
+		"0": {"en-US": " to the zero power", "es-ES": " a la cero potencia", "pt-BR": " à zero potência"},
+		"1": {"en-US": " to the first power", "es-ES": " a la primera potencia", "pt-BR": " à primeira potência"},
+		"2": {"en-US": " squared", "es-ES": " al cuadrado", "pt-BR": " ao quadrado"},
+		"3": {"en-US": " cubed", "es-ES": " al cubo", "pt-BR": " ao cubo"},
+		"4": {"en-US": " to the fourth power", "es-ES": " a la cuarta potencia", "pt-BR": " à quarta potência"},
+		"5": {"en-US": " to the fifth power", "es-ES": " a la quinta potencia", "pt-BR": " à quinta potência"},
+		"6": {"en-US": " to the sixth power", "es-ES": " a la sexta potencia", "pt-BR": " à sexta potência"},
+		"7": {"en-US": " to the seventh power", "es-ES": " a la septima potencia", "pt-BR": " à sétima potência"},
+		"8": {"en-US": " to the eighth power", "es-ES": " a la octava potencia", "pt-BR": " à oitava potência"},
+		"9": {"en-US": " to the ninth power", "es-ES": " a la novena potencia", "pt-BR": " à nona potência"},
+	}
+
+	if langMap, ok := superscriptMap[exp]; ok {
+		if replacement, ok := langMap[lang]; ok {
+			return replacement
+		}
+	}
+	return " to the " + exp + " power"
+}
+
 func htHTML2Text(htmlStr string, lang string) (string, error) {
 	doc, err := html.Parse(strings.NewReader(htmlStr))
 	if err != nil {
@@ -1037,6 +1059,29 @@ func htHTML2Text(htmlStr string, lang string) (string, error) {
 					b.WriteString(dividedByStr)
 					b.WriteByte(' ')
 					b.WriteString(denText)
+				}
+			} else if n.Data == "msup" || n.Data == "sup" {
+				var base, exponent strings.Builder
+				child := n.FirstChild
+				if child != nil {
+					collectMathMLText(child, &base, false)
+					child = child.NextSibling
+					if child != nil {
+						collectMathMLText(child, &exponent, false)
+					}
+				}
+				baseText := strings.TrimSpace(base.String())
+				expText := strings.TrimSpace(exponent.String())
+				if baseText != "" && expText != "" {
+					if b.Len() > 0 {
+						last := b.String()[b.Len()-1]
+						if last != ' ' && last != '\n' {
+							b.WriteByte(' ')
+						}
+					}
+					expWord := htSuperscriptToWord(expText, lang)
+					b.WriteString(baseText)
+					b.WriteString(expWord)
 				}
 			} else {
 				for c := n.FirstChild; c != nil; c = c.NextSibling {
