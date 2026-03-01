@@ -334,8 +334,22 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img src=\"images/Louvre/0000166561_OG.JPG\" id=\"imgLVR\" onclick=\"htImageZoom('imgLVR', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: Levallois Core. © Musée du Louvre/ Département des Antiquités égyptiennes (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('1c47caa3-225d-406b-83a8-a53306bea630'); return false;\">Musée du Louvre</a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img src=\"images/Louvre/0000166561_OG.JPG\" id=\"imgLVR\" onclick=\"htImageZoom('imgLVR', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: Levallois Core. © Musée du Louvre/ Département des Antiquités égyptiennes (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "1c47caa3-225d-406b-83a8-a53306bea630",
+                     "text": "Musée du Louvre",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "12",
+                        "day": "21"
+                     },
+                     "citation_num": 0
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -858,8 +872,22 @@
                      "PostMention": ""
                   },
                   {
-                     "text": "<p class=\"desc\"><img src=\"images/BritishMuseum/mid_01289911_001.jpg\" id=\"imgGB\" onclick=\"htImageZoom('imgGB', '0%')\" class=\"imgcenter\"/><b>Figure 3</b>: Glass Beads. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('c60d525a-94c8-4f60-b07b-f4b3a42b723e'); return false;\">The British Museum</a>).</p>",
-                     "source": null,
+                     "text": "<p class=\"desc\"><img src=\"images/BritishMuseum/mid_01289911_001.jpg\" id=\"imgGB\" onclick=\"htImageZoom('imgGB', '0%')\" class=\"imgcenter\"/><b>Figure 3</b>: Glass Beads. © Trustees of the British Museum (<htcite0>).</p>",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "c60d525a-94c8-4f60-b07b-f4b3a42b723e",
+                           "text": "The British Museum",
+                           "page": "",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2025",
+                              "month": "12",
+                              "day": "26"
+                           },
+                           "citation_num": 0
+                        }
+                     ],
                      "date_time": null,
                      "isTable": false,
                      "imgdesc": "",
@@ -1034,8 +1062,35 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img class=\"imgcenter\" src=\"images/UNESCO/site_0364_0028-1000-750-20250313170037.jpg\" id=\"imgWALL\" onclick=\"htImageZoom('imgWALL', '0%')\"/><b>Figure 4</b>: Great Zimbabwe National Monument (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('19934031-f0f5-4a1d-83c3-6391b5acaff8'); return false;\">The National Museum and Monuments of Zimbabwe</a>). Photograph taken by Erik Eschweiler-Dienerowitz and made available on the UNESCO website (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b7d68d4b-67a9-4624-9ce6-9b0e2f01c50e'); return false;\">UNESCO</a>). Shared under the <a href=\"https://whc.unesco.org/en/licenses/6\" target=\"_blank\">Creative Commons Attribution-ShareAlike 3.0 IGO</a> license.</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img class=\"imgcenter\" src=\"images/UNESCO/site_0364_0028-1000-750-20250313170037.jpg\" id=\"imgWALL\" onclick=\"htImageZoom('imgWALL', '0%')\"/><b>Figure 4</b>: Great Zimbabwe National Monument (<htcite0>). Photograph taken by Erik Eschweiler-Dienerowitz and made available on the UNESCO website (<htcite1>). Shared under the <a href=\"https://whc.unesco.org/en/licenses/6\" target=\"_blank\">Creative Commons Attribution-ShareAlike 3.0 IGO</a> license.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "19934031-f0f5-4a1d-83c3-6391b5acaff8",
+                     "text": "The National Museum and Monuments of Zimbabwe",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "02",
+                        "day": "01"
+                     },
+                     "citation_num": 0
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b7d68d4b-67a9-4624-9ce6-9b0e2f01c50e",
+                     "text": "UNESCO",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "12",
+                        "day": "21"
+                     },
+                     "citation_num": 1
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
