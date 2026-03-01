@@ -120,8 +120,22 @@
          "PostMention": ""
       },
       {
-         "text": "<p><table><tr><th>ADN</th><th>ARN</th></tr><tr><td><img id=\"imgDNA\" src=\"images/HistoryTracers/DNA.png\" onclick=\"htImageZoom('imgDNA', '0%')\" style=\"width:90%\" /></td><td><img id=\"imgRNA\" src=\"images/HistoryTracers/RNA.png\" onclick=\"htImageZoom('imgRNA', '0%')\" style=\"width:90%\" /></td></tr><tr><td colspan=\"2\" style=\"text-align: center; font-size: 70%;\"><b>Figura 4</b>: Representación simplificada de ADN y ARN. La fuente está presente en GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <span class=\"htdate\"></span></a>)</td></tr></table></p>",
-         "source": null,
+         "text": "<p><table><tr><th>ADN</th><th>ARN</th></tr><tr><td><img id=\"imgDNA\" src=\"images/HistoryTracers/DNA.png\" onclick=\"htImageZoom('imgDNA', '0%')\" style=\"width:90%\" /></td><td><img id=\"imgRNA\" src=\"images/HistoryTracers/RNA.png\" onclick=\"htImageZoom('imgRNA', '0%')\" style=\"width:90%\" /></td></tr><tr><td colspan=\"2\" style=\"text-align: center; font-size: 70%;\"><b>Figura 4</b>: Representación simplificada de ADN y ARN. La fuente está presente en GitHub del proyecto (<htcite0>)</td></tr></table></p>",
+         "source": [
+            {
+               "type": 1,
+               "uuid": "240800f3-ede4-4deb-9d4e-915a3a03fa68",
+               "text": "History Tracers Team",
+               "page": "",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2024",
+                  "month": "04",
+                  "day": "26"
+               },
+               "citation_num": 0
+            }
+         ],
          "date_time": null,
          "isTable": false,
          "imgdesc": "En esta tabla, en el lado izquierdo se muestra la representación del ADN en doble hélice, que ilustra los enlaces entre nucleótidos (adenina, timina, citosina y guanina), cada uno representado por una barra de color distinto. En el lado derecho, aparece la representación del ARN con sus nucleótidos correspondientes (adenina, uracilo, citosina y guanina), igualmente representados mediante barras coloreadas.",
@@ -542,8 +556,22 @@
          "PostMention": "."
       },
       {
-         "text": "<p class=\"desc\"><img id=\"imgBering\" onclick=\"htImageZoom('imgBering', '0%')\" src=\"images/ElSalvadorMuseo/Bering.jpg\" class=\"imgcenter\"/><b>Figura 6</b>: Parte de un mapa que muestra el paso de los indígenas por el estrecho de Bering. Foto tomada en el Museo Nacional de Antropología en San Salvador, El Salvador (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b6ffcac4-7379-4a21-ba3c-326e8cb39129'); return false;\">Museo Nacional de Antrolopogía</a>), el <htdate0>.</p>",
-         "source": null,
+         "text": "<p class=\"desc\"><img id=\"imgBering\" onclick=\"htImageZoom('imgBering', '0%')\" src=\"images/ElSalvadorMuseo/Bering.jpg\" class=\"imgcenter\"/><b>Figura 6</b>: Parte de un mapa que muestra el paso de los indígenas por el estrecho de Bering. Foto tomada en el Museo Nacional de Antropología en San Salvador, El Salvador (<htcite0>), el <htdate0>.</p>",
+         "source": [
+            {
+               "type": 1,
+               "uuid": "b6ffcac4-7379-4a21-ba3c-326e8cb39129",
+               "text": "Museo Nacional de Antrolopogía",
+               "page": "",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2024",
+                  "month": "08",
+                  "day": "21"
+               },
+               "citation_num": 0
+            }
+         ],
          "date_time": [
             {
                "type": "gregory",
@@ -870,8 +898,35 @@
          "name": "Ancestros asiáticos",
          "history": [
             {
-               "text": "<p><img id=\"imgAsia\" onclick=\"htImageZoom('imgAsia', '0%')\" src=\"images/Mapswire/mapswire-continent_as-printable-map-asia-robinson-267.jpg\" class=\"imgcenter\"/></p><p class=\"desc\"><b>Figura 7</b>: Mapa de Asia con destaque para las regiones mencionadas en los artículos estudiados, mostrando las poblaciones que poseen los haplogrupos analizados. Área de Siberia según la Enciclopedia Británica (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d70fb1e-0440-4443-bd6b-e5e2e0721d3f'); return false;\">Editores de la Enciclopedia Británica</a>). © Mapswire (<i><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\">Mapswire</a></i>).</p>",
-               "source": null,
+               "text": "<p><img id=\"imgAsia\" onclick=\"htImageZoom('imgAsia', '0%')\" src=\"images/Mapswire/mapswire-continent_as-printable-map-asia-robinson-267.jpg\" class=\"imgcenter\"/></p><p class=\"desc\"><b>Figura 7</b>: Mapa de Asia con destaque para las regiones mencionadas en los artículos estudiados, mostrando las poblaciones que poseen los haplogrupos analizados. Área de Siberia según la Enciclopedia Británica (<htcite0>). © Mapswire (<i><htcite1></i>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d70fb1e-0440-4443-bd6b-e5e2e0721d3f",
+                     "text": "Editores de la Enciclopedia Británica",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "-1",
+                        "month": "-1",
+                        "day": "-1"
+                     },
+                     "citation_num": 0
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     },
+                     "citation_num": 1
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -1876,8 +1931,74 @@
          "name": "Sapa y Mama Incas (Tawantsuyu)",
          "history": [
             {
-               "text": "Determinar con precisión el inicio de esta civilización es un desafío debido a las inconsistencias en las fechas reportadas por los cronistas. Los primeros estudios históricos establecieron los períodos de manera algo arbitraria. En términos generales, los eventos más importantes pueden situarse en el siglo XV e inicios del siglo XVI, según el calendario gregoriano, aunque algunos cronistas sitúan la fundación del imperio en el siglo XIII (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('5100834d-6b30-4aa8-9a59-29d5ab160228'); return false;\">Lumbreras, Luis G., <htdate0>, pp. 427 - 428</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b88200b0-2775-4a59-bee4-5790ab338c05'); return false;\">Barker, R., <htdate1></a>, pp. 8 - 12).</p><p>Un hecho que menciona el Dr. Robert Barker merece consideración. El número de doce generaciones de incas podría estar relacionado con las doce tribus de Israel, lo que sugiere la posibilidad de que existieran más generaciones. Basado en esta teoría, proponemos dividir a los reyes (<i>Sapa</i>) incaicos en grupos: aquellos con reinados largos, para los cuales algunas investigaciones indican la falta de evidencias concretas, los descendientes de Manco Capac y Mama Ocllo; mientras que los reyes con reinados más cortos serán tratados en dos grupos como descendientes de Inca Roca y Viracocha (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b88200b0-2775-4a59-bee4-5790ab338c05'); return false;\">Barker, R., <htdate2>, pp. 12</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6d2b628b-34d8-423c-b3f3-95576d0314ef'); return false;\">Eileen M. Crimmins, <htdate3></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b88200b0-2775-4a59-bee4-5790ab338c05'); return false;\">Barker, R., <htdate4>, pp. 12</a>):<ul><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=5bbc1d7e-c193-4411-9a8e-0c79bf7f58a6\" target=\"_blank\">Manco Capac y Mama Ocllo</a>: El origen del pueblo inca está tradicionalmente asociado al casal Manco Capac y Mama Ocllo.</li><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=3190005b-ddff-47c2-93d2-c0720999f332\" target=\"_blank\">Descendientes de Inca Roca</a>: Inca Roca fue llevado al poder por los victoriosos, iniciando así la dinastía Hanan.</li><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=66e7b8d9-46c5-400b-9492-86d2cd5c9750\" target=\"_blank\">Descendientes de Viracocha</a>: El Dr. Robert Barker destaca que es solo a partir de Viracocha que se empieza a tener una *\"historia real\"* con mayor precisión.</li></ul>",
-               "source": null,
+               "text": "Determinar con precisión el inicio de esta civilización es un desafío debido a las inconsistencias en las fechas reportadas por los cronistas. Los primeros estudios históricos establecieron los períodos de manera algo arbitraria. En términos generales, los eventos más importantes pueden situarse en el siglo XV e inicios del siglo XVI, según el calendario gregoriano, aunque algunos cronistas sitúan la fundación del imperio en el siglo XIII (<htcite0> ; <htcite1>).</p><p>Un hecho que menciona el Dr. Robert Barker merece consideración. El número de doce generaciones de incas podría estar relacionado con las doce tribus de Israel, lo que sugiere la posibilidad de que existieran más generaciones. Basado en esta teoría, proponemos dividir a los reyes (<i>Sapa</i>) incaicos en grupos: aquellos con reinados largos, para los cuales algunas investigaciones indican la falta de evidencias concretas, los descendientes de Manco Capac y Mama Ocllo; mientras que los reyes con reinados más cortos serán tratados en dos grupos como descendientes de Inca Roca y Viracocha (<htcite2> ; <htcite3> ; <htcite4>):<ul><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=5bbc1d7e-c193-4411-9a8e-0c79bf7f58a6\" target=\"_blank\">Manco Capac y Mama Ocllo</a>: El origen del pueblo inca está tradicionalmente asociado al casal Manco Capac y Mama Ocllo.</li><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=3190005b-ddff-47c2-93d2-c0720999f332\" target=\"_blank\">Descendientes de Inca Roca</a>: Inca Roca fue llevado al poder por los victoriosos, iniciando así la dinastía Hanan.</li><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=66e7b8d9-46c5-400b-9492-86d2cd5c9750\" target=\"_blank\">Descendientes de Viracocha</a>: El Dr. Robert Barker destaca que es solo a partir de Viracocha que se empieza a tener una *\"historia real\"* con mayor precisión.</li></ul>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
+                     "text": "Lumbreras, Luis G.,",
+                     "page": "pp. 427 - 428",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "02",
+                        "day": "11"
+                     },
+                     "citation_num": 0
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
+                     "text": "Barker, R.",
+                     "page": "pp. 8 - 12",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "10",
+                        "day": "08"
+                     },
+                     "citation_num": 1
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
+                     "text": "Barker, R.,",
+                     "page": "pp. 12",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "10",
+                        "day": "08"
+                     },
+                     "citation_num": 2
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6d2b628b-34d8-423c-b3f3-95576d0314ef",
+                     "text": "Eileen M. Crimmins",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "08"
+                     },
+                     "citation_num": 3
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
+                     "text": "Barker, R.,",
+                     "page": "pp. 12",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "10",
+                        "day": "08"
+                     },
+                     "citation_num": 4
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -1923,8 +2044,22 @@
          "name": "Ajaowb (Reyes) de Copán",
          "history": [
             {
-               "text": "En este texto, exploramos el linaje de K’inich Yax K’uk’ Mo’ retratado en el Altar Q de Copán, esculpido en el año <htdate0> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('217bfbe4-4194-4fa1-bd0f-d44a9b783488'); return false;\">Hutnick, Anastasia, <htdate1>, pp. 65</a>).</p><p>Aunque el altar represente un linaje, la conexión explícita entre los personajes retratados no está totalmente comprobada. Algunos podrían ser hermanos, en lugar de generaciones consecutivas. Para hacer este análisis más claro al lector, hemos dividido el estudio del altar en las siguientes secciones:<ul><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=ccc1b89d-9198-4448-b42e-ca67439ea5fb\" target=\"_blank\">K’inich Yax K’uk’ Mo’ y sus descendientes</a>: Analizamos al fundador y a su hijo confirmado.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=42b60f82-c23e-4089-bfc9-d2739200aa51\" target=\"_blank\">Ajaowb (Reyes) con poca información</a>: Abordamos a cuatro <i>ajawob</i> (reyes) con escasa información arqueológica disponible.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=446a0a08-f07f-45f0-91a6-fece5677da09\" target=\"_blank\">Descendientes de Bahlam Nehn</a>: Además del propio Bahlam Nehn, discutimos sobre un hijo y otros dos posibles descendientes.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=1fdd26db-ead8-44c2-aabc-3035095ca4f1\" target=\"_blank\">La geración de Butz' Chan</a>: Período marcado por un significativo crecimiento poblacional.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=53f3bc8d-877e-44a1-8562-e27d640cf8e3\" target=\"_blank\">Descendientes de K’awiil</a>: Fase de grandes obras arquitectónicas y también del colapso de la ciudad.</li> </ul>",
-               "source": null,
+               "text": "En este texto, exploramos el linaje de K’inich Yax K’uk’ Mo’ retratado en el Altar Q de Copán, esculpido en el año <htdate0> (<htcite0>).</p><p>Aunque el altar represente un linaje, la conexión explícita entre los personajes retratados no está totalmente comprobada. Algunos podrían ser hermanos, en lugar de generaciones consecutivas. Para hacer este análisis más claro al lector, hemos dividido el estudio del altar en las siguientes secciones:<ul><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=ccc1b89d-9198-4448-b42e-ca67439ea5fb\" target=\"_blank\">K’inich Yax K’uk’ Mo’ y sus descendientes</a>: Analizamos al fundador y a su hijo confirmado.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=42b60f82-c23e-4089-bfc9-d2739200aa51\" target=\"_blank\">Ajaowb (Reyes) con poca información</a>: Abordamos a cuatro <i>ajawob</i> (reyes) con escasa información arqueológica disponible.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=446a0a08-f07f-45f0-91a6-fece5677da09\" target=\"_blank\">Descendientes de Bahlam Nehn</a>: Además del propio Bahlam Nehn, discutimos sobre un hijo y otros dos posibles descendientes.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=1fdd26db-ead8-44c2-aabc-3035095ca4f1\" target=\"_blank\">La geración de Butz' Chan</a>: Período marcado por un significativo crecimiento poblacional.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=53f3bc8d-877e-44a1-8562-e27d640cf8e3\" target=\"_blank\">Descendientes de K’awiil</a>: Fase de grandes obras arquitectónicas y también del colapso de la ciudad.</li> </ul>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "217bfbe4-4194-4fa1-bd0f-d44a9b783488",
+                     "text": "Hutnick, Anastasia,",
+                     "page": "pp. 65",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "-1",
+                        "month": "-1",
+                        "day": "-1"
+                     },
+                     "citation_num": 0
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",

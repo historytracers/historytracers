@@ -120,8 +120,22 @@
          "PostMention": ""
       },
       {
-         "text": "<p><table><tr><th>DNA</th><th>RNA</th></tr><tr><td><img id=\"imgDNA\" src=\"images/HistoryTracers/DNA.png\" onclick=\"htImageZoom('imgDNA', '0%')\" style=\"width:90%\" /></td><td><img id=\"imgRNA\" src=\"images/HistoryTracers/RNA.png\" style=\"width:90%\" onclick=\"htImageZoom('imgRNA', '0%')\" /></td></tr><tr><td colspan=\"2\" style=\"text-align: center; font-size: 70%;\"><b>Figure 4</b>: Simplified representation of DNA and RNA. The source code is available in GitHub of the project (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <span class=\"htdate\"></span></a>)</td></tr></table></p>",
-         "source": null,
+         "text": "<p><table><tr><th>DNA</th><th>RNA</th></tr><tr><td><img id=\"imgDNA\" src=\"images/HistoryTracers/DNA.png\" onclick=\"htImageZoom('imgDNA', '0%')\" style=\"width:90%\" /></td><td><img id=\"imgRNA\" src=\"images/HistoryTracers/RNA.png\" style=\"width:90%\" onclick=\"htImageZoom('imgRNA', '0%')\" /></td></tr><tr><td colspan=\"2\" style=\"text-align: center; font-size: 70%;\"><b>Figure 4</b>: Simplified representation of DNA and RNA. The source code is available in GitHub of the project (<htcite0>)</td></tr></table></p>",
+         "source": [
+            {
+               "type": 1,
+               "uuid": "240800f3-ede4-4deb-9d4e-915a3a03fa68",
+               "text": "History Tracers Team",
+               "page": "",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2024",
+                  "month": "04",
+                  "day": "26"
+               },
+               "citation_num": 0
+            }
+         ],
          "date_time": null,
          "isTable": false,
          "imgdesc": "The table compares nucleic acid structures: left shows DNA's double helix with nucleotide bonds (adenine-thymine, cytosine-guanine) represented by colored bars; right displays RNA's corresponding bases (adenine-uracil, cytosine-guanine) in the same visual format.",
@@ -542,8 +556,22 @@
          "PostMention": "."
       },
       {
-         "text": "<p class=\"desc\"><img id=\"imgBering\" onclick=\"htImageZoom('imgBering', '0%')\" src=\"images/ElSalvadorMuseo/Bering.jpg\" class=\"imgcenter\"/><b>Figure 6</b>: A map showing Indigenous migration routes across the Bering Strait. Photo taken at the Museo Nacional de Antropología en San Salvador, El Salvador (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b6ffcac4-7379-4a21-ba3c-326e8cb39129'); return false;\">Museo Nacional de Antrolopogía</a>), on <htdate0>.</p>",
-         "source": null,
+         "text": "<p class=\"desc\"><img id=\"imgBering\" onclick=\"htImageZoom('imgBering', '0%')\" src=\"images/ElSalvadorMuseo/Bering.jpg\" class=\"imgcenter\"/><b>Figure 6</b>: A map showing Indigenous migration routes across the Bering Strait. Photo taken at the Museo Nacional de Antropología en San Salvador, El Salvador (<htcite0>), on <htdate0>.</p>",
+         "source": [
+            {
+               "type": 1,
+               "uuid": "b6ffcac4-7379-4a21-ba3c-326e8cb39129",
+               "text": "Museo Nacional de Antrolopogía",
+               "page": "",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2024",
+                  "month": "08",
+                  "day": "21"
+               },
+               "citation_num": 0
+            }
+         ],
          "date_time": [
             {
                "type": "gregory",
@@ -870,8 +898,35 @@
          "name": "Asian Ancestors",
          "history": [
             {
-               "text": "<p><img id=\"imgAsia\" onclick=\"htImageZoom('imgAsia', '0%')\" src=\"images/Mapswire/mapswire-continent_as-printable-map-asia-robinson-267.jpg\" class=\"imgcenter\"/></p><p class=\"desc\"><b>Figure 7</b>: Map of Asia highlighting regions referenced in genetic studies, showing populations with analyzed haplogroups. Siberian boundaries based on Britannica Encyclopedia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d70fb1e-0440-4443-bd6b-e5e2e0721d3f'); return false;\">Editors of Britanica Enciclopedia </a>). © Mapswire (<i><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\">Mapswire</a></i>).</p>",
-               "source": null,
+               "text": "<p><img id=\"imgAsia\" onclick=\"htImageZoom('imgAsia', '0%')\" src=\"images/Mapswire/mapswire-continent_as-printable-map-asia-robinson-267.jpg\" class=\"imgcenter\"/></p><p class=\"desc\"><b>Figure 7</b>: Map of Asia highlighting regions referenced in genetic studies, showing populations with analyzed haplogroups. Siberian boundaries based on Britannica Encyclopedia (<htcite0>). © Mapswire (<i><htcite1></i>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d70fb1e-0440-4443-bd6b-e5e2e0721d3f",
+                     "text": "Editors of Britanica Enciclopedia ",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "-1",
+                        "month": "-1",
+                        "day": "-1"
+                     },
+                     "citation_num": 0
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     },
+                     "citation_num": 1
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -1876,8 +1931,74 @@
          "name": "Sapa and Mama Incas (Tawantsuyu)",
          "history": [
             {
-               "text": "Determining the precise beginnings of this civilization is challenging due to inconsistent dates provided by chroniclers. Early historical studies assigned somewhat arbitrary timeframes. Generally, the most significant events are believed to have occurred between the 15th and early 16th centuries, according to the Gregorian calendar. However, some chronicles place the empire's founding as early as the 13th century (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('5100834d-6b30-4aa8-9a59-29d5ab160228'); return false;\">Lumbreras, Luis G., <htdate0>, pp. 427 - 428</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b88200b0-2775-4a59-bee4-5790ab338c05'); return false;\">Barker, R., <htdate1></a>, pp. 8 - 12).</p><p>Dr. Robert Barker raises an intriguing point: the twelve generations of Inca rulers may have a connection to the twelve tribes of Israel, suggesting the possibility of additional generations. Based on this theory, we propose dividing the Inca kings (<i>Sapa</i>) into distinct groups: those with long reigns, for whom some research suggests there is little concrete evidence, are considered descendants of Manco Cápac and Mama Ocllo; while those with shorter, better-documented reigns are classified into two groups as descendants of Inca Roca and Viracocha (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b88200b0-2775-4a59-bee4-5790ab338c05'); return false;\">Barker, R., <htdate2>, pp. 12</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6d2b628b-34d8-423c-b3f3-95576d0314ef'); return false;\">Eileen M. Crimmins, <htdate3></a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b88200b0-2775-4a59-bee4-5790ab338c05'); return false;\">Barker, R., <htdate4>, pp. 12</a>):<ul><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=5bbc1d7e-c193-4411-9a8e-0c79bf7f58a6\" target=\"_blank\">Manco Capac and Mama Ocllo</a>: The origin of the Inca people is often associated with the couple Manco Capac and Mama Ocllo.</li><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=3190005b-ddff-47c2-93d2-c0720999f332\" target=\"_blank\">Descendants of Inca Roca</a>: Inca Roca was brought to power by the victorious factions, marking the beginning of the Hanan dynasty.</li><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=66e7b8d9-46c5-400b-9492-86d2cd5c9750\" target=\"_blank\">Descendants of Viracocha</a>: Dr. Robert Barker emphasizes that it is only from Viracocha onward that we have the *\"real history\"* of the Incas.</li></ul>",
-               "source": null,
+               "text": "Determining the precise beginnings of this civilization is challenging due to inconsistent dates provided by chroniclers. Early historical studies assigned somewhat arbitrary timeframes. Generally, the most significant events are believed to have occurred between the 15th and early 16th centuries, according to the Gregorian calendar. However, some chronicles place the empire's founding as early as the 13th century (<htcite0> ; <htcite1>).</p><p>Dr. Robert Barker raises an intriguing point: the twelve generations of Inca rulers may have a connection to the twelve tribes of Israel, suggesting the possibility of additional generations. Based on this theory, we propose dividing the Inca kings (<i>Sapa</i>) into distinct groups: those with long reigns, for whom some research suggests there is little concrete evidence, are considered descendants of Manco Cápac and Mama Ocllo; while those with shorter, better-documented reigns are classified into two groups as descendants of Inca Roca and Viracocha (<htcite2> ; <htcite3> ; <htcite4>):<ul><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=5bbc1d7e-c193-4411-9a8e-0c79bf7f58a6\" target=\"_blank\">Manco Capac and Mama Ocllo</a>: The origin of the Inca people is often associated with the couple Manco Capac and Mama Ocllo.</li><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=3190005b-ddff-47c2-93d2-c0720999f332\" target=\"_blank\">Descendants of Inca Roca</a>: Inca Roca was brought to power by the victorious factions, marking the beginning of the Hanan dynasty.</li><li><a href=\"index.html?page=tree&arg=4149b25a-3a8f-4bb2-b663-4dab5a5d885b&person_id=66e7b8d9-46c5-400b-9492-86d2cd5c9750\" target=\"_blank\">Descendants of Viracocha</a>: Dr. Robert Barker emphasizes that it is only from Viracocha onward that we have the *\"real history\"* of the Incas.</li></ul>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "5100834d-6b30-4aa8-9a59-29d5ab160228",
+                     "text": "Lumbreras, Luis G.,",
+                     "page": "pp. 427 - 428",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "02",
+                        "day": "11"
+                     },
+                     "citation_num": 0
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
+                     "text": "Barker, R.",
+                     "page": "pp. 8 - 12",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "10",
+                        "day": "08"
+                     },
+                     "citation_num": 1
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
+                     "text": "Barker, R.,",
+                     "page": "pp. 12",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "10",
+                        "day": "08"
+                     },
+                     "citation_num": 2
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6d2b628b-34d8-423c-b3f3-95576d0314ef",
+                     "text": "Eileen M. Crimmins",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "08"
+                     },
+                     "citation_num": 3
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b88200b0-2775-4a59-bee4-5790ab338c05",
+                     "text": "Barker, R.,",
+                     "page": "pp. 12",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "10",
+                        "day": "08"
+                     },
+                     "citation_num": 4
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -1923,8 +2044,22 @@
          "name": "Ajaowb (Reyes) de Copán",
          "history": [
             {
-               "text": "In this text, we explore the lineage of K'inich Yax K'uk' Mo' depicted on Altar Q of Copán, carved in the year <htdate0> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('217bfbe4-4194-4fa1-bd0f-d44a9b783488'); return false;\">Hutnick, Anastasia, <htdate1>, pp. 65</a>).</p><p>Although the altar represents a lineage, the explicit connection between the depicted individuals is not fully proven. Some could be brothers rather than consecutive generations. To make this analysis clearer for the reader, we've divided the altar study into the following sections:<ul><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=ccc1b89d-9198-4448-b42e-ca67439ea5fb\" target=\"_blank\">K'inich Yax K'uk' Mo' and his descendants</a>: We study the founder and his confirmed son.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=42b60f82-c23e-4089-bfc9-d2739200aa51\" target=\"_blank\">Ajawob (Kings) with limited information</a>: We study four <i>ajawob</i> (kings) with scarce available archaeological information.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=446a0a08-f07f-45f0-91a6-fece5677da09\" target=\"_blank\">Descendants of Bahlam Nehn</a>: In addition to Bahlam Nehn himself, we study one son and two other possible descendants.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=1fdd26db-ead8-44c2-aabc-3035095ca4f1\" target=\"_blank\">Butz' Chan's generation</a>: Period marked by significant population growth.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=53f3bc8d-877e-44a1-8562-e27d640cf8e3\" target=\"_blank\">Descendants of K'awiil</a>: Phase of major architectural constructions and the city's eventual collapse.</li> </ul>",
-               "source": null,
+               "text": "In this text, we explore the lineage of K'inich Yax K'uk' Mo' depicted on Altar Q of Copán, carved in the year <htdate0> (<htcite0>).</p><p>Although the altar represents a lineage, the explicit connection between the depicted individuals is not fully proven. Some could be brothers rather than consecutive generations. To make this analysis clearer for the reader, we've divided the altar study into the following sections:<ul><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=ccc1b89d-9198-4448-b42e-ca67439ea5fb\" target=\"_blank\">K'inich Yax K'uk' Mo' and his descendants</a>: We study the founder and his confirmed son.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=42b60f82-c23e-4089-bfc9-d2739200aa51\" target=\"_blank\">Ajawob (Kings) with limited information</a>: We study four <i>ajawob</i> (kings) with scarce available archaeological information.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=446a0a08-f07f-45f0-91a6-fece5677da09\" target=\"_blank\">Descendants of Bahlam Nehn</a>: In addition to Bahlam Nehn himself, we study one son and two other possible descendants.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=1fdd26db-ead8-44c2-aabc-3035095ca4f1\" target=\"_blank\">Butz' Chan's generation</a>: Period marked by significant population growth.</li><li><a href=\"index.html?page=tree&arg=df59310b-f67f-4c62-a41f-8e532dc90d1c&person_id=53f3bc8d-877e-44a1-8562-e27d640cf8e3\" target=\"_blank\">Descendants of K'awiil</a>: Phase of major architectural constructions and the city's eventual collapse.</li> </ul>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "217bfbe4-4194-4fa1-bd0f-d44a9b783488",
+                     "text": "Hutnick, Anastasia,",
+                     "page": "pp. 65",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "-1",
+                        "month": "-1",
+                        "day": "-1"
+                     },
+                     "citation_num": 0
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
