@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1771692186"
+      "1772380180"
    ],
    "authors": "",
    "reviewers": "",
@@ -221,8 +221,21 @@
          "PostMention": ""
       },
       {
-         "text": "<p class=\"desc\"><img src=\"images/USGS/USGS_WaterCycle_English_ONLINE_20230302.png\" id=\"imgUSG\" onclick=\"htImageZoom('imgUSG', '0%')\" class=\"imgcenter\"/><b>Figure 4</b>: Water Cycle. Public domain image from the U.S. Geological Survey (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('490bc885-d393-4e26-a2c2-1ae2474b25f1'); return false;\">Water Cycle, <htdate0>, <i>U.S. Geological Survey</i></a>).</p>",
-         "source": null,
+         "text": "<p class=\"desc\"><img src=\"images/USGS/USGS_WaterCycle_English_ONLINE_20230302.png\" id=\"imgUSG\" onclick=\"htImageZoom('imgUSG', '0%')\" class=\"imgcenter\"/><b>Figure 4</b>: Water Cycle. Public domain image from the U.S. Geological Survey (<htcite0>).</p>",
+         "source": [
+            {
+               "type": 1,
+               "uuid": "490bc885-d393-4e26-a2c2-1ae2474b25f1",
+               "text": "Water Cycle",
+               "page": "U.S. Geological Survey",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2024",
+                  "month": "12",
+                  "day": "30"
+               }
+            }
+         ],
          "date_time": [
             {
                "type": "gregory",
@@ -523,8 +536,21 @@
                      "PostMention": ""
                   },
                   {
-                     "text": "<p class=\"desc\"><img id=\"imgCoin\" onclick=\"htImageZoom('imgCoin', '0%')\" src=\"images/BritishMuseum/mid_00809351_001.jpg\" class=\"imgcenter\"/><b>Figure 3</b>: Tang Dynasty coin from the year <htdate0>, at the British Museum. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('4957d764-3599-481f-9287-8f03ba36765a'); return false;\"><i>The British Museum</i></a> ).</p>",
-                     "source": null,
+                     "text": "<p class=\"desc\"><img id=\"imgCoin\" onclick=\"htImageZoom('imgCoin', '0%')\" src=\"images/BritishMuseum/mid_00809351_001.jpg\" class=\"imgcenter\"/><b>Figure 3</b>: Tang Dynasty coin from the year <htdate0>, at the British Museum. © Trustees of the British Museum (<htcite0> ).</p>",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "4957d764-3599-481f-9287-8f03ba36765a",
+                           "text": "The British Museum",
+                           "page": "",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
                      "date_time": [
                         {
                            "type": "gregory",
@@ -2565,8 +2591,21 @@
                      "PostMention": ""
                   },
                   {
-                     "text": "<p class=\"desc\"><img id=\"imgXuanzong\" onclick=\"htImageZoom('imgXuanzong', '0%')\" src=\"images/BritishMuseum/mid_JP2105_1.jpg\" class=\"imgcenter\" style=\"width: 30%;\"/><b>Figure 4</b>: Vertical scroll painting. Emperor Xuanzong (玄宗) (Genso), Zhong Kui (Shoki) and another expelling demons, at the British Museum. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('31c6a621-4691-437d-abc1-d3b6d093bf06'); return false;\"><i>The British Museum</i></a> ).</p>",
-                     "source": null,
+                     "text": "<p class=\"desc\"><img id=\"imgXuanzong\" onclick=\"htImageZoom('imgXuanzong', '0%')\" src=\"images/BritishMuseum/mid_JP2105_1.jpg\" class=\"imgcenter\" style=\"width: 30%;\"/><b>Figure 4</b>: Vertical scroll painting. Emperor Xuanzong (玄宗) (Genso), Zhong Kui (Shoki) and another expelling demons, at the British Museum. © Trustees of the British Museum (<htcite0> ).</p>",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "31c6a621-4691-437d-abc1-d3b6d093bf06",
+                           "text": "The British Museum",
+                           "page": "",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2026",
+                              "month": "02",
+                              "day": "15"
+                           }
+                        }
+                     ],
                      "date_time": null,
                      "isTable": false,
                      "imgdesc": "",
