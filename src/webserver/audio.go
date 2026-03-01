@@ -757,6 +757,13 @@ func htConvertFunctionAbbreviation(text string, lang string) string {
 		preposition = "of"
 	}
 
+	powerMap := map[string]map[string]string{
+		"ao quadrado": {"en-US": "squared", "es-ES": "al cuadrado", "pt-BR": "ao quadrado"},
+		"ao cubo":     {"en-US": "cubed", "es-ES": "al cubo", "pt-BR": "ao cubo"},
+		"squared":     {"en-US": "squared", "es-ES": "al cuadrado", "pt-BR": "ao quadrado"},
+		"cubed":       {"en-US": "cubed", "es-ES": "al cubo", "pt-BR": "ao cubo"},
+	}
+
 	funcMap := map[string]map[string]string{
 		"cos":    {"en-US": "cosine", "es-ES": "coseno", "pt-BR": "cosseno"},
 		"sin":    {"en-US": "sine", "es-ES": "seno", "pt-BR": "seno"},
@@ -780,13 +787,18 @@ func htConvertFunctionAbbreviation(text string, lang string) string {
 
 	for abbr, langMap := range funcMap {
 		if full, ok := langMap[lang]; ok {
-			// Handle normal function notation: cos(argument)
 			pattern := regexp.MustCompile(`\b` + abbr + `\s*\(\s*([^)]+)\s*\)`)
 			text = pattern.ReplaceAllString(text, full+" "+preposition+" $1")
 
-			// Handle function with superscript: cos²(argument)
 			superscriptPattern := regexp.MustCompile(`\b` + abbr + `([¹²³⁴⁵⁶⁷⁸⁹⁰])\s*\(\s*([^)]+)\s*\)`)
 			text = superscriptPattern.ReplaceAllString(text, full+"$1 "+preposition+" $2")
+		}
+	}
+
+	for power, powerLangMap := range powerMap {
+		if powerWord, ok := powerLangMap[lang]; ok {
+			powerPattern := regexp.MustCompile(`(\w+)\s+` + power + `\s*\(\s*([^)]+)\s*\)`)
+			text = powerPattern.ReplaceAllString(text, "$1 "+powerWord+" "+preposition+" $2")
 		}
 	}
 
