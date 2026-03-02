@@ -70,7 +70,7 @@ function htNewSubtraction() {
     bottomValue =  htGetRandomArbitrary(100, 999);
 
     if (topValue < bottomValue) {
-        var change = bottomValue;
+        let change = bottomValue;
         bottomValue = topValue;
         topValue = change;
     }
@@ -115,6 +115,10 @@ function htNewSubtraction() {
             end += 10;
             carr = 1;
             carriers = 1;
+        }
+
+        if (end == 10 && i == 0) {
+            end = 1;
         }
         reorganizedValue.push(end);
 
