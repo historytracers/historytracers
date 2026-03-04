@@ -973,6 +973,11 @@ func htConvertTemperatures(text string, lang string) string {
 	return replacement
 }
 
+func htRemoveHTMLTags(text string) string {
+	htmlTagRegex := regexp.MustCompile(`<[^>]+>`)
+	return htmlTagRegex.ReplaceAllString(text, "")
+}
+
 func htAdjustTrailingDots(text string) string {
 	lines := strings.Split(text, "\n")
 	var result []string
