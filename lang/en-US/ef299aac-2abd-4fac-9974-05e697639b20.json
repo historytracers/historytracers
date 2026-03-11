@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1773008097"
+      "1773187924"
    ],
    "authors": [
       ""
@@ -380,6 +380,96 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### The game\n\nWhen we clap our hands or stomp our feet, we generate a sound. This sound depends on the speed at which we clap our hands, walk, or jump. Furthermore, we can combine claps and steps, creating rhythms and music.\n\nIn this text, we will again use our bodies in learning. Next, choose the number of times the hands will clap, or the number of steps or jumps. Then, choose the speed and a color for the body parts. **Note that, regardless of the chosen color, the movements will be the same, because we are all equal, regardless of our color** (<htcite0>; <htcite1>). We are all equal because we emerged in Africa around 300,000 years ago (<htcite2>). The different skin colors occur, basically, due to the amount of melanin that populations have and the environment in which they live, with darker skins being predominant in regions close to the Equator — an imaginary line that divides the Earth in half — and lighter skins in more distant regions (<htcite3>).\n\nFinally, press clap (<i class=\"fa-solid fa-hands-clapping\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>), walk (<i class=\"fa-solid fa-person-walking\" onclick=\"startSteps()\" style=\"font-size:1em;color:#f00;\" ></i>), and jump (<i class=\"fa-solid fa-person-running\" onclick=\"startJump()\" style=\"font-size:1em;color:#00f;\" ></i>). Perform the movements along with the app.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ab1dda1e-95c2-4087-8299-e851e58bdc6f",
+                     "text": "History Tracers Team",
+                     "page": "Humans",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1c019e7a-adf5-4cb8-9794-e356d667cac4",
+                     "text": "Jablonski, N. G.",
+                     "page": "pp. 590, 599 - 615",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style></style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"controls\"><label>Number of claps, steps, or jumps:</label> <select id=\"clapCount\"></select>  <i class=\"fa-solid fa-hands-clapping\" onclick=\"startClap()\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-person-walking\" onclick=\"startSteps()\" style=\"font-size:2em;color:#f00;\" ></i> <i class=\"fa-solid fa-person-running\" onclick=\"startJump()\" style=\"font-size:2em;color:#00f;\" ></i> <div class=\"speed-control\"> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label> <span style=\"font-size: 1em;\">Claps:</span> <div id=\"clapCounter\" style=\"font-size: 1em;\">0 / 0</div> <span style=\"font-size: 1em;\">Steps:</span> <div id=\"stepsCounter\" class=\"counter\" style=\"font-size: 1em;\">0 / 0</div>  <span style=\"font-size: 1em;\">Jumps:</span> <div id=\"jumpCounter\" class=\"counter\" style=\"font-size: 1em;\">0 / 0</div></div> </div><div class=\"palette\" id=\"palette\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]

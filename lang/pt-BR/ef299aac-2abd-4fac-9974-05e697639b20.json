@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1773008111"
+      "1773187964"
    ],
    "authors": [
       ""
@@ -380,6 +380,96 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### O jogo\n\nQuando batemos palmas ou batemos o pé, geramos um som. Esse som depende da velocidade com que batemos as mãos, caminhamos ou pulamos. Além disso, podemos combinar palmas e passos, criando ritmos e músicas.\n\nNeste texto, novamente utilizaremos nosso corpo no aprendizado. A seguir, escolha a quantidade de vezes que as mãos irão bater palmas, ou a quantidade de passos ou pulos. Em seguida, escolha a velocidade e uma cor para as partes do corpo. **Observe que, independentemente da cor escolhida, os movimentos serão iguais, pois somos todos iguais, independentemente de nossa cor** (<htcite0>; <htcite1>). Somos todos iguais porque surgimos na África por volta de 300.000 anos atrás (<htcite2>). As diferentes cores da pele ocorrem, basicamente, devido à quantidade de melanina que as populações possuem e ao ambiente em que vivem, sendo as peles mais escuras predominantes em regiões próximas ao Equador — linha imaginária que divide a Terra ao meio — e as mais claras em regiões mais distantes (<htcite3>).\n\nFinalmente, aperte bater palmas (<i class=\"fa-solid fa-hands-clapping\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>), caminhar (<i class=\"fa-solid fa-person-walking\" onclick=\"startSteps()\" style=\"font-size:1em;color:#f00;\" ></i>), e pular (<i class=\"fa-solid fa-person-running\" onclick=\"startJump()\" style=\"font-size:1em;color:#00f;\" ></i>). Faça os movimentos junto com o aplicativo.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2659babf-36dc-480f-a3d9-d37b8c4e1159",
+                     "text": "Templeton A. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "723b0735-b8c4-4b02-8ce6-6da033ca2454",
+                     "text": "Templeton A. R.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ab1dda1e-95c2-4087-8299-e851e58bdc6f",
+                     "text": "History Tracers Team",
+                     "page": "Humanos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1c019e7a-adf5-4cb8-9794-e356d667cac4",
+                     "text": "Jablonski, N. G.",
+                     "page": "pp. 590, 599 - 615",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style></style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"controls\"><label>Número de palmas, passos ou pulos:</label> <select id=\"clapCount\"></select>  <i class=\"fa-solid fa-hands-clapping\" onclick=\"startClap()\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-person-walking\" onclick=\"startSteps()\" style=\"font-size:2em;color:#f00;\" ></i> <i class=\"fa-solid fa-person-running\" onclick=\"startJump()\" style=\"font-size:2em;color:#00f;\" ></i> <div class=\"speed-control\"> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label> <span style=\"font-size: 1em;\">Palmas:</span> <div id=\"clapCounter\" style=\"font-size: 1em;\">0 / 0</div> <span style=\"font-size: 1em;\">Passos:</span> <div id=\"stepsCounter\" class=\"counter\" style=\"font-size: 1em;\">0 / 0</div>  <span style=\"font-size: 1em;\">Pulos:</span> <div id=\"jumpCounter\" class=\"counter\" style=\"font-size: 1em;\">0 / 0</div></div> </div><div class=\"palette\" id=\"palette\"></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]
