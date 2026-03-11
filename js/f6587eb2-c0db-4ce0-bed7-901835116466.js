@@ -1,72 +1,54 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var localAnswerVector = undefined;
-
-var palette = undefined;
-var hands = undefined;
-var left = undefined;
-var right = undefined;
-
-let busy = false;
-
-var speedSlider = undefined;
-var speedValue = undefined;
-let clapCycleTime = 1200;
-
-var counterDisplay = undefined;
+var local = {};
 
 async function startClap(){
-  if(busy) return;
+  if(local.busy) return;
 
   const count = parseInt(document.getElementById("clapCount").value);
   if(!count || count < 1) {
-    counterDisplay.innerText = `0 / 0`;
+    local.counterDisplay.innerText = `0 / 0`;
     return;
   }
 
-  busy = true;
+  local.busy = true;
 
-  const animationDuration = clapCycleTime * 0.75;
-  const pauseDuration = clapCycleTime * 0.25;
+  const animationDuration = local.clapCycleTime * 0.75;
+  const pauseDuration = local.clapCycleTime * 0.25;
 
   let completed = 0;
-  counterDisplay.innerText = `${completed} / ${count}`;
+  local.counterDisplay.innerText = `${completed} / ${count}`;
 
   for(let i=0;i<count;i++){
-    left.style.animation = `clapLeft ${animationDuration/1000}s ease`;
-    right.style.animation = `clapRight ${animationDuration/1000}s ease`;
+    local.left.style.animation = `clapLeft ${animationDuration/1000}s ease`;
+    local.right.style.animation = `clapRight ${animationDuration/1000}s ease`;
 
     await new Promise(r => setTimeout(r, animationDuration));
 
-    left.style.animation = "";
-    right.style.animation = "";
+    local.left.style.animation = "";
+    local.right.style.animation = "";
 
     completed++;
-    counterDisplay.innerText = `${completed} / ${count}`;
+    local.counterDisplay.innerText = `${completed} / ${count}`;
 
     if (i < count - 1) {
       await new Promise(r => setTimeout(r, pauseDuration));
     }
   }
 
-  busy = false;
+  local.busy = false;
 }
 
 function htLoadContent() {
     htWriteNavigation();
 
-    palette = document.getElementById("palette");
-    hands = document.querySelectorAll(".hand-shape");
-    left = document.getElementById("leftHand");
-    right = document.getElementById("rightHand");
-    speedSlider = document.getElementById("speedSlider");
-    speedValue = document.getElementById("speedValue");
+    local = { "palette": document.getElementById("palette"), "hands": document.querySelectorAll(".hand-shape"), "left":  document.getElementById("leftHand"), "right": document.getElementById("rightHand"), "busy": false, "clapCycleTime": 1200, "counterDisplay": document.getElementById("clapCounter") }; 
+    const speedSlider = document.getElementById("speedSlider");
+    const speedValue = document.getElementById("speedValue");
     speedSlider.addEventListener("input", function() {
-        clapCycleTime = parseInt(this.value);
-        speedValue.textContent = clapCycleTime + " ms";
+        local.clapCycleTime = parseInt(this.value);
+        speedValue.textContent = local.clapCycleTime + " ms";
     });
-
-    counterDisplay = document.getElementById("clapCounter");
 
     skinTones.forEach((color, index)=>{
         const swatch = document.createElement("div");
@@ -78,10 +60,10 @@ function htLoadContent() {
         swatch.onclick = ()=>{
             document.querySelectorAll(".color-swatch").forEach(s=>s.classList.remove("active"));
             swatch.classList.add("active");
-            hands.forEach(h=>h.setAttribute("fill", color));
+            local.hands.forEach(h=>h.setAttribute("fill", color));
         };
 
-        palette.appendChild(swatch);
+        local.palette.appendChild(swatch);
     });
 
     for (let i = 0 ; i< 9; i++) {
