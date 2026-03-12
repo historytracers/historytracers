@@ -746,6 +746,27 @@ function htSineValues(quadrants) {
     return values;
 }
 
+// Tan
+function htTanValues(quadrants) {
+    var values = { x: [], y: []};
+
+    var end = 256;
+    var nextStep = 0;
+    const next = 1/256;
+    const step = (Math.PI / 2) / (end - 1);
+    var x = [];
+    var y = [];
+    for (let i = 0, nextStep = 0; i < 256; i++, nextStep += next) {
+        var val = step*i;
+        x.push(nextStep);
+        y.push(Math.tan(val));
+    }
+    values.x = x;
+    values.y = y;
+
+    return values;
+}
+
 function htConstantVector(N, value) {
     return new Array(N).fill(value);
 }
