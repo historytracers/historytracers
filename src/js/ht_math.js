@@ -783,7 +783,7 @@ function htPlotSineCosine(target, cosine, sine, quadrants) {
         xVector = localCosine.x;
         var obj = {
                     data : localCosine.y,
-                    label : mathKeywords[38],
+                    label : mathKeywords[40],
                     fill : false
                   };
         datasets.push(obj);
@@ -794,7 +794,7 @@ function htPlotSineCosine(target, cosine, sine, quadrants) {
         xVector = localSine.x;
         var obj = {
                     data : localSine.y,
-                    label : mathKeywords[39],
+                    label : mathKeywords[41],
                     fill : false
                   };
         datasets.push(obj);
@@ -804,7 +804,7 @@ function htPlotSineCosine(target, cosine, sine, quadrants) {
         let one = htConstantVector(256, 1);
         var obj = {
                     data : one,
-                    label : mathKeywords[40],
+                    label : mathKeywords[42],
                     fill : false
                   };
         datasets.push(obj);
@@ -824,3 +824,34 @@ function htPlotSineCosine(target, cosine, sine, quadrants) {
     };
     return htPlotConstantContinuousChart(chartOptions);
 }
+
+function htPlotTan(target, quadrants) {
+    var xVector = [];
+    var localTan = undefined;
+    var obj = undefined;
+    var datasets = [ ];
+
+    localTan = htSineValues(quadrants);
+    xVector = localTan.x;
+    var obj = {
+                data : localTan.y,
+                label : mathKeywords[66],
+                fill : false
+              };
+    datasets.push(obj);
+
+    var chartOptions = {
+        "datasets": datasets,
+        "chartId" : target,
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": mathKeywords[15],
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin": (quadrants < 2)? 0: -1,
+        "ymax": 1.2,
+        "useCallBack": false
+    };
+    return htPlotConstantContinuousChart(chartOptions);
+}
+
