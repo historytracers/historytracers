@@ -4372,6 +4372,51 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": ""
+            },
+            {
+               "text": "#### De um gráfico para outro\n\nA partir do **Gráfico 3**, também podemos entender o que ocorre com a tangente de teta (θ) no **Gráfico 1**. Primeiramente, iremos deslocal o ponto **P** em direção ao eixo **x**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p id=\"circtri2\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"300\" y1=\"169\" x2=\"520\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"448\" y2=\"169\"></line> <line class=\"vertical45\" x1=\"448\" y1=\"169\" x2=\"506\" y2=\"169\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"450\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">tan θ</text> <text class=\"atlasTextRadius\" x=\"350\" y=\"185\" font-size=\"1.3em\" font-weight=\"bold\">cos θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"450\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"425\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"520\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Gráfico 4</b>: Círculo com raio 1 contendo triângulos e algumas funções trigonométricas expostas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ao fazermos o ajuste no **Gráfico 1**, gerando o **Gráfico 4**, podemos observar que o seno não está mais visível quando o ângulo teta (θ) atingiu o valor zero. Também podemos observar a inexistência de triângulos, apesar da nossa hipotenusa original e o cosseno de teta (θ) ainda serem mostrados com o valor máximo esperado para eles, o comprimento 1.\n\nUm exemplo para os valores intermediários está disponível no **Gráfico 1**, onde os dois triângulos estão a amostra. Neste gráfico, gostaríamos de destacar um ponto relevante. Apesar da hipotenusa ser uma linha reta a partir da origem, o valor da tangente, como pode ser observado no **Gráfico 3**, não é linear.\n\nFinalmente, vamos redesenhar o **Gráfico 1**, para alguns valores próximos do extremo do **Gráfico 2**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p id=\"circtri1\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path class=\"radius-30\" d=\"M 302 147 A 30 30 0 0 1 320.0 170.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"300\" y1=\"169\" x2=\"520\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-45\" x1=\"300\" y1=\"169\" x2=\"300\" y2=\"22\"></line> <line class=\"vertical45\" x1=\"302\" y1=\"21\" x2=\"580\" y2=\"21\"></line> <text class=\"atlasTextRadius\" x=\"280\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" transform=\"rotate(90, 320, 88)\">sen θ</text> <text class=\"atlasTextRadius\" x=\"302\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"307\" y=\"17\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"520\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Gráfico 5</b>: Círculo com raio 1 contendo triângulos e algumas funções trigonométricas expostas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O **Gráfico 5**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       },
