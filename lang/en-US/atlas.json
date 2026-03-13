@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1773364351"
+      "1773373280"
    ],
    "authors": null,
    "reviewers": null,
@@ -4340,6 +4340,37 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Understanding the Graph\n\nThe result of our tangent graph will be given by **Formula 1**, that is, it will be given by the division of the sine of theta (θ) by the cosine of theta (θ), with the value of the angle theta (θ) being equal for both trigonometric functions. Observing **Graph 2** which shows the values of sine and cosine for equal angles, we can conclude:\n- When the cosine has a value of zero, there will be no defined value. Therefore, this is a scenario in which we will use limits to understand towards which value the results approach as the cosine approaches zero; As seen in another text by *History Tracers*, between 0 and 1 there are infinite numbers (<htcite0>). Thus, when the value of the cosine of theta (θ) is equal to 1, then the value of the tangent will be equal to the value of the sine. For example, the value of the cosine is equal to 1 when the sine is equal to 0; therefore, the tangent will be equal to 0;\n- On the other hand, as the value of the cosine of theta decreases towards zero, the value of the tangent will increase; in this way, the value will tend towards infinity, not limiting itself to values between 0 and 1.\n\nTo better understand what we have described, see **Graph 3**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limiting",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"charttan1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 3</b>: Graph of the tangent function for the values shown in <b>Graph 1 and 2</b>. Graph created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p><script> htPlotTan('charttan1', 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]

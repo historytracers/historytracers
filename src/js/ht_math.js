@@ -756,7 +756,7 @@ function htTanValues(quadrants) {
     const step = (Math.PI / 2) / (end - 1);
     var x = [];
     var y = [];
-    for (let i = 0, nextStep = 0; i < 256; i++, nextStep += next) {
+    for (let i = 0, nextStep = 0; i < 256; i++, nextStep += step) {
         var val = step*i;
         x.push(nextStep);
         y.push(Math.tan(val));
@@ -815,7 +815,7 @@ function htPlotSineCosine(target, cosine, sine, quadrants) {
         "chartId" : target,
         "yType" : "linear",
         "xVector" : xVector,
-        "xLable": mathKeywords[15],
+        "xLable": mathKeywords[50],
         "xType" : "linear",
         "datasetFill" : false,
         "ymin": (quadrants < 2)? 0: -1,
@@ -831,7 +831,7 @@ function htPlotTan(target, quadrants) {
     var obj = undefined;
     var datasets = [ ];
 
-    localTan = htSineValues(quadrants);
+    localTan = htTanValues(quadrants);
     xVector = localTan.x;
     var obj = {
                 data : localTan.y,
@@ -845,7 +845,7 @@ function htPlotTan(target, quadrants) {
         "chartId" : target,
         "yType" : "linear",
         "xVector" : xVector,
-        "xLable": mathKeywords[15],
+        "xLable": mathKeywords[50],
         "xType" : "linear",
         "datasetFill" : false,
         "ymin": (quadrants < 2)? 0: -1,

@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1773364354"
+      "1773373282"
    ],
    "authors": null,
    "reviewers": null,
@@ -4340,6 +4340,37 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Entendendo o gráfico\n\nO resultado de nosso gráfico da tangente será dado pela **Fórmula 1**, ou seja, será dado pela divisão do seno de teta (θ) pelo cosseno de teta (θ), com o valor do ângulo teta (θ) sendo igual para ambas as funções trigonométricas. Observando o **Gráfico 2** que mostra os valores do seno e do cosseno para ângulos iguais, podemos concluir:\n- Quando o cosseno tiver valor zero, não haverá valor definido. Logo, este é um cenário em que utilizaremos limites para entender para qual valor os resultados vão se aproximando à medida que o cosseno se aproxima de zero;\n- Como visto em outro texto do History Tracers, entre 0 e 1 há infinitos números (<htcite0>). Dessa forma, quando o valor do cosseno de teta (θ) for igual a 1, então o valor da tangente será igual ao valor do seno. Por exemplo, o valor do cosseno é igual a 1 quando o seno é igual a 0; logo, a tangente será igual a 0;\n- Por outro lado, à medida que o valor do cosseno de teta for diminuindo em direção a zero, o valor da tangente irá aumentando; dessa forma, o valor tenderá ao infinito não se limitando a valores entre 0 e 1.\n\nPara melhor entender o que descrevemos, veja o **Gráfico 3**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limitando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"charttan1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Gráfico da função tangente para os valores mostrados nos <b>Gráficos 1 e 2</b>. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotTan('charttan1', 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]
