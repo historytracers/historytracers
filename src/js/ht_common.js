@@ -137,7 +137,7 @@ function htResetAllIndexes()
         htHistoricalEventsIdx,
         htBiologyIdx,
         htChemicalIdx,
-        htPhysicsIdx
+        htPhysicsIdx,
         htPhilosophyIdx
     ];
 
@@ -1614,7 +1614,7 @@ function htSelectIndexName(index) {
         physics: keywords[127],
         chemistry: keywords[128],
         biology: keywords[129],
-        historical_events: keywords[130]
+        historical_events: keywords[130],
         philosophy: keywords[138],
     };
 
@@ -2840,7 +2840,7 @@ function htLoadIndex(data, arg, page)
         literature: htLiteratureIdx,
         math_games: htMathGamesIdx,
         myths_believes: htMythsBelievesIdx,
-        physics: htPhysicsIdx
+        physics: htPhysicsIdx,
         philosophy: htPhilosophyIdx
     };
 
