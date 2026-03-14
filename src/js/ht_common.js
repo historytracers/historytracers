@@ -37,6 +37,7 @@ var htHistoricalEventsIdx = new Map();
 var htBiologyIdx = new Map();
 var htChemicalIdx = new Map();
 var htPhysicsIdx = new Map();
+var htPhilosophyIdx = new Map();
 var htFamilyIdx = new Map();
 
 var extLatexIdx = 0;
@@ -137,6 +138,7 @@ function htResetAllIndexes()
         htBiologyIdx,
         htChemicalIdx,
         htPhysicsIdx
+        htPhilosophyIdx
     ];
 
     indexMaps.forEach(map => {
@@ -1590,6 +1592,7 @@ function htSelectIndexMap(index)
         myths_believes: htMythsBelievesIdx,
         historical_events: htHistoricalEventsIdx,
         physics: htPhysicsIdx,
+        philosophy: htPhilosophyIdx,
         chemistry: htChemicalIdx,
         biology: htBiologyIdx
     };
@@ -1612,6 +1615,7 @@ function htSelectIndexName(index) {
         chemistry: keywords[128],
         biology: keywords[129],
         historical_events: keywords[130]
+        philosophy: keywords[138],
     };
 
     return map[index] || "Undefined";
@@ -2472,7 +2476,8 @@ function htFillStringOnPage(data, idx, page)
         "families", "history", "literature", "first_steps",
         "first_steps_menu", "first_steps_volume2",
         "indigenous_who", "myths_believes", "math_games",
-        "historical_events", "biology", "physics", "chemistry"
+        "historical_events", "biology", "physics", "chemistry",
+        "philosophy"
     ];
 
     if (allowedPages.includes(page) && item.target) {
@@ -2836,6 +2841,7 @@ function htLoadIndex(data, arg, page)
         math_games: htMathGamesIdx,
         myths_believes: htMythsBelievesIdx,
         physics: htPhysicsIdx
+        philosophy: htPhilosophyIdx
     };
 
     if (page && pageConfig[page] && !pageConfig[page].has(page)) {
