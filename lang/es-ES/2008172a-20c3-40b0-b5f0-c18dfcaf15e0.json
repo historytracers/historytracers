@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1773593226"
+      "1773627959"
    ],
    "authors": null,
    "reviewers": null,
@@ -355,6 +355,113 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_inverting",
+         "text": [
+            {
+               "text": "### Modelando el conocimiento\n\nLa conclusión de Sócrates, acompañada por los estudios de Baruch Fischhoff, Paul Slovic y Sarah Lichtenstein, puede escribirse de manera simplificada. Sin embargo, la falta de interdisciplinariedad termina omitiendo esta representación que pasamos a tratar.\n\n#### Describiendo lo que vimos\n\nPodemos resumir de la siguiente manera lo que vimos en este texto hasta el momento, relacionado al conocimiento:\n- Cuando una persona tiene plena certeza y convicción de que conoce algo, esto indica que, en realidad, posee un gran desconocimiento;\n- Muchas personas, al intentar responder algo que desconocen, buscan en sus memorias y, al no encontrar la respuesta, infieren posibles explicaciones a partir de lo que no conocen, las cuales generalmente están equivocadas;\n- A medida que una persona estudia y comienza a entender, de manera más amplia, diferentes temas, tiende a no cometer los errores de los \"sabelotodo\", pues pasa a tener una mejor visión del conocimiento y de nuestras limitaciones.\n\n#### Resumiendo el conocimiento\n\nAnte esta información, podemos concluir que la certeza y el completo dominio sobre algo son inversamente proporcionales (<htcite0>) al conocimiento de la persona, o, de manera más resumida:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "aa17d002-b084-4543-8c20-06f97994142a",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Inversamente proporcional",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>Certeza</mi> <mo>∝</mo> <mfrac><mrow> <mn>1</mn></mrow><mrow><mn>Conocimiento</mn><mrow> </mfrac> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Relación inversamente proporcional entre certeza y conocimiento.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Visualizando la relación\n\nComo la **Fórmula 1** está expresada en forma de proporción, necesitamos una constante **K**, que assumiremos como sendo igual a 1 neste primeiro texto. Essa constante nos dá condições de fazer com que o que está do lado direito da **Fórmula 1** também seja expresso como certeza.\n\nEssas constantes são conhecidas como constantes de proporcionalidade (<htcite0>), pois nos ajudam a tornar ambos os lados da expressão equivalentes. Aplicando essa constante, chegamos ao nosso modelo inicial que relaciona certeza ao conhecimento:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "db5696c4-33c5-446e-a81b-817802282742",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Proporcional",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>Certeza</mi> <mo>∝</mo> <mfrac><mrow> <mn>1</mn></mrow><mrow><mn>Conocimiento</mn><mrow> </mfrac> </math></center></p> <p><center><math mathsize=\"1.5em\"><mi>Certeza</mi> <mo>=</mo> <mfrac><mrow> <mn>K</mn></mrow><mrow><mn>Conocimiento</mn><mrow> </mfrac> </math></center></p> <p><center><math mathsize=\"1.5em\"><mi>Certeza</mi> <mo>=</mo> <mfrac><mrow> <mn>1</mn></mrow><mrow><mn>Conocimiento</mn><mrow> </mfrac> </math></center></p> <p class=\"desc\"><b>Cálculo 1</b>: Relação entre entre certeza e conhecimento.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "O **Cálculo 1** demonstra as etapas para transformar a proporcionalidade em uma fórmula que usaremos para visualizar as certezas associadas ao desconhecimento de uma pessoa. Nesse cálculo, as seguintes etapas são realizadas:\n- Repetimos a **Fórmula 1** para deixar evidentes as etapas. Aqui temos a informação de que a certeza sobre algo seria inversa ao conhecimento obtido;\n- Como temos certeza de um lado e conhecimento do outro, necessitamos de uma constante **K** que permita que ambos os lados, ao final, expressem certeza;\n- Finalmente, assumimos que a constante **K**, que faz a conversão, possui valor igual a 1.\n\nMais do que propor uma relação, precisamos verificar se ela realmente demonstra tudo o que vimos no texto. Para isso, utilizaremos números.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"inverse\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Relação entre certeza e conhecimento. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotInverse('inverse', 'Conhecimento', 'Certeza');</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Conforme podemos observar no **Gráfico 1**, o valor não inicia em zero, pois a divisão por zero não é definida (<htcite0>). Além disso, para o contexto que estamos estudando, isso também não faria sentido, pois todos temos algum tipo de memória.\n\nAinda em relação aos números próximos de zero, observe que os pontos estão mais espaçados, indicando que um menor conhecimento produz maiores certezas, ou \"verdades\". Por outro lado, quando comparamos com os pontos que se afastam de zero — os quais indicam maior conhecimento —, observamos que a certeza diminui, tendendo a zero.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3f68de7c-d729-4b62-9bb1-36c6f518fea4",
+                     "text": "History Tracers Team",
+                     "page": "Simplicidade vs. Complexidade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -362,6 +469,11 @@
          "question": "Quando pessoas desconhecem algo, elas tentam puxar de suas memória as respostas, muitas vezes inferindo algo apesar de assumirem ser a resposta correta?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Esta pergunta mostra algo contraditórip, mesmo assim, é o que geralmente ocorre. Se desconhecemos algo, talvez a memória não seja o melhor lugar para obter a resposta, mesmo assim, comumente as pessoas inferem resposta que desconhecem e tendem a acreditar que estão corretas."
+      },
+      {
+         "question": "A medida que temos mais conhecimento, nós tendemos a aceitar respostas simples e termos mais certeza?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Há milênios, Sócrates já havia proposto que o conhecimento amplia os horizontes e demonstra o quanto não sabemos. Durante este período, o conhecimento cresceu tanto que necessitamos áreas separadas para estudar o todo, que não pode ser mais concetrado em uma única matéria, como a filosofia. Diante disto, a medida que aprendemos, mais vemos que podemos continuar aprendendo e descobrindo novos conhecimentos."
       }
    ],
    "game_v2": null,

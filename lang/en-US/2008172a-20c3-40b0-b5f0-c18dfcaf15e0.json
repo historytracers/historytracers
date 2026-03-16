@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1773593206"
+      "1773627940"
    ],
    "authors": null,
    "reviewers": null,
@@ -355,6 +355,113 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_inverting",
+         "text": [
+            {
+               "text": "### Modeling Knowledge\n\nSocrates' conclusion, together with the studies of Baruch Fischhoff, Paul Slovic, and Sarah Lichtenstein, can be written in a simplified way. However, the lack of interdisciplinarity ends up omitting this representation, which we will now address.\n\n#### Describing What We Saw\n\nWe can summarize what we have seen in this text so far, related to knowledge, as follows:\n- When a person is absolutely certain and convinced that they know something, this indicates that, in reality, they possess a great deal of ignorance;\n- Many people, when trying to answer something they do not know, search their memories and, not finding the answer, infer possible explanations based on what they do not know, which are generally wrong;\n- As a person studies and begins to understand, more broadly, different subjects, they tend not to make the mistakes of the \"know-it-alls,\" as they gain a better view of knowledge and our limitations.\n\n#### Summarizing Knowledge\n\nGiven this information, we can conclude that certainty and complete mastery of something are inversely proportional (<htcite0>) to a person's knowledge, or, more succinctly:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "aa17d002-b084-4543-8c20-06f97994142a",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Inversely Proportional",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>Certainty</mi> <mo>∝</mo> <mfrac><mrow> <mn>1</mn></mrow><mrow><mn>Knowledge</mn><mrow> </mfrac> </math></center></p><p class=\"desc\"><b>Formula 1</b>: Inversely proportional relationship between certainty and knowledge.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Visualizing the Relationship\n\nSince **Formula 1** is expressed as a proportion, we need a constant **K**, which we will assume to be equal to 1 in this first text. This constant allows us to make the right-hand side of **Formula 1** also be expressed as certainty.\n\nThese constants are known as constants of proportionality (<htcite0>), as they help us make both sides of the expression equivalent. Applying this constant, we arrive at our initial model relating certainty to knowledge:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "db5696c4-33c5-446e-a81b-817802282742",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Proportional",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>Certainty</mi> <mo>∝</mo> <mfrac><mrow> <mn>1</mn></mrow><mrow><mn>Knowledge</mn><mrow> </mfrac> </math></center></p> <p><center><math mathsize=\"1.5em\"><mi>Certainty</mi> <mo>=</mo> <mfrac><mrow> <mn>K</mn></mrow><mrow><mn>Knowledge</mn><mrow> </mfrac> </math></center></p> <p><center><math mathsize=\"1.5em\"><mi>Certainty</mi> <mo>=</mo> <mfrac><mrow> <mn>1</mn></mrow><mrow><mn>Knowledge</mn><mrow> </mfrac> </math></center></p> <p class=\"desc\"><b>Calculation 1</b>: Relationship between certainty and knowledge.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "**Calculation 1** demonstrates the steps to transform the proportionality into a formula that we will use to visualize the certainties associated with a person's ignorance. In this calculation, the following steps are performed:\n- We repeat **Formula 1** to make the steps evident. Here we have the information that certainty about something would be inverse to the knowledge obtained;\n- As we have certainty on one side and knowledge on the other, we need a constant **K** that allows both sides to ultimately express certainty;\n- Finally, we assume that the constant **K**, which performs the conversion, has a value equal to 1.\n\nMore than proposing a relationship, we need to verify if it truly demonstrates everything we have seen in the text. To do this, we will use numbers.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"inverse\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 1</b>: Relationship between certainty and knowledge. Graph created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p><script> htPlotInverse('inverse', 'Knowledge', 'Certainty');</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As we can observe in **Graph 1**, the value does not start at zero, because division by zero is undefined (<htcite0>). Furthermore, for the context we are studying, this also wouldn't make sense, as we all have some kind of memory.\n\nStill regarding numbers close to zero, note that the points are more spaced out, indicating that less knowledge produces greater certainties, or \"truths\". On the other hand, when we compare them with the points that move away from zero — which indicate greater knowledge — we observe that certainty decreases, tending towards zero.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "3f68de7c-d729-4b62-9bb1-36c6f518fea4",
+                     "text": "History Tracers Team",
+                     "page": "Simplicity vs. Complexity",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -362,6 +469,11 @@
          "question": "Quando pessoas desconhecem algo, elas tentam puxar de suas memória as respostas, muitas vezes inferindo algo apesar de assumirem ser a resposta correta?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Esta pergunta mostra algo contraditórip, mesmo assim, é o que geralmente ocorre. Se desconhecemos algo, talvez a memória não seja o melhor lugar para obter a resposta, mesmo assim, comumente as pessoas inferem resposta que desconhecem e tendem a acreditar que estão corretas."
+      },
+      {
+         "question": "A medida que temos mais conhecimento, nós tendemos a aceitar respostas simples e termos mais certeza?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Há milênios, Sócrates já havia proposto que o conhecimento amplia os horizontes e demonstra o quanto não sabemos. Durante este período, o conhecimento cresceu tanto que necessitamos áreas separadas para estudar o todo, que não pode ser mais concetrado em uma única matéria, como a filosofia. Diante disto, a medida que aprendemos, mais vemos que podemos continuar aprendendo e descobrindo novos conhecimentos."
       }
    ],
    "game_v2": null,
