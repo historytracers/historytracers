@@ -37,6 +37,7 @@ var htHistoricalEventsIdx = new Map();
 var htBiologyIdx = new Map();
 var htChemicalIdx = new Map();
 var htPhysicsIdx = new Map();
+var htPhilosophyIdx = new Map();
 var htFamilyIdx = new Map();
 
 var extLatexIdx = 0;
@@ -123,6 +124,7 @@ function htResetGenealogicalStats() {
 function htResetAllIndexes()
 {
     loadedIdx = [];
+    htPendingIndexes = [];
     const indexMaps = [
         htHistoryIdx,
         htLiteratureIdx,
@@ -136,7 +138,8 @@ function htResetAllIndexes()
         htHistoricalEventsIdx,
         htBiologyIdx,
         htChemicalIdx,
-        htPhysicsIdx
+        htPhysicsIdx,
+        htPhilosophyIdx
     ];
 
     indexMaps.forEach(map => {
@@ -1590,6 +1593,7 @@ function htSelectIndexMap(index)
         myths_believes: htMythsBelievesIdx,
         historical_events: htHistoricalEventsIdx,
         physics: htPhysicsIdx,
+        philosophy: htPhilosophyIdx,
         chemistry: htChemicalIdx,
         biology: htBiologyIdx
     };
@@ -1611,7 +1615,8 @@ function htSelectIndexName(index) {
         physics: keywords[127],
         chemistry: keywords[128],
         biology: keywords[129],
-        historical_events: keywords[130]
+        historical_events: keywords[130],
+        philosophy: keywords[138],
     };
 
     return map[index] || "Undefined";
@@ -1729,7 +1734,31 @@ function htBuildNavigation(index, currentIdx, initialBgColor)
     return navigation;
 }
 
+var htPendingIndexes = [];
+
 function htWriteNavigation()
+{
+    if (htPendingIndexes.length > 0) {
+        var checkCount = 0;
+        var maxChecks = 50;
+        var checkInterval = setInterval(function() {
+            var allLoaded = htPendingIndexes.every(function(idx) {
+                return loadedIdx.includes(idx);
+            });
+            checkCount++;
+            if (allLoaded || checkCount >= maxChecks) {
+                clearInterval(checkInterval);
+                htPendingIndexes = [];
+                htWriteNavigationInternal();
+            }
+        }, 50);
+        return;
+    }
+
+    htWriteNavigationInternal();
+}
+
+function htWriteNavigationInternal()
 {
     if (loadedIdx.length == 0) {
         return;
@@ -2472,7 +2501,8 @@ function htFillStringOnPage(data, idx, page)
         "families", "history", "literature", "first_steps",
         "first_steps_menu", "first_steps_volume2",
         "indigenous_who", "myths_believes", "math_games",
-        "historical_events", "biology", "physics", "chemistry"
+        "historical_events", "biology", "physics", "chemistry",
+        "philosophy"
     ];
 
     if (allowedPages.includes(page) && item.target) {
@@ -2515,15 +2545,19 @@ function htFillWebPage(page, data)
         });
     }
 
-    const last_update = data?.last_update ?? 0;
+    let last_update = data?.last_update ?? 0;
+    if (Array.isArray(last_update)) {
+        last_update = parseInt(last_update[0], 10);
+    }
+    const page_last_update = last_update;
     let page_authors = (keywords.length > 34) ? keywords[35] : "Editors of History Tracers";
     let page_reviewers = (keywords.length > 36) ? keywords[37] : "Reviewers of History Tracers";
 
     if (data?.authors?.length) page_authors = data.authors;
     if (data?.reviewers?.length) page_reviewers = data.reviewers;
 
-    if ($("#extpaper").length && last_update > 0) {
-        htFillDivAuthorsContent("#extpaper", last_update, page_authors, page_reviewers);
+    if ($("#extpaper").length && page_last_update > 0) {
+        htFillDivAuthorsContent("#extpaper", page_last_update, page_authors, page_reviewers);
     }
 
     if ($("#htaudio").length && data?.audio) {
@@ -2566,9 +2600,9 @@ function htFillWebPage(page, data)
         $("#loading_msg").hide();
     } else if (data?.type && data.version == 2) {
         if (data.type == "class") {
-            htFillClassContentV2(data, last_update, page_authors, page_reviewers, data.index);
+            htFillClassContentV2(data, page_last_update, page_authors, page_reviewers, data.index);
         } else if (data.type == "atlas") {
-            htFillClassContentV2(data, last_update, page_authors, page_reviewers, null);
+            htFillClassContentV2(data, page_last_update, page_authors, page_reviewers, null);
 
             if (data.atlas != undefined) {
                 htFillAtlas(data);
@@ -2817,9 +2851,12 @@ function htLoadIndex(data, arg, page)
         if (data.index.constructor === vectorConstructor) {
             for (const i in data.index) {
                 var newData = { "index" : data.index[i] };
+                htPendingIndexes.push(data.index[i]);
                 htLoadIndex(newData, arg, page);
             }
             return;
+        } else {
+            htPendingIndexes.push(data.index);
         }
     }
 
@@ -2835,7 +2872,8 @@ function htLoadIndex(data, arg, page)
         literature: htLiteratureIdx,
         math_games: htMathGamesIdx,
         myths_believes: htMythsBelievesIdx,
-        physics: htPhysicsIdx
+        physics: htPhysicsIdx,
+        philosophy: htPhilosophyIdx
     };
 
     if (page && pageConfig[page] && !pageConfig[page].has(page)) {
@@ -2849,6 +2887,7 @@ function htLoadIndex(data, arg, page)
 
     var URL = htLoadPageMountURL(data.index, data.index, "");
     var unixEpoch = Date.now();
+    var indexName = data.index;
     $.ajax({
         type: 'GET',
         url: URL,
@@ -2861,8 +2900,8 @@ function htLoadIndex(data, arg, page)
                 return false;
             }
 
-            if (htIsIndexLoaded(data.index) == false) {
-                htLoadIndex(d, arg, data.index);
+            if (htIsIndexLoaded(indexName) == false) {
+                htLoadIndex(d, arg, indexName);
             }
 
             return false;

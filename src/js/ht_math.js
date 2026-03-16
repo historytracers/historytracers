@@ -767,6 +767,27 @@ function htTanValues(quadrants) {
     return values;
 }
 
+// 1/x
+function htInverseValues() {
+    var values = { x: [], y: []};
+
+    var end = 256;
+    var nextStep = 0;
+    const next = 1/256;
+    const step = (1) / (end - 1);
+    var x = [];
+    var y = [];
+    for (let i = 1, nextStep = 0; i < 256; i++, nextStep += step) {
+        var val = step*i;
+        x.push(nextStep);
+        y.push(1.0/val);
+    }
+    values.x = x;
+    values.y = y;
+
+    return values;
+}
+
 function htConstantVector(N, value) {
     return new Array(N).fill(value);
 }
@@ -850,6 +871,36 @@ function htPlotTan(target, quadrants) {
         "datasetFill" : false,
         "ymin": (quadrants < 2)? 0: -1,
         "ymax": 1.2,
+        "useCallBack": false
+    };
+    return htPlotConstantContinuousChart(chartOptions);
+}
+
+function htPlotInverse(target, xlabel, ylabel) {
+    var xVector = [];
+    var localTan = undefined;
+    var obj = undefined;
+    var datasets = [ ];
+
+    localTan = htInverseValues();
+    xVector = localTan.x;
+    var obj = {
+                data : localTan.y,
+                label : ylabel,
+                fill : false
+              };
+    datasets.push(obj);
+
+    var chartOptions = {
+        "datasets": datasets,
+        "chartId" : target,
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": xlabel,
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin":  0,
+        "ymax": 20,
         "useCallBack": false
     };
     return htPlotConstantContinuousChart(chartOptions);
