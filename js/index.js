@@ -119,6 +119,7 @@ function htParseIndexRequest() {
             case 'license':
             case 'contact':
             case 'physics':
+            case 'philosophy':
             case 'historical_events':
             case 'biology':
             case 'chemistry':
