@@ -125,6 +125,7 @@ function htResetAllIndexes()
 {
     loadedIdx = [];
     htPendingIndexes = [];
+    htIndexesOrder = [];
     const indexMaps = [
         htHistoryIdx,
         htLiteratureIdx,
@@ -1739,6 +1740,7 @@ var htPendingIndexes = [];
 function htWriteNavigation()
 {
     if (htPendingIndexes.length > 0) {
+        htIndexesOrder = htPendingIndexes.slice();
         var checkCount = 0;
         var maxChecks = 50;
         var expectedCount = htPendingIndexes.length;
@@ -1751,6 +1753,7 @@ function htWriteNavigation()
             if (allLoaded || checkCount >= maxChecks) {
                 clearInterval(checkInterval);
                 htPendingIndexes = [];
+                htIndexesOrder = [];
                 htWriteNavigationInternal();
             }
         }, 50);
@@ -1765,10 +1768,16 @@ function htWriteNavigationInternal()
     if (loadedIdx.length == 0) {
         return;
     }
+    var sortedIdx = loadedIdx.slice();
+    if (htIndexesOrder.length > 0) {
+        sortedIdx.sort(function(a, b) {
+            return htIndexesOrder.indexOf(a) - htIndexesOrder.indexOf(b);
+        });
+    }
     var navigation = "<p><table class=\"book_navigation\"><tr><th colspan=\"3\" style=\"background-color: #FFFFE0;\">"+keywords[132]+"</th></tr><tr style=\"background-color: #FFFFE0;\"><td><span>"+keywords[56]+"</span></td> <td> <span>"+keywords[57]+"</span> </td> <td><span>"+keywords[58]+"</span></td></tr>";
-    for (const i in loadedIdx) {
+    for (const i in sortedIdx) {
         var color = (i % 2) ? "#FFFFE0" : "#FFFFFF";
-        navigation += htBuildNavigation(loadedIdx[i], i, color);
+        navigation += htBuildNavigation(sortedIdx[i], i, color);
     }
     navigation += "</table></p>";
     $(".dynamicNavigation").attr('data-after-content', keywords[132]);
