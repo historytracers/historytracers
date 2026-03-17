@@ -1741,10 +1741,12 @@ function htWriteNavigation()
     if (htPendingIndexes.length > 0) {
         var checkCount = 0;
         var maxChecks = 50;
+        var expectedCount = htPendingIndexes.length;
         var checkInterval = setInterval(function() {
-            var allLoaded = htPendingIndexes.every(function(idx) {
-                return loadedIdx.includes(idx);
-            });
+            var allLoaded = loadedIdx.length >= expectedCount &&
+                htPendingIndexes.every(function(idx) {
+                    return loadedIdx.includes(idx);
+                });
             checkCount++;
             if (allLoaded || checkCount >= maxChecks) {
                 clearInterval(checkInterval);
