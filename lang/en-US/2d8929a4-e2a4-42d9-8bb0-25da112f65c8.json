@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1773782045"
+      "1773801876"
    ],
    "authors": [
       ""
@@ -117,7 +117,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: How to measure?</b><br /><br />When looking at <b>Graph 1</b>, we see that the reflected image on the left is at the same distance as the original image on the right.<br /><br />The major difference between the sides is that, on the left side, we add the negative sign to indicate that the direction is different.<br /><br />How would you represent a distance of 5 for both sides, despite the difference in sign?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: How to measure?</b><br /><br />When looking at <b>Graph 1</b>, we see that the reflected image on the left is at the same distance as the original image on the right.<br /><br />The major difference between the sides is that, on the left side, we add the negative sign to indicate that the direction is different.<br /><br />What is the distance from the image on the left to the object on the right?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -153,7 +153,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;5<br />-&nbsp;&nbsp;&nbsp;0<br />____________<br />&nbsp;&nbsp;&nbsp;5</center></p><p class=\"desc\"><b>Calculation 1</b>: Distance of the image from the origin.</p>",
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;5<br />-&nbsp;&nbsp;&nbsp;0<br />____________<br />&nbsp;&nbsp;&nbsp;5</center></p><p class=\"desc\"><b>Calculation 1</b>: Distance of the object from the origin.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -180,13 +180,128 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_continuing",
+         "text": [
+            {
+               "text": "### Subtraction is a Sum\n\nAs we saw initially, subtraction can be understood as going back along a path we have traveled (<htcite0>), meaning we reverse the direction. Similarly, negative numbers on the graph also indicate that we are going in an opposite direction. Thus, the sign on both the graph and in the operation represents the same idea of going in an opposite direction.\n\nAnother fact we can recall from previous texts is that, as we moved among numbers, we always considered that we were walking by adding values to the previous number (<htcite1>).\n\nGiven this scenario, we can treat subtraction in a more general way.\n\n#### Going Back a Bit Further\n\nSuppose that, instead of measuring the distance from the object on the right to the mirror, we want to measure the distance from it to its image on the left. Applying subtraction, we would have:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "73cb1665-6b60-4725-a231-2aff976e7e6d",
+                     "text": "History Tracers Team",
+                     "page": "Returning",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team",
+                     "page": "Walking Among Numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;5<br />-&nbsp;- 5<br />____________</center></p><p class=\"desc\"><b>Calculation 2</b>: Distance from the object to its image.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 2**, we would like to draw attention to the fact that, when writing the subtraction, on the second line we have two negative signs. This is the first time this has occurred in all the texts of the *First Steps* section of History Tracers. With this, we can conclude that this is not the way we normally write it. In order to convert these two signs into a single one, as we have done so far, we will recall another graph used in the previous text (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b8c8840f-0631-420d-b5b3-7ebbebdb9625",
+                     "text": "History Tracers Team",
+                     "page": "Integers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg width=\"500\" height=\"100\"  fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"8\" y1=\"75\" x2=\"490\" y2=\"75\" stroke=\"black\" stroke-width=\"3\" marker-start=\"url(#arrow)\" marker-end=\"url(#arrow)\" /> <line x1=\"50\" y1=\"75\" x2=\"50\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"90\" y1=\"75\" x2=\"90\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"130\" y1=\"75\" x2=\"130\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"170\" y1=\"75\" x2=\"170\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"210\" y1=\"75\" x2=\"210\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"250\" y1=\"75\" x2=\"250\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"290\" y1=\"75\" x2=\"290\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"330\" y1=\"75\" x2=\"330\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"370\" y1=\"75\" x2=\"370\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"410\" y1=\"75\" x2=\"410\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"450\" y1=\"75\" x2=\"450\" y2=\"85\" stroke=\"black\" stroke-width=\"3\" /> <circle cx=\"50\" cy=\"25\" r=\"7\" fill=\"#00FF00\"></circle> <circle cx=\"450\" cy=\"25\" r=\"7\" fill=\"#00FF00\"></circle> <line x1=\"250\" y1=\"75\" x2=\"250\" y2=\"5\" stroke=\"black\" stroke-width=\"7\" /> <text x=\"45\" y=\"99\" font-size=\"1.5em\">5</text> <text x=\"85\" y=\"99\" font-size=\"1.5em\">4</text> <text x=\"125\" y=\"99\" font-size=\"1.5em\">3</text> <text x=\"165\" y=\"99\" font-size=\"1.5em\">2</text> <text x=\"205\" y=\"99\" font-size=\"1.5em\">1</text> <text x=\"245\" y=\"99\" font-size=\"1.5em\">0</text> <text x=\"285\" y=\"99\" font-size=\"1.5em\">1</text> <text x=\"325\" y=\"99\" font-size=\"1.5em\">2</text> <text x=\"365\" y=\"99\" font-size=\"1.5em\">3</text> <text x=\"405\" y=\"99\" font-size=\"1.5em\">4</text> <text x=\"445\" y=\"99\" font-size=\"1.5em\">5</text> </svg></p><p class=\"desc\"><b>Graph 2</b>: Representation of a mirror in the center reflecting, on the left, an image of an object that is on its right, with numbers measuring the distance.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Combining Signs\n\nIn **Graph 2**, we removed the negative sign so we could better visualize the steps we are taking. If we were to calculate the distance from the image on the left to the mirror, and then add it to the result obtained in **Calculation 1**, we would have as a result:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mn>5</mn> <mo>-</mo> <mn>0</mn> <mo>=</mo> <mn>5</mn> </math></center></p> <p><center><math mathsize=\"1.5em\"> <mn>5</mn> <mo>-</mo> <mn>0</mn> <mo>=</mo> <mn>5</mn> </math></center></p> <p><center><math mathsize=\"1.5em\"> <mn>5</mn> <mo>+</mo> <mn>5</mn> <mo>=</mo> <mn>10</mn> </math></center></p> <p class=\"desc\"><b>Calculation 3</b>: Measurement of the distance to the right, to the left, and the sum of the total distance.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To avoid any doubt, let's explain **Calculation 3** step by step:\n- **Line 1**: We repeat **Calculation 1**, which measures the distance from the object on the right to the center;\n- **Line 2**: Using **Graph 2**, we calculate the distance value from the image on the left to the mirror in the center;\n- **Line 3**: We add the results from **Lines 1 and 2**.\n\nFrom these results, we can conclude that when we have two negative signs in subtraction, as in **Calculation 2**, we start adding instead of subtracting, indicating that we are going in the same direction. That is, **Calculation 2** becomes:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;1&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;5<br />+&nbsp;&nbsp;5<br />____________<br />&nbsp;&nbsp;10</center></p><p class=\"desc\"><b>Calculation 4</b>: Distance between object and image.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "question": "Ao medirmos uma distância a partir do lado direito até o lado esquerdo, nós dividimos os números?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "A distância é medida de igual modo se vai até a zero, ou se temos que ir em outra direção. Devemos apenas ter em mente que ao cruzarmos o zero, passaremos a somar os valores ao invés de continuar subtraindo."
       }
    ],
    "game_v2": null,
