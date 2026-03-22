@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1774149186"
+      "1774187568"
    ],
    "authors": "",
    "reviewers": "",
@@ -796,7 +796,7 @@
                "divorced": null,
                "children": [
                   {
-                     "type": "theory",
+                     "type": "hypothesis",
                      "id": "93149fcc-a082-4c8c-8779-d257676b31a2",
                      "marriage_id": "c397124e-f5da-4e69-a60d-c7b1de382ac0",
                      "name": "Matope Nebedza",
@@ -1071,15 +1071,105 @@
                   }
                ],
                "death": null
+            },
+            {
+               "id": "0e5f6888-f515-4091-8284-6a276457dc64",
+               "name": "Nyahuma",
+               "surname": "",
+               "patronymic": "",
+               "fullname": "Nyahuma",
+               "sex": "masculino",
+               "gender": "masculino",
+               "is_real": false,
+               "haplogroup": null,
+               "history": [
+                  {
+                     "text": "Además de no ser reportada en las primeras publicaciones portuguesas sobre el Estado de Mutapa y Mozambique, las publicaciones estudiadas hablan poco de este personaje, aparentemente creado en <htdate0> durante los estudios de Abraham (<htcite0>). Lo que se ha dicho sobre este rey también puede aplicarse a los demás que le siguen (Chikuyo, Chivere, Nogomo e Mavura) (<htcite1>).\n\nAnte este escenario de incertidumbre relacionado con estos gobernantes, interrumpiremos el estudio específico de estas personas, creando una nueva categoría llamada \"Gobernantes desconocidos\", en la cual pasaremos a analizar los hechos narrados por los portugueses.",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "e825e901-fbd3-41fd-ab91-2965db23f501",
+                           "text": "Beach, D. N.",
+                           "page": "pp. 6",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1976",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "eb67d08b-1675-4c10-984b-2281e07e9e52",
+                           "text": "Beach, D. N.",
+                           "page": "pp. 118",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1980",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "1958",
+                           "month": "",
+                           "day": ""
+                        },
+                        {
+                           "type": "unix",
+                           "year": "",
+                           "month": "",
+                           "day": ""
+                        },
+                        {
+                           "type": "julian",
+                           "year": "",
+                           "month": "",
+                           "day": ""
+                        }
+                     ],
+                     "isTable": false,
+                     "imgdesc": "",
+                     "format": "markdown",
+                     "PostMention": ""
+                  }
+               ],
+               "parents": [
+                  {
+                     "type": "hypothesis",
+                     "father_external_family_file": false,
+                     "father_family": "2432dd74-68d9-4246-bf9e-7aa09d742184",
+                     "father_id": "93149fcc-a082-4c8c-8779-d257676b31a2",
+                     "father_name": "Matope Nebedza",
+                     "mother_external_family_file": false,
+                     "mother_family": "",
+                     "mother_id": "6322f0bb-cceb-43a6-a214-fd342dd3ac0f",
+                     "mother_name": "Desconhecida"
+                  }
+               ],
+               "birth": null,
+               "baptism": null,
+               "marriages": null,
+               "divorced": null,
+               "children": null,
+               "death": null
             }
          ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Tanto os ancestrais de Mutota quanto ele mesmo são pessoas históricas?",
+         "question": "Tanto os ancestrais de Mutota, assim como ele, são pessoas históricas?",
          "yesNoAnswer": "No",
          "additionalInfo": "Apesar das narrativas antigas, criadas 3 séculos depois de sua hipotética existência, não é possível afirmar categoricamente que ele mesmo tenha existido."
+      },
+      {
+         "question": "Depois de Mutota, todos os demais reis são históricos?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Mutota, e seu hipotético filho Matope, são personagens que possuem mais informações associadas a eles. Os reis que vem na sequência foram pouco explorados nos trabalhos estudados, entre outros motivos, pela dúvida que realmente existiram."
       }
    ],
    "date_time": null
