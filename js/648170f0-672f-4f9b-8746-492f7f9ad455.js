@@ -1,23 +1,14 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var rValues = [];
-var lValues = [];
-
-var mayaProductVector = [];
-var firstVector = [];
-var secondVector = [];
-
-var localAnswerVector648170f0 = undefined;
-var currentExampleIdx = 0;
-var initialColorChange = 0;
+var local = {};
 
 function htFillYupanaMultYupana0(value, times)
 {
-    lValues = htFillYupanaDecimalValuesWithRepetition("#yupana0", value, times, 5, yupanaClasses);
-    rValues = lValues.slice();
-    htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', lValues);
-    rValues[0] = times;
-    htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', rValues);
+    local.lValues = htFillYupanaDecimalValuesWithRepetition("#yupana0", value, times, 5, yupanaClasses);
+    local.rValues = local.lValues.slice();
+    htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', local.lValues);
+    local.rValues[0] = times;
+    htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', local.rValues);
 }
 
 function htFillWriteTableBody(tableId, horizontalVector, verticalVector, productVector) {
@@ -64,12 +55,12 @@ function htFillWriteTableBody(tableId, horizontalVector, verticalVector, product
             }
             if (totalRows == 5) {
                 if ((horizontalLength != 3 || verticalLength != 3) && (horizontalLength == 2 || verticalLength == 2)) { 
-                    initialColorChange = 1;
+                    local.initialColorChange = 1;
                 }
             } else if (totalRows == 4) {
-                initialColorChange = (horizontalLength == 3 || verticalLength == 3) ? 0 : 1;
+                local.initialColorChange = (horizontalLength == 3 || verticalLength == 3) ? 0 : 1;
             } else if (totalRows == 3 && (horizontalLength == 1 || verticalLength == 1)) {
-                initialColorChange = 1;
+                local.initialColorChange = 1;
             }
             continue;
         }
@@ -105,34 +96,34 @@ function htFillCalcTable6481070f0 (tableId) {
         return;
     }
     $tableElement.empty();
-    initialColorChange = 0;
+    local.initialColorChange = 0;
 
     var first = parseInt($("#firstV").val());
-    firstVector = htMesoamericanNumberOrder(first);
+    local.firstVector = htMesoamericanNumberOrder(first);
 
     var second = parseInt($("#secondV").val());
-    secondVector = htMesoamericanNumberOrder(second);
+    local.secondVector = htMesoamericanNumberOrder(second);
 
-    htFillWriteMesoTableHeader(tableId, secondVector);
+    htFillWriteMesoTableHeader(tableId, local.secondVector);
 
     var product = first * second;
-    mayaProductVector = htMesoamericanNumberOrder(product);
+    local.mayaProductVector = htMesoamericanNumberOrder(product);
     $("#thirdV").val(product);
 
-    if (firstVector.length > 1) {
-        firstVector.reverse();
+    if (local.firstVector.length > 1) {
+        local.firstVector.reverse();
     }
 
-    if (secondVector.length > 1) {
-        secondVector.reverse();
+    if (local.secondVector.length > 1) {
+        local.secondVector.reverse();
     }
 
-    if (mayaProductVector.length > 1) {
-        mayaProductVector.reverse();
+    if (local.mayaProductVector.length > 1) {
+        local.mayaProductVector.reverse();
     }
 
 
-    htFillWriteTableBody(tableId, firstVector, secondVector, mayaProductVector);
+    htFillWriteTableBody(tableId, local.firstVector, local.secondVector, local.mayaProductVector);
 }
 
 function htChangeCleanUnused() {
@@ -152,30 +143,30 @@ function htChangeCalcTable6481070f0 (tableId) {
         return;
     }
 
-    if (mayaProductVector.length == 0) {
+    if (local.mayaProductVector.length == 0) {
         return;
     }
 
-    var verticalLength = secondVector.length;
-    var horizontalLength = firstVector.length;
-    var productLength = mayaProductVector.length;
+    var verticalLength = local.secondVector.length;
+    var horizontalLength = local.firstVector.length;
+    var productLength = local.mayaProductVector.length;
     if (horizontalLength == 1 && verticalLength == 1 && productLength > 1) {
         htChangeCleanUnused();
 
         $($(".imgAddProd").get().reverse()).each(function(index, element) {
-            $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[0]+".png");
+            $(this).attr("src", "images/HistoryTracers/Maya_"+local.mayaProductVector[0]+".png");
         });
 
         $(".resChanged").each(function(index, element) {
-            $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[1]+".png");
+            $(this).attr("src", "images/HistoryTracers/Maya_"+local.mayaProductVector[1]+".png");
         });
         return;
     }
 
     htChangeCleanUnused();
 
-    var verticalLengthP1 = secondVector.length + 1;
-    var productIdx = initialColorChange;
+    var verticalLengthP1 = local.secondVector.length + 1;
+    var productIdx = local.initialColorChange;
     var cell = 1;
     var row = 2;
 
@@ -185,7 +176,7 @@ function htChangeCalcTable6481070f0 (tableId) {
             return false;
         }
 
-        $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[additional]+".png");
+        $(this).attr("src", "images/HistoryTracers/Maya_"+local.mayaProductVector[additional]+".png");
         additional--;
     });
 
@@ -193,14 +184,14 @@ function htChangeCalcTable6481070f0 (tableId) {
     var test = (horizontalLength == 1 && verticalLength == 1 && productLength > 1);
     $(".resChanged").each(function(index, element) {
         if (test) {
-            $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[index]+".png");
+            $(this).attr("src", "images/HistoryTracers/Maya_"+local.mayaProductVector[index]+".png");
         } else {
             if (index < verticalLength ) {
-                $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[productIdx]+".png");
+                $(this).attr("src", "images/HistoryTracers/Maya_"+local.mayaProductVector[productIdx]+".png");
                 productIdx++;
             } else {
                 if ( (cell % verticalLength) == 0) {
-                    $(this).attr("src", "images/HistoryTracers/Maya_"+mayaProductVector[productIdx]+".png");
+                    $(this).attr("src", "images/HistoryTracers/Maya_"+local.mayaProductVector[productIdx]+".png");
                     productIdx++;
                     row++;
                 } else {
@@ -216,14 +207,16 @@ function htChangeCalcTable6481070f0 (tableId) {
 }
 
 function htLoadExercise() {
-    if (localAnswerVector648170f0 == undefined) {
-        localAnswerVector648170f0 = htLoadAnswersFromExercise();
+    if (local.answerVector == undefined) {
+        local.answerVector = htLoadAnswersFromExercise();
     } else {
-        htResetAnswers(localAnswerVector648170f0);
+        htResetAnswers(local.answerVector);
     }
 }
 
 function htLoadContent() {
+    local = { "lValues": [], "rValues": [], "mayaProductVector": [], "firstVector": [], "secondVector": [], "answerVector": undefined, "currentExampleIdx": 0, "initialColorChange": 0 }; 
+
     htWriteNavigation();
 
     var times = $("#ia2yupana1").val();
@@ -258,7 +251,7 @@ function htLoadContent() {
         } else {
             htCleanYupanaDecimalValues('#yupana0', 5);
             var result = value * times;
-            resultValues = htFillYupanaDecimalValues('#yupana0', result, 5, 'red_dot_right_up');
+            var resultValues = htFillYupanaDecimalValues('#yupana0', result, 5, 'red_dot_right_up');
             htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana0', resultValues);
             htMultMakeMultiplicationTableText(value, times, '#yupana0', '#tc7f1');
         }
@@ -292,12 +285,12 @@ function htLoadContent() {
     });
 
     $("#traineeUp3").on("click", function() {
-        if (currentExampleIdx >= 4) {
-            currentExampleIdx = 0;
+        if (local.currentExampleIdx >= 4) {
+            local.currentExampleIdx = 0;
         }
 
-        $("#imgm"+currentExampleIdx).attr("src", "images/HistoryTracers/Maya_2.png");
-        currentExampleIdx++;
+        $("#imgm"+local.currentExampleIdx).attr("src", "images/HistoryTracers/Maya_2.png");
+        local.currentExampleIdx++;
     });
 
     $("#traineeDown3").on("click", function() {
@@ -339,10 +332,9 @@ function htLoadContent() {
 
 function htCheckAnswers()
 {
-    if (localAnswerVector648170f0 != undefined) {
-        for (let i = 0; i < localAnswerVector648170f0.length; i++) {
-            htCheckExerciseAnswer("exercise"+i, localAnswerVector648170f0[i], "#answer"+i, "#explanation"+i);
+    if (local.answerVector != undefined) {
+        for (let i = 0; i < local.answerVector.length; i++) {
+            htCheckExerciseAnswer("exercise"+i, local.answerVector[i], "#answer"+i, "#explanation"+i);
         }
     }
 }
-

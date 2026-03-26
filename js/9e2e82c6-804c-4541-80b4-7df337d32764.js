@@ -1,23 +1,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var working = 0;
-var stopValue = 0;
-var workingValue = 0;
-
-var divisor = 1;
-var usingValue = "";
-var idx = 2;
-var results = "";
-
-var dividend = 0;
-var stop = true;
-
-var divisionSteps = [];
-var divisionStepsIdx = 0;
+var local = {};
 
 function htAlignTextBeforeWrite(val) {
     var space = "&nbsp;";
-    var loopEnd = dividend.toString().length - val.toString().length;
+    var loopEnd = local.dividend.toString().length - val.toString().length;
     for (let i = 0; i  < loopEnd; i++) {
         space += "&nbsp;&nbsp;"
     }
@@ -61,89 +48,89 @@ function htLongDivision(dividend, divisor) {
 }
 
 function htUpdateView(end) {
-    var localUse = divisor * workingValue;
+    var localUse = local.divisor * local.workingValue;
 
     var sign = "&nbsp;";
     if (end) {
         var loopEnd = 1;
 
         sign = "-";
-        var loopEnd = (idx < 6) ? working.toString().length : 1;
-        if ((working - localUse) > divisor) {
+        var loopEnd = (local.idx < 6) ? local.working.toString().length : 1;
+        if ((local.working - localUse) > local.divisor) {
             for (let i = localUse.toString().length; i < loopEnd; i++) {
                 localUse *= 10;
             }
         }
-        if ((working - localUse) < 0) {
+        if ((local.working - localUse) < 0) {
             localUse = parseInt(localUse / 10);
         }
     }
 
     var space = htAlignTextBeforeWrite(localUse);
-    $("#tc1f"+idx).html(sign+""+space+""+localUse);
+    $("#tc1f"+local.idx).html(sign+""+space+""+localUse);
     if (end) {
-        var res = idx + 1;
+        var res = local.idx + 1;
 
-        working = working - localUse;
-        space = htAlignTextBeforeWrite(working);
+        local.working = local.working - localUse;
+        space = htAlignTextBeforeWrite(local.working);
 
-        $("#tc1f"+res).html(space+" "+working);
+        $("#tc1f"+res).html(space+" "+local.working);
     }
 }
 
 function htMoveDivAhead() {
-    divisionStepsIdx++;
+    local.divisionStepsIdx++;
     var additionalText = "";
 
-    results = results + stopValue.toString();
+    local.results = local.results + local.stopValue.toString();
 
-    if (divisionStepsIdx < divisionSteps.steps.length) {
-        usingValue = divisionSteps.steps[divisionStepsIdx].value;
-        stopValue = divisionSteps.steps[divisionStepsIdx].quotient;
+    if (local.divisionStepsIdx < local.divisionSteps.steps.length) {
+        local.usingValue = local.divisionSteps.steps[local.divisionStepsIdx].value;
+        local.stopValue = local.divisionSteps.steps[local.divisionStepsIdx].quotient;
     } else {
         let curr = parseInt($("#tc2fds2").html());
-        if (curr != divisionSteps.quotient) {
-            $("#tc2fds2").html(curr+""+workingValue);
+        if (curr != local.divisionSteps.quotient) {
+            $("#tc2fds2").html(curr+""+local.workingValue);
         }
-        stop = true;
+        local.stop = true;
     }
 
-    if (stop) {
+    if (local.stop) {
         $("#tc1f8").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
         return;
     } else {
-        if (divisionSteps.steps[divisionStepsIdx].quotient == 0 &&  divisionSteps.steps[divisionStepsIdx].remainder != 0 && idx == 2) {
+        if (local.divisionSteps.steps[local.divisionStepsIdx].quotient == 0 &&  local.divisionSteps.steps[local.divisionStepsIdx].remainder != 0 && local.idx == 2) {
             additionalText = mathKeywords[37];
         }
-        $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+additionalText);
+        $("#tc1f8").html(mathKeywords[35]+" <b>"+local.usingValue+" ÷ "+local.divisor+"</b><br />"+additionalText);
     }
 
-    workingValue = 0;
-    idx += 2;
+    local.workingValue = 0;
+    local.idx += 2;
 }
 
 function htDivisionUpdateValue(n)
 {
-    if (stop) {
+    if (local.stop) {
         return false;
     }
 
-    if (workingValue == stopValue) {
+    if (local.workingValue == local.stopValue) {
         htUpdateView(true);
         htMoveDivAhead();
         return false;
     }
 
-    workingValue += parseInt(n);
-    if (workingValue > 9) {
-        workingValue = 9;
-    } else if (workingValue < 0) {
-        workingValue = 0;
+    local.workingValue += parseInt(n);
+    if (local.workingValue > 9) {
+        local.workingValue = 9;
+    } else if (local.workingValue < 0) {
+        local.workingValue = 0;
     }
 
-    $("#tc2fds2").html(results+workingValue);
+    $("#tc2fds2").html(local.results+local.workingValue);
 
-    if (workingValue == stopValue) {
+    if (local.workingValue == local.stopValue) {
         htUpdateView(true);
         htMoveDivAhead();
         return false;
@@ -155,30 +142,30 @@ function htDivisionUpdateValue(n)
 }
 
 function htNewDivision() {
-    if (!stop || (idx > 7 && working > divisor)) {
+    if (!local.stop || (local.idx > 7 && local.working > local.divisor)) {
         return false;
     }
-    results = "";
-    workingValue = 0;
-    idx = 2;
-    divisionStepsIdx = 0;
+    local.results = "";
+    local.workingValue = 0;
+    local.idx = 2;
+    local.divisionStepsIdx = 0;
     var selector = $("#mtValues").val();
 
-    working = dividend = htGetRandomArbitrary(10, 999);
+    local.working = local.dividend = htGetRandomArbitrary(10, 999);
 
-    divisor = (selector == "-1") ? htGetRandomArbitrary(1, 9): parseInt(selector);
+    local.divisor = (selector == "-1") ? htGetRandomArbitrary(1, 9): parseInt(selector);
 
     $("#mParentN").html("");
-    htWriteMultiplicationTable("#mParentN", divisor);
+    htWriteMultiplicationTable("#mParentN", local.divisor);
 
-    divisionSteps = htLongDivision(dividend, divisor);
+    local.divisionSteps = htLongDivision(local.dividend, local.divisor);
     var additionalText = "";
-    if (divisionSteps.steps[divisionStepsIdx].quotient == 0) {
+    if (local.divisionSteps.steps[local.divisionStepsIdx].quotient == 0) {
         additionalText = mathKeywords[36];
-        divisionStepsIdx++;
+        local.divisionStepsIdx++;
     }
-    usingValue = divisionSteps.steps[divisionStepsIdx].value;
-    stopValue = divisionSteps.steps[divisionStepsIdx].quotient;
+    local.usingValue = local.divisionSteps.steps[local.divisionStepsIdx].value;
+    local.stopValue = local.divisionSteps.steps[local.divisionStepsIdx].quotient;
 
     for (let j = 2; j < 8; j++) {
         for (let i = 1; i < 2; i++) {
@@ -186,14 +173,14 @@ function htNewDivision() {
         }
     }
 
-    $("#tc1fd1").html("&nbsp; "+working);
-    $("#tc2fds1").html(divisor);
+    $("#tc1fd1").html("&nbsp; "+local.working);
+    $("#tc2fds1").html(local.divisor);
 
-    $("#tc2fds2").html(workingValue);
+    $("#tc2fds2").html(local.workingValue);
 
-    $("#tc1f8").html(mathKeywords[35]+" <b>"+usingValue+" ÷ "+divisor+"</b><br />"+additionalText);
+    $("#tc1f8").html(mathKeywords[35]+" <b>"+local.usingValue+" ÷ "+local.divisor+"</b><br />"+additionalText);
 
-    stop = false;
+    local.stop = false;
 
     return false;
 }
@@ -217,6 +204,8 @@ function htDivisionDescRow(id) {
 }
 
 function htLoadContent() {
+    local = { "working": 0, "stopValue": 0, "workingValue": 0, "divisor": 1, "usingValue": "", "idx": 2, "results": "", "dividend": 0, "stop": true, "divisionSteps": [], "divisionStepsIdx": 0 }; 
+
     htWriteNavigation();
 
     if ($("#mtValues").length > 0) {

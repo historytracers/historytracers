@@ -1,11 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var firstLoad = true;
-var totalCards = 0;
-
-var htMemDefaultVector = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ];
-var htMemSelectedVector = new Map();
-var htMonitoring = false;
+var local = {};
 
 function htWriteMemoryData(line, column, name)
 {
@@ -46,10 +41,10 @@ function htSelectValue(selector)
 
 function htMemoryFillBack()
 {
-    var htMemUseVector = [].concat(htMemDefaultVector);
+    var htMemUseVector = [].concat(local.memDefaultVector);
 
     var useThis = "";
-    for (let i = 0; i < htMemDefaultVector.length; i++) {
+    for (let i = 0; i < local.memDefaultVector.length; i++) {
         var fill = Math.floor(htGetRandomArbitrary(0, htMemUseVector.length));
         var idx = htMemUseVector[fill];
         if ((i % 2) == 0) {
@@ -104,44 +99,44 @@ function htMemoryClickEvents() {
         var id = $(this).attr('id');
         $("#"+id).addClass('is-flipped');
 
-        if (htMemSelectedVector.has(id)) {
+        if (local.memSelectedVector.has(id)) {
             return false;
         }
 
-        htMemSelectedVector.set(id, id);
+        local.memSelectedVector.set(id, id);
     });
 
     $(".card").on('transitionend webkitTransitionEnd oTransitionEnd', function () {
-        if (htMonitoring == true) {
+        if (local.monitoring == true) {
             return false;
         }
-        htMonitoring = true;
+        local.monitoring = true;
 
-        var end = htMemSelectedVector.size;
-        if (((end % 2) != 0) || (totalCards == 9)) {
-            htMonitoring = false;
+        var end = local.memSelectedVector.size;
+        if (((end % 2) != 0) || (local.totalCards == 9)) {
+            local.monitoring = false;
             return false;
         }
 
         var fID = "";
         var sID = "";
-        htMemSelectedVector.forEach((value, key) => {
+        local.memSelectedVector.forEach((value, key) => {
             if (fID.length == 0) {
                 fID = value;
             } else  if (sID.length == 0) {
                 sID = value;
             }
 
-            if (fID.length > 0 && sID.length > 0 && totalCards != 9) {
+            if (fID.length > 0 && sID.length > 0 && local.totalCards != 9) {
                 var firstData = $("#"+fID+"Back").html();
                 var secondData = $("#"+sID+"Back").html();
 
                 if (firstData == secondData) {
                     $("#"+fID).attr('thisDone', fID);
                     $("#"+sID).attr('thisDone', sID);
-                    htMemorySetRepresentation(++totalCards);
+                    htMemorySetRepresentation(++local.totalCards);
     
-                    if (totalCards == 9) {
+                    if (local.totalCards == 9) {
                         var medals = "<i class=\"fa-solid fa-medal\" style=\"font-size:4vw;color:gold;\"></i>";
                         $("#tc1f5").html(medals);
                         $("#tc4f5").html(medals);
@@ -151,36 +146,38 @@ function htMemoryClickEvents() {
                     $("#"+sID).removeClass('is-flipped');
                 }
 
-                htMemSelectedVector.delete(fID);
-                htMemSelectedVector.delete(sID);
+                local.memSelectedVector.delete(fID);
+                local.memSelectedVector.delete(sID);
                 fID = "";
                 sID = "";
             }
         });
-        htMonitoring = false;
+        local.monitoring = false;
     });
 
 }
 
 function htLoadContent() {
-    if (firstLoad) {
+    local = { "firstLoad": true, "totalCards": 0, "memDefaultVector": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ], "memSelectedVector": new Map(), "monitoring": false }; 
+
+    if (local.firstLoad) {
         $("#playButton").val(mathKeywords[10]);
-        htMemorySetRepresentation(totalCards);
+        htMemorySetRepresentation(local.totalCards);
 
         htFillMemoryGame();
-        firstLoad = false;
+        local.firstLoad = false;
         htMemoryClickEvents();
     }
 
     $("#playButton").on("click", function() {
-        totalCards = 0;
-        htMemorySetRepresentation(totalCards);
+        local.totalCards = 0;
+        htMemorySetRepresentation(local.totalCards);
 
         htFillMemoryGame();
-        htMemSelectedVector = new Map();
+        local.memSelectedVector = new Map();
         $("#tc1f5").html("");
         $("#tc4f5").html("");
-        htMonitoring = false;
+        local.monitoring = false;
         htMemoryClickEvents();
     });
     htWriteNavigation();
