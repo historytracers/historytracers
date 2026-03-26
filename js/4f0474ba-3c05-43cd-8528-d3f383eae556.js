@@ -1,47 +1,34 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var localAnswerVector = undefined;
-
-var currentLevel = 0;
-var first = 0;
-var second = 0;
-var total = 0;
-
-var selector = 0;
-
-var stopMe = false;
-
-var chart = undefined;
-
-var localGameVectorfb9dca2c = [];
+var local = {};
 
 function closeDiv() {
     $("#history").css("display","none").css("visibility","hidden");
 }
 
 function htFillImage() {
-    var obj = localGameVectorfb9dca2c[currentLevel];
+    var obj = local.gameVector[local.currentLevel];
     $("#imgSeqGame").attr("src", obj.imagePath);
     $("#desc").html(obj.imageDesc);
-    currentLevel++;
-    if (currentLevel == localGameVectorfb9dca2c.length) {
-        currentLevel = 0;
+    local.currentLevel++;
+    if (local.currentLevel == local.gameVector.length) {
+        local.currentLevel = 0;
     }
 }
 
 function htSequenceUpdateValue(add) {
-    if (stopMe) {
+    if (local.stopMe) {
         return;
     }
-    selector += add ;
+    local.selector += add ;
 
-    if (selector < 0) {
-        selector = 0;
-    } else if ( selector > 10) {
-        selector = 10;
+    if (local.selector < 0) {
+        local.selector = 0;
+    } else if ( local.selector > 10) {
+        local.selector = 10;
     }
 
-    const test = (first == 0 || second == 0 ) ? 0 : selector * first;
+    const test = (local.first == 0 || local.second == 0 ) ? 0 : local.selector * local.first;
     var result = "";
     if (test < 10) {
         result += "&nbsp;";
@@ -49,13 +36,13 @@ function htSequenceUpdateValue(add) {
     result += test;
 
     if (test) {
-        htDrawMultiplicationTable("#visual", first, selector);
+        htDrawMultiplicationTable("#visual", local.first, local.selector);
     }
-    if (test == total) {
+    if (test == local.total) {
         htFillImage();
         let current = $('#mtValues').val();
         result += "<br /><i class=\"fa-solid fa-chevron-right\" style=\"font-size:1.0em;\" onclick=\"htFillExercise("+current+");\"></i>";
-        stopMe = true;
+        local.stopMe = true;
         $("#history").css("display","block").css("visibility","visible");
     }
     $("#finalResult").html(result);
@@ -63,27 +50,29 @@ function htSequenceUpdateValue(add) {
 }
 
 function htFillExercise(test) {
-    first = htGetRandomArbitrary(0, 9);
-    second = (test == "-1") ? htGetRandomArbitrary(0, 9) : test;
-    total = first * second;
-    selector = 0;
-    if (chart) {
-        chart.destroy();
+    local.first = htGetRandomArbitrary(0, 9);
+    local.second = (test == "-1") ? htGetRandomArbitrary(0, 9) : test;
+    local.total = local.first * local.second;
+    local.selector = 0;
+    if (local.chart) {
+        local.chart.destroy();
     }
 
-    $("#exercise").html("<spam class=\"text_to_paint\">&nbsp;&nbsp;&nbsp;"+first+"</spam><br /><spam class=\"text_to_paint\">× "+second+"</spam>");
-    chart = htFillMultiplicationTable("chart1", second, second, false, false);
+    $("#exercise").html("<spam class=\"text_to_paint\">&nbsp;&nbsp;&nbsp;"+local.first+"</spam><br /><spam class=\"text_to_paint\">× "+local.second+"</spam>");
+    local.chart = htFillMultiplicationTable("chart1", local.second, local.second, false, false);
     $("#finalResult").html("");
     $("#visual").html("");
-    stopMe = false;
+    local.stopMe = false;
     closeDiv();
 }
 
 function htLoadContent() {
+    local = { "gameVector": [], "currentLevel": 0, "first": 0, "second": 0, "total": 0, "selector": 0, "stopMe": false, "chart": undefined, "answerVector": undefined }; 
+
     htWriteNavigation();
 
     htFillExercise(-1);
-    localGameVectorfb9dca2c = htLoadGameData();
+    local.gameVector = htLoadGameData();
 
     if ($("#mtValues").length > 0) {
         var data = [

@@ -1,21 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var htGameTranslationVector = [];
-var htGameTranslationAns = [0, 0, 0, 0];
-var htGameTranslationModify = -1;
-var htGameTranslationCurrentValue = -1;
-var htGameTranslationModel = "";
-var htGameEnd = false;
-var htGameChecking = false;
-
-var htGameTranslationRandomVector = [];
-var htGameTranslationCurrentLevel = -1;
-var htGameRandomEnd = false;
-
-var htGameUseTranslationImages = [];
-
-var localGameVector7ec87720 = [];
-var localGameUseVector7ec87720 = [];
+var local = {};
 
 function htTranslationFillVector(value, max)
 {
@@ -30,7 +15,7 @@ function htTranslationFillVector(value, max)
 
 function htTranslationSelectIndex(max) {
     for (let i = 0; i < max; i++) {
-        if (htGameTranslationAns[i] == 1) {
+        if (local.gameTranslationAns[i] == 1) {
             return i;
         }
     }
@@ -50,19 +35,19 @@ function htTranslationFillData(type, max)
 {
     var selector = htGetRandomArbitrary(0, 100);
     for (let i = 0, j = 1; j <= max; i++, j++) {
-        if (htGameTranslationModel == "ha") {
-            htTranslationLoadHA("#yupana0", "#tc"+j+"f1", selector, htGameTranslationVector[i]);
-            htTranslationLoadIndigenous("#yupana0", "#tc"+j+"f2", 100, htGameTranslationVector[i]);
+        if (local.gameTranslationModel == "ha") {
+            htTranslationLoadHA("#yupana0", "#tc"+j+"f1", selector, local.gameTranslationVector[i]);
+            htTranslationLoadIndigenous("#yupana0", "#tc"+j+"f2", 100, local.gameTranslationVector[i]);
         } else {
-            htTranslationLoadIndigenous("#yupana0", "#tc"+j+"f1", selector, htGameTranslationVector[i]);
-            htTranslationLoadHA("#yupana0", "#tc"+j+"f2", 100, htGameTranslationVector[i]);
+            htTranslationLoadIndigenous("#yupana0", "#tc"+j+"f1", selector, local.gameTranslationVector[i]);
+            htTranslationLoadHA("#yupana0", "#tc"+j+"f2", 100, local.gameTranslationVector[i]);
         }
 
         if (selector > 50) {
-            htGameTranslationAns[i] = 0;
+            local.gameTranslationAns[i] = 0;
             selector = 10;
         } else {
-            htGameTranslationAns[i] = 1;
+            local.gameTranslationAns[i] = 1;
             selector = 60;
         }
     }
@@ -71,24 +56,24 @@ function htTranslationFillData(type, max)
 function htTranslationSetFirstStepValues(max)
 {
     $("#gameMessage").html("");
-    if (htGameTranslationModify == -1) {
-        htGameTranslationModify = htTranslationSelectIndex(4);
+    if (local.gameTranslationModify == -1) {
+        local.gameTranslationModify = htTranslationSelectIndex(4);
     }
 
-    if (htGameTranslationModel == "ha") {
-        htTranslationLoadHA("#yupana0", "#tc"+(htGameTranslationModify+1)+"f1", 100, htGameTranslationCurrentValue);
+    if (local.gameTranslationModel == "ha") {
+        htTranslationLoadHA("#yupana0", "#tc"+(local.gameTranslationModify+1)+"f1", 100, local.gameTranslationCurrentValue);
     } else {
-        htTranslationLoadIndigenous("#yupana0", "#tc"+(htGameTranslationModify+1)+"f1", 100, htGameTranslationCurrentValue);
+        htTranslationLoadIndigenous("#yupana0", "#tc"+(local.gameTranslationModify+1)+"f1", 100, local.gameTranslationCurrentValue);
     }
 
-    if (htGameTranslationVector[htGameTranslationModify] == htGameTranslationCurrentValue) {
-        htGameTranslationCurrentValue = -1;
-        htGameTranslationModify += 2;
+    if (local.gameTranslationVector[local.gameTranslationModify] == local.gameTranslationCurrentValue) {
+        local.gameTranslationCurrentValue = -1;
+        local.gameTranslationModify += 2;
         $("#gameMessage").html("<i class=\"fas fa-thumbs-up\" style=\"font-size:60px;color:lightblue;\"></i>");
     }
 
-    if (htGameTranslationModify >= max) {
-        htGameEnd = true;
+    if (local.gameTranslationModify >= max) {
+        local.gameEnd = true;
     }
 }
 
@@ -106,7 +91,7 @@ function htTranslationFillRandomVector(min, max, end)
 
 function htTranslationDefineEnd() {
     var end;
-    switch (htGameTranslationCurrentLevel) {
+    switch (local.gameTranslationCurrentLevel) {
         case 0:
         case 1:
             end = -1;
@@ -134,7 +119,7 @@ function htTranslationShowAmericanVector() {
     }
     
     for (let i = 0, j = 1 ; i < end; i++, j++) {
-        htTranslationLoadIndigenous("#yupana1", "#tc"+j+"f1", 100, htGameTranslationRandomVector[i]);
+        htTranslationLoadIndigenous("#yupana1", "#tc"+j+"f1", 100, local.gameTranslationRandomVector[i]);
     }
 }
 
@@ -147,7 +132,7 @@ function htTranslationCheckRandomAnswer() {
     var showImage = true;
     for (let i = 0; i < end; i++) {
         var val = parseInt($("#numberFieldnum"+i).val());
-        if (val != htGameTranslationRandomVector[i]) {
+        if (val != local.gameTranslationRandomVector[i]) {
             showImage = false;
         }
     }
@@ -156,28 +141,28 @@ function htTranslationCheckRandomAnswer() {
         return;
     }
 
-    var idx = Math.floor(htGetRandomArbitrary(0, localGameUseVector7ec87720.length -1));
+    var idx = Math.floor(htGetRandomArbitrary(0, local.gameUseVector.length -1));
                   
-    if (htGameTranslationCurrentLevel < 9) { 
-        var imgName = htGameUseTranslationImages[idx];
-        var obj = localGameUseVector7ec87720[idx];
+    if (local.gameTranslationCurrentLevel < 9) { 
+        var imgName = local.gameUseTranslationImages[idx];
+        var obj = local.gameUseVector[idx];
         $("#gameImage").html("<img class=\"imgGameSize\" id=\"imgCorrect\" onclick=\"htImageZoom('imgCorrect', '0%')\" src=\""+obj.imagePath+"\"/><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
 
-        htGameUseTranslationImages.splice(idx, 1);
-        localGameUseVector7ec87720.splice(idx, 1);
+        local.gameUseTranslationImages.splice(idx, 1);
+        local.gameUseVector.splice(idx, 1);
     } else {
         $("#gameImage").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
-        htGameTranslationCurrentLevel = -1;
+        local.gameTranslationCurrentLevel = -1;
     }
 
 
-    if (htGameUseTranslationImages.length == 0) {
-        htGameUseTranslationImages = [].concat(localGameVector7ec87720);
-        localGameUseVector7ec87720 = [].concat(localGameVector7ec87720);
+    if (local.gameUseTranslationImages.length == 0) {
+        local.gameUseTranslationImages = [].concat(local.gameVector);
+        local.gameUseVector = [].concat(local.gameVector);
     }
 
-    htGameRandomEnd = true;
-    htGameChecking = true;
+    local.gameRandomEnd = true;
+    local.gameChecking = true;
     $("#nextLevel").show();
 }
 
@@ -189,9 +174,9 @@ function htResetRandomGame()
 }
 
 function htLoadRandomTranslation() {
-    htGameTranslationCurrentLevel++;
+    local.gameTranslationCurrentLevel++;
 
-    htGameTranslationRandomVector = htTranslationFillRandomVector(0, 9, 4);
+    local.gameTranslationRandomVector = htTranslationFillRandomVector(0, 9, 4);
     $("#gameImage").html("<div class=\"first_steps_reflection question_mark\">?</div>");
 
     for (let i = 0; i < 4; i++) {
@@ -199,7 +184,7 @@ function htLoadRandomTranslation() {
     }
 
     var lvalues = [];
-    switch (htGameTranslationCurrentLevel) {
+    switch (local.gameTranslationCurrentLevel) {
         case 0:
             $("#yupana1 #tc1f1").html(htYupanaDrawFirstSquare());
             $("#yupana1 #tc2f1").html(htYupanaDrawSecondSquare());
@@ -212,11 +197,11 @@ function htLoadRandomTranslation() {
             $("#nextLevel").hide();
 
             htCleanYupanaDecimalValues('#yupana1', 1);
-            lvalues = htFillYupanaDecimalValues('#yupana1', htGameTranslationRandomVector[0], 1, 'red_dot_right_up');
+            lvalues = htFillYupanaDecimalValues('#yupana1', local.gameTranslationRandomVector[0], 1, 'red_dot_right_up');
             return;
         case 1:
             htCleanYupanaDecimalValues('#yupana1', 1);
-            lvalues = htFillYupanaDecimalValues('#yupana1', htGameTranslationRandomVector[0], 1, 'blue_dot_right_bottom');
+            lvalues = htFillYupanaDecimalValues('#yupana1', local.gameTranslationRandomVector[0], 1, 'blue_dot_right_bottom');
             return;
         case 2:
             htResetRandomGame();
@@ -238,25 +223,25 @@ function htLoadRandomTranslation() {
 }
 
 function htLoadContent() {
+    local = { "gameTranslationVector": [], "gameTranslationAns": [0, 0, 0, 0], "gameTranslationModify": -1, "gameTranslationCurrentValue": -1, "gameTranslationModel": "", "gameEnd": false, "gameChecking": false, "gameTranslationRandomVector": [], "gameTranslationCurrentLevel": -1, "gameRandomEnd": false, "gameUseTranslationImages": [], "gameVector": [], "gameUseVector": [], "maxValue": 4 }; 
+
     $("#firstMethod").html(mathKeywords[8]);
     $("#secondMethod").html(mathKeywords[9]);
     $("#playButton").val(mathKeywords[10]);
 
-    var maxValue = 4;
-
-    for (let i = 0, j = 1; i < maxValue; i++, j++) {
+    for (let i = 0, j = 1; i < local.maxValue; i++, j++) {
         $("#yupana1 #tc"+j+"f2").html(htInsertNumberField("num"+i, 0, 9));
     }
 
     $( "input[name='selModel']" ).on( "change", function() {
-        htGameTranslationModel = $(this).val();
+        local.gameTranslationModel = $(this).val();
         var ra = htGetRandomArbitrary(0, 600);
         ra = Math.floor(ra / 100);
 
-        htGameTranslationVector = htTranslationFillVector(ra, maxValue);
-        htTranslationFillData(htGameTranslationModel, maxValue);
-        htGameTranslationModify = -1;
-        htGameTranslationCurrentValue = -1;
+        local.gameTranslationVector = htTranslationFillVector(ra, local.maxValue);
+        htTranslationFillData(local.gameTranslationModel, local.maxValue);
+        local.gameTranslationModify = -1;
+        local.gameTranslationCurrentValue = -1;
         $('input[name=selModel]').attr("disabled", true);
     });
 
@@ -264,19 +249,19 @@ function htLoadContent() {
         $('input[name=selModel]').removeAttr("disabled");
         $('input[name=selModel]').prop("checked", false);
         $("#gameMessage").html("");
-        htGameEnd = false;
+        local.gameEnd = false;
     });
 
     $(".upArrowWithFA").on("click", function() {
         var name = $(this).attr('name');
         if (name == "traineeUp") {
-            if (htGameEnd == false ) {
-                htGameTranslationCurrentValue++;
-                htTranslationSetFirstStepValues(maxValue);
+            if (local.gameEnd == false ) {
+                local.gameTranslationCurrentValue++;
+                htTranslationSetFirstStepValues(local.maxValue);
             }
         } else {
-            if (htGameRandomEnd == false && htGameChecking == false) {
-                htGameChecking = true;
+            if (local.gameRandomEnd == false && local.gameChecking == false) {
+                local.gameChecking = true;
                 var fieldName = "#numberFieldnum"+name[11];
                 var value = $(fieldName).val();
                 if (value.length == 0) {
@@ -291,25 +276,25 @@ function htLoadContent() {
 
                 $(fieldName).val(value);
                 htTranslationCheckRandomAnswer();
-                htGameChecking = false;
+                local.gameChecking = false;
             }
         }
     });
 
     $(".downArrowWithFA").on("click", function() {
-        if (htGameTranslationCurrentValue == -1){
-            htGameTranslationCurrentValue = 10;
+        if (local.gameTranslationCurrentValue == -1){
+            local.gameTranslationCurrentValue = 10;
         }
 
         var name = $(this).attr('name');
         if (name == "traineeDown") {
-            if (htGameEnd == false ) {
-                htGameTranslationCurrentValue--;
-                htTranslationSetFirstStepValues(maxValue);
+            if (local.gameEnd == false ) {
+                local.gameTranslationCurrentValue--;
+                htTranslationSetFirstStepValues(local.maxValue);
             }
         } else {
-            if (htGameRandomEnd == false && htGameChecking == false) {
-                htGameChecking = true;
+            if (local.gameRandomEnd == false && local.gameChecking == false) {
+                local.gameChecking = true;
                 var fieldName = "#numberFieldnum"+name[13];
                 var value = $(fieldName).val();
                 if (value.length == 0) {
@@ -324,7 +309,7 @@ function htLoadContent() {
 
                 $(fieldName).val(value);
                 htTranslationCheckRandomAnswer();
-                htGameChecking = false;
+                local.gameChecking = false;
             }
         }
     });
@@ -332,13 +317,13 @@ function htLoadContent() {
     $("#nextLevel").on("click", function() {
         $("#nextLevel").hide();
         htLoadRandomTranslation();
-        htGameRandomEnd = false;
-        htGameChecking = false;
+        local.gameRandomEnd = false;
+        local.gameChecking = false;
     });
 
-    localGameVector7ec87720 = htLoadGameData();
-    htGameUseTranslationImages = [].concat(localGameVector7ec87720);
-    localGameUseVector7ec87720 = [].concat(localGameVector7ec87720);
+    local.gameVector = htLoadGameData();
+    local.gameUseTranslationImages = [].concat(local.gameVector);
+    local.gameUseVector = [].concat(local.gameVector);
 
     htLoadRandomTranslation();
     htWriteNavigation();

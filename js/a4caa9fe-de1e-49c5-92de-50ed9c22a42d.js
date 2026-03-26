@@ -1,23 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var localAnswerVector = undefined;
-
-var strTopValue = "";
-var topValue = 0;
-
-var strBottomValue = "";
-var bottomValue = 0;
-
-var totalValue = 0;
-var carriers = 0;
-var workingValue = 0;
-var stopValue = 0;
-
-var currentTop = 0;
-var currentBottom = 0;
-var currentIdx = 4;
-var vectorIdx = 2;
-var stop = 1;
+var local = {};
 
 function htSetWorkingValue(topValue, bottomValue)
 {
@@ -26,13 +9,13 @@ function htSetWorkingValue(topValue, bottomValue)
 
     var tot = tv + bv;
     if (tot < 10) {
-        stopValue = tot;
-        carriers = 0;
+        local.stopValue = tot;
+        local.carriers = 0;
     } else {
-        stopValue = tot - 10;
-        carriers = 1;
+        local.stopValue = tot - 10;
+        local.carriers = 1;
     }
-    workingValue = 0;
+    local.workingValue = 0;
 }
 
 function htWriteValueOnScreen(cell, value)
@@ -48,15 +31,15 @@ function htWriteValueOnLine(line, value)
 }
 
 function htNewAddition() {
-    if (!stop) {
+    if (!local.stop) {
         return false;
     }
-    currentTop = 0;
-    currentBottom = 0;
-    stop = 0;
+    local.currentTop = 0;
+    local.currentBottom = 0;
+    local.stop = 0;
 
-    currentIdx = 4;
-    vectorIdx = 2;
+    local.currentIdx = 4;
+    local.vectorIdx = 2;
 
     for (let j = 1; j < 5; j++) {
         for (let i = 1; i < 4; i++) {
@@ -65,55 +48,55 @@ function htNewAddition() {
     }
     $("#tc1f3").html("<span class=\"text_to_paint\">+</span>");
 
-    topValue = htGetRandomArbitrary(100, 999);
-    strTopValue = topValue.toString();
-    htWriteValueOnLine("2", strTopValue);
+    local.topValue = htGetRandomArbitrary(100, 999);
+    local.strTopValue = local.topValue.toString();
+    htWriteValueOnLine("2", local.strTopValue);
 
-    bottomValue =  htGetRandomArbitrary(100, 999);
-    strBottomValue = bottomValue.toString();
-    htWriteValueOnLine("3", bottomValue.toString());
-    $("#tc1f5").html(mathKeywords[11]+" <b>"+topValue+" + "+bottomValue+"</b><br />"+mathKeywords[12]+"<b>("+strTopValue[vectorIdx]+" + "+strBottomValue[vectorIdx]+")</b>");
+    local.bottomValue =  htGetRandomArbitrary(100, 999);
+    local.strBottomValue = local.bottomValue.toString();
+    htWriteValueOnLine("3", local.bottomValue.toString());
+    $("#tc1f5").html(mathKeywords[11]+" <b>"+local.topValue+" + "+local.bottomValue+"</b><br />"+mathKeywords[12]+"<b>("+local.strTopValue[local.vectorIdx]+" + "+local.strBottomValue[local.vectorIdx]+")</b>");
 
-    totalValue = topValue + bottomValue;
-    htSetWorkingValue(strTopValue[vectorIdx], strBottomValue[vectorIdx]);
-    htWriteValueOnScreen("#tc"+currentIdx+"f4", 0);
+    local.totalValue = local.topValue + local.bottomValue;
+    htSetWorkingValue(local.strTopValue[local.vectorIdx], local.strBottomValue[local.vectorIdx]);
+    htWriteValueOnScreen("#tc"+local.currentIdx+"f4", 0);
 }
 
 function htMoveAhead()
 {
-    if (stop == 1) {
+    if (local.stop == 1) {
         return false;
     }
 
-    htWriteValueOnScreen("#tc"+currentIdx+"f4", workingValue);
-    currentIdx -= 1;
-    vectorIdx -= 1;
-    if (currentIdx > 1) {
-        htWriteValueOnScreen("#tc"+currentIdx+"f4", 0);
+    htWriteValueOnScreen("#tc"+local.currentIdx+"f4", local.workingValue);
+    local.currentIdx -= 1;
+    local.vectorIdx -= 1;
+    if (local.currentIdx > 1) {
+        htWriteValueOnScreen("#tc"+local.currentIdx+"f4", 0);
     } else {
-        stop = 1;
+        local.stop = 1;
     }
 
-    var bottomV = parseInt(strBottomValue[vectorIdx])+ carriers;
-    if (carriers == 1) {
-        htWriteValueOnScreen("#tc"+currentIdx+"f1", carriers);
+    var bottomV = parseInt(local.strBottomValue[local.vectorIdx])+ local.carriers;
+    if (local.carriers == 1) {
+        htWriteValueOnScreen("#tc"+local.currentIdx+"f1", local.carriers);
     }
 
-    if (!stop) {
-        var message = mathKeywords[12]+" <b>("+strTopValue[vectorIdx]+" + "+strBottomValue[vectorIdx];
-        if (carriers) {
-            message += ") + "+carriers+"</b><br />"+mathKeywords[13];
+    if (!local.stop) {
+        var message = mathKeywords[12]+" <b>("+local.strTopValue[local.vectorIdx]+" + "+local.strBottomValue[local.vectorIdx];
+        if (local.carriers) {
+            message += ") + "+local.carriers+"</b><br />"+mathKeywords[13];
         } else {
             message += ")</b>";
         }
         $("#tc1f5").html(message);
-        htSetWorkingValue(strTopValue[vectorIdx], bottomV.toString());
+        htSetWorkingValue(local.strTopValue[local.vectorIdx], bottomV.toString());
     } else {
         $("#tc1f5").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
-        if (stop && carriers) {
-            htWriteValueOnScreen("#tc1f1", carriers);
+        if (local.stop && local.carriers) {
+            htWriteValueOnScreen("#tc1f1", local.carriers);
         }
-        if (carriers) {
+        if (local.carriers) {
             htWriteValueOnScreen("#tc1f4", 1);
         }
     }
@@ -123,25 +106,25 @@ function htMoveAhead()
 
 function htAdditionUpdateValue(n)
 {
-    if (currentIdx < 1) {
+    if (local.currentIdx < 1) {
         return false;
     }
 
-    if (workingValue == stopValue) {
+    if (local.workingValue == local.stopValue) {
         htMoveAhead();
         return false;
     }
 
-    workingValue += n;
+    local.workingValue += n;
 
-    if (workingValue > 9) {
-        workingValue = 9;
-    }  else if (workingValue < 0) {
-        workingValue = 0;
+    if (local.workingValue > 9) {
+        local.workingValue = 9;
+    }  else if (local.workingValue < 0) {
+        local.workingValue = 0;
     }  
-    htWriteValueOnScreen("#tc"+currentIdx+"f4", workingValue);
+    htWriteValueOnScreen("#tc"+local.currentIdx+"f4", local.workingValue);
 
-    if (workingValue == stopValue) {
+    if (local.workingValue == local.stopValue) {
         htAdditionUpdateValue(0);
     }
 
@@ -168,6 +151,8 @@ function htAdditionDescRow(id)
 }
 
 function htLoadContent() {
+    local = { "strTopValue": "", "topValue": 0, "strBottomValue": "", "bottomValue": 0, "totalValue": 0, "carriers": 0, "workingValue": 0, "stopValue": 0, "currentTop": 0, "currentBottom": 0, "currentIdx": 4, "vectorIdx": 2, "stop": 1 }; 
+
     htWriteNavigation();
 
     htAdditionAddCommonTable("0");
