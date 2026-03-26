@@ -1,28 +1,27 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-var rValues = [];
-var lValues = [];
-
-var localAnswerVector9a7a978b = undefined;
+var local = {};
 
 function htFillYupanaMultYupana0(value, times)
 {
-    lValues = htFillYupanaDecimalValuesWithRepetition("#yupana0", value, times, 5, yupanaClasses);
-    rValues = lValues.slice();
-    htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', lValues);
-    rValues[0] = times;
-    htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', rValues);
+    local.lValues = htFillYupanaDecimalValuesWithRepetition("#yupana0", value, times, 5, yupanaClasses);
+    local.rValues = local.lValues.slice();
+    htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', local.lValues);
+    local.rValues[0] = times;
+    htWriteYupanaValuesOnHTMLTable('#vr', '#yupana0', local.rValues);
 }
 
 function htLoadExercise() {
-    if (localAnswerVector9a7a978b == undefined) {
-        localAnswerVector9a7a978b = htLoadAnswersFromExercise();
+    if (local.answerVector == undefined) {
+        local.answerVector = htLoadAnswersFromExercise();
     } else {
-        htResetAnswers(localAnswerVector9a7a978b);
+        htResetAnswers(local.answerVector);
     }
 }
 
 function htLoadContent() {
+    local = { "lValues": [], "rValues": [], "answerVector": undefined }; 
+
     htWriteNavigation();
 
     var times = $("#ia2yupana1").val();
@@ -57,7 +56,7 @@ function htLoadContent() {
         } else {
             htCleanYupanaDecimalValues('#yupana0', 5);
             var result = value * times;
-            resultValues = htFillYupanaDecimalValues('#yupana0', result, 5, 'red_dot_right_up');
+            var resultValues = htFillYupanaDecimalValues('#yupana0', result, 5, 'red_dot_right_up');
             htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana0', resultValues);
             htMultMakeMultiplicationTableText(value, times, '#yupana0', '#tc7f1');
         }
@@ -82,10 +81,9 @@ function htLoadContent() {
 
 function htCheckAnswers()
 {
-    if (localAnswerVector9a7a978b != undefined) {
-        for (let i = 0; i < localAnswerVector9a7a978b.length; i++) {
-            htCheckExerciseAnswer("exercise"+i, localAnswerVector9a7a978b[i], "#answer"+i, "#explanation"+i);
+    if (local.answerVector != undefined) {
+        for (let i = 0; i < local.answerVector.length; i++) {
+            htCheckExerciseAnswer("exercise"+i, local.answerVector[i], "#answer"+i, "#explanation"+i);
         }
     }
 }
-
