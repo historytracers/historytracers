@@ -4530,7 +4530,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Curiosidade\n\nApesar do nosso conhecimento da função, um ponto importante trazido por Eric W. Weisstein merece ser ressaltado. Essa função teve sua origem praticamente junto com a tangente; entretanto, quando outra função matemática foi descoberta — o logaritmo —, sua utilização foi reduzida (<htcite0>).",
+               "text": "#### Curiosidade\n\nApesar do nosso conhecimento da função, um ponto importante trazido por Eric W. Weisstein merece ser ressaltado. Essa função teve sua origem praticamente junto com a tangente; entretanto, quando outra função matemática foi descoberta — o logaritmo —, sua utilização foi reduzida (<htcite0>).\n\n#### O gráfico\n\nPodemos entendr o gráfico da função secante a partir do próprio gráfico da tangente exibido na página anterior (<htcite1>). Nela aprendemos que a tangente é dado pela divisão da função seno pela função cosseno (**Fórmula 2**):",
                "source": [
                   {
                      "type": 1,
@@ -4540,6 +4540,49 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cbce5f98-ad82-4995-b5f0-960554919dbd",
+                     "text": "History Tracers Team",
+                     "page": "Nossa posição",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mi>tan (θ)</mi> <mn>=</mn> <mfrac><mi>sen(θ)</mi><mi>cos (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definição da tangente de acordo com funções trigonométricas.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ao compararmos as **Fórmulas 1 e 2**, podemos observar que ambas possuem o cossseno de teta no denominador, mas na **Fórmula 1**, temos um valor constante no numerador. Com isto, podemos esperar do gráfico:\n- Quando o cosseno tiver valor zero, não haverá valor definido. Logo, este é um cenário em que utilizaremos limites para entender para qual valor os resultados vão se aproximando à medida que o cosseno se aproxima de zero;\n- Como visto em outro texto do History Tracers, entre 0 e 1 há infinitos números (<htcite0>). Dessa forma, quando o valor do cosseno de teta (θ) for igual a 1, então o valor da secante será igual a 1;\n- Por outro lado, à medida que o valor do cosseno de teta for diminuindo em direção a zero, o valor da secante irá aumentando; dessa forma, o valor tenderá ao infinito não se limitando a valores entre 0 e 1.\n\nPara melhor entender o que descrevemos, veja o **Gráfico 3**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limitando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
                         "month": "",
                         "day": ""
                      }

@@ -49,9 +49,9 @@ function htMakeTable() {
         if ( (i > 0) && ((i % 5) == 0)) {
             var localSymbol = "";
             if (i == 5) {
-                localSymbol = "<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: "+local.controlSize+"em; visibility: visible; display: block;\" name=\"traineeUp\" id=\"traineeUp\"></i><br /><i class=\"fa-solid fa-medal\" style=\"font-size: "+local.controlSize+"em; color:gold; visibility: hidden; display: none;\"></i>";
+                localSymbol = "<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: "+local.controlSize+"em; visibility: visible; display: block;\" name=\"traineeUp\" id=\"traineeUp\"></i><br /><i id=\"success\" class=\"fa-solid fa-medal\" style=\"font-size: "+local.controlSize+"em; color:gold; visibility: hidden; display: none;\"></i>";
             } else if (i == 10) {
-                localSymbol = "<i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: "+local.controlSize+"em; visibility: visible; display: block;\" name=\"traineeDown\" id=\"traineeDown\"></i><i class=\"fa-solid fa-medal\" style=\"font-size: "+local.controlSize+"em; color:gold; visibility: hidden; display: none;\"></i>";
+                localSymbol = "<i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: "+local.controlSize+"em; visibility: visible; display: block;\" name=\"traineeDown\" id=\"traineeDown\"></i><i class=\"fa-solid fa-medal\" id=\"success\" style=\"font-size: "+local.controlSize+"em; color:gold; visibility: hidden; display: none;\"></i>";
             } else {
                 localSymbol = "<i class=\"fa-solid fa-chevron-right\" id=\"NextLevel\" style=\"font-size: "+local.controlSize+"em; visibility: hidden; display: none;\"></i>";
             }
@@ -154,7 +154,7 @@ function htHideDivs() {
 
     if (local.currentRow == 2) {
         $("#NextLevel").css("display","block").css("visibility","visible");
-        $(".fa-medal").css("display","block").css("visibility","visible");
+        $("#success").css("display","block").css("visibility","visible");
         $("#traineeUp").css("display","none").css("visibility","hidden");
         $("#traineeDown").css("display","none").css("visibility","hidden");
         local.stop = 1;
@@ -258,7 +258,7 @@ function htLoadContent() {
 
     $("#NextLevel").on("click", function() {
         $("#NextLevel").css("display","none").css("visibility","hidden");
-        $(".fa-medal").css("display","none").css("visibility","hidden");
+        $("#success").css("display","none").css("visibility","hidden");
         $("#traineeUp").css("display","block").css("visibility","visible");
         $("#traineeDown").css("display","block").css("visibility","visible");
         $(".text_to_paint").html("");

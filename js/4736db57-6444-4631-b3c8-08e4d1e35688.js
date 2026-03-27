@@ -46,8 +46,12 @@ function htNewSubtraction() {
     }
     $("#tc1f3").html("<span class=\"text_to_paint\">-</span>");
 
+    /*
     local.topValue = htGetRandomArbitrary(100, 999);
     local.bottomValue =  htGetRandomArbitrary(100, 999);
+    */
+    local.topValue = 604;
+    local.bottomValue =  565;
 
     if (local.topValue < local.bottomValue) {
         let change = local.bottomValue;
