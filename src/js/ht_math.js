@@ -725,6 +725,18 @@ function htCosineValues(quadrants) {
     return values;
 }
 
+// Secant
+function htSecantValues(quadrants) {
+    var values = htCosineValues(quadrants);
+
+    var end = 256;
+    for (let i = 0; i < 256; i++) {
+        values.y[i] = 1.0/values.y[i];
+    }
+
+    return values
+}
+
 // Sine
 function htSineValues(quadrants) {
     var values = { x: [], y: []};
@@ -886,6 +898,36 @@ function htPlotInverse(target, xlabel, ylabel) {
     xVector = localTan.x;
     var obj = {
                 data : localTan.y,
+                label : ylabel,
+                fill : false
+              };
+    datasets.push(obj);
+
+    var chartOptions = {
+        "datasets": datasets,
+        "chartId" : target,
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": xlabel,
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin":  0,
+        "ymax": 20,
+        "useCallBack": false
+    };
+    return htPlotConstantContinuousChart(chartOptions);
+}
+
+function htPlotSecant(target, xlabel, ylabel, quadrants) {
+    var xVector = [];
+    var localSec = undefined;
+    var obj = undefined;
+    var datasets = [ ];
+
+    localSec = htSecantValues(quadrants);
+    xVector = localSec.x;
+    var obj = {
+                data : localSec.y,
                 label : ylabel,
                 fill : false
               };

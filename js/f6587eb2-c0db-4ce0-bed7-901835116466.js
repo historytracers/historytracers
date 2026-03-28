@@ -44,10 +44,8 @@ function htLoadContent() {
 
     local = { "palette": document.getElementById("palette"), "hands": document.querySelectorAll(".hand-shape"), "left":  document.getElementById("leftHand"), "right": document.getElementById("rightHand"), "busy": false, "clapCycleTime": 1200, "counterDisplay": document.getElementById("clapCounter") }; 
     const speedSlider = document.getElementById("speedSlider");
-    const speedValue = document.getElementById("speedValue");
     speedSlider.addEventListener("input", function() {
         local.clapCycleTime = parseInt(this.value);
-        speedValue.textContent = local.clapCycleTime + " ms";
     });
 
     skinTones.forEach((color, index)=>{
