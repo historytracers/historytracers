@@ -46,8 +46,12 @@ function htNewSubtraction() {
     }
     $("#tc1f3").html("<span class=\"text_to_paint\">-</span>");
 
+    /*
     local.topValue = htGetRandomArbitrary(100, 999);
     local.bottomValue =  htGetRandomArbitrary(100, 999);
+    */
+    local.topValue = 604;
+    local.bottomValue =  565;
 
     if (local.topValue < local.bottomValue) {
         let change = local.bottomValue;
@@ -111,8 +115,16 @@ function htNewSubtraction() {
     local.cmpTopValue.reverse();
     var finalText = mathKeywords[30]+" <b>"+local.topValue+" - "+local.bottomValue+"</b><br />"+mathKeywords[31]+"<b>("+local.reorganizedValue[local.vectorIdx]+" - "+local.strBottomValue[local.vectorIdx]+")</b>";
     if (local.carriers) {
-        for (let i = local.vectorIdx, j = local.currentIdx; i >= 0; i--, j--) {
-            htWriteValueOnScreen("#tc"+j+"f1", local.reorganizedValue[i], false);
+        var topDigit = parseInt(local.strTopValue[0]);
+        for (let i = 0; i <= local.vectorIdx; i++) {
+            let val = local.reorganizedValue[i];
+            let displayVal;
+            if (i === 0) {
+                displayVal = topDigit - 1;
+            } else {
+                displayVal = val % 10;
+            }
+            htWriteValueOnScreen("#tc"+(local.currentIdx - local.vectorIdx + i)+"f1", displayVal, false);
         }
         if (local.reorganizedValue[local.vectorIdx] > local.cmpTopValue[local.vectorIdx]) {
             finalText += "<br />"+mathKeywords[32];
