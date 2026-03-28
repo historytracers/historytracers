@@ -178,7 +178,7 @@ function htNewDivision() {
 
     $("#tc2fds2").html(local.workingValue);
 
-    $("#tc1f8").html(mathKeywords[35]+" <b>"+local.usingValue+" ÷ "+local.divisor+"</b><br />"+additionalText);
+    $("#tc1f8").html(mathKeywords[37]+" <b>"+local.usingValue+" ÷ "+local.divisor+"</b><br />"+additionalText);
 
     local.stop = false;
 
