@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1774547238"
+      "1774664251"
    ],
    "authors": null,
    "reviewers": null,
@@ -4530,7 +4530,135 @@
                "PostMention": ""
             },
             {
-               "text": "#### Curiosity\n\nDespite our knowledge of the function, an important point raised by Eric W. Weisstein is worth highlighting. This function had its origin practically alongside the tangent; however, when another mathematical function—the logarithm—was discovered, its use was reduced (<htcite0>).",
+               "text": "#### Curiosity\n\nDespite our knowledge of the function, an important point raised by Eric W. Weisstein is worth highlighting. This function had its origin practically alongside the tangent; however, when another mathematical function—the logarithm—was discovered, its use was reduced (<htcite0>).\n\n#### Graph\n\nWe can understand the graph of the secant function from the tangent graph itself shown on the previous page (<htcite1>). In it, we learned that the tangent is given by dividing the sine function by the cosine function (**Formula 2**):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "603c44f8-9b51-44f3-a538-9ddc6ba7be05",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Secant",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cbce5f98-ad82-4995-b5f0-960554919dbd",
+                     "text": "History Tracers Team",
+                     "page": "Our position",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mi>tan (θ)</mi> <mn>=</mn> <mfrac><mi>sen(θ)</mi><mi>cos (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Formula 2</b>: Definition of tangent according to trigonometric functions.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "By comparing **Formulas 1 and 2**, we can observe that both have cosine theta in the denominator, but in **Formula 1**, we have a constant value in the numerator. From this, we can expect from the graph:\n- When cosine theta (θ) has its greatest value, 1, then the value of the secant will be equal to 1;\n- As seen in another text from History Tracers, between 0 and 1 there are infinite numbers (<htcite0>). As the cosine value starts at its maximum value and decreases toward zero, the secant value will begin to grow as we approach zero;\n- There is no secant value when the cosine value is equal to zero.\n\nTo better understand what we have described, see **Graph 3**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limiting",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartsec1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 3</b>: Graph of the secant function. Graph created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p><script> htPlotSecant('chartsec1', 'teta (radianos)', 'secante (θ)', 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To aid in comparison with the tangent graph, we draw it again below:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"charttan2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 4</b>: Graph of the tangent function. Graph created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p><script> htPlotTan('charttan2', 1);</script>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### From one graph to the other\n\n**Graph 1** shows us the secant in an intermediate position. Thus, we will adjust this graph to the extremes, so that we can understand the values that appear in **Graph 3**.\n\nFirst, we will start with the scenario in which cosine theta reaches its greatest value and, consequently, secant theta has its smallest value:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p id=\"circtri3\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"300\" y1=\"169\" x2=\"520\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"448\" y2=\"169\"></line>  <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"350\" y=\"185\" font-size=\"1.3em\" font-weight=\"bold\">sec θ</text> <text class=\"atlasTextRadius\" x=\"350\" y=\"205\" font-size=\"1.3em\" font-weight=\"bold\">cos θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"450\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"425\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"520\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Graph 5</b>: Circle with radius 1 containing triangles and some exposed trigonometric functions.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As the radius begins to rotate, cosine theta (θ) will begin to reduce its value, heading toward zero. As a consequence, the secant will begin to grow indefinitely. Thus, **Graph 5**, in the limit as cosine approaches zero, would look like:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p id=\"circtri4\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"300\" y1=\"169\" x2=\"520\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle>  <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"338\" y2=\"29\"></line> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"868\" y2=\"169\"></line>  <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">1</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"105\" font-size=\"1.3em\" font-weight=\"bold\">cos θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"450\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"425\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"520\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Graph 6</b>: Circle with radius 1 containing triangles and some exposed trigonometric functions.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In this last graph, we kept cosine theta (θ) visible, but the secant has been expanded in such a way that its text is no longer visible.\n\n#### Conclusion\n\nAlthough it is rarely used (<htcite0>), the existence of this function cannot be denied, which is why we explored, in this text, its graphs to reinforce the knowledge we are building.",
                "source": [
                   {
                      "type": 1,
