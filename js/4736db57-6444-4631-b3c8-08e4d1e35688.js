@@ -46,12 +46,8 @@ function htNewSubtraction() {
     }
     $("#tc1f3").html("<span class=\"text_to_paint\">-</span>");
 
-    /*
     local.topValue = htGetRandomArbitrary(100, 999);
     local.bottomValue =  htGetRandomArbitrary(100, 999);
-    */
-    local.topValue = 604;
-    local.bottomValue =  565;
 
     if (local.topValue < local.bottomValue) {
         let change = local.bottomValue;
@@ -82,6 +78,7 @@ function htNewSubtraction() {
             if (i != 0) {
                 if (tv == 0) {
                     tv = c1;
+                    carr = 0;
                 } else {
                     tv -= 1;
                     carr = 0;
@@ -93,8 +90,10 @@ function htNewSubtraction() {
         let end = tv;
         if (carr && tv == 10) {
             end = 9;
-            carr = 1;
+            carr = 0;
             local.carriers = 1;
+        } else if (tv == c1 && tv >= 10) {
+            end = tv - 1;
         } else if (bv > tv) {
             end += 10;
             carr = 1;
@@ -113,14 +112,16 @@ function htNewSubtraction() {
     }
     local.reorganizedValue.reverse();
     local.cmpTopValue.reverse();
+    local.hundredsSubValue = local.reorganizedValue[0];
     var finalText = mathKeywords[30]+" <b>"+local.topValue+" - "+local.bottomValue+"</b><br />"+mathKeywords[31]+"<b>("+local.reorganizedValue[local.vectorIdx]+" - "+local.strBottomValue[local.vectorIdx]+")</b>";
     if (local.carriers) {
-        var topDigit = parseInt(local.strTopValue[0]);
         for (let i = 0; i <= local.vectorIdx; i++) {
             let val = local.reorganizedValue[i];
             let displayVal;
             if (i === 0) {
-                displayVal = topDigit - 1;
+                displayVal = local.hundredsSubValue;
+            } else if (i === local.vectorIdx) {
+                displayVal = val;
             } else {
                 displayVal = val % 10;
             }
@@ -130,7 +131,8 @@ function htNewSubtraction() {
             finalText += "<br />"+mathKeywords[32];
         }
     }
-    htSetWorkingValue(local.reorganizedValue[local.vectorIdx], local.strBottomValue[local.vectorIdx]);
+    var topVal = (local.vectorIdx === 0) ? local.hundredsSubValue : local.reorganizedValue[local.vectorIdx];
+    htSetWorkingValue(topVal, local.strBottomValue[local.vectorIdx]);
 
     htWriteValueOnLine("2", local.strTopValue, true);
     htWriteValueOnLine("3", local.strBottomValue, false);
@@ -146,14 +148,20 @@ function htMoveAhead()
     htWriteValueOnScreen("#tc"+local.currentIdx+"f4", local.workingValue, false);
     local.currentIdx -= 1;
     local.vectorIdx -= 1;
+
     if (local.currentIdx > 1) {
         htWriteValueOnScreen("#tc"+local.currentIdx+"f4", 0, false);
     } else {
         local.stop = 1;
     }
 
+    if (local.vectorIdx < 0) {
+        $("#tc1f5").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
+        return false;
+    }
+
     var bottomV = parseInt(local.strBottomValue[local.vectorIdx]);
-    if (local.cmpTopValue[local.vectorIdx] != local.reorganizedValue[local.vectorIdx]) {
+    if (local.currentIdx > 2 && local.cmpTopValue[local.vectorIdx] != local.reorganizedValue[local.vectorIdx]) {
         htWriteValueOnScreen("#tc"+local.currentIdx+"f1", local.reorganizedValue[local.vectorIdx], false);
     }
 
@@ -165,7 +173,8 @@ function htMoveAhead()
             }
         }
         $("#tc1f5").html(message);
-        htSetWorkingValue(local.reorganizedValue[local.vectorIdx], bottomV.toString());
+        var topVal = (local.vectorIdx === 0) ? local.hundredsSubValue : local.reorganizedValue[local.vectorIdx];
+        htSetWorkingValue(topVal, bottomV.toString());
     } else {
         $("#tc1f5").html("<i class=\"fa-solid fa-medal\" style=\"font-size:240px;color:gold;\"></i>");
     }
@@ -220,7 +229,7 @@ function htAdditionDescRow(id)
 }
 
 function htLoadContent() {
-    local = { "strTopValue": "", "topValue": 0, "strBottomValue": "", "bottomValue": 0, "totalValue": 0, "carriers": 0, "workingValue": 0, "stopValue": 0, "currentTop": 0, "currentBottom": 0, "currentIdx": 4, "vectorIdx": 2, "stop": 1, "reorganizedValue": [], "cmpTopValue": [], "answerVector": undefined }; 
+    local = { "strTopValue": "", "topValue": 0, "strBottomValue": "", "bottomValue": 0, "totalValue": 0, "carriers": 0, "workingValue": 0, "stopValue": 0, "currentTop": 0, "currentBottom": 0, "currentIdx": 4, "vectorIdx": 2, "stop": 1, "reorganizedValue": [], "cmpTopValue": [], "answerVector": undefined, "hundredsSubValue": 0 }; 
 
     htWriteNavigation();
 
