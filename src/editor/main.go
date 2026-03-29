@@ -35,6 +35,79 @@ func htFilterEmptyStrings(slice []string) []string {
 	return result
 }
 
+// htRemoveTopLevelFields removes specified top-level keys from a JSON object,
+// preserving the order of remaining keys.
+func htRemoveTopLevelFields(jsonStr string, excludeKeys []string) (string, error) {
+	if jsonStr == "" {
+		return "{}", nil
+	}
+	dec := json.NewDecoder(strings.NewReader(jsonStr))
+	var buf bytes.Buffer
+	enc := json.NewEncoder(&buf)
+	enc.SetEscapeHTML(false)
+	enc.SetIndent("", "  ")
+
+	// Read opening brace
+	tok, err := dec.Token()
+	if err != nil {
+		return "", err
+	}
+	delim, ok := tok.(json.Delim)
+	if !ok || delim != '{' {
+		return "", fmt.Errorf("expected '{'")
+	}
+	buf.WriteString("{\n")
+
+	first := true
+	for {
+		// Read key or closing brace
+		tok, err := dec.Token()
+		if err != nil {
+			return "", err
+		}
+		if delim, ok := tok.(json.Delim); ok && delim == '}' {
+			buf.WriteString("\n}")
+			break
+		}
+		key, ok := tok.(string)
+		if !ok {
+			return "", fmt.Errorf("expected string key")
+		}
+		// Check if key should be excluded
+		exclude := false
+		for _, ex := range excludeKeys {
+			if key == ex {
+				exclude = true
+				break
+			}
+		}
+		if exclude {
+			// Skip the next value
+			var raw json.RawMessage
+			if err := dec.Decode(&raw); err != nil {
+				return "", err
+			}
+			continue
+		}
+		// Write key
+		if !first {
+			buf.WriteString(",\n")
+		}
+		first = false
+		enc.Encode(key) // writes quoted key with newline
+		// Remove trailing newline from encoder
+		buf.Truncate(buf.Len() - 1)
+		buf.WriteString(": ")
+		// Read and write value
+		var raw json.RawMessage
+		if err := dec.Decode(&raw); err != nil {
+			return "", err
+		}
+		buf.Write(raw)
+	}
+	return buf.String(), nil
+}
+
 func htShouldClearEmptyValues(slice []string) bool {
 	if len(slice) == 0 {
 		return false
@@ -1129,60 +1202,50 @@ func (e *TextEditor) loadJSONEditorData() {
 		e.disableAllFormFields()
 	}
 
-	// Extract additional fields based on template type
+	// Extract content and additional fields based on template type
 	if dataMap, ok := jsonData.(map[string]interface{}); ok {
-		additionalFields := make(map[string]interface{})
 		headerFields := []string{"title", "header", "index", "authors", "reviewers", "last_update", "version", "license", "sources", "scripts", "audio"}
-
-		// Detect template type and define additional fields
+		// Detect template type
 		var templateType string
 		if t, exists := dataMap["type"]; exists {
 			templateType = fmt.Sprintf("%v", t)
 		}
-
-		var templateAdditionalFields []string
+		// Determine which fields belong to Content tab
+		var contentFields []string
 		switch templateType {
-		case "family_tree":
-			templateAdditionalFields = []string{"families", "common", "gedcom", "csv", "documentsInfo", "periodOfTime", "maps", "prerequisites", "exercise_v2", "date_time"}
-		case "atlas":
-			templateAdditionalFields = []string{"atlas", "content"}
-		case "class":
-			templateAdditionalFields = []string{"content", "exercise_v2", "date_time"}
+		case "atlas", "class":
+			contentFields = []string{"content"}
 		default:
-			// For unknown types, extract all non-header fields
-			for k, v := range dataMap {
-				isHeaderField := false
-				for _, hf := range headerFields {
-					if k == hf {
-						isHeaderField = true
-						break
-					}
-				}
-				if !isHeaderField {
-					additionalFields[k] = v
-				}
+			// For other types, if there is a "content" field, treat it as content
+			if _, exists := dataMap["content"]; exists {
+				contentFields = []string{"content"}
 			}
 		}
-
-		// Extract template-specific fields
-		if len(templateAdditionalFields) > 0 {
-			for _, k := range templateAdditionalFields {
-				if v, exists := dataMap[k]; exists {
-					additionalFields[k] = v
-				}
+		// Extract content data for Content tab
+		contentData := make(map[string]interface{})
+		for _, cf := range contentFields {
+			if v, exists := dataMap[cf]; exists {
+				contentData[cf] = v
 			}
 		}
-
-		if len(additionalFields) > 0 {
-			additionalJSON, _ := json.MarshalIndent(additionalFields, "", "  ")
-			e.jsonAdditionalEntry.SetText(string(additionalJSON))
+		if len(contentData) > 0 {
+			contentJSON, _ := json.MarshalIndent(contentData, "", "  ")
+			e.jsonContentEntry.SetText(string(contentJSON))
+		} else {
+			e.jsonContentEntry.SetText("{}")
+		}
+		// Extract additional fields (all keys except headerFields and contentFields)
+		excludeKeys := append(headerFields, contentFields...)
+		if additionalJSON, err := htRemoveTopLevelFields(content, excludeKeys); err == nil {
+			e.jsonAdditionalEntry.SetText(additionalJSON)
 		} else {
 			e.jsonAdditionalEntry.SetText("{}")
 		}
+	} else {
+		// Not an object, show raw content in Content tab
+		e.jsonContentEntry.SetText(content)
+		e.jsonAdditionalEntry.SetText("{}")
 	}
-
-	// Show full JSON content
-	e.jsonContentEntry.SetText(content)
 }
 
 func (e *TextEditor) disableAllFormFields() {
@@ -1446,6 +1509,22 @@ func (e *TextEditor) saveAtlasDocument() {
 	}
 	atlasData.Audio = audioOptions
 
+	// Update content from Content tab
+	contentText := e.jsonContentEntry.Text
+	if contentText != "" && contentText != "{}" {
+		var contentMap map[string]interface{}
+		if err := json.Unmarshal([]byte(contentText), &contentMap); err == nil {
+			if contentArr, exists := contentMap["content"]; exists {
+				// Marshal the content array back to JSON and unmarshal into []ClassTemplateContent
+				contentJSON, _ := json.Marshal(contentArr)
+				var newContent []ClassTemplateContent
+				if err := json.Unmarshal(contentJSON, &newContent); err == nil {
+					atlasData.Content = newContent
+				}
+			}
+		}
+	}
+	// Update additional fields from Additional tab
 	additionalText := e.jsonAdditionalEntry.Text
 	if additionalText != "" && additionalText != "{}" {
 		var additionalData map[string]interface{}
@@ -1480,7 +1559,16 @@ func (e *TextEditor) saveAtlasDocument() {
 							}
 						}
 					}
+				case "type":
+					if typeStr, ok := v.(string); ok {
+						atlasData.Type = typeStr
+					}
+				case "editing":
+					if editingBool, ok := v.(bool); ok {
+						atlasData.Editing = editingBool
+					}
 				default:
+					// Ignore unknown fields
 				}
 			}
 		}
@@ -1542,6 +1630,66 @@ func (e *TextEditor) saveClassDocument() {
 		classAudioOptions[i] = HTAudio{URL: opt, External: true, Spotify: false}
 	}
 	classData.Audio = classAudioOptions
+
+	// Update content from Content tab
+	contentText := e.jsonContentEntry.Text
+	if contentText != "" && contentText != "{}" {
+		var contentMap map[string]interface{}
+		if err := json.Unmarshal([]byte(contentText), &contentMap); err == nil {
+			if contentArr, exists := contentMap["content"]; exists {
+				contentJSON, _ := json.Marshal(contentArr)
+				var newContent []ClassTemplateContent
+				if err := json.Unmarshal(contentJSON, &newContent); err == nil {
+					classData.Content = newContent
+				}
+			}
+		}
+	}
+	// Update additional fields from Additional tab
+	additionalText := e.jsonAdditionalEntry.Text
+	if additionalText != "" && additionalText != "{}" {
+		var additionalData map[string]interface{}
+		if err := json.Unmarshal([]byte(additionalText), &additionalData); err == nil {
+			for k, v := range additionalData {
+				switch k {
+				case "exercise_v2":
+					if exercisesArr, ok := v.([]interface{}); ok {
+						exercisesJSON, _ := json.Marshal(exercisesArr)
+						var newExercises []HTExercise
+						if err := json.Unmarshal(exercisesJSON, &newExercises); err == nil {
+							classData.Exercises = newExercises
+						}
+					}
+				case "date_time":
+					if dateTimeArr, ok := v.([]interface{}); ok {
+						dateTimeJSON, _ := json.Marshal(dateTimeArr)
+						var newDateTime []HTDate
+						if err := json.Unmarshal(dateTimeJSON, &newDateTime); err == nil {
+							classData.DateTime = newDateTime
+						}
+					}
+				case "game_v2":
+					if gameArr, ok := v.([]interface{}); ok {
+						gameJSON, _ := json.Marshal(gameArr)
+						var newGame []HTGameDesc
+						if err := json.Unmarshal(gameJSON, &newGame); err == nil {
+							classData.GameV2 = newGame
+						}
+					}
+				case "type":
+					if typeStr, ok := v.(string); ok {
+						classData.Type = typeStr
+					}
+				case "editing":
+					if editingBool, ok := v.(bool); ok {
+						classData.Editing = editingBool
+					}
+				default:
+					// Ignore unknown fields
+				}
+			}
+		}
+	}
 
 	var buf bytes.Buffer
 	encoder := json.NewEncoder(&buf)
