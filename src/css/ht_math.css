@@ -497,3 +497,1020 @@
         width: 100%;
     }
 }
+
+.htMayanumber {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_0 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_0::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 44px;
+    border: 3px solid black;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.htMayanumber_0::after {
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 0;
+    border-top: 3px solid black;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.htMayanumber_0 .petal_1,
+.htMayanumber_0 .petal_2,
+.htMayanumber_0 .petal_3,
+.htMayanumber_0 .petal_4 {
+    position: absolute;
+    width: 16px;
+    height: 22px;
+    border: 3px solid black;
+    border-bottom: none;
+    left: 50%;
+    top: 38%;
+    transform-origin: bottom center;
+}
+
+.htMayanumber_0 .petal_1 {
+    transform: translateX(-50%) rotate(-30deg);
+    border-radius: 50% 50% 0 0;
+}
+
+.htMayanumber_0 .petal_2 {
+    transform: translateX(-50%) rotate(-10deg);
+    border-radius: 50% 50% 0 0;
+}
+
+.htMayanumber_0 .petal_3 {
+    transform: translateX(-50%) rotate(10deg);
+    border-radius: 50% 50% 0 0;
+}
+
+.htMayanumber_0 .petal_4 {
+    transform: translateX(-50%) rotate(30deg);
+    border-radius: 50% 50% 0 0;
+}
+
+.htMayanumber_1 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_1::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_2 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_2::before,
+.htMayanumber_2::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    bottom: 8px;
+}
+
+.htMayanumber_2::before {
+    left: 30%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_2::after {
+    right: 30%;
+    transform: translateX(50%);
+}
+
+.htMayanumber_3 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_3::before,
+.htMayanumber_3::after,
+.htMayanumber_3 .dot {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    bottom: 8px;
+}
+
+.htMayanumber_3::before {
+    left: 20%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_3::after {
+    right: 20%;
+    transform: translateX(50%);
+}
+
+.htMayanumber_3 .dot {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_4 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_4::before,
+.htMayanumber_4::after,
+.htMayanumber_4 .dot,
+.htMayanumber_4 .dot2 {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    bottom: 8px;
+}
+
+.htMayanumber_4::before {
+    left: 15%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_4::after {
+    right: 15%;
+    transform: translateX(50%);
+}
+
+.htMayanumber_4 .dot {
+    left: 40%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_4 .dot2 {
+    right: 40%;
+    transform: translateX(50%);
+}
+
+.htMayanumber_5 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_5::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_6 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_6::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_6::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_7 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_7::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_7::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+}
+
+.htMayanumber_7 .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 30%;
+}
+
+.htMayanumber_7 .dot2 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 30%;
+}
+
+.htMayanumber_8 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_8::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_8::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+}
+
+.htMayanumber_8 .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+}
+
+.htMayanumber_9 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_9::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_9::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+}
+
+.htMayanumber_9 .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 15%;
+}
+
+.htMayanumber_9 .dot2 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 15%;
+}
+
+.htMayanumber_9 .dot3 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 40%;
+}
+
+.htMayanumber_9 .dot4 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 40%;
+}
+
+.htMayanumber_10 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_10::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_10::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_11 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_11::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_11::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_11 .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_12 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_12::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_12::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_12 .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 30%;
+}
+
+.htMayanumber_12 .dot2 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 30%;
+}
+
+.htMayanumber_13 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_13::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_13::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_13 .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 20%;
+}
+
+.htMayanumber_13 .dot2 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 20%;
+}
+
+.htMayanumber_13 .dot3 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_14 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_14::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_14::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_14 .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 15%;
+}
+
+.htMayanumber_14 .dot2 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 15%;
+}
+
+.htMayanumber_14 .dot3 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 40%;
+}
+
+.htMayanumber_14 .dot4 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 40%;
+}
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_15 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_15::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_15::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_15 .dot {
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_16 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_16::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_16::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_16 .dot {
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_16 .circle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_17 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_17::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_17::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_17 .dot {
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_17 .circle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 30%;
+}
+
+.htMayanumber_17 .circle2 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 30%;
+}
+
+.htMayanumber_18 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_18::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_18::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_18 .dot {
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_18 .circle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 20%;
+}
+
+.htMayanumber_18 .circle2 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 20%;
+}
+
+.htMayanumber_18 .circle3 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_19 {
+    width: 56px;
+    height: 62px;
+    border: 1px solid black;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.htMayanumber_19::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_19::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_19 .dot {
+    position: absolute;
+    width: 40px;
+    height: 12px;
+    background-color: black;
+    bottom: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.htMayanumber_19 .circle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 15%;
+}
+
+.htMayanumber_19 .circle2 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 15%;
+}
+
+.htMayanumber_19 .circle3 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    left: 40%;
+}
+
+.htMayanumber_19 .circle4 {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    top: 8px;
+    right: 40%;
+}
+
+@media screen and (max-width: 1200px) {
+    .htMayanumber,
+    .htMayanumber_0, .htMayanumber_1, .htMayanumber_2, .htMayanumber_3, .htMayanumber_4,
+    .htMayanumber_5, .htMayanumber_6, .htMayanumber_7, .htMayanumber_8, .htMayanumber_9,
+    .htMayanumber_10, .htMayanumber_11, .htMayanumber_12, .htMayanumber_13, .htMayanumber_14,
+    .htMayanumber_15, .htMayanumber_16, .htMayanumber_17, .htMayanumber_18, .htMayanumber_19 {
+        width: 5vw;
+        height: 5.5vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .htMayanumber,
+    .htMayanumber_0, .htMayanumber_1, .htMayanumber_2, .htMayanumber_3, .htMayanumber_4,
+    .htMayanumber_5, .htMayanumber_6, .htMayanumber_7, .htMayanumber_8, .htMayanumber_9,
+    .htMayanumber_10, .htMayanumber_11, .htMayanumber_12, .htMayanumber_13, .htMayanumber_14,
+    .htMayanumber_15, .htMayanumber_16, .htMayanumber_17, .htMayanumber_18, .htMayanumber_19 {
+        width: 6vw;
+        height: 6.6vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .htMayanumber,
+    .htMayanumber_0, .htMayanumber_1, .htMayanumber_2, .htMayanumber_3, .htMayanumber_4,
+    .htMayanumber_5, .htMayanumber_6, .htMayanumber_7, .htMayanumber_8, .htMayanumber_9,
+    .htMayanumber_10, .htMayanumber_11, .htMayanumber_12, .htMayanumber_13, .htMayanumber_14,
+    .htMayanumber_15, .htMayanumber_16, .htMayanumber_17, .htMayanumber_18, .htMayanumber_19 {
+        width: 7vw;
+        height: 7.7vw;
+        border-width: 0.5px;
+    }
+}
