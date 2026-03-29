@@ -779,6 +779,53 @@ function htTanValues(quadrants) {
     return values;
 }
 
+function htGetMayanumberHTML(e) {
+    switch(e) {
+        case 0:
+            return "<span class=\"htMayanumber_0\"><span class=\"petal_1\"></span><span class=\"petal_2\"></span><span class=\"petal_3\"></span><span class=\"petal_4\"></span></span>";
+        case 1:
+            return "<span class=\"htMayanumber_1\"></span>";
+        case 2:
+            return "<span class=\"htMayanumber_2\"></span>";
+        case 3:
+            return "<span class=\"htMayanumber_3\"><span class=\"dot\"></span></span>";
+        case 4:
+            return "<span class=\"htMayanumber_4\"><span class=\"dot\"></span><span class=\"dot2\"></span></span>";
+        case 5:
+            return "<span class=\"htMayanumber_5\"></span>";
+        case 6:
+            return "<span class=\"htMayanumber_6\"></span>";
+        case 7:
+            return "<span class=\"htMayanumber_7\"><span class=\"dot\"></span><span class=\"dot2\"></span></span>";
+        case 8:
+            return "<span class=\"htMayanumber_8\"><span class=\"dot\"></span></span>";
+        case 9:
+            return "<span class=\"htMayanumber_9\"><span class=\"dot\"></span><span class=\"dot2\"></span><span class=\"dot3\"></span><span class=\"dot4\"></span></span>";
+        case 10:
+            return "<span class=\"htMayanumber_10\"></span>";
+        case 11:
+            return "<span class=\"htMayanumber_11\"><span class=\"dot\"></span></span>";
+        case 12:
+            return "<span class=\"htMayanumber_12\"><span class=\"dot\"></span><span class=\"dot2\"></span></span>";
+        case 13:
+            return "<span class=\"htMayanumber_13\"><span class=\"dot\"></span><span class=\"dot2\"></span><span class=\"dot3\"></span></span>";
+        case 14:
+            return "<span class=\"htMayanumber_14\"><span class=\"dot\"></span><span class=\"dot2\"></span><span class=\"dot3\"></span><span class=\"dot4\"></span></span>";
+        case 15:
+            return "<span class=\"htMayanumber_15\"></span>";
+        case 16:
+            return "<span class=\"htMayanumber_16\"><span class=\"circle\"></span></span>";
+        case 17:
+            return "<span class=\"htMayanumber_17\"><span class=\"circle\"></span><span class=\"circle2\"></span></span>";
+        case 18:
+            return "<span class=\"htMayanumber_18\"><span class=\"circle\"></span><span class=\"circle2\"></span><span class=\"circle3\"></span></span>";
+        case 19:
+            return "<span class=\"htMayanumber_19\"><span class=\"circle\"></span><span class=\"circle2\"></span><span class=\"circle3\"></span><span class=\"circle4\"></span></span>";
+        default:
+            return "<span class=\"htMayanumber\"></span>";
+    }
+}
+
 // 1/x
 function htInverseValues() {
     var values = { x: [], y: []};
