@@ -70,8 +70,8 @@ async function startClap(){
 
     $("#clapCount").val(local.bottomValue);
     local.steps = 1;
-  } else if (local.steps = 2) {
-      $("#clapCount").val(local.result);
+  } else if (local.steps == 2) {
+      $("#clapCount").val((local.result > 9) ? 9: local.result);
       local.steps = 3;
   }
 
@@ -80,7 +80,7 @@ async function startClap(){
   if (local.handsAreDown && $("#clapCount").val() == local.bottomValue && local.steps == 1) {
       local.steps = 2;
       startClap();
-  } else if (local.handsAreDown && $("#clapCount").val() == local.result && local.steps == 3) {
+  } else if (local.handsAreDown && local.steps == 3) {
       local.steps = 4;
       startSteps();
   }
@@ -108,6 +108,8 @@ async function startJump() {
       await new Promise(r => setTimeout(r, jumpDuration * 0.3));
     }
   }
+  $("#clapCount").val(local.result);
+  startSteps();
   local.jumpBusy = false;
 }
 
@@ -120,10 +122,10 @@ async function startSteps() {
     return;
   }
   local.stepsBusy = true;
-  let completed = 0;
+  let completed = (count < 10) ? 0 : 10 ;
   local.stepsCounterDisplay.innerText = `${completed}`;
   const stepDuration = local.clapCycleTime * 0.4;
-  for(let i = 0; i < count; i++) {
+  for(let i = completed; i < count; i++) {
     if (i % 2 === 0) {
       leftFoot.classList.add('zoom-left');
       await new Promise(r => setTimeout(r, stepDuration));
@@ -139,13 +141,22 @@ async function startSteps() {
       await new Promise(r => setTimeout(r, stepDuration * 0.2));
     }
   }
-  local.stepsBusy = false;
+    if (completed != local.result) {
+        local.steps = 5;
+        $("#clapCount").val(1);
+        startJump();
+    } else if (completed == local.result && completed > 10) {
+        local.steps = 6;
+        local.running = false;
+    }
+    local.stepsBusy = false;
 }
 
 function htNewLocalAddition() {
     if (local.handsAreDown) {
         local.leftHandElem.classList.remove("hand-down");
         local.rightHandElem.classList.remove("hand-down");
+        local.handsAreDown = false;
     }
 
     local.steps = 0;
@@ -157,7 +168,6 @@ function htNewLocalAddition() {
     let nextValue = (result > 9) ? 1 : "";
 
     local.result = result;
-    // CONTINUE WITH IT
     local.lastStep = (result > 9) ? 6: 5;
 
     $("#nextVal").html(nextValue);
@@ -167,15 +177,27 @@ function htNewLocalAddition() {
 }
 
 function htExecuteSum() {
+    if (local.running) {
+        return;
+    }
+    local.running = true;
+
+    if (local.handsAreDown) {
+        local.leftHandElem.classList.remove("hand-down");
+        local.rightHandElem.classList.remove("hand-down");
+        local.handsAreDown = false;
+    }
+
+    local.steps = 0;
+
     $("#clapCount").val(local.topValue);
     startClap();
-
 }
 
 function htLoadContent() {
     htWriteNavigation();
 
-    local = { "palette":  document.getElementById("palette"), "hands": document.querySelectorAll(".hand-shape"), "leftHandElem": document.getElementById("leftHand"), "rightHandElem": document.getElementById("rightHand"), "feetJumpWrapper": document.getElementById("feetJumpWrapper"), "leftFoot": document.getElementById("leftFoot"), "rightFoot": document.getElementById("rightFoot"), "clapBusy": false, "jumpBusy": false, "stepsBusy": false, "handsAreDown": false, "handPosCounterSpan": document.getElementById("handPosCounter"), "moveToggleBtn": document.getElementById("moveDownBtn"), "speedSlider": document.getElementById("speedSlider"), "clapCycleTime": 1100, "clapCounterDisplay": document.getElementById("clapCounter"), "jumpCounterDisplay": document.getElementById("jumpCounter"), "stepsCounterDisplay": document.getElementById("stepsCounter"), "topValue": 0, "bottomValue": 0, "result": 0, "steps": 0, "lastStep": 0};
+    local = { "palette":  document.getElementById("palette"), "hands": document.querySelectorAll(".hand-shape"), "leftHandElem": document.getElementById("leftHand"), "rightHandElem": document.getElementById("rightHand"), "feetJumpWrapper": document.getElementById("feetJumpWrapper"), "leftFoot": document.getElementById("leftFoot"), "rightFoot": document.getElementById("rightFoot"), "clapBusy": false, "jumpBusy": false, "stepsBusy": false, "handsAreDown": false, "handPosCounterSpan": document.getElementById("handPosCounter"), "moveToggleBtn": document.getElementById("moveDownBtn"), "speedSlider": document.getElementById("speedSlider"), "clapCycleTime": 1100, "clapCounterDisplay": document.getElementById("clapCounter"), "jumpCounterDisplay": document.getElementById("jumpCounter"), "stepsCounterDisplay": document.getElementById("stepsCounter"), "topValue": 0, "bottomValue": 0, "result": 0, "steps": 0, "lastStep": 0, "running": false};
 
     skinTones.forEach((color, index)=>{
         const swatch = document.createElement("div");
