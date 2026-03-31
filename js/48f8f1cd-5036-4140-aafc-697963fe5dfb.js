@@ -197,6 +197,10 @@ function htExecuteSum() {
 
     local.steps = 0;
 
+    $("#clapCounter").html(": 0");
+    $("#jumpCounter").html(": 0");
+    $("#stepsCounter").html(": 0");
+
     $("#clapCount").val(local.topValue);
     startClap();
 }
