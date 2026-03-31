@@ -148,6 +148,8 @@ async function startSteps() {
     } else if (completed == local.result && completed > 10) {
         local.steps = 6;
         local.running = false;
+    } else {
+        local.running = false;
     }
     local.stepsBusy = false;
 }
@@ -174,6 +176,11 @@ function htNewLocalAddition() {
     $("#topVal").html(topValue);
     $("#bottomVal").html(bottomValue);
     $("#resVal").html((result > 9) ? result : " "+result);
+
+    $("#clapCounter").html(": 0");
+    $("#jumpCounter").html(": 0");
+    $("#stepsCounter").html(": 0");
+    $("#clapCount").val(0);
 }
 
 function htExecuteSum() {

@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1774885195"
+      "1774982959"
    ],
    "authors": [
       ""
@@ -325,7 +325,7 @@
          "id": "SECTION_instructions",
          "text": [
             {
-               "text": "#### O jogo\n\nNeste jogo, iremos somar números com o nosso corpo. Começaremos batendo palmas para o número escrito na parte superior; ou seja, se tivermos o número 5, bateremos palmas cinco vezes. Em seguida, abaixaremos as mãos, realizando batidas de palmas correspondentes aos números inferiores.\n\nO resultado da soma será representado com os pés. Daremos passos de acordo com o total da soma dos dois números. Se o número for maior que nove, ao chegarmos a 10, daremos um pulo e não um passo para lembrar que devemos representar o número um nas dezenas no topo. Depois do 10, continuaremos contando com os passos.",
+               "text": "#### O jogo\n\nNeste jogo, iremos somar números com o nosso corpo. Começaremos batendo palmas para o número escrito na parte superior; ou seja, se tivermos o número 5, bateremos palmas cinco vezes. Em seguida, abaixaremos as mãos, realizando batidas de palmas correspondentes aos números inferiores.\n\nO resultado da soma será representado com os pés. Daremos passos de acordo com o total da soma dos dois números. Se o número for maior que nove, ao chegarmos a 10, daremos um pulo e não um passo para lembrar que devemos representar o número um nas dezenas no topo. Depois do 10, continuaremos contando com os passos.\n\n#### Regras\n\nO jogo apresenta um cálculo a ser realizado com o seu corpo. Para iniciar o cálculo, clique no link (<i class=\"fa-solid fa-play\" style=\"font-size:1em;color:#0f0;\" ></i>). Caso queira refazê-lo para fixação, clique novamente.\n\nPara realizar um novo cálculo, clique em (<i class=\"fa-solid fa-chevron-right\"></i>).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -343,7 +343,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"speed-control\"> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteSum();\" style=\"font-size:2em;color:#0f0;\" ></i></div> <div class=\"counters\"> <b>Números</b><span id=\"clapCounter\" class=\"counter\">: 0</span> <b>Saltos</b><span id=\"jumpCounter\" class=\"counter\">: 0</span> <b>Resultados</b>:<span id=\"stepsCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
+               "text": "<center><div class=\"speed-control\"> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteSum();\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-chevron-right\"  onclick=\"htNewLocalAddition();\" style=\"font-size:2em;\"></i></div> <div class=\"counters\"> <b>Números</b><span id=\"clapCounter\" class=\"counter\">: 0</span> <b>Saltos</b><span id=\"jumpCounter\" class=\"counter\">: 0</span> <b>Resultados</b>:<span id=\"stepsCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,

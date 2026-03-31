@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1774885183"
+      "1774982924"
    ],
    "authors": [
       ""
@@ -325,7 +325,7 @@
          "id": "SECTION_instructions",
          "text": [
             {
-               "text": "#### The Game\n\nIn this game, we are going to add numbers with our body. We will start by clapping the number written at the top; that is, if we have the number 5, we will clap five times. Then, we will lower our hands, performing claps corresponding to the bottom numbers.\n\nThe result of the sum will be represented with our feet. We will take steps according to the total sum of the two numbers. If the number is greater than nine, when we reach 10, we will take a jump instead of a step to remember that we must represent the number one in the tens place at the top. After 10, we will continue counting with steps.",
+               "text": "#### The Game\n\nIn this game, we are going to add numbers with our body. We will start by clapping the number written at the top; that is, if we have the number 5, we will clap five times. Then, we will lower our hands, performing claps corresponding to the bottom numbers.\n\nThe result of the sum will be represented with our feet. We will take steps according to the total sum of the two numbers. If the number is greater than nine, when we reach 10, we will take a jump instead of a step to remember that we must represent the number one in the tens place at the top. After 10, we will continue counting with steps.\n\n#### Rules\n\nThe game presents a calculation to be performed with your body. To start the calculation, click on the link (<i class=\"fa-solid fa-play\" style=\"font-size:1em;color:#0f0;\" ></i>). If you want to repeat it for reinforcement, click again.\n\nTo perform a new calculation, click on (<i class=\"fa-solid fa-chevron-right\"></i>).",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -334,7 +334,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"text-align=center\"><center>&nbsp;<span id=\"nextVal\"></span>&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"topVal\"></span><br />+&nbsp;&nbsp;<span id=\"bottomVal\"></span><br />____________<br />&nbsp;&nbsp;<span id=\"resVal\"></span></center></p><p class=\"desc\"><b>Cálculo 1</b>: Soma dos valores que será reproduzida com o corpo.</p>",
+               "text": "<p style=\"text-align=center\"><center>&nbsp;<span id=\"nextVal\"></span>&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"topVal\"></span><br />+&nbsp;&nbsp;<span id=\"bottomVal\"></span><br />____________<br />&nbsp;&nbsp;<span id=\"resVal\"></span></center></p><p class=\"desc\"><b>Calculation 1</b>: Sum of the values to be performed with the body.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -343,7 +343,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"speed-control\"> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteSum();\" style=\"font-size:2em;color:#0f0;\" ></i></div> <div class=\"counters\"> <b>Números</b><span id=\"clapCounter\" class=\"counter\">: 0</span> <b>Saltos</b><span id=\"jumpCounter\" class=\"counter\">: 0</span> <b>Resultados</b>:<span id=\"stepsCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
+               "text": "<center><div class=\"speed-control\"> <label>Slow</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Fast</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteSum();\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-chevron-right\"  onclick=\"htNewLocalAddition();\" style=\"font-size:2em;\"></i></div> <div class=\"counters\"> <b>Numbers</b><span id=\"clapCounter\" class=\"counter\">: 0</span> <b>Jumps</b><span id=\"jumpCounter\" class=\"counter\">: 0</span> <b>Results</b>:<span id=\"stepsCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
