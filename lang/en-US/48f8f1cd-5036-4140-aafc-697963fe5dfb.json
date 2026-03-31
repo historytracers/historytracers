@@ -334,7 +334,16 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"speed-control\"> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label></div> <div class=\"counters\"> <b>Números</b><span id=\"clapCounter\" class=\"counter\">: 0</span> <b>Saltos</b><span id=\"jumpCounter\" class=\"counter\">: 0</span> <b>Resultados</b>:<span id=\"stepsCounter\" class=\"counter\">: 0</span><span id=\"handPosCounter\" class=\"counter\"></span></div></center>",
+               "text": "<p style=\"text-align=center\"><center>&nbsp;<span id=\"nextVal\"></span>&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"topVal\"></span><br />+&nbsp;&nbsp;<span id=\"bottomVal\"></span><br />____________<br />&nbsp;&nbsp;<span id=\"resVal\"></span></center></p><p class=\"desc\"><b>Cálculo 1</b>: Soma dos valores que será reproduzida com o corpo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"speed-control\"> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteSum();\" style=\"font-size:2em;color:#0f0;\" ></i></div> <div class=\"counters\"> <b>Números</b><span id=\"clapCounter\" class=\"counter\">: 0</span> <b>Saltos</b><span id=\"jumpCounter\" class=\"counter\">: 0</span> <b>Resultados</b>:<span id=\"stepsCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
