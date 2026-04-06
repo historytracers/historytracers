@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1775430316"
+      "1775437501"
    ],
    "authors": "",
    "reviewers": "",
@@ -873,6 +873,40 @@
                "divorced": null,
                "children": [
                   {
+                     "type": "hypothesis",
+                     "id": "de041edf-c765-40e9-8542-64528baf1514",
+                     "marriage_id": "4f941820-5d6e-4427-8e62-203c6ed57702",
+                     "name": "Tazitta",
+                     "family_id": "e89ae4af-c59e-4d5d-8abb-2f7d48cb100d",
+                     "external_family_file": false,
+                     "add_link": true,
+                     "history": [
+                        {
+                           "text": "According to a hypothesis (<htcite0>).",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "fc080160-6845-4a2e-b21e-977f22434f63",
+                                 "text": "Hamidreza Qashqai",
+                                 "page": "pp. 14",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2024",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
+                           "date_time": null,
+                           "isTable": false,
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
+                        }
+                     ],
+                     "adopted_child": false
+                  },
+                  {
                      "type": "theory",
                      "id": "5df0daa6-52f8-4795-9844-31d8a370585b",
                      "marriage_id": "4f941820-5d6e-4427-8e62-203c6ed57702",
@@ -1012,7 +1046,7 @@
                      "name": "Unknown",
                      "history": [
                         {
-                           "text": "Since Ebarti had at least one historically proven child (<htcite0>; <htcite1>), this person must have existed.",
+                           "text": "Since Kindattu had at least one historically proven child (<htcite0>; <htcite1>), this person must have existed.",
                            "source": [
                               {
                                  "type": 1,
@@ -1727,6 +1761,72 @@
          ],
          "people": [
             {
+               "id": "de041edf-c765-40e9-8542-64528baf1514",
+               "name": "Tazitta",
+               "surname": "",
+               "patronymic": "",
+               "fullname": "Tazitta",
+               "sex": "male",
+               "gender": "male",
+               "is_real": false,
+               "haplogroup": null,
+               "history": [
+                  {
+                     "text": "Aside from their mention in the list of the kings of Shimashki as “Man of Anshan” (<htcite0>), nothing else has been found about them.\n\nHamidreza Qashqai assumes that he could have been the son of Ebarti, since he ruled right after him (<htcite1>).",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "fc080160-6845-4a2e-b21e-977f22434f63",
+                           "text": "Hamidreza Qashqai",
+                           "page": "pp. 8",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "fc080160-6845-4a2e-b21e-977f22434f63",
+                           "text": "Hamidreza Qashqai",
+                           "page": "pp. 14",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "format": "markdown",
+                     "PostMention": ""
+                  }
+               ],
+               "parents": [
+                  {
+                     "type": "theory",
+                     "father_external_family_file": false,
+                     "father_family": "11c9a5e9-29e3-4ee8-8d2a-fe763b39b049",
+                     "father_id": "25c3cacf-ae90-4a4a-9ce2-98b75e4dd98d",
+                     "father_name": "Ebarti",
+                     "mother_external_family_file": false,
+                     "mother_family": "",
+                     "mother_id": "4f941820-5d6e-4427-8e62-203c6ed57702",
+                     "mother_name": "Unknown"
+                  }
+               ],
+               "birth": null,
+               "baptism": null,
+               "marriages": null,
+               "divorced": null,
+               "children": null,
+               "death": null
+            },
+            {
                "id": "f727b3bd-41d5-463e-aeb3-4deb0f64ef77",
                "name": "Ebarti",
                "surname": "",
@@ -1863,6 +1963,28 @@
                      "isTable": false,
                      "imgdesc": "",
                      "format": "markdown",
+                     "PostMention": ""
+                  },
+                  {
+                     "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 4: Shares the same name, therefore...</b><br /><br />King Ebarti shares the same name as another king mentioned in the first part of this text. However, there is no tablet that allows us to associate him with that king. Given this scenario:<br /><br />Would you consider him as belonging to the same previous family?<br /><br />How would you justify the fact that he is considered the founder of a new dynasty, the Sukkalmahat (<htcite0>)?</div></div></center></p>",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "4f9eb5b1-72f6-4b77-ba56-0d0e492fb37d",
+                           "text": "De Graef, K.",
+                           "page": "pp. 528",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2012",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "format": "html",
                      "PostMention": ""
                   }
                ],

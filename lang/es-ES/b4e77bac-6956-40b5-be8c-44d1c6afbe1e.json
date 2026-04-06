@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1775430317"
+      "1775437501"
    ],
    "authors": "",
    "reviewers": "",
@@ -873,6 +873,40 @@
                "divorced": null,
                "children": [
                   {
+                     "type": "hypothesis",
+                     "id": "de041edf-c765-40e9-8542-64528baf1514",
+                     "marriage_id": "4f941820-5d6e-4427-8e62-203c6ed57702",
+                     "name": "Tazitta",
+                     "family_id": "e89ae4af-c59e-4d5d-8abb-2f7d48cb100d",
+                     "external_family_file": false,
+                     "add_link": true,
+                     "history": [
+                        {
+                           "text": "Según textos una hipótesis (<htcite0>).",
+                           "source": [
+                              {
+                                 "type": 1,
+                                 "uuid": "fc080160-6845-4a2e-b21e-977f22434f63",
+                                 "text": "Hamidreza Qashqai",
+                                 "page": "pp. 14",
+                                 "date_time": {
+                                    "type": "gregory",
+                                    "year": "2024",
+                                    "month": "",
+                                    "day": ""
+                                 }
+                              }
+                           ],
+                           "date_time": null,
+                           "isTable": false,
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
+                        }
+                     ],
+                     "adopted_child": false
+                  },
+                  {
                      "type": "theory",
                      "id": "5df0daa6-52f8-4795-9844-31d8a370585b",
                      "marriage_id": "4f941820-5d6e-4427-8e62-203c6ed57702",
@@ -1012,7 +1046,7 @@
                      "name": "Desconocida",
                      "history": [
                         {
-                           "text": "Dado que Ebarti tuvo al menos un hijo históricamente comprobado (<htcite0>; <htcite1>), esta persona debe haber existido.",
+                           "text": "Dado que Kindattu tuvo al menos un hijo históricamente comprobado (<htcite0>; <htcite1>), esta persona debe haber existido.",
                            "source": [
                               {
                                  "type": 1,
@@ -1727,6 +1761,72 @@
          ],
          "people": [
             {
+               "id": "de041edf-c765-40e9-8542-64528baf1514",
+               "name": "Tazitta",
+               "surname": "",
+               "patronymic": "",
+               "fullname": "Tazitta",
+               "sex": "masculino",
+               "gender": "masculino",
+               "is_real": false,
+               "haplogroup": null,
+               "history": [
+                  {
+                     "text": "Además de su mención en la lista de los reyes de Shimashki como “Hombre de Anshan” (<htcite0>), no se ha encontrado nada más sobre él.\n\nHamidreza Qashqai supone que podría haber sido hijo de Ebarti, ya que gobernó justo después de él (<htcite1>).",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "fc080160-6845-4a2e-b21e-977f22434f63",
+                           "text": "Hamidreza Qashqai",
+                           "page": "pp. 8",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "fc080160-6845-4a2e-b21e-977f22434f63",
+                           "text": "Hamidreza Qashqai",
+                           "page": "pp. 14",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2024",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "format": "markdown",
+                     "PostMention": ""
+                  }
+               ],
+               "parents": [
+                  {
+                     "type": "theory",
+                     "father_external_family_file": false,
+                     "father_family": "11c9a5e9-29e3-4ee8-8d2a-fe763b39b049",
+                     "father_id": "25c3cacf-ae90-4a4a-9ce2-98b75e4dd98d",
+                     "father_name": "Ebarti",
+                     "mother_external_family_file": false,
+                     "mother_family": "",
+                     "mother_id": "4f941820-5d6e-4427-8e62-203c6ed57702",
+                     "mother_name": "Desconocida"
+                  }
+               ],
+               "birth": null,
+               "baptism": null,
+               "marriages": null,
+               "divorced": null,
+               "children": null,
+               "death": null
+            },
+            {
                "id": "f727b3bd-41d5-463e-aeb3-4deb0f64ef77",
                "name": "Ebarti",
                "surname": "",
@@ -1863,6 +1963,28 @@
                      "isTable": false,
                      "imgdesc": "",
                      "format": "markdown",
+                     "PostMention": ""
+                  },
+                  {
+                     "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: Tiene el mismo nombre, por lo tanto...</b><br /><br />El rey Ebarti tiene el mismo nombre que otro rey mencionado en la primera parte de este texto. Sin embargo, no hay ninguna tablilla que nos permita hacer su asociación con él. Ante este escenario:<br /><br />¿Lo consideraría perteneciente a la misma familia anterior?<br /><br />¿Cómo justificaría el hecho de que sea considerado el fundador de una nueva dinastía, la Sukkalmahat (<htcite0>)?</div></div></center></p>",
+                     "source": [
+                        {
+                           "type": 1,
+                           "uuid": "4f9eb5b1-72f6-4b77-ba56-0d0e492fb37d",
+                           "text": "De Graef, K.",
+                           "page": "pp. 528",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2012",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "format": "html",
                      "PostMention": ""
                   }
                ],
