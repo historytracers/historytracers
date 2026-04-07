@@ -32,6 +32,8 @@ function htLoadContent() {
         $("#atlasindex option[value=\""+id+"\"]").prop('selected', true);
     }
 
+    $("#htChinaZhongguo").html(keywords[137]);
+
     return false;
 }
 
