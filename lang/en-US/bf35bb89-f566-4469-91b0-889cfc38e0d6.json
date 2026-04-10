@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1775832605"
+      "1775835420"
    ],
    "authors": [
       ""
@@ -347,7 +347,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;-5<br />+&nbsp;&nbsp; 0<br />____________<br />&nbsp;&nbsp; -5</center></p><p class=\"desc\"><b>Calculation 1</b>: Counting the steps from zero toward the left.</p>",
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;-5<br />+&nbsp;&nbsp;0<br />____________<br />&nbsp;&nbsp; -5</center></p><p class=\"desc\"><b>Calculation 1</b>: Counting the steps from zero toward the left.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -365,7 +365,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;- 5<br />+&nbsp;&nbsp;-11<br />____________<br />&nbsp;&nbsp;-16</center></p><p class=\"desc\"><b>Calculation 2</b>: Counting 11 steps from position -5 to the left.</p>",
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;-&nbsp; 5<br />+&nbsp;&nbsp;-11<br />____________<br />&nbsp;&nbsp;- 16</center></p><p class=\"desc\"><b>Calculation 2</b>: Counting 11 steps from position -5 to the left.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -383,18 +383,32 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nEn este texto, aprendimos que existía un camino que conectaba *Pindorama* con *Tawantinsuyu* antes de la llegada de los colonizadores a América (*Abya Yala*). Además, vimos que, frente a este escenario, la visión de los indígenas de América (*Abya Yala*) posiblemente situaba al continente en el que vivían como el centro del mundo.\n\nAsimismo, vimos que, si algún indígena sumara sus pasos a partir de *Pindorama*, podría agregar un signo negativo para indicar que se dirige hacia *Tawantsuyu* en su caminata.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "Ao somar dois números negativos, temos como resultado um número positivo?",
+         "question": "¿Al sumar dos números negativos, el resultado es un número positivo?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Quando somamos dois números negativos, estamos caminhando ainda mais a esquerda, logo não há como eliminarmos o sinal, e por isto o resultado final será à esquerda."
+         "additionalInfo": "Cuando sumamos dos números negativos, estamos caminando aún más hacia la izquierda; por lo tanto, no hay forma de eliminar el signo. Por eso, el resultado final estará a la izquierda."
       },
       {
-         "question": "Se somarmos -100 ao resultado do <b>Cálculo 2</b> teremos um resultado positivo?",
+         "question": "Si sumamos -100 al resultado del <b>Cálculo 2</b>, ¿obtendremos un resultado positivo?",
          "yesNoAnswer": "No",
-         "additionalInfo": "Ao somarmos mais 100 passos à esquerda (-100), continuaremos nos movendo para dentro do continente no caminho Peabirú, desta forma, o resultado final (-116), continuará apontando para a esquerda."
+         "additionalInfo": "Al sumar 100 pasos más hacia la izquierda (-100), seguiremos moviéndonos hacia el interior del continente, por el camino del Peabirú. De esta forma, el resultado final (-116) seguirá apuntando hacia la izquierda.<br /><br /><center>&nbsp;&nbsp;&nbsp;-&nbsp; 16<br />+&nbsp;&nbsp;-100<br />____________<br />&nbsp;&nbsp;- 116</center>"
       }
    ],
    "game_v2": null,
