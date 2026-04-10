@@ -160,7 +160,7 @@ function htRewriteTable() {
 }
 
 function htFillImage() {
-    var obj = local.gameVector[currentLevel];
+    var obj = local.gameVector[local.currentLevel];
     $("#imgGame").attr("src", obj.imagePath);
     $("#imgText").html(obj.imageDesc);
     local.currentLevel++;
