@@ -1,0 +1,413 @@
+{
+   "title": "Modulando (Parte I)",
+   "header": "Modulando (Parte I)",
+   "sources": [
+      "bf35bb89-f566-4469-91b0-889cfc38e0d6"
+   ],
+   "scripts": [
+      "bf35bb89-f566-4469-91b0-889cfc38e0d6"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/bf35bb89-f566-4469-91b0-889cfc38e0d6_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4qk1Dx3ylsBvMKjsNxiA9W?si=thX6xyUeQCW7sPPCS_aWYQ",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps_volume2"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1775846609"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste texto es continuación del texto anterior (<htcite0>). Por lo tanto, recomendamos estudiarlo antes de continuar.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0ee05b85-85cb-44a8-a83c-fea5595308e8",
+                     "text": "History Tracers Team",
+                     "page": "Iguales, pero diferentes",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nAl estudiar la distancia entre un objeto y su imagen, colocamos la imagen en el lado negativo y realizamos una resta de los valores (<htcite0>). Ahora imagine que desea realizar solo operaciones en el lado izquierdo del cero y reflexione.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0ee05b85-85cb-44a8-a83c-fea5595308e8",
+                     "text": "History Tracers Team",
+                     "page": "Iguales, pero diferentes",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Allá como aquí</b><br /><br />¿Podríamos usar las mismas reglas que utilizamos en el lado derecho del cero también en el lado izquierdo?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_indigenous",
+         "text": [
+            {
+               "text": "### Un auxilio mesoamericano\n\nVamos a regresar a una imagen que tenemos del sitio de Copán, en Honduras – América (*Abya Yala*) (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1e007481-9bd3-4a09-ad4d-6e812fe79641",
+                     "text": "Instituto Hondureño de Antropologia e Historia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"tawapukllay\" id=\"tblStelaC\"><tr><th>Lado Oeste</th><th>Lado Este</th></tr> <tr id=\"tr0\"><td><img id=\"CWest\" onclick=\"htImageZoom('CWest', '0%');\" src=\"images/Copan/CopanStelaCBeard.jpg\" style=\"width:50%\" /></td><td><img id=\"CEast\" onclick=\"htImageZoom('CEast', '0%');\" src=\"images/Copan/CopanStelaC.jpg\" style=\"width:50%\" /></td></tr> </table></p><p class=\"desc\"><b>Tabla 1</b>: Dos lados de la Estela C de Copán (<htcite0>). Fotos tomadas el <htdate1>, durante una visita al sitio.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1e007481-9bd3-4a09-ad4d-6e812fe79641",
+                     "text": "Instituto Hondureño de Antropologia e Historia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2024",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "2015",
+                     "month": "7",
+                     "day": "30"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "La **Tabla 1** muestra, en el lado izquierdo (oeste, la dirección en la que el sol deja de ser visible debido a la rotación de la Tierra, es decir, donde el sol parece ponerse), a un rey con barba. En el lado derecho (este, la dirección en la que el sol aparece debido a la rotación, es decir, donde el sol aparenta nacer), vemos al mismo rey sin barba.\n\nDe manera análoga, al trabajar con números, en el lado izquierdo añadiremos una “barba”, para indicar la dirección en la que vamos. Sin embargo, como veremos, la forma de realizar la operación no cambiará, como se presentará a continuación.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_peabiru",
+         "text": [
+            {
+               "text": "### El Peabirú\n\nPara poder visualizar mejor los cálculos con números negativos, veamos un camino utilizado por los indígenas de América (*Abya Yala*).\n\nAntes de la llegada de los colonizadores al continente americano (*Abya Yala*), existía un camino que conectaba las costas de *Pindorama*, actual Brasil (<htcite0>), hasta *Tawantsuyu*, región del océano Pacífico controlada por los incas (<htcite1>). Ese camino es conocido con el nombre de Peabirú y fue recorrido por Aleixo García en <htdate0> (<htcite2>; <htcite3>), siendo representado en la **Figura 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "01b6f0e8-66dc-4afb-b895-9dddd4a7c6dd",
+                     "text": "Farias, R.",
+                     "page": "pp. 1017",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1997",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ed31f80e-ddd3-448a-9331-a0b6ac5f82fd",
+                     "text": "Hechler, R. S.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2022",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "035560e0-0a4b-4b81-9df6-6c14cf429e81",
+                     "text": "Alomía-Lucero, J. M., & Sixto-Dávila, L.",
+                     "page": "pp. 5",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "675460d4-49a0-43ba-baf3-dfa8084e1d28",
+                     "text": "de Querejazu, L. E.",
+                     "page": "pp. 15 - 17",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1521",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/Mapswire/world-physical-map-graticules-mercator-v1_Peabiru.jpg\" id=\"imgPeabiru\" onclick=\"htImageZoom('imgPeabiru', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representación del camino del Peabirú seguido por Aleixo García. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Compartido bajo la licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Por último, es necesario hacer una explicación sobre la **Figura 1**. Ella muestra un mapa de una manera no encontrada en atlas convencionales. En esa imagen, tenemos la proyección de Mercator con el continente americano (*Abya Yala*) en el centro del mapa.\n\nEsa proyección fue construida con base en una visión de mundo en la que los pueblos indígenas de la región son el foco y fue inspirada en algo hecho por el jesuita Matteo Ricci en el siglo XVII, de acuerdo con el calendario gregoriano, durante un viaje a China (Zhongguo 中國) (<htcite0>). Ese hecho nos lleva a una reflexión:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f521d3c3-2ab8-47c8-85cb-7a26e69db003",
+                     "text": "History Tracers Team",
+                     "page": "¿Dónde está el centro?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Mapeando</b><br /><br />¿Puedes suponer algún motivo por el cual desconocemos mapas de América (<i>Abya Yala</i>), el mismo tipo de mapa que hicieron en China (Zhongguo 中國) (<htcite0>)?<br /><br />¿Puedes suponer algún motivo por el cual desconocemos mapas de América (<i>Abya Yala</i>) del siglo XVII, como el mapa de Matteo Ricci?<br /><br />¿Podría haber interpretaciones diferentes para diferentes pueblos?</div></div></center>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f521d3c3-2ab8-47c8-85cb-7a26e69db003",
+                     "text": "History Tracers Team",
+                     "page": "¿Dónde está el centro?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_moving",
+         "text": [
+            {
+               "text": "### Movimiento hacia la izquierda\n\nCon un entendimiento más profundo de los indígenas de América (*Abya Yala*), ahora podemos comprender cómo realizamos el recorrido de este camino desde la derecha, donde se encuentra el océano Atlántico, hasta el límite izquierdo, donde hallamos el océano Pacífico.\n\nNuestro primer paso es colocar el cero en el punto de partida, el límite derecho del continente americano (*Abya Yala*). A continuación, realizamos la cuenta. En este proceso, no podemos olvidar mantener el indicador de que vamos en dirección opuesta, es decir, el signo negativo (-).\n\nCon estas definiciones, podemos realizar la suma de los pasos.\n\n#### Los primeros pasos\n\nRealicemos el camino por etapas. Todo lo que aprendimos relacionado con el camino hacia la derecha (<htcite0>), es decir, el lado donde los números son positivos y siempre crecen, también es válido para el lado negativo, con una pequeña diferencia: después de realizar la suma, debemos analizar la dirección en la que estamos caminando.\n\nPor ejemplo, supongamos que damos 5 pasos desde el origen:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team",
+                     "page": "Caminando entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;-5<br />+&nbsp;&nbsp;0<br />____________<br />&nbsp;&nbsp; -5</center></p><p class=\"desc\"><b>Cálculo 1</b>: Conteo de los pasos desde el cero hacia la izquierda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "La suma del **Cálculo 1** se realizó de la siguiente manera:\n- Primero, sumamos 5 a 0 (5 + 0), es decir, las unidades;\n- Luego, observamos que hay un signo negativo (-) delante del cinco y que el otro número, cero, no tiene signo por ser el origen, es decir, el cero es neutro. De esta forma, repetimos el signo en el resultado, para indicar que caminamos hacia la izquierda.\n\n#### Adentrándonos en el continente\n\nAhora que hemos dado 5 pasos hacia la izquierda, daremos 11 pasos más en la misma dirección y, en consecuencia, nos adentraremos aún más en el continente, para fijar el concepto:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;-&nbsp; 5<br />+&nbsp;&nbsp;-11<br />____________<br />&nbsp;&nbsp;- 16</center></p><p class=\"desc\"><b>Cálculo 2</b>: Conteo de 11 pasos desde la posición -5 hacia la izquierda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En el **Cálculo 2**, tenemos dos números negativos. De esta forma, realizamos la suma del siguiente modo:\n- Sumamos las unidades (5 + 1 = 6);\n- Luego, sumamos las decenas (0 + 1 = 1);\n- Finalmente, observamos que ambos números indican posiciones a la izquierda, es decir, son números negativos. Así que repetimos el signo en el resultado.\n\nUna última nota sobre los signos: esta repetición del signo en el resultado, cuando ambos números son negativos, también puede entenderse mediante la “barba” que aparece en la **Tabla 1**, en el lado este.\n\nA medida que avanzamos hacia la izquierda, necesitamos mantener el signo negativo para indicar la dirección. De manera similar, con el paso del tiempo, la barba del rey (*ajaw*) fue creciendo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, aprendimos que existía un camino que conectaba *Pindorama* con *Tawantinsuyu* antes de la llegada de los colonizadores a América (*Abya Yala*). Además, vimos que, frente a este escenario, la visión de los indígenas de América (*Abya Yala*) posiblemente situaba al continente en el que vivían como el centro del mundo.\n\nAsimismo, vimos que, si algún indígena sumara sus pasos a partir de *Pindorama*, podría agregar un signo negativo para indicar que se dirige hacia *Tawantsuyu* en su caminata.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿Al sumar dos números negativos, el resultado es un número positivo?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Cuando sumamos dos números negativos, estamos caminando aún más hacia la izquierda; por lo tanto, no hay forma de eliminar el signo. Por eso, el resultado final estará a la izquierda."
+      },
+      {
+         "question": "Si sumamos -100 al resultado del <b>Cálculo 2</b>, ¿obtendremos un resultado positivo?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Al sumar 100 pasos más hacia la izquierda (-100), seguiremos moviéndonos hacia el interior del continente, por el camino del Peabirú. De esta forma, el resultado final (-116) seguirá apuntando hacia la izquierda.<br /><br /><center>&nbsp;&nbsp;&nbsp;-&nbsp; 16<br />+&nbsp;&nbsp;-100<br />____________<br />&nbsp;&nbsp;- 116</center>"
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
