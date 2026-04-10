@@ -28,7 +28,7 @@ function htTranslationLoadHA(tableID, field, selector, value)
 
 function htTranslationLoadIndigenous(tableID, field, selector, value)
 {
-   $(tableID+" "+field).html((selector > 50) ? "<img id=\"imgMIMG"+value+"\" onclick=\"htImageZoom('imgMIMG"+value+"', '0%')\" src=\"images/HistoryTracers/Maya_"+value+".png\" />" : "&nbsp;");
+    $(tableID+" "+field).html((selector > 50) ? htGetMayanumberHTML(value) : "&nbsp;");
 }
 
 function htTranslationFillData(type, max)
