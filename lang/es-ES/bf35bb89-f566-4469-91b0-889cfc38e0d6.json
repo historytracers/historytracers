@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1775778089"
+      "1775832611"
    ],
    "authors": [
       ""
@@ -320,6 +320,69 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_moving",
+         "text": [
+            {
+               "text": "### Movimiento hacia la izquierda\n\nCon un entendimiento más profundo de los indígenas de América (*Abya Yala*), ahora podemos comprender cómo realizamos el recorrido de este camino desde la derecha, donde se encuentra el océano Atlántico, hasta el límite izquierdo, donde hallamos el océano Pacífico.\n\nNuestro primer paso es colocar el cero en el punto de partida, el límite derecho del continente americano (*Abya Yala*). A continuación, realizamos la cuenta. En este proceso, no podemos olvidar mantener el indicador de que vamos en dirección opuesta, es decir, el signo negativo (-).\n\nCon estas definiciones, podemos realizar la suma de los pasos.\n\n#### Los primeros pasos\n\nRealicemos el camino por etapas. Todo lo que aprendimos relacionado con el camino hacia la derecha (<htcite0>), es decir, el lado donde los números son positivos y siempre crecen, también es válido para el lado negativo, con una pequeña diferencia: después de realizar la suma, debemos analizar la dirección en la que estamos caminando.\n\nPor ejemplo, supongamos que damos 5 pasos desde el origen:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team",
+                     "page": "Caminando entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;-5<br />+&nbsp;&nbsp; 0<br />____________<br />&nbsp;&nbsp; -5</center></p><p class=\"desc\"><b>Cálculo 1</b>: Conteo de los pasos desde el cero hacia la izquierda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "La suma del **Cálculo 1** se realizó de la siguiente manera:\n- Primero, sumamos 5 a 0 (5 + 0), es decir, las unidades;\n- Luego, observamos que hay un signo negativo (-) delante del cinco y que el otro número, cero, no tiene signo por ser el origen, es decir, el cero es neutro. De esta forma, repetimos el signo en el resultado, para indicar que caminamos hacia la izquierda.\n\n#### Adentrándonos en el continente\n\nAhora que hemos dado 5 pasos hacia la izquierda, daremos 11 pasos más en la misma dirección y, en consecuencia, nos adentraremos aún más en el continente, para fijar el concepto:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;- 5<br />+&nbsp;&nbsp;-11<br />____________<br />&nbsp;&nbsp;-16</center></p><p class=\"desc\"><b>Cálculo 2</b>: Conteo de 11 pasos desde la posición -5 hacia la izquierda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En el **Cálculo 2**, tenemos dos números negativos. De esta forma, realizamos la suma del siguiente modo:\n- Sumamos las unidades (5 + 1 = 6);\n- Luego, sumamos las decenas (0 + 1 = 1);\n- Finalmente, observamos que ambos números indican posiciones a la izquierda, es decir, son números negativos. Así que repetimos el signo en el resultado.\n\nUna última nota sobre los signos: esta repetición del signo en el resultado, cuando ambos números son negativos, también puede entenderse mediante la “barba” que aparece en la **Tabla 1**, en el lado este.\n\nA medida que avanzamos hacia la izquierda, necesitamos mantener el signo negativo para indicar la dirección. De manera similar, con el paso del tiempo, la barba del rey (*ajaw*) fue creciendo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -327,6 +390,11 @@
          "question": "Ao somar dois números negativos, temos como resultado um número positivo?",
          "yesNoAnswer": "No",
          "additionalInfo": "Quando somamos dois números negativos, estamos caminhando ainda mais a esquerda, logo não há como eliminarmos o sinal, e por isto o resultado final será à esquerda."
+      },
+      {
+         "question": "Se somarmos -100 ao resultado do <b>Cálculo 2</b> teremos um resultado positivo?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Ao somarmos mais 100 passos à esquerda (-100), continuaremos nos movendo para dentro do continente no caminho Peabirú, desta forma, o resultado final (-116), continuará apontando para a esquerda."
       }
    ],
    "game_v2": null,
