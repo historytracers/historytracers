@@ -99,7 +99,9 @@ function htMoveAhead()
             htWriteValueOnScreen("#tc1f1", local.carriers);
         }
         if (local.carriers) {
-            htWriteValueOnScreen("#tc1f4", 1);
+            htWriteValueOnScreen("#tc1f4", -1);
+        } else {
+            htWriteValueOnScreen("#tc2f4", "- "+local.workingValue);
         }
     }
 
