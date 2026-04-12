@@ -57,7 +57,7 @@ function htNewAddition() {
     local.bottomValue =  htGetRandomArbitrary(100, 999);
     local.strBottomValue = local.bottomValue.toString();
     htWriteValueOnLine("3", local.bottomValue.toString());
-    $("#tc1f5").html(mathKeywords[11]+" <b>-"+local.topValue+" + -"+local.bottomValue+"</b><br />"+mathKeywords[12]+"<b>("+local.strTopValue[local.vectorIdx]+" + "+local.strBottomValue[local.vectorIdx]+")</b>");
+    $("#tc1f5").html(mathKeywords[11]+" <b>-"+local.topValue+" + -"+local.bottomValue+".</b><br />"+mathKeywords[12]+"<b>("+local.strTopValue[local.vectorIdx]+" + "+local.strBottomValue[local.vectorIdx]+").</b>");
 
     local.totalValue = local.topValue + local.bottomValue;
     htSetWorkingValue(local.strTopValue[local.vectorIdx], local.strBottomValue[local.vectorIdx]);
@@ -87,9 +87,9 @@ function htMoveAhead()
     if (!local.stop) {
         var message = mathKeywords[12]+" <b>("+local.strTopValue[local.vectorIdx]+" + "+local.strBottomValue[local.vectorIdx];
         if (local.carriers) {
-            message += ") + "+local.carriers+"</b><br />"+mathKeywords[13];
+            message += ") + "+local.carriers+".</b><br />"+mathKeywords[13];
         } else {
-            message += ")</b>";
+            message += ").</b>";
         }
         $("#tc1f5").html(message);
         htSetWorkingValue(local.strTopValue[local.vectorIdx], bottomV.toString());
