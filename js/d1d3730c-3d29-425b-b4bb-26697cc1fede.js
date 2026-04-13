@@ -26,7 +26,9 @@ function htWriteValueOnScreen(cell, value)
 function htWriteValueOnLine(line, value)
 {
     for (let i = 0, j = 2; i < 3; i++, j++) {
-        htWriteValueOnScreen("#tc"+j+"f"+line, value[i]);
+        let val = (j == 2) ? "- ": "";
+        val += value[i];
+        htWriteValueOnScreen("#tc"+j+"f"+line, val);
     }
 }
 
@@ -55,7 +57,7 @@ function htNewAddition() {
     local.bottomValue =  htGetRandomArbitrary(100, 999);
     local.strBottomValue = local.bottomValue.toString();
     htWriteValueOnLine("3", local.bottomValue.toString());
-    $("#tc1f5").html(mathKeywords[11]+" <b>"+local.topValue+" + "+local.bottomValue+".</b><br />"+mathKeywords[12]+"<b>("+local.strTopValue[local.vectorIdx]+" + "+local.strBottomValue[local.vectorIdx]+").</b>");
+    $("#tc1f5").html(mathKeywords[11]+" <b>-"+local.topValue+" + -"+local.bottomValue+".</b><br />"+mathKeywords[12]+"<b>("+local.strTopValue[local.vectorIdx]+" + "+local.strBottomValue[local.vectorIdx]+").</b>");
 
     local.totalValue = local.topValue + local.bottomValue;
     htSetWorkingValue(local.strTopValue[local.vectorIdx], local.strBottomValue[local.vectorIdx]);
@@ -97,7 +99,9 @@ function htMoveAhead()
             htWriteValueOnScreen("#tc1f1", local.carriers);
         }
         if (local.carriers) {
-            htWriteValueOnScreen("#tc1f4", 1);
+            htWriteValueOnScreen("#tc1f4", -1);
+        } else {
+            htWriteValueOnScreen("#tc2f4", "- "+local.workingValue);
         }
     }
 
