@@ -1145,9 +1145,9 @@ func (e *TextEditor) loadJSONEditorData() {
 		case "family_tree":
 			templateAdditionalFields = []string{"families", "common", "gedcom", "csv", "documentsInfo", "periodOfTime", "maps", "prerequisites", "exercise_v2", "date_time"}
 		case "atlas":
-			templateAdditionalFields = []string{"atlas", "content"}
+			templateAdditionalFields = []string{"atlas"}
 		case "class":
-			templateAdditionalFields = []string{"content", "exercise_v2", "date_time"}
+			templateAdditionalFields = []string{"exercise_v2", "date_time", "game_v2"}
 		default:
 			// For unknown types, extract all non-header fields
 			for k, v := range dataMap {
@@ -1181,8 +1181,17 @@ func (e *TextEditor) loadJSONEditorData() {
 		}
 	}
 
-	// Show full JSON content
-	e.jsonContentEntry.SetText(content)
+	// Show only the content field in the Content tab
+	if dataMap, ok := jsonData.(map[string]interface{}); ok {
+		if contentField, exists := dataMap["content"]; exists {
+			contentJSON, _ := json.MarshalIndent(contentField, "", "  ")
+			e.jsonContentEntry.SetText(string(contentJSON))
+		} else {
+			e.jsonContentEntry.SetText("{}")
+		}
+	} else {
+		e.jsonContentEntry.SetText("{}")
+	}
 }
 
 func (e *TextEditor) disableAllFormFields() {
