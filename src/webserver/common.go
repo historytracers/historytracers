@@ -796,7 +796,12 @@ func htChangeTag2Keywords(text string) string {
 	ret = strings.ReplaceAll(ret, "<span id=\"htAgeMsg\"></span>", commonKeywords[131])
 	ret = strings.ReplaceAll(ret, "<p id=\"htChinaZhongguo\"></p>", commonKeywords[137])
 	ret = strings.ReplaceAll(ret, "<p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p>", commonKeywords[137])
+	ret = strings.ReplaceAll(ret, "<p id=\"htJapanNipponNihonKoku\"></p>", commonKeywords[139])
+	ret = strings.ReplaceAll(ret, "<p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>", commonKeywords[139])
 	ret = strings.ReplaceAll(ret, "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\"></div>", "<div class=\"first_steps_reflection\" id=\"htReligiousReflection\">"+commonKeywords[69]+"</div>")
+
+	ret = strings.ReplaceAll(ret, "<a href=\"https://whc.unesco.org/en/licenses/6\" target=\"_blank\">Creative Commons Attribution-ShareAlike 3.0 IGO</a>", "Creative Commons Attribution-ShareAlike 3.0 IGO")
+	ret = strings.ReplaceAll(ret, "<a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>", "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)")
 
 	return ret
 }
