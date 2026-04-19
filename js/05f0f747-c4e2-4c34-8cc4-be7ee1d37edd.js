@@ -24,5 +24,8 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    htWriteMultiplicationTable("#mParent1", 1);
+    htFillMultiplicationTable("chart4", 1, 1, false, true);
+
     return false;
 }
