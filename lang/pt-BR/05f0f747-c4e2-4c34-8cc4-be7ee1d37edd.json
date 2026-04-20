@@ -403,7 +403,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>-1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 2</b>: Resultado da multiplicação por -1.</p>",
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>-N</mi> <mo>=</mo> <mi>-1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 2</b>: Resultado da multiplicação por -1.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -467,6 +467,95 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_unifying",
+         "text": [
+            {
+               "text": "### Unificando\n\nUma das possíveis traduções para *Peabirú* é “caminho de ida e volta” (<htcite0>), fato que indica que podemos percorrê-lo em duas direções.\n\nAo observarmos os **Gráficos 1 e 2**, podemos ver que o **Gráfico 1** começa no ponto zero, seu mínimo, e vai aumentando à medida que nos afastamos para a direita. Por outro lado, ao olharmos o **Gráfico 2**, podemos dizer que, em seu extremo mais à direita, temos o zero, seu máximo, e, à medida que nos afastamos para a esquerda, ele vai diminuindo.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "035560e0-0a4b-4b81-9df6-6c14cf429e81",
+                     "text": "Alomía-Lucero, J. M., & Sixto-Dávila, L.",
+                     "page": "pp. 5",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: E o gráfico (Parte II)?</b><br /><br />É possível unir os dois gráficos?<br /><br />Se você respondeu “sim”, como faria isso?<br /><br />Se acha que não, por que chegou a essa conclusão?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Refletindo um pouco mais\n\nCaso tenha chegado à conclusão de que não é possível unificar os gráficos, isso apenas indica que algumas coisas ainda não estão claras. Vamos auxiliá-lo a aprofundar seus conhecimentos.\n\nObserve que, nas **Fórmulas 1 e 2**, estamos sempre multiplicando os números *N* por valores que não mudam, ou seja, constantes. Entretanto, em uma fórmula temos 1 e, na outra, a constante é -1.\n\nEm vez de termos duas fórmulas diferentes para as tabuadas, podemos adotar algo mais genérico. Em vez de considerarmos *N* apenas como números positivos, podemos visualizá-los como valores negativos ou positivos, dependendo da posição em que se encontram na reta horizontal dos gráficos. Quanto à constante, utilizamos sempre 1. Com isso, podemos usar a **Fórmula 1** removendo a restrição de **N** ser apenas maior que zero e, como consequência, chegamos ao **Gráfico 3**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Pontos da tabuada de um conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Um último ponto que gostaríamos de ressaltar é que a conexão entre os pontos realizada no **Gráfico 3** é dada pela multiplicação de números existentes entre os valores, como já foi inicialmente estudado no *History Tracers* (<htcite0>), mas que ainda será aprofundado adiante.",
+               "source": [
+            {
+               "type": 1,
+               "uuid": "010490cd-6da9-4992-a765-8a03188da892",
+               "text": "History Tracers Team",
+               "page": "Realidade",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2026",
+                  "month": "",
+                  "day": ""
+               }
+            }
+                ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
