@@ -47,6 +47,35 @@ func htShouldClearEmptyValues(slice []string) bool {
 	return true
 }
 
+func htReorderFamilyFields(famMap map[string]interface{}) map[string]interface{} {
+	ordered := make(map[string]interface{})
+	added := make(map[string]bool)
+	priorityKeys := []string{"id", "name"}
+
+	for _, key := range priorityKeys {
+		if val, exists := famMap[key]; exists {
+			ordered[key] = val
+			added[key] = true
+		}
+	}
+
+	arrangedKeys := []string{"history", "common", "persons", "spouses", "children", "theories", "notes", "favorites"}
+	for _, key := range arrangedKeys {
+		if val, exists := famMap[key]; exists {
+			ordered[key] = val
+			added[key] = true
+		}
+	}
+
+	for key, val := range famMap {
+		if !added[key] {
+			ordered[key] = val
+		}
+	}
+
+	return ordered
+}
+
 type Document struct {
 	content         *widget.Entry
 	filePath        string
@@ -114,6 +143,7 @@ type TextEditor struct {
 	scriptsCombo           *widget.Select
 	audioCombo             *widget.Select
 	indexCombo             *widget.Select
+	jsonTemplateType       string
 }
 
 func (e *TextEditor) findText() {
@@ -997,7 +1027,20 @@ func (e *TextEditor) loadJSONEditorData() {
 		e.disableAllFormFields()
 		e.jsonContentEntry.SetText(content)
 		e.jsonAdditionalEntry.SetText("")
+		e.jsonTemplateType = ""
+		// Reset tab name in case it was changed
+		if e.jsonEditorTabs != nil && len(e.jsonEditorTabs.Items) > 2 {
+			e.jsonEditorTabs.Items[2].Text = "Content"
+		}
 		return
+	}
+
+	// Detect template type FIRST before any processing
+	e.jsonTemplateType = ""
+	if dataMap, ok := jsonData.(map[string]interface{}); ok {
+		if t, exists := dataMap["type"]; exists {
+			e.jsonTemplateType = fmt.Sprintf("%v", t)
+		}
 	}
 
 	// Extract headers based on JSON structure
@@ -1127,6 +1170,7 @@ func (e *TextEditor) loadJSONEditorData() {
 		// Valid JSON but not an object (e.g., array, string, etc.)
 		// Disable all header fields
 		e.disableAllFormFields()
+		e.jsonTemplateType = ""
 	}
 
 	// Extract additional fields based on template type
@@ -1134,16 +1178,13 @@ func (e *TextEditor) loadJSONEditorData() {
 		additionalFields := make(map[string]interface{})
 		headerFields := []string{"title", "header", "index", "authors", "reviewers", "last_update", "version", "license", "sources", "scripts", "audio"}
 
-		// Detect template type and define additional fields
-		var templateType string
-		if t, exists := dataMap["type"]; exists {
-			templateType = fmt.Sprintf("%v", t)
-		}
+		// Use the template type detected earlier
+		templateType := e.jsonTemplateType
 
 		var templateAdditionalFields []string
 		switch templateType {
 		case "family_tree":
-			templateAdditionalFields = []string{"families", "common", "gedcom", "csv", "documentsInfo", "periodOfTime", "maps", "prerequisites", "exercise_v2", "date_time"}
+			templateAdditionalFields = []string{"common", "gedcom", "csv", "documentsInfo", "periodOfTime", "maps", "prerequisites", "exercise_v2", "date_time"}
 		case "atlas":
 			templateAdditionalFields = []string{"atlas"}
 		case "class":
@@ -1183,14 +1224,51 @@ func (e *TextEditor) loadJSONEditorData() {
 
 	// Show only the content field in the Content tab
 	if dataMap, ok := jsonData.(map[string]interface{}); ok {
-		if contentField, exists := dataMap["content"]; exists {
-			contentJSON, _ := json.MarshalIndent(contentField, "", "  ")
-			e.jsonContentEntry.SetText(string(contentJSON))
-		} else {
-			e.jsonContentEntry.SetText("{}")
+		switch e.jsonTemplateType {
+		case "family_tree":
+			if familiesField, exists := dataMap["families"]; exists && familiesField != nil {
+				if familiesArray, ok := familiesField.([]interface{}); ok {
+					reorderedFamilies := make([]interface{}, len(familiesArray))
+					for i, fam := range familiesArray {
+						if famMap, ok := fam.(map[string]interface{}); ok {
+							reorderedFamilies[i] = htReorderFamilyFields(famMap)
+						} else {
+							reorderedFamilies[i] = fam
+						}
+					}
+					familiesJSON, _ := json.MarshalIndent(reorderedFamilies, "", "  ")
+					e.jsonContentEntry.SetText(string(familiesJSON))
+				} else {
+					familiesJSON, _ := json.MarshalIndent(familiesField, "", "  ")
+					e.jsonContentEntry.SetText(string(familiesJSON))
+				}
+			} else {
+				e.jsonContentEntry.SetText("[]")
+			}
+		default:
+			if contentField, exists := dataMap["content"]; exists {
+				contentJSON, _ := json.MarshalIndent(contentField, "", "  ")
+				e.jsonContentEntry.SetText(string(contentJSON))
+			} else {
+				e.jsonContentEntry.SetText("{}")
+			}
 		}
 	} else {
 		e.jsonContentEntry.SetText("{}")
+	}
+
+	// Refresh the widgets
+	e.jsonContentEntry.Refresh()
+	if e.jsonEditorTabs != nil {
+		e.jsonEditorTabs.Refresh()
+	}
+
+	// Rename Content tab based on template type
+	if e.jsonEditorTabs != nil && len(e.jsonEditorTabs.Items) > 2 {
+		e.jsonEditorTabs.Items[2].Text = "Content"
+		if e.jsonTemplateType == "family_tree" {
+			e.jsonEditorTabs.Items[2].Text = "Families"
+		}
 	}
 }
 
@@ -1305,6 +1383,19 @@ func (e *TextEditor) saveJSONEditorChanges() {
 
 	if len(e.audioCombo.Options) > 0 {
 		jsonData["audio"] = htFilterEmptyStrings(e.audioCombo.Options)
+	}
+
+	// Merge the content/families field
+	contentEntryText := e.jsonContentEntry.Text
+	if contentEntryText != "" && contentEntryText != "{}" && contentEntryText != "[]" {
+		var contentData interface{}
+		if err := json.Unmarshal([]byte(contentEntryText), &contentData); err == nil {
+			if e.jsonTemplateType == "family_tree" {
+				jsonData["families"] = contentData
+			} else {
+				jsonData["content"] = contentData
+			}
+		}
 	}
 
 	// Merge additional fields
