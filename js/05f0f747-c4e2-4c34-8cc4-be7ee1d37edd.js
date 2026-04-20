@@ -25,7 +25,10 @@ function htLoadContent() {
     htWriteNavigation();
 
     htWriteMultiplicationTable("#mParent1", 1);
+    htWriteMultiplicationTable("#mParent2", -1);
+
     htFillMultiplicationTable("chart4", 1, 1, false, true);
+    htFillMultiplicationTable("chart5", -1, -1, false, true);
 
     return false;
 }

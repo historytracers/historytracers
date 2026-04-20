@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1776630643"
+      "1776645863"
    ],
    "authors": [
       ""
@@ -207,7 +207,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>10</mi> </math></p><p class=\"desc\"><b>Cálculo 1</b>: Soma de todos os dez passos dados a direita.</p>",
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>10</mi> </math></p><p class=\"desc\"><b>Cálculo 1</b>: Soma de todos os dez passos dados à direita.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -332,6 +332,123 @@
             },
             {
                "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Pontos da tabuada de um conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mirror",
+         "text": [
+            {
+               "text": "### Multiplicando à esquerda\n\nO processo de realizar multiplicações à esquerda é rigorosamente o mesmo que recordamos. Isso quer dizer que iremos repetir números uma mesma quantidade de vezes, mas, por estarmos em uma direção oposta, usaremos o sinal negativo. Para deixar essa comparação mais clara, iremos reescrever as mesmas etapas realizadas para os números positivos, agora para os números negativos.\n\n#### A soma\n\nComo estamos caminhando à esquerda, somamos números negativos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>=</mo> <mi>-10</mi> </math></p><p class=\"desc\"><b>Cálculo 3</b>: Soma de todos os dez passos dados à esquerda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Uma nova representação\n\nDa mesma maneira que representamos somas consecutivas à direita, também podemos representá-las à esquerda:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>10</mn></mrow> </munderover> <mi>-1</mi> <mo>=</mo> <mi>10 × (-1)</mi>  <mo>=</mo> <mi>-10</mi></math></p><p class=\"desc\"><b>Cálculo 4</b>: Soma de todos os passos à esquerda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Observe que, no **Cálculo 4**, apesar de a quantidade de passos ser positiva (10), como estamos caminhando à esquerda, mantemos o sinal negativo para indicar nossa direção.\n\n#### Tabulando\n\nPara escrever a tabuada, faremos uma pequena modificação na **Fórmula 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>-1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 2</b>: Resultado da multiplicação por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ao usarmos a **Fórmula 2** para criar uma tabuada, não podemos esquecer de adicionar o sinal negativo ao resultado, indicando a direção em que estamos caminhando:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: E o gráfico?</b><br /><br />Vimos que o sinal negativo indica que estamos indo em uma direção oposta. O que acontece ao multiplicarmos por números negativos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ao olharmos o **Gráfico 1**, observamos que, ao nos afastarmos do zero à direita, o resultado também se afasta da linha horizontal na direção para cima. Como continuamos somando números repetidos quando multiplicamos por números negativos, devemos novamente nos afastar da linha horizontal; entretanto, faremos isso na direção oposta à dos números positivos, ou seja, para baixo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Pontos da tabuada de -1 conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,

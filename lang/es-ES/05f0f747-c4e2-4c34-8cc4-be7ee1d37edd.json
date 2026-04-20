@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1776630638"
+      "1776645850"
    ],
    "authors": [
       ""
@@ -332,6 +332,123 @@
             },
             {
                "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Puntos de la tabla del uno conectados, formando una recta. Gráfico hecho con la librería <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mirror",
+         "text": [
+            {
+               "text": "### Multiplicando a la izquierda\n\nEl proceso de realizar multiplicaciones hacia la izquierda es exactamente el mismo que recordamos. Esto significa que repetiremos números la misma cantidad de veces, pero, como vamos en dirección opuesta, usaremos el signo negativo. Para hacer más clara esta comparación, reescribiremos los mismos pasos realizados para los números positivos, ahora para los números negativos.\n\n#### La suma\n\nComo estamos caminando hacia la izquierda, sumamos números negativos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>=</mo> <mi>-10</mi> </math></p><p class=\"desc\"><b>Cálculo 3</b>: Suma de todos los diez pasos dados hacia la izquierda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Una nueva representación\n\nDel mismo modo que representamos sumas consecutivas hacia la derecha, también podemos representarlas hacia la izquierda:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>10</mn></mrow> </munderover> <mi>-1</mi> <mo>=</mo> <mi>10 × (-1)</mi>  <mo>=</mo> <mi>-10</mi></math></p><p class=\"desc\"><b>Cálculo 4</b>: Suma de todos los pasos hacia la izquierda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Observa que, en el **Cálculo 4**, aunque la cantidad de pasos sea positiva (10), como estamos caminando hacia la izquierda, mantenemos el signo negativo para indicar nuestra dirección.\n\n#### Tabulando\n\nPara escribir la tabla de multiplicar, haremos una pequeña modificación en la **Fórmula 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>-1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 2</b>: Resultado de la multiplicación por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al usar la **Fórmula 2** para crear una tabla de multiplicar, no podemos olvidar añadir el signo negativo al resultado, indicando la dirección en la que estamos caminando:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Y el gráfico?</b><br /><br />Vimos que el signo negativo indica que vamos en dirección opuesta. ¿Qué sucede al multiplicar por números negativos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al observar el **Gráfico 1**, vemos que, al alejarnos del cero hacia la derecha, el resultado también se aleja de la línea horizontal en dirección hacia arriba. Como seguimos sumando números repetidos cuando multiplicamos por números negativos, debemos alejarnos nuevamente de la línea horizontal; sin embargo, lo haremos en dirección opuesta a la de los números positivos, es decir, hacia abajo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Puntos de la tabla del -1 conectados, formando una recta. Gráfico realizado con la librería <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,

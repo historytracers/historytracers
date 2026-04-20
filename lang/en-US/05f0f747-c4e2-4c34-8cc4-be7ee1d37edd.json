@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1776630632"
+      "1776645827"
    ],
    "authors": [
       ""
@@ -332,6 +332,123 @@
             },
             {
                "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 1</b>: Points of the 1 times table connected, forming a straight line. Graph made with the <htcite0> library.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mirror",
+         "text": [
+            {
+               "text": "### Multiplying to the left\n\nThe process of performing multiplications to the left is exactly the same as we remember. This means we will repeat numbers the same number of times, but because we are moving in the opposite direction, we will use the negative sign. To make this comparison clearer, we will rewrite the same steps performed for positive numbers, now for negative numbers.\n\n#### The sum\n\nSince we are walking to the left, we add negative numbers:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>=</mo> <mi>-10</mi> </math></p><p class=\"desc\"><b>Calculation 3</b>: Sum of all ten steps taken to the left.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### A new representation\n\nJust as we represented consecutive sums to the right, we can also represent them to the left:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>10</mn></mrow> </munderover> <mi>-1</mi> <mo>=</mo> <mi>10 × (-1)</mi>  <mo>=</mo> <mi>-10</mi></math></p><p class=\"desc\"><b>Calculation 4</b>: Sum of all steps to the left.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Notice that in **Calculation 4**, although the number of steps is positive (10), since we are walking to the left, we keep the negative sign to indicate our direction.\n\n#### Tabulating\n\nTo write the multiplication table, we will make a small modification to **Formula 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>-1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Formula 2</b>: Result of multiplication by -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "When using **Formula 2** to create a multiplication table, we must not forget to add the negative sign to the result, indicating the direction we are walking:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: What about the graph?</b><br /><br />We saw that the negative sign indicates we are going in the opposite direction. What happens when we multiply by negative numbers?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Looking at **Graph 1**, we observe that as we move away from zero to the right, the result also moves away from the horizontal line in the upward direction. Since we continue adding repeated numbers when multiplying by negative numbers, we must again move away from the horizontal line; however, we will do so in the opposite direction to that of positive numbers, that is, downward.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 2</b>: Points from the -1 multiplication table connected, forming a straight line. Graph made with the <htcite0> license.</div></p>",
                "source": [
                   {
                      "type": 1,
