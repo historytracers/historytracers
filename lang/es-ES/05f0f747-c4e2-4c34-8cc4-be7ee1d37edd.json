@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1776645850"
+      "1776709032"
    ],
    "authors": [
       ""
@@ -470,6 +470,95 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_unifying",
+         "text": [
+            {
+               "text": "### Unificando\n\nUna de las posibles traducciones de *Peabirú* es “camino de ida y vuelta” (<htcite0>), hecho que indica que podemos recorrerlo en dos direcciones.\n\nAl observar las **Gráficas 1 y 2**, podemos ver que la **Gráfica 1** comienza en el punto cero, su mínimo, y va aumentando a medida que nos desplazamos hacia la derecha. Por otro lado, al mirar la **Gráfica 2**, podemos decir que en su extremo más a la derecha tenemos el cero, su máximo, y que a medida que nos desplazamos hacia la izquierda, va disminuyendo.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "035560e0-0a4b-4b81-9df6-6c14cf429e81",
+                     "text": "Alomía-Lucero, J. M., & Sixto-Dávila, L.",
+                     "page": "pp. 5",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Y la gráfica (Parte II)?</b><br /><br />¿Es posible unir las dos gráficas?<br /><br />Si respondiste “sí”, ¿cómo lo harías?<br /><br />Si crees que no, ¿por qué llegaste a esa conclusión?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Reflexionando un poco más\n\nSi llegaste a la conclusión de que no es posible unificar las gráficas, eso solo indica que algunas cosas aún no están claras. Te ayudaremos a profundizar tus conocimientos.\n\nObserva que, en las **Fórmulas 1 y 2**, siempre estamos multiplicando los números *N* por valores que no cambian, es decir, constantes. Sin embargo, en una fórmula tenemos 1 y, en la otra, la constante es -1.\n\nEn lugar de tener dos fórmulas diferentes para las tablas de multiplicar, podemos adoptar algo más genérico. En vez de considerar *N* solo como números positivos, podemos visualizarlos como valores negativos o positivos, dependiendo de la posición en que se encuentren en la recta horizontal de las gráficas. En cuanto a la constante, usamos siempre 1. Con ello, podemos usar la **Fórmula 1** eliminando la restricción de que *N* sea solo mayor que cero y, como consecuencia, llegamos a la **Gráfica 3**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfic 3:</b> Puntos de la tabla de multiplicar del uno conectados, formando una recta. Gráfica realizada con la librería <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Un último punto que nos gustaría destacar es que la conexión entre los puntos realizada en la **Gráfica 3** viene dada por la multiplicación de números existentes entre los valores, como ya se estudió inicialmente en *History Tracers* (<htcite0>), pero que se profundizará más adelante.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "010490cd-6da9-4992-a765-8a03188da892",
+                     "text": "History Tracers Team",
+                     "page": "Realidade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -477,6 +566,11 @@
          "question": "Entendmos a multiplicação como somas repetidas do mesmo número?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "A multilpicação e soma estão ligadas, sendo a multiplicação entendida como somas repetidas da mesma quantidade."
+      },
+      {
+         "question": "As \"tabuadas\" de 1 e -1 possuem alguma relação?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Ao multiplicarmos por 1 tanto valores positivos quanto negativos do eixo horizontal, conseguimos obter o mesmo resultado para ambas as \"tabuadas\", ou seja, quando fizemos a \"tabuada de -1\" criamos um método para ensinar o que já haviamos estudado antes e aprender um novo conteúdo."
       }
    ],
    "game_v2": null,

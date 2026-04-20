@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1776645827"
+      "1776709024"
    ],
    "authors": [
       ""
@@ -470,6 +470,95 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_unifying",
+         "text": [
+            {
+               "text": "### Unifying\n\nOne possible translation for *Peabirú* is “round-trip path” (<htcite0>), a fact that indicates we can traverse it in two directions.\n\nWhen observing **Graphs 1 and 2**, we can see that **Graph 1** starts at point zero, its minimum, and increases as we move to the right. On the other hand, when looking at **Gráfica 2**, we can say that at its far right end we have zero, its maximum, and as we move to the left, it decreases.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "035560e0-0a4b-4b81-9df6-6c14cf429e81",
+                     "text": "Alomía-Lucero, J. M., & Sixto-Dávila, L.",
+                     "page": "pp. 5",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: What about the graph (Part II)?</b><br /><br />Is it possible to join the two graphs?<br /><br />If you answered “yes”, how would you do it?<br /><br />If you think not, why did you reach that conclusion?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Reflecting a bit further\n\nIf you have concluded that it is not possible to unify the graphs, this only indicates that some things are still unclear. We will help you deepen your knowledge.\n\nNotice that, in **Formulas 1 and 2**, we are always multiplying the numbers N by values that do not change, i.e., constants. However, in one formula we have 1, and in the other, the constant is -1.\n\nInstead of having two different formulas for the multiplication tables, we can adopt something more generic. Instead of considering *N* only as positive numbers, we can visualize them as negative or positive values, depending on their position on the horizontal line of the graphs. As for the constant, we always use 1. With this, we can use **Formula 1** by removing the restriction that *N* is only greater than zero and, as a consequence, we arrive at **Graph 3**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 3:</b> Points of the multiplication table of one connected, forming a straight line. Graph made with the <htcite0> library.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "One final point we would like to emphasize is that the connection between the points made in **Graph 3** is given by the multiplication of numbers existing between the values, as was initially studied in *History Tracers* (<htcite0>), pero que se profundizará más adelante.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "010490cd-6da9-4992-a765-8a03188da892",
+                     "text": "History Tracers Team",
+                     "page": "Realidade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -477,6 +566,11 @@
          "question": "Entendmos a multiplicação como somas repetidas do mesmo número?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "A multilpicação e soma estão ligadas, sendo a multiplicação entendida como somas repetidas da mesma quantidade."
+      },
+      {
+         "question": "As \"tabuadas\" de 1 e -1 possuem alguma relação?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Ao multiplicarmos por 1 tanto valores positivos quanto negativos do eixo horizontal, conseguimos obter o mesmo resultado para ambas as \"tabuadas\", ou seja, quando fizemos a \"tabuada de -1\" criamos um método para ensinar o que já haviamos estudado antes e aprender um novo conteúdo."
       }
    ],
    "game_v2": null,

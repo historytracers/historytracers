@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1776645863"
+      "1776709049"
    ],
    "authors": [
       ""
@@ -506,7 +506,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Refletindo um pouco mais\n\nCaso tenha chegado à conclusão de que não é possível unificar os gráficos, isso apenas indica que algumas coisas ainda não estão claras. Vamos auxiliá-lo a aprofundar seus conhecimentos.\n\nObserve que, nas **Fórmulas 1 e 2**, estamos sempre multiplicando os números *N* por valores que não mudam, ou seja, constantes. Entretanto, em uma fórmula temos 1 e, na outra, a constante é -1.\n\nEm vez de termos duas fórmulas diferentes para as tabuadas, podemos adotar algo mais genérico. Em vez de considerarmos *N* apenas como números positivos, podemos visualizá-los como valores negativos ou positivos, dependendo da posição em que se encontram na reta horizontal dos gráficos. Quanto à constante, utilizamos sempre 1. Com isso, podemos usar a **Fórmula 1** removendo a restrição de **N** ser apenas maior que zero e, como consequência, chegamos ao **Gráfico 3**:",
+               "text": "#### Refletindo um pouco mais\n\nCaso tenha chegado à conclusão de que não é possível unificar os gráficos, isso apenas indica que algumas coisas ainda não estão claras. Vamos auxiliá-lo a aprofundar seus conhecimentos.\n\nObserve que, nas **Fórmulas 1 e 2**, estamos sempre multiplicando os números *N* por valores que não mudam, ou seja, constantes. Entretanto, em uma fórmula temos 1 e, na outra, a constante é -1.\n\nEm vez de termos duas fórmulas diferentes para as tabuadas, podemos adotar algo mais genérico. Em vez de considerarmos *N* apenas como números positivos, podemos visualizá-los como valores negativos ou positivos, dependendo da posição em que se encontram na reta horizontal dos gráficos. Quanto à constante, utilizamos sempre 1. Com isso, podemos usar a **Fórmula 1** removendo a restrição de *N* ser apenas maior que zero e, como consequência, chegamos ao **Gráfico 3**:",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -539,19 +539,19 @@
             {
                "text": "Um último ponto que gostaríamos de ressaltar é que a conexão entre os pontos realizada no **Gráfico 3** é dada pela multiplicação de números existentes entre os valores, como já foi inicialmente estudado no *History Tracers* (<htcite0>), mas que ainda será aprofundado adiante.",
                "source": [
-            {
-               "type": 1,
-               "uuid": "010490cd-6da9-4992-a765-8a03188da892",
-               "text": "History Tracers Team",
-               "page": "Realidade",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-                ],
+                  {
+                     "type": 1,
+                     "uuid": "010490cd-6da9-4992-a765-8a03188da892",
+                     "text": "History Tracers Team",
+                     "page": "Realidade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -566,6 +566,11 @@
          "question": "Entendmos a multiplicação como somas repetidas do mesmo número?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "A multilpicação e soma estão ligadas, sendo a multiplicação entendida como somas repetidas da mesma quantidade."
+      },
+      {
+         "question": "As \"tabuadas\" de 1 e -1 possuem alguma relação?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Ao multiplicarmos por 1 tanto valores positivos quanto negativos do eixo horizontal, conseguimos obter o mesmo resultado para ambas as \"tabuadas\", ou seja, quando fizemos a \"tabuada de -1\" criamos um método para ensinar o que já haviamos estudado antes e aprender um novo conteúdo."
       }
    ],
    "game_v2": null,
