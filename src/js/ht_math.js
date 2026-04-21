@@ -522,10 +522,24 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
     var xVector = (isNotContinuous) ? [ 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10] : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] ;
     var datasets = [ ];
 
+    let step = 0.5;
+    let beg = tmin;
+    let end = tmax;
+    if (tmin < 0 && tmax < 0) {
+        beg = tmax;
+        end = tmin;
+        
+        step = -1 * step;
+        for (let i = 0; i < xVector.length; i++) {
+            xVector[i] *= -1;
+        }
+        xVector.reverse();
+    }
+
     var yMax = 0;
-    for (let i = tmin; i <= tmax; i++) {
+    for (let i = beg; i <= end; i++) {
         var yVector = [ ];
-        for (let j = 0, k = 0; j < xVector.length ; j++, k += 0.5) {
+        for (let j = 0, k = 0; j < xVector.length ; j++, k += step) {
             if (isNotContinuous) {
                 yMax = ( (j % 2) == 0)? i * k: null;
             } else {
@@ -534,6 +548,9 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
             yVector.push(yMax);
         }
 
+        if (tmin < 0 && tmax < 0) {
+            yVector.reverse();
+        }
         var obj = {
                     data : yVector,
                     label : mathKeywords[16]+i,
@@ -544,6 +561,14 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
 
     if (yMax == 0) { yMax = 10; }
 
+    let localChartMin = 0;
+    let localChartMax = yMax;
+
+    if (tmin < 0 && tmax < 0) {
+        localChartMin = yMax;
+        localChartMax = 0;
+    }
+
     var chartOptions = {
         "datasets": datasets,
         "chartId" : target,
@@ -552,8 +577,8 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
         "xLable": mathKeywords[15],
         "xType" : "linear",
         "datasetFill" : false,
-        "ymin": 0,
-        "ymax": yMax,
+        "ymin": localChartMin,
+        "ymax": localChartMax,
         "useCallBack": false
     };
     return htPlotConstantContinuousChart(chartOptions);
@@ -561,7 +586,8 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
 
 function htDrawMultiplicationTable(target, angularC, repeat) {
     var angulartext = "";
-    for (let i = 0; i < angularC; i++) {
+    let angVal = (angularC >= 0 ) ? angularC : -1*parseInt(angularC);
+    for (let i = 0; i < angVal; i++) {
         angulartext += "<i class=\"fa-solid fa-star\" style=\"font-size:0.8em;\"></i>";
     }
 
@@ -572,8 +598,9 @@ function htDrawMultiplicationTable(target, angularC, repeat) {
     }
 
     
+    let prefix = (angularC >= 0) ? "" : "-";
     for (let i = 0; i < repeat; i++) {
-        text += angulartext+"<br />";
+        text += prefix+angulartext+"<br />";
     }
 
     if (repeat % 2 == 1) {
