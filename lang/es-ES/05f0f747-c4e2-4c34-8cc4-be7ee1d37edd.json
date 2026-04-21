@@ -1,0 +1,592 @@
+{
+   "title": "Modulando (Parte II)",
+   "header": "Modulando (Parte II)",
+   "sources": [
+      "05f0f747-c4e2-4c34-8cc4-be7ee1d37edd"
+   ],
+   "scripts": [
+      "05f0f747-c4e2-4c34-8cc4-be7ee1d37edd"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/05f0f747-c4e2-4c34-8cc4-be7ee1d37edd_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4YATmPi1QmbhVi8Fe4PLCi?si=gPnORxDKSSa_4mv2yQN9rA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps_volume2"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1776735097"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste texto da continuidad a las enseñanzas sobre cómo realizar la suma de números negativos y su representación. Por ello, sugerimos estudiar el texto anterior (<htcite0>) antes de continuar.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1d69a491-3e55-4eec-abee-70374df66efc",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_Introdction",
+         "text": [
+            {
+               "text": "### Introducción\n\nAl realizar la suma de números negativos, observamos que efectuamos los cálculos de la misma manera que cuando realizamos sumas con números positivos. Como consecuencia, podemos entender que las sumas, en este escenario, son como caminar por un sendero como el Peabirú en América (*Abya Yala*) (**Figura 1**) (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1d69a491-3e55-4eec-abee-70374df66efc",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"images/Mapswire/world-physical-map-graticules-mercator-v1_Peabiru.jpg\" id=\"imgPeabiru\" onclick=\"htImageZoom('imgPeabiru', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representación del camino del Peabirú seguido por Aleixo Garcia. © Mapswire (<htcite0>). Compartido bajo la licencia <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).</a></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El hecho de caminar de la misma manera, independientemente de la dirección, trae otra analogía ya utilizada en *History Tracers*, pero esta vez relacionada con el acto de realizar la misma operación repetidas veces, es decir, multiplicar (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando los mismos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Multiplicando allá como aquí</b><br /><br />La multiplicación es la suma repetida de números (<htcite0>). ¿Podemos decir que multiplicamos a la izquierda igual que a la derecha, con la diferencia de que mantenemos los signos negativos a la izquierda?</div></div></center>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando los mismos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_remembering",
+         "text": [
+            {
+               "text": "### Recordando\n\nVamos recordar las conclusiones que tuvimos relacionadas con la multiplicación de números positivos antes de dar los primeros pasos hacia los números negativos.\n\n#### La suma\n\nPrimeramente, vimos que, al dar 10 pasos hacia la derecha, podríamos representar esos pasos de la siguiente forma (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando los mismos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>10</mi> </math></p><p class=\"desc\"><b>Cálculo 1</b>: Suma de todos los diez pasos dados a la derecha.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Una nueva representación\n\nEn el mismo texto, también vimos que podríamos reescribir la suma sucesiva de los valores de la siguiente manera (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Sumando los mismos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>10</mn></mrow> </munderover> <mi>1</mi> <mo>=</mo> <mi>10 × (1)</mi>  <mo>=</mo> <mi>10</mi></math></p><p class=\"desc\"><b>Cálculo 2</b>: Suma de todos los pasos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Tabulando\n\nAl continuar nuestros estudios, vimos que, como ciertos resultados son comunes, podemos escribirlos en forma de tabla mediante la fórmula (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendo a Tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Resultado de la multiplicación por uno.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al usar la **Fórmula 1**, aprendimos que llegamos a la siguiente tabla, a la que nombramos **Tabla del 1** (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la Tabla de Multiplicar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent1\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Y, finalmente, aprendimos que podemos dibujar un gráfico con los números que multiplicamos (<htcite0>) y, si unimos los puntos, podemos obtener el dibujo de una recta (**Gráfico 1**) :",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la Tabla de Multiplicar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Puntos de la tabla del uno conectados, formando una recta. Gráfico hecho con la librería <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mirror",
+         "text": [
+            {
+               "text": "### Multiplicando a la izquierda\n\nEl proceso de realizar multiplicaciones hacia la izquierda es exactamente el mismo que recordamos. Esto significa que repetiremos números la misma cantidad de veces, pero, como vamos en dirección opuesta, usaremos el signo negativo. Para hacer más clara esta comparación, reescribiremos los mismos pasos realizados para los números positivos, ahora para los números negativos.\n\n#### La suma\n\nComo estamos caminando hacia la izquierda, sumamos números negativos:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>+</mo> <mi>-1</mi> <mo>=</mo> <mi>-10</mi> </math></p><p class=\"desc\"><b>Cálculo 3</b>: Suma de todos los diez pasos dados hacia la izquierda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Una nueva representación\n\nDel mismo modo que representamos sumas consecutivas hacia la derecha, también podemos representarlas hacia la izquierda:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>10</mn></mrow> </munderover> <mi>-1</mi> <mo>=</mo> <mi>10 × (-1)</mi>  <mo>=</mo> <mi>-10</mi></math></p><p class=\"desc\"><b>Cálculo 4</b>: Suma de todos los pasos hacia la izquierda.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Observa que, en el **Cálculo 4**, aunque la cantidad de pasos sea positiva (10), como estamos caminando hacia la izquierda, mantenemos el signo negativo para indicar nuestra dirección.\n\n#### Tabulando\n\nPara escribir la tabla de multiplicar, haremos una pequeña modificación en la **Fórmula 1**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>-N</mi> <mo>=</mo> <mi>-1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 2</b>: Resultado de la multiplicación por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al usar la **Fórmula 2** para crear una tabla de multiplicar, no podemos olvidar añadir el signo negativo al resultado, indicando la dirección en la que estamos caminando:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Y el gráfico?</b><br /><br />Vimos que el signo negativo indica que vamos en dirección opuesta. ¿Qué sucede al multiplicar por números negativos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al observar el **Gráfico 1**, vemos que, al alejarnos del cero hacia la derecha, el resultado también se aleja de la línea horizontal en dirección hacia arriba. Como seguimos sumando números repetidos cuando multiplicamos por números negativos, debemos alejarnos nuevamente de la línea horizontal; sin embargo, lo haremos en dirección opuesta a la de los números positivos, es decir, hacia abajo.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Puntos de la tabla del -1 conectados, formando una recta. Gráfico realizado con la librería <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_unifying",
+         "text": [
+            {
+               "text": "### Unificando\n\nUna de las posibles traducciones de *Peabirú* es “camino de ida y vuelta” (<htcite0>), hecho que indica que podemos recorrerlo en dos direcciones.\n\nAl observar las **Gráficas 1 y 2**, podemos ver que la **Gráfica 1** comienza en el punto cero, su mínimo, y va aumentando a medida que nos desplazamos hacia la derecha. Por otro lado, al mirar la **Gráfica 2**, podemos decir que en su extremo más a la derecha tenemos el cero, su máximo, y que a medida que nos desplazamos hacia la izquierda, va disminuyendo.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "035560e0-0a4b-4b81-9df6-6c14cf429e81",
+                     "text": "Alomía-Lucero, J. M., & Sixto-Dávila, L.",
+                     "page": "pp. 5",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión: ¿Y la gráfica (Parte II)?</b><br /><br />¿Es posible unir las dos gráficas?<br /><br />Si respondiste “sí”, ¿cómo lo harías?<br /><br />Si crees que no, ¿por qué llegaste a esa conclusión?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Reflexionando un poco más\n\nSi llegaste a la conclusión de que no es posible unificar las gráficas, eso solo indica que algunas cosas aún no están claras. Te ayudaremos a profundizar tus conocimientos.\n\nObserva que, en las **Fórmulas 1 y 2**, siempre estamos multiplicando los números *N* por valores que no cambian, es decir, constantes. Sin embargo, en una fórmula tenemos 1 y, en la otra, la constante es -1.\n\nEn lugar de tener dos fórmulas diferentes para las tablas de multiplicar, podemos adoptar algo más genérico. En vez de considerar *N* solo como números positivos, podemos visualizarlos como valores negativos o positivos, dependiendo de la posición en que se encuentren en la recta horizontal de las gráficas. En cuanto a la constante, usamos siempre 1. Con ello, podemos usar la **Fórmula 1** eliminando la restricción de que *N* sea solo mayor que cero y, como consecuencia, llegamos a la **Gráfica 3**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfic 3:</b> Puntos de la tabla de multiplicar del uno conectados, formando una recta. Gráfica realizada con la librería <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Un último punto que nos gustaría destacar es que la conexión entre los puntos realizada en la **Gráfica 3** viene dada por la multiplicación de números existentes entre los valores, como ya se estudió inicialmente en *History Tracers* (<htcite0>), pero que se profundizará más adelante.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "010490cd-6da9-4992-a765-8a03188da892",
+                     "text": "History Tracers Team",
+                     "page": "Realidade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, profundizamos nuestro conocimiento sobre el *Peabirú*, comprendiendo su significado.\n\nAdemás, vimos que este camino dual puede ser recorrido mediante pasos repetidos, ya sea en una dirección o en la otra, al multiplicar nuestros pasos.\n\nY, tras estas etapas, aún no hemos llegado al final ni del estudio del *Peabirú* ni de las matemáticas asociadas a los caminos. En los próximos textos, seguiremos profundizando nuestros conocimientos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿Entendemos la multiplicación como sumas repetidas del mismo número?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "La multiplicación y la suma están relacionadas, entendiéndose la multiplicación como sumas repetidas de la misma cantidad."
+      },
+      {
+         "question": "As tabuadas de 1 e -1 possuem alguma relação?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Al multiplicar por 1 tanto valores positivos como negativos del eje horizontal, obtenemos el mismo resultado para ambas tablas. Es decir, al hacer la \"tabla del -1\", creamos un método para enseñar lo que ya habíamos estudiado antes y aprender un contenido nuevo."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
