@@ -75,8 +75,8 @@
                   {
                      "type": 1,
                      "uuid": "b0998bae-50f9-42ee-9b6c-0cd743429dac",
-                     "text": "Nakazawa, Y.",
-                     "page": "pp. 346",
+                     "text": "Adachi, N. et al.",
+                     "page": "pp. 346 - 347",
                      "date_time": {
                         "type": "gregory",
                         "year": "2011",
@@ -336,40 +336,38 @@
                "is_real": true,
                "haplogroup": [
                   {
-                     "type": "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
-                     "haplogroup": "The haplogroup value",
+                     "type": "mtDNA",
+                     "haplogroup": "D4h2",
                      "sources": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
-                     ]
+                  {
+                     "type": 1,
+                     "uuid": "b0998bae-50f9-42ee-9b6c-0cd743429dac",
+                     "text": "Adachi, N. et al.",
+                     "page": "pp. 355",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
                "history": [
                   {
-                     "text": "A detailed description of the person's life history and marital status.",
+                     "text": "Ao estudar os haplogrupos dos Jomon de Hokkaido, Noboru Adachi e seus colaboradores encontraram 4 DNAs mitocondriais (mtDNA) distintos (N9b, D4h2, G1b e M7a) (<htcite0>). Tal fato nos leva a uma reflexão:",
                      "source": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
+                  {
+                     "type": 1,
+                     "uuid": "b0998bae-50f9-42ee-9b6c-0cd743429dac",
+                     "text": "Adachi, N. et al.",
+                     "page": "pp. 355",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
                      ],
                      "date_time": [
                         {
@@ -392,22 +390,80 @@
                         }
                      ],
                      "isTable": false,
-                     "imgdesc": "A description of an image included in the text.",
-                     "format": "markdown or html",
-                     "PostMention": "A character used after a mention to include citations."
+                     "imgdesc": "",
+                     "format": "markdown",
+                     "PostMention": ""
+                  },
+      {
+         "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Somos uma família</b><br /><br />O haplogrupo <b>D4h</b> é encontrado em América (<i>Abya Yala</i>) (<hcite0>).<br /><br />Além disso, sabemos que o haplogrupo D é encontrado na Sibéria (<htcite1>; <htcite2>; <htcite3>)?</div></div></center></p>",
+         "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b0998bae-50f9-42ee-9b6c-0cd743429dac",
+                     "text": "Adachi, N. et al.",
+                     "page": "pp. 355",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+            {
+               "type": 0,
+               "uuid": "92105889-8c32-4b59-93c8-79e43bd3e96f",
+               "text": "Starikovskaya, Elena B. et al.",
+               "page": "",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2005",
+                  "month": "1",
+                  "day": "17"
+               }
+            },
+            {
+               "type": 0,
+               "uuid": "0e33ca2b-e092-4fee-acc5-ed327575522d",
+               "text": "Dulik, Matthew C. et al.",
+               "page": "",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2012",
+                  "month": "-1",
+                  "day": "-1"
+               }
+            },
+                  {
+                     "type": 1,
+                     "uuid": "1070f062-f6c1-4cc5-8732-83b31c8e5137",
+                     "text": "History Tracers Team",
+                     "page": "Indígenas de <i>Abya Yala</i> (América)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
                   }
+         ],
+         "date_time": null,
+         "isTable": false,
+         "imgdesc": "",
+         "format": "html",
+         "PostMention": ""
+      }
                ],
                "parents": [
                   {
-                     "type": "theory or hypothesis",
+                     "type": "theory",
                      "father_external_family_file": false,
-                     "father_family": "Unique identifier for the father's family. It should match the family ID used here.",
-                     "father_id": "Unique identifier for the father.",
-                     "father_name": "Name of the father.",
+                     "father_family": "",
+                     "father_id": "d0834125-504d-40de-9781-1534070e6794",
+                     "father_name": "Desconhecido",
                      "mother_external_family_file": false,
-                     "mother_family": "Unique identifier for the mother's family.",
-                     "mother_id": "Unique identifier for the mother.",
-                     "mother_name": "Name of the mother."
+                     "mother_family": "",
+                     "mother_id": "2bb85ceb-dfb3-4d4c-8be6-985cb73bce1a",
+                     "mother_name": "Desconhecida"
                   }
                ],
                "birth": [
