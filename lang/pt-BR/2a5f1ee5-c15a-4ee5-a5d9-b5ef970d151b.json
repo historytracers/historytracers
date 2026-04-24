@@ -678,17 +678,17 @@
                "is_real": false,
                "haplogroup": [
                   {
-                     "type": "Specifies the described haplogroup. Valid options: mtDNA (Mitochondrial DNA), Y (Y chromosome), SNPs (Single-nucleotide polymorphisms).",
-                     "haplogroup": "The haplogroup value",
+                     "type": "mtDNA",
+                     "haplogroup": "N9b",
                      "sources": [
                         {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
+                           "type": 1,
+                           "uuid": "b0998bae-50f9-42ee-9b6c-0cd743429dac",
+                           "text": "Adachi, N. et al.",
+                           "page": "pp. 352, 355",
                            "date_time": {
                               "type": "gregory",
-                              "year": "2010",
+                              "year": "2011",
                               "month": "",
                               "day": ""
                            }
@@ -698,16 +698,40 @@
                ],
                "history": [
                   {
-                     "text": "A detailed description of the person's life history and marital status.",
+                     "text": "#### A maior população\n\nQuando falamos do DNA mitocondrial N9b, podemos estimar que todas elas possuem um ancestral comum na terra que surgiu por volta de <htdate0>. Este DNA mitocondrial é especial entre a população Jomon, pois é o mtDNA mais encontrado no sul da Sibéria sendo uma possível migração a partir de Amur na Sibéria para o Japão a possível rota utilizada nesta migração (<htcite0>).\n\n\#### Tecnologias\n\nCom o começo da utilização de tecnologias como *oshigata-mon* - técnica onde a cerâmica é marcada com gravetos- e *yoritto-mon* -tecnoloogia onde a cerâmica é marcada com graveto com corda- temos o início do subperíodo conhecido como Jomon Inicial definido entre <htdate1> e <htdate2> (<htcite1>; <htcite2>). ",
                      "source": [
                         {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
+                           "type": 1,
+                           "uuid": "b0998bae-50f9-42ee-9b6c-0cd743429dac",
+                           "text": "Adachi, N. et al.",
+                           "page": "pp. 352, 355",
                            "date_time": {
                               "type": "gregory",
-                              "year": "2010",
+                              "year": "2011",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                  {
+                     "type": 1,
+                     "uuid": "bbb8c919-166e-4b91-9919-078e9f3f6ac0",
+                     "text": "Kobayashi, T., Hudson, M., & Yamagata, M.",
+                     "page": "pp. 89",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1992",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                        {
+                           "type": 1,
+                           "uuid": "84514fe7-1ea7-462f-94fc-2a4c5dc9ef6a",
+                           "text": "Ikawa-Smith, F.",
+                           "page": "pp. 513 - 514",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1976",
                               "month": "",
                               "day": ""
                            }
@@ -716,27 +740,27 @@
                      "date_time": [
                         {
                            "type": "gregory",
-                           "year": "2010",
+                           "year": "-20000",
                            "month": "",
                            "day": ""
                         },
                         {
-                           "type": "unix",
+                           "type": "gregory",
                            "year": "",
                            "month": "",
                            "day": ""
                         },
                         {
-                           "type": "julian",
+                           "type": "gregory",
                            "year": "",
                            "month": "",
                            "day": ""
                         }
                      ],
                      "isTable": false,
-                     "imgdesc": "A description of an image included in the text.",
-                     "format": "markdown or html",
-                     "PostMention": "A character used after a mention to include citations."
+                     "imgdesc": "",
+                     "format": "markdown",
+                     "PostMention": ""
                   }
                ],
                "parents": [
@@ -765,45 +789,26 @@
                      "name": "Desconhecida",
                      "history": [
                         {
-                           "text": "A detailed description of the person's life history and marital status.",
+                           "text": "Apesar da diversificação da população japonesa ao longo do tempo, devido a migrações, em Hokkaido, até o século XIX, de acordo com o calendário gregoriano, ainda havia pessoas com características físicas dos tempos Jomon (縄文) (<htcite0>). Isso indica continuidade populacional ao longo das gerações.",
                            "source": [
                               {
-                                 "type": 3210,
-                                 "uuid": "Unique identifier (UUID) for the current citation.",
-                                 "text": "The accompanying text that will be displayed with the citation.",
-                                 "page": "The specific page in the publication where this information appears.",
+                                 "type": 1,
+                                 "uuid": "77ade3fd-5cf8-41f5-9282-4ab8feb670d3",
+                                 "text": "Habu, J.",
+                                 "page": "pp. 85 - 87",
                                  "date_time": {
                                     "type": "gregory",
-                                    "year": "2010",
+                                    "year": "1982",
                                     "month": "",
                                     "day": ""
                                  }
                               }
                            ],
-                           "date_time": [
-                              {
-                                 "type": "gregory",
-                                 "year": "2010",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "unix",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "julian",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              }
-                           ],
+                           "date_time": null,
                            "isTable": false,
-                           "imgdesc": "A description of an image included in the text.",
-                           "format": "markdown or html",
-                           "PostMention": "A character used after a mention to include citations."
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
                         }
                      ],
                      "date_time": {
@@ -832,45 +837,26 @@
                      "add_link": false,
                      "history": [
                         {
-                           "text": "A detailed description of the person's life history and marital status.",
+                           "text": "Sua presença é confirmada por características observadas na população de regiões como Hokkaido (<htcite0>).",
                            "source": [
                               {
-                                 "type": 3210,
-                                 "uuid": "Unique identifier (UUID) for the current citation.",
-                                 "text": "The accompanying text that will be displayed with the citation.",
-                                 "page": "The specific page in the publication where this information appears.",
+                                 "type": 1,
+                                 "uuid": "77ade3fd-5cf8-41f5-9282-4ab8feb670d3",
+                                 "text": "Yamaguchi, B.",
+                                 "page": "pp. 85 - 87",
                                  "date_time": {
                                     "type": "gregory",
-                                    "year": "2010",
+                                    "year": "1982",
                                     "month": "",
                                     "day": ""
                                  }
                               }
                            ],
-                           "date_time": [
-                              {
-                                 "type": "gregory",
-                                 "year": "2010",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "unix",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "julian",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              }
-                           ],
+                           "date_time": null,
                            "isTable": false,
-                           "imgdesc": "A description of an image included in the text.",
-                           "format": "markdown or html",
-                           "PostMention": "A character used after a mention to include citations."
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
                         }
                      ],
                      "adopted_child": false
@@ -883,9 +869,9 @@
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
-         "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "question": "As pessoas da cultura Jomon (縄文) não possuem qualquer tipo de conexão com os povos de América (<i>Abya Yala</i>)?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "O fato que foram encontradas pessoas do haplogrupo D4h2 que é parte do grande haplogrupo D encontrado em Ásia e América (<i>Abya Yala</i>) mostra haver relação entre os povos mencionados na pergunta."
       }
    ],
    "date_time": null
