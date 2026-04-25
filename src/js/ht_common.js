@@ -47,6 +47,7 @@ var htGameImagesLocation = [ "Machu Picchu, Perú", "Xunantunich, Belieze", "Teo
 let htGameImageList = [ ];
 
 var htEditable = undefined;
+var htLocalImgSrc = false;
 
 const skinTones = [
   "#0C0704", "#140B06", "#1A0F08", "#1F130B", "#26170F",
@@ -1844,6 +1845,8 @@ function htLoadPageMountURL(page, arg, dir)
 
     if (page == "lang_list") {
         return baseUrl+page+".json";
+    } else if (page == "img_options") {
+        return "images/"+page+".json";
     }
 
     let lang = $("#site_language").val();
@@ -2584,6 +2587,11 @@ function htFillWebPage(page, data)
 
     if (data?.lang_list) {
         htUpdateAvailableLanguages(data.lang_list);
+        return;
+    }
+
+    if (data?.ht_local_images) {
+        htLocalImgSrc = ht_local_images;
         return;
     }
 
