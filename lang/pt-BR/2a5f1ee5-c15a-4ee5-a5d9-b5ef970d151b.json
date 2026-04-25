@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1777041043"
+      "1777077672"
    ],
    "authors": "",
    "reviewers": "",
@@ -675,7 +675,7 @@
                "fullname": "Desconhecida",
                "sex": "feminino",
                "gender": "feminino",
-               "is_real": false,
+               "is_real": true,
                "haplogroup": [
                   {
                      "type": "mtDNA",
@@ -698,7 +698,7 @@
                ],
                "history": [
                   {
-                     "text": "#### A maior população\n\nQuando falamos do DNA mitocondrial N9b, podemos estimar que todas elas possuem um ancestral comum na terra que surgiu por volta de <htdate0>. Este DNA mitocondrial é especial entre a população Jomon, pois é o mtDNA mais encontrado no sul da Sibéria sendo uma possível migração a partir de Amur na Sibéria para o Japão a possível rota utilizada nesta migração (<htcite0>).\n\n\#### Tecnologias\n\nCom o começo da utilização de tecnologias como *oshigata-mon* - técnica onde a cerâmica é marcada com gravetos- e *yoritto-mon* -tecnoloogia onde a cerâmica é marcada com graveto com corda- temos o início do subperíodo conhecido como Jomon Inicial definido entre <htdate1> e <htdate2> (<htcite1>; <htcite2>). ",
+                     "text": "#### A maior população\n\nQuando falamos do DNA mitocondrial N9b, podemos estimar que todas as pessoas que o possuem compartilham um ancestral comum que viveu na Terra por volta de <htdate0>. Esse DNA mitocondrial é especialmente relevante entre a população Jomon, pois é o mtDNA mais encontrado no sul da Sibéria, indicando uma possível migração a partir da região do rio Amur, na Sibéria, em direção ao Japão — sendo essa uma das rotas sugeridas para esse deslocamento (<htcite0>; <htcite1>).\n\n#### Tecnologias\n\nCom o início da utilização de tecnologias como *oshigata-mon* — técnica em que a cerâmica é marcada com gravetos — e *yoritto-mon* — tecnologia em que a cerâmica é marcada com gravetos envoltos em corda —, temos o começo do subperíodo conhecido como Jomon Inicial, definido entre <htdate1> e <htdate2> (<htcite2>; <htcite3>; <htcite4>).\n\nApesar de não termos a datação exata da peça mostrada na **Figura 2**, decidimos adicioná-la nesta seção, que tratamos como período inicial, por ela apresentar base plana e exterior decorado com marcas de corda para ilustrarmos o que estamos estudando (<htcite5>).",
                      "source": [
                         {
                            "type": 1,
@@ -712,18 +712,42 @@
                               "day": ""
                            }
                         },
-                  {
-                     "type": 1,
-                     "uuid": "bbb8c919-166e-4b91-9919-078e9f3f6ac0",
-                     "text": "Kobayashi, T., Hudson, M., & Yamagata, M.",
-                     "page": "pp. 89",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "1992",
-                        "month": "",
-                        "day": ""
-                     }
-                  },
+                        {
+                           "type": 1,
+                           "uuid": "f86e0289-d28d-4d07-8ba2-f18c84df98b4",
+                           "text": "Nakazawa, Y.",
+                           "page": "pp. 539 - 540",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2017",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "bbb8c919-166e-4b91-9919-078e9f3f6ac0",
+                           "text": "Kobayashi, T., Hudson, M., & Yamagata, M.",
+                           "page": "pp. 89",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "1992",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 1,
+                           "uuid": "eb1d390e-26c4-44b8-ac90-e3b092780c72",
+                           "text": "Habu, J.",
+                           "page": "pp. 39",
+                           "date_time": {
+                              "type": "gregory",
+                              "year": "2004",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
                         {
                            "type": 1,
                            "uuid": "84514fe7-1ea7-462f-94fc-2a4c5dc9ef6a",
@@ -732,6 +756,18 @@
                            "date_time": {
                               "type": "gregory",
                               "year": "1976",
+                              "month": "",
+                              "day": ""
+                           }
+                        },
+                        {
+                           "type": 0,
+                           "uuid": "9c5db3c4-dae7-4468-a178-ca5c6cec15c4",
+                           "text": "The British Museum",
+                           "page": "Jarra",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
                               "month": "",
                               "day": ""
                            }
@@ -746,13 +782,13 @@
                         },
                         {
                            "type": "gregory",
-                           "year": "",
+                           "year": "-9500",
                            "month": "",
                            "day": ""
                         },
                         {
                            "type": "gregory",
-                           "year": "",
+                           "year": "-6000",
                            "month": "",
                            "day": ""
                         }
@@ -761,6 +797,50 @@
                      "imgdesc": "",
                      "format": "markdown",
                      "PostMention": ""
+                  },
+                  {
+                     "text": "<p class=\"desc\"><img id=\"imgPottery\" onclick=\"htImageZoom('imgPottery', '0%')\" src=\"images/BritishMuseum/mid_DSC04993.jpg\" class=\"imgcenter\"/><b>Figura 2</b>: Vaso decorado com marcas de corda, exposto no museu Britânico. © Trustees of the British Museum (<htcite0> ).</p>",
+                     "source": [
+                        {
+                           "type": 0,
+                           "uuid": "9c5db3c4-dae7-4468-a178-ca5c6cec15c4",
+                           "text": "The British Museum",
+                           "page": "Jarra",
+                           "date_time": {
+                              "type": "",
+                              "year": "",
+                              "month": "",
+                              "day": ""
+                           }
+                        }
+                     ],
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "format": "html",
+                     "PostMention": ""
+                  },
+                  {
+                     "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Primeiro isto, depois aquilo</b><br /><br />Entre a introdução da cerâmica e o final do período inicial, passaram-se cerca de 8500 anos (<htdate0> - <htdate1>).<br /><br />Poderíamos considerar a utilização da cerâmica como um passo fundamental para a criação de cidades antigas e desenvolvimento de uma cultura?</div></div></center></p>",
+                     "source": null,
+                     "date_time": [
+                        {
+                           "type": "gregory",
+                           "year": "-14500",
+                           "month": "",
+                           "day": ""
+                        },
+                        {
+                           "type": "gregory",
+                           "year": "-6000",
+                           "month": "",
+                           "day": ""
+                        }
+                     ],
+                     "isTable": false,
+                     "imgdesc": "",
+                     "format": "html",
+                     "PostMention": ""
                   }
                ],
                "parents": [
@@ -768,7 +848,7 @@
                      "type": "theory",
                      "father_external_family_file": false,
                      "father_family": "ea9e4462-9e2e-4f53-81b1-64fbc48cffaa",
-                     "father_id": "aa36590d-82e5-4a8c-8e3a-4c1f77787a90,
+                     "father_id": "aa36590d-82e5-4a8c-8e3a-4c1f77787a90",
                      "father_name": "Desconhecido",
                      "mother_external_family_file": false,
                      "mother_family": "",
@@ -782,7 +862,7 @@
                   {
                      "type": "theory",
                      "id": "1f2de871-8859-4392-ac5e-d69f9d49d78c",
-                     "gedcom_id": "",
+                     "gedcom_id": "F9338211e-4623-451c",
                      "official": true,
                      "family_id": "",
                      "external_family_file": false,
