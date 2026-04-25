@@ -37,6 +37,7 @@ Os seguintes subdiretórios estão disponíveis neste diretório:
 - `GuatemalaKaminaljuyu`: Contém fotos tiradas durante uma viagem a [Kaminaljuyu](https://museosdeguatemala.org/museo/parque-arqueologico-kaminaljuyu/), Guatemala.
 - `HistoryTracers`: Contém fotos criadas pela equipe do [History Tracers](https://historytracers.org/).
 - `JoyaCeren`: Contém fotos tiradas durante uma viagem a [Joya de Cerén](https://www.cultura.gob.sv/parque-arqueologico-joya-de-ceren/), El Salvador.
+- `Louvre`: Contém imagens originais do [Museu do Louvre](https://www.louvre.fr/en/).
 - `MachuPicchu`: Contém fotos tiradas durante uma viagem a [Machu Picchu](https://www.machupicchu.gob.pe/), Peru.
 - `Mapswire`: Contém imagens originais ou modificadas do projeto [Mapswire](http://mapswire.com/).
 - `MexicoCityMuseo`: Contém fotos tiradas durante uma viagem a [Cidade do México](https://www.inah.gob.mx), México.
@@ -45,13 +46,16 @@ Os seguintes subdiretórios estão disponíveis neste diretório:
 - `PeruPucllana`: Contém fotos tiradas durante uma visita a [Sítio de Pucllana](http://researchgate.net/), Peru.
 - `ResearchGate`: Contém imagens originais do [ResearchGate](http://researchgate.net/).
 - `Sadomba`: Contém imagens originais do artigo do Dr. Zvakanyorwa Wilbert Sadomba [Zvakanyorwa Wilbert Sadomba (2024)](https://journalofmathematicsandculture.wordpress.com/wp-content/uploads/2024/08/17-sadomba.pdf).
+- `SanAndres`: Contém fotos tiradas durante uma visita a [San Andrés](https://sanandres.travel/), El Salvador.
 - `SanJoseCRJade`: Contém fotos tiradas durante uma visita ao [Museo de Jade](https://museodeljade.grupoins.com/?fbclid=PAZXh0bgNhZW0CMTEAAaedoThLrhTJOxtqMYovjhsiqnujApHqSSqGRYLyrikivkB37EdFS_zVQNt_jg_aem_S-2PICTiqbEfmGVkLFIdTA), Costa Rica.
 - `SanJoseCRMuseo`: Contém imagens originais do [Museu de Antropologia de San José](https://www.museocostarica.go.cr/).
 - `TaiChimpanzeeProject`: Contém imagens originais de [Taï Chimpanzee Project](https://www.taichimpproject.org/).
 - `Teotihuacan`: Contém fotos tiradas durante uma viagem a [Teotihuacán](https://inah.gob.mx/zonas/23-zona-arqueologica-de-teotihuacan), México.
 - `Tikal`: Contém fotos tiradas durante uma viagem a [Tikal](https://tikalnationalpark.org/), Guatemala.
+- `Tohoku`: Contém imagens originais da [Universidade de Tohoku](https://www.tohoku.ac.jp/en/).
 - `Tula`: Contém fotos tiradas durante uma viagem a [Ciudad de Tula](https://inah.gob.mx/zonas/zona-arqueologica-y-museo-de-sitio-de-tula), México.
 - `UNESCO`: Contém imagens originais da [UNESCO](https://whc.unesco.org/).
+- `UniversityJohannesburg`: Contém imagens originais da [Universidade de Johannesburg](https://www.uj.ac.za/).
 - `USGS`: Contém imagens originais do [Serviço Geológico dos Estados Unidos](https://www.usgs.gov/media/images/water-cycle-png).
 - `Xunantunich`: Contém fotos tiradas durante uma viagem a [Xunantunich](https://nichbelize.org/product/xunantunich/), Belice.
 
