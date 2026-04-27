@@ -40,6 +40,7 @@ Os seguintes subdiretórios estão disponíveis neste diretório:
 - `Louvre`: Contém imagens originais do [Museu do Louvre](https://www.louvre.fr/en/).
 - `MachuPicchu`: Contém fotos tiradas durante uma viagem a [Machu Picchu](https://www.machupicchu.gob.pe/), Peru.
 - `Mapswire`: Contém imagens originais ou modificadas do projeto [Mapswire](http://mapswire.com/).
+- `MetropolitanMuseum`: Contém imagens originais do [Metropolitan Museum of Art](https://www.metmuseum.org/).
 - `MexicoCityMuseo`: Contém fotos tiradas durante uma viagem a [Cidade do México](https://www.inah.gob.mx), México.
 - `MiPueblito`: Contém fotos tiradas durante uma viagem a  [Mi Pueblito](https://mipueblito.mupa.gob.pa/), Panamá.
 - `Nature`: Contém imagens originais da [Nature Open Access](https://www.nature.com/nature-portfolio/open-access).

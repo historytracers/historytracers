@@ -40,6 +40,7 @@ Los siguientes subdirectorios están disponibles en este directorio:
 - `Louvre`: Contiene imágenes originales del [Museo del Louvre](https://www.louvre.fr/en/).
 - `MachuPicchu`: Contiene fotos tomadas durante un viaje a [Machu Picchu](https://www.machupicchu.gob.pe/), Perú.
 - `Mapswire`: Contiene imágenes originales o modificadas del proyecto [Mapswire](http://mapswire.com/).
+- `MetropolitanMuseum`: Contiene imágenes originales del [Metropolitan Museum of Art](https://www.metmuseum.org/).
 - `MexicoCityMuseo`: Contiene fotos tomadas durante un viaje a [Ciudad de México](https://www.inah.gob.mx), México.
 - `MiPueblito`: Contiene fotos tomadas durante un viaje a [Mi Pueblito](https://mipueblito.mupa.gob.pa/), Panamá.
 - `PeruPucllana`: Contiene fotos tomadas durante un viaje a [Sítio de Pucllana](http://researchgate.net/), Perú.
