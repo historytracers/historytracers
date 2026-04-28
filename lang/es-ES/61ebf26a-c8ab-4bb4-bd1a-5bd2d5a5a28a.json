@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1777317359"
+      "1777395451"
    ],
    "authors": [
       ""
@@ -157,13 +157,138 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_comparison",
+         "text": [
+            {
+               "text": "### Tabla de multiplicar negativa o ¿multiplicar por -1?\n\nEn el texto anterior, al trabajar con la \"tabla de multiplicar de -1\", vimos que la diferencia entre las fórmulas de esta nueva tabla y la tabla que habíamos visto cuando estudiamos la tabla del 1 era el signo (**Fórmulas 1 y 2**) (<htcite0>; <htcite1>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendo a Tabuada (0 y 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Resultado de la multiplicación por uno.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>-N</mi> <mo>=</mo> <mi>-1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 2</b>: Resultado de la multiplicación por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Debemos destacar algo en los resultados del lado izquierdo de ambas fórmulas. Cuando multiplicamos cualquier número por 1, eso significa que estamos contando esa cantidad una sola vez y, por lo tanto, el resultado es él mismo.\n\nDel mismo modo, cuando multiplicamos por -1, significa que estamos contando el mismo número una sola vez, pero en dirección opuesta.\n\n#### Profundizando\n\nA partir de lo destacado anteriormente, podemos reescribir la **Fórmula 2** como:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mi>-1</mi> <mo>×</mo> <mi>N</mi> <mo>=</mo> <mi>-1</mi> <mo>× (</mo>  <mi>1</mi> <mo>×</mo> <mi>N</mi>  <mo>)</mo></math></center></p><p class=\"desc\"><b>Fórmula 3</b>: Resultado de la multiplicación por 1 multiplicado por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "La **Fórmula 3** nos indica que la **Fórmula 2** se obtuvo multiplicando ambos lados de la **Fórmula 1** por -1. Este hecho nos lleva a otra reflexión:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Tú también?</b><br /><br />Si para obtener el resultado de la \"tabla de multiplicar de -1\", basta con multiplicar los resultados de la tabla del 1 por -1, ¿podríamos hacer lo mismo con otras tablas para obtener resultados negativos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Practicando\n\nResponder solo \"sí\" a la reflexión anterior podría ser suficiente, pero es mejor visualizar los cambios. Usando la siguiente casilla de selección, observa cómo las tablas de multiplicar de los números positivos y negativos son idénticas, con la única diferencia siendo la dirección, es decir, el hecho de multiplicar por -1 para invertir.\n\nSelecciona una tabla de multiplicar y observa la relación explicada:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Tabla de multiplicar <select id=\"tableValue\"></select>:</p><p><div id=\"mParent1\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
+         "question": "Podemos entender as tabuadas negativas são rigorosamente as mesmas tabuadas que normalmente usamos?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "additionalInfo": "Uma tabuada negativa, como está sendo definido no History Tracers, são somas consecutivas de um mesmo valor."
+      },
+      {
+         "question": "Existe relação entre a tabuana que normalmente usamos e a tabuada negativa?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Por executarmos o mesmo processo de soma continua em ambas, podemos chegar na tabuada negativa realizando multiplicação por -1 em ambos os lados da tabuada tradicional. Este ato indica que estamos mudando a direção e mantendo o valor."
       }
    ],
    "game_v2": null,
