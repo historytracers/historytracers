@@ -135,7 +135,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Reflexão 1: Mais acima, mais abaixo...</b><br /><br />Considerando o que vimos no texto anterior (<htcite0>), o que você acredita que acontecerá quando multiplicarmos números positivos e negativos por um mesmo número maior que 1?<br /><br />E se multiplicarmos por um número entre 0 e 1?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Mais acima, mais abaixo...</b><br /><br />Considerando o que vimos no texto anterior (<htcite0>), o que você acredita que acontecerá quando multiplicarmos números positivos e negativos por um mesmo número maior que 1?<br /><br />E se multiplicarmos por um número entre 0 e 1?</div></div></center>",
                "source": [
                   {
                      "type": 1,
@@ -157,13 +157,138 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_comparison",
+         "text": [
+            {
+               "text": "### Tabuada negativa ou multiplicar por -1?\n\nNo texto anterior, ao trabalharmos com a \"tabuada de -1\", vimos que a diferença entre as fórmulas dessa nova tabuada e a tabuada que havíamos visto quando estudamos a tabuada de 1 era o sinal (**Fórmulas 1 e 2**) (<htcite0>; <htcite1>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendo a Tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Resultado da multiplicação por um.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>-N</mi> <mo>=</mo> <mi>-1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 2</b>: Resultado da multiplicação por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Devemos destacar algo nos resultados do lado esquerdo de ambas as fórmulas. Quando multiplicamos um número qualquer por 1, isso quer dizer que estamos contando aquela quantidade uma única vez e, portanto, o resultado é ele mesmo.\n\nDe igual modo, quando multiplicamos por -1, isso quer dizer que estamos contando o mesmo número uma única vez, mas em uma direção oposta.\n\n#### Aprofundando\n\nDos destaques anteriores, podemos reescrever a **Fórmula 2** como:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mi>-1</mi> <mo>×</mo> <mi>N</mi> <mo>=</mo> <mi>-1</mi> <mo>× (</mo>  <mi>1</mi> <mo>×</mo> <mi>N</mi>  <mo>)</mo></math></center></p><p class=\"desc\"><b>Fórmula 3</b>: Resultado da multiplicação por 1 multiplicado por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A **Fórmula 3** nos indica que a **Fórmula 2** foi obtida multiplicando ambos os lados da **Fórmula 1** por -1. Esse fato nos leva a outra reflexão:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Você também?</b><br /><br />Se, para obter o resultado da \"tabuada de -1\", basta multiplicar os resultados da tabuada de 1 por -1, poderíamos fazer o mesmo com outras tabuadas para obter resultados negativos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Praticando\n\nResponder apenas \"sim\" à reflexão anterior poderia ser suficiente, mas é melhor visualizar as mudanças. Utilizando a caixa de seleção a seguir, veja como as tabuadas dos números positivos e negativos são idênticas, com a única diferença sendo a direção, ou seja, o fato de multiplicarmos por -1 para inverter.\n\nSelecione uma tabuada e veja a relação explicada:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Tabuada <select id=\"tableValue\"></select>:</p><p><div id=\"mParent1\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
       {
-         "question": "WRITE A QUESTION",
+         "question": "Podemos entender as tabuadas negativas são rigorosamente as mesmas tabuadas que normalmente usamos?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "The correct answer is 'Yes' because ..."
+         "additionalInfo": "Uma tabuada negativa, como está sendo definido no History Tracers, são somas consecutivas de um mesmo valor."
+      },
+      {
+         "question": "Existe relação entre a tabuana que normalmente usamos e a tabuada negativa?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Por executarmos o mesmo processo de soma continua em ambas, podemos chegar na tabuada negativa realizando multiplicação por -1 em ambos os lados da tabuada tradicional. Este ato indica que estamos mudando a direção e mantendo o valor."
       }
    ],
    "game_v2": null,
