@@ -526,17 +526,14 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
     let beg = tmin;
     let end = tmax;
     if (tmin < 0 && tmax < 0) {
-        beg = tmax;
-        end = tmin;
-        
-        step = -1 * step;
+        step = step;
         for (let i = 0; i < xVector.length; i++) {
             xVector[i] *= -1;
         }
         xVector.reverse();
     }
 
-    var yMax = 0;
+    var yMax = undefined;
     for (let i = beg; i <= end; i++) {
         var yVector = [ ];
         for (let j = 0, k = 0; j < xVector.length ; j++, k += step) {
@@ -559,7 +556,7 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
         datasets.push(obj);
     }
 
-    if (yMax == 0) { yMax = 10; }
+    if (yMax == undefined) { return NULL }
 
     let localChartMin = 0;
     let localChartMax = yMax;
@@ -568,6 +565,61 @@ function htFillMultiplicationTable(target, tmin, tmax, fillArea, continuous) {
         localChartMin = yMax;
         localChartMax = 0;
     }
+
+    var chartOptions = {
+        "datasets": datasets,
+        "chartId" : target,
+        "yType" : "linear",
+        "xVector" : xVector,
+        "xLable": mathKeywords[15],
+        "xType" : "linear",
+        "datasetFill" : false,
+        "ymin": localChartMin,
+        "ymax": localChartMax,
+        "useCallBack": false
+    };
+    return htPlotConstantContinuousChart(chartOptions);
+}
+
+function htPlotLinearFunction(target, tmin, tmax, fillArea, continuous) {
+    if (tmin > tmax)
+        return;
+
+    var isNotContinuous = (continuous == undefined || continuous == false);
+    var xVector = (isNotContinuous) ? [ -10, -9.5, -9, -8.5, -8, -7.5, -7, -6.5, -6, -5.5, -5, -4.5, -4, -3.5, -3, -2.5, -2, -1.5, -1.0, 0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10] : [ -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] ;
+    var datasets = [ ];
+
+    let beg = tmin;
+    let end = tmax;
+
+    var yMax = undefined;
+    for (let i = beg; i <= end; i++) {
+        var yVector = [ ];
+        for (let j = 0; j < xVector.length ; j++) {
+            let val = xVector[j];
+            if (isNotContinuous) {
+                yMax = ( (j % 2) == 0)? i * val: null;
+            } else {
+                yMax = i * val;
+            }
+            yVector.push(yMax);
+        }
+
+        if (tmin < 0 && tmax < 0) {
+            yVector.reverse();
+        }
+        var obj = {
+                    data : yVector,
+                    label : mathKeywords[16]+i,
+                    fill : fillArea
+                  };
+        datasets.push(obj);
+    }
+
+    if (yMax == undefined) { return NULL }
+
+    let localChartMin = -1 * yMax;
+    let localChartMax = yMax;
 
     var chartOptions = {
         "datasets": datasets,

@@ -46,5 +46,7 @@ function htLoadContent() {
         htSetMyLocalTable(selectedValue);
     });
 
+    htPlotLinearFunction("chart5", 1, 9, false, true);
+
     return false;
 }
