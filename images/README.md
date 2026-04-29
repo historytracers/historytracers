@@ -37,21 +37,26 @@ The following subdirectories are available in this directory:
 - `GuatemalaKaminaljuyu`: Contains photos taken during a trip to [Kaminaljuyu](https://museosdeguatemala.org/museo/parque-arqueologico-kaminaljuyu/), Guatemala.
 - `HistoryTracers`: Contains photos created by the  [History Tracers](https://historytracers.org/) team.
 - `JoyaCeren`: Contains photos taken during a trip to [Joya de Cerén](https://www.cultura.gob.sv/parque-arqueologico-joya-de-ceren/), El Salvador.
+- `Louvre`: Contains original images from the [Louvre Museum](https://www.louvre.fr/en/).
 - `MachuPicchu`: Contains photos taken during a trip to [Machu Picchu](https://www.machupicchu.gob.pe/), Peru.
 - `Mapswire`: Contains original or modified images from the [Mapswire](http://mapswire.com/) project.
+- `MetropolitanMuseum`: Contains original images from the [Metropolitan Museum of Art](https://www.metmuseum.org/).
 - `MexicoCityMuseo`: Contains photos taken during a trip to [Mexico City](https://www.inah.gob.mx), Mexico.
 - `MiPueblito`: Contains photos taken during a trip to [Mi Pueblito](https://mipueblito.mupa.gob.pa/), Panama.
 - `Nature`: Contains original images from [Nature Open Access](https://www.nature.com/nature-portfolio/open-access).
 - `PeruPucllana`: Contains photos taken during a trip to [Sítio de Pucllana](http://researchgate.net/), Peru.
 - `ResearchGate`: Contains original images from [ResearchGate](http://researchgate.net/).
 - `Sadomba`: Contains original images from Dr. Zvakanyorwa Wilbert Sadomba paper [Zvakanyorwa Wilbert Sadomba (2024)](https://journalofmathematicsandculture.wordpress.com/wp-content/uploads/2024/08/17-sadomba.pdf).
+- `SanAndres`: Contains photos taken during a visit to [San Andrés](https://sanandres.travel/), El Salvador.
 - `SanJoseCRJade`: Contains photos taken during a visit to [Museo de Jade](https://museodeljade.grupoins.com/?fbclid=PAZXh0bgNhZW0CMTEAAaedoThLrhTJOxtqMYovjhsiqnujApHqSSqGRYLyrikivkB37EdFS_zVQNt_jg_aem_S-2PICTiqbEfmGVkLFIdTA), Costa Rica.
 - `SanJoseCRMuseo`: Contains original images from the [San José Museo de Antropología](https://www.museocostarica.go.cr/).
 - `TaiChimpanzeeProject`: Contains original images from [Taï Chimpanzee Project](https://www.taichimpproject.org/).
 - `Teotihuacan`: Contains photos taken during a trip to [Teotihuacán](https://inah.gob.mx/zonas/23-zona-arqueologica-de-teotihuacan), Mexico.
 - `Tikal`: Contains photos taken during a trip to [Tikal](https://tikalnationalpark.org/), Guatemala.
+- `Tohoku`: Contains original images from the [Tohoku University](https://www.tohoku.ac.jp/en/).
 - `Tula`: Contains photos taken during a trip to [Ciudad de Tula](https://inah.gob.mx/zonas/zona-arqueologica-y-museo-de-sitio-de-tula), Mexico.
 - `UNESCO`: Contains original images from [UNESCO](https://whc.unesco.org/).
+- `UniversityJohannesburg`: Contains original images from the [University of Johannesburg](https://www.uj.ac.za/).
 - `USGS`: Contains original images from the [United States Geological Survey](https://www.usgs.gov/media/images/water-cycle-png).
 - `Xunantunich`: Contains photos taken during a trip to [Xunantunich](https://nichbelize.org/product/xunantunich/), Belize.
 

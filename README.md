@@ -56,10 +56,19 @@ To incorporate a new language into the project, begin by creating a directory. S
 ```sh
 $ mkdir lang/es-ES
 $ cd scripts
-$ bash create_language.sh --path "es-ES" --msg "Aguardando traducción"
+$ bash create_language.sh --path "es-ES" --msg "Aguardando tradução"
 ```
 
 Lastly, you can incorporate content in another language. It's advisable to commence by handling files whose names do not follow the [Universal Unique Identifier](https://developer.mozilla.org/en-US/docs/Glossary/UUID) format.
+
+## Sources
+
+The `lang/sources/` directory contains JSON files with the sources referenced in each content file. Each content file references a corresponding sources file in the `lang/sources/` directory, where source citations are categorized into:
+
+- **primary_sources**: Primary historical or academic sources
+- **reference_sources**: Reference materials and secondary sources
+- **religious_sources**: Religious texts and documents
+- **social_media_sources**: Social media references
 
 ## How to Compile *History Tracers*
 
