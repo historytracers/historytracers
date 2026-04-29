@@ -66,6 +66,13 @@ function htEnableEdition(data) {
     }
 }
 
+function htSetImageSrc(imgId, imgPath) {
+    let fullPath = imgPath;
+    if (!htLocalImgSrc) {
+        fullPath = "https://www.historytracers.org/" + imgPath;
+    }
+    $("#" + imgId).attr("src", fullPath);
+}
 
 //
 //    Navigation Section
