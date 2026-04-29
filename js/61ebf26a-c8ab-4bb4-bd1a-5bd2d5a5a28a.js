@@ -46,7 +46,11 @@ function htLoadContent() {
         htSetMyLocalTable(selectedValue);
     });
 
-    htPlotLinearFunction("chart5", 1, 9, false, true);
+    htSetImageSrc("imgPeabiru", "images/Mapswire/world-physical-map-graticules-mercator-v1_Peabiru.jpg");
+    htSetImageSrc("mp", "images/MachuPicchu/MachuPicchu2.jpg");
+    htSetImageSrc("mp1", "images/MachuPicchu/MachuPicchu3.jpg");
+
+    htPlotLinearFunction("chart5", 0, 9, false, true);
 
     return false;
 }
