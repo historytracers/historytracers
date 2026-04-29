@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1777395451"
+      "1777430853"
    ],
    "authors": [
       ""
@@ -277,6 +277,132 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_chart",
+         "text": [
+            {
+               "text": "### El gráfico de las tablas de multiplicar\n\nDel mismo modo que extendimos hacia la izquierda los resultados de la multiplicación por -1 (<htcite0>), en el **Gráfico 1** a continuación colocamos los resultados de las multiplicaciones de valores por 1 hasta 9:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Puntos de las tablas de multiplicar del 1 al 9 conectados, formando una línea recta. Gráfico realizado con la biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Estudiando el gráfico\n\nPara entender mejor lo que sucede con los valores a medida que multiplicamos por un valor —sumamos la misma cantidad continuamente—, vamos a enumerar algunas características de los gráficos. Para visualizar mejor lo que estamos describiendo, haga clic en los nombres de las tablas de multiplicar para ocultarlas:\n- Independientemente de la tabla de multiplicar con la que trabajemos, desde la izquierda, los valores siempre aumentarán. Del mismo modo, desde la derecha, los valores siempre disminuirán.\n- Existe un punto de convergencia entre todas las tablas de multiplicar: el número cero. Esto ocurre porque todo número multiplicado por cero es igual a cero (<htcite0>);\n- La conclusión anterior puede expresarse de otra manera: a medida que avanzamos hacia el centro, los valores tienden a cero. Matemáticamente, decimos que, en el límite en que los valores tienden al centro desde la izquierda o desde la derecha, el resultado de la multiplicación tiende a cero (<htcite1>).\n- Cuanto mayor sea la tabla de multiplicar, es decir, el número por el que siempre multiplicamos —también conocido como constante—, más rápido se alejarán los valores de la línea horizontal. Por otro lado, cuanto menor sea el valor por el que multiplicamos, más cerca estaremos de ella. Precisamente porque hay una línea que se aleja y, con ello, forma un ángulo entre esa nueva línea y la línea horizontal, también llamamos a la constante por la que multiplicamos **coeficiente angular** (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la Tabla de Multiplicar (0 y 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Límites",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "23ac6920-69b1-4d9c-99ef-082e387f2ddf",
+                     "text": "Hitory Tracers Team",
+                     "page": "Entendiendo las Tablas de Multiplicar (Resumen)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Todavía está esto</b><br /><br />En la descripción de las características de los gráficos de las tablas de multiplicar, tenemos un efecto visual en el que la tabla del 1 está en la parte superior de todas las demás en el lado izquierdo, mientras que, en el lado derecho, está por debajo de todas.<br /><br />¿Esto concuerda con las descripciones?<br /><br />Si la constante por la que multiplicamos fuera 0,5, es decir, si hiciéramos una tabla de multiplicar del 0,5, ¿cómo sería esa línea en el gráfico?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Responderemos solo a la segunda pregunta de la reflexión, con el fin de ayudarle con la primera.\n\nSi utilizamos el valor 0,5 y hacemos una tabla de multiplicar con él, en el lado izquierdo tendrá valores por encima de todos los demás, pues es un valor entre 0 y 1 (<htcite0>).\n\nA partir de este primer resultado, también podemos inferir que, en el lado derecho del gráfico, se creará una línea con valores por debajo de la línea de la tabla del 1, indicando que el alejamiento de esa línea respecto a la horizontal será menor que el de todas las demás.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limitando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -289,6 +415,11 @@
          "question": "Existe relação entre a tabuana que normalmente usamos e a tabuada negativa?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Por executarmos o mesmo processo de soma continua em ambas, podemos chegar na tabuada negativa realizando multiplicação por -1 em ambos os lados da tabuada tradicional. Este ato indica que estamos mudando a direção e mantendo o valor."
+      },
+      {
+         "question": "Quando a tabuada (constante que multiplicamos por outros números) é um valor maior que outro, exemplo 9 é maior que 7, isto quer dizer que os valores negativos de 9 também serão mais negativos que 7?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Para responder esta pergunta, devemos comparar valores multiplicados na mesma posição horizontal (7 × 1 com 9 × 1, 7 × 2 com 9 × 2...). Na sequência, multiplicamos os resultados por -1. Conforme poderá ser observado, a tabuada de 9 sempre terá valores mais negativos para as mesmas posições da tabuada de 7 e por este motivo, há a inversão vista no Gráficoo 1. "
       }
    ],
    "game_v2": null,

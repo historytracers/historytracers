@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1777405060"
+      "1777430869"
    ],
    "authors": [
       ""
@@ -282,7 +282,7 @@
          "id": "SECTION_chart",
          "text": [
             {
-               "text": "### Continuando o gráfico\n\nDa mesma maneira que extendemos à esquerda os resultados da multiplicação por -1 (<htcite0>), no **Gráfico 1** à seguir colocamos os resultados das multiplicações desde -1 até -9:",
+               "text": "### O gráfico das tabuadas\n\nDa mesma maneira que estendemos à esquerda os resultados da multiplicação por -1 (<htcite0>), no **Gráfico 1** a seguir colocamos os resultados das multiplicações de valores por 1 até 9:",
                "source": [
                   {
                      "type": 1,
@@ -304,7 +304,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Pontos das tabuadas de -1 a -9  conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Pontos das tabuadas de 1 a 9 conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
                "source": [
                   {
                      "type": 1,
@@ -324,6 +324,83 @@
                "imgdesc": "",
                "format": "html",
                "PostMention": ""
+            },
+            {
+               "text": "#### Estudando o gráfico\n\nPara entendermos melhor o que acontece com os valores à medida que multiplicamos por um valor — somamos a mesma quantidade continuamente —, vamos listar algumas características dos gráficos. Para melhor visualizar o que estamos descrevendo, clique nos nomes das tabuadas para escondê-las:\n- Independentemente da tabuada com a qual trabalhamos, a partir da esquerda, os valores irão sempre aumentar. De igual modo, a partir da direita, os valores irão sempre diminuir;\n- Existe um ponto de convergência entre todas as tabuadas: o número zero. Isso ocorre porque todo número multiplicado por zero é igual a zero (<htcite0>);\n- A conclusão anterior pode ser expressa de outra maneira: à medida que caminhamos em direção ao centro, os valores tendem a zero. Matematicamente, dizemos que, no limite em que os valores tendem ao centro pela esquerda ou pela direita, o resultado da multiplicação tende a zero (<htcite1>).\n- Quanto maior a tabuada, ou seja, o número pelo qual sempre multiplicamos — também conhecido como constante —, mais rápido os valores irão se afastar da linha horizontal. Por outro lado, quanto menor o valor pelo qual multiplicamos, mais próximos estaremos dela. Justamente por haver uma reta se afastando e, com isso, formando um ângulo entre essa nova reta e a reta horizontal, também chamamos a constante pela qual estamos multiplicando de **coeficiente angular** (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendo a Tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Limites",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "23ac6920-69b1-4d9c-99ef-082e387f2ddf",
+                     "text": "Hitory Tracers Team",
+                     "page": "Entendendo as Tabuadas (Resumo)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Ainda tem isso</b><br /><br />Na descrição das características dos gráficos das tabuadas, temos um efeito visual em que a tabuada de 1 está no topo de todas as outras no lado esquerdo, enquanto, no lado direito, ela está abaixo de todas.<br /><br />Isso está de acordo com as descrições?<br /><br />Se a constante pela qual estamos multiplicando fosse 0,5, ou seja, se fizéssemos uma tabuada de 0,5, como seria essa reta no gráfico?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Responderemos apenas à segunda pergunta da reflexão, a fim de auxiliá-lo com a primeira.\n\nSe utilizarmos o valor 0,5 e realizarmos uma tabuada com ele, no lado esquerdo ele terá valores acima de todos os outros, pois é um valor entre 0 e 1 (<htcite0>).\n\nA partir desse primeiro resultado, também podemos inferir que, no lado direito do gráfico, será criada uma linha com valores abaixo da linha da tabuada de 1, indicando que o afastamento dessa linha em relação à horizontal será menor que todas as outras.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limitando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             }
          ]
       }
@@ -338,6 +415,11 @@
          "question": "Existe relação entre a tabuana que normalmente usamos e a tabuada negativa?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Por executarmos o mesmo processo de soma continua em ambas, podemos chegar na tabuada negativa realizando multiplicação por -1 em ambos os lados da tabuada tradicional. Este ato indica que estamos mudando a direção e mantendo o valor."
+      },
+      {
+         "question": "Quando a tabuada (constante que multiplicamos por outros números) é um valor maior que outro, exemplo 9 é maior que 7, isto quer dizer que os valores negativos de 9 também serão mais negativos que 7?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Para responder esta pergunta, devemos comparar valores multiplicados na mesma posição horizontal (7 × 1 com 9 × 1, 7 × 2 com 9 × 2...). Na sequência, multiplicamos os resultados por -1. Conforme poderá ser observado, a tabuada de 9 sempre terá valores mais negativos para as mesmas posições da tabuada de 7 e por este motivo, há a inversão vista no Gráficoo 1. "
       }
    ],
    "game_v2": null,

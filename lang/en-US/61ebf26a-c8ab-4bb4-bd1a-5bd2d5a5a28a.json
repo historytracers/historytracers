@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1777395410"
+      "1777430823"
    ],
    "authors": [
       ""
@@ -277,6 +277,132 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_chart",
+         "text": [
+            {
+               "text": "### The multiplication tables chart\n\nJust as we extended the multiplication results by -1 to the left (<htcite0>), in **Graph 1** below we place the results of multiplying values by 1 through 9:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulating (Part II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 1</b>: Points of the multiplication tables from 1 to 9 connected, forming a straight line. Graph made with the <htcite0> library.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Studying the graph\n\nTo better understand what happens to the values as we multiply by a certain value — i.e., we repeatedly add the same amount — let us list some characteristics of the graphs. To better visualize what we are describing, click on the names of the multiplication tables to hide them:\n- Regardless of which multiplication table we are working with, from the left side, the values will always increase. Likewise, from the right side, the values will always decrease.\n- There is a convergence point among all multiplication tables: the number zero. This occurs because any number multiplied by zero equals zero (<htcite0>);\n- The previous conclusion can be expressed in another way: as we move toward the center, the values tend toward zero. Mathematically, we say that, in the limit as the values approach the center from either the left or the right, the result of the multiplication tends to zero (<htcite1>).\n- The larger the multiplication table — that is, the number by which we always multiply, also known as the constant — the faster the values will move away from the horizontal line. On the other hand, the smaller the multiplier, the closer we will be to it. Precisely because there is a line moving away and, thus, forming an angle between this new line and the horizontal line, we also call the multiplying constant the slope (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (0 and 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Limits",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "23ac6920-69b1-4d9c-99ef-082e387f2ddf",
+                     "text": "Hitory Tracers Team",
+                     "page": "Understanding Multiplication Tables (Summary)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: There is still this</b><br /><br />In the description of the characteristics of the multiplication tables graphs, we have a visual effect where the 1 times table is above all others on the left side, while on the right side, it is below all of them.<br /><br />Does this match the descriptions?<br /><br />If the constant by which we multiply were 0.5 — that is, if we made a 0.5 times table — what would that line look like on the graph?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "We will answer only the second question of the reflection, in order to help you with the first one.\n\nIf we use the value 0.5 and create a multiplication table with it, on the left side it will have values above all others, since it is a value between 0 and 1 (<htcite0>).\n\nFrom this first result, we can also infer that, on the right side of the graph, a line will be created with values below the line of the 1 times table, indicating that the deviation of this line from the horizontal will be smaller than that of all the others.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limiting",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": [
@@ -289,6 +415,11 @@
          "question": "Existe relação entre a tabuana que normalmente usamos e a tabuada negativa?",
          "yesNoAnswer": "Yes",
          "additionalInfo": "Por executarmos o mesmo processo de soma continua em ambas, podemos chegar na tabuada negativa realizando multiplicação por -1 em ambos os lados da tabuada tradicional. Este ato indica que estamos mudando a direção e mantendo o valor."
+      },
+      {
+         "question": "Quando a tabuada (constante que multiplicamos por outros números) é um valor maior que outro, exemplo 9 é maior que 7, isto quer dizer que os valores negativos de 9 também serão mais negativos que 7?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Para responder esta pergunta, devemos comparar valores multiplicados na mesma posição horizontal (7 × 1 com 9 × 1, 7 × 2 com 9 × 2...). Na sequência, multiplicamos os resultados por -1. Conforme poderá ser observado, a tabuada de 9 sempre terá valores mais negativos para as mesmas posições da tabuada de 7 e por este motivo, há a inversão vista no Gráficoo 1. "
       }
    ],
    "game_v2": null,
