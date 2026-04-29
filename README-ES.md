@@ -68,6 +68,15 @@ $ bash create_language.sh --path "es-ES" --msg "Aguardando traducción"
 
 Finalmente, podrás modificar el contenido en otro idioma. Te recomendamos comenzar con los archivos cuyos nombres no siguen el formato [Universal Unique Identifier](https://developer.mozilla.org/en-US/docs/Glossary/UUID).
 
+## Fuentes
+
+El directorio `lang/sources/` contiene archivos JSON con las fuentes referenciadas en cada archivo de contenido. Cada archivo de contenido hace referencia a un archivo de fuentes correspondiente en el directorio `lang/sources/`, donde las citas de fuentes se clasifican en:
+
+- **primary_sources**: Fuentes históricas o académicas primarias
+- **reference_sources**: Materiales de referencia y fuentes secundarias
+- **religious_sources**: Textos y documentos religiosos
+- **social_media_sources**: Referencias de redes sociales
+
 ## Cómo compilar *History Tracers*
 
 *History Tracers* utiliza **GNU Make** como sistema de compilación.

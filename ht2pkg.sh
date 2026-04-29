@@ -54,30 +54,73 @@ ht_usage() {
 HTDOC
 }
 
+ht_rpm_cleanup() {
+    if [ -f images/img_options.json ]; then
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json 2>/dev/null || true
+    fi
+    if [ -d rpmbuild ]; then
+        rm -rf rpmbuild
+    fi
+}
+
 ht_build_rpm() {
+    trap ht_rpm_cleanup ERR
+
     # Install depencies
     # dnf update
     # dnf install -y rpmdevtools rpm-build make gcc golang autoconf automake which && dnf clean all
     echo "Building RPM package"
 
+    # Modify img_options.json in source to set ht_local_images to false for package
+    if [ -f images/img_options.json ]; then
+        sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' images/img_options.json
+    fi
+
+    RPM_TOPDIR="$(pwd)/rpmbuild"
+
     # Build Package
     rpmbuild -bb ./packaging/RPM/historytracers.spec \
         --define "_sourcedir $(pwd)" \
         --define "_builddir $(pwd)" \
-        --define "_srcrpmdir $(pwd)/rpmbuild" \
-        --define "_rpmdir $(pwd)/rpmbuild" \
-        --define "_topdir $(pwd)/rpmbuild" #\
+        --define "_srcrpmdir ${RPM_TOPDIR}" \
+        --define "_rpmdir ${RPM_TOPDIR}" \
+        --define "_topdir ${RPM_TOPDIR}" #\
 #        --define "_build_name_fmt %%{NAME}-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm"
+
+    # Restore original img_options.json for development
+    if [ -f images/img_options.json ]; then
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json
+    fi
+
     cp rpmbuild/x86_64/historytracers-1.0.0-1.fc41.x86_64.rpm artifacts/
     rm -rf rpmbuild
+
+    trap - ERR
+}
+
+ht_deb_cleanup() {
+    if [ -f images/img_options.json ]; then
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json 2>/dev/null || true
+    fi
+    if [ -d debian ]; then
+        rm -rf debian
+    fi
 }
 
 ht_build_deb() {
+    trap ht_deb_cleanup ERR
+
     echo "Building DEB package"
     # Install dependencies
     # apt-get update
     # apt-get install devscripts debhelper build-essential golang-go
     # snap install go --classic (Ubuntu)
+
+    # Modify img_options.json in source to set ht_local_images to false for package
+    if [ -f images/img_options.json ]; then
+        sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' images/img_options.json
+    fi
+
     if [ -d debian ]; then
         rm -rf debian
     fi
@@ -87,10 +130,17 @@ ht_build_deb() {
 
     dpkg-buildpackage -us -uc --build=binary
 
+    # Restore original img_options.json for development
+    if [ -f images/img_options.json ]; then
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json
+    fi
+
     mv ../*.deb artifacts
     mv ../*.ddeb artifacts
 
     rm -rf debian
+
+    trap - ERR
 }
 
 ht_build_slackware() {
