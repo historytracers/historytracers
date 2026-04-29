@@ -2598,7 +2598,7 @@ function htFillWebPage(page, data)
     }
 
     if (data?.ht_local_images) {
-        htLocalImgSrc = ht_local_images;
+        htLocalImgSrc = data.ht_local_images;
         return;
     }
 
