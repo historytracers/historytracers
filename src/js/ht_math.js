@@ -9,6 +9,10 @@ var yupanaClasses = [ "red_dot_right_up", "red_dot_right_up_1", "red_dot_right_u
 // https://stackoverflow.com/questions/11182924/how-to-check-if-javascript-object-is-json
 var mathVectorConstructor = [].constructor;
 
+function htGetImgSrcPrefix() {
+    return htLocalImgSrc ? "" : "https://www.historytracers.org/";
+}
+
 function htSplitDecimalDigit(output, maxIdx, value, base)
 {
     while (value != 0) {
@@ -372,9 +376,10 @@ function htCompleteMesoamericanCalendar(vector)
 
 function htFillMesoamericanCalendar(periods, outputColumn)
 {
+    var htImgSrcPrefix = htGetImgSrcPrefix();
     for (let i = 0, top2bottom = 1; i < periods.length; i++, top2bottom++) {
         $("#tmc"+outputColumn+"l"+top2bottom).html(periods[i]);
-        $("#tmc1l"+top2bottom).attr('src', 'images/HistoryTracers/Maya_'+periods[i]+'.png');
+        $("#tmc1l"+top2bottom).attr('src', htImgSrcPrefix + 'images/HistoryTracers/Maya_'+periods[i]+'.png');
     }
 }
 
@@ -472,14 +477,16 @@ function htSetImageForMembers(leftMember, leftImgSuffix, rightMember, rightImgSu
         leftValue = 0;
     }
 
-    $(leftMember).attr('src', 'images/HistoryTracers/'+leftValue+leftImgSuffix);
-    $(rightMember).attr('src', 'images/HistoryTracers/'+rightValue+rightImgSuffix);
+    var htImgSrcPrefix = htGetImgSrcPrefix();
+    $(leftMember).attr('src', htImgSrcPrefix + 'images/HistoryTracers/'+leftValue+leftImgSuffix);
+    $(rightMember).attr('src', htImgSrcPrefix + 'images/HistoryTracers/'+rightValue+rightImgSuffix);
 }
 
 function htFillTableHandsFeet(id, min, max) {
     if ($(id).length == 0) {
         return;
     }
+    var htImgSrcPrefix = htGetImgSrcPrefix();
     var leftHand = 0;
     var rightHand = 0;
     var leftFoot = 0;
@@ -494,7 +501,7 @@ function htFillTableHandsFeet(id, min, max) {
         } else {
             leftFoot = i - 15;
         }
-        $(id+" tr:last").after("<tr><td><img id=\"imgFTHFC0"+i+"\" onclick=\"htImageZoom('imgFTHFC0"+i+"', '0%')\" src=\"images/HistoryTracers/"+leftHand+"Left_Hand_Small.png\" /></td><td><img id=\"imgFTHFC1"+i+"\" onclick=\"htImageZoom('imgFTHFC1"+i+"', '0%')\" src=\"images/HistoryTracers/"+rightHand+"Right_Hand_Small.png\"/></td><td><img id=\"imgFTHFC2"+i+"\" onclick=\"htImageZoom('imgFTHFC2"+i+"', '0%')\" src=\"images/HistoryTracers/"+leftFoot+"LeftFoot.png\" class=\"smallFeet\" /></td><td><img id=\"imgFTHFC3"+i+"\" onclick=\"htImageZoom('imgFTHFC3"+i+"', '0%')\" src=\"images/HistoryTracers/"+rightFoot+"RightFoot.png\" class=\"smallFeet\" /></td><td><img id=\"imgFTHFC4"+i+"\" onclick=\"htImageZoom('imgFTHFC4"+i+"', '0%')\" src=\"images/HistoryTracers/Maya_"+i+".png\"/></td><td><span class=\"text_to_paint\">"+i+"</span></td></tr>");
+        $(id+" tr:last").after("<tr><td><img id=\"imgFTHFC0"+i+"\" onclick=\"htImageZoom('imgFTHFC0"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+leftHand+"Left_Hand_Small.png\" /></td><td><img id=\"imgFTHFC1"+i+"\" onclick=\"htImageZoom('imgFTHFC1"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+rightHand+"Right_Hand_Small.png\"/></td><td><img id=\"imgFTHFC2"+i+"\" onclick=\"htImageZoom('imgFTHFC2"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+leftFoot+"LeftFoot.png\" class=\"smallFeet\" /></td><td><img id=\"imgFTHFC3"+i+"\" onclick=\"htImageZoom('imgFTHFC3"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/"+rightFoot+"RightFoot.png\" class=\"smallFeet\" /></td><td><img id=\"imgFTHFC4"+i+"\" onclick=\"htImageZoom('imgFTHFC4"+i+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+i+".png\"/></td><td><span class=\"text_to_paint\">"+i+"</span></td></tr>");
     }
 }
 
@@ -762,16 +769,17 @@ function htAddTDtoGradeTable(i, j, value0, value1, addStyle, isProductFactor) {
     var additional = "";
     var style = "";
     var imageIdx = i + j;
+    var htImgSrcPrefix = htGetImgSrcPrefix();
     if (value1 > 0 && value1 < 20) {
         var idx = (i + j)*imageIdx;
-        additional = " <span class=\"timesAdd\">×</span> <img class=\"imgAdd\" id=\"imgresa"+idx+"\" onclick=\"htImageZoom('imgresa"+idx+"', '0%')\" src=\"images/HistoryTracers/Maya_"+value1+".png\" />";
+        additional = " <span class=\"timesAdd\">×</span> <img class=\"imgAdd\" id=\"imgresa"+idx+"\" onclick=\"htImageZoom('imgresa"+idx+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+value1+".png\" />";
     }
 
     if (addStyle.length > 0 ) {
         style = "style=\""+addStyle+"\"";
     }
     var additionalClass = (isProductFactor == true) ? "noChanged": "resChanged";
-    var ret =  "<td "+style+"><img class=\""+additionalClass+"\" id=\"imgres"+imageIdx+"\" onclick=\"htImageZoom('imgres"+imageIdx+"', '0%')\" src=\"images/HistoryTracers/Maya_"+value0+".png\" />"+additional+"</td>";
+    var ret =  "<td "+style+"><img class=\""+additionalClass+"\" id=\"imgres"+imageIdx+"\" onclick=\"htImageZoom('imgres"+imageIdx+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+value0+".png\" />"+additional+"</td>";
     imageIdx++;
     return ret;
 }

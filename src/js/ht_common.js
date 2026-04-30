@@ -74,6 +74,10 @@ function htSetImageSrc(imgId, imgPath) {
     $("#" + imgId).attr("src", fullPath);
 }
 
+function htGetImgSrcPrefix() {
+    return htLocalImgSrc ? "" : "https://www.historytracers.org/";
+}
+
 //
 //    Navigation Section
 //
@@ -1255,7 +1259,8 @@ function htFillFamilies(page, table) {
             }
 
             var map_desc = htOverwriteHTDateWithText(currMap.text, currMap.date_time, localLang, localCalendar);
-            textMap += "<p class=\"desc\"><img src=\""+currMap.img+"\" id=\"imgFamilyMap"+currMap.order+"\" onclick=\"htImageZoom('imgFamilyMap"+currMap.order+"', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+map_desc+" "+keywords[82]+" "+keywords[83]+"</p>";
+            var htImgSrcPrefix = htGetImgSrcPrefix();
+            textMap += "<p class=\"desc\"><img src=\""+htImgSrcPrefix+currMap.img+"\" id=\"imgFamilyMap"+currMap.order+"\" onclick=\"htImageZoom('imgFamilyMap"+currMap.order+"', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+map_desc+" "+keywords[82]+" "+keywords[83]+"</p>";
         }
 
         $("#maps").html(textMap);
@@ -1796,10 +1801,11 @@ function htWriteNavigationInternal()
 
 function htFillPIXQRCode(id, size) {
     var $element = $(id);
+    var htImgSrcPrefix = htGetImgSrcPrefix();
 
     if ($element.is(':empty')) {
         $('<img>', {
-            src: 'images/HistoryTracers/qrcodePix.png',
+            src: htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png',
             width: size
         }).appendTo($element);
     }
@@ -1985,7 +1991,8 @@ function htFillSMGameData(data) {
         }
 
         var imgIndex = htGetRandomArbitrary(0, htGameImages.length - 5);
-        $(opt0ac0098b.target).append("<p class=\"desc\"><img class=\"imgGameSizeWithOpacity\" src=\"images/"+htGameImages[imgIndex]+"\"><br />"+keywords[71]+" "+htGameImagesLocation[imgIndex]+".</p>");
+        var htImgSrcPrefix = htGetImgSrcPrefix();
+        $(opt0ac0098b.target).append("<p class=\"desc\"><img class=\"imgGameSizeWithOpacity\" src=\""+htImgSrcPrefix+"images/"+htGameImages[imgIndex]+"\"><br />"+keywords[71]+" "+htGameImagesLocation[imgIndex]+".</p>");
     }
 
     smGame = [];
@@ -2158,7 +2165,8 @@ function htSelectAtlasMap(id) {
         }
     }
 
-    var text = (vector.image.length > 0) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+".</p>"+formattedText : formattedText;
+    var htImgSrcPrefix = htGetImgSrcPrefix();
+    var text = (vector.image.length > 0) ? "<p class=\"desc\"><img id=\"atlasimg\" src=\""+htImgSrcPrefix+vector.image+"\" class=\"imgcenter\" onclick=\"htImageZoom('atlasimg', '-35%')\" />"+keywords[81]+" 1: "+author+".</p>"+formattedText : formattedText;
     var prevText = (vector.prev) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap('"+vector.prev+"'); htModifyAtlasIndexMap('"+vector.prev+"');\">"+prevIdx+"</a>" : "&nbsp;";
     var nextText = (vector.next) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap('"+vector.next+"'); htModifyAtlasIndexMap('"+vector.next+"');\">"+nextIdx+"</a>" : "&nbsp;";
     text += "<p><hr /></p><p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p><p>&nbsp;</p>";
@@ -3131,7 +3139,7 @@ function htShowSlideDivsAuto(x, index, stopMax) {
 
 function htAddAlterQImages(id)
 {
-    var htImgSrcPrefix = htLocalImgSrc ? "" : "https://www.historytracers.org/";
+    var htImgSrcPrefix = htGetImgSrcPrefix();
     var kingOrder = [ "<i>Popol Hol</i> (2), <i>Yax K'uk' Mo'</i> (1),<br /> <i>Yax Pasaj Chan Yopaat</i> (16), <i>K'ahk' Yipyaj Chan K'awiil</i> (15)", "? (6), ? (5),<br /> <i>K'altuun Hix</i> (4), ? (3)", "<i>Moon Jaguar</i> (10), ? (9),<br /> <i>Wi' Yohl K'inich</i> (8), <i>Bahlam Nehn</i> (7)", "- <i>K'ahk' Joplaj Chan K'awiil</i> (14), <i>Waxaklajuun Ubaah K'awiil</i> (13),<br /> <i>K'ahk' Uti' Witz K'awiil</i> (12), <i>Butz' Chan</i> (11)"  ];
     $(id).html("");
     for (let i = 0; i < 4; i++) {
