@@ -155,7 +155,6 @@ type ClassIdx struct {
 	Audio      []HTAudio      `json:"audio"`
 	LastUpdate []string       `json:"last_update"`
 	Sources    []string       `json:"sources"`
-	Scripts    []string       `json:"scripts"`
 	License    []string       `json:"license"`
 	Version    int            `json:"version"`
 	Type       string         `json:"type"`
