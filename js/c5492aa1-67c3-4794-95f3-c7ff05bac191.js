@@ -6,5 +6,8 @@ function htLoadContent() {
     $("#htJapanNipponNihonKoku").html(keywords[139]);
     $("#OriginHTMW").html(keywords[82]);
 
+    htSetImageSrc("ChronologyCaralPyramid", "images/Caral/CaralPiramideH1.jpg");
+    htSetImageSrc("ChronologyTeotihuacan", "images/Teotihuacan/TeotihuacanGeneral.jpg");
+
     return false;
 }
