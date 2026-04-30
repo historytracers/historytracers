@@ -1,0 +1,570 @@
+{
+   "title": "Modulando (Parte III)",
+   "header": "Modulando (Parte III)",
+   "sources": [
+      "61ebf26a-c8ab-4bb4-bd1a-5bd2d5a5a28a"
+   ],
+   "scripts": [
+      "61ebf26a-c8ab-4bb4-bd1a-5bd2d5a5a28a"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/61ebf26a-c8ab-4bb4-bd1a-5bd2d5a5a28a_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0MQogk8EYySYV3bp5z1tY6?si=jRdMuIZfRkypLq8ciyteQw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps_volume2"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1777510362"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nEste texto profundizará los conceptos de multiplicación explorados en el Capítulo 4 del primer volumen de la sección *Primeros Passos* (<htcite0>) y en el texto anterior (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeros Pasos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nAl realizar caminatas en regiones como el Peabirú, en América (*Abya Yala*) (**Figura 1**), no siempre encontramos caminos planos. Hay subidas y bajadas a lo largo de todo el recorrido.\n\nEse detalle del camino nos lleva a una reflexión:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"\" id=\"imgPeabiru\" onclick=\"htImageZoom('imgPeabiru', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representación del camino del Peabirú seguido por Aleixo García.. © Mapswire (<htcite0>). Compartilhado sob a licença <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).</a></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Más arriba, más abajo...</b><br /><br />Considerando lo que vimos en el texto anterior (<htcite0>), ¿qué crees que sucederá cuando multipliquemos números positivos y negativos por un mismo número mayor que 1?<br /><br />¿Y si los multiplicamos por un número entre 0 y 1?</div></div></center>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adicionando os mesmos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_comparison",
+         "text": [
+            {
+               "text": "### Tabla de multiplicar negativa o ¿multiplicar por -1?\n\nEn el texto anterior, al trabajar con la \"tabla de multiplicar de -1\", vimos que la diferencia entre las fórmulas de esta nueva tabla y la tabla que habíamos visto cuando estudiamos la tabla del 1 era el signo (**Fórmulas 1 y 2**) (<htcite0>; <htcite1>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendo a Tabuada (0 y 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Resultado de la multiplicación por uno.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>-N</mi> <mo>=</mo> <mi>-1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 2</b>: Resultado de la multiplicación por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Debemos destacar algo en los resultados del lado izquierdo de ambas fórmulas. Cuando multiplicamos cualquier número por 1, eso significa que estamos contando esa cantidad una sola vez y, por lo tanto, el resultado es él mismo.\n\nDel mismo modo, cuando multiplicamos por -1, significa que estamos contando el mismo número una sola vez, pero en dirección opuesta.\n\n#### Profundizando\n\nA partir de lo destacado anteriormente, podemos reescribir la **Fórmula 2** como:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mi>-1</mi> <mo>×</mo> <mi>N</mi> <mo>=</mo> <mi>-1</mi> <mo>× (</mo>  <mi>1</mi> <mo>×</mo> <mi>N</mi>  <mo>)</mo></math></center></p><p class=\"desc\"><b>Fórmula 3</b>: Resultado de la multiplicación por 1 multiplicado por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "La **Fórmula 3** nos indica que la **Fórmula 2** se obtuvo multiplicando ambos lados de la **Fórmula 1** por -1. Este hecho nos lleva a otra reflexión:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: ¿Tú también?</b><br /><br />Si para obtener el resultado de la \"tabla de multiplicar de -1\", basta con multiplicar los resultados de la tabla del 1 por -1, ¿podríamos hacer lo mismo con otras tablas para obtener resultados negativos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Practicando\n\nResponder solo \"sí\" a la reflexión anterior podría ser suficiente, pero es mejor visualizar los cambios. Usando la siguiente casilla de selección, observa cómo las tablas de multiplicar de los números positivos y negativos son idénticas, con la única diferencia siendo la dirección, es decir, el hecho de multiplicar por -1 para invertir.\n\nSelecciona una tabla de multiplicar y observa la relación explicada:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Tabla de multiplicar <select id=\"tableValue\"></select>:</p><p><div id=\"mParent1\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_chart",
+         "text": [
+            {
+               "text": "### El gráfico de las tablas de multiplicar\n\nDel mismo modo que extendimos hacia la izquierda los resultados de la multiplicación por -1 (<htcite0>), en el **Gráfico 1** a continuación colocamos los resultados de las multiplicaciones de valores por 0 hasta 9:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Puntos de las tablas de multiplicar del 0 al 9 conectados, formando una línea recta. Gráfico realizado con la biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Estudiando el gráfico\n\nPara entender mejor lo que sucede con los valores a medida que multiplicamos por un valor —sumamos la misma cantidad continuamente—, vamos a enumerar algunas características de los gráficos. Para visualizar mejor lo que estamos describiendo, haga clic en los nombres de las tablas de multiplicar para ocultarlas:\n- Independientemente de la tabla de multiplicar con la que trabajemos, desde la izquierda, los valores siempre aumentarán. Del mismo modo, desde la derecha, los valores siempre disminuirán.\n- Existe un punto de convergencia entre todas las tablas de multiplicar: el número cero. Esto ocurre porque todo número multiplicado por cero es igual a cero (<htcite0>);\n- La conclusión anterior puede expresarse de otra manera: a medida que avanzamos hacia el centro, los valores tienden a cero. Matemáticamente, decimos que, en el límite en que los valores tienden al centro desde la izquierda o desde la derecha, el resultado de la multiplicación tiende a cero (<htcite1>).\n- Cuanto mayor sea la tabla de multiplicar, es decir, el número por el que siempre multiplicamos —también conocido como constante—, más rápido se alejarán los valores de la línea horizontal. Por otro lado, cuanto menor sea el valor por el que multiplicamos, más cerca estaremos de ella. Precisamente porque hay una línea que se aleja y, con ello, forma un ángulo entre esa nueva línea y la línea horizontal, también llamamos a la constante por la que multiplicamos **coeficiente angular** (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendiendo la Tabla de Multiplicar (0 y 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Límites",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "23ac6920-69b1-4d9c-99ef-082e387f2ddf",
+                     "text": "Hitory Tracers Team",
+                     "page": "Entendiendo las Tablas de Multiplicar (Resumen)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: Todavía está esto</b><br /><br />En la descripción de las características de los gráficos de las tablas de multiplicar, tenemos un efecto visual en el que la tabla del 1 está en la parte superior de todas las demás en el lado izquierdo, mientras que, en el lado derecho, está por debajo de todas.<br /><br />¿Esto concuerda con las descripciones?<br /><br />Si la constante por la que multiplicamos fuera 0,5, es decir, si hiciéramos una tabla de multiplicar del 0,5, ¿cómo sería esa línea en el gráfico?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Responderemos solo a la segunda pregunta de la reflexión, con el fin de ayudarle con la primera.\n\nSi utilizamos el valor 0,5 y hacemos una tabla de multiplicar con él, en el lado izquierdo tendrá valores por encima de todos los demás, pues es un valor entre 0 y 1 (<htcite0>).\n\nA partir de este primer resultado, también podemos inferir que, en el lado derecho del gráfico, se creará una línea con valores por debajo de la línea de la tabla del 1, indicando que el alejamiento de esa línea respecto a la horizontal será menor que el de todas las demás.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limitando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_visual",
+         "text": [
+            {
+               "text": "### En la vida\n\nCuando caminamos por lugares inclinados como el Peabirú (**Figura 1**), la tabla de multiplicar se utiliza constantemente en diferentes escenarios, los cuales pasamos a describir.\n\n#### Machu Picchu\n\nEn Machu Picchu, en Perú, en América (*Abya Yala*), en el lado del Pacífico, podemos observar que hay inclinaciones en las construcciones. Estas inclinaciones pueden recrearse con las tablas de multiplicar que hemos construido hasta el momento.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"mp\" onclick=\"htImageZoom('mp', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 2</b>: Foto de la ciudad de Machu Picchu, Perú. Foto tomada el <htdate0>, durante una visita a la ciudad.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2017",
+                     "month": "8",
+                     "day": "16"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### En la naturaleza\n\nNuestra especie, los *Homo sapiens* (<htcite0>), aprendió a construir repitiendo lo que vemos en la naturaleza.\n\nEn la **Figura 2**, podemos observar que Machu Picchu está posicionada en un conjunto de montañas que tienen sus propias inclinaciones.\n\nAdemás de estas inclinaciones mayores, al caminar por la ciudad (**Figura 3**), podemos observar con más detalle elevaciones que también están presentes en piedras y en caminos, como en el Peabirú.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ab1dda1e-95c2-4087-8299-e851e58bdc6f",
+                     "text": "History Tracers Team",
+                     "page": "Humanos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"mp1\" onclick=\"htImageZoom('mp1', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 3</b>: Foto interior de la ciudad de Machu Picchu, Perú. Foto tomada el <htdate0>, durante una visita a la ciudad.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2017",
+                     "month": "8",
+                     "day": "16"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "En esta foto, vemos animales posicionados entre piedras y una región inclinada de Machu Picchu.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Modulando\n\nLas construcciones que vemos en Machu Picchu se hacen por etapas, que también pueden llamarse módulos.\n\nEste no es el único concepto nuevo presentado en el texto anterior (<htcite0>) y en este. También existe el proceso de recrear o utilizar la naturaleza mediante funciones, que conectan un grupo de números con otros a través de una regla (<htcite1>).\n\nPor ejemplo, podemos inferir que la altura que alcanzamos al caminar en una región montañosa puede expresarse mediante la **Fórmula 4**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ac8504c6-df65-47b9-9fdf-247d6f4ba8d7",
+                     "text": "Stover, Christopher e Weisstein, Eric W.",
+                     "page": "Funciones",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>Altura que alcanzamos</mi> <mo>=</mo> <mi>Inclinación del camino</mi> <mo>×</mo> <mi>número de pasos</mi> </math></center></p><p class=\"desc\"><b>Fórmula 4</b>: Fórmula de la altura que alcanzamos según los pasos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Siempre presente\n\nHay una trayectoria en el **Gráfico 1** que no hemos mencionado antes, pero que nos interesa incluir para terminar este estudio de la tabla de multiplicar: la línea de la tabla del cero. Aunque su resultado sea siempre cero, también nos muestra cómo las matemáticas están siempre presentes. Por ejemplo:\n- Cuando no caminamos en ninguna dirección con el paso del tiempo, los pasos que damos son iguales a cero.\n- Cuando dormimos en una única posición, nuestro movimiento también es igual a cero.\n- Cuando no creamos espacios entre la recta horizontal y una línea, el ángulo entre ellas es igual a cero.\n\nAnte estos resultados, reflexionemos una vez más.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: Siempre presente</b><br /><br />¿Alguna vez habías pensado que no hacer algo podría representarse multiplicando por cero?<br /><br />¿Alguna vez tuviste la idea de que sería posible excluir las matemáticas de tu vida?<br /><br />Siendo las matemáticas la forma en que modelamos la naturaleza —o, si lo prefieres, la forma en que la naturaleza se expresa— ¿se te ha pasado por la cabeza que, donde hay naturaleza, hay matemáticas?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, profundizamos nuestro conocimiento sobre los números negativos y los coeficientes angulares. También reforzamos nuestra comprensión de los modelos matemáticos y su presencia en la naturaleza.\n\nAdemás, conocimos los conceptos de función y módulo, que serán perfeccionados en la continuidad de *History Tracers*.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "¿Podemos entender que las tablas de multiplicar negativas son estrictamente las mismas tablas que usamos normalmente?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Su respuesta es correcta. Una tabla de multiplicar negativa, una analogía hecha en History Tracers, consiste en sumas consecutivas de un mismo valor."
+      },
+      {
+         "question": "¿Existe relación entre la tabla de multiplicar que usamos normalmente y la tabla negativa?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Su respuesta es correcta. Como ejecutamos el mismo proceso de suma continua en ambas, podemos obtener la tabla negativa realizando la multiplicación por -1 en ambos lados de la tabla tradicional. Este procedimiento indica que estamos cambiando la dirección y manteniendo el valor."
+      },
+      {
+         "question": "Cuando la tabla (constante que multiplicamos por diferentes números) tiene un valor mayor que otro — por ejemplo, 9 es mayor que 7 — ¿eso significa que los valores negativos de la tabla del 9 también serán más negativos que los de la tabla del 7?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Para responder a esta pregunta, debemos comparar los valores multiplicados en la misma posición horizontal (7 × 1 con 9 × 1, 7 × 2 con 9 × 2...). Luego, multiplicamos los resultados por -1. Como se puede observar, la tabla del 9 siempre tendrá valores más negativos en las mismas posiciones que la tabla del 7 y, por esa razón, ocurre la inversión vista en el Gráfico 1."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

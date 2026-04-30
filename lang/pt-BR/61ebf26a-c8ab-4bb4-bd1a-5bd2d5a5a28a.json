@@ -1,0 +1,570 @@
+{
+   "title": "Modulando (Parte III)",
+   "header": "Modulando (Parte III)",
+   "sources": [
+      "61ebf26a-c8ab-4bb4-bd1a-5bd2d5a5a28a"
+   ],
+   "scripts": [
+      "61ebf26a-c8ab-4bb4-bd1a-5bd2d5a5a28a"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/61ebf26a-c8ab-4bb4-bd1a-5bd2d5a5a28a_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/7M7fe84SLRbpnZPyzdYQtm?si=Fcc6-bhqTd6u2cfEasygXg",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps_volume2"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1777510370"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste texto aprofundará os conceitos de multiplicação explorados no Capítulo 4 do primeiro volume da seção *Primeiros Passos* (<htcite0>) e no texto anterior (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "Primeiros Passos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nAo realizar caminhadas em regiões como o Peabirú, na América (*Abya Yala*) (**Figura 1**), nem sempre encontramos caminhos planos. Há subidas e descidas ao longo de todo o percurso.\n\nEsse detalhe do caminho nos leva a uma reflexão:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img src=\"\" id=\"imgPeabiru\" onclick=\"htImageZoom('imgPeabiru', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representação do caminho do Peabirú seguido por Aleixo Garcia. © Mapswire (<htcite0>). Compartilhado sob a licença <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).</a></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Mais acima, mais abaixo...</b><br /><br />Considerando o que vimos no texto anterior (<htcite0>), o que você acredita que acontecerá quando multiplicarmos números positivos e negativos por um mesmo número maior que 1?<br /><br />E se multiplicarmos por um número entre 0 e 1?</div></div></center>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Adicionando os mesmos números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_comparison",
+         "text": [
+            {
+               "text": "### Tabuada negativa ou multiplicar por -1?\n\nNo texto anterior, ao trabalharmos com a \"tabuada de -1\", vimos que a diferença entre as fórmulas dessa nova tabuada e a tabuada que havíamos visto quando estudamos a tabuada de 1 era o sinal (**Fórmulas 1 e 2**) (<htcite0>; <htcite1>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendo a Tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>N</mi> <mo>=</mo> <mi>1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Resultado da multiplicação por um.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>-N</mi> <mo>=</mo> <mi>-1</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 2</b>: Resultado da multiplicação por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Devemos destacar algo nos resultados do lado esquerdo de ambas as fórmulas. Quando multiplicamos um número qualquer por 1, isso quer dizer que estamos contando aquela quantidade uma única vez e, portanto, o resultado é ele mesmo.\n\nDe igual modo, quando multiplicamos por -1, isso quer dizer que estamos contando o mesmo número uma única vez, mas em uma direção oposta.\n\n#### Aprofundando\n\nDos destaques anteriores, podemos reescrever a **Fórmula 2** como:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"> <mi>-1</mi> <mo>×</mo> <mi>N</mi> <mo>=</mo> <mi>-1</mi> <mo>× (</mo>  <mi>1</mi> <mo>×</mo> <mi>N</mi>  <mo>)</mo></math></center></p><p class=\"desc\"><b>Fórmula 3</b>: Resultado da multiplicação por 1 multiplicado por -1.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A **Fórmula 3** nos indica que a **Fórmula 2** foi obtida multiplicando ambos os lados da **Fórmula 1** por -1. Esse fato nos leva a outra reflexão:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Você também?</b><br /><br />Se, para obter o resultado da \"tabuada de -1\", basta multiplicar os resultados da tabuada de 1 por -1, poderíamos fazer o mesmo com outras tabuadas para obter resultados negativos?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Praticando\n\nResponder apenas \"sim\" à reflexão anterior poderia ser suficiente, mas é melhor visualizar as mudanças. Utilizando a caixa de seleção a seguir, veja como as tabuadas dos números positivos e negativos são idênticas, com a única diferença sendo a direção, ou seja, o fato de multiplicarmos por -1 para inverter.\n\nSelecione uma tabuada e veja a relação explicada:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>Tabuada <select id=\"tableValue\"></select>:</p><p><div id=\"mParent1\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div id=\"mParent2\" style=\"margin: auto; text-align: center;\"></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_chart",
+         "text": [
+            {
+               "text": "### O gráfico das tabuadas\n\nDa mesma maneira que estendemos à esquerda os resultados da multiplicação por -1 (<htcite0>), no **Gráfico 1** a seguir colocamos os resultados das multiplicações de valores por 0 até 9:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart5\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Pontos das tabuadas de 0 a 9 conectados, formando uma reta. Gráfico feito com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Estudando o gráfico\n\nPara entendermos melhor o que acontece com os valores à medida que multiplicamos por um valor — somamos a mesma quantidade continuamente —, vamos listar algumas características dos gráficos. Para melhor visualizar o que estamos descrevendo, clique nos nomes das tabuadas para escondê-las:\n- Independentemente da tabuada com a qual trabalhamos, a partir da esquerda, os valores irão sempre aumentar. De igual modo, a partir da direita, os valores irão sempre diminuir;\n- Existe um ponto de convergência entre todas as tabuadas: o número zero. Isso ocorre porque todo número multiplicado por zero é igual a zero (<htcite0>);\n- A conclusão anterior pode ser expressa de outra maneira: à medida que caminhamos em direção ao centro, os valores tendem a zero. Matematicamente, dizemos que, no limite em que os valores tendem ao centro pela esquerda ou pela direita, o resultado da multiplicação tende a zero (<htcite1>).\n- Quanto maior a tabuada, ou seja, o número pelo qual sempre multiplicamos — também conhecido como constante —, mais rápido os valores irão se afastar da linha horizontal. Por outro lado, quanto menor o valor pelo qual multiplicamos, mais próximos estaremos dela. Justamente por haver uma reta se afastando e, com isso, formando um ângulo entre essa nova reta e a reta horizontal, também chamamos a constante pela qual estamos multiplicando de **coeficiente angular** (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b6428e19-afcf-4d3b-916d-46e5a332ef53",
+                     "text": "History Tracers Team",
+                     "page": "Entendo a Tabuada (0 e 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Limites",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "23ac6920-69b1-4d9c-99ef-082e387f2ddf",
+                     "text": "Hitory Tracers Team",
+                     "page": "Entendendo as Tabuadas (Resumo)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Ainda tem isso</b><br /><br />Na descrição das características dos gráficos das tabuadas, temos um efeito visual em que a tabuada de 1 está no topo de todas as outras no lado esquerdo, enquanto, no lado direito, ela está abaixo de todas.<br /><br />Isso está de acordo com as descrições?<br /><br />Se a constante pela qual estamos multiplicando fosse 0,5, ou seja, se fizéssemos uma tabuada de 0,5, como seria essa reta no gráfico?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Responderemos apenas à segunda pergunta da reflexão, a fim de auxiliá-lo com a primeira.\n\nSe utilizarmos o valor 0,5 e realizarmos uma tabuada com ele, no lado esquerdo ele terá valores acima de todos os outros, pois é um valor entre 0 e 1 (<htcite0>).\n\nA partir desse primeiro resultado, também podemos inferir que, no lado direito do gráfico, será criada uma linha com valores abaixo da linha da tabuada de 1, indicando que o afastamento dessa linha em relação à horizontal será menor que todas as outras.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limitando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_visual",
+         "text": [
+            {
+               "text": "### Na vida\n\nQuando caminhamos em locais inclinados como o Peabirú (**Figura 1**), a tabuada é constantemente utilizada em diferentes cenários, que passamos a descrever.\n\n#### Machu Picchu\n\nEm Machu Picchu, no Peru, na América (*Abya Yala*), no lado do Pacífico, podemos ver que há inclinações nas construções. Essas inclinações podem ser recriadas com as tabuadas que construímos até o momento.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"mp\" onclick=\"htImageZoom('mp', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 2</b>: Foto da cidade de Machu Picchu, Peru. Foto tirada em <htdate0>, durante uma visita à cidade.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2017",
+                     "month": "8",
+                     "day": "16"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Na natureza\n\nNossa espécie, os *Homo sapiens* (<htcite0>), aprendeu a construir repetindo o que vemos na natureza.\n\nNa **Figura 2**, podemos observar que Machu Picchu está posicionada em um conjunto de montanhas que possuem suas próprias inclinações.\n\nAlém dessas inclinações maiores, ao caminhar pela cidade (**Figura 3**), podemos observar com mais detalhes elevações que também estão presentes em pedras e em caminhos, como no Peabirú.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ab1dda1e-95c2-4087-8299-e851e58bdc6f",
+                     "text": "History Tracers Team",
+                     "page": "Humanos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"mp1\" onclick=\"htImageZoom('mp1', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 3</b>: Foto interna da cidade de Machu Picchu, Peru. Foto tirada em <htdate0>, durante uma visita à cidade.</p>",
+               "source": null,
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2017",
+                     "month": "8",
+                     "day": "16"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "Nesta foto, vemos animais posicionados entre pedras e uma região inclinada de Machu Picchu.",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Modulando\n\nAs construções que vemos em Machu Picchu são feitas por etapas, que também podem ser chamadas de módulos.\n\nEsse não é o único conceito novo apresentado no texto anterior (<htcite0>) e neste. Há também o processo de recriar ou utilizar a natureza por meio de funções, que conectam um grupo de números a outros por meio de uma regra (<htcite1>).\n\nPor exemplo, podemos inferir que a altura que atingimos ao caminhar em uma região montanhosa pode ser expressa pela **Fórmula 4**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "c0735d61-b0d7-434c-aec1-ccd6c8589e5c",
+                     "text": "History Tracers Team",
+                     "page": "Modulando (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ac8504c6-df65-47b9-9fdf-247d6f4ba8d7",
+                     "text": "Stover, Christopher e Weisstein, Eric W.",
+                     "page": "Funções",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><math mathsize=\"1.5em\"><mi>Altura que atingimos</mi> <mo>=</mo> <mi>Inclinação do caminho</mi> <mo>×</mo> <mi>número de passos</mi> </math></center></p><p class=\"desc\"><b>Fórmula 4</b>: Fórmula da altura que atingimos de acordo com os passos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Sempre presente\n\nHá uma trajetória no **Gráfico 1** que não mencionamos antes, mas fazemos questão de terminar este estudo da tabuada com ela: a linha da tabuada do zero. Apesar de o resultado dela ser sempre zero, ela também nos mostra como a matemática está sempre presente. Por exemplo:\n- Quando não caminhamos em nenhuma direção com o passar do tempo, os passos que damos são iguais a zero.\n- Quando estamos dormindo em uma única posição, nossa movimentação também é igual a zero.\n- Quando não criamos espaços entre a reta horizontal e uma linha, o ângulo entre elas é igual a zero.\n\nDiante desses resultados, vamos refletir mais uma vez.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: Sempre presente</b><br /><br />Alguma vez você já havia pensado que não fazer algo poderia ser representado por multiplicar por zero?<br /><br />Alguma vez teve a idéia de que seria possível excluir a matemática da sua vida?<br /><br />Sendo a matemática a maneira como modelamos a natureza — ou, se preferir, como a natureza se expressa — já passou pela sua cabeça que, havendo natureza, há matemática?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, aprofundamos o conhecimento sobre números negativos e coeficientes angulares. Também reforçamos nosso entendimento sobre modelos matemáticos e sua presença na natureza.\n\nAlém disso, conhecemos os conceitos de função e módulo, que serão aperfeiçoados na sequência do *History Tracers*.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Podemos entender que as tabuadas negativas são rigorosamente as mesmas tabuadas que normalmente usamos?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Uma tabuada negativa, uma analogia feita no History Tracers, consiste em somas consecutivas de um mesmo valor."
+      },
+      {
+         "question": "Existe relação entre a tabuada que normalmente usamos e a tabuada negativa?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como executamos o mesmo processo de soma contínua em ambas, podemos obter a tabuada negativa realizando a multiplicação por -1 em ambos os lados da tabuada tradicional. Esse procedimento indica que estamos mudando a direção e mantendo o valor."
+      },
+      {
+         "question": "Quando a tabuada (constante que multiplicamos por diferentes números) é um valor maior que outro — por exemplo, 9 é maior que 7 — isso quer dizer que os valores negativos da tabuada de 9 também serão mais negativos que os de 7?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Para responder a essa pergunta, devemos comparar valores multiplicados na mesma posição horizontal (7 × 1 com 9 × 1, 7 × 2 com 9 × 2...). Em seguida, multiplicamos os resultados por -1. Como pode ser observado, a tabuada de 9 sempre terá valores mais negativos nas mesmas posições da tabuada de 7 e, por esse motivo, ocorre a inversão vista no Gráfico 1."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
