@@ -26,7 +26,10 @@ var smGameTimeoutID = 0;
 var htAtlas = new Map();
 
 var loadedIdx = [];
-var htLoadPageDepth = 0;
+var htLastLoadURL = "";
+var htLastLoadPage = "";
+var htLastLoadArg = "";
+var htLastLoadExt = "";
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
@@ -139,6 +142,7 @@ function htResetAllIndexes()
     loadedIdx = [];
     htPendingIndexes = [];
     htIndexesOrder = [];
+    htLastLoadURL = "";
     const indexMaps = [
         htHistoryIdx,
         htLiteratureIdx,
@@ -2378,6 +2382,14 @@ function htLoadPage(page, ext, arg, reload) {
 
     var URL = htLoadPageMountURL(page, arg, "");
 
+    if (URL === htLastLoadURL && page === htLastLoadPage && arg === htLastLoadArg && ext === htLastLoadExt) {
+        return false;
+    }
+    htLastLoadURL = URL;
+    htLastLoadPage = page;
+    htLastLoadArg = arg;
+    htLastLoadExt = ext;
+
     $("#loading_msg").show();
     $.ajax({
         type: 'GET',
@@ -2732,8 +2744,7 @@ function htFillWebPage(page, data)
         }
     }
 
-    if (data?.scripts?.length && htLoadPageDepth < 2) {
-        htLoadPageDepth++;
+    if (data?.scripts?.length) {
         data.scripts.forEach(script => {
             const jsURL = `js/${script}.js`;
             $.getScript(jsURL, () => {
@@ -2749,8 +2760,6 @@ function htFillWebPage(page, data)
                     e.preventDefault();
                     if (typeof htLoadExercise !== "undefined") htLoadExercise();
                 });
-
-                htLoadPageDepth--;
             });
         });
     }
