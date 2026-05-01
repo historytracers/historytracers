@@ -24,5 +24,7 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("img0", "images/Athens/PrisionSocrates.jpg");
+
     return false;
 }
