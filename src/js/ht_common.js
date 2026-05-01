@@ -26,10 +26,9 @@ var smGameTimeoutID = 0;
 var htAtlas = new Map();
 
 var loadedIdx = [];
-var htLastLoadURL = "";
-var htLastLoadPage = "";
-var htLastLoadArg = "";
-var htLastLoadExt = "";
+var htCurrentPage = "";
+var htCurrentArg = "";
+var htAllowJsonLoad = false;
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
@@ -142,7 +141,9 @@ function htResetAllIndexes()
     loadedIdx = [];
     htPendingIndexes = [];
     htIndexesOrder = [];
-    htLastLoadURL = "";
+    htCurrentPage = "";
+    htCurrentArg = "";
+    htAllowJsonLoad = false;
     const indexMaps = [
         htHistoryIdx,
         htLiteratureIdx,
@@ -2373,22 +2374,27 @@ function htLoadPage(page, ext, arg, reload) {
         $("#html_loaded").val(page);
     }
 
+    var URL = htLoadPageMountURL(page, arg, "");
+
+    if (ext === "html") {
+        htCurrentPage = page;
+        htCurrentArg = arg;
+        htAllowJsonLoad = true;
+    } else if (ext === "json") {
+        if (page === htCurrentPage && arg === htCurrentArg) {
+            if (!htAllowJsonLoad) {
+                return false;
+            }
+            htAllowJsonLoad = false;
+        }
+    }
+
     var unixEpoch = Date.now();
     if (ext === "html") {
         htOnlyLoadHtml(appendPage, page, ext, unixEpoch);
 
         return false;
     }
-
-    var URL = htLoadPageMountURL(page, arg, "");
-
-    if (URL === htLastLoadURL && page === htLastLoadPage && arg === htLastLoadArg && ext === htLastLoadExt) {
-        return false;
-    }
-    htLastLoadURL = URL;
-    htLastLoadPage = page;
-    htLastLoadArg = arg;
-    htLastLoadExt = ext;
 
     $("#loading_msg").show();
     $.ajax({
