@@ -26,6 +26,7 @@ var smGameTimeoutID = 0;
 var htAtlas = new Map();
 
 var loadedIdx = [];
+var htLoadPageDepth = 0;
 var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
@@ -2731,7 +2732,8 @@ function htFillWebPage(page, data)
         }
     }
 
-    if (data?.scripts?.length) {
+    if (data?.scripts?.length && htLoadPageDepth < 2) {
+        htLoadPageDepth++;
         data.scripts.forEach(script => {
             const jsURL = `js/${script}.js`;
             $.getScript(jsURL, () => {
@@ -2747,6 +2749,8 @@ function htFillWebPage(page, data)
                     e.preventDefault();
                     if (typeof htLoadExercise !== "undefined") htLoadExercise();
                 });
+
+                htLoadPageDepth--;
             });
         });
     }
