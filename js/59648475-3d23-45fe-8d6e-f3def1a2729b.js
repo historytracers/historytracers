@@ -28,7 +28,6 @@ async function startClap(){
   document.head.appendChild(styleSheet);
   let next = parseInt(local.bottomValue);
   for(let i=0;i<count;i+=next){
-    console.log(i+" "+count);
     local.leftHandElem.classList.add("temp-clap-left");
     local.rightHandElem.classList.add("temp-clap-right");
     await new Promise(r=>setTimeout(r, animationDuration));
@@ -126,7 +125,8 @@ async function repeatIsolatedHandLeft() {
   const duration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gesture-duration').trim()) || 385;
   const pause = duration * 0.2;
   
-  for(let rep = 0; rep < reps; rep++) {
+  let next = parseInt(local.bottomValue);
+  for(let rep = 0; rep < reps; rep+=next) {
     const animName = `leftIso_${Date.now()}_${rep}`;
     const style = document.createElement("style");
     style.textContent = `
@@ -158,7 +158,8 @@ async function repeatIsolatedHandRight() {
   const duration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gesture-duration').trim()) || 385;
   const pause = duration * 0.2;
   
-  for(let rep = 0; rep < reps; rep++) {
+  let next = parseInt(local.bottomValue);
+  for(let rep = 0; rep < reps; rep+=next) {
     const animName = `rightIso_${Date.now()}_${rep}`;
     const style = document.createElement("style");
     style.textContent = `
@@ -181,35 +182,38 @@ async function repeatIsolatedHandRight() {
   local.isolatedBusy = false;
 }
 
-async function repeatIsolatedStepLeft() {
-  if(local.isolatedBusy || local.clapBusy || local.jumpBusy || local.stepsBusy || local.waveBusy) return;
+async function repeatIsolatedStepLeft(showCounter) {
+  if((local.isolatedBusy || local.clapBusy || local.jumpBusy || local.stepsBusy || local.waveBusy) && showCounter) return;
   const reps = parseInt(document.getElementById("clapCount").value);
   if(!reps || reps < 1) return;
   local.isolatedBusy = true;
   const stepDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--step-duration').trim()) || 440;
   const pause = stepDuration * 0.2;
   
-  for(let rep = 0; rep < reps; rep++) {
+  let next = parseInt(local.bottomValue);
+  for(let rep = 0; rep < reps; rep+=next) {
     local.leftFoot.classList.add('zoom-left');
     await new Promise(r => setTimeout(r, stepDuration));
+    if (showCounter) { local.clapCounterDisplay.innerText = `: ${rep + 1}`; }
     local.leftFoot.classList.remove('zoom-left');
     if(rep < reps-1) await new Promise(r => setTimeout(r, pause));
   }
   local.isolatedBusy = false;
 }
 
-async function repeatIsolatedStepRight() {
-  if(local.isolatedBusy || local.clapBusy || local.jumpBusy || local.stepsBusy || local.waveBusy) return;
+async function repeatIsolatedStepRight(showCounter) {
+  if((local.isolatedBusy || local.clapBusy || local.jumpBusy || local.stepsBusy || local.waveBusy) && showCounter) return;
   const reps = parseInt(document.getElementById("clapCount").value);
   if(!reps || reps < 1) return;
   local.isolatedBusy = true;
   const stepDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--step-duration').trim()) || 440;
   const pause = stepDuration * 0.2;
   
-  for(let rep = 0; rep < reps; rep++) {
+  let next = parseInt(local.bottomValue);
+  for(let rep = 0; rep < reps; rep+=next) {
     local.rightFoot.classList.add('zoom-right');
     await new Promise(r => setTimeout(r, stepDuration));
-    local.clapCounterDisplay.innerText = `: ${rep + 1}`;
+    if (showCounter) { local.clapCounterDisplay.innerText = `: ${rep + 1}`; }
     local.rightFoot.classList.remove('zoom-right');
     if(rep < reps-1) await new Promise(r => setTimeout(r, pause));
   }
@@ -241,12 +245,12 @@ function htNewLocalMultiplication() {
 
 function htExecuteOneMult() {
     let choose = 0;
-    if (local.lastOne) {
+    if (local.firstGroupOne) {
         choose = htGetRandomArbitrary(1, 3);
-        local.lastOne = false;
+        local.firstGroupOne = false;
     } else {
         choose = htGetRandomArbitrary(3, 5);
-        local.lastOne = true;
+        local.firstGroupOne = true;
     }
     switch (choose) {
         case 1:
@@ -256,10 +260,10 @@ function htExecuteOneMult() {
             repeatIsolatedHandRight();
             break;
         case 3:
-            repeatIsolatedStepLeft();
+            repeatIsolatedStepLeft(true);
             break;
         default:
-            repeatIsolatedStepRight();
+            repeatIsolatedStepRight(true);
             break;
     }
     local.running = false;
@@ -267,12 +271,12 @@ function htExecuteOneMult() {
 
 function htExecuteTwoMult() {
     let choose = 0;
-    if (local.lastTwo) {
+    if (local.firstGroupTwo) {
         choose = htGetRandomArbitrary(1, 3);
-        local.lastTwo = false;
+        local.firstGroupTwo = false;
     } else {
         choose = htGetRandomArbitrary(3, 5);
-        local.lastTwo = true;
+        local.firstGroupTwo = true;
     }
 
     switch (choose) {
@@ -305,13 +309,17 @@ function htExecuteMult() {
     }
     else if (local.currentSelection == "2") {
         htExecuteTwoMult();
+    } else {
+        startWave();
+        repeatIsolatedStepLeft(false);
     }
+    local.running = false;
 }
 
 function htLoadContent() {
     htWriteNavigation();
 
-    local = { "palette": document.getElementById("palette"), "hands": document.querySelectorAll(".hand-shape"), "leftHandElem": document.getElementById("leftHand"), "rightHandElem": document.getElementById("rightHand"), "feetJumpWrapper": document.getElementById("feetJumpWrapper"), "leftFoot": document.getElementById("leftFoot"), "rightFoot": document.getElementById("rightFoot"), "clapBusy": false, "jumpBusy": false, "stepsBusy": false, "waveBusy": false, "isolatedBusy": false, "handPosCounterSpan": document.getElementById("handPosCounter"), "moveToggleBtn": document.getElementById("moveDownBtn"), "speedSlider": document.getElementById("speedSlider"), "clapCycleTime":  1100, "clapCounterDisplay": document.getElementById("clapCounter"), "topValue": 0, "bottomValue": 0, "result": 0, "currentSelection": -1, "running": false, "lastOne": true, "lastTwo": true};
+    local = { "palette": document.getElementById("palette"), "hands": document.querySelectorAll(".hand-shape"), "leftHandElem": document.getElementById("leftHand"), "rightHandElem": document.getElementById("rightHand"), "feetJumpWrapper": document.getElementById("feetJumpWrapper"), "leftFoot": document.getElementById("leftFoot"), "rightFoot": document.getElementById("rightFoot"), "clapBusy": false, "jumpBusy": false, "stepsBusy": false, "waveBusy": false, "isolatedBusy": false, "handPosCounterSpan": document.getElementById("handPosCounter"), "moveToggleBtn": document.getElementById("moveDownBtn"), "speedSlider": document.getElementById("speedSlider"), "clapCycleTime":  1100, "clapCounterDisplay": document.getElementById("clapCounter"), "topValue": 0, "bottomValue": 0, "result": 0, "currentSelection": -1, "running": false, "firstGroupOne": true, "firstGroupTwo": true, "firstGroupThree": true};
 
     skinTones.forEach((color, index)=>{
         const swatch = document.createElement("div");
