@@ -2,31 +2,8 @@
 
 var local = {};
 
-function htNewLocalMultiplication() {
-    if (local.handsAreDown) {
-        local.leftHandElem.classList.remove("hand-down");
-        local.rightHandElem.classList.remove("hand-down");
-        local.handsAreDown = false;
-    }
-
-    local.steps = 0;
-    local.topValue = htGetRandomArbitrary(1, 9);
-    let topValue = local.topValue;
-    local.bottomValue = ($("#mtValues").val() == "-1") ? htGetRandomArbitrary(1, 3) : $("#mtValues").val();
-    let bottomValue = local.bottomValue;
-    let result = topValue * bottomValue;
-
-    local.result = result;
-    local.lastStep = (result > 9) ? 6: 5;
-
-    $("#topVal").html(topValue);
-    $("#bottomVal").html(bottomValue);
-    $("#resVal").html((result > 9) ? result : " "+result);
-
-    $("#clapCounter").html(": 0");
-    $("#jumpCounter").html(": 0");
-    $("#stepsCounter").html(": 0");
-    $("#clapCount").val(0);
+function getCurrentHandYOffset() {
+  return local.handsAreDown ? 58 : 0;
 }
 
 async function startClap(){
@@ -49,7 +26,7 @@ async function startClap(){
     .temp-clap-right { animation: ${rightKeyName} ${animationDuration/1000}s ease forwards !important; }
   `;
   document.head.appendChild(styleSheet);
-  for(let i=0;i<count;i++){
+  for(let i=0;i<count;i+=local.bottomValue){
     local.leftHandElem.classList.add("temp-clap-left");
     local.rightHandElem.classList.add("temp-clap-right");
     await new Promise(r=>setTimeout(r, animationDuration));
@@ -60,6 +37,7 @@ async function startClap(){
     if(i<count-1) await new Promise(r=>setTimeout(r, pauseDuration));
   }
   setTimeout(()=>styleSheet.remove(),200);
+  local.running = false;
   local.clapBusy=false;
 }
 
@@ -70,7 +48,7 @@ async function startJump(){
   local.jumpBusy=true; let completed=0;
   jumpCounterDisplay.innerText = ` ${completed}`;
   const jumpDuration = clapCycleTime * 0.5;
-  for(let i=0;i<count;i++){
+  for(let i=0;i<count;i+=local.bottomValue){
     local.feetJumpWrapper.classList.add('feet-jumping');
     await new Promise(r=>setTimeout(r, jumpDuration));
     local.feetJumpWrapper.classList.remove('feet-jumping');
@@ -78,6 +56,7 @@ async function startJump(){
     jumpCounterDisplay.innerText = ` ${completed}`;
     if(i<count-1) await new Promise(r=>setTimeout(r, jumpDuration*0.3));
   }
+  local.running = false;
   local.jumpBusy=false;
 }
 
@@ -88,13 +67,14 @@ async function startSteps(){
   local.stepsBusy=true; let completed=0;
   stepsCounterDisplay.innerText = ` ${completed}`;
   const stepDuration = clapCycleTime * 0.4;
-  for(let i=0;i<count;i++){
+  for(let i=0;i<count;i+=local.bottomValue){
     if(i%2===0){ local.leftFoot.classList.add('zoom-left'); await new Promise(r=>setTimeout(r, stepDuration)); local.leftFoot.classList.remove('zoom-left'); }
     else{ local.rightFoot.classList.add('zoom-right'); await new Promise(r=>setTimeout(r, stepDuration)); local.rightFoot.classList.remove('zoom-right'); }
     completed++;
     stepsCounterDisplay.innerText = ` ${completed}`;
     if(i<count-1) await new Promise(r=>setTimeout(r, stepDuration*0.2));
   }
+  local.running = false;
   local.stepsBusy=false;
 }
 
@@ -107,7 +87,7 @@ async function startWave(){
   const currentY = getCurrentHandYOffset();
   const waveMoveDuration = clapCycleTime * 0.45;
   const rest = waveMoveDuration * 0.25;
-  for(let i=0;i<count;i++){
+  for(let i=0;i<count;i+=local.bottomValue){
     const leftAnim = `waveL_${Date.now()}_${i}`;
     const rightAnim = `waveR_${Date.now()}_${i}`;
     const style = document.createElement("style");
@@ -128,6 +108,7 @@ async function startWave(){
     waveCounterDisplay.innerText = ` ${completed}`;
     if(i<count-1) await new Promise(r=>setTimeout(r, rest));
   }
+  local.running = false;
   local.waveBusy=false;
 }
 
@@ -140,7 +121,7 @@ async function repeatIsolatedHandLeft() {
   const duration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gesture-duration').trim()) || 385;
   const pause = duration * 0.2;
   
-  for(let rep = 0; rep < reps; rep++) {
+  for(let rep = 0; rep < reps; rep+= local.bottomValue) {
     const animName = `leftIso_${Date.now()}_${rep}`;
     const style = document.createElement("style");
     style.textContent = `
@@ -158,6 +139,7 @@ async function repeatIsolatedHandLeft() {
     setTimeout(()=>style.remove(), 30);
     if(rep < reps-1) await new Promise(r => setTimeout(r, pause));
   }
+  local.running = false;
   local.isolatedBusy = false;
 }
 
@@ -170,7 +152,7 @@ async function repeatIsolatedHandRight() {
   const duration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gesture-duration').trim()) || 385;
   const pause = duration * 0.2;
   
-  for(let rep = 0; rep < reps; rep++) {
+  for(let rep = 0; rep < reps; rep+= local.bottomValue) {
     const animName = `rightIso_${Date.now()}_${rep}`;
     const style = document.createElement("style");
     style.textContent = `
@@ -188,6 +170,7 @@ async function repeatIsolatedHandRight() {
     setTimeout(()=>style.remove(), 30);
     if(rep < reps-1) await new Promise(r => setTimeout(r, pause));
   }
+  local.running = false;
   local.isolatedBusy = false;
 }
 
@@ -199,7 +182,7 @@ async function repeatIsolatedStepLeft() {
   const stepDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--step-duration').trim()) || 440;
   const pause = stepDuration * 0.2;
   
-  for(let rep = 0; rep < reps; rep++) {
+  for(let rep = 0; rep < reps; rep+= local.bottomValue) {
     local.leftFoot.classList.add('zoom-left');
     await new Promise(r => setTimeout(r, stepDuration));
     local.leftFoot.classList.remove('zoom-left');
@@ -216,19 +199,79 @@ async function repeatIsolatedStepRight() {
   const stepDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--step-duration').trim()) || 440;
   const pause = stepDuration * 0.2;
   
-  for(let rep = 0; rep < reps; rep++) {
+  for(let rep = 0; rep < reps; rep+= local.bottomValue) {
     local.rightFoot.classList.add('zoom-right');
     await new Promise(r => setTimeout(r, stepDuration));
     local.rightFoot.classList.remove('zoom-right');
     if(rep < reps-1) await new Promise(r => setTimeout(r, pause));
   }
+  local.running = false;
   local.isolatedBusy = false;
+}
+
+function htNewLocalMultiplication() {
+    local.steps = 0;
+    local.running = false;
+    local.topValue = htGetRandomArbitrary(1, 10);
+    let topValue = local.topValue;
+    local.currentSelection = $("#mtValues").val();
+    local.bottomValue = (local.currentSelection == "-1") ? htGetRandomArbitrary(1, 4) : local.currentSelection;
+    local.currentSelection = local.bottomValue;
+    let bottomValue = local.bottomValue;
+    let result = topValue * bottomValue;
+
+    local.result = result;
+
+    $("#topVal").html(topValue);
+    $("#bottomVal").html(bottomValue);
+    $("#resVal").html((result > 9) ? result : " "+result);
+
+    $("#clapCounter").html(": 0");
+    $("#jumpCounter").html(": 0");
+    $("#stepsCounter").html(": 0");
+    $("#clapCount").val(0);
+}
+
+function htExecuteOneMult() {
+    let choose = htGetRandomArbitrary(1, 5);
+    switch (choose) {
+        case 1:
+            repeatIsolatedHandLeft();
+            break;
+        case 2:
+            repeatIsolatedHandRight();
+            break;
+        case 3:
+            repeatIsolatedStepLeft();
+            break;
+        default:
+            repeatIsolatedStepRight();
+            break;
+    }
+}
+
+function htExecuteMult() {
+    if (local.running) {
+        return;
+    }
+    local.running = true;
+
+    $("#clapCounter").html(": 0");
+    $("#jumpCounter").html(": 0");
+    $("#stepsCounter").html(": 0");
+
+    $("#clapCount").val(local.result);
+
+    if (local.currentSelection == "1") {
+        htExecuteOneMult();
+    }
+    // startClap();
 }
 
 function htLoadContent() {
     htWriteNavigation();
 
-    local = { "palette": document.getElementById("palette"), "hands": document.querySelectorAll(".hand-shape"), "leftHandElem": document.getElementById("leftHand"), "rightHandElem": document.getElementById("rightHand"), "feetJumpWrapper": document.getElementById("feetJumpWrapper"), "leftFoot": document.getElementById("leftFoot"), "rightFoot": document.getElementById("rightFoot"), "clapBusy": false, "jumpBusy": false, "stepsBusy": false, "waveBusy": false, "isolatedBusy": false, "handPosCounterSpan": document.getElementById("handPosCounter"), "moveToggleBtn": document.getElementById("moveDownBtn"), "speedSlider": document.getElementById("speedSlider"), "clapCycleTime":  1100, "clapCounterDisplay": document.getElementById("clapCounter"), "jumpCounterDisplay": document.getElementById("jumpCounter"), "stepsCounterDisplay": document.getElementById("stepsCounter"), "waveCounterDisplay": document.getElementById("waveCounter")};
+    local = { "palette": document.getElementById("palette"), "hands": document.querySelectorAll(".hand-shape"), "leftHandElem": document.getElementById("leftHand"), "rightHandElem": document.getElementById("rightHand"), "feetJumpWrapper": document.getElementById("feetJumpWrapper"), "leftFoot": document.getElementById("leftFoot"), "rightFoot": document.getElementById("rightFoot"), "clapBusy": false, "jumpBusy": false, "stepsBusy": false, "waveBusy": false, "isolatedBusy": false, "handPosCounterSpan": document.getElementById("handPosCounter"), "moveToggleBtn": document.getElementById("moveDownBtn"), "speedSlider": document.getElementById("speedSlider"), "clapCycleTime":  1100, "clapCounterDisplay": document.getElementById("clapCounter"), "jumpCounterDisplay": document.getElementById("jumpCounter"), "stepsCounterDisplay": document.getElementById("stepsCounter"), "waveCounterDisplay": document.getElementById("waveCounter"), "topValue": 0, "bottomValue": 0, "result": 0, "currentSelection": -1, "running": false};
 
     skinTones.forEach((color, index)=>{
         const swatch = document.createElement("div");
@@ -270,10 +313,10 @@ function htLoadContent() {
 
         $("#mtValues").on( "change", function() {
             var opt = $(this).val();
-            htFillExercise(opt);
+            htNewLocalMultiplication(opt);
         });
     }
 
-    htNewLocalMultiplication();
+    htNewLocalMultiplication(-1);
     return false;
 }

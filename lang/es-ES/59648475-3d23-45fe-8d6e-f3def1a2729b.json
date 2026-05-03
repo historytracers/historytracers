@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1777777130"
+      "1777824271"
    ],
    "authors": [
       ""
@@ -412,7 +412,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"speed-control\"><b>Tabla de Multiplicar:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatorio</option></select> <label>Despácio</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteSum();\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-chevron-right\"  onclick=\"htNewLocalAddition();\" style=\"font-size:2em;\"></i></div> <div class=\"counters\"> <b>Número actual</b><span id=\"clapCounter\" class=\"counter\">: 0</span> <b>Saltos</b><span id=\"jumpCounter\" class=\"counter\">: 0</span> <b>Resultados</b>:<span id=\"stepsCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
+               "text": "<center><div class=\"speed-control\"><b>Tabla de Multiplicar:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatorio</option></select> <label>Despácio</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteMult();\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-chevron-right\"  onclick=\"htNewLocalMultiplication();\" style=\"font-size:2em;\"></i></div> <div class=\"counters\"> <b>Número actual</b><span id=\"clapCounter\" class=\"counter\">: 0</span> <b>Saltos</b><span id=\"jumpCounter\" class=\"counter\">: 0</span> <b>Resultados</b>:<span id=\"stepsCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
