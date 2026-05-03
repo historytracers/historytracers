@@ -20,14 +20,15 @@
       }
    ],
    "index": [
-      "first_steps"
+      "first_steps",
+      "math_games"
    ],
    "license": [
       "SPDX-License-Identifier: GPL-3.0-or-later",
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1777754295"
+      "1777777149"
    ],
    "authors": [
       ""
@@ -380,7 +381,7 @@
                "PostMention": "."
             },
             {
-               "text": "### O jogo\n\nA evolução ocorre porque populações de diferentes seres vivos têm novas gerações, ou seja, estão se multiplicando. Logo, para entendermos a razão pela qual estamos aqui e como poderão ser as próximas gerações, precisamos dominar a multiplicação.\n\nNeste jogo, será apresentado um cálculo já aprendido nos textos anteriores. Para reforçar seu conhecimento, realize a conta movimentando seus membros (mãos e pés), como sugerido.\n\nVocê poderá escolher uma única tabuada ou deixar o sistema escolher de maneira aleatória. O grande objetivo do jogo é reforçar que a multiplicação consiste em somas repetidas da mesma quantidade (<htcite0>). ",
+               "text": "### O jogo\n\nA evolução ocorre porque populações de diferentes seres vivos têm novas gerações, ou seja, estão se multiplicando. Logo, para entendermos a razão pela qual estamos aqui e como poderão ser as próximas gerações, precisamos dominar a multiplicação.\n\nNeste jogo, será apresentado um cálculo já aprendido nos textos anteriores. Para reforçar seu conhecimento, realize a conta movimentando seus membros (mãos e pés), como sugerido.\n\nVocê poderá escolher uma única tabuada ou deixar o sistema escolher de maneira aleatória. O grande objetivo do jogo é reforçar que a multiplicação consiste em somas repetidas da mesma quantidade (<htcite0>).\n\n#### Regras\n\nO jogo apresenta um cálculo a ser realizado com o seu corpo. Para iniciar o cálculo, clique no link (<i class=\"fa-solid fa-play\" style=\"font-size:1em;color:#0f0;\" ></i>). Caso queira refazê-lo para fixação, clique novamente.\n\nPara realizar um novo cálculo, clique em (<i class=\"fa-solid fa-chevron-right\"></i>).",
                "source": [
                   {
                      "type": 1,
@@ -399,6 +400,42 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;<span id=\"nextVal\"></span>&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"topVal\"></span><br />×&nbsp;&nbsp;<span id=\"bottomVal\"></span><br />____________<br />&nbsp;&nbsp;<span id=\"resVal\"></span></center></p><p class=\"desc\"><b>Cálculo 1</b>: Multiplicação dos valores que será reproduzida com o corpo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"speed-control\"><b>Tabuada:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatório</option></select> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteSum();\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-chevron-right\"  onclick=\"htNewLocalAddition();\" style=\"font-size:2em;\"></i></div> <div class=\"counters\"> <b>Números atual</b><span id=\"clapCounter\" class=\"counter\">: 0</span> <b>Saltos</b><span id=\"jumpCounter\" class=\"counter\">: 0</span> <b>Resultados</b>:<span id=\"stepsCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.palette{ display:flex; flex-wrap:wrap; justify-content:center; max-width:550px; margin:12px auto; gap:8px; background: #fff9f0; padding: 8px 12px; border-radius: 50px; } .color-swatch{ width:32px; height:32px; border-radius:50%; cursor:pointer; border:2px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.2); transition:0.1s; } .color-swatch:hover{ transform:scale(1.1); } .color-swatch.active{ border:2px solid #000; box-shadow: 0 0 0 2px gold; } #leftHand { transform: translateX(-140px) translateY(0px); transform-origin: center; transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1); } #rightHand { transform: translateX(140px) translateY(0px); transform-origin: center; transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);} #leftHand.hand-down { transform: translateX(-140px) translateY(58px); } #rightHand.hand-down {  transform: translateX(140px) translateY(58px); } @keyframes jump { 0% { transform: scale(1); } 50% { transform: scale(1.07); } 100% { transform: scale(1); } } .feet-jumping {  animation: jump var(--jump-duration) ease;  transform-origin: center; } @keyframes leftFootZoom { 0% { transform: scale(-1,1) scale(1); } 50% { transform: scale(-1,1) scale(1.22); } 100% { transform: scale(-1,1) scale(1); } } @keyframes rightFootZoom { 0% { transform: translate(1011px, 0) scale(1,1) scale(1); } 50% { transform: translate(1011px, 0) scale(1,1) scale(1.22); } 100% { transform: translate(1011px, 0) scale(1,1) scale(1); } } .zoom-left { animation: leftFootZoom var(--step-duration) ease; transform-origin: center; transform-box: fill-box; } .zoom-right { animation: rightFootZoom var(--step-duration) ease; transform-origin: center; } .svg-container { display: inline-block; width: 100%; max-width: 850px; margin: 0 auto; background: #fef9ef; border-radius: 48px; padding: 12px 5px; box-shadow: 0 12px 25px rgba(0,0,0,0.1); } svg{ display: block; width: 100%; height: auto; max-height: 70vh; overflow:visible; }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"palette\" id=\"palette\"></div><center><div class=\"svg-container\"> <svg viewBox=\"0 0 600 300\" preserveAspectRatio=\"xMidYMid meet\"> <g transform=\"translate(250,0) scale(0.6)\"> <g id=\"leftHand\"> <path class=\"hand-shape\" fill=\"#F4C2A1\" d=\"M-268.1,338l21.7-21.7c2.3-2.3,3.5-5.3,3.5-8.5v-55.7c0-5.6,2.2-10.9,6.2-14.9l32.4-32.4 c2.1-2.1,5.8-1.8,7.4,0.8c2.8,4.4,5,11.4-1.4,18.9c-5.1,5.9-10.3,10.9-13.7,14.1 c-2.2,2-2.2,5.4-0.1,7.5c2,2,5.3,2,7.3,0l87.6-87.6c4.6-4.6,12.2-4.6,16.8,0 c4.6,4.6,4.6,12.2,0,16.8l-66.2,66.2c-2.4,2.4-2.4,6.4,0,8.8 c2.4,2.4,6.4,2.4,8.8,0l74.5-75.3c4.6-4.7,12.2-4.7,16.9,0l1.8,1.8 c4.6,4.6,4.6,12.1,0.1,16.8l-70.4,71.3c-2.2,2.3-2.2,5.9,0,8.2 c2.3,2.3,5.9,2.3,8.2,0l61.2-61.2c4.6-4.6,12.2-4.6,16.8,0l0.2,0.2 c4.6,4.6,4.6,12.2,0,16.8l-67.1,67.1c-1.7,1.7-1.7,4.6,0,6.3 c1.7,1.7,4.6,1.7,6.3,0l50.7-50.7c3.9-3.9,10.1-3.9,13.9,0 c3.9,3.9,3.9,10.1,0,13.9l-98.2,98.2z\"/> </g> <g id=\"rightHand\" transform=\"scale(-1,1)\"> <path class=\"hand-shape\" fill=\"#F4C2A1\" d=\"M-268.1,338l21.7-21.7c2.3-2.3,3.5-5.3,3.5-8.5v-55.7c0-5.6,2.2-10.9,6.2-14.9l32.4-32.4 c2.1-2.1,5.8-1.8,7.4,0.8c2.8,4.4,5,11.4-1.4,18.9c-5.1,5.9-10.3,10.9-13.7,14.1 c-2.2,2-2.2,5.4-0.1,7.5c2,2,5.3,2,7.3,0l87.6-87.6c4.6-4.6,12.2-4.6,16.8,0 c4.6,4.6,4.6,12.2,0,16.8l-66.2,66.2c-2.4,2.4-2.4,6.4,0,8.8 c2.4,2.4,6.4,2.4,8.8,0l74.5-75.3c4.6-4.7,12.2-4.7,16.9,0l1.8,1.8 c4.6,4.6,4.6,12.1,0.1,16.8l-70.4,71.3c-2.2,2.3-2.2,5.9,0,8.2 c2.3,2.3,5.9,2.3,8.2,0l61.2-61.2c4.6-4.6,12.2-4.6,16.8,0l0.2,0.2 c4.6,4.6,4.6,12.2,0,16.8l-67.1,67.1c-1.7,1.7-1.7,4.6,0,6.3 c1.7,1.7,4.6,1.7,6.3,0l50.7-50.7c3.9-3.9,10.1-3.9,13.9,0 c3.9,3.9,3.9,10.1,0,13.9l-98.2,98.2z\"/> </g> </g>  <g transform=\"translate(350, 80) scale(0.125)\">  <g id=\"feetJumpWrapper\"> <g id=\"leftFoot\" transform=\"translate(1011,0) scale(-1,1)\">  <g transform=\"translate(0.000000,1280.000000) scale(0.100000,-0.100000)\" fill=\"#F4C2A1\" stroke=\"none\"> <path class=\"toe\" d=\"M4085 12793 c-172 -22 -364 -101 -472 -194 -249 -216 -357 -646 -272 -1087 54 -282 193 -513 391 -649 95 -65 140 -88 248 -123 237 -77 493 -56 727 62 219 109 355 309 419 613 26 124 26 421 1 549 -68 338 -211 559 -461 708 -160 97 -394 145 -581 121z\"/> <path class=\"toe\" d=\"M6475 12530 c-133 -28 -252 -96 -360 -205 -159 -159 -231 -332 -242 -586 -19 -422 142 -773 431 -938 208 -119 426 -143 616 -69 111 43 231 136 322 248 292 362 202 1110 -167 1387 -73 54 -219 127 -300 148 -70 19 -243 28 -300 15z\"/> <path class=\"toe\" d=\"M1431 12289 c-195 -26 -436 -111 -604 -211 -143 -87 -205 -136 -338 -268 -413 -412 -577 -982 -439 -1525 135 -534 568 -929 1118 -1020 152 -25 427 -17 572 18 467 112 849 400 1087 821 89 156 169 393 192 569 14 102 14 324 0 423 -81 588 -511 1051 -1087 1175 -113 24 -383 34 -501 18z\"/> <path class=\"toe\" d=\"M8183 11316 c-189 -48 -313 -184 -375 -412 -28 -107 -31 -316 -4 -419 25 -97 76 -200 130 -263 244 -284 631 -355 877 -161 139 109 230 395 201 631 -23 187 -82 308 -209 428 -143 136 -288 200 -468 206 -61 2 -120 -2 -152 -10z\"/> <path class=\"toe\" d=\"M9535 10154 c-265 -67 -470 -327 -515 -656 -35 -250 64 -519 232 -631 153 -101 332 -102 500 -1 377 228 478 860 184 1158 -39 41 -85 74 -129 96 -59 29 -79 33 -160 36 -50 2 -101 1 -112 -2z\"/> <path class=\"basis\" d=\"M5075 10674 c-433 -34 -787 -104 -1124 -224 -429 -152 -712 -325 -968 -594 -193 -202 -326 -394 -458 -661 -214 -430 -315 -855 -315 -1321 0 -698 265 -1234 747 -1513 164 -94 375 -159 610 -186 799 -93 1448 -394 1788 -830 189 -242 284 -488 316 -815 42 -441 -70 -770 -532 -1570 -84 -146 -209 -362 -277 -480 -233 -404 -405 -779 -467 -1015 -109 -421 -6 -814 286 -1090 414 -390 1188 -481 2077 -245 347 93 635 271 937 581 285 293 518 634 755 1109 523 1044 877 2425 1002 3910 20 243 17 1017 -5 1190 -84 652 -225 1241 -393 1640 -307 730 -823 1239 -1670 1646 -602 289 -1062 418 -1663 464 -121 9 -544 11 -646 4z\"/> </g> </g> <g id=\"rightFoot\" transform=\"translate(1011,0)\"> <g transform=\"translate(0.000000,1280.000000) scale(0.100000,-0.100000)\" fill=\"#F4C2A1\" stroke=\"none\"> <path class=\"toe\" d=\"M4085 12793 c-172 -22 -364 -101 -472 -194 -249 -216 -357 -646 -272 -1087 54 -282 193 -513 391 -649 95 -65 140 -88 248 -123 237 -77 493 -56 727 62 219 109 355 309 419 613 26 124 26 421 1 549 -68 338 -211 559 -461 708 -160 97 -394 145 -581 121z\"/> <path class=\"toe\" d=\"M6475 12530 c-133 -28 -252 -96 -360 -205 -159 -159 -231 -332 -242 -586 -19 -422 142 -773 431 -938 208 -119 426 -143 616 -69 111 43 231 136 322 248 292 362 202 1110 -167 1387 -73 54 -219 127 -300 148 -70 19 -243 28 -300 15z\"/> <path class=\"toe\" d=\"M1431 12289 c-195 -26 -436 -111 -604 -211 -143 -87 -205 -136 -338 -268 -413 -412 -577 -982 -439 -1525 135 -534 568 -929 1118 -1020 152 -25 427 -17 572 18 467 112 849 400 1087 821 89 156 169 393 192 569 14 102 14 324 0 423 -81 588 -511 1051 -1087 1175 -113 24 -383 34 -501 18z\"/> <path class=\"toe\" d=\"M8183 11316 c-189 -48 -313 -184 -375 -412 -28 -107 -31 -316 -4 -419 25 -97 76 -200 130 -263 244 -284 631 -355 877 -161 139 109 230 395 201 631 -23 187 -82 308 -209 428 -143 136 -288 200 -468 206 -61 2 -120 -2 -152 -10z\"/>   <path class=\"toe\" d=\"M9535 10154 c-265 -67 -470 -327 -515 -656 -35 -250 64 -519 232 -631 153 -101 332 -102 500 -1 377 228 478 860 184 1158 -39 41 -85 74 -129 96 -59 29 -79 33 -160 36 -50 2 -101 1 -112 -2z\"/> <path class=\"basis\" d=\"M5075 10674 c-433 -34 -787 -104 -1124 -224 -429 -152 -712 -325 -968 -594 -193 -202 -326 -394 -458 -661 -214 -430 -315 -855 -315 -1321 0 -698 265 -1234 747 -1513 164 -94 375 -159 610 -186 799 -93 1448 -394 1788 -830 189 -242 284 -488 316 -815 42 -441 -70 -770 -532 -1570 -84 -146 -209 -362 -277 -480 -233 -404 -405 -779 -467 -1015 -109 -421 -6 -814 286 -1090 414 -390 1188 -481 2077 -245 347 93 635 271 937 581 285 293 518 634 755 1109 523 1044 877 2425 1002 3910 20 243 17 1017 -5 1190 -84 652 -225 1241 -393 1640 -307 730 -823 1239 -1670 1646 -602 289 -1062 418 -1663 464 -121 9 -544 11 -646 4z\"/> </g> </g> </g> </g> </svg> </div> </center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]
