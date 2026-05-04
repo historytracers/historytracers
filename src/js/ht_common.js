@@ -2332,7 +2332,7 @@ function htCallFillPIXQRCode() {
     }
 }
 
-$(document).ready(function() {
+window.addEventListener('load', function() {
     htCallFillPIXQRCode();
 });
 

@@ -375,5 +375,10 @@ function htLoadContent() {
     }
 
     htNewLocalMultiplication(-1);
+
+    htSetImageSrc("imgHer", "images/DonsMaps/1590b.jpg");
+    htSetImageSrc("imgNean", "images/DonsMaps/img_6801ferrassie.jpg");
+    htSetImageSrc("imgHs7", "images/MexicoCityMuseo/HomoSapiens.jpg");
+
     return false;
 }

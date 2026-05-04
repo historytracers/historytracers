@@ -235,5 +235,9 @@ function htLoadContent() {
 
     htNewLocalAddition();
 
+    htSetImageSrc("imgHabilis", "images/DonsMaps/img_6652habilissm.jpg");
+    htSetImageSrc("imgHS", "images/MexicoCityMuseo/HomoSapiens.jpg");
+    htSetImageSrc("imgDNA", "images/HistoryTracers/DNA.png");
+
     return false;
 }

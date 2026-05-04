@@ -130,5 +130,9 @@ function htLoadContent() {
     }
     $('#clapCount').val(5);
 
+    htSetImageSrc("imgHe", "images/DonsMaps/img_6776erectusdmanisi.jpg");
+    htSetImageSrc("imgHer", "images/DonsMaps/1594.jpg");
+    htSetImageSrc("imgHs3", "images/MexicoCityMuseo/HomoSapiens.jpg");
+
     return false;
 }
