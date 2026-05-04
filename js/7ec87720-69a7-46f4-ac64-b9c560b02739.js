@@ -28,7 +28,8 @@ function htTranslationLoadHA(tableID, field, selector, value)
 
 function htTranslationLoadIndigenous(tableID, field, selector, value)
 {
-   $(tableID+" "+field).html((selector > 50) ? "<img id=\"imgMIMG"+value+"\" onclick=\"htImageZoom('imgMIMG"+value+"', '0%')\" src=\"images/HistoryTracers/Maya_"+value+".png\" />" : "&nbsp;");
+   var htImgSrcPrefix = htGetImgSrcPrefix();
+   $(tableID+" "+field).html((selector > 50) ? "<img id=\"imgMIMG"+value+"\" onclick=\"htImageZoom('imgMIMG"+value+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+value+".png\" />" : "&nbsp;");
 }
 
 function htTranslationFillData(type, max)
@@ -144,9 +145,10 @@ function htTranslationCheckRandomAnswer() {
     var idx = Math.floor(htGetRandomArbitrary(0, local.gameUseVector.length -1));
                   
     if (local.gameTranslationCurrentLevel < 9) { 
+        var htImgSrcPrefix = htGetImgSrcPrefix();
         var imgName = local.gameUseTranslationImages[idx];
         var obj = local.gameUseVector[idx];
-        $("#gameImage").html("<img class=\"imgGameSize\" id=\"imgCorrect\" onclick=\"htImageZoom('imgCorrect', '0%')\" src=\""+obj.imagePath+"\"/><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
+        $("#gameImage").html("<img class=\"imgGameSize\" id=\"imgCorrect\" onclick=\"htImageZoom('imgCorrect', '0%')\" src=\""+htImgSrcPrefix+obj.imagePath+"\"/><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
 
         local.gameUseTranslationImages.splice(idx, 1);
         local.gameUseVector.splice(idx, 1);
