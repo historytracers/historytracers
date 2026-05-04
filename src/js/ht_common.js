@@ -1805,6 +1805,8 @@ function htWriteNavigationInternal()
     });
 }
 
+var htLastImgSrcPrefix = null;
+
 function htFillPIXQRCode(id, size) {
     var $element = $(id);
     var htImgSrcPrefix = htGetImgSrcPrefix();
@@ -1814,6 +1816,10 @@ function htFillPIXQRCode(id, size) {
             src: htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png',
             width: size
         }).appendTo($element);
+        htLastImgSrcPrefix = htImgSrcPrefix;
+    } else if (htImgSrcPrefix !== htLastImgSrcPrefix) {
+        $element.find('img').attr('src', htImgSrcPrefix + 'images/HistoryTracers/qrcodePix.png');
+        htLastImgSrcPrefix = htImgSrcPrefix;
     }
 }
 
@@ -2177,6 +2183,7 @@ function htSelectAtlasMap(id) {
     var nextText = (vector.next) ? "<a href=\"javascript:void(0);\" onclick=\"htSelectAtlasMap('"+vector.next+"'); htModifyAtlasIndexMap('"+vector.next+"');\">"+nextIdx+"</a>" : "&nbsp;";
     text += "<p><hr /></p><p><div style=\"width: 50%; float: left; font-weight: bold;\">"+keywords[56]+"<br />"+prevText+"</div><div style=\"width: 50%; float: right; font-weight: bold; text-align: right;\">"+keywords[58]+"<br />"+nextText+"</div></p><p>&nbsp;</p>";
     $("#rightcontent").html(text);
+    htCallFillPIXQRCode();
 }
 
 function htFillAtlas(data) {
@@ -2304,6 +2311,8 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
 
             htProccessData(data, optional);
 
+            htCallFillPIXQRCode();
+
             if (arg != source) {
                 htEnableEdition();
             }
@@ -2322,6 +2331,10 @@ function htCallFillPIXQRCode() {
         htFillPIXQRCode("#htPixSideQRCode", "25%");
     }
 }
+
+$(document).ready(function() {
+    htCallFillPIXQRCode();
+});
 
 function htLoadPage(page, ext, arg, reload) {
     $("#messages").html("&nbsp;");
