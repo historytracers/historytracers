@@ -156,7 +156,7 @@ async function repeatIsolatedHandRight() {
   local.isolatedBusy = true;
   const currentY = getCurrentHandYOffset();
   const duration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gesture-duration').trim()) || 385;
-  const pause = duration * 0.2;
+  const pause = duration * 0.4;
   
   let next = parseInt(local.bottomValue);
   for(let rep = 0; rep < reps; rep+=next) {
@@ -188,7 +188,7 @@ async function repeatIsolatedStepLeft(showCounter) {
   if(!reps || reps < 1) return;
   local.isolatedBusy = true;
   const stepDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--step-duration').trim()) || 440;
-  const pause = stepDuration * 0.2;
+  const pause = stepDuration * 0.4;
   
   let next = parseInt(local.bottomValue);
   for(let rep = 0; rep < reps; rep+=next) {
@@ -207,7 +207,7 @@ async function repeatIsolatedStepRight(showCounter) {
   if(!reps || reps < 1) return;
   local.isolatedBusy = true;
   const stepDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--step-duration').trim()) || 440;
-  const pause = stepDuration * 0.2;
+  const pause = stepDuration * 0.4;
   
   let next = parseInt(local.bottomValue);
   for(let rep = 0; rep < reps; rep+=next) {
@@ -290,7 +290,17 @@ function htExecuteTwoMult() {
             startWave();
             break;
     }
-    local.running = false;
+}
+
+function htExecuteThreeMult() {
+    startWave();
+    if (local.firstGroupThree) {
+        repeatIsolatedStepLeft(false);
+        local.firstGroupThree = false;
+    } else {
+        repeatIsolatedStepRight(false);
+        local.firstGroupThree = true;
+    }
 }
 
 function htExecuteMult() {
@@ -310,8 +320,7 @@ function htExecuteMult() {
     else if (local.currentSelection == "2") {
         htExecuteTwoMult();
     } else {
-        startWave();
-        repeatIsolatedStepLeft(false);
+        htExecuteThreeMult();
     }
     local.running = false;
 }
