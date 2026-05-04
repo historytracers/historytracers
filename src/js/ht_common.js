@@ -2298,6 +2298,10 @@ function htLoadPageV1(page, ext, arg, reload, dir, optional) {
 
             htLoadSources(data, arg, page);
 
+            if (data?.header?.length) {
+                $("#header").html(data.header);
+            }
+
             htProccessData(data, optional);
 
             if (arg != source) {
@@ -2415,8 +2419,6 @@ function htLoadPage(page, ext, arg, reload) {
             htLoadSources(data, arg, page);
 
             htFillWebPage(page, data);
-
-            htCallFillPIXQRCode();
 
             return false;
         },
@@ -2608,6 +2610,10 @@ function htFillWebPage(page, data)
         htFillDivAuthorsContent("#extpaper", page_last_update, page_authors, page_reviewers);
     }
 
+    if (data?.header?.length) {
+        $("#header").html(data.header);
+    }
+
     if ($("#htaudio").length && data?.audio) {
         htAddAudio(data.audio);
     }
@@ -2626,6 +2632,7 @@ function htFillWebPage(page, data)
 
     if (data?.ht_local_images) {
         htLocalImgSrc = data.ht_local_images;
+        htCallFillPIXQRCode();
         return;
     }
 
