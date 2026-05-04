@@ -72,5 +72,8 @@ function htLoadContent() {
     }
     $('#clapCount').val(5);
 
+    htSetImageSrc("imgChimp", "images/TaiChimpanzeeProject/c4b711_0ebd581742a8483e90a28c521cadd3cb~mv2.jpeg");
+    htSetImageSrc("imgShona", "images/UniversityJohannesburg/ShonaJohannnesburg.jpg");
+
     return false;
 }
