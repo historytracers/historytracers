@@ -26,5 +26,7 @@ function htLoadContent() {
     $("#htChinaZhongguo").html(keywords[137]);
     $("#htJapanNipponNihonKoku").html(keywords[139]);
 
+    htSetImageSrc("imgTohoku", "images/Tohoku/Soroban.png");
+
     return false;
 }
