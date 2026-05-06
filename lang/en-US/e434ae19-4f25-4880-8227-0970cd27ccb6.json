@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1778095954"
+      "1778105258"
    ],
    "authors": [
       ""
@@ -381,7 +381,7 @@
          "id": "SECTION_soroban",
          "text": [
             {
-               "text": "### Números no Soroban (算盤)\n\nEste é o primeiro de uma série de textos que ensinam como usar o Soroban (算盤). Neste texto, focaremos na representação de números entre 0 e 9; em textos futuros, aprenderemos como utilizá-lo de maneira mais ampla.\n\nAntes de descrevermos como representar os números no Soroban (算盤), veja a seguir um Soroban (算盤) de nove colunas (<htcite0>):",
+               "text": "### Numbers on the Soroban (算盤)\n\nThis is the first in a series of texts that teach how to use the Soroban (算盤). In this text, we will focus on the representation of numbers between 0 and 9; in future texts, we will learn how to use it more broadly.\n\nBefore describing how to represent numbers on the Soroban (算盤), see below a nine-column Soroban (算盤) (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -412,7 +412,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div> <button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div></div></div></div>",
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div> <button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div></div></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -421,7 +421,7 @@
                "PostMention": ""
             },
             {
-               "text": "Como pode ser observado no campo “Valor”, quando não mexemos em nenhum dos marcadores — também conhecidos como contas (“beads”) — o Soroban (算盤) está mostrando o número zero (<htcite0>; <htcite1>).\n\nOs demais números no Soroban (算盤) são escritos à medida que aproximamos os marcadores da barra (“beam”), que possui um marcador negro simbolizando o local onde começamos a leitura do número. Façamos alguns exemplos com base nos ensinamentos de Tomoko Holt (<htcite2>):\n- Cada um dos marcadores abaixo da barra possui valor 1.\n- À medida que movemos os marcadores inferiores em direção à barra, seus valores se acumulam; ou seja, os números se formam de maneira semelhante aos dígitos mesoamericanos apresentados na **Tabela 2**.\n- O marcador superior tem valor 5; ou seja, quando o movemos em direção à barra, passamos do zero para o cinco na contagem. Esse movimento equivale a colocar um círculo na casa da Yupana com valor 5.\n- Sempre que temos um cinco posicionado na barra e movemos algum marcador inferior, passamos ao número seguinte. Algo parecido também ocorre com os números mesoamericanos, que utilizam uma barra para representar o número 5 e, à medida que adicionamos círculos, completamos os valores até chegar ao 9.\n- De maneira semelhante, também podemos associar essa movimentação dos marcadores à Yupana. Ao posicionarmos um marcador no quadrante de maior valor à esquerda, adicionamos outros marcadores para representar o número desejado.\n\nDepois dessa explicação, vamos utilizar o Soroban (算盤)",
+               "text": "As can be observed in the “Value” field, when we do not move any of the markers — also known as beads — the Soroban (算盤) is showing the number zero (<htcite0>; <htcite1>).\n\nThe other numbers on the Soroban (算盤) are written as we move the markers closer to the beam, which has a black marker symbolizing the place where we begin reading the number. Let's look at some examples based on the teachings of Tomoko Holt (<htcite2>):\n- Each of the markers below the beam has a value of 1.\n- As we move the lower markers toward the beam, their values accumulate; that is, the numbers are formed in a manner similar to the Mesoamerican digits presented in **Table 2**.\n- The upper marker has a value of 5; that is, when we move it toward the beam, we go from zero to five in the count. This movement is equivalent to placing a circle in the Yupana cell with a value of 5.\n- Whenever we have a five positioned on the beam and we move a lower marker, we advance to the next number. Something similar also occurs with Mesoamerican numbers, which use a bar to represent the number 5 and, as we add circles, complete the values up to 9.\n- Similarly, we can also associate this movement of the markers with the Yupana. By placing a marker in the higher-value quadrant on the left, we add other markers to represent the desired number.\n\nAfter this explanation, let's use the Soroban (算盤)",
                "source": [
                   {
                      "type": 1,
@@ -467,7 +467,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Usando o Soroban</b><br />Nesta prática, trabalharemos apenas com a coluna onde está o marcador de posição preto, mas não o moveremos. Manipularemos apenas os marcadores acima e abaixo.<br /><br />1. Mova os marcadores da parte inferior, começando pelo que está mais próximo da barra, um a um. Observe que é feita uma contagem de 1 a 4.<br /><br />2. Agora clique em “Reiniciar”.<br /><br />3. Mova somente o marcador superior e observe que o número 5 aparece.<br /><br />4. Por fim, mova um marcador de cada vez, a partir do mais próximo da barra, até que todos estejam no centro e você visualize o número 9.</div></div></p>",
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Using the Soroban</b><br />In this practice, we will work only with the column where the black position marker is located, but we will not move it. We will only manipulate the markers above and below.<br /><br />1. Move the markers on the lower part, starting with the one closest to the beam, one by one. Observe that you count from 1 to 4.<br /><br />2. Now click “Reset”.<br /><br />3. Move only the upper marker and observe that the number 5 appears.<br /><br />4. Finally, move one marker at a time, starting with the one closest to the beam, until all are in the center and you see the number 9.</div></div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -481,7 +481,7 @@
          "id": "SECTION_conclusion",
          "text": [
             {
-               "text": "### Conclusão\n\nNeste texto, aprendemos mais uma maneira de representar números. Com isso, totalizamos seis formas distintas até o momento (nossos dedos, marcas em ossos, Yupana, sistema numérico mesoamericano, números hindu-arábicos e o Soroban (算盤)). A partir disso, faremos mais uma reflexão.",
+               "text": "### Conclusion\n\nIn this text, we learned another way to represent numbers. With this, we have now totaled six distinct forms (our fingers, tally marks on bones, Yupana, Mesoamerican number system, Hindu-Arabic numerals, and the Soroban (算盤)). Based on this, we will reflect further.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -490,7 +490,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Tanto faz, sejamos felizes</b><br /><br />Durante milhares de anos, nós, <i>Homo sapiens</i>, temos construído diferentes maneiras de representar números.<br /><br />Você já parou para pensar que, para cada pessoa, pode haver uma forma mais adequada de aprender e representar os números?<br /><br />Como todas as representações transmitem a mesma ideia, você conseguiu perceber que nenhuma está errada?<br /><br />Se fomos capazes de fazer isso com os números, também somos capazes de aplicar essa lógica a outros aspectos da vida?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: It doesn't matter, let's be happy</b><br /><br />For thousands of years, we <i>Homo sapiens</i>, have built different ways of representing numbers.<br /><br />Have you ever stopped to think that, for each person, there may be a more suitable way to learn and represent numbers?<br /><br />Since all representations convey the same idea, have you realized that none of them is wrong?<br /><br />If we have been able to do this with numbers, can we also apply this logic to other aspects of life?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
