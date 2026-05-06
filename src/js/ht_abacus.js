@@ -1,4 +1,4 @@
-var localSorobanController = {"COLUMNS": 9, "state": [], "decimalMarkerCol": 8, "canvas": document.getElementById('sorobanCanvas'), "ctx": undefined, "canvasWidth": 860, "canvasHeight": 400, "colWidth": 0, "margin": { top: 48, bottom: 48 }, "startX": 0, "ballRadius": 0, "upperY_base": 0, "upperY_active": 0, "lowerBeadPositions": [], "decimalTrackY": 0, "decimalTrackTop": 0, "decimalTrackBottom": 0, "barY": 0};
+var localSorobanController = {"COLUMNS": 9, "state": [], "decimalMarkerCol": 8, "canvas": null, "ctx": undefined, "canvasWidth": 860, "canvasHeight": 400, "colWidth": 0, "margin": { top: 48, bottom: 48 }, "startX": 0, "ballRadius": 0, "upperY_base": 0, "upperY_active": 0, "lowerBeadPositions": [], "decimalTrackY": 0, "decimalTrackTop": 0, "decimalTrackBottom": 0, "barY": 0, "isDraggingDecimal": false};
 
 function htSorobanInitState(){
     localSorobanController.state = [];
@@ -48,11 +48,13 @@ function htSorobanComputeDecimalValue(){
 
 function htSorobanUpdateDisplay(){
     const numSpan = document.getElementById('numericValue');
+    if (!numSpan) return;
     const { display } = htSorobanComputeDecimalValue();
     numSpan.innerText = display;
 }
         
 function htSorobanComputeLayout(){
+    if (!localSorobanController.canvas || !localSorobanController.ctx) return;
     localSorobanController.canvasWidth = localSorobanController.canvas.width;
     localSorobanController.canvasHeight = localSorobanController.canvas.height;
     
@@ -100,6 +102,7 @@ function htSorobanComputeLayout(){
 }
         
 function htSorobanDrawDecimalTrack() {
+    if (!localSorobanController.ctx) return;
     localSorobanController.ctx.shadowBlur = 0;
     localSorobanController.ctx.fillStyle = "#dac894";
     localSorobanController.ctx.globalAlpha = 0.4;
@@ -138,6 +141,7 @@ function htSorobanDrawDecimalTrack() {
 }
         
 function htSorobanDrawDecimalMarker(){
+    if (!localSorobanController.ctx) return;
     const markerX = localSorobanController.startX + localSorobanController.decimalMarkerCol * localSorobanController.colWidth;
     const markerY = localSorobanController.decimalTrackY;
     
@@ -172,6 +176,7 @@ function htSorobanDrawDecimalMarker(){
 }
 
 function htSorobanDrawColumn(idx){
+    if (!localSorobanController.ctx) return;
     const x = localSorobanController.startX + idx * localSorobanController.colWidth;
     const col = localSorobanController.state[idx];
     const lowerCount = col.lower;
@@ -228,6 +233,7 @@ function htSorobanDrawColumn(idx){
 }
         
 function htSorobanDrawFrameDecorations(){
+    if (!localSorobanController.ctx) return;
     localSorobanController.ctx.strokeStyle = '#f9eec7';
     localSorobanController.ctx.lineWidth = 2.5;
     localSorobanController.ctx.strokeRect(5, 5, localSorobanController.canvasWidth-10, localSorobanController.canvasHeight-10);
@@ -344,15 +350,13 @@ function htSorobanMoveDecimalMarkerToColumn(targetCol){
     }
 }
         
-        let isDraggingDecimal = false;
-
 function htSorobanStartDecimalDrag(e){
-    isDraggingDecimal = true;
+    localSorobanController.isDraggingDecimal = true;
     e.preventDefault();
 }
         
 function htSorobanOnDecimalDrag(mouseX, mouseY){
-    if(!isDraggingDecimal) return;
+    if(!localSorobanController.isDraggingDecimal) return;
     let closestCol = -1;
     let minDist = localSorobanController.colWidth * 0.6;
     for(let i=0;i<localSorobanController.COLUMNS;i++){
@@ -373,10 +377,11 @@ function htSorobanOnDecimalDrag(mouseX, mouseY){
 }
         
 function htSorobanStopDecimalDrag(){
-    isDraggingDecimal = false;
+    localSorobanController.isDraggingDecimal = false;
 }
         
 function htSorobanHandleCanvasStart(e){
+    if (!localSorobanController.ctx) return;
     const rect = localSorobanController.canvas.getBoundingClientRect();
     const scaleX = localSorobanController.canvas.width / rect.width;
     const scaleY = localSorobanController.canvas.height / rect.height;
@@ -407,7 +412,8 @@ function htSorobanHandleCanvasStart(e){
 }
         
 function htSorobanHandleCanvasMove(e){
-    if(!isDraggingDecimal) return;
+    if(!localSorobanController.isDraggingDecimal) return;
+    if (!localSorobanController.canvas) return;
     const rect = localSorobanController.canvas.getBoundingClientRect();
     const scaleX = localSorobanController.canvas.width / rect.width;
     const scaleY = localSorobanController.canvas.height / rect.height;
@@ -426,7 +432,7 @@ function htSorobanHandleCanvasMove(e){
 }
         
 function htSorobanHandleCanvasEnd(e){
-    if(isDraggingDecimal){
+    if(localSorobanController.isDraggingDecimal){
         htSorobanStopDecimalDrag();
     }
 }
@@ -440,29 +446,47 @@ function htSorobanResetSoroban(){
     localSorobanController.decimalMarkerCol = 8;
     htSorobanRender();
     htSorobanUpdateDisplay();
-    isDraggingDecimal = false;
+    localSorobanController.isDraggingDecimal = false;
 }
         
 function htSorobanAttachEvents(){
-    localSorobanController.canvas.addEventListener('mousedown', htSorobanHandleCanvasStart);
+    const canvas = localSorobanController.canvas;
+    const resetBtn = document.getElementById('resetButton');
+    
+    if (!canvas) return;
+
+    canvas.removeEventListener('mousedown', htSorobanHandleCanvasStart);
+    canvas.removeEventListener('touchstart', htSorobanHandleCanvasStart);
+    window.removeEventListener('mousemove', htSorobanHandleCanvasMove);
+    window.removeEventListener('mouseup', htSorobanHandleCanvasEnd);
+    window.removeEventListener('touchmove', htSorobanHandleCanvasMove);
+    window.removeEventListener('touchend', htSorobanHandleCanvasEnd);
+    if (resetBtn) {
+        resetBtn.removeEventListener('click', htSorobanResetSoroban);
+    }
+    window.removeEventListener('resize', htSorobanComputeLayout);
+
+    canvas.addEventListener('mousedown', htSorobanHandleCanvasStart);
     window.addEventListener('mousemove', htSorobanHandleCanvasMove);
     window.addEventListener('mouseup', htSorobanHandleCanvasEnd);
-            
-    localSorobanController.canvas.addEventListener('touchstart', htSorobanHandleCanvasStart, { passive: false });
+    canvas.addEventListener('touchstart', htSorobanHandleCanvasStart, { passive: false });
     window.addEventListener('touchmove', htSorobanHandleCanvasMove, { passive: false });
     window.addEventListener('touchend', htSorobanHandleCanvasEnd);
-    
-    document.getElementById('resetButton').addEventListener('click', () => {
-        htSorobanResetSoroban();
-    });
-    window.addEventListener('resize', () => {
+    if (resetBtn) {
+        resetBtn.addEventListener('click', htSorobanResetSoroban);
+    }
+    window.addEventListener('resize', function() {
         htSorobanComputeLayout();
         htSorobanRender();
     });
 }
         
 function htSorobanInit(){
+    localSorobanController.canvas = document.getElementById('sorobanCanvas');
+    if (!localSorobanController.canvas) return;
+
     localSorobanController.ctx = localSorobanController.canvas.getContext('2d');
+    if (!localSorobanController.ctx) return;
 
     htSorobanInitState();
     htSorobanComputeLayout();
@@ -472,5 +496,9 @@ function htSorobanInit(){
 }
 
 function htLoadContent() {
-    htSorobanInit();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', htSorobanInit);
+    } else {
+        htSorobanInit();
+    }
 }
