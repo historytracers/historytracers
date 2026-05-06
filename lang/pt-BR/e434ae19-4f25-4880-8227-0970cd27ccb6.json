@@ -5,7 +5,8 @@
       "e434ae19-4f25-4880-8227-0970cd27ccb6"
    ],
    "scripts": [
-      "e434ae19-4f25-4880-8227-0970cd27ccb6"
+      "e434ae19-4f25-4880-8227-0970cd27ccb6",
+      "ht_abacus"
    ],
    "audio": [
       {
@@ -380,7 +381,7 @@
          "id": "SECTION_soroban",
          "text": [
             {
-               "text": "### Números no Soroban (算盤)\n\n",
+               "text": "### Números no Soroban (算盤)\n\nEste é o primeiro de uma série de textos ensinando como usar o Soroban (算盤). Neste texto, focaremos em representar números entre 0 e 9, para em textos futuros aprenderemos como utilizá-lo de maneira mais ampla.\n\nAntes de descrevermos como colocar os números no Soroban (算盤), veja na sequência um Soroban (算盤) de nove colunas (<htcite0>):",
                "source": [
                   {
                      "type": 1,
@@ -395,30 +396,75 @@
                      }
                   }
                ],
-               "date_time": [
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: 56px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: 28px 32px 32px 32px; } .soroban-frame { background: #e9ddb0; border-radius: 24px; padding: 16px 20px 20px 20px; box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; } .value-panel {  margin-top: 28px; background: #2e241f; border-radius: 48px; padding: 10px 20px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .readout { background: #f2ecd8; padding: 8px 18px; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: 1.8rem; letter-spacing: 2px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; } .readout span { font-size: 1.2rem; font-weight: normal; background: #4a3929; color: #ffecb3; padding: 4px 12px;  border-radius: 30px; margin-left: 12px; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: 1.2rem; font-family: inherit; padding: 8px 24px; border-radius: 60px; cursor: pointer; transition: 0.1s linear; box-shadow: 0 3px 0 #4f3822; } .reset-btn:active { transform: translateY(2px);  box-shadow: 0 1px 0 #4f3822; } .legend { font-size: 0.75rem; margin-top: 12px; text-align: center; color: #302419; background: #ebdfbe; display: inline-block; width: auto; padding: 5px 16px; border-radius: 60px; backdrop-filter: blur(2px); } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 8px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 5px 16px; font-size: 0.75rem; font-weight: bold; color: #302419; } @media (max-width: 860px) { .readout { font-size: 1.2rem; padding: 4px 12px; } .soroban-container { padding: 16px 20px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Conforme pode ser observador no campo **Valor** quando não mexemos em nenhum dos marcadores - também conhecidos como conta (*\"bead\"*) - o Soroban (算盤) está mostrando um número zero (<htcite0>; <htcite1>).\n\nOs demais números no Soroban (算盤) são escritos a medida que aproximamos os marcadores da barra (*\"beam\"*) que possuí um marcador negro simbolizando o local que começamos a ler o número. Façamos alguns exemplos com base nos ensinamentos de Tomoko Holt (<htcite2>):\n- Cada um dos marcadores abaixo da barra possuem o valor 1.\n- A medida que movemos os marcadores de baixo perto da barra eles vão se acumulando, ou seja, os números se parecem com os dígitos mesoamericanos que vimos na **Tabela 2**.\n- O marcado de acima tem o valor 5, ou seja, quando o movmentos perto da barra entedemos que saímos do zero para o cinco na contagem. Este movimento equivale a colocar um círculo na casa da Yuapana com valor 5.\n- Sempre que temos um cinco posicionado na barra e movemos algum marcador inferior, passaremos ao próximo número. Algo parecido também ocorre com os números mesoamericanos que possuem uma barra representando o número 5 e a medida que adicionamos mais círculos vamos completando números até chegar ao 9.\n- De maneira parecida, também podemos associar esta movimentação de marcados com a Yupana. Ao deixarmos um marcador no quadrante de maior número à esquerda nela, vamos adicionando outros marcadores para representar o número que desejamos.\n\nDepois desta explicação, vamos utilizar o Soroban (算盤)",
+               "source": [
                   {
-                     "type": "gregory",
-                     "year": "2010",
-                     "month": "",
-                     "day": ""
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Holt",
+                     "page": "01:58",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": "unix",
-                     "year": "",
-                     "month": "",
-                     "day": ""
+                     "type": 1,
+                     "uuid": "88d236e3-7db4-4085-848e-0346101e6e51",
+                     "text": "Samoly, K.",
+                     "page": "pp. 58",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "",
+                        "day": ""
+                     }
                   },
                   {
-                     "type": "julian",
-                     "year": "",
-                     "month": "",
-                     "day": ""
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Holt",
+                     "page": "03:41",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
                   }
                ],
+               "date_time": null,
                "isTable": false,
-               "imgdesc": "A description of an image included in the text.",
-               "format": "markdown or html",
-               "PostMention": "A character used after a mention to include citations."
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Usando o Soroban</b><br />Nesta prática iremos trabalhar apenas com a coluna onde temos o marcador preto, mas não mexeremos nele. Mexeremos com os marcadores que estão abaixo e acima.<br /><br />1. Mova os marcadores da parte de baixo, começando com o que está em cima um a um. Veja que é feita uma contagem de 1 a 4.<br /><br />2. Agora clique no **Recomeçar**.<br /><br />3. Mova somente o marcador superior e veja que o número 5 aparece.<br /><br />4. Finalmente, mova um marcador de cada vez a partir do marcador mais acima até que todos os marcadores estejam no centro e você veja o número 9.</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
             }
          ]
       }
