@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 var localCountere434ae19 = 0;
+var local = { };
 
 function htAddElementTo687ee328Table(tableID, rowID, rows)
 {
@@ -18,6 +19,7 @@ function htAddElementTo687ee328Table(tableID, rowID, rows)
 }
 
 function htLoadContent() {
+
     htWriteNavigation();
     $("#htChinaZhongguo").html(keywords[137]);
     $("#htJapanNipponNihonKoku").html(keywords[139]);
