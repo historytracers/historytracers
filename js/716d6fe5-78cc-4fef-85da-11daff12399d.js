@@ -5,5 +5,7 @@ function htLoadContent() {
     $("#htChinaZhongguo").html(keywords[137]);
     $("#htJapanNipponNihonKoku").html(keywords[139]);
 
+    htSetImageSrc("imgOaxaca", "images/MexicoCityMuseo/Oaxaca.jpg");
+
     return false;
 }
