@@ -1,0 +1,507 @@
+{
+   "title": "Construindo para contar (Soroban, 算盤)",
+   "header": "Construindo para contar (Soroban, 算盤)",
+   "sources": [
+      "e434ae19-4f25-4880-8227-0970cd27ccb6"
+   ],
+   "scripts": [
+      "e434ae19-4f25-4880-8227-0970cd27ccb6",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/e434ae19-4f25-4880-8227-0970cd27ccb6_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/2nf8VmE9E0dCoDfANoVgJo?si=FEuRs_9pTGSZ-_qrQjdDvw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1778111043"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htAgeMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nNeste, continuaremos aprendendo sobre diferentes maneiras de representar os números que usamos para contar. Desta vez, conheceremos o Soroban (算盤) desenvolvido no Japão (Nippon koku ou Nihon koku, 日本国).\n\nPara melhor compreendê-lo, recomendamos o estudo dos texto anteriores (<htcite0>; <htcite1>) antes de prosseguir.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9618a83e-f232-49db-84f6-fc3455a3f1d1",
+                     "text": "History Tracers Team",
+                     "page": "Desenhando para contar",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "648fb7b4-ba73-452e-980b-6d68d57d16b9",
+                     "text": "History Tracers Team",
+                     "page": "Nossos números atuais",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nNos textos anteriores, aprendemos que indígenas da América (*Abya Yala*) possivelmente utilizaram o próprio corpo para criar diferentes maneiras de realizar contagens.\n\nEm outro texto do *History Tracers*, estudamos que alguns indígenas da América (*Abya Yala*) possuem ancestrais comuns com alguns japoneses, apesar de terem vivido separados por um longo período de tempo (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9ba61aa2-28ec-4667-b7af-5a4076f865dd",
+                     "text": "History Tracers Team",
+                     "page": "Período Jomon (縄文)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Lá como aqui</b><br /><br />Você acha que os japoneses também poderiam ter criado instrumentos para representar contagens, como a yupana (<htcite0>; <htcite1>)?<br /><br />Essas conclusões teriam sido influenciadas umas pelas outras ou descobertas de maneira independente?</div></div></center>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "9ba61aa2-28ec-4667-b7af-5a4076f865dd",
+                     "text": "History Tracers Team",
+                     "page": "Jōmon Period (縄文)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_origin",
+         "text": [
+            {
+               "text": "### Origem\n\nCom relação à origem da ferramenta que iremos estudar, o Soroban (算盤) (**Figura 1**) (<htcite0>), não há consenso sobre qual foi o primeiro povo a desenvolver uma ferramenta de cálculo, também popularmente conhecida como ábaco. Ela pode ter surgido em diferentes locais de maneira independente ou ter se originado em um único lugar, espalhando-se por meio do comércio (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "8ab7ebef-41db-4f2b-a3e3-3530e7ff29d3",
+                     "text": "Shigetoshi Oyabu",
+                     "page": "fl. 14",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1842",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "88d236e3-7db4-4085-848e-0346101e6e51",
+                     "text": "Samoly, K.",
+                     "page": "pp. 59 - 61",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgTohoku\" src=\"\" class=\"imgcenter\" onclick=\"htImageZoom('imgTohoku', '0%')\" /><b>Figura 1</b>: Shigetoshi Oyabu. Mantido por Tohoku University Main Library (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "8ab7ebef-41db-4f2b-a3e3-3530e7ff29d3",
+                     "text": "Shigetoshi Oyabu",
+                     "page": "fl. 14",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1842",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Apesar das diferentes possíveis origens, há consenso de que o Soroban (算盤) teria chegado ao Japão (Nippon koku ou Nihon koku, 日本国) a partir da China (Zhongguo, 中國), sendo o modelo chinês (<htcite0>).\n\nJá com relação à possível ligação entre a maneira como os incas possivelmente utilizavam a yupana (<htcite1>) e o uso do Soroban (算盤), não há qualquer prova de contato entre esses povos; assim, assume-se que o desenvolvimento dessas ferramentas ocorreu de forma independente.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "88d236e3-7db4-4085-848e-0346101e6e51",
+                     "text": "Samoly, K.",
+                     "page": "pp. 60 - 61",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_writting",
+         "text": [
+            {
+               "text": "### Recordando os indígenas\n\nA melhor maneira de aprendermos algo novo é com base no que já vimos anteriormente. Dessa forma, vamos recordar os modelos indígenas que já estudamos.\n\n#### A Yuapana\n\nUm dos primeiros modelos de representação numérica que conhecemos foi a yupana. Para recordá-la, use as setas na **Tabela 1** para relembrar como a preenchemos de acordo com o método *\"Yupana Inka Tawa Pukllay\"* e a relação dos números com nossa mão (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\" src=\"images/HistoryTracers/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\" src=\"images/HistoryTracers/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Tabela 1</b>: Representação de uma linha da <i>Yupana</i> de acordo com Poma de Ayala (<htcite0> ; <htcite1>). CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 355",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman",
+                     "page": "pp. 361 - 362",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1615",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Da yupana (**Tabela 1**), podemos observar que representamos nossos dedos por etapas. Para os primeiros três dedos, temos um quadrante para cada um deles. Já para o quarto dedo, representamos com dois quadrantes (o quadrante com 1 e o quadrante com 3). Na sequência, temos um quadrante isolado para quando temos os cinco dedos levantados; para os demais números, mantemos os cinco dígitos sempre selecionados e acrescentamos valores nos demais quadrantes até completarmos nove dedos levantados (<htcite0>).\n\n#### Mesoamérica\n\nDos indígenas da Mesoamérica, temos o entendimento de que os números de 1 a 4 são representados como círculos, que poderiam simbolizar a ponta de nossos dedos, enquanto uma barra representa o número 5. Já de 6 a 9, há uma combinação dos anteriores. Veja a **Tabela 2** para relembrar:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<table class=\"tawapukllay\" id=\"tblHandsCounting\"><tr><th>Mão esquerda</th><th>Mão direita</th><th>Contagem indígena</th><th>Nossos números</th></tr> <tr id=\"tr0\"></tr> <tr id=\"tr1\"></tr> <tr id=\"tr2\"></tr> <tr id=\"tr3\"></tr> <tr id=\"tr4\"></tr> <tr id=\"tr5\"></tr> <tr id=\"tr6\"></tr> <tr id=\"tr7\"></tr> <tr id=\"tr8\"></tr> <tr id=\"tr9\"></tr> <tr id=\"tr10\"></tr>  </table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Tabela 2</b>: Numeração mesoamericana associada às nossas mãos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Alterações</b><br /><br />Tanto os indígenas dos Andes quanto os indígenas da Mesoamérica, na América (<i>Abya Yala</i>) usaram círculos para representar números. Entretanto, eles combinaram esses símbolos de maneiras diferentes.<br /><br />Seria possível substituir os círculos que estamos vendo por feijões?<br /><br />Além dessa troca, você consegue ir além e imaginar uma nova maneira de representar números entre 0 e 9?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_soroban",
+         "text": [
+            {
+               "text": "### Números no Soroban (算盤)\n\nEste é o primeiro de uma série de textos que ensinam como usar o Soroban (算盤). Neste texto, focaremos na representação de números entre 0 e 9; em textos futuros, aprenderemos como utilizá-lo de maneira mais ampla.\n\nAntes de descrevermos como representar os números no Soroban (算盤), veja a seguir um Soroban (算盤) de nove colunas (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Holt",
+                     "page": "01:58",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: 56px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: 28px 32px 32px 32px; } .soroban-frame { background: #e9ddb0; border-radius: 24px; padding: 16px 20px 20px 20px; box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; } .value-panel {  margin-top: 28px; background: #2e241f; border-radius: 48px; padding: 10px 20px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .readout { background: #f2ecd8; padding: 8px 18px; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: 1.8rem; letter-spacing: 2px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; } .readout span { font-size: 1.2rem; font-weight: normal; background: #4a3929; color: #ffecb3; padding: 4px 12px;  border-radius: 30px; margin-left: 12px; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: 1.2rem; font-family: inherit; padding: 8px 24px; border-radius: 60px; cursor: pointer; transition: 0.1s linear; box-shadow: 0 3px 0 #4f3822; } .reset-btn:active { transform: translateY(2px);  box-shadow: 0 1px 0 #4f3822; } .legend { font-size: 0.75rem; margin-top: 12px; text-align: center; color: #302419; background: #ebdfbe; display: inline-block; width: auto; padding: 5px 16px; border-radius: 60px; backdrop-filter: blur(2px); } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 8px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 5px 16px; font-size: 0.75rem; font-weight: bold; color: #302419; } @media (max-width: 860px) { .readout { font-size: 1.2rem; padding: 4px 12px; } .soroban-container { padding: 16px 20px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div> <button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como pode ser observado no campo “Valor”, quando não mexemos em nenhum dos marcadores — também conhecidos como contas (“beads”) — o Soroban (算盤) está mostrando o número zero (<htcite0>; <htcite1>).\n\nOs demais números no Soroban (算盤) são escritos à medida que aproximamos os marcadores da barra (“beam”), que possui um marcador negro simbolizando o local onde começamos a leitura do número. Façamos alguns exemplos com base nos ensinamentos de Tomoko Holt (<htcite2>):\n- Cada um dos marcadores abaixo da barra possui valor 1.\n- À medida que movemos os marcadores inferiores em direção à barra, seus valores se acumulam; ou seja, os números se formam de maneira semelhante aos dígitos mesoamericanos apresentados na **Tabela 2**.\n- O marcador superior tem valor 5; ou seja, quando o movemos em direção à barra, passamos do zero para o cinco na contagem. Esse movimento equivale a colocar um círculo na casa da Yupana com valor 5.\n- Sempre que temos um cinco posicionado na barra e movemos algum marcador inferior, passamos ao número seguinte. Algo parecido também ocorre com os números mesoamericanos, que utilizam uma barra para representar o número 5 e, à medida que adicionamos círculos, completamos os valores até chegar ao 9.\n- De maneira semelhante, também podemos associar essa movimentação dos marcadores à Yupana. Ao posicionarmos um marcador no quadrante de maior valor à esquerda, adicionamos outros marcadores para representar o número desejado.\n\nDepois dessa explicação, vamos utilizar o Soroban (算盤)",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Holt",
+                     "page": "01:58",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "88d236e3-7db4-4085-848e-0346101e6e51",
+                     "text": "Samoly, K.",
+                     "page": "pp. 58",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2012",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Holt",
+                     "page": "03:41 - 05:28",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Usando o Soroban</b><br />Nesta prática, trabalharemos apenas com a coluna onde está o marcador de posição preto, mas não o moveremos. Manipularemos apenas os marcadores acima e abaixo.<br /><br />1. Mova os marcadores da parte inferior, começando pelo que está mais próximo da barra, um a um. Observe que é feita uma contagem de 1 a 4.<br /><br />2. Agora clique em “Reiniciar”.<br /><br />3. Mova somente o marcador superior e observe que o número 5 aparece.<br /><br />4. Por fim, mova um marcador de cada vez, a partir do mais próximo da barra, até que todos estejam no centro e você visualize o número 9.</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, aprendemos mais uma maneira de representar números. Com isso, totalizamos seis formas distintas até o momento (nossos dedos, marcas em ossos, Yupana, sistema numérico mesoamericano, números hindu-arábicos e o Soroban (算盤)). A partir disso, faremos mais uma reflexão.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Tanto faz, sejamos felizes</b><br /><br />Durante milhares de anos, nós, <i>Homo sapiens</i>, temos construído diferentes maneiras de representar números.<br /><br />Você já parou para pensar que, para cada pessoa, pode haver uma forma mais adequada de aprender e representar os números?<br /><br />Como todas as representações transmitem a mesma ideia, você conseguiu perceber que nenhuma está errada?<br /><br />Se fomos capazes de fazer isso com os números, também somos capazes de aplicar essa lógica a outros aspectos da vida?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
