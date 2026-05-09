@@ -7,6 +7,7 @@ function htLoadContent() {
 
     htSetImageSrc("imgOaxaca", "images/MexicoCityMuseo/Oaxaca.jpg");
     htSetImageSrc("imgBM", "images/BritishMuseum/mid_01381495_001.jpg");
+    htSetImageSrc("imgESA", "images/ESA/Planck_history_of_Universe.jpg");
 
     return false;
 }
