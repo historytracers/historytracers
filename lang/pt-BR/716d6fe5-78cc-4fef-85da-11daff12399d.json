@@ -5,7 +5,8 @@
       "716d6fe5-78cc-4fef-85da-11daff12399d"
    ],
    "scripts": [
-      "716d6fe5-78cc-4fef-85da-11daff12399d"
+      "716d6fe5-78cc-4fef-85da-11daff12399d",
+      "ht_abacus"
    ],
    "audio": [
       {
@@ -28,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1778204738"
+      "1778294021"
    ],
    "authors": [
       ""
@@ -66,7 +67,7 @@
                "PostMention": ""
             },
             {
-               "text": "### Prerrequisitos\n\nEste texto presentará una nueva versión del ábaco: la versión desarrollada en China (Zhōngguó, 中國), antes de ser adoptada y modificada en Japón (Nippon-koku o Nihon-koku, 日本国). De esta forma, sugerimos estudiar el texto anterior antes de continuar con este (<htcite0>).",
+               "text": "### Prerrequisitos\n\nEste texto presentará una nueva versión del ábaco: la versión desarrollada en China (Zhōngguó, 中國), antes de ser adoptada y modificada en Japão (Nippon-koku o Nihon-koku, 日本国). De esta forma, sugerimos estudiar el texto anterior antes de continuar con este (<htcite0>).",
                "source": [
                   {
                      "type": 1,
@@ -277,6 +278,72 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_new",
+         "text": [
+            {
+               "text": "### O que há de novo?\n\nNa sequência, apresentamos os dois ábacos. Neste momento, porém, estamos mostrando apenas o Suanpan (算盤), mas você poderá alternar entre os ábacos usando os botões **Soroban (1x4)** e **Suanpan (2x5)**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: 56px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: 28px 32px 32px 32px; } .soroban-frame { background: #e9ddb0; border-radius: 24px; padding: 16px 20px 20px 20px; box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; } .value-panel { margin-top: 28px; background: #2e241f; border-radius: 48px; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 8px 18px; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: 1.8rem; letter-spacing: 2px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: 1.2rem; font-weight: normal; background: #4a3929; color: #ffecb3; padding: 4px 12px; border-radius: 30px; margin-left: 12px; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: 1.2rem; font-family: inherit; padding: 8px 24px; border-radius: 60px; cursor: pointer; transition: 0.1s linear; box-shadow: 0 3px 0 #4f3822; white-space: nowrap; } .reset-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #4f3822; } .legend { font-size: 0.75rem; margin-top: 12px; text-align: center; color: #302419; background: #ebdfbe; display: inline-block; width: auto; padding: 5px 16px; border-radius: 60px; backdrop-filter: blur(2px); } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 8px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 5px 16px; font-size: 0.75rem; font-weight: bold; color: #302419; } .mode-selector { background: #ebdfbe; border-radius: 60px; padding: 5px 16px; display: flex; gap: 12px; align-items: center; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: 0.8rem; font-family: inherit; padding: 4px 16px; border-radius: 40px; cursor: pointer;  transition: 0.1s linear; box-shadow: 0 2px 0 #4f3822; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: 0.75rem; } .warning-message { background: #ff9800; color: #2e241f; padding: 6px 16px; border-radius: 40px; font-size: 0.75rem; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); animation: pulseWarning 1.5s ease-in-out infinite; white-space: nowrap; transition: all 0.2s ease; } .warning-message.hidden { display: none; } @keyframes pulseWarning { 0%, 100% { opacity: 0.85; background: #ff9800; } 50% { opacity: 1; background: #ffb74d; box-shadow: 0 0 4px #ff9800; } } .warning-icon { font-size: 1rem; } .info-area { display: flex; align-items: center;  gap: 12px; flex-wrap: wrap; } @media (max-width: 860px) { .readout { font-size: 1.2rem; padding: 4px 12px; } .readout span { font-size: 0.9rem; } .soroban-container { padding: 16px 20px; } .warning-message { font-size: 0.65rem; padding: 4px 12px; white-space: normal; } .value-panel-left { gap: 8px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">Há coluna(s) com valores maiores que 9! Cada dígito deve permanecer entre 0 e 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Semelhanças\n\nComo o Soroban (算盤) é originário do Suanpan (算盤), ambos possuem características comuns, que listamos a seguir (<htcite0>):\n- Ambos possuem uma barra que separa os grupos de marcadores;\n- Os marcadores superiores são chamados de marcadores do céu e possuem valor 5;\n- Os marcadores inferiores são chamados de marcadores da terra e possuem valor 1;\n- Em ambos, representamos os números aproximando os marcadores da barra.\n\n#### Diferenças\n\nAo chegar ao Japão (Nippon-koku o Nihon-koku, 日本国), o Soroban (算盤) ainda manteve a estrutura importada da China (Zhōngguó, 中國), mas, aos poucos, sofreu transformações, embora tenha preservado a mesma lógica de representação numérica.\n\nAs duas diferenças mais visíveis entre os ábacos são o fato de que, na versão japonesa, primeiro foi retirado um marcador superior e, anos depois, um marcador inferior (<htcite1>). ",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7d978f6b-930f-4aa0-977e-bb0892210acb",
+                     "text": "Asian-Pacific Association of Longmount",
+                     "page": "pp. 1 - 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7d978f6b-930f-4aa0-977e-bb0892210acb",
+                     "text": "Asian-Pacific Association of Longmount",
+                     "page": "pp. 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
