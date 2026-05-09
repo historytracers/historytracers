@@ -637,15 +637,15 @@ function htSorobanInit(){
 }
 
 function htLoadContent() {
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', htSorobanInit);
-    } else {
-        htSorobanInit();
-    }
-
     if (document.getElementById('btnSuanpanMode') == undefined) {
         localSorobanController.abacusMode = "soroban";
     } else if (document.getElementById('btnSorobanMode') == undefined) {
         localSorobanController.abacusMode = "suanpan";
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', htSorobanInit);
+    } else {
+        htSorobanInit();
     }
 }
