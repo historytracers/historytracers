@@ -8,7 +8,8 @@ function closeDiv() {
 
 function htFillImage() {
     var obj = local.gameVector[local.currentLevel];
-    $("#imgSeqGame").attr("src", obj.imagePath);
+    var prefix = htGetImgSrcPrefix();
+    $("#imgSeqGame").attr("src", prefix+obj.imagePath);
     $("#desc").html(obj.imageDesc);
     local.currentLevel++;
     if (local.currentLevel == local.gameVector.length) {
