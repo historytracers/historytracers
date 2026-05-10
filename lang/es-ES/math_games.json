@@ -14,7 +14,7 @@
       }
    ],
    "last_update": [
-      "1778167575"
+      "1778445791"
    ],
    "sources": [
       "math_games"
@@ -41,7 +41,7 @@
          "target": "basic-body",
          "page": "class_content",
          "value_type": "",
-         "html_value": "Capítulo 1: Matemática con el cuerpo",
+         "html_value": "Capítulo 1: Matemática con el cuerpo (África)",
          "value": null,
          "date_time": null
       },
@@ -88,17 +88,52 @@
          "date_time": null
       },
       {
-         "id": "initial_title",
-         "target": "basic-group",
+         "id": "yupana_head",
+         "target": "yupana-group",
          "page": "class_content",
          "value_type": "",
-         "html_value": "Capítulo 2: Conteo",
+         "html_value": "Capítulo 2: Matemáticas con la Yupana (América/Abya Yala)",
          "value": null,
          "date_time": null
       },
       {
-         "id": "groups",
-         "target": "basic-group",
+         "id": "yupana_body",
+         "target": "yupana-group",
+         "page": "class_content",
+         "value_type": "group-list",
+         "html_value": "",
+         "value": [
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "c742c649-bf12-4d3f-ba8c-52f91455fc95",
+               "name": "Yupana (Adición)",
+               "desc": "Usando el método <i>Yupana Inka Tawa Pukllay</i>, desarrollado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit</a>), la adición se presenta de manera visual.",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "9a7a978b-3fac-422c-8e41-3ef1a24e88f3",
+               "name": "Yupana (Multiplicación)",
+               "desc": "Usando el mismo método (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit</a>), la multiplicación también se presenta de forma visual.",
+               "date_time": null
+            }
+         ],
+         "date_time": null
+      },
+      {
+         "id": "asia_head",
+         "target": "asia-group",
+         "page": "class_content",
+         "value_type": "",
+         "html_value": "Capítulo 3: Matemáticas con el ábaco (Asia)",
+         "value": null,
+         "date_time": null
+      },
+      {
+         "id": "chapter2_body",
+         "target": "asia-group",
          "page": "class_content",
          "value_type": "group-list",
          "html_value": "",
@@ -118,23 +153,53 @@
                "name": "Construyendo para contar (Suanpan, 算盤)",
                "desc": "En este texto, vemos las diferencias y lo que tienen en común entre el ábaco chino y el japonés.",
                "date_time": null
-            },
+            }
+         ],
+         "date_time": null
+      },
+      {
+         "id": "chapter3",
+         "target": "mult-group",
+         "page": "class_content",
+         "value_type": "",
+         "html_value": "Capítulo 4: Matemáticas mesoamericanas (América/Abya Yala)",
+         "value": null,
+         "date_time": null
+      },
+      {
+         "id": "chapter3_body",
+         "target": "mult-group",
+         "page": "class_content",
+         "value_type": "group-list",
+         "html_value": "",
+         "value": [
             {
                "family_id": "",
                "person_id": "",
-               "id": "7ec87720-69a7-46f4-ac64-b9c560b02739",
-               "name": "Juego de traducción",
-               "desc": "En este juego, ofrecemos la oportunidad de traducir números de diferentes culturas.",
+               "id": "648170f0-672f-4f9b-8746-492f7f9ad455",
+               "name": "Multiplicando con cuadrículas",
+               "desc": "Basándonos en los trabajos de los investigadores Ximena Catepillán y Ruy D. Días (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ced67eaf-7378-4589-9166-07f799969e3e'); return false;\">Catepillán, Ximena</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9e7d0cea-d968-4bd5-886e-bc08c824e7ca'); return false;\">Díaz, Ruy D.</a>), mostramos cómo los mayas posiblemente realizaban sus multiplicaciones.",
                "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "52dc6a73-a5e9-4b07-ad32-0482c305a6f8",
-               "name": "Juego de memoria",
-               "desc": "Un juego de memoria para reforzar el orden de los números.",
-               "date_time": null
-            },
+            }
+         ],
+         "date_time": null
+      },
+      {
+         "id": "sub_header",
+         "target": "class-sub",
+         "page": "",
+         "value_type": "",
+         "html_value": "Capítulo 5: Números indoarábigos",
+         "value": null,
+         "date_time": null
+      },
+      {
+         "id": "sub_body",
+         "target": "class-sub",
+         "page": "class_content",
+         "value_type": "group-list",
+         "html_value": "",
+         "value": [
             {
                "family_id": "",
                "person_id": "",
@@ -150,26 +215,7 @@
                "name": "Juego de secuencia (Parte II)",
                "desc": "Continuando con el desafío, esta fase presenta secuencias que se extienden hasta los miles de millones, profundizando el dominio de los patrones numéricos.",
                "date_time": null
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "chapter2",
-         "target": "add-group",
-         "page": "class_content",
-         "value_type": "",
-         "html_value": "Capítulo 3: Sumas",
-         "value": null,
-         "date_time": null
-      },
-      {
-         "id": "chapter2_body",
-         "target": "add-group",
-         "page": "class_content",
-         "value_type": "group-list",
-         "html_value": "",
-         "value": [
+            },
             {
                "family_id": "",
                "person_id": "",
@@ -178,49 +224,6 @@
                "desc": "En este texto, el lector es presentado a una aplicación que genera sumas aleatorias con descripciones de las etapas del cálculo.",
                "date_time": null
             },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "e2f50f78-05d9-44d6-abb6-77dbe7a56794",
-               "name": "El resultado es",
-               "desc": "un juego de sumas consecutivas que ayuda a descubrir la historia.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "c742c649-bf12-4d3f-ba8c-52f91455fc95",
-               "name": "Yupana (Adición)",
-               "desc": "Usando el método <i>Yupana Inka Tawa Pukllay</i>, desarrollado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit</a>), la adición se presenta de manera visual.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "d1d3730c-3d29-425b-b4bb-26697cc1fede",
-               "name": "Ejercitando la suma (números negativos)",
-               "desc": "En este texto, el lector es presentado a una aplicación que genera sumas aleatorias de números negativos con descripciones de las etapas del cálculo.",
-               "date_time": null
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "chapter3",
-         "target": "mult-group",
-         "page": "class_content",
-         "value_type": "",
-         "html_value": "Capítulo 4: Multiplicación",
-         "value": null,
-         "date_time": null
-      },
-      {
-         "id": "chapter3_body",
-         "target": "mult-group",
-         "page": "class_content",
-         "value_type": "group-list",
-         "html_value": "",
-         "value": [
             {
                "family_id": "",
                "person_id": "",
@@ -240,71 +243,68 @@
             {
                "family_id": "",
                "person_id": "",
-               "id": "9a7a978b-3fac-422c-8e41-3ef1a24e88f3",
-               "name": "Yupana (Multiplicación)",
-               "desc": "Usando el mismo método (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit</a>), la multiplicación también se presenta de forma visual.",
-               "date_time": null
-            },
-            {
-               "family_id": "",
-               "person_id": "",
-               "id": "648170f0-672f-4f9b-8746-492f7f9ad455",
-               "name": "Multiplicando con cuadrículas",
-               "desc": "Basándonos en los trabajos de los investigadores Ximena Catepillán y Ruy D. Días (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ced67eaf-7378-4589-9166-07f799969e3e'); return false;\">Catepillán, Ximena</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('9e7d0cea-d968-4bd5-886e-bc08c824e7ca'); return false;\">Díaz, Ruy D.</a>), mostramos cómo los mayas posiblemente realizaban sus multiplicaciones.",
-               "date_time": null
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "sub_header",
-         "target": "class-sub",
-         "page": "",
-         "value_type": "",
-         "html_value": "Capítulo 5: Resta",
-         "value": null,
-         "date_time": null
-      },
-      {
-         "id": "sub_body",
-         "target": "class-sub",
-         "page": "class_content",
-         "value_type": "group-list",
-         "html_value": "",
-         "value": [
-            {
-               "family_id": "",
-               "person_id": "",
                "id": "4736db57-6444-4631-b3c8-08e4d1e35688",
                "name": "Ejercitando la resta",
                "desc": "En este texto, el lector conoce una aplicación que genera restas aleatorias con descripciones de los pasos del cálculo.",
                "date_time": null
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "div_header",
-         "target": "class-div",
-         "page": "",
-         "value_type": "",
-         "html_value": "Capítulo 5: División",
-         "value": null,
-         "date_time": null
-      },
-      {
-         "id": "div_body",
-         "target": "class-div",
-         "page": "class_content",
-         "value_type": "group-list",
-         "html_value": "",
-         "value": [
+            },
             {
                "family_id": "",
                "person_id": "",
                "id": "9e2e82c6-804c-4541-80b4-7df337d32764",
                "name": "Divisiones y restos",
                "desc": "en este texto, creamos una aplicación que ayuda a los lectores a practicar la división por partes.",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "d1d3730c-3d29-425b-b4bb-26697cc1fede",
+               "name": "Ejercitando la suma (números negativos)",
+               "desc": "En este texto, el lector es presentado a una aplicación que genera sumas aleatorias de números negativos con descripciones de las etapas del cálculo.",
+               "date_time": null
+            }
+         ],
+         "date_time": null
+      },
+      {
+         "id": "all_header",
+         "target": "class-all",
+         "page": "",
+         "value_type": "",
+         "html_value": "Capítulo 6: Unión de culturas",
+         "value": null,
+         "date_time": null
+      },
+      {
+         "id": "all_body",
+         "target": "class-all",
+         "page": "class_content",
+         "value_type": "group-list",
+         "html_value": "",
+         "value": [
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "7ec87720-69a7-46f4-ac64-b9c560b02739",
+               "name": "Juego de traducción",
+               "desc": "En este juego, ofrecemos la oportunidad de traducir números de diferentes culturas.",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "52dc6a73-a5e9-4b07-ad32-0482c305a6f8",
+               "name": "Juego de memoria",
+               "desc": "Un juego de memoria para reforzar el orden de los números.",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "e2f50f78-05d9-44d6-abb6-77dbe7a56794",
+               "name": "El resultado es",
+               "desc": "un juego de sumas consecutivas que ayuda a descubrir la historia.",
                "date_time": null
             }
          ],
