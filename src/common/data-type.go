@@ -341,3 +341,37 @@ type AtlasTemplateFile struct {
 	Content    []ClassTemplateContent `json:"content"`
 	Atlas      []AtlasTemplateContent `json:"atlas"`
 }
+
+type SMGameContent struct {
+	ID       string   `json:"id"`
+	Text     []string `json:"text"`
+	Desc     string   `json:"desc"`
+	Next     string   `json:"next"`
+	Prev     string   `json:"prev"`
+	JumpTo   string   `json:"jumpTo"`
+	Answer   int      `json:"answer"`
+	Score    int      `json:"score"`
+	Position string   `json:"position"`
+}
+
+type SMGameLevel struct {
+	Type   string `json:"type"`
+	ID     string `json:"id"`
+	Name   string `json:"name"`
+	Desc   string `json:"desc"`
+	Target string `json:"target"`
+	LoadID string `json:"loadID"`
+}
+
+type SMGameFile struct {
+	Sources    []string         `json:"sources"`
+	License    []string         `json:"license"`
+	LastUpdate []string         `json:"last_update"`
+	Authors    string           `json:"authors"`
+	Reviewers  string           `json:"reviewers"`
+	Version    int              `json:"version"`
+	Type       string           `json:"type"`
+	Content    []SMGameContent  `json:"content"`
+	Levels     []SMGameLevel    `json:"levels"`
+	DateTime   []HTDate         `json:"date_time"`
+}
