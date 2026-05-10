@@ -38,6 +38,7 @@ var (
 	logVal              string
 	contentVal          string
 	classTemplate       string
+	smGameTemplate      string
 	devModeVal          bool
 	compileConfPath     string
 	compileSrcPath      string
@@ -65,6 +66,7 @@ func HTParseArg() {
 	flag.StringVar(&contentVal, "www", compileContentPath, "Directory for user-facing content.")
 	flag.StringVar(&confPath, "conf", compileConfPath, "Path to the configuration file.")
 	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (history, indigenous_who, first_steps, first_steps_volume2, literature, biology, chemistry, physics, historical_events, philosophy).")
+	flag.StringVar(&smGameTemplate, "smgame", smGameTemplate, "Create a foundation for a new SM Game.")
 
 	flag.Parse()
 
