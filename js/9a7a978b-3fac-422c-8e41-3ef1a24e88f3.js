@@ -20,9 +20,11 @@ function htLoadExercise() {
 }
 
 function htLoadContent() {
-    local = { "lValues": [], "rValues": [], "answerVector": undefined }; 
+    local = { "lValues": [], "rValues": [], "answerVector": undefined };
 
     htWriteNavigation();
+
+    htSetImageSrc("imgTawantsuyu", "images/Mapswire/mapswire-continent_sa-printable-map-south-america-lambert-az-hemi-271_Tawantsuyu.jpg");
 
     var times = $("#ia2yupana1").val();
     var value = $("#ia2yupana0").val();
