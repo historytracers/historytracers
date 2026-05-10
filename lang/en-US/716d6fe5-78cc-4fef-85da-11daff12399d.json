@@ -1,0 +1,504 @@
+{
+   "title": "Building to count (Suanpan, 算盤)",
+   "header": "Building to count (Suanpan, 算盤)",
+   "sources": [
+      "716d6fe5-78cc-4fef-85da-11daff12399d"
+   ],
+   "scripts": [
+      "716d6fe5-78cc-4fef-85da-11daff12399d",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/716d6fe5-78cc-4fef-85da-11daff12399d_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5V3ImEdcrPA7s9tu7kltc0?si=prJeJK5mR2eP5Ggo5SCcYw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1778425748"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAgeMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis text will present a new version of the abacus: the version developed in China (Zhōngguó, 中國), before being adopted and modified in Japan (Nippon-koku or Nihon-koku, 日本国). Therefore, we suggest studying the previous text before proceeding with this one (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Building to count (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nThere is an old saying: “Looks can be deceiving,” and sometimes these misunderstandings occur because we don't pay attention to details or because we assume there is only one possible answer, without considering all contexts.\n\nLet's begin with a practical example. Observe **Figure 1**, displayed at the National Museum of Anthropology - Mexico (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0be2ea18-ab78-4cb1-b3be-1ff0ba4ade95",
+                     "text": "Museo Nacional de Antropologia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgOaxaca\" src=\"\" class=\"imgcenter\" onclick=\"htImageZoom('imgOaxaca', '0%')\" style=\"width: 30%\" /><b>Figure 1</b>: Writing present at the National Museum of Anthropology - Mexico (<htcite0>). Photo taken on <htdate0>, during a visit to the museum.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0be2ea18-ab78-4cb1-b3be-1ff0ba4ade95",
+                     "text": "Museo Nacional de Antropologia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2016",
+                     "month": "10",
+                     "day": "22"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: “It is undoubtedly Mayan.” Really?</b><br /><br />Have you ever heard of “Mayan numbers”?<br /><br />If so, is <b>Figure 1</b> an example of them?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In the texts of *History Tracers*, as in the previous text (<htcite0>), we have avoided using the expression “Mayan numbers,” since these numbers were not used only by the Maya in Mesoamerica. In **Figure 1**, for example, we have a stela from Oaxaca, a Mixtec city (<htcite1>), made around <htdate0> — according to the information displayed next to the image in the museum (<htcite2>).\n\nSimilarly, confusion also occurs with the different abacuses, which is why we study them separately.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Building to count (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "30a5f8a8-c4e0-4ea4-a05a-3e87b5074438",
+                     "text": "Spores, Ronald",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1990",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "0be2ea18-ab78-4cb1-b3be-1ff0ba4ade95",
+                     "text": "Museo Nacional de Antropologia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-500",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_origin",
+         "text": [
+            {
+               "text": "### Origin\n\nThe first description of a surupan (算盤) appears in the work *Complementary Notes on the Art of Figures*, of Xu Yue, published around <htdate0>; however, the structure of that surupan (算盤) is unknown (<htcite0>).\n\nAlthough we do not know what the original was like, we know the format of the surupan (算盤) used in recent centuries in China (Zhōngguó, 中國) thanks to a specimen belonging to the British Museum, acquired in <htdate1> and presented in **Figure 2** below.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2a3c2fd3-b682-4d60-8db4-60f213ad1e2e",
+                     "text": "Kim, Soomi",
+                     "page": "pp. 16",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "68dfe292-3021-4586-9016-c001cdfdd9d7",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "-190",
+                     "month": "",
+                     "day": ""
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1865",
+                     "month": "",
+                     "day": ""
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgBM\" src=\"\" class=\"imgcenter\" onclick=\"htImageZoom('imgBM', '0%')\" /><b>Figure 2</b>: Abacus. © Trustees of the British Museum (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "68dfe292-3021-4586-9016-c001cdfdd9d7",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_new",
+         "text": [
+            {
+               "text": "### What's new?\n\nNext, we present the two abacuses. However, at this moment we are only showing the Suanpan (算盤), but you will be able to switch between abacuses using the **Soroban (1x4)** and **Suanpan (2x5)**:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: 56px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: 28px 32px 32px 32px; } .soroban-frame { background: #e9ddb0; border-radius: 24px; padding: 16px 20px 20px 20px; box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; } .value-panel { margin-top: 28px; background: #2e241f; border-radius: 48px; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 8px 18px; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: 1.8rem; letter-spacing: 2px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: 1.2rem; font-weight: normal; background: #4a3929; color: #ffecb3; padding: 4px 12px; border-radius: 30px; margin-left: 12px; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: 1.2rem; font-family: inherit; padding: 8px 24px; border-radius: 60px; cursor: pointer; transition: 0.1s linear; box-shadow: 0 3px 0 #4f3822; white-space: nowrap; } .reset-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #4f3822; } .legend { font-size: 0.75rem; margin-top: 12px; text-align: center; color: #302419; background: #ebdfbe; display: inline-block; width: auto; padding: 5px 16px; border-radius: 60px; backdrop-filter: blur(2px); } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 8px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 5px 16px; font-size: 0.75rem; font-weight: bold; color: #302419; } .mode-selector { background: #ebdfbe; border-radius: 60px; padding: 5px 16px; display: flex; gap: 12px; align-items: center; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: 0.8rem; font-family: inherit; padding: 4px 16px; border-radius: 40px; cursor: pointer;  transition: 0.1s linear; box-shadow: 0 2px 0 #4f3822; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: 0.75rem; } .warning-message { background: #ff9800; color: #2e241f; padding: 6px 16px; border-radius: 40px; font-size: 0.75rem; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); animation: pulseWarning 1.5s ease-in-out infinite; white-space: nowrap; transition: all 0.2s ease; } .warning-message.hidden { display: none; } @keyframes pulseWarning { 0%, 100% { opacity: 0.85; background: #ff9800; } 50% { opacity: 1; background: #ffb74d; box-shadow: 0 0 4px #ff9800; } } .warning-icon { font-size: 1rem; } .info-area { display: flex; align-items: center;  gap: 12px; flex-wrap: wrap; } @media (max-width: 860px) { .readout { font-size: 1.2rem; padding: 4px 12px; } .readout span { font-size: 0.9rem; } .soroban-container { padding: 16px 20px; } .warning-message { font-size: 0.65rem; padding: 4px 12px; white-space: normal; } .value-panel-left { gap: 8px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There is/are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Similarities\n\nAs the Soroban (算盤) originates from the Suanpan (算盤), both share common characteristics, which we list below (<htcite0>):\n- Both have a bar that separates the groups of markers;\n- The upper markers are called heaven markers and have a value of 5;\n- The lower markers are called earth markers and have a value of 1;\n- In both, we represent numbers by moving the markers toward the bar.\n\n#### Differences\n\nUpon arriving in Japan (Nippon-koku or Nihon-koku, 日本国), the Soroban (算盤) initially kept the structure imported from China (Zhōngguó, 中國), but gradually underwent transformations, although it preserved the same logic of numerical representation.\n\nThe two most visible differences between the abacuses are that, in the Japanese version, first one upper marker was removed, and years later, one lower marker (<htcite1>). ",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7d978f6b-930f-4aa0-977e-bb0892210acb",
+                     "text": "Asian-Pacific Association of Longmount",
+                     "page": "pp. 1 - 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7d978f6b-930f-4aa0-977e-bb0892210acb",
+                     "text": "Asian-Pacific Association of Longmount",
+                     "page": "pp. 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_body",
+         "text": [
+            {
+               "text": "### Suanpan (算盤) and Nature\n\nIn this text, we have seen that the Suanpan (算盤) and, consequently, the Soroban (算盤) express higher values in the upper beads than in the lower ones. We also learned that the upper position is called Heaven and the lower position, Earth (<htcite0>). These facts lead us to a reflection:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7d978f6b-930f-4aa0-977e-bb0892210acb",
+                     "text": "Asian-Pacific Association of Longmount",
+                     "page": "pp. 1 - 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Just as they...</b><br /><br />Did the Chinese and Japanese have an idea of “heaven” as an upper plane that could be inhabited, similar to the Sumerians (<htcite0>)?<br /><br />Or could the Chinese and Japanese have already had some idea of the existence of the atmosphere and that the universe has a much more complex structure, only understood in recent centuries in the Western world, as shown in <b>Figure 2</b> (<htcite1>; <htcite2>)? </div></div></center>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "588efb78-d411-4179-bbb4-3a45b7c5212b",
+                     "text": "History Tracers Team",
+                     "page": "Sumerians: The Dynasty of Uruk",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "81db80fb-c932-4674-a887-fc4c4b075c40",
+                     "text": "Texts with Sciences (Part II)",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "01",
+                        "day": "03"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f140d8d6-80cc-4d82-b9f7-c3ba06bf2ed3",
+                     "text": ">History Tracers Team",
+                     "page": "Atlas",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgESA\" src=\"\" class=\"imgcenter\" onclick=\"htImageZoom('imgESA', '0%')\"  style=\"width: 90%\"/><b>Figure 3</b>: ©ESA – C. Carreau (<htcite0>)</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a1a7c478-9061-4160-ba43-301c081733e9",
+                     "text": "©ESA – C. Carreau",
+                     "page": "History of Cosmic formation",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Another natural fact replicated in the Suanpan (算盤) is the representation of 10 different numbers — the numbers from 0 to 9 — which we associate with the fingers of our hands. However, upon carefully observing the Suanpan (算盤), we notice that there is a possibility that each column represents more than 10 values. When this happens, adjustments are necessary to avoid incorrect representation.\n\nTo make this clearer, we will repeat the practice from the previous text (<htcite0>) with some additional steps.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Building to count (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Using the Soroban</b><br />In this practice, we will only work with the column where the black position marker is located, but we will not move it. We will only manipulate the upper and lower beads.<br /><br />1. Click the <b>“Suanpan (2x5)” button.</b>.<br /><br />2. Move the lower beads, starting with the one closest to the beam, one at a time. Observe that you are counting from 1 to 5.<br /><br />3. Now click “Reiniciar”.<br /><br />4. Move only one upper bead and observe that the number 5 appears.<br /><br />5. Now, move one bead at a time, starting with the one closest to the beam, until 4 are close to the beam and you see the number 9.<br /><br />So far, there are no differences from what we did with the Soroban (算盤), which, due to its structure, does not allow representing values outside the range of 0 to 9 in each column. Now, we will do one more exercise with the Suanpan (算盤).<br /><br />6.Finally, move one lower bead (earth) or one upper bead (heaven) closer to the beam.<br /><br />Observe that in this last step, our Suanpan (算盤) adds a red circle in the column with values greater than 9, as well as showing a warning message next to the value. No less important, it does not show a value above the permitted ones.</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The reason why the Suanpan (算盤) has more values than we expect to represent will be explained in future texts. For now, we will only show how you will be alerted in the *History Tracers* Suanpan (算盤) when something unexpected occurs.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we learned that simply mentioning the word “abacus” can refer to two distinct instruments, although both represent numbers in similar ways.\n\nFurthermore, we saw that expressions like “Mayan numbers” can end up conveying the mistaken impression that they were used by a single people, when, in fact, other peoples who lived in the same region now known as Mesoamerica also used them.\n\nFinally, we were introduced to the fact that the meaning of words can change over time, as occurred with the word “sky” (“Heaven”).\n\nAll these scenarios show us that we need to delve deeper into subjects to avoid confusion. Last but not least, we reaffirm that different peoples may have different interpretations and use the same tool in different ways, achieving the same results.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

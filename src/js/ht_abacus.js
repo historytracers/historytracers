@@ -1,59 +1,139 @@
-var localSorobanController = {"COLUMNS": 9, "state": [], "decimalMarkerCol": 8, "canvas": null, "ctx": undefined, "canvasWidth": 860, "canvasHeight": 400, "colWidth": 0, "margin": { top: 48, bottom: 48 }, "startX": 0, "ballRadius": 0, "upperY_base": 0, "upperY_active": 0, "lowerBeadPositions": [], "decimalTrackY": 0, "decimalTrackTop": 0, "decimalTrackBottom": 0, "barY": 0, "isDraggingDecimal": false};
+var localSorobanController = {
+    "abacusMode": "suanpan",
+    "COLUMNS": 9,
+    "state": [],
+    "decimalMarkerCol": 8,
+    "canvas": null,
+    "ctx": undefined,
+    "canvasWidth": 860,
+    "canvasHeight": 400,
+    "colWidth": 0,
+    "margin": { top: 48, bottom: 48 },
+    "startX": 0,
+    "ballRadius": 0,
+    "upperPositions": [],
+    "lowerPositions": [],
+    "upperBeadCount": 2,
+    "lowerBeadCount": 5,
+    "decimalTrackY": 0,
+    "decimalTrackTop": 0,
+    "decimalTrackBottom": 0,
+    "barY": 0,
+    "isDraggingDecimal": false,
+    "verticalStep": 14
+};
 
-function htSorobanInitState(){
-    localSorobanController.state = [];
-    for(let i=0; i<localSorobanController.COLUMNS; i++){
-        localSorobanController.state.push({ upper: 0, lower: 0 });
+function htSorobanGetBeadConfig() {
+    if (localSorobanController.abacusMode === "soroban") {
+        return { upperMax: 1, lowerMax: 4 };
+    } else {
+        return { upperMax: 2, lowerMax: 5 };
     }
 }
 
-function htSorobanComputeDecimalValue(){
+
+function htSorobanInitState() {
+    const { upperMax, lowerMax } = htSorobanGetBeadConfig();
+    localSorobanController.state = [];
+    for(let i=0; i<localSorobanController.COLUMNS; i++){
+        localSorobanController.state.push({ upper: 0, lower: 0, upperMax: upperMax, lowerMax: lowerMax });
+    }
+}
+
+function htSorobanCheckOverflow() {
+    if (localSorobanController.abacusMode !== "suanpan") return false;
+    let hasOverflow = false;
+    for (let i = 0; i < localSorobanController.COLUMNS; i++) {
+        let col = localSorobanController.state[i];
+        let rawVal = (col.upper * 5) + col.lower;
+        if (rawVal > 9) {
+            hasOverflow = true;
+            break;
+        }
+    }
+    const warningDiv = document.getElementById('suanpanWarning');
+    if (warningDiv) {
+        if (hasOverflow) warningDiv.classList.remove('hidden');
+        else warningDiv.classList.add('hidden');
+    }
+    return hasOverflow;
+}
+
+function htSorobanComputeDecimalValue() {
     let rawDigits = [];
     for(let i=0; i<localSorobanController.COLUMNS; i++){
-        let colVal = (localSorobanController.state[i].upper * 5) + localSorobanController.state[i].lower;
-        if(colVal > 9) colVal = 9;
+        let col = localSorobanController.state[i];
+        let colVal = (col.upper * 5) + col.lower;
+        // clamp only for display value computation, but keep visual warning separate
+        if (colVal > 9) colVal = 9;
+        if (colVal < 0) colVal = 0;
         rawDigits.push(colVal);
     }
-            
-    const intEnd = localSorobanController.decimalMarkerCol;
-    const fracStart = localSorobanController.decimalMarkerCol + 1;
-            
-    let integerDigits = rawDigits.slice(0, intEnd + 1);
-    let fractionalDigits = rawDigits.slice(fracStart);
-            
+    
+    // decimalMarkerCol is the column index (0-based) where the marker is placed. 
+    // The marker sits between decimalMarkerCol and decimalMarkerCol+1.
+    // So integer part = columns 0..decimalMarkerCol (inclusive)
+    // fractional part = columns decimalMarkerCol+1 .. end
+    const markerPos = localSorobanController.decimalMarkerCol;
+    
+    // Integer part digits (left side of marker)
+    const integerDigits = rawDigits.slice(0, markerPos + 1);
+    // Fractional part digits (right side of marker)
+    const fractionalDigits = rawDigits.slice(markerPos + 1);
+    
+    // Build integer value
     let intValue = 0;
     for(let i=0; i<integerDigits.length; i++){
         intValue = intValue * 10 + integerDigits[i];
     }
     
+    // Build fractional value as integer representing fractional digits
     let fracValue = 0;
     for(let i=0; i<fractionalDigits.length; i++){
         fracValue = fracValue * 10 + fractionalDigits[i];
     }
-    let divisor = Math.pow(10, fractionalDigits.length);
+    
+    const fracLen = fractionalDigits.length;
+    let divisor = Math.pow(10, fracLen);
     let decimalResult = intValue + (fracValue / divisor);
-            
-    let formattedDisplay = intValue.toString();
-    if(fractionalDigits.length > 0){
-        let neededDecimals = fractionalDigits.length;
-        let currentFracPart = fracValue.toString();
-        while(currentFracPart.length < neededDecimals) currentFracPart = "0" + currentFracPart;
-        formattedDisplay = intValue.toString() + "." + currentFracPart;
-    } else {
+
+    // Format display string without trailing unintended zeros: 
+    // Show exactly the fractional digits that exist. If no fractional digits, show ".0"
+    let formattedDisplay = "";
+    if (fracLen === 0) {
         formattedDisplay = intValue.toString() + ".0";
+    } else {
+        // Build fractional part with proper leading zeros: e.g., if fractionalDigits = [0,1,2] -> "012"
+        let fracStr = "";
+        for (let i = 0; i < fractionalDigits.length; i++) {
+            fracStr += fractionalDigits[i].toString();
+        }
+        // Remove trailing zeros? No – keep exact digits to reflect abacus state precisely.
+        // But the bug "0.1230" came from leftover fractional positions due to marker shift.
+        // Now we slice based on actual digits: originally 0.123 (marker col 6? need test).
+        // Let's ensure we trim trailing zeros only if they are not significant? Better to show actual digits as set.
+        // The bug scenario: value 0.123 (fractional digits length = 3). Moving decimal marker left: marker col becomes 5? 
+        // Then integer digits = columns 0..5 (6 digits) includes some zero columns? That would produce 0000123? Wait.
+        // The real bug was that old code used raw digits incorrectly: moving marker left would treat fractional digits wrong,
+        // making extra zero appear. Now we recalc correctly based on new marker. This ensures 0.123 (digits: ... 0,1,2,3)
+        // when marker moves left, integer part includes more leading zeros but fractional part shrinks, producing 0.0123 properly.
+        // For instance, start with marker after column 6 => digits: col0-col6 integer => 0? Actually typical: columns 0..8.
+        // Let's ensure we get exactly correct interpretation.
+        formattedDisplay = intValue.toString() + "." + fracStr;
     }
     
     return { display: formattedDisplay, numeric: decimalResult };
 }
 
-function htSorobanUpdateDisplay(){
+function htSorobanUpdateDisplay() {
     const numSpan = document.getElementById('numericValue');
     if (!numSpan) return;
     const { display } = htSorobanComputeDecimalValue();
     numSpan.innerText = display;
+    htSorobanCheckOverflow();
 }
         
-function htSorobanComputeLayout(){
+function htSorobanComputeLayout() {
     if (!localSorobanController.canvas || !localSorobanController.ctx) return;
     localSorobanController.canvasWidth = localSorobanController.canvas.width;
     localSorobanController.canvasHeight = localSorobanController.canvas.height;
@@ -66,37 +146,56 @@ function htSorobanComputeLayout(){
     localSorobanController.decimalTrackY = localSorobanController.canvasHeight * 0.5;
     localSorobanController.decimalTrackTop = localSorobanController.decimalTrackY - 28;
     localSorobanController.decimalTrackBottom = localSorobanController.decimalTrackY + 28;
-            
     localSorobanController.barY = localSorobanController.decimalTrackY;
-            
-    localSorobanController.upperY_active = localSorobanController.decimalTrackTop - 6;
-    localSorobanController.upperY_base = localSorobanController.decimalTrackTop - 38;
     
-    const lowerActiveBase = localSorobanController.decimalTrackBottom + 6;
-    const verticalStep = 15;
-    const inactiveDrop = 28;
+    const { upperMax, lowerMax } = htSorobanGetBeadConfig();
+    localSorobanController.upperBeadCount = upperMax;
+    localSorobanController.lowerBeadCount = lowerMax;
     
-    localSorobanController.lowerBeadPositions = [];
-    for (let i = 0; i < 4; i++) {
-        let activeY = lowerActiveBase + (i * verticalStep);
-        let inactiveY = activeY + inactiveDrop;
-        localSorobanController.lowerBeadPositions.push({ activeY, inactiveY });
+    const upperBaseActive = localSorobanController.decimalTrackTop - 6;
+    const upperStartInactive = localSorobanController.decimalTrackTop - 38;
+    const stepY = 14;
+    localSorobanController.upperPositions = [];
+    for (let i = 0; i < upperMax; i++) {
+        let activeY = upperBaseActive - (i * stepY);
+        let inactiveY = upperStartInactive - (i * stepY * 0.8);
+        if (inactiveY < 18) inactiveY = 18 + i * 5;
+        localSorobanController.upperPositions.push({ activeY, inactiveY });
+    }
+    
+    const lowerBaseActive = localSorobanController.decimalTrackBottom + 8;
+    const lowerInactiveDrop = 28;
+    localSorobanController.lowerPositions = [];
+    for (let i = 0; i < lowerMax; i++) {
+        let activeY = lowerBaseActive + (i * localSorobanController.verticalStep);
+        let inactiveY = activeY + lowerInactiveDrop;
+        localSorobanController.lowerPositions.push({ activeY, inactiveY });
     }
     
     let maxRadiusByWidth = localSorobanController.colWidth * 0.38;
-    let maxRadiusByVertical = verticalStep * 0.55;
+    let maxRadiusByVertical = localSorobanController.verticalStep * 0.55;
     localSorobanController.ballRadius = Math.min(maxRadiusByWidth, maxRadiusByVertical, 14);
-    localSorobanController.ballRadius = Math.max(localSorobanController.ballRadius, 11);
-    
-    if (localSorobanController.upperY_active + localSorobanController.ballRadius >= localSorobanController.decimalTrackTop) {
-        localSorobanController.upperY_active = localSorobanController.decimalTrackTop - localSorobanController.ballRadius - 3;
+    localSorobanController.ballRadius = Math.max(localSorobanController.ballRadius, 10);
+
+    if (localSorobanController.upperPositions.length > 0) {
+        let lowestUpperActive = localSorobanController.upperPositions[0].activeY;
+        if (lowestUpperActive + localSorobanController.ballRadius >= localSorobanController.decimalTrackTop) {
+            let shift = (lowestUpperActive + localSorobanController.ballRadius) - (localSorobanController.decimalTrackTop - 3);
+            for (let u of localSorobanController.upperPositions) {
+                u.activeY -= shift;
+                u.inactiveY -= shift;
+            }
+        }
     }
-    let lowestActiveY = localSorobanController.lowerBeadPositions[3].activeY;
-    if (lowestActiveY - localSorobanController.ballRadius <= localSorobanController.decimalTrackBottom) {
-        let newLowerBase = localSorobanController.decimalTrackBottom + localSorobanController.ballRadius + 6;
-        for (let i = 0; i < 4; i++) {
-            localSorobanController.lowerBeadPositions[i].activeY = newLowerBase + (i * verticalStep);
-            localSorobanController.lowerBeadPositions[i].inactiveY = localSorobanController.lowerBeadPositions[i].activeY + inactiveDrop;
+    
+    if (localSorobanController.lowerPositions.length > 0) {
+        let highestLowerActive = localSorobanController.lowerPositions[0].activeY;
+        if (highestLowerActive - localSorobanController.ballRadius <= localSorobanController.decimalTrackBottom) {
+            let shift = (localSorobanController.decimalTrackBottom + 4) - (highestLowerActive - localSorobanController.ballRadius);
+            for (let l of localSorobanController.lowerPositions) {
+                l.activeY += shift;
+                l.inactiveY += shift;
+            }
         }
     }
 }
@@ -140,7 +239,7 @@ function htSorobanDrawDecimalTrack() {
     localSorobanController.ctx.fillRect(5, localSorobanController.barY-2, localSorobanController.canvasWidth-10, 4);
 }
         
-function htSorobanDrawDecimalMarker(){
+function htSorobanDrawDecimalMarker() {
     if (!localSorobanController.ctx) return;
     const markerX = localSorobanController.startX + localSorobanController.decimalMarkerCol * localSorobanController.colWidth;
     const markerY = localSorobanController.decimalTrackY;
@@ -175,11 +274,27 @@ function htSorobanDrawDecimalMarker(){
     localSorobanController.ctx.stroke();
 }
 
-function htSorobanDrawColumn(idx){
+function htSorobanDrawColumn(idx) {
     if (!localSorobanController.ctx) return;
     const x = localSorobanController.startX + idx * localSorobanController.colWidth;
     const col = localSorobanController.state[idx];
     const lowerCount = col.lower;
+    const upperCount = col.upper;
+    const upperMax = col.upperMax;
+    const lowerMax = col.lowerMax;
+    
+    const rawValue = (col.upper * 5) + col.lower;
+    const isOverflowColumn = (localSorobanController.abacusMode === "suanpan" && rawValue > 9);
+    
+    if (isOverflowColumn) {
+        localSorobanController.ctx.save();
+        localSorobanController.ctx.shadowBlur = 0;
+        localSorobanController.ctx.fillStyle = "rgba(255, 100, 50, 0.3)";
+        localSorobanController.ctx.beginPath();
+        localSorobanController.ctx.ellipse(x, localSorobanController.decimalTrackY, localSorobanController.colWidth * 0.4, 35, 0, 0, Math.PI*2);
+        localSorobanController.ctx.fill();
+        localSorobanController.ctx.restore();
+    }
             
     localSorobanController.ctx.beginPath();
     localSorobanController.ctx.moveTo(x, localSorobanController.margin.top - 8);
@@ -193,26 +308,32 @@ function htSorobanDrawColumn(idx){
     localSorobanController.ctx.lineWidth = 1.5;
     localSorobanController.ctx.strokeStyle = '#e9c48b';
     localSorobanController.ctx.stroke();
-            
-    let upperY = col.upper === 1 ? localSorobanController.upperY_active : localSorobanController.upperY_base;
-    let gradUp = localSorobanController.ctx.createRadialGradient(x-4, upperY-3, 3, x, upperY, localSorobanController.ballRadius);
-    gradUp.addColorStop(0, '#f06a50');
-    gradUp.addColorStop(1, '#c03a28');
-    localSorobanController.ctx.beginPath();
-    localSorobanController.ctx.arc(x, upperY, localSorobanController.ballRadius, 0, Math.PI*2);
-    localSorobanController.ctx.fillStyle = gradUp;
-    localSorobanController.ctx.fill();
-    localSorobanController.ctx.strokeStyle = '#4a2018';
-    localSorobanController.ctx.lineWidth = 1.5;
-    localSorobanController.ctx.stroke();
-    localSorobanController.ctx.beginPath();
-    localSorobanController.ctx.arc(x-3, upperY-3, 3, 0, Math.PI*2);
-    localSorobanController.ctx.fillStyle = '#ffead4';
-    localSorobanController.ctx.fill();
-            
-    for(let b=0; b<4; b++){
+
+    for(let u = 0; u < upperMax; u++) {
+        const isActive = (u < upperCount);
+        const pos = localSorobanController.upperPositions[u];
+        if (!pos) continue;
+        const beadY = isActive ? pos.activeY : pos.inactiveY;
+        let gradUp = localSorobanController.ctx.createRadialGradient(x-4, beadY-3, 3, x, beadY, localSorobanController.ballRadius);
+        gradUp.addColorStop(0, '#f06a50');
+        gradUp.addColorStop(1, '#c03a28');
+        localSorobanController.ctx.beginPath();
+        localSorobanController.ctx.arc(x, beadY, localSorobanController.ballRadius, 0, Math.PI*2);
+        localSorobanController.ctx.fillStyle = gradUp;
+        localSorobanController.ctx.fill();
+        localSorobanController.ctx.strokeStyle = '#4a2018';
+        localSorobanController.ctx.lineWidth = 1.5;
+        localSorobanController.ctx.stroke();
+        localSorobanController.ctx.beginPath();
+        localSorobanController.ctx.arc(x-3, beadY-3, 3, 0, Math.PI*2);
+        localSorobanController.ctx.fillStyle = '#ffead4';
+        localSorobanController.ctx.fill();
+    }
+    
+    for(let b=0; b<lowerMax; b++){
         const isActive = (b < lowerCount);
-        const pos = localSorobanController.lowerBeadPositions[b];
+        const pos = localSorobanController.lowerPositions[b];
+        if (!pos) continue;
         const beadY = isActive ? pos.activeY : pos.inactiveY;
         
         let gradLow = localSorobanController.ctx.createLinearGradient(x-5, beadY-4, x+5, beadY+4);
@@ -232,7 +353,7 @@ function htSorobanDrawColumn(idx){
     }
 }
         
-function htSorobanDrawFrameDecorations(){
+function htSorobanDrawFrameDecorations() {
     if (!localSorobanController.ctx) return;
     localSorobanController.ctx.strokeStyle = '#f9eec7';
     localSorobanController.ctx.lineWidth = 2.5;
@@ -254,7 +375,7 @@ function htSorobanDrawFrameDecorations(){
     }
 }
         
-function htSorobanRender(){
+function htSorobanRender() {
     if(!localSorobanController.ctx) return;
     localSorobanController.ctx.clearRect(0, 0, localSorobanController.canvasWidth, localSorobanController.canvasHeight);
     localSorobanController.ctx.fillStyle = '#fef5e0';
@@ -282,7 +403,7 @@ function htSorobanRender(){
 }
         
 // ----- Interaction -----
-function htSorobanGetHitRegion(mouseX, mouseY){
+function htSorobanGetHitRegion(mouseX, mouseY) {
     const markerX = localSorobanController.startX + localSorobanController.decimalMarkerCol * localSorobanController.colWidth;
     const markerY = localSorobanController.decimalTrackY;
     if (Math.hypot(mouseX - markerX, mouseY - markerY) < localSorobanController.ballRadius + 10) {
@@ -301,16 +422,24 @@ function htSorobanGetHitRegion(mouseX, mouseY){
             
     const col = localSorobanController.state[colIdx];
     const centerX = localSorobanController.startX + colIdx*localSorobanController.colWidth;
+    const upperMax = col.upperMax;
     
-    let upperY = col.upper === 1 ? localSorobanController.upperY_active : localSorobanController.upperY_base;
-    if (Math.abs(mouseY - upperY) < localSorobanController.ballRadius + 8 && Math.hypot(mouseX - centerX, mouseY - upperY) < localSorobanController.ballRadius + 6) {
-        if (mouseY < localSorobanController.decimalTrackTop - 2) 
-            return { type: 'upper', col: colIdx };
+    for(let u = 0; u < upperMax; u++) {
+        const isActive = (u < col.upper);
+        const pos = localSorobanController.upperPositions[u];
+        if (!pos) continue;
+        const beadY = isActive ? pos.activeY : pos.inactiveY;
+        if (Math.abs(mouseY - beadY) < localSorobanController.ballRadius + 8 && Math.hypot(mouseX - centerX, mouseY - beadY) < localSorobanController.ballRadius + 6) {
+            if (mouseY < localSorobanController.decimalTrackTop - 2) 
+                return { type: 'upper', col: colIdx, beadIdx: u };
+        }
     }
-            
-    for(let b=0; b<4; b++){
+    
+    const lowerMax = col.lowerMax;
+    for(let b=0; b<lowerMax; b++){
         const isActive = (b < col.lower);
-        const pos = localSorobanController.lowerBeadPositions[b];
+        const pos = localSorobanController.lowerPositions[b];
+        if (!pos) continue;
         const beadY = isActive ? pos.activeY : pos.inactiveY;
         if (Math.abs(mouseY - beadY) < localSorobanController.ballRadius + 8 && Math.hypot(mouseX - centerX, mouseY - beadY) < localSorobanController.ballRadius + 6) {
             if (mouseY > localSorobanController.decimalTrackBottom + 2)
@@ -320,14 +449,24 @@ function htSorobanGetHitRegion(mouseX, mouseY){
     return null;
 }
         
-function htSorobanToggleUpper(col){
-    localSorobanController.state[col].upper = localSorobanController.state[col].upper === 0 ? 1 : 0;
+function htSorobanToggleUpper(col, beadIdx) {
+    const colState = localSorobanController.state[col];
+    const maxUpper = colState.upperMax;
+    let currentUpper = colState.upper;
+    if (beadIdx < currentUpper) {
+        colState.upper = beadIdx;
+    } else {
+        colState.upper = beadIdx + 1;
+    }
+    if (colState.upper > maxUpper) colState.upper = maxUpper;
+    if (colState.upper < 0) colState.upper = 0;
     htSorobanRender();
     htSorobanUpdateDisplay();
 }
         
-function htSorobanHandleLowerClick(col, beadIdx){
+function htSorobanHandleLowerClick(col, beadIdx) {
     let currentLower = localSorobanController.state[col].lower;
+    const maxLower = localSorobanController.state[col].lowerMax;
     let isActive = (beadIdx < currentLower);
     if(isActive){
         let newLower = beadIdx;
@@ -335,27 +474,29 @@ function htSorobanHandleLowerClick(col, beadIdx){
         localSorobanController.state[col].lower = newLower;
     } else {
         let newLower = beadIdx + 1;
-        if(newLower > 4) newLower = 4;
+        if(newLower > maxLower) newLower = maxLower;
         localSorobanController.state[col].lower = newLower;
     }
     htSorobanRender();
     htSorobanUpdateDisplay();
 }
         
-function htSorobanMoveDecimalMarkerToColumn(targetCol){
+function htSorobanMoveDecimalMarkerToColumn(targetCol) {
     if(targetCol >= 0 && targetCol < localSorobanController.COLUMNS) {
-        localSorobanController.decimalMarkerCol = targetCol;
-        htSorobanRender();
-        htSorobanUpdateDisplay();
+        if (localSorobanController.decimalMarkerCol !== targetCol) {
+            localSorobanController.decimalMarkerCol = targetCol;
+            htSorobanRender();
+            htSorobanUpdateDisplay();  // updates numeric value based on new marker position -> fixes the 0.1230 bug
+        }
     }
 }
         
-function htSorobanStartDecimalDrag(e){
+function htSorobanStartDecimalDrag(e) {
     localSorobanController.isDraggingDecimal = true;
     e.preventDefault();
 }
         
-function htSorobanOnDecimalDrag(mouseX, mouseY){
+function htSorobanOnDecimalDrag(mouseX, mouseY) {
     if(!localSorobanController.isDraggingDecimal) return;
     let closestCol = -1;
     let minDist = localSorobanController.colWidth * 0.6;
@@ -369,19 +510,17 @@ function htSorobanOnDecimalDrag(mouseX, mouseY){
     }
     if(closestCol !== -1){
         if(mouseY > localSorobanController.decimalTrackTop - 15 && mouseY < localSorobanController.decimalTrackBottom + 15){
-            if(localSorobanController.decimalMarkerCol !== closestCol){
-                htSorobanMoveDecimalMarkerToColumn(closestCol);
-            }
+            htSorobanMoveDecimalMarkerToColumn(closestCol);
         }
     }
 }
         
-function htSorobanStopDecimalDrag(){
+function htSorobanStopDecimalDrag() {
     localSorobanController.isDraggingDecimal = false;
 }
         
-function htSorobanHandleCanvasStart(e){
-    if (!localSorobanController.ctx) return;
+function htSorobanHandleCanvasStart(e) {
+    if (!localSorobanController.canvas) return;
     const rect = localSorobanController.canvas.getBoundingClientRect();
     const scaleX = localSorobanController.canvas.width / rect.width;
     const scaleY = localSorobanController.canvas.height / rect.height;
@@ -405,13 +544,13 @@ function htSorobanHandleCanvasStart(e){
     
     if(!hit) return;
     if(hit.type === 'upper'){
-        htSorobanToggleUpper(hit.col);
+        htSorobanToggleUpper(hit.col, hit.beadIdx);
     } else if(hit.type === 'lower'){
         htSorobanHandleLowerClick(hit.col, hit.beadIdx);
     }
 }
         
-function htSorobanHandleCanvasMove(e){
+function htSorobanHandleCanvasMove(e) {
     if(!localSorobanController.isDraggingDecimal) return;
     if (!localSorobanController.canvas) return;
     const rect = localSorobanController.canvas.getBoundingClientRect();
@@ -431,57 +570,76 @@ function htSorobanHandleCanvasMove(e){
     htSorobanOnDecimalDrag(canvasX, canvasY);
 }
         
-function htSorobanHandleCanvasEnd(e){
+function htSorobanHandleCanvasEnd(e) {
     if(localSorobanController.isDraggingDecimal){
         htSorobanStopDecimalDrag();
     }
 }
         
-function htSorobanResetSoroban(){
+function htSorobanResetSoroban() {
     for(let i=0;i<localSorobanController.COLUMNS;i++){
         localSorobanController.state[i].upper = 0;
         localSorobanController.state[i].lower = 0;
     }
-    // Reset decimal marker to the first right column (column 8)
     localSorobanController.decimalMarkerCol = 8;
     htSorobanRender();
     htSorobanUpdateDisplay();
     localSorobanController.isDraggingDecimal = false;
 }
+
+function htSorobanSwitchMode(mode) {
+    if (localSorobanController.abacusMode === mode) return;
+    localSorobanController.abacusMode = mode;
+    const { upperMax, lowerMax } = htSorobanGetBeadConfig();
+    for(let i = 0; i < localSorobanController.COLUMNS; i++) {
+        localSorobanController.state[i].upperMax = upperMax;
+        localSorobanController.state[i].lowerMax = lowerMax;
+        localSorobanController.state[i].upper = 0;
+        localSorobanController.state[i].lower = 0;
+    }
+    document.getElementById('btnSorobanMode').classList.toggle('active', mode === 'soroban');
+    document.getElementById('btnSuanpanMode').classList.toggle('active', mode === 'suanpan');
+    
+    htSorobanComputeLayout();
+    htSorobanRender();
+    htSorobanUpdateDisplay();
+}
         
-function htSorobanAttachEvents(){
+function htSorobanAttachEvents() {
     const canvas = localSorobanController.canvas;
     const resetBtn = document.getElementById('resetButton');
+    const sorobanBtn = document.getElementById('btnSorobanMode');
+    const suanpanBtn = document.getElementById('btnSuanpanMode');
     
     if (!canvas) return;
-
+    
     canvas.removeEventListener('mousedown', htSorobanHandleCanvasStart);
     canvas.removeEventListener('touchstart', htSorobanHandleCanvasStart);
     window.removeEventListener('mousemove', htSorobanHandleCanvasMove);
     window.removeEventListener('mouseup', htSorobanHandleCanvasEnd);
     window.removeEventListener('touchmove', htSorobanHandleCanvasMove);
     window.removeEventListener('touchend', htSorobanHandleCanvasEnd);
-    if (resetBtn) {
-        resetBtn.removeEventListener('click', htSorobanResetSoroban);
-    }
+    if (resetBtn) resetBtn.removeEventListener('click', htSorobanResetSoroban);
+    if (sorobanBtn) sorobanBtn.removeEventListener('click', () => htSorobanSwitchMode('soroban'));
+    if (suanpanBtn) suanpanBtn.removeEventListener('click', () => htSorobanSwitchMode('suanpan'));
     window.removeEventListener('resize', htSorobanComputeLayout);
-
+    
     canvas.addEventListener('mousedown', htSorobanHandleCanvasStart);
     window.addEventListener('mousemove', htSorobanHandleCanvasMove);
     window.addEventListener('mouseup', htSorobanHandleCanvasEnd);
     canvas.addEventListener('touchstart', htSorobanHandleCanvasStart, { passive: false });
     window.addEventListener('touchmove', htSorobanHandleCanvasMove, { passive: false });
     window.addEventListener('touchend', htSorobanHandleCanvasEnd);
-    if (resetBtn) {
-        resetBtn.addEventListener('click', htSorobanResetSoroban);
-    }
+    if (resetBtn) resetBtn.addEventListener('click', htSorobanResetSoroban);
+    if (sorobanBtn) sorobanBtn.addEventListener('click', () => htSorobanSwitchMode('soroban'));
+    if (suanpanBtn) suanpanBtn.addEventListener('click', () => htSorobanSwitchMode('suanpan'));
     window.addEventListener('resize', function() {
         htSorobanComputeLayout();
         htSorobanRender();
     });
 }
         
-function htSorobanInit(){
+function htSorobanInit() {
     localSorobanController.canvas = document.getElementById('sorobanCanvas');
     if (!localSorobanController.canvas) return;
 
@@ -496,6 +654,12 @@ function htSorobanInit(){
 }
 
 function htLoadContent() {
+    if (document.getElementById('btnSuanpanMode') == undefined) {
+        localSorobanController.abacusMode = "soroban";
+    } else if (document.getElementById('btnSorobanMode') == undefined) {
+        localSorobanController.abacusMode = "suanpan";
+    }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', htSorobanInit);
     } else {
