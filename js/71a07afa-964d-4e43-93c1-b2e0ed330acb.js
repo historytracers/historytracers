@@ -132,7 +132,8 @@ function htRewriteTable() {
 
 function htFillImage() {
     var obj = local.gameVector[local.currentLevel];
-    $("#imgGame").attr("src", obj.imagePath);
+    var prefix = htGetImgSrcPrefix();
+    $("#imgGame").attr("src", prefix+obj.imagePath);
     $("#imgText").html(obj.imageDesc);
     local.currentLevel++;
     local.partial = 0;
