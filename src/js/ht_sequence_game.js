@@ -57,6 +57,7 @@ function htSequenceSetBegin(n)
 function htSequenceSetCurrValue(again)
 {
     var imgIdx = 0;
+    var prefix = htGetImgSrcPrefix();
     if (currentSelector == "ha") {
         var useClass = (currentSelection < 4) ? "text_to_paint" : "text_to_paint_small";
         var localLang = $("#site_language").val();
@@ -72,7 +73,7 @@ function htSequenceSetCurrValue(again)
 
     if (workingValue == stopValue && again == 0) {
         var obj = localGameVectorfb9dca2c[currentLevel];
-        $("#gameImage"+imgIdx).html("<img class=\"imgGameSize\" src=\""+obj.imagePath+"\" id=\"imgSeqGame\" onclick=\"htImageZoom('imgSeqGame', '0%')\" /><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
+        $("#gameImage"+imgIdx).html("<img class=\"imgGameSize\" src=\""+prefix+obj.imagePath+"\" id=\"imgSeqGame\" onclick=\"htImageZoom('imgSeqGame', '0%')\" /><br /><span class=\"desc\">"+obj.imageDesc+"</span>");
 
         currentLevel++;
         return false;
@@ -161,10 +162,11 @@ function htUpdateHAValues()
 
 function htUpdateMesoamericanValues()
 {
+    var prefix = htGetImgSrcPrefix();
     var rows = htSelectRows();
     for (let i = 1; i < 4; i++) {
         for (let j = 1; j <= rows; j++) {
-            $("#tc"+i+"f"+j).html("<img src=\"\" id=\"tmc"+i+"l"+j+"\" />");
+            $("#tc"+i+"f"+j).html("<img src=\""+prefix+"\" id=\"tmc"+i+"l"+j+"\" />");
         }
     }
 
