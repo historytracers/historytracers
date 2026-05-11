@@ -44,8 +44,8 @@ type HTSourceFile struct {
 	Type               string            `json:"type"`
 	PrimarySources     []HTSourceElement `json:"primary_sources"`
 	ReferencesSources  []HTSourceElement `json:"reference_sources"`
-	ReligiousSources   []HTSourceElement `json:"religious_sources"`
-	SocialMediaSources []HTSourceElement `json:"social_media_sources"`
+	ReligiousSources   interface{}       `json:"religious_sources"`
+	SocialMediaSources interface{}       `json:"social_media_sources"`
 }
 
 type HTText struct {
@@ -343,16 +343,16 @@ type AtlasTemplateFile struct {
 }
 
 type SMGameContent struct {
-	ID       string   `json:"id"`
-	Audio    string   `json:"audio"`
-	Text     []string `json:"text"`
-	Desc     string   `json:"desc"`
-	Next     string   `json:"next"`
-	Prev     string   `json:"prev"`
-	JumpTo   string   `json:"jumpTo"`
-	Answer   int      `json:"answer"`
-	Score    int      `json:"score"`
-	Position string   `json:"position"`
+	ID       string        `json:"id"`
+	Audio    string        `json:"audio"`
+	Text     []interface{} `json:"text"`
+	Desc     interface{}   `json:"desc"`
+	Next     string        `json:"next"`
+	Prev     string        `json:"prev"`
+	JumpTo   string        `json:"jumpTo"`
+	Answer   interface{}   `json:"answer"`
+	Score    int           `json:"score"`
+	Position string        `json:"position"`
 }
 
 type SMGameLevel struct {
