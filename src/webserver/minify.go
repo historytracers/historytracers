@@ -227,16 +227,19 @@ func htRewriteAndMinifySMGame(lang string) {
 	m.AddFunc("application/json", json.Minify)
 
 	for _, entry := range entries {
-		if !entry.IsDir() {
+		if entry.IsDir() {
 			continue
 		}
 
-		srcFile := smGameDir + entry.Name() + "/index.json"
-		dstFile := contentSmGameDir + entry.Name() + "/index.json"
+		smGameFile := smGameDir + entry.Name()
+		dstFile := contentSmGameDir + entry.Name()
 
-		htRewriteSMGame(lang)
+		err = htRewriteSMGame(smGameFile)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "ERROR rewriting SMGame:", err)
+		}
 
-		err = htMinifyJSONFile(m, srcFile, dstFile)
+		err = htMinifyJSONFile(m, smGameFile, dstFile)
 		if err != nil {
 			panic(err)
 		}

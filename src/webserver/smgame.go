@@ -11,60 +11,57 @@ import (
 	. "github.com/historytracers/common"
 )
 
-func htRewriteSMGame(lang string) {
-	smGameDir := fmt.Sprintf("%slang/%s/smGame/", CFG.SrcPath, lang)
+func htRewriteSMGame(smGameFile string) error {
+	if verboseFlag {
+		fmt.Println("Adjusting file", smGameFile)
+	}
 
-	entries, err := os.ReadDir(smGameDir)
+	byteValue, err := htOpenFileReadClose(smGameFile)
 	if err != nil {
-		return
+		return err
 	}
 
-	for _, entry := range entries {
-		if !entry.IsDir() {
-			continue
-		}
-
-		fileName := smGameDir + entry.Name() + "/index.json"
-		if verboseFlag {
-			fmt.Println("Adjusting file", fileName)
-		}
-
-		byteValue, err := htOpenFileReadClose(fileName)
-		if err != nil {
-			continue
-		}
-
-		var localSMGameFile SMGameFile
-		err = json.Unmarshal(byteValue, &localSMGameFile)
-		if err != nil {
-			htCommonJSONError(byteValue, err)
-			panic(err)
-		}
-
-		if localSMGameFile.Sources != nil {
-			htLoadSourceFromFile(localSMGameFile.Sources)
-		}
-
-		_, fileWasModified := htGitModifiedMap[fileName]
-		if fileWasModified {
-			localSMGameFile.LastUpdate[0] = HTUpdateTimestamp()
-		}
-
-		newFile, err := htWriteTmpFile(lang, &localSMGameFile)
-		if err != nil {
-			panic(err)
-		}
-		HTCopyFilesWithoutChanges(fileName, newFile)
-		err = os.Remove(newFile)
-		if err != nil {
-			panic(err)
-		}
+	var localSMGameFile SMGameFile
+	err = json.Unmarshal(byteValue, &localSMGameFile)
+	if err != nil {
+		htCommonJSONError(byteValue, err)
+		return err
 	}
+
+	if localSMGameFile.Sources != nil {
+		htLoadSourceFromFile(localSMGameFile.Sources)
+	}
+
+	_, fileWasModified := htGitModifiedMap[smGameFile]
+	if fileWasModified {
+		localSMGameFile.LastUpdate[0] = HTUpdateTimestamp()
+	}
+
+	newFile, err := htWriteTmpFile("", &localSMGameFile)
+	if err != nil {
+		return err
+	}
+	HTCopyFilesWithoutChanges(smGameFile, newFile)
+	return os.Remove(newFile)
 }
 
 func htValidateSMGameFormats() {
 	for _, dir := range htLangPaths {
-		htRewriteSMGame(dir)
+		smGameDir := fmt.Sprintf("%slang/%s/smGame/", CFG.SrcPath, dir)
+		entries, err := os.ReadDir(smGameDir)
+		if err != nil {
+			continue
+		}
+		for _, entry := range entries {
+			if entry.IsDir() {
+				continue
+			}
+			smGameFile := smGameDir + entry.Name()
+			err := htRewriteSMGame(smGameFile)
+			if err != nil {
+				fmt.Fprintln(os.Stderr, "ERROR:", err)
+			}
+		}
 	}
 }
 
