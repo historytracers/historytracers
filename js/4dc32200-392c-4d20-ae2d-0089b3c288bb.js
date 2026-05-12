@@ -28,6 +28,7 @@ function htLoadContent() {
 
     htSetImageSrc("imgSoroban", "images/Tohoku/Soroban.png");
     htSetImageSrc("imgSuanpan", "images/BritishMuseum/mid_01381495_001.jpg");
+    htSetImageSrc("imgCaral", "images/Caral/CaralPiramideH1.jpg");
 
     return false;
 }
