@@ -1,0 +1,557 @@
+{
+   "title": "Ordens maiores com Soroban e Suanpan (算盤)",
+   "header": "Ordens maiores com Soroban e Suanpan (算盤)",
+   "sources": [
+      "4dc32200-392c-4d20-ae2d-0089b3c288bb"
+   ],
+   "scripts": [
+      "4dc32200-392c-4d20-ae2d-0089b3c288bb",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/4dc32200-392c-4d20-ae2d-0089b3c288bb_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/7pTYfL7D5Pr1prbQc7tnyh?si=3NT-TN5ERHavlsoVxfnCwA",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1778633361"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste texto mostra como representar ordens numéricas maiores nos ábacos Soroban e Suanpan (算盤). Para uma melhor compreensão, sugerimos a leitura dos textos anteriores sobre ordens numéricas (<htcite0>; <htcite1>; <htcite2>; <htcite3>) e dos textos que explicam como utilizar o ábaco para representar números entre 0 e 9 (<htcite4>; <htcite5>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers Team",
+                     "page": "Famílias Numéricas (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e92e3d06-886e-4d3c-811f-bcbcce9aa832",
+                     "text": "History Tracers Team",
+                     "page": "Mudança de direção (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Famílias Numéricas (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6fd2997b-caf1-4620-a58f-1140388ab8c1",
+                     "text": "History Tracers Team",
+                     "page": "Mudança de direção (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c3c69877-a92b-493c-b98a-5c1c6d5875f4",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Suanpan, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nVimos, até o momento, que, nos números indo-arábicos que utilizamos, a ordem numérica (ou famílias, como mencionamos no *History Tracers*) cresce à medida que escrevemos números à esquerda (<htcite0>; <htcite1>).\n\nAo observarmos os números indígenas da América (*Abya Yala*), percebemos que as ordens numéricas aumentam verticalmente (<htcite2>; <htcite3>). Vale lembrar que, na América (*Abya Yala*), a Yupana representa números na horizontal, embora as ordens sejam representadas na vertical (<htcite4>).\n\nJá vimos diferentes maneiras de representar quantidades, embora todas representem exatamente a mesma ideia de famílias (ordens) numéricas.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers Team",
+                     "page": "Famílias Numéricas (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Famílias Numéricas (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "e92e3d06-886e-4d3c-811f-bcbcce9aa832",
+                     "text": "History Tracers Team",
+                     "page": "Mudança de direção (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6fd2997b-caf1-4620-a58f-1140388ab8c1",
+                     "text": "History Tracers Team",
+                     "page": "Mudança de direção (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Soroban (算盤)</td><td>Suanpan (算盤)</td></tr><tr><td><img id=\"imgSoroban\" onclick=\"htImageZoom('imgSoroban', '0%')\" src=\"\" class=\"imgcenter\" style=\"width: 100%\"/></td><td><img id=\"imgSuanpan\" onclick=\"htImageZoom('imgSuanpan', '0%')\" src=\"\" style=\"width: 73%\"/></td></tr></table></p><p class=\"desc\"><b>Figura 1</b>: Ábacos. À esquerda, temos um Soroban (算盤) de Shigetoshi Oyabu. Mantido por Tohoku University Main Library (<htcite0>). À direita, temos um Suanpan (算盤). © Trustees of the British Museum (<htcite1>)</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "8ab7ebef-41db-4f2b-a3e3-3530e7ff29d3",
+                     "text": "Shigetoshi Oyabu",
+                     "page": "fl. 14",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1842",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "68dfe292-3021-4586-9016-c001cdfdd9d7",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Dever ser para...</b><br /><br />Observando a <b>Figura 1</b>, como você acha que os números são representados nos ábacos (Soroban e Suanpan (算盤))?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_soropan",
+         "text": [
+            {
+               "text": "### Entre os dois\n\nDe maneira geral, podemos entender que tanto o Soroban quanto o Suanpan (算盤) possuem características de ambos os sistemas numéricos que estudamos até o momento.\n\n#### Em comum com os indígenas\n\nAo representarmos um número em qualquer versão do ábaco, sempre movimentamos os marcadores em direção à barra. Quando não há nenhum marcador movido, temos o valor 0, e vamos acumulando valores até o limite de 9 (<htcite0>).\n\n#### Em comum com o indo-arábico\n\nComo cada coluna dos ábacos representa apenas um número no intervalo de 0 a 9, para tratarmos de ordens maiores é necessário utilizarmos as demais colunas para representar as outras ordens, como veremos na sequência.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_soroban",
+         "text": [
+            {
+               "text": "### Representando no Soroban (算盤)\n\nIremos continuar nossos estudos com os ábacos, começando pelo Soroban (算盤), por ter sido o primeiro ábaco que estudamos, além de não permitir que números maiores que nove sejam representados em uma única coluna (<htcite0>).\n\n#### Como representar?\n\nOs passos para representar números entre 0 e 9 já foram apresentados anteriormente (<htcite1>), portanto não entraremos em detalhes. Apenas reforçaremos que cada marcador da parte de baixo (terra) possui o valor 1, enquanto o marcador da parte de cima (céu) vale 5.\n\n#### Do menor para o maior\n\nO primeiro passo para escrever um número que vai além de 0 e 9 é escolher onde o marcador decimal (⚫) ficará no ábaco. Ao mantê-lo na posição atual, as colunas de nosso ábaco representarão, respectivamente:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<table class=\"tableTen tableTenBgBlue\"><tr><th>Coluna 9</th><th>Coluna 8</th><th>Coluna 7</th><th>Coluna 6</th><th>Coluna 5</th><th>Coluna 4</th><th>Coluna 3</th><th>Coluna 2</th><th>Coluna 1</th> </tr> <tr><td>Centena de Milhão</td> <td>Dezena de Milhão</td> <td>Milhão</td> <td>Centena de Milhar</td> <td>Dezena de Milhar</td> <td>Milhar</td> <td>Centena</td> <td>Dezena</td> <td>Unidade</td></tr></table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Tabela 1</b>: Ordens (famílias) numéricas representadas no Soroban quando o marcador decimal está na primeira coluna da direita.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "Da **Tabela 1**, podemos concluir que a posição do marcador decimal (⚫) nos indicará onde estão as unidades (<htcite0>). A partir desse marcador, os números crescerão à esquerda. Façamos uma prática para reforçar o que foi aprendido.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Holt",
+                     "page": "04:38 - 07:00",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: 56px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: 28px 32px 32px 32px; } .soroban-frame { background: #e9ddb0; border-radius: 24px; padding: 16px 20px 20px 20px; box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; } .value-panel { margin-top: 28px; background: #2e241f; border-radius: 48px; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 8px 18px; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: 1.8rem; letter-spacing: 2px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: 1.2rem; font-weight: normal; background: #4a3929; color: #ffecb3; padding: 4px 12px; border-radius: 30px; margin-left: 12px; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: 1.2rem; font-family: inherit; padding: 8px 24px; border-radius: 60px; cursor: pointer; transition: 0.1s linear; box-shadow: 0 3px 0 #4f3822; white-space: nowrap; } .reset-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #4f3822; } .legend { font-size: 0.75rem; margin-top: 12px; text-align: center; color: #302419; background: #ebdfbe; display: inline-block; width: auto; padding: 5px 16px; border-radius: 60px; backdrop-filter: blur(2px); } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 8px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 5px 16px; font-size: 0.75rem; font-weight: bold; color: #302419; } .mode-selector { background: #ebdfbe; border-radius: 60px; padding: 5px 16px; display: flex; gap: 12px; align-items: center; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: 0.8rem; font-family: inherit; padding: 4px 16px; border-radius: 40px; cursor: pointer;  transition: 0.1s linear; box-shadow: 0 2px 0 #4f3822; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: 0.75rem; } .warning-message { background: #ff9800; color: #2e241f; padding: 6px 16px; border-radius: 40px; font-size: 0.75rem; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); animation: pulseWarning 1.5s ease-in-out infinite; white-space: nowrap; transition: all 0.2s ease; } .warning-message.hidden { display: none; } @keyframes pulseWarning { 0%, 100% { opacity: 0.85; background: #ff9800; } 50% { opacity: 1; background: #ffb74d; box-shadow: 0 0 4px #ff9800; } } .warning-icon { font-size: 1rem; } .info-area { display: flex; align-items: center;  gap: 12px; flex-wrap: wrap; } @media (max-width: 860px) { .readout { font-size: 1.2rem; padding: 4px 12px; } .readout span { font-size: 0.9rem; } .soroban-container { padding: 16px 20px; } .warning-message { font-size: 0.65rem; padding: 4px 12px; white-space: normal; } .value-panel-left { gap: 8px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">Há coluna(s) com valores maiores que 9! Cada dígito deve permanecer entre 0 e 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Crescendo...</b><br />Nesta prática, trabalharemos com todas as colunas e manteremos o marcador decimal (⚫) na posição mais à direita.<br /><br />1. Clique no botão <b>“Soroban (1x4)”</b>.<br />2. Mova um marcador inferior em direção à barra. Observe que o número 1 será apresentado.<br />3. Agora, vá à segunda coluna, a coluna das dezenas (<b>Tabela 1</b>), e move dois marcadores inferiores. Com isso, teremos o valor 21 mostrado.<br />4. Em seguida, vá para a próxima coluna, a das centenas, e mova três marcadores inferiores. Com isso, teremos o número 321.<br />5. Continuando, represente, na coluna do milhar (a quarta coluna), o valor 4, obtendo assim o número 4.321.<br />6. Nossa próxima ação será colocar o número 5 nas dezenas de milhar. Portanto, moveremos apenas o marcador superior, obtendo o valor 54.321.<br />7. Prossiga representando os números à esquerda até completar o valor 987.654.321.</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_suanpan",
+         "text": [
+            {
+               "text": "### Representando no Suanpan (算盤)\n\nPara representar os números no Suanpan (算盤), seguimos as mesmas etapas do Soroban (算盤). Isso quer dizer que movemos os marcadores inferiores (terra) para representar números de 1 em 1, enquanto movemos os marcadores superiores (céu) para representar o número 5.\n\nQuando desejamos representar ordens maiores, também utilizamos os números à esquerda do nosso marcador decimal (⚫).\n\nEntretanto, por o Suanpan (算盤) ter mais marcadores que o Soroban (算盤), necessitamos, em alguns casos, fazer movimentos adicionais.\n\nVamos realizar uma prática para deixar isso mais claro.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 2: Mudando de ordem no Suanpan</b><br />Nesta prática, veremos como o Suanpan indica ao aluno que devemos representar outro número mais à esquerda.<br /><br />1. Clique no botão <b>“Suanpan (2x5)”.</b>.<br /><br />2. Mova cinco marcadores da parte inferior em direção à barra.<br />3. <br />3. Agora mova um único marcador superior. Veja que uma mensagem de alerta aparece: “Há coluna(s) com valores maiores que 9! Cada dígito deve permanecer entre 0 e 9.”.<br /><br />Toda vez que algum número entre 10 e 15 é representado em uma coluna do Suanpan, devemos mover o “excesso” (10) para a próxima coluna, mantendo os demais valores. Vamos prosseguir com a prática para reforçar isso.<br /><br />1. Mova o marcador superior para a posição original.<br /><br />2. Mova todos os marcadores inferiores para a posição original.<br /><br />3. Agora, vá à coluna das dezenas, a segunda da direita para a esquerda, e coloque 1. Você verá que o valor exibido será 10.</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Nesta prática com o Suanpan (算盤), observamos como a versão do Suanpan (算盤) do *History Tracers* alerta para valores maiores que 9 em cada ordem (família) numérica e como proceder para ajustar os valores e obter os resultados esperados.\n\nEssa característica do Suanpan (算盤) nos auxilia a reforçar que não podemos representar números diferentes de 0 a 9 em cada ordem (família) numérica.\n\nSugerimos que você repita a **Prática 1**, desta vez com o Suanpan (算盤), para confirmar que ambos funcionam da mesma maneira.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_nature",
+         "text": [
+            {
+               "text": "### Soroban e Suanpan (算盤) na natureza\n\nNeste texto, vimos diferentes ábacos que possuem a mesma ideia de representar quantidades.\n\nDa mesma maneira, poderíamos criar nossos próprios ábacos até mesmo em uma região desértica, como a cidade sagrada de Caral (**Figura 1**) (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "720f6dfd-4b86-4e07-a887-1010e1041a4d",
+                     "text": "Ruta Caral",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"imgCaral\" onclick=\"htImageZoom('imgCaral', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 2</b>: Pirâmide H1 no sítio arqueológico de Caral (<htcite0>). Foto tirada em <htdate0>, durante uma visita ao sítio.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "720f6dfd-4b86-4e07-a887-1010e1041a4d",
+                     "text": "Ruta Caral",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2017",
+                     "month": "6",
+                     "day": "13"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Por exemplo, poderíamos riscar na areia uma linha que representaria a barra à qual aproximaremos pequenas rochas, que representarão os nossos marcadores.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 3: Faça você mesmo</b><br />Vamos construir nosso próprio ábaco com apenas 3 colunas (<b>Tabela 2</b>).<br /><br />1. Pegue uma folha de papel e trace uma linha reta nela (Na <b>Tabela 2</b>, ela é representada por uma linha branca).<br /><br />2. Agora obtenha os marcadores. Você pode fazê-los cortando pedaços de papel e enrolando-os. Ou pode usar feijões. Ou qualquer objeto que possa ser movido na direção vertical e colocado lado a lado na horizontal.<br /><br />3. Finalmente, organize-os como no ábaco da <b>Tabela 2</b>.</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<table class=\"tableTen\" style=\"background: lightyellow;\"><tr><th colspan=\"3\">Ábaco manual com 3 colunas</th> </tr> <tr><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td></tr> <tr><td style=\"border: none; border-collapse: collapse;\">&nbsp;</td><td style=\"border: none; border-collapse: collapse;\">&nbsp;</td><td style=\"border: none; border-collapse: collapse;\">&nbsp;</td></tr> <tr><td colspan=\"3\" style=\"background: #fff;\">&nbsp;</td></tr> <tr><td style=\"border: none; border-collapse: collapse;\">&nbsp;</td><td style=\"border: none; border-collapse: collapse;\">&nbsp;</td><td style=\"border: none; border-collapse: collapse;\">&nbsp;</td></tr> <tr><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td></tr> <tr><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td></tr> <tr><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td></tr> <tr><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td></tr> <tr><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td><td style=\"border: none; border-collapse: collapse;\">⚫</td></tr> </table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Tabela 2</b>: Exemplo de um ábaco manual.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, aprendemos como utilizar os ábacos Soroban e Suanpan (算盤) para representar ordens (famílias) numéricas maiores.\n\nAlém disso, com o conhecimento adquirido ao trabalhar com essas ferramentas, vimos que é possível construí-las utilizando materiais que podem ser encontrados em diferentes locais.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Em ambos os ábacos, Soroban e Suanpan (算盤), as ordens numéricas são representadas na vertical?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "Apesar de representarmos a contagem na vertical, quando falamos das ordens numéricas (unidade, dezena, centena...), elas são representadas na horizontal."
+      },
+      {
+         "question": "O marcador na barra horizontal representa a posição da maior ordem que observamos?",
+         "yesNoAnswer": "No",
+         "additionalInfo": "O marcador na barra horizontal nos mostra o local da menor ordem, ou seja, a unidade."
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}
