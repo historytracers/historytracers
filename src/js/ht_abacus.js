@@ -134,7 +134,6 @@ function htSorobanUpdateDisplay() {
 }
         
 function htSorobanComputeLayout() {
-    if (!localSorobanController.canvas || !localSorobanController.ctx) return;
     localSorobanController.canvasWidth = localSorobanController.canvas.width;
     localSorobanController.canvasHeight = localSorobanController.canvas.height;
     
