@@ -23,6 +23,7 @@ function htCheckAnswers()
 
 function htLoadContent() {
     htWriteNavigation();
+    htSetImageSrc("mamut", "images/MexicoCityMuseo/Mamute.jpg");
 
     return false;
 }
