@@ -115,6 +115,83 @@ $ make dev                # Compilação de desenvolvimento (sem flags de otimiz
 $ make prod               # Compilação de produção (com otimização)
 ```
 
+### Compilação no Windows
+
+O projeto pode ser compilado no Windows usando tanto o GNU Autotools (como no Linux) quanto diretamente com Go.
+
+#### Opção 1: Usando Go diretamente
+
+```powershell
+cd src\webserver
+go build -o historytracers.exe .
+
+cd ..\editor
+go build -o historytracers-editor.exe .
+```
+
+#### Opção 2: Usando Autotools (requer MSYS2 ou similar)
+
+```sh
+./configure
+make
+```
+
+No Windows, o script configure define automaticamente os caminhos padrão:
+- Configuração: `C:/ProgramData/historytracers/historytracers.conf`
+- Conteúdo: `C:/inetpub/wwwroot/historytracers/`
+- Logs: `C:/ProgramData/historytracers/logs/`
+
+### Gerenciamento do Serviço do Windows
+
+O servidor web pode ser executado como um Serviço do Windows. Isso fornece inicialização automática e operação adequada em segundo plano.
+
+#### Instalação do Serviço
+
+Executar como Administrador:
+
+```powershell
+.\historytracers.exe install
+```
+
+Isso registrará o serviço com o Windows. Por padrão, o serviço está configurado para iniciar automaticamente.
+
+#### Iniciar o Serviço
+
+```powershell
+sc start historytracers
+```
+
+Ou simplesmente reinicie seu computador - o serviço será iniciado automaticamente.
+
+#### Parar o Serviço
+
+```powershell
+sc stop historytracers
+```
+
+#### Desinstalar o Serviço
+
+```powershell
+.\historytracers.exe uninstall
+```
+
+#### Executar em Modo Console
+
+Para depuração ou teste, você pode executar o servidor em modo console:
+
+```powershell
+.\historytracers.exe         # Modo console normal
+.\historytracers.exe debug   # Modo depuração (mostra saída adicional)
+```
+
+#### Configuração do Serviço
+
+O serviço do Windows usa o mesmo arquivo de configuração que o modo console. Caminhos padrão no Windows:
+- Config: `C:/ProgramData/historytracers/historytracers.conf`
+- Logs: `C:/ProgramData/historytracers/logs/`
+
+Você pode modificar esses caminhos no arquivo de configuração ou reconstruir com caminhos personalizados usando `./configure --with-conf-path=CAMINHO`.
+
 ### Testes
 
 ```sh
