@@ -74,9 +74,19 @@ The `lang/sources/` directory contains JSON files with the sources referenced in
 
 *History Tracers* uses **GNU Make** as its build system.
 
+### Initial Setup (first time only)
+
+If this is a fresh clone, you need to generate the build system files:
+
+```sh
+./bootstrap
+```
+
+This runs `autoreconf` to generate the configure script and other required files.
+
 ### Configuration
 
-Before running any `make` commands, you must run the `./configure` script to set up the build environment. This script allows you to customize installation paths and compiler options:
+After running bootstrap (or if you have an existing configure script), run `./configure` to set up the build environment. This script allows you to customize installation paths and compiler options:
 
 ```sh
 $ ./configure [OPTIONS]

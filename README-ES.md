@@ -81,9 +81,19 @@ El directorio `lang/sources/` contiene archivos JSON con las fuentes referenciad
 
 *History Tracers* utiliza **GNU Make** como sistema de compilación.
 
+### Configuración inicial (primera vez)
+
+Si es un clon fresco, necesita generar los archivos del sistema de compilación:
+
+```sh
+./bootstrap
+```
+
+Esto ejecuta `autoreconf` para generar el script configure y otros archivos requeridos.
+
 ### Configuración
 
-Antes de ejecutar cualquier comando `make`, debe ejecutar el script `./configure` para configurar el entorno de compilación. Este script le permite personalizar las rutas de instalación y las opciones del compilador:
+Después de ejecutar bootstrap (o si tiene un script configure existente), ejecute `./configure` para configurar el entorno de compilación. Este script le permite personalizar las rutas de instalación y las opciones del compilador:
 
 ```sh
 $ ./configure [OPCIONES]
