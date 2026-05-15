@@ -24,6 +24,7 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
     htSetImageSrc("mamut", "images/MexicoCityMuseo/Mamute.jpg");
+    htSetImageSrc("imgPoint", "images/BritishMuseum/mid_DSC_0597.jpg");
 
     return false;
 }
