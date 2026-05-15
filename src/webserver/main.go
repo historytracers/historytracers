@@ -13,6 +13,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"runtime"
 	"sync/atomic"
 	"time"
 
@@ -29,6 +30,10 @@ type key int
 
 const (
 	htRequestIDKey key = 0
+)
+
+const (
+	isWin = runtime.GOOS == "windows"
 )
 
 func htSaveHandler(w http.ResponseWriter, r *http.Request) {
@@ -144,7 +149,35 @@ func htInitializeCommonMaps() {
 	allSourceMap = make(map[string]common.HTSourceElement)
 }
 
+func htCheckServiceMode() bool {
+	if !isWin {
+		return false
+	}
+	return len(os.Args) > 1 && os.Args[1] == "run"
+}
+
 func main() {
+	if isWin && len(os.Args) > 1 {
+		switch os.Args[1] {
+		case "install":
+			htInstallService()
+			return
+		case "uninstall":
+			htUninstallService()
+			return
+		case "run":
+			htRunService()
+			return
+		case "debug":
+			htRunConsoleMode()
+			return
+		}
+	}
+
+	htRunConsoleMode()
+}
+
+func htRunConsoleMode() {
 	htInitializeCommonMaps()
 	HTParseArg()
 	HTLoadConfig()
