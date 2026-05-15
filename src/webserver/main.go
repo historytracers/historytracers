@@ -14,7 +14,6 @@ import (
 	"os"
 	"os/signal"
 	"sync/atomic"
-	"syscall"
 	"time"
 
 	"github.com/historytracers/common"
@@ -168,7 +167,7 @@ func main() {
 
 	done := make(chan bool)
 	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	signal.Notify(quit, os.Interrupt)
 
 	atomic.StoreInt32(&healthy, 1)
 
