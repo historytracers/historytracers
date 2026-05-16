@@ -99,7 +99,7 @@ func htCommonHandler(w http.ResponseWriter, r *http.Request) {
 	m := validURL.FindStringSubmatch(r.URL.Path)
 	if m == nil {
 		http.NotFound(w, r)
-		ErrorLog.Printf("Blocked request: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
+		htLogPrintf(ErrorLog, "Blocked request: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
 		return
 	}
 
@@ -112,7 +112,7 @@ func htCommonHandler(w http.ResponseWriter, r *http.Request) {
 	data, err := htLoadJSONRequest(fileName)
 	if err != nil {
 		http.NotFound(w, r)
-		ErrorLog.Printf("Error to load JSON: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
+		htLogPrintf(ErrorLog, "Error to load JSON: %s %s from %s", r.Method, r.URL.Path, r.RemoteAddr)
 		return
 	}
 
@@ -124,7 +124,7 @@ func htCommonHandler(w http.ResponseWriter, r *http.Request) {
 func htIsEditionEnabled(w http.ResponseWriter, r *http.Request) {
 	if CFG.DevMode == false {
 		http.NotFound(w, r)
-		ErrorLog.Printf("Blocked request: %s %s from %s, because devmode is disabled", r.Method, r.URL.Path, r.RemoteAddr)
+		htLogPrintf(ErrorLog, "Blocked request: %s %s from %s, because devmode is disabled", r.Method, r.URL.Path, r.RemoteAddr)
 		return
 	}
 

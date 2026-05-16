@@ -29,13 +29,13 @@ var (
 	personalPath string    = "~/.config/historytracers/historytracers.conf"
 	srcPath      string    = "/var/www/historytracers/"
 	contentPath  string    = "/var/www/historytracers/www/"
-	logPath      string    = "/var/log/historytracers/"
+	logPath      string    = ""
 	CFG          *htConfig = nil
 )
 
 func NewHTConfig() *htConfig {
 	return &htConfig{
-		HTConfigBase: *common.NewHTConfigBase(portFlag, srcPath, contentPath, logPath),
+		HTConfigBase: *common.NewHTConfigBase(portFlag, srcPath, contentPath, ""),
 		ConfPath:     personalPath,
 	}
 }

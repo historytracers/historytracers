@@ -136,8 +136,23 @@ cd src\webserver
 go build -o historytracers.exe .
 
 cd ..\editor
+```
+
+**Nota:** O editor requer que CGO esteja habilitado (o framework GUI Fyne precisa do OpenGL).
+
+No Windows, execute:
+```powershell
+$env:CGO_ENABLED = "1"
 go build -o historytracers-editor.exe .
 ```
+
+Ou habilite CGO permanentemente:
+```powershell
+[System.Environment]::SetEnvironmentVariable("CGO_ENABLED", "1", "User")
+go build -o historytracers-editor.exe .
+```
+
+Certifique-se de que gcc está no PATH (instale com MSYS2: `pacman -S mingw-w64-x86_64-toolchain`)
 
 #### Opção 2: Usando Autotools (requer MSYS2 ou similar)
 
@@ -147,9 +162,9 @@ make
 ```
 
 No Windows, o script configure define automaticamente os caminhos padrão:
-- Configuração: `C:/ProgramData/historytracers/historytracers.conf`
-- Conteúdo: `C:/inetpub/wwwroot/historytracers/`
-- Logs: `C:/ProgramData/historytracers/logs/`
+- Configuração: `C:\ProgramData\historytracers\historytracers.conf`
+- Conteúdo: `C:\inetpub\wwwroot\historytracers\`
+- Logs: `C:\ProgramData\historytracers\log\`
 
 ### Gerenciamento do Serviço do Windows
 
@@ -197,8 +212,8 @@ Para depuração ou teste, você pode executar o servidor em modo console:
 #### Configuração do Serviço
 
 O serviço do Windows usa o mesmo arquivo de configuração que o modo console. Caminhos padrão no Windows:
-- Config: `C:/ProgramData/historytracers/historytracers.conf`
-- Logs: `C:/ProgramData/historytracers/logs/`
+- Config: `C:\ProgramData\historytracers\historytracers.conf`
+- Logs: `C:\ProgramData\historytracers\log\`
 
 Você pode modificar esses caminhos no arquivo de configuração ou reconstruir com caminhos personalizados usando `./configure --with-conf-path=CAMINHO`.
 

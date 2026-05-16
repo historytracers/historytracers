@@ -129,8 +129,23 @@ cd src\webserver
 go build -o historytracers.exe .
 
 cd ..\editor
+```
+
+**Note:** The editor requires CGO to be enabled (Fyne GUI framework needs OpenGL).
+
+On Windows, run:
+```powershell
+$env:CGO_ENABLED = "1"
 go build -o historytracers-editor.exe .
 ```
+
+Or permanently enable CGO:
+```powershell
+[System.Environment]::SetEnvironmentVariable("CGO_ENABLED", "1", "User")
+go build -o historytracers-editor.exe .
+```
+
+Make sure gcc is in PATH (install with MSYS2: `pacman -S mingw-w64-x86_64-toolchain`)
 
 #### Option 2: Using Autotools (requires MSYS2 or similar)
 
@@ -140,9 +155,9 @@ make
 ```
 
 On Windows, the configure script automatically sets appropriate default paths:
-- Configuration: `C:/ProgramData/historytracers/historytracers.conf`
-- Content: `C:/inetpub/wwwroot/historytracers/`
-- Logs: `C:/ProgramData/historytracers/logs/`
+- Configuration: `C:\ProgramData\historytracers\historytracers.conf`
+- Content: `C:\inetpub\wwwroot\historytracers\`
+- Logs: `C:\ProgramData\historytracers\log\`
 
 ### Windows Service Management
 
@@ -190,8 +205,8 @@ For debugging or testing, you can run the server in console mode:
 #### Service Configuration
 
 The Windows service uses the same configuration file as console mode. Default paths on Windows:
-- Config: `C:/ProgramData/historytracers/historytracers.conf`
-- Logs: `C:/ProgramData/historytracers/logs/`
+- Config: `C:\ProgramData\historytracers\historytracers.conf`
+- Logs: `C:\ProgramData\historytracers\log\`
 
 You can modify these paths in the configuration file or rebuild with custom paths using `./configure --with-conf-path=PATH`.
 

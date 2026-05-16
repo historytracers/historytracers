@@ -13,6 +13,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"path/filepath"
 	"runtime"
 	"sync/atomic"
 	"time"
@@ -77,9 +78,13 @@ func htCreateDirectory(name string) {
 }
 
 func htOpenLogs(name string) *log.Logger {
+	if CFG.LogPath == "" {
+		return nil
+	}
+
 	htCreateDirectory(CFG.LogPath)
 
-	fileName := fmt.Sprintf("%s/%s", CFG.LogPath, name)
+	fileName := filepath.Join(CFG.LogPath, name)
 	if _, err := os.Stat(fileName); os.IsNotExist(err) {
 		fp, err := os.Create(fileName)
 		if err != nil {
@@ -92,6 +97,25 @@ func htOpenLogs(name string) *log.Logger {
 			panic(err)
 		}
 		return log.New(fp, "", log.LstdFlags)
+	}
+}
+
+func htLogInfo(logger *log.Logger, args ...interface{}) {
+	if logger != nil {
+		logger.Println(args...)
+	}
+}
+
+func htLogFatal(logger *log.Logger, format string, args ...interface{}) {
+	if logger != nil {
+		logger.Fatalf(format, args...)
+	}
+	os.Exit(1)
+}
+
+func htLogPrintf(logger *log.Logger, format string, args ...interface{}) {
+	if logger != nil {
+		logger.Printf(format, args...)
 	}
 }
 
@@ -206,7 +230,7 @@ func htRunConsoleMode() {
 
 	go func() {
 		<-quit
-		DaemonLog.Println("INFO: Server is shutting down...")
+		htLogInfo(DaemonLog, "INFO: Server is shutting down...")
 		atomic.StoreInt32(&healthy, 0)
 
 		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
@@ -214,16 +238,16 @@ func htRunConsoleMode() {
 
 		server.hServer.SetKeepAlivesEnabled(false)
 		if err := server.hServer.Shutdown(ctx); err != nil {
-			DaemonLog.Fatalf("ERROR: I could not gracefully shutdown the server: %v\n", err)
+			htLogFatal(DaemonLog, "ERROR: I could not gracefully shutdown the server: %v\n", err)
 		}
 		close(done)
 	}()
 
-	DaemonLog.Println("INFO: Ready to run listening port", CFG.Port, devM, "devmode")
+	htLogInfo(DaemonLog, "INFO: Ready to run listening port", CFG.Port, devM, "devmode")
 
 	if err := server.hServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-		DaemonLog.Fatalf("ERROR: Listening Port", CFG.Port, devM, "devmode", "content", CFG.ContentPath)
+		htLogFatal(DaemonLog, "ERROR: Listening Port", CFG.Port, devM, "devmode", "content", CFG.ContentPath)
 	}
 	<-done
-	DaemonLog.Println("INFO: Good bye!")
+	htLogInfo(DaemonLog, "INFO: Good bye!")
 }
