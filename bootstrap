@@ -1,0 +1,12 @@
+#!/bin/sh
+# Bootstrap script to generate autoconf/automake files
+
+set -e
+
+echo "Running autoreconf..."
+autoreconf -i -f -v
+
+echo ""
+echo "Bootstrap complete. Now run:"
+echo "  ./configure [OPTIONS]"
+echo "  make"

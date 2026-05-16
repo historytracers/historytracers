@@ -3,19 +3,13 @@ AC_INIT([historytracers], [1.0.0], [historytracers@gmail.com])
 
 # Set package name and version
 AC_CONFIG_SRCDIR([src/webserver/main.go])
-AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_AUX_DIR([build-aux])
 
 # Initialize Automake
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 # Check for required programs
-AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_MKDIR_P
-
-# Enable dependency tracking
-AM_PROG_CC_C_O
 AC_PROG_MAKE_SET
 
 # Check for Go compiler
@@ -103,33 +97,50 @@ AC_MSG_RESULT([$GO_COMPILER_TYPE])
 
 AC_SUBST([GO_COMPILER])
 
+ # Detect platform for default paths
+AC_CANONICAL_HOST
+case "$host_os" in
+    windows*)
+        PLATFORM_DEFAULT_CONF_PATH="C:/ProgramData/historytracers/historytracers.conf"
+        PLATFORM_DEFAULT_SRC_PATH="C:/inetpub/wwwroot/historytracers/"
+        PLATFORM_DEFAULT_CONTENT_PATH="C:/inetpub/wwwroot/historytracers/www/"
+        PLATFORM_DEFAULT_LOG_PATH="C:/ProgramData/historytracers/logs/"
+        ;;
+    *)
+        PLATFORM_DEFAULT_CONF_PATH="/etc/historytracers/historytracers.conf"
+        PLATFORM_DEFAULT_SRC_PATH="/var/www/htdocs/historytracers/"
+        PLATFORM_DEFAULT_CONTENT_PATH="/var/www/htdocs/historytracers/www/"
+        PLATFORM_DEFAULT_LOG_PATH="/var/log/historytracers/"
+        ;;
+esac
+
  # Set default installation paths
 AC_PREFIX_DEFAULT(/usr)
 
 # Custom installation paths with defaults
 AC_ARG_WITH([conf-path],
     [AS_HELP_STRING([--with-conf-path=PATH],
-        [Configuration file path @<:@default=/etc/historytracers/historytracers.conf@:>@])],
+        [Configuration file path @<:@default=$PLATFORM_DEFAULT_CONF_PATH@:>@])],
     [CONF_PATH=$withval],
-    [CONF_PATH=/etc/historytracers/historytracers.conf])
+    [CONF_PATH=$PLATFORM_DEFAULT_CONF_PATH])
 
 AC_ARG_WITH([src-path],
     [AS_HELP_STRING([--with-src-path=PATH],
-        [Source directory path @<:@default=/var/www/htdocs/historytracers/@:>@])],
+        [Source directory path @<:@default=$PLATFORM_DEFAULT_SRC_PATH@:>@])],
     [SRC_PATH=$withval],
-    [SRC_PATH=/var/www/htdocs/historytracers/])
+    [SRC_PATH=$PLATFORM_DEFAULT_SRC_PATH])
 
 AC_ARG_WITH([content-path],
     [AS_HELP_STRING([--with-content-path=PATH],
-        [Content directory path @<:@default=/usr/share/historytracers/www/@:>@])],
+        [Content directory path @<:@default=$PLATFORM_DEFAULT_CONTENT_PATH@:>@])],
     [CONTENT_PATH=$withval],
-    [CONTENT_PATH=/var/www/htdocs/historytracers/www/])
+    [CONTENT_PATH=$PLATFORM_DEFAULT_CONTENT_PATH])
 
 AC_ARG_WITH([log-path],
     [AS_HELP_STRING([--with-log-path=PATH],
-        [Log directory path @<:@default=/var/log/historytracers/@:>@])],
+        [Log directory path @<:@default=$PLATFORM_DEFAULT_LOG_PATH@:>@])],
     [LOG_PATH=$withval],
-    [LOG_PATH=/var/log/historytracers/])
+    [LOG_PATH=$PLATFORM_DEFAULT_LOG_PATH])
 
  # Set build flags based on compiler type
  case "$GO_COMPILER_TYPE" in

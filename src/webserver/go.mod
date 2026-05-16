@@ -1,6 +1,6 @@
 module historytracers
 
-go 1.24.0
+go 1.25.0
 
 require (
 	github.com/BurntSushi/toml v1.5.0
@@ -14,4 +14,7 @@ replace github.com/historytracers/common => ../common
 
 require github.com/historytracers/common v0.0.0
 
-require github.com/tdewolff/parse/v2 v2.8.4 // indirect
+require (
+	github.com/tdewolff/parse/v2 v2.8.4 // indirect
+	golang.org/x/sys v0.44.0 // indirect
+)

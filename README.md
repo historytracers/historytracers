@@ -74,9 +74,19 @@ The `lang/sources/` directory contains JSON files with the sources referenced in
 
 *History Tracers* uses **GNU Make** as its build system.
 
+### Initial Setup (first time only)
+
+If this is a fresh clone, you need to generate the build system files:
+
+```sh
+./bootstrap
+```
+
+This runs `autoreconf` to generate the configure script and other required files.
+
 ### Configuration
 
-Before running any `make` commands, you must run the `./configure` script to set up the build environment. This script allows you to customize installation paths and compiler options:
+After running bootstrap (or if you have an existing configure script), run `./configure` to set up the build environment. This script allows you to customize installation paths and compiler options:
 
 ```sh
 $ ./configure [OPTIONS]
@@ -107,6 +117,83 @@ $ make editor             # Build only the editor
 $ make dev                # Development build (no optimization flags)
 $ make prod               # Production build (with optimization)
 ```
+
+### Compiling on Windows
+
+The project can be compiled on Windows using either the GNU Autotools (like on Linux) or directly with Go.
+
+#### Option 1: Using Go directly
+
+```powershell
+cd src\webserver
+go build -o historytracers.exe .
+
+cd ..\editor
+go build -o historytracers-editor.exe .
+```
+
+#### Option 2: Using Autotools (requires MSYS2 or similar)
+
+```sh
+./configure
+make
+```
+
+On Windows, the configure script automatically sets appropriate default paths:
+- Configuration: `C:/ProgramData/historytracers/historytracers.conf`
+- Content: `C:/inetpub/wwwroot/historytracers/`
+- Logs: `C:/ProgramData/historytracers/logs/`
+
+### Windows Service Management
+
+The webserver can run as a Windows Service. This provides automatic startup and proper background operation.
+
+#### Installing the Service
+
+Run as Administrator:
+
+```powershell
+.\historytracers.exe install
+```
+
+This will register the service with Windows. By default, the service is set to start automatically.
+
+#### Starting the Service
+
+```powershell
+sc start historytracers
+```
+
+Or simply restart your computer - the service will start automatically.
+
+#### Stopping the Service
+
+```powershell
+sc stop historytracers
+```
+
+#### Uninstalling the Service
+
+```powershell
+.\historytracers.exe uninstall
+```
+
+#### Running in Console Mode
+
+For debugging or testing, you can run the server in console mode:
+
+```powershell
+.\historytracers.exe         # Normal console mode
+.\historytracers.exe debug   # Debug mode (shows additional output)
+```
+
+#### Service Configuration
+
+The Windows service uses the same configuration file as console mode. Default paths on Windows:
+- Config: `C:/ProgramData/historytracers/historytracers.conf`
+- Logs: `C:/ProgramData/historytracers/logs/`
+
+You can modify these paths in the configuration file or rebuild with custom paths using `./configure --with-conf-path=PATH`.
 
 ### Testing
 
