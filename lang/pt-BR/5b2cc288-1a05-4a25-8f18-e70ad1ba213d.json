@@ -1163,7 +1163,7 @@
                "name": "Desconhecida",
                "surname": "",
                "patronymic": "",
-               "fullname": "",
+               "fullname": "Desconhecida",
                "sex": "feminino",
                "gender": "feminino",
                "is_real": true,
@@ -1189,178 +1189,229 @@
                ],
                "history": [
                   {
-                     "text": "A detailed description of the person's life history and marital status.",
-                     "source": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
+                     "text": "#### De norte a sul\n\nDevido a distância entre o norte e o sul do continente *Abya Yala* (América) ser grande, estudiosos estimam que a trajetória em tempos remotos entre os extremos do continente deveria ser feito em um período entre 600 e 1000 anos (<htcite0>).\n\nAlém do período para se fazer a migração,outro fato que deve ser considerado é as posśiveis trajetórias utilizadas para realizar a travessia. Haveria pelo menos dois caminhos possíveis, através das costas ou por dentro do continente (<htcite1>), em ambos os casos, devido as condições climáticas associadas ao tempo que migrações ocorreram é improvável haver algo visível nos dias atuais.\n\n#### A dieta\n\nRestos orgâncios são encontrados no sítio de Monte Verde desde pelo menos <htdate0>. Entre estes restos orgânicos encontramos: plantas aquáticas, plantas oriundas da floresta, além de microalgas. Além de alimentos, foram encontrados também plantas possivelmente usadas como tratamento medicinal (<htcite2>).\n\nEsta dieta relacionada a microalgas marinhas é um fato importante a ser destacado dos habitantes de Clóvis, os quais estavam a cerca de 90 quilômetros (55,22 milhas) da costa (<htcite3>).",
+                     "source": [ 
+            {
+               "type": 1,
+               "uuid": "880dfb74-605b-483c-9c9e-fee8518acc73",
+               "text": "Waters, M. R., & Stafford, T. W., Jr.",
+               "page": "pp. 1125",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2007",
+                  "month": "",
+                  "day": ""
+               }
+            },
+            {
+               "type": 1,
+               "uuid": "09a61f01-3590-4932-8221-e5a3aae4f1e2",
+               "text": "Dillehay, T. D., Ramírez, C., Pino, M., Collins, M. B., Rossen, J., & Pino-Navarro, J. D.",
+               "page": "pp. 784",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2008",
+                  "month": "",
+                  "day": ""
+               }
+            },
+            {
+               "type": 1,
+               "uuid": "09a61f01-3590-4932-8221-e5a3aae4f1e2",
+               "text": "Dillehay, T. D., Ramírez, C., Pino, M., Collins, M. B., Rossen, J., & Pino-Navarro, J. D.",
+               "page": "pp. 784 - 785",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2008",
+                  "month": "",
+                  "day": ""
+               }
+            },
+            {
+               "type": 1,
+               "uuid": "09a61f01-3590-4932-8221-e5a3aae4f1e2",
+               "text": "Dillehay, T. D., Ramírez, C., Pino, M., Collins, M. B., Rossen, J., & Pino-Navarro, J. D.",
+               "page": "pp. 784, 786",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2008",
+                  "month": "",
+                  "day": ""
+               }
+            }
                      ],
                      "date_time": [
                         {
                            "type": "gregory",
-                           "year": "2010",
-                           "month": "",
-                           "day": ""
-                        },
-                        {
-                           "type": "unix",
-                           "year": "",
-                           "month": "",
-                           "day": ""
-                        },
-                        {
-                           "type": "julian",
-                           "year": "",
+                           "year": "-12600",
                            "month": "",
                            "day": ""
                         }
                      ],
                      "isTable": false,
-                     "imgdesc": "A description of an image included in the text.",
-                     "format": "markdown or html",
-                     "PostMention": "A character used after a mention to include citations."
+                     "imgdesc": "",
+                     "format": "markdown",
+                     "PostMention": ""
+                  },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 7: Herança ou conclusão comum</b><br /><br />Quando estudamos a cultura Jomon (<htcite0>), observamos que esta cultura japonesa durante milênios também viveu basicamente na base de coletas.<br /><br />Apesar dos Jomon viveram em uma ilha, e os habitantes de Monte Verde na terra, para ambos a comida marinha fez parte da dieta.<br /><br />Como você explicaria esta convergência de hábitos?<br /><br />Você consegue imaginar outras situações onde povos desconectados a milênios poderiam desenvolver os mesmos hábitos sem a necessidade de uma direta conexão entre eles?</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "9ba61aa2-28ec-4667-b7af-5a4076f865dd",
+                     "text": "History Tracers Team",
+                     "page": "Período Jomon (縄文)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "Diante destas coletas e datações, podemos inferir algumas coisas, as quais são expostas no próprio site da fundação Monte Verde (<htcite0>):\n- Cerca de 14.500 anos atrás nossa espécie, *Homo sapiens*, chegou a *Abya Yala* (América);\n- Cerca de 13.000 anos atrás, a cultura Clóvis se estabeleceu no norte do continente.\n\nComo seriam necessários entre 600 a 1000 anos para atravessar o continente de norte a sul (<htcite1>), então Clóvis não poderia ser a origem de todos os habitantes do continente.\n\nMas, em ciências, sempre nos permitimos refletir.\n\n#### Há verdades, mais verdadeiras que a verdade\n\nNo ano de <hdate0>, um novo estudo foi publicado onde é argumentado que os períodos que vimos mencionados para Monte Verde estariam incorretos, apesar destes números aparecerem em diferentes pesquisas. De acordo com os autores do novo estudo, Monte Verde deveria ter sido habitado em tempos mais recentes por volta de <htdate1> e <htdate2>) (<htcite2>).\n\nEste artigo publicado com novas avalições das datas de Monte Verde não demorou para ser questionado por outros cientistas que apontaram erros nele (<htcite3>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "57902b4d-a39e-48fc-a68f-7443c09e2dc6",
+                     "text": "Fundação Monte Verde",
+                     "page": "Monte Verde através do tempo",
+                     "date_time": null
+                  },
+            {
+               "type": 1,
+               "uuid": "880dfb74-605b-483c-9c9e-fee8518acc73",
+               "text": "Waters, M. R., & Stafford, T. W., Jr.",
+               "page": "pp. 1125",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2007",
+                  "month": "",
+                  "day": ""
+               }
+            },
+            {
+               "type": 1,
+               "uuid": "752a491d-0e06-415d-ab73-9d90b63aca08",
+               "text": "Surovell, T. A., Méndez, C., García, J.-L., Lüthgens, C., Thompson, J. M., & Latorre, C.",
+               "page": "pp. 1285 - 1288",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2026",
+                  "month": "",
+                  "day": ""
+               }
+            },
+            {
+               "type": 1,
+               "uuid": "c1c50e3e-2b23-4d99-9b88-7ca606bd67a2",
+               "text": "Science",
+               "page": "e-Cartas",
+               "date_time": {
+                  "type": "gregory",
+                  "year": "2026",
+                  "month": "",
+                  "day": ""
+               }
+            }
+               ],
+               "date_time": [
+                {
+                  "type": "gregory",
+                  "year": "2026",
+                  "month": "",
+                  "day": ""
+                },
+                {
+                  "type": "gregory",
+                  "year": "-6124",
+                  "month": "",
+                  "day": ""
+                },
+                {
+                  "type": "gregory",
+                  "year": "-2124",
+                  "month": "",
+                  "day": ""
+                }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 8: Resultados que geram pesquisas</b><br /><br />Você sabia que o estudo científico permite que trabalhos sejam questionados?<br /><br />O fato que trabalhos mostram resultados que outros pesquisadores possam repetí-los permite reforçar o conhecimento ou refutá-lo. Você acha que isto é um dos motivos pelo qual as pessoas não compreendem ciências?<br /><br />Seria a não compreensão dada pelo fato que ciência parece ser algo realizada apenas em campo ou em labotarório, quando as pessoas fazem ciências em sua própria cozinha?<br /><br />Voltando as contradições entre Monte Verde e Clóvis. Você conseguiu ver nos artigos que estudamos que o fato que Monte Verde é mais antigo que Clóvis não excluí a possibilidade de pessoas que viveram em Clóvis poderiam ter migrado para o Sul do continente?<br /><br />Suponhamos que realmente ocorra erros em alguma pesquisa, e isto não é impossível. O fato que a pesquisa pode ser corrigida auxilia os pesquisadores que corrigem e os que cometem erros a reforçar o conhecimento deles?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+                  {
+                     "text": "O universo é complexo, para entendê-lo é necessário tempo e dedicação que muitos não temos. Debates, quando feitos de boa fé e baseados em medidas e fatos auxiliam a aproximar de um consenso científico que explica como algo ocorreu.\n\nEsta divergência existente entre pesquisadores é um belo exemplo disso. Teremos muito a aprender com as pesquisas que virão motivadas pelas que ocorreram. E graças aos esforços destes pesquisadores, poderemos entender melhor, como povoamos o continente há milênios.",
+                     "source": null,
+                     "date_time": null,
+                     "isTable": false,
+                     "imgdesc": "",
+                     "format": "markdown",
+                     "PostMention": ""
                   }
                ],
                "parents": [
                   {
-                     "type": "theory or hypothesis",
+                     "type": "theory",
                      "father_external_family_file": false,
-                     "father_family": "Unique identifier for the father's family. It should match the family ID used here.",
-                     "father_id": "Unique identifier for the father.",
-                     "father_name": "Name of the father.",
+                     "father_family": "",
+                     "father_id": "a497b052-6df5-4018-b901-0d11e3f3bbc4",
+                     "father_name": "Desconhecido",
                      "mother_external_family_file": false,
-                     "mother_family": "Unique identifier for the mother's family.",
-                     "mother_id": "Unique identifier for the mother.",
-                     "mother_name": "Name of the mother."
+                     "mother_family": "",
+                     "mother_id": "ad69d438-0b2d-4482-b3bb-d798b5ca4080",
+                     "mother_name": "Desconhecida"
                   }
                ],
-               "birth": [
-                  {
-                     "date": [
-                        {
-                           "type": "gregory",
-                           "year": "2010",
-                           "month": "",
-                           "day": ""
-                        }
-                     ],
-                     "address": "The address where the marriage took place.",
-                     "city_id": "",
-                     "city": "The city where the marriage occurred.",
-                     "state_id": "",
-                     "state": "The state where the marriage took place.",
-                     "pc": "The postal code of the marriage location.",
-                     "country_id": "",
-                     "country": "The country where the marriage occurred.",
-                     "sources": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
-                     ]
-                  }
-               ],
-               "baptism": [
-                  {
-                     "date": [
-                        {
-                           "type": "gregory",
-                           "year": "2010",
-                           "month": "",
-                           "day": ""
-                        }
-                     ],
-                     "address": "The address where the marriage took place.",
-                     "city_id": "",
-                     "city": "The city where the marriage occurred.",
-                     "state_id": "",
-                     "state": "The state where the marriage took place.",
-                     "pc": "The postal code of the marriage location.",
-                     "country_id": "",
-                     "country": "The country where the marriage occurred.",
-                     "sources": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
-                     ]
-                  }
-               ],
+               "birth": null,
+               "baptism": null,
                "marriages": [
                   {
-                     "type": "theory or hypothesis",
-                     "id": "Unique identifier for the person.",
+                     "type": "theory",
+                     "id": "015ec22b-f690-4362-94be-6bda6979b681",
                      "gedcom_id": "",
                      "official": true,
-                     "family_id": "Unique identifier for the family.",
+                     "family_id": "",
                      "external_family_file": false,
-                     "name": "Name of the spouse.",
+                     "name": "Desconhecido",
                      "history": [
                         {
-                           "text": "A detailed description of the person's life history and marital status.",
+                           "text": "O período que Monte Verde foi ocupado demonstra que houve mais de uma geração, logo esta pessoa deve ter exisitido (<htcite0>). ",
                            "source": [
-                              {
-                                 "type": 3210,
-                                 "uuid": "Unique identifier (UUID) for the current citation.",
-                                 "text": "The accompanying text that will be displayed with the citation.",
-                                 "page": "The specific page in the publication where this information appears.",
-                                 "date_time": {
-                                    "type": "gregory",
-                                    "year": "2010",
-                                    "month": "",
-                                    "day": ""
-                                 }
-                              }
+                  {
+                     "type": 1,
+                     "uuid": "03acc97c-c5b2-4fe5-9a7d-cc24ee3e5985",
+                     "text": "Dillehay, T. D. et al.",
+                     "page": "Geomorfologia e Estatigrafia",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2015",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
                            ],
-                           "date_time": [
-                              {
-                                 "type": "gregory",
-                                 "year": "2010",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "unix",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "julian",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              }
-                           ],
+                           "date_time": null,
                            "isTable": false,
-                           "imgdesc": "A description of an image included in the text.",
-                           "format": "markdown or html",
-                           "PostMention": "A character used after a mention to include citations."
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
                         }
                      ],
                      "date_time": {
@@ -1380,93 +1431,41 @@
                "divorced": null,
                "children": [
                   {
-                     "type": "theory or hypothesis",
-                     "id": "Unique identifier for the child.",
-                     "marriage_id": "Unique identifier for the marriage (parental connection).",
-                     "name": "Name of the child.",
-                     "family_id": "Unique identifier for the child's family, used if the child establishes a new family.",
+                     "type": "theory",
+                     "id": "15db5986-6377-410d-9f3a-d60d91e9e747",
+                     "marriage_id": "015ec22b-f690-4362-94be-6bda6979b681",
+                     "name": "Desconhecido",
+                     "family_id": "",
                      "external_family_file": false,
                      "add_link": false,
                      "history": [
                         {
-                           "text": "A detailed description of the person's life history and marital status.",
+                           "text": "O período que Monte Verde foi ocupado demonstra que houve mais de uma geração, logo esta pessoa deve ter exisitido (<htcite0>). ",
                            "source": [
-                              {
-                                 "type": 3210,
-                                 "uuid": "Unique identifier (UUID) for the current citation.",
-                                 "text": "The accompanying text that will be displayed with the citation.",
-                                 "page": "The specific page in the publication where this information appears.",
-                                 "date_time": {
-                                    "type": "gregory",
-                                    "year": "2010",
-                                    "month": "",
-                                    "day": ""
-                                 }
-                              }
+                  {
+                     "type": 1,
+                     "uuid": "03acc97c-c5b2-4fe5-9a7d-cc24ee3e5985",
+                     "text": "Dillehay, T. D. et al.",
+                     "page": "Geomorfologia e Estatigrafia",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2015",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
                            ],
-                           "date_time": [
-                              {
-                                 "type": "gregory",
-                                 "year": "2010",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "unix",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              },
-                              {
-                                 "type": "julian",
-                                 "year": "",
-                                 "month": "",
-                                 "day": ""
-                              }
-                           ],
+                           "date_time": null,
                            "isTable": false,
-                           "imgdesc": "A description of an image included in the text.",
-                           "format": "markdown or html",
-                           "PostMention": "A character used after a mention to include citations."
+                           "imgdesc": "",
+                           "format": "markdown",
+                           "PostMention": ""
                         }
                      ],
                      "adopted_child": false
                   }
                ],
-               "death": [
-                  {
-                     "date": [
-                        {
-                           "type": "gregory",
-                           "year": "2010",
-                           "month": "",
-                           "day": ""
-                        }
-                     ],
-                     "address": "The address where the marriage took place.",
-                     "city_id": "",
-                     "city": "The city where the marriage occurred.",
-                     "state_id": "",
-                     "state": "The state where the marriage took place.",
-                     "pc": "The postal code of the marriage location.",
-                     "country_id": "",
-                     "country": "The country where the marriage occurred.",
-                     "sources": [
-                        {
-                           "type": 3210,
-                           "uuid": "Unique identifier (UUID) for the current citation.",
-                           "text": "The accompanying text that will be displayed with the citation.",
-                           "page": "The specific page in the publication where this information appears.",
-                           "date_time": {
-                              "type": "gregory",
-                              "year": "2010",
-                              "month": "",
-                              "day": ""
-                           }
-                        }
-                     ]
-                  }
-               ]
+               "death": null
             }
          ]
       }

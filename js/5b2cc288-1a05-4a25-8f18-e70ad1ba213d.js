@@ -26,6 +26,7 @@ function htLoadContent() {
     htSetImageSrc("mamut", "images/MexicoCityMuseo/Mamute.jpg");
     htSetImageSrc("imgPoint", "images/BritishMuseum/mid_DSC_0597.jpg");
     htSetImageSrc("imgAtlatl", "images/MetropolitanMuseum/1987.394.70.jpeg");
+    htSetImageSrc("imgMV", "images/PLOS/pone.0141923.g006.png");
 
     return false;
 }
