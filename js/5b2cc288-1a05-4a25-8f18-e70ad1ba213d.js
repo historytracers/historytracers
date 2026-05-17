@@ -27,6 +27,7 @@ function htLoadContent() {
     htSetImageSrc("imgPoint", "images/BritishMuseum/mid_DSC_0597.jpg");
     htSetImageSrc("imgAtlatl", "images/MetropolitanMuseum/1987.394.70.jpeg");
     htSetImageSrc("imgMV", "images/PLOS/pone.0141923.g006.png");
+    htSetImageSrc("imgScience", "images/Science/aat4505-f6.jpeg");
 
     return false;
 }
