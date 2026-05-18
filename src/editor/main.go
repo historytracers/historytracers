@@ -77,12 +77,14 @@ func htReorderFamilyFields(famMap map[string]interface{}) map[string]interface{}
 }
 
 type Document struct {
-	content         *widget.Entry
-	filePath        string
-	isModified      bool
-	tabItem         *container.TabItem
-	lineNumbers     *widget.Label
-	scrollContainer *container.Scroll
+	content          *widget.Entry
+	filePath         string
+	isModified       bool
+	tabItem          *container.TabItem
+	lineNumbers      *widget.Label
+	scrollContainer  *container.Scroll
+	isProjectContent bool
+	originalJSON     string
 }
 
 type toolbarActionWithLabel struct {

@@ -123,7 +123,22 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 	}
 
 	doc.filePath = reader.URI().Path()
-	doc.content.SetText(content.String())
+	jsonContent := content.String()
+
+	if strings.HasSuffix(strings.ToLower(doc.filePath), ".json") && htIsProjectContentFile(jsonContent) {
+		parsedDoc, err := htParseJSONContent(jsonContent)
+		if err == nil {
+			markdownContent := htConvertContentToMarkdown(parsedDoc)
+			doc.content.SetText(markdownContent)
+			doc.isProjectContent = true
+			doc.originalJSON = jsonContent
+		} else {
+			doc.content.SetText(jsonContent)
+		}
+	} else {
+		doc.content.SetText(jsonContent)
+	}
+
 	doc.isModified = false
 	isFamily := e.isFamilyDocument(doc)
 	e.updateFamilyMenuItems(isFamily)
@@ -132,10 +147,8 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 	e.updateTabTitle(doc)
 	e.updateStatus("Opened: " + filepath.Base(doc.filePath))
 
-	// Auto-open JSON editor for JSON documents
-	if e.isJSONDocument(doc) {
-		e.currentJSONDoc = doc
-		e.showJSONEditor()
+	if doc.isProjectContent {
+		e.updateStatus("Opened: " + filepath.Base(doc.filePath) + " (Project Content Mode)")
 	}
 }
 
