@@ -171,7 +171,7 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 		e.updateStatus("Opened: " + filepath.Base(doc.filePath) + " (Project Content Mode)")
 	}
 
-	if isJsonFile && !doc.isProjectContent {
+	if isJsonFile {
 		e.currentJSONDoc = doc
 		e.showJSONEditor()
 	}
