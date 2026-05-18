@@ -85,6 +85,7 @@ type Document struct {
 	scrollContainer  *container.Scroll
 	isProjectContent bool
 	originalJSON     string
+	jsonDoc          interface{}
 }
 
 type toolbarActionWithLabel struct {

@@ -125,13 +125,22 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 	doc.filePath = reader.URI().Path()
 	jsonContent := content.String()
 
-	if strings.HasSuffix(strings.ToLower(doc.filePath), ".json") && htIsProjectContentFile(jsonContent) {
-		parsedDoc, err := htParseJSONContent(jsonContent)
-		if err == nil {
-			markdownContent := htConvertContentToMarkdown(parsedDoc)
-			doc.content.SetText(markdownContent)
-			doc.isProjectContent = true
-			doc.originalJSON = jsonContent
+	isJsonFile := strings.HasSuffix(strings.ToLower(doc.filePath), ".json")
+
+	if isJsonFile {
+		parsedDoc, docType := htParseJSONContentFast(jsonContent)
+		if parsedDoc != nil {
+			isProjectContent := docType == "class" || docType == "family_tree" || docType == "atlas" || docType == "sources"
+			if isProjectContent && parsedDoc.Content != nil && len(parsedDoc.Content) > 0 {
+				markdownContent := htConvertContentToMarkdownFast(parsedDoc)
+				doc.content.SetText(markdownContent)
+				doc.isProjectContent = true
+				doc.originalJSON = jsonContent
+				doc.jsonDoc = parsedDoc
+			} else {
+				doc.content.SetText(jsonContent)
+				doc.jsonDoc = parsedDoc
+			}
 		} else {
 			doc.content.SetText(jsonContent)
 		}
@@ -140,10 +149,18 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 	}
 
 	doc.isModified = false
-	isFamily := e.isFamilyDocument(doc)
-	e.updateFamilyMenuItems(isFamily)
-	isAtlas := e.isAtlasDocument(doc)
-	e.updateAtlasMenuItem(isAtlas)
+
+	if doc.jsonDoc != nil {
+		isFamily := docType == "family_tree"
+		isAtlas := docType == "atlas"
+		e.updateFamilyMenuItems(isFamily)
+		e.updateAtlasMenuItem(isAtlas)
+	} else {
+		isFamily := e.isFamilyDocument(doc)
+		e.updateFamilyMenuItems(isFamily)
+		isAtlas := e.isAtlasDocument(doc)
+	}
+
 	e.updateTabTitle(doc)
 	e.updateStatus("Opened: " + filepath.Base(doc.filePath))
 
@@ -151,8 +168,7 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 		e.updateStatus("Opened: " + filepath.Base(doc.filePath) + " (Project Content Mode)")
 	}
 
-	// Auto-open JSON editor for JSON documents that are not project content
-	if strings.HasSuffix(strings.ToLower(doc.filePath), ".json") && !doc.isProjectContent {
+	if isJsonFile && !doc.isProjectContent {
 		e.currentJSONDoc = doc
 		e.showJSONEditor()
 	}

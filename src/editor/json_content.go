@@ -57,6 +57,120 @@ func htIsProjectContentFile(jsonContent string) bool {
 	return len(base.Content) > 0 && string(base.Content) != "null"
 }
 
+type LazyParsedDoc struct {
+	Type    string
+	Title   string
+	Header  string
+	Content []map[string]interface{}
+}
+
+func htParseJSONContentFast(jsonContent string) (*LazyParsedDoc, string) {
+	var doc LazyParsedDoc
+
+	decoder := json.NewDecoder(strings.NewReader(jsonContent))
+	if err := decoder.Decode(&doc); err != nil {
+		return nil, ""
+	}
+
+	return &doc, doc.Type
+}
+
+func htConvertContentToMarkdownFast(doc *LazyParsedDoc) string {
+	if doc == nil || doc.Content == nil {
+		return ""
+	}
+
+	var sb strings.Builder
+
+	for i, section := range doc.Content {
+		sectionID, hasID := section["id"].(string)
+		if hasID && sectionID != "" {
+			sb.WriteString("## ")
+			sb.WriteString(sectionID)
+			sb.WriteString("\n\n")
+		}
+
+		texts, _ := section["text"].([]interface{})
+		if texts != nil {
+			for _, t := range texts {
+				textObj, ok := t.(map[string]interface{})
+				if !ok {
+					continue
+				}
+
+				textField, hasText := textObj["text"].(string)
+				if hasText && textField != "" {
+					sb.WriteString(htConvertHTMLToMarkdownFast(textField))
+					sb.WriteString("\n\n")
+				}
+
+				sourceField, hasSource := textObj["source"].([]interface{})
+				if hasSource && len(sourceField) > 0 {
+					sb.WriteString("*Sources: ")
+					for idx, src := range sourceField {
+						srcMap, ok := src.(map[string]interface{})
+						if !ok {
+							continue
+						}
+						if idx > 0 {
+							sb.WriteString(", ")
+						}
+						if srcText, ok := srcMap["text"].(string); ok {
+							sb.WriteString(srcText)
+						}
+					}
+					sb.WriteString("*\n\n")
+				}
+			}
+		}
+
+		if i < len(doc.Content)-1 {
+			sb.WriteString("---\n\n")
+		}
+	}
+
+	return sb.String()
+}
+
+func htConvertHTMLToMarkdownFast(html string) string {
+	if html == "" {
+		return ""
+	}
+
+	text := html
+
+	replacements := []struct{ old, new string }{
+		{"<p>", ""}, {"</p>", "\n"},
+		{"<br>", "\n"}, {"<br/>", "\n"}, {"<br />", "\n"},
+		{"<strong>", "**"}, {"</strong>", "**"},
+		{"<em>", "*"}, {"</em>", "*"},
+		{"<u>", "_"}, {"</u>", "_"},
+		{"<h1>", "# "}, {"</h1>", "\n"},
+		{"<h2>", "## "}, {"</h2>", "\n"},
+		{"<h3>", "### "}, {"</h3>", "\n"},
+		{"<code>", "`"}, {"</code>", "`"},
+		{"<ul>", "\n"}, {"</ul>", ""},
+		{"<li>", "- "}, {"</li>", "\n"},
+		{"&nbsp;", " "}, {"&amp;", "&"}, {"&lt;", "<"}, {"&gt;", ">"},
+		{"&quot;", `"`}, {"&#39;", "'"},
+		{"<span id=\"ht", ""}, {"\"></span>", ""},
+		{"<span", ""}, {"</span>", ""},
+		{"<style", ""}, {"</style>", ""},
+		{"<script", ""}, {"</script>", ""},
+		{"<div", ""}, {"</div>", ""},
+	}
+
+	for _, r := range replacements {
+		text = strings.ReplaceAll(text, r.old, r.new)
+	}
+
+	for strings.Contains(text, "  ") {
+		text = strings.ReplaceAll(text, "  ", " ")
+	}
+
+	return strings.TrimSpace(text)
+}
+
 func htConvertContentToMarkdown(doc *HTContentDocument) string {
 	var sb strings.Builder
 
