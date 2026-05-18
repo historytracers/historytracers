@@ -129,6 +129,8 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 
 	if isJsonFile {
 		parsedDoc, docType := htParseJSONContentFast(jsonContent)
+		doc.docType = docType
+
 		if parsedDoc != nil {
 			isProjectContent := docType == "class" || docType == "family_tree" || docType == "atlas" || docType == "sources"
 			if isProjectContent && parsedDoc.Content != nil && len(parsedDoc.Content) > 0 {
@@ -150,15 +152,16 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 
 	doc.isModified = false
 
-	if doc.jsonDoc != nil {
-		isFamily := docType == "family_tree"
-		isAtlas := docType == "atlas"
+	if doc.docType != "" {
+		isFamily := doc.docType == "family_tree"
+		isAtlas := doc.docType == "atlas"
 		e.updateFamilyMenuItems(isFamily)
 		e.updateAtlasMenuItem(isAtlas)
 	} else {
 		isFamily := e.isFamilyDocument(doc)
 		e.updateFamilyMenuItems(isFamily)
 		isAtlas := e.isAtlasDocument(doc)
+		e.updateAtlasMenuItem(isAtlas)
 	}
 
 	e.updateTabTitle(doc)

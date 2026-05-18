@@ -86,6 +86,7 @@ type Document struct {
 	isProjectContent bool
 	originalJSON     string
 	jsonDoc          interface{}
+	docType          string
 }
 
 type toolbarActionWithLabel struct {
