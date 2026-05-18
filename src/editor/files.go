@@ -150,6 +150,12 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 	if doc.isProjectContent {
 		e.updateStatus("Opened: " + filepath.Base(doc.filePath) + " (Project Content Mode)")
 	}
+
+	// Auto-open JSON editor for JSON documents that are not project content
+	if strings.HasSuffix(strings.ToLower(doc.filePath), ".json") && !doc.isProjectContent {
+		e.currentJSONDoc = doc
+		e.showJSONEditor()
+	}
 }
 
 func (e *TextEditor) saveFile() {
