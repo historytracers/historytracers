@@ -230,6 +230,8 @@ function htLoadContent() {
     $("#firstMethod").html(mathKeywords[8]);
     $("#secondMethod").html(mathKeywords[9]);
     $("#playButton").val(mathKeywords[10]);
+    $("#htChinaZhongguo").html(keywords[137]);
+    $("#htJapanNipponNihonKoku").html(keywords[139]);
 
     for (let i = 0, j = 1; i < local.maxValue; i++, j++) {
         $("#yupana1 #tc"+j+"f2").html(htInsertNumberField("num"+i, 0, 9));
