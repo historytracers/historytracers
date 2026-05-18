@@ -12,9 +12,9 @@ require (
 
 replace github.com/historytracers/common => ../common
 
-require github.com/historytracers/common v0.0.0
-
 require (
-	github.com/tdewolff/parse/v2 v2.8.4 // indirect
-	golang.org/x/sys v0.44.0 // indirect
+	github.com/historytracers/common v0.0.0
+	golang.org/x/sys v0.44.0
 )
+
+require github.com/tdewolff/parse/v2 v2.8.4 // indirect

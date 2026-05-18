@@ -45,11 +45,13 @@ Los siguientes subdirectorios están disponibles en este directorio:
 - `MiPueblito`: Contiene fotos tomadas durante un viaje a [Mi Pueblito](https://mipueblito.mupa.gob.pa/), Panamá.
 - `PeruPucllana`: Contiene fotos tomadas durante un viaje a [Sítio de Pucllana](http://researchgate.net/), Perú.
 - `Nature`: Contiene imágenes originales de [Nature Open Access](https://www.nature.com/nature-portfolio/open-access).
+- `PLOS`: Contiene imágenes originales de [PLOS](https://journals.plos.org/).
 - `ResearchGate`: Contiene imágenes originales de [ResearchGate](http://researchgate.net/).
 - `Sadomba`: Contiene imágenes originales del artículo de Dr. Zvakanyorwa Wilbert Sadomba [Zvakanyorwa Wilbert Sadomba (2024)](https://journalofmathematicsandculture.wordpress.com/wp-content/uploads/2024/08/17-sadomba.pdf).
 - `SanAndres`: Contiene fotos tomadas durante una visita a [San Andrés](https://sanandres.travel/), El Salvador.
 - `SanJoseCRJade`: Contiene fotos tomadas durante una visita a [Museo de Jade](https://museodeljade.grupoins.com/?fbclid=PAZXh0bgNhZW0CMTEAAaedoThLrhTJOxtqMYovjhsiqnujApHqSSqGRYLyrikivkB37EdFS_zVQNt_jg_aem_S-2PICTiqbEfmGVkLFIdTA), Costa Rica.
 - `SanJoseCRMuseo`: Contiene fotos tomadas durante una visita a [Museo de Antropología de San José](https://www.museocostarica.go.cr/).
+- `Science`: Contiene imágenes originales de [Science Magazine](https://www.science.org/).
 - `TaiChimpanzeeProject`: Contiene imágenes originales de [Taï Chimpanzee Project](https://www.taichimpproject.org/).
 - `Teotihuacan`: Contiene fotos tomadas durante un viaje a [Teotihuacán](https://inah.gob.mx/zonas/23-zona-arqueologica-de-teotihuacan), México.
 - `Tikal`: Contiene fotos tomadas durante un viaje a [Tikal](https://tikalnationalpark.org/), Guatemala.
