@@ -89,9 +89,9 @@ func (h *htServiceHandler) Execute(args []string, r <-chan svc.ChangeRequest, ch
 	atomic.StoreInt32(&healthy, 1)
 
 	go func() {
-		daemonLog.Println("INFO: Server started, listening port", CFG.Port, devM, "devmode")
+		htLogInfo(daemonLog, "INFO: Server started, listening port", CFG.Port, devM, "devmode")
 		if err := server.hServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			daemonLog.Fatalf("ERROR: ListenAndServe failed: %v\n", err)
+			htLogFatal(daemonLog, "ERROR: ListenAndServe failed: %v\n", err)
 		}
 	}()
 
@@ -107,7 +107,7 @@ func (h *htServiceHandler) Execute(args []string, r <-chan svc.ChangeRequest, ch
 					stopped = true
 					changes <- svc.Status{State: svc.StopPending}
 					go func() {
-						daemonLog.Println("INFO: Server is shutting down...")
+						htLogInfo(daemonLog, "INFO: Server is shutting down...")
 						atomic.StoreInt32(&healthy, 0)
 
 						ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
@@ -115,10 +115,10 @@ func (h *htServiceHandler) Execute(args []string, r <-chan svc.ChangeRequest, ch
 
 						server.hServer.SetKeepAlivesEnabled(false)
 						if err := server.hServer.Shutdown(ctx); err != nil {
-							daemonLog.Fatalf("ERROR: Graceful shutdown failed: %v\n", err)
+							htLogFatal(daemonLog, "ERROR: Graceful shutdown failed: %v\n", err)
 						}
 
-						daemonLog.Println("INFO: Good bye!")
+						htLogInfo(daemonLog, "INFO: Good bye!")
 						stopChan <- true
 					}()
 				}

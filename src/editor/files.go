@@ -123,17 +123,50 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 	}
 
 	doc.filePath = reader.URI().Path()
-	doc.content.SetText(content.String())
+	jsonContent := content.String()
+
+	isJsonFile := strings.HasSuffix(strings.ToLower(doc.filePath), ".json")
+
+	if isJsonFile {
+		parsedDoc, docType := htParseJSONContentFast(jsonContent)
+		doc.docType = docType
+
+		if parsedDoc != nil {
+			isProjectContent := docType == "class" || docType == "family_tree" || docType == "atlas" || docType == "sources"
+			if isProjectContent && parsedDoc.Content != nil && len(parsedDoc.Content) > 0 {
+				doc.isProjectContent = true
+				doc.originalJSON = jsonContent
+				doc.jsonDoc = parsedDoc
+			}
+			doc.jsonDoc = parsedDoc
+		}
+		doc.content.SetText(jsonContent)
+	} else {
+		doc.content.SetText(jsonContent)
+	}
+
 	doc.isModified = false
-	isFamily := e.isFamilyDocument(doc)
-	e.updateFamilyMenuItems(isFamily)
-	isAtlas := e.isAtlasDocument(doc)
-	e.updateAtlasMenuItem(isAtlas)
+
+	if doc.docType != "" {
+		isFamily := doc.docType == "family_tree"
+		isAtlas := doc.docType == "atlas"
+		e.updateFamilyMenuItems(isFamily)
+		e.updateAtlasMenuItem(isAtlas)
+	} else {
+		isFamily := e.isFamilyDocument(doc)
+		e.updateFamilyMenuItems(isFamily)
+		isAtlas := e.isAtlasDocument(doc)
+		e.updateAtlasMenuItem(isAtlas)
+	}
+
 	e.updateTabTitle(doc)
 	e.updateStatus("Opened: " + filepath.Base(doc.filePath))
 
-	// Auto-open JSON editor for JSON documents
-	if e.isJSONDocument(doc) {
+	if doc.isProjectContent {
+		e.updateStatus("Opened: " + filepath.Base(doc.filePath) + " (Project Content Mode)")
+	}
+
+	if isJsonFile {
 		e.currentJSONDoc = doc
 		e.showJSONEditor()
 	}

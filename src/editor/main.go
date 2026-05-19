@@ -77,12 +77,16 @@ func htReorderFamilyFields(famMap map[string]interface{}) map[string]interface{}
 }
 
 type Document struct {
-	content         *widget.Entry
-	filePath        string
-	isModified      bool
-	tabItem         *container.TabItem
-	lineNumbers     *widget.Label
-	scrollContainer *container.Scroll
+	content          *widget.Entry
+	filePath         string
+	isModified       bool
+	tabItem          *container.TabItem
+	lineNumbers      *widget.Label
+	scrollContainer  *container.Scroll
+	isProjectContent bool
+	originalJSON     string
+	jsonDoc          interface{}
+	docType          string
 }
 
 type toolbarActionWithLabel struct {
@@ -1020,27 +1024,26 @@ func (e *TextEditor) loadJSONEditorData() {
 
 	content := e.currentDoc.content.Text
 
-	// Try to parse as JSON
-	var jsonData interface{}
-	if err := json.Unmarshal([]byte(content), &jsonData); err != nil {
-		// Not valid JSON, disable all header fields and just show raw content
+	if e.currentDoc.originalJSON != "" {
+		content = e.currentDoc.originalJSON
+	}
+
+	jsonData, dataMap := htParseJSONFast(content)
+	if jsonData == nil {
 		e.disableAllFormFields()
 		e.jsonContentEntry.SetText(content)
 		e.jsonAdditionalEntry.SetText("")
 		e.jsonTemplateType = ""
-		// Reset tab name in case it was changed
 		if e.jsonEditorTabs != nil && len(e.jsonEditorTabs.Items) > 2 {
 			e.jsonEditorTabs.Items[2].Text = "Content"
 		}
 		return
 	}
 
-	// Detect template type FIRST before any processing
-	e.jsonTemplateType = ""
-	if dataMap, ok := jsonData.(map[string]interface{}); ok {
-		if t, exists := dataMap["type"]; exists {
-			e.jsonTemplateType = fmt.Sprintf("%v", t)
-		}
+	if t, exists := dataMap["type"]; exists {
+		e.jsonTemplateType = fmt.Sprintf("%v", t)
+	} else {
+		e.jsonTemplateType = ""
 	}
 
 	// Extract headers based on JSON structure
@@ -1223,6 +1226,7 @@ func (e *TextEditor) loadJSONEditorData() {
 	}
 
 	// Show only the content field in the Content tab
+	var contentJSON string
 	if dataMap, ok := jsonData.(map[string]interface{}); ok {
 		switch e.jsonTemplateType {
 		case "family_tree":
@@ -1237,25 +1241,25 @@ func (e *TextEditor) loadJSONEditorData() {
 						}
 					}
 					familiesJSON, _ := json.MarshalIndent(reorderedFamilies, "", "  ")
-					e.jsonContentEntry.SetText(string(familiesJSON))
+					contentJSON = string(familiesJSON)
 				} else {
 					familiesJSON, _ := json.MarshalIndent(familiesField, "", "  ")
-					e.jsonContentEntry.SetText(string(familiesJSON))
+					contentJSON = string(familiesJSON)
 				}
 			} else {
-				e.jsonContentEntry.SetText("[]")
+				contentJSON = "[]"
 			}
 		default:
 			if contentField, exists := dataMap["content"]; exists {
-				contentJSON, _ := json.MarshalIndent(contentField, "", "  ")
-				e.jsonContentEntry.SetText(string(contentJSON))
+				contentJSON = htMarshalParsedContent(contentField)
 			} else {
-				e.jsonContentEntry.SetText("{}")
+				contentJSON = "{}"
 			}
 		}
 	} else {
-		e.jsonContentEntry.SetText("{}")
+		contentJSON = "{}"
 	}
+	e.jsonContentEntry.SetText(contentJSON)
 
 	// Refresh the widgets
 	e.jsonContentEntry.Refresh()
@@ -1431,12 +1435,15 @@ func (e *TextEditor) saveJSONEditorChanges() {
 }
 
 func (e *TextEditor) isJSONDocument(doc *Document) bool {
-	if doc == nil || doc.content == nil {
+	if doc == nil {
 		return false
 	}
-	content := doc.content.Text
 
-	// Simple JSON validation
+	content := doc.content.Text
+	if doc.originalJSON != "" {
+		content = doc.originalJSON
+	}
+
 	var js interface{}
 	return json.Unmarshal([]byte(content), &js) == nil
 }

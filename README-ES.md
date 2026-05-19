@@ -136,8 +136,23 @@ cd src\webserver
 go build -o historytracers.exe .
 
 cd ..\editor
+```
+
+**Nota:** El editor requiere que CGO esté habilitado (el framework GUI Fyne necesita OpenGL).
+
+En Windows, ejecute:
+```powershell
+$env:CGO_ENABLED = "1"
 go build -o historytracers-editor.exe .
 ```
+
+O habilite CGO permanentemente:
+```powershell
+[System.Environment]::SetEnvironmentVariable("CGO_ENABLED", "1", "User")
+go build -o historytracers-editor.exe .
+```
+
+Asegúrese de que gcc esté en PATH (instale con MSYS2: `pacman -S mingw-w64-x86_64-toolchain`)
 
 #### Opción 2: Usando Autotools (requiere MSYS2 o similar)
 
@@ -147,9 +162,9 @@ make
 ```
 
 En Windows, el script configure establece automáticamente las rutas predeterminadas:
-- Configuración: `C:/ProgramData/historytracers/historytracers.conf`
-- Contenido: `C:/inetpub/wwwroot/historytracers/`
-- Registros: `C:/ProgramData/historytracers/logs/`
+- Configuración: `C:\ProgramData\historytracers\historytracers.conf`
+- Contenido: `C:\inetpub\wwwroot\historytracers\`
+- Registros: `C:\ProgramData\historytracers\log\`
 
 ### Gestión del Servicio de Windows
 
@@ -197,8 +212,8 @@ Para depurar o probar, puede ejecutar el servidor en modo consola:
 #### Configuración del Servicio
 
 El servicio de Windows usa el mismo archivo de configuración que el modo consola. Rutas predeterminadas en Windows:
-- Config: `C:/ProgramData/historytracers/historytracers.conf`
-- Registros: `C:/ProgramData/historytracers/logs/`
+- Config: `C:\ProgramData\historytracers\historytracers.conf`
+- Registros: `C:\ProgramData\historytracers\log\`
 
 Puede modificar estas rutas en el archivo de configuración o reconstruir con rutas personalizadas usando `./configure --with-conf-path=RUTA`.
 
