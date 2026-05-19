@@ -51,10 +51,14 @@ function htTranslationDefineEnd() {
         case 1:
             end = -1;
             break;
+/*
         case 2:
         case 3:
-            end = 2;
+*/
+        default:
+            end = 1;
             break;
+/*
         case 4:
         case 5:
             end = 3;
@@ -62,6 +66,7 @@ function htTranslationDefineEnd() {
         default:
             end = 4;
             break;
+*/
     }
 
     return end;
@@ -156,19 +161,27 @@ function htLoadRandomTranslation() {
             lvalues = htFillYupanaDecimalValues('#yupana1', local.gameTranslationRandomVector[0], 1, 'red_dot_right_up');
             return;
         case 1:
+        case 2:
+        case 3:
+        case 4:
             htCleanYupanaDecimalValues('#yupana1', 1);
             lvalues = htFillYupanaDecimalValues('#yupana1', local.gameTranslationRandomVector[0], 1, 'blue_dot_right_bottom');
             return;
+        case 5:
+            htResetRandomGame();
+            break;
+/*
         case 2:
             htResetRandomGame();
-            $("#num1").show();
+            //$("#num1").show();
             break;
         case 4:
-            $("#num2").show();
+            //$("#num2").show();
             break;
         case 6:
-            $("#num3").show();
+            //$("#num3").show();
             break;
+*/
         case 9:
             htTranslationShowAmericanVector();
             break;
@@ -179,7 +192,7 @@ function htLoadRandomTranslation() {
 }
 
 function htLoadContent() {
-    local = { "gameTranslationVector": [], "gameTranslationAns": [0, 0, 0, 0], "gameTranslationModify": -1, "gameTranslationCurrentValue": -1, "gameTranslationModel": "", "gameEnd": false, "gameChecking": false, "gameTranslationRandomVector": [], "gameTranslationCurrentLevel": -1, "gameRandomEnd": false, "gameUseTranslationImages": [], "gameVector": [], "gameUseVector": [], "maxValue": 4 }; 
+    local = { "gameTranslationVector": [], "gameTranslationAns": [0, 0, 0, 0], "gameTranslationModify": -1, "gameTranslationCurrentValue": -1, "gameTranslationModel": "", "gameEnd": false, "gameChecking": false, "gameTranslationRandomVector": [], "gameTranslationCurrentLevel": -1, "gameRandomEnd": false, "gameUseTranslationImages": [], "gameVector": [], "gameUseVector": [], "maxValue": 2 }; 
 
     $("#firstMethod").html(mathKeywords[8]);
     $("#secondMethod").html(mathKeywords[9]);
