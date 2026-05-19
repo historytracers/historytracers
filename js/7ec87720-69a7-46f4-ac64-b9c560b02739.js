@@ -187,6 +187,8 @@ function htLoadContent() {
     $("#htChinaZhongguo").html(keywords[137]);
     $("#htJapanNipponNihonKoku").html(keywords[139]);
 
+    htSetImageSrc("img9", "images/ResearchGate/Figura-9-Hueso-de-Lebombo.png");
+
     for (let i = 0, j = 1; i < local.maxValue; i++, j++) {
         $("#yupana1 #tc"+j+"f2").html(htInsertNumberField("num"+i, 0, 9));
     }

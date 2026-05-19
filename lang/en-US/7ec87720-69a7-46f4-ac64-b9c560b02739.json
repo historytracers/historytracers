@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779147927"
+      "1779204206"
    ],
    "authors": null,
    "reviewers": [
@@ -144,15 +144,103 @@
          ]
       },
       {
-         "id": "SECTION_trainee",
+         "id": "SECTION_game_time",
          "text": [
             {
-               "text": "<p><h3>Training steps</h3><b>Objective:</b>There is a relationship between our fingers and the symbols we use to count. In this step as a trainee, your mission is to complete the counting sequence using different models. This training will help reinforce your knowledge.</p><p><b>Rules:</b> Select a way to represent the counting. Half of the values will be preloaded, and you will complete the other half using the arrows on the side (<i class=\"fa-solid fa-caret-up upArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeUp\"></i> <i class=\"fa-solid fa-caret-down downArrowWithFA\" style=\"font-size: 1.5em\" name=\"traineeDown\"></i>). When you finish, you can restart the training by clicking the \"Start again\" button.</p><p>Couting model: <input type=\"radio\" value=\"ha\" name=\"selModel\" /> <b><span id=\"firstMethod\"></span></b> <input type=\"radio\" value=\"indigenous\" name=\"selModel\" /> <b><span id=\"secondMethod\"></span></b> <input id=\"playButton\" type=\"button\" /></p>",
-               "source": null,
+               "text": "### Why play?\n\nThe number systems and tools we have studied so far are based on the human body—a fact that has held true for thousands of years, as shown by bones found in various locations (<htcite0>; <htcite1>; <htcite2>) and represented in **Figure 1**.\n\n",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.,",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga,",
+                     "page": "pp. 21 - 23",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cd61bc64-1358-4bfd-b343-3629facaa3b4",
+                     "text": "González Redondo, Francisco A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "10",
+                        "day": "27"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"img9\" onclick=\"htImageZoom('img9', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: Representation of a baboon bone with markings. This image was created by Enrique Silván Pobes and appears in the work of Francisco A. González Redondo et al.. The original is available on ResearchNet (<htcite0>) and is shown here with permission from Dr. Francisco A. González Redondo for republication.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "adaed4fb-9c50-4ef9-ab79-c65f3c0629b8",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "02",
+                        "day": "01"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2010",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "However, simply reading a text may often not be enough to understand its content. Teachers and students involved in a study demonstrated the validity of homework or house tasks as a way to reinforce knowledge (<htcite0>).\n\nGiven this scenario, we at *History Tracers* bring games like this one, which help people reinforce the knowledge acquired through texts.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
+                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
