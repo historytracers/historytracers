@@ -462,15 +462,12 @@ func htReorderContentFields(data interface{}) interface{} {
 }
 
 func htPrettyPrintRawJSON(raw string) string {
-	var buf strings.Builder
-	decoder := json.NewDecoder(strings.NewReader(raw))
-	decoder.UseNumber()
-
 	var data interface{}
-	if err := decoder.Decode(&data); err != nil {
+	if err := json.Unmarshal([]byte(raw), &data); err != nil {
 		return raw
 	}
 
+	var buf strings.Builder
 	encoder := json.NewEncoder(&buf)
 	encoder.SetEscapeHTML(false)
 	encoder.SetIndent("", "  ")
@@ -479,6 +476,22 @@ func htPrettyPrintRawJSON(raw string) string {
 	}
 
 	return strings.TrimSuffix(buf.String(), "\n")
+}
+
+func htParseJSONFast(content string) (interface{}, map[string]interface{}) {
+	var data interface{}
+	decoder := json.NewDecoder(strings.NewReader(content))
+	decoder.UseNumber()
+	if err := decoder.Decode(&data); err != nil {
+		return nil, nil
+	}
+
+	dataMap, ok := data.(map[string]interface{})
+	if !ok {
+		return data, nil
+	}
+
+	return data, dataMap
 }
 
 func htMarshalContentField(content interface{}) string {
@@ -496,4 +509,22 @@ func htMarshalContentField(content interface{}) string {
 
 	result := buf.String()
 	return strings.TrimSuffix(result, "\n")
+}
+
+func htMarshalParsedContent(content interface{}) string {
+	if content == nil {
+		return "[]"
+	}
+
+	reordered := htReorderContentFields(content)
+
+	var buf strings.Builder
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+	if err := encoder.Encode(reordered); err != nil {
+		return htMarshalContentField(content)
+	}
+
+	return strings.TrimSuffix(buf.String(), "\n")
 }

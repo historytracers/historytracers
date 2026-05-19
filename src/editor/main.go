@@ -1028,9 +1028,8 @@ func (e *TextEditor) loadJSONEditorData() {
 		content = e.currentDoc.originalJSON
 	}
 
-	// Try to parse as JSON
-	var jsonData interface{}
-	if err := json.Unmarshal([]byte(content), &jsonData); err != nil {
+	jsonData, dataMap := htParseJSONFast(content)
+	if jsonData == nil {
 		e.disableAllFormFields()
 		e.jsonContentEntry.SetText(content)
 		e.jsonAdditionalEntry.SetText("")
@@ -1041,12 +1040,10 @@ func (e *TextEditor) loadJSONEditorData() {
 		return
 	}
 
-	// Detect template type FIRST before any processing
-	e.jsonTemplateType = ""
-	if dataMap, ok := jsonData.(map[string]interface{}); ok {
-		if t, exists := dataMap["type"]; exists {
-			e.jsonTemplateType = fmt.Sprintf("%v", t)
-		}
+	if t, exists := dataMap["type"]; exists {
+		e.jsonTemplateType = fmt.Sprintf("%v", t)
+	} else {
+		e.jsonTemplateType = ""
 	}
 
 	// Extract headers based on JSON structure
@@ -1230,41 +1227,37 @@ func (e *TextEditor) loadJSONEditorData() {
 
 	// Show only the content field in the Content tab
 	var contentJSON string
-	if e.currentDoc.originalJSON != "" {
-		contentJSON = htExtractContentFromJSON(e.currentDoc.originalJSON)
-	} else {
-		if dataMap, ok := jsonData.(map[string]interface{}); ok {
-			switch e.jsonTemplateType {
-			case "family_tree":
-				if familiesField, exists := dataMap["families"]; exists && familiesField != nil {
-					if familiesArray, ok := familiesField.([]interface{}); ok {
-						reorderedFamilies := make([]interface{}, len(familiesArray))
-						for i, fam := range familiesArray {
-							if famMap, ok := fam.(map[string]interface{}); ok {
-								reorderedFamilies[i] = htReorderFamilyFields(famMap)
-							} else {
-								reorderedFamilies[i] = fam
-							}
+	if dataMap, ok := jsonData.(map[string]interface{}); ok {
+		switch e.jsonTemplateType {
+		case "family_tree":
+			if familiesField, exists := dataMap["families"]; exists && familiesField != nil {
+				if familiesArray, ok := familiesField.([]interface{}); ok {
+					reorderedFamilies := make([]interface{}, len(familiesArray))
+					for i, fam := range familiesArray {
+						if famMap, ok := fam.(map[string]interface{}); ok {
+							reorderedFamilies[i] = htReorderFamilyFields(famMap)
+						} else {
+							reorderedFamilies[i] = fam
 						}
-						familiesJSON, _ := json.MarshalIndent(reorderedFamilies, "", "  ")
-						contentJSON = string(familiesJSON)
-					} else {
-						familiesJSON, _ := json.MarshalIndent(familiesField, "", "  ")
-						contentJSON = string(familiesJSON)
 					}
+					familiesJSON, _ := json.MarshalIndent(reorderedFamilies, "", "  ")
+					contentJSON = string(familiesJSON)
 				} else {
-					contentJSON = "[]"
+					familiesJSON, _ := json.MarshalIndent(familiesField, "", "  ")
+					contentJSON = string(familiesJSON)
 				}
-			default:
-				if contentField, exists := dataMap["content"]; exists {
-					contentJSON = htMarshalContentField(contentField)
-				} else {
-					contentJSON = "{}"
-				}
+			} else {
+				contentJSON = "[]"
 			}
-		} else {
-			contentJSON = "{}"
+		default:
+			if contentField, exists := dataMap["content"]; exists {
+				contentJSON = htMarshalParsedContent(contentField)
+			} else {
+				contentJSON = "{}"
+			}
 		}
+	} else {
+		contentJSON = "{}"
 	}
 	e.jsonContentEntry.SetText(contentJSON)
 
