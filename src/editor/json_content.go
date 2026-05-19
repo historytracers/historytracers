@@ -410,7 +410,55 @@ func htExtractContentFromJSON(jsonStr string) string {
 	}
 
 	rawContent := contentStart[:end]
-	return htPrettyPrintRawJSON(rawContent)
+	return htPrettyPrintWithTextFirst(rawContent)
+}
+
+func htPrettyPrintWithTextFirst(raw string) string {
+	decoder := json.NewDecoder(strings.NewReader(raw))
+	decoder.UseNumber()
+
+	var data interface{}
+	if err := decoder.Decode(&data); err != nil {
+		return htPrettyPrintRawJSON(raw)
+	}
+
+	reordered := htReorderContentFields(data)
+
+	var buf strings.Builder
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+	if err := encoder.Encode(reordered); err != nil {
+		return htPrettyPrintRawJSON(raw)
+	}
+
+	return strings.TrimSuffix(buf.String(), "\n")
+}
+
+func htReorderContentFields(data interface{}) interface{} {
+	switch v := data.(type) {
+	case []interface{}:
+		result := make([]interface{}, len(v))
+		for i, item := range v {
+			result[i] = htReorderContentFields(item)
+		}
+		return result
+	case map[string]interface{}:
+		result := make(map[string]interface{})
+
+		if text, exists := v["text"]; exists {
+			result["text"] = text
+		}
+
+		for k, val := range v {
+			if k != "text" {
+				result[k] = htReorderContentFields(val)
+			}
+		}
+		return result
+	default:
+		return data
+	}
 }
 
 func htPrettyPrintRawJSON(raw string) string {
