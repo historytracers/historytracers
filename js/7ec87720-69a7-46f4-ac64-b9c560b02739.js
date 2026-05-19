@@ -32,52 +32,6 @@ function htTranslationLoadIndigenous(tableID, field, selector, value)
    $(tableID+" "+field).html((selector > 50) ? "<img id=\"imgMIMG"+value+"\" onclick=\"htImageZoom('imgMIMG"+value+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+value+".png\" />" : "&nbsp;");
 }
 
-function htTranslationFillData(type, max)
-{
-    var selector = htGetRandomArbitrary(0, 100);
-    for (let i = 0, j = 1; j <= max; i++, j++) {
-        if (local.gameTranslationModel == "ha") {
-            htTranslationLoadHA("#yupana0", "#tc"+j+"f1", selector, local.gameTranslationVector[i]);
-            htTranslationLoadIndigenous("#yupana0", "#tc"+j+"f2", 100, local.gameTranslationVector[i]);
-        } else {
-            htTranslationLoadIndigenous("#yupana0", "#tc"+j+"f1", selector, local.gameTranslationVector[i]);
-            htTranslationLoadHA("#yupana0", "#tc"+j+"f2", 100, local.gameTranslationVector[i]);
-        }
-
-        if (selector > 50) {
-            local.gameTranslationAns[i] = 0;
-            selector = 10;
-        } else {
-            local.gameTranslationAns[i] = 1;
-            selector = 60;
-        }
-    }
-}
-
-function htTranslationSetFirstStepValues(max)
-{
-    $("#gameMessage").html("");
-    if (local.gameTranslationModify == -1) {
-        local.gameTranslationModify = htTranslationSelectIndex(4);
-    }
-
-    if (local.gameTranslationModel == "ha") {
-        htTranslationLoadHA("#yupana0", "#tc"+(local.gameTranslationModify+1)+"f1", 100, local.gameTranslationCurrentValue);
-    } else {
-        htTranslationLoadIndigenous("#yupana0", "#tc"+(local.gameTranslationModify+1)+"f1", 100, local.gameTranslationCurrentValue);
-    }
-
-    if (local.gameTranslationVector[local.gameTranslationModify] == local.gameTranslationCurrentValue) {
-        local.gameTranslationCurrentValue = -1;
-        local.gameTranslationModify += 2;
-        $("#gameMessage").html("<i class=\"fas fa-thumbs-up\" style=\"font-size:60px;color:lightblue;\"></i>");
-    }
-
-    if (local.gameTranslationModify >= max) {
-        local.gameEnd = true;
-    }
-}
-
 function htTranslationFillRandomVector(min, max, end)
 {
     var vector = [];
@@ -243,7 +197,6 @@ function htLoadContent() {
         ra = Math.floor(ra / 100);
 
         local.gameTranslationVector = htTranslationFillVector(ra, local.maxValue);
-        htTranslationFillData(local.gameTranslationModel, local.maxValue);
         local.gameTranslationModify = -1;
         local.gameTranslationCurrentValue = -1;
         $('input[name=selModel]').attr("disabled", true);
@@ -261,7 +214,6 @@ function htLoadContent() {
         if (name == "traineeUp") {
             if (local.gameEnd == false ) {
                 local.gameTranslationCurrentValue++;
-                htTranslationSetFirstStepValues(local.maxValue);
             }
         } else {
             if (local.gameRandomEnd == false && local.gameChecking == false) {
@@ -294,7 +246,6 @@ function htLoadContent() {
         if (name == "traineeDown") {
             if (local.gameEnd == false ) {
                 local.gameTranslationCurrentValue--;
-                htTranslationSetFirstStepValues(local.maxValue);
             }
         } else {
             if (local.gameRandomEnd == false && local.gameChecking == false) {
