@@ -1024,15 +1024,17 @@ func (e *TextEditor) loadJSONEditorData() {
 
 	content := e.currentDoc.content.Text
 
+	if e.currentDoc.originalJSON != "" {
+		content = e.currentDoc.originalJSON
+	}
+
 	// Try to parse as JSON
 	var jsonData interface{}
 	if err := json.Unmarshal([]byte(content), &jsonData); err != nil {
-		// Not valid JSON, disable all header fields and just show raw content
 		e.disableAllFormFields()
 		e.jsonContentEntry.SetText(content)
 		e.jsonAdditionalEntry.SetText("")
 		e.jsonTemplateType = ""
-		// Reset tab name in case it was changed
 		if e.jsonEditorTabs != nil && len(e.jsonEditorTabs.Items) > 2 {
 			e.jsonEditorTabs.Items[2].Text = "Content"
 		}
@@ -1435,12 +1437,15 @@ func (e *TextEditor) saveJSONEditorChanges() {
 }
 
 func (e *TextEditor) isJSONDocument(doc *Document) bool {
-	if doc == nil || doc.content == nil {
+	if doc == nil {
 		return false
 	}
-	content := doc.content.Text
 
-	// Simple JSON validation
+	content := doc.content.Text
+	if doc.originalJSON != "" {
+		content = doc.originalJSON
+	}
+
 	var js interface{}
 	return json.Unmarshal([]byte(content), &js) == nil
 }

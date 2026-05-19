@@ -134,18 +134,13 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 		if parsedDoc != nil {
 			isProjectContent := docType == "class" || docType == "family_tree" || docType == "atlas" || docType == "sources"
 			if isProjectContent && parsedDoc.Content != nil && len(parsedDoc.Content) > 0 {
-				markdownContent := htConvertContentToMarkdownFast(parsedDoc)
-				doc.content.SetText(markdownContent)
 				doc.isProjectContent = true
 				doc.originalJSON = jsonContent
 				doc.jsonDoc = parsedDoc
-			} else {
-				doc.content.SetText(jsonContent)
-				doc.jsonDoc = parsedDoc
 			}
-		} else {
-			doc.content.SetText(jsonContent)
+			doc.jsonDoc = parsedDoc
 		}
+		doc.content.SetText(jsonContent)
 	} else {
 		doc.content.SetText(jsonContent)
 	}
