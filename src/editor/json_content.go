@@ -360,26 +360,77 @@ func htConvertMarkdownToHTML(markdown string) string {
 }
 
 func htExtractContentFromJSON(jsonStr string) string {
-	var data map[string]interface{}
-	if err := json.Unmarshal([]byte(jsonStr), &data); err != nil {
+	contentIdx := strings.Index(jsonStr, `"content":`)
+	if contentIdx == -1 {
 		return "[]"
 	}
 
-	content, exists := data["content"]
-	if !exists {
+	start := contentIdx + len(`"content":`)
+	start = strings.TrimLeft(jsonStr[start:], " \t\n\r")
+
+	if len(start) == 0 || (start[0] != '[' && start[0] != '{') {
 		return "[]"
 	}
 
+	var end int
+	depth := 0
+	inString := false
+	escaped := false
+
+	for i := 0; i < len(start); i++ {
+		if escaped {
+			escaped = false
+			continue
+		}
+		if start[i] == '\\' {
+			escaped = true
+			continue
+		}
+		if start[i] == '"' {
+			inString = !inString
+			continue
+		}
+		if inString {
+			continue
+		}
+
+		if start[i] == '[' || start[i] == '{' {
+			depth++
+		} else if start[i] == ']' || start[i] == '}' {
+			depth--
+			if depth == 0 {
+				end = i + 1
+				break
+			}
+		}
+	}
+
+	if end == 0 {
+		return "[]"
+	}
+
+	rawContent := start[:end]
+	return htPrettyPrintRawJSON(rawContent)
+}
+
+func htPrettyPrintRawJSON(raw string) string {
 	var buf strings.Builder
+	decoder := json.NewDecoder(strings.NewReader(raw))
+	decoder.UseNumber()
+
+	var data interface{}
+	if err := decoder.Decode(&data); err != nil {
+		return raw
+	}
+
 	encoder := json.NewEncoder(&buf)
 	encoder.SetEscapeHTML(false)
 	encoder.SetIndent("", "  ")
-	if err := encoder.Encode(content); err != nil {
-		return "[]"
+	if err := encoder.Encode(data); err != nil {
+		return raw
 	}
 
-	result := buf.String()
-	return strings.TrimSuffix(result, "\n")
+	return strings.TrimSuffix(buf.String(), "\n")
 }
 
 func htMarshalContentField(content interface{}) string {
