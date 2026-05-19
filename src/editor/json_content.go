@@ -365,10 +365,10 @@ func htExtractContentFromJSON(jsonStr string) string {
 		return "[]"
 	}
 
-	start := contentIdx + len(`"content":`)
-	start = strings.TrimLeft(jsonStr[start:], " \t\n\r")
+	startIdx := contentIdx + len(`"content":`)
+	contentStart := strings.TrimLeft(jsonStr[startIdx:], " \t\n\r")
 
-	if len(start) == 0 || (start[0] != '[' && start[0] != '{') {
+	if len(contentStart) == 0 || (contentStart[0] != '[' && contentStart[0] != '{') {
 		return "[]"
 	}
 
@@ -377,16 +377,16 @@ func htExtractContentFromJSON(jsonStr string) string {
 	inString := false
 	escaped := false
 
-	for i := 0; i < len(start); i++ {
+	for i := 0; i < len(contentStart); i++ {
 		if escaped {
 			escaped = false
 			continue
 		}
-		if start[i] == '\\' {
+		if contentStart[i] == '\\' {
 			escaped = true
 			continue
 		}
-		if start[i] == '"' {
+		if contentStart[i] == '"' {
 			inString = !inString
 			continue
 		}
@@ -394,9 +394,9 @@ func htExtractContentFromJSON(jsonStr string) string {
 			continue
 		}
 
-		if start[i] == '[' || start[i] == '{' {
+		if contentStart[i] == '[' || contentStart[i] == '{' {
 			depth++
-		} else if start[i] == ']' || start[i] == '}' {
+		} else if contentStart[i] == ']' || contentStart[i] == '}' {
 			depth--
 			if depth == 0 {
 				end = i + 1
@@ -409,7 +409,7 @@ func htExtractContentFromJSON(jsonStr string) string {
 		return "[]"
 	}
 
-	rawContent := start[:end]
+	rawContent := contentStart[:end]
 	return htPrettyPrintRawJSON(rawContent)
 }
 
