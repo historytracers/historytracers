@@ -1229,39 +1229,44 @@ func (e *TextEditor) loadJSONEditorData() {
 	}
 
 	// Show only the content field in the Content tab
-	if dataMap, ok := jsonData.(map[string]interface{}); ok {
-		switch e.jsonTemplateType {
-		case "family_tree":
-			if familiesField, exists := dataMap["families"]; exists && familiesField != nil {
-				if familiesArray, ok := familiesField.([]interface{}); ok {
-					reorderedFamilies := make([]interface{}, len(familiesArray))
-					for i, fam := range familiesArray {
-						if famMap, ok := fam.(map[string]interface{}); ok {
-							reorderedFamilies[i] = htReorderFamilyFields(famMap)
-						} else {
-							reorderedFamilies[i] = fam
-						}
-					}
-					familiesJSON, _ := json.MarshalIndent(reorderedFamilies, "", "  ")
-					e.jsonContentEntry.SetText(string(familiesJSON))
-				} else {
-					familiesJSON, _ := json.MarshalIndent(familiesField, "", "  ")
-					e.jsonContentEntry.SetText(string(familiesJSON))
-				}
-			} else {
-				e.jsonContentEntry.SetText("[]")
-			}
-		default:
-			if contentField, exists := dataMap["content"]; exists {
-				contentJSON, _ := json.MarshalIndent(contentField, "", "  ")
-				e.jsonContentEntry.SetText(string(contentJSON))
-			} else {
-				e.jsonContentEntry.SetText("{}")
-			}
-		}
+	var contentJSON string
+	if e.currentDoc.originalJSON != "" {
+		contentJSON = htExtractContentFromJSON(e.currentDoc.originalJSON)
 	} else {
-		e.jsonContentEntry.SetText("{}")
+		if dataMap, ok := jsonData.(map[string]interface{}); ok {
+			switch e.jsonTemplateType {
+			case "family_tree":
+				if familiesField, exists := dataMap["families"]; exists && familiesField != nil {
+					if familiesArray, ok := familiesField.([]interface{}); ok {
+						reorderedFamilies := make([]interface{}, len(familiesArray))
+						for i, fam := range familiesArray {
+							if famMap, ok := fam.(map[string]interface{}); ok {
+								reorderedFamilies[i] = htReorderFamilyFields(famMap)
+							} else {
+								reorderedFamilies[i] = fam
+							}
+						}
+						familiesJSON, _ := json.MarshalIndent(reorderedFamilies, "", "  ")
+						contentJSON = string(familiesJSON)
+					} else {
+						familiesJSON, _ := json.MarshalIndent(familiesField, "", "  ")
+						contentJSON = string(familiesJSON)
+					}
+				} else {
+					contentJSON = "[]"
+				}
+			default:
+				if contentField, exists := dataMap["content"]; exists {
+					contentJSON = htMarshalContentField(contentField)
+				} else {
+					contentJSON = "{}"
+				}
+			}
+		} else {
+			contentJSON = "{}"
+		}
 	}
+	e.jsonContentEntry.SetText(contentJSON)
 
 	// Refresh the widgets
 	e.jsonContentEntry.Refresh()

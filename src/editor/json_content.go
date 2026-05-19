@@ -358,3 +358,35 @@ func htConvertMarkdownToHTML(markdown string) string {
 
 	return strings.Join(result, "\n")
 }
+
+func htExtractContentFromJSON(jsonStr string) string {
+	var data map[string]interface{}
+	if err := json.Unmarshal([]byte(jsonStr), &data); err != nil {
+		return "[]"
+	}
+
+	content, exists := data["content"]
+	if !exists {
+		return "[]"
+	}
+
+	prettyJSON, err := json.MarshalIndent(content, "", "  ")
+	if err != nil {
+		return "[]"
+	}
+
+	return string(prettyJSON)
+}
+
+func htMarshalContentField(content interface{}) string {
+	if content == nil {
+		return "[]"
+	}
+
+	prettyJSON, err := json.MarshalIndent(content, "", "  ")
+	if err != nil {
+		return "[]"
+	}
+
+	return string(prettyJSON)
+}
