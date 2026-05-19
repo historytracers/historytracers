@@ -370,12 +370,16 @@ func htExtractContentFromJSON(jsonStr string) string {
 		return "[]"
 	}
 
-	prettyJSON, err := json.MarshalIndent(content, "", "  ")
-	if err != nil {
+	var buf strings.Builder
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+	if err := encoder.Encode(content); err != nil {
 		return "[]"
 	}
 
-	return string(prettyJSON)
+	result := buf.String()
+	return strings.TrimSuffix(result, "\n")
 }
 
 func htMarshalContentField(content interface{}) string {
@@ -383,10 +387,14 @@ func htMarshalContentField(content interface{}) string {
 		return "[]"
 	}
 
-	prettyJSON, err := json.MarshalIndent(content, "", "  ")
-	if err != nil {
+	var buf strings.Builder
+	encoder := json.NewEncoder(&buf)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent("", "  ")
+	if err := encoder.Encode(content); err != nil {
 		return "[]"
 	}
 
-	return string(prettyJSON)
+	result := buf.String()
+	return strings.TrimSuffix(result, "\n")
 }
