@@ -101,10 +101,10 @@ AC_SUBST([GO_COMPILER])
 AC_CANONICAL_HOST
 case "$host_os" in
     windows*)
-        PLATFORM_DEFAULT_CONF_PATH="C:/ProgramData/historytracers/historytracers.conf"
-        PLATFORM_DEFAULT_SRC_PATH="C:/inetpub/wwwroot/historytracers/"
-        PLATFORM_DEFAULT_CONTENT_PATH="C:/inetpub/wwwroot/historytracers/www/"
-        PLATFORM_DEFAULT_LOG_PATH="C:/ProgramData/historytracers/logs/"
+        PLATFORM_DEFAULT_CONF_PATH="C:\\ProgramData\\historytracers\\historytracers.conf"
+        PLATFORM_DEFAULT_SRC_PATH="C:\\inetpub\\wwwroot\\historytracers\\"
+        PLATFORM_DEFAULT_CONTENT_PATH="C:\\inetpub\\wwwroot\\historytracers\\www\\"
+        PLATFORM_DEFAULT_LOG_PATH="C:\\ProgramData\\historytracers\\logs\\"
         ;;
     *)
         PLATFORM_DEFAULT_CONF_PATH="/etc/historytracers/historytracers.conf"

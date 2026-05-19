@@ -5,11 +5,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/BurntSushi/toml"
-	"github.com/historytracers/common"
 	"log"
 	"os"
+	"runtime"
 	"strings"
+
+	"github.com/BurntSushi/toml"
+	"github.com/historytracers/common"
 )
 
 type htConfig struct {
@@ -86,16 +88,28 @@ func htCreateConfig() *htConfig {
 
 func init() {
 	if len(confPath) == 0 {
-		confPath = "/etc/historytracers/historytracers.conf"
+		if runtime.GOOS == "windows" {
+			confPath = "C:\\ProgramData\\historytracers\\historytracers.conf"
+		} else {
+			confPath = "/etc/historytracers/historytracers.conf"
+		}
 	}
 	if len(srcPath) == 0 {
-		srcPath = "/var/www/htdocs/historytracers/"
+		if runtime.GOOS == "windows" {
+			srcPath = "C:\\inetpub\\wwwroot\\historytracers\\"
+		} else {
+			srcPath = "/var/www/htdocs/historytracers/"
+		}
 	}
 	if len(contentPath) == 0 {
-		contentPath = "/var/www/htdocs/historytracers/www/"
+		if runtime.GOOS == "windows" {
+			contentPath = "C:\\inetpub\\wwwroot\\historytracers\\www\\"
+		} else {
+			contentPath = "/var/www/htdocs/historytracers/www/"
+		}
 	}
 	if len(logPath) == 0 {
-		logPath = "/var/log/historytracers/"
+		logPath = ""
 	}
 	if portFlag == 0 {
 		portFlag = 12345
