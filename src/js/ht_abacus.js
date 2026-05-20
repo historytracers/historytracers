@@ -598,7 +598,10 @@ function htFillAbacoGameValue() {
     if (successDiv) {
         successDiv.classList.add('hidden');
     }
-    cmpobj.innerText = htGetRandomArbitrary(1, 9);
+    const maxValStr = document.getElementById('suanpanMaxValue');
+    let maxVal =  (maxValStr == undefined) ? 9 : maxValStr.innerText;
+
+    cmpobj.innerText = htGetRandomArbitrary(1, maxVal);
 }
 
 function htSorobanResetSoroban() {
