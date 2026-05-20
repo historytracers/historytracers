@@ -32,52 +32,6 @@ function htTranslationLoadIndigenous(tableID, field, selector, value)
    $(tableID+" "+field).html((selector > 50) ? "<img id=\"imgMIMG"+value+"\" onclick=\"htImageZoom('imgMIMG"+value+"', '0%')\" src=\""+htImgSrcPrefix+"images/HistoryTracers/Maya_"+value+".png\" />" : "&nbsp;");
 }
 
-function htTranslationFillData(type, max)
-{
-    var selector = htGetRandomArbitrary(0, 100);
-    for (let i = 0, j = 1; j <= max; i++, j++) {
-        if (local.gameTranslationModel == "ha") {
-            htTranslationLoadHA("#yupana0", "#tc"+j+"f1", selector, local.gameTranslationVector[i]);
-            htTranslationLoadIndigenous("#yupana0", "#tc"+j+"f2", 100, local.gameTranslationVector[i]);
-        } else {
-            htTranslationLoadIndigenous("#yupana0", "#tc"+j+"f1", selector, local.gameTranslationVector[i]);
-            htTranslationLoadHA("#yupana0", "#tc"+j+"f2", 100, local.gameTranslationVector[i]);
-        }
-
-        if (selector > 50) {
-            local.gameTranslationAns[i] = 0;
-            selector = 10;
-        } else {
-            local.gameTranslationAns[i] = 1;
-            selector = 60;
-        }
-    }
-}
-
-function htTranslationSetFirstStepValues(max)
-{
-    $("#gameMessage").html("");
-    if (local.gameTranslationModify == -1) {
-        local.gameTranslationModify = htTranslationSelectIndex(4);
-    }
-
-    if (local.gameTranslationModel == "ha") {
-        htTranslationLoadHA("#yupana0", "#tc"+(local.gameTranslationModify+1)+"f1", 100, local.gameTranslationCurrentValue);
-    } else {
-        htTranslationLoadIndigenous("#yupana0", "#tc"+(local.gameTranslationModify+1)+"f1", 100, local.gameTranslationCurrentValue);
-    }
-
-    if (local.gameTranslationVector[local.gameTranslationModify] == local.gameTranslationCurrentValue) {
-        local.gameTranslationCurrentValue = -1;
-        local.gameTranslationModify += 2;
-        $("#gameMessage").html("<i class=\"fas fa-thumbs-up\" style=\"font-size:60px;color:lightblue;\"></i>");
-    }
-
-    if (local.gameTranslationModify >= max) {
-        local.gameEnd = true;
-    }
-}
-
 function htTranslationFillRandomVector(min, max, end)
 {
     var vector = [];
@@ -97,10 +51,14 @@ function htTranslationDefineEnd() {
         case 1:
             end = -1;
             break;
+/*
         case 2:
         case 3:
-            end = 2;
+*/
+        default:
+            end = 1;
             break;
+/*
         case 4:
         case 5:
             end = 3;
@@ -108,6 +66,7 @@ function htTranslationDefineEnd() {
         default:
             end = 4;
             break;
+*/
     }
 
     return end;
@@ -202,19 +161,27 @@ function htLoadRandomTranslation() {
             lvalues = htFillYupanaDecimalValues('#yupana1', local.gameTranslationRandomVector[0], 1, 'red_dot_right_up');
             return;
         case 1:
+        case 2:
+        case 3:
+        case 4:
             htCleanYupanaDecimalValues('#yupana1', 1);
             lvalues = htFillYupanaDecimalValues('#yupana1', local.gameTranslationRandomVector[0], 1, 'blue_dot_right_bottom');
             return;
+        case 5:
+            htResetRandomGame();
+            break;
+/*
         case 2:
             htResetRandomGame();
-            $("#num1").show();
+            //$("#num1").show();
             break;
         case 4:
-            $("#num2").show();
+            //$("#num2").show();
             break;
         case 6:
-            $("#num3").show();
+            //$("#num3").show();
             break;
+*/
         case 9:
             htTranslationShowAmericanVector();
             break;
@@ -225,11 +192,15 @@ function htLoadRandomTranslation() {
 }
 
 function htLoadContent() {
-    local = { "gameTranslationVector": [], "gameTranslationAns": [0, 0, 0, 0], "gameTranslationModify": -1, "gameTranslationCurrentValue": -1, "gameTranslationModel": "", "gameEnd": false, "gameChecking": false, "gameTranslationRandomVector": [], "gameTranslationCurrentLevel": -1, "gameRandomEnd": false, "gameUseTranslationImages": [], "gameVector": [], "gameUseVector": [], "maxValue": 4 }; 
+    local = { "gameTranslationVector": [], "gameTranslationAns": [0, 0, 0, 0], "gameTranslationModify": -1, "gameTranslationCurrentValue": -1, "gameTranslationModel": "", "gameEnd": false, "gameChecking": false, "gameTranslationRandomVector": [], "gameTranslationCurrentLevel": -1, "gameRandomEnd": false, "gameUseTranslationImages": [], "gameVector": [], "gameUseVector": [], "maxValue": 2 }; 
 
     $("#firstMethod").html(mathKeywords[8]);
     $("#secondMethod").html(mathKeywords[9]);
     $("#playButton").val(mathKeywords[10]);
+    $("#htChinaZhongguo").html(keywords[137]);
+    $("#htJapanNipponNihonKoku").html(keywords[139]);
+
+    htSetImageSrc("img9", "images/ResearchGate/Figura-9-Hueso-de-Lebombo.png");
 
     for (let i = 0, j = 1; i < local.maxValue; i++, j++) {
         $("#yupana1 #tc"+j+"f2").html(htInsertNumberField("num"+i, 0, 9));
@@ -241,7 +212,6 @@ function htLoadContent() {
         ra = Math.floor(ra / 100);
 
         local.gameTranslationVector = htTranslationFillVector(ra, local.maxValue);
-        htTranslationFillData(local.gameTranslationModel, local.maxValue);
         local.gameTranslationModify = -1;
         local.gameTranslationCurrentValue = -1;
         $('input[name=selModel]').attr("disabled", true);
@@ -259,7 +229,6 @@ function htLoadContent() {
         if (name == "traineeUp") {
             if (local.gameEnd == false ) {
                 local.gameTranslationCurrentValue++;
-                htTranslationSetFirstStepValues(local.maxValue);
             }
         } else {
             if (local.gameRandomEnd == false && local.gameChecking == false) {
@@ -292,7 +261,6 @@ function htLoadContent() {
         if (name == "traineeDown") {
             if (local.gameEnd == false ) {
                 local.gameTranslationCurrentValue--;
-                htTranslationSetFirstStepValues(local.maxValue);
             }
         } else {
             if (local.gameRandomEnd == false && local.gameChecking == false) {
