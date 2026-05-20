@@ -1584,7 +1584,7 @@ input[type=number]::-webkit-outer-spin-button {
     .side-bar.active { left: 0; }
     .side-bar:hover { left: 0; }
     .main { left: 0; width: 100%; }
-    div.right-sources { display: none; }
+    div.right-sources { position: relative; top: auto; left: auto; width: 100%; height: auto; clear: both; }
     .top-bar { height: auto; min-height: 50px; }
     .top-bar-inside-left { font-size: 1.2em; width: 60%; margin-left: 40px; }
     .menuht { font-size: 1.2em; }
