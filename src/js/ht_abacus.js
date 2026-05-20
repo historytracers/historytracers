@@ -131,6 +131,19 @@ function htSorobanUpdateDisplay() {
     const { display } = htSorobanComputeDecimalValue();
     numSpan.innerText = display;
     htSorobanCheckOverflow();
+
+    const cmpobj = document.getElementById('abacoCMP');
+    if (cmpobj == undefined) {
+        return;
+    }
+
+    const test = parseInt(display);
+    if (test == cmpobj.innerText) {
+        const successDiv = document.getElementById('suanpanSuccessText');
+        if (successDiv) {
+            $("#suanpanSuccessText").css("display","block").css("visibility","visible");
+        }
+    }
 }
         
 function htSorobanComputeLayout() {
@@ -575,6 +588,22 @@ function htSorobanHandleCanvasEnd(e) {
     }
 }
         
+function htFillAbacoGameValue() {
+    const cmpobj = document.getElementById('abacoCMP');
+    if (cmpobj == undefined) {
+        return;
+    }
+
+    const successDiv = document.getElementById('successText');
+    if (successDiv) {
+        successDiv.classList.add('hidden');
+    }
+    const maxValStr = document.getElementById('suanpanMaxValue');
+    let maxVal =  (maxValStr == undefined) ? 9 : maxValStr.innerText;
+
+    cmpobj.innerText = htGetRandomArbitrary(1, maxVal);
+}
+
 function htSorobanResetSoroban() {
     for(let i=0;i<localSorobanController.COLUMNS;i++){
         localSorobanController.state[i].upper = 0;
@@ -584,6 +613,17 @@ function htSorobanResetSoroban() {
     htSorobanRender();
     htSorobanUpdateDisplay();
     localSorobanController.isDraggingDecimal = false;
+
+    const cmpobj = document.getElementById('abacoCMP');
+    if (cmpobj == undefined) {
+        return;
+    }
+
+    const successDiv = document.getElementById('suanpanSuccessText');
+    if (successDiv) {
+        $("#suanpanSuccessText").css("display","none").css("visibility","hidden");
+        htFillAbacoGameValue();
+    }
 }
 
 function htSorobanSwitchMode(mode) {
@@ -649,6 +689,8 @@ function htSorobanInit() {
     htSorobanComputeLayout();
     htSorobanAttachEvents();
     htSorobanRender();
+
+    htFillAbacoGameValue();
     htSorobanUpdateDisplay();
 }
 
@@ -665,3 +707,4 @@ function htLoadContent() {
         htSorobanInit();
     }
 }
+
