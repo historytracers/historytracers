@@ -139,9 +139,9 @@ function htSorobanUpdateDisplay() {
 
     const test = parseInt(display);
     if (test == cmpobj.innerText) {
-        const successDiv = document.getElementById('suanpanSuccess');
+        const successDiv = document.getElementById('suanpanSuccessText');
         if (successDiv) {
-            successDiv.classList.remove('hidden');
+            $("#suanpanSuccessText").css("display","block").css("visibility","visible");
         }
     }
 }
@@ -588,6 +588,19 @@ function htSorobanHandleCanvasEnd(e) {
     }
 }
         
+function htFillAbacoGameValue() {
+    const cmpobj = document.getElementById('abacoCMP');
+    if (cmpobj == undefined) {
+        return;
+    }
+
+    const successDiv = document.getElementById('successText');
+    if (successDiv) {
+        successDiv.classList.add('hidden');
+    }
+    cmpobj.innerText = htGetRandomArbitrary(1, 9);
+}
+
 function htSorobanResetSoroban() {
     for(let i=0;i<localSorobanController.COLUMNS;i++){
         localSorobanController.state[i].upper = 0;
@@ -603,9 +616,10 @@ function htSorobanResetSoroban() {
         return;
     }
 
-    const successDiv = document.getElementById('suanpanSuccess');
+    const successDiv = document.getElementById('suanpanSuccessText');
     if (successDiv) {
-        successDiv.classList.add('hidden');
+        $("#suanpanSuccessText").css("display","none").css("visibility","hidden");
+        htFillAbacoGameValue();
     }
 }
 
@@ -661,19 +675,6 @@ function htSorobanAttachEvents() {
     });
 }
         
-function htFillAbacoGameValue() {
-    const cmpobj = document.getElementById('abacoCMP');
-    if (cmpobj == undefined) {
-        return;
-    }
-
-    const successDiv = document.getElementById('suanpanSuccess');
-    if (successDiv) {
-        successDiv.classList.add('hidden');
-    }
-    cmpobj.innerText = htGetRandomArbitrary(1, 9);
-}
-
 function htSorobanInit() {
     localSorobanController.canvas = document.getElementById('sorobanCanvas');
     if (!localSorobanController.canvas) return;
@@ -685,9 +686,9 @@ function htSorobanInit() {
     htSorobanComputeLayout();
     htSorobanAttachEvents();
     htSorobanRender();
-    htSorobanUpdateDisplay();
 
     htFillAbacoGameValue();
+    htSorobanUpdateDisplay();
 }
 
 function htLoadContent() {
