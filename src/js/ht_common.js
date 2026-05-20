@@ -3204,8 +3204,7 @@ document.addEventListener('click', function(e) {
     }
 });
 
-document.querySelectorAll('.menu a').forEach(function(link) {
-    link.addEventListener('click', function() {
-        document.querySelector('.side-bar').classList.remove('active');
-    });
+$(document).on('click', '.menu a', function() {
+    $('.side-bar').removeClass('active');
 });
+
