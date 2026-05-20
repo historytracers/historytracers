@@ -3186,3 +3186,20 @@ function htAddAlterQImages(id)
     }
     $(id).append("<i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i> <i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i>");
 }
+
+function htToggleSidebar() {
+    var sidebar = document.querySelector('.side-bar');
+    if (sidebar) {
+        sidebar.classList.toggle('active');
+    }
+}
+
+document.addEventListener('click', function(e) {
+    var sidebar = document.querySelector('.side-bar');
+    var hamburger = document.getElementById('hamburgerMenu');
+    if (sidebar && sidebar.classList.contains('active')) {
+        if (!sidebar.contains(e.target) && (!hamburger || !hamburger.contains(e.target))) {
+            sidebar.classList.remove('active');
+        }
+    }
+});

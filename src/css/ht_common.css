@@ -99,6 +99,19 @@ audio {
   z-index: 100;
 }
 
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 10px;
+  z-index: 1001;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 10px;
+  background: lightyellow;
+  border-radius: 5px;
+}
+
 .top-bar-inside-left {
   position: absolute;
   height: 100%;
@@ -111,6 +124,7 @@ audio {
   padding-bottom: 10px;
   padding-left: 10px;
   overflow-wrap: break-word;
+  margin-left: 50px;
 }
 
 .top-bar-right {
@@ -1501,6 +1515,81 @@ input[type=number]::-webkit-outer-spin-button {
     html {
         font-size: 1.0em;
     }
+
+    .menu-slogan {
+        font-size: 0.9em;
+        width: 90%;
+    }
+
+    .cited-text {
+       font-size: 0.9em ;
+       width: 90%;
+    }
+
+    .selSize {
+        width: 5em;
+    }
+
+    .menu-title {
+        font-size: 1.0em;
+    }
+
+    li.menu {
+        font-size: 0.90em;
+    }
+
+    .menuht {
+        font-size: 4.0em;
+        width: 92%;
+    }
+
+    .menuht2 {
+        width: 5%;
+        font-size: 1.8em;
+    }
+
+    .side-bar {
+      width: 20%;
+      left: -18%;
+    }
+
+    div.righttext {
+        font-size: 0.87em;
+    }
+
+    .right-tree {
+        visibility: hidden;
+    }
+
+    .imgcenterresponsive {
+        width: 50%;
+    }
+
+    .top-bar-inside-left {
+        font-size: 1.8em;
+    }
+
+    .htSlidesGame {
+        width: 100%;
+    }
+
+    .imgGameSizeWithOpacity {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .hamburger { display: block; }
+    .side-bar { width: 80%; left: -80%; z-index: 1000; transition: left 0.3s ease; }
+    .side-bar.active { left: 0; }
+    .side-bar:hover { left: 0; }
+    .main { left: 0; width: 100%; }
+    div.right-sources { display: none; }
+    .top-bar { height: auto; min-height: 50px; }
+    .top-bar-inside-left { font-size: 1.2em; width: 60%; margin-left: 40px; }
+    .menuht { font-size: 1.2em; }
+    .menu-slogan { font-size: 0.7em; }
+}
 
     .menu-slogan {
         font-size: 0.9em;
