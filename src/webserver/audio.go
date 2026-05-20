@@ -1014,4 +1014,112 @@ func htConvertTextsToAudio() {
 	htFamiliesToAudio()
 	htConvertAtlasToAudio()
 	htIndexesToAudio()
+	htConvertSMGameToAudio()
+}
+
+type HTSMGameBlock struct {
+	ID     string      `json:"id"`
+	Audio  string      `json:"audio"`
+	Text   []HTText    `json:"text"`
+	Desc   interface{} `json:"desc"`
+	Next   string      `json:"next"`
+	Prev   string      `json:"prev"`
+	JumpTo string      `json:"jumpTo"`
+	Answer interface{} `json:"answer"`
+	Score  int         `json:"score"`
+}
+
+type HTSMGameFile struct {
+	Sources    []string        `json:"sources"`
+	License    []string        `json:"license"`
+	LastUpdate []string        `json:"last_update"`
+	Authors    string          `json:"authors"`
+	Reviewers  string          `json:"reviewers"`
+	Version    int             `json:"version"`
+	Type       string          `json:"type"`
+	Content    []HTSMGameBlock `json:"content"`
+}
+
+func htConvertSMGameToAudio() {
+	for _, lang := range htLangPaths {
+		smGameDir := fmt.Sprintf("%slang/%s/smGame", CFG.SrcPath, lang)
+
+		files, err := os.ReadDir(smGameDir)
+		if err != nil {
+			continue
+		}
+
+		for _, file := range files {
+			if file.IsDir() {
+				continue
+			}
+
+			fileName := file.Name()
+			if !strings.HasSuffix(fileName, ".json") {
+				continue
+			}
+
+			filePath := smGameDir + "/" + fileName
+			byteValue, err := htOpenFileReadClose(filePath)
+			if err != nil {
+				continue
+			}
+
+			var smGame HTSMGameFile
+			err = json.Unmarshal(byteValue, &smGame)
+			if err != nil || smGame.Type != "sm_game" {
+				continue
+			}
+
+			var audioBuilder strings.Builder
+
+			for _, block := range smGame.Content {
+				for _, textBlock := range block.Text {
+					if textBlock.Text == "" {
+						continue
+					}
+
+					cleanText := htRemoveHTMLTags(textBlock.Text)
+					cleanText = htRemoveChineseCharacters(cleanText)
+					cleanText = strings.TrimSpace(cleanText)
+
+					if len(cleanText) > 0 {
+						audioBuilder.WriteString(cleanText)
+						audioBuilder.WriteString("\n")
+					}
+				}
+			}
+
+			audioContent := audioBuilder.String()
+			if len(audioContent) == 0 {
+				continue
+			}
+
+			audioContent = htAdjustAudioStringBeforeWrite(audioContent, lang)
+			audioContent = htRemoveChineseCharacters(audioContent)
+
+			baseName := strings.TrimSuffix(fileName, ".json")
+			err = htWriteAudioFile(baseName, lang, audioContent)
+			if err != nil {
+				continue
+			}
+
+			fileWasModified := false
+			if smGameFilePath, ok := htGitModifiedMap[filePath]; ok {
+				fileWasModified = smGameFilePath
+			}
+			if fileWasModified {
+				smGame.LastUpdate[0] = HTUpdateTimestamp()
+			}
+
+			newFile, err := htWriteTmpFile(lang, &smGame)
+			if err != nil {
+				continue
+			}
+			equal, err := HTAreFilesEqual(newFile, filePath)
+			if !equal && err == nil || updateDateFlag == true {
+				_ = os.Rename(newFile, filePath)
+			}
+		}
+	}
 }
