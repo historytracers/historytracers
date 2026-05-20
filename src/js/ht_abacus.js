@@ -131,6 +131,19 @@ function htSorobanUpdateDisplay() {
     const { display } = htSorobanComputeDecimalValue();
     numSpan.innerText = display;
     htSorobanCheckOverflow();
+
+    const cmpobj = document.getElementById('abacoCMP');
+    if (cmpobj == undefined) {
+        return;
+    }
+
+    const test = parseInt(display);
+    if (test == cmpobj.innerText) {
+        const successDiv = document.getElementById('suanpanSuccess');
+        if (successDiv) {
+            successDiv.classList.remove('hidden');
+        }
+    }
 }
         
 function htSorobanComputeLayout() {
@@ -584,6 +597,16 @@ function htSorobanResetSoroban() {
     htSorobanRender();
     htSorobanUpdateDisplay();
     localSorobanController.isDraggingDecimal = false;
+
+    const cmpobj = document.getElementById('abacoCMP');
+    if (cmpobj == undefined) {
+        return;
+    }
+
+    const successDiv = document.getElementById('suanpanSuccess');
+    if (successDiv) {
+        successDiv.classList.add('hidden');
+    }
 }
 
 function htSorobanSwitchMode(mode) {
@@ -638,6 +661,19 @@ function htSorobanAttachEvents() {
     });
 }
         
+function htFillAbacoGameValue() {
+    const cmpobj = document.getElementById('abacoCMP');
+    if (cmpobj == undefined) {
+        return;
+    }
+
+    const successDiv = document.getElementById('suanpanSuccess');
+    if (successDiv) {
+        successDiv.classList.add('hidden');
+    }
+    cmpobj.innerText = htGetRandomArbitrary(1, 9);
+}
+
 function htSorobanInit() {
     localSorobanController.canvas = document.getElementById('sorobanCanvas');
     if (!localSorobanController.canvas) return;
@@ -650,6 +686,8 @@ function htSorobanInit() {
     htSorobanAttachEvents();
     htSorobanRender();
     htSorobanUpdateDisplay();
+
+    htFillAbacoGameValue();
 }
 
 function htLoadContent() {
@@ -665,3 +703,4 @@ function htLoadContent() {
         htSorobanInit();
     }
 }
+
