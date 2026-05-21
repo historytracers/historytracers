@@ -2353,6 +2353,10 @@ function htLoadPage(page, ext, arg, reload) {
                 }
 
                 var myURL = (arg != undefined && arg != null) ? 'index.html?page='+page+'&arg='+arg : 'index.html?page='+page;
+                var smGameLevel = $("#ScientificGameLevel").val();
+                if (smGameLevel != undefined && smGameLevel != null && smGameLevel.length > 0) {
+                    myURL += '&level=' + smGameLevel;
+                }
                 genealogicalStats = htResetGenealogicalStats();
 
                 window.history.replaceState(null, null, myURL);
