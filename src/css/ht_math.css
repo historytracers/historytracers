@@ -85,14 +85,18 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 3px;
   background: lightyellow;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 12px;
 }
 
 .tawapukllay th {
-  border-collapse: collapse;
+  border-collapse: separate;
   background: ghostwhite;
-  border: 1px solid black;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  border-radius: 8px;
 }
 
 .tawapukllay td:nth-child(-n+4) {
@@ -100,7 +104,8 @@
   font-weight: normal;
   width: 10em;
   height: 10em;
-  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
 .tawapukllay td:nth-child(5){
@@ -108,7 +113,8 @@
   font-weight: bold;
   background: white;
   width: 11.66em;
-  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
 .tawapukllay td:nth-child(6){
@@ -116,7 +122,8 @@
   font-weight: bold;
   background: white;
   width: 11.66em;
-  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
 .tawapukllay td:nth-child(7){
@@ -124,7 +131,8 @@
   font-weight: bold;
   background: white;
   width: 11.66em;
-  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
 .tawapukllay td:nth-child(8){
@@ -132,7 +140,8 @@
   font-weight: bold;
   background: white;
   width: 11.66em;
-  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
 .dot {

@@ -205,14 +205,45 @@ func htParseJSON(fileName string) bool {
 	if readmePattern.MatchString(fileName) {
 		return false
 	}
-
-	switch fileName {
-	case "smGame":
+	if fileName == "smGame" {
 		return false
-	default:
-		return true
+	}
+	if !strings.HasSuffix(fileName, ".json") {
+		return false
 	}
 	return true
+}
+
+func htRewriteAndMinifySMGame(lang string) {
+	smGameDir := fmt.Sprintf("%slang/%s/smGame/", CFG.SrcPath, lang)
+	contentSmGameDir := fmt.Sprintf("%slang/%s/smGame/", CFG.ContentPath, lang)
+
+	entries, err := os.ReadDir(smGameDir)
+	if err != nil {
+		return
+	}
+
+	m := minify.New()
+	m.AddFunc("application/json", json.Minify)
+
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
+		}
+
+		smGameFile := smGameDir + entry.Name()
+		dstFile := contentSmGameDir + entry.Name()
+
+		err = htRewriteSMGame(smGameFile)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "ERROR rewriting SMGame:", err)
+		}
+
+		err = htMinifyJSONFile(m, smGameFile, dstFile)
+		if err != nil {
+			panic(err)
+		}
+	}
 }
 
 func htMinifyJSONFile(m *minify.M, inFile string, outFile string) error {
@@ -239,6 +270,9 @@ func htMinifyJSON() {
 		}
 
 		for _, fileName := range entries {
+			if fileName.IsDir() {
+				continue
+			}
 			if htParseJSON(fileName.Name()) == false {
 				continue
 			}
@@ -571,6 +605,10 @@ func HTMinifyAllFiles() {
 	htUpdateHTJS()
 
 	htMinifyJSON()
+
+	for _, lang := range htLangPaths {
+		htRewriteAndMinifySMGame(lang)
+	}
 
 	htCopyJSONWithoutChanges()
 

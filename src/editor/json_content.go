@@ -42,7 +42,7 @@ func htParseJSONContent(jsonContent string) (*HTContentDocument, error) {
 
 func htIsProjectContentFile(jsonContent string) bool {
 	var base struct {
-		Type   string `json:"type"`
+		Type    string          `json:"type"`
 		Content json.RawMessage `json:"content"`
 	}
 

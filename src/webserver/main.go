@@ -132,8 +132,12 @@ func htRunStopFlags() {
 		fmt.Println("TODO: Validate is creating empty files, it is necessary to fix it.")
 		/*
 			htValidateGEDCOM()
-			htValidateClassFormats()
-			htValidateAtlasFormats()
+
+						htValidateClassFormats()
+
+						htValidateAtlasFormats()
+
+						htValidateSMGameFormats()
 		*/
 		stopRun = true
 	}
@@ -150,6 +154,11 @@ func htRunStopFlags() {
 
 	if len(classTemplate) > 0 {
 		htCreateNewClass()
+		stopRun = true
+	}
+
+	if len(smGameTemplate) > 0 {
+		htCreateNewSMGame()
 		stopRun = true
 	}
 
