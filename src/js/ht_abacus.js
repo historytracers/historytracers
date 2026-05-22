@@ -600,8 +600,9 @@ function htFillAbacoGameValue() {
     }
     const maxValStr = document.getElementById('suanpanMaxValue');
     let maxVal =  (maxValStr == undefined) ? 9 : maxValStr.innerText;
+    let minVal =  (maxValStr == undefined) ? 1 : 10;
 
-    cmpobj.innerText = htGetRandomArbitrary(1, maxVal);
+    cmpobj.innerText = htGetRandomArbitrary(minVal, maxVal);
 }
 
 function htSorobanResetSoroban() {

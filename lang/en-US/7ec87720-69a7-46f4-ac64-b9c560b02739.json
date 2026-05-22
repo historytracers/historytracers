@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779321674"
+      "1779466224"
    ],
    "authors": null,
    "reviewers": [
@@ -357,7 +357,7 @@
          "id": "SECTION_asia",
          "text": [
             {
-               "text": "### Translating to Asia\n\nIn this stage of the game, we will reverse the logic of the game *Discovering America.* Here, we will present Indo-Arabic numerals, and your objective will be to represent them on one of the abacuses.\n\n#### The game (Objective and rules)\n\nWe will only work with the column of the Soroban (算盤) or Suanpan (算盤) that contains the black decimal marker horizontally. Do not move it at this time.\n\nYou have a numerical value between 1 and 9 shown at the top of the abacus. Move the lower and upper beads until the “Value” Abacus field shows the same number displayed at the top. When this happens, the message \"<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>Congratulations!!<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i></span> will appear.</div>\n\nTo start a new exercise, simply click the **Reset** button.",
+               "text": "### Translating to Asia\n\nIn this stage of the game, we will reverse the logic of the game *Discovering America.* Here, we will present Indo-Arabic numerals, and your objective will be to represent them on one of the abacuses.\n\n#### The game (Objective and rules)\n\nWe will only work with the column of the Soroban (算盤) or Suanpan (算盤) that contains the black decimal marker (⚫) horizontally. Do not move it at this time.\n\nYou have a numerical value between 1 and 9 shown at the top of the abacus. Move the lower and upper beads until the “Value” Abacus field shows the same number displayed at the top. When this happens, the message \"<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>Congratulations!!<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i></span> will appear.</div>\n\nTo start a new exercise, simply click the **Reset** button.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -375,7 +375,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div><b>Represent the value on the abacus:</b><br /> <span id=\"abacoCMP\" class=\"text_to_paint\"></span></div> </div><div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">Há coluna(s) com valores maiores que 9! Cada dígito deve permanecer entre 0 e 9.</span></div><div id=\"suanpanSuccess\"><span id=\"suanpanMaxValue\" style=\"display: none; visibility: hidden;\">9</span><span id=\"suanpanSuccessText\" class=\"text_to_paint\" style=\"display: none; visibility: hidden; font-size: 2em\" ><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>Congratulations!!<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i></span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
+               "text": "<div><b>Represent the value on the abacus:</b><br /> <span id=\"abacoCMP\" class=\"text_to_paint\"></span></div> </div><div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There is/are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span></div><div id=\"suanpanSuccess\"><span id=\"suanpanMaxValue\" style=\"display: none; visibility: hidden;\">9</span><span id=\"suanpanSuccessText\" class=\"text_to_paint\" style=\"display: none; visibility: hidden; font-size: 2em\" ><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>Congratulations!!<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i></span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
