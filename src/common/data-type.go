@@ -343,16 +343,16 @@ type AtlasTemplateFile struct {
 }
 
 type SMGameContent struct {
-	ID       string        `json:"id"`
-	Audio    string        `json:"audio"`
-	Text     []HTText      `json:"text"`
-	Desc     interface{}   `json:"desc"`
-	Next     string        `json:"next"`
-	Prev     string        `json:"prev"`
-	JumpTo   string        `json:"jumpTo"`
-	Answer   interface{}   `json:"answer"`
-	Score    int           `json:"score"`
-	Position string        `json:"position"`
+	ID       string      `json:"id"`
+	Audio    string      `json:"audio"`
+	Text     []HTText    `json:"text"`
+	Desc     interface{} `json:"desc"`
+	Next     string      `json:"next"`
+	Prev     string      `json:"prev"`
+	JumpTo   string      `json:"jumpTo"`
+	Answer   interface{} `json:"answer"`
+	Score    int         `json:"score"`
+	Position string      `json:"position,omitempty"`
 }
 
 type SMGameLevel struct {
@@ -365,14 +365,14 @@ type SMGameLevel struct {
 }
 
 type SMGameFile struct {
-	Sources    []string         `json:"sources"`
-	License    []string         `json:"license"`
-	LastUpdate []string         `json:"last_update"`
-	Authors    string           `json:"authors"`
-	Reviewers  string           `json:"reviewers"`
-	Version    int              `json:"version"`
-	Type       string           `json:"type"`
-	Content    []SMGameContent  `json:"content"`
-	Levels     []SMGameLevel    `json:"levels"`
-	DateTime   []HTDate         `json:"date_time"`
+	Sources    []string        `json:"sources"`
+	License    []string        `json:"license"`
+	LastUpdate []string        `json:"last_update"`
+	Authors    string          `json:"authors"`
+	Reviewers  string          `json:"reviewers"`
+	Version    int             `json:"version"`
+	Type       string          `json:"type"`
+	Content    []SMGameContent `json:"content"`
+	Levels     []SMGameLevel   `json:"levels,omitempty"`
+	DateTime   []HTDate        `json:"date_time,omitempty"`
 }
