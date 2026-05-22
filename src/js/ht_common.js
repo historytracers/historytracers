@@ -2059,7 +2059,7 @@ function htFillSMGameData(data) {
             }
         }
 
-        smGame.push({"desc" : useDesc, "prev" : table[i].prev, "next" : table[i].next, "jumpTo" : table[i].jumpTo, "score" : table[i].score, "answer" : table[i].answer, "played": false});
+        smGame.push({"desc" : useDesc, "prev" : table[i].prev, "next" : table[i].next, "jumpTo" : table[i].jumpTo, "score" : table[i].score, "answer" : table[i].answer, "audio" : table[i].audio, "played": false});
         $(opt0ac0098b.target).append("<div class=\"htSlide\" id=\""+table[i].id+"\"><div class='"+classText+"'>"+useText+"</div>");
         counter++;
     }
@@ -2068,7 +2068,7 @@ function htFillSMGameData(data) {
     x = document.getElementsByClassName("htSlide");
     if (requestType != "splash") {
         if ($("#smGameNext").length == 0) {
-            $(opt0ac0098b.target).append("<div id=\"smGameNext\"><i class=\"fa-solid fa-chevron-right htSlideNextGame\" onclick=\"htPlusSMGameDivs(1);\"></i></div> <div id=\"smGamePrev\"><i class=\"fa-solid fa-chevron-left htSlidePrevGame htSlideGameMenuHidden\" onclick=\"htPlusSMGameDivs(-1);\"></i></div> <div id=\"smGameLike\"><i class=\"fa-solid fa-thumbs-up htSlideLikeGame\" onclick=\"htSMCheckAnswer(1);\"></i></div> <div id=\"smGameUnlike\"><i class=\"fa-solid fa-thumbs-down htSlideUnlikeGame\" onclick=\"htSMCheckAnswer(0);\"></i></div>");
+            $(opt0ac0098b.target).append("<div id=\"smGameNext\"><i class=\"fa-solid fa-chevron-right htSlideNextGame\" onclick=\"htPlusSMGameDivs(1);\"></i></div> <div id=\"smGamePrev\"><i class=\"fa-solid fa-chevron-left htSlidePrevGame htSlideGameMenuHidden\" onclick=\"htPlusSMGameDivs(-1);\"></i></div> <div id=\"smGameLike\"><i class=\"fa-solid fa-thumbs-up htSlideLikeGame\" onclick=\"htSMCheckAnswer(1);\"></i></div> <div id=\"smGameUnlike\"><i class=\"fa-solid fa-thumbs-down htSlideUnlikeGame\" onclick=\"htSMCheckAnswer(0);\"></i></div> <div id=\"smGameAudioContainer\"><audio id=\"smGameAudioPlayer\" controls preload=\"auto\"></audio> <label><input type=\"checkbox\" id=\"smGameAutoPlay\" checked> Auto-play</label></div>");
             $("#smGameLike").addClass("htSlideGameMenuHidden");
             $("#smGameUnlike").addClass("htSlideGameMenuHidden");
             $("#currentSMScore").html(totalSMScore);
@@ -2083,6 +2083,20 @@ function htFillSMGameData(data) {
         }
 
         htShowSlideDivs(x, 0);
+
+        var audioPlayer = document.getElementById('smGameAudioPlayer');
+        if (audioPlayer) {
+            if (smGame.length > 0 && smGame[0].audio != undefined && smGame[0].audio != null && smGame[0].audio.length > 0) {
+                audioPlayer.src = smGame[0].audio;
+                audioPlayer.load();
+                if ($("#smGameAutoPlay").is(":checked")) {
+                    audioPlayer.play().catch(function(e) {});
+                }
+            } else {
+                audioPlayer.pause();
+                audioPlayer.removeAttribute('src');
+            }
+        }
     } else {
         if (smGameTimeoutID != 0) {
             clearTimeout(smGameTimeoutID);
