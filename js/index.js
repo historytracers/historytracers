@@ -144,6 +144,9 @@ function htParseIndexRequest() {
                     var larg = urlParams.get('arg');
                     var lperson = (urlParams.has('person_id')) ? urlParams.get('person_id'): "";
                     var finalArg = (lperson.length == 0) ? larg : larg+'&person_id='+lperson;
+                    if (urlParams.has('level')) {
+                        $("#ScientificGameLevel").val(urlParams.get('level'));
+                    }
                     htLoadPage(page,'html', finalArg, false);
                 } else {
                     htLoadPage(page,'html', '', false);

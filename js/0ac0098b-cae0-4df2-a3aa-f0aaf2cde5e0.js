@@ -82,6 +82,20 @@ function htPlusSMGameDivs(n) {
             htSMUpdateScore((currentSlide.score > 1) ? 0 :currentSlide.score);
         }
         htShowSlideDivs(x, index0ac0098b);
+
+        var audioPlayer = document.getElementById('smGameAudioPlayer');
+        if (audioPlayer) {
+            if (currentSlide.audio != undefined && currentSlide.audio != null && currentSlide.audio.length > 0) {
+                audioPlayer.src = currentSlide.audio;
+                audioPlayer.load();
+                if ($("#smGameAutoPlay").is(":checked")) {
+                    audioPlayer.play().catch(function(e) {});
+                }
+            } else {
+                audioPlayer.pause();
+                audioPlayer.removeAttribute('src');
+            }
+        }
     }
 }
 
