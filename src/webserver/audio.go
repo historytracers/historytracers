@@ -1018,15 +1018,16 @@ func htConvertTextsToAudio() {
 }
 
 type HTSMGameBlock struct {
-	ID     string      `json:"id"`
-	Audio  string      `json:"audio"`
-	Text   []HTText    `json:"text"`
-	Desc   interface{} `json:"desc"`
-	Next   string      `json:"next"`
-	Prev   string      `json:"prev"`
-	JumpTo string      `json:"jumpTo"`
-	Answer interface{} `json:"answer"`
-	Score  int         `json:"score"`
+	ID       string      `json:"id"`
+	Audio    string      `json:"audio"`
+	Text     []HTText    `json:"text"`
+	Desc     interface{} `json:"desc"`
+	Next     string      `json:"next"`
+	Prev     string      `json:"prev"`
+	JumpTo   string      `json:"jumpTo"`
+	Answer   interface{} `json:"answer"`
+	Score    int         `json:"score"`
+	Position string      `json:"position,omitempty"`
 }
 
 type HTSMGameFile struct {
@@ -1038,6 +1039,8 @@ type HTSMGameFile struct {
 	Version    int             `json:"version"`
 	Type       string          `json:"type"`
 	Content    []HTSMGameBlock `json:"content"`
+	Levels     []SMGameLevel   `json:"levels,omitempty"`
+	DateTime   []HTDate        `json:"date_time,omitempty"`
 }
 
 func htConvertSMGameToAudio() {
@@ -1119,6 +1122,8 @@ func htConvertSMGameToAudio() {
 			equal, err := HTAreFilesEqual(newFile, filePath)
 			if !equal && err == nil || updateDateFlag == true {
 				_ = os.Rename(newFile, filePath)
+			} else {
+				os.Remove(newFile)
 			}
 		}
 	}

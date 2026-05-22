@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/google/uuid"
 	. "github.com/historytracers/common"
@@ -37,11 +38,22 @@ func htRewriteSMGame(smGameFile string) error {
 		localSMGameFile.LastUpdate[0] = HTUpdateTimestamp()
 	}
 
-	newFile, err := htWriteTmpFile("", &localSMGameFile)
+	smGameRel := strings.TrimPrefix(smGameFile, CFG.SrcPath+"lang/")
+	lang := strings.SplitN(smGameRel, "/", 2)[0]
+
+	newFile, err := htWriteTmpFile(lang, &localSMGameFile)
 	if err != nil {
 		return err
 	}
-	HTCopyFilesWithoutChanges(smGameFile, newFile)
+
+	equal, err := HTAreFilesEqual(newFile, smGameFile)
+	if !equal && err == nil || updateDateFlag == true {
+		err = os.Rename(newFile, smGameFile)
+		if err != nil {
+			return err
+		}
+		return nil
+	}
 	return os.Remove(newFile)
 }
 
