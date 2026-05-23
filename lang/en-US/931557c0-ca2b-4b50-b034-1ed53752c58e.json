@@ -1,0 +1,493 @@
+{
+    "title":  "Where are we on a disk?",
+    "header":  "Where are we on a disk?",
+    "sources":  [
+                    "931557c0-ca2b-4b50-b034-1ed53752c58e"
+                ],
+    "scripts":  [
+                    "931557c0-ca2b-4b50-b034-1ed53752c58e"
+                ],
+    "audio":  [
+                  {
+                      "url":  "https://www.historytracers.org/audios/931557c0-ca2b-4b50-b034-1ed53752c58e_en-US.ogg",
+                      "external":  true,
+                      "spotify":  false
+                  },
+                  {
+                      "url":  "https://spotifycreators-web.app.link/e/KDadgCsMlVb",
+                      "external":  true,
+                      "spotify":  true
+                  }
+              ],
+    "index":  [
+                  "atlas"
+              ],
+    "license":  [
+                    "SPDX-License-Identifier: GPL-3.0-or-later",
+                    "CC BY-NC 4.0 DEED"
+                ],
+    "last_update":  [
+                        "1775271675"
+                    ],
+    "authors":  [
+                    ""
+                ],
+    "reviewers":  [
+
+                  ],
+    "type":  "class",
+    "version":  2,
+    "editing":  false,
+    "content":  [
+                    {
+                        "id":  "SECTION_prerequisites",
+                        "text":  [
+                                     {
+                                         "text":  "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "b2f637db-6c44-4941-849c-6568ce3c10b4",
+                                                            "text":  "History Tracers Atlas",
+                                                            "page":  "Trigonometry (Sine)",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2024",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     }
+                                 ]
+                    },
+                    {
+                        "id":  "SECTION_local_content",
+                        "text":  [
+                                     {
+                                         "text":  "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942; animation: drawCircle 2s linear forwards;} .radius-line { transform-origin: 300px 170px; animation: rotateRadius 2s linear forwards;} .radius-45 { opacity: 0; animation: showRadius45 0.3s ease-out forwards; animation-delay: 2s; } .radius-30{ opacity: 0; animation: showRadius30 0.3s ease-out forwards; animation-delay: 2s; } .vertical45 { opacity: 0; animation: showVertical45 0.3s ease-out forwards; animation-delay: 2.5s; } .atlasTextRadius { opacity: 0; animation: atlasTextRadiusMov 0.3s ease-out forwards; animation-delay: 2.8s; }</style><style>@keyframes drawCircle { to {stroke-dashoffset: 0; } } @keyframes rotateRadius { from { transform: rotate(0deg); } to   { transform: rotate(-360deg); } } @keyframes showRadius45 { from { opacity: 0; } to { opacity: 1; } } @keyframes showRadius30 { from { opacity: 0; } to { opacity: 1; } } @keyframes showVertical45 { from { opacity: 0; } to { opacity: 1; } }  @keyframes atlasTextRadiusMov { from { opacity: 0; } to { opacity: 1; } }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 340\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path class=\"radius-30\" d=\"M 320 147 A 30 30 0 0 1 340.0 170.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"300\" y1=\"169\" x2=\"470\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"8\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"130\" y2=\"169\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line x1=\"300\" y1=\"169\" x2=\"300\" y2=\"330\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <circle cx=\"300\" cy=\"170\" r=\"148\" transform=\"scale(-1 1) translate(-600 0)  rotate(180 300 170)\"></circle> <line class=\"radius-line\" x1=\"300\" y1=\"169\" x2=\"448\" y2=\"169\"></line> <line class=\"radius-45\" x1=\"300\" y1=\"169\" x2=\"406\" y2=\"66\"></line>  <line class=\"vertical45\" x1=\"406\" y1=\"66\" x2=\"406\" y2=\"166\"></line> <text class=\"atlasTextRadius\" x=\"360\" y=\"188\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"360\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"390\" y=\"128\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"320\" y=\"165\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"187\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"282\" y=\"9\" font-size=\"1.3em\" font-weight=\"bold\">y</text> <text class=\"atlasTextRadius\" x=\"407\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"405\" y=\"182\" font-size=\"1.3em\" font-weight=\"bold\">Q</text>  <text class=\"atlasTextRadius\" x=\"463\" y=\"190\" font-size=\"1.3em\" font-weight=\"bold\">x</text></svg></div></p><p class=\"desc\"><b>Graph 1</b>: Circle with a radius of 1 containing a right triangle.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "### Where are we on a disk?\n\n#### Walking\n\nWhen we are walking down a straight street, we can locate ourselves starting from a street corner. For example, if that street is divided into blocks and each block is 50 meters, we will know that after walking 4 blocks, we will have traveled 200 meters from the corner where we began our walk (50 × 4 = 200) (<htcite0>).\n\nWhat we have just described is a measurement in one dimension, meaning we need only one value to obtain the result and describe its measure (<htcite1>).\n\nLooking at **Graph 1** in this section, we can see that if we want to know the distance between points **O** and **Q** (which we will represent from now on as **OQ**), we will be able to perform this measurement precisely because we are talking about a horizontal line, which we will call the **x-axis**.\n\n#### The x-axis\n\nWhen studying the cosine function, we learned that the length of leg a corresponds to the multiplication of the radius of the circle by the cosine of theta (c × cos(θ)). This happens because leg **a** represents the projection of radius **c** onto the adjacent leg (<htcite2>).\n\nIn **Graph 2**, we represent this projection again when there is an angle theta (θ) between the radius and the **axis x**.",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "857f1df2-38ce-4da0-9444-686e16ac2314",
+                                                            "text":  "History Tracers Team",
+                                                            "page":  "Understanding the Multiplication Table (4 and 5)",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2025",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        },
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "7eb77c51-3f08-4c5d-9a87-8c6c5dc0e9d4",
+                                                            "text":  "Weisstein, Eric W.",
+                                                            "page":  "Dimension",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2025",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        },
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                                                            "text":  "History Tracers Team",
+                                                            "page":  "Trigonometry (Cosine)",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2025",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  "."
+                                     },
+                                     {
+                                         "text":  "<div class=\"atlasCircleContainer1\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri1\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <path class=\"radius-30\" d=\"M 230 130 A 30 30 0 0 1 240.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"320\" y2=\"149\"></line> <line class=\"radius-line\" x1=\"319\" y1=\"149\" x2=\"320\" y2=\"67\"></line> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"319\" y2=\"67\"></line> <text class=\"atlasTextRadius\" x=\"250\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"140\" font-size=\"1.3em\" font-weight=\"bold\">Q</text> <text class=\"atlasTextRadius\" x=\"380\" y=\"158\" font-size=\"1.3em\" font-weight=\"bold\">x</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"260\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Graph 2</b>: Angle theta (θ) between the hypotenuse and the adjacent leg.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "#### The Y-axis\n\nLet's reflect before proceeding.",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: What about upward?</b><br /><br />Could what we wrote about a horizontal path be applied to a vertical axis?</div></div></center></p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "To answer this reflection, let's imagine that after walking 200 meters in one direction, as at the beginning of the text, you turned onto another street and walked another 200 meters.",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: 200 that way, 200 this way...</b><br /><br />Ignore houses, trees, people, and animals, and focus only on the distance of 200 meters in a straight line.<br /><br />When walking 200 meters on any straight street, are you walking the same distance?</div></div></center></p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "Possibly, in your reflection, you must have observed that the distance of 200 meters is the same on one street as on the other. That is, in both cases we are on a straight line, and regardless of the direction we walk, we end up covering the same 200 meters.\n\nNow, we can return to the differences. By following a straight street and then turning onto another street and walking a bit more, we are following different paths, despite performing exactly the same type of movement.\n\nTherefore, we will use what we learned in the text about sines to project the radius of the circle onto the vertical (<htcite0>), as shown in **Graph 3**:",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                                                            "text":  "History Tracers Team",
+                                                            "page":  "Trigonometry (Sine)",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2025",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <path class=\"radius-30\" d=\"M 230 130 A 30 30 0 0 1 240.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"320\" y2=\"149\"></line> <line class=\"radius-line\" x1=\"319\" y1=\"149\" x2=\"320\" y2=\"67\"></line> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"319\" y2=\"67\"></line> <text class=\"atlasTextRadius\" x=\"250\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"325\" y=\"65\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"300\" y=\"116\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"223\" y=\"146\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Graph 3</b>: Angle theta (θ) between the hypotenuse and the horizontal, with the opposite leg visible.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "Notice that in **Graph 3**, we highlight leg **b**, which is related to the projection of the radius onto the vertical. From the previous text, we know that walking in the vertical direction is equivalent to multiplying the sine of theta by the radius of the circle to obtain the projection (c × sin(θ)) (<htcite0>).",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                                                            "text":  "History Tracers Team",
+                                                            "page":  "Trigonometry (Sine)",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2025",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "#### Axes Together\n\nAs we have seen, the **axis x and y** are independent of each other, meaning that measurements in one direction do not necessarily depend on the other. Therefore, to determine the position of point **P** in **Graph 1**, we can indicate how far we walked from the origin to **Q** on the **x-axis** (**OQ**), and then how far we walked to point **P** along the **y-axis**, as follows:",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "These data lead us to conclude that we cannot use a horizontal projection to represent the vertical path. In other words, these are independent paths, which leads us to conclude that two measurements —or two dimensions (<htcite0>)— are needed to describe the path.",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "7eb77c51-3f08-4c5d-9a87-8c6c5dc0e9d4",
+                                                            "text":  "Weisstein, Eric W.",
+                                                            "page":  "Dimension",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2025",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<p><center><math display=\"block\"><mn>P</mn> <mi> = </mi> <mn>(x, y)</mn> </math></center></p><p class=\"desc\"><b>Formula 1</b>: Representation of the distances walked from the origin <b>O</b> to point <b>P</b>.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "#### The Return of the Theorem\n\nAll this trigonometry part of the *History Tracers Atlas* began when we studied how the Babylonians already had prior knowledge of what Dr. Daniel F. Mansfield called the *\"diagonal triple\"* (<htcite0>). Centuries later, this relationship became known as the Pythagorean Theorem, demonstrated in **Formula 2**:",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
+                                                            "text":  "Mansfield, D. F.",
+                                                            "page":  "pp. 985 - 1003",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2021",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        },
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "7c5ebbe5-75c5-444c-bceb-b0162bff9888",
+                                                            "text":  "History Tracers Team",
+                                                            "page":  "History of a Theorem",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2024",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> </math><p class=\"desc\"><b>Formula 2</b>: Pythagorean Theorem, where <i>a</i> is the adjacent leg, <i>b</i> is the opposite leg, and <i>c</i> is the hypotenuse.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "To make clearer what we are studying, let's rename the legs according to the distances traveled:",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<p><math display=\"block\"><msup><mi>(horizontal path)</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(vertical path)</mi><mn>2</mn></msup>  <mo>=</mo> <msup><mi>(diagonal path)</mi> <mn>2</mn></msup> </math></p><p class=\"desc\"><b>Formula 3</b>: Description of paths.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "As we saw in previous texts and in this text, the so-called **paths** are projections known as **legs**, while the diagonal is known as the **hypotenuse**. The horizontal leg is projected using the cosine of the angle, while the vertical leg is projected using the sine of the angle (<htcite0>; <htcite1>). Therefore, we can rewrite **Formula 3** as:",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "4c95f9bf-befa-42bd-8d56-0cf962e09c14",
+                                                            "text":  "History Tracers Team",
+                                                            "page":  "Trigonometry (Cosine)",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2025",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        },
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "341c9ef9-9320-4c24-8aa4-a533a3290d8a",
+                                                            "text":  "History Tracers Team",
+                                                            "page":  "Trigonometry (Sine)",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2025",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<p><math display=\"block\"><msup><mi>(c × cos (θ))</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>(c × sin (θ))</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>(c)</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sin</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p class=\"desc\"><b>Calculo 1</b>: Pythagorean Theorem written based on the angles and the radius.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "Since on both sides we have the square of the hypotenuse c&sup2;, we can divide both sides of Calculation <b>Cálculo 1</b> by it:",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<p><math display=\"block\"><msup><mi>c</mi><mn>2</mn></msup><msup><mi>cos</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>+</mo> <msup><mi>c</mi><mn>2</mn></msup><msup><mi>sin</mi><mn>2</mn></msup><mi> (θ)</mi> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>  </math></p><p><math display=\"block\"><mfrac><mi>c&sup2; cos&sup2; (θ) + c&sup2;sin&sup2; (θ)</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p><p><math display=\"block\"><mfrac><mi>c&sup2; [cos&sup2; (θ) + sin&sup2; (θ)]</mi><mi>c&sup2;</mi></mfrac> <mn>=</mn> <mfrac><mi>c&sup2;</mi><mi>c&sup2;</mi></mfrac></p> <p><math display=\"block\"><mn>1 [cos&sup2; (θ) + sin&sup2; (θ)]</mn> <mn>=</mn> <mi>1</mi></p> <p><math display=\"block\"><mn>cos&sup2; (θ) + sin&sup2; (θ)</mn> <mn>=</mn> <mi>1</mi></p> <p class=\"desc\"><b>Calculation 2</b>: Fundamental trigonometric identity.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "**Calculation 2** provides us with important details about the relationships between lengths and angles linked to location on a circle, as described below:\n- **Line 1**: Informs us that the square of the horizontal projection of the radius **a** (c&sup2; cos&sup2; (θ)), added to the square of its vertical projection **b** (c&sup2; sin&sup2; (θ)) is equal to the square of the total length of the radius (c&sup2;), also known as the **hypotenuse**;\n- **Line 2**: Since the sum of the squares of the projections of the radius is equal to the square of the radius itself, we express the partial quantities in relation to the total in the denominator;\n- **Line 3**: Since both projections have the radius c in common, we factor out this value, separating it from the parts that depend on the angle;\n- **Line 4**: By isolating the whole from its components, we obtain the unit value (c&sup2; / c&sup2;), which we have as a single quantity again (1).\n- **Line 5**: As a consequence, it becomes explicit that the sum of the cosine squared of θ and the sine squared of θ is equal to 1.\n\n#### The location on the circle\n\nGiven this information, we can rewrite **Formula 1** in different ways, all representing our exact position on a circle at point **P** (**Graph 4**):",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 160\" class=\"circle-draw\" id=\"svgcirctri0\">  <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"3\" markerHeight=\"3\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <path d=\"M 348 150 A 148 148 0 0 0 200 2\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <path class=\"radius-30\" d=\"M 200 120 A 30 30 0 0 1 230.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line x1=\"200\" y1=\"150\" x2=\"370\" y2=\"150\" stroke=\"black\" stroke-width=\"3\" style=\"stroke: black;\" marker-end=\"url(#arrow)\" /> <line class=\"radius-line\" x1=\"200\" y1=\"149\" x2=\"200\" y2=\"4\"></line> <text class=\"atlasTextRadius\" x=\"180\" y=\"89\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"150\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"180\" y=\"15\" font-size=\"1.3em\" font-weight=\"bold\">P</text> <text class=\"atlasTextRadius\" x=\"208\" y=\"146\" font-size=\"1.3em\" font-weight=\"bold\">θ</text> </svg></div></p><p class=\"desc\"><b>Graph 4</b>: Completely inclined radius.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<p><center><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(x, y)</mn> </math></center></p><p><center><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(a, b)</mn> </math></center></p><p><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(c × cos (θ), (c × sin (θ))</mn> </math></center></p><p class=\"desc\"><b>Formula 4</b>: Representation of the distances walked from the origin <b>O</b> to point <b>P</b>.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "From **Formula 4**, we conclude that we can describe our position on a circle in the following ways:\n- **Line 1**: Point **P** is at a distance **x** from the origin **O** and at a distance **y** from that same origin **O**.\n- **Line 2**: The distance **x** corresponds to the length of leg **a**, which projects the hypotenuse **c** onto the horizontal, while the distance **y** corresponds to the length of leg **b**, which projects the hypotenuse **c** onto the vertical;\n- **Line 3**: The total length of the projections can be expressed using the radius **c**, which represents the distance from the origin, and the angle θ, which represents the opening of the radius from the horizontal in a counterclockwise direction. Thus, we have the horizontal path expressed as <b>x = a = c × cos (θ)</b>, while the path made vertically can be expressed as <b>y = b = c × sin (θ)</b>.\n\nwhile the path made vertically can be expressed as:",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<p><math display=\"block\"><mn>P</mn> <mi>=</mi> <mn>(200, 200)</mn> </math></center></p><p class=\"desc\"><b>Formula 5</b>: Representation of the distances traveled from the origin <b>O</b> to point <b>P</b>.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "#### Conclusion\n\nIn this text, we saw that there are different ways to express a traveled path. Regardless of the approach used, the horizontal and vertical displacements are treated independently, although both represent the total distance traveled.\n\nFurthermore, we observed, through the Pythagorean Theorem, that the relationships between the projections of the hypotenuse onto its legs can also be described using the cosine and sine of the angle formed between the hypotenuse and the horizontal.",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     }
+                                 ]
+                    }
+                ],
+    "exercise_v2":  [
+
+                    ],
+    "game_v2":  [
+
+                ],
+    "date_time":  null
+}

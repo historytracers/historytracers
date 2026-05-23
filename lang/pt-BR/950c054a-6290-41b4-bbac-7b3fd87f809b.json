@@ -1,0 +1,307 @@
+{
+    "title":  "História de um Teorema",
+    "header":  "História de um Teorema",
+    "sources":  [
+                    "950c054a-6290-41b4-bbac-7b3fd87f809b"
+                ],
+    "scripts":  [
+                    "950c054a-6290-41b4-bbac-7b3fd87f809b"
+                ],
+    "audio":  [
+                  {
+                      "url":  "https://www.historytracers.org/audios/950c054a-6290-41b4-bbac-7b3fd87f809b_pt-BR.ogg",
+                      "external":  true,
+                      "spotify":  false
+                  },
+                  {
+                      "url":  "https://spotifycreators-web.app.link/e/KDadgCsMlVb",
+                      "external":  true,
+                      "spotify":  true
+                  }
+              ],
+    "index":  [
+                  "atlas"
+              ],
+    "license":  [
+                    "SPDX-License-Identifier: GPL-3.0-or-later",
+                    "CC BY-NC 4.0 DEED"
+                ],
+    "last_update":  [
+                        "1775271675"
+                    ],
+    "authors":  [
+                    ""
+                ],
+    "reviewers":  [
+
+                  ],
+    "type":  "class",
+    "version":  2,
+    "editing":  false,
+    "content":  [
+                    {
+                        "id":  "SECTION_prerequisites",
+                        "text":  [
+                                     {
+                                         "text":  "### Pré-requisitos\n\nRecomendamos ler o texto anterior primeiro para melhorar a compreensão (<htcite0>).",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "b2f637db-6c44-4941-849c-6568ce3c10b4",
+                                                            "text":  "History Tracers Atlas",
+                                                            "page":  "Localização",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2024",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     }
+                                 ]
+                    },
+                    {
+                        "id":  "SECTION_local_content",
+                        "text":  [
+                                     {
+                                         "text":  "<p class=\"pythagorasTriangle\" id=\"pytri0\"><svg viewBox=\"0 0 600 300\" id=\"svgpytri0\"><rect x=\"210\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">1</text><rect x=\"237\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">2</text><rect x=\"264\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">3</text><rect x=\"291\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">4</text><rect x=\"210\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">5</text><rect x=\"237\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">6</text><rect x=\"264\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">7</text><rect x=\"291\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">8</text><rect x=\"210\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">9</text><rect x=\"237\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">10</text><rect x=\"264\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">11</text><rect x=\"291\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">12</text><rect x=\"210\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">13</text><rect x=\"237\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">14</text><rect x=\"264\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">15</text><rect x=\"291\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">16</text><rect x=\"318\" y=\"109\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"320\" y=\"127\" font-size=\"1.3em\" font-weight=\"bold\">1</text><rect x=\"345\" y=\"109\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"347\" y=\"127\" font-size=\"1.3em\" font-weight=\"bold\">2</text><rect x=\"372\" y=\"109\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"374\" y=\"127\" font-size=\"1.3em\" font-weight=\"bold\">3</text><rect x=\"318\" y=\"136\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"320\" y=\"154\" font-size=\"1.3em\" font-weight=\"bold\">4</text><rect x=\"345\" y=\"136\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"347\" y=\"154\" font-size=\"1.3em\" font-weight=\"bold\">5</text><rect x=\"372\" y=\"136\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"374\" y=\"154\" font-size=\"1.3em\" font-weight=\"bold\">6</text><rect x=\"318\" y=\"163\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"320\" y=\"181\" font-size=\"1.3em\" font-weight=\"bold\">7</text><rect x=\"345\" y=\"163\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"347\" y=\"181\" font-size=\"1.3em\" font-weight=\"bold\">8</text><rect x=\"372\" y=\"163\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"374\" y=\"181\" font-size=\"1.3em\" font-weight=\"bold\">9</text><rect x=\"236\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">1</text><rect x=\"263\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">2</text><rect x=\"290\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">3</text><rect x=\"317\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">4</text><rect x=\"344\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">5</text><rect x=\"236\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">6</text><rect x=\"263\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">7</text><rect x=\"290\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">8</text><rect x=\"317\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">9</text><rect x=\"344\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">10</text><rect x=\"236\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">11</text><rect x=\"263\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">12</text><rect x=\"290\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">13</text><rect x=\"317\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">14</text><rect x=\"344\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">15</text><rect x=\"236\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">16</text><rect x=\"263\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">17</text><rect x=\"290\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">18</text><rect x=\"317\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">19</text><rect x=\"344\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">20</text><rect x=\"236\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">21</text><rect x=\"263\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">22</text><rect x=\"290\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">23</text><rect x=\"317\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">24</text><rect x=\"344\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">25</text><text x=\"240\" y=\"186\" font-size=\"1.3em\" font-weight=\"bold\">θ</text></svg></p><p class=\"desc\"><b>Gráfico 1</b>: Prova visual do Teorema de Pitágoras.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "### História de um Teorema\n\nO gráfico desta seção é uma prova visual — uma argumentação matemática que demonstra que o proposto é real (<htcite0>) — do Teorema de Pitágoras.\n\n#### Onde está?\n\nVocê já se fez a seguinte pergunta?",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "fc17254b-5b9e-458b-8406-749d8fb6778a",
+                                                            "text":  "Weisstein, Eric W.",
+                                                            "page":  "",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: Teorema de Pitágoras</b><br /><br />Por que preciso aprender o Teorema de Pitágoras?</div></div></center></p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "O Teorema de Pitágoras, nos dias atuais, é utilizado por muitos profissionais diariamente, mesmo sem o conhecimento das pessoas. Nesta seção, tornamos sua utilização mais visível para responder à reflexão.\n\n#### A descoberta\n\nO que chamamos de Teorema de Pitágoras não pode ter recebido esse nome quando foi descoberto pela primeira vez.\n\nAcompanharemos o Dr. Daniel F. Mansfield, que utiliza o termo \"diagonal tripla\" para se referir à relação entre números que seguem a mesma regra atribuída a Pitágoras em antigos textos babilônicos, escritos em notação posicional sexagesimal (<htcite0>).\n\nAs razões para isso são o fato de que Pitágoras não poderia ter descoberto algo antes de nascer. Além disso, apesar da semelhança entre os valores do tablete *Plimpton 322* e os valores obtidos pela trigonometria, não se pode afirmar que os babilônios utilizavam a trigonometria como os gregos e como a conhecemos hoje. Entretanto, o conhecimento sobre o triângulo retângulo entre os babilônios é comprovado pela peça *Si. 427*, presente no *Museu Arqueológico de Istambul* (<htcite1>).\n\nAlém dos babilônios, há registros da relação entre os valores de um triângulo retângulo também na Índia (<htcite2>).",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
+                                                            "text":  "Mansfield, D. F.",
+                                                            "page":  "pp. 985 - 1003",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2021",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        },
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
+                                                            "text":  "Mansfield, D. F.",
+                                                            "page":  "pp. 985 - 1003",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2021",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        },
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "f40bd766-4f57-4f9b-a715-dd75311cada5",
+                                                            "text":  "Britannica, T. Editors of Encyclopaedia",
+                                                            "page":  "",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2024",
+                                                                              "month":  "11",
+                                                                              "day":  "03"
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "#### O Teorema de Pitágoras\n\nA versão do teorema que conhecemos hoje vem da Grécia Antiga (<htcite0>; <htcite1>), mais de um milênio após as inscrições babilônicas. O filósofo e matemático grego Pitágoras teria chegado à mesma conclusão, seja por ter tido contato com esse conhecimento em outras culturas, seja por meio de seus próprios estudos. É essa versão que conhecemos em detalhes.",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "082f655f-5086-4998-9ed6-02906ab5eeb0",
+                                                            "text":  "Moras, Roberto",
+                                                            "page":  "",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2024",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        },
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "f40bd766-4f57-4f9b-a715-dd75311cada5",
+                                                            "text":  "Britannica, T. Editors of Encyclopaedia",
+                                                            "page":  "",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2024",
+                                                                              "month":  "11",
+                                                                              "day":  "03"
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "#### A Tabuada e o Triângulo\n\nÀ medida que avançamos nos estudos, algumas informações passam despercebidas, como o fato de que, ao desenharmos a tabuada no formato de um gráfico, podemos visualizá-la como um triângulo retângulo.\n\nPara mais detalhes sobre a tabuada e os triângulos retângulos, sugerimos o estudo do *Primeiros Passos* do **History Tracers** (<htcite0>). Detalhes sobre triângulos são apresentados no texto que ensina a tabuada do três (<htcite1>).",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                                                            "text":  "History Tracers Team",
+                                                            "page":  "Primeiros Passos",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2024",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        },
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                                                            "text":  "History Tracers Team",
+                                                            "page":  "Entendendo a Tabuada (2 e 3)",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2025",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "#### O Triângulo Retângulo\n\nNo gráfico desta seção, temos um triângulo retângulo (<htcite0>) centralizado em quadrados. Para formar esse triângulo, utilizamos quadrados que, ao final, compõem um quadrado maior.\n\nNeste gráfico, adicionamos 16 quadrados na base, que chamaremos de **cateto**. No lado oposto ao ângulo teta (θ) (<htcite1>), colocamos 9 quadrados, com uma das extremidades conectada ao ponto final do quadrado de valor 4; também chamaremos esse lado de **cateto**. Por fim, unimos os pontos dos quadrados de valor 1, formando um total de 25 quadrados, que chamaremos de **hipotenusa**.",
+                                         "source":  [
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "e31c5a5d-a61f-488b-a657-cf82d112e105",
+                                                            "text":  "Weisstein, Eric W.",
+                                                            "page":  "",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2024",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        },
+                                                        {
+                                                            "type":  1,
+                                                            "uuid":  "6438de6a-38b8-4060-943d-d2c3f5f36160",
+                                                            "text":  "Weisstein, Eric W.",
+                                                            "page":  "",
+                                                            "date_time":  {
+                                                                              "type":  "gregory",
+                                                                              "year":  "2024",
+                                                                              "month":  "",
+                                                                              "day":  ""
+                                                                          }
+                                                        }
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "markdown",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "Observamos que o número total de quadrados em cada lado (9, 16 e 25) corresponde ao produto do comprimento de cada linha por ela mesma. Ou seja, o valor total dos quadrados geométricos é dado pelo produto do tamanho de cada lado por ele mesmo:</p><p><ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul></p><p class=\"desc\"><b>Cálculo 1</b>: Lados do triângulo expressos em quadrados.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão: Isto me lembra...</b><br /><br />Observe o <b>Cálculo 1</b>.<br /><br />Você consegue criar uma relação matemática para os resultados do <b>Cálculo 1</b>?</div></div></center></p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     },
+                                     {
+                                         "text":  "<p>Podemos observar que, ao somarmos os quadrados dos catetos, o resultado será o quadrado da hipotenusa:</p><p><ul class=\"citation\"><li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>9</mn> <mo>+</mo> <mn>16</mn></li></ul></p><p class=\"desc\"><b>Cálculo 2</b>: Soma dos quadrados dos catetos igual ao quadrado da hipotenusa.</p><p>Este resultado é conhecido como <b>Teorema de Pitágoras</b> e o expressamos pela *Fórmula 1*:</p><p><math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>    </mrow></math><p class=\"desc\"><b>Fórmula 1</b>: Teorema de Pitágoras, onde <i>a</i> é o cateto adjacente, <i>b</i> é o cateto oposto, e <i>c</i> é a hipotenusa.</p>",
+                                         "source":  [
+
+                                                    ],
+                                         "date_time":  null,
+                                         "isTable":  false,
+                                         "imgdesc":  "",
+                                         "format":  "html",
+                                         "PostMention":  ""
+                                     }
+                                 ]
+                    }
+                ],
+    "exercise_v2":  [
+
+                    ],
+    "game_v2":  [
+
+                ],
+    "date_time":  null
+}
