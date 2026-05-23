@@ -26,3 +26,5 @@ function htLoadContent() {
 
     return false;
 }
+
+htSetImageSrc("imgPlanetSpaceTime", "images/HistoryTracers/Planet_Space_Time.png");

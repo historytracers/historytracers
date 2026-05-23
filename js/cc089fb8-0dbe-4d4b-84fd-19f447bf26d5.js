@@ -26,3 +26,5 @@ function htLoadContent() {
 
     return false;
 }
+
+htSetImageSrc("imgGaiaStarMap", "images/ESA/Zoom_into_Gaia_s_star-formation_map_highlighted.jpg");

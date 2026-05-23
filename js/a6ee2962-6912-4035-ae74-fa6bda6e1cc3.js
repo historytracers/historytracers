@@ -26,3 +26,5 @@ function htLoadContent() {
 
     return false;
 }
+
+htSetImageSrc("imgPlanckHistory", "images/ESA/Planck_history_of_Universe.jpg");

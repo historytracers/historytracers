@@ -26,3 +26,5 @@ function htLoadContent() {
 
     return false;
 }
+
+htSetImageSrc("imgPlanckCMB", "images/ESA/Planck_s_view_of_the_cosmic_microwave_background.jpg");

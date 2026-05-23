@@ -26,3 +26,5 @@ function htLoadContent() {
 
     return false;
 }
+
+htSetImageSrc("imgUniverseTimeInflation", "images/ESA/The_Universe_across_space_and_time.jpg");
