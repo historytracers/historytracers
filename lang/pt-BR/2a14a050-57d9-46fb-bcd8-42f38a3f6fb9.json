@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779482150"
+      "1779503533"
    ],
    "authors": [
       ""
@@ -329,6 +329,148 @@
             {
                "text": "<div><b>Represente o valor no ábaco:</b><br /> <span id=\"abacoCMP\" class=\"text_to_paint\"></span></div> </div><div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">Há coluna(s) com valores maiores que 9! Cada dígito deve permanecer entre 0 e 9.</span></div><div id=\"suanpanSuccess\"><span id=\"suanpanMaxValue\" style=\"display: none; visibility: hidden;\">999999999</span><span id=\"suanpanMinValue\" style=\"display: none; visibility: hidden;\">10</span><span id=\"suanpanSuccessText\" class=\"text_to_paint\" style=\"display: none; visibility: hidden; font-size: 2em\" ><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>Parabéns!!<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i></span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
                "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_abyayala",
+         "text": [
+            {
+               "text": "### Descobrindo a *Abya Ayala* (América )\n\n#### Limites:\n\nO próximo aplicativo, assim como os anteriores nesta página, tem limitações artificiais que estamos adicionando, mas isso não que dizer que não podemos representar números maiores neles.\n\nPara o estudo dos sistemas numéricos e ferramentas de *Abya Yala* (América), iremos mostrar o sistema mesoamericano na primeita etapa, e na sequência prosseguiremos com a *Yupana* usando o método *Yupana Inka Tawa Pukllay* com no máximo duas linhas que representam as unidades e dezenas controladas pelas setas (<htcite0>; <htcite1>).\n\n#### **Objetivo e regras**: Traduza a numeração indo-arábica que aparecerá, para o formato Mesoamericano ou na *Yupana*. A cada valor traduzido, você será apresentado a uma mensagem:  <i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>Parabéns!!<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>.\n\nPara passar para o próximo cálculo, clique em <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>.\n\n**Recordação**: Para ler um número na *Yupana*, é necessário observar os quatro quadrantes. Em contraste, os números mesoamericanos são representados em um único quadrante.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Traduza a primeira linha e descubra construções indígenas.</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\">&nbsp;</td> <td id=\"tc2f1\">&nbsp;</td> <td id=\"tc3f1\">&nbsp;</td> <td id=\"tc4f1\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\">&nbsp;</div></td> <td id=\"tc2f2\">&nbsp;</td> <td id=\"tc3f2\">&nbsp;</td> <td id=\"tc4f2\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\">&nbsp;</div></td> <td id=\"tc2f3\">&nbsp;</td> <td id=\"tc3f3\">&nbsp;</td> <td id=\"tc4f3\"><div id=\"descImage\"></div> <span style=\"font-size: 3em; color: Tomato;\"><i id=\"nextLevel\" class=\"fa-solid fa-play\"></i></span></td></tr> </table></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Nós utilizamos a <i>Yupana</i> através do método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<htcite0>) da Associação Yupanki (<htcite1>).<br />A aplicação dos números mesoamericanos é baseada no trabalho de Orlando Josué Casares Contreras, José M. Gamboa Cetina e Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>).  Além disso, incorporamos dados dos trabalhos de Francisco Barriga Puente e Ximena Catepillán (<htcite4> ; <htcite5>).<br />Por fim, empregamos diversos métodos de contagem inspirados pelo trabalho de Francisco A. González Redondo <i>et al.</i> (<htcite6>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí",
+                     "page": "ResearchGate",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí",
+                     "page": "Revista",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ced67eaf-7378-4589-9166-07f799969e3e",
+                     "text": "Catepillán, Ximena",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "26"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

@@ -589,7 +589,6 @@ function htFillAbacoGameValue() {
         if (localSorobanController.currentGameLevel == 8) {
             localSorobanController.currentGameLevel = 0;
         }
-        console.log(minVal+" "+maxVal);
     }
 
     cmpobj.innerText = htGetRandomArbitrary(minVal, maxVal)+".0";
