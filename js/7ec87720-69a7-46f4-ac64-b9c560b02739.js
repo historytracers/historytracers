@@ -141,7 +141,9 @@ function htLoadRandomTranslation() {
     $("#gameImage").html("<div class=\"first_steps_reflection question_mark\">?</div>");
 
     for (let i = 0; i < 4; i++) {
-        $("#numberFieldnum"+i).val("");
+        if ($("#numberFieldnum"+i).length > 0) {
+            $("#numberFieldnum"+i).val("");
+        }
     }
 
     var lvalues = [];
