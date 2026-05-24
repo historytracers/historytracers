@@ -51,22 +51,9 @@ function htTranslationDefineEnd() {
         case 1:
             end = -1;
             break;
-/*
-        case 2:
-        case 3:
-*/
         default:
             end = 1;
             break;
-/*
-        case 4:
-        case 5:
-            end = 3;
-            break;
-        default:
-            end = 4;
-            break;
-*/
     }
 
     return end;
@@ -171,25 +158,16 @@ function htLoadRandomTranslation() {
             return;
         case 5:
             htResetRandomGame();
-            break;
-/*
-        case 2:
-            htResetRandomGame();
-            //$("#num1").show();
-            break;
-        case 4:
-            //$("#num2").show();
+            htTranslationShowAmericanVector();
             break;
         case 6:
-            //$("#num3").show();
-            break;
-*/
+        case 7:
+        case 8:
         case 9:
             htTranslationShowAmericanVector();
             break;
     }
 
-    htTranslationShowAmericanVector();
     htTranslationCheckRandomAnswer();
 }
 
