@@ -64,6 +64,7 @@ function htCheckSinglePosition() {
 }
 
 function htTranslationCheckRandomAnswer() {
+    local.gameRandomEnd = true;
     var end = htTranslationDefineEnd();
     
     var showImage = true;
@@ -86,17 +87,18 @@ function htTranslationCheckRandomAnswer() {
     }
 
     if (showImage == false) {
+        local.gameRandomEnd = false;
         return;
     }
 
     if (local.gameTranslationCurrentLevel == 9) { 
+        $("#num2").html("<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>");
         local.gameTranslationCurrentLevel = -1;
+    } else {
+        $("#num2").html("<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>");
     }
 
 
-    $("#num2").html("<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>");
-    local.gameRandomEnd = true;
-    local.gameChecking = true;
     $("#nextLevel").show();
 }
 
@@ -195,18 +197,21 @@ function htLoadContent() {
             if (local.gameRandomEnd == false && local.gameChecking == false) {
                 local.gameChecking = true;
                 var fieldName = "#numberFieldnum"+name[11];
+                let localIdx = parseInt(name[11]);
                 var value = $(fieldName).val();
-                if (value.length == 0) {
-                    value = 0;
-                } else {
-                    value++;
-                }
+                if (value.length == 0 || value != local.gameTranslationRandomVector[localIdx]) {
+                    if (value.length == 0) {
+                        value = 0;
+                    } else {
+                        value++;
+                    }
 
-                if (value >= 9) {
-                    value = 9;
+                    if (value >= 9) {
+                        value = 9;
+                    }
+    
+                    $(fieldName).val(value);
                 }
-
-                $(fieldName).val(value);
                 htTranslationCheckRandomAnswer();
                 local.gameChecking = false;
             }
@@ -227,18 +232,21 @@ function htLoadContent() {
             if (local.gameRandomEnd == false && local.gameChecking == false) {
                 local.gameChecking = true;
                 var fieldName = "#numberFieldnum"+name[13];
+                let localIdx = parseInt(name[13]);
                 var value = $(fieldName).val();
-                if (value.length == 0) {
-                    value = 9;
-                } else {
-                    value--;
-                }
+                if (value.length == 0 || value != local.gameTranslationRandomVector[localIdx]) {
+                    if (value.length == 0) {
+                        value = 9;
+                    } else {
+                        value--;
+                    }
 
-                if (value <= 0) {
-                    value = 0;
-                }
+                    if (value <= 0) {
+                        value = 0;
+                    }
 
-                $(fieldName).val(value);
+                    $(fieldName).val(value);
+                }
                 htTranslationCheckRandomAnswer();
                 local.gameChecking = false;
             }
