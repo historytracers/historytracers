@@ -7,10 +7,12 @@ function htTranslationDefineEnd() {
     switch (local.gameTranslationCurrentLevel) {
         case 0:
         case 1:
+        case 2:
             end = -1;
             break;
+        case 3:
         default:
-            end = 1;
+            end = 2;
             break;
     }
 
@@ -39,8 +41,7 @@ function htResetRandomGame()
 
 function htTranslationFillRandomVector(minVal, maxVal, end)
 {
-    const localVal = htGetRandomArbitrary(minVal, maxVal);
-    $("#num2").html(localVal);
+    let localVal = htGetRandomArbitrary(minVal, maxVal);
     htFillYupanaValues('#yupana1', localVal, 2, '#tc5f', 'red_dot_right_up');
 
     var vector = [];
@@ -51,27 +52,37 @@ function htTranslationFillRandomVector(minVal, maxVal, end)
         vector.push(rest);
     }
 
-    return vector;
+    return vector.reverse();
+}
+
+function htCheckSinglePosition() {
+    let val = parseInt($("#numberFieldnum1").val());
+    if (val != local.gameTranslationRandomVector[0]) {
+        return false;
+    }
+    return true;
 }
 
 function htTranslationCheckRandomAnswer() {
     var end = htTranslationDefineEnd();
-    var begin = 0;
     
     var showImage = true;
     let val = 0;
     if (end > 0) {
-        for (let i = begin; i < end; i++) {
-            val = parseInt($("#numberFieldnum"+i).val());
-            if (val != local.gameTranslationRandomVector[i]) {
-                showImage = false;
+        if (local.gameTranslationRandomVector.length == 1) {
+            showImage =  htCheckSinglePosition();
+        } else {
+            var counter = 0;
+            for (let i = 0; i < end; i++) {
+                val = parseInt($("#numberFieldnum"+i).val());
+                if (val == local.gameTranslationRandomVector[i]) {
+                    counter++;
+                }
             }
+            showImage =  ( counter == 2) ? true: false;
         }
     } else {
-        val = parseInt($("#numberFieldnum1").val());
-        if (val != local.gameTranslationRandomVector[0]) {
-            showImage = false;
-        }
+        showImage =  htCheckSinglePosition();
     }
 
     if (showImage == false) {
@@ -91,10 +102,12 @@ function htTranslationCheckRandomAnswer() {
 
 function htLoadRandomTranslation() {
     local.gameTranslationCurrentLevel++;
+    $("#num2").html("");
 
     let min = 1, max = 9;
-    if (local.gameTranslationCurrentLevel > 3) {
-        min = 10, max = 99;
+    if (local.gameTranslationCurrentLevel > 2) {
+        min = 10*local.gameTranslationCurrentLevel;
+        max = min + 9;
     }
 
     for (let i = 0; i < 2; i++) {
@@ -106,11 +119,13 @@ function htLoadRandomTranslation() {
     var lvalues = [];
     switch (local.gameTranslationCurrentLevel) {
         case 0:
+            htResetRandomGame();
+        case 1:
             htTranslationShowAmericanVector();
             $("#num0").hide();
             $("#nextLevel").hide();
             break;
-        case 1:
+        case 2:
             htCleanYupanaDecimalValues('#yupana1', 2);
 
             $("#yupana1 #tc1f1").html(htYupanaDrawFirstSquare());
@@ -124,30 +139,21 @@ function htLoadRandomTranslation() {
             $("#yupana1 #tc4f2").html(htYupanaDrawFourthSquare());
 
             local.gameTranslationRandomVector = htTranslationFillRandomVector(min, max, 2);
+            $("#nextLevel").hide();
 
             break;
-/*
-        case 0:
-
-            //lvalues = htFillYupanaDecimalValues('#yupana1', local.gameTranslationRandomVector, 2, 'red_dot_right_up');
-            return;
-        case 1:
-        case 2:
         case 3:
         case 4:
-            htCleanYupanaDecimalValues('#yupana1', 2);
-            //lvalues = htFillYupanaDecimalValues('#yupana1', local.gameTranslationRandomVector[0], 1, 'blue_dot_right_bottom');
-            return;
         case 5:
-            htResetRandomGame();
-            break;
         case 6:
         case 7:
         case 8:
         case 9:
-            htTranslationShowAmericanVector();
+            htCleanYupanaDecimalValues('#yupana1', 2);
+            $("#num0").show();
+            $("#nextLevel").hide();
+            local.gameTranslationRandomVector = htTranslationFillRandomVector(min, max, 2);
             break;
-*/
     }
 
     htTranslationCheckRandomAnswer();
