@@ -1,27 +1,4 @@
-var localSorobanController = {
-    "abacusMode": "suanpan",
-    "COLUMNS": 9,
-    "state": [],
-    "decimalMarkerCol": 8,
-    "canvas": null,
-    "ctx": undefined,
-    "canvasWidth": 860,
-    "canvasHeight": 400,
-    "colWidth": 0,
-    "margin": { top: 48, bottom: 48 },
-    "startX": 0,
-    "ballRadius": 0,
-    "upperPositions": [],
-    "lowerPositions": [],
-    "upperBeadCount": 2,
-    "lowerBeadCount": 5,
-    "decimalTrackY": 0,
-    "decimalTrackTop": 0,
-    "decimalTrackBottom": 0,
-    "barY": 0,
-    "isDraggingDecimal": false,
-    "verticalStep": 14
-};
+var localSorobanController = { };
 
 function htSorobanGetBeadConfig() {
     if (localSorobanController.abacusMode === "soroban") {
@@ -598,10 +575,23 @@ function htFillAbacoGameValue() {
     if (successDiv) {
         successDiv.classList.add('hidden');
     }
+    let maxVal  = 9, minVal = 1;
     const maxValStr = document.getElementById('suanpanMaxValue');
-    let maxVal =  (maxValStr == undefined) ? 9 : maxValStr.innerText;
+    const minValStr = document.getElementById('suanpanMinValue');
+    if ((maxValStr != undefined) && (minValStr != undefined)) {
+        minVal =  parseInt(minValStr.innerText);
 
-    cmpobj.innerText = htGetRandomArbitrary(1, maxVal);
+        const localPower = 10**localSorobanController.currentGameLevel;
+        minVal *=  localPower;
+        maxVal =  parseInt(99.9999999*localPower);
+
+        localSorobanController.currentGameLevel++;
+        if (localSorobanController.currentGameLevel == 8) {
+            localSorobanController.currentGameLevel = 0;
+        }
+    }
+
+    cmpobj.innerText = htGetRandomArbitrary(minVal, maxVal)+".0";
 }
 
 function htSorobanResetSoroban() {
@@ -638,6 +628,11 @@ function htSorobanSwitchMode(mode) {
     }
     document.getElementById('btnSorobanMode').classList.toggle('active', mode === 'soroban');
     document.getElementById('btnSuanpanMode').classList.toggle('active', mode === 'suanpan');
+
+    const successDiv = document.getElementById('suanpanSuccessText');
+    if (successDiv) {
+        $("#suanpanSuccessText").css("display","none").css("visibility","hidden");
+    }
     
     htSorobanComputeLayout();
     htSorobanRender();
@@ -695,6 +690,32 @@ function htSorobanInit() {
 }
 
 function htLoadContent() {
+    localSorobanController = {
+        "abacusMode": "suanpan",
+        "COLUMNS": 9,
+        "state": [],
+        "decimalMarkerCol": 8,
+        "canvas": null,
+        "ctx": undefined,
+        "canvasWidth": 860,
+        "canvasHeight": 400,
+        "colWidth": 0,
+        "margin": { top: 48, bottom: 48 },
+        "startX": 0,
+        "ballRadius": 0,
+        "upperPositions": [],
+        "lowerPositions": [],
+        "upperBeadCount": 2,
+        "lowerBeadCount": 5,
+        "decimalTrackY": 0,
+        "decimalTrackTop": 0,
+        "decimalTrackBottom": 0,
+        "barY": 0,
+        "isDraggingDecimal": false,
+        "verticalStep": 14,
+        "currentGameLevel": 0
+    };
+
     if (document.getElementById('btnSuanpanMode') == undefined) {
         localSorobanController.abacusMode = "soroban";
     } else if (document.getElementById('btnSorobanMode') == undefined) {

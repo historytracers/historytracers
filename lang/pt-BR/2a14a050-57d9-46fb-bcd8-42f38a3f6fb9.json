@@ -1,0 +1,486 @@
+{
+   "title": "Jogo de tradução (Parte II)",
+   "header": "Jogo de tradução (Parte II)",
+   "sources": [
+      "2a14a050-57d9-46fb-bcd8-42f38a3f6fb9"
+   ],
+   "scripts": [
+      "2a14a050-57d9-46fb-bcd8-42f38a3f6fb9",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/2a14a050-57d9-46fb-bcd8-42f38a3f6fb9_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5asAtrH8bymzJqWhLXAEQa?si=0cz1fCf2R4OQIJLqF6N7dw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1779673886"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter,",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "05",
+                        "day": "11"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2011",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste jogo tem como objetivo reforçar os conhecimentos sobre os sistemas numéricos. Antes de começar, é recomendado estudar os seguintes textos anteriores:\n- **Nossos lados são iguais**: mostramos que seu corpo tem simetria (<htcite0>).\n- **Contando**: introduzimos a ideia de contagem a partir do próprio corpo (<htcite1>).\n- **Além dos dedos**: explorando as limitações e a necessidade de novas ferramentas para contar (<htcite2>).\n- **Construindo para contar (Soroban, 算盤)**: Neste texto, aprendemos como o Japão (Nippon-koku ou Nihon-koku, 日本国) construiu seu ábaco e como utilizá-lo para contar (<htcite3>).\n- **Construindo para contar (Suanpan, 算盤)**: Neste texto, conhecemos o ábaco construído na China (Zhōngguó, 中国) e aprendemos como representar números nele (<htcite4>).\n- **Jogo de tradução (Parte I)**: Primeira fase deste jogo, que treina números entre 1 e 9 (<htcite5>).\n- **Famílias numéricas (Parte I)**: Neste texto, começamos a estudar números com mais de um dígito e aprendemos que eles podem ser apresentados em famílias (<htcite6>).\n- **Famílias numéricas (Parte II)**: Neste texto, aprendemos os nomes de outras famílias numéricas com mais de dois dígitos (<htcite7>).\n- **Ordens maiores com Soroban e Suanpan (算盤)**: Neste texto, aprendemos como representar, nos ábacos, as ordens numéricas estudadas nos textos anteriores (<htcite8>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "20b14681-88c0-438a-a273-a0902ae5db38",
+                     "text": "Nossos lados são iguais",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3874d1e8-0f76-4432-9ee2-d8c8c9dccf53",
+                     "text": "Contando",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cc8c1467-a6af-4f9c-ba60-ab6df35aba05",
+                     "text": "Além dos Dedos",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c3c69877-a92b-493c-b98a-5c1c6d5875f4",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Suanpan, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1e8e2b4c-03ed-4b98-b9e2-f678b5b36a84",
+                     "text": "History Tracers Team",
+                     "page": "Jogo de Tradução (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers Team",
+                     "page": "Famílias numéricas (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Famílias numéricas (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d7a249ed-cc2d-40e0-adec-ca3e9738e5d3",
+                     "text": "History Tracers Team",
+                     "page": "Ordens maiores com Soroban e Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nAssim como fizemos no primeiro nível do jogo (<htcite0>), nosso objetivo aqui é reforçar nossos conhecimentos sobre representação numérica, mas, desta vez, faremos isso com números de mais de um dígito.\n\nEmbora a forma como representamos os números em um dos ábacos — Soroban e Suanpan (算盤) — (<htcite1>; <htcite2>; <htcite3>) não seja exatamente igual à que utilizamos na *Yupana Inca* ou mesmo no sistema mesoamericano (<htcite4>; <htcite5>), a lógica da sequência numérica é a mesma em qualquer um desses sistemas.\n\nDessa forma, neste segundo nível, utilizaremos primeiro os ábacos da China (Zhongguo 中國) e do Japão (Nippon koku or Nihon koku, 日本国) e, na sequência, os sistemas numéricos de *Abya Yala* (América).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1e8e2b4c-03ed-4b98-b9e2-f678b5b36a84",
+                     "text": "History Tracers Team",
+                     "page": "Jogo de Tradução (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c3c69877-a92b-493c-b98a-5c1c6d5875f4",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Suanpan, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d7a249ed-cc2d-40e0-adec-ca3e9738e5d3",
+                     "text": "History Tracers Team",
+                     "page": "Ordens maiores com Soroban e Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí",
+                     "page": "ResearchGate",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí",
+                     "page": "Revista",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_asia",
+         "text": [
+            {
+               "text": "### Traduzindo para a Ásia\n\n#### O jogo (Objetivo e regra)\n\nNosso objetivo será representar o número indo-arábico em uma versão do ábaco (Soroban (算盤) ou Suanpan (算盤)). Nesta etapa, ainda não mexeremos no marcador decimal (⚫).\n\nNo topo à esquerda, há um valor numérico entre 10 e 999.999.999 sendo exibido acima do ábaco. Mova os marcadores inferiores (que possuem valor 1) e superiores (que possuem valor 5) até fazer com que o campo “Valor” do ábaco mostre o mesmo número exibido no topo. Quando isso ocorrer, aparecerá a mensagem: <i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>Parabéns!!<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i></span>. Ao final, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>) pelo seu trabalho.\n\nPara fazer um novo exercício, basta clicar no botão **Reiniciar**.\n\n**DICA**: Da mesma forma que nascemos como bebês e crescemos passando pelas etapas de criança, adolescência e vida adulta (<htcite0>), os números devem ser escritos por etapas, a partir da coluna onde está nosso marcador decimal, que representa nossa fase de bebê. Depois de fazer com que o primeiro número mais à direita seja igual ao primeiro número mostrado, vá para a coluna imediatamente ao lado e repita o mesmo processo. Afinal, para crescermos, também repetimos etapas, independentemente da fase da vida em que estamos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers Team",
+                     "page": "Famílias numéricas (Parte I)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: clamp(1.5rem, 5vw, 3.5rem); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: clamp(0.8rem, 3vw, 1.8rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem); width: 100%; max-width: 1100px; transition: all 0.2s ease; } .soroban-frame { background: #e9ddb0; border-radius: clamp(1rem, 3vw, 1.8rem); padding: clamp(8px, 2vw, 16px); box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; width: 100%; height: auto; aspect-ratio: 860 / 400; } .value-panel { margin-top: clamp(0.8rem, 4vw, 1.8rem); background: #2e241f; border-radius: 60px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);  display: flex; justify-content: space-between;  align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center;  gap: clamp(8px, 2vw, 18px); flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 0.4rem 1rem; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(1rem, 5vw, 1.9rem); letter-spacing: 1px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: clamp(0.7rem, 3.5vw, 1.2rem); font-weight: normal; background: #4a3929; color: #ffecb3; padding: 0.2rem 0.7rem; border-radius: 30px; margin-left: 8px;  white-space: nowrap; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.85rem, 4vw, 1.2rem); font-family: inherit; padding: 0.5rem 1.2rem; border-radius: 60px; cursor: pointer;  transition: 0.08s linear; box-shadow: 0 3px 0 #4f3822; white-space: nowrap; min-width: 100px; } .reset-btn:active { transform: translateY(2px);  box-shadow: 0 1px 0 #4f3822;  } .legend {  font-size: clamp(0.6rem, 2.8vw, 0.75rem); margin-top: 0; text-align: center;  color: #302419;  background: #ebdfbe; display: inline-block; width: auto;  padding: 0.3rem 0.9rem; border-radius: 60px; backdrop-filter: blur(2px); white-space: nowrap; } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 12px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 0.3rem 1rem; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; color: #302419; white-space: nowrap; } .mode-selector { background: #ebdfbe; border-radius: 60px;  padding: 0.3rem 1rem; display: flex;  gap: 12px; align-items: center; flex-wrap: wrap; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 3vw, 0.85rem); font-family: inherit; padding: 0.4rem 1rem; border-radius: 40px; cursor: pointer; transition: 0.08s linear; box-shadow: 0 2px 0 #4f3822; white-space: nowrap; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: clamp(0.65rem, 2.8vw, 0.75rem); } .warning-message { background: #ff9800; color: #2e241f; padding: 0.3rem 1rem; border-radius: 40px; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); animation: pulseWarning 1.5s ease-in-out infinite; white-space: normal; word-break: keep-all; } .warning-message.hidden { display: none; } @keyframes pulseWarning { 0%, 100% { opacity: 0.85; background: #ff9800; } 50% { opacity: 1; background: #ffb74d; box-shadow: 0 0 4px #ff9800; } } .warning-icon { font-size: 1rem; } .info-area { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; } @media (max-width: 720px) { .value-panel { flex-direction: column; align-items: stretch; border-radius: 32px; } .value-panel-left { justify-content: center; } .readout { text-align: center; white-space: normal; word-break: break-word; } .footer { flex-direction: column; align-items: stretch; } .mode-selector, .info-area, .decimal-control { justify-content: center; } .legend { white-space: normal; text-align: center; } .reset-btn { text-align: center; width: 100%; } } @media (max-width: 480px) { .readout span { margin-left: 4px; } .mode-selector { justify-content: center; gap: 8px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div><b>Represente o valor no ábaco:</b><br /> <span id=\"abacoCMP\" class=\"text_to_paint\"></span></div> </div><div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">Há coluna(s) com valores maiores que 9! Cada dígito deve permanecer entre 0 e 9.</span></div><div id=\"suanpanSuccess\"><span id=\"suanpanMaxValue\" style=\"display: none; visibility: hidden;\">999999999</span><span id=\"suanpanMinValue\" style=\"display: none; visibility: hidden;\">10</span><span id=\"suanpanSuccessText\" class=\"text_to_paint\" style=\"display: none; visibility: hidden; font-size: 2em\" ><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>Parabéns!!<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i></span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_abyayala",
+         "text": [
+            {
+               "text": "### Traduzindo números de *Abya Ayala* (América )\n\n#### Limites\n\nO próximo aplicativo, assim como os anteriores desta página, possui limitações artificiais que estamos adicionando. Isso, porém, não quer dizer que não possamos representar números maiores nele.\n\nPara o estudo dos sistemas numéricos e ferramentas de *Abya Yala* (América), apresentaremos o sistema mesoamericano na primeira etapa. Em seguida, prosseguiremos com a Yupana, utilizando o método *Yupana Inka Tawa Pukllay* com no máximo duas linhas, que representam as unidades e dezenas controladas pelas setas (<htcite0>; <htcite1>).\n\n#### Recordação\n\nPara ler um número na Yupana, é necessário observar os quatro quadrantes. Em contraste, os números mesoamericanos são representados em um único quadrante.\n\nAlém disso, ao compararmos as representações indígenas de *Abya Yala* (América) com os demais sistemas da Ásia (ábaco e indo-arábico), observamos que, nos sistemas asiáticos, os números crescem da direita para a esquerda, enquanto, nos sistemas indígenas, crescem de baixo para cima, assim como no nosso sistema. Para deixar isso mais claro, colorimos de amarelo as unidades e de azul as dezenas, a fim de explicitar como os números estão sendo traduzidos.\n\n#### Objetivo e regras\n\nTraduza a numeração indo-arábica que aparecerá para o formato mesoamericano ou para a Yupana. A cada valor traduzido, você receberá uma medalha (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>). Quando completar as etapas, receberá 3 medalhas (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).\n\nPara passar para o próximo cálculo, clique em <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Traduza a primeira os números indígenas</th> <th style=\"display: none; visibility: hidden;\">&nbsp;</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\" style=\"background-color: lightblue\">&nbsp;</td> <td id=\"tc2f1\" style=\"background-color: lightblue\">&nbsp;</td> <td style=\"background-color: lightblue\" id=\"tc3f1\">&nbsp;</td> <td id=\"tc4f1\" style=\"background-color: lightblue\">&nbsp;</td> <td id=\"tc5f1\" style=\"display: none; visibility: hidden;\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\">&nbsp;</div></td> <td id=\"tc2f2\">&nbsp;</td> <td id=\"tc3f2\">&nbsp;</td> <td id=\"tc4f2\">&nbsp;</td> <td id=\"tc5f2\" style=\"display: none; visibility: hidden;\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\" style=\"background-color: lightblue\">&nbsp;</div></td> <td id=\"tc2f3\">&nbsp;</td> <td id=\"tc3f3\" style=\"background-color: ghostwhite\">&nbsp;</td> <td id=\"tc4f3\" style=\"background-color: ghostwhite\"><div id=\"descImage\"></div> <span style=\"font-size: 3em; color: Tomato;\"><i id=\"nextLevel\" class=\"fa-solid fa-play\"></i></span></td> <td id=\"tc5f3\" style=\"display: none; visibility: hidden;\"></td></tr> </table></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Nós utilizamos a <i>Yupana</i> através do método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<htcite0>) da Associação Yupanki (<htcite1>).<br />A aplicação dos números mesoamericanos é baseada no trabalho de Orlando Josué Casares Contreras, José M. Gamboa Cetina e Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>).  Além disso, incorporamos dados dos trabalhos de Francisco Barriga Puente e Ximena Catepillán (<htcite4> ; <htcite5>).<br />Por fim, empregamos diversos métodos de contagem inspirados pelo trabalho de Francisco A. González Redondo <i>et al.</i> (<htcite6>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí",
+                     "page": "ResearchGate",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí",
+                     "page": "Revista",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ced67eaf-7378-4589-9166-07f799969e3e",
+                     "text": "Catepillán, Ximena",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "26"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
