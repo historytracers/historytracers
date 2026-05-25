@@ -628,6 +628,11 @@ function htSorobanSwitchMode(mode) {
     }
     document.getElementById('btnSorobanMode').classList.toggle('active', mode === 'soroban');
     document.getElementById('btnSuanpanMode').classList.toggle('active', mode === 'suanpan');
+
+    const successDiv = document.getElementById('suanpanSuccessText');
+    if (successDiv) {
+        $("#suanpanSuccessText").css("display","none").css("visibility","hidden");
+    }
     
     htSorobanComputeLayout();
     htSorobanRender();
