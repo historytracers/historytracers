@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779482141"
+      "1779667090"
    ],
    "authors": [
       ""
@@ -197,7 +197,7 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "### Introducción\n\nAsí como hicimos en el primer nivel del juego (<htcite0>), nuestro objetivo aquí es reforzar nuestros conocimientos sobre representación numérica, pero, esta vez, lo haremos con números de más de un dígito.\n\nAunque la forma en que representamos los números en dos de los ábacos —Soroban y Suanpan (算盤) — (<htcite1>; <htcite2>; <htcite3>) no es exactamente igual a la que utilizamos en la Yupana inca o incluso en el sistema mesoamericano (<htcite4>; <htcite5>), la lógica de la secuencia numérica es la misma en cualquiera de estos sistemas.\n\nDe esta forma, en este segundo nivel, utilizaremos primero los ábacos de China (Zhongguo 中國) y de Japón (Nippon koku o Nihon koku, 日本国) y, a continuación, los sistemas numéricos de *Abya Yala* (América).",
+               "text": "### Introducción\n\nAsí como hicimos en el primer nivel del juego (<htcite0>), nuestro objetivo aquí es reforzar nuestros conocimientos sobre representación numérica, pero, esta vez, lo haremos con números de más de un dígito.\n\nAunque la forma en que representamos los números en dos de los ábacos —Soroban y Suanpan (算盤) — (<htcite1>; <htcite2>; <htcite3>) no es exactamente igual a la que utilizamos en la *Yupana inca* o incluso en el sistema mesoamericano (<htcite4>; <htcite5>), la lógica de la secuencia numérica es la misma en cualquiera de estos sistemas.\n\nDe esta forma, en este segundo nivel, utilizaremos primero los ábacos de China (Zhongguo 中國) y de Japón (Nippon koku o Nihon koku, 日本国) y, a continuación, los sistemas numéricos de *Abya Yala* (América).",
                "source": [
                   {
                      "type": 1,
@@ -329,6 +329,148 @@
             {
                "text": "<div><b>Representa el valor en el ábaco:</b><br /> <span id=\"abacoCMP\" class=\"text_to_paint\"></span></div> </div><div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">¡Hay columna(s) con valores mayores que 9! Cada dígito debe mantenerse entre 0 y 9.</span></div><div id=\"suanpanSuccess\"><span id=\"suanpanMaxValue\" style=\"display: none; visibility: hidden;\">999999999</span><span id=\"suanpanMinValue\" style=\"display: none; visibility: hidden;\">10</span><span id=\"suanpanSuccessText\" class=\"text_to_paint\" style=\"display: none; visibility: hidden; font-size: 2em\" ><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>Parabéns!!<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i></span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
                "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_abyayala",
+         "text": [
+            {
+               "text": "### Traduciendo números de *Abya Ayala* (América )\n\n#### Límites\n\nLa siguiente aplicación, al igual que las anteriores de esta página, tiene limitaciones artificiales que estamos añadiendo. Sin embargo, esto no significa que no podamos representar números mayores en ella.\n\nPara el estudio de los sistemas numéricos y herramientas de *Abya Yala* (América), presentaremos el sistema mesoamericano en la primera etapa. A continuación, proseguiremos con la Yupana, utilizando el método *Yupana Inka Tawa Pukllay* con un máximo de dos líneas, que representan las unidades y las decenas controladas por las flechas (<htcite0>; <htcite1>).\n\n#### Recordación\n\nPara leer un número en la Yupana, es necesario observar los cuatro cuadrantes. En contraste, los números mesoamericanos se representan en un solo cuadrante.\n\nAdemás, al comparar las representaciones indígenas de *Abya Yala* (América) con los demás sistemas de Asia (ábaco e indo-arábigo), observamos que, en los sistemas asiáticos, los números crecen de derecha a izquierda, mientras que, en los sistemas indígenas, crecen de abajo hacia arriba, al igual que en nuestro sistema. Para aclarar esto, coloreamos de amarillo las unidades y de azul las decenas, a fin de explicitar cómo se están traduciendo los números.\n\n#### Objetivo y reglas\n\nTraduzca la numeración indo-arábiga que aparecerá al formato mesoamericano o a la Yupana. Por cada valor traducido, recibirá una medalla (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>). Cuando complete las etapas, recibirá 3 medallas (<i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i><i class=\"fa-solid fa-medal\" style=\"color:gold;\"></i>).\n\nPara pasar al siguiente cálculo, haga clic en <i class=\"fa-solid fa-play\" style=\"color: Tomato;\"></i>.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\">Traduzca los primeros números indígenas</th> <th style=\"display: none; visibility: hidden;\">&nbsp;</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\" style=\"background-color: lightblue\">&nbsp;</td> <td id=\"tc2f1\" style=\"background-color: lightblue\">&nbsp;</td> <td style=\"background-color: lightblue\" id=\"tc3f1\">&nbsp;</td> <td id=\"tc4f1\" style=\"background-color: lightblue\">&nbsp;</td> <td id=\"tc5f1\" style=\"display: none; visibility: hidden;\">&nbsp;</td></tr> <tr id=\"tf2\"><td id=\"tc1f2\">&nbsp;</div></td> <td id=\"tc2f2\">&nbsp;</td> <td id=\"tc3f2\">&nbsp;</td> <td id=\"tc4f2\">&nbsp;</td> <td id=\"tc5f2\" style=\"display: none; visibility: hidden;\">&nbsp;</td></tr> <tr id=\"tf3\"><td id=\"tc1f3\" style=\"background-color: lightblue\">&nbsp;</div></td> <td id=\"tc2f3\">&nbsp;</td> <td id=\"tc3f3\" style=\"background-color: ghostwhite\">&nbsp;</td> <td id=\"tc4f3\" style=\"background-color: ghostwhite\"><div id=\"descImage\"></div> <span style=\"font-size: 3em; color: Tomato;\"><i id=\"nextLevel\" class=\"fa-solid fa-play\"></i></span></td> <td id=\"tc5f3\" style=\"display: none; visibility: hidden;\"></td></tr> </table></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\">Utilizamos la <i>Yupana</i> a través del método <i>\"Yupana Inka Tawa Pukllay\"</i>, desarrollado y publicado por Dhavit Prem (<htcite0>) da Associação Yupanki (<htcite1>).<br />La aplicación de los números mesoamericanos se basa en el trabajo de Orlando Josué Casares Contreras, José M. Gamboa Cetina y Venus Sarahí Estrella Cabrera (<htcite2> ; <htcite3>). Además, incorporamos datos de los trabajos de Francisco Barriga Puente y Ximena Catepillán (<htcite4> ; <htcite5>).<br />Por último, empleamos diversos métodos de conteo inspirados por el trabajo de Francisco A. González Redondo <i>et al.</i> (<htcite6>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí",
+                     "page": "ResearchGate",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí",
+                     "page": "Revista",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ced67eaf-7378-4589-9166-07f799969e3e",
+                     "text": "Catepillán, Ximena",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "26"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
