@@ -1,225 +1,228 @@
 {
-    "title":  "Coordenadas de Superficie",
-    "header":  "Coordenadas de Superficie",
-    "sources":  [
-                    "1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7"
-                ],
-    "scripts":  [
-                    "1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7"
-                ],
-    "audio":  [
+   "title": "Coordenadas de Superficie",
+   "header": "Coordenadas de Superficie",
+   "sources": [
+      "1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7"
+   ],
+   "scripts": [
+      "1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/KDadgCsMlVb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "new_atlas"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1779821361"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerrequisitos\n\nRecomendamos leer primero el texto anterior para mejorar la comprensión (<htcite0>).",
+               "source": [
                   {
-                      "url":  "https://www.historytracers.org/audios/1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7_es-ES.ogg",
-                      "external":  true,
-                      "spotify":  false
+                     "type": 1,
+                     "uuid": "0dd6b53f-ea68-475d-9b18-99d38a428c0a",
+                     "text": "History Tracers Atlas",
+                     "page": "¿Dónde estamos en una esfera?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_local_content",
+         "text": [
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMath13\" onclick=\"htImageZoom('imgMath13', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: En esta figura, el paralelo del Ecuador y el Meridiano de Greenwich están destacados, con la intersección en el punto O © Mapswire (<htcite0>)</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Coordenadas de Superficie</h3>La figura de esta sección muestra el punto de encuentro entre el <b>paralelo de Ecuador</b> (<i>Equator parallel</i>) y el <b>meridiano de Greenwich</b> (<i>Greenwich meridian line</i>), marcado como el punto <b>O</b>. Este es el punto de referencia para todas las mediciones de latitud y longitud.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>El origen</h4>Para determinar nuestra posición en la superficie terrestre, utilizamos las coordenadas angulares theta (<b>θ</b>) y fi (<b>ϕ</b>). Sin embargo, en el uso cotidiano, estas coordenadas reciben otros nombres: theta (<b>θ</b>) corresponde a la <b>longitud</b> longitud, mientras que fi (<b>ϕ</b>) es conocida como <b>colatitud</b>. En geografía, también empleamos una medida llamada latitud (<b>δ</b>), que indica la posición respecto al ecuador. La relación entre colatitud y latitud se expresa mediante la fórmula: ϕ = 90° - δ. Esta es solo una de las simplificaciones que veremos a continuación",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "006b21c9-6800-4deb-bb3f-a367dd38b703",
+                     "text": "NOAA",
+                     "page": "Longitude",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "16"
+                     }
                   },
                   {
-                      "url":  "https://spotifycreators-web.app.link/e/KDadgCsMlVb",
-                      "external":  true,
-                      "spotify":  true
+                     "type": 1,
+                     "uuid": "72ea1365-bb46-4036-a9e2-7384896e0a28",
+                     "text": "NOAA",
+                     "page": "Latitude",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "16"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "98aee156-df44-4def-a664-a7db2131c33d",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a7fe67e6-2487-4463-b09e-82de4a04b46c",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
                   }
-              ],
-    "index":
-                ["new_atlas"]
-            ,
-    "license":  [
-                    "SPDX-License-Identifier: GPL-3.0-or-later",
-                    "CC BY-NC 4.0 DEED"
-                ],
-    "last_update":  [
-                        "1775271675"
-                    ],
-    "authors":  [
-                    ""
-                ],
-    "reviewers":  [
-
-                  ],
-    "type":  "class",
-    "version":  2,
-    "editing":  false,
-    "content":  [
-                    {
-                        "id":  "SECTION_prerequisites",
-                        "text":  [
-                                     {
-                                         "text":  "### Prerrequisitos\n\nRecomendamos leer primero el texto anterior para mejorar la comprensión (<htcite0>).",
-                                         "source":  [
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "0dd6b53f-ea68-475d-9b18-99d38a428c0a",
-                                                            "text":  "History Tracers Atlas",
-                                                            "page":  "¿Dónde estamos en una esfera?",
-                                                            "date_time":  {
-                                                                              "type":  "gregory",
-                                                                              "year":  "2024",
-                                                                              "month":  "",
-                                                                              "day":  ""
-                                                                          }
-                                                        }
-                                                    ],
-                                         "date_time":  null,
-                                         "isTable":  false,
-                                         "imgdesc":  "",
-                                         "format":  "markdown",
-                                         "PostMention":  ""
-                                     }
-                                 ]
-                    },
-                    {
-                        "id":  "SECTION_local_content",
-                        "text":  [
-                                     {
-                                         "text":  "<p class=\"desc\"><img id=\"imgMath13\" onclick=\"htImageZoom('imgMath13', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: En esta figura, el paralelo del Ecuador y el Meridiano de Greenwich están destacados, con la intersección en el punto O © Mapswire (<htcite0>)</p>",
-                                         "source":  [
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
-                                                            "text":  "Mapswire",
-                                                            "page":  "",
-                                                            "date_time":  {
-                                                               "type":  "",
-                                                               "year":  "",
-                                                               "month":  "",
-                                                               "day":  ""
-                                                            }
-                                                        }
-                                                    ],
-                                         "date_time":  null,
-                                         "isTable":  false,
-                                         "imgdesc":  "",
-                                         "format":  "html",
-                                         "PostMention":  ""
-                                     },
-                                     {
-                                         "text":  "<p><h3>Coordenadas de Superficie</h3>La figura de esta sección muestra el punto de encuentro entre el <b>paralelo de Ecuador</b> (<i>Equator parallel</i>) y el <b>meridiano de Greenwich</b> (<i>Greenwich meridian line</i>), marcado como el punto <b>O</b>. Este es el punto de referencia para todas las mediciones de latitud y longitud.</p>",
-                                         "source":  [
-
-                                                    ],
-                                         "date_time":  null,
-                                         "isTable":  false,
-                                         "imgdesc":  "",
-                                         "format":  "html",
-                                         "PostMention":  ""
-                                     },
-                                     {
-                                         "text":  "<h4>El origen</h4>Para determinar nuestra posición en la superficie terrestre, utilizamos las coordenadas angulares theta (<b>θ</b>) y fi (<b>ϕ</b>). Sin embargo, en el uso cotidiano, estas coordenadas reciben otros nombres: theta (<b>θ</b>) corresponde a la <b>longitud</b> longitud, mientras que fi (<b>ϕ</b>) es conocida como <b>colatitud</b>. En geografía, también empleamos una medida llamada latitud (<b>δ</b>), que indica la posición respecto al ecuador. La relación entre colatitud y latitud se expresa mediante la fórmula: ϕ = 90° - δ. Esta es solo una de las simplificaciones que veremos a continuación",
-                                         "source":  [
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "006b21c9-6800-4deb-bb3f-a367dd38b703",
-                                                            "text":  "NOAA",
-                                                            "page":  "Longitude",
-                                                            "date_time":  {
-                                                                              "type":  "gregory",
-                                                                              "year":  "2024",
-                                                                              "month":  "06",
-                                                                              "day":  "16"
-                                                                          }
-                                                        },
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "72ea1365-bb46-4036-a9e2-7384896e0a28",
-                                                            "text":  "NOAA",
-                                                            "page":  "Latitude",
-                                                            "date_time":  {
-                                                                              "type":  "gregory",
-                                                                              "year":  "2024",
-                                                                              "month":  "06",
-                                                                              "day":  "16"
-                                                                          }
-                                                        },
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "98aee156-df44-4def-a664-a7db2131c33d",
-                                                            "text":  "Weisstein, Eric W.",
-                                                            "page":  "",
-                                                            "date_time":  {
-                                                                              "type":  "gregory",
-                                                                              "year":  "",
-                                                                              "month":  "",
-                                                                              "day":  ""
-                                                                          }
-                                                        },
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "a7fe67e6-2487-4463-b09e-82de4a04b46c",
-                                                            "text":  "Weisstein, Eric W.",
-                                                            "page":  "",
-                                                            "date_time":  {
-                                                                              "type":  "gregory",
-                                                                              "year":  "",
-                                                                              "month":  "",
-                                                                              "day":  ""
-                                                                          }
-                                                        }
-                                                    ],
-                                         "date_time":  null,
-                                         "isTable":  false,
-                                         "imgdesc":  "",
-                                         "format":  "html",
-                                         "PostMention":  "."
-                                     },
-                                     {
-                                         "text":  "<h4>Longitud</h4>En matemáticas, la longitud (<b>θ</b>) se expresa con valores de 0 hasta 2π radianes o de 0 a 360 grados. No obstante, cuando trabajamos con coordenadas geográficas, dividimos el globo en dos regiones de 180 grados cada una. La línea que separa estas dos regiones es el <b>Meridiano de Greenwich</b>, definido arbitrariamente en <htdate0> como punto zero en el Observatório Real de Greenwich, en la Inglaterra. Las posiciones a leste de Greenwich son mensuradas como X grados a <b>este</b>, y las posiciones a oeste como X grados a <b>oeste</b>",
-                                         "source":  [
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "006b21c9-6800-4deb-bb3f-a367dd38b703",
-                                                            "text":  "NOAA",
-                                                            "page":  "Longitude",
-                                                            "date_time":  {
-                                                                              "type":  "gregory",
-                                                                              "year":  "2024",
-                                                                              "month":  "06",
-                                                                              "day":  "16"
-                                                                          }
-                                                        }
-                                                    ],
-                                         "date_time":  [{"type":"gregory","year":"1894","month":"-1","day":"-1"}],
-                                         "isTable":  false,
-                                         "imgdesc":  "",
-                                         "format":  "html",
-                                         "PostMention":  "."
-                                     },
-                                     {
-                                         "text":  "<h4>Latitud</h4>La latitud (<b>ϕ</b>) se representa en matemáticas con valores que varian de 0 y π/2 radianes, o de 0 a 90 grados. En coordenadas geográficas, dividimos la Tierra en dos regiones de 90 grados, una para el hemisferio norte y otra para el sur. Sin embargo, en matemáticas, las posiciones al sur del ecuador se representan con valores negativos. A diferencia de la longitud, que tiene su origen en un meridiano, la latitud toma como punto de referencia el ecuador, una línea imaginaria que divide el planeta en dos hemisferios. Las posiciones al norte del ecuador se expresan como \"X grados al <b>norte</b>\", y las del sur, como \"X grados al <b>sur</b>\"",
-                                         "source":  [
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "72ea1365-bb46-4036-a9e2-7384896e0a28",
-                                                            "text":  "NOAA",
-                                                            "page":  "Latitude",
-                                                            "date_time":  {
-                                                                              "type":  "gregory",
-                                                                              "year":  "2024",
-                                                                              "month":  "06",
-                                                                              "day":  "16"
-                                                                          }
-                                                        },
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "98aee156-df44-4def-a664-a7db2131c33d",
-                                                            "text":  "Weisstein, Eric W.",
-                                                            "page":  "",
-                                                            "date_time":  {
-                                                                              "type":  "gregory",
-                                                                              "year":  "",
-                                                                              "month":  "",
-                                                                              "day":  ""
-                                                                          }
-                                                        }
-                                                    ],
-                                         "date_time":  null,
-                                         "isTable":  false,
-                                         "imgdesc":  "",
-                                         "format":  "html",
-                                         "PostMention":  "."
-                                     }
-                                 ]
-                    }
-                ],
-    "exercise_v2":  null,
-    "game_v2":  null,
-    "date_time":  null
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "<h4>Longitud</h4>En matemáticas, la longitud (<b>θ</b>) se expresa con valores de 0 hasta 2π radianes o de 0 a 360 grados. No obstante, cuando trabajamos con coordenadas geográficas, dividimos el globo en dos regiones de 180 grados cada una. La línea que separa estas dos regiones es el <b>Meridiano de Greenwich</b>, definido arbitrariamente en <htdate0> como punto zero en el Observatório Real de Greenwich, en la Inglaterra. Las posiciones a leste de Greenwich son mensuradas como X grados a <b>este</b>, y las posiciones a oeste como X grados a <b>oeste</b>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "006b21c9-6800-4deb-bb3f-a367dd38b703",
+                     "text": "NOAA",
+                     "page": "Longitude",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "16"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1894",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "<h4>Latitud</h4>La latitud (<b>ϕ</b>) se representa en matemáticas con valores que varian de 0 y π/2 radianes, o de 0 a 90 grados. En coordenadas geográficas, dividimos la Tierra en dos regiones de 90 grados, una para el hemisferio norte y otra para el sur. Sin embargo, en matemáticas, las posiciones al sur del ecuador se representan con valores negativos. A diferencia de la longitud, que tiene su origen en un meridiano, la latitud toma como punto de referencia el ecuador, una línea imaginaria que divide el planeta en dos hemisferios. Las posiciones al norte del ecuador se expresan como \"X grados al <b>norte</b>\", y las del sur, como \"X grados al <b>sur</b>\"",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "72ea1365-bb46-4036-a9e2-7384896e0a28",
+                     "text": "NOAA",
+                     "page": "Latitude",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "16"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "98aee156-df44-4def-a664-a7db2131c33d",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
 }

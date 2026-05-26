@@ -1,133 +1,129 @@
 {
-    "title":  "¿Dónde estamos en una esfera?",
-    "header":  "¿Dónde estamos en una esfera?",
-    "sources":  [
-                    "a494d959-3b71-4d6d-8e25-62278de4fcf4"
-                ],
-    "scripts":  [
-                    "a494d959-3b71-4d6d-8e25-62278de4fcf4"
-                ],
-    "audio":  [
+   "title": "¿Dónde estamos en una esfera?",
+   "header": "¿Dónde estamos en una esfera?",
+   "sources": [
+      "a494d959-3b71-4d6d-8e25-62278de4fcf4"
+   ],
+   "scripts": [
+      "a494d959-3b71-4d6d-8e25-62278de4fcf4"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/a494d959-3b71-4d6d-8e25-62278de4fcf4_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://spotifycreators-web.app.link/e/KDadgCsMlVb",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "new_atlas"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1779821361"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerrequisitos\n\nRecomendamos leer primero el texto anterior para mejorar la comprensión (<htcite0>).",
+               "source": [
                   {
-                      "url":  "https://www.historytracers.org/audios/a494d959-3b71-4d6d-8e25-62278de4fcf4_es-ES.ogg",
-                      "external":  true,
-                      "spotify":  false
-                  },
-                  {
-                      "url":  "https://spotifycreators-web.app.link/e/KDadgCsMlVb",
-                      "external":  true,
-                      "spotify":  true
+                     "type": 1,
+                     "uuid": "dbb88e75-d0f1-1252-87a7-131419b25872",
+                     "text": "History Tracers Atlas",
+                     "page": "La otra hipotenusa",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
                   }
-              ],
-    "index":
-                ["new_atlas"]
-            ,
-    "license":  [
-                    "SPDX-License-Identifier: GPL-3.0-or-later",
-                    "CC BY-NC 4.0 DEED"
-                ],
-    "last_update":  [
-                        "1775271675"
-                    ],
-    "authors":  [
-                    ""
-                ],
-    "reviewers":  [
-
-                  ],
-    "type":  "class",
-    "version":  2,
-    "editing":  false,
-    "content":  [
-                    {
-                        "id":  "SECTION_prerequisites",
-                        "text":  [
-                                     {
-                                         "text":  "### Prerrequisitos\n\nRecomendamos leer primero el texto anterior para mejorar la comprensión (<htcite0>).",
-                                         "source":  [
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "dbb88e75-d0f1-1252-87a7-131419b25872",
-                                                            "text":  "History Tracers Atlas",
-                                                            "page":  "La otra hipotenusa",
-                                                            "date_time":  {
-                                                                              "type":  "gregory",
-                                                                              "year":  "2024",
-                                                                              "month":  "",
-                                                                              "day":  ""
-                                                                          }
-                                                        }
-                                                    ],
-                                         "date_time":  null,
-                                         "isTable":  false,
-                                         "imgdesc":  "",
-                                         "format":  "markdown",
-                                         "PostMention":  ""
-                                     }
-                                 ]
-                    },
-                    {
-                        "id":  "SECTION_local_content",
-                        "text":  [
-                                     {
-                                         "text":  "<p class=\"desc\"><img id=\"imgMath12\" onclick=\"htImageZoom('imgMath12', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: En esta figura, las coordenadas geográficas se utilizan para ubicar un punto en la esfera © Mapswire (<htcite0>)</p>",
-                                         "source":  [
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
-                                                            "text":  "Mapswire",
-                                                            "page":  "",
-                                                            "date_time":  {
-                                                               "type":  "",
-                                                               "year":  "",
-                                                               "month":  "",
-                                                               "day":  ""
-                                                            }
-                                                        }
-                                                    ],
-                                         "date_time":  null,
-                                         "isTable":  false,
-                                         "imgdesc":  "",
-                                         "format":  "html",
-                                         "PostMention":  ""
-                                     },
-                                     {
-                                         "text":  "<p><h3>¿Dónde estamos en una esfera?</h3>En la sección anterior, extraímos un disco plano de una esfera y aprendimos a posicionarnos en él. Ahora, hagamos un ejercicio práctico:</p><p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Creando una esfera</b><br /><br />Dibuja un círculo en una hoja de papel; puedes usar un plato como molde, trazando el contorno con un lápiz. Luego, recorta el círculo. Colócalo frente a ti, de forma horizontal, y gíralo varias veces en dirección a tus pies.</div></div></center></p>",
-                                         "source":  [
-
-                                                    ],
-                                         "date_time":  null,
-                                         "isTable":  false,
-                                         "imgdesc":  "",
-                                         "format":  "html",
-                                         "PostMention":  ""
-                                     },
-                                     {
-                                         "text":  "Al girar el círculo, estamos representando a una esfera, similar a nuestro planeta, como se muestra en la imagen de esta sección. Este ejercicio también nos muestra la necesidad de definir una nueva variable para posicionarnos más allá de un disco plano. Esta variable adicional está representada por la letra grega fi (<b>ϕ</b>), que varía entre 0 y π radianes, o de 0 a 180 grados. La introducción de fi (<b>ϕ</b>) nos lleva de las coordenadas polares a las coordenadas esféricas",
-                                         "source":  [
-                                                        {
-                                                            "type":  1,
-                                                            "uuid":  "fd003897-89a6-4d01-ae79-da9e564d9583",
-                                                            "text":  "Weisstein, Eric W.",
-                                                            "page":  "",
-                                                            "date_time":  {
-                                                                              "type":  "gregory",
-                                                                              "year":  "",
-                                                                              "month":  "",
-                                                                              "day":  ""
-                                                                          }
-                                                        }
-                                                    ],
-                                         "date_time":  null,
-                                         "isTable":  false,
-                                         "imgdesc":  "",
-                                         "format":  "html",
-                                         "PostMention":  "."
-                                     }
-                                 ]
-                    }
-                ],
-    "exercise_v2":  null,
-    "game_v2":  null,
-    "date_time":  null
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_local_content",
+         "text": [
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMath12\" onclick=\"htImageZoom('imgMath12', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figura 1</b>: En esta figura, las coordenadas geográficas se utilizan para ubicar un punto en la esfera © Mapswire (<htcite0>)</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>¿Dónde estamos en una esfera?</h3>En la sección anterior, extraímos un disco plano de una esfera y aprendimos a posicionarnos en él. Ahora, hagamos un ejercicio práctico:</p><p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Creando una esfera</b><br /><br />Dibuja un círculo en una hoja de papel; puedes usar un plato como molde, trazando el contorno con un lápiz. Luego, recorta el círculo. Colócalo frente a ti, de forma horizontal, y gíralo varias veces en dirección a tus pies.</div></div></center></p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al girar el círculo, estamos representando a una esfera, similar a nuestro planeta, como se muestra en la imagen de esta sección. Este ejercicio también nos muestra la necesidad de definir una nueva variable para posicionarnos más allá de un disco plano. Esta variable adicional está representada por la letra grega fi (<b>ϕ</b>), que varía entre 0 y π radianes, o de 0 a 180 grados. La introducción de fi (<b>ϕ</b>) nos lleva de las coordenadas polares a las coordenadas esféricas",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fd003897-89a6-4d01-ae79-da9e564d9583",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
 }
