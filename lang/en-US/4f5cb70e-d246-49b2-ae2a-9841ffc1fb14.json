@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779901616"
+      "1779910391"
    ],
    "authors": [
       ""
@@ -247,6 +247,141 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Practicing with the Theorem\n\nMathematical formulas are a way we use to represent something we see in nature. Thus, after performing an exercise with our body, we can deepen the study by transferring the experience to the Pythagorean Theorem. To do this, we will use **Graph 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942;} .radius-line { transform-origin: 300px 150px} .radius-45 { opacity: 1} .radius-30{ opacity: 1 } .vertical45 { opacity: 1 } .atlasTextRadius { opacity: 1 }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 180\" class=\"circle-draw\" id=\"svgcirctri0\">  <path class=\"radius-30\" d=\"M 260 127 A 30 30 0 0 1 270.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line class=\"radius-line\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"148\"></line> <line class=\"radius-45\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"46\"></line>  <line class=\"vertical45\" x1=\"376\" y1=\"46\" x2=\"376\" y2=\"146\"></line> <text class=\"atlasTextRadius\" x=\"300\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">5</text> <text class=\"atlasTextRadius\" x=\"300\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">4</text> <text class=\"atlasTextRadius\" x=\"380\" y=\"108\" font-size=\"1.3em\" font-weight=\"bold\">3</text> <text class=\"atlasTextRadius\" x=\"255\" y=\"145\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"202\" y=\"155\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"377\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"375\" y=\"162\" font-size=\"1.3em\" font-weight=\"bold\">Q</text></svg></div></p><p class=\"desc\"><b>Graph 3</b>: Right triangle with legs and hypotenuse containing values.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Making the identification\n\nTo make better use of the theorem, as a first step, we must identify which elements we are working with.\n\nThus, comparing **Graph 1** with **Graph 3**, we can conclude the following:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>a</mn> <mo>=</mo> <mn>4</mn></math> <math display=\"block\"><mn>b</mn> <mo>=</mo> <mn>3</mn></math>  <math display=\"block\"><mn>c</mn> <mo>=</mo> <mn>5</mn></math> <p class=\"desc\"><b>Formula 2</b>: Identification of the triangle's variables.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### It's not just a detail\n\nFrom the previous text (<htcite0>) and from **Reflection 1**, we know that the Pythagorean Theorem is given by:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "History of a Theorem",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>    </mrow></math><p class=\"desc\"><b>Formula 1</b>: Pythagorean Theorem, where <i>a</i> is the adjacent leg, <i>b</i> is the opposite leg, and <i>c</i> is the hypotenuse.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "When looking at **Formula 1**, we see that it features the legs and the hypotenuse, but not only that. The variables are squared, meaning each value is multiplied by itself. This fact leads us to a reflection:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: What if...</b><br /><br />Suppose you haven't noticed the fact that the theorem mentions values multiplied by themselves. And you simply substitute the values as if the theorem were:<br /><br /> <b>a + b = c</b>.<br /><br />Would the result still be valid?<br /><br />Does that mean the theorem would be wrong?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The best way to answer this reflection is to verify it in practice:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>a</mn> <mo>+</mo> <mn>b</mn> <mo>=</mo> <mn>c</mn></math><br /> <math display=\"block\"><mn>4</mn> <mo>+</mo> <mn>3</mn> <mo>=</mo> <mn>5</mn></math><br /> <math display=\"block\"><mn>7</mn> <mo>=</mo> <mn>5</mn></math> </p><p class=\"desc\"><b>Calculation 1</b>: Verifying an alternative.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 1**, the following steps were performed:\n- **Line 1**: We wrote our alternative formula, which is not the Pythagorean Theorem.\n- **Line 2**: We substituted into it the values identified by comparing the graphs.\n- **Line 3**: We performed the sum on the left side and concluded that the alternative proposal makes no sense.\n\nThis incorrect result brings us some important conclusions:\n- It is not just a detail that the Pythagorean Theorem works with values multiplied by themselves, i.e., the squares.\n- The conclusion that this is not just a detail is not a wish, but a verification in the face of a result where equality was expected, but we obtained an impossible value.\n\nWith these conclusions, we can apply the Pythagorean Theorem as proposed.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>=</mo>  <msup><mi>c</mi><mn>2</mn></msup> </mrow></math><br /> <math display=\"block\"><mn>(a x a)</mn> <mo>+</mo> <mn>(b x b)</mn> <mo>=</mo> <mn>(c x c)</mn></math><br /> <math display=\"block\"><mn>(4 x 4)</mn> <mo>+</mo> <mn>(3 x 3)</mn> <mo>=</mo> <mn>(5 x 5)</mn></math><br /> <math display=\"block\"><mn>16</mn> <mo>+</mo> <mn>9</mn> <mo>=</mo> <mn>25</mn></math><br /> <math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>25</mn></math> </p><p class=\"desc\"><b>Calculation 2</b>: Applying the Pythagorean Theorem.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 2**, we observe the following:\n- **Line 1**: We wrote the Pythagorean Theorem.\n- **Line 2**: We expanded the theorem, making explicit that the values would be multiplied by themselves.\n- **Line 3**: We substituted the values into the formula.\n- **Line 4**: We performed the multiplications before the addition.\n- **Line 5**: We performed the sum on the left side, confirming the validity of the Pythagorean Theorem, which correctly states that “the sum of the squares of the legs equals the square of the hypotenuse”.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]

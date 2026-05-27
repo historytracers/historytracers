@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779901624"
+      "1779910404"
    ],
    "authors": [
       ""
@@ -247,6 +247,141 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Práctica con el Teorema\n\nLas fórmulas matemáticas son una manera que utilizamos para representar algo que vemos en la naturaleza. Así, después de realizar un ejercicio con nuestro cuerpo, podemos profundizar el estudio trasladando la experiencia al Teorema de Pitágoras. Para ello, utilizaremos el **Gráfico 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942;} .radius-line { transform-origin: 300px 150px} .radius-45 { opacity: 1} .radius-30{ opacity: 1 } .vertical45 { opacity: 1 } .atlasTextRadius { opacity: 1 }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 180\" class=\"circle-draw\" id=\"svgcirctri0\">  <path class=\"radius-30\" d=\"M 260 127 A 30 30 0 0 1 270.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line class=\"radius-line\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"148\"></line> <line class=\"radius-45\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"46\"></line>  <line class=\"vertical45\" x1=\"376\" y1=\"46\" x2=\"376\" y2=\"146\"></line> <text class=\"atlasTextRadius\" x=\"300\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">5</text> <text class=\"atlasTextRadius\" x=\"300\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">4</text> <text class=\"atlasTextRadius\" x=\"380\" y=\"108\" font-size=\"1.3em\" font-weight=\"bold\">3</text> <text class=\"atlasTextRadius\" x=\"255\" y=\"145\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"202\" y=\"155\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"377\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"375\" y=\"162\" font-size=\"1.3em\" font-weight=\"bold\">Q</text></svg></div></p><p class=\"desc\"><b>Gráfico 3</b>: Triángulo rectángulo con catetos e hipotenusa que contienen valores.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Haciendo la identificación\n\nPara poder utilizar mejor el teorema, como primer paso, debemos identificar cuáles son los elementos con los que estamos trabajando.\n\nDe esta forma, comparando el **Gráfico 1** con el **Gráfico 3**, podemos concluir lo siguiente:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>a</mn> <mo>=</mo> <mn>4</mn></math> <math display=\"block\"><mn>b</mn> <mo>=</mo> <mn>3</mn></math>  <math display=\"block\"><mn>c</mn> <mo>=</mo> <mn>5</mn></math> <p class=\"desc\"><b>Fórmula 2</b>: Identificación de las variables del triángulo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### No es solo un detalle\n\nDel texto anterior (<htcite0>) y de la **Reflexión 1**, sabemos que el Teorema de Pitágoras viene dado por:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "Historia de un Teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>    </mrow></math><p class=\"desc\"><b>Fórmula 1</b>: Teorema de Pitágoras, donde <i>a</i> es el cateto adyacente, <i>b</i> es el cateto opuesto, y <i>c</i> es la hipotenusa.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Al observar la **Fórmula 1**, vemos que en ella aparecen los catetos y la hipotenusa, pero no solo eso. Las variables están elevadas al cuadrado, es decir, cada valor se multiplica por sí mismo. Este hecho nos lleva a una reflexión:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Y si...?</b><br /><br />Supongamos que no has observado el hecho de que el teorema menciona valores multiplicados por sí mismos. Y que simplemente sustituyes los valores como si el teorema fuera:<br /><br /> <b>a + b = c</b>.<br /><br />¿El resultado seguirá siendo válido?<br /><br />¿Eso significa que el teorema estaría equivocado?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "La mejor manera de responder a esta reflexión es verificarla en la práctica:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>a</mn> <mo>+</mo> <mn>b</mn> <mo>=</mo> <mn>c</mn></math><br /> <math display=\"block\"><mn>4</mn> <mo>+</mo> <mn>3</mn> <mo>=</mo> <mn>5</mn></math><br /> <math display=\"block\"><mn>7</mn> <mo>=</mo> <mn>5</mn></math> </p><p class=\"desc\"><b>Cálculo 1</b>: Verificando una alternativa.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En el **Cálculo 1**, se realizaron los siguientes pasos:\n- **Línea 1**: Escribimos nuestra fórmula alternativa, que no es el Teorema de Pitágoras.\n- **Línea 2**: Substituímos nela os valores identificados ao comparar os gráficos.\n- **Línea 3**: Realizamos la suma del lado izquierdo y llegamos a la conclusión de que la propuesta alternativa no tiene sentido.\n\nEste resultado incorrecto nos trae algunas conclusiones importantes:\n- No es solo un detalle el hecho de que el Teorema de Pitágoras trabaje con valores multiplicados por sí mismos, es decir, los cuadrados.\n- La conclusión de que esto no es solo un detalle no es un deseo, sino una comprobación ante un resultado en el que se esperaba una igualdad, pero obtuvimos un valor imposible.\n\nCon estas conclusiones, podemos aplicar el Teorema de Pitágoras como se propone.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>=</mo>  <msup><mi>c</mi><mn>2</mn></msup> </mrow></math><br /> <math display=\"block\"><mn>(a x a)</mn> <mo>+</mo> <mn>(b x b)</mn> <mo>=</mo> <mn>(c x c)</mn></math><br /> <math display=\"block\"><mn>(4 x 4)</mn> <mo>+</mo> <mn>(3 x 3)</mn> <mo>=</mo> <mn>(5 x 5)</mn></math><br /> <math display=\"block\"><mn>16</mn> <mo>+</mo> <mn>9</mn> <mo>=</mo> <mn>25</mn></math><br /> <math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>25</mn></math> </p><p class=\"desc\"><b>Cálculo 2</b>: Aplicando el Teorema de Pitágoras.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En el **Cálculo 2**, observamos lo siguiente:\n- **Línea 1**: Escribimos el Teorema de Pitágoras.\n- **Línea 2**: Expandimos el teorema, explicitando que los valores se multiplicarían por sí mismos.\n- **Línea 3**: Sustituimos los valores en la fórmula.\n- **Línea 4**: Realizamos las multiplicaciones antes de la suma.\n- **Línea 5**: Realizamos la suma del lado izquierdo, confirmando la validez del Teorema de Pitágoras, que afirma correctamente que “la suma de los cuadrados de los catetos es igual al cuadrado de la hipotenusa”.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
