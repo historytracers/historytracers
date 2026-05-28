@@ -390,7 +390,7 @@
          "id": "SECTION_equality",
          "text": [
             {
-               "text": "### Mantendo a igualdade\n\nAo depararmos com fórmulas como a **Fórmula 1**, podemos observar que ela possuí três variávies, com uma variável isolada no lado direito e outras duas no lado esquerdo. Isso não quer dizer que ela possa ser modificada, para obtermos algum resultado desejado. Vamos refletir um pouco sobre isso.",
+               "text": "### Mantendo a igualdade\n\nAo nos depararmos com fórmulas como a **Fórmula 1**, podemos observar que ela possui três variáveis, com uma variável isolada no lado direito e outras duas no lado esquerdo. Isso não quer dizer que ela não possa ser modificada para obtermos algum resultado desejado. Vamos refletir um pouco sobre isso.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -399,7 +399,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: Movimento...</b><br /><br />A maneira como escrevemos o Teorema de Pitágoras até o momento nos motra que a soma dos quadrados dos catetos é igual ao quadrado da hipotenusa. Como consequência disso, se soubermos os valores dos catetos, ao somar seus quadrados, também sabemos o valor do quadrado da hipotenusa.<br /><br />Agora, imagine que você tenha o valor de um cateto e da hipotenusa, e deseja saber o valor do quadrado de outro cateto. Como você faria?</div></div></center>",
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: Movimento...</b><br /><br />A maneira como escrevemos o Teorema de Pitágoras até o momento nos mostra que a soma dos quadrados dos catetos é igual ao quadrado da hipotenusa. Como consequência disso, se soubermos os valores dos catetos, ao somarmos seus quadrados, também saberemos o valor do quadrado da hipotenusa.<br /><br />Agora, imagine que você tenha o valor de um cateto e da hipotenusa e deseje descobrir o valor do quadrado do outro cateto. Como você faria?</div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -408,7 +408,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### Em função de\n\nAo olharmos a **Fórmula 1**, uma outra maneira de podermos expressá-la é dizer que o valor do quadrado da hipotenusa (**c**) é expresso em função dos valores dos catetos.\n\nPara podermos responder a reflexão, necessitaremos reescrever a **Fórmula 1** com um cateto em função da hipotenusa e do cateto. Ao realizarmos esta operação, devemos lembrar que a igualdade deverá ser mantida (<htcite0>).\n\n#### Movimentos\n\nDeixar um valor em função de outros, basicamente implica em realizarmos movimentos. Mas, como mencionado anteriormente, não é possível mover de qualquer jeito. Por haver uma igualdade, precisamos realizar operações em ambos os lados, para que a igualdade não seja desfeita ou ocorra um resultado impossível.\n\nPara deixar isso mais claro, vamos reescrever a **Fórmula 1** em função do cateto adjacente ao ângulo theta (θ) (**a**).",
+               "text": "#### Em função de\n\nAo olharmos para a **Fórmula 1**, outra maneira de expressá-la é dizer que o valor do quadrado da hipotenusa (**c**) é expresso em função dos valores dos catetos.\n\nPara respondermos à reflexão, necessitaremos reescrever a **Fórmula 1** com um cateto em função da hipotenusa e do outro cateto. Ao realizarmos essa operação, devemos lembrar que a igualdade deverá ser mantida (<htcite0>).\n\n#### Movimentos\n\nDeixar um valor em função de outros basicamente implica realizar movimentos. Mas, como mencionado anteriormente, não é possível mover os termos de qualquer maneira. Como há uma igualdade, precisamos realizar operações em ambos os lados para que ela não seja desfeita nem produza um resultado impossível.\n\nPara deixar isso mais claro, vamos reescrever a **Fórmula 1** em função do cateto adjacente ao ângulo theta (θ), representado por (**a**).",
                "source": [
                   {
                      "type": 1,
@@ -436,6 +436,58 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Cálculo 3**, as seguintes etapas foram realizadas para colocar o cateto **a** em função da hipotenusa e do outro cateto:\n- **Linha 1**: Reescrevemos o Teorema de Pitágoras para podermos trabalhar com ele.\n- **Linha 2**: Explicitamos que desejamos mover ambos os lados pela mesma quantidade (**b<sup>2</sup>**), mantendo, dessa maneira, a igualdade. Além disso, colocamos entre parênteses duas grandezas no lado esquerdo.\n- **Linha 3**: Utilizando o fato de que uma grandeza subtraída dela mesma é igual a zero (<htcite0>), removemos um dos catetos (**b**) do lado esquerdo.\n- **Linha 4**: Finalmente, como ao adicionar zero a uma grandeza ela permanece inalterada (<htcite1>), explicitamos que o cateto a está em função do outro cateto (**b**) e da hipotenusa (**c**).\n\nApós reorganizarmos o Teorema, podemos reforçar sua validade substituindo nele os valores dos catetos e da hipotenusa:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "aa6b052f-05ca-4979-a3a7-a4b7e70618ef",
+                     "text": "History Tracers Team",
+                     "page": "A diferença dos iguais",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "11",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "92b5d15c-d26a-4ad9-82af-3262649cf2e4",
+                     "text": "History Tracers Team",
+                     "page": "Caminhando entre os números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math><br /> <math display=\"block\"><mn>(a x a)</mn> <mo>=</mo> <mn>(c x c)</mn> <mo>-</mo> <mn>(b x b)</mn></math><br /> <math display=\"block\"><mn>(4 x 4)</mn> <mo>=</mo> <mn>(5 x 5)</mn> <mo>-</mo> <mn>(3 x 3)</mn></math><br /> <math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>25</mn> <mo>-</mo> <mn>9</mn></math><br />  <math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>16</mn></math></p><p class=\"desc\"><b>Cálculo 4</b>: Aplicando o Teorema de Pitágoras.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Cálculo 4**, podemos observar o seguinte:\n- **Linha 1**: Repetimos o resultado do **Cálculo 3**.\n- **Linha 2**: Novamente explicitamos que o quadrado de um valor corresponde a esse valor multiplicado por ele mesmo.\n- **Linha 3**: Substituímos os valores do **Gráfico 3** em nossos cálculos.\n\n- **Linha 4**: Realizamos a multiplicação dos valores.\n- **Linha 5**: Após realizarmos a subtração, como esperado, chegamos a um resultado que mostra que o valor do quadrado de um cateto (**a**) é igual à subtração do quadrado do outro cateto (**b**) da hipotenusa (**c**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
