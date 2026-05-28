@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779910404"
+      "1779990489"
    ],
    "authors": [
       ""
@@ -377,6 +377,112 @@
             },
             {
                "text": "En el **Cálculo 2**, observamos lo siguiente:\n- **Línea 1**: Escribimos el Teorema de Pitágoras.\n- **Línea 2**: Expandimos el teorema, explicitando que los valores se multiplicarían por sí mismos.\n- **Línea 3**: Sustituimos los valores en la fórmula.\n- **Línea 4**: Realizamos las multiplicaciones antes de la suma.\n- **Línea 5**: Realizamos la suma del lado izquierdo, confirmando la validez del Teorema de Pitágoras, que afirma correctamente que “la suma de los cuadrados de los catetos es igual al cuadrado de la hipotenusa”.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_equality",
+         "text": [
+            {
+               "text": "### Manteniendo la igualdad\n\nAl encontrarnos con fórmulas como la **Fórmula 1**, podemos observar que tiene tres variables, con una variable aislada en el lado derecho y otras dos en el lado izquierdo. Esto no significa que no pueda modificarse para obtener algún resultado deseado. Reflexionemos un poco sobre esto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 4: Movimiento...</b><br /><br />La forma en que hemos escrito el Teorema de Pitágoras hasta ahora nos muestra que la suma de los cuadrados de los catetos es igual al cuadrado de la hipotenusa. Como consecuencia de esto, si conocemos los valores de los catetos, al sumar sus cuadrados, también sabremos el valor del cuadrado de la hipotenusa.<br /><br />Ahora, imagina que tienes el valor de un cateto y de la hipotenusa y deseas averiguar el valor del cuadrado del otro cateto. ¿Cómo lo harías?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### En función de\n\nAl observar la **Fórmula 1**, otra forma de expresarla es decir que el valor del cuadrado de la hipotenusa (**c**) se expresa en función de los valores de los catetos.\n\nPara responder a la reflexión, necesitaremos reescribir la **Fórmula 1** con un cateto en función de la hipotenusa y del otro cateto. Al realizar esta operación, debemos recordar que la igualdad debe mantenerse (<htcite0>).\n\n#### Movimientos\n\nDejar un valor en función de otros implica básicamente realizar movimientos. Pero, como se mencionó anteriormente, no es posible mover los términos de cualquier manera. Como hay una igualdad, necesitamos realizar operaciones en ambos lados para que no se deshaga ni produzca un resultado imposible.\n\nPara dejar esto más claro, reescribamos la **Fórmula 1** en función del cateto adyacente al ángulo theta (θ), representado por (**a**).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Atlas",
+                     "page": "Explorando a igualdade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup></math></math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+ (</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>) =</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <mn>0</mn> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> <br />  <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> </p><p class=\"desc\"><b>Cálculo 3</b>: Teorema de Pitágoras, donde <i>a</i> es el cateto adyacente y se calcula en función del cateto opuesto (<i>b</i>) y de la hipotenusa (<i>c</i>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En el **Cálculo 3**, se realizaron los siguientes pasos para poner el cateto **a** en función de la hipotenusa y del otro cateto:\n- **Línea 1**: Reescribimos el Teorema de Pitágoras para poder trabajar con él.\n- **Línea 2**: Explicitamos que deseamos mover ambos lados por la misma cantidad (**b<sup>2</sup>**), manteniendo así la igualdad. Además, colocamos entre paréntesis dos magnitudes en el lado izquierdo.\n- **Línea 3**: Utilizando el hecho de que una magnitud restada de sí misma es igual a cero (<htcite0>), eliminamos uno de los catetos (**b**) del lado izquierdo.\n- **Línea 4**: Finalmente, como al sumar cero a una magnitud esta permanece inalterada (<htcite1>), explicitamos que el cateto a está en función del otro cateto (**b**) y de la hipotenusa (**c**).\n\nDespués de reorganizar el Teorema, podemos reforzar su validez sustituyendo en él los valores de los catetos y de la hipotenusa:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "aa6b052f-05ca-4979-a3a7-a4b7e70618ef",
+                     "text": "History Tracers Team",
+                     "page": "La diferencia de los iguales",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "11",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "92b5d15c-d26a-4ad9-82af-3262649cf2e4",
+                     "text": "History Tracers Team",
+                     "page": "Caminando entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math><br /> <math display=\"block\"><mn>(a x a)</mn> <mo>=</mo> <mn>(c x c)</mn> <mo>-</mo> <mn>(b x b)</mn></math><br /> <math display=\"block\"><mn>(4 x 4)</mn> <mo>=</mo> <mn>(5 x 5)</mn> <mo>-</mo> <mn>(3 x 3)</mn></math><br /> <math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>25</mn> <mo>-</mo> <mn>9</mn></math><br />  <math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>16</mn></math></p><p class=\"desc\"><b>Cálculo 4</b>: Aplicando el Teorema de Pitágoras.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "En el **Cálculo 4**, podemos observar lo siguiente:\n- **Línea 1**: Repetimos el resultado del **Cálculo 3**.\n- **Línea 2**: Explicitamos nuevamente que el cuadrado de un valor corresponde a ese valor multiplicado por sí mismo.\n- **Línea 3**: Sustituimos los valores del **Gráfico 3** en nuestros cálculos.\n\n- **Línea 4**: Realizamos la multiplicación de los valores.\n- **Línea 5**: Después de realizar la resta, como se esperaba, llegamos a un resultado que muestra que el valor del cuadrado de un cateto (**a**) es igual a la resta del cuadrado del otro cateto (**b**) del cuadrado de la hipotenusa (**c**).",
                "source": null,
                "date_time": null,
                "isTable": false,

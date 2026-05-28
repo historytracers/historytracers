@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779910391"
+      "1779990466"
    ],
    "authors": [
       ""
@@ -377,6 +377,112 @@
             },
             {
                "text": "In **Calculation 2**, we observe the following:\n- **Line 1**: We wrote the Pythagorean Theorem.\n- **Line 2**: We expanded the theorem, making explicit that the values would be multiplied by themselves.\n- **Line 3**: We substituted the values into the formula.\n- **Line 4**: We performed the multiplications before the addition.\n- **Line 5**: We performed the sum on the left side, confirming the validity of the Pythagorean Theorem, which correctly states that “the sum of the squares of the legs equals the square of the hypotenuse”.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_equality",
+         "text": [
+            {
+               "text": "### Maintaining equality\n\nWhen we come across formulas like **Formula 1**, we can observe that it has three variables, with one variable isolated on the right side and two others on the left side. This does not mean it cannot be modified to obtain some desired result. Let us reflect a little on this.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 4: Movement...</b><br /><br />The way we have written the Pythagorean Theorem so far shows us that the sum of the squares of the legs equals the square of the hypotenuse. As a consequence, if we know the values of the legs, by adding their squares, we will also know the value of the square of the hypotenuse.<br /><br />Now, imagine you have the value of one leg and the hypotenuse and wish to find the value of the square of the other leg. How would you do it?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### In terms of\n\nWhen observing **Formula 1**, another way to express it is to say that the value of the square of the hypotenuse (**c**) is expressed in terms of the values of the legs.\n\nTo answer the reflection, we will need to rewrite **Formula 1** with one leg in terms of the hypotenuse and the other leg. When performing this operation, we must remember that equality must be maintained (<htcite0>).\n\n#### Movements\n\nLeaving a value in terms of others basically implies performing movements. But, as mentioned earlier, it is not possible to move terms just any way. Since there is equality, we need to perform operations on both sides so that it is not undone nor produces an impossible result.\n\nTo make this clearer, let us rewrite **Formula 1** in terms of the leg adjacent to the angle theta (θ), represented by (**a**).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Atlas",
+                     "page": "Exploring Equality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup></math></math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+ (</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>) =</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <mn>0</mn> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> <br />  <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> </p><p class=\"desc\"><b>Calculation 3</b>: Pythagorean Theorem, where <i>a</i> is the adjacent leg and is calculated in terms of the opposite leg (<i>b</i>) and the hypotenuse (<i>c</i>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 3**, the following steps were performed to put leg **a** in terms of the hypotenuse and the other leg:\n- **Line 1**: We rewrote the Pythagorean Theorem to be able to work with it.\n- **Line 2**: We made explicit that we wish to move both sides by the same amount (**b<sup>2</sup>**), thus maintaining equality. Also, we placed two quantities in parentheses on the left side.\n- **Line 3**: Using the fact that a quantity subtracted from itself equals zero (<htcite0>), we removed one of the legs (**b**) from the left side.\n- **Line 4**: Finally, since adding zero to a quantity leaves it unchanged (<htcite1>), we made explicit that leg a is in terms of the other leg (**b**) and the hypotenuse (**c**).\n\nAfter reorganizing the Theorem, we can reinforce its validity by substituting the values of the legs and the hypotenuse into it:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "aa6b052f-05ca-4979-a3a7-a4b7e70618ef",
+                     "text": "History Tracers Team",
+                     "page": "The Difference of Equals",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "11",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "92b5d15c-d26a-4ad9-82af-3262649cf2e4",
+                     "text": "History Tracers Team",
+                     "page": "Walking Among Numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math><br /> <math display=\"block\"><mn>(a x a)</mn> <mo>=</mo> <mn>(c x c)</mn> <mo>-</mo> <mn>(b x b)</mn></math><br /> <math display=\"block\"><mn>(4 x 4)</mn> <mo>=</mo> <mn>(5 x 5)</mn> <mo>-</mo> <mn>(3 x 3)</mn></math><br /> <math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>25</mn> <mo>-</mo> <mn>9</mn></math><br />  <math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>16</mn></math></p><p class=\"desc\"><b>Calculation 4</b>: Applying the Pythagorean Theorem.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 4**, we can observe the following:\n- **Line 1**: We repeated the result of **Calculation 3**.\n- **Line 2**: We again made explicit that the square of a value corresponds to that value multiplied by itself.\n- **Line 3**: We substituted the values from **Graph 3** into our calculations.\n\n- **Line 4**: We performed the multiplication of the values.\n- **Line 5**: After performing the subtraction, as expected, we arrived at a result showing that the value of the square of one leg (**a**) equals the subtraction of the square of the other leg (**b**) equals the subtraction of the square of the other leg (**c**).",
                "source": null,
                "date_time": null,
                "isTable": false,
