@@ -385,6 +385,60 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_equality",
+         "text": [
+            {
+               "text": "### Mantendo a igualdade\n\nAo depararmos com fórmulas como a **Fórmula 1**, podemos observar que ela possuí três variávies, com uma variável isolada no lado direito e outras duas no lado esquerdo. Isso não quer dizer que ela possa ser modificada, para obtermos algum resultado desejado. Vamos refletir um pouco sobre isso.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: Movimento...</b><br /><br />A maneira como escrevemos o Teorema de Pitágoras até o momento nos motra que a soma dos quadrados dos catetos é igual ao quadrado da hipotenusa. Como consequência disso, se soubermos os valores dos catetos, ao somar seus quadrados, também sabemos o valor do quadrado da hipotenusa.<br /><br />Agora, imagine que você tenha o valor de um cateto e da hipotenusa, e deseja saber o valor do quadrado de outro cateto. Como você faria?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Em função de\n\nAo olharmos a **Fórmula 1**, uma outra maneira de podermos expressá-la é dizer que o valor do quadrado da hipotenusa (**c**) é expresso em função dos valores dos catetos.\n\nPara podermos responder a reflexão, necessitaremos reescrever a **Fórmula 1** com um cateto em função da hipotenusa e do cateto. Ao realizarmos esta operação, devemos lembrar que a igualdade deverá ser mantida (<htcite0>).\n\n#### Movimentos\n\nDeixar um valor em função de outros, basicamente implica em realizarmos movimentos. Mas, como mencionado anteriormente, não é possível mover de qualquer jeito. Por haver uma igualdade, precisamos realizar operações em ambos os lados, para que a igualdade não seja desfeita ou ocorra um resultado impossível.\n\nPara deixar isso mais claro, vamos reescrever a **Fórmula 1** em função do cateto adjacente ao ângulo theta (θ) (**a**).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Atlas",
+                     "page": "Explorando a igualdade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup></math></math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+ (</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>) =</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <mn>0</mn> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> <br />  <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> </p><p class=\"desc\"><b>Cálculo 3</b>: Teorema de Pitágoras, onde <i>a</i> é o cateto adjacente é calculado em função do  cateto oposto (<i>b</i>), e da hipotenusa (<i>c</i>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
       }
    ],
    "exercise_v2": null,
