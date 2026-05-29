@@ -135,7 +135,6 @@ function htParseIndexRequest() {
             case 'math_games':
             case 'release':
             case 'literature':
-            case 'new_atlas':
             case 'atlas':
                 htLoadPage(page, 'html', '', false);
                 break;
