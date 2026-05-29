@@ -2018,7 +2018,9 @@ func (e *TextEditor) createAtlasTemplate() AtlasTemplateFile {
 					},
 				},
 			},
-	},
+	}
+	return al
+}
 }
 
 func (e *TextEditor) createClassTemplate() ClassTemplateFile {
