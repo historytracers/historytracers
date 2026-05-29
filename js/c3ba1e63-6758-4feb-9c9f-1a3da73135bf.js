@@ -3,6 +3,7 @@
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("RP", "images/ANTT/RomanusPontifex.jpg");
     return false;
 }
 
