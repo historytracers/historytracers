@@ -24,6 +24,7 @@ var smGame = [];
 var smGameTimeoutID = 0;
 
 var htAtlas = new Map();
+var htAtlasIdx = new Map();
 
 var loadedIdx = [];
 var htCurrentPage = "";
@@ -158,7 +159,8 @@ function htResetAllIndexes()
         htBiologyIdx,
         htChemicalIdx,
         htPhysicsIdx,
-        htPhilosophyIdx
+        htPhilosophyIdx,
+        htAtlasIdx
     ];
 
     indexMaps.forEach(map => {
@@ -1615,7 +1617,8 @@ function htSelectIndexMap(index)
         physics: htPhysicsIdx,
         philosophy: htPhilosophyIdx,
         chemistry: htChemicalIdx,
-        biology: htBiologyIdx
+        biology: htBiologyIdx,
+        atlas: htAtlasIdx
     };
 
     return map[index];
@@ -2583,7 +2586,7 @@ function htFillStringOnPage(data, idx, page)
         "first_steps_menu", "first_steps_volume2",
         "indigenous_who", "myths_believes", "math_games",
         "historical_events", "biology", "physics", "chemistry",
-        "philosophy"
+        "philosophy", "atlas"
     ];
 
     if (allowedPages.includes(page) && item.target) {
@@ -2964,7 +2967,8 @@ function htLoadIndex(data, arg, page)
         math_games: htMathGamesIdx,
         myths_believes: htMythsBelievesIdx,
         physics: htPhysicsIdx,
-        philosophy: htPhilosophyIdx
+        philosophy: htPhilosophyIdx,
+        atlas: htAtlasIdx
     };
 
     if (page && pageConfig[page] && !pageConfig[page].has(page)) {
