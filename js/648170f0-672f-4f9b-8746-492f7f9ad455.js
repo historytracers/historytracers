@@ -327,6 +327,26 @@ function htLoadContent() {
 
     htFillCalcTable6481070f0 ("#calcGrid");
 
+    htSetImageSrc("imgMA", "images/Mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica2.jpg");
+    htSetImageSrc("imgl0", "images/HistoryTracers/Maya_1.png");
+    htSetImageSrc("imgl1", "images/HistoryTracers/Maya_1.png");
+    htSetImageSrc("imgl00", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgl10", "images/HistoryTracers/Maya_1.png");
+    htSetImageSrc("imgl100", "images/HistoryTracers/Maya_1.png");
+    htSetImageSrc("imgl000", "images/HistoryTracers/Maya_1.png");
+    htSetImageSrc("imgl00000", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgl10000", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgm2", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgm000", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgm100", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgm200", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgm300", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgt0", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgt1", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgt00", "images/HistoryTracers/Maya_4.png");
+    htSetImageSrc("imgt10", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgt000", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgt100", "images/HistoryTracers/Maya_2.png");
     return false;
 }
 
