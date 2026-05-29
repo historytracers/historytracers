@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779990489"
+      "1780011672"
    ],
    "authors": [
       ""
@@ -491,9 +491,34 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, aprendimos que, en una igualdad, al modificar un lado, el otro también debe ser modificado de la misma manera, evitando que la igualdad se rompa.\n\nAdemás, aprendimos que podemos interpretar las fórmulas matemáticas como valores que están en función de otros valores o que resultan en otros.\n\nPor último, nos gustaría destacar que los teoremas, cuando se aplican correctamente, producen los resultados esperados. Por otro lado, cuando los alteramos, podemos obtener resultados improbables.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
-   "exercise_v2": null,
+   "exercise_v2": [
+      {
+         "question": "¿El Teorema de Pitágoras podría tener el cuadrado de un cateto al lado del cuadrado de la hipotenusa?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Como observamos en una de las prácticas, nada impide que movamos uno de los cuadrados al lado de la hipotenusa. Sin embargo, no basta con solo trasladarlo; hay un proceso para mover ambos lados sin alterar la igualdad."
+      },
+      {
+         "question": "¿Podemos colocar tanto los cuadrados de los catetos como el cuadrado de la hipotenusa en un mismo lado en el Teorema de Pitágoras?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Usando el mismo principio para mover el cuadrado de un cateto, también podemos mover el cuadrado de la hipotenusa y, como consecuencia, obtendremos el resultado final igual a cero. Haremos esto a partir del resultado final del Cálculo 3:<br />  <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math><br />    <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup></msup></math><br /> <math display=\"block\"><mn>0</mn> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup></msup></math><br />"
+      }
+   ],
    "game_v2": null,
    "date_time": null
 }

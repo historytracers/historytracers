@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779990466"
+      "1780011654"
    ],
    "authors": [
       ""
@@ -491,9 +491,34 @@
                "PostMention": ""
             }
          ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we learned that, in an equality, when we modify one side, the other must also be modified in the same way, preventing the equality from being violated.\n\nFurthermore, we learned that we can interpret mathematical formulas as values that are functions of other values or that result in others.\n\nFinally, we would like to emphasize that theorems, when applied correctly, produce the expected results. On the other hand, when we alter them, we can obtain unlikely results.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
       }
    ],
-   "exercise_v2": null,
+   "exercise_v2": [
+      {
+         "question": "Could the Pythagorean Theorem have the square of one leg next to the square of the hypotenuse?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "As we observed in one of the practices, nothing prevents us from moving one of the squares to the side of the hypotenuse. However, it is not enough to just transfer it; there is a process to move both sides without altering the equality."
+      },
+      {
+         "question": "Can we place both the squares of the legs and the square of the hypotenuse on the same side in the Pythagorean Theorem?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Using the same principle to move the square of one leg, we can also move the square of the hypotenuse and, as a consequence, we will obtain the final result equal to zero. We will do this starting from the final result of Calculation 3.:<br />  <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math><br />    <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup></msup></math><br /> <math display=\"block\"><mn>0</mn> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup></msup></math><br />"
+      }
+   ],
    "game_v2": null,
    "date_time": null
 }
