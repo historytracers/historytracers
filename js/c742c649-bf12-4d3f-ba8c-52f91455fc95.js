@@ -204,6 +204,18 @@ function htLoadContent() {
         }
     });
 
+    htSetImageSrc("leftHandImg0", "images/HistoryTracers/0Left_Hand_Small.png");
+    htSetImageSrc("leftHandImg1", "images/HistoryTracers/2Left_Hand_Small.png");
+    htSetImageSrc("leftHandImg2", "images/HistoryTracers/3Left_Hand_Small.png");
+    htSetImageSrc("leftHandImg3", "images/HistoryTracers/5Left_Hand_Small.png");
+    htSetImageSrc("leftHandImg4", "images/HistoryTracers/2Left_Hand_Small.png");
+    htSetImageSrc("leftHandImg5", "images/HistoryTracers/1Left_Hand_Small.png");
+    htSetImageSrc("rightHandImg0", "images/HistoryTracers/0Right_Hand_Small.png");
+    htSetImageSrc("rightHandImg1", "images/HistoryTracers/2Right_Hand_Small.png");
+    htSetImageSrc("rightHandImg2", "images/HistoryTracers/3Right_Hand_Small.png");
+    htSetImageSrc("rightHandImg3", "images/HistoryTracers/5Right_Hand_Small.png");
+    htSetImageSrc("rightHandImg4", "images/HistoryTracers/1Right_Hand_Small.png");
+    htSetImageSrc("rightHandImg5", "images/HistoryTracers/1Right_Hand_Small.png");
     return false;
 }
 
