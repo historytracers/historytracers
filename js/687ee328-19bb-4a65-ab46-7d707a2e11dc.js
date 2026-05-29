@@ -43,6 +43,9 @@ function htLoadContent() {
     htAddElementTo687ee328Table("#tblHandsCounting", "#tr", 11);
     htWriteNavigation();
 
+    htSetImageSrc("imgBone", "images/ResearchGate/Figura-9-Hueso-de-Lebombo.png");
+    htSetImageSrc("leftHandImg", "images/HistoryTracers/0Left_Hand_Small.png");
+    htSetImageSrc("rightHandImg", "images/HistoryTracers/0Right_Hand_Small.png");
     return false;
 }
 

@@ -51,5 +51,7 @@ function htLoadContent() {
     });
     htAddElementTo687ee328Table("#tblHandsCounting", "#tr", 10);
 
+    htSetImageSrc("leftHandImg", "images/HistoryTracers/0Left_Hand_Small.png");
+    htSetImageSrc("rightHandImg", "images/HistoryTracers/0Right_Hand_Small.png");
     return false;
 }

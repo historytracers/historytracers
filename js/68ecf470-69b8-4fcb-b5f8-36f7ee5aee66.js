@@ -168,6 +168,41 @@ function htLoadContent() {
     });
 
 
+    htSetImageSrc("imgQuipuPanel", "images/Caral/QuipuPanel.png");
+    htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
+    htSetImageSrc("leftHandImg3", "images/HistoryTracers/5Left_Hand_Small.png");
+    htSetImageSrc("rightHandImg3", "images/HistoryTracers/5Right_Hand_Small.png");
+    htSetImageSrc("imgml0", "images/HistoryTracers/Maya_19.png");
+    htSetImageSrc("imgml1", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgml4", "images/HistoryTracers/Maya_5.png");
+    htSetImageSrc("imgml10", "images/HistoryTracers/Maya_0.png");
+    htSetImageSrc("imgml14", "images/HistoryTracers/Maya_19.png");
+    htSetImageSrc("imgml100", "images/HistoryTracers/Maya_3.png");
+    htSetImageSrc("imgml140", "images/HistoryTracers/Maya_17.png");
+    htSetImageSrc("imgml1400", "images/HistoryTracers/Maya_18.png");
+    htSetImageSrc("imgmr0", "images/HistoryTracers/Maya_0.png");
+    htSetImageSrc("imgmr2", "images/HistoryTracers/Maya_2.png");
+    htSetImageSrc("imgmr5", "images/HistoryTracers/Maya_5.png");
+    htSetImageSrc("imgmr11", "images/HistoryTracers/Maya_0.png");
+    htSetImageSrc("imgmr15", "images/HistoryTracers/Maya_19.png");
+    htSetImageSrc("imgmr110", "images/HistoryTracers/Maya_14.png");
+    htSetImageSrc("imgmr150", "images/HistoryTracers/Maya_5.png");
+    htSetImageSrc("imgmr1500", "images/HistoryTracers/Maya_8.png");
+    htSetImageSrc("imgme0", "images/HistoryTracers/Maya_19.png");
+    htSetImageSrc("imgme3", "images/HistoryTracers/Maya_4.png");
+    htSetImageSrc("imgme6", "images/HistoryTracers/Maya_10.png");
+    htSetImageSrc("imgme12", "images/HistoryTracers/Maya_0.png");
+    htSetImageSrc("imgme13", "images/HistoryTracers/Maya_1.png");
+    htSetImageSrc("imgme16", "images/HistoryTracers/Maya_19.png");
+    htSetImageSrc("imgme17", "images/HistoryTracers/Maya_19.png");
+    htSetImageSrc("imgme18", "images/HistoryTracers/Maya_18.png");
+    htSetImageSrc("imgme120", "images/HistoryTracers/Maya_17.png");
+    htSetImageSrc("imgme160", "images/HistoryTracers/Maya_17.png");
+    htSetImageSrc("imgme170", "images/HistoryTracers/Maya_5.png");
+    htSetImageSrc("imgme180", "images/HistoryTracers/Maya_18.png");
+    htSetImageSrc("imgme1600", "images/HistoryTracers/Maya_18.png");
+    htSetImageSrc("imgme1700", "images/HistoryTracers/Maya_8.png");
+    htSetImageSrc("imgme1800", "images/HistoryTracers/Maya_6.png");
     return false;
 }
 
