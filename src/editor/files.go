@@ -145,10 +145,9 @@ func (e *TextEditor) loadDocument(doc *Document, reader fyne.URIReadCloser) {
 	doc.isModified = false
 
 	if doc.docType != "" {
-		isFamily := doc.docType == "family_tree"
+		e.updateFamilyMenuItems(doc.docType == "family_tree")
 	} else {
-		isFamily := e.isFamilyDocument(doc)
-		e.updateFamilyMenuItems(isFamily)
+		e.updateFamilyMenuItems(e.isFamilyDocument(doc))
 	}
 
 	e.updateTabTitle(doc)
