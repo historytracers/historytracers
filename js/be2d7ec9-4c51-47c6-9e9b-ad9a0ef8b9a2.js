@@ -412,5 +412,7 @@ function htLoadContent() {
 
     htWriteNavigation();
 
+    htSetImageSrc("leftHandImg3", "images/HistoryTracers/5Left_Hand_Small.png");
+    htSetImageSrc("rightHandImg3", "images/HistoryTracers/5Right_Hand_Small.png");
     return false;
 }
