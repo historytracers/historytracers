@@ -1553,7 +1553,7 @@ func (e *TextEditor) saveAtlasDocument() {
 	if additionalText != "" && additionalText != "{}" {
 		var additionalData map[string]interface{}
 		if err := json.Unmarshal([]byte(additionalText), &additionalData); err == nil {
-			for k, v := range additionalData {
+			for k := range additionalData {
 				switch k {
 				default:
 				}
