@@ -133,7 +133,7 @@ type TextEditor struct {
 	searchResults          []int
 	familyMenuItems        []*fyne.MenuItem
 	familyMenuItem         *fyne.MenuItem
-	atlasMenuItem             *fyne.MenuItem
+	atlasMenuItem          *fyne.MenuItem
 	jsonEditorWindow       fyne.Window
 	jsonEditorTabs         *container.AppTabs
 	jsonHeadersForm        *widget.Form
@@ -2018,9 +2018,9 @@ func (e *TextEditor) createAtlasTemplate() AtlasTemplateFile {
 					},
 				},
 			},
+		},
 	}
 	return al
-}
 }
 
 func (e *TextEditor) createClassTemplate() ClassTemplateFile {
