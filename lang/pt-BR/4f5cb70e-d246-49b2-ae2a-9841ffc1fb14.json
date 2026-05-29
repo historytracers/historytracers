@@ -1,0 +1,524 @@
+{
+   "title": "Praticando com o teorema",
+   "header": "Praticando com o teorema",
+   "sources": [
+      "4f5cb70e-d246-49b2-ae2a-9841ffc1fb14"
+   ],
+   "scripts": [
+      "4f5cb70e-d246-49b2-ae2a-9841ffc1fb14"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/4f5cb70e-d246-49b2-ae2a-9841ffc1fb14_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6hCdQh7PdZEcUXGFfW27DO?si=L1H6q_RCSi6yoC2hFGms8Q",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "atlas"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1780073956"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nRecomendamos estudar o texto anterior (<htcite0>), além da seção *Primeiros Passos* do History Tracers (<htcite1>), para melhorar a compreensão.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "História de um Teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c4fa2c15-7df0-4754-971a-dae503516d51",
+                     "text": "History Tracers Atlas",
+                     "page": "Primeiros Passos",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nAtualmente, com o desenvolvimento de tecnologias como GPS, GLONASS, Galileo, e BeiDou (<htcite0>), localizar-nos na Terra tornou-se muito mais simples. Entretanto, muitas vezes usamos essas tecnologias por meio de aplicativos sem compreender como os processos ocorrem por trás deles.\n\nNo texto anterior, fomos introduzidos ao conceito do Teorema de Pitágoras (<htcite1>), fundamental para a localização espacial. Neste texto, iremos aprofundar um pouco mais os conhecimentos associados a ele.\n\nAntes de darmos os primeiros passos, reflita:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f61cdce0-7753-4326-9d6d-1e7d431fda9c",
+                     "text": "Logsdon, T.S.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "4",
+                        "day": "20"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "História de um Teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: De um lado para o outro</b><br /><br />O Teorema de Pitágoras é dado por:<br /><br /> <math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup></mrow></math><br /><br />Ao desenhá-lo em um triângulo, podemos observar que ele possui três grandezas: dois catetos (<b>a</b> e <b>b</b>) e uma hipotenusa (<b>c</b>) mostradas no <b>Gráfico 1</b> (<htcite0>).<br /><br />Como você trabalharia com elas?</div></div></center>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "História de um Teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942;} .radius-line { transform-origin: 300px 150px} .radius-45 { opacity: 1} .radius-30{ opacity: 1 } .vertical45 { opacity: 1 } .atlasTextRadius { opacity: 1 }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 180\" class=\"circle-draw\" id=\"svgcirctri0\">  <path class=\"radius-30\" d=\"M 260 127 A 30 30 0 0 1 270.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line class=\"radius-line\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"148\"></line> <line class=\"radius-45\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"46\"></line>  <line class=\"vertical45\" x1=\"376\" y1=\"46\" x2=\"376\" y2=\"146\"></line> <text class=\"atlasTextRadius\" x=\"300\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"300\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"380\" y=\"108\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"255\" y=\"145\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"202\" y=\"155\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"377\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"375\" y=\"162\" font-size=\"1.3em\" font-weight=\"bold\">Q</text></svg></div></p><p class=\"desc\"><b>Gráfico 1</b>: Triângulo retângulo com componentes nomeados.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_equality",
+         "text": [
+            {
+               "text": "### O que é a igualdade?\n\nComo primeiro passo para entendermos o que o teorema nos diz, começaremos pela profundidade do sinal de igualdade (=) que aparece nele. Assim, responda à próxima reflexão antes de prosseguir:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Igual ou diferente</b><br /><br />Quando você lê a frase: “os dois objetos são iguais”, qual conclusão você chega inicialmente?<br /><br />Agora, imagine que eu altere apenas um objeto, por exemplo, pintando-o. Os dois objetos permanecem iguais?<br /><br />E se, depois, eu pintar o outro objeto da mesma cor? Você voltaria à sua conclusão inicial ou permaneceria com a conclusão de quando apenas o primeiro havia sido pintado?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Ser igual é não ser diferente\n\nAo tratarmos inicialmente da igualdade no History Tracers, aprendemos que o sinal de igualdade não é uma simples marca. Ele indica que, entre os elementos comparados, não existe qualquer diferença. Se há dois objetos iguais e uma pessoa fecha os olhos enquanto invertimos suas posições, ao reabri-los ela não perceberá diferença, como no **Gráfico 2**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Atlas",
+                     "page": "Explorando a igualdade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htTwoGeometricalRectangle\"> <div class=\"htFirstGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh;\"></div></div> <div class=\"htSecondGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh;\"></div></div> </div></p><p class=\"desc\"><b>Gráfico 2</b>: Dois círculos idênticos.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Mais que um sinal\n\nO sinal de igualdade, em qualquer fórmula matemática, também pode ser interpretado como uma lei, a qual nos diz que, se qualquer ação é realizada de um lado, ela obrigatoriamente deve ser repetida no outro.\n\nPara visualizarmos melhor isso, refaçamos um exercício apresentado em outro texto (<htcite0>) utilizando nossas mãos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Atlas",
+                     "page": "Explorando a igualdade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Prática 1: Lados iguais</b><br />Iremos utilizar nossas duas mãos nesta prática.<br /><br />1. Feche os dedos das duas mãos. Com todos os dedos abaixados, ambas representam o zero.<br />2. Levante o dedo indicador de cada mão. Ao levantarmos os mesmos dedos, ainda mantemos nossas mãos mostrando as mesmas quantidades; agora, ambas mostram 1.<br />3. Repita a etapa anterior, levantando um dedo de cada mão de maneira simultânea.<br /><br />Caso tenha alguma dúvida sobre como realizar a prática, você poderá usar as setas da Tabela 1, apresentada a seguir, para visualizar a atividade em ação. Depois, faça o exercício com seus próprios dedos.<br /></div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equação</i></th><th>Mão esquerda</th><th>Mão direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">=</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">0</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\" src=\"images/HistoryTracers/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\" src=\"images/HistoryTracers/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table><p class=\"desc\"><b>Tabela 1</b>: Mantendo a igualdade.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Praticando com o Teorema\n\nFórmulas matemáticas são uma maneira que utilizamos para representar algo que vemos na natureza. Assim, após realizarmos um exercício com nosso corpo, podemos aprofundar o estudo transportando a experiência para o Teorema de Pitágoras. Para isso, utilizaremos o **Gráfico 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942;} .radius-line { transform-origin: 300px 150px} .radius-45 { opacity: 1} .radius-30{ opacity: 1 } .vertical45 { opacity: 1 } .atlasTextRadius { opacity: 1 }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 180\" class=\"circle-draw\" id=\"svgcirctri0\">  <path class=\"radius-30\" d=\"M 260 127 A 30 30 0 0 1 270.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line class=\"radius-line\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"148\"></line> <line class=\"radius-45\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"46\"></line>  <line class=\"vertical45\" x1=\"376\" y1=\"46\" x2=\"376\" y2=\"146\"></line> <text class=\"atlasTextRadius\" x=\"300\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">5</text> <text class=\"atlasTextRadius\" x=\"300\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">4</text> <text class=\"atlasTextRadius\" x=\"380\" y=\"108\" font-size=\"1.3em\" font-weight=\"bold\">3</text> <text class=\"atlasTextRadius\" x=\"255\" y=\"145\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"202\" y=\"155\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"377\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"375\" y=\"162\" font-size=\"1.3em\" font-weight=\"bold\">Q</text></svg></div></p><p class=\"desc\"><b>Gráfico 3</b>: Triângulo retângulo com catetos e hipotenusa contendo valores.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Fazendo a identificação\n\nPara podermos utilizar melhor o teorema, como primeira etapa, devemos identificar quais são os elementos com os quais estamos trabalhando.\n\nDessa forma, comparando o **Gráfico 1** com o **Gráfico 3**, podemos concluir o seguinte:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>a</mn> <mo>=</mo> <mn>4</mn></math> <math display=\"block\"><mn>b</mn> <mo>=</mo> <mn>3</mn></math>  <math display=\"block\"><mn>c</mn> <mo>=</mo> <mn>5</mn></math> <p class=\"desc\"><b>Fórmula 2</b>: Identificação das variáveis do triângulo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Não é só um detalhe\n\nDo texto anterior (<htcite0>) e da **Reflexão 1**, sabemos que o Teorema de Pitágoras é dado por:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "História de um Teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup>    </mrow></math><p class=\"desc\"><b>Fórmula 1</b>: Teorema de Pitágoras, onde <i>a</i> é o cateto adjacente, <i>b</i> é o cateto oposto, e <i>c</i> é a hipotenusa.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Ao olharmos a **Fórmula 1**, vemos que nela aparecem os catetos e a hipotenusa, mas não apenas isso. As variáveis estão elevadas ao quadrado, ou seja, cada valor é multiplicado por ele mesmo. Esse fato nos leva a uma reflexão:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: E se...</b><br /><br />Vamos supor que você não tenha observado o fato de que o teorema menciona valores multiplicados por eles mesmos. E que apenas substitua os valores como se o teorema fosse:<br /><br /> <b>a + b = c</b>.<br /><br />O resultado continuará válido?<br /><br />Isso quer dizer que o teorema estaria errado?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "A melhor maneira de responder a essa reflexão é verificá-la na prática:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>a</mn> <mo>+</mo> <mn>b</mn> <mo>=</mo> <mn>c</mn></math><br /> <math display=\"block\"><mn>4</mn> <mo>+</mo> <mn>3</mn> <mo>=</mo> <mn>5</mn></math><br /> <math display=\"block\"><mn>7</mn> <mo>=</mo> <mn>5</mn></math> </p><p class=\"desc\"><b>Cálculo 1</b>: Verificando uma alternativa.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Cálculo 1**, as seguintes etapas foram realizadas:\n- **Linha 1**: Escrevemos nossa fórmula alternativa, que não é o Teorema de Pitágoras.\n- **Linha 2**: Substituímos nela os valores identificados ao comparar os gráficos.\n- **Linha 3**: Realizamos a soma do lado esquerdo e chegamos à conclusão de que a proposta alternativa não faz sentido.\n\nEsse resultado incorreto nos traz algumas conclusões importantes:\n- Não é apenas um detalhe o fato de que o Teorema de Pitágoras trabalha com valores multiplicados por eles mesmos, ou seja, os quadrados.\n- A conclusão de que isso não é apenas um detalhe não é um desejo, mas uma constatação diante de um resultado em que se esperava uma igualdade, mas obtivemos um valor impossível.\n\nCom essas conclusões, podemos aplicar o Teorema de Pitágoras conforme proposto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>=</mo>  <msup><mi>c</mi><mn>2</mn></msup> </mrow></math><br /> <math display=\"block\"><mn>(a x a)</mn> <mo>+</mo> <mn>(b x b)</mn> <mo>=</mo> <mn>(c x c)</mn></math><br /> <math display=\"block\"><mn>(4 x 4)</mn> <mo>+</mo> <mn>(3 x 3)</mn> <mo>=</mo> <mn>(5 x 5)</mn></math><br /> <math display=\"block\"><mn>16</mn> <mo>+</mo> <mn>9</mn> <mo>=</mo> <mn>25</mn></math><br /> <math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>25</mn></math> </p><p class=\"desc\"><b>Cálculo 2</b>: Aplicando o Teorema de Pitágoras.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Cálculo 2**, observamos o seguinte:\n- **Linha 1**: Escrevemos o Teorema de Pitágoras.\n- **Linha 2**: Expandimos o teorema, explicitando que os valores seriam multiplicados por eles mesmos.\n- **Linha 3**: Substituímos os valores na fórmula.\n- **Linha 4**: Realizamos as multiplicações antes da soma.\n- **Linha 5**: Realizamos a soma do lado esquerdo, confirmando a validade do Teorema de Pitágoras, que afirma, corretamente, que “a soma dos quadrados dos catetos é igual ao quadrado da hipotenusa”.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_equality",
+         "text": [
+            {
+               "text": "### Mantendo a igualdade\n\nAo nos depararmos com fórmulas como a **Fórmula 1**, podemos observar que ela possui três variáveis, com uma variável isolada no lado direito e outras duas no lado esquerdo. Isso não quer dizer que ela não possa ser modificada para obtermos algum resultado desejado. Vamos refletir um pouco sobre isso.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: Movimento...</b><br /><br />A maneira como escrevemos o Teorema de Pitágoras até o momento nos mostra que a soma dos quadrados dos catetos é igual ao quadrado da hipotenusa. Como consequência disso, se soubermos os valores dos catetos, ao somarmos seus quadrados, também saberemos o valor do quadrado da hipotenusa.<br /><br />Agora, imagine que você tenha o valor de um cateto e da hipotenusa e deseje descobrir o valor do quadrado do outro cateto. Como você faria?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Em função de\n\nAo olharmos para a **Fórmula 1**, outra maneira de expressá-la é dizer que o valor do quadrado da hipotenusa (**c**) é expresso em função dos valores dos catetos.\n\nPara respondermos à reflexão, necessitaremos reescrever a **Fórmula 1** com um cateto em função da hipotenusa e do outro cateto. Ao realizarmos essa operação, devemos lembrar que a igualdade deverá ser mantida (<htcite0>).\n\n#### Movimentos\n\nDeixar um valor em função de outros basicamente implica realizar movimentos. Mas, como mencionado anteriormente, não é possível mover os termos de qualquer maneira. Como há uma igualdade, precisamos realizar operações em ambos os lados para que ela não seja desfeita nem produza um resultado impossível.\n\nPara deixar isso mais claro, vamos reescrever a **Fórmula 1** em função do cateto adjacente ao ângulo theta (θ), representado por (**a**).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Atlas",
+                     "page": "Explorando a igualdade",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup> </math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+ (</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>) =</mo> <msup><mi>c</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <mn>0</mn> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> </p><p class=\"desc\"><b>Cálculo 3</b>: Teorema de Pitágoras, onde <i>a</i> é o cateto adjacente é calculado em função do  cateto oposto (<i>b</i>), e da hipotenusa (<i>c</i>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Cálculo 3**, as seguintes etapas foram realizadas para colocar o cateto **a** em função da hipotenusa e do outro cateto:\n- **Linha 1**: Reescrevemos o Teorema de Pitágoras para podermos trabalhar com ele.\n- **Linha 2**: Explicitamos que desejamos mover ambos os lados pela mesma quantidade (**b<sup>2</sup>**), mantendo, dessa maneira, a igualdade. Além disso, colocamos entre parênteses duas grandezas no lado esquerdo.\n- **Linha 3**: Utilizando o fato de que uma grandeza subtraída dela mesma é igual a zero (<htcite0>), removemos um dos catetos (**b**) do lado esquerdo.\n- **Linha 4**: Finalmente, como ao adicionar zero a uma grandeza ela permanece inalterada (<htcite1>), explicitamos que o cateto a está em função do outro cateto (**b**) e da hipotenusa (**c**).\n\nApós reorganizarmos o Teorema, podemos reforçar sua validade substituindo nele os valores dos catetos e da hipotenusa:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "aa6b052f-05ca-4979-a3a7-a4b7e70618ef",
+                     "text": "History Tracers Team",
+                     "page": "A diferença dos iguais",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "11",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "92b5d15c-d26a-4ad9-82af-3262649cf2e4",
+                     "text": "History Tracers Team",
+                     "page": "Caminhando entre os números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math><br /> <math display=\"block\"><mn>(a x a)</mn> <mo>=</mo> <mn>(c x c)</mn> <mo>-</mo> <mn>(b x b)</mn></math><br /> <math display=\"block\"><mn>(4 x 4)</mn> <mo>=</mo> <mn>(5 x 5)</mn> <mo>-</mo> <mn>(3 x 3)</mn></math><br /> <math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>25</mn> <mo>-</mo> <mn>9</mn></math><br />  <math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>16</mn></math></p><p class=\"desc\"><b>Cálculo 4</b>: Aplicando o Teorema de Pitágoras.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Cálculo 4**, podemos observar o seguinte:\n- **Linha 1**: Repetimos o resultado do **Cálculo 3**.\n- **Linha 2**: Novamente explicitamos que o quadrado de um valor corresponde a esse valor multiplicado por ele mesmo.\n- **Linha 3**: Substituímos os valores do **Gráfico 3** em nossos cálculos.\n\n- **Linha 4**: Realizamos a multiplicação dos valores.\n- **Linha 5**: Após realizarmos a subtração, como esperado, chegamos a um resultado que mostra que o valor do quadrado de um cateto (**a**) é igual à subtração do quadrado do outro cateto (**b**) da hipotenusa (**c**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, aprendemos que, em uma igualdade, ao modificarmos um lado, o outro também deve ser modificado da mesma maneira, evitando que a igualdade seja violada.\n\nAlém disso, aprendemos que podemos interpretar fórmulas matemáticas como valores que estão em função de outros valores ou que resultam em outros.\n\nPor fim, gostaríamos de ressaltar que os teoremas, quando aplicados corretamente, produzem os resultados esperados. Por outro lado, quando os alteramos, podemos obter resultados improváveis.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "O Teorema de Pitágoras poderá ter o quadrado de um cateto ao lado do quadrado da hipotenusa?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Conforme observamos em uma das práticas, nada impede que movamos um dos quadrados para o lado da hipotenusa. Entretanto, não basta apenas transferi-lo; há um processo para mover ambos os lados sem alterar a igualdade."
+      },
+      {
+         "question": "Podemos colocar tanto os quadrados dos catetos quanto o quadrado da hipotenusa de um mesmo lado no Teorema de Pitágoras?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Utilizando o mesmo princípio para mover o quadrado de um cateto, também podemos mover o quadrado da hipotenusa e, como consequência, obteremos o resultado final igual a zero. Faremos isso a partir do resultado final do Cálculo 3:<br />  <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math><br />    <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup></msup></math><br /> <math display=\"block\"><mn>0</mn> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup></msup></math><br />"
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

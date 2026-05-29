@@ -591,77 +591,6 @@ func htConvertClassesToAudio(pages []string, lang string) {
 	}
 }
 
-func htConvertAtlasToAudio() {
-	htValidateAtlasFormats()
-	var atlasSources []string = []string{"atlas"}
-	htLoadSourceFromFile(atlasSources)
-	for _, dir := range htLangPaths {
-		htLoadKeywordFile("common_keywords", dir)
-		htLoadKeywordFile("math_keywords", dir)
-		fileName := fmt.Sprintf("%slang/%s/atlas.json", CFG.SrcPath, dir)
-
-		byteValue, err := htOpenFileReadClose(fileName)
-		if err != nil {
-			panic(err)
-		}
-
-		var localTemplateFile AtlasTemplateFile
-		err = json.Unmarshal(byteValue, &localTemplateFile)
-		if err != nil {
-			htCommonJSONError(byteValue, err)
-			panic(err)
-		}
-
-		contentTxt := htLoopThroughContentFiles("Atlas", localTemplateFile.Content, dir)
-		atlasTxt := htLoopThroughAtlasFiles(localTemplateFile.Atlas, dir)
-		audioTxt := contentTxt + "\n\n" + atlasTxt
-		audioTxt = htAdjustAudioStringBeforeWrite(audioTxt, dir)
-		audioTxt = htRemoveChineseCharacters(audioTxt)
-
-		err = htWriteAudioFile("atlas", dir, audioTxt)
-		if err != nil {
-			panic(err)
-		}
-
-		for _, atlasContent := range localTemplateFile.Atlas {
-			contentAudioTxt := ""
-			for j := 0; j < len(atlasContent.Text); j++ {
-				text := &atlasContent.Text[j]
-				contentAudioTxt += htTextToHumanText(text, dir, false)
-				if len(text.PostMention) > 0 {
-					contentAudioTxt += text.PostMention
-				}
-				contentAudioTxt += ".\n\n"
-			}
-			contentAudioTxt = htAdjustAudioStringBeforeWrite(contentAudioTxt, dir)
-			contentAudioTxt = htRemoveChineseCharacters(contentAudioTxt)
-			err = htWriteAudioFile(atlasContent.ID, dir, contentAudioTxt)
-			if err != nil {
-				panic(err)
-			}
-		}
-
-		if verboseFlag {
-			htReportErrLineCounter(fileName, "atlas", dir)
-		}
-
-		_, fileWasModified := htGitModifiedMap[fileName]
-		if fileWasModified {
-			localTemplateFile.LastUpdate[0] = HTUpdateTimestamp()
-		}
-
-		newFile, err := htWriteTmpFile(dir, &localTemplateFile)
-		if err != nil {
-			panic(err)
-		}
-		HTCopyFilesWithoutChanges(fileName, newFile)
-		err = os.Remove(newFile)
-		if err != nil {
-			panic(err)
-		}
-	}
-}
-
 func htConvertOverallTextToAudio() {
 	pages := []string{"main", "contact", "acknowledgement", "release", "2a2cbd69-7f09-4a58-aff1-6fbff8c5bda5", "a86f373e-c908-4796-8a96-427ba5d4c889", "sources", "genealogical_first_steps", "genealogical_faq", "0ac0098b-cae0-4df2-a3aa-f0aaf2cde5e0", "partnership", "tree"}
 	for _, dir := range htLangPaths {
@@ -1012,7 +941,6 @@ func htConvertTextsToAudio() {
 	linesMap = make(map[string]int)
 	htConvertOverallTextToAudio()
 	htFamiliesToAudio()
-	htConvertAtlasToAudio()
 	htIndexesToAudio()
 	htConvertSMGameToAudio()
 }

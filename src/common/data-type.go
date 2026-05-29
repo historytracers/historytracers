@@ -315,16 +315,6 @@ type Family struct {
 	DateTime      []HTDate     `json:"date_time"`
 }
 
-// Atlas
-type AtlasTemplateContent struct {
-	ID     string   `json:"uuid"`
-	Image  string   `json:"image"`
-	Author string   `json:"author"`
-	Index  string   `json:"index"`
-	Audio  string   `json:"audio"`
-	Text   []HTText `json:"text"`
-}
-
 type AtlasTemplateFile struct {
 	Title      string                 `json:"title"`
 	Header     string                 `json:"header"`
@@ -339,7 +329,6 @@ type AtlasTemplateFile struct {
 	Version    int                    `json:"version"`
 	Editing    bool                   `json:"editing"`
 	Content    []ClassTemplateContent `json:"content"`
-	Atlas      []AtlasTemplateContent `json:"atlas"`
 }
 
 type SMGameContent struct {

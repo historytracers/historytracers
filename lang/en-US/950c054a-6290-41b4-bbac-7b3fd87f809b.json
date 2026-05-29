@@ -1,0 +1,286 @@
+{
+   "title": "The History of a Theorem",
+   "header": "The History of a Theorem",
+   "sources": [
+      "950c054a-6290-41b4-bbac-7b3fd87f809b"
+   ],
+   "scripts": [
+      "950c054a-6290-41b4-bbac-7b3fd87f809b"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/950c054a-6290-41b4-bbac-7b3fd87f809b_en-US.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "atlas"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1779821340"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "ced7604e-0a29-bf5d-8496-368cd887a372",
+                     "text": "History Tracers Atlas",
+                     "page": "Location",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_local_content",
+         "text": [
+            {
+               "text": "<p class=\"pythagorasTriangle\" id=\"pytri0\"><svg viewBox=\"0 0 600 300\" id=\"svgpytri0\"><rect x=\"210\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">1</text><rect x=\"237\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">2</text><rect x=\"264\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">3</text><rect x=\"291\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">4</text><rect x=\"210\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">5</text><rect x=\"237\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">6</text><rect x=\"264\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">7</text><rect x=\"291\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">8</text><rect x=\"210\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">9</text><rect x=\"237\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">10</text><rect x=\"264\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">11</text><rect x=\"291\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">12</text><rect x=\"210\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">13</text><rect x=\"237\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">14</text><rect x=\"264\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">15</text><rect x=\"291\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">16</text><rect x=\"318\" y=\"109\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"320\" y=\"127\" font-size=\"1.3em\" font-weight=\"bold\">1</text><rect x=\"345\" y=\"109\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"347\" y=\"127\" font-size=\"1.3em\" font-weight=\"bold\">2</text><rect x=\"372\" y=\"109\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"374\" y=\"127\" font-size=\"1.3em\" font-weight=\"bold\">3</text><rect x=\"318\" y=\"136\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"320\" y=\"154\" font-size=\"1.3em\" font-weight=\"bold\">4</text><rect x=\"345\" y=\"136\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"347\" y=\"154\" font-size=\"1.3em\" font-weight=\"bold\">5</text><rect x=\"372\" y=\"136\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"374\" y=\"154\" font-size=\"1.3em\" font-weight=\"bold\">6</text><rect x=\"318\" y=\"163\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"320\" y=\"181\" font-size=\"1.3em\" font-weight=\"bold\">7</text><rect x=\"345\" y=\"163\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"347\" y=\"181\" font-size=\"1.3em\" font-weight=\"bold\">8</text><rect x=\"372\" y=\"163\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"374\" y=\"181\" font-size=\"1.3em\" font-weight=\"bold\">9</text><rect x=\"236\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">1</text><rect x=\"263\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">2</text><rect x=\"290\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">3</text><rect x=\"317\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">4</text><rect x=\"344\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">5</text><rect x=\"236\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">6</text><rect x=\"263\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">7</text><rect x=\"290\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">8</text><rect x=\"317\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">9</text><rect x=\"344\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">10</text><rect x=\"236\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">11</text><rect x=\"263\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">12</text><rect x=\"290\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">13</text><rect x=\"317\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">14</text><rect x=\"344\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">15</text><rect x=\"236\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">16</text><rect x=\"263\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">17</text><rect x=\"290\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">18</text><rect x=\"317\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">19</text><rect x=\"344\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">20</text><rect x=\"236\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">21</text><rect x=\"263\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">22</text><rect x=\"290\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">23</text><rect x=\"317\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">24</text><rect x=\"344\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">25</text><text x=\"240\" y=\"186\" font-size=\"1.3em\" font-weight=\"bold\">θ</text></svg></p><p class=\"desc\"><b>Graph 1</b>: Visual Proof of the Pythagorean Theorem</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### The History of a Theorem\n\nThe graph in this section is a visual proof—a mathematical argument that demonstrates the proposed concept is real (<htcite0>)—of the Pythagorean Theorem.\n\n#### Where is it?\n\nHave you ever asked yourself the following question?",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fc17254b-5b9e-458b-8406-749d8fb6778a",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: Pythagorean Theorem</b><br /><br />Why do I need to learn the Pythagorean Theorem?</div></div></center></p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Nowadays, the Pythagorean Theorem is used daily by many professionals, often without people's knowledge. In this section, we make its use more visible to answer this reflection.\n\n#### The Discovery\n\nWhat we call the Pythagorean Theorem could not have been given that name when it was first discovered.\n\nWe will follow Dr. Daniel F. Mansfield, who uses the term \"triple diagonal\" to refer to the relationship between numbers that follow the same rule attributed to Pythagoras in ancient Babylonian texts, written in sexagesimal positional notation (<htcite0>).\n\nThe reasons for this are that Pythagoras could not have discovered something before he was born. Furthermore, despite the similarity between the values on the *Plimpton 322* tablet and the values obtained through trigonometry, it cannot be stated that the Babylonians used trigonometry in the same way as the Greeks and as we know it today. However, knowledge of the right triangle among the Babylonians is proven by the artifact *Si. 427*, housed in the Istanbul Archaeological Museum (<htcite1>).\n\nBesides the Babylonians, there are also records of the relationship between the values of a right triangle in India (<htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
+                     "text": "Mansfield, D. F.",
+                     "page": "pp. 985 - 1003",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b157e363-321b-4d0e-bf1c-72ac3a0a3f3f",
+                     "text": "Mansfield, D. F.",
+                     "page": "pp. 985 - 1003",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f40bd766-4f57-4f9b-a715-dd75311cada5",
+                     "text": "Britannica, T. Editors of Encyclopaedia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "11",
+                        "day": "03"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The Pythagorean Theorem\n\nThe version of the theorem we know today comes from Ancient Greece (<htcite0>; <htcite1>), more than a millennium after the Babylonian inscriptions. The Greek philosopher and mathematician Pythagoras is said to have reached the same conclusion, either through contact with this knowledge from other cultures or through his own studies. It is this version that we know in detail.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "082f655f-5086-4998-9ed6-02906ab5eeb0",
+                     "text": "Moras, Roberto",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f40bd766-4f57-4f9b-a715-dd75311cada5",
+                     "text": "Britannica, T. Editors of Encyclopaedia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "11",
+                        "day": "03"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The Multiplication Table and the Triangle\n\nAs we advance in our studies, some information goes unnoticed, such as the fact that when we draw the multiplication table in a chart format, we can visualize it as a right triangle.\n\nFor more details on the multiplication table and right triangles, we suggest studying Chapter 4 of the *First Steps* of **History Tracers** (<htcite0>). Details about triangles are presented in the text that teaches the multiplication table for three (<htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b5efc8f9-c268-430f-9681-7a43848ee48e",
+                     "text": "History Tracers Team",
+                     "page": "First Steps",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72dcaa0f-07e3-41de-a637-c5b2f528dc33",
+                     "text": "History Tracers Team",
+                     "page": "Understanding the Multiplication Table (2 and 3)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The Right Triangle\n\nIn the chart for this section, we have a right triangle (<htcite0>) centered on squares. To form this triangle, we used squares that, in the end, compose a larger square.\n\nIn this chart, we added 16 squares on the base, which we will call a **leg**. On the side opposite the angle theta (θ) (<htcite1>), we placed 9 squares, with one end connected to the endpoint of the square of value 4; we will also call this side a **leg**. Finally, we connected the points of the squares of value 1, forming a total of 25 squares, which we will call the **hypotenuse**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e31c5a5d-a61f-488b-a657-cf82d112e105",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6438de6a-38b8-4060-943d-d2c3f5f36160",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "We observe that the total number of squares on each side (9, 16, and 25) corresponds to the product of the length of each line by itself. That is, the total value of the geometric squares is given by the product of the size of each side by itself:</p><p><ul class=\"citation\"><li><math display=\"block\"><mn>9</mn> <mo>=</mo> <mn>3</mn> <mo>x</mo> <mn>3</mn></li> <li><math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>4</mn> <mo>x</mo> <mn>4</mn></li> <li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>5</mn> <mo>x</mo> <mn>5</mn></li></ul></p><p class=\"desc\"><b>Calculation 1</b>: Sides of the triangle expressed in squares.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection: This reminds me of...</b><br /><br />Observe <b>Calculation 1</b>.<br /><br />Can you create a mathematical relationship for the results of <b>Calculation 1</b>?</div></div></center></p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p>We can observe that by adding the squares of the legs, the result will be the square of the hypotenuse:/p><p><ul class=\"citation\"><li><math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>9</mn> <mo>+</mo> <mn>16</mn></li></ul></p><p class=\"desc\"><b>Calculation 2</b>: Sum of the squares of the legs equals the square of the hypotenuse.</p><p>This result is known as the Pythagorean Theorem and we express it with *Formula 1*:</p><p><math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup>    </mrow></math><p class=\"desc\"><b>Formula 1</b>: Pythagorean Theorem, where <i>a</i> is the adjacent leg, <i>b</i> is the opposite leg, and <i>c</i> is the hypotenuse.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

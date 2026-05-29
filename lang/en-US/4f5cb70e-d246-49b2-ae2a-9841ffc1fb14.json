@@ -1,0 +1,524 @@
+{
+   "title": "Practicing with the theorem",
+   "header": "Practicing with the theorem",
+   "sources": [
+      "4f5cb70e-d246-49b2-ae2a-9841ffc1fb14"
+   ],
+   "scripts": [
+      "4f5cb70e-d246-49b2-ae2a-9841ffc1fb14"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/4f5cb70e-d246-49b2-ae2a-9841ffc1fb14_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0RjZuFagxD1iEavETuoNGV?si=teEfS10fTiiZuL9CNngWpg",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "atlas"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1780073930"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nWe recommend studying the previous text (<htcite0>), as well as the *First Steps* of History Tracers (<htcite1>), to improve comprehension.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "History of a Theorem",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c4fa2c15-7df0-4754-971a-dae503516d51",
+                     "text": "History Tracers Atlas",
+                     "page": "First Steps",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nCurrently, with the development of technologies such as GPS, GLONASS, Galileo, and BeiDou (<htcite0>), locating ourselves on Earth has become much simpler. However, we often use these technologies through applications without understanding the processes that occur behind them.\n\nIn the previous text, we were introduced to the concept of the Pythagorean Theorem (<htcite1>), fundamental to spatial location. In this text, we will delve a little deeper into the knowledge associated with it.\n\nBefore taking the first steps, reflect:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f61cdce0-7753-4326-9d6d-1e7d431fda9c",
+                     "text": "Logsdon, T.S.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "4",
+                        "day": "20"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "History of a Theorem",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: Back and forth</b><br /><br />The Pythagorean Theorem is given by:<br /><br /> <math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup></mrow></math><br /><br />When drawing it in a triangle, we can observe that it has three magnitudes: two legs (<b>a</b> and <b>b</b>) and a hypotenuse (<b>c</b>), shown in <b>Chart 1</b> (<htcite0>).<br /><br />How would you work with them?</div></div></center>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "History of a Theorem",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942;} .radius-line { transform-origin: 300px 150px} .radius-45 { opacity: 1} .radius-30{ opacity: 1 } .vertical45 { opacity: 1 } .atlasTextRadius { opacity: 1 }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 180\" class=\"circle-draw\" id=\"svgcirctri0\">  <path class=\"radius-30\" d=\"M 260 127 A 30 30 0 0 1 270.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line class=\"radius-line\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"148\"></line> <line class=\"radius-45\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"46\"></line>  <line class=\"vertical45\" x1=\"376\" y1=\"46\" x2=\"376\" y2=\"146\"></line> <text class=\"atlasTextRadius\" x=\"300\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">c</text> <text class=\"atlasTextRadius\" x=\"300\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">a</text> <text class=\"atlasTextRadius\" x=\"380\" y=\"108\" font-size=\"1.3em\" font-weight=\"bold\">b</text> <text class=\"atlasTextRadius\" x=\"255\" y=\"145\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"202\" y=\"155\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"377\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"375\" y=\"162\" font-size=\"1.3em\" font-weight=\"bold\">Q</text></svg></div></p><p class=\"desc\"><b>Chart 1</b>: Right triangle with named components.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_equality",
+         "text": [
+            {
+               "text": "### What is equality?\n\nAs a first step to understanding what the theorem tells us, we will begin with the depth of the equal sign (=) that appears in it. So, answer the following reflection before proceeding:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Equal or different</b><br /><br />When you read the phrase: “the two objects are equal,” what conclusion do you initially reach?<br /><br />Now, imagine I change only one object, for example, by painting it. Do the two objects remain equal?<br /><br />And if, afterwards, I paint the other object the same color? Would you return to your initial conclusion or remain with the conclusion from when only the first had been painted?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Being equal is not being different\n\nWhen we initially addressed equality in History Tracers, we learned that the equal sign is not a simple mark. It indicates that, between the compared elements, there is no difference whatsoever. If there are two equal objects and a person closes their eyes while we swap their positions, when they open them again they will not notice any difference, as in **Graph 2**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Atlas",
+                     "page": "Exploring equality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><div class=\"htTwoGeometricalRectangle\"> <div class=\"htFirstGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh;\"></div></div> <div class=\"htSecondGeometrical\"><div class=\"htCircle\" style=\"height: 12vh; width: 12vh;\"></div></div> </div></p><p class=\"desc\"><b>Graph 2</b>: Two identical circles.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### More than a sign\n\nThe equal sign, in any mathematical formula, can also be interpreted as a law, which tells us that if any action is performed on one side, it must necessarily be repeated on the other.\n\nTo visualize this better, let's redo an exercise presented in another text (<htcite0>) using our hands.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Atlas",
+                     "page": "Exploring equality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: Equal sides</b><br />We will use both of our hands in this practice.<br /><br />1. Close the fingers of both hands. With all fingers down, both represent zero.<br />2. Raise the index finger of each hand. By raising the same fingers, we still keep our hands showing the same quantities; now both show 1.<br />3. Repeat the previous step, raising one finger from each hand simultaneously.<br /><br />If you have any questions about how to perform the practice, you can use the arrows in Table 1, presented below, to visualize the activity in action. Then, do the exercise with your own fingers.<br /></div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Equation</i></th><th>Left hand</th><th>Right hand</th><th>Arrows</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"leftnum\">0</span></td></td> <td id=\"tc2f1\" colspan=\"2\"><span class=\"text_to_paint\">=</span></td> <td id=\"tc4f1\"><span class=\"text_to_paint\" id=\"rightnum\">0</span></td><td id=\"tc5f1\" style=\"background-color:white;\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\" src=\"images/HistoryTracers/0Left_Hand_Small.png\" /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\" src=\"images/HistoryTracers/0Right_Hand_Small.png\" /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table><p class=\"desc\"><b>Table 1</b>: Maintaining equality.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Practicing with the Theorem\n\nMathematical formulas are a way we use to represent something we see in nature. Thus, after performing an exercise with our body, we can deepen the study by transferring the experience to the Pythagorean Theorem. To do this, we will use **Graph 3**.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"unitaryCircle\" id=\"circtri0\"><style>.circle-draw circle, .circle-draw line {stroke: #71a6d2; stroke-width: 4; stroke-linecap: round; fill: none;} .circle-draw circle { stroke-dasharray: 942; stroke-dashoffset: 942;} .radius-line { transform-origin: 300px 150px} .radius-45 { opacity: 1} .radius-30{ opacity: 1 } .vertical45 { opacity: 1 } .atlasTextRadius { opacity: 1 }</style><div class=\"atlasCircleContainer\"><svg viewBox=\"0 0 600 180\" class=\"circle-draw\" id=\"svgcirctri0\">  <path class=\"radius-30\" d=\"M 260 127 A 30 30 0 0 1 270.0 150.0\" fill=\"none\" stroke=\"#71a6d2\" stroke-width=\"3\"/> <line class=\"radius-line\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"148\"></line> <line class=\"radius-45\" x1=\"230\" y1=\"148\" x2=\"376\" y2=\"46\"></line>  <line class=\"vertical45\" x1=\"376\" y1=\"46\" x2=\"376\" y2=\"146\"></line> <text class=\"atlasTextRadius\" x=\"300\" y=\"88\" font-size=\"1.3em\" font-weight=\"bold\">5</text> <text class=\"atlasTextRadius\" x=\"300\" y=\"168\" font-size=\"1.3em\" font-weight=\"bold\">4</text> <text class=\"atlasTextRadius\" x=\"380\" y=\"108\" font-size=\"1.3em\" font-weight=\"bold\">3</text> <text class=\"atlasTextRadius\" x=\"255\" y=\"145\" font-size=\"1.0em\" font-weight=\"bold\">θ</text> <text class=\"atlasTextRadius\" x=\"202\" y=\"155\" font-size=\"1.3em\" font-weight=\"bold\">O</text> <text class=\"atlasTextRadius\" x=\"377\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\">P</text>  <text class=\"atlasTextRadius\" x=\"375\" y=\"162\" font-size=\"1.3em\" font-weight=\"bold\">Q</text></svg></div></p><p class=\"desc\"><b>Graph 3</b>: Right triangle with legs and hypotenuse containing values.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Making the identification\n\nTo make better use of the theorem, as a first step, we must identify which elements we are working with.\n\nThus, comparing **Graph 1** with **Graph 3**, we can conclude the following:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>a</mn> <mo>=</mo> <mn>4</mn></math> <math display=\"block\"><mn>b</mn> <mo>=</mo> <mn>3</mn></math>  <math display=\"block\"><mn>c</mn> <mo>=</mo> <mn>5</mn></math> <p class=\"desc\"><b>Formula 2</b>: Identification of the triangle's variables.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### It's not just a detail\n\nFrom the previous text (<htcite0>) and from **Reflection 1**, we know that the Pythagorean Theorem is given by:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "History of a Theorem",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mrow> <mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mrow> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup>    </mrow></math><p class=\"desc\"><b>Formula 1</b>: Pythagorean Theorem, where <i>a</i> is the adjacent leg, <i>b</i> is the opposite leg, and <i>c</i> is the hypotenuse.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "When looking at **Formula 1**, we see that it features the legs and the hypotenuse, but not only that. The variables are squared, meaning each value is multiplied by itself. This fact leads us to a reflection:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 3: What if...</b><br /><br />Suppose you haven't noticed the fact that the theorem mentions values multiplied by themselves. And you simply substitute the values as if the theorem were:<br /><br /> <b>a + b = c</b>.<br /><br />Would the result still be valid?<br /><br />Does that mean the theorem would be wrong?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The best way to answer this reflection is to verify it in practice:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mn>a</mn> <mo>+</mo> <mn>b</mn> <mo>=</mo> <mn>c</mn></math><br /> <math display=\"block\"><mn>4</mn> <mo>+</mo> <mn>3</mn> <mo>=</mo> <mn>5</mn></math><br /> <math display=\"block\"><mn>7</mn> <mo>=</mo> <mn>5</mn></math> </p><p class=\"desc\"><b>Calculation 1</b>: Verifying an alternative.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 1**, the following steps were performed:\n- **Line 1**: We wrote our alternative formula, which is not the Pythagorean Theorem.\n- **Line 2**: We substituted into it the values identified by comparing the graphs.\n- **Line 3**: We performed the sum on the left side and concluded that the alternative proposal makes no sense.\n\nThis incorrect result brings us some important conclusions:\n- It is not just a detail that the Pythagorean Theorem works with values multiplied by themselves, i.e., the squares.\n- The conclusion that this is not just a detail is not a wish, but a verification in the face of a result where equality was expected, but we obtained an impossible value.\n\nWith these conclusions, we can apply the Pythagorean Theorem as proposed.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><mrow><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>=</mo>  <msup><mi>c</mi><mn>2</mn></msup> </mrow></math><br /> <math display=\"block\"><mn>(a x a)</mn> <mo>+</mo> <mn>(b x b)</mn> <mo>=</mo> <mn>(c x c)</mn></math><br /> <math display=\"block\"><mn>(4 x 4)</mn> <mo>+</mo> <mn>(3 x 3)</mn> <mo>=</mo> <mn>(5 x 5)</mn></math><br /> <math display=\"block\"><mn>16</mn> <mo>+</mo> <mn>9</mn> <mo>=</mo> <mn>25</mn></math><br /> <math display=\"block\"><mn>25</mn> <mo>=</mo> <mn>25</mn></math> </p><p class=\"desc\"><b>Calculation 2</b>: Applying the Pythagorean Theorem.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 2**, we observe the following:\n- **Line 1**: We wrote the Pythagorean Theorem.\n- **Line 2**: We expanded the theorem, making explicit that the values would be multiplied by themselves.\n- **Line 3**: We substituted the values into the formula.\n- **Line 4**: We performed the multiplications before the addition.\n- **Line 5**: We performed the sum on the left side, confirming the validity of the Pythagorean Theorem, which correctly states that “the sum of the squares of the legs equals the square of the hypotenuse”.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_equality",
+         "text": [
+            {
+               "text": "### Maintaining equality\n\nWhen we come across formulas like **Formula 1**, we can observe that it has three variables, with one variable isolated on the right side and two others on the left side. This does not mean it cannot be modified to obtain some desired result. Let us reflect a little on this.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 4: Movement...</b><br /><br />The way we have written the Pythagorean Theorem so far shows us that the sum of the squares of the legs equals the square of the hypotenuse. As a consequence, if we know the values of the legs, by adding their squares, we will also know the value of the square of the hypotenuse.<br /><br />Now, imagine you have the value of one leg and the hypotenuse and wish to find the value of the square of the other leg. How would you do it?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### In terms of\n\nWhen observing **Formula 1**, another way to express it is to say that the value of the square of the hypotenuse (**c**) is expressed in terms of the values of the legs.\n\nTo answer the reflection, we will need to rewrite **Formula 1** with one leg in terms of the hypotenuse and the other leg. When performing this operation, we must remember that equality must be maintained (<htcite0>).\n\n#### Movements\n\nLeaving a value in terms of others basically implies performing movements. But, as mentioned earlier, it is not possible to move terms just any way. Since there is equality, we need to perform operations on both sides so that it is not undone nor produces an impossible result.\n\nTo make this clearer, let us rewrite **Formula 1** in terms of the leg adjacent to the angle theta (θ), represented by (**a**).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "bb226b7f-2358-437f-b6e1-668943c682d7",
+                     "text": "History Tracers Atlas",
+                     "page": "Exploring Equality",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup> </math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+ (</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup> <mo>) =</mo> <msup><mi>c</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>+</mo> <mn>0</mn> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> <br /> <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math> </p><p class=\"desc\"><b>Calculation 3</b>: Pythagorean Theorem, where <i>a</i> is the adjacent leg and is calculated in terms of the opposite leg (<i>b</i>) and the hypotenuse (<i>c</i>).</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 3**, the following steps were performed to put leg **a** in terms of the hypotenuse and the other leg:\n- **Line 1**: We rewrote the Pythagorean Theorem to be able to work with it.\n- **Line 2**: We made explicit that we wish to move both sides by the same amount (**b<sup>2</sup>**), thus maintaining equality. Also, we placed two quantities in parentheses on the left side.\n- **Line 3**: Using the fact that a quantity subtracted from itself equals zero (<htcite0>), we removed one of the legs (**b**) from the left side.\n- **Line 4**: Finally, since adding zero to a quantity leaves it unchanged (<htcite1>), we made explicit that leg a is in terms of the other leg (**b**) and the hypotenuse (**c**).\n\nAfter reorganizing the Theorem, we can reinforce its validity by substituting the values of the legs and the hypotenuse into it:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "aa6b052f-05ca-4979-a3a7-a4b7e70618ef",
+                     "text": "History Tracers Team",
+                     "page": "The Difference of Equals",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "11",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "92b5d15c-d26a-4ad9-82af-3262649cf2e4",
+                     "text": "History Tracers Team",
+                     "page": "Walking Among Numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math><br /> <math display=\"block\"><mn>(a x a)</mn> <mo>=</mo> <mn>(c x c)</mn> <mo>-</mo> <mn>(b x b)</mn></math><br /> <math display=\"block\"><mn>(4 x 4)</mn> <mo>=</mo> <mn>(5 x 5)</mn> <mo>-</mo> <mn>(3 x 3)</mn></math><br /> <math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>25</mn> <mo>-</mo> <mn>9</mn></math><br />  <math display=\"block\"><mn>16</mn> <mo>=</mo> <mn>16</mn></math></p><p class=\"desc\"><b>Calculation 4</b>: Applying the Pythagorean Theorem.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "In **Calculation 4**, we can observe the following:\n- **Line 1**: We repeated the result of **Calculation 3**.\n- **Line 2**: We again made explicit that the square of a value corresponds to that value multiplied by itself.\n- **Line 3**: We substituted the values from **Graph 3** into our calculations.\n\n- **Line 4**: We performed the multiplication of the values.\n- **Line 5**: After performing the subtraction, as expected, we arrived at a result showing that the value of the square of one leg (**a**) equals the subtraction of the square of the other leg (**b**) equals the subtraction of the square of the other leg (**c**).",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we learned that, in an equality, when we modify one side, the other must also be modified in the same way, preventing the equality from being violated.\n\nFurthermore, we learned that we can interpret mathematical formulas as values that are functions of other values or that result in others.\n\nFinally, we would like to emphasize that theorems, when applied correctly, produce the expected results. On the other hand, when we alter them, we can obtain unlikely results.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": [
+      {
+         "question": "Could the Pythagorean Theorem have the square of one leg next to the square of the hypotenuse?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "As we observed in one of the practices, nothing prevents us from moving one of the squares to the side of the hypotenuse. However, it is not enough to just transfer it; there is a process to move both sides without altering the equality."
+      },
+      {
+         "question": "Can we place both the squares of the legs and the square of the hypotenuse on the same side in the Pythagorean Theorem?",
+         "yesNoAnswer": "Yes",
+         "additionalInfo": "Using the same principle to move the square of one leg, we can also move the square of the hypotenuse and, as a consequence, we will obtain the final result equal to zero. We will do this starting from the final result of Calculation 3.:<br />  <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup></math><br />    <math display=\"block\"><msup><mi>a</mi><mn>2</mn></msup> <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup></msup></math><br /> <math display=\"block\"><mn>0</mn> <mo>=</mo> <msup><mi>c</mi> <mn>2</mn></msup> <mo>-</mo> <msup><mi>b</mi><mn>2</mn></msup>  <mo>-</mo> <msup><mi>a</mi><mn>2</mn></msup></msup></math><br />"
+      }
+   ],
+   "game_v2": null,
+   "date_time": null
+}

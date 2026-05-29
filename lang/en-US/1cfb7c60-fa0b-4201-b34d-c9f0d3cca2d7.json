@@ -1,0 +1,232 @@
+{
+   "title": "Surface Coordinates",
+   "header": "Surface Coordinates",
+   "sources": [
+      "1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7"
+   ],
+   "scripts": [
+      "1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/1cfb7c60-fa0b-4201-b34d-c9f0d3cca2d7_en-US.ogg",
+         "external": true,
+         "spotify": false
+      }
+   ],
+   "index": [
+      "atlas"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1779843905"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nWe recommend reading the previous text first to enhance comprehension (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0dd6b53f-ea68-475d-9b18-99d38a428c0a",
+                     "text": "History Tracers Atlas",
+                     "page": "Where are we on a sphere?",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_local_content",
+         "text": [
+            {
+               "text": "<p class=\"desc\"><img id=\"imgMath13\" onclick=\"htImageZoom('imgMath13', '0%')\" src=\"\" class=\"imgcenter\"/><b>Figure 1</b>: In this image, the Equator parallel and the Greenwich Meridian are highlighted, with the intersection at point O © Mapswire (<htcite0>)</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><h3>Surface Coordinates</h3>The figure in this section shows the intersection of the <b>Equator parallel</b> and the <i>Greenwich Meridian</i>, marked as point <b>O</b>. This serves as the reference point for all measurements of latitude and longitude.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<h4>The origin</h4>To determine our position on Earth's surface, we initially use the angular coordinates theta (<b>θ</b>) and phi (<b>ϕ</b>). However, in everyday terminology, these coordinates are known by different names: theta (<b>θ</b>) corresponds to <b>longitude</b>, and phi (<b>ϕ</b>) is referred to as <b>colatitude</b>. In geographic contexts, we also use a measure called <b>latitude</b> (<b>δ</b>), which indicates position relative to the Equator. The relationship between latitude and colatitude is defined by the formula: ϕ = 90° - δ. This is just one of the simplifications we will explore further",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "006b21c9-6800-4deb-bb3f-a367dd38b703",
+                     "text": "NOAA",
+                     "page": "Longitude",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "16"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "72ea1365-bb46-4036-a9e2-7384896e0a28",
+                     "text": "NOAA",
+                     "page": "Latitude",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "16"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "98aee156-df44-4def-a664-a7db2131c33d",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a7fe67e6-2487-4463-b09e-82de4a04b46c",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "<h4>Longitude</h4>In mathematics, longitude (<b>θ</b>) s expressed in values ranging from 0 to 2π radians or 0 to 360 degrees. When applied to geographic coordinates, the Earth is divided into two regions of 180 degrees each. The dividing line between these regions is the <b>Greenwich Meridian line</b>, established arbitrarily in <htdate0> as zero degrees at the Royal Observatory in Greenwich, England. Positions east of Greenwich are measured as X degrees <b>East</b>, and positions to the west as X degrees <b>West</b>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "006b21c9-6800-4deb-bb3f-a367dd38b703",
+                     "text": "NOAA",
+                     "page": "Longitude",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "16"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "1894",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "<h4>Latitude</h4>Latitude (<b>ϕ</b>) is represented mathematically with values ranging from 0 to π/2 radians or from 0 to 180 degrees. In geographic terms, Earth is divided into two 90 degrees regions: the Northern Hemisphere and the Southern Hemisphere. In mathematics, however, positions south of the Equator are represented with negative values. Unlike longitude, which is measured from a prime meridian, latitude is measured from the Equator — an imaginary line dividing the planet into northern and southern halves. Positions north of the Equator are noted as \"X degrees <b>North</b>\", and those south as \"X degrees <b>South</b>\"",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "72ea1365-bb46-4036-a9e2-7384896e0a28",
+                     "text": "NOAA",
+                     "page": "Latitude",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "16"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "98aee156-df44-4def-a664-a7db2131c33d",
+                     "text": "Weisstein, Eric W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
