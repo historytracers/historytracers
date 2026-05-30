@@ -9,6 +9,11 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png");
+    htSetImageSrc("Copan", "images/Copan/JuegoDePelotaCopan.jpg");
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png");
+    htSetImageSrc("imgESA2", "images/ESA/Planck_history_of_Universe.jpg");
+    htSetImageSrc("imgMWPWEEC", "images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png");
     return false;
 }
 

@@ -28,7 +28,5 @@ function htLoadContent() {
     $("#htChinaZhongguo").html(keywords[137]);
     $("#htJapanNipponNihonKoku").html(keywords[139]);
 
-    htSetImageSrc("imgBuda", "images/BritishMuseum/mid_00034168_001.jpg");
-    htSetImageSrc("imgCW", "images/UNESCO/site_0438_0002.jpg");
     return false;
 }

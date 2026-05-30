@@ -39,6 +39,13 @@ function htLoadContent() {
     });
     htWriteNavigation();
 
+    htSetImageSrc("rightHandImg", "images/HistoryTracers/1Right_Hand_Small.png");
+    htSetImageSrc("imgDNA", "images/HistoryTracers/DNA.png");
+    htSetImageSrc("imgQA", "images/HistoryTracers/Atom_Quantum.png");
+    htSetImageSrc("leftHandImg", "images/HistoryTracers/0Left_Hand_Small.png");
+    htSetImageSrc("imgCaralPiramideH1", "images/Caral/CaralPiramideH1.jpg");
+    htSetImageSrc("imgMeter", "images/HistoryTracers/Meter.jpg");
+    htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png");
     return false;
 }
 

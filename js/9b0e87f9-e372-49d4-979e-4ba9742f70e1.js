@@ -9,6 +9,9 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png");
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png");
+    htSetImageSrc("imgESA2", "images/ESA/Planck_history_of_Universe.jpg");
     return false;
 }
 

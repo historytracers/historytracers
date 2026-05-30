@@ -9,6 +9,8 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("img2", "images/HistoryTracers/RHand_Grape.jpg");
+    htSetImageSrc("img1", "images/HistoryTracers/Hand_Grape.jpg");
     return false;
 }
 

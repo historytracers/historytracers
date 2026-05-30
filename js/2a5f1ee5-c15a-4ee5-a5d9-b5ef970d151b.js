@@ -30,9 +30,5 @@ function htLoadContent() {
     $("#htChinaZhongguo").html(keywords[137]);
     $("#htJapanNipponNihonKoku").html(keywords[139]);
 
-    htSetImageSrc("imgCaral", "images/Caral/CaralPiramideH1.jpg");
-    htSetImageSrc("imgPottery", "images/BritishMuseum/mid_DSC04993.jpg");
-    htSetImageSrc("imgPottery1", "images/BritishMuseum/mid_00237212_001.jpg");
-    htSetImageSrc("imgPottery2", "images/MetropolitanMuseum/DP23088.jpg");
     return false;
 }

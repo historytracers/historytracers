@@ -31,9 +31,5 @@ function htLoadContent() {
 
     htWriteNavigation();
 
-    htSetImageSrc("imgCD", "images/BritishMuseum/mid_01020674_001.jpg");
-    htSetImageSrc("imgKL", "images/Ashmolean/KingList.jpg");
-    htSetImageSrc("imgLVR", "images/Louvre/0001315485_OG.JPG");
-    htSetImageSrc("imgPBM", "images/BritishMuseum/mid_WCT24211.jpg");
     return false;
 }

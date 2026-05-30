@@ -58,7 +58,5 @@ function htLoadContent() {
 
 
 
-    htSetImageSrc("imgAtra", "images/BritishMuseum/mid_00032581_001.jpg");
-    htSetImageSrc("imgGilgamesh", "images/BritishMuseum/mid_00107404_001.jpg");
     return false;
 }
