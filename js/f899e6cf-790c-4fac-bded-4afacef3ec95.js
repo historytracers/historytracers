@@ -14,6 +14,11 @@ function htLoadContent() {
     htWriteNavigation();
     htAddReligionReflection("#htReligiousReflection");
 
+
+
+    htSetImageSrc("imgB", "images/BritishMuseum/mid_00404485_001.jpg");
+    htSetImageSrc("imgCMP", "images/Mapswire/mapswire-world-political-white-equal_earth_babylon.png");
+    htSetImageSrc("imgCradle", "images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png");
     return false;
 }
 

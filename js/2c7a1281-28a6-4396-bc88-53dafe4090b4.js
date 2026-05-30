@@ -20,6 +20,11 @@ function htLoadContent() {
         }
     });
 
+
+
+    htSetImageSrc("imgA", "images/BritishMuseum/mid_00032581_001.jpg");
+    htSetImageSrc("imgCMP", "images/Mapswire/mapswire-world-political-white-equal_earth_babylon.png");
+    htSetImageSrc("imgG", "images/BritishMuseum/mid_00107404_001.jpg");
     return false;
 }
 
