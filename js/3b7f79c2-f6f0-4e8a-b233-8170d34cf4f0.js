@@ -16,6 +16,8 @@ function htLoadContent() {
 
     htWriteNavigation();
 
+    htSetImageSrc("imgE", "images/HistoryTracers/Enmebaragesi.png");
+    htSetImageSrc("imgKL", "images/Ashmolean/KingList.jpg");
     return false;
 }
 

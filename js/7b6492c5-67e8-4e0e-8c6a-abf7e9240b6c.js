@@ -9,6 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("imgNature", "images/Nature/41598_2019_48093_Fig3_HTML.webp");
     return false;
 }
 
@@ -24,5 +25,6 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("imgNature", "images/Nature/41598_2019_48093_Fig3_HTML.webp");
     return false;
 }

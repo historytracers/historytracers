@@ -20,6 +20,11 @@ function htLoadContent() {
         }
     });
 
+
+
+    htSetImageSrc("imgESA1", "images/ESA/Planck_s_view_of_the_cosmic_microwave_background.jpg");
+    htSetImageSrc("imgGilgamesh", "images/BritishMuseum/mid_00107404_001.jpg");
+    htSetImageSrc("imgKL", "images/Ashmolean/KingList.jpg");
     return false;
 }
 

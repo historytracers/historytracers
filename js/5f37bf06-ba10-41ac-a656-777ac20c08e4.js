@@ -9,6 +9,9 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("imgHn0", "images/eLife/elife-09560-fig1-v1.jpg");
+    htSetImageSrc("imgHr0", "images/DonsMaps/img_6647rudolfensis.jpg");
+    htSetImageSrc("imgLVR", "images/Louvre/0000166561_OG.JPG");
     return false;
 }
 
@@ -24,5 +27,8 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("imgHn0", "images/eLife/elife-09560-fig1-v1.jpg");
+    htSetImageSrc("imgHr0", "images/DonsMaps/img_6647rudolfensis.jpg");
+    htSetImageSrc("imgLVR", "images/Louvre/0000166561_OG.JPG");
     return false;
 }

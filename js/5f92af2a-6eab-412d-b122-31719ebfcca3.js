@@ -15,6 +15,7 @@ function htLoadContent() {
     htAddTreeReflection("#myFirstReflection", 55);
     $("#bndPortugal").html(keywords[88]);
 
+    htSetImageSrc("bndPortugal6r", "images/BibliotecaNacionalDigital/BNDTordesillas_6r.jpg");
     return false;
 }
 

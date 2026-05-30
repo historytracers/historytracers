@@ -76,6 +76,9 @@ function htLoadContent() {
     };
     htPlotConstantContinuousChart(chart3Options);
 
+
+
+    htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
     return false;
 }
 

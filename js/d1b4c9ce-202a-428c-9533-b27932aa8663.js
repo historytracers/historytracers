@@ -16,6 +16,10 @@ function htLoadContent() {
 
     htWriteNavigation();
 
+    htSetImageSrc("imgEA", "images/Ashmolean/10015.jpg");
+    htSetImageSrc("imgGilgamesh", "images/BritishMuseum/mid_00107404_001.jpg");
+    htSetImageSrc("imgKL", "images/Ashmolean/KingList.jpg");
+    htSetImageSrc("imgLugalbanda", "images/BritishMuseum/mid_00846714_001.jpg");
     return false;
 }
 
