@@ -14,6 +14,14 @@ function htLoadContent() {
     htWriteNavigation();
     htAddReligionReflection("#htReligiousReflection");
 
+
+
+    htSetImageSrc("imgAtra", "images/BritishMuseum/mid_00032581_001.jpg");
+    htSetImageSrc("imgCaralPiramideH1", "images/Caral/CaralPiramideH1.jpg");
+    htSetImageSrc("imgE", "images/HistoryTracers/Enmebaragesi.png");
+    htSetImageSrc("imgGilgamesh", "images/BritishMuseum/mid_00107404_001.jpg");
+    htSetImageSrc("imgKL", "images/Ashmolean/KingList.jpg");
+    htSetImageSrc("imgS", "images/Ashmolean/47565.jpg");
     return false;
 }
 

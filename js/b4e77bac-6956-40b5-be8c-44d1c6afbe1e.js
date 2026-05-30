@@ -9,6 +9,9 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("imgBI", "images/UNESCO/site_1222_0004-1000-650-20110920204338.jpg");
+    htSetImageSrc("imgCylinder", "images/BritishMuseum/mid_00262857_001.jpg");
+    htSetImageSrc("imgLVR", "images/Louvre/0000226857_OG.JPG");
     return false;
 }
 
@@ -25,5 +28,8 @@ function htLoadContent() {
     htWriteNavigation();
     $("#htChinaZhongguo").html(keywords[137]);
 
+    htSetImageSrc("imgBI", "images/UNESCO/site_1222_0004-1000-650-20110920204338.jpg");
+    htSetImageSrc("imgCylinder", "images/BritishMuseum/mid_00262857_001.jpg");
+    htSetImageSrc("imgLVR", "images/Louvre/0000226857_OG.JPG");
     return false;
 }

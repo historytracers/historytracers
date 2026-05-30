@@ -9,6 +9,14 @@ function htLoadContent() {
 
     htWriteNavigation();
 
+
+
+    htSetImageSrc("catsCirusUrraca", "images/HistoryTracers/CatsCirusUrraca.jpg");
+    htSetImageSrc("imgDNA", "images/HistoryTracers/DNA.png");
+    htSetImageSrc("imgMeter", "images/HistoryTracers/Meter.jpg");
+    htSetImageSrc("metate1", "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg");
+    htSetImageSrc("metate2", "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg");
+    htSetImageSrc("metate3", "images/Teotihuacan/MetateTeotihuacan.jpg");
     return false;
 }
 

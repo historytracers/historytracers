@@ -13,6 +13,7 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("imgFamilyInca", "images/Cuzco/PachacutiCuzco.jpg");
     return false;
 }
 

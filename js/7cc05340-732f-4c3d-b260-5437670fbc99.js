@@ -37,6 +37,10 @@ function htLoadContent() {
         }
     });
 
+
+
+    htSetImageSrc("imgESA1", "images/ESA/Planck_s_view_of_the_cosmic_microwave_background.jpg");
+    htSetImageSrc("imgESA2", "images/ESA/Planck_history_of_Universe.jpg");
     return false;
 }
 

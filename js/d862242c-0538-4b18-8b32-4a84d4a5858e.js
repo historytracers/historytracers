@@ -32,6 +32,16 @@ function htLoadContent() {
 
     htWriteNavigation();
 
+
+
+    htSetImageSrc("img1", "images/HistoryTracers/5Left_Hand_Small.png");
+    htSetImageSrc("img2", "images/HistoryTracers/5Right_Hand_Small.png");
+    htSetImageSrc("img3", "images/HistoryTracers/5Left_Hand_Small.png");
+    htSetImageSrc("img4", "images/HistoryTracers/5Right_Hand_Small.png");
+    htSetImageSrc("img5", "images/HistoryTracers/5Left_Hand_Small.png");
+    htSetImageSrc("img6", "images/HistoryTracers/5Right_Hand_Small.png");
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png");
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png");
     return false;
 }
 
