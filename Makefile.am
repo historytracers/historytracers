@@ -1,18 +1,20 @@
 # Build configuration
 BINARY_NAME = historytracers
 EDITORBINARY_NAME = historytracers-editor
+VIEWERBINARY_NAME = historytracers-viewer
 BUILD_DIR = build
 WEBSERVERSRC_DIR = src/webserver
 EDITORSRC_DIR = src/editor
+VIEWERSRC_DIR = src/viewer
 
 # We're not building C programs, so tell Automake this is foreign
 AUTOMAKE_OPTIONS = foreign
 
 # What to distribute
-EXTRA_DIST = $(WEBSERVERSRC_DIR)/main.go $(EDITORSRC_DIR)/main.go
+EXTRA_DIST = $(WEBSERVERSRC_DIR)/main.go $(EDITORSRC_DIR)/main.go $(VIEWERSRC_DIR)/main.go
 
 # Custom targets for Go building
-all-local: webserver editor
+all-local: webserver editor viewer
 
 webserver:
 	@echo "Building $(BINARY_NAME)..."
@@ -26,11 +28,18 @@ editor:
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
 
+viewer:
+	@echo "Building $(VIEWERBINARY_NAME)..."
+	@mkdir -p $(BUILD_DIR)
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(VIEWERBINARY_NAME) .
+
 install-exec-local:
 	@echo "Installing binaries to $(DESTDIR)$(bindir)..."
 	$(MKDIR_P) $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(BINARY_NAME) $(DESTDIR)$(bindir)/$(BINARY_NAME)
 	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(EDITORBINARY_NAME) $(DESTDIR)$(bindir)/$(EDITORBINARY_NAME)
+	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(VIEWERBINARY_NAME) $(DESTDIR)$(bindir)/$(VIEWERBINARY_NAME)
 
 clean-local:
 	@echo "Cleaning build artifacts..."
@@ -48,14 +57,17 @@ deps:
 update-deps:
 	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
 
 test:
 	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) test ./...
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) test ./...
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) test ./...
 
 fmt:
 	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) fmt ./...
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) fmt ./...
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) fmt ./...
 
 dev: 
 	$(MAKE) GO_BUILD_FLAGS="" all
