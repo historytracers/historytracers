@@ -12,7 +12,7 @@ import (
 
 func main() {
 	port := flag.Int("port", 0, "HTTP port (0 = random available)")
-	dir := flag.String("dir", ".", "Content directory to serve")
+	dir := flag.String("dir", "www", "Content directory to serve")
 	flag.Parse()
 
 	addr := resolveAddr(*port)
@@ -38,6 +38,8 @@ func main() {
 			Title:  "HistoryTracers Viewer",
 			Width:  1280,
 			Height: 800,
+			Center: true,
+			Style:  webview2.WindowStyleDefault,
 		},
 	})
 	if err != nil {
