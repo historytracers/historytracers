@@ -14,6 +14,11 @@ function htLoadContent() {
     htWriteNavigation();
     $("#OriginHTMW").html(keywords[82]+" "+keywords[83]);
 
+    htSetImageSrc("imgCaralPiramideH1", "images/Caral/CaralPiramideH1.jpg");
+    htSetImageSrc("imgCW", "images/UNESCO/site_0438_0002.jpg");
+    htSetImageSrc("imgAthens", "images/Athens/Erechtheion.jpg");
+    htSetImageSrc("originmigration", "images/Mapswire/mapswire-world-political-white-equal_earth_journey.png");
+    htSetImageSrc("imgMWPWEEC", "images/Mapswire/mapswire-world-political-white-equal_earth_cradle.png");
     return false;
 }
 

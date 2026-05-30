@@ -9,6 +9,11 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("imgHHB", "images/HistoryTracers/HTHumanBody.jpg");
+    htSetImageSrc("metate3", "images/Teotihuacan/MetateTeotihuacan.jpg");
+    htSetImageSrc("imgSCP", "images/SanAndres/SanAndresCoveredPyramid.jpg");
+    htSetImageSrc("imgCPE", "images/CahalPech/CahalPechExcavation.jpg");
+    htSetImageSrc("cr0", "images/SanJoseCRJade/CRSuportCeramica.jpg");
     return false;
 }
 

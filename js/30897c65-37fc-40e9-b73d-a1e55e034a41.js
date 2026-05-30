@@ -27,6 +27,5 @@ function htLoadContent() {
 
     htAddReligionReflection("#htReligiousReflection");
     $("#SumerianKingListDesc").html(keywords[90]);
-    htSetImageSrc("imgKL", "images/Ashmolean/KingList.jpg");
     return false;
 }

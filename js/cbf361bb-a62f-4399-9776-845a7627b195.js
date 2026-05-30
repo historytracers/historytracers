@@ -39,6 +39,13 @@ function htLoadContent() {
     });
     htWriteNavigation();
 
+    htSetImageSrc("rightHandImg", "images/HistoryTracers/0Right_Hand_Small.png");
+    htSetImageSrc("img4", "images/Xunantunich/WitzXunantunich.jpg");
+    htSetImageSrc("img1", "images/ElSalvadorMuseo/SanSalvadorESAntropologia.jpg");
+    htSetImageSrc("img2", "images/HistoryTracers/pyramid.jpg");
+    htSetImageSrc("img3", "images/HistoryTracers/pentagonal_pyramid.jpg");
+    htSetImageSrc("leftHandImg", "images/HistoryTracers/0Left_Hand_Small.png");
+    htSetImageSrc("img0", "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg");
     return false;
 }
 

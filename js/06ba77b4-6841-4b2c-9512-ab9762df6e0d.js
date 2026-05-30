@@ -9,6 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("imgALICE", "images/CERN/2ALICEimages.jpg");
     return false;
 }
 

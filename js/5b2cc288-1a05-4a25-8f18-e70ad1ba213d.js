@@ -30,6 +30,5 @@ function htLoadContent() {
     htSetImageSrc("imgMV", "images/PLOS/pone.0141923.g006.png");
     htSetImageSrc("imgScience", "images/Science/aat4505-f6.jpeg");
 
-    htSetImageSrc("imgBering", "images/ElSalvadorMuseo/Bering.jpg");
     return false;
 }

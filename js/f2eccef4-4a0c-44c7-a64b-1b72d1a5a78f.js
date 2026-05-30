@@ -27,7 +27,5 @@ function htLoadContent() {
     htWriteNavigation();
     $("#htChinaZhongguo").html(keywords[137]);
 
-    htSetImageSrc("imgBanner", "images/BritishMuseum/mid_00014278_003.jpg");
-    htSetImageSrc("imgDon", "images/DonsMaps/img_6463willendorf.jpg");
     return false;
 }

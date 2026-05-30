@@ -9,6 +9,7 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("imgAstro", "images/BritishMuseum/mid_00437459_001.jpg");
     return false;
 }
 

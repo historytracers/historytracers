@@ -9,6 +9,10 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("imgShona", "images/UniversityJohannesburg/ShonaJohannnesburg.jpg");
+    htSetImageSrc("c0", "images/HistoryTracers/TortillaFinal1.png");
+    htSetImageSrc("img1", "images/CahalPech/ChocolatPot.jpg");
+    htSetImageSrc("c1", "images/HistoryTracers/TortillaFinal2.png");
     return false;
 }
 
