@@ -13,6 +13,11 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("imgAsia", "images/Mapswire/mapswire-continent_as-printable-map-asia-robinson-267.jpg");
+    htSetImageSrc("imgBering", "images/ElSalvadorMuseo/Bering.jpg");
+    htSetImageSrc("imgDNA", "images/HistoryTracers/DNA.png");
+    htSetImageSrc("imgNature", "images/Nature/41598_2019_48093_Fig3_HTML.webp");
+    htSetImageSrc("imgRNA", "images/HistoryTracers/RNA.png");
     return false;
 }
 

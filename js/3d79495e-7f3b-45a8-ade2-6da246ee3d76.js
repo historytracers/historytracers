@@ -13,6 +13,9 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("imgC1", "images/BritishMuseum/mid_01532055_001.jpg");
+    htSetImageSrc("imgKL", "images/Ashmolean/KingList.jpg");
+    htSetImageSrc("imgT1", "images/BritishMuseum/mid_00425090_001.jpg");
     return false;
 }
 

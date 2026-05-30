@@ -33,6 +33,12 @@ function htLoadExercise() {
 
     htWriteNavigation();
 
+    htSetImageSrc("CEast", "images/Copan/CopanStelaC.jpg");
+    htSetImageSrc("CWest", "images/Copan/CopanStelaCBeard.jpg");
+    htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
+    htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png");
+    htSetImageSrc("imgCopanTemple2", "images/Copan/RosalilaReconstruction.jpg");
+    htSetImageSrc("imgCopanWholeTextSA", "images/Copan/CopanWholeTextStelaAltar.png");
     return false;
 }
 
