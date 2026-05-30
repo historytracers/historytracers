@@ -13,6 +13,8 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("imgKL", "images/Ashmolean/KingList.jpg");
+    htSetImageSrc("Copan", "images/Copan/JuegoDePelotaCopan.jpg");
     return false;
 }
 

@@ -9,6 +9,8 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("CaralH1", "images/Caral/CaralPiramideH1.jpg");
+    htSetImageSrc("img0", "images/SanJoseCRMuseo/MusicCR.jpg");
     return false;
 }
 

@@ -9,6 +9,8 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png");
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png");
     return false;
 }
 

@@ -17,6 +17,12 @@ function htLoadExercise() {
         htChangeSumUniqueDigitStyle(id, "black");
     });
 
+    htSetImageSrc("z0", "images/Sadomba/Gourd.png");
+    htSetImageSrc("c1", "images/HistoryTracers/TortillaFinal2.png");
+    htSetImageSrc("gc", "images/Tikal/TikalReservorio.jpg");
+    htSetImageSrc("c0", "images/HistoryTracers/TortillaFinal1.png");
+    htSetImageSrc("JC", "images/JoyaCeren/JoyaCerenCocina.jpg");
+    htSetImageSrc("metate3", "images/Teotihuacan/MetateTeotihuacan.jpg");
     return false;
 }
 

@@ -27,6 +27,9 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector);
     }
 
+    htSetImageSrc("catsCirusUrraca", "images/HistoryTracers/CatsCirusUrraca.jpg");
+    htSetImageSrc("imgHHB", "images/HistoryTracers/HTHumanBody.jpg");
+    htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg");
     return false;
 }
 

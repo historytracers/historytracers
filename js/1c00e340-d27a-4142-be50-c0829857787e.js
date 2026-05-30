@@ -13,6 +13,7 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("imgKL", "images/Ashmolean/KingList.jpg");
     return false;
 }
 
