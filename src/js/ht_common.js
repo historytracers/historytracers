@@ -75,7 +75,7 @@ function htSetImageSrc(imgId, imgPath) {
     if (!htLocalImgSrc) {
         fullPath = "https://www.historytracers.org/" + imgPath;
     }
-    $("#" + imgId).attr("src", fullPath);
+    $("[id='" + imgId + "']").attr("src", fullPath);
 }
 
 function htGetImgSrcPrefix() {

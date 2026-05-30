@@ -17,7 +17,7 @@ function htLoadExercise() {
     htSetImageSrc("imgDon", "images/DonsMaps/img_6463willendorf.jpg");
     htSetImageSrc("imgFlore", "images/DonsMaps/dsc03345flores.jpg");
     htSetImageSrc("imgHe", "images/DonsMaps/img_6776erectusdmanisi.jpg");
-    htSetImageSrc("imgHer", "images/DonsMaps/1594.jpg");
+
     htSetImageSrc("imgHh", "images/DonsMaps/img_6652habilissm.jpg");
     htSetImageSrc("imgHh1", "images/DonsMaps/img_6652habilissm.jpg");
     htSetImageSrc("imgHNaledi", "images/eLife/elife-09560-fig1-v1.jpg");
@@ -62,7 +62,7 @@ function htLoadContent() {
     htSetImageSrc("imgDon", "images/DonsMaps/img_6463willendorf.jpg");
     htSetImageSrc("imgFlore", "images/DonsMaps/dsc03345flores.jpg");
     htSetImageSrc("imgHe", "images/DonsMaps/img_6776erectusdmanisi.jpg");
-    htSetImageSrc("imgHer", "images/DonsMaps/1594.jpg");
+
     htSetImageSrc("imgHh", "images/DonsMaps/img_6652habilissm.jpg");
     htSetImageSrc("imgHh1", "images/DonsMaps/img_6652habilissm.jpg");
     htSetImageSrc("imgHNaledi", "images/eLife/elife-09560-fig1-v1.jpg");
