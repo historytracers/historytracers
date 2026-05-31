@@ -7,6 +7,9 @@ PUBLISHERSRC_DIR = src/publisher
 EDITORSRC_DIR = src/editor
 VIEWERSRC_DIR = src/viewer
 
+# Go compiler wrapper that ensures its bin dir is in PATH and GOROOT is set
+GO_RUN = PATH="$(GO_BIN_DIR):$(PATH)" GOROOT="$(GO_GOROOT)" $(GO_COMPILER)
+
 # We're not building C programs, so tell Automake this is foreign
 AUTOMAKE_OPTIONS = foreign
 
@@ -19,20 +22,20 @@ all-local: publisher editor viewer
 publisher:
 	@echo "Building $(PUBLISHERBINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
-	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(PUBLISHERBINARY_NAME) .
+	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) mod download && $(GO_RUN) mod tidy && $(GO_RUN) fmt ./...
+	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(PUBLISHERBINARY_NAME) .
 
 editor:
 	@echo "Building $(EDITORBINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	cd $(EDITORSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
-	cd $(EDITORSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
+	cd $(EDITORSRC_DIR) && PATH="/mingw64/bin:$(PATH)" CC="$(MINGW_CC)" CXX="$(MINGW_CC:gcc=g++)" CGO_ENABLED=1 $(GO_RUN) mod download && $(GO_RUN) mod tidy && $(GO_RUN) fmt ./...
+	cd $(EDITORSRC_DIR) && PATH="/mingw64/bin:$(PATH)" CC="$(MINGW_CC)" CXX="$(MINGW_CC:gcc=g++)" CGO_ENABLED=1 $(GO_RUN) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
 
 viewer:
 	@echo "Building $(VIEWERBINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
-	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) build -o ../../$(BUILD_DIR)/$(VIEWERBINARY_NAME) .
+	cd $(VIEWERSRC_DIR) && $(GO_RUN) mod download && $(GO_RUN) mod tidy && $(GO_RUN) fmt ./...
+	cd $(VIEWERSRC_DIR) && $(GO_RUN) build -o ../../$(BUILD_DIR)/$(VIEWERBINARY_NAME) .
 
 install-exec-local:
 	@echo "Installing binaries to $(DESTDIR)$(bindir)..."
@@ -49,25 +52,25 @@ clean-local:
 .PHONY: deps update-deps test fmt dev prod
 
 deps:
-	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) get github.com/google/uuid
-	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) get -u github.com/tdewolff/minify/v2
-	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) get github.com/BurntSushi/toml@latest
-	cd $(EDITORSRC_DIR) && $(GO_COMPILER) get fyne.io/fyne/v2@latest
+	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) get github.com/google/uuid
+	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) get -u github.com/tdewolff/minify/v2
+	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) get github.com/BurntSushi/toml@latest
+	cd $(EDITORSRC_DIR) && $(GO_RUN) get fyne.io/fyne/v2@latest
 
 update-deps:
-	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
-	cd $(EDITORSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
-	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
+	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) get all && $(GO_RUN) mod tidy
+	cd $(EDITORSRC_DIR) && $(GO_RUN) get all && $(GO_RUN) mod tidy
+	cd $(VIEWERSRC_DIR) && $(GO_RUN) get all && $(GO_RUN) mod tidy
 
 test:
-	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) test ./...
-	cd $(EDITORSRC_DIR) && $(GO_COMPILER) test ./...
-	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) test ./...
+	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) test ./...
+	cd $(EDITORSRC_DIR) && $(GO_RUN) test ./...
+	cd $(VIEWERSRC_DIR) && $(GO_RUN) test ./...
 
 fmt:
-	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) fmt ./...
-	cd $(EDITORSRC_DIR) && $(GO_COMPILER) fmt ./...
-	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) fmt ./...
+	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) fmt ./...
+	cd $(EDITORSRC_DIR) && $(GO_RUN) fmt ./...
+	cd $(VIEWERSRC_DIR) && $(GO_RUN) fmt ./...
 
 dev: 
 	$(MAKE) GO_BUILD_FLAGS="" all
