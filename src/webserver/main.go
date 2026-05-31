@@ -7,16 +7,10 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"log"
-	"net/http"
 	"os"
-	"os/signal"
 	"path/filepath"
-	"runtime"
-	"sync/atomic"
-	"time"
 
 	"github.com/historytracers/common"
 )
@@ -24,47 +18,7 @@ import (
 var (
 	AccessLog *log.Logger
 	DaemonLog *log.Logger
-	healthy   int32
 )
-
-type key int
-
-const (
-	htRequestIDKey key = 0
-)
-
-const (
-	isWin = runtime.GOOS == "windows"
-)
-
-func htSaveHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		http.NotFound(w, r)
-		return
-	}
-}
-
-func htHealthCheck(w http.ResponseWriter, r *http.Request) {
-	if atomic.LoadInt32(&healthy) == 1 {
-		w.WriteHeader(http.StatusNoContent)
-		return
-	}
-	w.WriteHeader(http.StatusServiceUnavailable)
-}
-
-func htTracing(nextReuestID func() string) func(http.Handler) http.Handler {
-	return func(next http.Handler) http.Handler {
-		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			requestID := r.Header.Get("X-Request-Id")
-			if requestID == "" {
-				requestID = nextReuestID()
-			}
-			ctx := context.WithValue(r.Context(), htRequestIDKey, requestID)
-			w.Header().Set("X-Request-Id", requestID)
-			next.ServeHTTP(w, r.WithContext(ctx))
-		})
-	}
-}
 
 func htCreateDirectory(name string) {
 	if stat, err := os.Stat(name); err != nil {
@@ -130,15 +84,6 @@ func htRunStopFlags() {
 
 	if ValidateFlag {
 		fmt.Println("TODO: Validate is creating empty files, it is necessary to fix it.")
-		/*
-			htValidateGEDCOM()
-
-						htValidateClassFormats()
-
-						htValidateAtlasFormats()
-
-						htValidateSMGameFormats()
-		*/
 		stopRun = true
 	}
 
@@ -182,81 +127,14 @@ func htInitializeCommonMaps() {
 	allSourceMap = make(map[string]common.HTSourceElement)
 }
 
-func htCheckServiceMode() bool {
-	if !isWin {
-		return false
-	}
-	return len(os.Args) > 1 && os.Args[1] == "run"
-}
-
 func main() {
-	if isWin && len(os.Args) > 1 {
-		switch os.Args[1] {
-		case "install":
-			htInstallService()
-			return
-		case "uninstall":
-			htUninstallService()
-			return
-		case "run":
-			htRunService()
-			return
-		case "debug":
-			htRunConsoleMode()
-			return
-		}
-	}
-
-	htRunConsoleMode()
-}
-
-func htRunConsoleMode() {
 	htInitializeCommonMaps()
 	HTParseArg()
 	HTLoadConfig()
-	DaemonLog := htOpenLogs("daemon.log")
-	AccessLog := htOpenLogs("access.log")
+	DaemonLog = htOpenLogs("daemon.log")
+	AccessLog = htOpenLogs("access.log")
 
 	htRunStopFlags()
 
-	devM := "with"
-	if CFG.DevMode == false {
-		devM += "out"
-	} else {
-		http.HandleFunc("/save", htSaveHandler)
-	}
-
-	http.HandleFunc("/", htCommonHandler)
-	http.HandleFunc("GET /healthz", htHealthCheck)
-
-	server := HTNewServer(AccessLog)
-
-	done := make(chan bool)
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, os.Interrupt)
-
-	atomic.StoreInt32(&healthy, 1)
-
-	go func() {
-		<-quit
-		htLogInfo(DaemonLog, "INFO: Server is shutting down...")
-		atomic.StoreInt32(&healthy, 0)
-
-		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
-		defer cancel()
-
-		server.hServer.SetKeepAlivesEnabled(false)
-		if err := server.hServer.Shutdown(ctx); err != nil {
-			htLogFatal(DaemonLog, "ERROR: I could not gracefully shutdown the server: %v\n", err)
-		}
-		close(done)
-	}()
-
-	htLogInfo(DaemonLog, "INFO: Ready to run listening port", CFG.Port, devM, "devmode")
-
-	if err := server.hServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-		htLogFatal(DaemonLog, "ERROR: Listening Port", CFG.Port, devM, "devmode", "content", CFG.ContentPath)
-	}
-	<-done
-	htLogInfo(DaemonLog, "INFO: Good bye!")
+	fmt.Println("No action specified. Use --help to see available options.")
 }
