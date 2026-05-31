@@ -6,9 +6,10 @@ import (
 	"log"
 	"net"
 	"net/http"
-
-	webview2 "github.com/Krakinsight/go-webview2"
 )
+
+var srv *http.Server
+var pageURL string
 
 func main() {
 	port := flag.Int("port", 0, "HTTP port (0 = random available)")
@@ -16,13 +17,13 @@ func main() {
 	flag.Parse()
 
 	addr := resolveAddr(*port)
-	pageURL := fmt.Sprintf("http://%s/", addr)
+	pageURL = fmt.Sprintf("http://%s/", addr)
 
 	mux := http.NewServeMux()
 	fs := http.FileServer(http.Dir(*dir))
 	mux.Handle("/", logMiddleware(fs))
 
-	srv := &http.Server{Addr: addr, Handler: mux}
+	srv = &http.Server{Addr: addr, Handler: mux}
 
 	go func() {
 		fmt.Printf("Serving content from %s\n", *dir)
@@ -31,27 +32,9 @@ func main() {
 		}
 	}()
 
-	w, err := webview2.NewWithOptions(webview2.WebViewOptions{
-		Debug:     true,
-		AutoFocus: true,
-		WindowOptions: webview2.WindowOptions{
-			Title:  "HistoryTracers Viewer",
-			Width:  1280,
-			Height: 800,
-			Center: true,
-			Style:  webview2.WindowStyleDefault,
-		},
-	})
-	if err != nil {
-		log.Fatalf("Failed to create webview: %v", err)
-	}
-	if w == nil {
-		log.Fatal("Failed to create webview window")
-	}
-	defer w.Destroy()
+	fmt.Printf("HistoryTracers Viewer  %s\n", pageURL)
 
-	w.Navigate(pageURL)
-	w.Run()
+	runWindow()
 
 	srv.Close()
 	fmt.Println("Stopped.")

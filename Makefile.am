@@ -32,7 +32,7 @@ viewer:
 	@echo "Building $(VIEWERBINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
 	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
-	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(VIEWERBINARY_NAME) .
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) build -o ../../$(BUILD_DIR)/$(VIEWERBINARY_NAME) .
 
 install-exec-local:
 	@echo "Installing binaries to $(DESTDIR)$(bindir)..."
