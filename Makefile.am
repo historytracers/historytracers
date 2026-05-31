@@ -28,8 +28,8 @@ publisher:
 editor:
 	@echo "Building $(EDITORBINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	cd $(EDITORSRC_DIR) && PATH="/mingw64/bin:$(PATH)" CC="$(MINGW_CC)" CXX="$(MINGW_CC:gcc=g++)" CGO_ENABLED=1 $(GO_RUN) mod download && $(GO_RUN) mod tidy && $(GO_RUN) fmt ./...
-	cd $(EDITORSRC_DIR) && PATH="/mingw64/bin:$(PATH)" CC="$(MINGW_CC)" CXX="$(MINGW_CC:gcc=g++)" CGO_ENABLED=1 $(GO_RUN) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
+	cd $(EDITORSRC_DIR) && CC="$(CC)" CXX="$(CXX)" CGO_ENABLED=1 $(GO_RUN) mod download && $(GO_RUN) mod tidy && $(GO_RUN) fmt ./...
+	cd $(EDITORSRC_DIR) && CC="$(CC)" CXX="$(CXX)" CGO_ENABLED=1 $(GO_RUN) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
 
 viewer:
 	@echo "Building $(VIEWERBINARY_NAME)..."

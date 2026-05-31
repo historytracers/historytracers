@@ -11,6 +11,8 @@ AM_INIT_AUTOMAKE([foreign subdir-objects])
 AC_PROG_INSTALL
 AC_PROG_MKDIR_P
 AC_PROG_MAKE_SET
+AC_PROG_CC
+AC_PROG_CXX
 
 # Check for Go compiler
 # Go compiler selection options
@@ -173,30 +175,38 @@ case "$host_os" in
         ;;
 esac
 
-# Detect MinGW-w64 C compiler for CGo builds (editor)
-AC_MSG_CHECKING([for MinGW-w64 C compiler])
-MINGW_CC=""
-for cand in x86_64-w64-mingw32-gcc i686-w64-mingw32-gcc; do
-    AC_CHECK_PROG([MINGW_CC_CHECK], [$cand], [$cand], [])
-    if test -n "$MINGW_CC_CHECK"; then
-        MINGW_CC="$MINGW_CC_CHECK"
-        break
-    fi
-done
-if test -z "$MINGW_CC"; then
-    # Check in /mingw64/bin directly
-    for cand in /mingw64/bin/x86_64-w64-mingw32-gcc /mingw64/bin/i686-w64-mingw32-gcc; do
-        if test -x "$cand"; then
-            MINGW_CC="$cand"
-            break
+# On Cygwin/MSYS2, override the C compiler with MinGW-w64 for native Windows CGo
+case "$host_os" in
+    cygwin* | mingw*)
+        AC_MSG_CHECKING([for MinGW-w64 C compiler on Cygwin/MSYS2])
+        MINGW_CC=""
+        for cand in x86_64-w64-mingw32-gcc i686-w64-mingw32-gcc; do
+            AC_CHECK_PROG([MINGW_CC_CHECK], [$cand], [$cand], [])
+            if test -n "$MINGW_CC_CHECK"; then
+                MINGW_CC="$MINGW_CC_CHECK"
+                break
+            fi
+        done
+        if test -z "$MINGW_CC"; then
+            for cand in /mingw64/bin/x86_64-w64-mingw32-gcc /mingw64/bin/i686-w64-mingw32-gcc; do
+                if test -x "$cand"; then
+                    MINGW_CC="$cand"
+                    break
+                fi
+            done
         fi
-    done
-fi
-if test -n "$MINGW_CC"; then
-    AC_MSG_RESULT([$MINGW_CC])
-else
-    AC_MSG_RESULT([not found (editor CGo builds will fail)])
-fi
+        if test -n "$MINGW_CC"; then
+            CC="$MINGW_CC"
+            CXX=`echo "$MINGW_CC" | sed 's/gcc$/g++/'`
+            AC_MSG_RESULT([using $MINGW_CC])
+        else
+            AC_MSG_RESULT([not found; keeping system CC=$CC])
+        fi
+        ;;
+    *)
+        MINGW_CC=""
+        ;;
+esac
 
  # Set default installation paths
 AC_PREFIX_DEFAULT(/usr)
