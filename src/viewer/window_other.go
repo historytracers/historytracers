@@ -3,14 +3,31 @@
 package main
 
 import (
-	"github.com/webview/webview_go"
+	"fmt"
+	"os"
+	"os/exec"
+	"os/signal"
+	"runtime"
+	"syscall"
 )
 
 func runWindow() {
-	w := webview_go.New(true)
-	defer w.Destroy()
-	w.SetTitle("HistoryTracers Viewer")
-	w.SetSize(1280, 800, webview_go.HintNone)
-	w.Navigate(pageURL)
-	w.Run()
+	openBrowser(pageURL)
+
+	fmt.Println("Press Ctrl+C to stop.")
+
+	sig := make(chan os.Signal, 1)
+	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
+	<-sig
+}
+
+func openBrowser(url string) {
+	switch runtime.GOOS {
+	case "darwin":
+		exec.Command("open", url).Start()
+	case "linux":
+		exec.Command("xdg-open", url).Start()
+	default:
+		fmt.Printf("Open your browser to:\n  %s\n", url)
+	}
 }
