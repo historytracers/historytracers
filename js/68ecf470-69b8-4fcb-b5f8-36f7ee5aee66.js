@@ -203,6 +203,7 @@ function htLoadContent() {
     htSetImageSrc("imgme1600", "images/HistoryTracers/Maya_18.png");
     htSetImageSrc("imgme1700", "images/HistoryTracers/Maya_8.png");
     htSetImageSrc("imgme1800", "images/HistoryTracers/Maya_6.png");
+        htSetImageSrc("imgme180", "images/HistoryTracers/Maya_5.png");
     return false;
 }
 

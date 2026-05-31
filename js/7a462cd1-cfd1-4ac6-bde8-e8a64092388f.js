@@ -46,6 +46,9 @@ function htLoadContent() {
     });
     htWriteNavigation();
 
+    
+    htSetImageSrc("img0", "images/CahalPech/ChocolatPot.jpg")
+    htSetImageSrc("img1", "images/CahalPech/ChocolatPot.jpg")
     return false;
 }
 

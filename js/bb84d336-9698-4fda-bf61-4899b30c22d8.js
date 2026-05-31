@@ -24,5 +24,7 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    
+    htSetImageSrc("img1", "images/Copan/Temple16Copan.png")
     return false;
 }

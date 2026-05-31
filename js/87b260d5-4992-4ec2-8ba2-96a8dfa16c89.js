@@ -52,6 +52,10 @@ function htLoadContent() {
     htUpdateYupanaScreen87b260d5(0);
     htWriteNavigation();
 
+    
+    htSetImageSrc("imgAndesQuipu", "images/HistoryTracers/Andes_Quipu.png")
+    htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png")
+    htSetImageSrc("imgQuipuPanel", "images/Caral/QuipuPanel.png")
     return false;
 }
 

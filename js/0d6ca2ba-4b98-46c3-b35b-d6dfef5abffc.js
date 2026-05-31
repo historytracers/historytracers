@@ -24,5 +24,8 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    
+    htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg")
+    htSetImageSrc("metate3", "images/Teotihuacan/MetateTeotihuacan.jpg")
     return false;
 }

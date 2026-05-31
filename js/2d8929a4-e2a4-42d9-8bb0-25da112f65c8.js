@@ -24,5 +24,8 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    
+    htSetImageSrc("CEast", "images/Copan/CopanStelaC.jpg")
+    htSetImageSrc("CWest", "images/Copan/CopanStelaCBeard.jpg")
     return false;
 }

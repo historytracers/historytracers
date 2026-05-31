@@ -55,5 +55,7 @@ function htLoadContent() {
     $("#htChinaZhongguo").html(keywords[137]);
 
 
+    
+    htSetImageSrc("imgHer", "images/DonsMaps/1594.jpg")
     return false;
 }

@@ -25,5 +25,8 @@ function htLoadContent() {
     htWriteNavigation();
     $("#htChinaZhongguo").html(keywords[137]);
 
+    
+    htSetImageSrc("CEast", "images/Copan/CopanStelaC.jpg")
+    htSetImageSrc("CWest", "images/Copan/CopanStelaCBeard.jpg")
     return false;
 }

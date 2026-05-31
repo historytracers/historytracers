@@ -24,5 +24,7 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    
+    htSetImageSrc("gc", "images/Tikal/TikalReservorio.jpg")
     return false;
 }

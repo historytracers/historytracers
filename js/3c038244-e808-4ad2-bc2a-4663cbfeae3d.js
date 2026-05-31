@@ -27,5 +27,10 @@ function htLoadContent() {
     htFillMultiplicationTable("chart3", 1, 1, false, false);
     htFillMultiplicationTable("chart4", 1, 1, false, true);
 
+    
+    htSetImageSrc("img1", "images/Copan/Temple16Copan.png")
+    htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png")
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png")
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png")
     return false;
 }

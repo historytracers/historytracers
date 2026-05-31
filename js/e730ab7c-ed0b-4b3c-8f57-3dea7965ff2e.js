@@ -54,6 +54,11 @@ function htLoadContent() {
     htFillMultiplicationTable("chart3", 9, 9, false, true);
     htFillMultiplicationTable("chart4", 0, 9, false, true);
 
+    
+    htSetImageSrc("Copan", "images/Copan/JuegoDePelotaCopan.jpg")
+    htSetImageSrc("gc", "images/Tikal/GranJaguar.jpg")
+    htSetImageSrc("img4", "images/HistoryTracers/RuleQuipu.jpg")
+    htSetImageSrc("imgRule", "images/HistoryTracers/RuleQuipu.jpg")
     return false;
 }
 

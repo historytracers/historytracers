@@ -16,6 +16,11 @@ function htLoadContent() {
 
     htFillMultiplicationTable("chart2", 0, 9, false, false);
 
+    
+    htSetImageSrc("ChronologyTeotihuacan", "images/Teotihuacan/TeotihuacanGeneral.jpg")
+    htSetImageSrc("ChronologyTeotihuacan2", "images/Teotihuacan/TeotihuacanMountains.jpg")
+    htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png")
+    htSetImageSrc("pyramid", "images/HistoryTracers/pyramid.jpg")
     return false;
 }
 

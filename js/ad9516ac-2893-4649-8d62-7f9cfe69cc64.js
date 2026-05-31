@@ -52,6 +52,12 @@ function htLoadContent() {
 
     htWriteNavigation();
 
+    
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png")
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png")
+    htSetImageSrc("mp", "images/MachuPicchu/MachuPicchu.jpg")
+    htSetImageSrc("pyramid", "images/HistoryTracers/pyramid.jpg")
+    htSetImageSrc("table", "images/SanJoseCRMuseo/SanJoseCRAntropologia.jpg")
     return false;
 }
 

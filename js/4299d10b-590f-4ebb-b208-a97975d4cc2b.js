@@ -24,5 +24,7 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    
+    htSetImageSrc("JC", "images/JoyaCeren/JoyaCerenCocina.jpg")
     return false;
 }

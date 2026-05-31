@@ -13,6 +13,8 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
 
+    
+    htSetImageSrc("Copan", "images/Copan/JuegoDePelotaCopan.jpg")
     return false;
 }
 

@@ -13,6 +13,8 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
 
+    
+    htSetImageSrc("ChronologyTeotihuacan", "images/Teotihuacan/TeotihuacanGeneral.jpg")
     return false;
 }
 

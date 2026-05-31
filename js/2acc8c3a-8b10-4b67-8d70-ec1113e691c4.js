@@ -96,6 +96,10 @@ function htLoadExercise() {
 
     htFillMultiplicationTable("chart4", 1, 1, false, true);
 
+    
+    htSetImageSrc("imgTeotihuacanGeneral", "images/Teotihuacan/TeotihuacanGeneral.jpg")
+    htSetImageSrc("lefthand", "images/HistoryTracers/0Left_Hand_Small.png")
+    htSetImageSrc("righthand", "images/HistoryTracers/0Right_Hand_Small.png")
     return false;
 }
 
