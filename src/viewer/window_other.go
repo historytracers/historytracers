@@ -3,19 +3,14 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"os/signal"
-	"syscall"
+	"github.com/webview/webview_go"
 )
 
 func runWindow() {
-	fmt.Println("Native window is not supported on this platform.")
-	fmt.Println("Open your browser to:")
-	fmt.Printf("  %s\n", pageURL)
-	fmt.Println("Press Ctrl+C to stop.")
-
-	sig := make(chan os.Signal, 1)
-	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
-	<-sig
+	w := webview_go.New(true)
+	defer w.Destroy()
+	w.SetTitle("HistoryTracers Viewer")
+	w.SetSize(1280, 800, webview_go.HintNone)
+	w.Navigate(pageURL)
+	w.Run()
 }
