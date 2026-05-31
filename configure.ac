@@ -156,6 +156,17 @@ else
 fi
 AC_SUBST([GO_GOROOT])
 
+# Detect Go binary extension (".exe" on Windows, empty elsewhere)
+AC_MSG_CHECKING([for Go binary extension])
+GOOS=`$GO_COMPILER env GOOS 2>/dev/null`
+if test "x$GOOS" = "xwindows"; then
+    GO_EXEEXT=".exe"
+else
+    GO_EXEEXT=""
+fi
+AC_MSG_RESULT([$GO_EXEEXT])
+AC_SUBST([GO_EXEEXT])
+
   # Detect platform for default paths
 AC_CANONICAL_HOST
 case "$host_os" in

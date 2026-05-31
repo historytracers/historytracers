@@ -1,7 +1,7 @@
 # Build configuration
-PUBLISHERBINARY_NAME = historytracers-publisher
-EDITORBINARY_NAME = historytracers-editor
-VIEWERBINARY_NAME = historytracers-viewer
+PUBLISHERBINARY_NAME = historytracers-publisher$(GO_EXEEXT)
+EDITORBINARY_NAME = historytracers-editor$(GO_EXEEXT)
+VIEWERBINARY_NAME = historytracers-viewer$(GO_EXEEXT)
 BUILD_DIR = build
 PUBLISHERSRC_DIR = src/publisher
 EDITORSRC_DIR = src/editor
