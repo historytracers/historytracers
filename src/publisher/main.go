@@ -130,6 +130,17 @@ func htInitializeCommonMaps() {
 func main() {
 	htInitializeCommonMaps()
 	HTParseArg()
+
+	if logFileFlag != "" {
+		f, err := os.Create(logFileFlag)
+		if err != nil {
+			panic(err)
+		}
+		defer f.Close()
+		os.Stdout = f
+		os.Stderr = f
+	}
+
 	HTLoadConfig()
 	DaemonLog = htOpenLogs("daemon.log")
 	AccessLog = htOpenLogs("access.log")

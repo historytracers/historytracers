@@ -66,5 +66,5 @@ if (-not (Test-Path -LiteralPath $publisherExe)) {
     Write-Error "$publisherExe not found"
     exit 1
 }
-& $publisherExe -internal -minify -audiofiles -gedcom -verbose *>&1 | Out-File -FilePath "historytracers.log" -Encoding utf8
+& $publisherExe -internal -minify -audiofiles -gedcom -verbose -logfile historytracers.log
 Write-Host "=== Publisher run complete (see historytracers.log) ==="
