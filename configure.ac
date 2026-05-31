@@ -11,8 +11,6 @@ AM_INIT_AUTOMAKE([foreign subdir-objects])
 AC_PROG_INSTALL
 AC_PROG_MKDIR_P
 AC_PROG_MAKE_SET
-AC_PROG_CC
-AC_PROG_CXX
 
 # Check for Go compiler
 # Go compiler selection options
@@ -175,11 +173,11 @@ case "$host_os" in
         ;;
 esac
 
-# On Cygwin/MSYS2, override the C compiler with MinGW-w64 for native Windows CGo
+# On Cygwin/MSYS2, detect MinGW-w64 C compiler for CGo builds (editor)
+MINGW_CC=""
 case "$host_os" in
     cygwin* | mingw*)
         AC_MSG_CHECKING([for MinGW-w64 C compiler on Cygwin/MSYS2])
-        MINGW_CC=""
         for cand in x86_64-w64-mingw32-gcc i686-w64-mingw32-gcc; do
             AC_CHECK_PROG([MINGW_CC_CHECK], [$cand], [$cand], [])
             if test -n "$MINGW_CC_CHECK"; then
@@ -196,17 +194,13 @@ case "$host_os" in
             done
         fi
         if test -n "$MINGW_CC"; then
-            CC="$MINGW_CC"
-            CXX=`echo "$MINGW_CC" | sed 's/gcc$/g++/'`
-            AC_MSG_RESULT([using $MINGW_CC])
+            AC_MSG_RESULT([$MINGW_CC])
         else
-            AC_MSG_RESULT([not found; keeping system CC=$CC])
+            AC_MSG_RESULT([not found])
         fi
         ;;
-    *)
-        MINGW_CC=""
-        ;;
 esac
+AM_CONDITIONAL([NEED_MINGW], [test -n "$MINGW_CC"])
 
  # Set default installation paths
 AC_PREFIX_DEFAULT(/usr)
