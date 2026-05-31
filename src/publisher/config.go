@@ -35,7 +35,6 @@ var (
 	logPath             string
 	contentPath         string
 	srcVal              string
-	logVal              string
 	contentVal          string
 	logFileFlag         string
 	classTemplate       string
@@ -61,7 +60,6 @@ func HTParseArg() {
 	flag.BoolVar(&internalFlag, "internal", false, "Run using only compiled options, ignore external config file. (default: false)")
 
 	flag.StringVar(&srcVal, "src", compileSrcPath, "Directory containing all source files.")
-	flag.StringVar(&logVal, "log", compileLogPath, "Directory containing all log files.")
 	flag.StringVar(&contentVal, "www", compileContentPath, "Directory for user-facing content.")
 	flag.StringVar(&confPath, "conf", compileConfPath, "Path to the configuration file.")
 	flag.StringVar(&logFileFlag, "logfile", "", "Path to log file (truncates on open). All output is redirected here.")
@@ -82,7 +80,7 @@ func htCreateConfig() *htConfig {
 	}
 	return &htConfig{
 		DevMode:      devModeVal,
-		HTConfigBase: *common.NewHTConfigBase(0, srcVal, contentVal, logVal),
+		HTConfigBase: *common.NewHTConfigBase(0, srcVal, contentVal, compileLogPath),
 	}
 }
 
