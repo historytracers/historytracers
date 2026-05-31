@@ -26,5 +26,8 @@ function htLoadContent() {
     $("#htChinaZhongguo").html(keywords[137]);
     $("#htJapanNipponNihonKoku").html(keywords[139]);
 
+    htSetImageSrc("imgSoroban", "images/Tohoku/Soroban.png");
+    htSetImageSrc("imgSuanpan", "images/BritishMuseum/mid_01381495_001.jpg");
+
     return false;
 }
