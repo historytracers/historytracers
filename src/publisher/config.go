@@ -30,8 +30,6 @@ var (
 	FamilyFlag          bool
 	ShowCompilationFlag bool
 	internalFlag        bool
-	portFlag            int
-	portVal             int
 	confPath            string
 	srcPath             string
 	logPath             string
@@ -46,7 +44,6 @@ var (
 	compileSrcPath      string
 	compileContentPath  string
 	compileLogPath      string
-	compilePort         int
 	CFG                 *htConfig
 )
 
@@ -61,7 +58,6 @@ func HTParseArg() {
 	flag.BoolVar(&FamilyFlag, "family", false, "Create a foundation for a new family. (default: false)")
 	flag.BoolVar(&ShowCompilationFlag, "compilation", false, "Show options software was compiled. (default: false)")
 	flag.BoolVar(&internalFlag, "internal", false, "Run using only compiled options, ignore external config file. (default: false)")
-	flag.IntVar(&portVal, "port", compilePort, "The port History Tracers listens on.")
 
 	flag.StringVar(&srcVal, "src", compileSrcPath, "Directory containing all source files.")
 	flag.StringVar(&logVal, "log", compileLogPath, "Directory containing all log files.")
@@ -79,12 +75,12 @@ func htCreateConfig() *htConfig {
 	if internalFlag {
 		return &htConfig{
 			DevMode:      devFlag,
-			HTConfigBase: *common.NewHTConfigBase(compilePort, compileSrcPath, compileContentPath, compileLogPath),
+			HTConfigBase: *common.NewHTConfigBase(0, compileSrcPath, compileContentPath, compileLogPath),
 		}
 	}
 	return &htConfig{
 		DevMode:      devModeVal,
-		HTConfigBase: *common.NewHTConfigBase(portVal, srcVal, contentVal, logVal),
+		HTConfigBase: *common.NewHTConfigBase(0, srcVal, contentVal, logVal),
 	}
 }
 
@@ -113,19 +109,15 @@ func init() {
 	if len(logPath) == 0 {
 		logPath = ""
 	}
-	if portFlag == 0 {
-		portFlag = 12345
-	}
 
 	compileConfPath = confPath
 	compileSrcPath = srcPath
 	compileContentPath = contentPath
 	compileLogPath = logPath
-	compilePort = portFlag
 }
 
 func htPrintOptions() {
-	fmt.Println("History Tracers was compiled with the following options:\n\nConfig Dir:", strings.TrimSpace(compileConfPath), "\nSource Path:", strings.TrimSpace(compileSrcPath), "\nContent Path:", strings.TrimSpace(compileContentPath), "\nLog Path:", strings.TrimSpace(compileLogPath), "\nPort:", compilePort, "\n\n")
+	fmt.Println("History Tracers was compiled with the following options:\n\nConfig Dir:", strings.TrimSpace(compileConfPath), "\nSource Path:", strings.TrimSpace(compileSrcPath), "\nContent Path:", strings.TrimSpace(compileContentPath), "\nLog Path:", strings.TrimSpace(compileLogPath), "\n\n")
 }
 
 func HTLoadConfig() {

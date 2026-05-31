@@ -117,9 +117,9 @@ $ ./configure --help
 ### Comandos de Compilação
 
 ```sh
-$ make                    # Compilar ambos os binários (webserver e editor)
+$ make                    # Compilar publisher, editor e viewer
 $ make all                # Alias para make
-$ make webserver          # Compilar apenas o servidor web
+$ make publisher          # Compilar apenas o publisher
 $ make editor             # Compilar apenas o editor
 $ make dev                # Compilação de desenvolvimento (sem flags de otimização)
 $ make prod               # Compilação de produção (com otimização)
@@ -132,8 +132,8 @@ O projeto pode ser compilado no Windows usando tanto o GNU Autotools (como no Li
 #### Opção 1: Usando Go diretamente
 
 ```powershell
-cd src\webserver
-go build -o historytracers.exe .
+cd src\publisher
+go build -o historytracers-publisher.exe .
 
 cd ..\editor
 ```
@@ -166,67 +166,20 @@ No Windows, o script configure define automaticamente os caminhos padrão:
 - Conteúdo: `C:\inetpub\wwwroot\historytracers\`
 - Logs: `C:\ProgramData\historytracers\log\`
 
-### Gerenciamento do Serviço do Windows
+### Processamento em Lote
 
-O servidor web pode ser executado como um Serviço do Windows. Isso fornece inicialização automática e operação adequada em segundo plano.
-
-#### Instalação do Serviço
-
-Executar como Administrador:
-
-```powershell
-.\historytracers.exe install
-```
-
-Isso registrará o serviço com o Windows. Por padrão, o serviço está configurado para iniciar automaticamente.
-
-#### Iniciar o Serviço
-
-```powershell
-sc start historytracers
-```
-
-Ou simplesmente reinicie seu computador - o serviço será iniciado automaticamente.
-
-#### Parar o Serviço
-
-```powershell
-sc stop historytracers
-```
-
-#### Desinstalar o Serviço
-
-```powershell
-.\historytracers.exe uninstall
-```
-
-#### Executar em Modo Console
-
-Para depuração ou teste, você pode executar o servidor em modo console:
-
-```powershell
-.\historytracers.exe         # Modo console normal
-.\historytracers.exe debug   # Modo depuração (mostra saída adicional)
-```
-
-#### Configuração do Serviço
-
-O serviço do Windows usa o mesmo arquivo de configuração que o modo console. Caminhos padrão no Windows:
-- Config: `C:\ProgramData\historytracers\historytracers.conf`
-- Logs: `C:\ProgramData\historytracers\log\`
-
-Você pode modificar esses caminhos no arquivo de configuração ou reconstruir com caminhos personalizados usando `./configure --with-conf-path=CAMINHO`.
+A ferramenta de linha de comando do publisher processa tarefas de geração de conteúdo (minify, audio, GEDCOM, etc.). Execute com `--help` para ver as opções disponíveis.
 
 ### Testes
 
 ```sh
-$ make test               # Executar todos os testes em src/webserver e src/editor
+$ make test               # Executar todos os testes em src/publisher e src/editor
 ```
 
 Para executar um teste específico:
 
 ```sh
-$ cd src/webserver && go test -run TestFunctionName ./...
+$ cd src/publisher && go test -run TestFunctionName ./...
 $ cd src/editor && go test -run TestFunctionName ./...
 ```
 
@@ -239,7 +192,7 @@ $ make fmt                # Formatar todo o código Go (go fmt)
 Formatação manual:
 
 ```sh
-$ cd src/webserver && go fmt ./...
+$ cd src/publisher && go fmt ./...
 $ cd src/editor && go fmt ./...
 ```
 
