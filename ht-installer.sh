@@ -34,10 +34,15 @@ compile() {
     echo "=== autoreconf done ==="
 
     LOCALPATH=$(pwd)
+    LOGPATH="/tmp/"
+    if [ "$PLATFORM" = "msys2" ]; then
+        LOCALPATH=$(cygpath -m "$LOCALPATH")
+        LOGPATH=$(cygpath -m "$LOGPATH")
+    fi
     ./configure --with-conf-path="packaging/conf/dev.conf" \
                 --with-src-path="${LOCALPATH}/" \
                 --with-content-path="${LOCALPATH}/www/" \
-                --with-log-path="/tmp/"
+                --with-log-path="${LOGPATH}"
     echo "=== configure done ==="
 
     make clean
