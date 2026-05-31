@@ -9,7 +9,7 @@ The directory structure is organized as follows:
 - **`bodies/`**  
   HTML template files for content rendering
 - **`common/`**  
-  Shared Go source code used across webserver and editor
+  Shared Go source code used across publisher and editor
 - **`css/`**  
   Stylesheets for content formatting
 - **`editor/`**  
@@ -20,13 +20,13 @@ The directory structure is organized as follows:
   JavaScript scripts used in games and text content
 - **`json/`**  
   Contains all site content templates
-- **`webserver/`**  
-  Web server source code (Go application)
+- **`publisher/`**  
+  Publisher source code (Go application)
 
 ### Go Source Code
 
 #### Common Module (`common/`)
-Shared utilities and data structures used by both webserver and editor:
+Shared utilities and data structures used by both publisher and editor:
 
 - **`config.go`**  
   Configuration management
@@ -37,23 +37,19 @@ Shared utilities and data structures used by both webserver and editor:
 - **`go.mod`**  
   Go module definition
 
-#### Webserver Module (`webserver/`)
-HTTP server for serving History Tracers content:
+#### Publisher Module (`publisher/`)
+Batch processing tools for generating and maintaining content:
 
 - **`main.go`**  
-  Entry point for the web server
-- **`server.go`**  
-  HTTP server setup and routing
+  Entry point for the publisher
 - **`common.go`**  
   Shared utilities and helpers
 - **`config.go`**  
   Configuration handling
 - **`audio.go`**  
-  Audio file serving and processing
-- **`atlas.go`**  
-  Geographic atlas content handling
+  Audio file generation
 - **`class.go`**  
-  Classroom/lesson content serving
+  Classroom/lesson content creation
 - **`csv_gedcom.go`**  
   CSV and GEDCOM file processing
 - **`minify.go`**  
@@ -62,6 +58,8 @@ HTTP server for serving History Tracers content:
   Hash generation and verification
 - **`git.go`**  
   Git integration for version tracking
+- **`smgame.go`**  
+  Scientific Method Game content creation
 - **`go.mod`**  
   Go module definition
 
