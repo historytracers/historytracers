@@ -2,7 +2,7 @@
 AC_INIT([historytracers], [1.0.0], [historytracers@gmail.com])
 
 # Set package name and version
-AC_CONFIG_SRCDIR([src/webserver/main.go])
+AC_CONFIG_SRCDIR([src/publisher/main.go])
 
 # Initialize Automake
 AM_INIT_AUTOMAKE([foreign subdir-objects])

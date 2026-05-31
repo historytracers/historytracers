@@ -9,7 +9,7 @@ A estrutura de diretórios está organizada da seguinte forma:
 - **`bodies/`**  
   Arquivos de modelo HTML para renderização de conteúdo
 - **`common/`**  
-  Código fonte Go compartilhado utilizado no servidor web e no editor
+  Código fonte Go compartilhado utilizado no publisher e no editor
 - **`css/`**  
   Folhas de estilo para formatação de conteúdo
 - **`editor/`**  
@@ -20,13 +20,13 @@ A estrutura de diretórios está organizada da seguinte forma:
   Scripts JavaScript usados em jogos e conteúdo textual
 - **`json/`**  
   Contém todos os modelos de conteúdo do site
-- **`webserver/`**  
-  Código fonte do servidor web (aplicação Go)
+- **`publisher/`**  
+  Código fonte do publisher (aplicação Go)
 
 ### Código Fonte Go
 
 #### Módulo Comum (`common/`)
-Utilitários compartilhados e estruturas de dados usados tanto pelo servidor web quanto pelo editor:
+Utilitários compartilhados e estruturas de dados usados tanto pelo publisher quanto pelo editor:
 
 - **`config.go`**  
   Gerenciamento de configuração
@@ -37,23 +37,19 @@ Utilitários compartilhados e estruturas de dados usados tanto pelo servidor web
 - **`go.mod`**  
   Definição do módulo Go
 
-#### Módulo Webserver (`webserver/`)
-Servidor HTTP para servir conteúdo do History Tracers:
+#### Módulo Publisher (`publisher/`)
+Ferramentas de processamento em lote para gerar e manter conteúdo:
 
 - **`main.go`**  
-  Ponto de entrada do servidor web
-- **`server.go`**  
-  Configuração e roteamento do servidor HTTP
+  Ponto de entrada do publisher
 - **`common.go`**  
   Utilitários e funções auxiliares compartilhadas
 - **`config.go`**  
   Gerenciamento de configuração
 - **`audio.go`**  
-  Servindo e processamento de arquivos de áudio
-- **`atlas.go`**  
-  Gerenciamento de conteúdo de atlas geográficos
+  Geração de arquivos de áudio
 - **`class.go`**  
-  Servindo de conteúdo de aulas/lições
+  Criação de conteúdo de aulas/lições
 - **`csv_gedcom.go`**  
   Processamento de arquivos CSV e GEDCOM
 - **`minify.go`**  
@@ -62,6 +58,8 @@ Servidor HTTP para servir conteúdo do History Tracers:
   Geração e verificação de hash
 - **`git.go`**  
   Integração com Git para controle de versões
+- **`smgame.go`**  
+  Criação de conteúdo do Scientific Method Game
 - **`go.mod`**  
   Definição do módulo Go
 

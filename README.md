@@ -110,9 +110,9 @@ $ ./configure --help
 ### Build Commands
 
 ```sh
-$ make                    # Build both webserver and editor binaries
+$ make                    # Build publisher, editor, and viewer
 $ make all                # Alias for make
-$ make webserver          # Build only web server
+$ make publisher          # Build only the publisher
 $ make editor             # Build only the editor
 $ make dev                # Development build (no optimization flags)
 $ make prod               # Production build (with optimization)
@@ -125,8 +125,8 @@ The project can be compiled on Windows using either the GNU Autotools (like on L
 #### Option 1: Using Go directly
 
 ```powershell
-cd src\webserver
-go build -o historytracers.exe .
+cd src\publisher
+go build -o historytracers-publisher.exe .
 
 cd ..\editor
 ```
@@ -159,67 +159,20 @@ On Windows, the configure script automatically sets appropriate default paths:
 - Content: `C:\inetpub\wwwroot\historytracers\`
 - Logs: `C:\ProgramData\historytracers\log\`
 
-### Windows Service Management
+### Batch Processing
 
-The webserver can run as a Windows Service. This provides automatic startup and proper background operation.
-
-#### Installing the Service
-
-Run as Administrator:
-
-```powershell
-.\historytracers.exe install
-```
-
-This will register the service with Windows. By default, the service is set to start automatically.
-
-#### Starting the Service
-
-```powershell
-sc start historytracers
-```
-
-Or simply restart your computer - the service will start automatically.
-
-#### Stopping the Service
-
-```powershell
-sc stop historytracers
-```
-
-#### Uninstalling the Service
-
-```powershell
-.\historytracers.exe uninstall
-```
-
-#### Running in Console Mode
-
-For debugging or testing, you can run the server in console mode:
-
-```powershell
-.\historytracers.exe         # Normal console mode
-.\historytracers.exe debug   # Debug mode (shows additional output)
-```
-
-#### Service Configuration
-
-The Windows service uses the same configuration file as console mode. Default paths on Windows:
-- Config: `C:\ProgramData\historytracers\historytracers.conf`
-- Logs: `C:\ProgramData\historytracers\log\`
-
-You can modify these paths in the configuration file or rebuild with custom paths using `./configure --with-conf-path=PATH`.
+The publisher CLI tool processes content generation tasks (minify, audio, GEDCOM, etc.). Run with `--help` to see available flags.
 
 ### Testing
 
 ```sh
-$ make test               # Run all tests in src/webserver and src/editor
+$ make test               # Run all tests in src/publisher and src/editor
 ```
 
 To run a single test:
 
 ```sh
-$ cd src/webserver && go test -run TestFunctionName ./...
+$ cd src/publisher && go test -run TestFunctionName ./...
 $ cd src/editor && go test -run TestFunctionName ./...
 ```
 
@@ -232,7 +185,7 @@ $ make fmt                # Format all Go code (go fmt)
 Manual formatting:
 
 ```sh
-$ cd src/webserver && go fmt ./...
+$ cd src/publisher && go fmt ./...
 $ cd src/editor && go fmt ./...
 ```
 

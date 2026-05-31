@@ -9,7 +9,7 @@ La estructura de directorios está organizada de la siguiente manera:
 - **`bodies/`**  
   Archivos de plantilla HTML para el renderizado de contenido
 - **`common/`**  
-  Código fuente Go compartido utilizado en el servidor web y el editor
+  Código fuente Go compartido utilizado en el publisher y el editor
 - **`css/`**  
   Hojas de estilo para el formato de contenido
 - **`editor/`**  
@@ -20,13 +20,13 @@ La estructura de directorios está organizada de la siguiente manera:
   Scripts JavaScript utilizados en juegos y contenido textual
 - **`json/`**  
   Contiene todas las plantillas de contenido del sitio
-- **`webserver/`**  
-  Código fuente del servidor web (aplicación Go)
+- **`publisher/`**  
+  Código fuente del publisher (aplicación Go)
 
 ### Código Fuente Go
 
 #### Módulo Común (`common/`)
-Utilidades compartidas y estructuras de datos utilizadas tanto por el servidor web como por el editor:
+Utilidades compartidas y estructuras de datos utilizadas tanto por el publisher como por el editor:
 
 - **`config.go`**  
   Gestión de configuración
@@ -37,23 +37,19 @@ Utilidades compartidas y estructuras de datos utilizadas tanto por el servidor w
 - **`go.mod`**  
   Definición del módulo Go
 
-#### Módulo Webserver (`webserver/`)
-Servidor HTTP para servir contenido de History Tracers:
+#### Módulo Publisher (`publisher/`)
+Herramientas de procesamiento por lotes para generar y mantener contenido:
 
 - **`main.go`**  
-  Punto de entrada del servidor web
-- **`server.go`**  
-  Configuración y enrutamiento del servidor HTTP
+  Punto de entrada del publisher
 - **`common.go`**  
   Utilidades y funciones auxiliares compartidas
 - **`config.go`**  
   Gestión de configuración
 - **`audio.go`**  
-  Servido y procesamiento de archivos de audio
-- **`atlas.go`**  
-  Gestión de contenido de atlas geográficos
+  Generación de archivos de audio
 - **`class.go`**  
-  Servido de contenido de clases/lecciones
+  Creación de contenido de clases/lecciones
 - **`csv_gedcom.go`**  
   Procesamiento de archivos CSV y GEDCOM
 - **`minify.go`**  
@@ -62,6 +58,8 @@ Servidor HTTP para servir contenido de History Tracers:
   Generación y verificación de hash
 - **`git.go`**  
   Integración con Git para seguimiento de versiones
+- **`smgame.go`**  
+  Creación de contenido del Scientific Method Game
 - **`go.mod`**  
   Definición del módulo Go
 

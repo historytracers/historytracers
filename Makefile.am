@@ -1,24 +1,26 @@
 # Build configuration
-BINARY_NAME = historytracers
+PUBLISHERBINARY_NAME = historytracers-publisher
 EDITORBINARY_NAME = historytracers-editor
+VIEWERBINARY_NAME = historytracers-viewer
 BUILD_DIR = build
-WEBSERVERSRC_DIR = src/webserver
+PUBLISHERSRC_DIR = src/publisher
 EDITORSRC_DIR = src/editor
+VIEWERSRC_DIR = src/viewer
 
 # We're not building C programs, so tell Automake this is foreign
 AUTOMAKE_OPTIONS = foreign
 
 # What to distribute
-EXTRA_DIST = $(WEBSERVERSRC_DIR)/main.go $(EDITORSRC_DIR)/main.go
+EXTRA_DIST = $(PUBLISHERSRC_DIR)/main.go $(EDITORSRC_DIR)/main.go $(VIEWERSRC_DIR)/main.go
 
 # Custom targets for Go building
-all-local: webserver editor
+all-local: publisher editor viewer
 
-webserver:
-	@echo "Building $(BINARY_NAME)..."
+publisher:
+	@echo "Building $(PUBLISHERBINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
-	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(BINARY_NAME) .
+	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
+	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(PUBLISHERBINARY_NAME) .
 
 editor:
 	@echo "Building $(EDITORBINARY_NAME)..."
@@ -26,11 +28,18 @@ editor:
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
 
+viewer:
+	@echo "Building $(VIEWERBINARY_NAME)..."
+	@mkdir -p $(BUILD_DIR)
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) mod download && $(GO_COMPILER) mod tidy && $(GO_COMPILER) fmt ./...
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) build -o ../../$(BUILD_DIR)/$(VIEWERBINARY_NAME) .
+
 install-exec-local:
 	@echo "Installing binaries to $(DESTDIR)$(bindir)..."
 	$(MKDIR_P) $(DESTDIR)$(bindir)
-	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(BINARY_NAME) $(DESTDIR)$(bindir)/$(BINARY_NAME)
+	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(PUBLISHERBINARY_NAME) $(DESTDIR)$(bindir)/$(PUBLISHERBINARY_NAME)
 	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(EDITORBINARY_NAME) $(DESTDIR)$(bindir)/$(EDITORBINARY_NAME)
+	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(VIEWERBINARY_NAME) $(DESTDIR)$(bindir)/$(VIEWERBINARY_NAME)
 
 clean-local:
 	@echo "Cleaning build artifacts..."
@@ -40,22 +49,25 @@ clean-local:
 .PHONY: deps update-deps test fmt dev prod
 
 deps:
-	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) get github.com/google/uuid
-	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) get -u github.com/tdewolff/minify/v2
-	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) get github.com/BurntSushi/toml@latest
+	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) get github.com/google/uuid
+	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) get -u github.com/tdewolff/minify/v2
+	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) get github.com/BurntSushi/toml@latest
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) get fyne.io/fyne/v2@latest
 
 update-deps:
-	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
+	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) get all && $(GO_COMPILER) mod tidy
 
 test:
-	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) test ./...
+	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) test ./...
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) test ./...
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) test ./...
 
 fmt:
-	cd $(WEBSERVERSRC_DIR) && $(GO_COMPILER) fmt ./...
+	cd $(PUBLISHERSRC_DIR) && $(GO_COMPILER) fmt ./...
 	cd $(EDITORSRC_DIR) && $(GO_COMPILER) fmt ./...
+	cd $(VIEWERSRC_DIR) && $(GO_COMPILER) fmt ./...
 
 dev: 
 	$(MAKE) GO_BUILD_FLAGS="" all
