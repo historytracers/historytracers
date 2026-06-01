@@ -11,6 +11,10 @@ import (
 	"syscall"
 )
 
+func promptContentDir() string {
+	return ""
+}
+
 func runWindow() {
 	openBrowser(pageURL)
 

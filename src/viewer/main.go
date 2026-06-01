@@ -6,27 +6,44 @@ import (
 	"log"
 	"net"
 	"net/http"
+	"os"
+	"path/filepath"
 )
 
 var srv *http.Server
 var pageURL string
+var contentDir string
 
 func main() {
 	port := flag.Int("port", 0, "HTTP port (0 = random available)")
+	path := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
 	flag.Parse()
+
+	contentDir = *dir
+	if *path != "" {
+		contentDir = *path
+	}
+
+	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
+		newDir := promptContentDir()
+		if newDir != "" {
+			contentDir = newDir
+			fmt.Printf("Content directory set to: %s\n", contentDir)
+		}
+	}
 
 	addr := resolveAddr(*port)
 	pageURL = fmt.Sprintf("http://%s/", addr)
 
 	mux := http.NewServeMux()
-	fs := http.FileServer(http.Dir(*dir))
+	fs := http.FileServer(http.Dir(contentDir))
 	mux.Handle("/", logMiddleware(fs))
 
 	srv = &http.Server{Addr: addr, Handler: mux}
 
 	go func() {
-		fmt.Printf("Serving content from %s\n", *dir)
+		fmt.Printf("Serving content from %s\n", contentDir)
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("Server error: %v", err)
 		}
