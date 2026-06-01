@@ -69,7 +69,25 @@ function htLoadExercise() {
     };
     htPlotConstantContinuousChart(chart1Options);
 
-    htFillMultiplicationTable("chart2", 0, 0, false, true);
+    var xVector00 = [ 0, 0.5,  1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8,  8.5, 9,  9.5, 10];
+    var yVector00 = [ 0, 0.0,  0, 0.0, 0, 0.0, 0, 0.0, 0, 0.0, 0, 0.0, 0, 0.0, 0, 0.0, 0,  0.0, 0,  0.0, 0];
+    var chart0Options = {
+        "datasets": [
+                    {
+                        data : yVector00,
+                        label : mathKeywords[16]+"0",
+                        fill : false
+                    }],
+        "chartId" : "chart2",
+        "yType" : "linear",
+        "xVector" : xVector00,
+        "xLable": mathKeywords[15],
+        "xType" : "linear",
+        "ymin": 0,
+        "ymax": 10,
+        "useCallBack": false
+    };
+    htPlotConstantContinuousChart(chart0Options);
 
     htWriteMultiplicationTable("#mParent0", 0);
     htWriteMultiplicationTable("#mParent1", 1);
