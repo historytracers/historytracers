@@ -16,15 +16,19 @@ const addressBarJS = `
 	function addBar(){
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
+		var s=document.createElement('style');
+		s.id='__ht_style';
+		s.textContent='.top-bar-right{top:24px!important}';
+		document.documentElement.appendChild(s);
 		var b=document.createElement('div');
 		b.id='__ht_addr';
-		b.style.cssText='position:fixed;top:0;left:0;right:0;height:20px;background:#f5f5f5;border-bottom:1px solid #999;z-index:2147483647;display:flex;align-items:center;padding:1px 4px;font:11px/1 sans-serif;';
+		b.style.cssText='position:fixed;top:0;left:0;right:0;height:20px;background:#f5f5f5;border-bottom:1px solid #999;z-index:2147483647;display:flex;align-items:center;padding:1px 4px;font:11px/1 sans-serif;overflow:hidden;';
 		var u=document.createElement('input');
 		u.id='__ht_url';
 		u.type='text';
 		u.readOnly=true;
 		u.value=window.location.href;
-		u.style.cssText='flex:1;border:none;padding:0 2px;font:11px/1 monospace;background:transparent;color:#333;outline:none;';
+		u.style.cssText='flex:1;min-width:0;border:none;padding:0 2px;font:11px/1 monospace;background:transparent;color:#333;outline:none;box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;';
 		b.appendChild(u);
 		document.documentElement.insertBefore(b,document.documentElement.firstChild);
 		document.body.style.marginTop='24px';
