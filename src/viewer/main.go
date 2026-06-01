@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io"
 	"log"
 	"net"
 	"net/http"
@@ -13,16 +14,28 @@ import (
 var srv *http.Server
 var pageURL string
 var contentDir string
+var accessLog *log.Logger
 
 func main() {
 	port := flag.Int("port", 0, "HTTP port (0 = random available)")
 	path := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
+	logFile := flag.String("log", "", "File to write access logs (default: no access log)")
 	flag.Parse()
 
 	contentDir = *dir
 	if *path != "" {
 		contentDir = *path
+	}
+
+	if *logFile != "" {
+		f, err := os.Create(*logFile)
+		if err != nil {
+			log.Fatalf("Cannot open log file: %v", err)
+		}
+		accessLog = log.New(f, "", log.LstdFlags)
+	} else {
+		accessLog = log.New(io.Discard, "", log.LstdFlags)
 	}
 
 	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
@@ -84,6 +97,6 @@ func logMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		sw := &statusWriter{ResponseWriter: w, status: 200}
 		next.ServeHTTP(sw, r)
-		fmt.Printf("%s %s %d\n", r.Method, r.URL.Path, sw.status)
+		accessLog.Printf("%s %s %d", r.Method, r.URL.Path, sw.status)
 	})
 }
