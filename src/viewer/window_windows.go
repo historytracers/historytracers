@@ -28,6 +28,10 @@ const addressBarJS = `
 		b.appendChild(u);
 		document.documentElement.insertBefore(b,document.documentElement.firstChild);
 		document.body.style.marginTop='24px';
+		setInterval(function(){
+			var e=document.getElementById('__ht_url');
+			if(e&&e.value!==window.location.href)e.value=window.location.href;
+		},200);
 	}
 	addBar();
 })();
