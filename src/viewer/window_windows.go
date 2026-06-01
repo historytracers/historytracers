@@ -40,11 +40,12 @@ func runWindow() {
 		Debug:     true,
 		AutoFocus: true,
 		WindowOptions: webview2.WindowOptions{
-			Title:  "HistoryTracers Viewer",
-			Width:  1280,
-			Height: 800,
-			Center: true,
-			Style:  webview2.WindowStyleDefault,
+			Title:   "HistoryTracers Viewer",
+			Width:   1280,
+			Height:  800,
+			Center:  true,
+			Style:   webview2.WindowStyleDefault,
+			ExStyle: webview2.WindowExStyleTopMost,
 		},
 	})
 	if err != nil {
