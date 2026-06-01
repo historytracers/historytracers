@@ -11,6 +11,28 @@ import (
 	webview2 "github.com/Krakinsight/go-webview2"
 )
 
+const addressBarJS = `
+(function(){
+	function addBar(){
+		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
+		if(document.getElementById('__ht_addr'))return;
+		var b=document.createElement('div');
+		b.id='__ht_addr';
+		b.style.cssText='position:fixed;top:0;left:0;right:0;height:20px;background:#f5f5f5;border-bottom:1px solid #999;z-index:2147483647;display:flex;align-items:center;padding:1px 4px;font:11px/1 sans-serif;';
+		var u=document.createElement('input');
+		u.id='__ht_url';
+		u.type='text';
+		u.readOnly=true;
+		u.value=window.location.href;
+		u.style.cssText='flex:1;border:none;padding:0 2px;font:11px/1 monospace;background:transparent;color:#333;outline:none;';
+		b.appendChild(u);
+		document.documentElement.insertBefore(b,document.documentElement.firstChild);
+		document.body.style.marginTop='24px';
+	}
+	addBar();
+})();
+`
+
 func promptContentDir() string {
 	cmd := exec.Command("powershell", "-NoProfile", "-Command", `
 Add-Type -AssemblyName System.Windows.Forms
@@ -56,6 +78,7 @@ func runWindow() {
 	}
 	defer w.Destroy()
 
+	w.Init(addressBarJS)
 	w.Navigate(pageURL)
 	w.Run()
 }
