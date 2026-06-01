@@ -1,0 +1,591 @@
+{
+   "title": "Sumando con Soroban y Suanpan (算盤)",
+   "header": "Sumando con Soroban y Suanpan (算盤)",
+   "sources": [
+      "ba340a77-cf71-4471-8e4c-43afa358833b"
+   ],
+   "scripts": [
+      "ba340a77-cf71-4471-8e4c-43afa358833b",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/ba340a77-cf71-4471-8e4c-43afa358833b_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/5uRgEvjphEbI2v7a4xDuFj?si=fEtM6ucjTru9ckYTGguIyg",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1780322140"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerrequisitos\n\nPara un mejor aprovechamiento del contenido de este texto, recomendamos estudar primero cómo representar números en los ábacos Soroban y Suanpan antes de continuar (<htcite0>; <htcite1>; <htcite2>).\n\nAdemás, recomendamos el estudio del texto sobre la suma con la *Yupana* Inca, mediante el método *Yupana Inka Tawa Pukllay*, de Dhavit Prem, el cual será utilizado para ayudar en la comprensión de los ábacos (<htcite3>; <htcite4>; <htcite5>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "339c7ff5-8365-49bb-a1cd-ad5a13d5fd86",
+                     "text": "History Tracers Team",
+                     "page": "Construyendo para contar (Soroban, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c3c69877-a92b-493c-b98a-5c1c6d5875f4",
+                     "text": "History Tracers Team",
+                     "page": "Construyendo para contar (Suanpan, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d7a249ed-cc2d-40e0-adec-ca3e9738e5d3",
+                     "text": "History Tracers Team",
+                     "page": "Órdenes mayores con Soroban y Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit, Pessoal",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (Adición)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nComo vimos anteriormente, tanto la *Yupana* como los ábacos desarrollados en China (Zhongguo 中國) y en Japón (Nippon koku o Nihon koku, 日本国) pueden entenderse como herramientas que reflejan nuestras manos.\n\nVimos cómo trabajar con el método **Yupana Inka Tawa Pukllay** (<htcite0>). Con base en este conocimiento, reflexione:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (Adición)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: Ya he visto esto antes</b><br /><br />¿Cómo puede el conocimiento de la adición mediante la Yupana ayudarle a realizar sumas utilizando los ábacos?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_comparing",
+         "text": [
+            {
+               "text": "### Puntos en común\n\nVamos comenzar realizando algunas comparaciones. Primero, recuerde una línea de la *Yupana* en la **Tabla 1** y luego observe, en la **Figura 1**, imágenes de los ábacos con los que trabajaremos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td></tr></table></p><p class=\"desc\"><b>Tabla 1</b>: Representación de una línea de la <i>Yupana</i> según Poma de Ayala (<htcite0> ; <htcite1>). CSS inspirado en el código de <htcite2>.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit,",
+                     "page": "pp. 355",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman,",
+                     "page": "pp. 361 - 362",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "01",
+                        "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "48dd9187-7ecc-4f54-a387-d9ecc2497de3",
+                     "text": "W3School",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "01",
+                        "day": "27"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1615",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table class=\"book_navigation\"><tr><td>Soroban (算盤)</td><td>Suanpan (算盤)</td></tr><tr><td><img id=\"imgSoroban\" onclick=\"htImageZoom('imgSoroban', '0%')\" src=\"\" class=\"imgcenter\" style=\"width: 100%\"/></td><td><img id=\"imgSuanpan\" onclick=\"htImageZoom('imgSuanpan', '0%')\" src=\"\" style=\"width: 73%\"/></td></tr></table></p><p class=\"desc\"><b>Figura 1</b>: Ábacos. A la izquierda, tenemos un Soroban (算盤) de Shigetoshi Oyabu. Mantenido por Tohoku University Main Library (<htcite0>). A la derecha, tenemos un Suanpan (算盤). © Trustees of the British Museum (<htcite1>)</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "8ab7ebef-41db-4f2b-a3e3-3530e7ff29d3",
+                     "text": "Shigetoshi Oyabu",
+                     "page": "fl. 14",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1842",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "68dfe292-3021-4586-9016-c001cdfdd9d7",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "#### Divisiones internas\n\nTanto la *Yupana* como los ábacos poseen divisiones similares, que podemos entender como representaciones de nuestras manos.\n\nEn el caso de la *Yupana*, el primer cuadrante a la izquierda representaría una mano con sus cinco dedos. Los otros tres cuadrantes pueden entenderse como nuestra otra mano, pero combinados de modo que representan los cinco dedos que tenemos.\n\nCon respecto a los ábacos, la idea general es la misma, pero hay algunos detalles que debemos resaltar. En el caso del Soroban (算盤), el ábaco de Japón (Nippon koku o Nihon koku, 日本国), la mano con los dedos abiertos está representada por los marcadores de la parte superior — también conocida como cielo (<htcite0>)—, mientras que los cuatro marcadores de la parte inferior —también conocidos como tierra (<htcite1>)— representarían los dedos de la otra mano.\n\nEn el caso del ábaco chino, el Suanpan (算盤), podemos entender que, en la parte superior, hay dos manos con sus cinco dedos, mientras que, en la parte inferior, hay una sola mano con cinco dedos.\n\n#### Antes de sumar\n\nYa sabemos cómo sumar con la *Yupana* y vimos que existen algunas diferencias entre lo que los ábacos representan. Para hacer más claros los pasos de una suma, en este texto nos limitaremos a sumar números entre cero y nueve.\n\nAntes de continuar, hagamos una reflexión más.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7d978f6b-930f-4aa0-977e-bb0892210acb",
+                     "text": "Asian-Pacific Association of Longmount",
+                     "page": "pp. 1 - 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7d978f6b-930f-4aa0-977e-bb0892210acb",
+                     "text": "Asian-Pacific Association of Longmount",
+                     "page": "pp. 1 - 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Lado a lado o arriba y abajo</b><br /><br />Vimos que, aunque representamos manos en direcciones diferentes, podemos entender que existe una región de la herramienta que representa al menos una mano completamente abierta, mientras que hay otra región cuyos elementos pueden combinarse hasta alcanzar una determinada cantidad de dedos.<br /><br />¿Cómo usaría usted estas representaciones para sumar números de cero a nueve?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_sum1",
+         "text": [
+            {
+               "text": "### Sumando de 0 a 4\n\nNo solo las manos están representadas en las herramientas que estamos estudiando en este texto. Como ya aprendimos en otro texto de History Tracers, sumar puede entenderse como realizar movimientos en un camino (<htcite0>).\n\n#### Moviendo en los ábacos\n\nIndependientemente de la versión del ábaco utilizada (Suanpan (算盤) o Soroban (算盤)), al realizar la suma de valores entre 0 y 4, siempre moveremos únicamente marcadores que están en la parte inferior de uno de los ábacos.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "92b5d15c-d26a-4ad9-82af-3262649cf2e4",
+                     "text": "History Tracers Team",
+                     "page": "Caminando entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: clamp(1.5rem, 5vw, 3.5rem); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: clamp(0.8rem, 3vw, 1.8rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem); width: 100%; max-width: 1100px; transition: all 0.2s ease; } .soroban-frame { background: #e9ddb0; border-radius: clamp(1rem, 3vw, 1.8rem); padding: clamp(8px, 2vw, 16px); box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; width: 100%; height: auto; aspect-ratio: 860 / 400; } .value-panel { margin-top: clamp(0.8rem, 4vw, 1.8rem); background: #2e241f; border-radius: 60px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);  display: flex; justify-content: space-between;  align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center;  gap: clamp(8px, 2vw, 18px); flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 0.4rem 1rem; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(1rem, 5vw, 1.9rem); letter-spacing: 1px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: clamp(0.7rem, 3.5vw, 1.2rem); font-weight: normal; background: #4a3929; color: #ffecb3; padding: 0.2rem 0.7rem; border-radius: 30px; margin-left: 8px;  white-space: nowrap; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.85rem, 4vw, 1.2rem); font-family: inherit; padding: 0.5rem 1.2rem; border-radius: 60px; cursor: pointer;  transition: 0.08s linear; box-shadow: 0 3px 0 #4f3822; white-space: nowrap; min-width: 100px; } .reset-btn:active { transform: translateY(2px);  box-shadow: 0 1px 0 #4f3822;  } .legend {  font-size: clamp(0.6rem, 2.8vw, 0.75rem); margin-top: 0; text-align: center;  color: #302419;  background: #ebdfbe; display: inline-block; width: auto;  padding: 0.3rem 0.9rem; border-radius: 60px; backdrop-filter: blur(2px); white-space: nowrap; } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 12px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 0.3rem 1rem; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; color: #302419; white-space: nowrap; } .mode-selector { background: #ebdfbe; border-radius: 60px;  padding: 0.3rem 1rem; display: flex;  gap: 12px; align-items: center; flex-wrap: wrap; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 3vw, 0.85rem); font-family: inherit; padding: 0.4rem 1rem; border-radius: 40px; cursor: pointer; transition: 0.08s linear; box-shadow: 0 2px 0 #4f3822; white-space: nowrap; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: clamp(0.65rem, 2.8vw, 0.75rem); } .warning-message { background: #ff9800; color: #2e241f; padding: 0.3rem 1rem; border-radius: 40px; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); animation: pulseWarning 1.5s ease-in-out infinite; white-space: normal; word-break: keep-all; } .warning-message.hidden { display: none; } @keyframes pulseWarning { 0%, 100% { opacity: 0.85; background: #ff9800; } 50% { opacity: 1; background: #ffb74d; box-shadow: 0 0 4px #ff9800; } } .warning-icon { font-size: 1rem; } .info-area { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; } @media (max-width: 720px) { .value-panel { flex-direction: column; align-items: stretch; border-radius: 32px; } .value-panel-left { justify-content: center; } .readout { text-align: center; white-space: normal; word-break: break-word; } .footer { flex-direction: column; align-items: stretch; } .mode-selector, .info-area, .decimal-control { justify-content: center; } .legend { white-space: normal; text-align: center; } .reset-btn { text-align: center; width: 100%; } } @media (max-width: 480px) { .readout span { margin-left: 4px; } .mode-selector { justify-content: center; gap: 8px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">¡Hay columna(s) con valores mayores a 9! Cada dígito debe permanecer entre 0 y 9.</span><span id=\"suanpanColumnNumber\" style=\"display: none; visibility: hidden;\">1</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 1: Sumando con el ábaco</b><br />La suma con cualquier ábaco se realiza mediante movimientos. Primero, movemos los marcadores de acuerdo con el primer número y, a continuación, movemos los marcadores de acuerdo con el segundo número hasta alcanzar el resultado final (<htcite0>).<br /><br />1. Cuando no tenemos ningún marcador movido, tenemos el valor cero. Mueva un marcador de la parte inferior, indicando la suma 0 + 1 = 1.<br />2. Mueva 2 marcadores más hacia la barra que divide el ábaco. Como consecuencia, tendremos el resultado 3, pues realizamos la suma 1 + 2 = 3.<br /><br />3. Haga clic en <b>Reiniciar</b> para mover todos los marcadores hacia abajo, volviendo al valor cero.<br /><br />4. Ahora, mueva dos marcadores, representando la cuenta 0 + 2 = 2.<br />5.     Finalmente, mueva dos marcadores más hacia la barra, representando la suma 2 + 2 = 4.</div></div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Holt",
+                     "page": "08:00 - 08:32",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Sumando en la *Yuapana*\n\nLos detalles de la suma con el método *Yupana Inka Tawa Pukllay* ya fueron presentados en el texto anterior (<htcite0>). Aquí, solo recordaremos los detalles del camino a través de la **Yupana**.\n\nEn la *Yupana*, al realizar sumas de 0 a 4, también movemos marcadores por los cuadrantes. Los números del 1 al 3 tienen sus propias representaciones en la *Yupana*; por lo tanto, siempre representamos cada uno de ellos mediante un único marcador. Al alcanzar el número 4, sin embargo, necesitamos dos marcadores: uno colocado en el 1 y otro en el 3.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1bb0274d-dc51-4740-ac62-4d157b06ad88",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (Adición)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Mano izquierda</th><th>Mano derecha</th><th>Flechas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\"  /></td><td id=\"tc6f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\"  /></td><td id=\"tc7f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown0\"></td></tr></table>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><b>Tabla 2</b>: Representación de una línea de la <i>Yupana</i> según Poma de Ayala (<htcite0> ; <htcite1>). CSS inspirado en el código de <htcite2>.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit,",
+                     "page": "pp. 355",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman,",
+                     "page": "pp. 361 - 362",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "01",
+                        "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "48dd9187-7ecc-4f54-a387-d9ecc2497de3",
+                     "text": "W3School",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "01",
+                        "day": "27"
+                     }
+                  }
+               ],
+               "date_time": [
+                  {
+                     "type": "gregory",
+                     "year": "2018",
+                     "month": "-1",
+                     "day": "-1"
+                  },
+                  {
+                     "type": "gregory",
+                     "year": "1615",
+                     "month": "-1",
+                     "day": "-1"
+                  }
+               ],
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 2: Sumando con la Yupana</b><br />En esta práctica, sumaremos de 1 en 1, partiendo de cero hasta llegar al 4, reforzando lo presentado en el texto.<br /><br />1. Usando las flechas laterales de la <b>Tabla 2</b>, haga clic hasta que aparezcan 4 dedos levantados. Observe cómo se representan los números en la <b>Yupana</b>.</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_five",
+         "text": [
+            {
+               "text": "### El número 5\n\nEl número 5 es un número especial en las herramientas que estamos estudiando. Además de tener su propio marcador en los ábacos, en la *Yupana* posee un cuadrante específico para representarlo. Este tratamiento especial está muy posiblemente ligado al hecho de que tenemos cinco dedos en cada mano.\n\n#### El 5 en la *Yupana* y en el Soroban (算盤)\n\nTanto en la *Yupana* como en el Soroban (算盤), siempre que el número 5 aparece en una cuenta (por ejemplo: 5 + 0, 4 + 1 o 3 + 2), representamos el resultado de esa cuenta en la línea (*Yupana*) o en la columna (Soroban (算盤)), colocando el marcador correspondiente. En el caso de la *Yupana*, colocamos un marcador en el cuadrante más a la izquierda; mientras que en el Soroban (算盤) utilizamos el marcador superior.\n\n#### El 5 en el Suanpan (算盤)\n\nEl Suanpan (算盤) también tiene marcadores superiores que representan el número 5. Sin embargo, como también tiene cinco marcadores en la parte inferior, permite realizar movimientos diferentes. Practiquemos para reforzar este concepto.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica 3: Manos</b><br />Para esta práctica, seleccione la opción <b>Suanpan (2x5)</b> en el ábaco de arriba.<br /><br />1. Mueva los cinco marcadores inferiores hacia la barra. Esto representa el cálculo 0 + 5 = 5.<br /><br />Cuando tenemos cinco marcadores cercanos a la barra en la parte inferior, debemos reemplazar inmediatamente ese valor por un marcador superior con valor cinco (<htcite0>).<br /><br />2. Mueva los cinco marcadores inferiores para alejarlos de la barra.<br />3. Mueva un solo marcador superior hacia la barra.</div></div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6389c81d-6c37-41ce-84c7-9ff0c336f289",
+                     "text": "Pelle Lindbla",
+                     "page": "01:52 - 02:05",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_six_nine",
+         "text": [
+            {
+               "text": "### Entre 6 y 9\n\nCuando sumamos y el resultado aparece entre 6 y 9, ocurre un hecho común a todas las herramientas que estamos estudiando: siempre tendremos un marcador ubicado en el 5. Este hecho nos lleva a reflexionar una vez más.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 3: ¿Concluyeron o compartieron?</b><br /><br />A pesar de la ascendencia asiática de los pueblos indígenas de América (<htcite0>), no hay ninguna evidencia de que las herramientas <b>Yupana</b> y los ábacos tengan un origen común.<br />Por otro lado, ambas fueron creadas reflejando características de nuestro propio cuerpo.<br /><br />Antes de este texto, ¿entendías que pueblos diferentes podían crear herramientas parecidas? ¿O siempre imaginaste que hubo un origen único, posteriormente compartido entre ellos?</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1070f062-f6c1-4cc5-8732-83b31c8e5137",
+                     "text": "History Tracers Team",
+                     "page": "Indígenas de <i>Abya Yala</i> (América)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Los ábacos\n\nIndependientemente de la versión del ábaco que estemos utilizando, al realizar una suma como 4 + 2, ejecutaremos los siguientes pasos:\n- Movemos inicialmente 4 marcadores de la parte inferior.\n- A continuación, al añadir dos más, los movimientos dependen del ábaco utilizado. En el Suanpan (算盤), primero subimos un marcador más de la parte inferior y luego bajamos todos ellos y marcamos uno en la parte superior. Finalmente, subimos un marcador más de la parte inferior, alcanzando el resultado 6. Si estamos trabajando con el Soroban (算盤), también moveremos inicialmente los 4 marcadores inferiores hacia la barra. Luego, moveremos un marcador superior hacia la barra y, por último, subiremos un marcador inferior.\n\nAunque los procedimientos no son exactamente los mismos en los diferentes ábacos, al final tendremos un marcador superior y uno inferior cerca de la barra, representando el cálculo 4 + 2 = 6.\n\n#### *Yupana*\n\nEn la *Yupana* también tenemos algo análogo. En cualquier suma cuyo resultado esté entre 6 y 9, el cuadrante del cinco estará marcado, y añadiremos marcadores en los demás cuadrantes hasta alcanzar el resultado deseado.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, aprendimos cómo sumar números en una sola columna de los ábacos, destacando sus puntos en común y sus diferencias, no solo entre los propios ábacos, sino también en comparación con la *Yupana*.\n\nAdemás, vimos que pueblos separados durante milenios pueden llegar a conclusiones semejantes mediante la observación de la naturaleza y de características del propio cuerpo humano.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
