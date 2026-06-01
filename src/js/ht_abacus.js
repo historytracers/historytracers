@@ -722,6 +722,11 @@ function htLoadContent() {
         localSorobanController.abacusMode = "suanpan";
     }
 
+    const maxCols = document.getElementById('suanpanColumnNumber');
+    if (maxCols != undefined) {
+        localSorobanController.COLUMNS = parseInt(maxCols.innerText);
+    }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', htSorobanInit);
     } else {
