@@ -42,7 +42,7 @@ const addressBarJS = `
 	function addBar(){
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
-		var TAB_H=18,ADDR_H=16,BAR_H=ADDR_H+TAB_H;
+		var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
 		var loc=navigator.language||'en-US';
 		var L={};
 		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial'};
@@ -63,14 +63,14 @@ const addressBarJS = `
 		h.id='__ht_home';
 		h.textContent='⌂';
 		h.title=l.homeTitle;
-		h.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 14px/1 monospace;padding:0 3px;color:#555;';
+		h.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;';
 		h.onclick=function(){location.href=location.origin};
 		b.appendChild(h);
 		var r=document.createElement('button');
 		r.id='__ht_rld';
 		r.textContent='⟳';
 		r.title=l.reloadTitle;
-		r.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 12px/1 monospace;padding:0 3px;color:#555;';
+		r.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 24px/1 monospace;padding:0 5px;color:#555;';
 		r.onclick=function(){location.reload(true)};
 		b.appendChild(r);
 		var u=document.createElement('input');
@@ -78,12 +78,12 @@ const addressBarJS = `
 		u.type='text';
 		u.readOnly=true;
 		u.value=window.location.href;
-		u.style.cssText='flex:1;min-width:0;border:none;padding:0 2px;font:10px/1 monospace;background:transparent;color:#333;outline:none;box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;';
+		u.style.cssText='flex:1;min-width:0;border:none;padding:0 4px;font:14px/1 monospace;background:transparent;color:#333;outline:none;box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;';
 		b.appendChild(u);
 		document.documentElement.insertBefore(b,document.documentElement.firstChild);
 		var tb=document.createElement('div');
 		tb.id='__ht_tabs';
-		tb.style.cssText='position:fixed;top:'+ADDR_H+'px;left:0;right:0;height:'+TAB_H+'px;background:#d0d0d0;border-bottom:1px solid #999;z-index:2147483646;display:flex;align-items:stretch;padding:0;font:10px/1 sans-serif;overflow:hidden;';
+		tb.style.cssText='position:fixed;top:'+ADDR_H+'px;left:0;right:0;height:'+TAB_H+'px;background:#d0d0d0;border-bottom:1px solid #999;z-index:2147483646;display:flex;align-items:stretch;padding:0;font:13px/1 sans-serif;overflow:hidden;';
 		document.documentElement.appendChild(tb);
 		var tabs={0:{type:'main',el:null,iframe:null,url:window.location.href}},cnt=1,active=0;
 		function mkTab(idx){
