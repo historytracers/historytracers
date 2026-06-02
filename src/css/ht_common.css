@@ -133,12 +133,12 @@ audio {
 }
 
 .top-bar-right {
-  position: fixed;
-  height: 10vw;
-  width: 24%;
-  top: 1%;
-  right: 1%;
-  float: right;
+  position: static;
+  height: auto;
+  width: 100%;
+  top: auto;
+  right: auto;
+  float: none;
   vertical-align: top;
   z-index: 100;
 }
@@ -1566,6 +1566,16 @@ input[type=number]::-webkit-outer-spin-button {
 
     div.righttext {
         font-size: 0.87em;
+    }
+
+    .top-bar-right {
+        position: fixed;
+        height: 10vw;
+        width: 24%;
+        top: 1%;
+        right: 1%;
+        float: right;
+        vertical-align: top;
     }
 
     .right-tree {
