@@ -13,10 +13,6 @@ import (
 
 func hideConsole() {}
 
-func nativePickFile(hwndOwner uintptr) string {
-	return ""
-}
-
 func runWindow() {
 	openBrowser(pageURL)
 

@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"strings"
 
 	webview2 "github.com/Krakinsight/go-webview2"
 )
@@ -17,31 +16,22 @@ const welcomePage = `<!DOCTYPE html>
 <body style="margin:0;font-family:verdana,arial,helvetica;display:flex;justify-content:center;align-items:center;height:100vh;background:#f0f0f0">
 <div style="text-align:center;padding:40px;background:#fff;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
 <h2>HistoryTracers Viewer</h2>
-<p>No content directory was found.</p>
-<p><button id="browseBtn" onclick="browse()" style="padding:10px 24px;font-size:1em;cursor:pointer;border-radius:6px;border:1px solid #999;background:#e8e8e8">Select index.html</button></p>
-<p id="status" style="color:#666;font-size:0.9em"></p>
+<p id="msg">No content directory was found.</p>
+<p><button onclick="closeWin()" style="padding:10px 24px;font-size:1em;cursor:pointer;border-radius:6px;border:1px solid #999;background:#e8e8e8">Close</button></p>
 </div>
 <script>
-async function browse() {
-  var btn = document.getElementById('browseBtn');
-  btn.disabled = true;
-  btn.textContent = 'Opening file dialog...';
-  document.getElementById('status').textContent = '';
-  try {
-    var path = await pickFile();
-    if (path) {
-      document.getElementById('status').textContent = 'Loading...';
-      window.location.reload(true);
-    } else {
-      btn.disabled = false;
-      btn.textContent = 'Select index.html';
-    }
-  } catch(e) {
-    document.getElementById('status').textContent = 'Error: ' + e;
-    btn.disabled = false;
-    btn.textContent = 'Select index.html';
-  }
-}
+var loc=navigator.language||'en-US';
+var L={};
+L['pt-BR']={msg:'Diret\u00f3rio de conte\u00fado n\u00e3o encontrado.',close:'Fechar'};
+L['pt']=L['pt-BR'];
+L['es-ES']={msg:'No se encontr\u00f3 el directorio de contenido.',close:'Cerrar'};
+L['es']=L['es-ES'];
+L['en-US']={msg:'No content directory was found.',close:'Close'};
+L['en']=L['en-US'];
+var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
+document.getElementById('msg').textContent=l.msg;
+document.querySelector('button').textContent=l.close;
+function closeWin(){closeWindow()}
 </script>
 </body>
 </html>`
@@ -184,18 +174,8 @@ func runWindow() {
 	w.Init(addressBarJS)
 
 	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
-		w.Bind("pickFile", func() string {
-			selected := nativePickFile(uintptr(w.Window()))
-			if selected == "" {
-				return ""
-			}
-			idx := strings.LastIndex(selected, "index.html")
-			if idx >= 0 {
-				contentDir = selected[:idx]
-			} else {
-				contentDir = filepath.Dir(selected) + "\\"
-			}
-			return selected
+		w.Bind("closeWindow", func() {
+			w.Destroy()
 		})
 		w.SetHtml(welcomePage)
 		w.Run()
