@@ -45,11 +45,11 @@ const addressBarJS = `
 		var TAB_H=18,ADDR_H=16,BAR_H=ADDR_H+TAB_H;
 		var loc=navigator.language||'en-US';
 		var L={};
-		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)'};
+		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial'};
 		L['pt']=L['pt-BR'];
-		L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)'};
+		L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio'};
 		L['es']=L['es-ES'];
-		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)'};
+		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page'};
 		L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var s=document.createElement('style');
@@ -59,6 +59,13 @@ const addressBarJS = `
 		var b=document.createElement('div');
 		b.id='__ht_addr';
 		b.style.cssText='position:fixed;top:0;left:0;right:0;height:'+ADDR_H+'px;background:#f5f5f5;border-bottom:1px solid #999;z-index:2147483647;display:flex;align-items:center;padding:0 2px;font:10px/1 sans-serif;overflow:hidden;';
+		var h=document.createElement('button');
+		h.id='__ht_home';
+		h.textContent='⌂';
+		h.title=l.homeTitle;
+		h.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 14px/1 monospace;padding:0 3px;color:#555;';
+		h.onclick=function(){location.href=location.origin};
+		b.appendChild(h);
 		var r=document.createElement('button');
 		r.id='__ht_rld';
 		r.textContent='⟳';
