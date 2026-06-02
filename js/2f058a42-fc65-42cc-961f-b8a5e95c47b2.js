@@ -200,6 +200,9 @@ function htLoadContent() {
         $endElement.text(text);
     }
 
+    
+    htSetImageSrc("imgd700", "images/MexicoCityMuseo/Cuauhxicalli.jpg")
+    htSetImageSrc("imgMA", "images/Mapswire/mapswire-continent_na-printable-map-north-america-robinson-269_mesoamerica2.jpg")
     return false;
 }
 

@@ -11,6 +11,8 @@ import (
 	"syscall"
 )
 
+func hideConsole() {}
+
 func runWindow() {
 	openBrowser(pageURL)
 

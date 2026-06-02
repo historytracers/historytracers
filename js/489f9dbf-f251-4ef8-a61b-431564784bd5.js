@@ -3,6 +3,9 @@
 function htLoadContent() {
     htWriteNavigation();
     $("#htImgCopyright").html(keywords[83]);
+    
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png")
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png")
     return false;
 }
 

@@ -8,17 +8,12 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
-	"path/filepath"
 
 	"github.com/historytracers/common"
 )
 
-var (
-	AccessLog *log.Logger
-	DaemonLog *log.Logger
-)
+var ()
 
 func htCreateDirectory(name string) {
 	if stat, err := os.Stat(name); err != nil {
@@ -28,48 +23,6 @@ func htCreateDirectory(name string) {
 		}
 	} else if stat.IsDir() == false {
 		panic("This is not a directory")
-	}
-}
-
-func htOpenLogs(name string) *log.Logger {
-	if CFG.LogPath == "" {
-		return nil
-	}
-
-	htCreateDirectory(CFG.LogPath)
-
-	fileName := filepath.Join(CFG.LogPath, name)
-	if _, err := os.Stat(fileName); os.IsNotExist(err) {
-		fp, err := os.Create(fileName)
-		if err != nil {
-			panic(err)
-		}
-		return log.New(fp, "", log.LstdFlags)
-	} else {
-		fp, err := os.OpenFile(fileName, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0640)
-		if err != nil {
-			panic(err)
-		}
-		return log.New(fp, "", log.LstdFlags)
-	}
-}
-
-func htLogInfo(logger *log.Logger, args ...interface{}) {
-	if logger != nil {
-		logger.Println(args...)
-	}
-}
-
-func htLogFatal(logger *log.Logger, format string, args ...interface{}) {
-	if logger != nil {
-		logger.Fatalf(format, args...)
-	}
-	os.Exit(1)
-}
-
-func htLogPrintf(logger *log.Logger, format string, args ...interface{}) {
-	if logger != nil {
-		logger.Printf(format, args...)
 	}
 }
 
@@ -130,9 +83,18 @@ func htInitializeCommonMaps() {
 func main() {
 	htInitializeCommonMaps()
 	HTParseArg()
+
+	if logFileFlag != "" {
+		f, err := os.Create(logFileFlag)
+		if err != nil {
+			panic(err)
+		}
+		defer f.Close()
+		os.Stdout = f
+		os.Stderr = f
+	}
+
 	HTLoadConfig()
-	DaemonLog = htOpenLogs("daemon.log")
-	AccessLog = htOpenLogs("access.log")
 
 	htRunStopFlags()
 

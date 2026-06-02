@@ -24,5 +24,12 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    
+    htSetImageSrc("img3", "images/Tula/TulaColumna.jpg")
+    htSetImageSrc("img4", "images/Tula/CiudadTula.jpg")
+    htSetImageSrc("img5", "images/Athens/ParthenonColumns.jpg")
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png")
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png")
+    htSetImageSrc("z0", "images/Sadomba/Gourd.png")
     return false;
 }

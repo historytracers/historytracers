@@ -1268,7 +1268,7 @@ function htFillFamilies(page, table) {
 
             var map_desc = htOverwriteHTDateWithText(currMap.text, currMap.date_time, localLang, localCalendar);
             var htImgSrcPrefix = htGetImgSrcPrefix();
-            textMap += "<p class=\"desc\"><img src=\""+htImgSrcPrefix+currMap.img+"\" id=\"imgFamilyMap"+currMap.order+"\" onclick=\"htImageZoom('imgFamilyMap"+currMap.order+"', '0%')\" class=\"imgcenter\"/>"+keywords[81]+" "+currMap.order+": "+map_desc+" "+keywords[82]+" "+keywords[83]+"</p>";
+            textMap += "<p class=\"desc\"><img src=\""+htImgSrcPrefix+currMap.img+"\" id=\"imgFamilyMap"+currMap.order+"\" onclick=\"htImageZoom('imgFamilyMap"+currMap.order+"', '0%')\" class=\"imgcenter\"/><b>"+keywords[81]+"</b> "+currMap.order+": "+map_desc+" "+keywords[82]+" "+keywords[83]+"</p>";
         }
 
         $("#maps").html(textMap);

@@ -46,6 +46,8 @@ function htLoadContent() {
     htSetImageSrc("imgCaralPiramideH1", "images/Caral/CaralPiramideH1.jpg");
     htSetImageSrc("imgMeter", "images/HistoryTracers/Meter.jpg");
     htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png");
+    
+    htSetImageSrc("img2Cat", "images/HistoryTracers/CatsCirusUrraca.jpg")
     return false;
 }
 

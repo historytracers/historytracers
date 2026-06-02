@@ -60,6 +60,11 @@ audio {
   z-index: 1000;
 }
 
+.side-bar.active {
+  left: 0%;
+  z-index: 1001;
+}
+
 .main {
   position: relative;
   left: 5%;
@@ -100,7 +105,7 @@ audio {
 }
 
 .hamburger {
-  display: none;
+  display: block;
   position: fixed;
   top: 12px;
   left: 10px;
@@ -128,12 +133,12 @@ audio {
 }
 
 .top-bar-right {
-  position: fixed;
-  height: 10vw;
-  width: 24%;
-  top: 1%;
-  right: 1%;
-  float: right;
+  position: static;
+  height: auto;
+  width: 100%;
+  top: auto;
+  right: auto;
+  float: none;
   vertical-align: top;
   z-index: 100;
 }
@@ -376,15 +381,11 @@ div.twomenu div {
 }
 
 .menuht {
-    width: 92%;
+    width: 100%;
     font-size: 4.0em;
     overflow: hidden;
-}
-
-.menuht2 {
-  width: 5%;
-  font-size: 1.8em;
-  z-index: 1001;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .menu-slogan {
@@ -400,7 +401,7 @@ li.menu {
   list-style: none;
   font-size: 0.90em;
   overflow:hidden;
-  word-break: break-all;
+  word-break: break-word;
   z-index: 0;
 }
 
@@ -695,6 +696,8 @@ ul {
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .reflection {
@@ -708,6 +711,8 @@ ul {
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .first_steps_reflection_parent {
@@ -721,6 +726,8 @@ ul {
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .first_steps_reflection {
@@ -742,6 +749,8 @@ ul {
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .first_steps_lab {
@@ -1192,6 +1201,8 @@ input[type=number]::-webkit-outer-spin-button {
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .no_personal_events_class {
@@ -1205,6 +1216,8 @@ input[type=number]::-webkit-outer-spin-button {
   padding-right: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .ht-grid-container {
@@ -1256,11 +1269,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     .menuht {
         font-size: 2.0em;
-        width: 84%;
-    }
-
-    .menuht2 {
-        width: 8%;
+        width: 100%;
     }
 
     .side-bar {
@@ -1277,9 +1286,9 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .imgcenterresponsive {
-        margin-left: 1%;
-        margin-right: 20%;
-        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
     }
 
     .top-bar-inside-left {
@@ -1342,11 +1351,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     .menuht {
         font-size: 3.2em;
-        width: 90%;
-    }
-
-    .menuht2 {
-        width: 8%;
+        width: 100%;
     }
 
     .side-bar {
@@ -1412,12 +1417,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menuht {
-        font-size: 4.2em;
-        width: 90%;
-    }
-
-    .menuht2 {
-        width: 8%;
+        font-size: 2.5em;
+        width: 100%;
     }
 
     .side-bar {
@@ -1475,20 +1476,16 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menu-title {
-        font-size: 1.0em;
+        font-size: 0.85em;
     }
 
     li.menu {
-        font-size: 0.90em;
+        font-size: 0.78em;
     }
 
     .menuht {
-        font-size: 4.0em;
-        width: 90%;
-    }
-
-    .menuht2 {
-        width: 8%;
+        font-size: 3.2em;
+        width: 100%;
     }
 
     .side-bar {
@@ -1542,30 +1539,43 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menu-title {
-        font-size: 1.0em;
+        font-size: 0.85em;
     }
 
     li.menu {
-        font-size: 0.90em;
+        font-size: 0.78em;
     }
 
     .menuht {
         font-size: 4.0em;
-        width: 92%;
-    }
-
-    .menuht2 {
-        width: 5%;
-        font-size: 1.8em;
+        width: 100%;
     }
 
     .side-bar {
       width: 20%;
-      left: -18%;
+      left: -100%;
+    }
+
+    .side-bar:hover {
+      left: -100%;
+    }
+
+    .side-bar.active {
+      left: 0%;
     }
 
     div.righttext {
         font-size: 0.87em;
+    }
+
+    .top-bar-right {
+        position: fixed;
+        height: 10vw;
+        width: 24%;
+        top: 1%;
+        right: 1%;
+        float: right;
+        vertical-align: top;
     }
 
     .right-tree {
@@ -1590,16 +1600,20 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media screen and (max-width: 767px) {
-    .hamburger { display: block; }
     .side-bar { width: 80%; left: -80%; z-index: 1000; transition: left 0.3s ease; }
     .side-bar.active { left: 0; }
-    .side-bar:hover { left: 0; }
     .main { left: 0; width: 100%; }
     div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 12%; }
     .top-bar { height: auto; min-height: 50px; }
     .top-bar-inside-left { font-size: 1.2em; width: 60%; margin-left: 40px; }
-    .menuht { font-size: 1.2em; }
+    .menuht { font-size: 1.2em; width: 100%; }
+    .menu-title { font-size: 0.90em; }
+    li.menu { font-size: 0.82em; }
     .menu-slogan { font-size: 0.7em; }
-    .menuht2 { width: auto; font-size: 0.9em; }
+    .reflection, .lab, .personal_events_class, .no_personal_events_class { width: 90%; }
+    .first_steps_reflection_parent, .first_steps_lab_parent { width: 95%; }
+    .ht-grid-container { grid-template-columns: auto auto; }
+    .side-bar:hover { left: -80%; }
+    .side-bar.active:hover { left: 0; }
 }
 

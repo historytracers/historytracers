@@ -26,6 +26,9 @@ function htLoadContent() {
 
     htFillMultiplicationTable("chart5", 1, 3, false, true);
 
+    
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png")
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png")
     return false;
 }
 

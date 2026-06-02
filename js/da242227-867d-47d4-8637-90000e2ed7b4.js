@@ -13,6 +13,11 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
 
+    
+    htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png")
+    htSetImageSrc("imgCopanTemple2", "images/Copan/Templo16Inside.jpg")
+    htSetImageSrc("imgCopanTemple3", "images/Copan/Temple16External.jpg")
+    htSetImageSrc("imgCopanWholeTextSA", "images/Copan/CopanWholeTextStelaAltar.png")
     return false;
 }
 

@@ -173,7 +173,8 @@ function htChangeCalcTable6481070f0 (tableId) {
     var additional = productIdx - 1;
     $($(".imgAddProd").get().reverse()).each(function(index, element) {
         if (additional < 0) { 
-            return false;
+                htSetImageSrc("imgl10000", "images/HistoryTracers/Maya_4.png");
+    return false;
         }
 
         $(this).attr("src", "images/HistoryTracers/Maya_"+local.mayaProductVector[additional]+".png");
@@ -198,7 +199,8 @@ function htChangeCalcTable6481070f0 (tableId) {
                     $(this).attr("src", "images/HistoryTracers/Maya_0.png");
                 }
                 if (productIdx >= productLength) {
-                    return false;
+                        htSetImageSrc("imgl10000", "images/HistoryTracers/Maya_4.png");
+    return false;
                 }
             }
             cell++;
@@ -347,6 +349,7 @@ function htLoadContent() {
     htSetImageSrc("imgt10", "images/HistoryTracers/Maya_2.png");
     htSetImageSrc("imgt000", "images/HistoryTracers/Maya_2.png");
     htSetImageSrc("imgt100", "images/HistoryTracers/Maya_2.png");
+        htSetImageSrc("imgl10000", "images/HistoryTracers/Maya_4.png");
     return false;
 }
 

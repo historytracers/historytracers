@@ -27,6 +27,9 @@ function htLoadExercise() {
     }
     $("#htexampledate0").html(todayText);
 
+    
+    htSetImageSrc("imgd700", "images/MexicoCityMuseo/Cuauhxicalli.jpg")
+    htSetImageSrc("imgd701", "images/complexE.jpg")
     return false;
 }
 

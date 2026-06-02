@@ -25,5 +25,10 @@ function htLoadContent() {
     htWriteNavigation();
     $("#htChinaZhongguo").html(keywords[137]);
 
+    
+    htSetImageSrc("img2", "images/HistoryTracers/pyramid.jpg")
+    htSetImageSrc("img3", "images/HistoryTracers/pentagonal_pyramid.jpg")
+    htSetImageSrc("img4", "images/Xunantunich/WitzXunantunich.jpg")
+    htSetImageSrc("imgChinese", "images/BritishMuseum/mid_RRC5932_14.jpg")
     return false;
 }

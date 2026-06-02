@@ -35,8 +35,8 @@ var (
 	logPath             string
 	contentPath         string
 	srcVal              string
-	logVal              string
 	contentVal          string
+	logFileFlag         string
 	classTemplate       string
 	smGameTemplate      string
 	devModeVal          bool
@@ -60,9 +60,9 @@ func HTParseArg() {
 	flag.BoolVar(&internalFlag, "internal", false, "Run using only compiled options, ignore external config file. (default: false)")
 
 	flag.StringVar(&srcVal, "src", compileSrcPath, "Directory containing all source files.")
-	flag.StringVar(&logVal, "log", compileLogPath, "Directory containing all log files.")
 	flag.StringVar(&contentVal, "www", compileContentPath, "Directory for user-facing content.")
 	flag.StringVar(&confPath, "conf", compileConfPath, "Path to the configuration file.")
+	flag.StringVar(&logFileFlag, "logfile", "", "Path to log file (truncates on open). All output is redirected here.")
 	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (history, indigenous_who, first_steps, first_steps_volume2, literature, biology, chemistry, physics, historical_events, philosophy).")
 	flag.StringVar(&smGameTemplate, "smgame", smGameTemplate, "Create a foundation for a new SM Game.")
 
@@ -80,7 +80,7 @@ func htCreateConfig() *htConfig {
 	}
 	return &htConfig{
 		DevMode:      devModeVal,
-		HTConfigBase: *common.NewHTConfigBase(0, srcVal, contentVal, logVal),
+		HTConfigBase: *common.NewHTConfigBase(0, srcVal, contentVal, compileLogPath),
 	}
 }
 

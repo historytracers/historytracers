@@ -27,5 +27,9 @@ function htLoadContent() {
     var year = new Date().getFullYear() - 378;
     $("#iage").html(year);
 
+    
+    htSetImageSrc("Copan", "images/Copan/JuegoDePelotaCopan.jpg")
+    htSetImageSrc("Experiment", "images/Mapswire/continent_an-where-is-antarctica.png")
+    htSetImageSrc("Experiment2", "images/Mapswire/mapswire-continent_as-plain-map-asia-robinson-267_geolocation.jpg")
     return false;
 }

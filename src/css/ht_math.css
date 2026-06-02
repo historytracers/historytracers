@@ -82,6 +82,8 @@
 
 .tawapukllay {
   width: 90%;
+  max-width: 100%;
+  table-layout: fixed;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -146,8 +148,8 @@
 
 .dot {
   display: block;
-  width: 1.3vh;
-  height: 1.3vh;
+  width: 1.3vmin;
+  height: 1.3vmin;
   border-radius: 50%;
   background-color: black;
 }
@@ -461,7 +463,7 @@
 }
 
 
-/* Large devices (laptops/desktops, 992px and up) */
+/* Small screens (≤600px) */
 @media screen and (max-width: 600px) {
     .tableTen {
         font-size: 0.72em;
@@ -470,39 +472,43 @@
 
     .tawapukllay {
         font-size: 0.72em;
-        width: 90%;
+        width: 100%;
     }
 
     .tawapukllay td:nth-child(-n+4) {
-        position: relative;
-        width: 8em;
+        width: 6em;
+        height: 6em;
     }
 
-    .tawapukllay td:nth-child(5){
+    .tawapukllay td:nth-child(n+5) {
+        width: 6em;
         font-size: 0.82em;
-        width: 8em;
     }
 
-    .tawapukllay td:nth-child(6){
-        font-size: 0.82em;
-        width: 8em;
-    }
-
-    .tawapukllay td:nth-child(7){
-        font-size: 0.82em;
-        width: 8em;
-    }
-
-    .tawapukllay td:nth-child(8){
-        font-size: 0.82em;
-        width: 8em;
+    .dot {
+        width: 2vmin;
+        height: 2vmin;
     }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media screen and (max-width: 992px) {
+/* Medium screens (601px to 991px) */
+@media screen and (min-width: 601px) and (max-width: 991px) {
     .tawapukllay {
         font-size: 0.8em;
         width: 100%;
+    }
+
+    .tawapukllay td:nth-child(-n+4) {
+        width: 8em;
+        height: 8em;
+    }
+
+    .tawapukllay td:nth-child(n+5) {
+        width: 8em;
+    }
+
+    .dot {
+        width: 1.8vmin;
+        height: 1.8vmin;
     }
 }
