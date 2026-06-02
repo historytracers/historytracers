@@ -18,6 +18,15 @@ const addressBarJS = `
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
 		var TAB_H=18,ADDR_H=16,BAR_H=ADDR_H+TAB_H;
+		var loc=navigator.language||'en-US';
+		var L={};
+		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)'};
+		L['pt']=L['pt-BR'];
+		L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)'};
+		L['es']=L['es-ES'];
+		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)'};
+		L['en']=L['en-US'];
+		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var s=document.createElement('style');
 		s.id='__ht_style';
 		s.textContent='.top-bar-right{top:'+(BAR_H+4)+'px!important}.top-bar-left{margin-top:8px!important}.side-bar{top:'+BAR_H+'px!important}';
@@ -28,7 +37,7 @@ const addressBarJS = `
 		var r=document.createElement('button');
 		r.id='__ht_rld';
 		r.textContent='⟳';
-		r.title='Reload page (hard)';
+		r.title=l.reloadTitle;
 		r.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 12px/1 monospace;padding:0 3px;color:#555;';
 		r.onclick=function(){location.reload(true)};
 		b.appendChild(r);
@@ -76,7 +85,7 @@ const addressBarJS = `
 			var t=mkTab(idx);
 			t.style.background='#d0d0d0';
 			var sp=document.createElement('span');
-			try{sp.textContent=new URL(url).pathname.split('/').pop()||'Tab'}catch(e){sp.textContent='Tab'}
+			try{sp.textContent=new URL(url).pathname.split('/').pop()||l.tab}catch(e){sp.textContent=l.tab}
 			t.appendChild(sp);
 			var x=document.createElement('span');
 			x.textContent='×';x.style.cssText='margin-left:5px;cursor:pointer;font-weight:bold;color:#666;';
@@ -95,7 +104,7 @@ const addressBarJS = `
 		}
 		var t0=mkTab(0);
 		t0.style.background='#f5f5f5';t0.style.fontWeight='bold';
-		t0.textContent='Main';
+		t0.textContent=l.main;
 		t0.onclick=function(){selTab(0)};
 		tb.appendChild(t0);
 		tabs[0].el=t0;
