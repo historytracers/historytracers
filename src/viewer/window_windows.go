@@ -4,12 +4,46 @@ package main
 
 import (
 	"log"
-	"os/exec"
+	"os"
 	"path/filepath"
 	"strings"
 
 	webview2 "github.com/Krakinsight/go-webview2"
 )
+
+const welcomePage = `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>HistoryTracers Viewer</title></head>
+<body style="margin:0;font-family:verdana,arial,helvetica;display:flex;justify-content:center;align-items:center;height:100vh;background:#f0f0f0">
+<div style="text-align:center;padding:40px;background:#fff;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
+<h2>HistoryTracers Viewer</h2>
+<p>No content directory was found.</p>
+<p><button id="browseBtn" onclick="browse()" style="padding:10px 24px;font-size:1em;cursor:pointer;border-radius:6px;border:1px solid #999;background:#e8e8e8">Select index.html</button></p>
+<p id="status" style="color:#666;font-size:0.9em"></p>
+</div>
+<script>
+async function browse() {
+  var btn = document.getElementById('browseBtn');
+  btn.disabled = true;
+  btn.textContent = 'Opening file dialog...';
+  document.getElementById('status').textContent = '';
+  try {
+    var ok = await pickFile();
+    if (ok) {
+      document.getElementById('status').textContent = 'Loading content...';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Select index.html';
+    }
+  } catch(e) {
+    document.getElementById('status').textContent = 'Error: ' + e;
+    btn.disabled = false;
+    btn.textContent = 'Select index.html';
+  }
+}
+</script>
+</body>
+</html>`
 
 const addressBarJS = `
 (function(){
@@ -125,30 +159,6 @@ const addressBarJS = `
 })();
 `
 
-func promptContentDir() string {
-	cmd := exec.Command("powershell", "-NoProfile", "-Command", `
-Add-Type -AssemblyName System.Windows.Forms
-$d = New-Object System.Windows.Forms.OpenFileDialog
-$d.Filter = "HTML Files (*.html;*.htm)|*.html;*.htm|All Files (*.*)|*.*"
-$d.Title = "Select index.html from the content directory"
-if ($d.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
-    Write-Output $d.FileName
-}`)
-	out, err := cmd.Output()
-	if err != nil {
-		return ""
-	}
-	filePath := strings.TrimSpace(string(out))
-	if filePath == "" {
-		return ""
-	}
-	idx := strings.LastIndex(filePath, "index.html")
-	if idx >= 0 {
-		return filePath[:idx]
-	}
-	return filepath.Dir(filePath) + "\\"
-}
-
 func runWindow() {
 	w, err := webview2.NewWithOptions(webview2.WebViewOptions{
 		Debug:     true,
@@ -159,7 +169,7 @@ func runWindow() {
 			Height:  800,
 			Center:  true,
 			Style:   webview2.WindowStyleDefault,
-			ExStyle: webview2.WindowExStyleTopMost,
+			ExStyle: 0,
 		},
 	})
 	if err != nil {
@@ -171,6 +181,48 @@ func runWindow() {
 	defer w.Destroy()
 
 	w.Init(addressBarJS)
+
+	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
+		pickCh := make(chan struct{})
+		resultCh := make(chan string)
+
+		// File dialog runs on the UI thread (via Dispatch) where COM is initialized.
+		// A goroutine bridges the bound function callback and the dispatched dialog.
+		go func() {
+			for range pickCh {
+				w.Dispatch(func() {
+					selected := nativePickFile(uintptr(w.Window()))
+					resultCh <- selected
+				})
+				selected := <-resultCh
+				if selected == "" {
+					continue
+				}
+				idx := strings.LastIndex(selected, "index.html")
+				if idx >= 0 {
+					contentDir = selected[:idx]
+				} else {
+					contentDir = filepath.Dir(selected) + "\\"
+				}
+				w.Dispatch(func() {
+					w.Navigate(pageURL)
+				})
+			}
+		}()
+
+		w.Bind("pickFile", func() bool {
+			select {
+			case pickCh <- struct{}{}:
+				return true
+			default:
+				return false
+			}
+		})
+		w.SetHtml(welcomePage)
+		w.Run()
+		return
+	}
+
 	w.Navigate(pageURL)
 	w.Run()
 }

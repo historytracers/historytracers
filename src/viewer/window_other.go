@@ -11,7 +11,9 @@ import (
 	"syscall"
 )
 
-func promptContentDir() string {
+func hideConsole() {}
+
+func nativePickFile(hwndOwner uintptr) string {
 	return ""
 }
 
