@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780363028"
+      "1780441230"
    ],
    "authors": [
       ""
@@ -141,6 +141,88 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_limits",
+         "text": [
+            {
+               "text": "### The Limits of the Theorem\n\nWhen we first worked with limits in nature, we learned that this idea relates to the values we can achieve in a sequence (<htcite0>). However, in that text, we dealt with large values, such as the squares in **Graph 1**. Now, we need to delve a little deeper into that understanding.\n\n#### Internal Limits\n\nIn another text by History Tracers, we learned that a wide rectangle can be divided into smaller parts. By making these divisions, we go from a rectangle of size 1 to 10 smaller rectangles (**Graph 2**), which we later called tenths (<htcite1>; <htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Limits in Nature",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limiting",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cade1d55-e344-4f80-b5af-7e66d80112f5",
+                     "text": "History Tracers Team",
+                     "page": "Naming",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg width=\"450\" height=\"140\" fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"110\" x2=\"440\" y2=\"110\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"135\" font-size=\"1.5em\">0,0</text> <text x=\"35\" y=\"135\" font-size=\"1.5em\">0,1</text> <text x=\"76\" y=\"135\" font-size=\"1.5em\">0,2</text> <text x=\"117\" y=\"135\" font-size=\"1.5em\">0,3</text> <text x=\"158\" y=\"135\" font-size=\"1.5em\">0,4</text> <text x=\"199\" y=\"135\" font-size=\"1.5em\">0,5</text> <text x=\"240\" y=\"135\" font-size=\"1.5em\">0,6</text> <text x=\"281\" y=\"135\" font-size=\"1.5em\">0,7</text> <text x=\"322\" y=\"135\" font-size=\"1.5em\">0,8</text> <text x=\"363\" y=\"135\" font-size=\"1.5em\">0,9</text> <text x=\"400\" y=\"135\" font-size=\"1.5em\">1,0</text> <line x1=\"3\" y1=\"110\" x2=\"3\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"44\" y1=\"110\" x2=\"44\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"110\" x2=\"85\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"126\" y1=\"110\" x2=\"126\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"167\" y1=\"110\" x2=\"167\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"208\" y1=\"110\" x2=\"208\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"249\" y1=\"110\" x2=\"249\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"290\" y1=\"110\" x2=\"290\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"331\" y1=\"110\" x2=\"331\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"372\" y1=\"110\" x2=\"372\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"413\" y1=\"110\" x2=\"413\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <rect x=\"2\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"43\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/>  <rect x=\"84\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/>  <rect x=\"125\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/>  <rect x=\"166\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"207\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"248\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"289\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"330\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"370\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/></svg></p><p class=\"desc\"><b>Graph 2</b>: Representation of 10 rectangles along a path showing decimal numbers.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Just as we divided one unit into ten smaller parts, we also learned to divide each of those ten parts into another ten, creating hundredths (<htcite0>). And we can continue making these divisions successively.\n\n#### Reductions in the Theorem\n\nWhat was done with the rectangles in the previous texts can also be done with the squares in **Graph 1** or with any other shape.\n\nSince the Pythagorean Theorem has no limitations regarding the size of the shapes, it remains valid in any scenario.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cade1d55-e344-4f80-b5af-7e66d80112f5",
+                     "text": "History Tracers Team",
+                     "page": "Naming",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
