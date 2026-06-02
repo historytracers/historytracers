@@ -381,17 +381,11 @@ div.twomenu div {
 }
 
 .menuht {
-    width: 92%;
+    width: 100%;
     font-size: 4.0em;
     overflow: hidden;
     overflow-wrap: break-word;
     word-break: break-word;
-}
-
-.menuht2 {
-  width: 5%;
-  font-size: 1.8em;
-  z-index: 1001;
 }
 
 .menu-slogan {
@@ -407,7 +401,7 @@ li.menu {
   list-style: none;
   font-size: 0.90em;
   overflow:hidden;
-  word-break: break-all;
+  word-break: break-word;
   z-index: 0;
 }
 
@@ -1275,11 +1269,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     .menuht {
         font-size: 2.0em;
-        width: 84%;
-    }
-
-    .menuht2 {
-        width: 8%;
+        width: 100%;
     }
 
     .side-bar {
@@ -1361,11 +1351,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     .menuht {
         font-size: 3.2em;
-        width: 90%;
-    }
-
-    .menuht2 {
-        width: 8%;
+        width: 100%;
     }
 
     .side-bar {
@@ -1432,11 +1418,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     .menuht {
         font-size: 2.5em;
-        width: 90%;
-    }
-
-    .menuht2 {
-        width: 8%;
+        width: 100%;
     }
 
     .side-bar {
@@ -1494,20 +1476,16 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menu-title {
-        font-size: 1.0em;
+        font-size: 0.85em;
     }
 
     li.menu {
-        font-size: 0.90em;
+        font-size: 0.78em;
     }
 
     .menuht {
         font-size: 3.2em;
-        width: 90%;
-    }
-
-    .menuht2 {
-        width: 8%;
+        width: 100%;
     }
 
     .side-bar {
@@ -1561,21 +1539,16 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menu-title {
-        font-size: 1.0em;
+        font-size: 0.85em;
     }
 
     li.menu {
-        font-size: 0.90em;
+        font-size: 0.78em;
     }
 
     .menuht {
         font-size: 4.0em;
-        width: 92%;
-    }
-
-    .menuht2 {
-        width: 5%;
-        font-size: 1.8em;
+        width: 100%;
     }
 
     .side-bar {
@@ -1623,9 +1596,10 @@ input[type=number]::-webkit-outer-spin-button {
     div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 12%; }
     .top-bar { height: auto; min-height: 50px; }
     .top-bar-inside-left { font-size: 1.2em; width: 60%; margin-left: 40px; }
-    .menuht { font-size: 1.2em; width: 85%; }
+    .menuht { font-size: 1.2em; width: 100%; }
+    .menu-title { font-size: 0.90em; }
+    li.menu { font-size: 0.82em; }
     .menu-slogan { font-size: 0.7em; }
-    .menuht2 { width: auto; font-size: 0.9em; }
     .reflection, .lab, .personal_events_class, .no_personal_events_class { width: 90%; }
     .first_steps_reflection_parent, .first_steps_lab_parent { width: 95%; }
     .ht-grid-container { grid-template-columns: auto auto; }
