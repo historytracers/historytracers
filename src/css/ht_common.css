@@ -60,6 +60,11 @@ audio {
   z-index: 1000;
 }
 
+.side-bar.active {
+  left: 0%;
+  z-index: 1001;
+}
+
 .main {
   position: relative;
   left: 5%;
@@ -100,7 +105,7 @@ audio {
 }
 
 .hamburger {
-  display: none;
+  display: block;
   position: fixed;
   top: 12px;
   left: 10px;
@@ -1575,7 +1580,15 @@ input[type=number]::-webkit-outer-spin-button {
 
     .side-bar {
       width: 20%;
-      left: -18%;
+      left: -100%;
+    }
+
+    .side-bar:hover {
+      left: -100%;
+    }
+
+    .side-bar.active {
+      left: 0%;
     }
 
     div.righttext {
@@ -1604,7 +1617,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media screen and (max-width: 767px) {
-    .hamburger { display: block; }
     .side-bar { width: 80%; left: -80%; z-index: 1000; transition: left 0.3s ease; }
     .side-bar.active { left: 0; }
     .main { left: 0; width: 100%; }

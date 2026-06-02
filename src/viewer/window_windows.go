@@ -54,7 +54,7 @@ const addressBarJS = `
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var s=document.createElement('style');
 		s.id='__ht_style';
-		s.textContent='.top-bar-right{top:'+(BAR_H+4)+'px!important}.top-bar-left{margin-top:8px!important}.side-bar{top:'+BAR_H+'px!important}';
+		s.textContent='.top-bar-right{top:'+(BAR_H+4)+'px!important}.top-bar-left{margin-top:'+(BAR_H+4)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+4)+'px!important}';
 		document.documentElement.appendChild(s);
 		var b=document.createElement('div');
 		b.id='__ht_addr';
