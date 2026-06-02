@@ -14,6 +14,9 @@ var (
 	procGetOpenFileNameW = comdlg32.NewProc("GetOpenFileNameW")
 	kernel32             = syscall.NewLazyDLL("kernel32.dll")
 	procFreeConsole      = kernel32.NewProc("FreeConsole")
+	ole32                = syscall.NewLazyDLL("ole32.dll")
+	procCoInitializeEx   = ole32.NewProc("CoInitializeEx")
+	procCoUninitialize   = ole32.NewProc("CoUninitialize")
 )
 
 type openFileNameW struct {
@@ -52,6 +55,14 @@ const (
 
 func hideConsole() {
 	procFreeConsole.Call()
+}
+
+func coInit() {
+	procCoInitializeEx.Call(0, 2) // COINIT_APARTMENTTHREADED
+}
+
+func coUninit() {
+	procCoUninitialize.Call()
 }
 
 func nativePickFile(hwndOwner uintptr) string {

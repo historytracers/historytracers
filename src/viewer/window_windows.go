@@ -28,9 +28,10 @@ async function browse() {
   btn.textContent = 'Opening file dialog...';
   document.getElementById('status').textContent = '';
   try {
-    var ok = await pickFile();
-    if (ok) {
-      document.getElementById('status').textContent = 'Loading content...';
+    var path = await pickFile();
+    if (path) {
+      document.getElementById('status').textContent = 'Loading...';
+      window.location.reload(true);
     } else {
       btn.disabled = false;
       btn.textContent = 'Select index.html';
@@ -183,40 +184,18 @@ func runWindow() {
 	w.Init(addressBarJS)
 
 	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
-		pickCh := make(chan struct{})
-		resultCh := make(chan string)
-
-		// File dialog runs on the UI thread (via Dispatch) where COM is initialized.
-		// A goroutine bridges the bound function callback and the dispatched dialog.
-		go func() {
-			for range pickCh {
-				w.Dispatch(func() {
-					selected := nativePickFile(uintptr(w.Window()))
-					resultCh <- selected
-				})
-				selected := <-resultCh
-				if selected == "" {
-					continue
-				}
-				idx := strings.LastIndex(selected, "index.html")
-				if idx >= 0 {
-					contentDir = selected[:idx]
-				} else {
-					contentDir = filepath.Dir(selected) + "\\"
-				}
-				w.Dispatch(func() {
-					w.Navigate(pageURL)
-				})
+		w.Bind("pickFile", func() string {
+			selected := nativePickFile(uintptr(w.Window()))
+			if selected == "" {
+				return ""
 			}
-		}()
-
-		w.Bind("pickFile", func() bool {
-			select {
-			case pickCh <- struct{}{}:
-				return true
-			default:
-				return false
+			idx := strings.LastIndex(selected, "index.html")
+			if idx >= 0 {
+				contentDir = selected[:idx]
+			} else {
+				contentDir = filepath.Dir(selected) + "\\"
 			}
+			return selected
 		})
 		w.SetHtml(welcomePage)
 		w.Run()
