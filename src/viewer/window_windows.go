@@ -45,11 +45,11 @@ const addressBarJS = `
 		var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
 		var loc=navigator.language||'en-US';
 		var L={};
-		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial'};
+		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia'};
 		L['pt']=L['pt-BR'];
-		L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio'};
+		L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia'};
 		L['es']=L['es-ES'];
-		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page'};
+		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family'};
 		L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var s=document.createElement('style');
@@ -73,6 +73,24 @@ const addressBarJS = `
 		r.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 24px/1 monospace;padding:0 5px;color:#555;';
 		r.onclick=function(){location.reload(true)};
 		b.appendChild(r);
+		var sep=document.createElement('div');
+		sep.style.cssText='width:1px;height:16px;background:#999;margin:0 4px;flex-shrink:0;';
+		b.appendChild(sep);
+		function navBtn(id,symbol,title,url){
+			var btn=document.createElement('button');
+			btn.id=id;
+			btn.textContent=symbol;
+			btn.title=title;
+			btn.style.cssText='border:none;background:transparent;cursor:pointer;font:24px/1 monospace;padding:0 5px;color:#555;';
+			btn.onclick=function(){location.href=location.origin+'/'+url};
+			b.appendChild(btn);
+		}
+		navBtn('__ht_game','\uD83C\uDFAE',l.gameTitle,'index.html?page=math_games');
+		navBtn('__ht_atlas','\uD83C\uDF0D',l.atlasTitle,'index.html?page=atlas');
+		navBtn('__ht_family','\uD83C\uDF33',l.familyTitle,'index.html?page=families');
+		var sep2=document.createElement('div');
+		sep2.style.cssText='width:1px;height:16px;background:#999;margin:0 4px;flex-shrink:0;';
+		b.appendChild(sep2);
 		var u=document.createElement('input');
 		u.id='__ht_url';
 		u.type='text';
