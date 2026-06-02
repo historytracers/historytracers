@@ -158,6 +158,9 @@ function htLoadContent() {
         $("#statusUpdate").html("");
     });
 
+    
+    htSetImageSrc("imgCopanTemple2", "images/Copan/Templo16Inside.jpg")
+    htSetImageSrc("miPueblito", "images/MiPueblito/MiPueblito.jpg")
     return false;
 }
 

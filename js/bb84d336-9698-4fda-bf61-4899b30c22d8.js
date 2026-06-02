@@ -24,5 +24,8 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    htSetImageSrc("imgShona", "images/UniversityJohannesburg/ShonaJohannnesburg.jpg")
+    htSetImageSrc("imgShona1", "images/Sadomba/ShonaHut.png")
+    htSetImageSrc("img1", "images/Copan/Temple16Copan.png")
     return false;
 }

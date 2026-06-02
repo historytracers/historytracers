@@ -34,6 +34,10 @@ function htLoadContent() {
 
     htWriteNavigation();
 
+    
+    htSetImageSrc("ChronologyTeotihuacan", "images/Teotihuacan/TeotihuacanGeneral.jpg")
+    htSetImageSrc("leftHandImg", "images/HistoryTracers/0Left_Hand_Small.png")
+    htSetImageSrc("rightHandImg", "images/HistoryTracers/0Right_Hand_Small.png")
     return false;
 }
 

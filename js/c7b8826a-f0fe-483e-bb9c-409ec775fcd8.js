@@ -44,6 +44,9 @@ function htLoadExercise() {
     htWriteMultiplicationTable("#mParent10", 10);
     htFillMultiplicationTable("chart1", 10, 10, false, true);
 
+    
+    htSetImageSrc("imgLH", "images/HistoryTracers/Left_Hand.png")
+    htSetImageSrc("imgRH", "images/HistoryTracers/Right_Hand.png")
     return false;
 }
 

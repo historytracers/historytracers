@@ -21,6 +21,10 @@ function htLoadExercise() {
         htResetAnswers(localAnswerVector687a38b5);
     }
 
+    
+    htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png")
+    htSetImageSrc("imgCopanTemple2", "images/Copan/Templo16Inside.jpg")
+    htSetImageSrc("imgGrape", "images/HistoryTracers/grape.jpg")
     return false;
 }
 

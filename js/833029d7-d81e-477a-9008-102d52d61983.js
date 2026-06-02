@@ -54,6 +54,9 @@ function htLoadContent() {
     htFillMultiplicationTable("chart3", 7, 7, false, true);
     htFillMultiplicationTable("chart4", 0, 7, false, true);
 
+    
+    htSetImageSrc("imgd700", "images/MexicoCityMuseo/Cuauhxicalli.jpg")
+    htSetImageSrc("imgMagan", "images/BritishMuseum/mid_00862177_001.jpg")
     return false;
 }
 

@@ -4,7 +4,7 @@ var local = {};
 
 function htFillYupanaMultYupana0(value, times)
 {
-    local.lValues = htFillYupanaDecimalValuesWithRepetition("#yupana0", value, times, 5, yupanaClasses);
+    local.lValues = htFillYupanaDecimalValuesWithRepetition("#yupana0", value, times, 3, yupanaClasses);
     local.rValues = local.lValues.slice();
     htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', local.lValues);
     local.rValues[0] = times;
@@ -47,18 +47,18 @@ function htLoadContent() {
 
     $( "input[name='yupanaradio']" ).on( "change", function() {
         var sel = $(this).val();
-        htCleanYupanaDecimalValues('#yupana0', 5);
+        htCleanYupanaDecimalValues('#yupana0', 3);
         value = $("#ia2yupana0").val();
         times = $("#ia2yupana1").val();
         htFillYupanaMultYupana0(value, times);
         if (sel == "values") {
-            htCleanYupanaAdditionalColumn('#yupana0', 5, '#tc6f');
+            htCleanYupanaAdditionalColumn('#yupana0', 3, '#tc6f');
             $('#tc7f1').html("");
             htFillYupanaMultYupana0(value, times);
         } else {
-            htCleanYupanaDecimalValues('#yupana0', 5);
+            htCleanYupanaDecimalValues('#yupana0', 3);
             var result = value * times;
-            var resultValues = htFillYupanaDecimalValues('#yupana0', result, 5, 'red_dot_right_up');
+            var resultValues = htFillYupanaDecimalValues('#yupana0', result, 3, 'red_dot_right_up');
             htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana0', resultValues);
             htMultMakeMultiplicationTableText(value, times, '#yupana0', '#tc7f1');
         }
@@ -67,13 +67,13 @@ function htLoadContent() {
     var rvalues = [];
     var lvalues = [];
 
-    htCleanYupanaDecimalValues('#yupana1', 5);
-    lvalues = htFillYupanaDecimalValues('#yupana1', "55555", 5, 'red_dot_right_up');
-    rvalues = htFillYupanaDecimalValues('#yupana10', "55555", 5, 'blue_dot_right_bottom');
+    htCleanYupanaDecimalValues('#yupana1', 3);
+    lvalues = htFillYupanaDecimalValues('#yupana1', "55555", 3, 'red_dot_right_up');
+    rvalues = htFillYupanaDecimalValues('#yupana10', "55555", 3, 'blue_dot_right_bottom');
     var totals = htSumYupanaVectors(lvalues, rvalues);
-    htFillYupanaDecimalValues('#yupana1', totals, 5, 'red_dot_right_up');
+    htFillYupanaDecimalValues('#yupana1', totals, 3, 'red_dot_right_up');
     htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana1', totals);
-    htWriteYupanaSumMovement(lvalues, rvalues, '#yupana1', 5, '#tc7f1');
+    htWriteYupanaSumMovement(lvalues, rvalues, '#yupana1', 3, '#tc7f1');
 
     htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', lvalues);
     htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', rvalues);

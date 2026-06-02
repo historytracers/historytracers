@@ -35,14 +35,13 @@ fi
 
 # Check for Go compiler
 AC_MSG_CHECKING([for Go compiler])
+GO_BIN_DIR=""
 if test "x$go_compiler" != "xauto" -a "x$go_compiler" != "x"; then
     # User specified a compiler
     if test -x "$go_compiler"; then
-        # Full path provided and exists
         GO_COMPILER="$go_compiler"
         AC_MSG_RESULT([$GO_COMPILER (user specified)])
     else
-        # Check in PATH
         AC_CHECK_PROG([HAVE_USER_GO], [$go_compiler], [yes], [no])
         if test "x$HAVE_USER_GO" = "xyes"; then
             GO_COMPILER="$go_compiler"
@@ -63,9 +62,42 @@ else
             GO_COMPILER="gccgo"
             AC_MSG_RESULT([$GO_COMPILER (auto-detected)])
         else
-            AC_MSG_ERROR([No Go compiler found. Please install go or gccgo, or specify with --with-go-compiler])
+            # Fallback: try common Windows Go installation paths
+            if test -x "/c/Program Files/Go/bin/go.exe"; then
+                GO_BIN_DIR="/c/Program Files/Go/bin"
+                PATH="$GO_BIN_DIR:$PATH"
+                GO_COMPILER="go"
+                AC_MSG_RESULT([$GO_COMPILER ($GO_BIN_DIR)])
+            elif test -x "/c/Go/bin/go.exe"; then
+                GO_BIN_DIR="/c/Go/bin"
+                PATH="$GO_BIN_DIR:$PATH"
+                GO_COMPILER="go"
+                AC_MSG_RESULT([$GO_COMPILER ($GO_BIN_DIR)])
+            else
+                GO_RAW=`cmd.exe /c "where go" 2>/dev/null | head -1 | tr -d '\r'`
+                if test -n "$GO_RAW"; then
+                    GO_MSYS=`cygpath -u "$GO_RAW" 2>/dev/null || echo "$GO_RAW" | sed 's/\\/\//g; s/^C:/\/c/'`
+                    GO_BIN_DIR=`dirname "$GO_MSYS" 2>/dev/null`
+                    if test -d "$GO_BIN_DIR" && test -x "$GO_MSYS"; then
+                        PATH="$GO_BIN_DIR:$PATH"
+                        GO_COMPILER="go"
+                        AC_MSG_RESULT([$GO_COMPILER (from Windows PATH)])
+                    else
+                        AC_MSG_RESULT([not usable ($GO_MSYS)])
+                        AC_MSG_ERROR([No Go compiler found.])
+                    fi
+                else
+                    AC_MSG_RESULT([not found])
+                    AC_MSG_ERROR([No Go compiler found.])
+                fi
+            fi
         fi
     fi
+fi
+
+# If GO_BIN_DIR wasn't explicitly set (user-specified or PATH-found), derive it
+if test -z "$GO_BIN_DIR"; then
+    GO_BIN_DIR=`which "$GO_COMPILER" 2>/dev/null | xargs dirname 2>/dev/null || echo ""`
 fi
 
 # Restore PATH if we modified it
@@ -97,14 +129,52 @@ AC_MSG_RESULT([$GO_COMPILER_TYPE])
 
 AC_SUBST([GO_COMPILER])
 
- # Detect platform for default paths
+# Detect GOROOT (needed for trimmed Go binaries)
+AC_MSG_CHECKING([for GOROOT])
+if test -n "$GOROOT"; then
+    GO_GOROOT="$GOROOT"
+    AC_MSG_RESULT([$GO_GOROOT (from environment)])
+elif test -n "$GO_BIN_DIR" -a -d "$GO_BIN_DIR"; then
+    # Derive from GO_BIN_DIR (which is <GOROOT>/bin)
+    GO_GOROOT=`dirname "$GO_BIN_DIR" 2>/dev/null`
+    if test -d "$GO_GOROOT/bin"; then
+        AC_MSG_RESULT([$GO_GOROOT (from GO_BIN_DIR)])
+    else
+        GO_GOROOT=""
+        AC_MSG_RESULT([not found (GO_BIN_DIR=$GO_BIN_DIR not inside a GOROOT)])
+    fi
+else
+    # Use GO_COMPILER to query GOROOT
+    GO_GOROOT=`"$GO_COMPILER" env GOROOT 2>/dev/null`
+    if test -n "$GO_GOROOT" -a -d "$GO_GOROOT/bin"; then
+        AC_MSG_RESULT([$GO_GOROOT (from 'go env GOROOT')])
+    else
+        GO_GOROOT=""
+        AC_MSG_RESULT([not found])
+        AC_MSG_WARN([GOROOT not set; CGo builds may fail with trimmed Go binaries])
+    fi
+fi
+AC_SUBST([GO_GOROOT])
+
+# Detect Go binary extension (".exe" on Windows, empty elsewhere)
+AC_MSG_CHECKING([for Go binary extension])
+GOOS=`$GO_COMPILER env GOOS 2>/dev/null`
+if test "x$GOOS" = "xwindows"; then
+    GO_EXEEXT=".exe"
+else
+    GO_EXEEXT=""
+fi
+AC_MSG_RESULT([$GO_EXEEXT])
+AC_SUBST([GO_EXEEXT])
+
+  # Detect platform for default paths
 AC_CANONICAL_HOST
 case "$host_os" in
-    windows*)
-        PLATFORM_DEFAULT_CONF_PATH="C:\\ProgramData\\historytracers\\historytracers.conf"
-        PLATFORM_DEFAULT_SRC_PATH="C:\\inetpub\\wwwroot\\historytracers\\"
-        PLATFORM_DEFAULT_CONTENT_PATH="C:\\inetpub\\wwwroot\\historytracers\\www\\"
-        PLATFORM_DEFAULT_LOG_PATH="C:\\ProgramData\\historytracers\\logs\\"
+    windows* | cygwin* | mingw*)
+        PLATFORM_DEFAULT_CONF_PATH="C:/ProgramData/historytracers/historytracers.conf"
+        PLATFORM_DEFAULT_SRC_PATH="C:/inetpub/wwwroot/historytracers"
+        PLATFORM_DEFAULT_CONTENT_PATH="C:/inetpub/wwwroot/historytracers/www"
+        PLATFORM_DEFAULT_LOG_PATH="C:/ProgramData/historytracers/logs"
         ;;
     *)
         PLATFORM_DEFAULT_CONF_PATH="/etc/historytracers/historytracers.conf"
@@ -113,6 +183,35 @@ case "$host_os" in
         PLATFORM_DEFAULT_LOG_PATH="/var/log/historytracers/"
         ;;
 esac
+
+# On Cygwin/MSYS2, detect MinGW-w64 C compiler for CGo builds (editor)
+MINGW_CC=""
+case "$host_os" in
+    cygwin* | mingw*)
+        AC_MSG_CHECKING([for MinGW-w64 C compiler on Cygwin/MSYS2])
+        for cand in x86_64-w64-mingw32-gcc i686-w64-mingw32-gcc; do
+            AC_CHECK_PROG([MINGW_CC_CHECK], [$cand], [$cand], [])
+            if test -n "$MINGW_CC_CHECK"; then
+                MINGW_CC="$MINGW_CC_CHECK"
+                break
+            fi
+        done
+        if test -z "$MINGW_CC"; then
+            for cand in /mingw64/bin/x86_64-w64-mingw32-gcc /mingw64/bin/i686-w64-mingw32-gcc; do
+                if test -x "$cand"; then
+                    MINGW_CC="$cand"
+                    break
+                fi
+            done
+        fi
+        if test -n "$MINGW_CC"; then
+            AC_MSG_RESULT([$MINGW_CC])
+        else
+            AC_MSG_RESULT([not found])
+        fi
+        ;;
+esac
+AM_CONDITIONAL([NEED_MINGW], [test -n "$MINGW_CC"])
 
  # Set default installation paths
 AC_PREFIX_DEFAULT(/usr)
@@ -164,6 +263,8 @@ AC_SUBST([SRC_PATH])
 AC_SUBST([CONTENT_PATH])
 AC_SUBST([LOG_PATH])
 AC_SUBST([GO_BUILD_FLAGS])
+AC_SUBST([GO_BIN_DIR])
+AC_SUBST([MINGW_CC])
 
 # Generate output files
 AC_CONFIG_FILES([Makefile])

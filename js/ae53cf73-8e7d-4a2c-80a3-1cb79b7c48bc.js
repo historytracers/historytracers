@@ -32,6 +32,8 @@ function htLoadContent() {
 
     htWriteNavigation();
 
+    
+    htSetImageSrc("imgCopanA", "images/Copan/StelaACopan.jpg")
     return false;
 }
 

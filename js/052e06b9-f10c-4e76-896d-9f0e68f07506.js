@@ -212,5 +212,7 @@ function htLoadContent() {
             break;
     }
 
+    
+    htSetImageSrc("imgPhoenician", "images/BritishMuseum/437857001.jpg")
     return false;
 }

@@ -24,5 +24,9 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
 
+    
+    htSetImageSrc("imgCopanStelaA", "images/Copan/StelaACopan.jpg")
+    htSetImageSrc("imgESA2", "images/ESA/Planck_history_of_Universe.jpg")
+    htSetImageSrc("metate3", "images/Teotihuacan/MetateTeotihuacan.jpg")
     return false;
 }
