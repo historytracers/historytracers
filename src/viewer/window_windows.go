@@ -45,11 +45,11 @@ const addressBarJS = `
 		var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
 		var loc=navigator.language||'en-US';
 		var L={};
-		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia'};
+		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia'};
 		L['pt']=L['pt-BR'];
-		L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia'};
+		L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia'};
 		L['es']=L['es-ES'];
-		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family'};
+		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family'};
 		L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var s=document.createElement('style');
@@ -85,6 +85,7 @@ const addressBarJS = `
 			btn.onclick=function(){location.href=location.origin+'/'+url};
 			b.appendChild(btn);
 		}
+		navBtn('__ht_firststeps','\uD83D\uDC63',l.firstStepsTitle,'index.html?page=first_steps_menu');
 		navBtn('__ht_game','\uD83C\uDFAE',l.gameTitle,'index.html?page=math_games');
 		navBtn('__ht_atlas','\uD83C\uDF0D',l.atlasTitle,'index.html?page=atlas');
 		navBtn('__ht_family','\uD83C\uDF33',l.familyTitle,'index.html?page=families');
