@@ -264,11 +264,13 @@
     window.localRightTriangle.ctx.font = "bold " + fontSize + "px 'Segoe UI', 'Roboto'";
     window.localRightTriangle.ctx.shadowBlur = 0;
     
-    // Leg a label - extreme left offset
+    // Leg a label - MINIMAL FIX: moved just 2 characters right from original position
     window.localRightTriangle.ctx.fillStyle = '#c44536';
     var legAMidY = (ay + cy) / 2;
-    var extremeLeftOffset = fontSize * 7.5;
-    if (extremeLeftOffset < 85) extremeLeftOffset = 85;
+    // Original was: extremeLeftOffset = fontSize * 7.5 (too far left)
+    // Changed to: fontSize * 5.0 (about 2 character widths to the right)
+    var extremeLeftOffset = fontSize * 5.0;
+    if (extremeLeftOffset < 65) extremeLeftOffset = 65;
     var labelAX = cx - extremeLeftOffset;
     window.localRightTriangle.ctx.fillText("a = " + window.localRightTriangle.a.toFixed(2), labelAX, legAMidY + fontSize * 0.3);
     
@@ -405,7 +407,6 @@
     window.localRightTriangle.syncUIFromState();
     setTimeout(function() { window.localRightTriangle.drawTriangle(); }, 20);
   };
-
 
 function htLoadContent() {
   if (document.readyState === 'loading') {
