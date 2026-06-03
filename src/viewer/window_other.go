@@ -1,35 +1,34 @@
-//go:build !windows
+//go:build ignore
 
 package main
 
 import (
-	"fmt"
+	"log"
 	"os"
-	"os/exec"
-	"os/signal"
-	"runtime"
-	"syscall"
+	"path/filepath"
+
+	"github.com/webview/webview_go"
 )
 
 func hideConsole() {}
 
 func runWindow() {
-	openBrowser(pageURL)
+	w := webview.New(true)
+	defer w.Destroy()
+	w.SetTitle("HistoryTracers Viewer")
+	w.SetSize(1280, 800, webview.HintNone)
 
-	fmt.Println("Press Ctrl+C to stop.")
+	w.Init(addressBarJS)
 
-	sig := make(chan os.Signal, 1)
-	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
-	<-sig
-}
-
-func openBrowser(url string) {
-	switch runtime.GOOS {
-	case "darwin":
-		exec.Command("open", url).Start()
-	case "linux":
-		exec.Command("xdg-open", url).Start()
-	default:
-		fmt.Printf("Open your browser to:\n  %s\n", url)
+	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
+		w.Bind("closeWindow", func() {
+			w.Terminate()
+		})
+		w.SetHtml(welcomePage)
+		w.Run()
+		return
 	}
+
+	w.Navigate(pageURL)
+	w.Run()
 }
