@@ -5,7 +5,8 @@
       "26a09f5e-c28b-42ef-8fcc-885ccd4a60e7"
    ],
    "scripts": [
-      "26a09f5e-c28b-42ef-8fcc-885ccd4a60e7"
+      "26a09f5e-c28b-42ef-8fcc-885ccd4a60e7",
+      "right_triangle"
    ],
    "audio": [
       {
@@ -27,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780441263"
+      "1780488204"
    ],
    "authors": [
       ""
@@ -219,6 +220,47 @@
                      }
                   }
                ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Práctica\n\nPara comprender mejor la relación entre el Teorema de Pitágoras y los lados de un triángulo rectángulo, sugerimos que mueva las flechas de los catetos **a** y **b** y de la hipotenusa **c** en la siguiente secuencia:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.card { width: 100%; max-width: 960px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(2px); border-radius: 44px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05); padding: 20px 24px 28px; transition: all 0.2s ease; } .sub { color: #2c5a6e; border-left: 4px solid #2c8faa; padding-left: 14px; margin: 4px 0 16px 0; font-weight: 500; font-size: clamp(0.75rem, 3vw, 0.9rem); } .triangle-visual { display: flex; justify-content: center; margin: 6px 0 18px 0; width: 100%; position: relative; } canvas { background: #fefcf5; border-radius: 24px; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); width: 100%; height: auto; display: block; border: 2px solid #dfe8ed; object-fit: contain; max-height: 310px; } .controls { display: flex;  flex-wrap: wrap; gap: 16px; justify-content: center; margin: 12px 0 20px; } .side-card { background: white; border-radius: 36px; padding: 10px 14px; min-width: 140px; flex: 1 1 150px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); transition: transform 0.1s ease; border: 1px solid #e5f0f5; } .side-card label { font-weight: 700; font-size: clamp(0.9rem, 4.5vw, 1.2rem); display: block; margin-bottom: 8px; } .leg-a label { color: #c44536; } .leg-b label { color: #2e7d64; } .hyp-c label { color: #1e3a8a; } .side-card input[type=\"number\"] { width: 100%; max-width: 120px; padding: 8px 6px; font-size: 1.1rem; text-align: center; font-weight: 600; border: 2px solid #cad6dd; border-radius: 50px; background: #fefcf5; transition: 0.1s; font-family: monospace;  margin: 0 auto; display: inline-block; } .side-card input[type=\"number\"]:focus { border-color: #2c8faa;  outline: none;  box-shadow: 0 0 0 3px rgba(44, 143, 170, 0.2); } .range-slider { margin-top: 10px; width: 100%; } input[type=\"range\"] { width: 100%; cursor: pointer; background: #dce6ea; height: 4px;  border-radius: 10px; -webkit-appearance: none; } input[type=\"range\"]:focus { outline: none; } input[type=\"range\"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px;  border-radius: 50%; background: #2c8faa; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.2);  border: none; } .theorem-box { background: #eef3f7; border-radius: 36px; padding: 12px 18px; text-align: center; font-size: clamp(0.85rem, 3.5vw, 1.1rem); font-weight: 500; font-family: 'Courier New', 'Fira Code', monospace; margin-top: 12px; border: 1px solid #cde0e8; word-break: break-word; } .theorem-box p { margin: 4px 0; } .equation { font-size: clamp(0.9rem, 4.5vw, 1.3rem); background: #ffffffcc; display: inline-block; padding: 4px 14px; border-radius: 50px; font-weight: 700; letter-spacing: 1px; } @media (max-width: 680px) { .card { padding: 16px 16px 22px;  } .side-card {  min-width: 120px; padding: 8px 10px; } .side-card input[type=\"number\"] { font-size: 0.95rem; max-width: 100px; } canvas { max-height: 260px; } } @media (max-width: 520px) { .controls { gap: 12px;  } .side-card { flex-basis: 120px; } .equation { font-size: 0.85rem; padding: 3px 10px; } .theorem-box { padding: 10px 12px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"card\"><div class=\"triangle-visual\"><canvas id=\"triangleCanvas\" width=\"500\" height=\"340\" style=\"width:100%; height:auto; max-width:500px; aspect-ratio:500/340\"></canvas></div><div class=\"controls\"><div class=\"side-card leg-a\"><label>Cateto a</label><input type=\"number\" id=\"sideAInput\" step=\"0.01\" min=\"0.5\" max=\"10\" value=\"3.00\"><div class=\"range-slider\"><input type=\"range\" id=\"sideARange\" min=\"1\" max=\"10\" step=\"0.01\" value=\"3\"></div></div><div class=\"side-card leg-b\"><label>Cateto b</label><input type=\"number\" id=\"sideBInput\" step=\"0.01\" min=\"0.5\" max=\"10\" value=\"4.00\"><div class=\"range-slider\"><input type=\"range\" id=\"sideBRange\" min=\"1\" max=\"10\" step=\"0.01\" value=\"4\"></div></div><div class=\"side-card hyp-c\"><label>Hipotenusa c</label><input type=\"number\" id=\"sideCInput\" step=\"0.01\" min=\"1\" max=\"14.15\" value=\"5.00\"><div class=\"range-slider\"><input type=\"range\" id=\"sideCRange\" min=\"1\" max=\"14.15\" step=\"0.01\" value=\"5\"></div></div></div><div class=\"theorem-box\"><p>✨ <strong>Teorema de Pitágoras</strong> ✨</p><p class=\"equation\" id=\"theoremText\">a² + b² = c²</p><p id=\"numericProof\" style=\"font-size:0.8rem; opacity:0.85;\">3.00² + 4.00² = 5.00²  → 9.00 + 16.00 = 25.00</p></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como puede observarse, las modificaciones en uno de los catetos afectan a la hipotenusa, así como las modificaciones en la hipotenusa modifican los catetos, reflejando lo que nos enseña el Teorema de Pitágoras. Es decir, independientemente del tamaño de los lados, el Teorema de Pitágoras sigue siendo válido.",
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
