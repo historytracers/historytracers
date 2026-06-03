@@ -18,6 +18,11 @@ audio {
   z-index: 900;
 }
 
+#site_language {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .AtlasSelSize {
   width: 14vw;
 }
@@ -149,6 +154,7 @@ audio {
   right: auto;
   float: none;
   vertical-align: top;
+  overflow: hidden;
   z-index: 100;
 }
 
@@ -1269,6 +1275,11 @@ input[type=number]::-webkit-outer-spin-button {
         width: 3em;
     }
 
+    #site_language {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .menu-title {
         font-size: 0.85em;
     }
@@ -1352,6 +1363,11 @@ input[type=number]::-webkit-outer-spin-button {
         width: 3em;
     }
 
+    #site_language {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .menu-title {
         font-size: 0.85em;
     }
@@ -1420,6 +1436,11 @@ input[type=number]::-webkit-outer-spin-button {
         width: 3em;
     }
 
+    #site_language {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .menu-title {
         font-size: 0.95em;
     }
@@ -1466,6 +1487,17 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media screen and (min-width: 992px) {
+    .right-sources {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-sources > p:first-child {
+        order: 2;
+    }
+    .right-sources > p:last-child {
+        order: 1;
+    }
+
     html {
         font-size: 0.95em;
     }
@@ -1486,6 +1518,11 @@ input[type=number]::-webkit-outer-spin-button {
 
     .selSize {
         width: 4em;
+    }
+
+    #site_language {
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .menu-title {
@@ -1552,6 +1589,12 @@ input[type=number]::-webkit-outer-spin-button {
         width: 5em;
     }
 
+    #site_language {
+        width: 100%;
+        box-sizing: border-box;
+        min-width: 7em;
+    }
+
     .menu-title {
         font-size: 0.85em;
     }
@@ -1584,12 +1627,10 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .top-bar-right {
-        position: fixed;
-        height: 10vw;
-        width: 24%;
-        top: 1%;
-        right: 1%;
-        float: right;
+        position: static;
+        height: auto;
+        width: 100%;
+        float: none;
         vertical-align: top;
     }
 
