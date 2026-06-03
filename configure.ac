@@ -166,6 +166,7 @@ else
 fi
 AC_MSG_RESULT([$GO_EXEEXT])
 AC_SUBST([GO_EXEEXT])
+AM_CONDITIONAL([VIEWER_WINDOWS], [test "$GO_EXEEXT" = ".exe"])
 
   # Detect platform for default paths
 AC_CANONICAL_HOST

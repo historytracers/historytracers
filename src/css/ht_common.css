@@ -18,6 +18,11 @@ audio {
   z-index: 900;
 }
 
+#site_language {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .AtlasSelSize {
   width: 14vw;
 }
@@ -63,6 +68,15 @@ audio {
 .side-bar.active {
   left: 0%;
   z-index: 1001;
+  padding-top: 44px;
+}
+
+.side-bar p {
+  margin: 2px 0;
+}
+
+.side-bar ul.sidebar-navigation {
+  margin-top: 2px;
 }
 
 .main {
@@ -140,6 +154,7 @@ audio {
   right: auto;
   float: none;
   vertical-align: top;
+  overflow: hidden;
   z-index: 100;
 }
 
@@ -382,7 +397,8 @@ div.twomenu div {
 
 .menuht {
     width: 100%;
-    font-size: 4.0em;
+    font-size: 1.3em;
+    font-weight: bold;
     overflow: hidden;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -1259,6 +1275,11 @@ input[type=number]::-webkit-outer-spin-button {
         width: 3em;
     }
 
+    #site_language {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .menu-title {
         font-size: 0.85em;
     }
@@ -1268,7 +1289,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menuht {
-        font-size: 2.0em;
+        font-size: 1.3em;
+        font-weight: bold;
         width: 100%;
     }
 
@@ -1341,6 +1363,11 @@ input[type=number]::-webkit-outer-spin-button {
         width: 3em;
     }
 
+    #site_language {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .menu-title {
         font-size: 0.85em;
     }
@@ -1350,7 +1377,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menuht {
-        font-size: 3.2em;
+        font-size: 1.3em;
+        font-weight: bold;
         width: 100%;
     }
 
@@ -1408,6 +1436,11 @@ input[type=number]::-webkit-outer-spin-button {
         width: 3em;
     }
 
+    #site_language {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .menu-title {
         font-size: 0.95em;
     }
@@ -1417,7 +1450,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menuht {
-        font-size: 2.5em;
+        font-size: 1.3em;
+        font-weight: bold;
         width: 100%;
     }
 
@@ -1453,6 +1487,17 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media screen and (min-width: 992px) {
+    .right-sources {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-sources > p:first-child {
+        order: 2;
+    }
+    .right-sources > p:last-child {
+        order: 1;
+    }
+
     html {
         font-size: 0.95em;
     }
@@ -1475,6 +1520,11 @@ input[type=number]::-webkit-outer-spin-button {
         width: 4em;
     }
 
+    #site_language {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .menu-title {
         font-size: 0.85em;
     }
@@ -1484,7 +1534,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menuht {
-        font-size: 3.2em;
+        font-size: 1.3em;
+        font-weight: bold;
         width: 100%;
     }
 
@@ -1538,6 +1589,12 @@ input[type=number]::-webkit-outer-spin-button {
         width: 5em;
     }
 
+    #site_language {
+        width: 100%;
+        box-sizing: border-box;
+        min-width: 7em;
+    }
+
     .menu-title {
         font-size: 0.85em;
     }
@@ -1547,7 +1604,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .menuht {
-        font-size: 4.0em;
+        font-size: 1.3em;
+        font-weight: bold;
         width: 100%;
     }
 
@@ -1569,12 +1627,10 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .top-bar-right {
-        position: fixed;
-        height: 10vw;
-        width: 24%;
-        top: 1%;
-        right: 1%;
-        float: right;
+        position: static;
+        height: auto;
+        width: 100%;
+        float: none;
         vertical-align: top;
     }
 
@@ -1600,20 +1656,20 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media screen and (max-width: 767px) {
-    .side-bar { width: 80%; left: -80%; z-index: 1000; transition: left 0.3s ease; }
+    .side-bar { width: 55%; left: -55%; z-index: 1000; transition: left 0.3s ease; }
     .side-bar.active { left: 0; }
     .main { left: 0; width: 100%; }
     div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 12%; }
     .top-bar { height: auto; min-height: 50px; }
     .top-bar-inside-left { font-size: 1.2em; width: 60%; margin-left: 40px; }
-    .menuht { font-size: 1.2em; width: 100%; }
+    .menuht { font-size: 1.3em; font-weight: bold; width: 100%; }
     .menu-title { font-size: 0.90em; }
     li.menu { font-size: 0.82em; }
     .menu-slogan { font-size: 0.7em; }
     .reflection, .lab, .personal_events_class, .no_personal_events_class { width: 90%; }
     .first_steps_reflection_parent, .first_steps_lab_parent { width: 95%; }
     .ht-grid-container { grid-template-columns: auto auto; }
-    .side-bar:hover { left: -80%; }
+    .side-bar:hover { left: -55%; }
     .side-bar.active:hover { left: 0; }
 }
 
