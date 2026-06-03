@@ -1,0 +1,290 @@
+{
+   "title": "Jugando con el Teorema",
+   "header": "Jugando con el Teorema",
+   "sources": [
+      "26a09f5e-c28b-42ef-8fcc-885ccd4a60e7"
+   ],
+   "scripts": [
+      "26a09f5e-c28b-42ef-8fcc-885ccd4a60e7",
+      "right_triangle"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/26a09f5e-c28b-42ef-8fcc-885ccd4a60e7_es-ES.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/4qFTTlGGoPKMobGmSPe9x6?si=fy91CQdfRf2Atq_EWEJdcg",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "atlas"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1780507259"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "### Prerrequisitos\n\nEste texto contiene una aplicación para reforzar el conocimiento sobre el Teorema de Pitágoras. Antes de utilizarla, recomendamos estudiar qué es el Teorema de Pitágoras en los textos anteriores (<htcite0>; <htcite1>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "Historia de un Teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "01ac24aa-ab5e-4cfc-83a3-0d04ae2810ac",
+                     "text": "History Tracers Atlas",
+                     "page": "Practicando con el Teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introducción\n\nAl estudiar la historia del Teorema de Pitágoras en el primer texto de esta serie, nos encontramos con un gráfico que mostraba cuadrados de tamaños visibles (<htcite0>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "50e702c5-bc41-1a5f-8d90-4585e04394ba",
+                     "text": "History Tracers Atlas",
+                     "page": "Historia de un Teorema",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"pythagorasTriangle\" id=\"pytri0\"><svg viewBox=\"0 0 600 300\" id=\"svgpytri0\"><rect x=\"210\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">1</text><rect x=\"237\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">2</text><rect x=\"264\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">3</text><rect x=\"291\" y=\"190\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"208\" font-size=\"1.3em\" font-weight=\"bold\">4</text><rect x=\"210\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">5</text><rect x=\"237\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">6</text><rect x=\"264\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">7</text><rect x=\"291\" y=\"217\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"235\" font-size=\"1.3em\" font-weight=\"bold\">8</text><rect x=\"210\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">9</text><rect x=\"237\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">10</text><rect x=\"264\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">11</text><rect x=\"291\" y=\"244\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"262\" font-size=\"1.3em\" font-weight=\"bold\">12</text><rect x=\"210\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"212\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">13</text><rect x=\"237\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"239\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">14</text><rect x=\"264\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"266\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">15</text><rect x=\"291\" y=\"271\" width=\"27\" height=\"27\" stroke=\"blue\" fill=\"white\"></rect><text x=\"293\" y=\"289\" font-size=\"1.3em\" font-weight=\"bold\">16</text><rect x=\"318\" y=\"109\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"320\" y=\"127\" font-size=\"1.3em\" font-weight=\"bold\">1</text><rect x=\"345\" y=\"109\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"347\" y=\"127\" font-size=\"1.3em\" font-weight=\"bold\">2</text><rect x=\"372\" y=\"109\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"374\" y=\"127\" font-size=\"1.3em\" font-weight=\"bold\">3</text><rect x=\"318\" y=\"136\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"320\" y=\"154\" font-size=\"1.3em\" font-weight=\"bold\">4</text><rect x=\"345\" y=\"136\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"347\" y=\"154\" font-size=\"1.3em\" font-weight=\"bold\">5</text><rect x=\"372\" y=\"136\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"374\" y=\"154\" font-size=\"1.3em\" font-weight=\"bold\">6</text><rect x=\"318\" y=\"163\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"320\" y=\"181\" font-size=\"1.3em\" font-weight=\"bold\">7</text><rect x=\"345\" y=\"163\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"347\" y=\"181\" font-size=\"1.3em\" font-weight=\"bold\">8</text><rect x=\"372\" y=\"163\" width=\"27\" height=\"27\" stroke=\"red\" fill=\"white\"></rect><text x=\"374\" y=\"181\" font-size=\"1.3em\" font-weight=\"bold\">9</text><rect x=\"236\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">1</text><rect x=\"263\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">2</text><rect x=\"290\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">3</text><rect x=\"317\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">4</text><rect x=\"344\" y=\"0\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"18\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">5</text><rect x=\"236\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">6</text><rect x=\"263\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">7</text><rect x=\"290\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">8</text><rect x=\"317\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">9</text><rect x=\"344\" y=\"27\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"45\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">10</text><rect x=\"236\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">11</text><rect x=\"263\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">12</text><rect x=\"290\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">13</text><rect x=\"317\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">14</text><rect x=\"344\" y=\"54\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"72\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">15</text><rect x=\"236\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">16</text><rect x=\"263\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">17</text><rect x=\"290\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">18</text><rect x=\"317\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">19</text><rect x=\"344\" y=\"81\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"99\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">20</text><rect x=\"236\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"238\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">21</text><rect x=\"263\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"265\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">22</text><rect x=\"290\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"292\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">23</text><rect x=\"317\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"319\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">24</text><rect x=\"344\" y=\"108\" width=\"27\" height=\"27\" stroke=\"green\" fill=\"white\" transform=\"rotate(53, 236, 0)\"></rect><text x=\"346\" y=\"126\" font-size=\"1.3em\" font-weight=\"bold\" transform=\"rotate(53, 236, 0)\">25</text><text x=\"240\" y=\"186\" font-size=\"1.3em\" font-weight=\"bold\">θ</text></svg></p><p class=\"desc\"><b>Gráfico 1</b>: Prueba visual del Teorema de Pitágoras.</p>",
+               "source": [],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Sin embargo, hoy sabemos que el universo no está compuesto únicamente por lo que vemos. También sabemos que existen formas de materia y energía extremadamente pequeñas que no podemos ver (<htcite0>). Este hecho nos lleva a una reflexión inicial:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b2d28a2f-db19-4ca3-a09a-d50b6db5933b",
+                     "text": "History Tracers Atlas",
+                     "page": "Todo junto",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 1: ¿Es cuestión de tamaño?</b><br /><br />Hasta ahora, hemos aplicado el Teorema de Pitágoras a cuadrados grandes.<br /><br />¿Sería posible usar la misma lógica para cuadrados más pequeños?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_limits",
+         "text": [
+            {
+               "text": "### Los límites del teorema\n\nAl trabajar inicialmente con límites en la naturaleza, aprendimos que esta idea tiene relación con los valores que podemos alcanzar en una secuencia (<htcite0>). Sin embargo, en aquel texto, tratamos valores grandes, como los cuadrados del **Gráfico 1**. Ahora, necesitamos profundizar un poco más en ese entendimiento.\n\n#### Límites internos\n\nEn otro texto de History Tracers, aprendimos que un rectángulo ancho puede dividirse en partes más pequeñas. Al realizar estas divisiones, pasamos de un rectángulo de tamaño 1 a 10 rectángulos más pequeños (**Gráfico 2**), que posteriormente denominamos décimos (<htcite1>; <htcite2>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Límites en la Naturaleza",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d06e24cb-52e8-4ff8-ae37-12052c91b187",
+                     "text": "History Tracers Team",
+                     "page": "Limitando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cade1d55-e344-4f80-b5af-7e66d80112f5",
+                     "text": "History Tracers Team",
+                     "page": "Nombrando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg width=\"450\" height=\"140\" fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"110\" x2=\"440\" y2=\"110\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"135\" font-size=\"1.5em\">0,0</text> <text x=\"35\" y=\"135\" font-size=\"1.5em\">0,1</text> <text x=\"76\" y=\"135\" font-size=\"1.5em\">0,2</text> <text x=\"117\" y=\"135\" font-size=\"1.5em\">0,3</text> <text x=\"158\" y=\"135\" font-size=\"1.5em\">0,4</text> <text x=\"199\" y=\"135\" font-size=\"1.5em\">0,5</text> <text x=\"240\" y=\"135\" font-size=\"1.5em\">0,6</text> <text x=\"281\" y=\"135\" font-size=\"1.5em\">0,7</text> <text x=\"322\" y=\"135\" font-size=\"1.5em\">0,8</text> <text x=\"363\" y=\"135\" font-size=\"1.5em\">0,9</text> <text x=\"400\" y=\"135\" font-size=\"1.5em\">1,0</text> <line x1=\"3\" y1=\"110\" x2=\"3\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"44\" y1=\"110\" x2=\"44\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"110\" x2=\"85\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"126\" y1=\"110\" x2=\"126\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"167\" y1=\"110\" x2=\"167\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"208\" y1=\"110\" x2=\"208\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"249\" y1=\"110\" x2=\"249\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"290\" y1=\"110\" x2=\"290\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"331\" y1=\"110\" x2=\"331\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"372\" y1=\"110\" x2=\"372\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"413\" y1=\"110\" x2=\"413\" y2=\"120\" stroke=\"black\" stroke-width=\"3\" /> <rect x=\"2\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"43\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/>  <rect x=\"84\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/>  <rect x=\"125\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/>  <rect x=\"166\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"207\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"248\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"289\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"330\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/> <rect x=\"370\" y=\"2\" width=\"40\" height=\"95\" fill=\"lightblue\" stroke-width=\"1\"/></svg></p><p class=\"desc\"><b>Gráfico 2</b>: Representación de 10 rectángulos sobre un camino mostrando números decimales.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "De la misma manera que dividimos una unidad en diez partes más pequeñas, también aprendimos a dividir cada una de esas diez partes en otras diez, creando los centésimos (<htcite0>). Y podemos seguir realizando estas divisiones sucesivamente.\n\n#### Reducciones en el teorema\n\nLo que se hizo con los rectángulos en los textos anteriores también puede realizarse con los cuadrados del **Gráfico 1** o con cualquier otra figura.\n\nComo el Teorema de Pitágoras no tiene ninguna limitación relacionada con el tamaño de las figuras, sigue siendo válido en cualquier escenario.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "cade1d55-e344-4f80-b5af-7e66d80112f5",
+                     "text": "History Tracers Team",
+                     "page": "Nombrando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Práctica\n\nPara comprender mejor la relación entre el Teorema de Pitágoras y los lados de un triángulo rectángulo, sugerimos que mueva las flechas de los catetos **a** y **b** y de la hipotenusa **c** en la siguiente secuencia:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.card { width: 100%; max-width: 960px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(2px); border-radius: 44px; box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05); padding: 20px 24px 28px; transition: all 0.2s ease; } .sub { color: #2c5a6e; border-left: 4px solid #2c8faa; padding-left: 14px; margin: 4px 0 16px 0; font-weight: 500; font-size: clamp(0.75rem, 3vw, 0.9rem); } .triangle-visual { display: flex; justify-content: center; margin: 6px 0 18px 0; width: 100%; position: relative; } canvas { background: #fefcf5; border-radius: 24px; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); width: 100%; height: auto; display: block; border: 2px solid #dfe8ed; object-fit: contain; max-height: 310px; } .controls { display: flex;  flex-wrap: wrap; gap: 16px; justify-content: center; margin: 12px 0 20px; } .side-card { background: white; border-radius: 36px; padding: 10px 14px; min-width: 140px; flex: 1 1 150px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); transition: transform 0.1s ease; border: 1px solid #e5f0f5; } .side-card label { font-weight: 700; font-size: clamp(0.9rem, 4.5vw, 1.2rem); display: block; margin-bottom: 8px; } .leg-a label { color: #c44536; } .leg-b label { color: #2e7d64; } .hyp-c label { color: #1e3a8a; } .side-card input[type=\"number\"] { width: 100%; max-width: 120px; padding: 8px 6px; font-size: 1.1rem; text-align: center; font-weight: 600; border: 2px solid #cad6dd; border-radius: 50px; background: #fefcf5; transition: 0.1s; font-family: monospace;  margin: 0 auto; display: inline-block; } .side-card input[type=\"number\"]:focus { border-color: #2c8faa;  outline: none;  box-shadow: 0 0 0 3px rgba(44, 143, 170, 0.2); } .range-slider { margin-top: 10px; width: 100%; } input[type=\"range\"] { width: 100%; cursor: pointer; background: #dce6ea; height: 4px;  border-radius: 10px; -webkit-appearance: none; } input[type=\"range\"]:focus { outline: none; } input[type=\"range\"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px;  border-radius: 50%; background: #2c8faa; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.2);  border: none; } .theorem-box { background: #eef3f7; border-radius: 36px; padding: 12px 18px; text-align: center; font-size: clamp(0.85rem, 3.5vw, 1.1rem); font-weight: 500; font-family: 'Courier New', 'Fira Code', monospace; margin-top: 12px; border: 1px solid #cde0e8; word-break: break-word; } .theorem-box p { margin: 4px 0; } .equation { font-size: clamp(0.9rem, 4.5vw, 1.3rem); background: #ffffffcc; display: inline-block; padding: 4px 14px; border-radius: 50px; font-weight: 700; letter-spacing: 1px; } @media (max-width: 680px) { .card { padding: 16px 16px 22px;  } .side-card {  min-width: 120px; padding: 8px 10px; } .side-card input[type=\"number\"] { font-size: 0.95rem; max-width: 100px; } canvas { max-height: 260px; } } @media (max-width: 520px) { .controls { gap: 12px;  } .side-card { flex-basis: 120px; } .equation { font-size: 0.85rem; padding: 3px 10px; } .theorem-box { padding: 10px 12px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"card\"><div class=\"triangle-visual\"><canvas id=\"triangleCanvas\" width=\"500\" height=\"340\" style=\"width:100%; height:auto; max-width:500px; aspect-ratio:500/340\"></canvas></div><div class=\"controls\"><div class=\"side-card leg-a\"><label>Cateto a</label><input type=\"number\" id=\"sideAInput\" step=\"0.01\" min=\"0.5\" max=\"10\" value=\"3.00\"><div class=\"range-slider\"><input type=\"range\" id=\"sideARange\" min=\"1\" max=\"10\" step=\"0.01\" value=\"3\"></div></div><div class=\"side-card leg-b\"><label>Cateto b</label><input type=\"number\" id=\"sideBInput\" step=\"0.01\" min=\"0.5\" max=\"10\" value=\"4.00\"><div class=\"range-slider\"><input type=\"range\" id=\"sideBRange\" min=\"1\" max=\"10\" step=\"0.01\" value=\"4\"></div></div><div class=\"side-card hyp-c\"><label>Hipotenusa c</label><input type=\"number\" id=\"sideCInput\" step=\"0.01\" min=\"1\" max=\"14.15\" value=\"5.00\"><div class=\"range-slider\"><input type=\"range\" id=\"sideCRange\" min=\"1\" max=\"14.15\" step=\"0.01\" value=\"5\"></div></div></div><div class=\"theorem-box\"><p>✨ <strong>Teorema de Pitágoras</strong> ✨</p><p class=\"equation\" id=\"theoremText\">a² + b² = c²</p><p id=\"numericProof\" style=\"font-size:0.8rem; opacity:0.85;\">3.00² + 4.00² = 5.00²  → 9.00 + 16.00 = 25.00</p></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Como puede observarse, las modificaciones en uno de los catetos afectan a la hipotenusa, así como las modificaciones en la hipotenusa modifican los catetos, reflejando lo que nos enseña el Teorema de Pitágoras. Es decir, independientemente del tamaño de los lados, el Teorema de Pitágoras sigue siendo válido.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusión\n\nEn este texto, observamos en la práctica que el Teorema de Pitágoras no está relacionado con tamaños específicos. Además, reforzamos nuestro conocimiento sobre los límites al trabajar con números decimales y centesimales, demostrando que los límites también pueden aplicarse a números que tienden a cero.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
