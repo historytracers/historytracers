@@ -37,16 +37,11 @@ editor:
 	cd $(EDITORSRC_DIR) && $(editor_cc_env) CGO_ENABLED=1 $(GO_RUN) mod download && $(GO_RUN) mod tidy && $(GO_RUN) fmt ./...
 	cd $(EDITORSRC_DIR) && $(editor_cc_env) CGO_ENABLED=1 $(GO_RUN) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
 
-if VIEWER_WINDOWS
 viewer:
 	@echo "Building $(VIEWERBINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
 	cd $(VIEWERSRC_DIR) && $(GO_RUN) mod download && $(GO_RUN) mod tidy && $(GO_RUN) fmt ./...
 	cd $(VIEWERSRC_DIR) && $(GO_RUN) build -o ../../$(BUILD_DIR)/$(VIEWERBINARY_NAME) .
-else
-viewer:
-	@echo "Skipping viewer build (Windows-only component)"
-endif
 
 install-exec-local:
 	@echo "Installing binaries to $(DESTDIR)$(bindir)..."
