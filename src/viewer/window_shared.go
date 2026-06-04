@@ -1,6 +1,6 @@
 package main
 
-const welcomePage = `<!DOCTYPE html>
+var welcomePage = `<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><title>HistoryTracers Viewer</title></head>
 <body style="margin:0;font-family:verdana,arial,helvetica;display:flex;justify-content:center;align-items:center;height:100vh;background:#f0f0f0">
@@ -10,7 +10,7 @@ const welcomePage = `<!DOCTYPE html>
 <p><button onclick="closeWin()" style="padding:10px 24px;font-size:1em;cursor:pointer;border-radius:6px;border:1px solid #999;background:#e8e8e8">Close</button></p>
 </div>
 <script>
-var loc=navigator.language||'en-US';
+var loc=window.__ht_lang||navigator.language||'en-US';
 var L={};
 L['pt-BR']={msg:'Diret\u00f3rio de conte\u00fado n\u00e3o encontrado.',close:'Fechar'};
 L['pt']=L['pt-BR'];
@@ -26,14 +26,14 @@ function closeWin(){closeWindow()}
 </body>
 </html>`
 
-const addressBarJS = `
+var addressBarJS = `
 (function(){
 	if(window!==window.top)return;
 	function addBar(){
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
 		var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
-		var loc=navigator.language||'en-US';
+		var loc=window.__ht_lang||navigator.language||'en-US';
 		var L={};
 		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair'};
 		L['pt']=L['pt-BR'];

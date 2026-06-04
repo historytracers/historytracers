@@ -55,6 +55,12 @@ func main() {
 	addr := resolveAddr(*port)
 	pageURL = buildPageURL(addr, *class, *lang)
 
+	if *lang != "" {
+		langJS := "window.__ht_lang='" + *lang + "';"
+		welcomePage = langJS + welcomePage
+		addressBarJS = langJS + addressBarJS
+	}
+
 	mux := http.NewServeMux()
 	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))
 
