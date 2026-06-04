@@ -187,7 +187,7 @@ esac
 # On Cygwin/MSYS2, detect MinGW-w64 C compiler for CGo builds (editor)
 MINGW_CC=""
 case "$host_os" in
-    cygwin* | mingw*)
+    cygwin* | mingw* | msys*)
         AC_MSG_CHECKING([for MinGW-w64 C compiler on Cygwin/MSYS2])
         for cand in x86_64-w64-mingw32-gcc i686-w64-mingw32-gcc; do
             AC_CHECK_PROG([MINGW_CC_CHECK], [$cand], [$cand], [])
