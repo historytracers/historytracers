@@ -7,6 +7,7 @@ import (
 	"log"
 	"net"
 	"net/http"
+	"net/url"
 	"os"
 )
 
@@ -28,6 +29,7 @@ func main() {
 	path := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
 	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
+	class := flag.String("class", "", "Initial class content UUID (e.g. d290f1ee-6c54-4b01-90e6-d701748f0851)")
 	logFile := flag.String("log", "", "File to write access logs (default: no access log)")
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "Usage: historytracers [options]\n\nOptions:\n")
@@ -51,9 +53,15 @@ func main() {
 	}
 
 	addr := resolveAddr(*port)
-	pageURL = fmt.Sprintf("http://%s/", addr)
+	pageURL = fmt.Sprintf("http://%s/index.html", addr)
+	sep := "?"
+	if *class != "" {
+		pageURL += sep + "page=class_content&arg=" + url.QueryEscape(*class)
+		sep = "&"
+	}
 	if *lang != "" {
-		pageURL = fmt.Sprintf("http://%s/?lang=%s", addr, *lang)
+		pageURL += sep + "lang=" + url.QueryEscape(*lang)
+		sep = "&"
 	}
 
 	mux := http.NewServeMux()
