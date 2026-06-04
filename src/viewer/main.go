@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/csv"
 	"flag"
 	"fmt"
 	"io"
@@ -9,12 +10,161 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"path/filepath"
+	"sort"
+	"strings"
+	"sync"
+	"time"
 )
 
 var srv *http.Server
 var pageURL string
 var contentDir string
 var accessLog *log.Logger
+
+type historyEntry struct {
+	Page    string `json:"page"`
+	ArgUUID string `json:"arg"`
+	People  string `json:"people"`
+	Time    int64  `json:"time"`
+}
+
+var (
+	historyMu   sync.Mutex
+	historyFile string
+)
+
+func initHistory() {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		log.Printf("Warning: cannot get home directory for history: %v", err)
+		historyFile = ""
+		return
+	}
+	historyFile = filepath.Join(home, "history.csv")
+}
+
+func allowedPage(name string) bool {
+	switch name {
+	case "genealogical_map", "main", "acknowledgement", "partnership",
+		"sources", "genealogical_faq", "genealogical_first_steps",
+		"license", "contact", "physics", "philosophy", "historical_events",
+		"biology", "chemistry", "history", "families", "myths_believes",
+		"first_steps_menu", "first_steps", "first_steps_volume2",
+		"indigenous_who", "indigenous_time", "math_games", "release",
+		"literature", "atlas", "tree", "class_content":
+		return true
+	}
+	return false
+}
+
+func historyAddHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", 405)
+		return
+	}
+	if historyFile == "" {
+		http.Error(w, "History not available", 500)
+		return
+	}
+	page := r.FormValue("page")
+	if !allowedPage(page) {
+		http.Error(w, "Invalid page", 400)
+		return
+	}
+	arg := r.FormValue("arg")
+	people := r.FormValue("people")
+	now := time.Now().Unix()
+
+	historyMu.Lock()
+	defer historyMu.Unlock()
+
+	entries := readHistoryLocked()
+	entries = append(entries, historyEntry{Page: page, ArgUUID: arg, People: people, Time: now})
+	if len(entries) > 10 {
+		entries = entries[len(entries)-10:]
+	}
+	writeHistoryLocked(entries)
+}
+
+func historyListHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", 405)
+		return
+	}
+	historyMu.Lock()
+	defer historyMu.Unlock()
+
+	entries := readHistoryLocked()
+	sort.Slice(entries, func(i, j int) bool {
+		return entries[i].Time > entries[j].Time
+	})
+
+	w.Header().Set("Content-Type", "application/json")
+	fmt.Fprint(w, "[")
+	for i, e := range entries {
+		if i > 0 {
+			fmt.Fprint(w, ",")
+		}
+		argEsc := strings.ReplaceAll(e.ArgUUID, `"`, `\"`)
+		peopleEsc := strings.ReplaceAll(e.People, `"`, `\"`)
+		fmt.Fprintf(w, `{"page":"%s","arg":"%s","people":"%s","time":%d}`,
+			e.Page, argEsc, peopleEsc, e.Time)
+	}
+	fmt.Fprint(w, "]")
+}
+
+func readHistoryLocked() []historyEntry {
+	f, err := os.Open(historyFile)
+	if err != nil {
+		return nil
+	}
+	defer f.Close()
+
+	rd := csv.NewReader(f)
+	records, err := rd.ReadAll()
+	if err != nil {
+		log.Printf("Warning: corrupt history.csv: %v", err)
+		return nil
+	}
+
+	var entries []historyEntry
+	for _, rec := range records {
+		if len(rec) < 4 {
+			continue
+		}
+		if !allowedPage(rec[0]) {
+			continue
+		}
+		var t int64
+		fmt.Sscanf(rec[3], "%d", &t)
+		entries = append(entries, historyEntry{
+			Page:    rec[0],
+			ArgUUID: rec[1],
+			People:  rec[2],
+			Time:    t,
+		})
+	}
+	if len(entries) > 10 {
+		entries = entries[len(entries)-10:]
+	}
+	return entries
+}
+
+func writeHistoryLocked(entries []historyEntry) {
+	f, err := os.Create(historyFile)
+	if err != nil {
+		log.Printf("Warning: cannot write history.csv: %v", err)
+		return
+	}
+	defer f.Close()
+
+	w := csv.NewWriter(f)
+	for _, e := range entries {
+		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time)})
+	}
+	w.Flush()
+}
 
 type liveDir struct{}
 
@@ -61,7 +211,11 @@ func main() {
 		addressBarJS = langJS + addressBarJS
 	}
 
+	initHistory()
+
 	mux := http.NewServeMux()
+	mux.HandleFunc("/api/history/add", historyAddHandler)
+	mux.HandleFunc("/api/history/list", historyListHandler)
 	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))
 
 	srv = &http.Server{Addr: addr, Handler: mux}
