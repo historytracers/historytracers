@@ -1,0 +1,168 @@
+{
+   "title": "Somando com Soroban e Suanpan (算盤) (Parte 2)",
+   "header": "Somando com Soroban e Suanpan (算盤) (Parte 2)",
+   "sources": [
+      "6d9857d3-a1af-4411-b358-b97a7ea02515"
+   ],
+   "scripts": [
+      "6d9857d3-a1af-4411-b358-b97a7ea02515"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1780530093"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nPara uma melhor compreensão deste texto, recomendamos a leitura da primeira parte sobre somas com ábacos e de seus pré-requisitos (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "22edd35f-1746-447f-b147-36ff7c90478b",
+                     "text": "History Tracers Team",
+                     "page": "Somando com Soroban e Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_intrduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nNa primeira parte de nosso estudo sobre como somar números utilizando os ábacos desenvolvidos na China (Zhongguo 中國) e no Japão (Nippon koku ou Nihon koku, 日本国), observamos que a soma de valores no intervalo de 0 a 9 é realizada por meio de movimentos de marcadores (<htcite0>).\n\nTambém vimos anteriormente que os ábacos não se limitam a uma única coluna (<htcite1>). Dessa forma, podemos representar qualquer número nesses instrumentos, bastando acrescentar novas colunas.\n\nOutro aspecto já estudado sobre os ábacos (Soroban e Suanpan (算盤)) são as semelhanças que eles compartilham com a Yupana (<htcite2>), o que nos leva à seguinte reflexão inicial:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "22edd35f-1746-447f-b147-36ff7c90478b",
+                     "text": "History Tracers Team",
+                     "page": "Somando com Soroban e Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d7a249ed-cc2d-40e0-adec-ca3e9738e5d3",
+                     "text": "History Tracers Team",
+                     "page": "Ordens maiores com Soroban e Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "22edd35f-1746-447f-b147-36ff7c90478b",
+                     "text": "History Tracers Team",
+                     "page": "Somando com Soroban e Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: Já vi isso também</b><br /><br />Tanto a Yupana quanto os ábacos utilizam o corpo humano como referência para a representação dos números. Também vimos que ambos realizam somas de maneira semelhante para números entre 0 e 9.<br /><br />Quando a soma de dois números resulta em um valor maior que 9, você acha que os ábacos também efetuam a operação da mesma forma que o método *Yupana Inka Tawa Pukllay*, de Dhavit Prem (<htcite0>; <htcite1>)?</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit. Pessoal",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
