@@ -53,16 +53,7 @@ func main() {
 	}
 
 	addr := resolveAddr(*port)
-	pageURL = fmt.Sprintf("http://%s/index.html", addr)
-	sep := "?"
-	if *class != "" {
-		pageURL += sep + "page=class_content&arg=" + url.QueryEscape(*class)
-		sep = "&"
-	}
-	if *lang != "" {
-		pageURL += sep + "lang=" + url.QueryEscape(*lang)
-		sep = "&"
-	}
+	pageURL = buildPageURL(addr, *class, *lang)
 
 	mux := http.NewServeMux()
 	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))
@@ -81,6 +72,19 @@ func main() {
 
 	srv.Close()
 	fmt.Println("Stopped.")
+}
+
+func buildPageURL(addr, class, lang string) string {
+	u := fmt.Sprintf("http://%s/index.html", addr)
+	sep := "?"
+	if class != "" {
+		u += sep + "page=class_content&arg=" + url.QueryEscape(class)
+		sep = "&"
+	}
+	if lang != "" {
+		u += sep + "lang=" + url.QueryEscape(lang)
+	}
+	return u
 }
 
 func resolveAddr(port int) string {
