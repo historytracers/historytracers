@@ -55,7 +55,7 @@ Push-Location "src\viewer"
 try {
     go mod download
     go mod tidy
-    go build -o "..\..\build\historytracers-viewer.exe" .
+    go build -o "..\..\build\historytracers.exe" .
 } finally {
     Pop-Location
 }
