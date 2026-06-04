@@ -8,7 +8,7 @@ EDITORSRC_DIR = src/editor
 VIEWERSRC_DIR = src/viewer
 
 # Go compiler wrapper that ensures its bin dir is in PATH and GOROOT is set
-GO_RUN = PATH="$(GO_BIN_DIR):$(PATH)" GOROOT="$(GO_GOROOT)" $(GO_COMPILER)
+GO_RUN = PATH="$(GO_BIN_DIR):$(PATH)" GOROOT="$(GO_GOROOT)" "$(GO_COMPILER)"
 
 # We're not building C programs, so tell Automake this is foreign
 AUTOMAKE_OPTIONS = foreign
@@ -26,13 +26,14 @@ publisher:
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(PUBLISHERBINARY_NAME) .
 
 if NEED_MINGW
-editor_cc_env = CC="$(MINGW_CC)" CXX="$(MINGW_CC:gcc=g++)"
+editor_cc_env = CC="$(MINGW_CC)" CXX="$(MINGW_CC:gcc=g++)" CGO_ENABLED=1
+editor_make_go = PATH="$(dir $(MINGW_CC)):$(GO_BIN_DIR):$(PATH)" GOROOT="$(GO_GOROOT)" "$(GO_COMPILER)"
 
 editor:
 	@echo "Building $(EDITORBINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	cd $(EDITORSRC_DIR) && $(editor_cc_env) CGO_ENABLED=1 $(GO_RUN) mod download && $(GO_RUN) mod tidy && $(GO_RUN) fmt ./...
-	cd $(EDITORSRC_DIR) && $(editor_cc_env) CGO_ENABLED=1 $(GO_RUN) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
+	cd $(EDITORSRC_DIR) && $(editor_cc_env) $(editor_make_go) mod download && $(editor_cc_env) $(editor_make_go) mod tidy && $(editor_cc_env) $(editor_make_go) fmt ./...
+	cd $(EDITORSRC_DIR) && $(editor_cc_env) $(editor_make_go) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
 else
 editor:
 	@echo "Skipping editor build (MinGW-w64 C compiler not found)"
