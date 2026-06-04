@@ -18,11 +18,11 @@ func runWindow() {
 	w.SetSize(1280, 800, webview.HintNone)
 
 	w.Init(addressBarJS)
+	w.Bind("closeWindow", func() {
+		w.Terminate()
+	})
 
 	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
-		w.Bind("closeWindow", func() {
-			w.Terminate()
-		})
 		w.SetHtml(welcomePage)
 		w.Run()
 		return

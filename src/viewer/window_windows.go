@@ -32,11 +32,11 @@ func runWindow() {
 	defer w.Destroy()
 
 	w.Init(addressBarJS)
+	w.Bind("closeWindow", func() {
+		w.Destroy()
+	})
 
 	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
-		w.Bind("closeWindow", func() {
-			w.Destroy()
-		})
 		w.SetHtml(welcomePage)
 		w.Run()
 		return
