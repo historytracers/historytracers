@@ -27,7 +27,12 @@ func main() {
 	port := flag.Int("port", 0, "HTTP port (0 = random available)")
 	path := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
+	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
 	logFile := flag.String("log", "", "File to write access logs (default: no access log)")
+	flag.Usage = func() {
+		fmt.Fprintf(os.Stderr, "Usage: historytracers [options]\n\nOptions:\n")
+		flag.PrintDefaults()
+	}
 	flag.Parse()
 
 	contentDir = *dir
@@ -47,6 +52,9 @@ func main() {
 
 	addr := resolveAddr(*port)
 	pageURL = fmt.Sprintf("http://%s/", addr)
+	if *lang != "" {
+		pageURL = fmt.Sprintf("http://%s/?lang=%s", addr, *lang)
+	}
 
 	mux := http.NewServeMux()
 	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))

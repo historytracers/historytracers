@@ -47,7 +47,7 @@ function htSetIndexLang(urlParams) {
     if (urlParams.has('lang')) {
         var selLang = urlParams.get('lang');
         if ($("#site_language option[value='"+selLang+"']").length > 0) {
-            lang = "en-US";
+            lang = selLang;
         }
     } else {
         lang = htDetectLocalLanguage();
