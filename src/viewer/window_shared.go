@@ -42,6 +42,14 @@ var addressBarJS = `
 		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)'};
 		L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
+		var _lang=window.__ht_lang||'';
+		if(!_lang){
+			try{var _lu=new URL(window.location.href);_lang=_lu.searchParams.get('lang')||''}catch(e){}
+		}
+		function getLang(){
+			try{var s=$('#site_language');if(s.length)return s.val()}catch(e){}
+			return _lang;
+		}
 		var s=document.createElement('style');
 		s.id='__ht_style';
 		s.textContent='.top-bar-right{top:'+(BAR_H+4)+'px!important}.top-bar-left{margin-top:'+(BAR_H+4)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+4)+'px!important}';
@@ -54,7 +62,7 @@ var addressBarJS = `
 		h.textContent='⌂';
 		h.title=l.homeTitle;
 		h.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;';
-		h.onclick=function(){location.href=location.origin};
+		h.onclick=function(){var g=getLang(),u=location.origin+'/index.html';if(g)u+='?lang='+encodeURIComponent(g);location.href=u};
 		b.appendChild(h);
 		var r=document.createElement('button');
 		r.id='__ht_rld';
@@ -72,7 +80,7 @@ var addressBarJS = `
 			btn.textContent=symbol;
 			btn.title=title;
 			btn.style.cssText='border:none;background:transparent;cursor:pointer;font:24px/1 monospace;padding:0 5px;color:#555;';
-			btn.onclick=function(){location.href=location.origin+'/'+url};
+			btn.onclick=function(){var g=getLang(),u=location.origin+'/'+url;if(g)u+='&lang='+encodeURIComponent(g);location.href=u};
 			b.appendChild(btn);
 		}
 		navBtn('__ht_firststeps','\uD83D\uDC63',l.firstStepsTitle,'index.html?page=first_steps_menu');
@@ -256,10 +264,6 @@ var addressBarJS = `
 		});
 		(function(){
 			var _rs=window.history.replaceState;
-			var _lang=window.__ht_lang||'';
-			if(!_lang){
-				try{var _lu=new URL(window.location.href);_lang=_lu.searchParams.get('lang')||''}catch(e){}
-			}
 			window.history.replaceState=function(){
 				_rs.apply(this,arguments);
 				try{
@@ -269,7 +273,7 @@ var addressBarJS = `
 					var a=u.searchParams.get('arg')||'';
 					var pp=u.searchParams.get('people')||'';
 					setTimeout(function(){
-						try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(document.title||'')+'&lang='+encodeURIComponent(_lang)})}catch(e2){}
+						try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(document.title||'')+'&lang='+encodeURIComponent(getLang())})}catch(e2){}
 					},800);
 				}catch(e){}
 			};
