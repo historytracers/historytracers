@@ -28,6 +28,7 @@ type historyEntry struct {
 	People  string `json:"people"`
 	Time    int64  `json:"time"`
 	Title   string `json:"title"`
+	Lang    string `json:"lang"`
 }
 
 var (
@@ -76,13 +77,14 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	arg := r.FormValue("arg")
 	people := r.FormValue("people")
 	title := r.FormValue("title")
+	lang := r.FormValue("lang")
 	now := time.Now().Unix()
 
 	historyMu.Lock()
 	defer historyMu.Unlock()
 
 	entries := readHistoryLocked()
-	entries = append(entries, historyEntry{Page: page, ArgUUID: arg, People: people, Time: now, Title: title})
+	entries = append(entries, historyEntry{Page: page, ArgUUID: arg, People: people, Time: now, Title: title, Lang: lang})
 	if len(entries) > 10 {
 		entries = entries[len(entries)-10:]
 	}
@@ -111,8 +113,9 @@ func historyListHandler(w http.ResponseWriter, r *http.Request) {
 		argEsc := strings.ReplaceAll(e.ArgUUID, `"`, `\"`)
 		peopleEsc := strings.ReplaceAll(e.People, `"`, `\"`)
 		titleEsc := strings.ReplaceAll(e.Title, `"`, `\"`)
-		fmt.Fprintf(w, `{"page":"%s","arg":"%s","people":"%s","time":%d,"title":"%s"}`,
-			e.Page, argEsc, peopleEsc, e.Time, titleEsc)
+		langEsc := strings.ReplaceAll(e.Lang, `"`, `\"`)
+		fmt.Fprintf(w, `{"page":"%s","arg":"%s","people":"%s","time":%d,"title":"%s","lang":"%s"}`,
+			e.Page, argEsc, peopleEsc, e.Time, titleEsc, langEsc)
 	}
 	fmt.Fprint(w, "]")
 }
@@ -145,12 +148,17 @@ func readHistoryLocked() []historyEntry {
 		if len(rec) >= 5 {
 			title = rec[4]
 		}
+		lang := ""
+		if len(rec) >= 6 {
+			lang = rec[5]
+		}
 		entries = append(entries, historyEntry{
 			Page:    rec[0],
 			ArgUUID: rec[1],
 			People:  rec[2],
 			Time:    t,
 			Title:   title,
+			Lang:    lang,
 		})
 	}
 	if len(entries) > 10 {
@@ -169,7 +177,7 @@ func writeHistoryLocked(entries []historyEntry) {
 
 	w := csv.NewWriter(f)
 	for _, e := range entries {
-		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title})
+		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang})
 	}
 	w.Flush()
 }

@@ -135,6 +135,7 @@ var addressBarJS = `
 						var href=window.location.origin+'/index.html?page='+encodeURIComponent(e.page);
 						if(e.arg)href+='&arg='+encodeURIComponent(e.arg);
 						if(e.people)href+='&people='+encodeURIComponent(e.people);
+						if(e.lang)href+='&lang='+encodeURIComponent(e.lang);
 						a.href=href;
 						var label=e.title||e.page;
 						if(!e.title){
@@ -255,6 +256,10 @@ var addressBarJS = `
 		});
 		(function(){
 			var _rs=window.history.replaceState;
+			var _lang=window.__ht_lang||'';
+			if(!_lang){
+				try{var _lu=new URL(window.location.href);_lang=_lu.searchParams.get('lang')||''}catch(e){}
+			}
 			window.history.replaceState=function(){
 				_rs.apply(this,arguments);
 				try{
@@ -264,7 +269,7 @@ var addressBarJS = `
 					var a=u.searchParams.get('arg')||'';
 					var pp=u.searchParams.get('people')||'';
 					setTimeout(function(){
-						try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(document.title||'')})}catch(e2){}
+						try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(document.title||'')+'&lang='+encodeURIComponent(_lang)})}catch(e2){}
 					},800);
 				}catch(e){}
 			};
