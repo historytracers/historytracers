@@ -227,15 +227,7 @@ var addressBarJS = `
 		(function(){
 			var titleEl=document.querySelector('title');
 			if(!titleEl)return;
-			var mo=new MutationObserver(function(){
-				t0.textContent=document.title||l.main;
-				if(window.__ht_pending){
-					var t=document.title||'';
-					try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(window.__ht_pending.page)+'&arg='+encodeURIComponent(window.__ht_pending.arg)+'&people='+encodeURIComponent(window.__ht_pending.people)+'&title='+encodeURIComponent(t)})}catch(e){}
-					window.__ht_pending=null;
-					if(window.__ht_pendingTimer){clearTimeout(window.__ht_pendingTimer);window.__ht_pendingTimer=null}
-				}
-			});
+			var mo=new MutationObserver(function(){t0.textContent=document.title||l.main});
 			mo.observe(titleEl,{childList:true,subtree:true,characterData:true});
 		})();
 		document.body.style.marginTop=BAR_H+'px';
@@ -244,58 +236,22 @@ var addressBarJS = `
 			var a=e.target.closest('a');
 			if(a&&a.target==='_blank'){e.preventDefault();openTab(a.href)}
 		});
-		(function patchLP(){
-			if(typeof window.htLoadPage==='function'&&!window.__htLP){
-				var _hp=window.htLoadPage;
-				window.htLoadPage=function(){
-					var r=_hp.apply(this,arguments);
-					if(arguments[1]==='html'){
-						var p=arguments[0],a=arguments[2]||'',pp='';
-						if(p==='families'){
-							try{var u=new URLSearchParams(window.location.search);if(u.has('people'))pp=u.get('people')}catch(e){}
-							if(!pp)pp=a;
-						}
-						window.__ht_pending={page:p,arg:a,people:pp};
-						if(window.__ht_pendingTimer)clearTimeout(window.__ht_pendingTimer);
-						window.__ht_pendingTimer=setTimeout(function(){
-							if(window.__ht_pending){
-								var t=document.title||'';
-								try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(window.__ht_pending.page)+'&arg='+encodeURIComponent(window.__ht_pending.arg)+'&people='+encodeURIComponent(window.__ht_pending.people)+'&title='+encodeURIComponent(t)})}catch(e){}
-								window.__ht_pending=null;
-							}
-						},2000);
-					}
-					return r;
-				};
-				window.__htLP=true;
-			}else if(!window.__htLP){setTimeout(patchLP,10)}
+		(function(){
+			var _rs=window.history.replaceState;
+			window.history.replaceState=function(){
+				_rs.apply(this,arguments);
+				try{
+					var u=new URL(arguments[2],window.location.origin);
+					var p=u.searchParams.get('page');
+					if(!p)return;
+					var a=u.searchParams.get('arg')||'';
+					var pp=u.searchParams.get('people')||'';
+					setTimeout(function(){
+						try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(document.title||'')})}catch(e2){}
+					},800);
+				}catch(e){}
+			};
 		})();
-		setInterval(function(){
-			if(typeof window.htLoadPage==='function'&&!window.__htLP){
-				var _hp=window.htLoadPage;
-				window.htLoadPage=function(){
-					var r=_hp.apply(this,arguments);
-					if(arguments[1]==='html'){
-						var p=arguments[0],a=arguments[2]||'',pp='';
-						if(p==='families'){
-							try{var u=new URLSearchParams(window.location.search);if(u.has('people'))pp=u.get('people')}catch(e){}
-							if(!pp)pp=a;
-						}
-						window.__ht_pending={page:p,arg:a,people:pp};
-						if(window.__ht_pendingTimer)clearTimeout(window.__ht_pendingTimer);
-						window.__ht_pendingTimer=setTimeout(function(){
-							if(window.__ht_pending){
-								var t=document.title||'';
-								try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(window.__ht_pending.page)+'&arg='+encodeURIComponent(window.__ht_pending.arg)+'&people='+encodeURIComponent(window.__ht_pending.people)+'&title='+encodeURIComponent(t)})}catch(e){}
-								window.__ht_pending=null;
-							}
-						},2000);
-					}
-					return r;
-				};
-				window.__htLP=true;
-			}
-		},200);
 	}
 	addBar();
 })();
