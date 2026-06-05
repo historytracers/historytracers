@@ -172,7 +172,7 @@ var addressBarJS = `
 					exLink.style.cssText='display:block;padding:6px 16px;text-decoration:none;color:#333;font:13px/1.4 sans-serif;cursor:pointer;';
 					exLink.onmouseover=function(){this.style.background='#e8e8e8'};
 					exLink.onmouseout=function(){this.style.background='transparent'};
-					exLink.onclick=function(e){e.preventDefault();e.stopPropagation();openTab(window.location.origin+'/api/history/page')};
+					exLink.onclick=function(e){e.preventDefault();e.stopPropagation();histSub.style.display='none';menuDrop.style.display='none';openTab(window.location.origin+'/api/history/page')};
 					histSub.appendChild(exLink);
 				}).catch(function(){});
 			}
