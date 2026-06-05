@@ -42,17 +42,6 @@ var addressBarJS = `
 		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)'};
 		L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
-		function recURL(url){
-			try{
-				var u=new URL(url);
-				var p=u.searchParams.get('page');
-				if(!p)return;
-				var a=u.searchParams.get('arg')||'';
-				var pp=u.searchParams.get('people')||'';
-				var body='page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp);
-				fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body});
-			}catch(e){}
-		}
 		var s=document.createElement('style');
 		s.id='__ht_style';
 		s.textContent='.top-bar-right{top:'+(BAR_H+4)+'px!important}.top-bar-left{margin-top:'+(BAR_H+4)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+4)+'px!important}';
@@ -257,8 +246,6 @@ var addressBarJS = `
 				window.__htLP=true;
 			}else if(!window.__htLP){setTimeout(patchLP,10)}
 		})();
-		var lastURL=window.location.href;
-		recURL(lastURL);
 		setInterval(function(){
 			if(typeof window.htLoadPage==='function'&&!window.__htLP){
 				var _hp=window.htLoadPage;
@@ -275,16 +262,6 @@ var addressBarJS = `
 					return r;
 				};
 				window.__htLP=true;
-			}
-			var e=document.getElementById('__ht_url');
-			if(!e)return;
-			var cur=window.location.href;
-			if(active==0){
-				e.value=cur;
-				if(cur!==lastURL){lastURL=cur;recURL(cur)}
-			}else if(tabs[active]){
-				e.value=tabs[active].url;
-				if(tabs[active].url!==lastURL){lastURL=tabs[active].url;recURL(tabs[active].url)}
 			}
 		},200);
 	}
