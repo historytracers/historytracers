@@ -222,6 +222,12 @@ var addressBarJS = `
 		t0.onclick=function(){selTab(0)};
 		tb.appendChild(t0);
 		tabs[0].el=t0;
+		(function(){
+			var titleEl=document.querySelector('title');
+			if(!titleEl)return;
+			var mo=new MutationObserver(function(){t0.textContent=document.title||l.main});
+			mo.observe(titleEl,{childList:true,subtree:true,characterData:true});
+		})();
 		document.body.style.marginTop=BAR_H+'px';
 		window.open=function(url){return openTab(url)};
 		document.addEventListener('click',function(e){
