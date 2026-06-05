@@ -129,6 +129,8 @@ var addressBarJS = `
 					}
 					for(var i=0;i<entries.length&&i<10;i++){
 						var e=entries[i];
+						var div=document.createElement('div');
+						div.style.cssText='padding:0 16px;';
 						var a=document.createElement('a');
 						var href=window.location.origin+'/index.html?page='+encodeURIComponent(e.page);
 						if(e.arg)href+='&arg='+encodeURIComponent(e.arg);
@@ -140,10 +142,17 @@ var addressBarJS = `
 							else if(e.people){label=e.people.substring(0,24);if(e.people.length>24)label+='\u2026'}
 						}
 						a.textContent=label;
-						a.style.cssText='display:block;padding:4px 16px;text-decoration:none;color:#333;font:13px/1.4 sans-serif;cursor:pointer;overflow:hidden;text-overflow:ellipsis;';
+						a.style.cssText='display:block;text-decoration:none;color:#333;font:13px/1.4 sans-serif;cursor:pointer;overflow:hidden;text-overflow:ellipsis;';
 						a.onmouseover=function(){this.style.background='#e8e8e8'};
 						a.onmouseout=function(){this.style.background='transparent'};
-						histSub.appendChild(a);
+						div.appendChild(a);
+						if(e.time){
+							var ts=document.createElement('span');
+							try{ts.textContent=new Date(e.time*1000).toLocaleString()}catch(ex){ts.textContent=''}
+							ts.style.cssText='display:block;font:10px/1.2 sans-serif;color:#999;padding:0 0 2px 0;';
+							div.appendChild(ts);
+						}
+						histSub.appendChild(div);
 					}
 				}).catch(function(){});
 			}
