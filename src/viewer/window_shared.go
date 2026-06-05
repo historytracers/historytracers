@@ -102,49 +102,57 @@ var addressBarJS = `
 		var historyItem=document.createElement('div');
 		historyItem.style.cssText='position:relative;display:block;padding:6px 16px;text-decoration:none;color:#333;font:14px/1.4 sans-serif;cursor:pointer;';
 		historyItem.textContent=l.historyTitle+'\u25B6';
-		historyItem.onmouseover=function(){
-			this.style.background='#e8e8e8';
-			loadHistorySub();
-		};
-		historyItem.onmouseout=function(){this.style.background='transparent'};
 		menuDrop.appendChild(historyItem);
 		var histSub=document.createElement('div');
 		histSub.id='__ht_hist_sub';
 		histSub.style.cssText='position:absolute;display:none;right:100%;left:auto;top:0;background:#fff;border:1px solid #999;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:2147483647;min-width:160px;padding:4px 0;white-space:nowrap;';
 		historyItem.appendChild(histSub);
-		historyItem.onmouseenter=function(){histSub.style.display='block'};
-		historyItem.onmouseleave=function(){setTimeout(function(){if(!histSub.matches(':hover'))histSub.style.display='none'},100)};
-		histSub.onmouseleave=function(){this.style.display='none'};
-		function loadHistorySub(){
-			fetch('/api/history/list').then(function(r){return r.json()}).then(function(entries){
-				histSub.innerHTML='';
-				if(!entries||entries.length===0){
-					var e=document.createElement('div');
-					e.style.cssText='padding:6px 16px;color:#999;font:13px/1.4 sans-serif;font-style:italic;';
-					e.textContent=l.emptyTitle;
-					histSub.appendChild(e);
-					return;
-				}
-				for(var i=0;i<entries.length&&i<10;i++){
-					var e=entries[i];
-					var a=document.createElement('a');
-					var href='index.html?page='+encodeURIComponent(e.page);
-					if(e.arg)href+='&arg='+encodeURIComponent(e.arg);
-					if(e.people)href+='&people='+encodeURIComponent(e.people);
-					a.href=href;
-					var label=e.title||e.page;
-					if(!e.title){
-						if(e.arg&&e.page!=='families'){label=e.arg.substring(0,24);if(e.arg.length>24)label+='\u2026'}
-						else if(e.people){label=e.people.substring(0,24);if(e.people.length>24)label+='\u2026'}
+		histSub.onclick=function(e){
+			var link=e.target.closest('a');
+			if(!link)return;
+			e.preventDefault();
+			openTab(link.href);
+		};
+		historyItem.onmouseenter=function(){
+			this.style.background='#e8e8e8';
+			histSub.style.display='block';
+			if(!histSub.dataset.loaded){
+				histSub.dataset.loaded='1';
+				fetch('/api/history/list').then(function(r){return r.json()}).then(function(entries){
+					histSub.innerHTML='';
+					if(!entries||entries.length===0){
+						var e=document.createElement('div');
+						e.style.cssText='padding:6px 16px;color:#999;font:13px/1.4 sans-serif;font-style:italic;';
+						e.textContent=l.emptyTitle;
+						histSub.appendChild(e);
+						return;
 					}
-					a.textContent=label;
-					a.style.cssText='display:block;padding:4px 16px;text-decoration:none;color:#333;font:13px/1.4 sans-serif;cursor:pointer;overflow:hidden;text-overflow:ellipsis;';
-					a.onmouseover=function(){this.style.background='#e8e8e8'};
-					a.onmouseout=function(){this.style.background='transparent'};
-					histSub.appendChild(a);
-				}
-			}).catch(function(){});
-		}
+					for(var i=0;i<entries.length&&i<10;i++){
+						var e=entries[i];
+						var a=document.createElement('a');
+						var href=window.location.origin+'/index.html?page='+encodeURIComponent(e.page);
+						if(e.arg)href+='&arg='+encodeURIComponent(e.arg);
+						if(e.people)href+='&people='+encodeURIComponent(e.people);
+						a.href=href;
+						var label=e.title||e.page;
+						if(!e.title){
+							if(e.arg&&e.page!=='families'){label=e.arg.substring(0,24);if(e.arg.length>24)label+='\u2026'}
+							else if(e.people){label=e.people.substring(0,24);if(e.people.length>24)label+='\u2026'}
+						}
+						a.textContent=label;
+						a.style.cssText='display:block;padding:4px 16px;text-decoration:none;color:#333;font:13px/1.4 sans-serif;cursor:pointer;overflow:hidden;text-overflow:ellipsis;';
+						a.onmouseover=function(){this.style.background='#e8e8e8'};
+						a.onmouseout=function(){this.style.background='transparent'};
+						histSub.appendChild(a);
+					}
+				}).catch(function(){});
+			}
+		};
+		historyItem.onmouseleave=function(){
+			this.style.background='transparent';
+			setTimeout(function(){if(!histSub.matches(':hover'))histSub.style.display='none'},100);
+		};
+		histSub.onmouseleave=function(){this.style.display='none'};
 		var sep3=document.createElement('div');
 		sep3.style.cssText='height:1px;background:#ddd;margin:4px 0;';
 		menuDrop.appendChild(sep3);
