@@ -8,9 +8,8 @@ function htUpdateYupana6d9857d3(lv, rv)
     local.rvalues = htFillYupanaDecimalValues('#yupana0', lv, 2, 'red_dot_right_up');
     local.lvalues = htFillYupanaDecimalValues('#yupana0', rv, 2, 'blue_dot_right_bottom');
 
-    var prefix = htGetImgSrcPrefix();
-    $("#rightHandImg3").attr("src", prefix+"images/HistoryTracers/"+lv+"Right_Hand_Small.png");
-    $("#leftHandImg3").attr("src", prefix+"images/HistoryTracers/"+rv+"Left_Hand_Small.png");
+    $("#rightHandImg3").attr("src", local.prefix+"images/HistoryTracers/"+lv+"Right_Hand_Small.png");
+    $("#leftHandImg3").attr("src", local.prefix+"images/HistoryTracers/"+rv+"Left_Hand_Small.png");
 }
 
 function htUpdateValues6d9857d3(left, right) {
@@ -22,9 +21,8 @@ function htUpdateValues6d9857d3(left, right) {
         right = 5;
     }
 
-    var prefix = htGetImgSrcPrefix();
-    $("#rightHandImg3").attr("src", prefix+"images/HistoryTracers/"+right+"Right_Hand_Small.png");
-    $("#leftHandImg3").attr("src", prefix+"images/HistoryTracers/"+left+"Left_Hand_Small.png");
+    $("#rightHandImg3").attr("src", local.prefix+"images/HistoryTracers/"+right+"Right_Hand_Small.png");
+    $("#leftHandImg3").attr("src", local.prefix+"images/HistoryTracers/"+left+"Left_Hand_Small.png");
 }
 
 function htSetValues6d9857d3() {
@@ -63,6 +61,13 @@ function htResetValues6d9857d3() {
     }
 }
 
+function htSetComplement(leftImgId, leftTxt, rightImgId, rightTxt) {
+    var val = 5 - local.currentLeft;
+    $(leftImgId).attr("src", local.prefix+"images/HistoryTracers/"+local.currentLeft+"Left_Hand_Small.png");
+    $(leftTxt).html(local.currentLeft);
+    $(rightImgId).attr("src", local.prefix+"images/HistoryTracers/"+val+"Left_Hand_Small.png");
+    $(rightTxt).html(val);
+}
 
 function htLoadContent() {
     htWriteNavigation();
@@ -71,8 +76,13 @@ function htLoadContent() {
         "rvalues": [],
         "lvalues": [],
         "left6d9857d3": 0,
-        "right6d9857d3": 0
+        "right6d9857d3": 0,
+        "currentLeft": 5,
+        "prefix": htGetImgSrcPrefix()
     };
+
+    $("#rightHandImg").attr("src", local.prefix+"images/HistoryTracers/0Right_Hand_Small.png");
+    $("#leftHandImg").attr("src", local.prefix+"images/HistoryTracers/5Left_Hand_Small.png");
 
     $("#htChinaZhongguo").html(keywords[137]);
     $("#htJapanNipponNihonKoku").html(keywords[139]);
@@ -95,6 +105,24 @@ function htLoadContent() {
     $("#traineeDown3").on("click", function() {
         htResetValues6d9857d3();
         htUpdateYupana6d9857d3(local.left6d9857d3, local.right6d9857d3);
+    });
+
+    $("#traineeUp1").on("click", function() {
+        if (local.currentLeft == 5) {
+            return;
+        }
+
+        local.currentLeft++;
+        htSetComplement("#leftHandImg", "#txtValue0", "#rightHandImg", "#txtValue1");
+    });
+
+    $("#traineeDown1").on("click", function() {
+        if (local.currentLeft == 0) {
+            return;
+        }
+
+        local.currentLeft--;
+        htSetComplement("#leftHandImg", "#txtValue0", "#rightHandImg", "#txtValue1");
     });
 
     return false;
