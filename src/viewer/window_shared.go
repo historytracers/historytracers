@@ -132,9 +132,11 @@ var addressBarJS = `
 					if(e.arg)href+='&arg='+encodeURIComponent(e.arg);
 					if(e.people)href+='&people='+encodeURIComponent(e.people);
 					a.href=href;
-					var label=e.page;
-					if(e.arg&&e.page!=='families'){label=e.arg.substring(0,24);if(e.arg.length>24)label+='\u2026'}
-					else if(e.people){label=e.people.substring(0,24);if(e.people.length>24)label+='\u2026'}
+					var label=e.title||e.page;
+					if(!e.title){
+						if(e.arg&&e.page!=='families'){label=e.arg.substring(0,24);if(e.arg.length>24)label+='\u2026'}
+						else if(e.people){label=e.people.substring(0,24);if(e.people.length>24)label+='\u2026'}
+					}
 					a.textContent=label;
 					a.style.cssText='display:block;padding:4px 16px;text-decoration:none;color:#333;font:13px/1.4 sans-serif;cursor:pointer;overflow:hidden;text-overflow:ellipsis;';
 					a.onmouseover=function(){this.style.background='#e8e8e8'};
@@ -225,7 +227,15 @@ var addressBarJS = `
 		(function(){
 			var titleEl=document.querySelector('title');
 			if(!titleEl)return;
-			var mo=new MutationObserver(function(){t0.textContent=document.title||l.main});
+			var mo=new MutationObserver(function(){
+				t0.textContent=document.title||l.main;
+				if(window.__ht_pending){
+					var t=document.title||'';
+					try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(window.__ht_pending.page)+'&arg='+encodeURIComponent(window.__ht_pending.arg)+'&people='+encodeURIComponent(window.__ht_pending.people)+'&title='+encodeURIComponent(t)})}catch(e){}
+					window.__ht_pending=null;
+					if(window.__ht_pendingTimer){clearTimeout(window.__ht_pendingTimer);window.__ht_pendingTimer=null}
+				}
+			});
 			mo.observe(titleEl,{childList:true,subtree:true,characterData:true});
 		})();
 		document.body.style.marginTop=BAR_H+'px';
@@ -245,7 +255,15 @@ var addressBarJS = `
 							try{var u=new URLSearchParams(window.location.search);if(u.has('people'))pp=u.get('people')}catch(e){}
 							if(!pp)pp=a;
 						}
-						try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)})}catch(e){}
+						window.__ht_pending={page:p,arg:a,people:pp};
+						if(window.__ht_pendingTimer)clearTimeout(window.__ht_pendingTimer);
+						window.__ht_pendingTimer=setTimeout(function(){
+							if(window.__ht_pending){
+								var t=document.title||'';
+								try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(window.__ht_pending.page)+'&arg='+encodeURIComponent(window.__ht_pending.arg)+'&people='+encodeURIComponent(window.__ht_pending.people)+'&title='+encodeURIComponent(t)})}catch(e){}
+								window.__ht_pending=null;
+							}
+						},2000);
 					}
 					return r;
 				};
@@ -263,7 +281,15 @@ var addressBarJS = `
 							try{var u=new URLSearchParams(window.location.search);if(u.has('people'))pp=u.get('people')}catch(e){}
 							if(!pp)pp=a;
 						}
-						try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)})}catch(e){}
+						window.__ht_pending={page:p,arg:a,people:pp};
+						if(window.__ht_pendingTimer)clearTimeout(window.__ht_pendingTimer);
+						window.__ht_pendingTimer=setTimeout(function(){
+							if(window.__ht_pending){
+								var t=document.title||'';
+								try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(window.__ht_pending.page)+'&arg='+encodeURIComponent(window.__ht_pending.arg)+'&people='+encodeURIComponent(window.__ht_pending.people)+'&title='+encodeURIComponent(t)})}catch(e){}
+								window.__ht_pending=null;
+							}
+						},2000);
 					}
 					return r;
 				};

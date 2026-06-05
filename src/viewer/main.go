@@ -27,6 +27,7 @@ type historyEntry struct {
 	ArgUUID string `json:"arg"`
 	People  string `json:"people"`
 	Time    int64  `json:"time"`
+	Title   string `json:"title"`
 }
 
 var (
@@ -74,13 +75,14 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	arg := r.FormValue("arg")
 	people := r.FormValue("people")
+	title := r.FormValue("title")
 	now := time.Now().Unix()
 
 	historyMu.Lock()
 	defer historyMu.Unlock()
 
 	entries := readHistoryLocked()
-	entries = append(entries, historyEntry{Page: page, ArgUUID: arg, People: people, Time: now})
+	entries = append(entries, historyEntry{Page: page, ArgUUID: arg, People: people, Time: now, Title: title})
 	if len(entries) > 10 {
 		entries = entries[len(entries)-10:]
 	}
@@ -108,8 +110,9 @@ func historyListHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		argEsc := strings.ReplaceAll(e.ArgUUID, `"`, `\"`)
 		peopleEsc := strings.ReplaceAll(e.People, `"`, `\"`)
-		fmt.Fprintf(w, `{"page":"%s","arg":"%s","people":"%s","time":%d}`,
-			e.Page, argEsc, peopleEsc, e.Time)
+		titleEsc := strings.ReplaceAll(e.Title, `"`, `\"`)
+		fmt.Fprintf(w, `{"page":"%s","arg":"%s","people":"%s","time":%d,"title":"%s"}`,
+			e.Page, argEsc, peopleEsc, e.Time, titleEsc)
 	}
 	fmt.Fprint(w, "]")
 }
@@ -138,11 +141,16 @@ func readHistoryLocked() []historyEntry {
 		}
 		var t int64
 		fmt.Sscanf(rec[3], "%d", &t)
+		title := ""
+		if len(rec) >= 5 {
+			title = rec[4]
+		}
 		entries = append(entries, historyEntry{
 			Page:    rec[0],
 			ArgUUID: rec[1],
 			People:  rec[2],
 			Time:    t,
+			Title:   title,
 		})
 	}
 	if len(entries) > 10 {
@@ -161,7 +169,7 @@ func writeHistoryLocked(entries []historyEntry) {
 
 	w := csv.NewWriter(f)
 	for _, e := range entries {
-		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time)})
+		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title})
 	}
 	w.Flush()
 }
