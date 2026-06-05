@@ -252,6 +252,18 @@ var addressBarJS = `
 			f.style.display='none';
 			document.documentElement.appendChild(f);
 			tabs[idx]={type:'iframe',el:t,iframe:f,url:url};
+			f.addEventListener('load',function(){
+				try{
+					var idoc=f.contentDocument||f.contentWindow.document;
+					if(!idoc)return;
+					var titleEl=idoc.querySelector('title');
+					if(!titleEl){sp.textContent=new URL(f.src).pathname.split('/').pop()||l.tab;return}
+					var update=function(){sp.textContent=idoc.title||new URL(f.src).pathname.split('/').pop()||l.tab};
+					update();
+					var mo=new MutationObserver(update);
+					mo.observe(titleEl,{childList:true,subtree:true,characterData:true});
+				}catch(e){}
+			});
 			selTab(idx);
 			return{closed:false,close:function(){closeTab(idx)}};
 		}
