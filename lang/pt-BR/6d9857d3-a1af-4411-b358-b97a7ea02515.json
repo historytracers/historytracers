@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780599102"
+      "1780700697"
    ],
    "authors": [
       ""
@@ -222,7 +222,7 @@
          "id": "SECTION_abacus",
          "text": [
             {
-               "text": "### Complemento\n\nA primeira etapa para realizarmos cálculos de números que terão resultados maiores que 10, é entender o conceito de complemento, que por definição, é o número que falta para chegar a outro número.\n\nComo nos ábacos, podemos representar por colunas apenas dez números - valores entre 0 a 9 -, nosso principal objetivo será entender qual valor complementa até chegar a 10.\n\n#### Uma mão\n\nPara poder deixar mais claro, iremos fazer o complemento primeiro de uma única mão - ou seja de cinco-, dessa forma, poderemos utilizar a outra mão para poder visualizar melhor.\n\nNa **Tabela 2**, utilize as setas laterais para poder definir o número e o dedo da mão esquerda. Quando isso é feito, observe que nas coluna complemento e na mão direita, aparecerão o valor complementarde que ao ser somado ao número (ou à mão esquerda), teremos resultado 5.",
+               "text": "### Complemento\n\nA primeira etapa para realizarmos cálculos com números cujos resultados serão maiores que 10 é compreender o conceito de complemento, que, por definição, é o número que falta para atingir outro número.\n\n#### O complemento de 5\n\nComo primeiro passo, iremos trabalhar o complemento de valores em uma única mão, ou seja, o complemento de 5. Para tornar esse conceito mais claro, utilizaremos nossas mãos como recurso visual.\n\nNa **Tabela 2**, utilize as setas laterais para definir o número representado pelos dedos da mão esquerda. Observe que, à medida que os números são alterados na mão esquerda, aparecerá, nas colunas **Complemento** e **Mão direita**, o valor que, ao ser somado ao número representado na mão esquerda, resulta em 5.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -231,7 +231,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th>Número</th><th>Mão esquerda</th><th>Complemento</th><th>Mão Direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"txtValue0\" >5</span></td> <td id=\"tc2f1\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\"  /></td> <td id=\"tc3f1\"><span class=\"text_to_paint\" id=\"txtValue1\" >0</span> </td> <td id=\"tc4f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\"  /> </td><td id=\"tc5f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp1\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown1\"></td></tr></table></p><p class=\"desc\"><b>Tabela 2</b>: Complemento do número 5. CSS inspirado no código de <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a>.</p>",
+               "text": "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th>Número</th><th>Mão esquerda</th><th>Complemento</th><th>Mão Direita</th><th>Setas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"txtValue0\" >5</span></td> <td id=\"tc2f1\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\"  /></td> <td id=\"tc3f1\"><span class=\"text_to_paint\" id=\"txtValue1\" >0</span> </td> <td id=\"tc4f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\"  /> </td><td id=\"tc5f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp1\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown1\"></td></tr></table></p><p class=\"desc\"><b>Tabela 2</b>: Complemento do número 5. CSS inspirado no código de <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a>.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -240,25 +240,39 @@
                "PostMention": ""
             },
             {
-               "text": "Ao trabalhar com a **Tabela 2**, você poderá observar que em nenhum momento tivemos nas mãos a mesma quantidade de dedos, mas sempre ao somá-los obtivemos o resultado desejado, cinco.\n\n### Duas mãos\n\n#### Complemento nos ábacos\n\nPara falarmos sobre o complemento do número 10, iremos utiilizar o ábaco manual feito em uma prática anterior, entretanto, utilizaremos apenas duas colunas ao invés de 3 (<htcite0>)",
-               "source": [
-                  {
-                     "type": 1,
-                     "uuid": "d7a249ed-cc2d-40e0-adec-ca3e9738e5d3",
-                     "text": "History Tracers Team",
-                     "page": "Ordens maiores com Soroban e Suanpan (算盤)",
-                     "date_time": {
-                        "type": "gregory",
-                        "year": "2024",
-                        "month": "-1",
-                        "day": "-1"
-                     }
-                  }
-               ],
+               "text": "#### O complemento de 10\n\nPara visualizarmos o complemento de 10, precisamos utilizar as duas mãos. Antes disso, vejamos os cálculos possíveis para atingir o resultado 10:",
+               "source": null,
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>valor</mi> <mo>+</mo> <mi>complemento</mi> <mo>=</mo> <mi>10</mi> </math><br />  <math display=\"block\"><mi>10</mi> <mo>+</mo> <mi>0</mi> <mo>=</mo> <mi>10</mi> </math><br />  <math display=\"block\"><mi>9</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>8</mi> <mo>+</mo> <mi>2</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>7</mi> <mo>+</mo> <mi>3</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>6</mi> <mo>+</mo> <mi>4</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>4</mi> <mo>+</mo> <mi>6</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>3</mi> <mo>+</mo> <mi>7</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>2</mi> <mo>+</mo> <mi>8</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>1</mi> <mo>+</mo> <mi>9</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>0</mi> <mo>+</mo> <mi>10</mi> <mo>=</mo> <mi>10</mi> </math><br /></p><p class=\"desc\"><b>Cálculo 1</b>: Complementos de 10.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Agora, utilize as setas da **Tabela 3** para abaixar os dedos e visualizar o complemento, apresentado em formato numérico. Esse complemento, quando somado à quantidade de dedos levantados, terá como resultado 10.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana2\" class=\"tawapukllay\"><th>Mão esquerda</th><th>Mão Direita</th><th>Complemento</th><th>Setas</th></tr> <td id=\"tc2f1\"><img id=\"leftHandImg2\" onclick=\"htImageZoom('leftHandImg2', '0%')\"  /></td> <td id=\"tc4f1\"><img id=\"rightHandImg2\" onclick=\"htImageZoom('rightHandImg2', '0%')\"  /> </td> <td id=\"tc3f1\"><span class=\"text_to_paint\" id=\"txtValue2\" >0</span> </td> <td id=\"tc5f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp2\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown2\"></td></tr></table></p><p class=\"desc\"><b>Tabela 3</b>: Complemento do número 10. CSS inspirado no código de <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a>.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]

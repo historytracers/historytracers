@@ -61,12 +61,26 @@ function htResetValues6d9857d3() {
     }
 }
 
-function htSetComplement(leftImgId, leftTxt, rightImgId, rightTxt) {
+function htSetComplement5(leftImgId, leftTxt, rightImgId, rightTxt) {
     var val = 5 - local.currentLeft;
     $(leftImgId).attr("src", local.prefix+"images/HistoryTracers/"+local.currentLeft+"Left_Hand_Small.png");
     $(leftTxt).html(local.currentLeft);
     $(rightImgId).attr("src", local.prefix+"images/HistoryTracers/"+val+"Left_Hand_Small.png");
     $(rightTxt).html(val);
+}
+
+function htSetComplement10(leftImgId, rightImgId, complementTxt) {
+    let right = 10 - local.totalComplement;
+    let left = 0;
+
+    if (right > 5) {
+        left = right - 5;
+        right = 5;
+    } 
+
+    $(leftImgId).attr("src", local.prefix+"images/HistoryTracers/"+right+"Left_Hand_Small.png");
+    $(rightImgId).attr("src", local.prefix+"images/HistoryTracers/"+left+"Left_Hand_Small.png");
+    $(complementTxt).html(local.totalComplement);
 }
 
 function htLoadContent() {
@@ -78,11 +92,15 @@ function htLoadContent() {
         "left6d9857d3": 0,
         "right6d9857d3": 0,
         "currentLeft": 5,
+        "totalComplement": 0,
         "prefix": htGetImgSrcPrefix()
     };
 
     $("#rightHandImg").attr("src", local.prefix+"images/HistoryTracers/0Right_Hand_Small.png");
     $("#leftHandImg").attr("src", local.prefix+"images/HistoryTracers/5Left_Hand_Small.png");
+
+    $("#rightHandImg2").attr("src", local.prefix+"images/HistoryTracers/5Right_Hand_Small.png");
+    $("#leftHandImg2").attr("src", local.prefix+"images/HistoryTracers/5Left_Hand_Small.png");
 
     $("#htChinaZhongguo").html(keywords[137]);
     $("#htJapanNipponNihonKoku").html(keywords[139]);
@@ -113,7 +131,7 @@ function htLoadContent() {
         }
 
         local.currentLeft++;
-        htSetComplement("#leftHandImg", "#txtValue0", "#rightHandImg", "#txtValue1");
+        htSetComplement5("#leftHandImg", "#txtValue0", "#rightHandImg", "#txtValue1");
     });
 
     $("#traineeDown1").on("click", function() {
@@ -122,7 +140,25 @@ function htLoadContent() {
         }
 
         local.currentLeft--;
-        htSetComplement("#leftHandImg", "#txtValue0", "#rightHandImg", "#txtValue1");
+        htSetComplement5("#leftHandImg", "#txtValue0", "#rightHandImg", "#txtValue1");
+    });
+
+    $("#traineeUp2").on("click", function() {
+        if (local.totalComplement == 10) {
+            return;
+        }
+
+        local.totalComplement++;
+        htSetComplement10("#leftHandImg2", "#rightHandImg2", "#txtValue2");
+    });
+
+    $("#traineeDown2").on("click", function() {
+        if (local.totalComplement == 0) {
+            return;
+        }
+
+        local.totalComplement--;
+        htSetComplement10("#leftHandImg2", "#rightHandImg2", "#txtValue2");
     });
 
     return false;
