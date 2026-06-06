@@ -33,8 +33,10 @@ type historyEntry struct {
 }
 
 var (
-	historyMu   sync.Mutex
-	historyFile string
+	historyMu     sync.Mutex
+	historyFile   string
+	favoritesMu   sync.Mutex
+	favoritesFile string
 )
 
 func initHistory() {
@@ -45,6 +47,16 @@ func initHistory() {
 		return
 	}
 	historyFile = filepath.Join(home, "history.csv")
+}
+
+func initFavorites() {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		log.Printf("Warning: cannot get home directory for favorites: %v", err)
+		favoritesFile = ""
+		return
+	}
+	favoritesFile = filepath.Join(home, "favorites.csv")
 }
 
 func allowedPage(name string) bool {
@@ -182,6 +194,192 @@ function escapeHtml(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</
 </body></html>`, lang, cal)
 }
 
+func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", 405)
+		return
+	}
+	if favoritesFile == "" {
+		http.Error(w, "Favorites not available", 500)
+		return
+	}
+	page := r.FormValue("page")
+	arg := r.FormValue("arg")
+	people := r.FormValue("people")
+	title := r.FormValue("title")
+	lang := r.FormValue("lang")
+	cal := r.FormValue("cal")
+
+	favoritesMu.Lock()
+	defer favoritesMu.Unlock()
+
+	entries := readFavoritesLocked()
+	// Toggle: if exists with same page+arg+people, remove it; otherwise add
+	key := page + "|" + arg + "|" + people
+	found := -1
+	for i, e := range entries {
+		if e.Page+"|"+e.ArgUUID+"|"+e.People == key {
+			found = i
+			break
+		}
+	}
+	if found >= 0 {
+		entries = append(entries[:found], entries[found+1:]...)
+	} else {
+		entries = append(entries, historyEntry{
+			Page: page, ArgUUID: arg, People: people,
+			Time: time.Now().Unix(), Title: title, Lang: lang, Cal: cal,
+		})
+	}
+	writeFavoritesLocked(entries)
+}
+
+func favoritesListHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", 405)
+		return
+	}
+	favoritesMu.Lock()
+	defer favoritesMu.Unlock()
+
+	entries := readFavoritesLocked()
+	// Sort newest first
+	sort.Slice(entries, func(i, j int) bool {
+		return entries[i].Time > entries[j].Time
+	})
+
+	w.Header().Set("Content-Type", "application/json")
+	fmt.Fprint(w, "[")
+	for i, e := range entries {
+		if i > 0 {
+			fmt.Fprint(w, ",")
+		}
+		argEsc := strings.ReplaceAll(e.ArgUUID, `"`, `\"`)
+		peopleEsc := strings.ReplaceAll(e.People, `"`, `\"`)
+		titleEsc := strings.ReplaceAll(e.Title, `"`, `\"`)
+		langEsc := strings.ReplaceAll(e.Lang, `"`, `\"`)
+		calEsc := strings.ReplaceAll(e.Cal, `"`, `\"`)
+		fmt.Fprintf(w, `{"page":"%s","arg":"%s","people":"%s","time":%d,"title":"%s","lang":"%s","cal":"%s"}`,
+			e.Page, argEsc, peopleEsc, e.Time, titleEsc, langEsc, calEsc)
+	}
+	fmt.Fprint(w, "]")
+}
+
+func favoritesPageHandler(w http.ResponseWriter, r *http.Request) {
+	lang := r.URL.Query().Get("lang")
+	cal := r.URL.Query().Get("cal")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprintf(w, `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>History Tracers</title>
+<style>
+body{font-family:verdana,arial,helvetica;margin:20px;background:#f5f5f5}
+h2{color:#333}
+table{border-collapse:collapse;width:100%%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid #ddd;font-size:13px}
+th{background:#555;color:#fff}
+tr:hover{background:#f0f0f0}
+a{color:#06c;text-decoration:none}
+a:hover{text-decoration:underline}
+.empty{color:#999;font-style:italic;padding:20px}
+</style></head><body>
+<h2 id="title"></h2>
+<div id="favs"></div>
+<script>
+var loc=`+"`"+`%s`+"`"+`||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
+var cal=`+"`"+`%s`+"`"+`||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
+var L={};
+L['pt-BR']={title:'Historiador — Favoritos',empty:'(vazio)',err:'Erro ao carregar favoritos.',num:'#',page:'P\u00e1gina',titleCol:'T\u00edtulo',langCol:'Idioma',dtCol:'Data/Hora'};
+L['pt']=L['pt-BR'];
+L['es-ES']={title:'History Tracers — Favoritos',empty:'(vac\u00edo)',err:'Error al cargar favoritos.',num:'#',page:'P\u00e1gina',titleCol:'T\u00edtulo',langCol:'Idioma',dtCol:'Fecha/Hora'};
+L['es']=L['es-ES'];
+L['en-US']={title:'History Tracers — Favorites',empty:'(empty)',err:'Error loading favorites.',num:'#',page:'Page',titleCol:'Title',langCol:'Language',dtCol:'Date/Time'};
+L['en']=L['en-US'];
+var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
+document.getElementById('title').textContent=l.title;
+fetch('/api/favorites/list').then(function(r){return r.json()}).then(function(entries){
+	var h=document.getElementById('favs');
+	if(!entries||entries.length===0){h.innerHTML='<p class="empty">'+l.empty+'</p>';return}
+	var t='<table><tr><th>'+l.num+'</th><th>'+l.page+'</th><th>'+l.titleCol+'</th><th>'+l.langCol+'</th><th>'+l.dtCol+'</th></tr>';
+	for(var i=0;i<entries.length;i++){
+		var e=entries[i];
+		var href=window.location.origin+'/index.html?page='+encodeURIComponent(e.page);
+		if(e.arg)href+='&arg='+encodeURIComponent(e.arg);
+		if(e.people)href+='&people='+encodeURIComponent(e.people);
+		if(e.lang)href+='&lang='+encodeURIComponent(e.lang);
+		if(e.cal)href+='&cal='+encodeURIComponent(e.cal);
+		var label=e.title||e.page;
+		if(!e.title){
+			if(e.arg&&e.page!=='families'){label=e.arg.substring(0,32);if(e.arg.length>32)label+='\u2026'}
+			else if(e.people){label=e.people.substring(0,32);if(e.people.length>32)label+='\u2026'}
+		}
+		var dt='';
+		try{dt=parent.htConvertDate(cal,loc,e.time)}catch(ex){try{dt=new Date(e.time*1000).toLocaleString(loc)}catch(ex2){dt=''}}
+		t+='<tr><td>'+(i+1)+'</td><td>'+escapeHtml(e.page)+'</td><td><a href="'+escapeHtml(href)+'" onclick="event.preventDefault();(parent.open||window.open)(this.href)">'+escapeHtml(label)+'</a></td><td>'+(e.lang||'-')+'</td><td>'+escapeHtml(dt)+'</td></tr>';
+	}
+	t+='</table>';
+	h.innerHTML=t;
+}).catch(function(){document.getElementById('favs').innerHTML='<p class="empty">'+l.err+'</p>'});
+function escapeHtml(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+</script>
+</body></html>`, lang, cal)
+}
+
+func readFavoritesLocked() []historyEntry {
+	f, err := os.Open(favoritesFile)
+	if err != nil {
+		return nil
+	}
+	defer f.Close()
+
+	rd := csv.NewReader(f)
+	records, err := rd.ReadAll()
+	if err != nil {
+		log.Printf("Warning: corrupt favorites.csv: %v", err)
+		return nil
+	}
+
+	var entries []historyEntry
+	for _, rec := range records {
+		if len(rec) < 4 {
+			continue
+		}
+		var t int64
+		fmt.Sscanf(rec[3], "%d", &t)
+		title := ""
+		if len(rec) >= 5 {
+			title = rec[4]
+		}
+		lang := ""
+		if len(rec) >= 6 {
+			lang = rec[5]
+		}
+		cal := ""
+		if len(rec) >= 7 {
+			cal = rec[6]
+		}
+		entries = append(entries, historyEntry{
+			Page: rec[0], ArgUUID: rec[1], People: rec[2],
+			Time: t, Title: title, Lang: lang, Cal: cal,
+		})
+	}
+	return entries
+}
+
+func writeFavoritesLocked(entries []historyEntry) {
+	f, err := os.Create(favoritesFile)
+	if err != nil {
+		log.Printf("Warning: cannot write favorites.csv: %v", err)
+		return
+	}
+	defer f.Close()
+
+	w := csv.NewWriter(f)
+	for _, e := range entries {
+		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang, e.Cal})
+	}
+	w.Flush()
+}
+
 func readHistoryLocked() []historyEntry {
 	f, err := os.Open(historyFile)
 	if err != nil {
@@ -301,11 +499,15 @@ func main() {
 	}
 
 	initHistory()
+	initFavorites()
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/history/add", historyAddHandler)
 	mux.HandleFunc("/api/history/list", historyListHandler)
 	mux.HandleFunc("/api/history/page", historyPageHandler)
+	mux.HandleFunc("/api/favorites/add", favoritesAddHandler)
+	mux.HandleFunc("/api/favorites/list", favoritesListHandler)
+	mux.HandleFunc("/api/favorites/page", favoritesPageHandler)
 	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))
 
 	srv = &http.Server{Addr: addr, Handler: mux}
