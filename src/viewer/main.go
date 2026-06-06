@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/csv"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"io"
@@ -62,6 +63,123 @@ func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	exec.Command(cmd, args...).Start()
 	w.WriteHeader(http.StatusNoContent)
+}
+
+type devEntry struct {
+	Type     string `json:"type"`
+	Message  string `json:"message"`
+	URL      string `json:"url"`
+	Method   string `json:"method"`
+	Status   int    `json:"status"`
+	Duration int64  `json:"duration"`
+	Time     int64  `json:"time"`
+}
+
+var (
+	devLog []devEntry
+	devMu  sync.Mutex
+	devMax = 500
+)
+
+func devLogHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodPost:
+		entry := devEntry{
+			Type:     r.FormValue("type"),
+			Message:  r.FormValue("message"),
+			URL:      r.FormValue("url"),
+			Method:   r.FormValue("method"),
+			Duration: parseInt64(r.FormValue("duration")),
+			Time:     parseInt64(r.FormValue("time")),
+		}
+		if s := r.FormValue("status"); s != "" {
+			fmt.Sscanf(s, "%d", &entry.Status)
+		}
+		if entry.Time == 0 {
+			entry.Time = time.Now().UnixMilli()
+		}
+		devMu.Lock()
+		devLog = append(devLog, entry)
+		if len(devLog) > devMax {
+			devLog = devLog[len(devLog)-devMax:]
+		}
+		devMu.Unlock()
+		w.WriteHeader(http.StatusNoContent)
+
+	case http.MethodGet:
+		devMu.Lock()
+		entries := make([]devEntry, len(devLog))
+		copy(entries, devLog)
+		devMu.Unlock()
+
+		// Newest first
+		for i, j := 0, len(entries)-1; i < j; i, j = i+1, j-1 {
+			entries[i], entries[j] = entries[j], entries[i]
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		enc := json.NewEncoder(w)
+		enc.Encode(entries)
+
+	case http.MethodDelete:
+		devMu.Lock()
+		devLog = nil
+		devMu.Unlock()
+		w.WriteHeader(http.StatusNoContent)
+
+	default:
+		http.Error(w, "Method not allowed", 405)
+	}
+}
+
+func devPageHandler(w http.ResponseWriter, r *http.Request) {
+	lang := r.URL.Query().Get("lang")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprint(w, `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>DevTools</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:13px/1.4 sans-serif;background:#1e1e1e;color:#ccc;height:100vh;display:flex;flex-direction:column}
+.tabs{display:flex;background:#2d2d2d;border-bottom:1px solid #444;flex-shrink:0}
+.tab{padding:8px 16px;cursor:pointer;color:#999;border-bottom:2px solid transparent}
+.tab.active{color:#fff;border-bottom-color:#4fc3f7;background:#333}
+.content{flex:1;overflow-y:auto;padding:4px}
+.entry{padding:4px 8px;border-bottom:1px solid #333;font:12px/1.4 monospace;white-space:pre-wrap;word-break:break-all}
+.entry-error{color:#f48771}
+.entry-network{color:#89ddff}
+.entry .ts{color:#666;margin-right:8px}
+.entry .url{color:#c792ea}
+.entry .msg{color:#f48771}
+.entry .ok{color:#aadd6c}
+.entry .fail{color:#f48771}
+.entry .meta{color:#666;font-size:11px}
+.btn{float:right;padding:4px 10px;margin:4px;cursor:pointer;background:#444;border:none;color:#ccc;border-radius:3px}
+.btn:hover{background:#555}
+</style></head><body><script>
+var loc="`+lang+`";
+var l={};
+l['pt-BR']={console:'Console',network:'Rede',noErrors:'Nenhum erro encontrado.',noNetwork:'Nenhuma requisi\u00e7\u00e3o de rede capturada.',clear:'Limpar',title:'Ferramentas de Desenvolvedor'};
+l['pt']=l['pt-BR'];
+l['es-ES']={console:'Consola',network:'Red',noErrors:'No se capturaron errores.',noNetwork:'No se capturaron solicitudes de red.',clear:'Limpiar',title:'Herramientas de Desarrollador'};
+l['es']=l['es-ES'];
+var lu=l[loc]||l[loc.substring(0,2)]||{console:'Console',network:'Network',noErrors:'No errors captured.',noNetwork:'No network requests captured.',clear:'Clear',title:'DevTools'};
+document.title=lu.title;
+document.write('<div class="tabs"><div class="tab active" onclick="switchTab(0)">'+lu.console+'</div><div class="tab" onclick="switchTab(1)">'+lu.network+'</div><button class="btn" onclick="clearLog()">'+lu.clear+'</button></div><div class="content" id="console"></div><div class="content" id="network" style="display:none"></div>');
+var log=[];
+function switchTab(i){document.querySelectorAll('.tab').forEach(function(t,j){t.className=j==i?'tab active':'tab'});document.getElementById('console').style.display=i==0?'':'none';document.getElementById('network').style.display=i==1?'':'none'}
+function clearLog(){fetch('/api/dev/log',{method:'DELETE'}).then(function(){log=[];render()}).catch(function(){})}
+function fetchLog(){fetch('/api/dev/log').then(function(r){return r.json()}).then(function(entries){log=entries;render()}).catch(function(){})}
+function render(){var c=document.getElementById('console'),n=document.getElementById('network');c.innerHTML='';n.innerHTML='';var errCount=0,netCount=0;for(var i=0;i<log.length;i++){var e=log[i];var d=new Date(e.time).toLocaleTimeString();if(e.type==='error'){errCount++;c.innerHTML+='<div class="entry entry-error"><span class="ts">'+d+'</span><span class="msg">'+esc(e.message)+'</span><br><span class="meta">'+esc(e.url)+'</span></div>'}else if(e.type==='network'){if(e.url.indexOf('/api/')>=0)continue;netCount++;var statusClass=e.status>=200&&e.status<300?'ok':'fail';n.innerHTML+='<div class="entry entry-network"><span class="ts">'+d+'</span><span class="url">'+esc(e.url)+'</span><br><span class="meta">'+esc(e.method)+' <span class="'+statusClass+'">'+e.status+'</span> '+(e.duration>0?e.duration+'ms':'')+'</span></div>'}}if(errCount===0)c.innerHTML='<div style="padding:8px;color:#666;font-style:italic">'+lu.noErrors+'</div>';if(netCount===0)n.innerHTML='<div style="padding:8px;color:#666;font-style:italic">'+lu.noNetwork+'</div>'}
+function esc(s){if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+setInterval(fetchLog,1000);
+fetchLog();
+</script></body></html>`)
+}
+
+func parseInt64(s string) int64 {
+	var n int64
+	fmt.Sscanf(s, "%d", &n)
+	return n
 }
 
 func initHistory() {
@@ -534,6 +652,8 @@ func main() {
 	mux.HandleFunc("/api/favorites/list", favoritesListHandler)
 	mux.HandleFunc("/api/favorites/page", favoritesPageHandler)
 	mux.HandleFunc("/api/open/external", openExternalHandler)
+	mux.HandleFunc("/api/dev/log", devLogHandler)
+	mux.HandleFunc("/api/dev/page", devPageHandler)
 	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))
 
 	srv = &http.Server{Addr: addr, Handler: mux}

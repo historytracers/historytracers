@@ -28,18 +28,65 @@ function closeWin(){closeWindow()}
 
 var addressBarJS = `
 (function(){
+	(function(){
+		if(window.__ht_dev||window.location.pathname==='/api/dev/page'||window.location.pathname==='/api/history/page'||window.location.pathname==='/api/favorites/page')return;
+		window.__ht_dev=true;
+		var _ce=console.error;
+		console.error=function(){
+			try{_ce.apply(console,arguments);var msg=Array.prototype.join.call(arguments,' ');fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()})}catch(e){}
+		};
+		window.addEventListener('error',function(e){
+			try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=error&message='+encodeURIComponent(String(e.message||e.error||''))+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()})}catch(ex){}
+		});
+		window.addEventListener('unhandledrejection',function(e){
+			try{var msg=e.reason&&e.reason.message||String(e.reason||'');fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()})}catch(ex){}
+		});
+		var _of=window.fetch;
+		window.fetch=function(){
+			var a=arguments,url=a[0] instanceof Request?a[0].url:String(a[0]);
+			if(url.indexOf('/api/dev/')>=0)return _of.apply(this,a);
+			var m=a[1]&&a[1].method?a[1].method:'GET',st=Date.now();
+			return _of.apply(this,a).then(function(r){
+				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status='+r.status+'&duration='+(Date.now()-st)+'&time='+st})}catch(e){}
+				return r;
+			}).catch(function(err){
+				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status=0&duration='+(Date.now()-st)+'&message='+encodeURIComponent(err.message)+'&time='+st})}catch(e){}
+				throw err;
+			});
+		};
+		var _OX=window.XMLHttpRequest;
+		window.XMLHttpRequest=function(){
+			var x=new _OX(),_op=x.open;
+			x.open=function(m,u){
+				x._du=u;x._dm=m;x._ds=Date.now();
+				return _op.apply(x,arguments);
+			};
+			var _sd=x.send;
+			x.send=function(){
+				x._ds=Date.now();
+				x.addEventListener('loadend',function(){
+					try{if(x._du&&x._du.indexOf('/api/dev/')<0)fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=network&url='+encodeURIComponent(x._du)+'&method='+encodeURIComponent(x._dm||'GET')+'&status='+(x.status||0)+'&duration='+(Date.now()-x._ds)+'&time='+x._ds})}catch(e){}
+				});
+				return _sd.apply(x,arguments);
+			};
+			return x;
+		};
+	})();
 	if(window!==window.top)return;
 	function addBar(){
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
 		var TAB_H=22,ADDR_H=32,BAR_H=ADDR_H+TAB_H;
-		var loc=window.__ht_lang||navigator.language||'en-US';
+		var loc=window.__ht_lang||'';
+		if(!loc){
+			try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||navigator.language||'en-US'}catch(e){loc=navigator.language||'en-US'}
+		}
 		var L={};
-		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)'};
+		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador'};
 		L['pt']=L['pt-BR'];
-		L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)'};
+		L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador'};
 		L['es']=L['es-ES'];
-		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)'};
+		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug'};
 		L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var _lang=window.__ht_lang||'';
@@ -69,6 +116,8 @@ var addressBarJS = `
 				else if(e.id==='__ht_history_item'){if(e.firstChild)e.firstChild.textContent=l.historyTitle+'\u25B6'}
 				else if(e.id==='__ht_fav_item'){if(e.firstChild)e.firstChild.textContent=l.favTitle+'\u25B6'}
 				else if(e.id==='__ht_exit_item')e.textContent=l.exitTitle;
+				else if(e.id==='__ht_dev_item'){if(e.firstChild)e.firstChild.textContent=l.devTitle+'\u25B6'}
+				else if(e.id==='__ht_dbg_item')e.textContent=l.debugTitle;
 			}
 			var hs=document.getElementById('__ht_hist_sub');
 			if(hs)hs.removeAttribute('data-loaded');
@@ -343,6 +392,29 @@ var addressBarJS = `
 			setTimeout(function(){if(!favSub.matches(':hover'))favSub.style.display='none'},100);
 		};
 		favSub.onmouseleave=function(){this.style.display='none'};
+		var devItem=document.createElement('div');
+		devItem.id='__ht_dev_item';
+		devItem.style.cssText='position:relative;display:block;padding:6px 16px;text-decoration:none;color:#333;font:14px/1.4 sans-serif;cursor:pointer;';
+		devItem.textContent=l.devTitle+'\u25B6';
+		_el.push(devItem);
+		menuDrop.appendChild(devItem);
+		var devSub=document.createElement('div');
+		devSub.id='__ht_dev_sub';
+		devSub.style.cssText='position:absolute;display:none;right:100%;left:auto;top:0;background:#fff;border:1px solid #999;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:2147483647;min-width:120px;padding:4px 0;white-space:nowrap;';
+		devItem.appendChild(devSub);
+		var dbg=document.createElement('a');
+		dbg.id='__ht_dbg_item';
+		_el.push(dbg);
+		dbg.href='#';
+		dbg.textContent=l.debugTitle;
+		dbg.style.cssText='display:block;padding:6px 16px;text-decoration:none;color:#333;font:13px/1.4 sans-serif;cursor:pointer;';
+		dbg.onmouseover=function(){this.style.background='#e8e8e8'};
+		dbg.onmouseout=function(){this.style.background='transparent'};
+		dbg.onclick=function(e){e.preventDefault();e.stopPropagation();			devSub.style.display='none';menuDrop.style.display='none';toggleDevPanel()};
+		devSub.appendChild(dbg);
+		devItem.onmouseenter=function(){this.style.background='#e8e8e8';devSub.style.display='block'};
+		devItem.onmouseleave=function(){this.style.background='transparent';setTimeout(function(){if(!devSub.matches(':hover'))devSub.style.display='none'},100)};
+		devSub.onmouseleave=function(){this.style.display='none'};
 		var sep3=document.createElement('div');
 		sep3.style.cssText='height:1px;background:#ddd;margin:4px 0;';
 		menuDrop.appendChild(sep3);
@@ -494,6 +566,27 @@ var addressBarJS = `
 			openTab(url);
 		}
 		window.open=function(url){return openOrExternal(url)};
+		function toggleDevPanel(){
+			var dp=document.getElementById('__ht_dev_panel');
+			if(dp){dp.style.display=dp.style.display==='none'?'':'none';return}
+			dp=document.createElement('div');
+			dp.id='__ht_dev_panel';
+			dp.style.cssText='position:fixed;top:'+BAR_H+'px;right:0;width:45%;bottom:0;background:#1e1e1e;border-left:2px solid #444;z-index:999999;display:flex;flex-direction:column;';
+			var hdr=document.createElement('div');
+			hdr.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:4px 8px;background:#2d2d2d;color:#ccc;font:13px/1.4 sans-serif;border-bottom:1px solid #444;';
+			hdr.textContent='DevTools';
+			var cls=document.createElement('span');
+			cls.textContent='\u00D7';
+			cls.style.cssText='cursor:pointer;font:bold 18px/1 monospace;color:#999;padding:0 4px;';
+			cls.onclick=function(){dp.style.display='none'};
+			hdr.appendChild(cls);
+			dp.appendChild(hdr);
+			var fi=document.createElement('iframe');
+			fi.src=window.location.origin+'/api/dev/page?lang='+encodeURIComponent(getLang())+'&cal='+encodeURIComponent(getCal());
+			fi.style.cssText='flex:1;border:none;width:100%;';
+			dp.appendChild(fi);
+			document.documentElement.appendChild(dp);
+		}
 		document.addEventListener('click',function(e){
 			var a=e.target.closest('a');
 			if(a&&a.target==='_blank'){e.preventDefault();openOrExternal(a.href)}
