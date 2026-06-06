@@ -121,13 +121,14 @@ func historyListHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func historyPageHandler(w http.ResponseWriter, r *http.Request) {
+	lang := r.URL.Query().Get("lang")
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprint(w, `<!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>History Tracers — Full History</title>
+	fmt.Fprintf(w, `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>History Tracers</title>
 <style>
 body{font-family:verdana,arial,helvetica;margin:20px;background:#f5f5f5}
 h2{color:#333}
-table{border-collapse:collapse;width:100%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+table{border-collapse:collapse;width:100%%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
 th,td{padding:8px 12px;text-align:left;border-bottom:1px solid #ddd;font-size:13px}
 th{background:#555;color:#fff}
 tr:hover{background:#f0f0f0}
@@ -135,13 +136,23 @@ a{color:#06c;text-decoration:none}
 a:hover{text-decoration:underline}
 .empty{color:#999;font-style:italic;padding:20px}
 </style></head><body>
-<h2>History Tracers — Full History</h2>
+<h2 id="title"></h2>
 <div id="hist"></div>
 <script>
+var loc=`+"`"+`%s`+"`"+`||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
+var L={};
+L['pt-BR']={title:'Historiador — Hist\u00f3rico Completo',empty:'(vazio)',err:'Erro ao carregar hist\u00f3rico.',num:'#',page:'P\u00e1gina',titleCol:'T\u00edtulo',langCol:'Idioma',dtCol:'Data/Hora'};
+L['pt']=L['pt-BR'];
+L['es-ES']={title:'History Tracers — Historial Completo',empty:'(vac\u00edo)',err:'Error al cargar el historial.',num:'#',page:'P\u00e1gina',titleCol:'T\u00edtulo',langCol:'Idioma',dtCol:'Fecha/Hora'};
+L['es']=L['es-ES'];
+L['en-US']={title:'History Tracers — Full History',empty:'(empty)',err:'Error loading history.',num:'#',page:'Page',titleCol:'Title',langCol:'Language',dtCol:'Date/Time'};
+L['en']=L['en-US'];
+var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
+document.getElementById('title').textContent=l.title;
 fetch('/api/history/list').then(function(r){return r.json()}).then(function(entries){
 	var h=document.getElementById('hist');
-	if(!entries||entries.length===0){h.innerHTML='<p class="empty">(empty)</p>';return}
-	var t='<table><tr><th>#</th><th>Page</th><th>Title</th><th>Language</th><th>Date/Time</th></tr>';
+	if(!entries||entries.length===0){h.innerHTML='<p class="empty">'+l.empty+'</p>';return}
+	var t='<table><tr><th>'+l.num+'</th><th>'+l.page+'</th><th>'+l.titleCol+'</th><th>'+l.langCol+'</th><th>'+l.dtCol+'</th></tr>';
 	for(var i=0;i<entries.length;i++){
 		var e=entries[i];
 		var href=window.location.origin+'/index.html?page='+encodeURIComponent(e.page);
@@ -154,15 +165,15 @@ fetch('/api/history/list').then(function(r){return r.json()}).then(function(entr
 			else if(e.people){label=e.people.substring(0,32);if(e.people.length>32)label+='\u2026'}
 		}
 		var dt='';
-		try{dt=new Date(e.time*1000).toLocaleString()}catch(ex){}
+		try{dt=new Date(e.time*1000).toLocaleString(loc)}catch(ex){}
 		t+='<tr><td>'+(i+1)+'</td><td>'+escapeHtml(e.page)+'</td><td><a href="'+escapeHtml(href)+'" onclick="event.preventDefault();(parent.open||window.open)(this.href)">'+escapeHtml(label)+'</a></td><td>'+(e.lang||'-')+'</td><td>'+escapeHtml(dt)+'</td></tr>';
 	}
 	t+='</table>';
 	h.innerHTML=t;
-}).catch(function(){document.getElementById('hist').innerHTML='<p class="empty">Error loading history.</p>'});
+}).catch(function(){document.getElementById('hist').innerHTML='<p class="empty">'+l.err+'</p>'});
 function escapeHtml(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 </script>
-</body></html>`)
+</body></html>`, lang)
 }
 
 func readHistoryLocked() []historyEntry {
