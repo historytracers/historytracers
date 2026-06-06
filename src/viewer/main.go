@@ -171,7 +171,7 @@ fetch('/api/history/list').then(function(r){return r.json()}).then(function(entr
 			else if(e.people){label=e.people.substring(0,32);if(e.people.length>32)label+='\u2026'}
 		}
 		var dt='';
-		try{dt=new Date(e.time*1000).toLocaleString(loc)}catch(ex){}
+		try{dt=parent.htConvertDate(cal,loc,e.time)}catch(ex){try{dt=new Date(e.time*1000).toLocaleString(loc)}catch(ex2){dt=''}}
 		t+='<tr><td>'+(i+1)+'</td><td>'+escapeHtml(e.page)+'</td><td><a href="'+escapeHtml(href)+'" onclick="event.preventDefault();(parent.open||window.open)(this.href)">'+escapeHtml(label)+'</a></td><td>'+(e.lang||'-')+'</td><td>'+escapeHtml(dt)+'</td></tr>';
 	}
 	t+='</table>';

@@ -202,7 +202,7 @@ var addressBarJS = `
 						div.appendChild(a);
 						if(e.time){
 							var ts=document.createElement('span');
-							try{ts.textContent=new Date(e.time*1000).toLocaleString()}catch(ex){ts.textContent=''}
+							try{ts.textContent=window.htConvertDate(getCal(),getLang(),e.time)}catch(ex){try{ts.textContent=new Date(e.time*1000).toLocaleString(getLang())}catch(ex2){ts.textContent=''}}
 							ts.style.cssText='display:block;font:10px/1.2 sans-serif;color:#999;padding:0 0 2px 0;';
 							div.appendChild(ts);
 						}
