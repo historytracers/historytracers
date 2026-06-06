@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780700666"
+      "1780764745"
    ],
    "authors": [
       ""
@@ -273,6 +273,123 @@
                "isTable": false,
                "imgdesc": "",
                "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_abacus",
+         "text": [
+            {
+               "text": "### Sumando a través de complementos\n\nAntes de profundizar en el tema, reflexione sobre lo siguiente:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: Usando el complemento</b><br /><br />El complemento se utilizará para realizar sumas de dos números cuyo resultado sea mayor que diez.<br /><br />Considerando lo que hemos visto hasta ahora en este texto, ¿cómo cree que podemos usar esto?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### Una lectura común\n\nEn el primer texto donde hablamos de la suma, mencionamos que sumar sería como dar pasos avanzando entre los números. En ese texto, también aprendimos que solo podemos tener resultados entre 0 y 9 en cada orden que sumamos (<htcite0>).\n\nOtra forma de observar la suma es a través de los complementos. Hagamos un ejemplo práctico al sumar 7 + 8.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team",
+                     "page": "Caminando entre los números",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;1&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp; 7<br />+&nbsp;&nbsp;&nbsp; 8<br />____________<br />&nbsp;&nbsp;1 5</center></p><p class=\"desc\"><b>Cálculo 2</b>: Avance de 7 pasos desde la posición 8.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Muchas veces, el **Cálculo 2** se lee de la siguiente manera: \"Al sumar 7 a 8, el resultado de las unidades es 5 y llevamos 1. Luego, como no hay números en las decenas, entendemos que había 0. Por lo tanto, al sumar 1 a 0 en las decenas, llegamos al resultado 15\".\n\nEsta lectura esconde algo más que está ocurriendo o, si lo prefiere, esconde otra interpretación.\n\n#### Una lectura diferente\n\nOtra forma de interpretar el **Cálculo 2** es a través del complemento. Primeramente, aislamos del **Cálculo 1**, el complemento de 8.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>valor</mi> <mo>+</mo> <mi>complemento</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>8</mi> <mo>+</mo> <mi>2</mi> <mo>=</mo> <mi>10</mi> </math><br /></p><p class=\"desc\"><b>Cálculo 3</b>: Complemento a 10 del número 8.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "El número 2 es más que un número en este escenario. Es exactamente el valor que hará desaparecer al 8 del resultado, porque se unirá a él formando 10. Es también el valor que retrocederemos en el \"camino\" numérico (**Gráfico 1**), alcanzando el valor 5, pues, como sabemos: 5 + 2 = 7.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg width=\"450\" height=\"100\"  fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"15\" x2=\"400\" y2=\"15\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"40\" font-size=\"1.5em\">0</text> <text x=\"40\" y=\"40\" font-size=\"1.5em\">1</text> <text x=\"80\" y=\"40\" font-size=\"1.5em\">2</text> <text x=\"120\" y=\"40\" font-size=\"1.5em\">3</text> <text x=\"160\" y=\"40\" font-size=\"1.5em\">4</text> <text x=\"200\" y=\"50\" font-size=\"2.4em\">5</text> <text x=\"240\" y=\"40\" font-size=\"1.5em\">6</text> <text x=\"280\" y=\"50\" font-size=\"2.4em\" >7</text> <text x=\"320\" y=\"40\" font-size=\"1.5em\">8</text> <text x=\"360\" y=\"40\" font-size=\"1.5em\">9</text> <line x1=\"5\" y1=\"15\" x2=\"5\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"45\" y1=\"15\" x2=\"45\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"15\" x2=\"85\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"125\" y1=\"15\" x2=\"125\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"165\" y1=\"15\" x2=\"165\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"205\" y1=\"15\" x2=\"205\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"245\" y1=\"15\" x2=\"245\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"285\" y1=\"15\" x2=\"285\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"325\" y1=\"15\" x2=\"325\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"365\" y1=\"15\" x2=\"365\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" />  </svg></p><p class=\"desc\"><b>Gráfico 1</b>: Representación de un eje que contiene números. Los números están dispuestos debajo de la línea, y una flecha en el extremo indica la dirección del crecimiento de los valores. Destacamos en este eje los números 5 y 7.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Es decir, a través del complemento, podemos interpretar la suma de la siguiente manera: \"Como la suma de los números será mayor que 9, también tendremos números en las decenas. Con ello, extraemos del 7 el valor 2, que es el complemento de 8 para llegar a 10, haciendo que el 7 se convierta en 5. Por último, sumamos 10 + 5, llegando al resultado 15.\"\n\nEl **Cálculo 4** a continuación muestra la interpretación mencionada.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5<br />+&nbsp;&nbsp;1 0<br />____________<br />&nbsp;&nbsp;1 5</center></p><p class=\"desc\"><b>Cálculo 4</b>: Cálculo 2 reescrito en forma de complemento.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Para visualizar mejor esta interpretación, usaremos los ábacos a continuación.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
                "PostMention": ""
             }
          ]
