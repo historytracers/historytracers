@@ -160,13 +160,16 @@ var addressBarJS = `
 		};
 		_el.push(favBtn);
 		b.appendChild(favBtn);
+		var _favGen=0;
 		function checkFavStar(url){
 			var u=url||window.location.href;
+			var gen=++_favGen;
 			var p=(new URL(u)).searchParams.get('page')||'';
 			var a=(new URL(u)).searchParams.get('arg')||'';
 			var pp=(new URL(u)).searchParams.get('people')||'';
 			var key=p+'|'+a+'|'+pp;
 			fetch('/api/favorites/list').then(function(r){return r.json()}).then(function(entries){
+				if(gen!==_favGen)return;
 				var starred=false;
 				for(var i=0;i<entries.length;i++){
 					var e=entries[i];
@@ -417,15 +420,50 @@ var addressBarJS = `
 				try{
 					var idoc=f.contentDocument||f.contentWindow.document;
 					if(!idoc)return;
+					var iw=f.contentWindow;
+					tabs[idx].url=iw.location.href;
+					_favGen++;
+					if(active==idx){
+						var urlEl=document.getElementById('__ht_url');
+						if(urlEl)urlEl.value=iw.location.href;
+						checkFavStar(tabs[idx].url);
+					}
 					var titleEl=idoc.querySelector('title');
-					if(!titleEl){sp.textContent=new URL(f.src).pathname.split('/').pop()||l.tab;return}
-					var update=function(){sp.textContent=idoc.title||new URL(f.src).pathname.split('/').pop()||l.tab};
+					if(!titleEl){sp.textContent=new URL(iw.location.href).pathname.split('/').pop()||l.tab;return}
+					var update=function(){sp.textContent=idoc.title||new URL(iw.location.href).pathname.split('/').pop()||l.tab};
 					update();
 					var mo=new MutationObserver(update);
 					mo.observe(titleEl,{childList:true,subtree:true,characterData:true});
 					idoc.addEventListener('click',function(ie){
 						var ia=ie.target.closest('a');
 						if(ia&&ia.target==='_blank'){ie.preventDefault();openOrExternal(ia.href)}
+					});
+					var _irs=iw.history.replaceState;
+					iw.history.replaceState=function(){
+						var oldUrl=iw.location.href;
+						_irs.apply(this,arguments);
+						try{
+							var nu=new URL(arguments[2],oldUrl);
+							tabs[idx].url=nu.href;
+							_favGen++;
+							if(active==idx){var urlEl=document.getElementById('__ht_url');if(urlEl)urlEl.value=nu.href;checkFavStar(nu.href)}
+						}catch(e){}
+					};
+					var _ips=iw.history.pushState;
+					iw.history.pushState=function(){
+						var oldUrl=iw.location.href;
+						_ips.apply(this,arguments);
+						try{
+							var nu=new URL(arguments[2],oldUrl);
+							tabs[idx].url=nu.href;
+							_favGen++;
+							if(active==idx){var urlEl=document.getElementById('__ht_url');if(urlEl)urlEl.value=nu.href;checkFavStar(nu.href)}
+						}catch(e){}
+					};
+					iw.addEventListener('popstate',function(){
+						tabs[idx].url=iw.location.href;
+						_favGen++;
+						if(active==idx){var urlEl=document.getElementById('__ht_url');if(urlEl)urlEl.value=iw.location.href;checkFavStar(iw.location.href)}
 					});
 				}catch(e){}
 			});
@@ -461,11 +499,12 @@ var addressBarJS = `
 			if(a&&a.target==='_blank'){e.preventDefault();openOrExternal(a.href)}
 		});
 		(function(){
-			var _rs=window.history.replaceState;
-			window.history.replaceState=function(){
-				_rs.apply(this,arguments);
+			function trackNav(urlParam){
 				try{
-					var u=new URL(arguments[2],window.location.origin);
+					var u=new URL(urlParam,window.location.origin);
+					tabs[0].url=u.href;
+					var urlEl=document.getElementById('__ht_url');
+					if(urlEl)urlEl.value=u.href;
 					var p=u.searchParams.get('page');
 					if(!p)return;
 					var a=u.searchParams.get('arg')||'';
@@ -474,9 +513,23 @@ var addressBarJS = `
 					setTimeout(function(){
 						try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(document.title||'')+'&lang='+encodeURIComponent(getLang())+'&cal='+encodeURIComponent(cl)})}catch(e2){}
 					},800);
-					setTimeout(checkFavStar,200);
 				}catch(e){}
+			}
+			var _rs=window.history.replaceState;
+			window.history.replaceState=function(){
+				_rs.apply(this,arguments);
+				_favGen++;
+				trackNav(arguments[2]);
+				setTimeout(checkFavStar,200);
 			};
+			var _ps=window.history.pushState;
+			window.history.pushState=function(){
+				_ps.apply(this,arguments);
+				_favGen++;
+				trackNav(arguments[2]);
+				setTimeout(checkFavStar,200);
+			};
+			window.addEventListener('popstate',function(){_favGen++;tabs[0].url=window.location.href;var urlEl=document.getElementById('__ht_url');if(urlEl)urlEl.value=window.location.href;setTimeout(checkFavStar,200)});
 		})();
 	}
 	addBar();
