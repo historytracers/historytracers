@@ -423,6 +423,10 @@ var addressBarJS = `
 					update();
 					var mo=new MutationObserver(update);
 					mo.observe(titleEl,{childList:true,subtree:true,characterData:true});
+					idoc.addEventListener('click',function(ie){
+						var ia=ie.target.closest('a');
+						if(ia&&ia.target==='_blank'){ie.preventDefault();openOrExternal(ia.href)}
+					});
 				}catch(e){}
 			});
 			selTab(idx);
@@ -441,10 +445,20 @@ var addressBarJS = `
 			mo.observe(titleEl,{childList:true,subtree:true,characterData:true});
 		})();
 		document.body.style.marginTop=BAR_H+'px';
-		window.open=function(url){return openTab(url)};
+		function openOrExternal(url){
+			try{
+				var u=new URL(url,window.location.origin);
+				if(u.origin!==window.location.origin){
+					fetch('/api/open/external?url='+encodeURIComponent(url));
+					return;
+				}
+			}catch(e){}
+			openTab(url);
+		}
+		window.open=function(url){return openOrExternal(url)};
 		document.addEventListener('click',function(e){
 			var a=e.target.closest('a');
-			if(a&&a.target==='_blank'){e.preventDefault();openTab(a.href)}
+			if(a&&a.target==='_blank'){e.preventDefault();openOrExternal(a.href)}
 		});
 		(function(){
 			var _rs=window.history.replaceState;

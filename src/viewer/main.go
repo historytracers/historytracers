@@ -10,7 +10,9 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"os/exec"
 	"path/filepath"
+	"runtime"
 	"sort"
 	"strings"
 	"sync"
@@ -38,6 +40,29 @@ var (
 	favoritesMu   sync.Mutex
 	favoritesFile string
 )
+
+func openExternalHandler(w http.ResponseWriter, r *http.Request) {
+	target := r.URL.Query().Get("url")
+	if target == "" {
+		http.Error(w, "missing url", http.StatusBadRequest)
+		return
+	}
+	var cmd string
+	var args []string
+	switch runtime.GOOS {
+	case "windows":
+		cmd = "rundll32"
+		args = []string{"url.dll,FileProtocolHandler", target}
+	case "darwin":
+		cmd = "open"
+		args = []string{target}
+	default:
+		cmd = "xdg-open"
+		args = []string{target}
+	}
+	exec.Command(cmd, args...).Start()
+	w.WriteHeader(http.StatusNoContent)
+}
 
 func initHistory() {
 	home, err := os.UserHomeDir()
@@ -508,6 +533,7 @@ func main() {
 	mux.HandleFunc("/api/favorites/add", favoritesAddHandler)
 	mux.HandleFunc("/api/favorites/list", favoritesListHandler)
 	mux.HandleFunc("/api/favorites/page", favoritesPageHandler)
+	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))
 
 	srv = &http.Server{Addr: addr, Handler: mux}
