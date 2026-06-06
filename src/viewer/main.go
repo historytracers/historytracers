@@ -29,6 +29,7 @@ type historyEntry struct {
 	Time    int64  `json:"time"`
 	Title   string `json:"title"`
 	Lang    string `json:"lang"`
+	Cal     string `json:"cal"`
 }
 
 var (
@@ -78,13 +79,14 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	people := r.FormValue("people")
 	title := r.FormValue("title")
 	lang := r.FormValue("lang")
+	cal := r.FormValue("cal")
 	now := time.Now().Unix()
 
 	historyMu.Lock()
 	defer historyMu.Unlock()
 
 	entries := readHistoryLocked()
-	entries = append(entries, historyEntry{Page: page, ArgUUID: arg, People: people, Time: now, Title: title, Lang: lang})
+	entries = append(entries, historyEntry{Page: page, ArgUUID: arg, People: people, Time: now, Title: title, Lang: lang, Cal: cal})
 	if len(entries) > 256 {
 		entries = entries[len(entries)-256:]
 	}
@@ -114,14 +116,16 @@ func historyListHandler(w http.ResponseWriter, r *http.Request) {
 		peopleEsc := strings.ReplaceAll(e.People, `"`, `\"`)
 		titleEsc := strings.ReplaceAll(e.Title, `"`, `\"`)
 		langEsc := strings.ReplaceAll(e.Lang, `"`, `\"`)
-		fmt.Fprintf(w, `{"page":"%s","arg":"%s","people":"%s","time":%d,"title":"%s","lang":"%s"}`,
-			e.Page, argEsc, peopleEsc, e.Time, titleEsc, langEsc)
+		calEsc := strings.ReplaceAll(e.Cal, `"`, `\"`)
+		fmt.Fprintf(w, `{"page":"%s","arg":"%s","people":"%s","time":%d,"title":"%s","lang":"%s","cal":"%s"}`,
+			e.Page, argEsc, peopleEsc, e.Time, titleEsc, langEsc, calEsc)
 	}
 	fmt.Fprint(w, "]")
 }
 
 func historyPageHandler(w http.ResponseWriter, r *http.Request) {
 	lang := r.URL.Query().Get("lang")
+	cal := r.URL.Query().Get("cal")
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>History Tracers</title>
@@ -140,6 +144,7 @@ a:hover{text-decoration:underline}
 <div id="hist"></div>
 <script>
 var loc=`+"`"+`%s`+"`"+`||window.__ht_lang||(parent.__ht_lang)||(function(){try{return parent.document.querySelector('#site_language').value}catch(e){return''}})()||'en-US';
+var cal=`+"`"+`%s`+"`"+`||window.__ht_cal||(parent.__ht_cal)||(function(){try{return parent.document.querySelector('#site_calendar').value}catch(e){return''}})()||'gregory';
 var L={};
 L['pt-BR']={title:'Historiador — Hist\u00f3rico Completo',empty:'(vazio)',err:'Erro ao carregar hist\u00f3rico.',num:'#',page:'P\u00e1gina',titleCol:'T\u00edtulo',langCol:'Idioma',dtCol:'Data/Hora'};
 L['pt']=L['pt-BR'];
@@ -159,6 +164,7 @@ fetch('/api/history/list').then(function(r){return r.json()}).then(function(entr
 		if(e.arg)href+='&arg='+encodeURIComponent(e.arg);
 		if(e.people)href+='&people='+encodeURIComponent(e.people);
 		if(e.lang)href+='&lang='+encodeURIComponent(e.lang);
+		if(e.cal)href+='&cal='+encodeURIComponent(e.cal);
 		var label=e.title||e.page;
 		if(!e.title){
 			if(e.arg&&e.page!=='families'){label=e.arg.substring(0,32);if(e.arg.length>32)label+='\u2026'}
@@ -173,7 +179,7 @@ fetch('/api/history/list').then(function(r){return r.json()}).then(function(entr
 }).catch(function(){document.getElementById('hist').innerHTML='<p class="empty">'+l.err+'</p>'});
 function escapeHtml(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 </script>
-</body></html>`, lang)
+</body></html>`, lang, cal)
 }
 
 func readHistoryLocked() []historyEntry {
@@ -208,6 +214,10 @@ func readHistoryLocked() []historyEntry {
 		if len(rec) >= 6 {
 			lang = rec[5]
 		}
+		cal := ""
+		if len(rec) >= 7 {
+			cal = rec[6]
+		}
 		entries = append(entries, historyEntry{
 			Page:    rec[0],
 			ArgUUID: rec[1],
@@ -215,6 +225,7 @@ func readHistoryLocked() []historyEntry {
 			Time:    t,
 			Title:   title,
 			Lang:    lang,
+			Cal:     cal,
 		})
 	}
 	if len(entries) > 256 {
@@ -233,7 +244,7 @@ func writeHistoryLocked(entries []historyEntry) {
 
 	w := csv.NewWriter(f)
 	for _, e := range entries {
-		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang})
+		w.Write([]string{e.Page, e.ArgUUID, e.People, fmt.Sprintf("%d", e.Time), e.Title, e.Lang, e.Cal})
 	}
 	w.Flush()
 }
@@ -251,6 +262,7 @@ func main() {
 	path := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
 	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
+	cal := flag.String("calendar", "", "Initial calendar (e.g. gregory, julian, hebrew, islamic, persian, french, shaka, hispanic, mesoamerican, emesoamerican)")
 	class := flag.String("class", "", "Initial class content UUID (e.g. d290f1ee-6c54-4b01-90e6-d701748f0851)")
 	logFile := flag.String("log", "", "File to write access logs (default: no access log)")
 	flag.Usage = func() {
@@ -275,12 +287,17 @@ func main() {
 	}
 
 	addr := resolveAddr(*port)
-	pageURL = buildPageURL(addr, *class, *lang)
+	pageURL = buildPageURL(addr, *class, *lang, *cal)
 
 	if *lang != "" {
 		langJS := "window.__ht_lang='" + *lang + "';"
 		welcomePage = langJS + welcomePage
 		addressBarJS = langJS + addressBarJS
+	}
+	if *cal != "" {
+		calJS := "window.__ht_cal='" + *cal + "';"
+		welcomePage = calJS + welcomePage
+		addressBarJS = calJS + addressBarJS
 	}
 
 	initHistory()
@@ -307,7 +324,7 @@ func main() {
 	fmt.Println("Stopped.")
 }
 
-func buildPageURL(addr, class, lang string) string {
+func buildPageURL(addr, class, lang, cal string) string {
 	u := fmt.Sprintf("http://%s/index.html", addr)
 	sep := "?"
 	if class != "" {
@@ -316,6 +333,10 @@ func buildPageURL(addr, class, lang string) string {
 	}
 	if lang != "" {
 		u += sep + "lang=" + url.QueryEscape(lang)
+		sep = "&"
+	}
+	if cal != "" {
+		u += sep + "cal=" + url.QueryEscape(cal)
 	}
 	return u
 }

@@ -46,6 +46,10 @@ var addressBarJS = `
 		if(!_lang){
 			try{var _lu=new URL(window.location.href);_lang=_lu.searchParams.get('lang')||''}catch(e){}
 		}
+		var _cal=window.__ht_cal||'';
+		if(!_cal){
+			try{var _cu=new URL(window.location.href);_cal=_cu.searchParams.get('cal')||''}catch(e){}
+		}
 		var _el=[];
 		function refreshLang(){
 			var old=loc;
@@ -69,10 +73,19 @@ var addressBarJS = `
 		}
 		document.addEventListener('change',function(e){
 			if(e.target&&e.target.id==='site_language')refreshLang();
+			if(e.target&&e.target.id==='site_calendar')refreshCal();
 		});
 		function getLang(){
 			try{var s=$('#site_language');if(s.length)return s.val()}catch(e){}
 			return _lang;
+		}
+		function getCal(){
+			try{var s=$('#site_calendar');if(s.length)return s.val()}catch(e){}
+			return _cal;
+		}
+		function refreshCal(){
+			var hs=document.getElementById('__ht_hist_sub');
+			if(hs)hs.removeAttribute('data-loaded');
 		}
 		var s=document.createElement('style');
 		s.id='__ht_style';
@@ -86,7 +99,7 @@ var addressBarJS = `
 		h.textContent='⌂';
 		h.title=l.homeTitle;
 		h.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;';
-		h.onclick=function(){var g=getLang(),u=location.origin+'/index.html';if(g)u+='?lang='+encodeURIComponent(g);location.href=u};
+		h.onclick=function(){var g=getLang(),c=getCal(),u=location.origin+'/index.html';if(g)u+='?lang='+encodeURIComponent(g);if(c)u+=(u.indexOf('?')>=0?'&':'?')+'cal='+encodeURIComponent(c);location.href=u};
 		_el.push(h);
 		b.appendChild(h);
 		var r=document.createElement('button');
@@ -106,7 +119,7 @@ var addressBarJS = `
 			btn.textContent=symbol;
 			btn.title=title;
 			btn.style.cssText='border:none;background:transparent;cursor:pointer;font:24px/1 monospace;padding:0 5px;color:#555;';
-			btn.onclick=function(){var g=getLang(),u=location.origin+'/'+url;if(g)u+='&lang='+encodeURIComponent(g);location.href=u};
+			btn.onclick=function(){var g=getLang(),c=getCal(),u=location.origin+'/'+url;if(g)u+='&lang='+encodeURIComponent(g);if(c)u+='&cal='+encodeURIComponent(c);location.href=u};
 			_el.push(btn);
 			b.appendChild(btn);
 		}
@@ -170,11 +183,12 @@ var addressBarJS = `
 						var e=entries[i];
 						var div=document.createElement('div');
 						div.style.cssText='padding:0 16px;';
-						var a=document.createElement('a');
-						var href=window.location.origin+'/index.html?page='+encodeURIComponent(e.page);
-						if(e.arg)href+='&arg='+encodeURIComponent(e.arg);
-						if(e.people)href+='&people='+encodeURIComponent(e.people);
-						if(e.lang)href+='&lang='+encodeURIComponent(e.lang);
+					var a=document.createElement('a');
+					var href=window.location.origin+'/index.html?page='+encodeURIComponent(e.page);
+					if(e.arg)href+='&arg='+encodeURIComponent(e.arg);
+					if(e.people)href+='&people='+encodeURIComponent(e.people);
+					if(e.lang)href+='&lang='+encodeURIComponent(e.lang);
+					if(e.cal)href+='&cal='+encodeURIComponent(e.cal);
 						a.href=href;
 						var label=e.title||e.page;
 						if(!e.title){
@@ -203,7 +217,7 @@ var addressBarJS = `
 					exLink.style.cssText='display:block;padding:6px 16px;text-decoration:none;color:#333;font:13px/1.4 sans-serif;cursor:pointer;';
 					exLink.onmouseover=function(){this.style.background='#e8e8e8'};
 					exLink.onmouseout=function(){this.style.background='transparent'};
-					exLink.onclick=function(e){e.preventDefault();e.stopPropagation();histSub.style.display='none';menuDrop.style.display='none';var gl=getLang();openTab(window.location.origin+'/api/history/page'+(gl?'?lang='+encodeURIComponent(gl):''))};
+					exLink.onclick=function(e){e.preventDefault();e.stopPropagation();histSub.style.display='none';menuDrop.style.display='none';var gl=getLang(),gc=getCal();openTab(window.location.origin+'/api/history/page'+(gl?'?lang='+encodeURIComponent(gl):'')+(gc?'&cal='+encodeURIComponent(gc):''))};
 					histSub.appendChild(exLink);
 				}).catch(function(){});
 			}
@@ -328,8 +342,9 @@ var addressBarJS = `
 					if(!p)return;
 					var a=u.searchParams.get('arg')||'';
 					var pp=u.searchParams.get('people')||'';
+					var cl=u.searchParams.get('cal')||getCal()||'';
 					setTimeout(function(){
-						try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(document.title||'')+'&lang='+encodeURIComponent(getLang())})}catch(e2){}
+						try{fetch('/api/history/add',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'page='+encodeURIComponent(p)+'&arg='+encodeURIComponent(a)+'&people='+encodeURIComponent(pp)+'&title='+encodeURIComponent(document.title||'')+'&lang='+encodeURIComponent(getLang())+'&cal='+encodeURIComponent(cl)})}catch(e2){}
 					},800);
 				}catch(e){}
 			};
