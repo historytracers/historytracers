@@ -166,7 +166,11 @@ else
 fi
 AC_MSG_RESULT([$GO_EXEEXT])
 AC_SUBST([GO_EXEEXT])
-AM_CONDITIONAL([VIEWER_WINDOWS], [test "$GO_EXEEXT" = ".exe"])
+
+# Use full path for GO_COMPILER so it can't be overridden by PATH ordering
+if test -n "$GO_BIN_DIR" && test -x "$GO_BIN_DIR/go$GO_EXEEXT"; then
+    GO_COMPILER="$GO_BIN_DIR/go$GO_EXEEXT"
+fi
 
   # Detect platform for default paths
 AC_CANONICAL_HOST
@@ -187,18 +191,18 @@ esac
 
 # On Cygwin/MSYS2, detect MinGW-w64 C compiler for CGo builds (editor)
 MINGW_CC=""
+MINGW_BINDIR=""
 case "$host_os" in
-    cygwin* | mingw*)
-        AC_MSG_CHECKING([for MinGW-w64 C compiler on Cygwin/MSYS2])
+    cygwin* | mingw* | msys*)
+        AC_MSG_CHECKING([for MinGW-w64 C compiler])
         for cand in x86_64-w64-mingw32-gcc i686-w64-mingw32-gcc; do
-            AC_CHECK_PROG([MINGW_CC_CHECK], [$cand], [$cand], [])
-            if test -n "$MINGW_CC_CHECK"; then
-                MINGW_CC="$MINGW_CC_CHECK"
+            if command -v "$cand" >/dev/null 2>&1; then
+                MINGW_CC="$cand"
                 break
             fi
         done
         if test -z "$MINGW_CC"; then
-            for cand in /mingw64/bin/x86_64-w64-mingw32-gcc /mingw64/bin/i686-w64-mingw32-gcc; do
+            for cand in /ucrt64/bin/x86_64-w64-mingw32-gcc /mingw64/bin/x86_64-w64-mingw32-gcc /ucrt64/bin/i686-w64-mingw32-gcc /mingw64/bin/i686-w64-mingw32-gcc; do
                 if test -x "$cand"; then
                     MINGW_CC="$cand"
                     break
@@ -207,11 +211,13 @@ case "$host_os" in
         fi
         if test -n "$MINGW_CC"; then
             AC_MSG_RESULT([$MINGW_CC])
+            MINGW_BINDIR=$(dirname "$MINGW_CC")
         else
             AC_MSG_RESULT([not found])
         fi
         ;;
 esac
+AC_SUBST([MINGW_BINDIR])
 AM_CONDITIONAL([NEED_MINGW], [test -n "$MINGW_CC"])
 
  # Set default installation paths
