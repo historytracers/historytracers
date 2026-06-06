@@ -46,7 +46,7 @@ compile() {
     echo "=== configure done ==="
 
     make clean
-    make publisher viewer
+    make all
     echo "=== build done ==="
 
     if [ -f "./build/historytracers-publisher.exe" ]; then
