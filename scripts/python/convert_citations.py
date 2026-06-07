@@ -99,6 +99,9 @@ def process_source_text(display_text: str) -> Tuple[str, str]:
     # Remove htdateX tags first
     text = re.sub(r'<htdate\d+>', '', display_text)
     
+    # Remove all HTML tags
+    text = re.sub(r'<[^>]+>', '', text)
+    
     # Check if "pp." is present - if so, page should contain "pp. " and all text after it
     page = ""
     pp_match = re.search(r'(pp\.\s*.+)', text)
@@ -449,16 +452,6 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
         print(f"Error loading file: {e}")
         return False
     
-    # Create backup
-    backup_path = filepath + '.backup'
-    try:
-        with open(backup_path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=3, ensure_ascii=False)
-        print(f"Created backup: {backup_path}")
-    except Exception as e:
-        print(f"Error creating backup: {e}")
-        return False
-    
     # Perform the conversion
     modified_data = json.loads(json.dumps(data))  # Deep copy
     
@@ -565,21 +558,12 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
     
     # Save modified file
     try:
-        with open(filepath, 'w', encoding='utf-8') as f:
+        with open(filepath, 'w', encoding='utf-8', newline='\n') as f:
             json.dump(modified_data, f, indent=3, ensure_ascii=False)
         print(f"Successfully modified: {filepath}")
         return True
     except Exception as e:
         print(f"Error saving modified file: {e}")
-        # Try to restore from backup
-        try:
-            with open(backup_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            with open(filepath, 'w', encoding='utf-8') as f:
-                json.dump(data, f, indent=3, ensure_ascii=False)
-            print("Restored original file from backup")
-        except:
-            print("Failed to restore original file")
         return False
 
 def main():

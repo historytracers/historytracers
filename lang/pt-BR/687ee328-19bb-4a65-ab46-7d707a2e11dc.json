@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1778448488"
+      "1780874708"
    ],
    "authors": null,
    "reviewers": null,
@@ -68,8 +68,45 @@
          "id": "SECTION_drawing",
          "text": [
             {
-               "text": "<p><h3>Formas básicas</h3>Vamos relembrar um dos primeiros métodos de contagem representados na <b>Figura 1</b> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a4f22e25-5839-407f-a1aa-634521d52b42'); return false;\">González Redondo, Francisco A., et al., <htdate0>, pp. 174 - 177, 180 - 182</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ceffba8a-43be-4de3-a5c8-27cdf81311b1'); return false;\">Puente, Francisco Barriga, <htdate1>, pp. 21 - 23</a>):</p><p class=\"desc\"><img id=\"imgBone\" onclick=\"htImageZoom('imgBone', '0%')\"  class=\"imgcenter\"/><b>Figura 1</b>: Representação de um osso de babuíno com marcas. Esta imagem feita por Enrique Silván Pobes e encontra-se no trabalho de Francisco A. Gonzáles Redondo et al.<br />Original disponível em ResearchNet (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('adaed4fb-9c50-4ef9-ab79-c65f3c0629b8'); return false;\">González Redondo, Francisco A., et al., <htdate2></a>) e está sendo mostrada aqui após o Doutor Francisco A. Gonzales Redondo autorizar sua republicação.</p>",
-               "source": null,
+               "text": "<p><h3>Formas básicas</h3>Vamos relembrar um dos primeiros métodos de contagem representados na <b>Figura 1</b> (<htcite0> ; <htcite1>):</p><p class=\"desc\"><img id=\"imgBone\" onclick=\"htImageZoom('imgBone', '0%')\"  class=\"imgcenter\"/><b>Figura 1</b>: Representação de um osso de babuíno com marcas. Esta imagem feita por Enrique Silván Pobes e encontra-se no trabalho de Francisco A. Gonzáles Redondo et al.<br />Original disponível em ResearchNet (<htcite2>) e está sendo mostrada aqui após o Doutor Francisco A. Gonzales Redondo autorizar sua republicação.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.,",
+                     "page": "pp. 174 - 177, 180 - 182",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ceffba8a-43be-4de3-a5c8-27cdf81311b1",
+                     "text": "Puente, Francisco Barriga,",
+                     "page": "pp. 21 - 23",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "adaed4fb-9c50-4ef9-ab79-c65f3c0629b8",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "25"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -114,8 +151,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Diminuindo...</b><br />Usamos quadrados menores para fazer um retângulo. Podemos usar quadrados ainda menores para formar outras figuras?</div></div></center></p><p>Outra forma fechada, copiada da natureza, é o círculo, que está presente em nossos olhos:</p><p><div class=\"htTwoGeometricalRectangle\"> <div class=\"htFirstGeometrical\"><div class=\"htEye\"></div></div> <div class=\"htSecondGeometrical\"><div class=\"htCircle\"></div></div> </div></p><p class=\"desc\"><b>Figura 4</b>: À esquerda, temos a representação de um olho. À direita, temos um círculo. Olhos inspirados no código disponível em <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('35093614-5991-4b27-863a-5d2bf4d35905'); return false;\">CodePen</a>.</p>",
-               "source": null,
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexão 1: Diminuindo...</b><br />Usamos quadrados menores para fazer um retângulo. Podemos usar quadrados ainda menores para formar outras figuras?</div></div></center></p><p>Outra forma fechada, copiada da natureza, é o círculo, que está presente em nossos olhos:</p><p><div class=\"htTwoGeometricalRectangle\"> <div class=\"htFirstGeometrical\"><div class=\"htEye\"></div></div> <div class=\"htSecondGeometrical\"><div class=\"htCircle\"></div></div> </div></p><p class=\"desc\"><b>Figura 4</b>: À esquerda, temos a representação de um olho. À direita, temos um círculo. Olhos inspirados no código disponível em <htcite0>.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "35093614-5991-4b27-863a-5d2bf4d35905",
+                     "text": "CodePen",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -137,8 +187,45 @@
          "id": "SECTION_andes",
          "text": [
             {
-               "text": "<p><h3>Nossos dedos como círculos</h3>Vamos explorar o método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c'); return false;\">Prem, Dhavit</a>) da Associação Yupanki (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0>, pp. 354 - 363</a>). Esse método trabalha com a <i>Yupana</i> apresentada por Felipe Guaman Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <htdate1>, pp. 361 - 362</a>).</p><p>Ao observarmos a <i>Yupana</i>, podemos associar os círculos nela representados aos nossos dedos. Usando as setas à direita da <i>Yupana</i>, veja como nossos dedos são representados:</p>",
-               "source": null,
+               "text": "<p><h3>Nossos dedos como círculos</h3>Vamos explorar o método <i>\"Yupana Inka Tawa Pukllay\"</i>, desenvolvido e publicado por Dhavit Prem (<htcite0>) da Associação Yupanki (<htcite1>). Esse método trabalha com a <i>Yupana</i> apresentada por Felipe Guaman Poma de Ayala (<htcite2>).</p><p>Ao observarmos a <i>Yupana</i>, podemos associar os círculos nela representados aos nossos dedos. Usando as setas à direita da <i>Yupana</i>, veja como nossos dedos são representados:</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit,",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman,",
+                     "page": "pp. 361 - 362",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "02",
+                        "day": "13"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -168,8 +255,45 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><b>Tabela 2</b>: Representação de uma linha da <i>Yupana</i> de acordo com Poma de Ayala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a62b520a-f443-4d83-ab51-b99c9a46dab8'); return false;\">Prem, Dhavit, <htdate0>, pp. 355</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1'); return false;\">Poma de Ayala, Felipe Guaman, <htdate1>, pp. 361 - 362</a>). CSS inspirado no código de W3school (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3school</span></a>)</p><p>Não mostramos as duas mãos com os dedos levantados porque, quando isso ocorre na <i>Yupana</a>, é necessária mais uma linha com círculos. Apresentaremos mais detalhes sobre isso em outra página.</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><b>Tabela 2</b>: Representação de uma linha da <i>Yupana</i> de acordo com Poma de Ayala (<htcite0> ; <htcite1>). CSS inspirado no código de W3school (<htcite2>)</p><p>Não mostramos as duas mãos com os dedos levantados porque, quando isso ocorre na <i>Yupana</a>, é necessária mais uma linha com círculos. Apresentaremos mais detalhes sobre isso em outra página.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit,",
+                     "page": "pp. 355",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "01"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "f5b74f18-0bc4-46d2-8a5c-64dd80b74dd1",
+                     "text": "Poma de Ayala, Felipe Guaman,",
+                     "page": "pp. 361 - 362",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "02",
+                        "day": "13"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "48dd9187-7ecc-4f54-a387-d9ecc2497de3",
+                     "text": "W3school",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "01",
+                        "day": "27"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -195,8 +319,21 @@
          "id": "SECTION_mesoamerica",
          "text": [
             {
-               "text": "<p><h3>Contando com formas</h3>A <i>Yupana</i> não foi a única maneira que os indígenas usaram formas para representar nossos dedos na contagem. Em outro método, os círculos representam as pontas dos dedos, enquanto os retângulos representam todos os dedos juntos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d1b7daa6-a743-4a66-9cfe-ff4286868f35'); return false;\">Hernández Mendoza, Aurelio & Pérez López, Felipa, <htdate0>, pp. 251</a> ). Para representar todos os dedos fechados, utilizavam uma concha vazia. Vamos ver como eles representavam nossos dedos:</p>",
-               "source": null,
+               "text": "<p><h3>Contando com formas</h3>A <i>Yupana</i> não foi a única maneira que os indígenas usaram formas para representar nossos dedos na contagem. Em outro método, os círculos representam as pontas dos dedos, enquanto os retângulos representam todos os dedos juntos (<htcite0> ). Para representar todos os dedos fechados, utilizavam uma concha vazia. Vamos ver como eles representavam nossos dedos:</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "d1b7daa6-a743-4a66-9cfe-ff4286868f35",
+                     "text": "Hernández Mendoza, Aurelio & Pérez López, Felipa,",
+                     "page": "pp. 251",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "04",
+                        "day": "26"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -220,8 +357,45 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><b>Tabela 3</b>: Como indígenas representaram dedos para contar. Código-fonte presente no GitHub do projeto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0>, Código-fonte</a>)</p><p>As formas básicas não foram a única maneira usada pelos indígenas para representar nossos dedos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ad11b3b2-8cdf-4d71-9cb7-2ac241850945'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate1>, pp. 31 (ResearchGate)</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('eca99877-c520-4569-a71c-0a5b3dd77dc4'); return false;\">Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí, <htdate2>, pp. 31 (Revista)</a>), mas por hora ficaremos somente com esta.</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><b>Tabela 3</b>: Como indígenas representaram dedos para contar. Código-fonte presente no GitHub do projeto (<htcite0>)</p><p>As formas básicas não foram a única maneira usada pelos indígenas para representar nossos dedos (<htcite1> ; <htcite2>), mas por hora ficaremos somente com esta.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "240800f3-ede4-4deb-9d4e-915a3a03fa68",
+                     "text": "History Tracers Team",
+                     "page": "Código-fonte",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ad11b3b2-8cdf-4d71-9cb7-2ac241850945",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí,",
+                     "page": "pp. 31 (ResearchGate)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eca99877-c520-4569-a71c-0a5b3dd77dc4",
+                     "text": "Casares Contreras, Orlando & Cetina, José & Cabrera, Venus Sarahí,",
+                     "page": "pp. 31 (Revista)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "25"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
