@@ -1,66 +1,66 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 var localAnswerVector68ecf470 = undefined;
-var rvalues = [];
-var lvalues = [];
-var left68ecf470 = 0;
-var right68ecf470 = 0;
-var yupanaSelected = "-1";
+
+var local = {};
 
 function htUpdateYupana68ecf470(lv, rv)
 {
     htCleanYupanaDecimalValues('#yupana0', 2);
-    rvalues = htFillYupanaDecimalValues('#yupana0', lv, 2, 'red_dot_right_up');
-    lvalues = htFillYupanaDecimalValues('#yupana0', rv, 2, 'blue_dot_right_bottom');
+    local.rvalues = htFillYupanaDecimalValues('#yupana0', lv, 2, 'red_dot_right_up');
+    local.lvalues = htFillYupanaDecimalValues('#yupana0', rv, 2, 'blue_dot_right_bottom');
 
-    $("#rightHandImg3").attr("src", "images/HistoryTracers/"+lv+"Right_Hand_Small.png");
-    $("#leftHandImg3").attr("src", "images/HistoryTracers/"+rv+"Left_Hand_Small.png");
+    var prefix = htGetImgSrcPrefix();
+    $("#rightHandImg3").attr("src", prefix+"images/HistoryTracers/"+lv+"Right_Hand_Small.png");
+    $("#leftHandImg3").attr("src", prefix+"images/HistoryTracers/"+rv+"Left_Hand_Small.png");
 }
 
 function htUpdateValues68ecf470(left, right) {
-    left68ecf470 = left;
-    right68ecf470 = right;
+    local.left68ecf470 = left;
+    local.right68ecf470 = right;
 
     if (left == 10 && right == 0) {
         left = 5;
         right = 5;
     }
-    $("#rightHandImg3").attr("src", "images/HistoryTracers/"+right+"Right_Hand_Small.png");
-    $("#leftHandImg3").attr("src", "images/HistoryTracers/"+left+"Left_Hand_Small.png");
+
+    var prefix = htGetImgSrcPrefix();
+    $("#rightHandImg3").attr("src", prefix+"images/HistoryTracers/"+right+"Right_Hand_Small.png");
+    $("#leftHandImg3").attr("src", prefix+"images/HistoryTracers/"+left+"Left_Hand_Small.png");
 }
 
 function htSetValues68ecf470() {
-    if (yupanaSelected == "-1") {
+    if (local.yupanaSelected == "-1") {
         return;
     }
 
-    if (yupanaSelected == "0") {
+    if (local.yupanaSelected == "0") {
         htUpdateValues68ecf470(3, 1);
-    } else if (yupanaSelected == "1") {
+    } else if (local.yupanaSelected == "1") {
         htUpdateValues68ecf470(5, 1);
-    } else if (yupanaSelected == "2") {
+    } else if (local.yupanaSelected == "2") {
         htUpdateValues68ecf470(10, 0);
-    } else if (yupanaSelected == "3") {
+    } else if (local.yupanaSelected == "3") {
         htUpdateValues68ecf470(3, 0);
-    } else if (yupanaSelected == "4") {
+    } else if (local.yupanaSelected == "4") {
         htUpdateValues68ecf470(2, 0);
     }
 }
 
 function htResetValues68ecf470() {
-    if (yupanaSelected == "-1") {
+    if (local.yupanaSelected == "-1") {
         return;
     }
 
-    if (yupanaSelected == "0") {
+    if (local.yupanaSelected == "0") {
         htUpdateValues68ecf470(2, 2);
-    } else if (yupanaSelected == "1") {
+    } else if (local.yupanaSelected == "1") {
         htUpdateValues68ecf470(3, 3);
-    } else if (yupanaSelected == "2") {
+    } else if (local.yupanaSelected == "2") {
         htUpdateValues68ecf470(5, 5);
-    } else if (yupanaSelected == "3") {
+    } else if (local.yupanaSelected == "3") {
         htUpdateValues68ecf470(1, 2);
-    } else if (yupanaSelected == "4") {
+    } else if (local.yupanaSelected == "4") {
         htUpdateValues68ecf470(1, 1);
     }
 }
@@ -113,9 +113,10 @@ function WriteOneOrder(name) {
     $("#rightVR0").html(right);
     $("#totalVE0").html(total);
 
-    $("#imgml0").attr("src", "images/HistoryTracers/Maya_"+left+".png");
-    $("#imgmr0").attr("src", "images/HistoryTracers/Maya_"+right+".png");
-    $("#imgme0").attr("src", "images/HistoryTracers/Maya_"+total+".png");
+    var prefix = htGetImgSrcPrefix();
+    $("#imgml0").attr("src", prefix+"images/HistoryTracers/Maya_"+left+".png");
+    $("#imgmr0").attr("src", prefix+"images/HistoryTracers/Maya_"+right+".png");
+    $("#imgme0").attr("src", prefix+"images/HistoryTracers/Maya_"+total+".png");
 }
 
 function htLoadExercise() {
@@ -129,24 +130,32 @@ function htLoadExercise() {
 function htLoadContent() {
     htWriteNavigation();
 
+    local = {
+        "yupanaSelected": "-1",
+        "rvalues": [],
+        "lvalues": [],
+        "left68ecf470": 0,
+        "right68ecf470": 0
+    };
+
     $( "input[name='yupanaradio']" ).on( "change", function() {
-        yupanaSelected = $(this).val();
+        local.yupanaSelected = $(this).val();
         htResetValues68ecf470();
 
-        htUpdateYupana68ecf470(left68ecf470, right68ecf470);
+        htUpdateYupana68ecf470(local.left68ecf470, local.right68ecf470);
     });
 
     $("#traineeUp3").on("click", function() {
         htSetValues68ecf470();
 
-        var totals = htSumYupanaVectors(rvalues, lvalues);
+        var totals = htSumYupanaVectors(local.rvalues, local.lvalues);
         htCleanYupanaDecimalValues('#yupana0', 2);
         htFillYupanaDecimalValues('#yupana0', totals, 2, 'red_dot_right_up');
     });
 
     $("#traineeDown3").on("click", function() {
         htResetValues68ecf470();
-        htUpdateYupana68ecf470(left68ecf470, right68ecf470);
+        htUpdateYupana68ecf470(local.left68ecf470, local.right68ecf470);
     });
 
     $(".upArrowWithFA").on("click", function() {

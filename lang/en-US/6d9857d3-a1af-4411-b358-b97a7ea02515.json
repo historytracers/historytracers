@@ -1,0 +1,517 @@
+{
+   "title": "Adding with Soroban and Suanpan (算盤) — Part 2",
+   "header": "Adding with Soroban and Suanpan (算盤) — Part 2",
+   "sources": [
+      "6d9857d3-a1af-4411-b358-b97a7ea02515"
+   ],
+   "scripts": [
+      "6d9857d3-a1af-4411-b358-b97a7ea02515",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/6d9857d3-a1af-4411-b358-b97a7ea02515_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/0jI5TCFyGjXFWSew0r6iuJ?si=Dl8nEq3eSzGjplWaS3jqvw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1780795219"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nFor a better understanding of this text, we recommend reading the first part on sums with abacuses and its prerequisites (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "22edd35f-1746-447f-b147-36ff7c90478b",
+                     "text": "History Tracers Team",
+                     "page": "Adding with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_intrduction",
+         "text": [
+            {
+               "text": "### Introduction\n\nIn the first part of our study on how to add numbers using the abacuses developed in China (Zhongguo, 中國) and Japan (Nippon-koku or Nihon-koku, 日本国), we observed that the sum of values in the range of 0 to 9 is performed by moving markers (<htcite0>).\n\nWe also saw earlier that abacuses are not limited to a single column (<htcite1>). In this way, we can represent any number on these instruments, simply by adding new columns.\n\nAnother aspect already studied about abacuses (Soroban and Suanpan (算盤)) are the similarities they share with the Yupana (<htcite2>), which leads us to the following initial reflection:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "22edd35f-1746-447f-b147-36ff7c90478b",
+                     "text": "History Tracers Team",
+                     "page": "Adding with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d7a249ed-cc2d-40e0-adec-ca3e9738e5d3",
+                     "text": "History Tracers Team",
+                     "page": "Higher orders with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "22edd35f-1746-447f-b147-36ff7c90478b",
+                     "text": "History Tracers Team",
+                     "page": "Adding with Soroban and Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 1: I have seen this before too</b><br /><br />Both the Yupana and the abacuses use the human body as a reference for representing numbers. We also saw that both perform sums in a similar way for numbers between 0 and 9.<br /><br />When the sum of two numbers results in a value greater than 9, do you think that abacuses also perform the operation in the same way as the *Yupana Inka Tawa Pukllay* method by Dhavit Prem (<htcite0>; <htcite1>)?</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit. Personal",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_indigenous",
+         "text": [
+            {
+               "text": "### The *Yupana*\n\nAs we studied previously, during calculation on the *Yupana*, we learned that, according to the *Yupana Inka Tawa Pukllay* method, there are different movements we perform. Among these movements is the *PIQSA* movement, which transfers one marker to the immediately higher order (<htcite0>; <htcite1>).\n\nTo refresh our memory, select a movement at the top of **Table 1**. Then, use the forward arrow (<i class=\"fa-solid fa-arrows-left-right\"  style=\"color:#0f0;\"></i>) to view the movement, and then the back arrow (<i class=\"fa-solid fa-arrows-rotate\" style=\"color:#00f;\"></i>), to return to the original position.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit. Pessoal",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><input type=\"radio\" value=\"0\" name=\"yupanaradio\" /> <i>ISKAY</i> <input type=\"radio\" value=\"1\" name=\"yupanaradio\" /> <i>KIMSA</i> <input type=\"radio\" value=\"2\" name=\"yupanaradio\" /> <i>PISQA</i> <input type=\"radio\" value=\"3\" name=\"yupanaradio\" /> <i>PICHANA</i> <input type=\"radio\" value=\"4\" name=\"yupanaradio\" /> <i>KINKIN</i> </center></p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Yupana</i></th><th>Left Hand</th><th>Right Hand</th><th>Arrows</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f1\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f1\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f1\"><span class=\"dot dot_center\"></span></td><td id=\"tc5f1\" rowspan=\"2\"><img id=\"leftHandImg3\" onclick=\"htImageZoom('leftHandImg3', '0%')\"  /></td><td id=\"tc5f1\" rowspan=\"2\"><img id=\"rightHandImg3\" onclick=\"htImageZoom('rightHandImg3', '0%')\"  /></td><td id=\"tc7f1\" rowspan=\"2\"><i class=\"fa-solid fa-arrows-left-right upArrowWithFA\" id=\"traineeUp3\"></i> <i class=\"fa-solid fa-arrows-rotate downArrowWithFA\" style=\"font-size:4em;color:#00f;\" id=\"traineeDown3\"></i></td><tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"dot five_dot_c1_up\"></span><span class=\"dot five_dot_c1_center\"></span><span class=\"dot five_dot_c1_bottom\"></span><span class=\"dot five_dot_c2_up\"></span><span class=\"dot five_dot_c2_bottom\"></span></td> <td id=\"tc2f2\"><span class=\"dot three_dot_bottom\"></span><span class=\"dot three_dot_up\"></span><span class=\"dot three_dot_center\"></span></td> <td id=\"tc3f2\"><span class=\"dot two_dot_bottom\"></span> <span class=\"dot two_dot_up\"></span></td> <td id=\"tc4f2\"><span class=\"dot dot_center\"></span></td></tr></tr></table></p><p class=\"desc\">Table 1 – Representation of the movements of the <i>Yupana Inka Tawa Pukllay</i> method. CSS inspired by <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a> W3Schools code.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "As we can observe in **Table 1**, when the sum reaches the value of ten, we must move one marker to the higher order, removing all markers from the lower order.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_abacus",
+         "text": [
+            {
+               "text": "### Complement\n\nThe first step to performing calculations with numbers whose results will be greater than 10 is to understand the concept of complement, which, by definition, is the number needed to reach another number.\n\n#### The complement of 5\n\nAs a first step, we will work on the complement of values on a single hand, that is, the complement of 5. To make this concept clearer, we will use our hands as a visual resource.\n\nIn **Table 2**, use the side arrows to set the number represented by the fingers of the left hand. Notice that as the numbers on the left hand change, the column **Complement** and **Right hand**, will show the value that, when added to the number represented on the left hand, results in 5.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th>Number</th><th>Left hand</th><th>Complement</th><th>Right hand</th><th>Arrows</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\"><span class=\"text_to_paint\" id=\"txtValue0\" >5</span></td> <td id=\"tc2f1\"><img id=\"leftHandImg\" onclick=\"htImageZoom('leftHandImg', '0%')\"  /></td> <td id=\"tc3f1\"><span class=\"text_to_paint\" id=\"txtValue1\" >0</span> </td> <td id=\"tc4f1\"><img id=\"rightHandImg\" onclick=\"htImageZoom('rightHandImg', '0%')\"  /> </td><td id=\"tc5f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp1\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown1\"></td></tr></table></p><p class=\"desc\"><b>Table 2</b>: Complement of the number 5. CSS inspired by <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a> code.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### The complement of 10\n\nTo visualize the complement of 10, we need to use both hands. Before that, let's look at the possible calculations to reach the result 10:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>value</mi> <mo>+</mo> <mi>complement</mi> <mo>=</mo> <mi>10</mi> </math><br />  <math display=\"block\"><mi>10</mi> <mo>+</mo> <mi>0</mi> <mo>=</mo> <mi>10</mi> </math><br />  <math display=\"block\"><mi>9</mi> <mo>+</mo> <mi>1</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>8</mi> <mo>+</mo> <mi>2</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>7</mi> <mo>+</mo> <mi>3</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>6</mi> <mo>+</mo> <mi>4</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>5</mi> <mo>+</mo> <mi>5</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>4</mi> <mo>+</mo> <mi>6</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>3</mi> <mo>+</mo> <mi>7</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>2</mi> <mo>+</mo> <mi>8</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>1</mi> <mo>+</mo> <mi>9</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>0</mi> <mo>+</mo> <mi>10</mi> <mo>=</mo> <mi>10</mi> </math><br /></p><p class=\"desc\"><b>Calculation 1</b>: Complements of 10.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Now, use the arrows in **Table 3** to lower your fingers and visualize the complement, presented in numerical format. This complement, when added to the number of raised fingers, will result in 10.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><table id=\"yupana2\" class=\"tawapukllay\"><th>Left hand</th><th>Right hand</th><th>Complement</th><th>Arrows</th></tr> <td id=\"tc2f1\"><img id=\"leftHandImg2\" onclick=\"htImageZoom('leftHandImg2', '0%')\"  /></td> <td id=\"tc4f1\"><img id=\"rightHandImg2\" onclick=\"htImageZoom('rightHandImg2', '0%')\"  /> </td> <td id=\"tc3f1\"><span class=\"text_to_paint\" id=\"txtValue2\" >0</span> </td> <td id=\"tc5f1\"><i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp2\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\"style=\"font-size:4em;color:#00f;\" id=\"traineeDown2\"></td></tr></table></p><p class=\"desc\"><b>Table 3</b>: Complement of the number 10. CSS inspired by <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('48dd9187-7ecc-4f54-a387-d9ecc2497de3'); return false;\">W3School</span></a> code.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_abacus",
+         "text": [
+            {
+               "text": "### Adding Through Complements\n\nBefore we delve into the subject, reflect on the following:",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflection 2: Using the Complement</b><br /><br />The complement will be used to add two numbers whose result is greater than ten.<br /><br />Considering what we have seen so far in this text, how do you think we can use this?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### A Common Reading\n\nIn the first text where we talked about addition, we mentioned that adding would be like taking steps forward among numbers. In that text, we also learned that we can only have results between 0 and 9 in each place value we add (<htcite0>).\n\nAnother way to observe addition is through complements. Let's do a practical example when adding 7 + 8.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0713ca05-8889-427b-802e-f2d31f045c09",
+                     "text": "History Tracers Team",
+                     "page": "Walking Among Numbers",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;1&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp; 7<br />+&nbsp;&nbsp;&nbsp; 8<br />____________<br />&nbsp;&nbsp;1 5</center></p><p class=\"desc\"><b>Calculation 2</b>: Advancing 7 steps from position 8.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Often, the **Calculation 2** is read as follows: \"When adding 7 to 8, the result in the units place is 5 and we carry 1. Then, since there are no numbers in the tens place, we understand there was 0. Therefore, when adding 1 to 0 in the tens place, we arrive at the result 15.\"\n\nThis reading hides something else that is happening or, if you prefer, hides another interpretation.\n\n#### A Different Reading\n\nAnother way to interpret **Calcuation 2** is through the complement. First, let's isolate, from **Calculation 1**, the complement of 8.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>value</mi> <mo>+</mo> <mi>complement</mi> <mo>=</mo> <mi>10</mi> </math><br /> <math display=\"block\"><mi>8</mi> <mo>+</mo> <mi>2</mi> <mo>=</mo> <mi>10</mi> </math><br /></p><p class=\"desc\"><b>Calculation 3</b>: Complement to 10 for the number 8.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "The number 2 is more than just a number in this scenario. It is exactly the value that will make the 8 disappear from the result, because it will join it, forming 10. It is also the value we will go back on the numerical \"path\" (**Graph 1**), reaching the value 5, because, as we know: 5 + 2 = 7.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><svg width=\"450\" height=\"100\"  fill=\"none\" stroke=\"black\"> <defs> <marker id=\"arrow\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"> <path d=\"M 0 0 L 10 5 L 0 10 z\" /></marker> </defs> <line x1=\"2\" y1=\"15\" x2=\"400\" y2=\"15\" stroke=\"black\" stroke-width=\"3\" marker-end=\"url(#arrow)\" /> <text x=\"0\" y=\"40\" font-size=\"1.5em\">0</text> <text x=\"40\" y=\"40\" font-size=\"1.5em\">1</text> <text x=\"80\" y=\"40\" font-size=\"1.5em\">2</text> <text x=\"120\" y=\"40\" font-size=\"1.5em\">3</text> <text x=\"160\" y=\"40\" font-size=\"1.5em\">4</text> <text x=\"200\" y=\"50\" font-size=\"2.4em\">5</text> <text x=\"240\" y=\"40\" font-size=\"1.5em\">6</text> <text x=\"280\" y=\"50\" font-size=\"2.4em\" >7</text> <text x=\"320\" y=\"40\" font-size=\"1.5em\">8</text> <text x=\"360\" y=\"40\" font-size=\"1.5em\">9</text> <line x1=\"5\" y1=\"15\" x2=\"5\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"45\" y1=\"15\" x2=\"45\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"85\" y1=\"15\" x2=\"85\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"125\" y1=\"15\" x2=\"125\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"165\" y1=\"15\" x2=\"165\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"205\" y1=\"15\" x2=\"205\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"245\" y1=\"15\" x2=\"245\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"285\" y1=\"15\" x2=\"285\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"325\" y1=\"15\" x2=\"325\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" /> <line x1=\"365\" y1=\"15\" x2=\"365\" y2=\"25\" stroke=\"black\" stroke-width=\"3\" />  </svg></p><p class=\"desc\"><b>Graph 1</b>: Representation of an axis containing numbers. The numbers are arranged below the line, and an arrow at the end indicates the direction of increasing values. We highlight on this axis the numbers 5 and 7.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "That is, through the complement, we can interpret the addition as follows: \"Since the sum of the numbers will be greater than 9, we will also have numbers in the tens place. Thus, we extract from the 7 the value 2, which is the complement of 8 to reach 10, causing the 7 to become 5. Finally, we add 10 + 5, arriving at the result 15.\".\n\n**Calculation 4** below shows the mentioned interpretation.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5<br />+&nbsp;&nbsp;1 0<br />____________<br />&nbsp;&nbsp;1 5</center></p><p class=\"desc\"><b>Calculation 4</b>: Calculation 2 rewritten in complement form.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "To better visualize this interpretation, we will use the abacuses next.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_practice",
+         "text": [
+            {
+               "text": "### Adding with complements on the abacus\n\nTo perform the addition of two values whose result is greater than 9, complements are necessary, because abacuses do not allow marking numbers greater than 9 per column, due to the lack of space to position the markers (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Holt",
+                     "page": "17:07 - 17:55",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 1: 7 + 8 on the abacus</b><br /><br />We will perform the same addition that we did in <b>Calculation 2 and 4</b>, but this time using the sequence abacus.<br /><br /><b>1.</b> In the rightmost column, move one upper marker and two lower markers toward the beam, representing the number 7.<br/><b>2.</b> Now, move away 2 lower markers, which will complement the number 8 (8 + 2 = 10) (<htcite0>).<br /><b>3.</b> Finally, move one lower marker in the decimal column (the second column from left to right) and verify that the abacus will show the result 15 (7 + 8 = 15, which equals 5 + 10 = 15).</div></div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "33f8f982-194e-490e-bdaa-9f7fd8dcc205",
+                     "text": "Tomoko Holt",
+                     "page": "18:32 - 19:03",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: clamp(1.5rem, 5vw, 3.5rem); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: clamp(0.8rem, 3vw, 1.8rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem); width: 100%; max-width: 1100px; transition: all 0.2s ease; } .soroban-frame { background: #e9ddb0; border-radius: clamp(1rem, 3vw, 1.8rem); padding: clamp(8px, 2vw, 16px); box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; width: 100%; height: auto; aspect-ratio: 860 / 400; } .value-panel { margin-top: clamp(0.8rem, 4vw, 1.8rem); background: #2e241f; border-radius: 60px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);  display: flex; justify-content: space-between;  align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center;  gap: clamp(8px, 2vw, 18px); flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 0.4rem 1rem; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(1rem, 5vw, 1.9rem); letter-spacing: 1px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: clamp(0.7rem, 3.5vw, 1.2rem); font-weight: normal; background: #4a3929; color: #ffecb3; padding: 0.2rem 0.7rem; border-radius: 30px; margin-left: 8px;  white-space: nowrap; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.85rem, 4vw, 1.2rem); font-family: inherit; padding: 0.5rem 1.2rem; border-radius: 60px; cursor: pointer;  transition: 0.08s linear; box-shadow: 0 3px 0 #4f3822; white-space: nowrap; min-width: 100px; } .reset-btn:active { transform: translateY(2px);  box-shadow: 0 1px 0 #4f3822;  } .legend {  font-size: clamp(0.6rem, 2.8vw, 0.75rem); margin-top: 0; text-align: center;  color: #302419;  background: #ebdfbe; display: inline-block; width: auto;  padding: 0.3rem 0.9rem; border-radius: 60px; backdrop-filter: blur(2px); white-space: nowrap; } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 12px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 0.3rem 1rem; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; color: #302419; white-space: nowrap; } .mode-selector { background: #ebdfbe; border-radius: 60px;  padding: 0.3rem 1rem; display: flex;  gap: 12px; align-items: center; flex-wrap: wrap; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 3vw, 0.85rem); font-family: inherit; padding: 0.4rem 1rem; border-radius: 40px; cursor: pointer; transition: 0.08s linear; box-shadow: 0 2px 0 #4f3822; white-space: nowrap; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: clamp(0.65rem, 2.8vw, 0.75rem); } .warning-message { background: #ff9800; color: #2e241f; padding: 0.3rem 1rem; border-radius: 40px; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); animation: pulseWarning 1.5s ease-in-out infinite; white-space: normal; word-break: keep-all; } .warning-message.hidden { display: none; } @keyframes pulseWarning { 0%, 100% { opacity: 0.85; background: #ff9800; } 50% { opacity: 1; background: #ffb74d; box-shadow: 0 0 4px #ff9800; } } .warning-icon { font-size: 1rem; } .info-area { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; } @media (max-width: 720px) { .value-panel { flex-direction: column; align-items: stretch; border-radius: 32px; } .value-panel-left { justify-content: center; } .readout { text-align: center; white-space: normal; word-break: break-word; } .footer { flex-direction: column; align-items: stretch; } .mode-selector, .info-area, .decimal-control { justify-content: center; } .legend { white-space: normal; text-align: center; } .reset-btn { text-align: center; width: 100%; } } @media (max-width: 480px) { .readout span { margin-left: 4px; } .mode-selector { justify-content: center; gap: 8px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">There is/are column(s) with values greater than 9! Each digit must remain between 0 and 9.</span><span id=\"suanpanColumnNumber\" style=\"display: none; visibility: hidden;\">2</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Abacus:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Decimal marker</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Practice 2: 9 + 9 on the abacus</b><br /><br />Click the <b>Reset</b> button so we can perform the calculation.<br /><br /><b>1.</b> In the rightmost column, move one upper marker and four lower markers toward the beam, representing the number 9.<br/><b>2.</b> Now, move away 1 lower marker, which will complement the number 9 (9 + 1 = 10) (<htcite0>).<br /><b>3.</b> Finally, move one lower marker in the decimal column (one marker in the second column) and verify that the abacus will show the result 18 (9 + 9 = 18, which equals 8 + 10 = 18).</div></div></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusion\n\nIn this text, we were introduced to the concept of the complementary number, which helps us carry out mathematical operations, such as addition.\n\nFurthermore, we observed that, just as the *Yupana Inka Tawa Pukllay* method (<htcite0>; <htcite1>) has a specific movement to carry over the ten, the *PISQA*, the complementary number also acts as a set of movements that allows us to keep numbers correctly represented and perform additions.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Prem, Dhavit",
+                     "page": "pp. 354 - 363",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Prem, Dhavit. Pessoal",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
