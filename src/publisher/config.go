@@ -15,13 +15,11 @@ import (
 )
 
 type htConfig struct {
-	DevMode bool
 	common.HTConfigBase
 }
 
 var (
 	updateDateFlag      bool
-	devFlag             bool
 	MinifyFlag          bool
 	GedcomFlag          bool
 	verboseFlag         bool
@@ -29,7 +27,6 @@ var (
 	AudioFlag           bool
 	FamilyFlag          bool
 	ShowCompilationFlag bool
-	internalFlag        bool
 	confPath            string
 	srcPath             string
 	logPath             string
@@ -39,7 +36,6 @@ var (
 	logFileFlag         string
 	classTemplate       string
 	smGameTemplate      string
-	devModeVal          bool
 	langTestFlag        string
 	compileConfPath     string
 	compileSrcPath      string
@@ -49,7 +45,6 @@ var (
 )
 
 func HTParseArg() {
-	flag.BoolVar(&devModeVal, "devmode", false, "Is the software running in development mode? (default: false)")
 	flag.BoolVar(&updateDateFlag, "timestamp", false, "Update the timestamp fields in all files. (default: false)")
 	flag.BoolVar(&MinifyFlag, "minify", false, "Do not start the server, instead, minify all files. (default: false)")
 	flag.BoolVar(&GedcomFlag, "gedcom", false, "Do not start the server, instead, generate all gedcom files. (default: false)")
@@ -58,7 +53,6 @@ func HTParseArg() {
 	flag.BoolVar(&AudioFlag, "audiofiles", false, "Converting JSON to TXT for Piper Input. (default: false)")
 	flag.BoolVar(&FamilyFlag, "family", false, "Create a foundation for a new family. (default: false)")
 	flag.BoolVar(&ShowCompilationFlag, "compilation", false, "Show options software was compiled. (default: false)")
-	flag.BoolVar(&internalFlag, "internal", false, "Run using only compiled options, ignore external config file. (default: false)")
 
 	flag.StringVar(&srcVal, "src", compileSrcPath, "Directory containing all source files.")
 	flag.StringVar(&contentVal, "www", compileContentPath, "Directory for user-facing content.")
@@ -74,14 +68,7 @@ func HTParseArg() {
 }
 
 func htCreateConfig() *htConfig {
-	if internalFlag {
-		return &htConfig{
-			DevMode:      devFlag,
-			HTConfigBase: *common.NewHTConfigBase(0, compileSrcPath, compileContentPath, compileLogPath),
-		}
-	}
 	return &htConfig{
-		DevMode:      devModeVal,
 		HTConfigBase: *common.NewHTConfigBase(0, srcVal, contentVal, compileLogPath),
 	}
 }
@@ -123,13 +110,6 @@ func htPrintOptions() {
 }
 
 func HTLoadConfig() {
-	if internalFlag {
-		if verboseFlag {
-			fmt.Println("Running in internal mode, using compiled options only.")
-		}
-		return
-	}
-
 	_, err := os.Stat(confPath)
 	if err != nil {
 		fmt.Println("Config not found. Runnin with default options.")

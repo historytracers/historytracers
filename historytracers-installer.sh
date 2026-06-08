@@ -58,7 +58,7 @@ compile() {
         ls -la build/
         exit 1
     fi
-    ./build/$PUBLISHER_BIN -internal -minify -audiofiles -gedcom -verbose -logfile historytracers.log
+    ./build/$PUBLISHER_BIN -minify -audiofiles -gedcom -verbose -logfile historytracers.log
     echo "=== publisher run complete (see historytracers.log) ==="
 }
 
