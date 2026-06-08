@@ -185,8 +185,22 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Puntos de las tablas de multiplicar del cero al nueve conectados, formando las rectas. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htFillMultiplicationTable(\"chart1\", 0, 9, false, true);</script>",
-               "source": [],
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Puntos de las tablas de multiplicar del cero al nueve conectados, formando las rectas. Gráfico creado con la biblioteca <htcite2>.</div></p><script> htFillMultiplicationTable(\"chart1\", 0, 9, false, true);</script>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     },
+                     "citation_num": 2
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
