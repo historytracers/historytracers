@@ -72,36 +72,7 @@ def find_json_citations(text: str) -> List[str]:
     matches = re.findall(pattern, text)
     return matches
 
-def find_max_cite_num_in_data(data: Dict) -> int:
-    """
-    Find the maximum existing citation number across all text fields.
-    
-    Args:
-        data: Parsed JSON data
-        
-    Returns:
-        Maximum citation number found, or -1 if none exist
-    """
-    max_num = -1
-    
-    def walk(obj):
-        nonlocal max_num
-        if isinstance(obj, dict):
-            for key, value in obj.items():
-                if isinstance(value, (dict, list)):
-                    walk(value)
-        elif isinstance(obj, list):
-            for item in obj:
-                walk(item)
-                if isinstance(item, dict) and 'text' in item:
-                    text_value = item.get('text', '')
-                    if isinstance(text_value, str):
-                        nums = find_json_citations(text_value)
-                        if nums:
-                            max_num = max(max_num, max(int(n) for n in nums))
-    
-    walk(data)
-    return max_num
+
 
 def find_htdate_tags(text: str) -> List[str]:
     """
@@ -441,11 +412,52 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
         print(f"Error analyzing file: {analysis['error']}")
         return False
     
-    if analysis['total_html_citations'] == 0:
+    # Load the file for modification (needed for exercise_v2 scan)
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception as e:
+        print(f"Error loading file: {e}")
+        return False
+    
+    # Also scan exercise_v2 items for HTML citations before early return
+    exercise_html_count = 0
+    def count_exercise_html(obj):
+        nonlocal exercise_html_count
+        if isinstance(obj, dict):
+            for key, value in obj.items():
+                if isinstance(value, (dict, list)):
+                    count_exercise_html(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                if isinstance(item, dict):
+                    count_exercise_html(item)
+                    for field in ('additionalInfo', 'question'):
+                        if field in item and isinstance(item[field], str):
+                            hc = find_html_citations(item[field])
+                            if hc:
+                                exercise_html_count += len(hc)
+    
+    count_exercise_html(data)
+    
+    total_html = analysis['total_html_citations'] + exercise_html_count
+    
+    if total_html == 0:
         print("No HTML citations found in this file. No modifications needed.")
+        # Normalize to LF-only line endings even if no modifications needed
+        with open(filepath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        if '\r\n' in content:
+            content = content.replace('\r\n', '\n')
+            with open(filepath, 'w', encoding='utf-8', newline='\n') as f:
+                f.write(content)
+            print("  (Normalized line endings to LF)")
         return True
     
-    print(f"HTML citations found: {analysis['total_html_citations']}")
+    print(f"HTML citations found: {total_html}")
+    print(f"  - HTText objects: {analysis['total_html_citations']}")
+    if exercise_html_count > 0:
+        print(f"  - exercise_v2 items: {exercise_html_count}")
     print(f"JSON citations found: {analysis['total_json_citations']}")
     print(f"Unique UUIDs: {analysis['unique_uuids']}")
     
@@ -476,20 +488,8 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                 print(f"  <htcite{i}> UUID: {source['uuid'][:12]}... Text: {source['text'][:50]}...")
         return True
     
-    # Load the file for modification
-    try:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-    except Exception as e:
-        print(f"Error loading file: {e}")
-        return False
-    
     # Perform the conversion
     modified_data = json.loads(json.dumps(data))  # Deep copy
-    
-    # Find max existing citation number to avoid colliding with pre-existing <htciteN> tags
-    existing_max = find_max_cite_num_in_data(data)
-    cite_offset = existing_max + 1  # Start new citations after existing ones
     
     def convert_text_and_add_sources(obj):
         if isinstance(obj, dict):
@@ -505,6 +505,19 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                         html_citations = find_html_citations(text_value)
                         
                         if html_citations:
+                            # Compute offset based on existing citations in THIS text field only
+                            existing_nums = find_json_citations(text_value)
+                            cite_offset = 0
+                            if existing_nums:
+                                cite_offset = max(int(n) for n in existing_nums) + 1
+                            # Also check existing sources for citation_num
+                            existing_srcs = item.get('source')
+                            if existing_srcs:
+                                for s in existing_srcs:
+                                    cn = s.get('citation_num')
+                                    if cn is not None:
+                                        cite_offset = max(cite_offset, cn + 1)
+                            
                             # Convert the text - each citation gets sequential number starting after existing ones
                             item['text'] = convert_text_citations(text_value, offset=cite_offset)
                             
@@ -571,6 +584,81 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
     
     # Apply conversions
     convert_text_and_add_sources(modified_data)
+    
+    # Handle exercise_v2 items (they have additionalInfo/question but no source array)
+    exercise_converted = 0
+    def convert_exercise_v2(obj):
+        nonlocal exercise_converted
+        if isinstance(obj, dict):
+            for key, value in obj.items():
+                if isinstance(value, (dict, list)):
+                    convert_exercise_v2(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                if isinstance(item, dict):
+                    convert_exercise_v2(item)
+                    # Check if this is an exercise_v2 array item
+                    for field in ('additionalInfo', 'question'):
+                        if field in item and isinstance(item[field], str):
+                            html_citations = find_html_citations(item[field])
+                            if html_citations:
+                                # Compute offset from any existing sources in this item
+                                exercise_offset = 0
+                                existing_sources = item.get('source')
+                                if existing_sources is not None:
+                                    for s in existing_sources:
+                                        cn = s.get('citation_num')
+                                        if cn is not None:
+                                            exercise_offset = max(exercise_offset, cn + 1)
+                                    # Find max htcite in the text too
+                                    existing_nums = find_json_citations(item[field])
+                                    if existing_nums:
+                                        exercise_offset = max(exercise_offset, max(int(n) for n in existing_nums) + 1)
+                                
+                                item[field] = convert_text_citations(item[field], offset=exercise_offset)
+                                
+                                # Add source entries for new citations
+                                new_sources = []
+                                for i, (uuid, display_text, source_type) in enumerate(html_citations, start=exercise_offset):
+                                    processed_text, page_value = process_source_text(display_text)
+                                    date_time_obj = {
+                                        "type": "gregory",
+                                        "year": "-1",
+                                        "month": "-1",
+                                        "day": "-1"
+                                    }
+                                    if source_mapping and uuid in source_mapping:
+                                        source_info = source_mapping[uuid]
+                                        date_time_value = source_info.get('date_time', '')
+                                        if date_time_value and date_time_value.strip():
+                                            date_parts = date_time_value.strip().split('-')
+                                            if len(date_parts) >= 1 and date_parts[0].isdigit():
+                                                date_time_obj["year"] = date_parts[0]
+                                            if len(date_parts) >= 2 and date_parts[1].isdigit():
+                                                date_time_obj["month"] = date_parts[1]
+                                            if len(date_parts) >= 3 and date_parts[2].isdigit():
+                                                date_time_obj["day"] = date_parts[2]
+                                    new_source = {
+                                        "type": source_type,
+                                        "uuid": uuid,
+                                        "text": processed_text,
+                                        "page": page_value,
+                                        "date_time": date_time_obj,
+                                        "citation_num": i
+                                    }
+                                    new_sources.append(new_source)
+                                
+                                # Add sources to the exercise item
+                                if existing_sources is not None:
+                                    item['source'] = existing_sources + new_sources
+                                else:
+                                    item['source'] = new_sources
+                                exercise_converted += len(html_citations)
+    
+    convert_exercise_v2(modified_data)
+    
+    if exercise_converted > 0:
+        print(f"exercise_v2 citations converted: {exercise_converted}")
     
     print(f"\n--- CONVERSION SUMMARY ---")
     print(f"UUIDs converted: {len(analysis['uuid_mapping'])}")
