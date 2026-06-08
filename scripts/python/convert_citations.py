@@ -263,6 +263,71 @@ def process_json_content(obj: Any, path: str = "") -> List[Dict[str, Any]]:
     
     return results
 
+def strip_html_tags(text: str) -> str:
+    """Remove all HTML tags from a string."""
+    return re.sub(r'<[^>]+>', '', text)
+
+def normalize_sources(obj: Any) -> int:
+    """
+    Recursively normalize all source entries in the JSON object:
+    - Add citation_num sequential by position if missing
+    - Strip HTML from text and page fields
+    - Add uuid if missing (empty string)
+    - Fix date_time empty month/day strings to "-1"
+    
+    Returns count of source entries modified.
+    """
+    modified = 0
+    
+    def walk(node):
+        nonlocal modified
+        if isinstance(node, dict):
+            if 'source' in node and isinstance(node['source'], list):
+                sources = node['source']
+                for i, src in enumerate(sources):
+                    if isinstance(src, dict):
+                        # Add citation_num if missing
+                        if 'citation_num' not in src:
+                            src['citation_num'] = i
+                            modified += 1
+                        
+                        # Strip HTML from text
+                        if 'text' in src and isinstance(src['text'], str):
+                            stripped = strip_html_tags(src['text'])
+                            if stripped != src['text']:
+                                src['text'] = stripped
+                                modified += 1
+                        
+                        # Strip HTML from page
+                        if 'page' in src and isinstance(src['page'], str):
+                            stripped = strip_html_tags(src['page'])
+                            if stripped != src['page']:
+                                src['page'] = stripped
+                                modified += 1
+                        
+                        # Add uuid if missing
+                        if 'uuid' not in src:
+                            src['uuid'] = ""
+                            modified += 1
+                        
+                        # Fix date_time empty month/day
+                        if 'date_time' in src and isinstance(src['date_time'], dict):
+                            dt = src['date_time']
+                            for field in ('month', 'day'):
+                                if field in dt and dt[field] == '':
+                                    dt[field] = '-1'
+                                    modified += 1
+            
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                walk(item)
+    
+    walk(obj)
+    return modified
+
+
 def analyze_file(filepath: str, source_mapping: Optional[Dict[str, Dict[str, Any]]] = None) -> Dict[str, Any]:
     """
     Analyze a single JSON file for HTML and JSON citations.
@@ -444,6 +509,13 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
     
     if total_html == 0:
         print("No HTML citations found in this file. No modifications needed.")
+        # Normalize existing source entries
+        src_modified = normalize_sources(data)
+        if src_modified > 0:
+            print(f"  (Normalized {src_modified} pre-existing source entries)")
+            with open(filepath, 'w', encoding='utf-8', newline='\n') as f:
+                json.dump(data, f, indent=3, ensure_ascii=False)
+            print(f"  (Saved normalized file)")
         # Normalize to LF-only line endings even if no modifications needed
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -656,6 +728,11 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                                 exercise_converted += len(html_citations)
     
     convert_exercise_v2(modified_data)
+    
+    # Normalize pre-existing source entries
+    src_modified = normalize_sources(modified_data)
+    if src_modified > 0:
+        print(f"Pre-existing source entries normalized: {src_modified}")
     
     if exercise_converted > 0:
         print(f"exercise_v2 citations converted: {exercise_converted}")
