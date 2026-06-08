@@ -72,6 +72,37 @@ def find_json_citations(text: str) -> List[str]:
     matches = re.findall(pattern, text)
     return matches
 
+def find_max_cite_num_in_data(data: Dict) -> int:
+    """
+    Find the maximum existing citation number across all text fields.
+    
+    Args:
+        data: Parsed JSON data
+        
+    Returns:
+        Maximum citation number found, or -1 if none exist
+    """
+    max_num = -1
+    
+    def walk(obj):
+        nonlocal max_num
+        if isinstance(obj, dict):
+            for key, value in obj.items():
+                if isinstance(value, (dict, list)):
+                    walk(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                walk(item)
+                if isinstance(item, dict) and 'text' in item:
+                    text_value = item.get('text', '')
+                    if isinstance(text_value, str):
+                        nums = find_json_citations(text_value)
+                        if nums:
+                            max_num = max(max_num, max(int(n) for n in nums))
+    
+    walk(data)
+    return max_num
+
 def find_htdate_tags(text: str) -> List[str]:
     """
     Find HTDate tags in text.
@@ -119,18 +150,19 @@ def process_source_text(display_text: str) -> Tuple[str, str]:
     
     return text, page
 
-def convert_text_citations(text: str) -> str:
+def convert_text_citations(text: str, offset: int = 0) -> str:
     """
     Convert HTML citations in text to JSON format.
-    Each citation gets a sequential number starting from 0.
+    Each citation gets a sequential number starting from `offset`.
     
     Args:
         text: String containing HTML citations
+        offset: Starting number for citations (to avoid collision with existing tags)
         
     Returns:
         Text with HTML citations replaced by JSON format
     """
-    counter = [0]  # Use list to allow modification in nested function
+    counter = [offset]  # Use list to allow modification in nested function
     
     def replace_citation(match):
         citation_num = counter[0]
@@ -455,6 +487,10 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
     # Perform the conversion
     modified_data = json.loads(json.dumps(data))  # Deep copy
     
+    # Find max existing citation number to avoid colliding with pre-existing <htciteN> tags
+    existing_max = find_max_cite_num_in_data(data)
+    cite_offset = existing_max + 1  # Start new citations after existing ones
+    
     def convert_text_and_add_sources(obj):
         if isinstance(obj, dict):
             for key, value in obj.items():
@@ -469,8 +505,8 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                         html_citations = find_html_citations(text_value)
                         
                         if html_citations:
-                            # Convert the text - each citation gets sequential number
-                            item['text'] = convert_text_citations(text_value)
+                            # Convert the text - each citation gets sequential number starting after existing ones
+                            item['text'] = convert_text_citations(text_value, offset=cite_offset)
                             
                             # Add sources to this HTText object - one entry per citation
                             # Create mapping for source assignment (local to this HTText)
@@ -487,7 +523,7 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                             # Add new sources for each citation
                             # Use display text from this specific HTText object's citations, not global mapping
                             text_sources = []
-                            for i, (uuid, display_text, source_type) in enumerate(html_citations):
+                            for i, (uuid, display_text, source_type) in enumerate(html_citations, start=cite_offset):
                                 # Process display text from this specific citation
                                 processed_text, page_value = process_source_text(display_text)
                                 global_citation_num = analysis['uuid_mapping'].get(uuid)

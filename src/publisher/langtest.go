@@ -6,10 +6,142 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"regexp"
 	"strings"
 
 	. "github.com/historytracers/common"
 )
+
+var uuidFileRE = regexp.MustCompile(`^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\.json$`)
+
+type uuidTestOutcome struct {
+	uid        string
+	failReason string
+	lines      []langLines
+}
+
+func htGlobalLangTest() {
+	allUUIDs := make(map[string]bool)
+
+	for _, lang := range htLangPaths {
+		dirPath := fmt.Sprintf("%slang/%s/", CFG.SrcPath, lang)
+		entries, err := os.ReadDir(dirPath)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR reading directory %s: %s\n", dirPath, err)
+			os.Exit(1)
+		}
+		for _, e := range entries {
+			if !e.IsDir() && uuidFileRE.MatchString(e.Name()) {
+				allUUIDs[strings.TrimSuffix(e.Name(), ".json")] = true
+			}
+		}
+	}
+
+	sortedUUIDs := make([]string, 0, len(allUUIDs))
+	for uid := range allUUIDs {
+		sortedUUIDs = append(sortedUUIDs, uid)
+	}
+	sortStrings(sortedUUIDs)
+
+	total := len(sortedUUIDs)
+	passed := 0
+	var failures []uuidTestOutcome
+
+	fmt.Printf("Testing %d UUID files across %d languages\n", total, len(htLangPaths))
+	fmt.Println(strings.Repeat("=", 60))
+
+	for _, uid := range sortedUUIDs {
+		out := htTestSingleUUID(uid)
+
+		if out.failReason != "" {
+			fmt.Printf("[FAIL] %-36s %s", uid, out.failReason)
+			if len(out.lines) > 0 {
+				for _, l := range out.lines {
+					fmt.Printf(" %s:%d", l.lang, l.lines)
+				}
+			}
+			fmt.Println()
+			failures = append(failures, out)
+			continue
+		}
+
+		passed++
+	}
+
+	fmt.Println(strings.Repeat("=", 60))
+	fmt.Printf("Total: %d | Passed: %d | Failed: %d\n", total, passed, len(failures))
+	if len(failures) > 0 {
+		fmt.Println("\nFailed UUIDs:")
+		for _, f := range failures {
+			fmt.Printf("  %s: %s\n", f.uid, f.failReason)
+		}
+		os.Exit(1)
+	}
+	os.Exit(0)
+}
+
+func sortStrings(s []string) {
+	for i := 0; i < len(s); i++ {
+		for j := i + 1; j < len(s); j++ {
+			if s[i] > s[j] {
+				s[i], s[j] = s[j], s[i]
+			}
+		}
+	}
+}
+
+type langLines struct {
+	lang  string
+	lines int
+}
+
+func htTestSingleUUID(uid string) uuidTestOutcome {
+	out := uuidTestOutcome{uid: uid}
+
+	for _, lang := range htLangPaths {
+		fpath := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, uid)
+		if _, err := os.Stat(fpath); os.IsNotExist(err) {
+			out.failReason = "MISSING-FILE"
+			out.lines = append(out.lines, langLines{lang: lang, lines: -1})
+			continue
+		}
+		bv, err := htOpenFileReadClose(fpath)
+		if err != nil {
+			out.failReason = "READ-ERROR"
+			out.lines = append(out.lines, langLines{lang: lang, lines: -1})
+			continue
+		}
+		var anyVal interface{}
+		if err := json.Unmarshal(bv, &anyVal); err != nil {
+			out.failReason = "JSON-ERROR"
+			out.lines = append(out.lines, langLines{lang: lang, lines: -1})
+			continue
+		}
+		cnt, err := htCountLines(fpath)
+		if err != nil {
+			out.failReason = "COUNT-ERROR"
+			out.lines = append(out.lines, langLines{lang: lang, lines: -1})
+			continue
+		}
+		out.lines = append(out.lines, langLines{lang: lang, lines: cnt})
+	}
+
+	if out.failReason != "" {
+		return out
+	}
+
+	if uid != "052e06b9-f10c-4e76-896d-9f0e68f07506" && len(out.lines) >= 2 {
+		base := out.lines[0].lines
+		for _, l := range out.lines[1:] {
+			if l.lines != base {
+				out.failReason = "LINE-MISMATCH"
+				return out
+			}
+		}
+	}
+
+	return out
+}
 
 func htLangTest(testArg string) {
 	parts := strings.SplitN(testArg, ":", 2)
