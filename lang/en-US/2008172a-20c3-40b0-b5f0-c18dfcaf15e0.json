@@ -65,9 +65,10 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "",
-                        "month": "",
-                        "day": ""
-                     }
+                        "month": "-1",
+                        "day": "-1"
+                     },
+                     "citation_num": 0
                   }
                ],
                "date_time": null,
@@ -94,7 +95,8 @@
                         "year": "1899",
                         "month": "-1",
                         "day": "-1"
-                     }
+                     },
+                     "citation_num": 0
                   },
                   {
                      "type": 1,
@@ -106,7 +108,8 @@
                         "year": "2024",
                         "month": "9",
                         "day": "10"
-                     }
+                     },
+                     "citation_num": 1
                   }
                ],
                "date_time": null,
@@ -160,7 +163,8 @@
                         "year": "1899",
                         "month": "-1",
                         "day": "-1"
-                     }
+                     },
+                     "citation_num": 0
                   },
                   {
                      "type": 1,
@@ -172,7 +176,8 @@
                         "year": "2025",
                         "month": "10",
                         "day": "14"
-                     }
+                     },
+                     "citation_num": 1
                   },
                   {
                      "type": 0,
@@ -184,7 +189,8 @@
                         "year": "1899",
                         "month": "-1",
                         "day": "-1"
-                     }
+                     },
+                     "citation_num": 2
                   }
                ],
                "date_time": null,
@@ -215,7 +221,8 @@
                         "year": "1899",
                         "month": "-1",
                         "day": "-1"
-                     }
+                     },
+                     "citation_num": 0
                   },
                   {
                      "type": 1,
@@ -227,7 +234,8 @@
                         "year": "2025",
                         "month": "2",
                         "day": "11"
-                     }
+                     },
+                     "citation_num": 1
                   },
                   {
                      "type": 1,
@@ -239,7 +247,8 @@
                         "year": "2026",
                         "month": "2",
                         "day": "12"
-                     }
+                     },
+                     "citation_num": 2
                   }
                ],
                "date_time": [
@@ -284,7 +293,8 @@
                         "year": "1977",
                         "month": "-1",
                         "day": "-1"
-                     }
+                     },
+                     "citation_num": 0
                   },
                   {
                      "type": 1,
@@ -296,7 +306,8 @@
                         "year": "1977",
                         "month": "-1",
                         "day": "-1"
-                     }
+                     },
+                     "citation_num": 1
                   },
                   {
                      "type": 1,
@@ -308,7 +319,8 @@
                         "year": "1977",
                         "month": "-1",
                         "day": "-1"
-                     }
+                     },
+                     "citation_num": 2
                   },
                   {
                      "type": 1,
@@ -320,7 +332,8 @@
                         "year": "1977",
                         "month": "-1",
                         "day": "-1"
-                     }
+                     },
+                     "citation_num": 3
                   }
                ],
                "date_time": [
@@ -361,9 +374,10 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "",
-                        "month": "",
-                        "day": ""
-                     }
+                        "month": "-1",
+                        "day": "-1"
+                     },
+                     "citation_num": 0
                   }
                ],
                "date_time": null,
@@ -392,9 +406,10 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "",
-                        "month": "",
-                        "day": ""
-                     }
+                        "month": "-1",
+                        "day": "-1"
+                     },
+                     "citation_num": 0
                   }
                ],
                "date_time": null,
@@ -422,8 +437,22 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"inverse\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 1</b>: Relationship between certainty and knowledge. Graph created with the <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a> library.</div></p><script> htPlotInverse('inverse', 'Knowledge', 'Certainty');</script>",
-               "source": null,
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"inverse\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Graph 1</b>: Relationship between certainty and knowledge. Graph created with the <htcite0> library.</div></p><script> htPlotInverse('inverse', 'Knowledge', 'Certainty');</script>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     },
+                     "citation_num": 0
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -441,9 +470,10 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
-                        "month": "",
-                        "day": ""
-                     }
+                        "month": "-1",
+                        "day": "-1"
+                     },
+                     "citation_num": 0
                   }
                ],
                "date_time": null,

@@ -47,7 +47,8 @@ def find_html_citations(text: str) -> List[Tuple[str, str, int]]:
     }
     
     # Single pattern to find all types, preserving order in text
-    pattern = r"<a\s+href=\"#\"\s+onclick=\"htCleanSources\(\);\s*(htFill\w+)\('([^']+)'\);\s*return\s*false;\"[^>]*>(.*?)</a>"
+    # Note: </a> is optional (some citations lack the closing tag)
+    pattern = r"<a\s+href=\"#\"\s+onclick=\"htCleanSources\(\);\s*(htFill\w+)\('([^']+)'\);\s*return\s*false;\"[^>]*>(.*?)(?:</a>|$)"
     
     for match in re.finditer(pattern, text, re.DOTALL):
         func_name = match.group(1)
@@ -141,7 +142,8 @@ def convert_text_citations(text: str, offset: int = 0) -> str:
         return f"<htcite{citation_num}>"
     
     # Match all source types, preserving order in text
-    pattern = r"<a\s+href=\"#\"\s+onclick=\"htCleanSources\(\);\s*(htFill\w+)\('([^']+)'\);\s*return\s*false;\"[^>]*>(.*?)</a>"
+    # Note: </a> is optional (some citations lack the closing tag)
+    pattern = r"<a\s+href=\"#\"\s+onclick=\"htCleanSources\(\);\s*(htFill\w+)\('([^']+)'\);\s*return\s*false;\"[^>]*>(.*?)(?:</a>|$)"
     return re.sub(pattern, replace_citation, text, flags=re.DOTALL)
 
 def load_source_mapping() -> Dict[str, Dict[str, Any]]:
@@ -563,135 +565,94 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
     # Perform the conversion
     modified_data = json.loads(json.dumps(data))  # Deep copy
     
-    def convert_text_and_add_sources(obj):
+    fields_converted = 0
+    total_sources_added = 0
+    def convert_text_and_add_sources(obj, parent_dict=None):
+        nonlocal fields_converted, total_sources_added
         if isinstance(obj, dict):
-            for key, value in obj.items():
-                if isinstance(value, (dict, list)):
-                    convert_text_and_add_sources(value)
-        elif isinstance(obj, list):
-            for i, item in enumerate(obj):
-                if isinstance(item, dict):
-                    # Check if this is an HTText object
-                    if 'text' in item and 'source' in item:
-                        text_value = item['text']
-                        html_citations = find_html_citations(text_value)
+            # Check all string fields in this dict for HTML citations
+            for key, value in list(obj.items()):
+                if isinstance(value, str):
+                    html_citations = find_html_citations(value)
+                    if html_citations:
+                        # Compute offset based on existing citations in THIS field only
+                        existing_nums = find_json_citations(value)
+                        cite_offset = 0
+                        if existing_nums:
+                            cite_offset = max(int(n) for n in existing_nums) + 1
+                        existing_srcs = obj.get('source')
+                        if existing_srcs is not None:
+                            for s in existing_srcs:
+                                cn = s.get('citation_num')
+                                if cn is not None:
+                                    cite_offset = max(cite_offset, cn + 1)
                         
-                        if html_citations:
-                            # Compute offset based on existing citations in THIS text field only
-                            existing_nums = find_json_citations(text_value)
-                            cite_offset = 0
-                            if existing_nums:
-                                cite_offset = max(int(n) for n in existing_nums) + 1
-                            # Also check existing sources for citation_num
-                            existing_srcs = item.get('source')
-                            if existing_srcs:
-                                for s in existing_srcs:
-                                    cn = s.get('citation_num')
-                                    if cn is not None:
-                                        cite_offset = max(cite_offset, cn + 1)
-                            
-                            # Convert the text - each citation gets sequential number starting after existing ones
-                            item['text'] = convert_text_citations(text_value, offset=cite_offset)
-                            
-                            # Add sources to this HTText object - one entry per citation
-                            # Create mapping for source assignment (local to this HTText)
-                            uuid_to_index = {}
-                            for i, (uuid, _, _) in enumerate(html_citations):
-                                uuid_to_index[uuid] = i
-                            existing_sources = item.get('source', [])
-                            if existing_sources is None:
-                                existing_sources = []
-                            
-                            # Collect existing source UUIDs
-                            existing_uuids = [source.get('uuid', '') for source in existing_sources]
-                            
-                            # Add new sources for each citation
-                            # Use display text from this specific HTText object's citations, not global mapping
-                            text_sources = []
-                            for i, (uuid, display_text, source_type) in enumerate(html_citations, start=cite_offset):
-                                # Process display text from this specific citation
-                                processed_text, page_value = process_source_text(display_text)
-                                global_citation_num = analysis['uuid_mapping'].get(uuid)
-                                date_time_obj = {
-                                    "type": "gregory",
-                                    "year": "-1",
-                                    "month": "-1",
-                                    "day": "-1"
-                                }
-                                if source_mapping and uuid in source_mapping:
-                                    source_info = source_mapping[uuid]
-                                    date_time_value = source_info.get('date_time', '')
-                                    if date_time_value and date_time_value.strip():
-                                        date_parts = date_time_value.strip().split('-')
-                                        if len(date_parts) >= 1 and date_parts[0].isdigit():
-                                            date_time_obj["year"] = date_parts[0]
-                                        if len(date_parts) >= 2 and date_parts[1].isdigit():
-                                            date_time_obj["month"] = date_parts[1]
-                                        if len(date_parts) >= 3 and date_parts[2].isdigit():
-                                            date_time_obj["day"] = date_parts[2]
-                                new_source = {
-                                    "type": source_type,
-                                    "uuid": uuid,
-                                    "text": processed_text,
-                                    "page": page_value,
-                                    "date_time": date_time_obj,
-                                    "citation_num": i
-                                }
-                                text_sources.append(new_source)
-                            
-                            # Combine existing and new sources
-                            item['source'] = existing_sources + text_sources
-                    else:
-                        convert_text_and_add_sources(item)
-                elif isinstance(item, list):
-                    convert_text_and_add_sources(item)
-    
-    # Prepare sources array indexed by citation number
-    sources_by_uuid = {}
-    if 'sources_to_add' in analysis:
-        for source in analysis['sources_to_add']:
-            if source['uuid'] in analysis['uuid_mapping']:
-                citation_num = analysis['uuid_mapping'][source['uuid']]
-                sources_by_uuid[citation_num] = source
-    
-    # Apply conversions
-    convert_text_and_add_sources(modified_data)
-    
-    # Handle exercise_v2 items (they have additionalInfo/question but no source array)
-    exercise_converted = 0
-    def convert_exercise_v2(obj):
-        nonlocal exercise_converted
-        if isinstance(obj, dict):
-            for key, value in obj.items():
-                if isinstance(value, (dict, list)):
-                    convert_exercise_v2(value)
-        elif isinstance(obj, list):
-            for item in obj:
-                if isinstance(item, dict):
-                    convert_exercise_v2(item)
-                    # Check if this is an exercise_v2 array item
-                    for field in ('additionalInfo', 'question'):
-                        if field in item and isinstance(item[field], str):
-                            html_citations = find_html_citations(item[field])
-                            if html_citations:
-                                # Compute offset from any existing sources in this item
-                                exercise_offset = 0
-                                existing_sources = item.get('source')
-                                if existing_sources is not None:
-                                    for s in existing_sources:
-                                        cn = s.get('citation_num')
-                                        if cn is not None:
-                                            exercise_offset = max(exercise_offset, cn + 1)
-                                    # Find max htcite in the text too
-                                    existing_nums = find_json_citations(item[field])
-                                    if existing_nums:
-                                        exercise_offset = max(exercise_offset, max(int(n) for n in existing_nums) + 1)
+                        # Convert the text
+                        obj[key] = convert_text_citations(value, offset=cite_offset)
+                        fields_converted += 1
+                        
+                        # Build new source entries
+                        new_sources = []
+                        for i, (uuid, display_text, source_type) in enumerate(html_citations, start=cite_offset):
+                            processed_text, page_value = process_source_text(display_text)
+                            date_time_obj = {
+                                "type": "gregory",
+                                "year": "-1",
+                                "month": "-1",
+                                "day": "-1"
+                            }
+                            if source_mapping and uuid in source_mapping:
+                                source_info = source_mapping[uuid]
+                                date_time_value = source_info.get('date_time', '')
+                                if date_time_value and date_time_value.strip():
+                                    date_parts = date_time_value.strip().split('-')
+                                    if len(date_parts) >= 1 and date_parts[0].isdigit():
+                                        date_time_obj["year"] = date_parts[0]
+                                    if len(date_parts) >= 2 and date_parts[1].isdigit():
+                                        date_time_obj["month"] = date_parts[1]
+                                    if len(date_parts) >= 3 and date_parts[2].isdigit():
+                                        date_time_obj["day"] = date_parts[2]
+                            new_source = {
+                                "type": source_type,
+                                "uuid": uuid,
+                                "text": processed_text,
+                                "page": page_value,
+                                "date_time": date_time_obj,
+                                "citation_num": i
+                            }
+                            new_sources.append(new_source)
+                        
+                        # Add sources to the dict
+                        if existing_srcs is not None:
+                            obj['source'] = existing_srcs + new_sources
+                        else:
+                            obj['source'] = new_sources
+                        total_sources_added += len(new_sources)
+                
+                elif isinstance(value, list):
+                    # Check for string items with HTML citations in this list
+                    string_citations_found = False
+                    for idx, item in enumerate(value):
+                        if isinstance(item, str):
+                            hc = find_html_citations(item)
+                            if hc:
+                                if not string_citations_found:
+                                    # Compute offset once
+                                    cite_offset = 0
+                                    existing_srcs = obj.get('source')
+                                    if existing_srcs is not None:
+                                        for s in existing_srcs:
+                                            cn = s.get('citation_num')
+                                            if cn is not None:
+                                                cite_offset = max(cite_offset, cn + 1)
+                                    string_citations_found = True
+                                    existing_for_list = existing_srcs
                                 
-                                item[field] = convert_text_citations(item[field], offset=exercise_offset)
+                                value[idx] = convert_text_citations(item, offset=cite_offset)
+                                fields_converted += 1
                                 
-                                # Add source entries for new citations
                                 new_sources = []
-                                for i, (uuid, display_text, source_type) in enumerate(html_citations, start=exercise_offset):
+                                for i, (uuid, display_text, source_type) in enumerate(hc, start=cite_offset):
                                     processed_text, page_value = process_source_text(display_text)
                                     date_time_obj = {
                                         "type": "gregory",
@@ -720,42 +681,50 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
                                     }
                                     new_sources.append(new_source)
                                 
-                                # Add sources to the exercise item
-                                if existing_sources is not None:
-                                    item['source'] = existing_sources + new_sources
+                                if existing_for_list is not None:
+                                    obj['source'] = existing_for_list + new_sources
                                 else:
-                                    item['source'] = new_sources
-                                exercise_converted += len(html_citations)
+                                    obj['source'] = new_sources
+                                total_sources_added += len(new_sources)
+                                cite_offset += len(hc)
+                    
+                    # Recurse into sub-objects in the list
+                    for item in value:
+                        if isinstance(item, (dict, list)):
+                            convert_text_and_add_sources(item)
+            
+            # Recurse into remaining dict sub-objects
+            for value in obj.values():
+                if isinstance(value, dict):
+                    convert_text_and_add_sources(value)
+        
+        elif isinstance(obj, list):
+            for item in obj:
+                if isinstance(item, (dict, list)):
+                    convert_text_and_add_sources(item)
     
-    convert_exercise_v2(modified_data)
+    # Apply conversions
+    convert_text_and_add_sources(modified_data)
     
     # Normalize pre-existing source entries
     src_modified = normalize_sources(modified_data)
     if src_modified > 0:
         print(f"Pre-existing source entries normalized: {src_modified}")
     
-    if exercise_converted > 0:
-        print(f"exercise_v2 citations converted: {exercise_converted}")
-    
     print(f"\n--- CONVERSION SUMMARY ---")
     print(f"UUIDs converted: {len(analysis['uuid_mapping'])}")
     
-    # Count how many HTText objects were updated
-    updated_httexts = 0
-    for citation_info in analysis['all_citation_data']:
-        if 'is_httext' in citation_info and citation_info['is_httext']:
-            updated_httexts += 1
-    
-    if updated_httexts > 0:
-        print(f"HTText objects updated: {updated_httexts}")
-        print(f"Total HTSource objects added: {len(analysis['sources_to_add'])}")
+    if fields_converted > 0:
+        print(f"String fields updated: {fields_converted}")
+        print(f"Total HTSource objects added: {total_sources_added}")
         
         # Show first few sources for verification
-        print("Sample sources:")
-        for i, source in enumerate(analysis['sources_to_add'][:3]):
-            print(f"  [{i}] UUID: {source['uuid'][:12]}... Text: {source['text'][:50]}...")
+        if 'sources_to_add' in analysis and analysis['sources_to_add']:
+            print("Sample sources:")
+            for i, source in enumerate(analysis['sources_to_add'][:3]):
+                print(f"  [{i}] UUID: {source['uuid'][:12]}... Text: {source['text'][:50]}...")
     else:
-        print("No HTText objects needed source updates")
+        print("No string fields needed source updates")
     
     # Save modified file
     try:
