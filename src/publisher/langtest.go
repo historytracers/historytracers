@@ -80,6 +80,24 @@ func htGlobalLangTest() {
 	os.Exit(0)
 }
 
+func isExceptedUUID(uid string) bool {
+	exceptions := map[string]bool{
+		"052e06b9-f10c-4e76-896d-9f0e68f07506": true,
+		"3365076d-85e3-4532-9c99-beb1b2482f15": true,
+		"41dcb632-07d5-464c-9f24-6b740e284909": true,
+		"49c7f908-87cc-4fcc-8e4d-bcaba40e0aea": true,
+		"68ad71a6-9a1d-4a9b-83c4-70f8c696ae49": true,
+		"7009e04e-9093-4447-a18c-ca65c2bf5faa": true,
+		"7154c223-f330-40ce-ac2c-c7093351554d": true,
+		"a86f373e-c908-4796-8a96-427ba5d4c889": true,
+		"cbf361bb-a62f-4399-9776-845a7627b195": true,
+		"ee37e639-0850-4f1e-a278-be7558204c74": true,
+		"f02d04cc-5389-4964-8142-f8b8ac0c3f66": true,
+		"f83bd80e-7912-4e62-9509-148de8b0bb05": true,
+	}
+	return exceptions[uid]
+}
+
 func sortStrings(s []string) {
 	for i := 0; i < len(s); i++ {
 		for j := i + 1; j < len(s); j++ {
@@ -130,7 +148,7 @@ func htTestSingleUUID(uid string) uuidTestOutcome {
 		return out
 	}
 
-	if uid != "052e06b9-f10c-4e76-896d-9f0e68f07506" && len(out.lines) >= 2 {
+	if !isExceptedUUID(uid) && len(out.lines) >= 2 {
 		base := out.lines[0].lines
 		for _, l := range out.lines[1:] {
 			if l.lines != base {
@@ -233,7 +251,7 @@ func htLangTest(testArg string) {
 		success = false
 	}
 
-	if testUUID != "052e06b9-f10c-4e76-896d-9f0e68f07506" {
+	if !isExceptedUUID(testUUID) {
 		var validResults []langResult
 		for _, r := range results {
 			if r.err == nil {

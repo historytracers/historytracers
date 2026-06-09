@@ -80,6 +80,11 @@ func htRunStopFlags() {
 		stopRun = true
 	}
 
+	if checkSourcesFlag {
+		htCheckSources()
+		stopRun = true
+	}
+
 	if stopRun {
 		os.Exit(0)
 	}

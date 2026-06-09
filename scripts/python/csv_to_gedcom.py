@@ -37,7 +37,7 @@ def main():
     args = parser.parse_args()
 
     if not CSV_DIR.exists():
-        sys.exit(f"❌ Directory not found: {CSV_DIR.resolve()}")
+        sys.exit(f" Directory not found: {CSV_DIR.resolve()}")
 
     if args.filename:
         langs = ["en-US", "es-ES", "pt-BR"]

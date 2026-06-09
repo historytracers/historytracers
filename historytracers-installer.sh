@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -eo pipefail
 
 # Detect platform
 case "$(uname -s)" in
@@ -58,6 +58,13 @@ compile() {
         ls -la build/
         exit 1
     fi
+    # Pre-validation: check source dates before running publisher pipeline
+    echo "=== pre-validating source dates ==="
+    ./build/$PUBLISHER_BIN -checksources -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: checksources found issues"
+
+    echo "=== pre-validating UUID files across languages ==="
+    ./build/$PUBLISHER_BIN -globalangtest -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: globalangtest found issues"
+
     ./build/$PUBLISHER_BIN -minify -audiofiles -gedcom -verbose -logfile historytracers.log
     echo "=== publisher run complete (see historytracers.log) ==="
 }
