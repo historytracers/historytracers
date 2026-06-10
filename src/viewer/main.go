@@ -191,34 +191,49 @@ func parseInt64(s string) int64 {
 	return n
 }
 
-func initHistory() {
+var dataDir string
+
+func initDataDir() {
 	home, err := os.UserHomeDir()
 	if err != nil {
-		log.Printf("Warning: cannot get home directory for history: %v", err)
+		log.Printf("Warning: cannot get home directory: %v", err)
+		dataDir = ""
+		return
+	}
+	switch runtime.GOOS {
+	case "windows":
+		dataDir = filepath.Join(home, "HistoryTracers")
+	default:
+		dataDir = filepath.Join(home, ".config", "HistoryTracers")
+	}
+	if err := os.MkdirAll(dataDir, 0755); err != nil {
+		log.Printf("Warning: cannot create data directory %s: %v", dataDir, err)
+		dataDir = ""
+	}
+}
+
+func initHistory() {
+	if dataDir == "" {
 		historyFile = ""
 		return
 	}
-	historyFile = filepath.Join(home, "history.csv")
+	historyFile = filepath.Join(dataDir, "history.csv")
 }
 
 func initFavorites() {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		log.Printf("Warning: cannot get home directory for favorites: %v", err)
+	if dataDir == "" {
 		favoritesFile = ""
 		return
 	}
-	favoritesFile = filepath.Join(home, "favorites.csv")
+	favoritesFile = filepath.Join(dataDir, "favorites.csv")
 }
 
 func initOptions() {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		log.Printf("Warning: cannot get home directory for options: %v", err)
+	if dataDir == "" {
 		optionsFile = ""
 		return
 	}
-	optionsFile = filepath.Join(home, "options.json")
+	optionsFile = filepath.Join(dataDir, "options.json")
 }
 
 func optionsHandler(w http.ResponseWriter, r *http.Request) {
@@ -694,6 +709,7 @@ func main() {
 		accessLog = log.New(io.Discard, "", log.LstdFlags)
 	}
 
+	initDataDir()
 	initOptions()
 	savedOptions = readOptions()
 
