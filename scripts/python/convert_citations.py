@@ -736,129 +736,321 @@ def modify_file(filepath: str, analyze_only: bool = False) -> bool:
         print(f"Error saving modified file: {e}")
         return False
 
+def run_audit():
+	"""Walk all JSON files in lang/ and report any remaining HTML citations."""
+	source_mapping = load_source_mapping()
+	lang_dir = Path("lang")
+	json_files = sorted(lang_dir.rglob("*.json"))
+	total_html = 0
+	files_with_html = []
+	for fp in json_files:
+		analysis = analyze_file(str(fp), source_mapping)
+		if 'error' in analysis:
+			continue
+		if analysis['total_html_citations'] > 0:
+			total_html += analysis['total_html_citations']
+			files_with_html.append((str(fp), analysis['total_html_citations']))
+	print(f"\nScanned {len(json_files)} files.")
+	print(f"Files with HTML citations: {len(files_with_html)}")
+	print(f"Total unconverted HTML citations: {total_html}")
+	if files_with_html:
+		for f, n in files_with_html:
+			print(f"  {f}: {n} citations")
+	return len(files_with_html) == 0
+
+def run_status():
+	"""Per-language summary of conversion state."""
+	lang_dir = Path("lang")
+	langs = sorted([d.name for d in lang_dir.iterdir() if d.is_dir() and '-' in d.name])
+	for lang in langs:
+		uuids = set()
+		lang_path = lang_dir / lang
+		for fp in lang_path.glob("*.json"):
+			if fp.name != "index.json":
+				uuids.add(fp.stem)
+		only_cite = 0
+		only_fill = 0
+		both = 0
+		neither = 0
+		for uid in uuids:
+			fpath = lang_path / f"{uid}.json"
+			try:
+				raw = fpath.read_text(encoding='utf-8')
+			except Exception:
+				continue
+			hc = 'htcite' in raw
+			hf = 'htFill' in raw
+			if hc and not hf:
+				only_cite += 1
+			elif hf and not hc:
+				only_fill += 1
+			elif hc and hf:
+				both += 1
+			else:
+				neither += 1
+		print(f"{lang}: total={len(uuids)}, only_cite={only_cite}, only_fill={only_fill}, both={both}, neither={neither}")
+
+def run_inspect(uuid: str, lang: str = "en-US"):
+	"""Show source structure for a specific UUID."""
+	fpath = Path("lang") / lang / f"{uuid}.json"
+	if not fpath.exists():
+		print(f"File not found: {fpath}")
+		return False
+	with open(fpath, encoding='utf-8') as f:
+		data = json.load(f)
+	found = False
+	def walk(obj, depth=0):
+		nonlocal found
+		if isinstance(obj, dict):
+			if 'source' in obj and isinstance(obj['source'], list) and obj['source']:
+				found = True
+				indent = "  " * depth
+				print(f"{indent}Sources at depth {depth}:")
+				for s in obj['source']:
+					txt = s.get('text', '')
+					pg = s.get('page', '')
+					dt = s.get('date_time', {})
+					cn = s.get('citation_num', '?')
+					print(f"{indent}  [#{cn}] uuid={s.get('uuid','')[:20]}... type={s.get('type')}")
+					print(f"{indent}       text=\"{txt}\"")
+					print(f"{indent}       page=\"{pg}\"")
+					print(f"{indent}       date_time={dt}")
+			for v in obj.values():
+				walk(v, depth)
+		elif isinstance(obj, list):
+			for item in obj:
+				walk(item, depth)
+	walk(data)
+	if not found:
+		print(f"No source arrays found in {fpath}")
+	return True
+
+def run_verify():
+	"""Validate all source objects across all files in lang/."""
+	lang_dir = Path("lang")
+	json_files = sorted(lang_dir.rglob("*.json"))
+	issues = []
+	total_sources = 0
+	for fp in json_files:
+		try:
+			with open(fp, encoding='utf-8') as f:
+				data = json.load(f)
+		except Exception as e:
+			issues.append(f"{fp}: failed to parse ({e})")
+			continue
+		def find_sources(obj):
+			sources = []
+			if isinstance(obj, dict):
+				if 'source' in obj and isinstance(obj['source'], list):
+					sources.extend(obj['source'])
+				for v in obj.values():
+					sources.extend(find_sources(v))
+			elif isinstance(obj, list):
+				for item in obj:
+					sources.extend(find_sources(item))
+			return sources
+		sources = find_sources(data)
+		total_sources += len(sources)
+		for s in sources:
+			for field in ['type', 'uuid', 'text', 'page', 'date_time']:
+				if field not in s:
+					issues.append(f"{fp}: missing field \"{field}\" in source")
+			text = s.get('text', '')
+			if 'htFill' in text:
+				issues.append(f"{fp}: text contains htFill")
+			if '<' in text and '>' in text:
+				issues.append(f"{fp}: text contains HTML tags")
+			dt = s.get('date_time', {})
+			if isinstance(dt, dict):
+				for field in ['type', 'year', 'month', 'day']:
+					if field not in dt:
+						issues.append(f"{fp}: missing date_time.{field}")
+	print(f"Total source objects verified: {total_sources}")
+	if issues:
+		print(f"\nIssues found ({len(issues)}):")
+		for issue in issues:
+			print(f"  {issue}")
+	else:
+		print("All source objects have correct format (type, uuid, text, page, date_time)")
+	return len(issues) == 0
+
 def main():
-    """Main function to handle command line arguments and process files."""
-    parser = argparse.ArgumentParser(
-        description='Convert HTML citations to JSON format in History Tracers language files',
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
+	"""Main function to handle command line arguments and process files."""
+	parser = argparse.ArgumentParser(
+		description='Convert HTML citations to JSON format in History Tracers language files',
+		formatter_class=argparse.RawDescriptionHelpFormatter,
+		epilog="""
 Examples:
   python3 convert_citations.py pt-BR/main.json              # Convert specific file
   python3 convert_citations.py en-US/main.json --analyze-only  # Analyze only
   python3 convert_citations.py --analyze-all                   # Analyze all files (original behavior)
+  python3 convert_citations.py --audit                         # Find remaining HTML citations
+  python3 convert_citations.py --status                        # Per-language conversion status
+  python3 convert_citations.py --inspect <uuid>                # Inspect sources for a UUID
+  python3 convert_citations.py --verify                        # Validate all source objects
         """
-    )
-    
-    parser.add_argument(
-        'filename', 
-        nargs='?',
-        help='Specific JSON file to process (e.g., pt-BR/main.json)'
-    )
-    
-    parser.add_argument(
-        '--analyze-only',
-        action='store_true',
-        help='Only analyze without modifying the file'
-    )
-    
-    parser.add_argument(
-        '--analyze-all',
-        action='store_true',
-        help='Analyze all JSON files (original behavior)'
-    )
-    
-    args = parser.parse_args()
-    
-    print("History Tracers Citation Converter")
-    print("=" * 50)
-    
-    if args.analyze_all:
-        # Original behavior - analyze all files
-        print("Analyzing all language files...")
-        print("=" * 50)
-        
-        # Load source mapping first
-        source_mapping = load_source_mapping()
-        
-        lang_dir = Path("lang")
-        json_files = list(lang_dir.rglob("*.json"))
-        
-        if not json_files:
-            print("No JSON files found in lang/ directory")
-            return
-        
-        print(f"Found {len(json_files)} JSON files to analyze...\n")
-        
-        for filepath in sorted(json_files):
-            relative_path = str(filepath)
-            print(f"\n{'='*60}")
-            print(f"Analyzing: {relative_path}")
-            print('='*60)
-            
-            analysis = analyze_file(relative_path, source_mapping)
-            
-            if 'error' in analysis:
-                print(f"Error: {analysis['error']}")
-                continue
-            
-            print(f"HTML citations found: {analysis['total_html_citations']}")
-            print(f"JSON citations found: {analysis['total_json_citations']}")
-            print(f"Unique UUIDs: {analysis['unique_uuids']}")
-            
-            if analysis['unique_uuids'] > 0:
-                print(f"\nUUID to citation number mapping:")
-                for uuid, num in sorted(analysis['uuid_mapping'].items()):
-                    print(f"  {uuid} -> <htcite{num}>")
-                
-                # Show sources that would be added
-                if 'sources_to_add' in analysis and analysis['sources_to_add']:
-                    print(f"\nSources that would be added ({len(analysis['sources_to_add'])}):")
-                    for i, source in enumerate(analysis['sources_to_add'][:3]):
-                        print(f"  <htcite{i}> UUID: {source['uuid'][:12]}... Text: {source['text'][:50]}...")
-                    if len(analysis['sources_to_add']) > 3:
-                        print(f"  ... and {len(analysis['sources_to_add']) - 3} more")
-            
-            if analysis['conversions']:
-                print(f"\nConversion examples (showing first {min(3, len(analysis['conversions']))}):")
-                for i, example in enumerate(analysis['conversions'][:3]):
-                    print(f"\nExample {i+1} - Path: {example['path']}")
-                    print(f"Original: {example['original']}")
-                    print(f"Converted: {example['converted']}")
-                    
-                    if len(example['html_citations']) > 0:
-                        print("Citations found:")
-                        for uuid, _, _ in example['html_citations']:
-                            citation_num = analysis['uuid_mapping'][uuid]
-                            print(f"  {uuid[:12]}... -> <htcite{citation_num}>")
-            
-            if analysis['total_html_citations'] == 0:
-                print("No HTML citations found in this file.")
-        
-        print(f"\n{'='*60}")
-        print("Analysis complete!")
-        print("="*60)
-        print("\nTo perform actual conversion, use:")
-        print("python3 convert_citations.py <filename>")
-        
-    elif args.filename:
-        # Process specific file
-        filepath = args.filename
-        if not filepath.startswith('lang/'):
-            filepath = f"lang/{filepath}"
-        
-        if not filepath.endswith('.json'):
-            filepath += '.json'
-        
-        success = modify_file(filepath, args.analyze_only)
-        if success:
-            print("\nOperation completed successfully!")
-        else:
-            print("\nOperation failed!")
-            sys.exit(1)
-    
-    else:
-        parser.print_help()
-        print("\nPlease specify a filename or use --analyze-all to process all files.")
+	)
+	
+	parser.add_argument(
+		'filename', 
+		nargs='?',
+		help='Specific JSON file to process (e.g., pt-BR/main.json)'
+	)
+	
+	parser.add_argument(
+		'--analyze-only',
+		action='store_true',
+		help='Only analyze without modifying the file'
+	)
+	
+	parser.add_argument(
+		'--analyze-all',
+		action='store_true',
+		help='Analyze all JSON files (original behavior)'
+	)
+	
+	parser.add_argument(
+		'--audit',
+		action='store_true',
+		help='Scan all files for remaining HTML citations'
+	)
+	
+	parser.add_argument(
+		'--status',
+		action='store_true',
+		help='Show per-language conversion status'
+	)
+	
+	parser.add_argument(
+		'--inspect',
+		type=str,
+		nargs='?',
+		const=None,
+		help='Inspect source structure for a specific UUID (e.g., --inspect <uuid>)'
+	)
+	
+	parser.add_argument(
+		'--verify',
+		action='store_true',
+		help='Validate all source objects across all files'
+	)
+	
+	args = parser.parse_args()
+	
+	print("History Tracers Citation Converter")
+	print("=" * 50)
+	
+	if args.audit:
+		print("Scanning for remaining HTML citations...")
+		if run_audit():
+			print("No HTML citations found -- all files are clean.")
+		return
+	
+	if args.status:
+		print("Per-language conversion status:")
+		run_status()
+		return
+	
+	if args.inspect is not None:
+		uuid = args.inspect
+		if not uuid:
+			uuid = input("Enter UUID to inspect: ").strip()
+		lang = input(f"Language (default en-US): ").strip() or "en-US"
+		run_inspect(uuid, lang)
+		return
+	
+	if args.verify:
+		print("Validating all source objects...")
+		run_verify()
+		return
+	
+	if args.analyze_all:
+		# Original behavior - analyze all files
+		print("Analyzing all language files...")
+		print("=" * 50)
+		
+		# Load source mapping first
+		source_mapping = load_source_mapping()
+		
+		lang_dir = Path("lang")
+		json_files = list(lang_dir.rglob("*.json"))
+		
+		if not json_files:
+			print("No JSON files found in lang/ directory")
+			return
+		
+		print(f"Found {len(json_files)} JSON files to analyze...\n")
+		
+		for filepath in sorted(json_files):
+			relative_path = str(filepath)
+			print(f"\n{'='*60}")
+			print(f"Analyzing: {relative_path}")
+			print('='*60)
+			
+			analysis = analyze_file(relative_path, source_mapping)
+			
+			if 'error' in analysis:
+				print(f"Error: {analysis['error']}")
+				continue
+			
+			print(f"HTML citations found: {analysis['total_html_citations']}")
+			print(f"JSON citations found: {analysis['total_json_citations']}")
+			print(f"Unique UUIDs: {analysis['unique_uuids']}")
+			
+			if analysis['unique_uuids'] > 0:
+				print(f"\nUUID to citation number mapping:")
+				for uuid, num in sorted(analysis['uuid_mapping'].items()):
+					print(f"  {uuid} -> <htcite{num}>")
+				
+				# Show sources that would be added
+				if 'sources_to_add' in analysis and analysis['sources_to_add']:
+					print(f"\nSources that would be added ({len(analysis['sources_to_add'])}):")
+					for i, source in enumerate(analysis['sources_to_add'][:3]):
+						print(f"  <htcite{i}> UUID: {source['uuid'][:12]}... Text: {source['text'][:50]}...")
+					if len(analysis['sources_to_add']) > 3:
+						print(f"  ... and {len(analysis['sources_to_add']) - 3} more")
+			
+			if analysis['conversions']:
+				print(f"\nConversion examples (showing first {min(3, len(analysis['conversions']))}):")
+				for i, example in enumerate(analysis['conversions'][:3]):
+					print(f"\nExample {i+1} - Path: {example['path']}")
+					print(f"Original: {example['original']}")
+					print(f"Converted: {example['converted']}")
+					
+					if len(example['html_citations']) > 0:
+						print("Citations found:")
+						for uuid, _, _ in example['html_citations']:
+							citation_num = analysis['uuid_mapping'][uuid]
+							print(f"  {uuid[:12]}... -> <htcite{citation_num}>")
+			
+			if analysis['total_html_citations'] == 0:
+				print("No HTML citations found in this file.")
+		
+		print(f"\n{'='*60}")
+		print("Analysis complete!")
+		print("="*60)
+		print("\nTo perform actual conversion, use:")
+		print("python3 convert_citations.py <filename>")
+		
+	elif args.filename:
+		# Process specific file
+		filepath = args.filename
+		if not filepath.startswith('lang/'):
+			filepath = f"lang/{filepath}"
+		
+		if not filepath.endswith('.json'):
+			filepath += '.json'
+		
+		success = modify_file(filepath, args.analyze_only)
+		if success:
+			print("\nOperation completed successfully!")
+		else:
+			print("\nOperation failed!")
+			sys.exit(1)
+	
+	else:
+		parser.print_help()
+		print("\nPlease specify a filename or use --analyze-all to process all files.")
 
 if __name__ == "__main__":
     main()
