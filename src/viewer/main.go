@@ -40,7 +40,16 @@ var (
 	historyFile   string
 	favoritesMu   sync.Mutex
 	favoritesFile string
+	optionsMu     sync.Mutex
+	optionsFile   string
+	savedOptions  optionsData
 )
+
+type optionsData struct {
+	Lang string `json:"lang"`
+	Cal  string `json:"cal"`
+	Home string `json:"home"`
+}
 
 func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 	target := r.URL.Query().Get("url")
@@ -200,6 +209,64 @@ func initFavorites() {
 		return
 	}
 	favoritesFile = filepath.Join(home, "favorites.csv")
+}
+
+func initOptions() {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		log.Printf("Warning: cannot get home directory for options: %v", err)
+		optionsFile = ""
+		return
+	}
+	optionsFile = filepath.Join(home, "options.json")
+}
+
+func optionsHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+		optionsMu.Lock()
+		defer optionsMu.Unlock()
+		data := readOptions()
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(data)
+
+	case http.MethodPost:
+		optionsMu.Lock()
+		defer optionsMu.Unlock()
+		data := optionsData{
+			Lang: r.FormValue("lang"),
+			Cal:  r.FormValue("cal"),
+			Home: r.FormValue("home"),
+		}
+		writeOptionsLocked(data)
+		w.WriteHeader(http.StatusNoContent)
+
+	default:
+		http.Error(w, "Method not allowed", 405)
+	}
+}
+
+func readOptions() optionsData {
+	var data optionsData
+	f, err := os.Open(optionsFile)
+	if err != nil {
+		return data
+	}
+	defer f.Close()
+	json.NewDecoder(f).Decode(&data)
+	return data
+}
+
+func writeOptionsLocked(data optionsData) {
+	f, err := os.Create(optionsFile)
+	if err != nil {
+		log.Printf("Warning: cannot write options.json: %v", err)
+		return
+	}
+	defer f.Close()
+	enc := json.NewEncoder(f)
+	enc.SetIndent("", "  ")
+	enc.Encode(data)
 }
 
 func allowedPage(name string) bool {
@@ -627,8 +694,33 @@ func main() {
 		accessLog = log.New(io.Discard, "", log.LstdFlags)
 	}
 
+	initOptions()
+	savedOptions = readOptions()
+
+	if *lang == "" && savedOptions.Lang != "" {
+		*lang = savedOptions.Lang
+	}
+	if *cal == "" && savedOptions.Cal != "" {
+		*cal = savedOptions.Cal
+	}
+
 	addr := resolveAddr(*port)
-	pageURL = buildPageURL(addr, *class, *lang, *cal)
+	if *class != "" {
+		pageURL = buildPageURL(addr, *class, *lang, *cal)
+	} else if savedOptions.Home != "" {
+		u := fmt.Sprintf("http://%s/%s", addr, strings.TrimLeft(savedOptions.Home, "/"))
+		sep := "?"
+		if *lang != "" {
+			u += sep + "lang=" + url.QueryEscape(*lang)
+			sep = "&"
+		}
+		if *cal != "" {
+			u += sep + "cal=" + url.QueryEscape(*cal)
+		}
+		pageURL = u
+	} else {
+		pageURL = buildPageURL(addr, "", *lang, *cal)
+	}
 
 	if *lang != "" {
 		langJS := "window.__ht_lang='" + *lang + "';"
@@ -639,6 +731,11 @@ func main() {
 		calJS := "window.__ht_cal='" + *cal + "';"
 		welcomePage = calJS + welcomePage
 		addressBarJS = calJS + addressBarJS
+	}
+	if savedOptions.Home != "" {
+		homeJS := "window.__ht_home='" + strings.ReplaceAll(savedOptions.Home, "'", "\\'") + "';"
+		welcomePage = homeJS + welcomePage
+		addressBarJS = homeJS + addressBarJS
 	}
 
 	initHistory()
@@ -654,6 +751,7 @@ func main() {
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
+	mux.HandleFunc("/api/options", optionsHandler)
 	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))
 
 	srv = &http.Server{Addr: addr, Handler: mux}

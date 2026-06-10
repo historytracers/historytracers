@@ -82,12 +82,12 @@ var addressBarJS = `
 			try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||navigator.language||'en-US'}catch(e){loc=navigator.language||'en-US'}
 		}
 		var L={};
-		L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador'};
-		L['pt']=L['pt-BR'];
-		L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador'};
-		L['es']=L['es-ES'];
-		L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug'};
-		L['en']=L['en-US'];
+L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsHomeLabel:'P\u00e1gina inicial',optionsApply:'Aplicar'};
+L['pt']=L['pt-BR'];
+L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsHomeLabel:'P\u00e1gina de inicio',optionsApply:'Aplicar'};
+L['es']=L['es-ES'];
+L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsHomeLabel:'Home page',optionsApply:'Apply'};
+L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var _lang=window.__ht_lang||'';
 		if(!_lang){
@@ -98,6 +98,17 @@ var addressBarJS = `
 			try{var _cu=new URL(window.location.href);_cal=_cu.searchParams.get('cal')||''}catch(e){}
 		}
 		var _el=[];
+		(function(){
+			var x=new XMLHttpRequest();
+			x.open('GET','/api/options',true);
+			x.onload=function(){
+				try{var d=JSON.parse(x.responseText);if(d&&typeof d==='object'){
+					if(!_lang&&d.lang){_lang=d.lang;var nl=L[_lang]||L[_lang.substring(0,2)]||L['en-US'];l=nl;refreshLang()}
+					if(!_cal&&d.cal){_cal=d.cal;refreshCal()}
+				}}catch(e){}
+			};
+			x.send();
+		})();
 		function refreshLang(){
 			var old=loc;
 			loc=getLang()||window.__ht_lang||navigator.language||'en-US';
@@ -118,7 +129,16 @@ var addressBarJS = `
 				else if(e.id==='__ht_exit_item')e.textContent=l.exitTitle;
 				else if(e.id==='__ht_dev_item'){if(e.firstChild)e.firstChild.textContent=l.devTitle+'\u25B6'}
 				else if(e.id==='__ht_dbg_item')e.textContent=l.debugTitle;
+				else if(e.id==='__ht_options_item'){if(e.firstChild)e.firstChild.textContent=l.optionsTitle+'\u25B6'}
 			}
+			var oll=document.getElementById('__ht_opt_lang_label');
+			if(oll)oll.textContent=l.optionsLangLabel+':';
+			var ocl=document.getElementById('__ht_opt_cal_label');
+			if(ocl)ocl.textContent=l.optionsCalLabel+':';
+			var ohl=document.getElementById('__ht_opt_home_label');
+			if(ohl)ohl.textContent=l.optionsHomeLabel+':';
+			var oa=document.getElementById('__ht_opt_apply');
+			if(oa)oa.textContent=l.optionsApply;
 			var hs=document.getElementById('__ht_hist_sub');
 			if(hs)hs.removeAttribute('data-loaded');
 		}
@@ -415,6 +435,77 @@ var addressBarJS = `
 		devItem.onmouseenter=function(){this.style.background='#e8e8e8';devSub.style.display='block'};
 		devItem.onmouseleave=function(){this.style.background='transparent';setTimeout(function(){if(!devSub.matches(':hover'))devSub.style.display='none'},100)};
 		devSub.onmouseleave=function(){this.style.display='none'};
+		var optionsItem=document.createElement('div');
+		optionsItem.id='__ht_options_item';
+		optionsItem.style.cssText='position:relative;display:block;padding:6px 16px;text-decoration:none;color:#333;font:14px/1.4 sans-serif;cursor:pointer;';
+		optionsItem.textContent=l.optionsTitle+'\u25B6';
+		_el.push(optionsItem);
+		menuDrop.appendChild(optionsItem);
+		var optSub=document.createElement('div');
+		optSub.id='__ht_opt_sub';
+		optSub.style.cssText='position:absolute;display:none;right:100%;left:auto;top:0;background:#fff;border:1px solid #999;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:2147483647;min-width:180px;padding:8px;white-space:nowrap;font:13px/1.4 sans-serif;';
+		optionsItem.appendChild(optSub);
+		var optLangLabel=document.createElement('div');
+		optLangLabel.id='__ht_opt_lang_label';
+		optLangLabel.textContent=l.optionsLangLabel+':';
+		optLangLabel.style.cssText='margin-bottom:2px;color:#555;';
+		optSub.appendChild(optLangLabel);
+		var optLangSel=document.createElement('select');
+		optLangSel.id='__ht_opt_lang';
+		optLangSel.style.cssText='width:100%;margin-bottom:6px;padding:2px;';
+		var langs=['pt-BR','en-US','es-ES'];
+		for(var oi=0;oi<langs.length;oi++){var o=document.createElement('option');o.value=langs[oi];o.textContent=langs[oi];if(langs[oi]===_lang)o.selected=true;optLangSel.appendChild(o)}
+		optSub.appendChild(optLangSel);
+		var optCalLabel=document.createElement('div');
+		optCalLabel.id='__ht_opt_cal_label';
+		optCalLabel.textContent=l.optionsCalLabel+':';
+		optCalLabel.style.cssText='margin-bottom:2px;color:#555;';
+		optSub.appendChild(optCalLabel);
+		var optCalSel=document.createElement('select');
+		optCalSel.id='__ht_opt_cal';
+		optCalSel.style.cssText='width:100%;margin-bottom:6px;padding:2px;';
+		var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka'];
+		for(var oi=0;oi<cals.length;oi++){var o=document.createElement('option');o.value=cals[oi];o.textContent=cals[oi];if(cals[oi]===_cal)o.selected=true;optCalSel.appendChild(o)}
+		optSub.appendChild(optCalSel);
+		var optHomeLabel=document.createElement('div');
+		optHomeLabel.id='__ht_opt_home_label';
+		optHomeLabel.textContent=l.optionsHomeLabel+':';
+		optHomeLabel.style.cssText='margin-bottom:2px;color:#555;';
+		optSub.appendChild(optHomeLabel);
+		var optHomeInp=document.createElement('input');
+		optHomeInp.id='__ht_opt_home';
+		optHomeInp.type='text';
+		optHomeInp.value=window.__ht_home||'/index.html';
+		optHomeInp.style.cssText='width:100%;margin-bottom:8px;padding:2px;box-sizing:border-box;font:13px/1.4 sans-serif;';
+		optSub.appendChild(optHomeInp);
+		var optApply=document.createElement('button');
+		optApply.id='__ht_opt_apply';
+		optApply.textContent=l.optionsApply;
+		optApply.style.cssText='display:block;width:100%;padding:4px 8px;background:#555;color:#fff;border:none;border-radius:3px;cursor:pointer;font:13px/1.4 sans-serif;';
+		optApply.onmouseover=function(){this.style.background='#333'};
+		optApply.onmouseout=function(){this.style.background='#555'};
+		optApply.onclick=function(e){
+			e.preventDefault();e.stopPropagation();
+			var nl=optLangSel.value,nc=optCalSel.value,nh=optHomeInp.value||'/index.html';
+			fetch('/api/options',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&home='+encodeURIComponent(nh)}).then(function(){
+				optSub.style.display='none';menuDrop.style.display='none';
+				var u=window.location.origin+'/'+nh.replace(/^\//,'');
+				var up=new URL(window.location.href);
+				var upPage=up.searchParams.get('page');
+				if(upPage){u+=(u.indexOf('?')>=0?'&':'?')+'page='+encodeURIComponent(upPage)}
+				var a=up.searchParams.get('arg');
+				if(a)u+='&arg='+encodeURIComponent(a);
+				var p=up.searchParams.get('people');
+				if(p)u+='&people='+encodeURIComponent(p);
+				if(nl)u+='&lang='+encodeURIComponent(nl);
+				if(nc)u+='&cal='+encodeURIComponent(nc);
+				window.location.href=u;
+			}).catch(function(){});
+		};
+		optSub.appendChild(optApply);
+		optionsItem.onmouseenter=function(){this.style.background='#e8e8e8';optSub.style.display='block'};
+		optionsItem.onmouseleave=function(){this.style.background='transparent';setTimeout(function(){if(!optSub.matches(':hover'))optSub.style.display='none'},100)};
+		optSub.onmouseleave=function(){this.style.display='none'};
 		var sep3=document.createElement('div');
 		sep3.style.cssText='height:1px;background:#ddd;margin:4px 0;';
 		menuDrop.appendChild(sep3);
