@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1781047091"
+      "1781106231"
    ],
    "authors": [
       ""
@@ -350,6 +350,69 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### O jogo\n\nEmbora os seres humanos estejam evoluindo há mais de dois milhões de anos (<htcite0>), conhecemos registros escritos apenas da nossa própria espécie. Assim, interpretar o que outras espécies realizaram é um desafio, pois os rituais — como aqueles que acreditamos que os *Homo naledi* realizavam e que nós também realizamos — podem gerar diferentes interpretações, o que não significa que elas estejam erradas. Entretanto, não há dúvidas de que, para realizar esses rituais ou mesmo um trabalho, são necessárias etapas repetidas, como acontece neste jogo.\n\n#### Uma visão diferente\n\nAo observarmos as palmas no jogo, poderíamos entendê-las como um único movimento. Porém, como precisamos de duas mãos para realizar a ação de bater palmas, também poderíamos considerar que estamos realizando dois movimentos com as mãos.\n\nO mais importante a destacar nesse cenário é que, apesar das diferentes interpretações, em ambos os casos continuamos utilizando nossas mãos, e as contagens resultarão de acordo com a interpretação adotada.\n\nCom esses detalhes esclarecidos, no jogo a seguir iremos reforçar as tabuadas de 4 e 5 por meio de movimentos corporais. Para a tabuada do 4, moveremos as duas mãos para cima e, em seguida, para baixo, representando 4 movimentos. Observe que, apesar de serem 4 movimentos, eles são representados por dois grupos de 2 movimentos, reforçando o conceito de múltiplos.\n\nJá para a tabuada do 5, além dos 4 movimentos com as mãos, bateremos palmas após abaixá-las, representando, assim, um quinto movimento.\n\n#### Regras\n\nO jogo apresenta um cálculo a ser realizado com o seu corpo. Para iniciar o cálculo, clique no link (<i class=\"fa-solid fa-play\" style=\"font-size:1em;color:#0f0;\" ></i>). Caso queira refazê-lo para fixação, clique novamente.\n\nPara realizar um novo cálculo, clique em (<i class=\"fa-solid fa-chevron-right\"></i>).\n\nVocê também poderá escolher uma única tabuada ou deixar o sistema escolher de maneira aleatória no campo **Tabuada**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "828a11b4-4a9b-458a-ad1f-da69a9d158c2",
+                     "text": "Wong, Jenny. Hendry, Lisa",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;<span id=\"nextVal\"></span>&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"topVal\"></span><br />×&nbsp;&nbsp;<span id=\"bottomVal\"></span><br />____________<br />&nbsp;&nbsp;<span id=\"resVal\"></span></center></p><p class=\"desc\"><b>Cálculo 1</b>: Multiplicação dos valores que será reproduzida com o corpo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"speed-control\"><b>Tabuada:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatório</option></select> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteMult();\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-chevron-right\"  onclick=\"htNewLocalMultiplication();\" style=\"font-size:2em;\"></i></div> <div class=\"counters\"> <b>Números atual</b><span id=\"clapCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<style></style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]

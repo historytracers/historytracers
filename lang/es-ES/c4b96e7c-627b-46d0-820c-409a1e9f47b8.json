@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1781093367"
+      "1781106188"
    ],
    "authors": [
       ""
@@ -350,6 +350,69 @@
                "isTable": false,
                "imgdesc": "",
                "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### El juego\n\nAunque los seres humanos han estado evolucionando durante más de dos millones de años (<htcite0>), solo conocemos registros escritos de nuestra propia especie. Por lo tanto, interpretar lo que otras especies han logrado es un desafío, pues los rituales —como aquellos que creemos que los *Homo naledi* realizaban y que nosotros también realizamos— pueden generar diferentes interpretaciones, lo que no significa que estén equivocadas. Sin embargo, no cabe duda de que, para llevar a cabo esos rituales o incluso un trabajo, se necesitan pasos repetidos, como ocurre en este juego.\n\n#### Una visión diferente\n\nAl observar las palmas en el juego, podríamos entenderlas como un único movimiento. Pero como necesitamos dos manos para realizar la acción de aplaudir, también podríamos considerar que estamos haciendo dos movimientos con las manos.\n\nLo más importante a destacar en este escenario es que, a pesar de las diferentes interpretaciones, en ambos casos seguimos usando nuestras manos, y los conteos resultarán de acuerdo con la interpretación adoptada.\n\nAclarados estos detalles, en el siguiente juego reforzaremos las tablas de multiplicar del 4 y del 5 mediante movimientos corporales. Para la tabla del 4, moveremos las dos manos hacia arriba y luego hacia abajo, representando 4 movimientos. Observa que, aunque son 4 movimientos, se representan mediante dos grupos de 2 movimientos, reforzando así el concepto de múltiplos.\n\nPara la tabla del 5, además de los 4 movimientos con las manos, aplaudiremos después de bajarlas, representando así un quinto movimiento.\n\n#### Reglas\n\nEl juego presenta un cálculo que debes realizar con tu cuerpo. Para iniciar el cálculo, haz clic en el enlace (<i class=\"fa-solid fa-play\" style=\"font-size:1em;color:#0f0;\" ></i>). Si deseas repetirlo para fijarlo, haz clic nuevamente.\n\nPara realizar un nuevo cálculo, haz clic en (<i class=\"fa-solid fa-chevron-right\"></i>).\n\nTambién puedes elegir una sola tabla o dejar que el sistema elija una de manera aleatoria en el campo **Tabla**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "828a11b4-4a9b-458a-ad1f-da69a9d158c2",
+                     "text": "Wong, Jenny. Hendry, Lisa",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;<span id=\"nextVal\"></span>&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"topVal\"></span><br />×&nbsp;&nbsp;<span id=\"bottomVal\"></span><br />____________<br />&nbsp;&nbsp;<span id=\"resVal\"></span></center></p><p class=\"desc\"><b>Cálculo 1</b>: Suma de los valores que se reproducirá con el cuerpo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"speed-control\"><b>Tabla de Multiplicar:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatorio</option></select> <label>Despácio</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteMult();\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-chevron-right\"  onclick=\"htNewLocalMultiplication();\" style=\"font-size:2em;\"></i></div> <div class=\"counters\"> <b>Número actual</b><span id=\"clapCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<style></style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
                "PostMention": ""
             }
          ]
