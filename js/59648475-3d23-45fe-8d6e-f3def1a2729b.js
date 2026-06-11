@@ -369,12 +369,11 @@ function htLoadContent() {
         });
 
         $("#mtValues").on( "change", function() {
-            var opt = $(this).val();
-            htNewLocalMultiplication(opt);
+            htNewLocalMultiplication();
         });
     }
 
-    htNewLocalMultiplication(-1);
+    htNewLocalMultiplication();
 
     htSetImageSrc("imgHer", "images/DonsMaps/1590b.jpg");
     htSetImageSrc("imgNean", "images/DonsMaps/img_6801ferrassie.jpg");

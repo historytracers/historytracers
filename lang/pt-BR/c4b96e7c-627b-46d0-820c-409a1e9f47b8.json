@@ -1,0 +1,424 @@
+{
+   "title": "Multiplicando com o corpo (Fase 2)",
+   "header": "Multiplicando com o corpo (Fase 2)",
+   "sources": [
+      "c4b96e7c-627b-46d0-820c-409a1e9f47b8"
+   ],
+   "scripts": [
+      "c4b96e7c-627b-46d0-820c-409a1e9f47b8"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/c4b96e7c-627b-46d0-820c-409a1e9f47b8_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/3LJgg9Paz8w2RWbboAN4me?si=KHSnBfX6T-K3-BrWF9Ot5g",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1781142914"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nNesta fase, reforçaremos nossos conhecimentos sobre multiplicação com as tabuadas de 4 e 5. Para uma melhor compreensão, sugerimos estudar previamente a fase anterior, a fim de reforçar os conhecimentos das tabuadas já aprendidas (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "f3531db0-fc3f-4708-88bc-5cf5122c19b1",
+                     "text": "History Tracers Team",
+                     "page": "Multiplicando com o corpo (Fase 1)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_introduction",
+         "text": [
+            {
+               "text": "### Introdução\n\nAo observarmos outros animais e a nós mesmos, podemos chegar a algumas conclusões. Por exemplo, ao constatarmos que desenvolvemos sistemas de contagem há pelo menos 37.000 anos, como evidenciam as marcas encontradas em ossos de babuínos (**Figura 1**) (<htcite0>), e ao verificarmos que outros animais não realizam ações desse tipo, podemos concluir que nenhuma outra espécie do passado também realizou algo semelhante. Entretanto, essa conclusão merece uma reflexão.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "pp. 180 - 181",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"desc\"><img id=\"img9\" onclick=\"htImageZoom('img9', '0%')\"  class=\"imgcenter\"/><b>Figura 1</b>: Representação de um osso de babuíno com marcas. Esta imagem feita por Enrique Silván Pobes e encontra-se no trabalho de Francisco A. Gonzáles Redondo et al.<br />Original disponível em ResearchNet (<htcite0>) e está sendo mostrada aqui após o Doutor Francisco A. Gonzales Redondo autorizar sua republicação.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a4f22e25-5839-407f-a1aa-634521d52b42",
+                     "text": "González Redondo, Francisco A., et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2010",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 1: E se for encontrado?</b><br /><br />Quando lidamos com outras espécies, ao afirmarmos que algo nunca ocorreu, é necessário dispormos de informações suficientes para evitar equívocos. Mesmo assim, à medida que novas pesquisas são realizadas, novos dados podem surgir e nos levar a mudar de opinião.<br /><br />Suponha que uma espécie diferente da nossa tenha realizado algo que acreditávamos ser exclusivo dos seres humanos. Como você reagiria a essa descoberta?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_multiple",
+         "text": [
+            {
+               "text": "### Evoluções (mudanças)\n\nAo estudarmos a natureza, observamos que existem distintas conexões entre os seres vivos e a matéria de maneira geral. Essas conexões podem ser exploradas por meio da matemática.\n\n#### Múltiplos\n\nOs múltiplos que estudamos no texto anterior podem ser entendidos como mais do que um número que atingimos por meio de diferentes cálculos (ex.: 2 × 2 = 4 e 1 × 4 = 4) (<htcite0>; <htcite1>). Também podemos entendê-los como um passo intermediário.\n\nPodemos compreender os múltiplos também como um processo de mudança, de evolução dos conhecimentos associados aos números. Isso quer dizer que, ao trabalharmos com a tabuada do 4, também estamos implicitamente trabalhando com a tabuada do 2, que estaria contida nela, assim como ocorre com o DNA. Vejamos na prática:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b16d461d-eb7a-484b-a78b-b12336edf3c0",
+                     "text": "Weisstein, Eric W.",
+                     "page": "Multiplo",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "857f1df2-38ce-4da0-9444-686e16ac2314",
+                     "text": "History Tracers Team",
+                     "page": "Entendendo a Tabuada (4 e 5)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p class=\"center_notation\"><math display=\"block\"><mi>Contagem</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>tabuada de 2</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>tabuada de 4</mi> </math><br /> <math display=\"block\"><mi>0</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>0</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>0</mi> </math><br /> <math display=\"block\"><mi>1</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>2</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>4</mi> </math><br /> <math display=\"block\"><mi>2</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>4</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>8</mi> </math><br /> <math display=\"block\"><mi>3</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>6</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>12</mi> </math><br /> <math display=\"block\"><mi>4</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>8</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>16</mi> </math><br /> <math display=\"block\"><mi>5</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>10</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>20</mi> </math><br /> <math display=\"block\"><mi>6</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>12</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>24</mi> </math><br /> <math display=\"block\"><mi>7</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>14</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>28</mi> </math><br /> <math display=\"block\"><mi>8</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>16</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>32</mi> </math><br /> <math display=\"block\"><mi>9</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>18</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>36</mi> </math><br /> <math display=\"block\"><mi>10</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>20</mi> <mo>×</mo> <mi>2</mi> <mo>=</mo> <mi>40</mi> </math><br /></p><p class=\"desc\"><b>Cálculo 1</b>: Tabuada do 4 a partir da tabuada do 2.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Do **Cálculo 1**, podemos chegar a algumas conclusões:\n- A tabuada do 4 pode ser entendida como a tabuada do 2 multiplicada novamente por 2.\n- Podemos ir além e dizer que a tabuada do 4, apesar de poder ser tratada de maneira separada, ainda contém a tabuada do 2 dentro dela. Ou seja, é como se a tabuada do 4 tivesse herdado alguns resultados da tabuada do 2.\n- Podemos entender a segunda multiplicação por 2 (a tabuada do 4) como uma evolução da primeira multiplicação. Isso não quer dizer que ela seja melhor, mas sim que houve mudanças que permitiram avançar mantendo características anteriores.\n\n#### Evolução das espécies\n\nNormalmente, consideramos a matemática como a linguagem da natureza. Como essa linguagem se expressa de maneira evolutiva, é de se esperar que os seres vivos também possuam alguma forma de evoluir — no sentido de mudar e manter características. E, de fato, no século XXI, de acordo com o calendário gregoriano, conseguimos compreender que a natureza realiza a evolução (mudanças) por meio do DNA, que conserva alterações ao longo das gerações resultando no surgimento de novas espécies (<htcite0>; <htcite1>; <htcite2>; <htcite3>).\n\n#### A tabuada e o DNA\n\nTanto o DNA quanto as tabuadas, cada um à sua maneira, possuem mecanismos de \"hereditariedade\", o que nos leva à conclusão de que, quando alcançamos um resultado matemático ou observamos uma espécie na atualidade, podemos retroceder no tempo por meio de seus mecanismos de evolução a fim de traçar uma origem comum.\n\nApesar dessa analogia, também não podemos descartar que a humanidade consiga chegar aos mesmos resultados de maneira independente. Um exemplo disso são os diferentes sistemas de escrita que foram criados ao longo do tempo (<htcite4>).\n\nAntes de explorarmos a próxima seção, façamos mais uma reflexão.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "24e35656-4e60-46b9-a4c4-08db2623336e",
+                     "text": "Pray, Leslie A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2008",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3ce506ac-8895-40dd-89f7-57f80517aba4",
+                     "text": "Alberts B, Johnson A, Lewis J, et al.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2002",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "6ebf58d7-2f1d-47b6-84ac-07d1430c2981",
+                     "text": "Berkeley",
+                     "page": "DNA e Mutações",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "7b824b78-0249-403e-b2b5-d7b72878f1e3",
+                     "text": "Parreira, Daniel",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5390fa3b-735f-4e22-ac98-178303a13fdb",
+                     "text": "History Tracers Team",
+                     "page": "A escrita",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: Fim ou recomeço?</b><br /><br />Um dos pontos que usamos para nos diferenciar de outros animais seria a capacidade de chegar a determinadas conclusões e, por consequência, tomar atitudes com base nelas.<br /><br />Um exemplo desse cenário é nossa atitude em relação ao fim da vida — ou ao seu recomeço, dependendo da interpretação adotada.<br /><br />Você entende que apenas nós, <i>Homo sapiens</i>, tratamos a morte de uma maneira diferente?</div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_naledi",
+         "text": [
+            {
+               "text": "### Atitudes comuns\n\nDevido a diversos eventos naturais, não existem fósseis de todos os animais que viveram em nosso planeta. Nem mesmo daqueles animais muito próximos a nós. À medida que avançamos em nossos conhecimentos, novas descobertas nos permitem compreender melhor não apenas nossas origens, mas também que não somos os únicos a realizar determinadas práticas.\n\nUma dessas descobertas recentes são os fósseis de *Homo naledi* (**Figura 2**), encontrados na África do Sul. Eles foram encontrados em um local sem restos de alimentos, ferramentas ou indícios de fogo. Tampouco é possível concluir que predadores tenham levado os ossos até o local. Além disso, não há evidências de que as ossadas tenham sido transportadas naturalmente para a câmara onde foram encontradas. Diante dessas possibilidades, é possível concluir que os *Homo naledi* utilizavam o local como câmara funerária (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e889ed80-991a-48e3-ba79-2de2c35fec55",
+                     "text": "Dorey, Fran",
+                     "page": "Homo naledi",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "12",
+                        "day": "13"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><img id=\"imgHNaledi\" onclick=\"htImageZoom('imgHNaledi', '0%')\" class=\"imgcenter\" style=\"width: 40%\"/></p><p class=\"desc\"><b>Figura 2</b>: A figura inclui aproximadamente todo o material incorporado nesta diagnose, incluindo o holótipo espécime, parátipos e material referido. Estes compõem 737 elementos anatômicos parciais ou completos, muitos dos quais consistem em vários espécimes remontados espécimes. Espécimes não identificados até o nível de elemento, como ossos longos não diagnósticos ou fragmentos cranianos, e um subconjunto de espécimes frágeis não são mostrados aqui. O layout do ‘esqueleto’ no centro da foto é uma composição de elementos que representam múltiplos indivíduos. Esta vista está em perspectiva; a mesa sobre a qual os ossos estão dispostos tem 120 cm de largura para referência de escala. © Lee Roger Berger research team (<htcite0>). Compartilhado sob licença  <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike</a>.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a32b3d0b-9a93-421d-b313-7c455b356531",
+                     "text": "Berger, L. R. et al.",
+                     "page": "pp. 4",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2015",
+                        "month": "9",
+                        "day": "10"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": "."
+            },
+            {
+               "text": "Há outro ponto sobre o qual essa descoberta também nos leva a refletir. Devido à profundidade em que as ossadas foram encontradas, não é possível descartar a hipótese de que esses indivíduos também dominassem o uso do fogo, tudo isso sem possuírem um cérebro do tamanho do nosso, apesar de pertencerem ao gênero *Homo*, assim como nós (<htcite0>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e889ed80-991a-48e3-ba79-2de2c35fec55",
+                     "text": "Dorey, Fran",
+                     "page": "Homo naledi",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "12",
+                        "day": "13"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: Herança ou conclusão em comum</b><br /><br /Como o <i>Homo naledi</i> é possivelmente contemporâneo ao <i>Homo sapiens</i> (<htcite0>), poderíamos ter aprendido com eles o hábito de sepultar os mortos?<br /><br />Como desconhecemos a existência de contato entre as espécies, não é possível responder com certeza a essa pergunta. Ainda assim, podemos aprofundar a reflexão: o que poderia ter levado os <i>Homo naledi</i> a possivelmente sepultar seus mortos?<br /><br />E em um cenário alternativo? Poderíamos ter chegado a essa mesma conclusão por caminhos distintos?</div></div></center>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "e889ed80-991a-48e3-ba79-2de2c35fec55",
+                     "text": "Dorey, Fran",
+                     "page": "Homo naledi",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2019",
+                        "month": "12",
+                        "day": "13"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### O jogo\n\nEmbora os seres humanos estejam evoluindo há mais de dois milhões de anos (<htcite0>), conhecemos registros escritos apenas da nossa própria espécie. Assim, interpretar o que outras espécies realizaram é um desafio, pois os rituais — como aqueles que acreditamos que os *Homo naledi* realizavam e que nós também realizamos — podem gerar diferentes interpretações, o que não significa que elas estejam erradas. Entretanto, não há dúvidas de que, para realizar esses rituais ou mesmo um trabalho, são necessárias etapas repetidas, como acontece neste jogo.\n\n#### Uma visão diferente\n\nAo observarmos as palmas no jogo, poderíamos entendê-las como um único movimento. Porém, como precisamos de duas mãos para realizar a ação de bater palmas, também poderíamos considerar que estamos realizando dois movimentos com as mãos.\n\nO mais importante a destacar nesse cenário é que, apesar das diferentes interpretações, em ambos os casos continuamos utilizando nossas mãos, e as contagens resultarão de acordo com a interpretação adotada.\n\nCom esses detalhes esclarecidos, no jogo a seguir iremos reforçar as tabuadas de 4 e 5 por meio de movimentos corporais. Para a tabuada do 4, moveremos as duas mãos para cima e, em seguida, para baixo, representando 4 movimentos. Observe que, apesar de serem 4 movimentos, eles são representados por dois grupos de 2 movimentos, reforçando o conceito de múltiplos.\n\nJá para a tabuada do 5, além dos 4 movimentos com as mãos, bateremos palmas após abaixá-las, representando, assim, um quinto movimento.\n\n#### Regras\n\nO jogo apresenta um cálculo a ser realizado com o seu corpo. Para iniciar o cálculo, clique no link (<i class=\"fa-solid fa-play\" style=\"font-size:1em;color:#0f0;\" ></i>). Caso queira refazê-lo para fixação, clique novamente.\n\nPara realizar um novo cálculo, clique em (<i class=\"fa-solid fa-chevron-right\"></i>).\n\nVocê também poderá escolher uma única tabuada ou deixar o sistema escolher de maneira aleatória no campo **Tabuada**.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "828a11b4-4a9b-458a-ad1f-da69a9d158c2",
+                     "text": "Wong, Jenny. Hendry, Lisa",
+                     "page": "",
+                     "date_time": {
+                        "type": "",
+                        "year": "",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p style=\"text-align=center\"><center>&nbsp;<span id=\"nextVal\"></span>&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span id=\"topVal\"></span><br />×&nbsp;&nbsp;<span id=\"bottomVal\"></span><br />____________<br />&nbsp;&nbsp;<span id=\"resVal\"></span></center></p><p class=\"desc\"><b>Cálculo 1</b>: Multiplicação dos valores que será reproduzida com o corpo.</p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"speed-control\"><b>Tabuada:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatório</option></select> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteMult();\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-chevron-right\"  onclick=\"htNewLocalMultiplication();\" style=\"font-size:2em;\"></i></div> <div class=\"counters\"> <b>Cálculo atual</b><span id=\"clapCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.palette{ display:flex; flex-wrap:wrap;justify-content:center; max-width:500px; margin:15px auto; gap:6px; } .color-swatch{ width:28px; height:28px; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:0.2s; } .color-swatch:hover{ transform:scale(1.1); } .color-swatch.active{ border:2px solid #000; } #leftHand{ transform:translateX(-140px); transform-origin:center; } #rightHand{  transform:translateX(140px);  transform-origin:center;} @keyframes clapLeft{ 0%{ transform:translateX(-140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(-140px); } } @keyframes clapRight{  0%{ transform:translateX(140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(140px); } }@keyframes clapLeft{ 0%{ transform:translateX(-140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(-140px); } } @keyframes clapRight{  0%{ transform:translateX(140px); }  50%{ transform:translateX(0px); } 100%{ transform:translateX(140px); } } .speed-control { margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; } .speed-control label { font-size: 16px; } #speedSlider {  width: 200px;   cursor: pointer; } @keyframes moveUpThenDown { 0% { transform: translateX(-140px) translateY(0px); } 40% { transform: translateX(-140px) translateY(-35px); } 100% { transform: translateX(-140px) translateY(0px); } } @keyframes moveRightUpThenDown { 0% { transform: translateX(140px) translateY(0px); } 40% { transform: translateX(140px) translateY(-35px); } 100% { transform: translateX(140px) translateY(0px); } } svg{ width:700px; height:400px; overflow:visible; } #clapCounter { font-size: 24px; font-weight: bold; margin: 15px 0 5px; color: #2c3e50; background: #ecf0f1; display: inline-block; padding: 8px 20px; border-radius: 40px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"palette\" id=\"palette\"></div><svg viewBox=\"0 0 800 500\"><g transform=\"translate(400,0) scale(0.6)\"><g id=\"leftHand\"><path class=\"hand-shape\" fill=\"#F4C2A1\" d=\"M-268.1,338l21.7-21.7c2.3-2.3,3.5-5.3,3.5-8.5v-55.7c0-5.6,2.2-10.9,6.2-14.9l32.4-32.4 c2.1-2.1,5.8-1.8,7.4,0.8c2.8,4.4,5,11.4-1.4,18.9c-5.1,5.9-10.3,10.9-13.7,14.1 c-2.2,2-2.2,5.4-0.1,7.5c2,2,5.3,2,7.3,0l87.6-87.6c4.6-4.6,12.2-4.6,16.8,0 c4.6,4.6,4.6,12.2,0,16.8l-66.2,66.2c-2.4,2.4-2.4,6.4,0,8.8 c2.4,2.4,6.4,2.4,8.8,0l74.5-75.3c4.6-4.7,12.2-4.7,16.9,0l1.8,1.8 c4.6,4.6,4.6,12.1,0.1,16.8l-70.4,71.3c-2.2,2.3-2.2,5.9,0,8.2 c2.3,2.3,5.9,2.3,8.2,0l61.2-61.2c4.6-4.6,12.2-4.6,16.8,0l0.2,0.2 c4.6,4.6,4.6,12.2,0,16.8l-67.1,67.1c-1.7,1.7-1.7,4.6,0,6.3 c1.7,1.7,4.6,1.7,6.3,0l50.7-50.7c3.9-3.9,10.1-3.9,13.9,0 c3.9,3.9,3.9,10.1,0,13.9l-98.2,98.2z\"/> </g> <g id=\"rightHand\" transform=\"scale(-1,1)\"> <path class=\"hand-shape\" fill=\"#F4C2A1\" d=\"M-268.1,338l21.7-21.7c2.3-2.3,3.5-5.3,3.5-8.5v-55.7c0-5.6,2.2-10.9,6.2-14.9l32.4-32.4 c2.1-2.1,5.8-1.8,7.4,0.8c2.8,4.4,5,11.4-1.4,18.9c-5.1,5.9-10.3,10.9-13.7,14.1 c-2.2,2-2.2,5.4-0.1,7.5c2,2,5.3,2,7.3,0l87.6-87.6c4.6-4.6,12.2-4.6,16.8,0 c4.6,4.6,4.6,12.2,0,16.8l-66.2,66.2c-2.4,2.4-2.4,6.4,0,8.8 c2.4,2.4,6.4,2.4,8.8,0l74.5-75.3c4.6-4.7,12.2-4.7,16.9,0l1.8,1.8 c4.6,4.6,4.6,12.1,0.1,16.8l-70.4,71.3c-2.2,2.3-2.2,5.9,0,8.2 c2.3,2.3,5.9,2.3,8.2,0l61.2-61.2c4.6-4.6,12.2-4.6,16.8,0l0.2,0.2 c4.6,4.6,4.6,12.2,0,16.8l-67.1,67.1c-1.7,1.7-1.7,4.6,0,6.3 c1.7,1.7,4.6,1.7,6.3,0l50.7-50.7c3.9-3.9,10.1-3.9,13.9,0 c3.9,3.9,3.9,10.1,0,13.9l-98.2,98.2z\"/></g> </g></svg></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
