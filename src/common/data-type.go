@@ -44,8 +44,8 @@ type HTSourceFile struct {
 	Type               string            `json:"type"`
 	PrimarySources     []HTSourceElement `json:"primary_sources"`
 	ReferencesSources  []HTSourceElement `json:"reference_sources"`
-	ReligiousSources   interface{}       `json:"religious_sources"`
-	SocialMediaSources interface{}       `json:"social_media_sources"`
+	ReligiousSources   []HTSourceElement `json:"religious_sources"`
+	SocialMediaSources []HTSourceElement `json:"social_media_sources"`
 }
 
 type HTText struct {

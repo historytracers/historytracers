@@ -275,13 +275,9 @@ func htFillSourceMapForCheck(src *HTSourceFile, dst map[string]HTSourceElement) 
 		add(src.ReferencesSources)
 	}
 	if src.ReligiousSources != nil {
-		if rs, ok := src.ReligiousSources.([]HTSourceElement); ok {
-			add(rs)
-		}
+		add(src.ReligiousSources)
 	}
 	if src.SocialMediaSources != nil {
-		if sms, ok := src.SocialMediaSources.([]HTSourceElement); ok {
-			add(sms)
-		}
+		add(src.SocialMediaSources)
 	}
 }

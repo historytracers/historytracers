@@ -274,15 +274,11 @@ func htFillSourcesMap(src *HTSourceFile) {
 	}
 
 	if src.ReligiousSources != nil {
-		if rs, ok := src.ReligiousSources.([]HTSourceElement); ok {
-			htFillSourceMap(rs)
-		}
+		htFillSourceMap(src.ReligiousSources)
 	}
 
 	if src.SocialMediaSources != nil {
-		if sms, ok := src.SocialMediaSources.([]HTSourceElement); ok {
-			htFillSourceMap(sms)
-		}
+		htFillSourceMap(src.SocialMediaSources)
 	}
 }
 
