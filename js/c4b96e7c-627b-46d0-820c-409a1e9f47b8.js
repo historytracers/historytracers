@@ -8,7 +8,7 @@ async function startClap(){
 
   const count = parseInt(document.getElementById("clapCount").value);
   if(!count || count < 1) {
-    local.counterDisplay.innerText = `0 / 0`;
+    local.counterDisplay.innerText = `0`;
     return;
   }
 
@@ -41,7 +41,7 @@ async function startClap(){
 }
 
 // ===== Up/Down only (based on clapCount) - repeated up+down movements =====
-async function performUpDownMoves() {
+async function htPerformUpDownMoves() {
   if (local.busy) return;
   if (local.upDownBusy) return;
   
@@ -61,8 +61,8 @@ async function performUpDownMoves() {
   const moveDuration = cycleDuration;
   
   let completedMoves = 0;
-  local.counterDisplay.innerText = `${completedMoves} / ${moves}`;
   
+  let multiplier = local.bottomValue;
   for (let i = 0; i < moves; i++) {
     local.left.style.animation = `moveUpThenDown ${moveDuration/1000}s ease-in-out`;
     local.right.style.animation = `moveRightUpThenDown ${moveDuration/1000}s ease-in-out`;
@@ -75,20 +75,20 @@ async function performUpDownMoves() {
     local.right.style.transform = "";
     
     completedMoves++;
-    local.counterDisplay.innerText = `${completedMoves} / ${moves}`;
+    let currentResult = completedMoves * multiplier;
+    local.counterDisplay.innerText = `${completedMoves} × ${multiplier} = ${currentResult}`;
     
     if (i < moves - 1) {
       await new Promise(resolve => setTimeout(resolve, 80));
     }
   }
   
-  local.counterDisplay.innerText = `0 / 0`;
   local.upDownBusy = false;
 }
 
 // ===== NEW: Repeated sequence: Hands Up → Hands Down → Clap (repeats according to clapCount) =====
 // Each full cycle consists of: up motion, down motion, then an immediate clap.
-async function performRepeatedUpDownThenClap() {
+async function htPerformRepeatedUpDownThenClap() {
   if (local.busy) return;
   if (local.upDownBusy) return;
   
@@ -112,8 +112,8 @@ async function performRepeatedUpDownThenClap() {
   const interSequencePause = 100;
   
   let completedCycles = 0;
-  local.counterDisplay.innerText = `${completedCycles} / ${repeats}`;
   
+  let multiplier = local.bottomValue;
   for (let cycle = 0; cycle < repeats; cycle++) {
     // STEP 1: Hands go UP then DOWN (return to neutral position)
     local.left.style.animation = `moveUpThenDown ${motionDuration/1000}s ease-in-out`;
@@ -141,7 +141,8 @@ async function performRepeatedUpDownThenClap() {
     local.right.style.animation = "";
     
     completedCycles++;
-    local.counterDisplay.innerText = `${completedCycles} / ${repeats}`;
+    let currentResult = completedCycles * multiplier;
+    local.counterDisplay.innerText = `${completedCycles} × ${multiplier} = ${currentResult}`;
     
     // Small pause between full sequences (except after last one)
     if (cycle < repeats - 1) {
@@ -150,11 +151,11 @@ async function performRepeatedUpDownThenClap() {
   }
   
   // Final counter reset after all sequences complete
-  local.counterDisplay.innerText = `0 / 0`;
   local.upDownBusy = false;
 }
 
 function htNewLocalMultiplication() {
+    local.counterDisplay.innerText = ` `;
     local.busy = false,
     local.upDownBusy = false,
 
@@ -177,7 +178,27 @@ function htNewLocalMultiplication() {
     $("#bottomVal").html(bottomValue);
     $("#resVal").html((result > 9) ? result : " "+result);
 
-    $("#clapCounter").html(": 0");
+    $("#clapCounter").html(" 0");
+}
+
+function htExecuteMult() {
+    if (local.running) {
+        return;
+    }
+    local.running = true;
+
+    $("#clapCounter").html(" 0");
+    $("#stepsCounter").html(" 0");
+
+    $("#clapCount").val(local.topValue);
+
+    if (local.currentSelection == "4") {
+        htPerformUpDownMoves();
+    }
+    else if (local.currentSelection == "5") {
+        htPerformRepeatedUpDownThenClap();
+    }
+    local.running = false;
 }
 
 function htLoadContent() {
@@ -193,6 +214,7 @@ function htLoadContent() {
 
         "busy": false,
         "upDownBusy": false,
+        "running": false,
 
         "speedSlider": document.getElementById("speedSlider"),
         "clapCycleTime": 800,
@@ -201,9 +223,11 @@ function htLoadContent() {
         "topValue": 0,
         "bottomValue": 0,
         "prevMultiplier": 4,
-        "currentSelection": 5,
+        "currentSelection": htGetRandomArbitrary(4, 5),
         "result": 0
     };
+
+    local.prevMultiplier = local.currentSelection;
 
     if (local.speedSlider) {
         local.speedSlider.addEventListener("input", function() {
@@ -227,6 +251,25 @@ function htLoadContent() {
         local.palette.appendChild(swatch);
     });
 
+    if ($("#mtValues").length > 0) {
+        var data = [
+            { text: '4', value: '4' },
+            { text: '5', value: '5' }
+        ];
+
+        $.each(data, function(index, item) {
+            $('#mtValues').append($('<option>', {
+                value: item.value,
+                text: item.text
+            }));
+        });
+
+        $("#mtValues").on( "change", function() {
+            htNewLocalMultiplication();
+        });
+    }
+
+    htNewLocalMultiplication();
 
     return false;
 }

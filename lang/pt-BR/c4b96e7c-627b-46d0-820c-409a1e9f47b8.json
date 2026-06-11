@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1781122896"
+      "1781140249"
    ],
    "authors": [
       ""
@@ -44,7 +44,7 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAgeMsg\"></span></p>",
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -389,7 +389,7 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"speed-control\"><b>Tabuada:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatório</option></select> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteMult();\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-chevron-right\"  onclick=\"htNewLocalMultiplication();\" style=\"font-size:2em;\"></i></div> <div class=\"counters\"> <b>Números atual</b><span id=\"clapCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
+               "text": "<center><div class=\"speed-control\"><b>Tabuada:</b> <select id=\"mtValues\"><option value=\"-1\">Aleatório</option></select> <label>Devagar</label> <input type=\"range\" id=\"speedSlider\" min=\"600\" max=\"1600\" value=\"1100\" step=\"10\" style=\"direction: rtl;\"> <label>Rápido</label>  <i class=\"fa-solid fa-play\" onclick=\"htExecuteMult();\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-chevron-right\"  onclick=\"htNewLocalMultiplication();\" style=\"font-size:2em;\"></i></div> <div class=\"counters\"> <b>Cálculo atual</b><span id=\"clapCounter\" class=\"counter\">: 0</span><input type=\"hidden\" id=\"handPosCounter\" /> <input type=\"hidden\" id=\"clapCount\" value=\"0\" /></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
