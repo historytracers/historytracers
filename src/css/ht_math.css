@@ -463,16 +463,18 @@
 }
 
 
-/* MathML operator spacing - explicit control for cross-platform consistency */
-math mo {
-  margin-left: 0.1667em;
-  margin-right: 0.1667em;
+/* MathML: force compact spacing across all engines */
+math {
+  math-style: compact;
+  font-kerning: none;
+  letter-spacing: 0;
 }
-math mo:first-child {
-  margin-left: 0;
+math mtext {
+  letter-spacing: normal;
 }
-math mo:last-child {
-  margin-right: 0;
+math * {
+  margin: 0;
+  padding: 0;
 }
 
 /* Small screens (600px) */
