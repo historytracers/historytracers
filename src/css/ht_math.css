@@ -463,22 +463,6 @@
 }
 
 
-/* MathML: force compact spacing across all engines */
-math {
-  max-width: 90%;
-  display: inline-block;
-  math-style: compact;
-  font-kerning: none;
-  letter-spacing: 0;
-}
-math mtext {
-  letter-spacing: normal;
-}
-math * {
-  margin: 0;
-  padding: 0;
-}
-
 /* Small screens (600px) */
 @media screen and (max-width: 600px) {
     .tableTen {
