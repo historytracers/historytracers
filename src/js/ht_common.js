@@ -1935,8 +1935,9 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
 
     let originalText = htGetTextWithDateReplacements(localObj, localLang, localCalendar);
 
-    let text = (format === 'html') ? '<p>' : '';
-    text += htFormatText(originalText, format, localObj.isTable);
+    let formattedText = htFormatText(originalText, format, localObj.isTable);
+    let alreadyWrapped = (format === 'html' && formattedText.indexOf('<p') === 0);
+    let text = alreadyWrapped ? formattedText : (format === 'html' ? '<p>' + formattedText : formattedText);
 
     if (localObj.source != undefined && localObj.source != null) {
         var sources = localObj.source;
@@ -1945,14 +1946,14 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
             var searchFor = "<htcite"+i+">";
             var pos = text.search(searchFor);
             var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            var dateText = ""
+            var dateText = "";
             if (sources[i].date != undefined && sources[i].date.year.length > 0) {
                 dateText = ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
             } else if (sources[i].date_time != undefined && sources[i].date_time.year.length > 0) {
                 dateText = ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
             }
 
-            var pageText = ""
+            var pageText = "";
             if (sources[i].page != undefined && sources[i].page.length > 0) {
                 pageText = ", "+sources[i].page;
             }
@@ -1971,7 +1972,9 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
         }
     }
     text += (localObj.PostMention) ? localObj.PostMention : "";
-    text += "</p>"; 
+    if (!alreadyWrapped) {
+        text += "</p>";
+    }
     return text;
 }
 
