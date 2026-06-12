@@ -463,6 +463,18 @@
 }
 
 
+/* MathML operator spacing - explicit control for cross-platform consistency */
+math mo {
+  margin-left: 0.1667em;
+  margin-right: 0.1667em;
+}
+math mo:first-child {
+  margin-left: 0;
+}
+math mo:last-child {
+  margin-right: 0;
+}
+
 /* Small screens (600px) */
 @media screen and (max-width: 600px) {
     .tableTen {
