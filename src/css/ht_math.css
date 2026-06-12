@@ -465,6 +465,8 @@
 
 /* MathML: force compact spacing across all engines */
 math {
+  max-width: 90%;
+  display: inline-block;
   math-style: compact;
   font-kerning: none;
   letter-spacing: 0;
