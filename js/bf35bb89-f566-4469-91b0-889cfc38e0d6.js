@@ -26,6 +26,7 @@ function htLoadContent() {
     $("#htChinaZhongguo").html(keywords[137]);
 
     
+    htSetImageSrc("imgPeabiru", "images/Mapswire/world-physical-map-graticules-mercator-v1_Peabiru.jpg");
     htSetImageSrc("CEast", "images/Copan/CopanStelaC.jpg")
     htSetImageSrc("CWest", "images/Copan/CopanStelaCBeard.jpg")
     return false;
