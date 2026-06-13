@@ -1426,7 +1426,7 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
             var localObj = content.text[j];
             var text = (localObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
             if (typeof text === "string" && text.indexOf("<math") >= 0) {
-                text = "<center><div style=\"display: inline-block;\">" + text + "</div></center>";
+                text = "<div style=\"text-align: center;\"><div style=\"display: inline-block;\">" + text + "</div></div>";
             }
             if ($("#"+content.id).length > 0) {
                 $("#"+content.id).html(text);
@@ -1939,8 +1939,7 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
     let originalText = htGetTextWithDateReplacements(localObj, localLang, localCalendar);
 
     let formattedText = htFormatText(originalText, format, localObj.isTable);
-    let alreadyWrapped = (format === 'html' && formattedText.indexOf('<p') === 0);
-    let text = alreadyWrapped ? formattedText : (format === 'html' ? '<p>' + formattedText : formattedText);
+    let text = (format === 'html' ? '<p>' + formattedText : formattedText);
 
     if (localObj.source != undefined && localObj.source != null) {
         var sources = localObj.source;
@@ -1975,9 +1974,7 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
         }
     }
     text += (localObj.PostMention) ? localObj.PostMention : "";
-    if (!alreadyWrapped) {
-        text += "</p>";
-    }
+    text += "</p>";
     return text;
 }
 
