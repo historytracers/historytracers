@@ -702,7 +702,7 @@ function htFillHistorySources(divId, histID, history, useClass, personID)
         for (const i in history) {
             var localObj = history[i];
             var text = (localObj.text != undefined && localObj.format != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : "<p>"+localObj+"</p>";
-            $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");
+            $(histID).append("<div class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</div>");
         }
     }
 }
