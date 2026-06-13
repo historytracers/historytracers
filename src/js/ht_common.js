@@ -1426,7 +1426,7 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
             var localObj = content.text[j];
             var text = (localObj.text != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : localObj;
             if (typeof text === "string" && text.indexOf("<math") >= 0) {
-                text = "<div style=\"display: table; margin: 0 auto;\">" + text + "</div>";
+                text = "<center><div style=\"width: 90%; margin: 0 auto;\">" + text + "</div></center>";
             }
             if ($("#"+content.id).length > 0) {
                 $("#"+content.id).html(text);
