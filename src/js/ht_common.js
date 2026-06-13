@@ -702,7 +702,11 @@ function htFillHistorySources(divId, histID, history, useClass, personID)
         for (const i in history) {
             var localObj = history[i];
             var text = (localObj.text != undefined && localObj.format != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : "<p>"+localObj+"</p>";
-            $(histID).append("<div class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</div>");
+            if (typeof text === "string" && text.indexOf("<math") >= 0) {
+                $(histID).append("<div class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \"><table style=\"margin: 0 auto;\"><tr><td>"+text+"</td></tr></table></div>");
+            } else {
+                $(histID).append("<div class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</div>");
+            }
         }
     }
 }
