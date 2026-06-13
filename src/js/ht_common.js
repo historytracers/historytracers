@@ -2626,7 +2626,7 @@ function htFillWebPage(page, data)
                     : htParagraphFromObject(commonObj, localLang, localCalendar);
 
             if (typeof commonText === "string" && commonText.indexOf("<math") >= 0 && commonText.indexOf("<center") < 0) {
-                $("#common").append("<center><div style=\"width: 90%; margin: 0 auto;\">" + commonText + "</div></center>");
+                $("#common").append("<table style=\"margin: 0 auto;\"><tr><td>" + commonText + "</td></tr></table>");
             } else {
                 $("#common").append(commonText);
             }
