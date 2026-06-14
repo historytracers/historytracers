@@ -1565,7 +1565,22 @@ function htUpdateAvailableLanguages(table) {
     }
 }
 
+function htResetFirstLoad() {
+    $("#ht_first_load").text(Math.floor(Date.now()/1000));
+    $("#messages").html("&nbsp;").hide();
+}
+
+function htCheckBreakReminder() {
+    var loadTime = parseInt($("#ht_first_load").text());
+    if (isNaN(loadTime)) { return; }
+    var minutes = parseInt($("#site_recreio").val()) || 30;
+    if (Math.floor(Date.now()/1000) - loadTime >= minutes * 60) {
+        $("#messages").html(keywords[140]).show();
+    }
+}
+
 function htFillKeywords(table) {
+    htResetFirstLoad();
     if (!Array.isArray(table)) { return; }
 
     const MIN_LENGTH = 75;
@@ -1582,7 +1597,10 @@ function htFillKeywords(table) {
     $("#index_lang").html(keywords[39]);
     $("#index_calendar").html(keywords[40]);
     $("#index_theme").html(keywords[74]);
+    $("#index_recreio").html(keywords[141]);
     htUpdateCurrentDateOnIndex();
+    setInterval(htCheckBreakReminder, 60000);
+    htCheckBreakReminder();
 }
 
 function htFillMathKeywords(table) {
@@ -2293,7 +2311,7 @@ function htOnlyLoadHtml(appendPage, page, ext, unixEpoch) {
 }
 
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {
-    $("#messages").html("&nbsp;");
+    $("#messages").html("&nbsp;").hide();
     extLatexIdx = 0;
 
     $("#loading_msg").show();
@@ -2358,7 +2376,7 @@ window.addEventListener('load', function() {
 });
 
 function htLoadPage(page, ext, arg, reload) {
-    $("#messages").html("&nbsp;");
+    $("#messages").html("&nbsp;").hide();
     $("#ht_index_latex").append("");
     extLatexIdx = 0;
     if (ext == "html") {

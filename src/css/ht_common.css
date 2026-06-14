@@ -88,6 +88,16 @@ audio {
   height: 100%;
 }
 
+#messages {
+  display: none;
+  position: relative;
+  background-color: lightyellow;
+  padding: 10px;
+  width: 75%;
+  box-sizing: border-box;
+  z-index: 10001;
+}
+
 .main-data {
   position: relative;
   width: 100%;

@@ -46,9 +46,10 @@ var (
 )
 
 type optionsData struct {
-	Lang string `json:"lang"`
-	Cal  string `json:"cal"`
-	Home string `json:"home"`
+	Lang    string `json:"lang"`
+	Cal     string `json:"cal"`
+	Recreio string `json:"recreio"`
+	Home    string `json:"home"`
 }
 
 func openExternalHandler(w http.ResponseWriter, r *http.Request) {
@@ -249,9 +250,10 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		optionsMu.Lock()
 		defer optionsMu.Unlock()
 		data := optionsData{
-			Lang: r.FormValue("lang"),
-			Cal:  r.FormValue("cal"),
-			Home: r.FormValue("home"),
+			Lang:    r.FormValue("lang"),
+			Cal:     r.FormValue("cal"),
+			Recreio: r.FormValue("recreio"),
+			Home:    r.FormValue("home"),
 		}
 		writeOptionsLocked(data)
 		w.WriteHeader(http.StatusNoContent)

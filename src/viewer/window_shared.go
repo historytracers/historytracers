@@ -82,11 +82,11 @@ var addressBarJS = `
 			try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||navigator.language||'en-US'}catch(e){loc=navigator.language||'en-US'}
 		}
 		var L={};
-L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsHomeLabel:'P\u00e1gina inicial',optionsApply:'Aplicar'};
+L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsHomeLabel:'P\u00e1gina inicial',optionsApply:'Aplicar'};
 L['pt']=L['pt-BR'];
-L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsHomeLabel:'P\u00e1gina de inicio',optionsApply:'Aplicar'};
+L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsHomeLabel:'P\u00e1gina de inicio',optionsApply:'Aplicar'};
 L['es']=L['es-ES'];
-L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsHomeLabel:'Home page',optionsApply:'Apply'};
+L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsHomeLabel:'Home page',optionsApply:'Apply'};
 L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var _lang=window.__ht_lang||'';
@@ -97,6 +97,11 @@ L['en']=L['en-US'];
 		if(!_cal){
 			try{var _cu=new URL(window.location.href);_cal=_cu.searchParams.get('cal')||''}catch(e){}
 		}
+		var _recreio=window.__ht_recreio||'';
+		if(!_recreio){
+			try{var _ru=new URL(window.location.href);_recreio=_ru.searchParams.get('rec')||''}catch(e){}
+		}
+		if(_recreio){try{$('#site_recreio').val(_recreio)}catch(e){}}
 		var _el=[];
 		(function(){
 			var x=new XMLHttpRequest();
@@ -105,6 +110,7 @@ L['en']=L['en-US'];
 				try{var d=JSON.parse(x.responseText);if(d&&typeof d==='object'){
 					if(!_lang&&d.lang){_lang=d.lang;var nl=L[_lang]||L[_lang.substring(0,2)]||L['en-US'];l=nl;refreshLang()}
 					if(!_cal&&d.cal){_cal=d.cal;refreshCal()}
+					if(!_recreio&&d.recreio){_recreio=d.recreio;var rs=$('#site_recreio');if(rs.length)rs.val(_recreio);var ors=document.getElementById('__ht_opt_recreio');if(ors)ors.value=_recreio}
 				}}catch(e){}
 			};
 			x.send();
@@ -135,6 +141,8 @@ L['en']=L['en-US'];
 			if(oll)oll.textContent=l.optionsLangLabel+':';
 			var ocl=document.getElementById('__ht_opt_cal_label');
 			if(ocl)ocl.textContent=l.optionsCalLabel+':';
+			var orl=document.getElementById('__ht_opt_recreio_label');
+			if(orl)orl.textContent=l.optionsRecreioLabel+':';
 			var ohl=document.getElementById('__ht_opt_home_label');
 			if(ohl)ohl.textContent=l.optionsHomeLabel+':';
 			var oa=document.getElementById('__ht_opt_apply');
@@ -145,6 +153,8 @@ L['en']=L['en-US'];
 		document.addEventListener('change',function(e){
 			if(e.target&&e.target.id==='site_language')refreshLang();
 			if(e.target&&e.target.id==='site_calendar')refreshCal();
+			if(e.target&&e.target.id==='__ht_opt_recreio'){var rs=$('#site_recreio');if(rs.length)rs.val(e.target.value)}
+			if(e.target&&e.target.id==='site_recreio'){var ors=document.getElementById('__ht_opt_recreio');if(ors)ors.value=e.target.value}
 		});
 		function getLang(){
 			try{var s=$('#site_language');if(s.length)return s.val()}catch(e){}
@@ -153,6 +163,10 @@ L['en']=L['en-US'];
 		function getCal(){
 			try{var s=$('#site_calendar');if(s.length)return s.val()}catch(e){}
 			return _cal;
+		}
+		function getRecreio(){
+			try{var s=$('#site_recreio');if(s.length)return s.val()}catch(e){}
+			return _recreio||'30';
 		}
 		function refreshCal(){
 			var hs=document.getElementById('__ht_hist_sub');
@@ -172,7 +186,7 @@ L['en']=L['en-US'];
 		h.textContent='⌂';
 		h.title=l.homeTitle;
 		h.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 44px/1 monospace;padding:0 5px;color:#555;';
-		h.onclick=function(){var g=getLang(),c=getCal(),u=location.origin+'/index.html';if(g)u+='?lang='+encodeURIComponent(g);if(c)u+=(u.indexOf('?')>=0?'&':'?')+'cal='+encodeURIComponent(c);location.href=u};
+		h.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),u=location.origin+'/index.html';if(g)u+='?lang='+encodeURIComponent(g);if(c)u+=(u.indexOf('?')>=0?'&':'?')+'cal='+encodeURIComponent(c);if(r)u+='&rec='+encodeURIComponent(r);location.href=u};
 		_el.push(h);
 		b.appendChild(h);
 		var r=document.createElement('button');
@@ -180,7 +194,7 @@ L['en']=L['en-US'];
 		r.textContent='⟳';
 		r.title=l.reloadTitle;
 		r.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 24px/1 monospace;padding:0 5px;color:#555;';
-		r.onclick=function(){var g=getLang(),c=getCal(),u=new URL(window.location.href);if(g)u.searchParams.set('lang',g);if(c)u.searchParams.set('cal',c);location.href=u.toString()};
+		r.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),u=new URL(window.location.href);if(g)u.searchParams.set('lang',g);if(c)u.searchParams.set('cal',c);if(r)u.searchParams.set('rec',r);location.href=u.toString()};
 		_el.push(r);
 		b.appendChild(r);
 		var sep=document.createElement('div');
@@ -192,7 +206,7 @@ L['en']=L['en-US'];
 			btn.textContent=symbol;
 			btn.title=title;
 			btn.style.cssText='border:none;background:transparent;cursor:pointer;font:24px/1 monospace;padding:0 5px;color:#555;';
-			btn.onclick=function(){var g=getLang(),c=getCal(),u=location.origin+'/'+url;if(g)u+='&lang='+encodeURIComponent(g);if(c)u+='&cal='+encodeURIComponent(c);location.href=u};
+			btn.onclick=function(){var g=getLang(),c=getCal(),r=getRecreio(),u=location.origin+'/'+url;if(g)u+='&lang='+encodeURIComponent(g);if(c)u+='&cal='+encodeURIComponent(c);if(r)u+='&rec='+encodeURIComponent(r);location.href=u};
 			_el.push(btn);
 			b.appendChild(btn);
 		}
@@ -537,6 +551,18 @@ L['en']=L['en-US'];
 		var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka'];
 		for(var oi=0;oi<cals.length;oi++){var o=document.createElement('option');o.value=cals[oi];o.textContent=cals[oi];if(cals[oi]===_cal)o.selected=true;optCalSel.appendChild(o)}
 		optSub.appendChild(optCalSel);
+		var optRecreioLabel=document.createElement('div');
+		optRecreioLabel.id='__ht_opt_recreio_label';
+		optRecreioLabel.textContent=l.optionsRecreioLabel+':';
+		optRecreioLabel.style.cssText='margin-bottom:2px;color:#555;';
+		optSub.appendChild(optRecreioLabel);
+		var optRecreioSel=document.createElement('select');
+		optRecreioSel.id='__ht_opt_recreio';
+		optRecreioSel.style.cssText='width:100%;margin-bottom:6px;padding:2px;';
+		var recreios=[15,25,30,35,45,50,60];
+		var _recDefault=_recreio||'30';
+		for(var oi=0;oi<recreios.length;oi++){var o=document.createElement('option');o.value=String(recreios[oi]);o.textContent=recreios[oi]+' min';if(String(recreios[oi])===_recDefault)o.selected=true;optRecreioSel.appendChild(o)}
+		optSub.appendChild(optRecreioSel);
 		var optHomeLabel=document.createElement('div');
 		optHomeLabel.id='__ht_opt_home_label';
 		optHomeLabel.textContent=l.optionsHomeLabel+':';
@@ -556,8 +582,8 @@ L['en']=L['en-US'];
 		optApply.onmouseout=function(){this.style.background='#555'};
 		optApply.onclick=function(e){
 			e.preventDefault();e.stopPropagation();
-			var nl=optLangSel.value,nc=optCalSel.value,nh=optHomeInp.value||'/index.html';
-			fetch('/api/options',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&home='+encodeURIComponent(nh)}).then(function(){
+			var nl=optLangSel.value,nc=optCalSel.value,nr=optRecreioSel.value,nh=optHomeInp.value||'/index.html';
+			fetch('/api/options',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&home='+encodeURIComponent(nh)}).then(function(){
 				optSub.style.display='none';menuDrop.style.display='none';
 				var u=window.location.origin+'/'+nh.replace(/^\//,'');
 				var up=new URL(window.location.href);
@@ -569,6 +595,7 @@ L['en']=L['en-US'];
 				if(p)u+='&people='+encodeURIComponent(p);
 				if(nl)u+='&lang='+encodeURIComponent(nl);
 				if(nc)u+='&cal='+encodeURIComponent(nc);
+				if(nr)u+='&rec='+encodeURIComponent(nr);
 				window.location.href=u;
 			}).catch(function(){});
 		};
