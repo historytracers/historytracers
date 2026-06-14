@@ -180,7 +180,7 @@ L['en']=L['en-US'];
 		r.textContent='⟳';
 		r.title=l.reloadTitle;
 		r.style.cssText='border:none;background:transparent;cursor:pointer;font:bold 24px/1 monospace;padding:0 5px;color:#555;';
-		r.onclick=function(){location.reload(true)};
+		r.onclick=function(){var g=getLang(),c=getCal(),u=new URL(window.location.href);if(g)u.searchParams.set('lang',g);if(c)u.searchParams.set('cal',c);location.href=u.toString()};
 		_el.push(r);
 		b.appendChild(r);
 		var sep=document.createElement('div');
