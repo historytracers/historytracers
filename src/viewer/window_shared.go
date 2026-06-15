@@ -551,7 +551,7 @@ L['en']=L['en-US'];
 		var optCalSel=document.createElement('select');
 		optCalSel.id='__ht_opt_cal';
 		optCalSel.style.cssText='width:100%;margin-bottom:6px;padding:2px;';
-		var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka'];
+		var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka','chinese'];
 		for(var oi=0;oi<cals.length;oi++){var o=document.createElement('option');o.value=cals[oi];o.textContent=cals[oi];if(cals[oi]===_cal)o.selected=true;optCalSel.appendChild(o)}
 		optSub.appendChild(optCalSel);
 		var optRecreioLabel=document.createElement('div');

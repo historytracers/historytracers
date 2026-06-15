@@ -462,6 +462,15 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
 
             text = indianCal[2] + "."+indianMonths[indianCal[1] - 1]+ "."+year;
             return text;
+        case "chinese":
+            var tzOffset = -new Date().getTimezoneOffset() / 60;
+            var chc = jd_to_chinese(julianDays, tzOffset);
+            year = (chc[0] < 0) ? Math.abs(chc[0]) + " " + keywords[43] : chc[0];
+            var stem = chineseStems[(chc[0] - 2) % 10];
+            var branch = chineseBranches[(chc[0] - 2) % 12];
+            var animal = chineseAnimals[(chc[0] - 2) % 12];
+            text = stem + "-" + branch + " (" + animal + ") (" + chineseMonths[chc[1]] + "), " + chc[2] + ", " + year;
+            return text;
         case "hispanic":
             intEpoch += 1199188800;
         default:
@@ -527,6 +536,10 @@ function htConvertGregorianYear(test, gregoryYear)
                 break;
             case "persian":
                 converted = jd_to_persian(jd);
+                break;
+            case "chinese":
+                var tzOffset = -new Date().getTimezoneOffset() / 60;
+                converted = jd_to_chinese(jd, tzOffset);
                 break;
             case "julian":
                 text = jd + " " + keywords[41];
@@ -2698,6 +2711,10 @@ function htFillWebPage(page, data)
 
     if (data?.calendars) {
         htUpdateIndexSelector(data.calendars, "#site_calendar");
+        if (data.chinese_animals) chineseAnimals = data.chinese_animals;
+        if (data.chinese_months) chineseMonths = data.chinese_months;
+        if (data.chinese_stems) chineseStems = data.chinese_stems;
+        if (data.chinese_branches) chineseBranches = data.chinese_branches;
         $("#loading_msg").hide();
         $(":focus").blur();
         return;

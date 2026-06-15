@@ -413,7 +413,7 @@ function equinoxe_a_paris(year)
     equAPP = equJD + equationOfTime(equJED);
 
     /*  Finally, we must correct for the constant difference between
-        the Greenwich meridian and that of Paris, 2°20'15" to the
+        the Greenwich meridian and that of Paris, 2ï¿½20'15" to the
         East.  */
 
     dtParis = (2 + (20 / 60.0) + (15 / (60 * 60.0))) / 360;
@@ -442,7 +442,7 @@ function paris_equinoxe_jd(year)
                                 given Julian day falls.  Returns an
                                 array of two elements:
 
-                                    [0]  Année de la Révolution
+                                    [0]  Annï¿½e de la Rï¿½volution
                                     [1]  Julian day number containing
                                          equinox for this year.
 */
@@ -475,7 +475,7 @@ function annee_da_la_revolution(jd)
                                     "sansculottides" are considered a thirteenth
                                     month in the results of this function.  */
 
-var frMonth = [ "", "Vendémiaire", "Brumaire", "Frimaire", "Niv&ocirc;se", "Pluvi&ocirc;se", "Vent&ocirc;se", "Germinal", "Flor&eacute;al", "Prairial", "Messidor", "Thermidor", "Fructidor", "(Sans-culottides)" ];
+var frMonth = [ "", "Vendï¿½miaire", "Brumaire", "Frimaire", "Niv&ocirc;se", "Pluvi&ocirc;se", "Vent&ocirc;se", "Germinal", "Flor&eacute;al", "Prairial", "Messidor", "Thermidor", "Fructidor", "(Sans-culottides)" ];
 
 var frDecade = [ "", "I", "II", "III" ];
 
@@ -574,7 +574,7 @@ function tehran_equinox(year)
 
     /*  Finally, we must correct for the constant difference between
         the Greenwich meridian andthe time zone standard for
-	Iran Standard time, 52°30' to the East.  */
+	Iran Standard time, 52ï¿½30' to the East.  */
 
     dtTehran = (52 + (30 / 60.0) + (0 / (60.0 * 60.0))) / 360;
     equTehran = equAPP + dtTehran;
@@ -933,12 +933,320 @@ function jd_to_indian_civil(jd)
     return new Array(year, month, day);
 }
 
+/*  CHINESE CALENDAR  */
+
+var chineseMonths = [
+    "", "1st", "2nd", "3rd", "4th", "5th", "6th",
+    "7th", "8th", "9th", "10th", "11th", "12th"
+];
+var chineseStems = ["Jia","Yi","Bing","Ding","Wu","Ji","Geng","Xin","Ren","Gui"];
+var chineseBranches = ["Zi","Chou","Yin","Mao","Chen","Si","Wu","Wei","Shen","You","Xu","Hai"];
+var chineseAnimals = ["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Goat","Monkey","Rooster","Dog","Pig"];
+
+//  Compute the JD of a new moon (lunar conjunction).
+//  Uses Meeus' algorithm for the synodic month.
+//  k is the lunation number relative to 2000-01-06.
+
+function newMoonTime(k)
+{
+    var T, T2, T3, T4, JDE, M, Mm, F, Om, A, E, i;
+    var args, coefs;
+
+    T = k / 1236.85;
+    T2 = T * T;
+    T3 = T2 * T;
+    T4 = T3 * T;
+
+    //  Mean new moon (Meeus 2nd ed., Chapter 49)
+    JDE = 2451550.09766 + 29.530588861 * k +
+          0.00015437 * T2 - 0.00000015 * T3 + 0.00000000073 * T4;
+
+    //  Eccentricity correction for Earth's orbit
+    E = 1 - 0.002516 * T - 0.0000074 * T2;
+
+    //  Arguments (degrees)
+    Mm = 201.5643 + 385.81693528 * k + 0.0107438 * T2 +
+         0.00001239 * T3 - 0.000000058 * T4;
+    Mm = fixangle(Mm);
+    M = 2.5534 + 29.10535670 * k - 0.0000014 * T2 - 0.00000011 * T3;
+    M = fixangle(M);
+    F = 160.7108 + 390.67050284 * k - 0.0016118 * T2 -
+        0.00000227 * T3 + 0.000000011 * T4;
+    F = fixangle(F);
+    Om = 124.7746 - 1.56375588 * k + 0.0020672 * T2 + 0.00000215 * T3;
+    Om = fixangle(Om);
+
+    //  Main periodic corrections for new moon (Table 49.A)
+    args = [Mm, M, 2*Mm, 2*F, Mm-M, Mm+M, 2*M, Mm-2*F, Mm+2*F,
+            2*Mm+M, 3*Mm, M+2*F, M-2*F, 2*Mm-M, Om,
+            Mm+2*M, 2*Mm-2*F, 3*M, Mm+M-2*F, 2*Mm+2*F,
+            Mm+M+2*F, Mm-M+2*F, Mm-M-2*F, 3*Mm+M, 4*Mm];
+    coefs = [-0.40720, 0.17241*E, 0.01608, 0.01039, 0.00739*E,
+             -0.00514*E, 0.00208*E*E, -0.00111, -0.00057,
+             0.00056*E, -0.00042, 0.00042*E, 0.00038*E, -0.00024*E,
+             -0.00017, -0.00007, 0.00004, 0.00004, 0.00003, 0.00003,
+             -0.00003, 0.00003, -0.00002, -0.00002, 0.00002];
+    for (i = 0; i < args.length; i++) {
+        JDE += coefs[i] * dsin(args[i]);
+    }
+
+    //  Planetary corrections (Table 49.B)
+    A = [299.77 + 0.107408*k - 0.009173*T2,
+         251.88 + 0.016321*k,
+         251.83 + 26.651886*k,
+         349.42 + 36.412478*k,
+         84.66 + 18.206239*k,
+         141.74 + 53.303771*k,
+         207.14 + 2.453732*k,
+         154.84 + 7.306860*k,
+         34.52 + 27.261239*k,
+         207.19 + 0.121824*k,
+         291.34 + 1.844379*k,
+         161.72 + 24.198154*k,
+         239.56 + 25.513099*k,
+         331.55 + 3.592518*k];
+    var Ac = [325, 165, 164, 126, 110, 62, 60, 56, 47, 42, 40, 37, 35, 23];
+    for (i = 0; i < A.length; i++) {
+        JDE += Ac[i] * 1e-6 * dsin(A[i]);
+    }
+
+    return JDE;
+}
+
+//  Find the JD of the new moon at or before a given JD.
+
+function newMoonBefore(jd)
+{
+    var k, nm;
+    k = Math.round((jd - 2451550.09766) / 29.530588861);
+    nm = newMoonTime(k);
+    if (nm > jd) {
+        nm = newMoonTime(k - 1);
+    }
+    return nm;
+}
+
+//  Find the JD of the new moon at or after a given JD.
+
+function newMoonAtOrAfter(jd)
+{
+    var k, nm;
+    k = Math.round((jd - 2451550.09766) / 29.530588861);
+    nm = newMoonTime(k);
+    if (nm < jd) {
+        nm = newMoonTime(k + 1);
+    }
+    return nm;
+}
+
+//  Return the ecliptic longitude of the Sun (in degrees) for a given JD.
+
+function sunLongitude(jd)
+{
+    return sunpos(jd)[4];
+}
+
+//  Return the JD of the winter solstice (solar longitude 270Â°)
+//  in the Gregorian year containing the given JD.
+
+function chineseWinterSolstice(jd)
+{
+    var y, s, guess, iter, diff;
+
+    y = jd_to_gregorian(jd)[0];
+    guess = gregorian_to_jd(y, 12, 1) + 20;
+    s = sunLongitude(guess);
+    iter = 0;
+    while ((s > 275 || s < 265) && iter < 50) {
+        iter++;
+        diff = 270 - s;
+        if (diff > 180) diff -= 360;
+        if (diff < -180) diff += 360;
+        guess += diff / 0.986;
+        s = sunLongitude(guess);
+    }
+    return Math.floor(guess) + 0.5;
+}
+
+//  Determine whether a lunar month contains a major solar term (ä¸­æ°”).
+//  A major solar term occurs when the sun's longitude is a multiple of 30Â°.
+
+function monthHasMajorTerm(nmStart, nmEnd) {
+    var s_start = sunLongitude(nmStart);
+    var s_end = sunLongitude(nmEnd);
+    while (s_start < 0) s_start += 360;
+    while (s_start >= 360) s_start -= 360;
+    while (s_end < s_start) s_end += 360;
+    for (var m = 0; m < 12; m++) {
+        var term = m * 30;
+        if (term < s_start) term += 360;
+        if (term >= s_start && term < s_end) return true;
+    }
+    return false;
+}
+
+//  Build the month map (index â†’ {nmStart, nmEnd, hasMajor, monthNum, isLeap})
+//  for all months between two winter solstices ws1 and ws2.
+//  Returns {monthMap, eleventhIdx}.
+
+function buildChineseMonthMap(ws1, ws2) {
+    var nmList = [];
+    var nm = newMoonBefore(ws1);
+    while (nm < ws2) {
+        nmList.push(nm);
+        nm = newMoonAtOrAfter(nm + 20);
+    }
+    nmList.push(nm);
+
+    var eleventhIdx = 0;
+    while (eleventhIdx + 1 < nmList.length && nmList[eleventhIdx] <= ws1 && 
+           nmList[eleventhIdx + 1] <= ws1) {
+        eleventhIdx++;
+    }
+
+    var monthMap = [];
+    for (var i = 0; i < nmList.length - 1; i++) {
+        monthMap.push({
+            nmStart: nmList[i],
+            nmEnd: nmList[i + 1],
+            hasMajor: monthHasMajorTerm(nmList[i], nmList[i + 1])
+        });
+    }
+
+    var curNum = 11;
+    for (var i = eleventhIdx; i < monthMap.length; i++) {
+        if (i > eleventhIdx) {
+            curNum++;
+            if (curNum > 12) curNum = 1;
+        }
+        if (!monthMap[i].hasMajor) {
+            monthMap[i].isLeap = true;
+            monthMap[i].monthNum = curNum - 1;
+            if (monthMap[i].monthNum < 1) monthMap[i].monthNum = 12;
+        } else {
+            monthMap[i].isLeap = false;
+            monthMap[i].monthNum = curNum;
+        }
+    }
+    curNum = 10;
+    for (var i = eleventhIdx - 1; i >= 0; i--) {
+        if (!monthMap[i].hasMajor) {
+            monthMap[i].isLeap = true;
+            monthMap[i].monthNum = curNum;
+        } else {
+            monthMap[i].isLeap = false;
+            monthMap[i].monthNum = curNum;
+            curNum--;
+            if (curNum < 1) curNum = 12;
+        }
+    }
+
+    return {monthMap: monthMap, eleventhIdx: eleventhIdx};
+}
+
+//  CHINESE_TO_JD  --  Convert a Chinese calendar date to Julian Day.
+
+function chinese_to_jd(year, month, day, leap)
+{
+    var tzOffset = arguments.length >= 5 ? arguments[4] : 0;
+
+    var yG = year - 2698;
+    if (yG < 0) yG--;
+    var jd = gregorian_to_jd(yG, 2, 1);
+
+    var ws1 = chineseWinterSolstice(jd - 180);
+    var ws2 = chineseWinterSolstice(ws1 + 360);
+
+    var result = buildChineseMonthMap(ws1, ws2);
+
+    for (var i = 0; i < result.monthMap.length; i++) {
+        var m = result.monthMap[i];
+        if (m.monthNum === month && m.isLeap === (leap === 1)) {
+            var nmLocal = m.nmStart + tzOffset / 24;
+            var nmDate = jd_to_gregorian(nmLocal);
+            var nmMidnight = gregorian_to_jd(nmDate[0], nmDate[1], nmDate[2]) - tzOffset / 24;
+            return nmMidnight + day - 1;
+        }
+    }
+    return Math.floor(jd) + 0.5;
+}
+
+//  JD_TO_CHINESE  --  Convert a Julian Day to a Chinese calendar date.
+//  Returns [year, month, day, leap].
+
+function jd_to_chinese(jd)
+{
+    var tzOffset = arguments.length >= 2 ? arguments[1] : 0;
+
+    var jdNoon = Math.floor(jd) + 0.5;
+
+    var yG = jd_to_gregorian(jdNoon)[0];
+    var ws1 = chineseWinterSolstice(gregorian_to_jd(yG - 1, 6, 1));
+    var ws2 = chineseWinterSolstice(ws1 + 360);
+
+    if (jdNoon < ws1) {
+        ws1 = chineseWinterSolstice(ws1 - 360);
+        ws2 = chineseWinterSolstice(ws1 + 360);
+    } else if (jdNoon >= ws2) {
+        ws1 = ws2;
+        ws2 = chineseWinterSolstice(ws1 + 360);
+    }
+
+    var result = buildChineseMonthMap(ws1, ws2);
+
+    // tzOffset = LOCAL - UTC in hours (UTC-3 â†’ -3, UTC+8 â†’ +8).
+    // localMidnight = UT_midnight - tzOffset/24 puts the local-day start at the
+    // correct UT instant.  dayEnd = start of the next local day.
+    var localMidnight = jd - tzOffset / 24;
+    var dayEnd = localMidnight + 1;
+
+    var best = null;
+    var bestNMMidnight = null;
+    for (var i = 0; i < result.monthMap.length; i++) {
+        var m = result.monthMap[i];
+        var nmLocal = m.nmStart + tzOffset / 24;
+        var nmDate = jd_to_gregorian(nmLocal);
+        var nmMidnight = gregorian_to_jd(nmDate[0], nmDate[1], nmDate[2]) - tzOffset / 24;
+        if (nmMidnight < dayEnd && localMidnight >= nmMidnight) {
+            best = m;
+            bestNMMidnight = nmMidnight;
+        }
+    }
+
+    if (best) {
+        var month = best.monthNum;
+        var isLeap = best.isLeap ? 1 : 0;
+        var day = Math.floor(localMidnight - bestNMMidnight) + 1;
+        var base = jd_to_gregorian(ws1)[0] + 2698;
+        var y = (month >= 11) ? base : base + 1;
+        return new Array(y, month, day, isLeap);
+    }
+    return new Array(0, 0, 0, 0);
+}
+
+//  LEAP_CHINESE  --  Is a given Chinese year a leap year (has a leap month)?
+
+function leap_chinese(year)
+{
+    var jd = gregorian_to_jd(year - 2699, 7, 1);
+    var ws1 = chineseWinterSolstice(jd);
+    var ws2 = chineseWinterSolstice(ws1 + 360);
+
+    var nmCount = 0;
+    var nm = newMoonBefore(ws1);
+    while (nm < ws2) {
+        nmCount++;
+        nm = newMoonAtOrAfter(nm + 20);
+    }
+    return nmCount > 12;
+}
+
 /*  updateFromGregorian  --  Update all calendars from Gregorian.
-                             "Why not Julian date?" you ask.  Because
-                             starting from Gregorian guarantees we're
-                             already snapped to an integral second, so
-                             we don't get roundoff errors in other
-                             calendars. 
+                              "Why not Julian date?" you ask.  Because
+                              starting from Gregorian guarantees we're
+                              already snapped to an integral second, so
+                              we don't get roundoff errors in other
+                              calendars. 
 
 function updateFromGregorian()
 {
@@ -1402,6 +1710,15 @@ function calcIsoDay()
 }
 */
 
+//  calcChinese  --  Perform calculation starting with Chinese calendar.
+
+function calcChinese(chineseYear, chineseMonth, chineseDay, chineseLeap)
+{
+    return setJulian(chinese_to_jd((new Number(chineseYear)),
+                                   chineseMonth + 1,
+                                   (new Number(chineseDay)),
+                                   (new Number(chineseLeap))));
+}
 
 /*  setDateToToday  --  Preset the fields in
     the request form to today's date.  */
