@@ -1,0 +1,128 @@
+{
+   "title": "Practicing addition with Soroban and Suanpan (算盤)",
+   "header": "Practicing addition with Soroban and Suanpan (算盤)",
+   "sources": [
+      "f91d9720-3085-4e71-ae5d-7e7cf6b7b7b2"
+   ],
+   "scripts": [
+      "f91d9720-3085-4e71-ae5d-7e7cf6b7b7b2"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/f91d9720-3085-4e71-ae5d-7e7cf6b7b7b2_en-US.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/6nfnbvVnSm1cIQJbLCHlO8?si=PjllOBaXTaek0pcRqp-dUg",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1781490944"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Prerequisites\n\nThis text is a practice of the content taught in the previous text (<htcite0>). Therefore, we recommend studying that text and its prerequisites before proceeding.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "text": "History Tracers Team",
+                     "page": "Adding with Soroban and Suanpan (算盤) — Parte 2",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_game",
+         "text": [
+            {
+               "text": "### The Abacus\n\nRecognizing the importance of homework exercises as a way to reinforce knowledge (<htcite0>), we present below an abacus that performs an addition and explains, step by step, each stage necessary to carry out the calculation using this tool, regardless of whether the version was developed in China (Zhongguo, 中國) on Japan (Nippon koku or Nihon koku, 日本国).\n\n#### The abacus in this section\n\nAs soon as the page loads, the abacus is initialized with the first level (units) and with two numbers to be added.\n\nBetween the bar containing the buttons \"🎲 New Exercise\" and \"⭐ Next Level\" and the button \"➡️ Next Step\", an instruction will be displayed indicating the movements to be performed at the current stage. Upon correctly completing the stage, a message will appear at the bottom of the abacus congratulating you: \"✅ Correct! Click 'Next step' to continue.\"\n\nYou should follow the steps until you complete the calculation, at which point you will receive the following message: \"🎉🎉🎉 PERFECT! 🎉🎉🎉 Great job using the abacus!\".\n\nYou may repeat as many exercises as you wish at the same level. To do so, simply click \"🎲 New Exercise\" after completing a calculation.\n\nIf you already feel comfortable with the current level, you can deepen your knowledge by advancing to the next level using the \"⭐ Next Level\" button.",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0e18261e-e542-4bd1-a074-a42b9c0eb25d",
+                     "text": "Costa, M., Cardoso, A. P., Lacerda, C., Lopes, A., & Gomes, C.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2016",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: clamp(1rem, 4vw, 2.5rem); box-shadow: 0 15px 28px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: clamp(0.5rem, 2vw, 1.2rem) clamp(0.8rem, 3vw, 1.5rem) clamp(0.8rem, 3vw, 1.5rem) clamp(0.8rem, 3vw, 1.5rem); width: 100%; max-width: 1100px; transition: all 0.2s ease; margin: 0 auto; } .soroban-frame { background: #e9ddb0; border-radius: clamp(0.8rem, 2.5vw, 1.2rem); padding: clamp(6px, 1.5vw, 12px); box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 5px #b49b6e, 0 6px 14px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; width: 100%; height: auto; aspect-ratio: 860 / 400; max-width: 688px; } .value-panel { margin-top: clamp(0.5rem, 3vw, 1rem); background: #2e241f; border-radius: 50px; padding: clamp(5px, 1.5vw, 8px) clamp(10px, 2vw, 18px); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center; gap: clamp(6px, 1.5vw, 12px); flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 0.2rem 0.8rem; border-radius: 35px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(0.9rem, 4vw, 1.5rem); letter-spacing: 1px; color: #1f2a0e; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: clamp(0.65rem, 3vw, 1rem); font-weight: normal; background: #4a3929; color: #ffecb3; padding: 0.15rem 0.6rem; border-radius: 30px; margin-left: 6px; white-space: nowrap; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.75rem, 3.5vw, 1rem); font-family: inherit; padding: 0.4rem 1rem; border-radius: 50px; cursor: pointer; transition: 0.08s linear; box-shadow: 0 2px 0 #4f3822; white-space: nowrap; min-width: 85px; } .reset-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #4f3822; } .legend { font-size: clamp(0.55rem, 2.5vw, 0.65rem); margin-top: 0; text-align: center; color: #302419; background: #ebdfbe; display: inline-block; width: auto; padding: 0.2rem 0.7rem; border-radius: 50px; backdrop-filter: blur(2px); white-space: nowrap; } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; flex-wrap: wrap; gap: 8px; } .decimal-control { background: #ebdfbe; border-radius: 50px; padding: 0.2rem 0.8rem; font-size: clamp(0.55rem, 2.5vw, 0.65rem); font-weight: bold; color: #302419; white-space: nowrap; } .mode-selector { background: #ebdfbe; border-radius: 50px; padding: 0.2rem 0.8rem; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-family: inherit; padding: 0.3rem 0.8rem; border-radius: 35px; cursor: pointer; transition: 0.08s linear; box-shadow: 0 1px 0 #4f3822; white-space: nowrap; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: clamp(0.6rem, 2.5vw, 0.7rem); } .warning-message { background: #ff9800; color: #2e241f; padding: 0.2rem 0.8rem; border-radius: 35px; font-size: clamp(0.55rem, 2.5vw, 0.65rem); font-weight: bold; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); white-space: normal; word-break: keep-all; } .warning-message.hidden { display: none; } .warning-icon { font-size: 0.8rem; } .info-area { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; } .tutor-panel { margin-top: 0.8rem; background: #2e241f; border-radius: 40px; padding: 0.7rem 1.2rem; box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.2); color: #ffefcf; } .tutor-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; border-bottom: 2px solid #c4a86a; padding-bottom: 6px; } .problem-box { background: #1e1915; padding: 3px 15px; border-radius: 50px; font-family: monospace; font-size: 1.3rem; font-weight: bold; letter-spacing: 1px; color: #f7d44a; display: inline-block; word-break: break-word; white-space: normal; }  .step-message { background: #3a2c24; border-radius: 35px; padding: 12px 18px; font-size: 1rem; line-height: 1.5; font-weight: 500; margin: 8px 0; box-shadow: inset 0 0 0 1px #6a4e38, 0 2px 5px black; } .step-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; justify-content: center; } .step-btn { background: #846b4e; border: none; color: white; font-weight: bold; font-size: 0.9rem; padding: 7px 20px; border-radius: 50px; cursor: pointer; transition: 0.08s linear; box-shadow: 0 2px 0 #4f3822; font-family: inherit; } .step-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .step-btn.hidden { display: none; } .step-btn.primary { background: #f7b32b; color: #2e241f; box-shadow: 0 2px 0 #a55d1a; } .success-message { background: #2c6e2c; color: white; padding: 8px 16px; border-radius: 40px; font-size: 0.95rem; margin-top: 8px; animation: slideIn 0.3s ease; text-align: center; } .congrats { background: #ffcf4a; color: #2c1c0c; font-weight: bold; text-align: center; padding: 10px; border-radius: 40px; font-size: 1.1rem; margin-top: 8px; animation: glow 0.4s ease; } @keyframes slideIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } } @keyframes glow { 0% { transform: scale(0.96); opacity: 0; } 100% { transform: scale(1); opacity: 1; } } .reset-tutor-btn { background: #5a3f2c; border: none; color: #ffefcf; padding: 4px 12px; border-radius: 35px; cursor: pointer; font-weight: bold; font-size: 0.75rem; transition: 0.08s linear; } .reset-tutor-btn:active { transform: translateY(1px); } .reset-tutor-btn.hidden { display: none; } .status-badge { background: #00000066; border-radius: 40px; padding: 3px 10px; font-size: 0.7rem; font-family: monospace; } .level-badge { background: #ffb347; color: #2e241f; border-radius: 40px; padding: 2px 10px; font-size: 0.7rem; font-weight: bold; margin-left: 10px; } .text-store { display: none; }  @media (max-width: 720px) { .soroban-container { max-width: 95%; padding: 0.6rem; }  .value-panel { flex-direction: column; align-items: stretch; border-radius: 32px; } .value-panel-left { justify-content: center; }  .readout { text-align: center; white-space: normal; word-break: break-word; } .footer { flex-direction: column; align-items: stretch; } .mode-selector, .info-area, .decimal-control { justify-content: center; } .legend { white-space: normal; text-align: center; } .reset-btn { text-align: center; width: 100%; } .step-message { font-size: 0.85rem; } .problem-box { font-size: 1rem; }  }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"text-store\"> <span id=\"txt_stepPrefix\">🧮</span> <span id=\"txt_correctMessage\">✅ Correct! Click 'Next step' to continue.</span> <span id=\"txt_perfectMessage\">🎉🎉🎉 PERFECT! 🎉🎉🎉<br>{a} + {b} = {result}<br>Great job using the abacus!</span> <span id=\"txt_congratsMessage\">🎉🎉🎉 CONGRATULATIONS! 🎉🎉🎉<br>You calculated {a} + {b} = {result}<br>Click 'New exercise' to practice more!</span> <span id=\"txt_step1Instruction\">📌 <strong>Step 1:</strong> Write the first number <strong>{a}</strong> in the abacus column(s) ({columns}).</span> <span id=\"txt_simpleAddInstruction\">➕ <strong>Add to the {placeName}:</strong> Add <strong>{digit}</strong> to the {placeName} column. After this addition, the abacus should show <strong>{result}</strong>.</span> <span id=\"txt_carryInstruction\">⚡ <strong>Carrying 1:</strong> Adding <strong>{digit}</strong> to {placeName} gives {digitA} + {digit} = {total}, meaning the result is greater than or equal to 10. Therefore, you will also need to:<br> &nbsp;&nbsp;➡ Remove the complement <strong>{complement}</strong> from the {placeName} column, which will be added to another column.<br>&nbsp;&nbsp;➡ Add <strong>1</strong> to the <strong>{nextPlace}</strong> column.<br>&nbsp;&nbsp;➡ Please note: carrying 1 in one column may create the need to carry 1 again to reach the desired result.<br>After these movements, the abacus should show <strong>{result}</strong>.</span><span id=\"txt_finalInstruction\">🎉 <strong>Final:</strong> {a} + {b} = <strong>{result}</strong>. The abacus should show this sum!</span><span id=\"txt_stepStatus\">📖 Step {current}/{total}</span><span id=\"txt_readyStatus\">🎲 Ready</span><span id=\"txt_welcomeMessage\">Click 'New exercise' to start. Follow the instructions to arrange the abacus.</span> <span id=\"txt_next\">next</span> <span id=\"txt_units\">UNITS</span> <span id=\"txt_tens\">TENS</span> <span id=\"txt_hundreds\">HUNDREDS</span> <span id=\"txt_thousands\">THOUSANDS</span> <span id=\"txt_tenthousands\">TEN THOUSANDS</span> <span id=\"txt_hundredthousands\">HUNDRED THOUSANDS</span> <span id=\"txt_million\">MILLIONS</span> <span id=\"txt_tenmillions\">TEN MILLIONS</span> <span id=\"txt_hundredmillions\">HUNDRED MILLIONS</span></div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; aspect-ratio:860/400; max-width:688px; margin:0 auto; display:block;\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Value: <span id=\"numericValue\">0</span></div> <div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠</span><span id=\"warningText\">Number greater than 9</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reset abacus</button></div><div class=\"tutor-panel\" id=\"tutorPanel\"> <div class=\"tutor-header\"> <div class=\"problem-box\" id=\"problemDisplay\">-- + --</div><div style=\"display: flex; align-items: center; gap: 8px;\"> <span class=\"status-badge\" id=\"stepStatus\">🎲 Ready</span> <span id=\"levelBadge\" class=\"level-badge\">🔢 UNITS</span></div> <div style=\"display: flex; gap: 8px;\"> <button id=\"resetTutorBtn\" class=\"reset-tutor-btn\">🎲 New exercise</button> <button id=\"nextLevelBtn\" class=\"reset-tutor-btn\" style=\"background: #7e5a41;\">⭐ Next level</button> </div></div> <div class=\"step-message\" id=\"stepMessage\">🧮 Click 'New exercise' to start. Follow the instructions to change the abacus. </div><div class=\"step-buttons\"> <button id=\"nextStepBtn\" class=\"step-btn primary\">➡ Next step</button>  </div> <div id=\"feedbackArea\" style=\"min-height: 70px;\"></div> </div><div class=\"footer\"> <div class=\"mode-selector\"> <span class=\"mode-label\">🧮 Abacus:</span> <button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban</button> <button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan</button> </div>  <div class=\"info-area\"> </div> <div class=\"decimal-control\">⚫ Decimal marker · move horizontally</div> </div> </div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}
