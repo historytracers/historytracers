@@ -82,11 +82,11 @@ var addressBarJS = `
 			try{var _lu2=new URL(window.location.href);loc=_lu2.searchParams.get('lang')||navigator.language||'en-US'}catch(e){loc=navigator.language||'en-US'}
 		}
 		var L={};
-L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsHomeLabel:'P\u00e1gina inicial',optionsApply:'Aplicar'};
+L['pt-BR']={main:'Principal',tab:'Aba',reloadTitle:'Recarregar p\u00e1gina (for\u00e7ado)',homeTitle:'P\u00e1gina inicial',firstStepsTitle:'Primeiros passos',gameTitle:'Jogos',atlasTitle:'Atlas',familyTitle:'Fam\u00edlia',menuTitle:'Menu',exitTitle:'Sair',historyTitle:'Hist\u00f3rico',emptyTitle:'(vazio)',expandTitle:'Expandir Hist\u00f3rico',favBtnTitle:'Adicionar/Remover Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(nenhum favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Selecionar tudo',copyTextTitle:'Copiar texto',optionsTitle:'Op\u00e7\u00f5es',optionsLangLabel:'Idioma',optionsCalLabel:'Calend\u00e1rio',optionsRecreioLabel:'Recreio',optionsListenLabel:'Porta',optionsHomeLabel:'P\u00e1gina inicial',optionsApply:'Aplicar'};
 L['pt']=L['pt-BR'];
-L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsHomeLabel:'P\u00e1gina de inicio',optionsApply:'Aplicar'};
+L['es-ES']={main:'Principal',tab:'Pesta\u00f1a',reloadTitle:'Recargar p\u00e1gina (forzado)',homeTitle:'P\u00e1gina de inicio',firstStepsTitle:'Primeros pasos',gameTitle:'Juegos',atlasTitle:'Atlas',familyTitle:'Familia',menuTitle:'Men\u00fa',exitTitle:'Salir',historyTitle:'Historial',emptyTitle:'(vac\u00edo)',expandTitle:'Expandir Historial',favBtnTitle:'Agregar/Quitar Favorito',favTitle:'Favoritos',favExpandTitle:'Expandir Favoritos',favEmpty:'(ning\u00fan favorito)',devTitle:'Dev',debugTitle:'Depurador',editTitle:'Editar',copyUrlTitle:'Copiar URL',selectAllTitle:'Seleccionar todo',copyTextTitle:'Copiar texto',optionsTitle:'Opciones',optionsLangLabel:'Idioma',optionsCalLabel:'Calendario',optionsRecreioLabel:'Recreo',optionsListenLabel:'Puerto',optionsHomeLabel:'P\u00e1gina de inicio',optionsApply:'Aplicar'};
 L['es']=L['es-ES'];
-L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsHomeLabel:'Home page',optionsApply:'Apply'};
+L['en-US']={main:'Main',tab:'Tab',reloadTitle:'Reload page (hard)',homeTitle:'Home page',firstStepsTitle:'First steps',gameTitle:'Games',atlasTitle:'Atlas',familyTitle:'Family',menuTitle:'Menu',exitTitle:'Exit',historyTitle:'History',emptyTitle:'(empty)',expandTitle:'Expand History',favBtnTitle:'Add/Remove Favorite',favTitle:'Favorites',favExpandTitle:'Expand Favorites',favEmpty:'(no favorites)',devTitle:'Dev',debugTitle:'Debug',editTitle:'Edit',copyUrlTitle:'Copy URL',selectAllTitle:'Select all',copyTextTitle:'Copy text',optionsTitle:'Options',optionsLangLabel:'Language',optionsCalLabel:'Calendar',optionsRecreioLabel:'Break',optionsListenLabel:'Listen port',optionsHomeLabel:'Home page',optionsApply:'Apply'};
 L['en']=L['en-US'];
 		var l=L[loc]||L[loc.substring(0,2)]||L['en-US'];
 		var _lang=window.__ht_lang||'';
@@ -111,6 +111,7 @@ L['en']=L['en-US'];
 					if(!_lang&&d.lang){_lang=d.lang;var nl=L[_lang]||L[_lang.substring(0,2)]||L['en-US'];l=nl;refreshLang()}
 					if(!_cal&&d.cal){_cal=d.cal;refreshCal()}
 					if(!_recreio&&d.recreio){_recreio=d.recreio;var rs=$('#site_recreio');if(rs.length)rs.val(_recreio);var ors=document.getElementById('__ht_opt_recreio');if(ors)ors.value=_recreio}
+					if(d.port){var ol=document.getElementById('__ht_opt_listen');if(ol)ol.value=d.port}
 				}}catch(e){}
 			};
 			x.send();
@@ -143,6 +144,8 @@ L['en']=L['en-US'];
 			if(ocl)ocl.textContent=l.optionsCalLabel+':';
 			var orl=document.getElementById('__ht_opt_recreio_label');
 			if(orl)orl.textContent=l.optionsRecreioLabel+':';
+			var oll=document.getElementById('__ht_opt_listen_label');
+			if(oll)oll.textContent=l.optionsListenLabel+':';
 			var ohl=document.getElementById('__ht_opt_home_label');
 			if(ohl)ohl.textContent=l.optionsHomeLabel+':';
 			var oa=document.getElementById('__ht_opt_apply');
@@ -563,6 +566,19 @@ L['en']=L['en-US'];
 		var _recDefault=_recreio||'30';
 		for(var oi=0;oi<recreios.length;oi++){var o=document.createElement('option');o.value=String(recreios[oi]);o.textContent=recreios[oi]+' min';if(String(recreios[oi])===_recDefault)o.selected=true;optRecreioSel.appendChild(o)}
 		optSub.appendChild(optRecreioSel);
+		var optListenLabel=document.createElement('div');
+		optListenLabel.id='__ht_opt_listen_label';
+		optListenLabel.textContent=l.optionsListenLabel+':';
+		optListenLabel.style.cssText='margin-bottom:2px;color:#555;';
+		optSub.appendChild(optListenLabel);
+		var optListenInp=document.createElement('input');
+		optListenInp.id='__ht_opt_listen';
+		optListenInp.type='number';
+		optListenInp.min=1;
+		optListenInp.max=65535;
+		optListenInp.placeholder='-1';
+		optListenInp.style.cssText='width:100%;margin-bottom:6px;padding:2px;box-sizing:border-box;font:13px/1.4 sans-serif;';
+		optSub.appendChild(optListenInp);
 		var optHomeLabel=document.createElement('div');
 		optHomeLabel.id='__ht_opt_home_label';
 		optHomeLabel.textContent=l.optionsHomeLabel+':';
@@ -582,8 +598,8 @@ L['en']=L['en-US'];
 		optApply.onmouseout=function(){this.style.background='#555'};
 		optApply.onclick=function(e){
 			e.preventDefault();e.stopPropagation();
-			var nl=optLangSel.value,nc=optCalSel.value,nr=optRecreioSel.value,nh=optHomeInp.value||'/index.html';
-			fetch('/api/options',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&home='+encodeURIComponent(nh)}).then(function(){
+			var nl=optLangSel.value,nc=optCalSel.value,nr=optRecreioSel.value,np=optListenInp.value,nh=optHomeInp.value||'/index.html';
+			fetch('/api/options',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)}).then(function(){
 				optSub.style.display='none';menuDrop.style.display='none';
 				var u=window.location.origin+'/'+nh.replace(/^\//,'');
 				var up=new URL(window.location.href);

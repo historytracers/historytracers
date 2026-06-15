@@ -15,6 +15,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"sort"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -49,6 +50,7 @@ type optionsData struct {
 	Lang    string `json:"lang"`
 	Cal     string `json:"cal"`
 	Recreio string `json:"recreio"`
+	Port    string `json:"port"`
 	Home    string `json:"home"`
 }
 
@@ -253,6 +255,7 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 			Lang:    r.FormValue("lang"),
 			Cal:     r.FormValue("cal"),
 			Recreio: r.FormValue("recreio"),
+			Port:    r.FormValue("port"),
 			Home:    r.FormValue("home"),
 		}
 		writeOptionsLocked(data)
@@ -684,6 +687,7 @@ func main() {
 	hideConsole()
 
 	port := flag.Int("port", 0, "HTTP port (0 = random available)")
+	listen := flag.Int("listen", -1, "Static port in range 1-65535 (-1 = use -port)")
 	path := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
 	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
@@ -721,8 +725,17 @@ func main() {
 	if *cal == "" && savedOptions.Cal != "" {
 		*cal = savedOptions.Cal
 	}
+	if *listen == -1 && savedOptions.Port != "" {
+		if p, err := strconv.Atoi(savedOptions.Port); err == nil && p >= 1 && p <= 65535 {
+			*listen = p
+		}
+	}
 
-	addr := resolveAddr(*port)
+	effectivePort := *port
+	if *listen >= 1 && *listen <= 65535 {
+		effectivePort = *listen
+	}
+	addr := resolveAddr(effectivePort)
 	if *class != "" {
 		pageURL = buildPageURL(addr, *class, *lang, *cal)
 	} else if savedOptions.Home != "" {
@@ -806,8 +819,13 @@ func buildPageURL(addr, class, lang, cal string) string {
 }
 
 func resolveAddr(port int) string {
-	if port > 0 {
-		return fmt.Sprintf("127.0.0.1:%d", port)
+	if port >= 1 && port <= 65535 {
+		l, err := net.Listen("tcp", fmt.Sprintf("127.0.0.1:%d", port))
+		if err == nil {
+			l.Close()
+			return fmt.Sprintf("127.0.0.1:%d", port)
+		}
+		log.Printf("Warning: port %d unavailable (%v), falling back to random port", port, err)
 	}
 	l, err := net.Listen("tcp", "127.0.0.1:0")
 	if err != nil {
