@@ -1434,6 +1434,50 @@ function jd_to_javanese(jd)
     return new Array(isl[0] + 512, isl[1], isl[2]);
 }
 
+/*  JAPANESE CALENDAR  */
+
+//  The traditional Japanese lunisolar calendar is based on the same
+//  astronomical system as the Chinese calendar (same new moon and
+//  solstice calculations).  This implementation wraps the Chinese
+//  calendar functions with Japanese month names and imperial year
+//  numbering (kōki / 皇紀).
+//
+//  Kōki year 1 = 660 BCE (legendary accession of Emperor Jimmu).
+//  kōki = Chinese year − 2038 = Gregorian year + 660.
+//
+//  Month names (和風月名):
+//    1  Mutsuki    (睦月)
+//    2  Kisaragi   (如月)
+//    3  Yayoi      (弥生)
+//    4  Uzuki      (卯月)
+//    5  Satsuki    (皐月)
+//    6  Minazuki   (水無月)
+//    7  Fumizuki   (文月)
+//    8  Hazuki     (葉月)
+//    9  Nagatsuki  (長月)
+//   10  Kannazuki  (神無月)
+//   11  Shimotsuki (霜月)
+//   12  Shiwasu    (師走)
+
+var japaneseMonths = [
+    "", "Mutsuki", "Kisaragi", "Yayoi", "Uzuki",
+    "Satsuki", "Minazuki", "Fumizuki", "Hazuki",
+    "Nagatsuki", "Kannazuki", "Shimotsuki", "Shiwasu"
+];
+
+function japanese_to_jd(year, month, day, leap)
+{
+    var tzOffset = arguments.length >= 5 ? arguments[4] : 0;
+    return chinese_to_jd(year + 2038, month, day, leap, tzOffset);
+}
+
+function jd_to_japanese(jd)
+{
+    var tzOffset = arguments.length >= 2 ? arguments[1] : 0;
+    var chc = jd_to_chinese(jd, tzOffset);
+    return new Array(chc[0] - 2038, chc[1], chc[2], chc[3]);
+}
+
 /*  updateFromGregorian  --  Update all calendars from Gregorian.
                                "Why not Julian date?" you ask.  Because
                                starting from Gregorian guarantees we're

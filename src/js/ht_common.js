@@ -477,6 +477,12 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
             year = (javc[0] < 0) ? Math.abs(javc[0]) + " " + keywords[43] : javc[0];
             text = javc[2] + " " + javaneseMonths[javc[1]] + ", " + year;
             return text;
+        case "japanese":
+            var tzOffset_j = -new Date().getTimezoneOffset() / 60;
+            var jpc = jd_to_japanese(julianDays, tzOffset_j);
+            year = (jpc[0] < 0) ? Math.abs(jpc[0]) + " " + keywords[43] : jpc[0];
+            text = jpc[2] + " " + japaneseMonths[jpc[1]] + ", " + year;
+            return text;
         case "chinese":
             var tzOffset = -new Date().getTimezoneOffset() / 60;
             var chc = jd_to_chinese(julianDays, tzOffset);
@@ -564,6 +570,10 @@ function htConvertGregorianYear(test, gregoryYear)
                 break;
             case "javanese":
                 converted = jd_to_javanese(jd);
+                break;
+            case "japanese":
+                var tzOffset_j2 = -new Date().getTimezoneOffset() / 60;
+                converted = jd_to_japanese(jd, tzOffset_j2);
                 break;
             case "julian":
                 text = jd + " " + keywords[41];
@@ -2742,6 +2752,7 @@ function htFillWebPage(page, data)
         if (data.aymara_months) aymaraMonths = data.aymara_months;
         if (data.inca_months) incaMonths = data.inca_months;
         if (data.javanese_months) javaneseMonths = data.javanese_months;
+        if (data.japanese_months) japaneseMonths = data.japanese_months;
         $("#loading_msg").hide();
         $(":focus").blur();
         return;
