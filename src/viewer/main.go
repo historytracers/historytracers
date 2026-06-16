@@ -349,13 +349,14 @@ var recVal=%q;
 var portVal=%q;
 var homeVal=%q;
 
+var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Espa\u00f1ol (ES)'};
 var langs=['pt-BR','en-US','es-ES'];
 var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka','chinese','aymara','inca','javanese','japanese'];
 var recreios=[15,25,30,35,45,50,60];
 
 var html='<h2>'+l.title+'</h2>';
 html+='<div class="form-group"><label>'+l.langLabel+'</label><select id="opt_lang">';
-for(var i=0;i<langs.length;i++){html+='<option value="'+langs[i]+'"'+(langs[i]===lang?' selected':'')+'>'+langs[i]+'</option>'}
+for(var i=0;i<langs.length;i++){html+='<option value="'+langs[i]+'"'+(langs[i]===lang?' selected':'')+'>'+(langNames[langs[i]]||langs[i])+'</option>'}
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.calLabel+'</label><select id="opt_cal">';
 for(var i=0;i<cals.length;i++){
@@ -386,7 +387,7 @@ document.getElementById('opt_apply').onclick=function(){
 	fetch('/api/options',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)}).then(function(r){
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
-		try{parent.location.reload()}catch(e){}
+		try{var pu=new URL(parent.location.href);pu.searchParams.set('lang',nl);pu.searchParams.set('cal',nc);parent.location.href=pu.toString()}catch(e){}
 	}).catch(function(e){
 		s.className='status error';s.textContent=l.err+e.message;
 	});
