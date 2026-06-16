@@ -480,7 +480,10 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
         case "japanese":
             var jpc = jd_to_japanese(julianDays);
             year = (jpc[0] < 0) ? Math.abs(jpc[0]) + " " + keywords[43] : jpc[0];
+            var gregYear_j = jpc[0] - 660;
+            var nengo = japaneseNengo(gregYear_j, jpc[1]);
             text = jpc[2] + " " + japaneseMonths[jpc[1]] + ", " + year;
+            if (nengo) text += " (" + nengo.year + " " + nengo.name + ")";
             return text;
         case "chinese":
             var tzOffset = -new Date().getTimezoneOffset() / 60;

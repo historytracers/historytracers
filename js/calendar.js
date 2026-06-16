@@ -1481,6 +1481,24 @@ function jd_to_japanese(jd)
     return new Array(greg[0] + 660, greg[1], greg[2]);
 }
 
+//  Japanese era names (nengō / 元号) for the modern period.
+//  Returns { name, year } or null for dates before Meiji.
+
+function japaneseNengo(gregYear, gregMonth)
+{
+    if (gregYear > 2019 || (gregYear === 2019 && gregMonth >= 5))
+        return { year: gregYear - 2019 + 1, name: "Reiwa" };
+    if (gregYear > 1989 || (gregYear === 1989 && gregMonth >= 1))
+        return { year: gregYear - 1989 + 1, name: "Heisei" };
+    if (gregYear > 1926 || (gregYear === 1926 && gregMonth >= 12))
+        return { year: gregYear - 1926 + 1, name: "Shōwa" };
+    if (gregYear > 1912 || (gregYear === 1912 && gregMonth >= 7))
+        return { year: gregYear - 1912 + 1, name: "Taishō" };
+    if (gregYear >= 1868)
+        return { year: gregYear - 1868 + 1, name: "Meiji" };
+    return null;
+}
+
 /*  updateFromGregorian  --  Update all calendars from Gregorian.
                                "Why not Julian date?" you ask.  Because
                                starting from Gregorian guarantees we're
