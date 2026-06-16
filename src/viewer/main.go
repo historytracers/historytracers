@@ -337,7 +337,7 @@ var portVal=%q;
 var homeVal=%q;
 
 var langs=['pt-BR','en-US','es-ES'];
-var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka','chinese','aymara','inca'];
+var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka','chinese','aymara','inca','javanese'];
 var recreios=[15,25,30,35,45,50,60];
 
 var html='<h2>'+l.title+'</h2>';
@@ -806,7 +806,7 @@ func main() {
 	path := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
 	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
-	cal := flag.String("calendar", "", "Initial calendar (e.g. gregory, julian, hebrew, islamic, persian, french, shaka, hispanic, mesoamerican, emesoamerican, aymara, inca, chinese)")
+	cal := flag.String("calendar", "", "Initial calendar (e.g. gregory, julian, hebrew, islamic, persian, french, shaka, hispanic, mesoamerican, emesoamerican, aymara, inca, chinese, javanese)")
 	class := flag.String("class", "", "Initial class content UUID (e.g. d290f1ee-6c54-4b01-90e6-d701748f0851)")
 	logFile := flag.String("log", "", "File to write access logs (default: no access log)")
 	flag.Usage = func() {

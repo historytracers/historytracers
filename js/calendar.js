@@ -1396,6 +1396,44 @@ function jd_to_inca(jd)
     return new Array(year, month, day);
 }
 
+/*  JAVANESE CALENDAR  */
+
+//  The Javanese calendar (Anno Javanico, AJ) is a lunar calendar
+//  identical in structure to the Islamic calendar: 12 lunar months
+//  alternating 30 and 29 days (354/355 days per year).  The only
+//  difference is the year numbering:  AJ = AH + 512.
+//
+//  Month names (Javanese):
+//    1  Sura       (30)
+//    2  Sapar      (29)
+//    3  Mulud      (30)
+//    4  Bakda Mulud (29)
+//    5  Jumadilawal (30)
+//    6  Jumadilakir (29)
+//    7  Rejeb      (30)
+//    8  Ruwah      (29)
+//    9  Pasa       (30)
+//   10  Sawal      (29)
+//   11  Sela       (30)
+//   12  Besar      (29)
+
+var javaneseMonths = [
+    "", "Sura", "Sapar", "Mulud", "Bakda Mulud",
+    "Jumadilawal", "Jumadilakir", "Rejeb", "Ruwah",
+    "Pasa", "Sawal", "Sela", "Besar"
+];
+
+function javanese_to_jd(year, month, day)
+{
+    return islamic_to_jd(year - 512, month, day);
+}
+
+function jd_to_javanese(jd)
+{
+    var isl = jd_to_islamic(jd);
+    return new Array(isl[0] + 512, isl[1], isl[2]);
+}
+
 /*  updateFromGregorian  --  Update all calendars from Gregorian.
                                "Why not Julian date?" you ask.  Because
                                starting from Gregorian guarantees we're

@@ -472,6 +472,11 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
             year = (ayc[0] < 0) ? Math.abs(ayc[0]) + " " + keywords[43] : ayc[0];
             text = ayc[2] + " " + aymaraMonths[ayc[1]] + ", " + year;
             return text;
+        case "javanese":
+            var javc = jd_to_javanese(julianDays);
+            year = (javc[0] < 0) ? Math.abs(javc[0]) + " " + keywords[43] : javc[0];
+            text = javc[2] + " " + javaneseMonths[javc[1]] + ", " + year;
+            return text;
         case "chinese":
             var tzOffset = -new Date().getTimezoneOffset() / 60;
             var chc = jd_to_chinese(julianDays, tzOffset);
@@ -556,6 +561,9 @@ function htConvertGregorianYear(test, gregoryYear)
                 break;
             case "aymara":
                 converted = jd_to_aymara(jd);
+                break;
+            case "javanese":
+                converted = jd_to_javanese(jd);
                 break;
             case "julian":
                 text = jd + " " + keywords[41];
@@ -2733,6 +2741,7 @@ function htFillWebPage(page, data)
         if (data.chinese_branches) chineseBranches = data.chinese_branches;
         if (data.aymara_months) aymaraMonths = data.aymara_months;
         if (data.inca_months) incaMonths = data.inca_months;
+        if (data.javanese_months) javaneseMonths = data.javanese_months;
         $("#loading_msg").hide();
         $(":focus").blur();
         return;
