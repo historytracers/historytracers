@@ -266,6 +266,121 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
+	lang := r.URL.Query().Get("lang")
+	cal := r.URL.Query().Get("cal")
+
+	optionsMu.Lock()
+	data := readOptions()
+	optionsMu.Unlock()
+
+	var curLang, curCal, curRecreio, curPort, curHome string
+	if data.Lang != "" {
+		curLang = data.Lang
+	} else if lang != "" {
+		curLang = lang
+	} else {
+		curLang = "en-US"
+	}
+	if data.Cal != "" {
+		curCal = data.Cal
+	} else if cal != "" {
+		curCal = cal
+	} else {
+		curCal = "gregory"
+	}
+	if data.Recreio != "" {
+		curRecreio = data.Recreio
+	} else {
+		curRecreio = "30"
+	}
+	curPort = data.Port
+	curHome = data.Home
+	if curHome == "" {
+		curHome = "/index.html"
+	}
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprintf(w, `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>History Tracers</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:verdana,arial,helvetica;margin:20px;background:#f5f5f5;color:#333}
+h2{color:#333;margin-bottom:16px}
+.form-group{margin-bottom:14px}
+label{display:block;font-weight:bold;margin-bottom:3px;color:#555;font-size:13px}
+select,input[type=number],input[type=text]{width:280px;padding:5px 8px;border:1px solid #ccc;border-radius:3px;font:13px/1.4 sans-serif;background:#fff}
+select{height:30px}
+.btn{padding:7px 20px;background:#555;color:#fff;border:none;border-radius:3px;cursor:pointer;font:13px/1.4 sans-serif;margin-top:6px}
+.btn:hover{background:#333}
+.status{margin-top:10px;font-size:13px;color:#080}
+.error{color:#c00}
+.back{margin-top:20px;font-size:13px}
+.back a{color:#06c;text-decoration:none}
+.back a:hover{text-decoration:underline}
+</style></head><body>
+<script>
+var lang=%q;
+var cal=%q;
+var L={};
+L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
+L['pt']=L['pt-BR'];
+L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
+L['es']=L['es-ES'];
+L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',listenLabel:'Listen port',homeLabel:'Home page',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
+L['en']=L['en-US'];
+var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
+document.title=l.title;
+
+var recVal=%q;
+var portVal=%q;
+var homeVal=%q;
+
+var langs=['pt-BR','en-US','es-ES'];
+var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka','chinese'];
+var recreios=[15,25,30,35,45,50,60];
+
+var html='<h2>'+l.title+'</h2>';
+html+='<div class="form-group"><label>'+l.langLabel+'</label><select id="opt_lang">';
+for(var i=0;i<langs.length;i++){html+='<option value="'+langs[i]+'"'+(langs[i]===lang?' selected':'')+'>'+langs[i]+'</option>'}
+html+='</select></div>';
+html+='<div class="form-group"><label>'+l.calLabel+'</label><select id="opt_cal">';
+for(var i=0;i<cals.length;i++){
+	var sc=(function(){try{return parent.document.querySelector('#site_calendar option[value="'+cals[i]+'"]')}catch(e){return null}})();
+	var label=sc?sc.textContent:cals[i];
+	html+='<option value="'+cals[i]+'"'+(cals[i]===cal?' selected':'')+'>'+label+'</option>';
+}
+html+='</select></div>';
+html+='<div class="form-group"><label>'+l.recreioLabel+'</label><select id="opt_rec">';
+for(var i=0;i<recreios.length;i++){html+='<option value="'+recreios[i]+'"'+(String(recreios[i])===recVal?' selected':'')+'>'+recreios[i]+' '+l.recreioM+'</option>'}
+html+='</select></div>';
+html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+portVal+'"></div>';
+html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" value="'+homeVal+'"></div>';
+html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
+html+='<div id="opt_status"></div>';
+html+='<div class="back"><a href="#" onclick="event.preventDefault();(parent.open||window.open)(window.location.origin+\'/index.html?page=\'+encodeURIComponent(parent.location.search.match(/[?&]page=([^&]*)/)?decodeURIComponent(RegExp.$1):\'main\')+\'&lang=\'+encodeURIComponent(lang)+\'&cal=\'+encodeURIComponent(cal))">'+l.back+'</a></div>';
+document.body.innerHTML=html;
+
+document.getElementById('opt_apply').onclick=function(){
+	var nl=document.getElementById('opt_lang').value;
+	var nc=document.getElementById('opt_cal').value;
+	var nr=document.getElementById('opt_rec').value;
+	var np=document.getElementById('opt_port').value;
+	var nh=document.getElementById('opt_home').value||'/index.html';
+	var s=document.getElementById('opt_status');
+	s.className='';s.textContent='...';
+	fetch('/api/options',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)}).then(function(r){
+		if(!r.ok)throw new Error(r.status);
+		s.className='status';s.textContent=l.saved;
+		try{parent.location.reload()}catch(e){}
+	}).catch(function(e){
+		s.className='status error';s.textContent=l.err+e.message;
+	});
+};
+</script>
+</body></html>`, curLang, curCal, curRecreio, curPort, curHome)
+}
+
 func readOptions() optionsData {
 	var data optionsData
 	f, err := os.Open(optionsFile)
@@ -782,6 +897,7 @@ func main() {
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
+	mux.HandleFunc("/api/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/options", optionsHandler)
 	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))
 
