@@ -337,7 +337,7 @@ var portVal=%q;
 var homeVal=%q;
 
 var langs=['pt-BR','en-US','es-ES'];
-var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka','chinese'];
+var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka','chinese','aymara'];
 var recreios=[15,25,30,35,45,50,60];
 
 var html='<h2>'+l.title+'</h2>';
@@ -347,7 +347,7 @@ html+='</select></div>';
 html+='<div class="form-group"><label>'+l.calLabel+'</label><select id="opt_cal">';
 for(var i=0;i<cals.length;i++){
 	var sc=(function(){try{return parent.document.querySelector('#site_calendar option[value="'+cals[i]+'"]')}catch(e){return null}})();
-	var label=sc?sc.textContent:cals[i];
+	var label=sc?sc.textContent:cals[i].charAt(0).toUpperCase()+cals[i].slice(1);
 	html+='<option value="'+cals[i]+'"'+(cals[i]===cal?' selected':'')+'>'+label+'</option>';
 }
 html+='</select></div>';
@@ -806,7 +806,7 @@ func main() {
 	path := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
 	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
-	cal := flag.String("calendar", "", "Initial calendar (e.g. gregory, julian, hebrew, islamic, persian, french, shaka, hispanic, mesoamerican, emesoamerican)")
+	cal := flag.String("calendar", "", "Initial calendar (e.g. gregory, julian, hebrew, islamic, persian, french, shaka, hispanic, mesoamerican, emesoamerican, aymara, chinese)")
 	class := flag.String("class", "", "Initial class content UUID (e.g. d290f1ee-6c54-4b01-90e6-d701748f0851)")
 	logFile := flag.String("log", "", "File to write access logs (default: no access log)")
 	flag.Usage = func() {

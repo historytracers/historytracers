@@ -1241,12 +1241,89 @@ function leap_chinese(year)
     return nmCount > 12;
 }
 
+/*  AYMARA CALENDAR  */
+
+//  The Aymara calendar is a solar calendar used by indigenous peoples
+//  of the Andes.  The year begins on the June winter solstice (June 21
+//  in the Southern Hemisphere).  Years are numbered from the Tiwanaku
+//  era: Aymara year = Gregorian year + 3508.
+//
+//  Twelve months follow the Gregorian month boundaries:
+//    1 Willka Kuti   (Return of the Sun)     Jun 21 - Jul 21  31 days
+//    2 Jach'a Willka (Great Sun)             Jul 22 - Aug 21  31 days
+//    3 Sata          (Planting)              Aug 22 - Sep 21  31 days
+//    4 Taypi Sata    (Middle Planting)       Sep 22 - Oct 21  30 days
+//    5 Lapaka        (Harvest)               Oct 22 - Nov 21  31 days
+//    6 Jallu Qallta  (Beginning of Rain)     Nov 22 - Dec 21  30 days
+//    7 Chinuqa       (Knot/Tie)              Dec 22 - Jan 21  31 days
+//    8 Anata         (Carnival)              Jan 22 - Feb 21  31 days
+//    9 Achuqa        (Fruit)                 Feb 22 - Mar 21  28/29 days
+//   10 Qasawi        (Rest)                  Mar 22 - Apr 21  31 days
+//   11 Llamayu       (Harvest Festival)      Apr 22 - May 21  30 days
+//   12 Mara T'aqa    (Year's End)            May 22 - Jun 20  30 days
+//
+//  Month 9 (Achuqa) gains a leap day when the following Gregorian year is
+//  a leap year (because 29 February falls within the Aymara year).
+
+var aymaraMonths = [
+    "", "Willka Kuti", "Jach'a Willka", "Sata", "Taypi Sata",
+    "Lapaka", "Jallu Qallta", "Chinuqa", "Anata",
+    "Achuqa", "Qasawi", "Llamayu", "Mara T'aqa"
+];
+
+var aymaraMonthDays = [0, 31, 31, 31, 30, 31, 30, 31, 31, 28, 31, 30, 30];
+
+function aymaraLeapYear(year)
+{
+    return leap_gregorian(year - 3507);
+}
+
+function aymara_to_jd(year, month, day)
+{
+    var gregYear = year - 3508;
+    var jdStart = gregorian_to_jd(gregYear, 6, 21);
+    var doy = 0;
+    for (var m = 1; m < month; m++) {
+        doy += aymaraMonthDays[m];
+        if (m == 9) doy += aymaraLeapYear(year) ? 1 : 0;
+    }
+    doy += day - 1;
+    return jdStart + doy;
+}
+
+function jd_to_aymara(jd)
+{
+    jd = Math.floor(jd) + 0.5;
+    var greg = jd_to_gregorian(jd);
+    var gregYear = greg[0];
+    var jdStart = gregorian_to_jd(gregYear, 6, 21);
+    if (jd < jdStart) {
+        gregYear--;
+        jdStart = gregorian_to_jd(gregYear, 6, 21);
+    }
+    var year = gregYear + 3508;
+    var doy = jd - jdStart;
+    var month = 1, day = 1;
+    var cum = 0;
+    for (var m = 1; m <= 12; m++) {
+        var md = aymaraMonthDays[m];
+        if (m == 9) md += aymaraLeapYear(year) ? 1 : 0;
+        if (doy < cum + md) {
+            month = m;
+            day = doy - cum + 1;
+            break;
+        }
+        cum += md;
+    }
+    return new Array(year, month, day);
+}
+
 /*  updateFromGregorian  --  Update all calendars from Gregorian.
-                              "Why not Julian date?" you ask.  Because
-                              starting from Gregorian guarantees we're
-                              already snapped to an integral second, so
-                              we don't get roundoff errors in other
-                              calendars. 
+                               "Why not Julian date?" you ask.  Because
+                               starting from Gregorian guarantees we're
+                               already snapped to an integral second, so
+                               we don't get roundoff errors in other
+                               calendars. 
 
 function updateFromGregorian()
 {
