@@ -251,12 +251,25 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 	case http.MethodPost:
 		optionsMu.Lock()
 		defer optionsMu.Unlock()
-		data := optionsData{
-			Lang:    r.FormValue("lang"),
-			Cal:     r.FormValue("cal"),
-			Recreio: r.FormValue("recreio"),
-			Port:    r.FormValue("port"),
-			Home:    r.FormValue("home"),
+		data := readOptions()
+		if home := r.FormValue("home"); home != "" {
+			trimmed := strings.TrimLeft(home, "/")
+			if !strings.HasPrefix(trimmed, "index.html") {
+				home = "/index.html"
+			}
+			data.Home = home
+		}
+		if v := r.FormValue("lang"); v != "" {
+			data.Lang = v
+		}
+		if v := r.FormValue("cal"); v != "" {
+			data.Cal = v
+		}
+		if v := r.FormValue("recreio"); v != "" {
+			data.Recreio = v
+		}
+		if v := r.FormValue("port"); v != "" {
+			data.Port = v
 		}
 		writeOptionsLocked(data)
 		w.WriteHeader(http.StatusNoContent)
@@ -355,7 +368,7 @@ html+='<div class="form-group"><label>'+l.recreioLabel+'</label><select id="opt_
 for(var i=0;i<recreios.length;i++){html+='<option value="'+recreios[i]+'"'+(String(recreios[i])===recVal?' selected':'')+'>'+recreios[i]+' '+l.recreioM+'</option>'}
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+portVal+'"></div>';
-html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" value="'+homeVal+'"></div>';
+html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+homeVal+'"></div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<div id="opt_status"></div>';
 html+='<div class="back"><a href="#" onclick="event.preventDefault();(parent.open||window.open)(window.location.origin+\'/index.html?page=\'+encodeURIComponent(parent.location.search.match(/[?&]page=([^&]*)/)?decodeURIComponent(RegExp.$1):\'main\')+\'&lang=\'+encodeURIComponent(lang)+\'&cal=\'+encodeURIComponent(cal))">'+l.back+'</a></div>';
@@ -367,6 +380,7 @@ document.getElementById('opt_apply').onclick=function(){
 	var nr=document.getElementById('opt_rec').value;
 	var np=document.getElementById('opt_port').value;
 	var nh=document.getElementById('opt_home').value||'/index.html';
+	if(nh.indexOf('index.html')!==0&&nh.indexOf('/index.html')!==0){nh='/index.html'}
 	var s=document.getElementById('opt_status');
 	s.className='';s.textContent='...';
 	fetch('/api/options',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)}).then(function(r){
@@ -853,9 +867,13 @@ func main() {
 	addr := resolveAddr(effectivePort)
 	if *class != "" {
 		pageURL = buildPageURL(addr, *class, *lang, *cal)
-	} else if savedOptions.Home != "" {
-		u := fmt.Sprintf("http://%s/%s", addr, strings.TrimLeft(savedOptions.Home, "/"))
+	} else if savedOptions.Home != "" && strings.HasPrefix(strings.TrimLeft(savedOptions.Home, "/"), "index.html") {
+		trimmed := strings.TrimLeft(savedOptions.Home, "/")
+		u := fmt.Sprintf("http://%s/%s", addr, trimmed)
 		sep := "?"
+		if strings.Contains(trimmed, "?") {
+			sep = "&"
+		}
 		if *lang != "" {
 			u += sep + "lang=" + url.QueryEscape(*lang)
 			sep = "&"
