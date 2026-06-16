@@ -462,6 +462,11 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
 
             text = indianCal[2] + "."+indianMonths[indianCal[1] - 1]+ "."+year;
             return text;
+        case "inca":
+            var inc = jd_to_inca(julianDays);
+            year = (inc[0] < 0) ? Math.abs(inc[0]) + " " + keywords[43] : inc[0];
+            text = inc[2] + " " + incaMonths[inc[1]] + ", " + year;
+            return text;
         case "aymara":
             var ayc = jd_to_aymara(julianDays);
             year = (ayc[0] < 0) ? Math.abs(ayc[0]) + " " + keywords[43] : ayc[0];
@@ -545,6 +550,9 @@ function htConvertGregorianYear(test, gregoryYear)
             case "chinese":
                 var tzOffset = -new Date().getTimezoneOffset() / 60;
                 converted = jd_to_chinese(jd, tzOffset);
+                break;
+            case "inca":
+                converted = jd_to_inca(jd);
                 break;
             case "aymara":
                 converted = jd_to_aymara(jd);
@@ -2724,6 +2732,7 @@ function htFillWebPage(page, data)
         if (data.chinese_stems) chineseStems = data.chinese_stems;
         if (data.chinese_branches) chineseBranches = data.chinese_branches;
         if (data.aymara_months) aymaraMonths = data.aymara_months;
+        if (data.inca_months) incaMonths = data.inca_months;
         $("#loading_msg").hide();
         $(":focus").blur();
         return;

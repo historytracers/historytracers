@@ -1318,6 +1318,84 @@ function jd_to_aymara(jd)
     return new Array(year, month, day);
 }
 
+/*  INCA CALENDAR  */
+
+//  The ancient Inca calendar (Tawantinsuyu) is a solar calendar used
+//  by the Inca civilization of the Andes.  The year begins at the
+//  December summer solstice (December 21 in the Southern Hemisphere).
+//  Years are numbered from a conventional Inca era (+500 from Gregorian).
+//
+//  Twelve months with Quechua names, marking agricultural and ceremonial
+//  cycles.  The year count uses offset −1437 (year 1 = 1438 CE,
+//  Pachacuti's ascension, the start of the Inca Empire).  Month 3
+//  (Hatun Pucuy) gains a leap day when the following Gregorian year
+//  is a leap year (because 29 February falls within it).
+//    1 Capac Raymi   (Imperial Festival)    Dec 21 - Jan 20  31 days
+//    2 Camay         (Rest)                  Jan 21 - Feb 19  30 days
+//    3 Hatun Pucuy   (Great Cultivation)     Feb 20 - Mar 21  30/31 days
+//    4 Pucuy Pucuy   (Little Cultivation)    Mar 22 - Apr 20  30 days
+//    5 Ayrihuay      (Harvest)               Apr 21 - May 20  30 days
+//    6 Aymoray       (Storing)               May 21 - Jun 20  31 days
+//    7 Inti Raymi    (Sun Festival)          Jun 21 - Jul 20  30 days
+//    8 Anta Situa    (Purification)          Jul 21 - Aug 19  30 days
+//    9 Cusqui Raymi  (Hunt Festival)         Aug 20 - Sep 18  30 days
+//   10 Coya Raymi    (Moon Festival)         Sep 19 - Oct 18  30 days
+//   11 Uma Raymi     (Water Festival)        Oct 19 - Nov 17  30 days
+//   12 Ayamarca      (Dead Festival)         Nov 18 - Dec 20  33 days
+
+var incaMonths = [
+    "", "Capac Raymi", "Camay", "Hatun Pucuy", "Pucuy Pucuy",
+    "Ayrihuay", "Aymoray", "Inti Raymi", "Anta Situa",
+    "Cusqui Raymi", "Coya Raymi", "Uma Raymi", "Ayamarca"
+];
+
+var incaMonthDays = [0, 31, 30, 30, 30, 30, 31, 30, 30, 30, 30, 30, 33];
+
+function incaLeapYear(year)
+{
+    return leap_gregorian(year + 1438);
+}
+
+function inca_to_jd(year, month, day)
+{
+    var gregYear = year + 1437;
+    var jdStart = gregorian_to_jd(gregYear, 12, 21);
+    var doy = 0;
+    for (var m = 1; m < month; m++) {
+        doy += incaMonthDays[m];
+        if (m == 3) doy += incaLeapYear(year) ? 1 : 0;
+    }
+    doy += day - 1;
+    return jdStart + doy;
+}
+
+function jd_to_inca(jd)
+{
+    jd = Math.floor(jd) + 0.5;
+    var greg = jd_to_gregorian(jd);
+    var gregYear = greg[0];
+    var jdStart = gregorian_to_jd(gregYear, 12, 21);
+    if (jd < jdStart) {
+        gregYear--;
+        jdStart = gregorian_to_jd(gregYear, 12, 21);
+    }
+    var year = gregYear - 1437;
+    var doy = jd - jdStart;
+    var month = 1, day = 1;
+    var cum = 0;
+    for (var m = 1; m <= 12; m++) {
+        var md = incaMonthDays[m];
+        if (m == 3) md += incaLeapYear(year) ? 1 : 0;
+        if (doy < cum + md) {
+            month = m;
+            day = doy - cum + 1;
+            break;
+        }
+        cum += md;
+    }
+    return new Array(year, month, day);
+}
+
 /*  updateFromGregorian  --  Update all calendars from Gregorian.
                                "Why not Julian date?" you ask.  Because
                                starting from Gregorian guarantees we're
