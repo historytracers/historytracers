@@ -7,6 +7,7 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
+	"time"
 )
 
 func TestBuildPageURL(t *testing.T) {
@@ -186,4 +187,54 @@ func TestBuildPageURLLangAlone(t *testing.T) {
 	if !strings.HasSuffix(got, "lang=es-ES") {
 		t.Errorf("expected lang param, got %q", got)
 	}
+}
+
+func TestMetricsHandler(t *testing.T) {
+	// Record a few metric entries to populate counters
+	metricsRecord("GET", "/index.html", 200, 50*time.Millisecond, 0, 2048)
+	metricsRecord("GET", "/index.html?page=main", 200, 30*time.Millisecond, 0, 1024)
+	metricsRecord("POST", "/api/history/add", 204, 10*time.Millisecond, 256, 0)
+	metricsRecord("GET", "/nonexistent", 404, 5*time.Millisecond, 0, 128)
+
+	req := httptest.NewRequest("GET", "/metrics", nil)
+	rec := httptest.NewRecorder()
+	metricsHandler(rec, req)
+
+	body := rec.Body.String()
+	if rec.Code != http.StatusOK {
+		t.Fatalf("expected 200, got %d", rec.Code)
+	}
+
+	checks := []string{
+		"historytracers_uptime_seconds",
+		`historytracers_http_requests_total{method="GET",status_class="2xx"}`,
+		`historytracers_http_requests_total{method="POST",status_class="2xx"}`,
+		`historytracers_http_requests_total{method="GET",status_class="4xx"}`,
+		"historytracers_http_request_duration_seconds_bucket{le=",
+		"historytracers_http_requests_in_flight",
+		`historytracers_http_errors_total{method="GET",status_class="4xx"}`,
+		`historytracers_http_requests_by_path{path="/index.html"}`,
+		`historytracers_http_requests_by_path{path="/nonexistent"}`,
+	}
+	for _, c := range checks {
+		if !strings.Contains(body, c) {
+			t.Errorf("expected metrics output to contain %q", c)
+		}
+	}
+
+	// Verify counts
+	if !strings.Contains(body, `historytracers_http_requests_total{method="GET",status_class="2xx"} 2`) &&
+		!strings.Contains(body, `historytracers_http_requests_total{method="GET",status_class="2xx"}  2`) {
+		t.Errorf("expected 2 GET 2xx requests, got:\n%s", body)
+	}
+}
+
+func init() {
+	// Reset metrics between tests
+	metricsMu.Lock()
+	metricsCounts = map[string]int64{}
+	metricsErrors = map[string]int64{}
+	metricsDurationCounts = map[string]int64{}
+	metricsPathCounts = map[string]int64{}
+	metricsMu.Unlock()
 }

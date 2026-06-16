@@ -899,7 +899,8 @@ func main() {
 	mux.HandleFunc("/api/dev/page", devPageHandler)
 	mux.HandleFunc("/api/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/options", optionsHandler)
-	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))
+	mux.HandleFunc("/metrics", metricsHandler)
+	mux.Handle("/", metricsMiddleware(logMiddleware(http.FileServer(liveDir{}))))
 
 	srv = &http.Server{Addr: addr, Handler: mux}
 
