@@ -1436,28 +1436,27 @@ function jd_to_javanese(jd)
 
 /*  JAPANESE CALENDAR  */
 
-//  The traditional Japanese lunisolar calendar is based on the same
-//  astronomical system as the Chinese calendar (same new moon and
-//  solstice calculations).  This implementation wraps the Chinese
-//  calendar functions with Japanese month names and imperial year
-//  numbering (kōki / 皇紀).
+//  The Japanese calendar with traditional month names uses the same
+//  Gregorian solar year but with Japanese month names (和風月名) and
+//  imperial year numbering (kōki / 皇紀).  Each month aligns exactly
+//  with its Gregorian counterpart.
 //
 //  Kōki year 1 = 660 BCE (legendary accession of Emperor Jimmu).
-//  kōki = Chinese year − 2038 = Gregorian year + 660.
+//  kōki = Gregorian year + 660.
 //
 //  Month names (和風月名):
-//    1  Mutsuki    (睦月)
-//    2  Kisaragi   (如月)
-//    3  Yayoi      (弥生)
-//    4  Uzuki      (卯月)
-//    5  Satsuki    (皐月)
-//    6  Minazuki   (水無月)
-//    7  Fumizuki   (文月)
-//    8  Hazuki     (葉月)
-//    9  Nagatsuki  (長月)
-//   10  Kannazuki  (神無月)
-//   11  Shimotsuki (霜月)
-//   12  Shiwasu    (師走)
+//    1  Mutsuki    (睦月)  — January
+//    2  Kisaragi   (如月)  — February
+//    3  Yayoi      (弥生)  — March
+//    4  Uzuki      (卯月)  — April
+//    5  Satsuki    (皐月)  — May
+//    6  Minazuki   (水無月) — June
+//    7  Fumizuki   (文月)  — July
+//    8  Hazuki     (葉月)  — August
+//    9  Nagatsuki  (長月)  — September
+//   10  Kannazuki  (神無月) — October
+//   11  Shimotsuki (霜月)  — November
+//   12  Shiwasu    (師走)  — December
 
 var japaneseMonths = [
     "", "Mutsuki", "Kisaragi", "Yayoi", "Uzuki",
@@ -1465,17 +1464,21 @@ var japaneseMonths = [
     "Nagatsuki", "Kannazuki", "Shimotsuki", "Shiwasu"
 ];
 
-function japanese_to_jd(year, month, day, leap)
+function japaneseLeapYear(year)
 {
-    var tzOffset = arguments.length >= 5 ? arguments[4] : 0;
-    return chinese_to_jd(year + 2038, month, day, leap, tzOffset);
+    return leap_gregorian(year - 660);
+}
+
+function japanese_to_jd(year, month, day)
+{
+    return gregorian_to_jd(year - 660, month, day);
 }
 
 function jd_to_japanese(jd)
 {
-    var tzOffset = arguments.length >= 2 ? arguments[1] : 0;
-    var chc = jd_to_chinese(jd, tzOffset);
-    return new Array(chc[0] - 2038, chc[1], chc[2], chc[3]);
+    jd = Math.floor(jd) + 0.5;
+    var greg = jd_to_gregorian(jd);
+    return new Array(greg[0] + 660, greg[1], greg[2]);
 }
 
 /*  updateFromGregorian  --  Update all calendars from Gregorian.

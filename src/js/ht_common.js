@@ -478,8 +478,7 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
             text = javc[2] + " " + javaneseMonths[javc[1]] + ", " + year;
             return text;
         case "japanese":
-            var tzOffset_j = -new Date().getTimezoneOffset() / 60;
-            var jpc = jd_to_japanese(julianDays, tzOffset_j);
+            var jpc = jd_to_japanese(julianDays);
             year = (jpc[0] < 0) ? Math.abs(jpc[0]) + " " + keywords[43] : jpc[0];
             text = jpc[2] + " " + japaneseMonths[jpc[1]] + ", " + year;
             return text;
@@ -572,8 +571,7 @@ function htConvertGregorianYear(test, gregoryYear)
                 converted = jd_to_javanese(jd);
                 break;
             case "japanese":
-                var tzOffset_j2 = -new Date().getTimezoneOffset() / 60;
-                converted = jd_to_japanese(jd, tzOffset_j2);
+                converted = jd_to_japanese(jd);
                 break;
             case "julian":
                 text = jd + " " + keywords[41];
