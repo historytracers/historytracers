@@ -404,7 +404,7 @@ var homeVal=%q;
 
 var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Espa\u00f1ol (ES)'};
 var langs=['pt-BR','en-US','es-ES'];
-var cals=['gregory','hebrew','hispanic','islamic','julian','mesoamerican','emesoamerican','persian','french','shaka','chinese','aymara','mapuche','inca','javanese','japanese'];
+var cals=['aymara','chinese','emesoamerican','french','gregory','hebrew','hispanic','inca','islamic','japanese','javanese','julian','mapuche','mesoamerican','persian','shaka'];
 var recreios=[15,25,30,35,45,50,60];
 
 var html='<h2>'+l.title+'</h2>';
