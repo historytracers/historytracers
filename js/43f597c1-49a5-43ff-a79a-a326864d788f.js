@@ -24,6 +24,7 @@ function htCheckAnswers()
 function htLoadContent() {
     htWriteNavigation();
     htSetImageSrc('imgUniverseTimeBigBang', 'images/ESA/The_Universe_across_space_and_time.jpg');
+    htSetImageSrc("imgFamilyInca", "images/Cuzco/PachacutiCuzco.jpg");
 
     return false;
 }
