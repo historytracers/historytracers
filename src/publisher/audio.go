@@ -60,7 +60,7 @@ func htTextFamilyIndex(idx *IdxFamilyContent, lang string) string {
 		return finalText
 	}
 
-	finalText, err = htHTML2Text(htmlText, lang)
+	finalText, err = htHTML2Text(htRemoveSVGBlocks(htmlText), lang)
 	if err != nil {
 		panic(err)
 	}
@@ -145,7 +145,7 @@ func htLocalHTML2Text(htmlText string, lang string) string {
 	if len(htmlText) > 0 {
 		ret := strings.ReplaceAll(htmlText, "<div class=\"first_steps_reflection\" id=\"myFirstReflection\">", commonKeywords[55])
 
-		partial, err := htHTML2Text(ret, lang)
+		partial, err := htHTML2Text(htRemoveSVGBlocks(ret), lang)
 		if err != nil {
 			panic(err)
 		}
@@ -498,7 +498,7 @@ func htParseIndexText(index *ClassIdx, lang string) string {
 			}
 		}
 
-		finalText, err := htHTML2Text(htmlText, lang)
+		finalText, err := htHTML2Text(htRemoveSVGBlocks(htmlText), lang)
 		if err != nil {
 			panic(err)
 		}
@@ -902,7 +902,13 @@ func htConvertTemperatures(text string, lang string) string {
 	return replacement
 }
 
+func htRemoveSVGBlocks(text string) string {
+	svgRegex := regexp.MustCompile(`(?s)<svg[^>]*>.*?</svg>`)
+	return svgRegex.ReplaceAllString(text, "")
+}
+
 func htRemoveHTMLTags(text string) string {
+	text = htRemoveSVGBlocks(text)
 	htmlTagRegex := regexp.MustCompile(`<[^>]+>`)
 	return htmlTagRegex.ReplaceAllString(text, "")
 }
