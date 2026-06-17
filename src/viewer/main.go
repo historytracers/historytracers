@@ -60,6 +60,41 @@ type optionsData struct {
 	Home    string `json:"home"`
 }
 
+var validLangs = map[string]bool{
+	"en-US": true,
+	"pt-BR": true,
+	"es-ES": true,
+}
+
+var validCals = map[string]bool{
+	"aymara":        true,
+	"chinese":       true,
+	"emesoamerican": true,
+	"french":        true,
+	"gregory":       true,
+	"hebrew":        true,
+	"hispanic":      true,
+	"inca":          true,
+	"islamic":       true,
+	"japanese":      true,
+	"javanese":      true,
+	"julian":        true,
+	"mapuche":       true,
+	"mesoamerican":  true,
+	"persian":       true,
+	"shaka":         true,
+}
+
+var validRecreios = map[string]bool{
+	"15": true,
+	"25": true,
+	"30": true,
+	"35": true,
+	"45": true,
+	"50": true,
+	"60": true,
+}
+
 func checkToken(r *http.Request) bool {
 	return r.Header.Get("X-HT-Token") == viewerToken
 }
@@ -310,17 +345,19 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 			}
 			data.Home = home
 		}
-		if v := r.FormValue("lang"); v != "" {
+		if v := r.FormValue("lang"); v != "" && validLangs[v] {
 			data.Lang = v
 		}
-		if v := r.FormValue("cal"); v != "" {
+		if v := r.FormValue("cal"); v != "" && validCals[v] {
 			data.Cal = v
 		}
-		if v := r.FormValue("recreio"); v != "" {
+		if v := r.FormValue("recreio"); v != "" && validRecreios[v] {
 			data.Recreio = v
 		}
 		if v := r.FormValue("port"); v != "" {
-			data.Port = v
+			if p, err := strconv.Atoi(v); err == nil && p >= 1 && p <= 65535 {
+				data.Port = v
+			}
 		}
 		writeOptionsLocked(data)
 		rotateToken()
@@ -449,6 +486,29 @@ document.getElementById('opt_apply').onclick=function(){
 </body></html>`, curLang, curCal, curRecreio, curPort, curHome)
 }
 
+func validateOptions(data *optionsData) {
+	if !validLangs[data.Lang] {
+		data.Lang = ""
+	}
+	if !validCals[data.Cal] {
+		data.Cal = ""
+	}
+	if !validRecreios[data.Recreio] {
+		data.Recreio = ""
+	}
+	if data.Port != "" {
+		if p, err := strconv.Atoi(data.Port); err != nil || p < 1 || p > 65535 {
+			data.Port = ""
+		}
+	}
+	if data.Home != "" {
+		trimmed := strings.TrimLeft(data.Home, "/")
+		if !strings.HasPrefix(trimmed, "index.html") {
+			data.Home = ""
+		}
+	}
+}
+
 func readOptions() optionsData {
 	var data optionsData
 	if optionsFile == "" {
@@ -460,6 +520,7 @@ func readOptions() optionsData {
 	}
 	defer f.Close()
 	gob.NewDecoder(f).Decode(&data)
+	validateOptions(&data)
 	return data
 }
 
