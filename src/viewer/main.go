@@ -1,7 +1,9 @@
 package main
 
 import (
+	"crypto/rand"
 	"encoding/csv"
+	"encoding/hex"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -44,6 +46,7 @@ var (
 	optionsMu     sync.Mutex
 	optionsFile   string
 	savedOptions  optionsData
+	viewerToken   string
 )
 
 type optionsData struct {
@@ -52,6 +55,20 @@ type optionsData struct {
 	Recreio string `json:"recreio"`
 	Port    string `json:"port"`
 	Home    string `json:"home"`
+}
+
+func checkToken(r *http.Request) bool {
+	return r.Header.Get("X-HT-Token") == viewerToken
+}
+
+func rotateToken() string {
+	buf := make([]byte, 32)
+	if _, err := rand.Read(buf); err == nil {
+		viewerToken = hex.EncodeToString(buf)
+	} else {
+		viewerToken = "insecure-fallback-token"
+	}
+	return viewerToken
 }
 
 func openExternalHandler(w http.ResponseWriter, r *http.Request) {
@@ -96,6 +113,10 @@ var (
 func devLogHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodPost:
+		if !checkToken(r) {
+			http.Error(w, "Forbidden", http.StatusForbidden)
+			return
+		}
 		entry := devEntry{
 			Type:     r.FormValue("type"),
 			Message:  r.FormValue("message"),
@@ -249,6 +270,10 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(data)
 
 	case http.MethodPost:
+		if !checkToken(r) {
+			http.Error(w, "Forbidden", http.StatusForbidden)
+			return
+		}
 		optionsMu.Lock()
 		defer optionsMu.Unlock()
 		data := readOptions()
@@ -272,6 +297,8 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 			data.Port = v
 		}
 		writeOptionsLocked(data)
+		rotateToken()
+		w.Header().Set("X-HT-Next-Token", viewerToken)
 		w.WriteHeader(http.StatusNoContent)
 
 	default:
@@ -438,6 +465,10 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", 405)
 		return
 	}
+	if !checkToken(r) {
+		http.Error(w, "Forbidden", http.StatusForbidden)
+		return
+	}
 	if historyFile == "" {
 		http.Error(w, "History not available", 500)
 		return
@@ -463,6 +494,8 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 		entries = entries[len(entries)-256:]
 	}
 	writeHistoryLocked(entries)
+	rotateToken()
+	w.Header().Set("X-HT-Next-Token", viewerToken)
 }
 
 func historyListHandler(w http.ResponseWriter, r *http.Request) {
@@ -559,6 +592,10 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", 405)
 		return
 	}
+	if !checkToken(r) {
+		http.Error(w, "Forbidden", http.StatusForbidden)
+		return
+	}
 	if favoritesFile == "" {
 		http.Error(w, "Favorites not available", 500)
 		return
@@ -592,6 +629,8 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 	writeFavoritesLocked(entries)
+	rotateToken()
+	w.Header().Set("X-HT-Next-Token", viewerToken)
 }
 
 func favoritesListHandler(w http.ResponseWriter, r *http.Request) {
@@ -901,6 +940,17 @@ func main() {
 		homeJS := "window.__ht_home='" + strings.ReplaceAll(savedOptions.Home, "'", "\\'") + "';"
 		welcomePage = homeJS + welcomePage
 		addressBarJS = homeJS + addressBarJS
+	}
+	{
+		buf := make([]byte, 32)
+		if _, err := rand.Read(buf); err == nil {
+			viewerToken = hex.EncodeToString(buf)
+		} else {
+			viewerToken = "insecure-fallback-token"
+		}
+		tokenJS := "window.__ht_token='" + viewerToken + "';"
+		welcomePage = tokenJS + welcomePage
+		addressBarJS = tokenJS + addressBarJS
 	}
 
 	initHistory()

@@ -29,6 +29,8 @@ function closeWin(){closeWindow()}
 var addressBarJS = `
 (function(){
 	(function(){
+		try{var _ht_ss=sessionStorage.__ht_token;if(_ht_ss)window.__ht_token=_ht_ss}catch(e){}
+		try{sessionStorage.__ht_token=window.__ht_token}catch(e){}
 		if(window.__ht_dev||window.location.pathname==='/api/dev/page'||window.location.pathname==='/api/history/page'||window.location.pathname==='/api/favorites/page')return;
 		window.__ht_dev=true;
 		var _ce=console.error;
@@ -41,16 +43,24 @@ var addressBarJS = `
 		window.addEventListener('unhandledrejection',function(e){
 			try{var msg=e.reason&&e.reason.message||String(e.reason||'');fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=error&message='+encodeURIComponent(msg)+'&url='+encodeURIComponent(window.location.href)+'&time='+Date.now()})}catch(ex){}
 		});
+		function _htToken(){var t=window.__ht_token;if(!t)try{t=parent.__ht_token}catch(e){}if(!t)try{t=sessionStorage.__ht_token}catch(e){}return t||''}
+		function _htSetToken(v){window.__ht_token=v;try{sessionStorage.__ht_token=v}catch(e){}try{if(parent&&parent.__ht_token!==undefined)parent.__ht_token=v}catch(e){}}
 		var _of=window.fetch;
 		window.fetch=function(){
 			var a=arguments,url=a[0] instanceof Request?a[0].url:String(a[0]);
 			if(url.indexOf('/api/dev/')>=0)return _of.apply(this,a);
-			var m=a[1]&&a[1].method?a[1].method:'GET',st=Date.now();
+			var m=a[1]&&a[1].method?a[1].method:'GET',st=Date.now(),tk=_htToken();
+			if(m==='POST'&&typeof url==='string'&&url.indexOf('/api/')===0&&tk){
+				if(!a[1])a[1]={};
+				if(!a[1].headers)a[1].headers={};
+				a[1].headers['X-HT-Token']=tk;
+			}
 			return _of.apply(this,a).then(function(r){
-				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status='+r.status+'&duration='+(Date.now()-st)+'&time='+st})}catch(e){}
+				try{var nt=r.headers.get('X-HT-Next-Token');if(nt)_htSetToken(nt)}catch(e){}
+				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status='+r.status+'&duration='+(Date.now()-st)+'&time='+st})}catch(e){}
 				return r;
 			}).catch(function(err){
-				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status=0&duration='+(Date.now()-st)+'&message='+encodeURIComponent(err.message)+'&time='+st})}catch(e){}
+				try{fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(url)+'&method='+encodeURIComponent(m)+'&status=0&duration='+(Date.now()-st)+'&message='+encodeURIComponent(err.message)+'&time='+st})}catch(e){}
 				throw err;
 			});
 		};
@@ -59,13 +69,20 @@ var addressBarJS = `
 			var x=new _OX(),_op=x.open;
 			x.open=function(m,u){
 				x._du=u;x._dm=m;x._ds=Date.now();
-				return _op.apply(x,arguments);
+				var r=_op.apply(x,arguments);
+				var tk=_htToken();
+				if(m==='POST'&&typeof u==='string'&&u.indexOf('/api/')===0&&tk){
+					try{x.setRequestHeader('X-HT-Token',tk)}catch(e){}
+				}
+				return r;
 			};
 			var _sd=x.send;
 			x.send=function(){
 				x._ds=Date.now();
+				var st=Date.now(),su=x._du,sm=x._dm;
 				x.addEventListener('loadend',function(){
-					try{if(x._du&&x._du.indexOf('/api/dev/')<0)fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'type=network&url='+encodeURIComponent(x._du)+'&method='+encodeURIComponent(x._dm||'GET')+'&status='+(x.status||0)+'&duration='+(Date.now()-x._ds)+'&time='+x._ds})}catch(e){}
+					try{var nt=x.getResponseHeader('X-HT-Next-Token');if(nt)_htSetToken(nt)}catch(e){}
+					try{if(su&&su.indexOf('/api/dev/')<0)fetch('/api/dev/log',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Token':_htToken()},body:'type=network&url='+encodeURIComponent(su)+'&method='+encodeURIComponent(sm||'GET')+'&status='+(x.status||0)+'&duration='+(Date.now()-st)+'&time='+st})}catch(e){}
 				});
 				return _sd.apply(x,arguments);
 			};
