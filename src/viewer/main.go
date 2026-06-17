@@ -47,6 +47,8 @@ var (
 	optionsFile   string
 	savedOptions  optionsData
 	viewerToken   string
+	uuidFile      string
+	instanceUUID  []byte
 )
 
 type optionsData struct {
@@ -258,6 +260,29 @@ func initOptions() {
 		return
 	}
 	optionsFile = filepath.Join(dataDir, "options.json")
+}
+
+func initUUID() {
+	if dataDir == "" {
+		uuidFile = ""
+		return
+	}
+	uuidFile = filepath.Join(dataDir, "uuid.bin")
+	if b, err := os.ReadFile(uuidFile); err == nil && len(b) == 16 {
+		instanceUUID = b
+		return
+	}
+	buf := make([]byte, 16)
+	if _, err := rand.Read(buf); err != nil {
+		log.Printf("Warning: cannot generate UUID: %v", err)
+		return
+	}
+	buf[6] = (buf[6] & 0x0f) | 0x40
+	buf[8] = (buf[8] & 0x3f) | 0x80
+	if err := os.WriteFile(uuidFile, buf, 0644); err != nil {
+		log.Printf("Warning: cannot write UUID file: %v", err)
+	}
+	instanceUUID = buf
 }
 
 func optionsHandler(w http.ResponseWriter, r *http.Request) {
@@ -885,6 +910,7 @@ func main() {
 	}
 
 	initDataDir()
+	initUUID()
 	initOptions()
 	savedOptions = readOptions()
 
