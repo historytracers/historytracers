@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/rand"
 	"encoding/csv"
+	"encoding/gob"
 	"encoding/hex"
 	"encoding/json"
 	"flag"
@@ -259,7 +260,7 @@ func initOptions() {
 		optionsFile = ""
 		return
 	}
-	optionsFile = filepath.Join(dataDir, "options.json")
+	optionsFile = filepath.Join(dataDir, "options.bin")
 }
 
 func initUUID() {
@@ -450,24 +451,29 @@ document.getElementById('opt_apply').onclick=function(){
 
 func readOptions() optionsData {
 	var data optionsData
+	if optionsFile == "" {
+		return data
+	}
 	f, err := os.Open(optionsFile)
 	if err != nil {
 		return data
 	}
 	defer f.Close()
-	json.NewDecoder(f).Decode(&data)
+	gob.NewDecoder(f).Decode(&data)
 	return data
 }
 
 func writeOptionsLocked(data optionsData) {
+	if optionsFile == "" {
+		return
+	}
 	f, err := os.Create(optionsFile)
 	if err != nil {
-		log.Printf("Warning: cannot write options.json: %v", err)
+		log.Printf("Warning: cannot write options: %v", err)
 		return
 	}
 	defer f.Close()
-	enc := json.NewEncoder(f)
-	enc.SetIndent("", "  ")
+	enc := gob.NewEncoder(f)
 	enc.Encode(data)
 }
 
