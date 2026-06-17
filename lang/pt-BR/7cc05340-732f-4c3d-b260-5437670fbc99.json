@@ -33,7 +33,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780787094"
+      "1781449458"
    ],
    "authors": null,
    "reviewers": null,
@@ -154,8 +154,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -231,8 +231,8 @@
                      "date_time": {
                         "type": "",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -243,8 +243,141 @@
                "PostMention": ""
             },
             {
-               "text": "|Descoberta|Descrição|Fonte|\n|------------|------------|--------------|\n|Idade do Universo (<htdate0>)|Atualizado para 13.82 bilhões de anos|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('6f0f9c87-0185-4958-93d0-507787c4e7a3'); return false;\">ESA</a>|\n|Tamanho do Universo (<htdate1>)|Atualizado para 94 bilhões de anos-luz.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|Tamanho do Universo (<htdate2>)|Atualizado para 30 bilhões de anos-luz.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|Tamanho do Universo (<htdate3>)|Atualizado para 25 bilhões de anos-luz.| <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('5b09c6fb-15a0-40fb-aa5a-9f345798d0c3'); return false;\">Sandage, A.</a>; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|CMB (<htdate4>)|Confirmação das primeiras radiações do universo.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('587cdba4-cefb-4df9-8514-2e50ccf88739'); return false;\">Penzias, A. A., & Wilson, R. W.</a>|\n|Tamanho do Universo (<htdate5>)|Atualizado para 4 bilhões de anos-luz.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('2a2f2904-55ef-4cf9-8a8b-9d03ed7ee6ce'); return false;\">Burbidge, G.</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|Universo em expansão (<htdate6>)|Medidas demonstram que o universo não é estático.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1af85131-52aa-49ee-8f9b-2409eb806900'); return false;\">Hubble, Edwin</a>|\n|Tamanho do Universo (<htdate7>)|Atualizado para 280 milhões de anos-luz.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|\n|Tamanho do Universo (<htdate8>)|Atualizado para 300.000 anos-luz.|<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('066ad64b-5a6b-4715-b2bd-b34a90164422'); return false;\">NASA</a>|",
-               "source": null,
+               "text": "|Descoberta|Descrição|Fonte|\n|------------|------------|--------------|\n|Idade do Universo (<htdate0>)|Atualizado para 13.82 bilhões de anos|<htcite0>|\n|Tamanho do Universo (<htdate1>)|Atualizado para 94 bilhões de anos-luz.|<htcite1>|\n|Tamanho do Universo (<htdate2>)|Atualizado para 30 bilhões de anos-luz.|<htcite2>|\n|Tamanho do Universo (<htdate3>)|Atualizado para 25 bilhões de anos-luz.| <htcite3>; <htcite4>|\n|CMB (<htdate4>)|Confirmação das primeiras radiações do universo.|<htcite5>|\n|Tamanho do Universo (<htdate5>)|Atualizado para 4 bilhões de anos-luz.|<htcite6> ; <htcite7>|\n|Universo em expansão (<htdate6>)|Medidas demonstram que o universo não é estático.|<htcite8>|\n|Tamanho do Universo (<htdate7>)|Atualizado para 280 milhões de anos-luz.|<htcite9>|\n|Tamanho do Universo (<htdate8>)|Atualizado para 300.000 anos-luz.|<htcite10>|",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "6f0f9c87-0185-4958-93d0-507787c4e7a3",
+                     "text": "ESA",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2013",
+                        "month": "09",
+                        "day": "17"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "066ad64b-5a6b-4715-b2bd-b34a90164422",
+                     "text": "NASA",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "066ad64b-5a6b-4715-b2bd-b34a90164422",
+                     "text": "NASA",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "5b09c6fb-15a0-40fb-aa5a-9f345798d0c3",
+                     "text": "Sandage, A.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1958",
+                        "month": "12",
+                        "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "066ad64b-5a6b-4715-b2bd-b34a90164422",
+                     "text": "NASA",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "587cdba4-cefb-4df9-8514-2e50ccf88739",
+                     "text": "Penzias, A. A., & Wilson, R. W.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1965",
+                        "month": "12",
+                        "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2a2f2904-55ef-4cf9-8a8b-9d03ed7ee6ce",
+                     "text": "Burbidge, G.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1999",
+                        "month": "12",
+                        "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "066ad64b-5a6b-4715-b2bd-b34a90164422",
+                     "text": "NASA",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1af85131-52aa-49ee-8f9b-2409eb806900",
+                     "text": "Hubble, Edwin",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1929",
+                        "month": "01",
+                        "day": "14"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "066ad64b-5a6b-4715-b2bd-b34a90164422",
+                     "text": "NASA",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "27"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "066ad64b-5a6b-4715-b2bd-b34a90164422",
+                     "text": "NASA",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "27"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -316,8 +449,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgESA1\" onclick=\"htImageZoom('imgESA1', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: Visão da Radiação Cósmica de Fundo (CMB) através da missão Planck da ESA. ©ESA/Planck Collaboration (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('6006cb3a-9409-4d2a-999c-e4c74249f563'); return false;\"><i>ESA</i></a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"imgESA1\" onclick=\"htImageZoom('imgESA1', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: Visão da Radiação Cósmica de Fundo (CMB) através da missão Planck da ESA. ©ESA/Planck Collaboration (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "6006cb3a-9409-4d2a-999c-e4c74249f563",
+                     "text": "ESA",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "09",
+                        "day": "17"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -364,8 +510,21 @@
                "PostMention": ""
             },
             {
-               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: O início</b><br /><br />Apesar de a Terra parecer grande para nós, ela é muito pequena no universo. E não é apenas ela que é pequena: o Sol também é, e até mesmo nossa galáxia — com mais de 100 bilhões de estrelas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('506ea7cb-2bc0-46af-a340-b4a0ea5570e6'); return false;\">NASA, Básico de Estrelas</a>) — é pequena quando comparada à imensidão do universo.<br /><br />Diante desses tamanhos, como seria possível contrair tudo em um lugar?</div></div></center>",
-               "source": null,
+               "text": "<center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: O início</b><br /><br />Apesar de a Terra parecer grande para nós, ela é muito pequena no universo. E não é apenas ela que é pequena: o Sol também é, e até mesmo nossa galáxia — com mais de 100 bilhões de estrelas (<htcite0>) — é pequena quando comparada à imensidão do universo.<br /><br />Diante desses tamanhos, como seria possível contrair tudo em um lugar?</div></div></center>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "506ea7cb-2bc0-46af-a340-b4a0ea5570e6",
+                     "text": "NASA",
+                     "page": "Básico de Estrelas",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "09",
+                        "day": "03"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -427,8 +586,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img src=\"images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png\" id=\"imgUSG\" onclick=\"htImageZoom('imgUSG', '0%')\" class=\"imgcenter\"/><b>Figura 4</b>: Ciclo da água. Imagem de domínio público do Serviço Geológico dos Estados Unidos da América (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('490bc885-d393-4e26-a2c2-1ae2474b25f1'); return false;\">Ciclo d'água, <htdate0>, <i>U.S. Geological Survey</i></a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img src=\"images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png\" id=\"imgUSG\" onclick=\"htImageZoom('imgUSG', '0%')\" class=\"imgcenter\"/><b>Figura 4</b>: Ciclo da água. Imagem de domínio público do Serviço Geológico dos Estados Unidos da América (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "490bc885-d393-4e26-a2c2-1ae2474b25f1",
+                     "text": "Ciclo d'água",
+                     "page": "U.S. Geological Survey",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -537,8 +709,8 @@
                      "date_time": {
                         "type": "",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -571,8 +743,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "1965",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   },
                   {
@@ -583,8 +755,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2019",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   },
                   {
@@ -594,7 +766,7 @@
                      "page": "",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2015",
+                        "year": "2025",
                         "month": "5",
                         "day": "16"
                      }
@@ -607,8 +779,8 @@
                      "date_time": {
                         "type": "",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   },
                   {
@@ -663,8 +835,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgESA2\" onclick=\"htImageZoom('imgESA2', '0%')\" class=\"imgcenter\"/><b>Figura 5</b>: Planck, A história do Universo . ©ESA – C. Carreau (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('a1a7c478-9061-4160-ba43-301c081733e9'); return false;\"><i>ESA</i></a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"imgESA2\" onclick=\"htImageZoom('imgESA2', '0%')\" class=\"imgcenter\"/><b>Figura 5</b>: Planck, A história do Universo . ©ESA – C. Carreau (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a1a7c478-9061-4160-ba43-301c081733e9",
+                     "text": "ESA",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "09",
+                        "day": "17"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

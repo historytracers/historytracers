@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780785031"
+      "1781449443"
    ],
    "authors": null,
    "reviewers": null,
@@ -104,7 +104,7 @@
                "source": [
                   {
                      "type": 0,
-                     "uuid": "https://www.britannica.com/dictionary/letter",
+                     "uuid": "e3bb8c74-d982-44a6-8360-f98867c6b7c7",
                      "text": "The Brittanica Dictionary",
                      "page": "letter",
                      "date_time": {
@@ -200,7 +200,7 @@
                      "page": "Understanding the Multiplication Tables (Summary)",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
+                        "year": "2025",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -237,8 +237,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 1</b>: Letter Count in the First Verse. Chart created with <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
-               "source": null,
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 1</b>: Letter Count in the First Verse. Chart created with <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -339,7 +352,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### The Multiplication Table of *Voltas*\n\nBefore analyzing the poem’s syllables, let us highlight key features:\n\n- Each verse (line) of 'Voltas' contains exactly 5 Portuguese metrical syllables.\n- Each strophe—a group of verses separated by empty lines (<htcite0>)—comprises 7 verses.\n- The poem contains two strophes.\n\nGiven this structure, the total metrical syllables can be calculated through different mathematical operations:\n\n- **Sum of individual syllables**: <math mathsize=\"1.5em\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>70</mn></mrow> </munderover> <mi>1</mi> <mo>=</mo> <mi>1 × (70)</mi> <mo>=</mo> <mi>70</mi></math>\n- **Sum per strophe**: <math mathsize=\"1.5em\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>7</mn></mrow> </munderover> <mi>5</mi> <mo>=</mo> <mi>7 × (5)</mi> <mo>=</mo> <mi>35</mi></math>. With two strophes: 35 + 35 = 2 × (35) = 70\n- **Sum across all verses**: <math mathsize=\"1.5em\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>14</mn></mrow> </munderover> <mi>5</mi> <mo>=</mo> <mi>14 × (5)</mi> <mo>=</mo> <mi>70</mi></math>. (*This last method will be explored in detail in another text.*)\n\n#### Verse Chart\n\nSince the number of metrical syllables is constant for all verses, a graphical representation would show a flat line on the vertical axis:",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\">#### The Multiplication Table of *Voltas*\n\nBefore analyzing the poem’s syllables, let us highlight key features:\n\n- Each verse (line) of 'Voltas' contains exactly 5 Portuguese metrical syllables.\n- Each strophe—a group of verses separated by empty lines (<htcite0>)—comprises 7 verses.\n- The poem contains two strophes.\n\nGiven this structure, the total metrical syllables can be calculated through different mathematical operations:\n\n- **Sum of individual syllables**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>70</mn></mrow></munderover><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>1 × (70)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n- **Sum per strophe**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>7</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>35</mi></math>. With two strophes: 35 + 35 = 2 × (35) = 70\n- **Sum across all verses**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>14</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>. (*This last method will be explored in detail in another text.*)\n\n#### Verse Chart\n\nSince the number of metrical syllables is constant for all verses, a graphical representation would show a flat line on the vertical axis:</div></div></center>",
                "source": [
                   {
                      "type": 1,
@@ -361,8 +374,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 2</b>: Syllables per verse in <i>Voltas</i>. Chart created using the <i>Voltas</i>. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
-               "source": null,
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 2</b>: Syllables per verse in <i>Voltas</i>. Chart created using the <i>Voltas</i>. Gráfico creado con la biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -397,8 +423,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgCopanStelaA\" onclick=\"htImageZoom('imgCopanStelaA', '0%')\" class=\"imgcenter\" style=\"width:30%\"/><b>Figure 1</b>: Stela A at the Copán Archaeological Museum, featuring inscriptions referencing Copán, Tikal, Calakmul, and Palenque in sequence (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Photo taken on <htdate1> during site visit.</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"imgCopanStelaA\" onclick=\"htImageZoom('imgCopanStelaA', '0%')\" class=\"imgcenter\" style=\"width:30%\"/><b>Figure 1</b>: Stela A at the Copán Archaeological Museum, featuring inscriptions referencing Copán, Tikal, Calakmul, and Palenque in sequence (<htcite0>). Photo taken on <htdate1> during site visit.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1e007481-9bd3-4a09-ad4d-6e812fe79641",
+                     "text": "Instituto Hondureño de Antropologia e Historia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "02",
+                        "day": "01"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -428,8 +467,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 3</b>: Hieroglyphics per line in Stela A. Chart created by <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
-               "source": null,
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Chart 3</b>: Hieroglyphics per line in Stela A. Chart created by <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

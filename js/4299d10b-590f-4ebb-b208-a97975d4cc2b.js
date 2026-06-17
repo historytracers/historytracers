@@ -26,5 +26,6 @@ function htLoadContent() {
 
     
     htSetImageSrc("JC", "images/JoyaCeren/JoyaCerenCocina.jpg")
+    htSetImageSrc("imgShona", "images/UniversityJohannesburg/ShonaJohannnesburg.jpg");
     return false;
 }

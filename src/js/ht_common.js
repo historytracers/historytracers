@@ -462,6 +462,43 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
 
             text = indianCal[2] + "."+indianMonths[indianCal[1] - 1]+ "."+year;
             return text;
+        case "inca":
+            var inc = jd_to_inca(julianDays);
+            year = (inc[0] < 0) ? Math.abs(inc[0]) + " " + keywords[43] : inc[0];
+            text = inc[2] + " " + incaMonths[inc[1]] + ", " + year;
+            return text;
+        case "aymara":
+            var ayc = jd_to_aymara(julianDays);
+            year = (ayc[0] < 0) ? Math.abs(ayc[0]) + " " + keywords[43] : ayc[0];
+            text = ayc[2] + " " + aymaraMonths[ayc[1]] + ", " + year;
+            return text;
+        case "mapuche":
+            var mapc = jd_to_mapuche(julianDays);
+            year = (mapc[0] < 0) ? Math.abs(mapc[0]) + " " + keywords[43] : mapc[0];
+            text = mapc[2] + " " + mapucheMonths[mapc[1]] + ", " + year;
+            return text;
+        case "javanese":
+            var javc = jd_to_javanese(julianDays);
+            year = (javc[0] < 0) ? Math.abs(javc[0]) + " " + keywords[43] : javc[0];
+            text = javc[2] + " " + javaneseMonths[javc[1]] + ", " + year;
+            return text;
+        case "japanese":
+            var jpc = jd_to_japanese(julianDays);
+            year = (jpc[0] < 0) ? Math.abs(jpc[0]) + " " + keywords[43] : jpc[0];
+            var gregYear_j = jpc[0] - 660;
+            var nengo = japaneseNengo(gregYear_j, jpc[1]);
+            text = jpc[2] + " " + japaneseMonths[jpc[1]] + ", " + year;
+            if (nengo) text += " (" + nengo.year + " " + nengo.name + ")";
+            return text;
+        case "chinese":
+            var tzOffset = -new Date().getTimezoneOffset() / 60;
+            var chc = jd_to_chinese(julianDays, tzOffset);
+            year = (chc[0] < 0) ? Math.abs(chc[0]) + " " + keywords[43] : chc[0];
+            var stem = chineseStems[(chc[0] - 2) % 10];
+            var branch = chineseBranches[(chc[0] - 2) % 12];
+            var animal = chineseAnimals[(chc[0] - 2) % 12];
+            text = stem + "-" + branch + " (" + animal + ") (" + chineseMonths[chc[1]] + "), " + chc[2] + ", " + year;
+            return text;
         case "hispanic":
             intEpoch += 1199188800;
         default:
@@ -527,6 +564,25 @@ function htConvertGregorianYear(test, gregoryYear)
                 break;
             case "persian":
                 converted = jd_to_persian(jd);
+                break;
+            case "chinese":
+                var tzOffset = -new Date().getTimezoneOffset() / 60;
+                converted = jd_to_chinese(jd, tzOffset);
+                break;
+            case "inca":
+                converted = jd_to_inca(jd);
+                break;
+            case "aymara":
+                converted = jd_to_aymara(jd);
+                break;
+            case "mapuche":
+                converted = jd_to_mapuche(jd);
+                break;
+            case "javanese":
+                converted = jd_to_javanese(jd);
+                break;
+            case "japanese":
+                converted = jd_to_japanese(jd);
                 break;
             case "julian":
                 text = jd + " " + keywords[41];
@@ -702,7 +758,11 @@ function htFillHistorySources(divId, histID, history, useClass, personID)
         for (const i in history) {
             var localObj = history[i];
             var text = (localObj.text != undefined && localObj.format != undefined) ? htParagraphFromObject(localObj, localLang, localCalendar) : "<p>"+localObj+"</p>";
-            $(histID).append("<p class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</p>");
+            if (typeof text === "string" && text.indexOf("<math") >= 0) {
+                $(histID).append("<div class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \"><table style=\"margin: 0 auto;\"><tr><td>"+text+"</td></tr></table></div>");
+            } else {
+                $(histID).append("<div class=\""+useClass+"\" onclick=\"htFillTree('"+personID+"'); \">"+text+"</div>");
+            }
         }
     }
 }
@@ -1561,7 +1621,22 @@ function htUpdateAvailableLanguages(table) {
     }
 }
 
+function htResetFirstLoad() {
+    $("#ht_first_load").text(Math.floor(Date.now()/1000));
+    $("#messages").html("&nbsp;").hide();
+}
+
+function htCheckBreakReminder() {
+    var loadTime = parseInt($("#ht_first_load").text());
+    if (isNaN(loadTime)) { return; }
+    var minutes = parseInt($("#site_recreio").val()) || 30;
+    if (Math.floor(Date.now()/1000) - loadTime >= minutes * 60) {
+        $("#messages").html(keywords[140]).show();
+    }
+}
+
 function htFillKeywords(table) {
+    htResetFirstLoad();
     if (!Array.isArray(table)) { return; }
 
     const MIN_LENGTH = 75;
@@ -1578,7 +1653,10 @@ function htFillKeywords(table) {
     $("#index_lang").html(keywords[39]);
     $("#index_calendar").html(keywords[40]);
     $("#index_theme").html(keywords[74]);
+    $("#index_recreio").html(keywords[141]);
     htUpdateCurrentDateOnIndex();
+    setInterval(htCheckBreakReminder, 60000);
+    htCheckBreakReminder();
 }
 
 function htFillMathKeywords(table) {
@@ -1935,8 +2013,8 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
 
     let originalText = htGetTextWithDateReplacements(localObj, localLang, localCalendar);
 
-    let text = (format === 'html') ? '<p>' : '';
-    text += htFormatText(originalText, format, localObj.isTable);
+    let formattedText = htFormatText(originalText, format, localObj.isTable);
+    let text = (format === 'html' ? '<p>' + formattedText : formattedText);
 
     if (localObj.source != undefined && localObj.source != null) {
         var sources = localObj.source;
@@ -1945,14 +2023,14 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
             var searchFor = "<htcite"+i+">";
             var pos = text.search(searchFor);
             var fcnt = htFillHistorySourcesSelectFunction(sources[i].type);
-            var dateText = ""
+            var dateText = "";
             if (sources[i].date != undefined && sources[i].date.year.length > 0) {
                 dateText = ", "+htMountSpecificDate(sources[i].date, localLang, localCalendar);
             } else if (sources[i].date_time != undefined && sources[i].date_time.year.length > 0) {
                 dateText = ", "+htMountSpecificDate(sources[i].date_time, localLang, localCalendar);
             }
 
-            var pageText = ""
+            var pageText = "";
             if (sources[i].page != undefined && sources[i].page.length > 0) {
                 pageText = ", "+sources[i].page;
             }
@@ -1971,7 +2049,7 @@ function htParagraphFromObject(localObj, localLang, localCalendar) {
         }
     }
     text += (localObj.PostMention) ? localObj.PostMention : "";
-    text += "</p>"; 
+    text += "</p>";
     return text;
 }
 
@@ -2289,7 +2367,7 @@ function htOnlyLoadHtml(appendPage, page, ext, unixEpoch) {
 }
 
 function htLoadPageV1(page, ext, arg, reload, dir, optional) {
-    $("#messages").html("&nbsp;");
+    $("#messages").html("&nbsp;").hide();
     extLatexIdx = 0;
 
     $("#loading_msg").show();
@@ -2354,7 +2432,7 @@ window.addEventListener('load', function() {
 });
 
 function htLoadPage(page, ext, arg, reload) {
-    $("#messages").html("&nbsp;");
+    $("#messages").html("&nbsp;").hide();
     $("#ht_index_latex").append("");
     extLatexIdx = 0;
     if (ext == "html") {
@@ -2625,7 +2703,11 @@ function htFillWebPage(page, data)
                     ? commonObj
                     : htParagraphFromObject(commonObj, localLang, localCalendar);
 
-            $("#common").append(commonText);
+            if (typeof commonText === "string" && commonText.indexOf("<math") >= 0) {
+                $("#common").append("<table style=\"margin: 0 auto;\"><tr><td>" + commonText + "</td></tr></table>");
+            } else {
+                $("#common").append(commonText);
+            }
         });
     }
 
@@ -2672,6 +2754,15 @@ function htFillWebPage(page, data)
 
     if (data?.calendars) {
         htUpdateIndexSelector(data.calendars, "#site_calendar");
+        if (data.chinese_animals) chineseAnimals = data.chinese_animals;
+        if (data.chinese_months) chineseMonths = data.chinese_months;
+        if (data.chinese_stems) chineseStems = data.chinese_stems;
+        if (data.chinese_branches) chineseBranches = data.chinese_branches;
+        if (data.aymara_months) aymaraMonths = data.aymara_months;
+        if (data.mapuche_months) mapucheMonths = data.mapuche_months;
+        if (data.inca_months) incaMonths = data.inca_months;
+        if (data.javanese_months) javaneseMonths = data.javanese_months;
+        if (data.japanese_months) japaneseMonths = data.japanese_months;
         $("#loading_msg").hide();
         $(":focus").blur();
         return;

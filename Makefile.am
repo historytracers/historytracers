@@ -17,7 +17,7 @@ AUTOMAKE_OPTIONS = foreign
 EXTRA_DIST = $(PUBLISHERSRC_DIR)/main.go $(EDITORSRC_DIR)/main.go $(VIEWERSRC_DIR)/main.go
 
 # Custom targets for Go building
-all-local: publisher editor viewer
+all-local: publisher viewer
 
 publisher:
 	@echo "Building $(PUBLISHERBINARY_NAME)..."
@@ -25,19 +25,8 @@ publisher:
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) mod download && $(GO_RUN) mod tidy && $(GO_RUN) fmt ./...
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(PUBLISHERBINARY_NAME) .
 
-if NEED_MINGW
-editor_cc_env = CC="$(MINGW_CC)" CXX="$(MINGW_CC:gcc=g++)" CGO_ENABLED=1
-editor_make_go = PATH="$(dir $(MINGW_CC)):$(GO_BIN_DIR):$(PATH)" GOROOT="$(GO_GOROOT)" "$(GO_COMPILER)"
-
 editor:
-	@echo "Building $(EDITORBINARY_NAME)..."
-	@mkdir -p $(BUILD_DIR)
-	cd $(EDITORSRC_DIR) && $(editor_cc_env) $(editor_make_go) mod download && $(editor_cc_env) $(editor_make_go) mod tidy && $(editor_cc_env) $(editor_make_go) fmt ./...
-	cd $(EDITORSRC_DIR) && $(editor_cc_env) $(editor_make_go) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(EDITORBINARY_NAME) .
-else
-editor:
-	@echo "Skipping editor build (MinGW-w64 C compiler not found)"
-endif
+	@echo "Skipping editor build (disabled)"
 
 viewer:
 	@echo "Building $(VIEWERBINARY_NAME)..."

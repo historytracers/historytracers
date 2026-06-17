@@ -1,7 +1,10 @@
 package main
 
 import (
+	"crypto/rand"
 	"encoding/csv"
+	"encoding/gob"
+	"encoding/hex"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -15,6 +18,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"sort"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -40,7 +44,70 @@ var (
 	historyFile   string
 	favoritesMu   sync.Mutex
 	favoritesFile string
+	optionsMu     sync.Mutex
+	optionsFile   string
+	savedOptions  optionsData
+	viewerToken   string
+	uuidFile      string
+	instanceUUID  []byte
 )
+
+type optionsData struct {
+	Lang    string `json:"lang"`
+	Cal     string `json:"cal"`
+	Recreio string `json:"recreio"`
+	Port    string `json:"port"`
+	Home    string `json:"home"`
+}
+
+var validLangs = map[string]bool{
+	"en-US": true,
+	"pt-BR": true,
+	"es-ES": true,
+}
+
+var validCals = map[string]bool{
+	"aymara":        true,
+	"chinese":       true,
+	"emesoamerican": true,
+	"french":        true,
+	"gregory":       true,
+	"hebrew":        true,
+	"hispanic":      true,
+	"inca":          true,
+	"islamic":       true,
+	"japanese":      true,
+	"javanese":      true,
+	"julian":        true,
+	"mapuche":       true,
+	"mesoamerican":  true,
+	"persian":       true,
+	"shaka":         true,
+}
+
+var validRecreios = map[string]bool{
+	"15": true,
+	"25": true,
+	"30": true,
+	"35": true,
+	"45": true,
+	"50": true,
+	"60": true,
+}
+
+func checkToken(r *http.Request) bool {
+	return r.Header.Get("X-HT-Token") == viewerToken
+}
+
+func rotateToken() string {
+	buf := make([]byte, 32)
+	if _, err := rand.Read(buf); err == nil {
+		viewerToken = hex.EncodeToString(buf)
+	} else {
+		viewerToken = "insecure-fallback-token"
+	}
+	return viewerToken
+}
 
 func openExternalHandler(w http.ResponseWriter, r *http.Request) {
 	target := r.URL.Query().Get("url")
@@ -84,6 +151,10 @@ var (
 func devLogHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodPost:
+		if !checkToken(r) {
+			http.Error(w, "Forbidden", http.StatusForbidden)
+			return
+		}
 		entry := devEntry{
 			Type:     r.FormValue("type"),
 			Message:  r.FormValue("message"),
@@ -182,24 +253,289 @@ func parseInt64(s string) int64 {
 	return n
 }
 
-func initHistory() {
+var dataDir string
+
+func initDataDir() {
 	home, err := os.UserHomeDir()
 	if err != nil {
-		log.Printf("Warning: cannot get home directory for history: %v", err)
+		log.Printf("Warning: cannot get home directory: %v", err)
+		dataDir = ""
+		return
+	}
+	switch runtime.GOOS {
+	case "windows":
+		dataDir = filepath.Join(home, "HistoryTracers")
+	default:
+		dataDir = filepath.Join(home, ".config", "HistoryTracers")
+	}
+	if err := os.MkdirAll(dataDir, 0755); err != nil {
+		log.Printf("Warning: cannot create data directory %s: %v", dataDir, err)
+		dataDir = ""
+	}
+}
+
+func initHistory() {
+	if dataDir == "" {
 		historyFile = ""
 		return
 	}
-	historyFile = filepath.Join(home, "history.csv")
+	historyFile = filepath.Join(dataDir, "history.csv")
 }
 
 func initFavorites() {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		log.Printf("Warning: cannot get home directory for favorites: %v", err)
+	if dataDir == "" {
 		favoritesFile = ""
 		return
 	}
-	favoritesFile = filepath.Join(home, "favorites.csv")
+	favoritesFile = filepath.Join(dataDir, "favorites.csv")
+}
+
+func initOptions() {
+	if dataDir == "" {
+		optionsFile = ""
+		return
+	}
+	optionsFile = filepath.Join(dataDir, "options.bin")
+}
+
+func initUUID() {
+	if dataDir == "" {
+		uuidFile = ""
+		return
+	}
+	uuidFile = filepath.Join(dataDir, "uuid.bin")
+	if b, err := os.ReadFile(uuidFile); err == nil && len(b) == 16 {
+		instanceUUID = b
+		return
+	}
+	buf := make([]byte, 16)
+	if _, err := rand.Read(buf); err != nil {
+		log.Printf("Warning: cannot generate UUID: %v", err)
+		return
+	}
+	buf[6] = (buf[6] & 0x0f) | 0x40
+	buf[8] = (buf[8] & 0x3f) | 0x80
+	if err := os.WriteFile(uuidFile, buf, 0644); err != nil {
+		log.Printf("Warning: cannot write UUID file: %v", err)
+	}
+	instanceUUID = buf
+}
+
+func optionsHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+		optionsMu.Lock()
+		defer optionsMu.Unlock()
+		data := readOptions()
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(data)
+
+	case http.MethodPost:
+		if !checkToken(r) {
+			http.Error(w, "Forbidden", http.StatusForbidden)
+			return
+		}
+		optionsMu.Lock()
+		defer optionsMu.Unlock()
+		data := readOptions()
+		if home := r.FormValue("home"); home != "" {
+			trimmed := strings.TrimLeft(home, "/")
+			if !strings.HasPrefix(trimmed, "index.html") {
+				home = "/index.html"
+			}
+			data.Home = home
+		}
+		if v := r.FormValue("lang"); v != "" && validLangs[v] {
+			data.Lang = v
+		}
+		if v := r.FormValue("cal"); v != "" && validCals[v] {
+			data.Cal = v
+		}
+		if v := r.FormValue("recreio"); v != "" && validRecreios[v] {
+			data.Recreio = v
+		}
+		if v := r.FormValue("port"); v != "" {
+			if p, err := strconv.Atoi(v); err == nil && p >= 1 && p <= 65535 {
+				data.Port = v
+			}
+		}
+		writeOptionsLocked(data)
+		rotateToken()
+		w.Header().Set("X-HT-Next-Token", viewerToken)
+		w.WriteHeader(http.StatusNoContent)
+
+	default:
+		http.Error(w, "Method not allowed", 405)
+	}
+}
+
+func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
+	lang := r.URL.Query().Get("lang")
+	cal := r.URL.Query().Get("cal")
+
+	optionsMu.Lock()
+	data := readOptions()
+	optionsMu.Unlock()
+
+	var curLang, curCal, curRecreio, curPort, curHome string
+	if data.Lang != "" {
+		curLang = data.Lang
+	} else if lang != "" {
+		curLang = lang
+	} else {
+		curLang = "en-US"
+	}
+	if data.Cal != "" {
+		curCal = data.Cal
+	} else if cal != "" {
+		curCal = cal
+	} else {
+		curCal = "gregory"
+	}
+	if data.Recreio != "" {
+		curRecreio = data.Recreio
+	} else {
+		curRecreio = "30"
+	}
+	curPort = data.Port
+	curHome = data.Home
+	if curHome == "" {
+		curHome = "/index.html"
+	}
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprintf(w, `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>History Tracers</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:verdana,arial,helvetica;margin:20px;background:#f5f5f5;color:#333}
+h2{color:#333;margin-bottom:16px}
+.form-group{margin-bottom:14px}
+label{display:block;font-weight:bold;margin-bottom:3px;color:#555;font-size:13px}
+select,input[type=number],input[type=text]{width:280px;padding:5px 8px;border:1px solid #ccc;border-radius:3px;font:13px/1.4 sans-serif;background:#fff}
+select{height:30px}
+.btn{padding:7px 20px;background:#555;color:#fff;border:none;border-radius:3px;cursor:pointer;font:13px/1.4 sans-serif;margin-top:6px}
+.btn:hover{background:#333}
+.status{margin-top:10px;font-size:13px;color:#080}
+.error{color:#c00}
+.back{margin-top:20px;font-size:13px}
+.back a{color:#06c;text-decoration:none}
+.back a:hover{text-decoration:underline}
+</style></head><body>
+<script>
+var lang=%q;
+var cal=%q;
+var L={};
+L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
+L['pt']=L['pt-BR'];
+L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
+L['es']=L['es-ES'];
+L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',listenLabel:'Listen port',homeLabel:'Home page',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
+L['en']=L['en-US'];
+var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
+document.title=l.title;
+
+var recVal=%q;
+var portVal=%q;
+var homeVal=%q;
+
+var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Espa\u00f1ol (ES)'};
+var langs=['pt-BR','en-US','es-ES'];
+var cals=['aymara','chinese','emesoamerican','french','gregory','hebrew','hispanic','inca','islamic','japanese','javanese','julian','mapuche','mesoamerican','persian','shaka'];
+var recreios=[15,25,30,35,45,50,60];
+
+var html='<h2>'+l.title+'</h2>';
+html+='<div class="form-group"><label>'+l.langLabel+'</label><select id="opt_lang">';
+for(var i=0;i<langs.length;i++){html+='<option value="'+langs[i]+'"'+(langs[i]===lang?' selected':'')+'>'+(langNames[langs[i]]||langs[i])+'</option>'}
+html+='</select></div>';
+html+='<div class="form-group"><label>'+l.calLabel+'</label><select id="opt_cal">';
+for(var i=0;i<cals.length;i++){
+	var sc=(function(){try{return parent.document.querySelector('#site_calendar option[value="'+cals[i]+'"]')}catch(e){return null}})();
+	var label=sc?sc.textContent:cals[i].charAt(0).toUpperCase()+cals[i].slice(1);
+	html+='<option value="'+cals[i]+'"'+(cals[i]===cal?' selected':'')+'>'+label+'</option>';
+}
+html+='</select></div>';
+html+='<div class="form-group"><label>'+l.recreioLabel+'</label><select id="opt_rec">';
+for(var i=0;i<recreios.length;i++){html+='<option value="'+recreios[i]+'"'+(String(recreios[i])===recVal?' selected':'')+'>'+recreios[i]+' '+l.recreioM+'</option>'}
+html+='</select></div>';
+html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+portVal+'"></div>';
+html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+homeVal+'"></div>';
+html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
+html+='<div id="opt_status"></div>';
+html+='<div class="back"><a href="#" onclick="event.preventDefault();(parent.open||window.open)(window.location.origin+\'/index.html?page=\'+encodeURIComponent(parent.location.search.match(/[?&]page=([^&]*)/)?decodeURIComponent(RegExp.$1):\'main\')+\'&lang=\'+encodeURIComponent(lang)+\'&cal=\'+encodeURIComponent(cal))">'+l.back+'</a></div>';
+document.body.innerHTML=html;
+
+document.getElementById('opt_apply').onclick=function(){
+	var nl=document.getElementById('opt_lang').value;
+	var nc=document.getElementById('opt_cal').value;
+	var nr=document.getElementById('opt_rec').value;
+	var np=document.getElementById('opt_port').value;
+	var nh=document.getElementById('opt_home').value||'/index.html';
+	if(nh.indexOf('index.html')!==0&&nh.indexOf('/index.html')!==0){nh='/index.html'}
+	var s=document.getElementById('opt_status');
+	s.className='';s.textContent='...';
+	fetch('/api/options',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)}).then(function(r){
+		if(!r.ok)throw new Error(r.status);
+		s.className='status';s.textContent=l.saved;
+		try{var pu=new URL(parent.location.href);pu.searchParams.set('lang',nl);pu.searchParams.set('cal',nc);parent.location.href=pu.toString()}catch(e){}
+	}).catch(function(e){
+		s.className='status error';s.textContent=l.err+e.message;
+	});
+};
+</script>
+</body></html>`, curLang, curCal, curRecreio, curPort, curHome)
+}
+
+func validateOptions(data *optionsData) {
+	if !validLangs[data.Lang] {
+		data.Lang = ""
+	}
+	if !validCals[data.Cal] {
+		data.Cal = ""
+	}
+	if !validRecreios[data.Recreio] {
+		data.Recreio = ""
+	}
+	if data.Port != "" {
+		if p, err := strconv.Atoi(data.Port); err != nil || p < 1 || p > 65535 {
+			data.Port = ""
+		}
+	}
+	if data.Home != "" {
+		trimmed := strings.TrimLeft(data.Home, "/")
+		if !strings.HasPrefix(trimmed, "index.html") {
+			data.Home = ""
+		}
+	}
+}
+
+func readOptions() optionsData {
+	var data optionsData
+	if optionsFile == "" {
+		return data
+	}
+	f, err := os.Open(optionsFile)
+	if err != nil {
+		return data
+	}
+	defer f.Close()
+	gob.NewDecoder(f).Decode(&data)
+	validateOptions(&data)
+	return data
+}
+
+func writeOptionsLocked(data optionsData) {
+	if optionsFile == "" {
+		return
+	}
+	f, err := os.Create(optionsFile)
+	if err != nil {
+		log.Printf("Warning: cannot write options: %v", err)
+		return
+	}
+	defer f.Close()
+	enc := gob.NewEncoder(f)
+	enc.Encode(data)
 }
 
 func allowedPage(name string) bool {
@@ -219,6 +555,10 @@ func allowedPage(name string) bool {
 func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", 405)
+		return
+	}
+	if !checkToken(r) {
+		http.Error(w, "Forbidden", http.StatusForbidden)
 		return
 	}
 	if historyFile == "" {
@@ -246,6 +586,8 @@ func historyAddHandler(w http.ResponseWriter, r *http.Request) {
 		entries = entries[len(entries)-256:]
 	}
 	writeHistoryLocked(entries)
+	rotateToken()
+	w.Header().Set("X-HT-Next-Token", viewerToken)
 }
 
 func historyListHandler(w http.ResponseWriter, r *http.Request) {
@@ -342,6 +684,10 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", 405)
 		return
 	}
+	if !checkToken(r) {
+		http.Error(w, "Forbidden", http.StatusForbidden)
+		return
+	}
 	if favoritesFile == "" {
 		http.Error(w, "Favorites not available", 500)
 		return
@@ -375,6 +721,8 @@ func favoritesAddHandler(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 	writeFavoritesLocked(entries)
+	rotateToken()
+	w.Header().Set("X-HT-Next-Token", viewerToken)
 }
 
 func favoritesListHandler(w http.ResponseWriter, r *http.Request) {
@@ -600,10 +948,12 @@ func main() {
 	hideConsole()
 
 	port := flag.Int("port", 0, "HTTP port (0 = random available)")
+	listen := flag.Int("listen", -1, "Static port in range 1-65535 (-1 = use -port)")
 	path := flag.String("path", "", "Content directory (overrides -dir when set)")
 	dir := flag.String("dir", "www", "Content directory to serve")
 	lang := flag.String("lang", "", "Initial language (e.g. en-US, pt-BR, es-ES)")
-	cal := flag.String("calendar", "", "Initial calendar (e.g. gregory, julian, hebrew, islamic, persian, french, shaka, hispanic, mesoamerican, emesoamerican)")
+	cal := flag.String("calendar", "",
+		"Initial calendar (e.g. gregory, julian, hebrew, islamic, persian, french, shaka, hispanic, mesoamerican, emesoamerican, aymara, mapuche, inca, chinese, javanese, japanese)")
 	class := flag.String("class", "", "Initial class content UUID (e.g. d290f1ee-6c54-4b01-90e6-d701748f0851)")
 	logFile := flag.String("log", "", "File to write access logs (default: no access log)")
 	flag.Usage = func() {
@@ -627,8 +977,48 @@ func main() {
 		accessLog = log.New(io.Discard, "", log.LstdFlags)
 	}
 
-	addr := resolveAddr(*port)
-	pageURL = buildPageURL(addr, *class, *lang, *cal)
+	initDataDir()
+	initUUID()
+	initOptions()
+	savedOptions = readOptions()
+
+	if *lang == "" && savedOptions.Lang != "" {
+		*lang = savedOptions.Lang
+	}
+	if *cal == "" && savedOptions.Cal != "" {
+		*cal = savedOptions.Cal
+	}
+	if *listen == -1 && savedOptions.Port != "" {
+		if p, err := strconv.Atoi(savedOptions.Port); err == nil && p >= 1 && p <= 65535 {
+			*listen = p
+		}
+	}
+
+	effectivePort := *port
+	if *listen >= 1 && *listen <= 65535 {
+		effectivePort = *listen
+	}
+	addr := resolveAddr(effectivePort)
+	if *class != "" {
+		pageURL = buildPageURL(addr, *class, *lang, *cal)
+	} else if savedOptions.Home != "" && strings.HasPrefix(strings.TrimLeft(savedOptions.Home, "/"), "index.html") {
+		trimmed := strings.TrimLeft(savedOptions.Home, "/")
+		u := fmt.Sprintf("http://%s/%s", addr, trimmed)
+		sep := "?"
+		if strings.Contains(trimmed, "?") {
+			sep = "&"
+		}
+		if *lang != "" {
+			u += sep + "lang=" + url.QueryEscape(*lang)
+			sep = "&"
+		}
+		if *cal != "" {
+			u += sep + "cal=" + url.QueryEscape(*cal)
+		}
+		pageURL = u
+	} else {
+		pageURL = buildPageURL(addr, "", *lang, *cal)
+	}
 
 	if *lang != "" {
 		langJS := "window.__ht_lang='" + *lang + "';"
@@ -639,6 +1029,22 @@ func main() {
 		calJS := "window.__ht_cal='" + *cal + "';"
 		welcomePage = calJS + welcomePage
 		addressBarJS = calJS + addressBarJS
+	}
+	if savedOptions.Home != "" {
+		homeJS := "window.__ht_home='" + strings.ReplaceAll(savedOptions.Home, "'", "\\'") + "';"
+		welcomePage = homeJS + welcomePage
+		addressBarJS = homeJS + addressBarJS
+	}
+	{
+		buf := make([]byte, 32)
+		if _, err := rand.Read(buf); err == nil {
+			viewerToken = hex.EncodeToString(buf)
+		} else {
+			viewerToken = "insecure-fallback-token"
+		}
+		tokenJS := "window.__ht_token='" + viewerToken + "';"
+		welcomePage = tokenJS + welcomePage
+		addressBarJS = tokenJS + addressBarJS
 	}
 
 	initHistory()
@@ -654,7 +1060,10 @@ func main() {
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
-	mux.Handle("/", logMiddleware(http.FileServer(liveDir{})))
+	mux.HandleFunc("/api/options/page", optionsPageHandler)
+	mux.HandleFunc("/api/options", optionsHandler)
+	mux.HandleFunc("/metrics", metricsHandler)
+	mux.Handle("/", metricsMiddleware(logMiddleware(http.FileServer(liveDir{}))))
 
 	srv = &http.Server{Addr: addr, Handler: mux}
 
@@ -690,8 +1099,13 @@ func buildPageURL(addr, class, lang, cal string) string {
 }
 
 func resolveAddr(port int) string {
-	if port > 0 {
-		return fmt.Sprintf("127.0.0.1:%d", port)
+	if port >= 1 && port <= 65535 {
+		l, err := net.Listen("tcp", fmt.Sprintf("127.0.0.1:%d", port))
+		if err == nil {
+			l.Close()
+			return fmt.Sprintf("127.0.0.1:%d", port)
+		}
+		log.Printf("Warning: port %d unavailable (%v), falling back to random port", port, err)
 	}
 	l, err := net.Listen("tcp", "127.0.0.1:0")
 	if err != nil {

@@ -14,7 +14,8 @@ audio {
 }
 
 .selSize {
-  width: 7em;
+  width: 14em;
+  padding-right: 1.5em;
   z-index: 900;
 }
 
@@ -85,6 +86,16 @@ audio {
   width: 95%;
   float: left;
   height: 100%;
+}
+
+#messages {
+  display: none;
+  position: relative;
+  background-color: lightyellow;
+  padding: 10px;
+  width: 75%;
+  box-sizing: border-box;
+  z-index: 10001;
 }
 
 .main-data {
@@ -1272,7 +1283,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .selSize {
-        width: 3em;
+        width: 7em;
     }
 
     #site_language {
@@ -1360,7 +1371,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .selSize {
-        width: 3em;
+        width: 7em;
     }
 
     #site_language {
@@ -1433,7 +1444,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .selSize {
-        width: 3em;
+        width: 7em;
     }
 
     #site_language {
@@ -1517,7 +1528,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .selSize {
-        width: 4em;
+        width: 11em;
     }
 
     #site_language {
@@ -1586,7 +1597,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .selSize {
-        width: 5em;
+        width: 8em;
     }
 
     #site_language {

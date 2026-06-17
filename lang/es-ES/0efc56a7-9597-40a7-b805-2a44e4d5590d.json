@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1759466132"
+      "1780874702"
    ],
    "authors": null,
    "reviewers": null,
@@ -48,8 +48,69 @@
                "PostMention": ""
             },
             {
-               "text": "<p><h3>Prerrequisitos</h3>El texto de esta página tiene como objetivo reforzar los conocimientos relacionados con los sistemas numéricos que usamos actualmente. Antes de empezar, se sugiere estudiar las siguientes páginas:</p><p><ul><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('20b14681-88c0-438a-a273-a0902ae5db38'); return false;\">Nuestros lados son similares</a>: en este texto vas a conocer que su cuerpo tiene \"dos lados\".</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('3874d1e8-0f76-4432-9ee2-d8c8c9dccf53'); return false;\">Contando</a>: introducimos la idea de contar a partir del propio cuerpo.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cc8c1467-a6af-4f9c-ba60-ab6df35aba05'); return false;\">Más allá de los dedos</a>: explorando las limitaciones y la necesidad de nuevas herramientas para contar.</li> <li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('36dcbdd0-8d4d-48ac-a1cc-57bf9c8beaa4'); return false;\">Superando limites</a>: Presenta la lógica de la secuencia de números entre 0 y 19.</li><li><a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('00f3ab60-2017-420a-99dc-56de384243e8'); return false;\">Familias numericas</a>: Se estudian las decenas numéricas, junto con la dinastía de los <i>Ajawob</i> que gobernó Copán, en Honduras.</li></ul></p>",
-               "source": null,
+               "text": "<p><h3>Prerrequisitos</h3>El texto de esta página tiene como objetivo reforzar los conocimientos relacionados con los sistemas numéricos que usamos actualmente. Antes de empezar, se sugiere estudiar las siguientes páginas:</p><p><ul><li><htcite0>: en este texto vas a conocer que su cuerpo tiene \"dos lados\".</li> <li><htcite1>: introducimos la idea de contar a partir del propio cuerpo.</li> <li><htcite2>: explorando las limitaciones y la necesidad de nuevas herramientas para contar.</li> <li><htcite3>: Presenta la lógica de la secuencia de números entre 0 y 19.</li><li><htcite4>: Se estudian las decenas numéricas, junto con la dinastía de los <i>Ajawob</i> que gobernó Copán, en Honduras.</li></ul></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "20b14681-88c0-438a-a273-a0902ae5db38",
+                     "text": "History Tracers Team",
+                     "page": "Nuestros lados son similares",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "3874d1e8-0f76-4432-9ee2-d8c8c9dccf53",
+                     "text": "History Tracers Team",
+                     "page": "Contando",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "06",
+                        "day": "12"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cc8c1467-a6af-4f9c-ba60-ab6df35aba05",
+                     "text": "History Tracers Team",
+                     "page": "Más allá de los dedos",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "23"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "36dcbdd0-8d4d-48ac-a1cc-57bf9c8beaa4",
+                     "text": "History Tracers Team",
+                     "page": "Superando limites",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "23"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers Team",
+                     "page": "Familias numericas",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -62,8 +123,21 @@
          "id": "SECTION_introduction",
          "text": [
             {
-               "text": "<p><h3>Introducción</h3>Como los nombres de los líderes mayas son generalmente desconocidos por la población, utilizaremos las palabras \"rey\" y \"reyes\", acompañadas de sus versiones en maya: en singular <i>ajaw</i>, y en el plural, <i>ajawob</i>, cerca de ellas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('fee902e4-93b5-472e-bea8-b657b5a8737d'); return false;\">McKinney, K. J., <htdate0>, pp. 14</a>).</p>",
-               "source": null,
+               "text": "<p><h3>Introducción</h3>Como los nombres de los líderes mayas son generalmente desconocidos por la población, utilizaremos las palabras \"rey\" y \"reyes\", acompañadas de sus versiones en maya: en singular <i>ajaw</i>, y en el plural, <i>ajawob</i>, cerca de ellas (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "fee902e4-93b5-472e-bea8-b657b5a8737d",
+                     "text": "McKinney, K. J.",
+                     "page": "pp. 14",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -83,8 +157,45 @@
          "id": "SECTION_family",
          "text": [
             {
-               "text": "<p><h3>El Altar Q</h3>En este texto, continuaremos explorando el Altar Q en Copán, Honduras:</p><p><div class=\"htSlides\"></p><p class=\"desc\"><b>Diapositiva 1</b>: Imágenes del Altar Q en el sitio arqueológico de Copán, Honduras. Foto tomada durante una visita al sitio el <htdate0>.<br />Los nombres de los reyes, o (<i>ajawob</i>), están expuestos en el trabajo de Anastasia Hutnick, Catherine Docter y Dorie R. Budet (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate1>, pp. 18, 35 - 67.</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ccf473d0-069a-4c7e-a0ac-690a47670648'); return false;\">Docter, Catherine. Budet, Dorie R., <htdate2>, pp. 60</a>).<br />El código fuente para este slide fue inspirado en el código de W3Schools. (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cf7adc72-d340-412e-8d48-953ac64cb670'); return false;\">W3Schools</a>).</p>",
-               "source": null,
+               "text": "<p><h3>El Altar Q</h3>En este texto, continuaremos explorando el Altar Q en Copán, Honduras:</p><p><div class=\"htSlides\"></p><p class=\"desc\"><b>Diapositiva 1</b>: Imágenes del Altar Q en el sitio arqueológico de Copán, Honduras. Foto tomada durante una visita al sitio el <htdate0>.<br />Los nombres de los reyes, o (<i>ajawob</i>), están expuestos en el trabajo de Anastasia Hutnick, Catherine Docter y Dorie R. Budet (<htcite0> ; <htcite1>).<br />El código fuente para este slide fue inspirado en el código de W3Schools. (<htcite2>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+                     "text": "Hutnick, Anastasia",
+                     "page": "pp. 18, 35 - 67.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ccf473d0-069a-4c7e-a0ac-690a47670648",
+                     "text": "Docter, Catherine. Budet, Dorie R.",
+                     "page": "pp. 60",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2005",
+                        "month": "08",
+                        "day": "04"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cf7adc72-d340-412e-8d48-953ac64cb670",
+                     "text": "W3Schools",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "-1",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -111,8 +222,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p>El Altar Q representa a 16 de reyes (<i>ajawob</i>), que trataremos didácticamente como generaciones consecutivas, aunque no sea posible comprobar que constituyen generaciones consecutivas (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate3></a>). Por ello, el rey (<i>ajawob</i>) <i>Yax Pasaj Chan Yopaat</i>, habría incluido en su linaje a todos los gobernantes anteriores representados en el altar.</p>",
-               "source": null,
+               "text": "<p>El Altar Q representa a 16 de reyes (<i>ajawob</i>), que trataremos didácticamente como generaciones consecutivas, aunque no sea posible comprobar que constituyen generaciones consecutivas (<htcite0>). Por ello, el rey (<i>ajawob</i>) <i>Yax Pasaj Chan Yopaat</i>, habría incluido en su linaje a todos los gobernantes anteriores representados en el altar.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+                     "text": "Hutnick, Anastasia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -132,8 +256,21 @@
          "id": "SECTION_numbers",
          "text": [
             {
-               "text": "<p><h3>Familias y los números (las centenas)</h3>Siguiendo con la analogía introducida en \"Familias numéricas\" (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('00f3ab60-2017-420a-99dc-56de384243e8'); return false;\">History Tracers, <htdate0>, Familias numericas</a>), alinearemos las tres primeras generaciones de reyes (<i>ajawob</i>) de Copán junto a los números decimales:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th><i>Hijo</i></th><th>Padre</th><th>Abuelo</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\">&nbsp;</td> <td id=\"tc2f1\"><i>K’inich Popol Hol</i></td> <td id=\"tc3f1\"><i>K’inich Yax K’uk’ Mo’</i></td></tr>  <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"text_to_paint\">2</span></td> <td id=\"tc2f2\"><span class=\"text_to_paint\">1</span></td> <td id=\"tc3f2\"><span class=\"text_to_paint\">0</span></td></tr> </table><p class=\"desc\"><b>Tabla 1</b>: La posición de los números representada como una familia.</p><p>Cuando nace un nieto, se añade una nueva generación a la familia. Del mismo modo, los números aumentan al alcanzar el mayor valor de una posición decimal, como el 9. Veamos este cambio en la práctica. Usando las flechas, observa los números que aparecen después del 89 y del 99:</p><p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Número Indo-Arábigo</i></th><th>Flechas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\" colspan=\"4\"></td> <td> <i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown0\"></i></td></tr></table><p class=\"desc\"><b>Tabla 2</b>: Conteo de números entre 89 y 100.</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexión 1: Regla para el crecimiento</b><br />Cuando crecemos en altura, esto ocurre debido a varios factores, como la alimentación. De manera similar, los números siguen reglas específicas para crecer. Ya hemos introducido algunas reglas anteriormente, pero antes de continuar, ¿puedes definir las reglas de crecimiento para los números?</div></div></center></p>",
-               "source": null,
+               "text": "<p><h3>Familias y los números (las centenas)</h3>Siguiendo con la analogía introducida en \"Familias numéricas\" (<htcite0>), alinearemos las tres primeras generaciones de reyes (<i>ajawob</i>) de Copán junto a los números decimales:</p><p><table id=\"yupana0\" class=\"tawapukllay\"><tr><th><i>Hijo</i></th><th>Padre</th><th>Abuelo</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\">&nbsp;</td> <td id=\"tc2f1\"><i>K’inich Popol Hol</i></td> <td id=\"tc3f1\"><i>K’inich Yax K’uk’ Mo’</i></td></tr>  <tr id=\"tf2\"><td id=\"tc1f2\"><span class=\"text_to_paint\">2</span></td> <td id=\"tc2f2\"><span class=\"text_to_paint\">1</span></td> <td id=\"tc3f2\"><span class=\"text_to_paint\">0</span></td></tr> </table><p class=\"desc\"><b>Tabla 1</b>: La posición de los números representada como una familia.</p><p>Cuando nace un nieto, se añade una nueva generación a la familia. Del mismo modo, los números aumentan al alcanzar el mayor valor de una posición decimal, como el 9. Veamos este cambio en la práctica. Usando las flechas, observa los números que aparecen después del 89 y del 99:</p><p><table id=\"yupana1\" class=\"tawapukllay\"><tr><th colspan=\"4\"><i>Número Indo-Arábigo</i></th><th>Flechas</th></tr> <tr id=\"tf1\"><td id=\"tc1f1\" colspan=\"4\"></td> <td> <i class=\"fa-solid fa-caret-up upArrowWithFA\" id=\"traineeUp0\"></i>  <i class=\"fa-solid fa-caret-down downArrowWithFA\" id=\"traineeDown0\"></i></td></tr></table><p class=\"desc\"><b>Tabla 2</b>: Conteo de números entre 89 y 100.</p><p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\">?</div><div class=\"first_steps_reflection\"><b>Reflexión 1: Regla para el crecimiento</b><br />Cuando crecemos en altura, esto ocurre debido a varios factores, como la alimentación. De manera similar, los números siguen reglas específicas para crecer. Ya hemos introducido algunas reglas anteriormente, pero antes de continuar, ¿puedes definir las reglas de crecimiento para los números?</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "00f3ab60-2017-420a-99dc-56de384243e8",
+                     "text": "History Tracers Team",
+                     "page": "Familias numericas",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "09",
+                        "day": "28"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -153,8 +290,21 @@
          "id": "SECTION_numeric_table",
          "text": [
             {
-               "text": "<p><h3>Expandiendo las generaciones y los números</h3>Con base en lo que hemos visto, podemos concluir que los números crecen siguiendo las siguientes reglas:</p><p><ol><li>Cada posición de un número puede contener solo valores entre el mínimo (0) y el máximo (9).</li><li>Al alcanzar el valor máximo (9), el número en la posición actual regresa al mínimo (0), y el dígito a la izquierda aumenta en una unidad. Recuerda que, cuando no hay números visibles, es como si el cero (0) estuviera \"escondido\", representando el vacío (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('576e4648-77fa-4a6d-9e51-9459ced964f3'); return false;\">Musa, Auwalu, <htdate0>, pp. 44, 46 - 48</a>).</li><li>Para cambiar nuevamente el número más a la izquierda, es necesario contar de cero (0) a nueve (9) en la posición anterior.</li></ol></p><p>Así como las personas en una familia tienen nombres, las generaciones y las posiciones de los números también los tienen. A continuación, presentamos una tabla que relaciona los reyes representados en el Altar Q con el nombre de la generación, el orden numérico correspondiente, la cantidad de números en cada orden, y los valores mínimo (primer número) y máximo (último número) en cada posición:</p>",
-               "source": null,
+               "text": "<p><h3>Expandiendo las generaciones y los números</h3>Con base en lo que hemos visto, podemos concluir que los números crecen siguiendo las siguientes reglas:</p><p><ol><li>Cada posición de un número puede contener solo valores entre el mínimo (0) y el máximo (9).</li><li>Al alcanzar el valor máximo (9), el número en la posición actual regresa al mínimo (0), y el dígito a la izquierda aumenta en una unidad. Recuerda que, cuando no hay números visibles, es como si el cero (0) estuviera \"escondido\", representando el vacío (<htcite0>).</li><li>Para cambiar nuevamente el número más a la izquierda, es necesario contar de cero (0) a nueve (9) en la posición anterior.</li></ol></p><p>Así como las personas en una familia tienen nombres, las generaciones y las posiciones de los números también los tienen. A continuación, presentamos una tabla que relaciona los reyes representados en el Altar Q con el nombre de la generación, el orden numérico correspondiente, la cantidad de números en cada orden, y los valores mínimo (primer número) y máximo (último número) en cada posición:</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "576e4648-77fa-4a6d-9e51-9459ced964f3",
+                     "text": "Musa, Auwalu",
+                     "page": "pp. 44, 46 - 48",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "05",
+                        "day": "19"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -178,8 +328,69 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><b>Tabla 3</b>: Límites numéricos y la familia.<br />Los nombres de los reyes (<i>Ajawob</i>) mencionados en este trabajo están documentados en el estudio de Anastasia Hutnick, Catherine Docter y Dorie R. Budet (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('85c2d88c-6ad8-4858-95f8-0f157c49bf07'); return false;\">Hutnick, Anastasia, <htdate0>, pp. 18, 35 - 67.</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('ccf473d0-069a-4c7e-a0ac-690a47670648'); return false;\">Docter, Catherine. Budet, Dorie R., <htdate1>, pp. 60</a>).<br />Las denominaciones de las generaciones fueron extraídas del <i>\"Dicionário de Genealogia\"</i> de Gilber Rubim Rangel (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('2cf03d7c-589e-4f1e-81d3-03296d37f2d8'); return false;\">Rangel, Gilber Rubim, <htdate2>, <i>Dicionário de Genealogia</i>, pp. 61, 73, 207,<br /> 210, 284, 296, 308, 376, e 383</a> ;<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('80c28cd8-cee2-4696-a083-2bb0c5a26889'); return false;\">Rangel, Gilber Rubim, <i>Dicionário de Genealogia</i>, Instagram</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('ef8346d5-184c-4e34-94d3-a69604fd6bb4'); return false;\">Rangel, Gilber Rubim, <htdate3>, Dicionário de Genealogia, Degustação</i></a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><b>Tabla 3</b>: Límites numéricos y la familia.<br />Los nombres de los reyes (<i>Ajawob</i>) mencionados en este trabajo están documentados en el estudio de Anastasia Hutnick, Catherine Docter y Dorie R. Budet (<htcite0> ; <htcite1>).<br />Las denominaciones de las generaciones fueron extraídas del <i>\"Dicionário de Genealogia\"</i> de Gilber Rubim Rangel (<htcite2> ;<htcite3> ; <htcite4>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "85c2d88c-6ad8-4858-95f8-0f157c49bf07",
+                     "text": "Hutnick, Anastasia",
+                     "page": "pp. 18, 35 - 67.",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2020",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "ccf473d0-069a-4c7e-a0ac-690a47670648",
+                     "text": "Docter, Catherine. Budet, Dorie R.",
+                     "page": "pp. 60",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2005",
+                        "month": "08",
+                        "day": "04"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "2cf03d7c-589e-4f1e-81d3-03296d37f2d8",
+                     "text": "Rangel, Gilber Rubim, , Dicionário de Genealogia",
+                     "page": "pp. 61, 73, 207, 210, 284, 296, 308, 376, e 383",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "80c28cd8-cee2-4696-a083-2bb0c5a26889",
+                     "text": "Rangel, Gilber Rubim, Dicionário de Genealogia",
+                     "page": "Instagram",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "14"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "ef8346d5-184c-4e34-94d3-a69604fd6bb4",
+                     "text": "Rangel, Gilber Rubim, , Dicionário de Genealogia",
+                     "page": "Degustação",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "07",
+                        "day": "14"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",

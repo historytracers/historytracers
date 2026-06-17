@@ -185,6 +185,7 @@ func htCreateNewClass() {
 	htRewriteSourceFileTemplate()
 
 	htCreateOrTestClass(strID)
+	htUpdateFeedInAllLangs("class_content", strID, classTemplate)
 	fmt.Printf("Class %s created for %s classTemplate\n", strID, classTemplate)
 }
 

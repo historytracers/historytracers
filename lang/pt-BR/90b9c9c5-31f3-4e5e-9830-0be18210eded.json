@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780787091"
+      "1781449456"
    ],
    "authors": null,
    "reviewers": null,
@@ -200,7 +200,7 @@
                      "page": "Entendendo as Tabuadas (Resumo)",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
+                        "year": "2025",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -237,8 +237,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Contagem de símbolos do primeiro verso. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
-               "source": null,
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Contagem de símbolos do primeiro verso. Gráfico criado com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -339,7 +352,7 @@
                "PostMention": ""
             },
             {
-               "text": "#### A tabuada de *Voltas*\n\nAntes de contarmos as sílabas do poema, destacamos os seguintes aspectos:\n\n- Cada verso (linha) do poema 'Voltas' possui exatamente 5 sílabas métricas.\n- Cada estrofe — conjunto de versos separados por linhas em branco (<htcite0>) — contém 7 versos.\n- O poema tem duas estrofes.\n\nComo os versos estão agrupados dessa forma, podemos usar diferentes operações matemáticas para calcular o total de sílabas métricas:\n\n- **Soma de cada sílaba métrica**: <math mathsize=\"1.5em\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>70</mn></mrow> </munderover> <mi>1</mi> <mo>=</mo> <mi>1 × (70)</mi> <mo>=</mo> <mi>70</mi></math>\n- **Soma de sílabas por estrofe**: <math mathsize=\"1.5em\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>7</mn></mrow> </munderover> <mi>5</mi> <mo>=</mo> <mi>7 × (5)</mi> <mo>=</mo> <mi>35</mi></math>. Como há duas estrofes, multiplicamos o resultado:  35 + 35 = 2 × (35) = 70\n- **Soma de sílabas por versos**: <math mathsize=\"1.5em\"> <munderover> <mo>∑</mo> <mrow> <mi>n</mi> <mo>=</mo> <mn>1</mn> </mrow> <mrow> <mn>14</mn></mrow> </munderover> <mi>5</mi> <mo>=</mo> <mi>14 × (5)</mi> <mo>=</mo> <mi>70</mi></math>. (Este caso será explorado em mais detalhes em outro texto.)\n\n#### Plotando os versos\n\nConsiderando que o número de sílabas métricas é constante em todos os versos, ao representá-los em um gráfico, os pontos no eixo vertical se concentrarão em um único valor:",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\">#### A tabuada de *Voltas*\n\nAntes de contarmos as sílabas do poema, destacamos os seguintes aspectos:\n\n- Cada verso (linha) do poema 'Voltas' possui exatamente 5 sílabas métricas.\n- Cada estrofe — conjunto de versos separados por linhas em branco (<htcite0>) — contém 7 versos.\n- O poema tem duas estrofes.\n\nComo os versos estão agrupados dessa forma, podemos usar diferentes operações matemáticas para calcular o total de sílabas métricas:\n\n- **Soma de cada sílaba métrica**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>70</mn></mrow></munderover><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>1 × (70)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>\n- **Soma de sílabas por estrofe**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>7</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>35</mi></math>. Como há duas estrofes, multiplicamos o resultado:  35 + 35 = 2 × (35) = 70\n- **Soma de sílabas por versos**: <math mathsize=\"1.5em\" displaystyle=\"false\"><munderover><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∑</mo><mrow><mi>n</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mn>1</mn></mrow><mrow><mn>14</mn></mrow></munderover><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14 × (5)</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>70</mi></math>. (Este caso será explorado em mais detalhes em outro texto.)\n\n#### Plotando os versos\n\nConsiderando que o número de sílabas métricas é constante em todos os versos, ao representá-los em um gráfico, os pontos no eixo vertical se concentrarão em um único valor:</div></div></center>",
                "source": [
                   {
                      "type": 1,
@@ -361,8 +374,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Sílabas métricas por verso no poema <i>Voltas</i>. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
-               "source": null,
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 2</b>: Sílabas métricas por verso no poema <i>Voltas</i>. Gráfico criado com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -397,8 +423,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgCopanStelaA\" onclick=\"htImageZoom('imgCopanStelaA', '0%')\" class=\"imgcenter\" style=\"width:30%\"/><b>Figura 1</b>: Estela A no Museu do Sítio Arqueológico de Copán, com a menção às cidades de Copán, Tikal, Calakmul e Palenque, nesta ordem (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1e007481-9bd3-4a09-ad4d-6e812fe79641'); return false;\">Instituto Hondureño de Antropologia e Historia, <htdate0></a>). Foto tirada em <htdate1>, durante uma visita ao sitio.</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"imgCopanStelaA\" onclick=\"htImageZoom('imgCopanStelaA', '0%')\" class=\"imgcenter\" style=\"width:30%\"/><b>Figura 1</b>: Estela A no Museu do Sítio Arqueológico de Copán, com a menção às cidades de Copán, Tikal, Calakmul e Palenque, nesta ordem (<htcite0>). Foto tirada em <htdate1>, durante uma visita ao sitio.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "1e007481-9bd3-4a09-ad4d-6e812fe79641",
+                     "text": "Instituto Hondureño de Antropologia e Historia",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "02",
+                        "day": "01"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -428,8 +467,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Hieróglifos por linha na Estela A. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
-               "source": null,
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Hieróglifos por linha na Estela A. Gráfico criado com a biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
