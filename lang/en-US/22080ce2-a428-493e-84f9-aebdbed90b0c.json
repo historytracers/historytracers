@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780787080"
+      "1780948258"
    ],
    "authors": null,
    "reviewers": null,
@@ -123,8 +123,8 @@
                      "date_time": {
                         "type": "",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   },
                   {
@@ -193,8 +193,8 @@
                      "date_time": {
                         "type": "",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   },
                   {
@@ -217,8 +217,8 @@
                      "date_time": {
                         "type": "",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -229,8 +229,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\"  class=\"imgcenter\"/><b>Figure 1</b>: Map of the \"world\" © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5e23a3eb-7323-44ab-b9e1-88acfd1e21a6'); return false;\"><i>The British Museum</i></a>). Shared under the <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>.</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"img0\" onclick=\"htImageZoom('img0', '0%')\"  class=\"imgcenter\"/><b>Figure 1</b>: Map of the \"world\" © Trustees of the British Museum (<htcite0>). Shared under the <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a>.</p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "5e23a3eb-7323-44ab-b9e1-88acfd1e21a6",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "This figure shows a clay tablet with inscriptions, featuring a central circle surrounded by triangles.",
@@ -260,8 +273,33 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\"  class=\"imgcenterlarge\"/><b>Figure 2</b>: Babylonian world map © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5e23a3eb-7323-44ab-b9e1-88acfd1e21a6'); return false;\"><i>The British Museum</i></a>) superimposed on the modern world map © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). Shariing under <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> license.</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"img1\" onclick=\"htImageZoom('img1', '0%')\"  class=\"imgcenterlarge\"/><b>Figure 2</b>: Babylonian world map © Trustees of the British Museum (<htcite0>) superimposed on the modern world map © Mapswire (<htcite1>). Shariing under <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> license.</p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "5e23a3eb-7323-44ab-b9e1-88acfd1e21a6",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "-1",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "In this image, we can see that the ancient Babylonian map represents only a fraction of our current understanding of the world.",
@@ -305,8 +343,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p>To measure objects, we use tools with markings that help us make comparisons. Let’s consider the use of a ruler in <b>Figure 4</b>:</p><p class=\"desc\"><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\"  class=\"imgcenter\"/><b>Figure 4</b>: Representation of a ruler measuring a line. The source code is available on the project’s GitHub (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0></a>).</p>",
-               "source": null,
+               "text": "<p>To measure objects, we use tools with markings that help us make comparisons. Let’s consider the use of a ruler in <b>Figure 4</b>:</p><p class=\"desc\"><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\"  class=\"imgcenter\"/><b>Figure 4</b>: Representation of a ruler measuring a line. The source code is available on the project’s GitHub (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "240800f3-ede4-4deb-9d4e-915a3a03fa68",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -331,8 +382,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2024",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],

@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780787085"
+      "1780938290"
    ],
    "authors": null,
    "reviewers": null,
@@ -145,8 +145,21 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img src=\"images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png\" id=\"imgUSG\" onclick=\"htImageZoom('imgUSG', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Ciclo del agua. Imagen de dominio público del Servicio Geológico de los Estados Unidos (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('490bc885-d393-4e26-a2c2-1ae2474b25f1'); return false;\">Ciclo d'água, <htdate0>, <i>U.S. Geological Survey</i></a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img src=\"images/USGS/USGS_WaterCycle_Spanish_ONLINE_20230302.png\" id=\"imgUSG\" onclick=\"htImageZoom('imgUSG', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Ciclo del agua. Imagen de dominio público del Servicio Geológico de los Estados Unidos (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "490bc885-d393-4e26-a2c2-1ae2474b25f1",
+                     "text": "U.S. Geological Survey",
+                     "page": "Ciclo d'água",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -213,8 +226,93 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-earth-americas\" style=\"font-size: 1em;\"></i> <i class=\"fa-solid fa-atom\" style=\"font-size: 1em;\"></i> <i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Geografía, Física y Matemática en la Historia</b><br /><br />La precipitación ocurre cuando el vapor de agua se condensa en gotas o cristales de hielo en la atmósfera. Cuando estas partículas crecen lo suficiente como para que el aire no pueda sostenerlas, se produce la lluvia (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('0402a255-b72b-4c7c-b12a-09c040343ed6'); return false;\">Discussión sobre humidad, <i>National Wheather Service</i></a>).<br /><br />La precipitación involucra principios fundamentales de la física. Según el modelo gravitacional de Newton, los objetos caen hacia el centro de la Tierra debido a la atracción gravitacional. En cambio, en el modelo de Einstein, la gravedad se interpreta como una curvatura del espacio-tiempo. En este contexto, el agua \"cae\" porque ya no hay presión suficiente para mantenerla suspendida (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('16797baa-f339-4753-8c5f-66dbfeae3abd'); return false;\">Stannard, W. B.</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('cd738b4d-32bd-4ea6-8aef-6653d961de19'); return false;\">Hossenfelder, Sabine</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('1df98dc5-523f-42ae-9a69-3e9410849ebb'); return false;\">Hossenfelder, Sabine</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('76b636be-45db-4e52-8ecd-5c873344f926'); return false;\">Lincoln, Don</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('d269a387-b20c-435e-ad52-0a6af4a852d7'); return false;\">Quantum Fracture</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('f140d8d6-80cc-4d82-b9f7-c3ba06bf2ed3'); return false;\">History Tracers Team</a>).<br /><br />Existe un límite de la cantidad de agua que el aire puede retener en la atmósfera antes de que ocurra la precipitación.</p><p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica: Haciendo llover (Parte II)</b><br /><br />1. Con el agua hirviendo en la olla, colócale una tapa y déjala así durante unos segundos.<br />2. Apaga el fuego y levanta la tapa con cuidado. Notarás que en la parte inferior de la tapa se han formado gotas de agua. Algunas de estas gotas caerán debido a la ausencia de presión del vapor que las mantenía adheridas.<br /><br /></p>",
-               "source": null,
+               "text": "<p><center><div class=\"first_steps_reflection_parent\" style=\"background-color: #D7FFE4;\"><div class=\"first_steps_reflection question_mark\" style=\"background-color: #D7FFE4;\"><i class=\"fa-solid fa-earth-americas\" style=\"font-size: 1em;\"></i> <i class=\"fa-solid fa-atom\" style=\"font-size: 1em;\"></i> <i class=\"fa-solid fa-infinity\" style=\"font-size: 1em;\"></i></div><div class=\"first_steps_reflection\" style=\"background-color: #D7FFE4;\"><b>Geografía, Física y Matemática en la Historia</b><br /><br />La precipitación ocurre cuando el vapor de agua se condensa en gotas o cristales de hielo en la atmósfera. Cuando estas partículas crecen lo suficiente como para que el aire no pueda sostenerlas, se produce la lluvia (<htcite0>).<br /><br />La precipitación involucra principios fundamentales de la física. Según el modelo gravitacional de Newton, los objetos caen hacia el centro de la Tierra debido a la atracción gravitacional. En cambio, en el modelo de Einstein, la gravedad se interpreta como una curvatura del espacio-tiempo. En este contexto, el agua \"cae\" porque ya no hay presión suficiente para mantenerla suspendida (<htcite1> ; <htcite2> ; <htcite3> ; <htcite4> ; <htcite5> ; <htcite6>).<br /><br />Existe un límite de la cantidad de agua que el aire puede retener en la atmósfera antes de que ocurra la precipitación.</p><p><center><div class=\"first_steps_lab_parent\"><div class=\"first_steps_lab question_mark\"><i class=\"fa-solid fa-microscope\"></i></div><div class=\"first_steps_lab\"><b>Práctica: Haciendo llover (Parte II)</b><br /><br />1. Con el agua hirviendo en la olla, colócale una tapa y déjala así durante unos segundos.<br />2. Apaga el fuego y levanta la tapa con cuidado. Notarás que en la parte inferior de la tapa se han formado gotas de agua. Algunas de estas gotas caerán debido a la ausencia de presión del vapor que las mantenía adheridas.<br /><br /></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "0402a255-b72b-4c7c-b12a-09c040343ed6",
+                     "text": "National Wheather Service",
+                     "page": "Discussión sobre humidad",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "16797baa-f339-4753-8c5f-66dbfeae3abd",
+                     "text": "Stannard, W. B.",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "cd738b4d-32bd-4ea6-8aef-6653d961de19",
+                     "text": "Hossenfelder, Sabine",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2021",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "1df98dc5-523f-42ae-9a69-3e9410849ebb",
+                     "text": "Hossenfelder, Sabine",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "76b636be-45db-4e52-8ecd-5c873344f926",
+                     "text": "Lincoln, Don",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2023",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "d269a387-b20c-435e-ad52-0a6af4a852d7",
+                     "text": "Quantum Fracture",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "f140d8d6-80cc-4d82-b9f7-c3ba06bf2ed3",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "25"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -348,8 +446,21 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgB\" onclick=\"htImageZoom('imgB', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: Mapa del mundo habitable. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5e23a3eb-7323-44ab-b9e1-88acfd1e21a6'); return false;\"><i>The British Museum</i></a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"imgB\" onclick=\"htImageZoom('imgB', '0%')\" class=\"imgcenter\"/><b>Figura 2</b>: Mapa del mundo habitable. © Trustees of the British Museum (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "5e23a3eb-7323-44ab-b9e1-88acfd1e21a6",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -379,8 +490,21 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgCradle\" onclick=\"htImageZoom('imgCradle', '0%')\" class=\"imgcenter\"/><b>Figura 3</b>: Mapa que muestra las cunas de civilización. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"imgCradle\" onclick=\"htImageZoom('imgCradle', '0%')\" class=\"imgcenter\"/><b>Figura 3</b>: Mapa que muestra las cunas de civilización. © Mapswire (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "-1",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -410,8 +534,33 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgCMP\" onclick=\"htImageZoom('imgCMP', '0%')\" class=\"imgcenter\"/><b>Figura 4</b>: Superposición del mapa antiguo sobre el mapa actual. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5e23a3eb-7323-44ab-b9e1-88acfd1e21a6'); return false;\"><i>The British Museum</i></a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"imgCMP\" onclick=\"htImageZoom('imgCMP', '0%')\" class=\"imgcenter\"/><b>Figura 4</b>: Superposición del mapa antiguo sobre el mapa actual. © Mapswire (<htcite0>). © Trustees of the British Museum (<htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "-1",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "5e23a3eb-7323-44ab-b9e1-88acfd1e21a6",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -563,8 +712,21 @@
                "PostMention": "."
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: La Dimensión del Diluvio</b><br /><br />Aunque el enfoque principal de este texto es el contexto histórico, mencionamos el Diluvio Sumerio, el relato más antiguo que tenemos registrado de un evento de este tipo. Según las narraciones, este episodio representó un exterminio masivo de la población. El sobreviviente, Ut-Napishtim, es conocido como el \"Noé Babilónico\", según el Museo Británico (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5e23a3eb-7323-44ab-b9e1-88acfd1e21a6'); return false;\">The British Museum</i></a>).<br /><br />Sin embargo, ¿cuál fue la verdadera dimensión del Diluvio Sumerio?</div></div></center></p>",
-               "source": null,
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexión 2: La Dimensión del Diluvio</b><br /><br />Aunque el enfoque principal de este texto es el contexto histórico, mencionamos el Diluvio Sumerio, el relato más antiguo que tenemos registrado de un evento de este tipo. Según las narraciones, este episodio representó un exterminio masivo de la población. El sobreviviente, Ut-Napishtim, es conocido como el \"Noé Babilónico\", según el Museo Británico (<htcite0>).<br /><br />Sin embargo, ¿cuál fue la verdadera dimensión del Diluvio Sumerio?</div></div></center></p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "5e23a3eb-7323-44ab-b9e1-88acfd1e21a6",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -597,7 +759,7 @@
       {
          "question": "¿El hecho de que la palabra <i>nagu</i> tenga diferentes significados confirma que debemos ser cuidadosos al interpretar los textos?",
          "yesNoAnswer": "Yes",
-         "additionalInfo": "Como se señaló en textos previos y se reafirma aquí, las palabras están profundamente vinculadas a su contexto y su significado puede evolucionar con el tiempo. Un ejemplo de esta transformación semántica es la palabra <i>nagu</i> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('79ea767b-924d-43e3-9bea-a8195b536dde'); return false;\">Sabino, Marilei A.</a>)."
+         "additionalInfo": "Como se señaló en textos previos y se reafirma aquí, las palabras están profundamente vinculadas a su contexto y su significado puede evolucionar con el tiempo. Un ejemplo de esta transformación semántica es la palabra <i>nagu</i>."
       }
    ],
    "game_v2": null,

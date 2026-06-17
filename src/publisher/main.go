@@ -70,6 +70,21 @@ func htRunStopFlags() {
 		stopRun = true
 	}
 
+	if len(langTestFlag) > 0 {
+		htLangTest(langTestFlag)
+		stopRun = true
+	}
+
+	if globalLangTestFlag {
+		htGlobalLangTest()
+		stopRun = true
+	}
+
+	if checkSourcesFlag {
+		htCheckSources()
+		stopRun = true
+	}
+
 	if stopRun {
 		os.Exit(0)
 	}

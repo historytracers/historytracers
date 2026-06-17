@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780787082"
+      "1781449448"
    ],
    "authors": null,
    "reviewers": null,
@@ -39,8 +39,21 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p>",
-               "source": null,
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htChartMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "05",
+                        "day": "11"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -133,8 +146,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representación de una regla midiendo una línea. El código fuente está disponible en el GitHub del proyecto (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('240800f3-ede4-4deb-9d4e-915a3a03fa68'); return false;\">History Tracers Team, <htdate0></a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"img4\" onclick=\"htImageZoom('img4', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Representación de una regla midiendo una línea. El código fuente está disponible en el GitHub del proyecto (<htcite0>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "240800f3-ede4-4deb-9d4e-915a3a03fa68",
+                     "text": "History Tracers Team",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -151,7 +177,7 @@
                      "page": "Inversión",
                      "date_time": {
                         "type": "gregory",
-                        "year": "2024",
+                        "year": "2025",
                         "month": "-1",
                         "day": "-1"
                      }
@@ -201,8 +227,8 @@
                      "date_time": {
                         "type": "",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -236,7 +262,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><math mathsize=\"1.5em\"><mi>r</mi> <mo>=</mo> <mi>a</mi> <mo>×</mo> <mi>N</mi> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Fórmula general de las tablas de multiplicar.</p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>r</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>a</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">×</mo><mi>N</mi></math></p><p class=\"desc\"><b>Fórmula 1</b>: Fórmula general de las tablas de multiplicar.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -263,7 +289,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Puntos de la tabla del ocho conectados, formando una línea recta. Gráfico generado con la biblioteca <a href=\"#\" onclick=\"htcleansources(); htfillreferencesource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Puntos de la tabla del ocho conectados, formando una línea recta. Gráfico generado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -281,7 +307,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Puntos de las tablas del dos, cuatro y ocho conectados, formando una línea recta. Gráfico hecho con la biblioteca <a href=\"#\" onclick=\"htcleansources(); htfillreferencesource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
+               "text": "<p><div class=\"htchart\"><canvas aria-label=\"chart\" id=\"chart2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Puntos de las tablas del dos, cuatro y ocho conectados, formando una línea recta. Gráfico hecho con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -360,8 +386,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -372,8 +398,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p class=\"desc\"><img id=\"gc\" onclick=\"htImageZoom('gc', '0%')\" class=\"imgcenter\" style=\"width:30%\"/><b>Figura 2</b>: Templo Gran Jaguar en Tikal, Guatemala (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('7ee4e8f6-3f68-4dbc-ad17-3b39f9964ef2'); return false;\">Parque Nacional Tikal</a>). Foto tomada el <htdate0>, durante una visita al sitio.</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"gc\" onclick=\"htImageZoom('gc', '0%')\" class=\"imgcenter\" style=\"width:30%\"/><b>Figura 2</b>: Templo Gran Jaguar en Tikal, Guatemala (<htcite0>). Foto tomada el <htdate0>, durante una visita al sitio.</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "7ee4e8f6-3f68-4dbc-ad17-3b39f9964ef2",
+                     "text": "Parque Nacional Tikal",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "07",
+                        "day": "04"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -398,8 +437,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2015",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -445,8 +484,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "1998",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   },
                   {
@@ -457,8 +496,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "1998",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   },
                   {
@@ -469,8 +508,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "1902",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   },
                   {
@@ -481,8 +520,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "1972",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -559,8 +598,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 6</b>: Puntos de la tabla del nueve conectados, formando una recta. Gráfico generado con <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
-               "source": null,
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart3\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 6</b>: Puntos de la tabla del nueve conectados, formando una recta. Gráfico generado con <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -577,8 +629,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 7</b>: Puntos de las tablas del cero al nueve conectados, formando las rectas. Gráfico creado con la biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p>",
-               "source": null,
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chart4\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 7</b>: Puntos de las tablas del cero al nueve conectados, formando las rectas. Gráfico creado con la biblioteca <htcite0>.</div></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

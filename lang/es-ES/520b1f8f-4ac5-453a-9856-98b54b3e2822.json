@@ -22,7 +22,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1779821361"
+      "1781403715"
    ],
    "authors": [
       ""
@@ -112,7 +112,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><math display=\"block\"><mi>sec (θ)</mi> <mn>=</mn> <mfrac><mi>1</mi><mi>cos (θ)</mi></mfrac></p> <p class=\"desc\"><b>Fórmula 1</b>: Definición de la secante.</p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>sec (θ)</mi><mn>=</mn><mfrac><mi>1</mi><mi>cos (θ)</mi></mfrac></math></p> <p class=\"desc\"><b>Fórmula 1</b>: Definición de la secante.</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -155,7 +155,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><math display=\"block\"><mi>tan (θ)</mi> <mn>=</mn> <mfrac><mi>sen(θ)</mi><mi>cos (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definición de la tangente según las funciones trigonométricas.</p>",
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\" displaystyle=\"false\"><mi>tan (θ)</mi><mn>=</mn><mfrac><mi>sen(θ)</mi><mi>cos (θ)</mi></mfrac></math></p><p class=\"desc\"><b>Fórmula 2</b>: Definición de la tangente según las funciones trigonométricas.</p></div></div></center>",
                "source": [],
                "date_time": null,
                "isTable": false,
@@ -186,8 +186,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartsec1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Gráfico Gráfico de la función secante. Gráfico creado con la librería <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotSecant('chartsec1', 'teta (radianos)', 'secante (θ)', 1);</script>",
-               "source": [],
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"chartsec1\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 3</b>: Gráfico Gráfico de la función secante. Gráfico creado con la librería <htcite0>.</div></p><script> htPlotSecant('chartsec1', 'teta (radianos)', 'secante (θ)', 1);</script>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -204,8 +217,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"charttan2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Gráfico de la función tangente. Gráfico creado con la librería <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotTan('charttan2', 1);</script>",
-               "source": [],
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"charttan2\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 4</b>: Gráfico de la función tangente. Gráfico creado con la librería <htcite0>.</div></p><script> htPlotTan('charttan2', 1);</script>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

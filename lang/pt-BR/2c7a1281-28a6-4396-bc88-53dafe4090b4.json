@@ -28,7 +28,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1780787091"
+      "1780938301"
    ],
    "authors": null,
    "reviewers": null,
@@ -40,8 +40,21 @@
          "id": "SECTION_prerequisites",
          "text": [
             {
-               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('160fb48c-1711-491e-a1aa-e1257e7889af'); return false;\">Porto-Gonçalves, Carlos Walter, <htdate0>, pp. 39-43</a>).</p><p class=\"topdesc\"><i>As siglas A.E.C. (Antes da Era Comum) e B.C.E. (Before Common Era) ) usadas abaixo, juntamente com o conceito de anos negativos, são convenções gerais utilizadas para representar períodos anteriores à primeira data registrada nos calendários.</i></p>",
-               "source": null,
+               "text": "<p><span id=\"htZoomImageMsg\"></span></p><p><span id=\"htAmericaAbyaYalaMsg\"></span> (<htcite0>).</p><p class=\"topdesc\"><i>As siglas A.E.C. (Antes da Era Comum) e B.C.E. (Before Common Era) ) usadas abaixo, juntamente com o conceito de anos negativos, são convenções gerais utilizadas para representar períodos anteriores à primeira data registrada nos calendários.</i></p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "160fb48c-1711-491e-a1aa-e1257e7889af",
+                     "text": "Porto-Gonçalves, Carlos Walter",
+                     "page": "pp. 39-43",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2011",
+                        "month": "05",
+                        "day": "11"
+                     }
+                  }
+               ],
                "date_time": [
                   {
                      "type": "gregory",
@@ -404,8 +417,33 @@
                "PostMention": "."
             },
             {
-               "text": "<p class=\"desc\"><img id=\"imgCMP\" onclick=\"htImageZoom('imgCMP', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Sobreposição do mapa antigo sobre o mapa atual. © Mapswire (<a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc'); return false;\"><i>Mapswire</i></a>). © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('5e23a3eb-7323-44ab-b9e1-88acfd1e21a6'); return false;\"><i>The British Museum</i></a>).</p>",
-               "source": null,
+               "text": "<p class=\"desc\"><img id=\"imgCMP\" onclick=\"htImageZoom('imgCMP', '0%')\" class=\"imgcenter\"/><b>Figura 1</b>: Sobreposição do mapa antigo sobre o mapa atual. © Mapswire (<htcite0>). © Trustees of the British Museum (<htcite1>).</p>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "dd4f3c8a-6624-4df5-93ac-37e0a4be9fdc",
+                     "text": "Mapswire",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "-1",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "5e23a3eb-7323-44ab-b9e1-88acfd1e21a6",
+                     "text": "The British Museum",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "12",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -435,8 +473,33 @@
                "PostMention": "."
             },
             {
-               "text": "<p><table><tr style=\"background-color:tan\"><th>Épico de Gilgamesh</th><th>Épico de Atrahasis</th></tr><tr><td><img id=\"imgG\" onclick=\"htImageZoom('imgG', '0%')\" style=\"width:90%;\" /></td><td><img id=\"imgA\" onclick=\"htImageZoom('imgA', '0%')\" style=\"width:90%\" /></td></tr><tr><td colspan=\"2\" style=\"text-align: center; font-size: 70%;\"><b>Figura 2</b>: À esquerda, o Tablet do Dilúvio; à direita, o Tablet Babilônico sobre o Dilúvio. © Trustees of the British Museum (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('bab0a6a1-d2a4-46b3-8d86-f33e3ad035d6'); return false;\">The British Museum, Tablet do Dilúvio</a> ; <a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('7560d3c3-e055-47a8-a90f-cf8d788103d9'); return false;\">The British Museum, Tablet Babilônico</a>)</td></tr></table></p>",
-               "source": null,
+               "text": "<p><table><tr style=\"background-color:tan\"><th>Épico de Gilgamesh</th><th>Épico de Atrahasis</th></tr><tr><td><img id=\"imgG\" onclick=\"htImageZoom('imgG', '0%')\" style=\"width:90%;\" /></td><td><img id=\"imgA\" onclick=\"htImageZoom('imgA', '0%')\" style=\"width:90%\" /></td></tr><tr><td colspan=\"2\" style=\"text-align: center; font-size: 70%;\"><b>Figura 2</b>: À esquerda, o Tablet do Dilúvio; à direita, o Tablet Babilônico sobre o Dilúvio. © Trustees of the British Museum (<htcite0> ; <htcite1>)</td></tr></table></p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "bab0a6a1-d2a4-46b3-8d86-f33e3ad035d6",
+                     "text": "The British Museum",
+                     "page": "Tablet do Dilúvio",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "01",
+                        "day": "02"
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "7560d3c3-e055-47a8-a90f-cf8d788103d9",
+                     "text": "The British Museum",
+                     "page": "Tablet Babilônico",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "01",
+                        "day": "02"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",

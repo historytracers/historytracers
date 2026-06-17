@@ -27,7 +27,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1777559986"
+      "1781271538"
    ],
    "authors": null,
    "reviewers": null,
@@ -65,8 +65,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -361,8 +361,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -373,7 +373,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><math mathsize=\"1.5em\"><mi>Certeza</mi> <mo>∝</mo> <mfrac><mrow> <mn>1</mn></mrow><mrow><mn>Conhecimento</mn><mrow> </mfrac> </math></center></p><p class=\"desc\"><b>Fórmula 1</b>: Relação inversamente proporcional entre certeza e conhecimento.</p>",
+               "text": "<p><math displaystyle=\"false\" mathsize=\"1.5em\"><mi>Certeza</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∝</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>Conhecimento</mn></mrow></mfrac></math></p><p class=\"desc\"><b>Fórmula 1</b>: Relação inversamente proporcional entre certeza e conhecimento.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -392,8 +392,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],
@@ -404,7 +404,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><math mathsize=\"1.5em\"><mi>Certeza</mi> <mo>∝</mo> <mfrac><mrow> <mn>1</mn></mrow><mrow><mn>Conhecimento</mn><mrow> </mfrac> </math></center></p> <p><center><math mathsize=\"1.5em\"><mi>Certeza</mi> <mo>=</mo> <mfrac><mrow> <mn>K</mn></mrow><mrow><mn>Conhecimento</mn><mrow> </mfrac> </math></center></p> <p><center><math mathsize=\"1.5em\"><mi>Certeza</mi> <mo>=</mo> <mfrac><mrow> <mn>1</mn></mrow><mrow><mn>Conhecimento</mn><mrow> </mfrac> </math></center></p> <p class=\"desc\"><b>Cálculo 1</b>: Relação entre certeza e conhecimento.</p>",
+               "text": "<p><math displaystyle=\"false\" mathsize=\"1.5em\"><mi>Certeza</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">∝</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>Conhecimento</mn></mrow></mfrac></math></p> <p><math displaystyle=\"false\" mathsize=\"1.5em\"><mi>Certeza</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>K</mn></mrow><mrow><mn>Conhecimento</mn></mrow></mfrac></math></p> <p><math displaystyle=\"false\" mathsize=\"1.5em\"><mi>Certeza</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>Conhecimento</mn></mrow></mfrac></math></p> <p class=\"desc\"><b>Cálculo 1</b>: Relação entre certeza e conhecimento.</p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -422,8 +422,21 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"inverse\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Relação entre certeza e conhecimento. Gráfico criado com a biblioteca <a href=\"#\" onclick=\"htCleanSources(); htFillReferenceSource('b77ec8fc-c988-45f3-82f8-03b136bf1aa9'); return false;\">Chart JS</a>.</div></p><script> htPlotInverse('inverse', 'Conhecimento', 'Certeza');</script>",
-               "source": null,
+               "text": "<p><div class=\"htChart\"><canvas aria-label=\"chart\" id=\"inverse\" style=\"width:30em !important; height:20em !important;\"></canvas></p><p class=\"desc\"><b>Gráfico 1</b>: Relação entre certeza e conhecimento. Gráfico criado com a biblioteca <htcite0>.</div></p><script> htPlotInverse('inverse', 'Conhecimento', 'Certeza');</script>",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "b77ec8fc-c988-45f3-82f8-03b136bf1aa9",
+                     "text": "Chart JS",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "05",
+                        "day": "30"
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -441,8 +454,8 @@
                      "date_time": {
                         "type": "gregory",
                         "year": "2025",
-                        "month": "",
-                        "day": ""
+                        "month": "-1",
+                        "day": "-1"
                      }
                   }
                ],

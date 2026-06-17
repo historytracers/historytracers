@@ -20,6 +20,7 @@ function htLoadContent() {
     htSetImageSrc("ChronologyTeotihuacan", "images/Teotihuacan/TeotihuacanGeneral.jpg")
     htSetImageSrc("ChronologyTeotihuacan2", "images/Teotihuacan/TeotihuacanMountains.jpg")
     htSetImageSrc("imgCopanTemple", "images/Copan/Temple16Copan.png")
+    htSetImageSrc("imgMoutains", "images/Mapswire/continent_na-physical-map-north-america-robinson-269.jpg");
     htSetImageSrc("pyramid", "images/HistoryTracers/pyramid.jpg")
     return false;
 }
