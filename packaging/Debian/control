@@ -12,3 +12,18 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Teaching is often a daily challenge for both students and teachers,
  each for different reasons.
  Our goal is to support both sides of the learning process by providing diverse tools.
+
+Package: historytracers-images
+Architecture: all
+Depends: historytracers (= ${binary:Version})
+Description: Images for History Tracers
+ Provides the image files used by the History Tracers viewer,
+ excluding the img_options.json configuration file.
+
+Package: historytracers-devel
+Architecture: all
+Depends: ${misc:Depends}
+Description: Development files for History Tracers
+ Source code and development files for the History Tracers
+ teaching tool.  Contains the complete repository source tree
+ excluding the pre-built www/ directory.
