@@ -1318,6 +1318,92 @@ function jd_to_aymara(jd)
     return new Array(year, month, day);
 }
 
+/*  MAPUCHE CALENDAR  */
+
+//  The Mapuche calendar (Rakin Txipantu) is a solar calendar used by
+//  the Mapuche people of Chile and Argentina.  The year begins at the
+//  winter solstice in the Southern Hemisphere (June 21), known as
+//  We Tripantu ("new sunrise").  Each year has 13 months (küyen) of
+//  28 days, named after seasonal phenomena, totalling 364 days.  An
+//  intercalary day is added to month 9 (Trüntarü Küyen, "Termites
+//  month") when the following Gregorian year is a leap year.
+//
+//  Year counting uses an epoch offset of +10467, based on the
+//  traditional reckoning that year 12008 began at the winter solstice
+//  of 1541 CE (the Spanish arrival).
+//
+//  Month names (Mapudungun):
+//    1  We Tripantu Küyen         (New Year)           Jun 21 - Jul 18  28
+//    2  Llitunül Wilki Küyen      (Song thrush/frog)   Jul 19 - Aug 15  28
+//    3  Llitun Pofpof Anümka Küyen (Sprouts)           Aug 16 - Sep 12  28
+//    4  Rayen Awar Küyen          (Beans flower)       Sep 13 - Oct 11  28
+//    5  Longkon Kachilla Küyen    (Ears of grain)      Oct 12 - Nov 08  28
+//    6  Karü Kachilla Küyen       (Green wheat)        Nov 09 - Dec 06  28
+//    7  Kudewallüng Küyen         (Fireflies)          Dec 07 - Jan 03  28
+//    8  Püramuwün Kachilla Küyen  (Harvest / Heat)     Jan 04 - Jan 31  28
+//    9  Trüntarü Küyen            (Termites)           Feb 01 - Feb 28  29/30
+//   10  Ngülliw Küyen             (Pine nuts)          Mar 01 - Mar 28  28
+//   11  Malliñ Ko Küyen           (Water in plains)    Mar 29 - Apr 25  28
+//   12  Trangliñ Küyen            (Frosts)             Apr 26 - May 23  28
+//   13  Mawün Kürüf Küyen         (Rain and wind)      May 24 - Jun 20  28
+
+var mapucheMonths = [
+    "", "We Tripantu Küyen", "Llitunül Wilki Küyen",
+    "Llitun Pofpof Anümka Küyen", "Rayen Awar Küyen",
+    "Longkon Kachilla Küyen", "Karü Kachilla Küyen",
+    "Kudewallüng Küyen", "Püramuwün Kachilla Küyen",
+    "Trüntarü Küyen", "Ngülliw Küyen",
+    "Malliñ Ko Küyen", "Trangliñ Küyen",
+    "Mawün Kürüf Küyen"
+];
+
+var mapucheMonthDays = [0, 28, 28, 28, 28, 28, 28, 28, 28, 29, 28, 28, 28, 28];
+
+function mapucheLeapYear(year)
+{
+    return leap_gregorian(year - 10466);
+}
+
+function mapuche_to_jd(year, month, day)
+{
+    var gregYear = year - 10467;
+    var jdStart = gregorian_to_jd(gregYear, 6, 21);
+    var doy = 0;
+    for (var m = 1; m < month; m++) {
+        doy += mapucheMonthDays[m];
+        if (m == 9) doy += mapucheLeapYear(year) ? 1 : 0;
+    }
+    doy += day - 1;
+    return jdStart + doy;
+}
+
+function jd_to_mapuche(jd)
+{
+    jd = Math.floor(jd) + 0.5;
+    var greg = jd_to_gregorian(jd);
+    var gregYear = greg[0];
+    var jdStart = gregorian_to_jd(gregYear, 6, 21);
+    if (jd < jdStart) {
+        gregYear--;
+        jdStart = gregorian_to_jd(gregYear, 6, 21);
+    }
+    var year = gregYear + 10467;
+    var doy = jd - jdStart;
+    var month = 1, day = 1;
+    var cum = 0;
+    for (var m = 1; m <= 13; m++) {
+        var md = mapucheMonthDays[m];
+        if (m == 9) md += mapucheLeapYear(year) ? 1 : 0;
+        if (doy < cum + md) {
+            month = m;
+            day = doy - cum + 1;
+            break;
+        }
+        cum += md;
+    }
+    return new Array(year, month, day);
+}
+
 /*  INCA CALENDAR  */
 
 //  The ancient Inca calendar (Tawantinsuyu) is a solar calendar used

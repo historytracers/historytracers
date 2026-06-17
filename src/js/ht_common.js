@@ -472,6 +472,11 @@ function htConvertDate(calendarType, locale, unixEpoch, julianEpoch, gregorianDa
             year = (ayc[0] < 0) ? Math.abs(ayc[0]) + " " + keywords[43] : ayc[0];
             text = ayc[2] + " " + aymaraMonths[ayc[1]] + ", " + year;
             return text;
+        case "mapuche":
+            var mapc = jd_to_mapuche(julianDays);
+            year = (mapc[0] < 0) ? Math.abs(mapc[0]) + " " + keywords[43] : mapc[0];
+            text = mapc[2] + " " + mapucheMonths[mapc[1]] + ", " + year;
+            return text;
         case "javanese":
             var javc = jd_to_javanese(julianDays);
             year = (javc[0] < 0) ? Math.abs(javc[0]) + " " + keywords[43] : javc[0];
@@ -569,6 +574,9 @@ function htConvertGregorianYear(test, gregoryYear)
                 break;
             case "aymara":
                 converted = jd_to_aymara(jd);
+                break;
+            case "mapuche":
+                converted = jd_to_mapuche(jd);
                 break;
             case "javanese":
                 converted = jd_to_javanese(jd);
@@ -2751,6 +2759,7 @@ function htFillWebPage(page, data)
         if (data.chinese_stems) chineseStems = data.chinese_stems;
         if (data.chinese_branches) chineseBranches = data.chinese_branches;
         if (data.aymara_months) aymaraMonths = data.aymara_months;
+        if (data.mapuche_months) mapucheMonths = data.mapuche_months;
         if (data.inca_months) incaMonths = data.inca_months;
         if (data.javanese_months) javaneseMonths = data.javanese_months;
         if (data.japanese_months) japaneseMonths = data.japanese_months;
