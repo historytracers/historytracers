@@ -593,6 +593,61 @@ func htWriteAudioFile(fileName string, lang string, content string) error {
 	return nil
 }
 
+type indexContentItem struct {
+	ID        string `json:"id"`
+	Value     string `json:"value,omitempty"`
+	HTMLValue string `json:"html_value,omitempty"`
+}
+
+type indexFile struct {
+	Title   string             `json:"title"`
+	Header  string             `json:"header"`
+	Content []indexContentItem `json:"content"`
+}
+
+func htUpdateFeedInAllLangs(pageType string, arg string, displayName string) {
+	link := fmt.Sprintf(`<a href="index.html?page=%s&arg=%s" onclick="htLoadPage('%s','html', '%s', false); return false;">%s</a>`, pageType, arg, pageType, arg, displayName)
+	for _, dir := range htLangPaths {
+		idxPath := fmt.Sprintf("%slang/%s/index.json", CFG.SrcPath, dir)
+		byteValue, err := htOpenFileReadClose(idxPath)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR reading %s: %v\n", idxPath, err)
+			continue
+		}
+		var idx indexFile
+		err = json.Unmarshal(byteValue, &idx)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR parsing %s: %v\n", idxPath, err)
+			continue
+		}
+		found := false
+		for i := range idx.Content {
+			if idx.Content[i].ID == "sbFeed" {
+				idx.Content[i].HTMLValue = link
+				found = true
+				break
+			}
+		}
+		if !found {
+			fmt.Fprintf(os.Stderr, "WARNING: sbFeed not found in %s\n", idxPath)
+			continue
+		}
+		tmpFile, err := htWriteTmpFile(dir, &idx)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR writing tmp %s: %v\n", idxPath, err)
+			continue
+		}
+		err = HTCopyFilesWithoutChanges(idxPath, tmpFile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR copying %s: %v\n", idxPath, err)
+		}
+		err = os.Remove(tmpFile)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "ERROR removing tmp %s: %v\n", tmpFile, err)
+		}
+	}
+}
+
 func htWriteTmpFile(lang string, data interface{}) (string, error) {
 	id := uuid.New()
 	strID := id.String()
