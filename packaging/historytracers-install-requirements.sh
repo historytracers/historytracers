@@ -44,6 +44,9 @@ detect_distro() {
             solus)
                 DISTRO="solus"
                 ;;
+            freebsd)
+                DISTRO="freebsd"
+                ;;
             *)
                 echo "Unsupported distribution: $ID"
                 exit 1
@@ -64,6 +67,10 @@ detect_distro() {
     elif [ -f /etc/SuSE-release ]; then
         DISTRO="opensuse"
         DISTRO_ID="opensuse"
+    elif [ "$(uname -s)" = "FreeBSD" ]; then
+        DISTRO="freebsd"
+        DISTRO_ID="freebsd"
+        DISTRO_VERSION="$(uname -r)"
     else
         echo "Cannot detect distribution."
         exit 1
@@ -354,6 +361,35 @@ install_solus() {
     echo "Dependencies installed successfully."
 }
 
+install_freebsd() {
+    echo "Detected FreeBSD ($DISTRO_VERSION)"
+    if ! command -v pkg >/dev/null 2>&1; then
+        echo "pkg not found. Bootstrap it first:"
+        echo "  pkg bootstrap"
+        exit 1
+    fi
+    pkg install -y \
+        autoconf \
+        automake \
+        gmake \
+        gcc \
+        go \
+        pkgconf \
+        gtk3 \
+        webkit2gtk41 \
+        mesa-libs \
+        libX11 \
+        libXrandr \
+        libXinerama \
+        libXcursor \
+        libXi \
+        libXxf86vm \
+        cairo \
+        pango \
+        gdk-pixbuf2
+    echo "Dependencies installed successfully."
+}
+
 main() {
     if [ "$(id -u)" -ne 0 ]; then
         echo "This script must be run as root (use sudo)."
@@ -373,6 +409,7 @@ main() {
         gentoo)   install_gentoo ;;
         slackware) install_slackware ;;
         solus)    install_solus ;;
+        freebsd)  install_freebsd ;;
         *)
             echo "Unsupported distribution: $DISTRO_ID"
             exit 1
