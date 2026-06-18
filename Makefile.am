@@ -1,10 +1,8 @@
 # Build configuration
 PUBLISHERBINARY_NAME = historytracers-publisher$(GO_EXEEXT)
-EDITORBINARY_NAME = historytracers-editor$(GO_EXEEXT)
 VIEWERBINARY_NAME = historytracers$(GO_EXEEXT)
 BUILD_DIR = build
 PUBLISHERSRC_DIR = src/publisher
-EDITORSRC_DIR = src/editor
 VIEWERSRC_DIR = src/viewer
 
 # Go compiler wrapper that ensures its bin dir is in PATH and GOROOT is set
@@ -14,7 +12,7 @@ GO_RUN = PATH="$(GO_BIN_DIR):$(PATH)" GOROOT="$(GO_GOROOT)" "$(GO_COMPILER)"
 AUTOMAKE_OPTIONS = foreign
 
 # What to distribute
-EXTRA_DIST = $(PUBLISHERSRC_DIR)/main.go $(EDITORSRC_DIR)/main.go $(VIEWERSRC_DIR)/main.go
+EXTRA_DIST = $(PUBLISHERSRC_DIR)/main.go $(VIEWERSRC_DIR)/main.go
 
 # Custom targets for Go building
 all-local: publisher viewer
@@ -24,9 +22,6 @@ publisher:
 	@mkdir -p $(BUILD_DIR)
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) mod download && $(GO_RUN) mod tidy && $(GO_RUN) fmt ./...
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) build $(GO_BUILD_FLAGS) -o ../../$(BUILD_DIR)/$(PUBLISHERBINARY_NAME) .
-
-editor:
-	@echo "Skipping editor build (disabled)"
 
 viewer:
 	@echo "Building $(VIEWERBINARY_NAME)..."
@@ -38,7 +33,6 @@ install-exec-local:
 	@echo "Installing binaries to $(DESTDIR)$(bindir)..."
 	$(MKDIR_P) $(DESTDIR)$(bindir)
 	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(PUBLISHERBINARY_NAME) $(DESTDIR)$(bindir)/$(PUBLISHERBINARY_NAME)
-	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(EDITORBINARY_NAME) $(DESTDIR)$(bindir)/$(EDITORBINARY_NAME)
 	$(INSTALL_PROGRAM) $(BUILD_DIR)/$(VIEWERBINARY_NAME) $(DESTDIR)$(bindir)/$(VIEWERBINARY_NAME)
 
 clean-local:
@@ -52,21 +46,17 @@ deps:
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) get github.com/google/uuid
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) get -u github.com/tdewolff/minify/v2
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) get github.com/BurntSushi/toml@latest
-	cd $(EDITORSRC_DIR) && $(GO_RUN) get fyne.io/fyne/v2@latest
 
 update-deps:
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) get all && $(GO_RUN) mod tidy
-	cd $(EDITORSRC_DIR) && $(GO_RUN) get all && $(GO_RUN) mod tidy
 	cd $(VIEWERSRC_DIR) && $(GO_RUN) get all && $(GO_RUN) mod tidy
 
 test:
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) test ./...
-	cd $(EDITORSRC_DIR) && $(GO_RUN) test ./...
 	cd $(VIEWERSRC_DIR) && $(GO_RUN) test ./...
 
 fmt:
 	cd $(PUBLISHERSRC_DIR) && $(GO_RUN) fmt ./...
-	cd $(EDITORSRC_DIR) && $(GO_RUN) fmt ./...
 	cd $(VIEWERSRC_DIR) && $(GO_RUN) fmt ./...
 
 dev: 

@@ -15,6 +15,7 @@ import (
 	"net/url"
 	"os"
 	"os/exec"
+	"path"
 	"path/filepath"
 	"runtime"
 	"sort"
@@ -938,9 +939,52 @@ func writeHistoryLocked(entries []historyEntry) {
 	w.Flush()
 }
 
-type liveDir struct{}
+var projectFiles map[string]bool
+var projectFilesOnce sync.Once
 
-func (liveDir) Open(name string) (http.File, error) {
+func initProjectFiles() {
+	projectFiles = make(map[string]bool)
+	err := filepath.Walk(contentDir, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if info.IsDir() {
+			return nil
+		}
+		rel, err := filepath.Rel(contentDir, path)
+		if err != nil {
+			return nil
+		}
+		projectFiles["/"+filepath.ToSlash(rel)] = true
+		return nil
+	})
+	if err != nil {
+		log.Printf("Warning: cannot scan %s: %v", contentDir, err)
+	}
+}
+
+func isAllowedProjectFile(name string) bool {
+	clean := path.Clean(name)
+	if projectFiles[clean] {
+		return true
+	}
+	// Allow directory listing for root so FileServer can find index.html
+	if clean == "/" || clean == "." {
+		return true
+	}
+	// http.FileServer may request bare filename for root directory
+	if clean == "index.html" && projectFiles["/index.html"] {
+		return true
+	}
+	return false
+}
+
+type projectFS struct{}
+
+func (projectFS) Open(name string) (http.File, error) {
+	if !isAllowedProjectFile(name) {
+		return nil, os.ErrNotExist
+	}
 	return http.Dir(contentDir).Open(name)
 }
 
@@ -966,6 +1010,7 @@ func main() {
 	if *path != "" {
 		contentDir = *path
 	}
+	initProjectFiles()
 
 	if *logFile != "" {
 		f, err := os.Create(*logFile)
@@ -1063,7 +1108,7 @@ func main() {
 	mux.HandleFunc("/api/options/page", optionsPageHandler)
 	mux.HandleFunc("/api/options", optionsHandler)
 	mux.HandleFunc("/metrics", metricsHandler)
-	mux.Handle("/", metricsMiddleware(logMiddleware(http.FileServer(liveDir{}))))
+	mux.Handle("/", metricsMiddleware(logMiddleware(http.FileServer(projectFS{}))))
 
 	srv = &http.Server{Addr: addr, Handler: mux}
 
