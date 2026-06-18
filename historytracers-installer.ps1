@@ -60,56 +60,6 @@ try {
     Pop-Location
 }
 
-Write-Host "=== Building editor ==="
-$mingwCandidates = @(
-    "C:\msys64\ucrt64\bin\x86_64-w64-mingw32-gcc.exe",
-    "C:\msys64\mingw64\bin\x86_64-w64-mingw32-gcc.exe",
-    "C:\msys64\mingw32\bin\x86_64-w64-mingw32-gcc.exe",
-    "C:\msys64\clang64\bin\x86_64-w64-mingw32-gcc.exe"
-)
-$mingwGcc = $null
-foreach ($cand in $mingwCandidates) {
-    if (Test-Path -LiteralPath $cand) {
-        $mingwGcc = $cand
-        break
-    }
-}
-# Also try PATH
-if (-not $mingwGcc) {
-    $which = Get-Command "x86_64-w64-mingw32-gcc.exe" -ErrorAction SilentlyContinue
-    if ($which) { $mingwGcc = $which.Source }
-}
-if (-not $mingwGcc) {
-    $which = Get-Command "mingw32-gcc.exe" -ErrorAction SilentlyContinue
-    if ($which) { $mingwGcc = $which.Source }
-}
-
-if ($mingwGcc) {
-    $mingwDir = (Get-Item $mingwGcc).Directory.FullName
-    $mingwCxx = $mingwGcc -replace 'gcc\.exe$', 'g++.exe'
-    if (-not (Test-Path -LiteralPath $mingwCxx)) { $mingwCxx = $mingwGcc }
-
-    $editorLdflags = "-X main.confPath=$confFile -X main.srcPath=$srcPath -X main.contentPath=$contentPath -X main.logPath=$logPath"
-    Push-Location "src\editor"
-    try {
-        $env:CC = $mingwGcc
-        $env:CXX = $mingwCxx
-        $env:CGO_ENABLED = "1"
-        $oldPath = $env:PATH
-        $env:PATH = "$env:GOROOT\bin;$mingwDir;$oldPath"
-        go mod download
-        go mod tidy
-        go build -ldflags $editorLdflags -o "..\..\build\historytracers-editor.exe" .
-    } finally {
-        $env:PATH = $oldPath
-        Pop-Location
-    }
-    Write-Host "=== Editor built successfully ==="
-} else {
-    Write-Host "=== MinGW-w64 not found; skipping editor build ==="
-    Write-Host "    Install MSYS2 with ucrt64 or mingw64 packages, then re-run."
-}
-
 Write-Host "=== Running publisher ==="
 $publisherExe = ".\build\historytracers-publisher.exe"
 if (-not (Test-Path -LiteralPath $publisherExe)) {
