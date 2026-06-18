@@ -92,7 +92,8 @@ ht_build_rpm() {
         sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json
     fi
 
-    cp rpmbuild/x86_64/historytracers-1.0.0-1.fc41.x86_64.rpm artifacts/
+    # Copy all generated RPMs (main x86_64, images/devel noarch)
+    find "${RPM_TOPDIR}" -name "*.rpm" -exec cp {} artifacts/ \;
     rm -rf rpmbuild
 
     trap - ERR
@@ -135,8 +136,11 @@ ht_build_deb() {
         sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json
     fi
 
-    mv ../*.deb artifacts
-    mv ../*.ddeb artifacts
+    mv ../*.deb artifacts/
+    # .ddeb (debug) files may not exist; guard against glob failure
+    set +e
+    mv ../*.ddeb artifacts/ 2>/dev/null
+    set -e
 
     rm -rf debian
 
@@ -144,37 +148,38 @@ ht_build_deb() {
 }
 
 ht_build_slackware() {
-    echo "Building Slackware package"
-    # Install dependencies
+    echo "Building Slackware packages"
 
     # shellcheck source=./packaging/Slackware/historytracers.info
     source packaging/Slackware/historytracers.info
 
     local DST
     DST="historytracers-${VERSION}"
-    # Create historytracers.tar.gz
-    if [ -d "historytracers/" ]; then
-        rm -rf historytracers
-    fi
 
-    if [ -d "${DST}" ]; then
-        rm -rf "${DST}"
-    fi
+    # Clean up any previous temp dirs
+    rm -rf historytracers historytracers-images "${DST}"
 
+    # ===== Main SlackBuild tarball =====
     mkdir historytracers
     cp packaging/Slackware/* historytracers
     cp README historytracers/
-
     tar -zcvf artifacts/historytracers.tar.gz historytracers
+    rm -rf historytracers
 
-    # Create historytracers-VERSION.tar.xz
+    # ===== Images SlackBuild tarball =====
+    mkdir historytracers-images
+    cp packaging/Slackware-images/* historytracers-images
+    tar -zcvf artifacts/historytracers-images.tar.gz historytracers-images
+    rm -rf historytracers-images
+
+    # ===== Common source tarball used by both =====
     make clean
 
     mkdir -p "${DST}/www"
     cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv gedcom ht2pkg.sh images index.html js lang packaging scripts src webfonts "${DST}"
     tar -acvf "artifacts/historytracers-${VERSION}.tar.xz" "${DST}"
 
-    rm -rf historytracers/ "${DST}"
+    rm -rf "${DST}"
 }
 
 while [[ $# -gt 0 ]]; do
