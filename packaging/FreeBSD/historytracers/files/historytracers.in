@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# PROVIDE: historytracers
+# REQUIRE: NETWORKING
+# BEFORE: LOGIN
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="historytracers"
+rcvar="historytracers_enable"
+
+load_rc_config ${name}
+
+: ${historytracers_enable:="NO"}
+: ${historytracers_user:="historytracers"}
+: ${historytracers_group:="historytracers"}
+: ${historytracers_dir:="%%PREFIX%%/share/historytracers/www"}
+
+command="%%PREFIX%%/bin/historytracers"
+pidfile="/var/run/${name}.pid"
+command_args="-dir ${historytracers_dir}"
+
+start_precmd="historytracers_precmd"
+
+historytracers_precmd()
+{
+	if [ ! -d "${historytracers_dir}" ]; then
+		echo "Directory ${historytracers_dir} does not exist."
+		return 1
+	fi
+}
+
+run_rc_command "$1"
