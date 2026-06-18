@@ -9,6 +9,7 @@ set -e
 MAKERPM="0"
 MAKEDEB="0"
 MAKESLACKWARE="0"
+MAKEMSI="0"
 
 ht_compile() {
     echo "Formating and publishing content"
@@ -49,6 +50,7 @@ ht_usage() {
         --deb, -d               Create Debian package
         --rpm, -r               Create RPM package
         --slackbuild, -s        Create SlackBuilds files
+        --msi, -m               Create MSI package (Windows/MSYS only)
         --validate, -v          Check if current script has issues.
         --help, -h              Show this Help
 HTDOC
@@ -182,6 +184,125 @@ ht_build_slackware() {
     rm -rf "${DST}"
 }
 
+ht_is_msys() {
+    case "$(uname -s)" in
+        MINGW*|MSYS*|CYGWIN*) return 0 ;;
+        *) return 1 ;;
+    esac
+}
+
+ht_msi_cleanup() {
+    if [ -f images/img_options.json ]; then
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json 2>/dev/null || true
+    fi
+    rm -rf "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" 2>/dev/null || true
+}
+
+ht_build_msi() {
+    trap ht_msi_cleanup ERR
+
+    echo "Building MSI package"
+
+    if ! ht_is_msys; then
+        echo "ERROR: MSI package can only be built in a Windows (MSYS/MinGW) environment."
+        exit 1
+    fi
+
+    # Modify img_options.json in source to set ht_local_images to false for package
+    if [ -f images/img_options.json ]; then
+        sed -i 's/"ht_local_images" : true/"ht_local_images" : false/' images/img_options.json
+    fi
+
+    WIXDIR="$(pwd)/packaging/WiX"
+
+    if [ ! -f "${WIXDIR}/historytracers.wxs" ]; then
+        echo "ERROR: historytracers.wxs not found at ${WIXDIR}"
+        exit 1
+    fi
+
+    # Locate WiX v5 tool (single wix.exe replaces candle/light/heat)
+    WIXEXE=""
+    if [ -n "$WIX" ] && [ -f "${WIX}/wix.exe" ]; then
+        WIXEXE="${WIX}/wix.exe"
+    elif [ -f "$(winepath -u 'C:\Program Files\WiX Toolset v5\bin\wix.exe' 2>/dev/null || echo '')" ]; then
+        WIXEXE="$(winepath -u 'C:\Program Files\WiX Toolset v5\bin\wix.exe' 2>/dev/null || echo '')"
+    elif [ -f "$(winepath -u 'C:\Program Files (x86)\WiX Toolset v5\bin\wix.exe' 2>/dev/null || echo '')" ]; then
+        WIXEXE="$(winepath -u 'C:\Program Files (x86)\WiX Toolset v5\bin\wix.exe' 2>/dev/null || echo '')"
+    else
+        # Search with PowerShell
+        WIXEXE=$(powershell.exe -NoProfile -Command "
+            try {
+                \$p = Get-Command 'wix.exe' -ErrorAction Stop;
+                Write-Output (\$p.Source)
+            } catch {
+                \$paths = @(
+                    \"\${env:ProgramFiles}\WiX Toolset v5\bin\wix.exe\",
+                    \"\${env:ProgramFiles(x86)}\WiX Toolset v5\bin\wix.exe\"
+                );
+                \$found = \$paths | Where-Object { Test-Path \$_ } | Select-Object -First 1;
+                if (\$found) { Write-Output \$found } else { Write-Output '' }
+            }
+        " 2>/dev/null | tr -d '\r')
+    fi
+
+    if [ -z "$WIXEXE" ] || [ ! -f "$WIXEXE" ]; then
+        echo "ERROR: WiX Toolset v5 not found."
+        echo "Install WiX Toolset v5 from https://wixtoolset.org/"
+        echo "and ensure wix.exe is in PATH."
+        exit 1
+    fi
+
+    echo "WiX Toolset found: ${WIXEXE}"
+
+    PROJECT_DIR="$(pwd)"
+    BUILD_DIR="${PROJECT_DIR}/build"
+    WWW_DIR="${PROJECT_DIR}/www"
+    IMAGES_DIR="${WWW_DIR}/images"
+    OUTPUT_MSI="${PROJECT_DIR}/artifacts/HistoryTracers-1.0.0.msi"
+
+    # ---- Step 1: Harvest www/ content (exclude images/) ----
+    echo "Harvesting www/ content (excluding images/)..."
+    "$WIXEXE" harvest dir "$WWW_DIR" \
+        -o "${WIXDIR}/www-fragment.wxs" \
+        -cg CG_WWW \
+        -drid WWWDIR \
+        -var WwwDir \
+        -t "${WIXDIR}/exclude-images.xsl"
+
+    # ---- Step 2: Harvest images/ content (exclude img_options.json) ----
+    echo "Harvesting images/ content..."
+    "$WIXEXE" harvest dir "$IMAGES_DIR" \
+        -o "${WIXDIR}/images-fragment.wxs" \
+        -cg CG_IMAGES \
+        -drid WWW_IMAGES \
+        -var ImagesDir \
+        -t "${WIXDIR}/exclude-options.xsl"
+
+    # ---- Step 3: Build MSI (compile + link in one step) ----
+    echo "Building MSI..."
+    "$WIXEXE" build \
+        "${WIXDIR}/historytracers.wxs" \
+        "${WIXDIR}/www-fragment.wxs" \
+        "${WIXDIR}/images-fragment.wxs" \
+        -o "$OUTPUT_MSI" \
+        -arch x64 \
+        -d BuildDir="$BUILD_DIR" \
+        -d WwwDir="$WWW_DIR" \
+        -d ImagesDir="$IMAGES_DIR"
+
+    # ---- Cleanup ----
+    rm -f "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs"
+
+    # Restore original img_options.json
+    if [ -f images/img_options.json ]; then
+        sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json
+    fi
+
+    echo "MSI package built: ${OUTPUT_MSI}"
+
+    trap - ERR
+}
+
 while [[ $# -gt 0 ]]; do
     case "${1}" in
         "--rpm" | "-r")
@@ -194,6 +315,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         "--slackbuild" | "-s")
             MAKESLACKWARE="1"
+            shift #pass argument
+            ;;
+        "--msi" | "-m")
+            MAKEMSI="1"
             shift #pass argument
             ;;
         "--validate" | "-v")
@@ -219,6 +344,10 @@ fi
 
 if [ "${MAKEDEB}" == "1" ]; then
     ht_build_deb
+fi
+
+if [ "${MAKEMSI}" == "1" ]; then
+    ht_build_msi
 fi
 
 # This must be always the last
