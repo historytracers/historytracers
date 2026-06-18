@@ -90,7 +90,8 @@ audio {
 
 #messages {
   display: none;
-  position: relative;
+  position: sticky;
+  top: 60px;
   background-color: lightyellow;
   padding: 10px;
   width: 75%;

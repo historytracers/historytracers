@@ -1,5 +1,8 @@
-historytracers (1.0.0) UNRELEASED; urgency=medium
+historytracers (1.0.0-1) UNRELEASED; urgency=medium
 
-  * Initial Release
+  * Split into three binary packages:
+    - historytracers (main): binary, service, www/ (excluding images/)
+    - historytracers-images: all image files from www/images/
+    - historytracers-devel: complete source tree except www/
 
  -- Thiago Marques <historytracers@gmail.com>  Tue, 9 Nov 2025 12:00:00 +0000

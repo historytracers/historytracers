@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v5/wxs">
+
+  <Product Name="HistoryTracers" Version="1.0.0"
+           Manufacturer="History Tracers Team"
+           UpgradeCode="3A7F4D2E-1B5C-8F9A-0D3E-6C2B4A8F1E7D">
+
+    <Package Scope="perMachine"
+             Description="History Tracers - A free and open-source teaching tool" />
+
+    <MediaTemplate CompressionLevel="high" />
+
+    <!-- ============================================================ -->
+    <!-- Directory Structure                                         -->
+    <!-- ============================================================ -->
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLDIR" Name="HistoryTracers">
+        <Directory Id="WWWDIR" Name="www">
+          <Directory Id="WWW_BODIES" Name="bodies" />
+          <Directory Id="WWW_CSS" Name="css" />
+          <Directory Id="WWW_CSV" Name="csv" />
+          <Directory Id="WWW_GEDCOM" Name="gedcom" />
+          <Directory Id="WWW_JS" Name="js" />
+          <Directory Id="WWW_LANG" Name="lang" />
+          <Directory Id="WWW_WEBFONTS" Name="webfonts" />
+          <Directory Id="WWW_IMAGES" Name="images" />
+        </Directory>
+      </Directory>
+    </StandardDirectory>
+
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="PROGRAMMENUDIR" Name="HistoryTracers" />
+    </StandardDirectory>
+
+    <!-- ============================================================ -->
+    <!-- Components: Binary                                           -->
+    <!-- ============================================================ -->
+    <Component Directory="INSTALLDIR">
+      <File Id="historytracers.exe" Source="$(var.BuildDir)\historytracers.exe" />
+    </Component>
+
+    <Component Directory="INSTALLDIR">
+      <File Id="historytracers-publisher.exe"
+            Source="$(var.BuildDir)\historytracers-publisher.exe" />
+    </Component>
+
+    <!-- ============================================================ -->
+    <!-- Component: img_options.json (main feature, not images)       -->
+    <!-- ============================================================ -->
+    <Component Directory="WWW_IMAGES">
+      <File Id="F_img_options.json" Source="$(var.WwwDir)\images\img_options.json" />
+    </Component>
+
+    <!-- ============================================================ -->
+    <!-- Component: Start Menu Shortcuts                              -->
+    <!-- ============================================================ -->
+    <Component Directory="PROGRAMMENUDIR">
+      <Shortcut Id="S_Viewer" Name="HistoryTracers Viewer"
+                Description="Launch HistoryTracers Viewer"
+                Target="[INSTALLDIR]historytracers.exe"
+                WorkingDirectory="INSTALLDIR" />
+      <Shortcut Id="S_Uninstall" Name="Uninstall HistoryTracers"
+                Description="Uninstall HistoryTracers"
+                Target="[System64Folder]msiexec.exe"
+                Arguments="/x [ProductCode]" />
+      <RemoveFolder Id="PROGRAMMENUDIR_rem" On="uninstall" />
+      <RegistryValue Root="HKCU" Key="Software\HistoryTracers"
+                     Name="installed" Type="integer" Value="1" />
+    </Component>
+
+    <!-- ============================================================ -->
+    <!-- Component: Install path registry entry                       -->
+    <!-- ============================================================ -->
+    <Component Directory="INSTALLDIR">
+      <CreateFolder />
+      <RegistryValue Root="HKLM" Key="Software\HistoryTracers"
+                     Name="InstallPath" Type="string" Value="[INSTALLDIR]" />
+    </Component>
+
+    <!-- ============================================================ -->
+    <!-- Features                                                     -->
+    <!-- ============================================================ -->
+    <Feature Id="MainApplication" Title="HistoryTracers Viewer"
+             Description="The HistoryTracers viewer application and web content"
+             Level="1" Absent="disallow" Display="expand">
+      <ComponentRef Id="historytracers.exe" />
+      <ComponentRef Id="F_img_options.json" />
+      <ComponentRef Id="S_Viewer" />
+      <ComponentGroupRef Id="CG_WWW" />
+    </Feature>
+
+    <Feature Id="Images" Title="Image Files"
+             Description="Additional museum and institutional image files"
+             Level="3" TypicalDefault="install">
+      <ComponentGroupRef Id="CG_IMAGES" />
+    </Feature>
+
+    <Feature Id="Publisher" Title="Publisher Tool"
+             Description="Content publishing tool (for content authors)"
+             Level="3" TypicalDefault="install">
+      <ComponentRef Id="historytracers-publisher.exe" />
+    </Feature>
+
+    <!-- ============================================================ -->
+    <!-- UI Configuration                                            -->
+    <!-- ============================================================ -->
+    <UIRef Id="WixUI_FeatureTree" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALTEXT"
+              Value="Image files were not installed. To add images later, run the installer again and select the Image Files feature." />
+    <Property Id="ApplicationFolderName" Value="HistoryTracers" />
+    <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
+
+    <!-- Major upgrade -->
+    <MajorUpgrade DowngradeMessage="A newer version of HistoryTracers is already installed."
+                  AllowSameVersionUpgrades="yes" />
+
+    <!-- Require Windows 7 or later -->
+    <Condition Message="HistoryTracers requires Windows 7 or later.">
+      VersionNT &gt;= 601
+    </Condition>
+
+  </Product>
+
+  <!-- ============================================================ -->
+  <!-- Harvested: www/ content (excluding images/)                   -->
+  <!-- Generated by: wix harvest dir ...                             -->
+  <!-- ============================================================ -->
+  <Fragment>
+    <ComponentGroup Id="CG_WWW" Directory="WWWDIR" />
+  </Fragment>
+
+  <!-- ============================================================ -->
+  <!-- Harvested: images/ content (excluding img_options.json)       -->
+  <!-- Generated by: wix harvest dir ...                             -->
+  <!-- ============================================================ -->
+  <Fragment>
+    <ComponentGroup Id="CG_IMAGES" Directory="WWW_IMAGES" />
+  </Fragment>
+
+</Wix>

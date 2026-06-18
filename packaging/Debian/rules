@@ -23,8 +23,42 @@ override_dh_dwz:
 	@echo "Skipping dwz compression for Go binary"
 
 override_dh_install:
+	# ===== MAIN PACKAGE (historytracers) =====
+
+	# Binary, service, config
 	install -D -m 755 $(CURDIR)/build/historytracers debian/historytracers/usr/bin/historytracers
 	install -D -m 644 $(CURDIR)/packaging/service/historytracers.service debian/historytracers/lib/systemd/system/historytracers.service
-	install -D -m 600 $(CURDIR)/packaging/conf/historytracers.conf debian/historytracers/etc/historytracers/historytracers.conf 2>/dev/null || true
-	install -d debian/historytracers/usr/share/historytracers/www/
-	cp -r $(CURDIR)/www/* debian/historytracers/usr/share/historytracers/www/ 2>/dev/null || true
+	-install -D -m 600 $(CURDIR)/packaging/conf/historytracers.conf debian/historytracers/etc/historytracers/historytracers.conf
+
+	# Web content: everything from www/ except images/
+	install -d debian/historytracers/usr/share/historytracers/www
+	for item in $(CURDIR)/www/*; do \
+		base=$$(basename "$$item"); \
+		[ "$$base" = "images" ] && continue; \
+		cp -r "$$item" debian/historytracers/usr/share/historytracers/www/; \
+	done
+	# Only img_options.json from images/
+	install -D -m 644 $(CURDIR)/www/images/img_options.json \
+		debian/historytracers/usr/share/historytracers/www/images/img_options.json
+
+	# ===== IMAGES SUBPACKAGE (historytracers-images) =====
+
+	install -d debian/historytracers-images/usr/share/historytracers/www/images
+	for f in $(CURDIR)/www/images/*; do \
+		[ -f "$$f" ] || continue; \
+		base=$$(basename "$$f"); \
+		[ "$$base" = "img_options.json" ] && continue; \
+		cp "$$f" debian/historytracers-images/usr/share/historytracers/www/images/; \
+	done
+
+	# ===== DEVEL SUBPACKAGE (historytracers-devel) =====
+
+	# Copy everything from source root except www/ and .git/
+	dest=debian/historytracers-devel/usr/src/historytracers-$(DEB_VERSION_UPSTREAM); \
+	install -d "$$dest"; \
+	for f in $(CURDIR)/* $(CURDIR)/.[!.]*; do \
+		[ -e "$$f" ] || continue; \
+		base=$$(basename "$$f"); \
+		case "$$base" in www|.git) continue;; esac; \
+		cp -r "$$f" "$$dest"/; \
+	done

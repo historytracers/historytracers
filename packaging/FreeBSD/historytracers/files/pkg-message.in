@@ -1,0 +1,25 @@
+[
+{ type: install
+  message: <<EOM
+History Tracers has been installed.
+
+To start the service on boot, add to /etc/rc.conf:
+    historytracers_enable="YES"
+
+Then start the service:
+    service historytracers start
+
+The viewer binary can also be run directly:
+    historytracers
+
+The publisher tool for content management:
+    historytracers-publisher --help
+
+Configuration for the publisher (optional):
+    %%PREFIX%%/etc/historytracers/historytracers.conf
+
+User data (history, favorites, options) is stored in:
+    ~/.config/HistoryTracers/
+EOM
+}
+]

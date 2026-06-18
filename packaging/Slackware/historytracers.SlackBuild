@@ -40,8 +40,8 @@ cd $SRCDIR
 
 # Create package directory structure
 mkdir -p $PKG/usr/bin
-mkdir -p $PKG/usr/share/$PRGNAM/www/bodies
-mkdir -p $PKG/usr/share/$PRGNAM/www/css
+mkdir -p $PKG/usr/share/$PRGNAM/www
+mkdir -p $PKG/usr/share/$PRGNAM/www/images
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 mkdir -p $PKG/install
 mkdir -p $PKG/etc/$PRGNAM
@@ -57,9 +57,15 @@ if [ -f packaging/sysvinit-script/rc.historytracers ]; then
   install -m 644 packaging/sysvinit-script/rc.historytracers $PKG/etc/rc.d/
 fi
 
-# Install content
+# Install web content: everything from www/ except image files
 if [ -d "www/" ]; then
-  cp -R www/* $PKG/usr/share/$PRGNAM/www/ 2>/dev/null || true
+  for item in www/*; do
+    base=$(basename "$item")
+    [ "$base" = "images" ] && continue
+    cp -R "$item" $PKG/usr/share/$PRGNAM/www/
+  done
+  # Only img_options.json from images/
+  install -m 644 www/images/img_options.json $PKG/usr/share/$PRGNAM/www/images/
 fi
 
 # Install documentation
@@ -70,7 +76,13 @@ if [ -f README.md ]; then
   install -m 644 README.md $PKG/usr/doc/$PRGNAM-$VERSION/
 fi
 
-# Create doinst.sh script for post-installation
+# Install source code (devel): everything except www/ and .git/
+mkdir -p $PKG/usr/src/$PRGNAM-$VERSION
+for item in * .[!.]*; do
+  [ -e "$item" ] || continue
+  case "$(basename "$item")" in www|.git) continue;; esac
+  cp -R "$item" $PKG/usr/src/$PRGNAM-$VERSION/
+done
 
 chmod 755 $PKG/install/doinst.sh
 
