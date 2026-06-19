@@ -168,17 +168,23 @@ ht_build_slackware() {
     tar -zcvf artifacts/historytracers.tar.gz historytracers
     rm -rf historytracers
 
-    # ===== Images SlackBuild tarball =====
-    mkdir historytracers-images
-    cp packaging/Slackware-images/* historytracers-images
-    tar -zcvf artifacts/historytracers-images.tar.gz historytracers-images
+    # ===== Images tarball =====
+    mkdir -p historytracers-images/images
+    for item in images/*; do
+        base=$(basename "$item")
+        [ "$base" = "img_options.json" ] && continue
+        cp -r "$item" historytracers-images/images/
+    done
+    tar -zcvf "artifacts/historytracers-images-${VERSION}.tar.gz" historytracers-images
     rm -rf historytracers-images
 
     # ===== Common source tarball used by both =====
     make clean
 
     mkdir -p "${DST}/www"
-    cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv gedcom historytracers2pkg.sh images index.html js lang packaging scripts src webfonts "${DST}"
+    cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv gedcom historytracers2pkg.sh index.html js lang packaging scripts src webfonts "${DST}"
+    mkdir -p "${DST}/images"
+    cp images/img_options.json "${DST}/images/"
     tar -acvf "artifacts/historytracers-${VERSION}.tar.xz" "${DST}"
 
     rm -rf "${DST}"
