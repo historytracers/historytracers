@@ -65,7 +65,7 @@ compile() {
     echo "=== pre-validating UUID files across languages ==="
     ./build/$PUBLISHER_BIN -globalangtest -src "${LOCALPATH}/" 2>&1 | tee -a historytracers.log || echo "WARNING: globalangtest found issues"
 
-    ./build/$PUBLISHER_BIN -minify -audiofiles -gedcom -verbose -logfile historytracers.log
+    ./build/$PUBLISHER_BIN -minify -audiofiles -gedcom -verbose >> historytracers.log 2> >(tee -a historytracers.log >&2)
     echo "=== publisher run complete (see historytracers.log) ==="
 }
 

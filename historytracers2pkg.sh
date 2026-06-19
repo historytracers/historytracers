@@ -35,8 +35,8 @@ ht_compile() {
     ./configure
     make all
 
-    # Run History Tracers
-    ./build/historytracers -minify -audiofiles -gedcom -verbose -conf ./packaging/build_historytracers.conf  > historytracers.log
+    # Run History Tracers publisher
+    ./build/historytracers-publisher -minify -audiofiles -gedcom -verbose -conf ./packaging/build_historytracers.conf >> historytracers.log 2> >(tee -a historytracers.log >&2)
 }
 
 ht_validate_myself() {
@@ -224,25 +224,42 @@ ht_build_msi() {
     WIXEXE=""
     if [ -n "$WIX" ] && [ -f "${WIX}/wix.exe" ]; then
         WIXEXE="${WIX}/wix.exe"
-    elif [ -f "$(winepath -u 'C:\Program Files\WiX Toolset v5\bin\wix.exe' 2>/dev/null || echo '')" ]; then
-        WIXEXE="$(winepath -u 'C:\Program Files\WiX Toolset v5\bin\wix.exe' 2>/dev/null || echo '')"
-    elif [ -f "$(winepath -u 'C:\Program Files (x86)\WiX Toolset v5\bin\wix.exe' 2>/dev/null || echo '')" ]; then
-        WIXEXE="$(winepath -u 'C:\Program Files (x86)\WiX Toolset v5\bin\wix.exe' 2>/dev/null || echo '')"
     else
-        # Search with PowerShell
-        WIXEXE=$(powershell.exe -NoProfile -Command "
-            try {
-                \$p = Get-Command 'wix.exe' -ErrorAction Stop;
-                Write-Output (\$p.Source)
-            } catch {
-                \$paths = @(
-                    \"\${env:ProgramFiles}\WiX Toolset v5\bin\wix.exe\",
-                    \"\${env:ProgramFiles(x86)}\WiX Toolset v5\bin\wix.exe\"
-                );
-                \$found = \$paths | Where-Object { Test-Path \$_ } | Select-Object -First 1;
-                if (\$found) { Write-Output \$found } else { Write-Output '' }
-            }
-        " 2>/dev/null | tr -d '\r')
+        # On MSYS2, use cygpath to resolve Windows paths; fall back to direct MSYS paths
+        if command -v cygpath >/dev/null 2>&1; then
+            for p in "C:/Program Files/WiX Toolset v5/bin/wix.exe" \
+                     "C:/Program Files (x86)/WiX Toolset v5/bin/wix.exe"; do
+                up="$(cygpath -u "$p" 2>/dev/null)"
+                if [ -n "$up" ] && [ -f "$up" ]; then
+                    WIXEXE="$up"
+                    break
+                fi
+            done
+        else
+            for p in "/c/Program Files/WiX Toolset v5/bin/wix.exe" \
+                     "/c/Program Files (x86)/WiX Toolset v5/bin/wix.exe"; do
+                if [ -f "$p" ]; then
+                    WIXEXE="$p"
+                    break
+                fi
+            done
+        fi
+        if [ -z "$WIXEXE" ]; then
+            # Search with PowerShell
+            WIXEXE=$(powershell.exe -NoProfile -Command "
+                try {
+                    \$p = Get-Command 'wix.exe' -ErrorAction Stop;
+                    Write-Output (\$p.Source)
+                } catch {
+                    \$paths = @(
+                        \"\${env:ProgramFiles}\WiX Toolset v5\bin\wix.exe\",
+                        \"\${env:ProgramFiles(x86)}\WiX Toolset v5\bin\wix.exe\"
+                    );
+                    \$found = \$paths | Where-Object { Test-Path \$_ } | Select-Object -First 1;
+                    if (\$found) { Write-Output \$found } else { Write-Output '' }
+                }
+            " 2>/dev/null | tr -d '\r')
+        fi
     fi
 
     if [ -z "$WIXEXE" ] || [ ! -f "$WIXEXE" ]; then
@@ -336,22 +353,30 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# Auto-detect: if on MSYS/MinGW/Cygwin and no builder flag was set, default to MSI
+if [ "${MAKERPM}" = "0" ] && [ "${MAKEDEB}" = "0" ] && [ "${MAKEMSI}" = "0" ] && [ "${MAKESLACKWARE}" = "0" ]; then
+    if ht_is_msys; then
+        echo "No package type specified; auto-selecting --msi for MSYS/MinGW environment."
+        MAKEMSI="1"
+    fi
+fi
+
 ht_compile
 
-if [ "${MAKERPM}" == "1" ]; then
+if [ "${MAKERPM}" = "1" ]; then
     ht_build_rpm
 fi
 
-if [ "${MAKEDEB}" == "1" ]; then
+if [ "${MAKEDEB}" = "1" ]; then
     ht_build_deb
 fi
 
-if [ "${MAKEMSI}" == "1" ]; then
+if [ "${MAKEMSI}" = "1" ]; then
     ht_build_msi
 fi
 
 # This must be always the last
-if [ "${MAKESLACKWARE}" == "1" ]; then
+if [ "${MAKESLACKWARE}" = "1" ]; then
     ht_build_slackware
 fi
 
