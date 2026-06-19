@@ -50,7 +50,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/historytracers
 mkdir -p %{buildroot}%{_unitdir}/
 mkdir -p %{buildroot}%{_localstatedir}/lib/historytracers
 mkdir -p %{buildroot}%{_datadir}/historytracers/www/images
-mkdir -p %{buildroot}/usr/src/historytracers-%{version}
+mkdir -p %{buildroot}/usr/src/historytracers
 
 # Install the systemd service file
 install -m 644 %{_sourcedir}/packaging/service/historytracers.service %{buildroot}%{_unitdir}/historytracers.service
@@ -79,7 +79,7 @@ find %{_sourcedir}/www/images -type f ! -name "img_options.json" -exec cp -t %{b
 
 # Copy everything from the source tree except the www/ directory
 cd %{_sourcedir}
-find . -maxdepth 1 ! -name "." ! -name "www" -exec cp -r {} %{buildroot}/usr/src/historytracers-%{version}/ \;
+find . -maxdepth 1 ! -name "." ! -name "www" -exec cp -r {} %{buildroot}/usr/src/historytracers/ \;
 
 %pre
 getent group historytracers >/dev/null || groupadd -r historytracers
@@ -121,8 +121,8 @@ fi
 %exclude %{_datadir}/historytracers/www/images/img_options.json
 
 %files devel
-%dir /usr/src/historytracers-%{version}
-/usr/src/historytracers-%{version}/*
+%dir /usr/src/historytracers
+/usr/src/historytracers/*
 
 %changelog
 * Sun Nov 02 2025 Thiago Marques <historytracers@gmail.com> - 1.0.0-1

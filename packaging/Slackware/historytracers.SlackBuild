@@ -46,7 +46,7 @@ cd $PRGNAM-$VERSION
 mkdir -p $PKG/usr/bin
 mkdir -p $PKG/usr/share/$PRGNAM/www
 mkdir -p $PKG/usr/share/$PRGNAM/www/images
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+mkdir -p $PKG/usr/doc/$PRGNAM
 mkdir -p $PKG/install
 cp packaging/Slackware/doinst.sh $PKG/install/doinst.sh
 mkdir -p $PKG/etc/rc.d
@@ -78,18 +78,18 @@ fi
 
 # Install documentation
 if [ -f LICENSE ]; then
-  install -m 644 LICENSE $PKG/usr/doc/$PRGNAM-$VERSION/
+  install -m 644 LICENSE $PKG/usr/doc/$PRGNAM/
 fi
 if [ -f README.md ]; then
-  install -m 644 README.md $PKG/usr/doc/$PRGNAM-$VERSION/
+  install -m 644 README.md $PKG/usr/doc/$PRGNAM/
 fi
 
 # Install source code (devel): everything except www/ and .git/
-mkdir -p $PKG/usr/src/$PRGNAM-$VERSION
+mkdir -p $PKG/usr/src/$PRGNAM
 for item in * .[!.]*; do
   [ -e "$item" ] || continue
   case "$(basename "$item")" in www|.git) continue;; esac
-  cp -R "$item" $PKG/usr/src/$PRGNAM-$VERSION/
+  cp -R "$item" $PKG/usr/src/$PRGNAM/
 done
 
 chmod 755 $PKG/install/doinst.sh
