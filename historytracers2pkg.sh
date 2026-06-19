@@ -511,7 +511,8 @@ PSEOF
             -ns "http://wixtoolset.org/schemas/v4/wxs" \
             -cgId "CG_IMAGES" \
             -dirRef "WWW_IMAGES" \
-            -varName "ImagesDir"
+            -varName "ImagesDir" \
+            -excludeDirs "img_options.json"
         if [ ! -f "${WIXDIR}/images-fragment.wxs" ]; then
             echo "ERROR: Failed to generate images-fragment.wxs"
             rm -f "$PS_GEN"
