@@ -576,6 +576,12 @@ func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 }
 
 func htWriteAudioFile(fileName string, lang string, content string) error {
+	dirPath := fmt.Sprintf("%saudios", CFG.SrcPath)
+	err := os.MkdirAll(dirPath, 0755)
+	if err != nil {
+		return err
+	}
+
 	localPath := fmt.Sprintf("%saudios/%s_%s", CFG.SrcPath, fileName, lang)
 
 	fp, err := os.Create(localPath)

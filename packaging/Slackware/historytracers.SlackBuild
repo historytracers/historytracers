@@ -48,6 +48,8 @@ mkdir -p $PKG/usr/share/$PRGNAM/www
 mkdir -p $PKG/usr/share/$PRGNAM/www/images
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 mkdir -p $PKG/install
+cp packaging/Slackware/doinst.sh $PKG/install/doinst.sh
+mkdir -p $PKG/etc/rc.d
 mkdir -p $PKG/etc/$PRGNAM
 mkdir -p $PKG/var/lib/$PRGNAM
 
