@@ -2883,22 +2883,24 @@ function htFillWebPage(page, data)
     }
 
     if (data?.scripts?.length) {
-        data.scripts.forEach(script => {
-            const jsURL = `js/${script}.js`;
-            $.getScript(jsURL, () => {
-                if (typeof htLoadContent !== "undefined") htLoadContent();
-                if (typeof htLoadExercise !== "undefined") htLoadExercise();
+        const promises = data.scripts.map(script => {
+            return $.getScript(`js/${script}.js`);
+        });
+        $.when(...promises).done(() => {
+            if (typeof htLoadContent !== "undefined") htLoadContent();
+            if (typeof htSorobanLoadContent !== "undefined") htSorobanLoadContent();
+            if (typeof htTriangleLoadContent !== "undefined") htTriangleLoadContent();
+            if (typeof htLoadExercise !== "undefined") htLoadExercise();
+        });
 
-                $("#btncheck").off("click").on("click", e => {
-                    e.preventDefault();
-                    if (typeof htCheckAnswers !== "undefined") htCheckAnswers();
-                });
+        $("#btncheck").off("click").on("click", e => {
+            e.preventDefault();
+            if (typeof htCheckAnswers !== "undefined") htCheckAnswers();
+        });
 
-                $("#btnnew").off("click").on("click", e => {
-                    e.preventDefault();
-                    if (typeof htLoadExercise !== "undefined") htLoadExercise();
-                });
-            });
+        $("#btnnew").off("click").on("click", e => {
+            e.preventDefault();
+            if (typeof htLoadExercise !== "undefined") htLoadExercise();
         });
     }
 
