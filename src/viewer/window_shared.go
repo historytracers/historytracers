@@ -717,7 +717,7 @@ L['en']=L['en-US'];
 			var mo=new MutationObserver(function(){t0.textContent=document.title||l.main});
 			mo.observe(titleEl,{childList:true,subtree:true,characterData:true});
 		})();
-		document.body.style.marginTop=BAR_H+'px';
+		document.body.style.marginTop=(BAR_H+5)+'px';
 		function openOrExternal(url){
 			try{
 				var u=new URL(url,window.location.origin);

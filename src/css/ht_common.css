@@ -116,7 +116,7 @@ audio {
 
 .top-bar {
   position: relative;
-  height: 10%;
+  height: 50px;
   width: 100%;
   float: left;
 }
@@ -215,7 +215,7 @@ div.right-tree {
 
 div.right-sources {
   position: fixed;
-  top: 10%;
+  top: 50px;
   left: 76%;
   height: 100%;
   width: 22%;
@@ -1673,7 +1673,7 @@ input[type=number]::-webkit-outer-spin-button {
     .side-bar { width: 55%; left: -55%; z-index: 1000; transition: left 0.3s ease; }
     .side-bar.active { left: 0; }
     .main { left: 0; width: 100%; }
-    div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 10%; }
+    div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 50px; }
     .top-bar { height: auto; min-height: 50px; }
     .top-bar-inside-left { font-size: 1.2em; width: 60%; margin-left: 40px; }
     .menuht { font-size: 1.3em; font-weight: bold; width: 100%; }
