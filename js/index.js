@@ -2,6 +2,7 @@
 
 function htReloadCurrentPage()
 {
+    $('#sbFeed').html("");
     htResetAllIndexes();
     var lastLoaded = $("#html_loaded").val();
     if (lastLoaded.lenght == 0 ) {

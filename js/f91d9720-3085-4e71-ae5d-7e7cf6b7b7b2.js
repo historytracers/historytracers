@@ -592,6 +592,8 @@ function nextStep() {
 
 function htLoadContent() {
     htWriteNavigation();
+    $("#htChinaZhongguo").html(keywords[137]);
+    $("#htJapanNipponNihonKoku").html(keywords[139]);
 
     localSorobanController.TextManager = {
         get: function(id) {
