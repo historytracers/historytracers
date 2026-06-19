@@ -248,7 +248,7 @@ func htCompareSources(first *HTSourceElement, second *HTSourceElement) bool {
 	return false
 }
 
-func htFillSourceMap(src []HTSourceElement) {
+func htFillSourceMap(src []HTSourceElement, fileID string) {
 	for _, element := range src {
 		if _, ok := sourceMap[element.ID]; !ok {
 			sourceMap[element.ID] = element
@@ -258,27 +258,27 @@ func htFillSourceMap(src []HTSourceElement) {
 			allSourceMap[element.ID] = element
 		} else if ok {
 			if !htCompareSources(&stored, &element) {
-				fmt.Fprintf(os.Stderr, "The UUID %s is not unique: STORED (%s, %s, %s, %s) && ELEMENT (%s, %s, %s, %s).\n", element.ID, stored.Citation, stored.PublishDate, stored.URL, element.Citation, element.PublishDate, element.URL)
+				fmt.Fprintf(os.Stderr, "Duplicate UUID %s: MISSING fields in one entry (source file: %s).\n", element.ID, fileID)
 			}
 		}
 	}
 }
 
-func htFillSourcesMap(src *HTSourceFile) {
+func htFillSourcesMap(src *HTSourceFile, fileID string) {
 	if src.PrimarySources != nil {
-		htFillSourceMap(src.PrimarySources)
+		htFillSourceMap(src.PrimarySources, fileID)
 	}
 
 	if src.ReferencesSources != nil {
-		htFillSourceMap(src.ReferencesSources)
+		htFillSourceMap(src.ReferencesSources, fileID)
 	}
 
 	if src.ReligiousSources != nil {
-		htFillSourceMap(src.ReligiousSources)
+		htFillSourceMap(src.ReligiousSources, fileID)
 	}
 
 	if src.SocialMediaSources != nil {
-		htFillSourceMap(src.SocialMediaSources)
+		htFillSourceMap(src.SocialMediaSources, fileID)
 	}
 }
 
@@ -299,7 +299,7 @@ func htLoadSourceFromFile(srcs []string) {
 
 		htUpdateSourceFile(&sources, localPath)
 
-		htFillSourcesMap(&sources)
+		htFillSourcesMap(&sources, ptr)
 	}
 }
 
@@ -351,7 +351,7 @@ func htRewriteSource(fileName string) {
 		return
 	}
 
-	htFillSourcesMap(&src)
+	htFillSourcesMap(&src, fileName)
 	jsonFile.Close()
 
 	htUpdateSourceFile(&src, srcPath)

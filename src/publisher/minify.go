@@ -410,32 +410,18 @@ func htUpdateHTJS() {
 
 // HTML
 func htUpdateIndex() {
-	var searchFile string
-	var newStr string
 	indexFile := fmt.Sprintf("%sindex.html", CFG.SrcPath)
 	index, err := os.ReadFile(indexFile)
 	if err != nil {
 		panic(err)
 	}
 
-	str := string(index)
-	for i := 0; i < len(htFiles); i++ {
-		if i < HTJSCommon {
-			searchFile = fmt.Sprintf("<link rel=\"stylesheet\" href=\"css/%s?v=", htFiles[i])
-		} else {
-			searchFile = fmt.Sprintf("<script type=\"text/javascript\" src=\"js/%s?v=", htFiles[i])
-		}
+	now := fmt.Sprintf("%d", time.Now().Unix())
 
-		idx := strings.Index(str, searchFile)
-		if idx == -1 {
-			continue
-		}
-
-		overwriteStr := str[idx : idx+len(searchFile)+12]
-		newStr = fmt.Sprintf("%s%d\">", searchFile, time.Now().Unix())
-
-		str = strings.Replace(str, overwriteStr, newStr, -1)
-	}
+	// Replace ALL numeric version timestamps (?v=digits) in the file.
+	// UUID-based values (?v=hex-...) are left untouched.
+	re := regexp.MustCompile(`\?v=\d+`)
+	str := re.ReplaceAllString(string(index), "?v="+now)
 
 	err = os.WriteFile(indexFile, []byte(str), 0644)
 	if err != nil {
