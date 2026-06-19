@@ -220,7 +220,7 @@ ht_build_msi() {
         exit 1
     fi
 
-    # Locate WiX v5 tool (single wix.exe replaces candle/light/heat)
+    # Locate WiX Toolset (single wix.exe replaces candle/light/heat)
     WIXEXE=""
     if [ -n "$WIX" ] && [ -f "${WIX}/wix.exe" ]; then
         WIXEXE="${WIX}/wix.exe"
@@ -228,7 +228,11 @@ ht_build_msi() {
         # On MSYS2, use cygpath to resolve Windows paths; fall back to direct MSYS paths
         if command -v cygpath >/dev/null 2>&1; then
             for p in "C:/Program Files/WiX Toolset v5/bin/wix.exe" \
-                     "C:/Program Files (x86)/WiX Toolset v5/bin/wix.exe"; do
+                     "C:/Program Files (x86)/WiX Toolset v5/bin/wix.exe" \
+                     "C:/Program Files/WiX Toolset v6/bin/wix.exe" \
+                     "C:/Program Files (x86)/WiX Toolset v6/bin/wix.exe" \
+                     "C:/Program Files/WiX Toolset v6.0/bin/wix.exe" \
+                     "C:/Program Files (x86)/WiX Toolset v6.0/bin/wix.exe"; do
                 up="$(cygpath -u "$p" 2>/dev/null)"
                 if [ -n "$up" ] && [ -f "$up" ]; then
                     WIXEXE="$up"
@@ -237,7 +241,11 @@ ht_build_msi() {
             done
         else
             for p in "/c/Program Files/WiX Toolset v5/bin/wix.exe" \
-                     "/c/Program Files (x86)/WiX Toolset v5/bin/wix.exe"; do
+                     "/c/Program Files (x86)/WiX Toolset v5/bin/wix.exe" \
+                     "/c/Program Files/WiX Toolset v6/bin/wix.exe" \
+                     "/c/Program Files (x86)/WiX Toolset v6/bin/wix.exe" \
+                     "/c/Program Files/WiX Toolset v6.0/bin/wix.exe" \
+                     "/c/Program Files (x86)/WiX Toolset v6.0/bin/wix.exe"; do
                 if [ -f "$p" ]; then
                     WIXEXE="$p"
                     break
@@ -245,7 +253,7 @@ ht_build_msi() {
             done
         fi
         if [ -z "$WIXEXE" ]; then
-            # Search with PowerShell
+            # Search with PowerShell (try v5 then v6)
             WIXEXE=$(powershell.exe -NoProfile -Command "
                 try {
                     \$p = Get-Command 'wix.exe' -ErrorAction Stop;
@@ -253,7 +261,11 @@ ht_build_msi() {
                 } catch {
                     \$paths = @(
                         \"\${env:ProgramFiles}\WiX Toolset v5\bin\wix.exe\",
-                        \"\${env:ProgramFiles(x86)}\WiX Toolset v5\bin\wix.exe\"
+                        \"\${env:ProgramFiles(x86)}\WiX Toolset v5\bin\wix.exe\",
+                        \"\${env:ProgramFiles}\WiX Toolset v6\bin\wix.exe\",
+                        \"\${env:ProgramFiles(x86)}\WiX Toolset v6\bin\wix.exe\",
+                        \"\${env:ProgramFiles}\WiX Toolset v6.0\bin\wix.exe\",
+                        \"\${env:ProgramFiles(x86)}\WiX Toolset v6.0\bin\wix.exe\"
                     );
                     \$found = \$paths | Where-Object { Test-Path \$_ } | Select-Object -First 1;
                     if (\$found) { Write-Output \$found } else { Write-Output '' }
@@ -263,13 +275,25 @@ ht_build_msi() {
     fi
 
     if [ -z "$WIXEXE" ] || [ ! -f "$WIXEXE" ]; then
-        echo "ERROR: WiX Toolset v5 not found."
-        echo "Install WiX Toolset v5 from https://wixtoolset.org/"
+        echo "ERROR: WiX Toolset not found."
+        echo "Install WiX Toolset from https://wixtoolset.org/"
         echo "and ensure wix.exe is in PATH."
         exit 1
     fi
 
     echo "WiX Toolset found: ${WIXEXE}"
+
+    # Detect WiX version (v5 has 'harvest' command, v6 does not)
+    WIX_HAS_HARVEST=false
+    if "$WIXEXE" harvest --help >/dev/null 2>&1; then
+        WIX_HAS_HARVEST=true
+    fi
+
+    # Determine XML namespace to use (v6 requires http://wixtoolset.org/schemas/v4/wxs)
+    WIX_NS="http://wixtoolset.org/schemas/v4/wxs"
+    if [ "$WIX_HAS_HARVEST" = true ]; then
+        WIX_NS="http://wixtoolset.org/schemas/v5/wxs"
+    fi
 
     PROJECT_DIR="$(pwd)"
     BUILD_DIR="${PROJECT_DIR}/build"
@@ -279,23 +303,75 @@ ht_build_msi() {
 
     # ---- Step 1: Harvest www/ content (exclude images/) ----
     echo "Harvesting www/ content (excluding images/)..."
-    "$WIXEXE" harvest dir "$WWW_DIR" \
-        -o "${WIXDIR}/www-fragment.wxs" \
-        -cg CG_WWW \
-        -drid WWWDIR \
-        -var WwwDir \
-        -t "${WIXDIR}/exclude-images.xsl"
+    if [ "$WIX_HAS_HARVEST" = true ]; then
+        "$WIXEXE" harvest dir "$WWW_DIR" \
+            -o "${WIXDIR}/www-fragment.wxs" \
+            -cg CG_WWW \
+            -drid WWWDIR \
+            -var WwwDir \
+            -t "${WIXDIR}/exclude-images.xsl"
+    else
+        # WiX v6: generate fragment WXS by enumerating files via PowerShell
+        powershell.exe -NoProfile -Command "
+            param([string]\$dir='$WWW_DIR',[string]\$out='${WIXDIR}/www-fragment.wxs',[string]\$ns='${WIX_NS}')
+            \$excludeDirs = @('images','Images')
+            \$xml = '<?xml version=\"1.0\" encoding=\"utf-8\"?>'
+            \$xml += \"<Wix xmlns='\$ns'><Fragment><ComponentGroup Id='CG_WWW' Directory='WWWDIR'>`n\"
+            Get-ChildItem -Recurse -File \$dir | Where-Object {
+                \$rel = \$_.FullName.Substring(\$dir.Length+1).Replace('\','/')
+                -not (\$excludeDirs | Where-Object { \$rel.StartsWith(\$_+'/') -or \$rel.StartsWith(\$_+'\\') })
+            } | ForEach-Object {
+                \$rel = \$_.FullName.Substring(\$dir.Length+1)
+                \$cid = 'cmp_' + (\$rel -replace '[^a-zA-Z0-9]','_')
+                \$src = \"\`$(var.WwwDir)\\`$rel\"
+                \"  <Component Id='`$cid' Guid='*'><File Source='`$src'/></Component>`n\"
+            } | Set-Content \$out -NoNewline
+            Add-Content \$out '</ComponentGroup></Fragment></Wix>'
+        "
+        if [ ! -f "${WIXDIR}/www-fragment.wxs" ]; then
+            echo "ERROR: Failed to generate www-fragment.wxs"
+            exit 1
+        fi
+    fi
 
     # ---- Step 2: Harvest images/ content (exclude img_options.json) ----
     echo "Harvesting images/ content..."
-    "$WIXEXE" harvest dir "$IMAGES_DIR" \
-        -o "${WIXDIR}/images-fragment.wxs" \
-        -cg CG_IMAGES \
-        -drid WWW_IMAGES \
-        -var ImagesDir \
-        -t "${WIXDIR}/exclude-options.xsl"
+    if [ "$WIX_HAS_HARVEST" = true ]; then
+        "$WIXEXE" harvest dir "$IMAGES_DIR" \
+            -o "${WIXDIR}/images-fragment.wxs" \
+            -cg CG_IMAGES \
+            -drid WWW_IMAGES \
+            -var ImagesDir \
+            -t "${WIXDIR}/exclude-options.xsl"
+    else
+        # WiX v6: generate images fragment WXS
+        powershell.exe -NoProfile -Command "
+            param([string]\$dir='$IMAGES_DIR',[string]\$out='${WIXDIR}/images-fragment.wxs',[string]\$ns='${WIX_NS}')
+            \$xml = '<?xml version=\"1.0\" encoding=\"utf-8\"?>'
+            \$xml += \"<Wix xmlns='\$ns'><Fragment><ComponentGroup Id='CG_IMAGES' Directory='WWW_IMAGES'>`n\"
+            Get-ChildItem -Recurse -File \$dir | Where-Object {
+                \$_.Name -ne 'img_options.json'
+            } | ForEach-Object {
+                \$rel = \$_.FullName.Substring(\$dir.Length+1)
+                \$cid = 'cmp_img_' + (\$rel -replace '[^a-zA-Z0-9]','_')
+                \$src = \"\`$(var.ImagesDir)\\`$rel\"
+                \"  <Component Id='`$cid' Guid='*'><File Source='`$src'/></Component>`n\"
+            } | Set-Content \$out -NoNewline
+            Add-Content \$out '</ComponentGroup></Fragment></Wix>'
+        "
+        if [ ! -f "${WIXDIR}/images-fragment.wxs" ]; then
+            echo "ERROR: Failed to generate images-fragment.wxs"
+            exit 1
+        fi
+    fi
 
-    # ---- Step 3: Build MSI (compile + link in one step) ----
+    # ---- Step 3: Patch namespace in .wxs if needed ----
+    if [ "$WIX_HAS_HARVEST" = false ]; then
+        # Temporarily patch namespace from v5 to v4 for WiX v6 compatibility
+        sed -i 's|http://wixtoolset.org/schemas/v5/wxs|http://wixtoolset.org/schemas/v4/wxs|' "${WIXDIR}/historytracers.wxs"
+    fi
+
+    # ---- Step 4: Build MSI (compile + link in one step) ----
     echo "Building MSI..."
     "$WIXEXE" build \
         "${WIXDIR}/historytracers.wxs" \
@@ -309,6 +385,11 @@ ht_build_msi() {
 
     # ---- Cleanup ----
     rm -f "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs"
+
+    # Restore namespace in .wxs if we patched it
+    if [ "$WIX_HAS_HARVEST" = false ]; then
+        sed -i 's|http://wixtoolset.org/schemas/v4/wxs|http://wixtoolset.org/schemas/v5/wxs|' "${WIXDIR}/historytracers.wxs"
+    fi
 
     # Restore original img_options.json
     if [ -f images/img_options.json ]; then

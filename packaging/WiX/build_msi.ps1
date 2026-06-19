@@ -32,14 +32,18 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-# ---- Resolve WiX v5 tool ----
+# ---- Resolve WiX Toolset ----
 function Find-WixExe {
   $candidates = @(
     "${env:ProgramFiles}\WiX Toolset v5\bin\wix.exe",
     "${env:ProgramFiles(x86)}\WiX Toolset v5\bin\wix.exe",
     "${env:ProgramFiles}\WiX Toolset v5\wix.exe",
     "${env:ProgramFiles(x86)}\WiX Toolset v5\wix.exe",
-    "$env:LOCALAPPDATA\WiX Toolset v5\bin\wix.exe"
+    "$env:LOCALAPPDATA\WiX Toolset v5\bin\wix.exe",
+    "${env:ProgramFiles}\WiX Toolset v6\bin\wix.exe",
+    "${env:ProgramFiles(x86)}\WiX Toolset v6\bin\wix.exe",
+    "${env:ProgramFiles}\WiX Toolset v6.0\bin\wix.exe",
+    "${env:ProgramFiles(x86)}\WiX Toolset v6.0\bin\wix.exe"
   )
   if (Test-Path "${env:WIX}wix.exe") { return (Resolve-Path "${env:WIX}wix.exe").Path }
   foreach ($p in $candidates) {
@@ -52,10 +56,19 @@ function Find-WixExe {
 
 $wix = Find-WixExe
 if (-not $wix) {
-  Write-Error "WiX Toolset v5 not found. Install from https://wixtoolset.org/"
+  Write-Error "WiX Toolset not found. Install from https://wixtoolset.org/"
   exit 1
 }
-Write-Host "WiX Toolset v5 found: $wix"
+Write-Host "WiX Toolset found: $wix"
+
+# Detect version (v5 has 'harvest' command, v6 does not)
+$hasHarvest = $false
+$null = & $wix harvest --help 2>$null
+if ($LASTEXITCODE -eq 0) { $hasHarvest = $true }
+
+# Determine namespace
+$wixNs = "http://wixtoolset.org/schemas/v4/wxs"
+if ($hasHarvest) { $wixNs = "http://wixtoolset.org/schemas/v5/wxs" }
 
 # ---- Validate required files ----
 $viewerExe = Join-Path $ProjectDir "build\historytracers.exe"
@@ -85,23 +98,69 @@ $msiOut          = Join-Path $OutputDir "HistoryTracers-1.0.0.msi"
 
 # ---- Step 1: Harvest www/ content (exclude images/ subtree) ----
 Write-Host "Harvesting www/ content (excluding images/)..."
-& $wix harvest dir $wwwSource `
-    -o $wwwHarvest `
-    -cg CG_WWW `
-    -drid WWWDIR `
-    -var WwwDir `
-    -t $excludeImagesXsl
-if ($LASTEXITCODE -ne 0) { Write-Error "wix harvest failed for www/"; exit 1 }
+if ($hasHarvest) {
+    & $wix harvest dir $wwwSource `
+        -o $wwwHarvest `
+        -cg CG_WWW `
+        -drid WWWDIR `
+        -var WwwDir `
+        -t $excludeImagesXsl
+    if ($LASTEXITCODE -ne 0) { Write-Error "wix harvest failed for www/"; exit 1 }
+} else {
+    # WiX v6: generate fragment WXS by enumerating files
+    $excludeDirs = @('images','Images')
+    $xml = '<?xml version="1.0" encoding="utf-8"?>'
+    $xml += "<Wix xmlns='$wixNs'><Fragment><ComponentGroup Id='CG_WWW' Directory='WWWDIR'>`n"
+    $lines = Get-ChildItem -Recurse -File $wwwSource | Where-Object {
+        $rel = $_.FullName.Substring($wwwSource.Length+1).Replace('\','/')
+        -not ($excludeDirs | Where-Object { $rel.StartsWith("$_/") -or $rel.StartsWith("$_`\") })
+    } | ForEach-Object {
+        $rel = $_.FullName.Substring($wwwSource.Length+1)
+        $cid = 'cmp_' + ($rel -replace '[^a-zA-Z0-9]','_')
+        $src = "`$(var.WwwDir)\$rel"
+        "  <Component Id='$cid' Guid='*'><File Source='$src'/></Component>`n"
+    }
+    $lines | Set-Content $wwwHarvest -NoNewline
+    Add-Content $wwwHarvest '</ComponentGroup></Fragment></Wix>'
+}
+if (-not (Test-Path $wwwHarvest)) {
+    Write-Error "Failed to generate www-fragment.wxs"
+    exit 1
+}
 
 # ---- Step 2: Harvest images/ content (exclude img_options.json) ----
 Write-Host "Harvesting images/ content..."
-& $wix harvest dir $imagesSource `
-    -o $imgHarvest `
-    -cg CG_IMAGES `
-    -drid WWW_IMAGES `
-    -var ImagesDir `
-    -t $excludeOptionsXsl
-if ($LASTEXITCODE -ne 0) { Write-Error "wix harvest failed for images/"; exit 1 }
+if ($hasHarvest) {
+    & $wix harvest dir $imagesSource `
+        -o $imgHarvest `
+        -cg CG_IMAGES `
+        -drid WWW_IMAGES `
+        -var ImagesDir `
+        -t $excludeOptionsXsl
+    if ($LASTEXITCODE -ne 0) { Write-Error "wix harvest failed for images/"; exit 1 }
+} else {
+    # WiX v6: generate images fragment WXS
+    $xml = '<?xml version="1.0" encoding="utf-8"?>'
+    $xml += "<Wix xmlns='$wixNs'><Fragment><ComponentGroup Id='CG_IMAGES' Directory='WWW_IMAGES'>`n"
+    $lines = Get-ChildItem -Recurse -File $imagesSource | Where-Object { $_.Name -ne 'img_options.json' } | ForEach-Object {
+        $rel = $_.FullName.Substring($imagesSource.Length+1)
+        $cid = 'cmp_img_' + ($rel -replace '[^a-zA-Z0-9]','_')
+        $src = "`$(var.ImagesDir)\$rel"
+        "  <Component Id='$cid' Guid='*'><File Source='$src'/></Component>`n"
+    }
+    $lines | Set-Content $imgHarvest -NoNewline
+    Add-Content $imgHarvest '</ComponentGroup></Fragment></Wix>'
+}
+if (-not (Test-Path $imgHarvest)) {
+    Write-Error "Failed to generate images-fragment.wxs"
+    exit 1
+}
+
+# ---- Patch namespace in historytracers.wxs if needed ----
+if (-not $hasHarvest) {
+    $wxsFile = Join-Path $WixDir "historytracers.wxs"
+    (Get-Content $wxsFile) -replace 'http://wixtoolset.org/schemas/v5/wxs','http://wixtoolset.org/schemas/v4/wxs' | Set-Content $wxsFile
+}
 
 # ---- Step 3: Build MSI with wix.exe build ----
 Write-Host "Building MSI..."
@@ -117,6 +176,12 @@ if ($LASTEXITCODE -ne 0) { Write-Error "wix build failed"; exit 1 }
 if (-not $KeepFragments) {
   Remove-Item $wwwHarvest -Force -ErrorAction SilentlyContinue
   Remove-Item $imgHarvest -Force -ErrorAction SilentlyContinue
+}
+
+# Restore namespace if we patched it
+if (-not $hasHarvest) {
+    $wxsFile = Join-Path $WixDir "historytracers.wxs"
+    (Get-Content $wxsFile) -replace 'http://wixtoolset.org/schemas/v4/wxs','http://wixtoolset.org/schemas/v5/wxs' | Set-Content $wxsFile
 }
 
 Write-Host "MSI built successfully: $msiOut"
