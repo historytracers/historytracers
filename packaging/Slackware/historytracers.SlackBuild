@@ -36,7 +36,11 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 
-cd $SRCDIR
+# Extract source tarball
+cd $TMP
+rm -rf $PRGNAM-$VERSION
+tar xf $CWD/$PRGNAM-$VERSION.tar.xz
+cd $PRGNAM-$VERSION
 
 # Create package directory structure
 mkdir -p $PKG/usr/bin
@@ -47,10 +51,12 @@ mkdir -p $PKG/install
 mkdir -p $PKG/etc/$PRGNAM
 mkdir -p $PKG/var/lib/$PRGNAM
 
-./ht2pkg
+# Build the project
+chmod +x historytracers-installer.sh
+./historytracers-installer.sh
 
 # Install the binary
-install -m 755 historytracers $PKG/usr/bin/historytracers
+install -m 755 build/historytracers $PKG/usr/bin/historytracers
 
 # Install script
 if [ -f packaging/sysvinit-script/rc.historytracers ]; then

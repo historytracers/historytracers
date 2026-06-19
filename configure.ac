@@ -255,7 +255,7 @@ AC_ARG_WITH([log-path],
         AC_MSG_NOTICE([Using gccgo-specific build flags])
         ;;
     go)
-        GO_BUILD_FLAGS="-ldflags \"-X main.confPath=$CONF_PATH -X main.srcPath=$SRC_PATH -X main.contentPath=$CONTENT_PATH -X main.logPath=$LOG_PATH\""
+        GO_BUILD_FLAGS="-buildvcs=false -ldflags \"-X main.confPath=$CONF_PATH -X main.srcPath=$SRC_PATH -X main.contentPath=$CONTENT_PATH -X main.logPath=$LOG_PATH\""
         AC_MSG_NOTICE([Using standard Go build flags])
         ;;
     *)
