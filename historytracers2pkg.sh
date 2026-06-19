@@ -12,8 +12,31 @@ MAKESLACKWARE="0"
 MAKEMSI="0"
 
 ht_compile() {
-    echo "Running installer pipeline to ensure latest build..."
-    ./historytracers-installer.sh
+    echo "Formating and publishing content"
+
+    if [ ! -d artifacts ]; then
+        mkdir artifacts;
+    else
+        rm -rf artifacts/*
+    fi
+
+    # Clean everything
+    if [ -d build ]; then
+        make maintainer-clean
+    fi
+    rm -rf build-aux autom4te.cache aclocal.m4 configure config.h.in config.h config.log config.status Makefile.in Makefile
+
+    if [ ! -d audios ]; then
+        mkdir audios;
+    fi
+
+    # Compile history tracers
+    autoreconf -f -i
+    ./configure
+    make all
+
+    # Run History Tracers publisher
+    ./build/historytracers-publisher -minify -audiofiles -gedcom -verbose -conf ./packaging/build_historytracers.conf >> historytracers.log 2> >(tee -a historytracers.log >&2)
 }
 
 ht_validate_myself() {
@@ -155,7 +178,7 @@ ht_build_slackware() {
     make clean
 
     mkdir -p "${DST}/www"
-    cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv gedcom ht2pkg.sh images index.html js lang packaging scripts src webfonts "${DST}"
+    cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv gedcom historytracers2pkg.sh images index.html js lang packaging scripts src webfonts "${DST}"
     tar -acvf "artifacts/historytracers-${VERSION}.tar.xz" "${DST}"
 
     rm -rf "${DST}"
@@ -166,6 +189,16 @@ ht_is_msys() {
         MINGW*|MSYS*|CYGWIN*) return 0 ;;
         *) return 1 ;;
     esac
+}
+
+ht_is_slackware() {
+    if [ -f /etc/slackware-version ]; then
+        return 0
+    fi
+    if [ -f /etc/os-release ] && grep -qi "slackware" /etc/os-release 2>/dev/null; then
+        return 0
+    fi
+    return 1
 }
 
 ht_msi_cleanup() {
@@ -562,7 +595,10 @@ done
 
 # Auto-detect: if on MSYS/MinGW/Cygwin and no builder flag was set, default to MSI
 if [ "${MAKERPM}" = "0" ] && [ "${MAKEDEB}" = "0" ] && [ "${MAKEMSI}" = "0" ] && [ "${MAKESLACKWARE}" = "0" ]; then
-    if ht_is_msys; then
+    if ht_is_slackware; then
+        echo "No package type specified; auto-selecting --slackbuild for Slackware environment."
+        MAKESLACKWARE="1"
+    elif ht_is_msys; then
         echo "No package type specified; auto-selecting --msi for MSYS/MinGW environment."
         MAKEMSI="1"
     fi
