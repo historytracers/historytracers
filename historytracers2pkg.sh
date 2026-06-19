@@ -12,31 +12,8 @@ MAKESLACKWARE="0"
 MAKEMSI="0"
 
 ht_compile() {
-    echo "Formating and publishing content"
-
-    if [ ! -d artifacts ]; then
-        mkdir artifacts;
-    else
-        rm -rf artifacts/*
-    fi
-
-    # Clean everything
-    if [ -d build ]; then
-        make maintainer-clean
-    fi
-    rm -rf build-aux autom4te.cache aclocal.m4 configure config.h.in config.h config.log config.status Makefile.in Makefile
-
-    if [ ! -d audios ]; then
-        mkdir audios;
-    fi
-
-    # Compile history tracers
-    autoreconf -f -i
-    ./configure
-    make all
-
-    # Run History Tracers publisher
-    ./build/historytracers-publisher -minify -audiofiles -gedcom -verbose -conf ./packaging/build_historytracers.conf >> historytracers.log 2> >(tee -a historytracers.log >&2)
+    echo "Running installer pipeline to ensure latest build..."
+    ./historytracers-installer.sh
 }
 
 ht_validate_myself() {
