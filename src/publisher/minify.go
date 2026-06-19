@@ -29,13 +29,14 @@ const (
 	HTCSSMath
 	HTJSCommon
 	HTJSMath
+	HTJSYupana
 	HTJSChart
 
 	HTLastFile
 )
 
 var htFiles [HTLastFile]string = [HTLastFile]string{"ht_common.css", "ht_math.css", "ht_common.js",
-	"ht_math.js", "ht_chart.js"}
+	"ht_math.js", "ht_yupana.js", "ht_chart.js"}
 
 const (
 	HTDirBodies = iota
