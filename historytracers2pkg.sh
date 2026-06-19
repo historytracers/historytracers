@@ -289,17 +289,186 @@ ht_build_msi() {
         WIX_HAS_HARVEST=true
     fi
 
-    # Determine XML namespace to use (v6 requires http://wixtoolset.org/schemas/v4/wxs)
-    WIX_NS="http://wixtoolset.org/schemas/v4/wxs"
-    if [ "$WIX_HAS_HARVEST" = true ]; then
-        WIX_NS="http://wixtoolset.org/schemas/v5/wxs"
-    fi
-
     PROJECT_DIR="$(pwd)"
     BUILD_DIR="${PROJECT_DIR}/build"
     WWW_DIR="${PROJECT_DIR}/www"
     IMAGES_DIR="${WWW_DIR}/images"
     OUTPUT_MSI="${PROJECT_DIR}/artifacts/HistoryTracers-1.0.0.msi"
+
+    # Write PowerShell fragment generator to a temp file (avoids bash escaping issues)
+    PS_GEN="$(mktemp -t wix_gen_XXXXXX.ps1 2>/dev/null || echo "${TMPDIR:-/tmp}/wix_gen_$$.ps1")"
+    cat > "$PS_GEN" << 'PSEOF'
+param([string]$dir, [string]$out, [string]$ns, [string]$cgId, [string]$dirRef, [string]$varName, [string]$excludeDirs)
+$excludeList = if ($excludeDirs) { $excludeDirs -split ';' } else { @() }
+
+function Get-DirId {
+    param([string]$relDir, [hashtable]$knownMap, [hashtable]$generated)
+    if ($knownMap.ContainsKey($relDir)) { return $knownMap[$relDir] }
+    if ($generated.ContainsKey($relDir)) { return $generated[$relDir].id }
+    $parts = $relDir -split '[/\\]'
+    $name = $parts[-1]
+    $idBase = 'DIR_' + (($relDir -replace '[/\\-]', '_').ToUpper())
+    if ($idBase.Length -gt 63) {
+        $bytes = [System.Text.Encoding]::UTF8.GetBytes($relDir)
+        $hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash($bytes)
+        $hash = [System.BitConverter]::ToString($hashBytes).Replace('-','').Substring(0,8)
+        $idBase = $idBase.Substring(0, 55) + '_' + $hash
+    }
+    $safeId = $idBase
+    if ($safeId -notmatch '^[a-zA-Z_]') { $safeId = '_' + $safeId }
+    if ($parts.Length -le 1) {
+        $parentRel = ''
+    } else {
+        $parentParts = $parts[0..($parts.Length-2)]
+        $parentRel = $parentParts -join '/'
+    }
+    $parentId = Get-DirId -relDir $parentRel -knownMap $knownMap -generated $generated
+    $generated[$relDir] = @{ id = $safeId; parentId = $parentId; name = $name }
+    return $safeId
+}
+
+$knownDirMap = @{ '' = $dirRef }
+if ($dirRef -eq 'WWWDIR') {
+    $knownDirMap['bodies'] = 'WWW_BODIES'
+    $knownDirMap['css'] = 'WWW_CSS'
+    $knownDirMap['csv'] = 'WWW_CSV'
+    $knownDirMap['gedcom'] = 'WWW_GEDCOM'
+    $knownDirMap['js'] = 'WWW_JS'
+    $knownDirMap['lang'] = 'WWW_LANG'
+    $knownDirMap['webfonts'] = 'WWW_WEBFONTS'
+    $knownDirMap['images'] = 'WWW_IMAGES'
+}
+$generatedDirIds = @{}
+$componentLines = @()
+
+Get-ChildItem -Recurse -File $dir | Where-Object {
+    $rel = $_.FullName.Substring($dir.Length+1).Replace('\','/')
+    if ($excludeList.Count -gt 0) {
+        -not ($excludeList | Where-Object { $rel -eq $_ -or $rel.StartsWith("$_/") })
+    } else { $true }
+} | ForEach-Object {
+    $rel = $_.FullName.Substring($dir.Length+1).Replace('\','/')
+    $relDir = [System.IO.Path]::GetDirectoryName($rel).Replace('\','/')
+    if ($relDir -eq '.') { $relDir = '' }
+    $dirId = Get-DirId -relDir $relDir -knownMap $knownDirMap -generated $generatedDirIds
+
+    $bytes = [System.Text.Encoding]::UTF8.GetBytes($rel)
+    $hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash($bytes)
+    $hash = [System.BitConverter]::ToString($hashBytes).Replace('-','').Substring(0,8)
+    $raw = 'cmp_' + ($rel -replace '[^a-zA-Z0-9]','_')
+    if ($raw.Length -gt 63) { $raw = $raw.Substring(0, 63) }
+    $cid = $raw + '_' + $hash
+    $fid = 'fil_' + ($rel -replace '[^a-zA-Z0-9]','_')
+    if ($fid.Length -gt 63) { $fid = $fid.Substring(0, 63) }
+    $fid = $fid + '_' + $hash
+    $src = "`$(var.$varName)\$rel"
+    $componentLines += "    <Component Id='$cid' Directory='$dirId' Guid='*'><File Id='$fid' Source='$src'/></Component>"
+}
+
+$lines = @()
+$lines += '<?xml version="1.0" encoding="utf-8"?>'
+$lines += "<Wix xmlns='$ns'>"
+$lines += "  <Fragment>"
+$sortedDirKeys = $generatedDirIds.Keys | Sort-Object
+foreach ($key in $sortedDirKeys) {
+    $dirInfo = $generatedDirIds[$key]
+    $lines += "    <DirectoryRef Id='$($dirInfo.parentId)'><Directory Id='$($dirInfo.id)' Name='$($dirInfo.name)' /></DirectoryRef>"
+}
+$lines += "    <ComponentGroup Id='$cgId'>"
+$lines += $componentLines -join "`r`n"
+$lines += "    </ComponentGroup>"
+$lines += "  </Fragment>"
+$lines += '</Wix>'
+$lines -join "`r`n" | Set-Content $out -NoNewline
+PSEOF
+
+    # Convert MSYS paths to Windows paths for PowerShell
+    if command -v cygpath >/dev/null 2>&1; then
+        WWW_WIN="$(cygpath -w "$WWW_DIR")"
+        BUILD_DIR_WIN="$(cygpath -w "$BUILD_DIR")"
+        WIXDIR_WIN="$(cygpath -w "$WIXDIR")"
+    else
+        WWW_WIN="$WWW_DIR"
+        BUILD_DIR_WIN="$BUILD_DIR"
+        WIXDIR_WIN="$WIXDIR"
+    fi
+
+    # ---- Step 0: Generate build-fragment.wxs (build/ dir → INSTALLDIR) ----
+    echo "Generating build/ fragment..."
+    powershell.exe -NoProfile -Command "
+        \$files = Get-ChildItem -File '$BUILD_DIR_WIN';
+        \$main = \$files | Where-Object { \$_.Name -ne 'historytracers-publisher.exe' };
+        \$pub  = \$files | Where-Object { \$_.Name -eq 'historytracers-publisher.exe' };
+        \$lines = @();
+        \$lines += '<?xml version=\"1.0\" encoding=\"utf-8\"?>';
+        \$lines += \"<Wix xmlns='http://wixtoolset.org/schemas/v4/wxs'>\";
+        \$lines += '  <Fragment>';
+        \$lines += '    <ComponentGroup Id=\"CG_MAIN_BIN\">';
+        foreach (\$f in \$main) {
+            \$rel = \$f.Name;
+            \$bytes = [System.Text.Encoding]::UTF8.GetBytes(\$rel);
+            \$hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytes);
+            \$hash = [System.BitConverter]::ToString(\$hashBytes).Replace('-','').Substring(0,8);
+            \$raw = 'cmp_bin_' + (\$rel -replace '[^a-zA-Z0-9]','_');
+            if (\$raw.Length -gt 63) { \$raw = \$raw.Substring(0, 63) };
+            \$cid = \$raw + '_' + \$hash;
+            \$fid = 'fil_' + \$raw + '_' + \$hash;
+            \$wixSrc = '\$(var.BuildDir)\' + \$rel;
+            \$lines += \"      <Component Id='\$cid' Directory='INSTALLDIR' Guid='*'><File Id='\$fid' Source='\$wixSrc'/></Component>\";
+        }
+        \$lines += '    </ComponentGroup>';
+        if (\$pub) {
+            \$rel = \$pub.Name;
+            \$bytes = [System.Text.Encoding]::UTF8.GetBytes(\$rel);
+            \$hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytes);
+            \$hash = [System.BitConverter]::ToString(\$hashBytes).Replace('-','').Substring(0,8);
+            \$raw = 'cmp_bin_' + (\$rel -replace '[^a-zA-Z0-9]','_');
+            if (\$raw.Length -gt 63) { \$raw = \$raw.Substring(0, 63) };
+            \$cid = \$raw + '_' + \$hash;
+            \$fid = 'fil_' + \$raw + '_' + \$hash;
+            \$wixSrc = '\$(var.BuildDir)\' + \$rel;
+            \$lines += '    <ComponentGroup Id=\"CG_PUBLISHER_BIN\">';
+            \$lines += \"      <Component Id='\$cid' Directory='INSTALLDIR' Guid='*'><File Id='\$fid' Source='\$wixSrc'/></Component>\";
+            \$lines += '    </ComponentGroup>';
+        }
+        \$lines += '  </Fragment>';
+        \$lines += '</Wix>';
+        \$lines -join \"\`r\`n\" | Set-Content '$WIXDIR_WIN\\build-fragment.wxs' -NoNewline
+    "
+    if [ ! -f "${WIXDIR}/build-fragment.wxs" ]; then
+        echo "ERROR: Failed to generate build-fragment.wxs"
+        rm -f "$PS_GEN"
+        exit 1
+    fi
+
+    # ---- Step 0b: Generate options-fragment.wxs (img_options.json) ----
+    echo "Generating options fragment..."
+    powershell.exe -NoProfile -Command "
+        \$rel = 'img_options.json';
+        \$bytes = [System.Text.Encoding]::UTF8.GetBytes(\$rel);
+        \$hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytes);
+        \$hash = [System.BitConverter]::ToString(\$hashBytes).Replace('-','').Substring(0,8);
+        \$raw = 'cmp_opt_' + (\$rel -replace '[^a-zA-Z0-9]','_');
+        if (\$raw.Length -gt 63) { \$raw = \$raw.Substring(0, 63) };
+        \$cid = \$raw + '_' + \$hash;
+        \$fid = 'fil_' + \$raw + '_' + \$hash;
+        \$wixSrc = '\$(var.WwwDir)\images\img_options.json';
+        \$lines = @();
+        \$lines += '<?xml version=\"1.0\" encoding=\"utf-8\"?>';
+        \$lines += \"<Wix xmlns='http://wixtoolset.org/schemas/v4/wxs'>\";
+        \$lines += '  <Fragment>';
+        \$lines += '    <ComponentGroup Id=\"CG_OPTIONS\">';
+        \$lines += \"      <Component Id='\$cid' Directory='WWW_IMAGES' Guid='*'><File Id='\$fid' Source='\$wixSrc'/></Component>\";
+        \$lines += '    </ComponentGroup>';
+        \$lines += '  </Fragment>';
+        \$lines += '</Wix>';
+        \$lines -join \"\`r\`n\" | Set-Content '$WIXDIR_WIN\\options-fragment.wxs' -NoNewline
+    "
+    if [ ! -f "${WIXDIR}/options-fragment.wxs" ]; then
+        echo "ERROR: Failed to generate options-fragment.wxs"
+        rm -f "$PS_GEN"
+        exit 1
+    fi
 
     # ---- Step 1: Harvest www/ content (exclude images/) ----
     echo "Harvesting www/ content (excluding images/)..."
@@ -311,25 +480,17 @@ ht_build_msi() {
             -var WwwDir \
             -t "${WIXDIR}/exclude-images.xsl"
     else
-        # WiX v6: generate fragment WXS by enumerating files via PowerShell
-        powershell.exe -NoProfile -Command "
-            param([string]\$dir='$WWW_DIR',[string]\$out='${WIXDIR}/www-fragment.wxs',[string]\$ns='${WIX_NS}')
-            \$excludeDirs = @('images','Images')
-            \$xml = '<?xml version=\"1.0\" encoding=\"utf-8\"?>'
-            \$xml += \"<Wix xmlns='\$ns'><Fragment><ComponentGroup Id='CG_WWW' Directory='WWWDIR'>`n\"
-            Get-ChildItem -Recurse -File \$dir | Where-Object {
-                \$rel = \$_.FullName.Substring(\$dir.Length+1).Replace('\','/')
-                -not (\$excludeDirs | Where-Object { \$rel.StartsWith(\$_+'/') -or \$rel.StartsWith(\$_+'\\') })
-            } | ForEach-Object {
-                \$rel = \$_.FullName.Substring(\$dir.Length+1)
-                \$cid = 'cmp_' + (\$rel -replace '[^a-zA-Z0-9]','_')
-                \$src = \"\`$(var.WwwDir)\\`$rel\"
-                \"  <Component Id='`$cid' Guid='*'><File Source='`$src'/></Component>`n\"
-            } | Set-Content \$out -NoNewline
-            Add-Content \$out '</ComponentGroup></Fragment></Wix>'
-        "
+        powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$PS_GEN" \
+            -dir "$WWW_WIN" \
+            -out "$WIXDIR_WIN\\www-fragment.wxs" \
+            -ns "http://wixtoolset.org/schemas/v4/wxs" \
+            -cgId "CG_WWW" \
+            -dirRef "WWWDIR" \
+            -varName "WwwDir" \
+            -excludeDirs "images;Images"
         if [ ! -f "${WIXDIR}/www-fragment.wxs" ]; then
             echo "ERROR: Failed to generate www-fragment.wxs"
+            rm -f "$PS_GEN"
             exit 1
         fi
     fi
@@ -344,39 +505,30 @@ ht_build_msi() {
             -var ImagesDir \
             -t "${WIXDIR}/exclude-options.xsl"
     else
-        # WiX v6: generate images fragment WXS
-        powershell.exe -NoProfile -Command "
-            param([string]\$dir='$IMAGES_DIR',[string]\$out='${WIXDIR}/images-fragment.wxs',[string]\$ns='${WIX_NS}')
-            \$xml = '<?xml version=\"1.0\" encoding=\"utf-8\"?>'
-            \$xml += \"<Wix xmlns='\$ns'><Fragment><ComponentGroup Id='CG_IMAGES' Directory='WWW_IMAGES'>`n\"
-            Get-ChildItem -Recurse -File \$dir | Where-Object {
-                \$_.Name -ne 'img_options.json'
-            } | ForEach-Object {
-                \$rel = \$_.FullName.Substring(\$dir.Length+1)
-                \$cid = 'cmp_img_' + (\$rel -replace '[^a-zA-Z0-9]','_')
-                \$src = \"\`$(var.ImagesDir)\\`$rel\"
-                \"  <Component Id='`$cid' Guid='*'><File Source='`$src'/></Component>`n\"
-            } | Set-Content \$out -NoNewline
-            Add-Content \$out '</ComponentGroup></Fragment></Wix>'
-        "
+        powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$PS_GEN" \
+            -dir "$WWW_WIN\\images" \
+            -out "$WIXDIR_WIN\\images-fragment.wxs" \
+            -ns "http://wixtoolset.org/schemas/v4/wxs" \
+            -cgId "CG_IMAGES" \
+            -dirRef "WWW_IMAGES" \
+            -varName "ImagesDir"
         if [ ! -f "${WIXDIR}/images-fragment.wxs" ]; then
             echo "ERROR: Failed to generate images-fragment.wxs"
+            rm -f "$PS_GEN"
             exit 1
         fi
     fi
 
-    # ---- Step 3: Patch namespace in .wxs if needed ----
-    if [ "$WIX_HAS_HARVEST" = false ]; then
-        # Temporarily patch namespace from v5 to v4 for WiX v6 compatibility
-        sed -i 's|http://wixtoolset.org/schemas/v5/wxs|http://wixtoolset.org/schemas/v4/wxs|' "${WIXDIR}/historytracers.wxs"
-    fi
+    rm -f "$PS_GEN"
 
-    # ---- Step 4: Build MSI (compile + link in one step) ----
+    # ---- Step 3: Build MSI (compile + link in one step) ----
     echo "Building MSI..."
     "$WIXEXE" build \
         "${WIXDIR}/historytracers.wxs" \
         "${WIXDIR}/www-fragment.wxs" \
         "${WIXDIR}/images-fragment.wxs" \
+        "${WIXDIR}/build-fragment.wxs" \
+        "${WIXDIR}/options-fragment.wxs" \
         -o "$OUTPUT_MSI" \
         -arch x64 \
         -d BuildDir="$BUILD_DIR" \
@@ -384,12 +536,8 @@ ht_build_msi() {
         -d ImagesDir="$IMAGES_DIR"
 
     # ---- Cleanup ----
-    rm -f "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs"
-
-    # Restore namespace in .wxs if we patched it
-    if [ "$WIX_HAS_HARVEST" = false ]; then
-        sed -i 's|http://wixtoolset.org/schemas/v4/wxs|http://wixtoolset.org/schemas/v5/wxs|' "${WIXDIR}/historytracers.wxs"
-    fi
+    rm -f "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" \
+          "${WIXDIR}/build-fragment.wxs" "${WIXDIR}/options-fragment.wxs"
 
     # Restore original img_options.json
     if [ -f images/img_options.json ]; then

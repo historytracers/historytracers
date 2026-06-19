@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns='http://wixtoolset.org/schemas/v4/wxs'>
+  <Fragment>
+    <ComponentGroup Id="CG_OPTIONS">
+      <Component Id='cmp_opt_img_options_json_8F7AC285' Directory='WWW_IMAGES' Guid='*'><File Id='fil_cmp_opt_img_options_json_8F7AC285' Source='$(var.WwwDir)\images\img_options.json'/></Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

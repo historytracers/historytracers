@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns='http://wixtoolset.org/schemas/v4/wxs'>
+  <Fragment>
+    <ComponentGroup Id="CG_MAIN_BIN">
+      <Component Id='cmp_bin_historytracers_exe_F619676F' Directory='INSTALLDIR' Guid='*'><File Id='fil_cmp_bin_historytracers_exe_F619676F' Source='$(var.BuildDir)\historytracers.exe'/></Component>
+    </ComponentGroup>
+    <ComponentGroup Id="CG_PUBLISHER_BIN">
+      <Component Id='cmp_bin_historytracers_publisher_exe_8F372920' Directory='INSTALLDIR' Guid='*'><File Id='fil_cmp_bin_historytracers_publisher_exe_8F372920' Source='$(var.BuildDir)\historytracers-publisher.exe'/></Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
