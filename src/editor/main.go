@@ -312,10 +312,6 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	if !checkToken(r) {
-		http.Error(w, "Forbidden", http.StatusForbidden)
-		return
-	}
 	fileParam := r.FormValue("file")
 	content := r.FormValue("content")
 	if fileParam == "" {
