@@ -311,14 +311,18 @@ var projectFiles map[string]bool
 
 func initProjectFiles() {
 	projectFiles = make(map[string]bool)
-	err := filepath.Walk(contentDir, func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(rootDir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
 		if info.IsDir() {
+			name := info.Name()
+			if name == ".git" || name == ".svn" || name == "node_modules" || name == "build" || name == "target" || name == ".cache" {
+				return filepath.SkipDir
+			}
 			return nil
 		}
-		rel, err := filepath.Rel(contentDir, path)
+		rel, err := filepath.Rel(rootDir, path)
 		if err != nil {
 			return nil
 		}
@@ -326,7 +330,7 @@ func initProjectFiles() {
 		return nil
 	})
 	if err != nil {
-		log.Printf("Warning: cannot scan %s: %v", contentDir, err)
+		log.Printf("Warning: cannot scan %s: %v", rootDir, err)
 	}
 }
 
@@ -350,7 +354,7 @@ func (projectFS) Open(name string) (http.File, error) {
 	if !isAllowedProjectFile(name) {
 		return nil, os.ErrNotExist
 	}
-	return http.Dir(contentDir).Open(name)
+	return http.Dir(rootDir).Open(name)
 }
 
 type statusWriter struct {

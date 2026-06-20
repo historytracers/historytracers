@@ -61,7 +61,7 @@ func runWindow() {
 
 	bringToFront(w.Window())
 
-	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
+	if _, err := os.Stat(filepath.Join(rootDir, "editor.html")); os.IsNotExist(err) {
 		w.SetHtml(welcomePage)
 		w.Run()
 		return
