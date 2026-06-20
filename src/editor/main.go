@@ -183,9 +183,7 @@ setInterval(fetchLog,1000);fetchLog();
 
 var allowedEditExts = map[string]bool{
 	".html": true, ".css": true, ".js": true, ".json": true,
-	".md": true, ".csv": true, ".xml": true, ".txt": true,
-	".yaml": true, ".yml": true, ".sh": true, ".conf": true,
-	".go": true,
+	".md": true, ".txt": true,
 }
 
 func isAllowedEditFile(filePath string) bool {
@@ -211,6 +209,30 @@ func validateEditPath(filePath string) (string, error) {
 		return "", fmt.Errorf("file type not allowed for editing")
 	}
 	return absFile, nil
+}
+
+func dirHasAllowedFiles(dir string) bool {
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return false
+	}
+	for _, e := range entries {
+		name := e.Name()
+		if strings.HasPrefix(name, ".") {
+			continue
+		}
+		if e.IsDir() {
+			if name == ".git" || name == ".svn" || name == "node_modules" || name == "build" || name == "target" || name == ".cache" {
+				continue
+			}
+			if dirHasAllowedFiles(filepath.Join(dir, name)) {
+				return true
+			}
+		} else if isAllowedEditFile(name) {
+			return true
+		}
+	}
+	return false
 }
 
 func editorTreeHandler(w http.ResponseWriter, r *http.Request) {
@@ -241,6 +263,13 @@ func editorTreeHandler(w http.ResponseWriter, r *http.Request) {
 		if strings.HasPrefix(name, ".") {
 			continue
 		}
+		if e.IsDir() {
+			if !dirHasAllowedFiles(filepath.Join(abs, name)) {
+				continue
+			}
+		} else if !isAllowedEditFile(name) {
+			continue
+		}
 		relPath := path.Join(clean, name)
 		item := map[string]interface{}{
 			"name": name,
@@ -248,7 +277,7 @@ func editorTreeHandler(w http.ResponseWriter, r *http.Request) {
 			"dir":  e.IsDir(),
 		}
 		if !e.IsDir() {
-			item["editable"] = isAllowedEditFile(name)
+			item["editable"] = true
 		}
 		result = append(result, item)
 	}
