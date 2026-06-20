@@ -2,6 +2,24 @@
 
 package main
 
+/*
+#cgo linux openbsd freebsd netbsd pkg-config: gtk+-3.0
+#cgo darwin LDFLAGS: -framework Cocoa
+
+#if defined(__APPLE__)
+#include <Cocoa/Cocoa.h>
+static void bringWindowToFront(void *w) {
+    [(NSWindow*)w makeKeyAndOrderFront:nil];
+}
+#else
+#include <gtk/gtk.h>
+static void bringWindowToFront(void *w) {
+    if (w) gtk_window_present(GTK_WINDOW(w));
+}
+#endif
+*/
+import "C"
+
 import (
 	"os"
 	"path/filepath"
@@ -24,10 +42,12 @@ func runWindow() {
 
 	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
 		w.SetHtml(welcomePage)
+		C.bringWindowToFront(w.Window())
 		w.Run()
 		return
 	}
 
 	w.Navigate(pageURL)
+	C.bringWindowToFront(w.Window())
 	w.Run()
 }
