@@ -273,13 +273,16 @@ function htWriteYupanaSumMovement(larr, rarr, tableID, rows, resultID)
     var text = "";
     for (let i = 0, j = larr.length; i < larr.length; i++, j--) {
         var result = parseInt(larr[i]) + parseInt(rarr_work[i]);
+        carry = false;
         if (result >= 10) {
             if (i + 1 < larr.length) {
                 rarr_work[i+1] += 1;
             }
         }
 
-        text += i+") "+larr[i] +" + "+rarr_work[i]+" = "+result+":<br />";
+        text += larr[i] +" + ";
+        text +=  (rarr[i] == rarr_work[i]) ? rarr[i] : rarr[i] + " + 1" ;
+        text += " = "+result+":<br />";
         text += htWriteSumOnYupana(larr[i], rarr_work[i], result);
     }
     $(tableID+" "+resultID).html(text);
