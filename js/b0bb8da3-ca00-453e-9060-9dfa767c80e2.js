@@ -54,6 +54,15 @@ function htLoadContent() {
             $('#tc7f1').html("");
             htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', local.lvalues);
             htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', local.rvalues);
+        } else if (value == "stepbystep") {
+            $(".yupana-btn[data-action='calcular']").prop("disabled", false);
+            htCleanYupanaAdditionalColumn('#yupana1', 4, '#tc6f');
+            $('#tc7f1').html("");
+            htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', local.lvalues);
+            htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', local.rvalues);
+            setTimeout(function() {
+                htYupanaStepByStep(local.lvalues, local.rvalues, '#yupana1', 4, '#tc7f1');
+            }, 1000);
         } else {
             var totals = htSumYupanaVectors(local.lvalues, local.rvalues);
             htCleanYupanaDecimalValues('#yupana1', 4);
