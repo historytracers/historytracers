@@ -220,6 +220,40 @@ esac
 AC_SUBST([MINGW_BINDIR])
 AM_CONDITIONAL([NEED_MINGW], [test -n "$MINGW_CC"])
 
+# Check for GTK3 (needed by editor/viewer on Linux)
+HAVE_GTK3=no
+AS_IF([test "x$GOOS" != "xwindows" -a "x$GOOS" != "xdarwin"], [
+    PKG_CHECK_MODULES([GTK3], [gtk+-3.0 >= 3.0],
+        [HAVE_GTK3=yes],
+        [AC_MSG_WARN([gtk+-3.0 not found; editor/viewer will not build on Linux])])
+])
+
+# Editor build option
+AC_ARG_ENABLE([editor],
+    [AS_HELP_STRING([--disable-editor], [Disable building the editor])],
+    [enable_editor=$enableval],
+    [enable_editor=auto])
+
+build_editor=no
+AS_IF([test "x$enable_editor" != "xno"], [
+    AS_IF([test "x$GOOS" = "xwindows"], [
+        AS_IF([test -n "$MINGW_CC"], [build_editor=yes], [
+            AS_IF([test "x$enable_editor" = "xyes"],
+                [AC_MSG_ERROR([Editor requires MinGW-w64 C compiler])],
+                [AC_MSG_WARN([MinGW-w64 C compiler not found; editor disabled])])
+        ])
+    ], [test "x$GOOS" = "xdarwin"], [
+        build_editor=yes
+    ], [
+        AS_IF([test "x$HAVE_GTK3" = "xyes"], [build_editor=yes], [
+            AS_IF([test "x$enable_editor" = "xyes"],
+                [AC_MSG_ERROR([Editor requires GTK3 development packages])],
+                [AC_MSG_WARN([GTK3 not found; editor disabled])])
+        ])
+    ])
+])
+AM_CONDITIONAL([BUILD_EDITOR], [test "x$build_editor" = "xyes"])
+
  # Set default installation paths
 AC_PREFIX_DEFAULT(/usr)
 

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HistoryTracers Editor</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;font:14px/1.4 verdana,arial,helvetica,sans-serif;background:#263238;color:#eceff1}
+#root{display:flex;flex-direction:column;height:100%}
+#toolbar{display:flex;align-items:center;padding:6px 12px;background:#37474f;border-bottom:1px solid #455a64;flex-shrink:0;gap:8px}
+#toolbar .brand{font-weight:bold;color:#80cbc4;margin-right:8px}
+#toolbar select,#toolbar button{background:#455a64;color:#eceff1;border:1px solid #546e7a;border-radius:4px;padding:4px 10px;font:13px/1.4 sans-serif;cursor:pointer}
+#toolbar button:hover{background:#546e7a}
+#toolbar button:active{background:#37474f}
+#toolbar .spacer{flex:1}
+#main{display:flex;flex:1;overflow:hidden}
+#sidebar{width:260px;min-width:200px;background:#2b3b45;border-right:1px solid #455a64;display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
+#sidebar h3{padding:8px 10px;font-size:13px;color:#b0bec5;border-bottom:1px solid #455a64;flex-shrink:0}
+#sidebar h3 button{float:right;background:none;border:none;color:#80cbc4;cursor:pointer;font-size:13px;padding:0 4px}
+#tree{flex:1;overflow-y:auto;padding:4px 0;font:13px/1.6 monospace}
+.tree-item{display:flex;align-items:center;padding:2px 10px;cursor:pointer;white-space:nowrap;gap:4px}
+.tree-item:hover{background:#374a55}
+.tree-item.dir{color:#80cbc4}
+.tree-item.file{color:#eceff1}
+.tree-item.selected{background:#455a64;color:#fff}
+.tree-item .icon{width:16px;text-align:center;flex-shrink:0;font-size:12px}
+.tree-item .name{overflow:hidden;text-overflow:ellipsis}
+.tree-item .ext{color:#78909c;font-size:11px;margin-left:auto}
+#editor{flex:1;display:flex;flex-direction:column;overflow:hidden;background:#1e272e}
+#editor .no-file{display:flex;flex:1;align-items:center;justify-content:center;color:#546e7a;font-size:16px}
+#editor .file-path{padding:4px 12px;background:#2b3b45;border-bottom:1px solid #455a64;font:12px/1.6 monospace;color:#78909c;flex-shrink:0;display:flex;align-items:center;gap:8px}
+#editor .file-path .status{font-size:11px;padding:1px 6px;border-radius:3px}
+#editor .file-path .status.unsaved{background:#e65100;color:#fff}
+#editor .file-path .status.saved{background:#2e7d32;color:#fff}
+#editor textarea{flex:1;border:none;padding:12px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1e272e;color:#eceff1;resize:none;outline:none;tab-size:2}
+#editor textarea::placeholder{color:#546e7a}
+#editor .actions{display:flex;gap:4px;margin-left:auto}
+#editor .actions button{background:#455a64;border:none;color:#eceff1;cursor:pointer;padding:2px 8px;border-radius:3px;font:12px/1.4 sans-serif}
+#editor .actions button:hover{background:#546e7a}
+#editor .actions button.primary{background:#00897b;color:#fff}
+#editor .actions button.primary:hover{background:#26a69a}
+#toast{position:fixed;bottom:20px;right:20px;padding:10px 20px;border-radius:6px;font:13px/1.4 sans-serif;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}
+#toast.show{opacity:1}
+#toast.success{background:#2e7d32;color:#fff}
+#toast.error{background:#c62828;color:#fff}
+#toast.info{background:#1565c0;color:#fff}
+</style>
+</head>
+<body>
+<div id="root">
+<div id="toolbar">
+<span class="brand">HistoryTracers Editor</span>
+<select id="langSelect" onchange="setLang(this.value)">
+<option value="en-US">English</option>
+<option value="pt-BR">Portugu&ecirc;s</option>
+<option value="es-ES">Espa&ntilde;ol</option>
+</select>
+<div class="spacer"></div>
+<button onclick="openDevTools()" id="devBtn">Dev</button>
+</div>
+<div id="main">
+<div id="sidebar">
+<h3><span id="sidebarTitle">Files</span><button onclick="refreshTree()" id="refreshBtn">&#x21bb;</button></h3>
+<div id="tree"></div>
+</div>
+<div id="editor">
+<div class="no-file" id="noFileMsg">Select a file to edit</div>
+<div class="file-path" id="filePathBar" style="display:none">
+<span id="fileName">-</span>
+<span class="status" id="fileStatus"></span>
+<div class="actions">
+<button onclick="saveFile()" class="primary" id="saveBtn">Save</button>
+<button onclick="revertFile()" id="revertBtn">Revert</button>
+</div>
+</div>
+<textarea id="editorArea" style="display:none" spellcheck="false" wrap="off" placeholder="Open a file to start editing"></textarea>
+</div>
+</div>
+</div>
+<div id="toast"></div>
+<script>
+var LOC='en-US';
+var currentFile='';
+var originalContent='';
+var modified=false;
+
+var L={
+'en-US':{files:'Files',selectFile:'Select a file to edit',save:'Save',revert:'Revert',saved:'Saved',unsaved:'Unsaved',saveSuccess:'File saved',saveError:'Failed to save file',readError:'Failed to read file',treeError:'Failed to load file tree',dev:'Dev',confirmRevert:'Discard unsaved changes?',loading:'Loading...'},
+'pt-BR':{files:'Arquivos',selectFile:'Selecione um arquivo para editar',save:'Salvar',revert:'Reverter',saved:'Salvo',unsaved:'N\u00e3o salvo',saveSuccess:'Arquivo salvo',saveError:'Erro ao salvar arquivo',readError:'Erro ao ler arquivo',treeError:'Erro ao carregar \u00e1rvore',dev:'Dev',confirmRevert:'Descartar altera\u00e7\u00f5es n\u00e3o salvas?',loading:'Carregando...'},
+'es-ES':{files:'Archivos',selectFile:'Seleccione un archivo para editar',save:'Guardar',revert:'Revertir',saved:'Guardado',unsaved:'No guardado',saveSuccess:'Archivo guardado',saveError:'Error al guardar archivo',readError:'Error al leer archivo',treeError:'Error al cargar \u00e1rbol',dev:'Dev',confirmRevert:'\u00bfDescartar cambios no guardados?',loading:'Cargando...'}
+};
+
+function tr(key){var l=L[LOC]||L['en-US'];return l[key]||L['en-US'][key]||key}
+
+function setLang(loc){
+	LOC=loc;
+	document.getElementById('sidebarTitle').textContent=tr('files');
+	document.getElementById('noFileMsg').textContent=tr('selectFile');
+	document.getElementById('saveBtn').textContent=tr('save');
+	document.getElementById('revertBtn').textContent=tr('revert');
+	document.getElementById('devBtn').textContent=tr('dev');
+	updateStatus();
+}
+
+function updateStatus(){
+	var st=document.getElementById('fileStatus');
+	if(currentFile){
+		st.textContent=modified?tr('unsaved'):tr('saved');
+		st.className='status '+(modified?'unsaved':'saved');
+	}
+}
+
+function toast(msg,type){
+	var el=document.getElementById('toast');
+	el.textContent=msg;
+	el.className=type||'info';
+	el.classList.add('show');
+	setTimeout(function(){el.classList.remove('show')},2500);
+}
+
+async function refreshTree(){
+	var el=document.getElementById('tree');
+	el.innerHTML='<div class="tree-item" style="color:#546e7a;padding:8px 10px">'+tr('loading')+'...</div>';
+	try{
+		var r=await fetch('/api/editor/tree');
+		var items=await r.json();
+		renderTree(items,'');
+	}catch(e){
+		el.innerHTML='<div class="tree-item" style="color:#f48771;padding:8px 10px">'+tr('treeError')+'</div>';
+	}
+}
+
+function renderTree(items,basePath){
+	var el=document.getElementById('tree');
+	el.innerHTML='';
+	items.sort(function(a,b){if(a.dir!=b.dir)return a.dir?-1:1;return a.name.localeCompare(b.name)});
+	items.forEach(function(item){
+		var d=document.createElement('div');
+		d.className='tree-item'+(item.dir?' dir':' file');
+		d.dataset.path=item.path;
+		d.dataset.dir=item.dir?'1':'0';
+		var ic=document.createElement('span');
+		ic.className='icon';
+		ic.textContent=item.dir?'\u25B6':'\u2022';
+		d.appendChild(ic);
+		var nm=document.createElement('span');
+		nm.className='name';
+		nm.textContent=item.name;
+		d.appendChild(nm);
+		if(!item.dir){
+			var ex=document.createElement('span');
+			ex.className='ext';
+			var idx=item.name.lastIndexOf('.');
+			ex.textContent=idx>=0?item.name.substring(idx):'';
+			d.appendChild(ex);
+			d.onclick=function(e){openFile(this.dataset.path)};
+		}else{
+			d.onclick=function(e){toggleDir(this)};
+		}
+		el.appendChild(d);
+	});
+}
+
+function toggleDir(el){
+	if(el.classList.contains('expanded')){
+		el.classList.remove('expanded');
+		var ic=el.querySelector('.icon');
+		if(ic)ic.textContent='\u25B6';
+		var nxt=el.nextElementSibling;
+		while(nxt&&nxt.classList.contains('tree-item')&&nxt.dataset.dir==='0'){
+			nxt.style.display=nxt.style.display==='none'?'':'none';
+			nxt=nxt.nextElementSibling;
+		}
+	}else{
+		el.classList.add('expanded');
+		var ic=el.querySelector('.icon');
+		if(ic)ic.textContent='\u25BC';
+		loadSubdir(el.dataset.path,el);
+	}
+}
+
+async function loadSubdir(path,dirEl){
+	try{
+		var r=await fetch('/api/editor/tree?path='+encodeURIComponent(path));
+		var items=await r.json();
+		var el=document.getElementById('tree');
+		var nxt=dirEl.nextElementSibling;
+		while(nxt&&nxt.classList.contains('tree-item')&&nxt.dataset.dir==='0'){
+			el.removeChild(nxt);
+			nxt=dirEl.nextElementSibling;
+		}
+		items.sort(function(a,b){if(a.dir!=b.dir)return a.dir?-1:1;return a.name.localeCompare(b.name)});
+		var frag=document.createDocumentFragment();
+		items.forEach(function(item){
+			var d=document.createElement('div');
+			d.className='tree-item'+(item.dir?' dir':' file');
+			d.dataset.path=item.path;
+			d.dataset.dir=item.dir?'1':'0';
+			var ic=document.createElement('span');
+			ic.className='icon';
+			ic.textContent=item.dir?'\u25B6':'\u2022';
+			d.appendChild(ic);
+			var nm=document.createElement('span');
+			nm.className='name';
+			nm.textContent=item.name;
+			d.appendChild(nm);
+			if(!item.dir){
+				var ex=document.createElement('span');
+				ex.className='ext';
+				var idx=item.name.lastIndexOf('.');
+				ex.textContent=idx>=0?item.name.substring(idx):'';
+				d.appendChild(ex);
+				d.onclick=function(e){openFile(this.dataset.path)};
+			}else{
+				d.onclick=function(e){toggleDir(this)};
+			}
+			frag.appendChild(d);
+		});
+		dirEl.parentNode.insertBefore(frag,dirEl.nextSibling);
+	}catch(e){
+		toast(tr('treeError'),'error');
+	}
+}
+
+async function openFile(path){
+	if(modified&&!confirm(tr('confirmRevert')))return;
+	if(!path)return;
+	modified=false;
+	updateStatus();
+	currentFile='';
+	var area=document.getElementById('editorArea');
+	area.value='';
+	area.style.display='none';
+	document.getElementById('noFileMsg').style.display='flex';
+	document.getElementById('filePathBar').style.display='none';
+	try{
+		var r=await fetch('/api/editor/read?file='+encodeURIComponent(path));
+		var data=await r.json();
+		currentFile=path;
+		originalContent=data.content;
+		document.getElementById('fileName').textContent=path;
+		document.getElementById('noFileMsg').style.display='none';
+		document.getElementById('filePathBar').style.display='flex';
+		area.value=data.content;
+		area.style.display='';
+		area.focus();
+		modified=false;
+		updateStatus();
+		// highlight selected file in tree
+		document.querySelectorAll('#tree .tree-item.selected').forEach(function(el){el.classList.remove('selected')});
+		document.querySelectorAll('#tree .tree-item').forEach(function(el){
+			if(el.dataset.path===path)el.classList.add('selected');
+		});
+	}catch(e){
+		toast(tr('readError'),'error');
+	}
+}
+
+function saveFile(){
+	if(!currentFile)return;
+	var area=document.getElementById('editorArea');
+	var content=area.value;
+	fetch('/api/editor/save',{
+		method:'POST',
+		headers:{'Content-Type':'application/x-www-form-urlencoded'},
+		body:'file='+encodeURIComponent(currentFile)+'&content='+encodeURIComponent(content)
+	}).then(function(r){
+		if(!r.ok)throw new Error('HTTP '+r.status);
+		originalContent=content;
+		modified=false;
+		updateStatus();
+		toast(tr('saveSuccess'),'success');
+	}).catch(function(e){
+		toast(tr('saveError')+': '+e.message,'error');
+	});
+}
+
+function revertFile(){
+	if(!currentFile)return;
+	if(modified&&!confirm(tr('confirmRevert')))return;
+	document.getElementById('editorArea').value=originalContent;
+	modified=false;
+	updateStatus();
+}
+
+function openDevTools(){
+	var dp=document.getElementById('__ht_dev_panel');
+	if(dp){dp.style.display=dp.style.display==='none'?'':'none';return}
+	dp=document.createElement('div');
+	dp.id='__ht_dev_panel';
+	dp.style.cssText='position:fixed;top:0;right:0;width:50%;height:100%;background:#1e1e1e;border-left:2px solid #444;z-index:999999;display:flex;flex-direction:column;';
+	var hdr=document.createElement('div');
+	hdr.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:4px 8px;background:#2d2d2d;color:#ccc;font:13px/1.4 sans-serif;border-bottom:1px solid #444;';
+	hdr.textContent='DevTools';
+	var cls=document.createElement('span');
+	cls.textContent='\u00D7';
+	cls.style.cssText='cursor:pointer;font:bold 18px/1 monospace;color:#999;padding:0 4px;';
+	cls.onclick=function(){dp.style.display='none'};
+	hdr.appendChild(cls);
+	dp.appendChild(hdr);
+	var fi=document.createElement('iframe');
+	fi.src=window.location.origin+'/api/dev/page';
+	fi.style.cssText='flex:1;border:none;width:100%;';
+	dp.appendChild(fi);
+	document.documentElement.appendChild(dp);
+}
+
+// Init: setup lang, load tree
+(function(){
+	var loc=new URL(window.location.href).searchParams.get('lang')||navigator.language||'en-US';
+	LOC=loc;
+	var ls=document.getElementById('langSelect');
+	ls.value=loc;
+	if(!ls.value){ls.value='en-US';LOC='en-US'}
+	setLang(LOC);
+	refreshTree();
+	// mark content for editorBarJS that we're in the editor
+	window.__ht_editor=true;
+	// listen for Ctrl+S
+	document.addEventListener('keydown',function(e){
+		if((e.ctrlKey||e.metaKey)&&e.key==='s'){
+			e.preventDefault();
+			saveFile();
+		}
+	});
+	// track content changes
+	document.getElementById('editorArea').addEventListener('input',function(){
+		if(currentFile&&this.value!==originalContent){
+			modified=true;
+			updateStatus();
+		}else if(currentFile){
+			modified=false;
+			updateStatus();
+		}
+	});
+})();
+</script>
+</body>
+</html>
