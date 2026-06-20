@@ -18,18 +18,18 @@ function htLoadContent() {
 
     local = { "lvalues": [], "rvalues": [], "sumFirstTime": true, "counter": 0, "answerVector": undefined }; 
 
-    $( "#ia2yupana1" ).bind( "keyup mouseup", function() {
-        $("input[name='yupanaradio']").prop("checked", false);
+    $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
+        $(".yupana-btn").removeClass("active");
         var value = $(this).val();
         if (value < 0) {
-                $(this).val(0);
+            $(this).val(0);
         } else if (value > 4999) {
             $(this).val(4999);
         }
     });
 
     $( "#ia2yupana1" ).bind( "keyup mouseup", function() {
-        $("input[name='yupanaradio']").prop("checked", false);
+        $(".yupana-btn").removeClass("active");
         var value = $(this).val();
         if (value < 0) {
             $(this).val(0);
@@ -39,8 +39,10 @@ function htLoadContent() {
     });
     htFillCurrentYupanaSum();
 
-    $( "input[name='yupanaradio']" ).on( "change", function() {
-        var value = $(this).val();
+    $(".yupana-btn").on("click", function() {
+        var value = $(this).data("action");
+        $(".yupana-btn").removeClass("active");
+        $(this).addClass("active");
         htCleanYupanaDecimalValues('#yupana1', 4);
 
         htFillCurrentYupanaSum();
