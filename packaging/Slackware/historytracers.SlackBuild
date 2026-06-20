@@ -65,15 +65,25 @@ if [ -f packaging/sysvinit-script/rc.historytracers ]; then
   install -m 644 packaging/sysvinit-script/rc.historytracers $PKG/etc/rc.d/
 fi
 
-# Install web content: everything from www/ except image files
+# Install web content from www/ (images handled separately)
 if [ -d "www/" ]; then
   for item in www/*; do
     base=$(basename "$item")
     [ "$base" = "images" ] && continue
     cp -R "$item" $PKG/usr/share/$PRGNAM/www/
   done
-  # Only img_options.json from images/
+fi
+
+# Install image options config
+if [ -f www/images/img_options.json ]; then
   install -m 644 www/images/img_options.json $PKG/usr/share/$PRGNAM/www/images/
+fi
+
+# Optionally install actual images from the images tarball
+if [ -f $CWD/historytracers-images-${VERSION}.tar.gz ]; then
+  tar xf $CWD/historytracers-images-${VERSION}.tar.gz -C $TMP
+  mkdir -p $PKG/usr/share/$PRGNAM/www/images
+  cp -R $TMP/historytracers-images/images/* $PKG/usr/share/$PRGNAM/www/images/
 fi
 
 # Install documentation
