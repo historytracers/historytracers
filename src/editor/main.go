@@ -21,6 +21,8 @@ import (
 	"sync"
 	"time"
 
+	git "github.com/go-git/go-git/v5"
+
 	"github.com/google/uuid"
 	"github.com/historytracers/common"
 )
@@ -589,6 +591,57 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{"uuid": strID})
 }
 
+func gitStatusHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	type changeEntry struct {
+		Path   string `json:"path"`
+		Status string `json:"status"`
+		Staged bool   `json:"staged"`
+	}
+	files := make([]changeEntry, 0)
+	repo, err := git.PlainOpen(rootDir)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]interface{}{"files": files})
+		return
+	}
+	tree, err := repo.Worktree()
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]interface{}{"files": files})
+		return
+	}
+	status, err := tree.Status()
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]interface{}{"files": files})
+		return
+	}
+	for path, fs := range status {
+		// skip deleted files and non-editable extensions
+		if fs.Worktree == git.Deleted || fs.Staging == git.Deleted {
+			continue
+		}
+		if !isAllowedEditFile(path) {
+			continue
+		}
+		var st string
+		staged := false
+		switch {
+		case fs.Staging != git.Untracked:
+			st = string(fs.Staging)
+			staged = true
+		case fs.Worktree != git.Untracked:
+			st = string(fs.Worktree)
+		default:
+			st = "??"
+		}
+		files = append(files, changeEntry{
+			Path:   path,
+			Status: st,
+			Staged: staged,
+		})
+	}
+	json.NewEncoder(w).Encode(map[string]interface{}{"files": files})
+}
+
 func init() {
 	fileLocks = make(map[string]string)
 }
@@ -707,6 +760,7 @@ func main() {
 	mux.HandleFunc("/api/editor/unlock", editorUnlockHandler)
 	mux.HandleFunc("/api/editor/create-class", createClassHandler)
 	mux.HandleFunc("/api/editor/create-family", createFamilyHandler)
+	mux.HandleFunc("/api/editor/git-status", gitStatusHandler)
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)

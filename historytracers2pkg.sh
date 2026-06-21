@@ -182,7 +182,7 @@ ht_build_slackware() {
     make clean
 
     mkdir -p "${DST}/www"
-    cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv gedcom historytracers-installer.sh historytracers2pkg.sh index.html js lang packaging scripts src webfonts "${DST}"
+    cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv editor.html gedcom historytracers-installer.sh historytracers2pkg.sh index.html js lang packaging scripts src webfonts "${DST}"
     mkdir -p "${DST}/images"
     cp images/img_options.json "${DST}/images/"
     tar -acvf "artifacts/historytracers-${VERSION}.tar.xz" "${DST}"
