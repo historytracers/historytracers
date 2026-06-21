@@ -38,6 +38,10 @@
                 Description="Launch HistoryTracers Viewer"
                 Target="[INSTALLDIR]historytracers.exe"
                 WorkingDirectory="INSTALLDIR" />
+      <Shortcut Id="S_Editor" Name="HistoryTracers Editor"
+                Description="Launch HistoryTracers Editor"
+                Target="[INSTALLDIR]historytracers-editor.exe"
+                WorkingDirectory="INSTALLDIR" />
       <Shortcut Id="S_Uninstall" Name="Uninstall HistoryTracers"
                 Description="Uninstall HistoryTracers"
                 Target="[System64Folder]msiexec.exe"
@@ -73,6 +77,12 @@
              Description="Additional museum and institutional image files"
              Level="3" TypicalDefault="install">
       <ComponentGroupRef Id="CG_IMAGES" />
+    </Feature>
+
+    <Feature Id="Editor" Title="HistoryTracers Editor"
+             Description="Content editor application (for content authors)"
+             Level="3" TypicalDefault="install">
+      <ComponentGroupRef Id="CG_EDITOR_BIN" />
     </Feature>
 
     <Feature Id="Publisher" Title="Publisher Tool"

@@ -211,7 +211,8 @@ ht_msi_cleanup() {
     if [ -f images/img_options.json ]; then
         sed -i 's/"ht_local_images" : false/"ht_local_images" : true/' images/img_options.json 2>/dev/null || true
     fi
-    rm -rf "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" 2>/dev/null || true
+    rm -rf "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" \
+           "${WIXDIR}/editor-fragment.wxs" 2>/dev/null || true
 }
 
 ht_build_msi() {
@@ -413,7 +414,7 @@ PSEOF
     echo "Generating build/ fragment..."
     powershell.exe -NoProfile -Command "
         \$files = Get-ChildItem -File '$BUILD_DIR_WIN';
-        \$main = \$files | Where-Object { \$_.Name -ne 'historytracers-publisher.exe' };
+            \$main = \$files | Where-Object { \$_.Name -ne 'historytracers-publisher.exe' -and \$_.Name -ne 'historytracers-editor.exe' };
         \$pub  = \$files | Where-Object { \$_.Name -eq 'historytracers-publisher.exe' };
         \$lines = @();
         \$lines += '<?xml version=\"1.0\" encoding=\"utf-8\"?>';
@@ -486,6 +487,53 @@ PSEOF
         exit 1
     fi
 
+    # ---- Step 0c: Generate editor-fragment.wxs (editor binary + editor.html → INSTALLDIR) ----
+    echo "Generating editor fragment..."
+    powershell.exe -NoProfile -Command "
+        \$editorExe = Get-ChildItem -File '$BUILD_DIR_WIN' | Where-Object { \$_.Name -eq 'historytracers-editor.exe' };
+        if (\$editorExe) {
+            # editor binary
+            \$rel = \$editorExe.Name;
+            \$bytes = [System.Text.Encoding]::UTF8.GetBytes(\$rel);
+            \$hashBytes = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytes);
+            \$hash = [System.BitConverter]::ToString(\$hashBytes).Replace('-','').Substring(0,8);
+            \$raw = 'cmp_editor_' + (\$rel -replace '[^a-zA-Z0-9]','_');
+            if (\$raw.Length -gt 63) { \$raw = \$raw.Substring(0, 63) };
+            \$cidExe = \$raw + '_' + \$hash;
+            \$fidExe = 'fil_' + \$raw + '_' + \$hash;
+            \$wixSrcExe = '\$(var.BuildDir)\' + \$rel;
+            # editor.html
+            \$relHtml = 'editor.html';
+            \$bytesHtml = [System.Text.Encoding]::UTF8.GetBytes(\$relHtml);
+            \$hashBytesHtml = [System.Security.Cryptography.SHA256]::Create().ComputeHash(\$bytesHtml);
+            \$hashHtml = [System.BitConverter]::ToString(\$hashBytesHtml).Replace('-','').Substring(0,8);
+            \$rawHtml = 'cmp_editor_' + (\$relHtml -replace '[^a-zA-Z0-9]','_');
+            if (\$rawHtml.Length -gt 63) { \$rawHtml = \$rawHtml.Substring(0, 63) };
+            \$cidHtml = \$rawHtml + '_' + \$hashHtml;
+            \$fidHtml = 'fil_' + \$rawHtml + '_' + \$hashHtml;
+            \$wixSrcHtml = '\$(var.ProjectDir)\editor.html';
+            \$lines = @();
+            \$lines += '<?xml version=\"1.0\" encoding=\"utf-8\"?>';
+            \$lines += \"<Wix xmlns='http://wixtoolset.org/schemas/v4/wxs'>\";
+            \$lines += '  <Fragment>';
+            \$lines += '    <ComponentGroup Id=\"CG_EDITOR_BIN\">';
+            \$lines += \"      <Component Id='\$cidExe' Directory='INSTALLDIR' Guid='*'><File Id='\$fidExe' Source='\$wixSrcExe'/></Component>\";
+            \$lines += \"      <Component Id='\$cidHtml' Directory='INSTALLDIR' Guid='*'><File Id='\$fidHtml' Source='\$wixSrcHtml'/></Component>\";
+            \$lines += '    </ComponentGroup>';
+            \$lines += '  </Fragment>';
+            \$lines += '</Wix>';
+            \$lines -join \"\`r\`n\" | Set-Content '$WIXDIR_WIN\\editor-fragment.wxs' -NoNewline
+        } else {
+            Write-Error 'historytracers-editor.exe not found in build directory'
+            exit 1
+        }
+    "
+    if [ ! -f "${WIXDIR}/editor-fragment.wxs" ]; then
+        echo "ERROR: Failed to generate editor-fragment.wxs"
+        rm -f "$PS_GEN"
+        exit 1
+    fi
+
     # ---- Step 1: Harvest www/ content (exclude images/) ----
     echo "Harvesting www/ content (excluding images/)..."
     if [ "$WIX_HAS_HARVEST" = true ]; then
@@ -546,15 +594,18 @@ PSEOF
         "${WIXDIR}/images-fragment.wxs" \
         "${WIXDIR}/build-fragment.wxs" \
         "${WIXDIR}/options-fragment.wxs" \
+        "${WIXDIR}/editor-fragment.wxs" \
         -o "$OUTPUT_MSI" \
         -arch x64 \
         -d BuildDir="$BUILD_DIR" \
         -d WwwDir="$WWW_DIR" \
-        -d ImagesDir="$IMAGES_DIR"
+        -d ImagesDir="$IMAGES_DIR" \
+        -d ProjectDir="$PROJECT_DIR"
 
     # ---- Cleanup ----
     rm -f "${WIXDIR}/www-fragment.wxs" "${WIXDIR}/images-fragment.wxs" \
-          "${WIXDIR}/build-fragment.wxs" "${WIXDIR}/options-fragment.wxs"
+          "${WIXDIR}/build-fragment.wxs" "${WIXDIR}/options-fragment.wxs" \
+          "${WIXDIR}/editor-fragment.wxs"
 
     # Restore original img_options.json
     if [ -f images/img_options.json ]; then
