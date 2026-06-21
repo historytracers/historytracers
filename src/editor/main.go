@@ -20,6 +20,9 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/google/uuid"
+	"github.com/historytracers/common"
 )
 
 var srv *http.Server
@@ -381,6 +384,211 @@ var (
 	fileLocksMu sync.Mutex
 )
 
+var editorLangs = []string{"en-US", "es-ES", "pt-BR"}
+
+func copyFile(dst, src string) error {
+	in, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+	defer in.Close()
+	out, err := os.Create(dst)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+	_, err = io.Copy(out, in)
+	return err
+}
+
+func createClassHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	className := r.FormValue("className")
+	if className == "" {
+		http.Error(w, "missing className", http.StatusBadRequest)
+		return
+	}
+	id := uuid.New()
+	strID := id.String()
+
+	tplPath := filepath.Join(rootDir, "src", "json", "class_template.json")
+	data, err := os.ReadFile(tplPath)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("cannot read template: %v", err), http.StatusInternalServerError)
+		return
+	}
+	var tpl common.ClassTemplateFile
+	if err := json.Unmarshal(data, &tpl); err != nil {
+		http.Error(w, fmt.Sprintf("invalid template: %v", err), http.StatusInternalServerError)
+		return
+	}
+	common.HTSetDefaultClassTemplateValues(&tpl, strID, className)
+
+	for _, lang := range editorLangs {
+		langPath := filepath.Join(rootDir, "lang", lang)
+		os.MkdirAll(langPath, 0755)
+		tplFile := filepath.Join(langPath, strID+".json")
+		fp, err := os.Create(tplFile)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		e := json.NewEncoder(fp)
+		e.SetEscapeHTML(false)
+		e.SetIndent("", "   ")
+		e.Encode(tpl)
+		fp.Close()
+
+		idxPath := filepath.Join(rootDir, "lang", lang, className+".json")
+		idxData, err := os.ReadFile(idxPath)
+		if err != nil {
+			http.Error(w, fmt.Sprintf("cannot read index %s: %v", idxPath, err), http.StatusInternalServerError)
+			return
+		}
+		var idx common.ClassIdx
+		if err := json.Unmarshal(idxData, &idx); err != nil {
+			http.Error(w, fmt.Sprintf("invalid index: %v", err), http.StatusInternalServerError)
+			return
+		}
+		common.HTAddNewClassToIdx(&idx, strID)
+		idx.LastUpdate[0] = common.HTUpdateTimestamp()
+
+		tmpPath := filepath.Join(rootDir, "lang", lang, strID+"_idx.tmp")
+		fp2, err := os.Create(tmpPath)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		e2 := json.NewEncoder(fp2)
+		e2.SetEscapeHTML(false)
+		e2.SetIndent("", "   ")
+		e2.Encode(idx)
+		fp2.Close()
+		if err := copyFile(idxPath, tmpPath); err != nil {
+			os.Remove(tmpPath)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		os.Remove(tmpPath)
+	}
+
+	srcTpl := filepath.Join(rootDir, "src", "json", "sources_template.json")
+	srcDst := filepath.Join(rootDir, "lang", "sources", strID+".json")
+	os.MkdirAll(filepath.Join(rootDir, "lang", "sources"), 0755)
+	if err := copyFile(srcDst, srcTpl); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	jsSrc := filepath.Join(rootDir, "src", "js", "ht_classes.js")
+	jsDst := filepath.Join(rootDir, "js", strID+".js")
+	os.MkdirAll(filepath.Join(rootDir, "js"), 0755)
+	if err := copyFile(jsDst, jsSrc); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	rotateToken()
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("X-HT-Next-Token", viewerToken)
+	json.NewEncoder(w).Encode(map[string]string{"uuid": strID})
+}
+
+func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	id := uuid.New()
+	strID := id.String()
+
+	tplPath := filepath.Join(rootDir, "src", "json", "family_template.json")
+	data, err := os.ReadFile(tplPath)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("cannot read template: %v", err), http.StatusInternalServerError)
+		return
+	}
+	var family common.Family
+	if err := json.Unmarshal(data, &family); err != nil {
+		http.Error(w, fmt.Sprintf("invalid template: %v", err), http.StatusInternalServerError)
+		return
+	}
+
+	for _, lang := range editorLangs {
+		common.HTNewFamilySetDefaultValues(&family, lang, strID)
+
+		langPath := filepath.Join(rootDir, "lang", lang)
+		os.MkdirAll(langPath, 0755)
+		famFile := filepath.Join(langPath, strID+".json")
+		fp, err := os.Create(famFile)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		e := json.NewEncoder(fp)
+		e.SetEscapeHTML(false)
+		e.SetIndent("", "   ")
+		e.Encode(family)
+		fp.Close()
+
+		idxPath := filepath.Join(rootDir, "lang", lang, "families.json")
+		idxData, err := os.ReadFile(idxPath)
+		if err != nil {
+			http.Error(w, fmt.Sprintf("cannot read index %s: %v", idxPath, err), http.StatusInternalServerError)
+			return
+		}
+		var idx common.IdxFamily
+		if err := json.Unmarshal(idxData, &idx); err != nil {
+			http.Error(w, fmt.Sprintf("invalid index: %v", err), http.StatusInternalServerError)
+			return
+		}
+		common.HTAddNewFamilyToIdx(&idx, strID, lang)
+		idx.LastUpdate[0] = common.HTUpdateTimestamp()
+
+		tmpPath := filepath.Join(rootDir, "lang", lang, strID+"_idx.tmp")
+		fp2, err := os.Create(tmpPath)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		e2 := json.NewEncoder(fp2)
+		e2.SetEscapeHTML(false)
+		e2.SetIndent("", "   ")
+		e2.Encode(idx)
+		fp2.Close()
+		if err := copyFile(idxPath, tmpPath); err != nil {
+			os.Remove(tmpPath)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		os.Remove(tmpPath)
+	}
+
+	srcTpl := filepath.Join(rootDir, "src", "json", "sources_template.json")
+	srcDst := filepath.Join(rootDir, "lang", "sources", strID+".json")
+	os.MkdirAll(filepath.Join(rootDir, "lang", "sources"), 0755)
+	if err := copyFile(srcDst, srcTpl); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	jsSrc := filepath.Join(rootDir, "src", "js", "ht_classes.js")
+	jsDst := filepath.Join(rootDir, "js", strID+".js")
+	os.MkdirAll(filepath.Join(rootDir, "js"), 0755)
+	if err := copyFile(jsDst, jsSrc); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	rotateToken()
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("X-HT-Next-Token", viewerToken)
+	json.NewEncoder(w).Encode(map[string]string{"uuid": strID})
+}
+
 func init() {
 	fileLocks = make(map[string]string)
 }
@@ -497,6 +705,8 @@ func main() {
 	mux.HandleFunc("/api/editor/read", editorReadHandler)
 	mux.HandleFunc("/api/editor/save", editorSaveHandler)
 	mux.HandleFunc("/api/editor/unlock", editorUnlockHandler)
+	mux.HandleFunc("/api/editor/create-class", createClassHandler)
+	mux.HandleFunc("/api/editor/create-family", createFamilyHandler)
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
