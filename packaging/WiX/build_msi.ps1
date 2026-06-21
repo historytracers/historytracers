@@ -87,6 +87,7 @@ $wwwHarvest      = Join-Path $WixDir "www-fragment.wxs"
 $imgHarvest      = Join-Path $WixDir "images-fragment.wxs"
 $buildHarvest    = Join-Path $WixDir "build-fragment.wxs"
 $optionsHarvest  = Join-Path $WixDir "options-fragment.wxs"
+$editorHarvest   = Join-Path $WixDir "editor-fragment.wxs"
 $excludeImagesXsl = Join-Path $WixDir "exclude-images.xsl"
 $excludeOptionsXsl = Join-Path $WixDir "exclude-options.xsl"
 $buildDir        = Join-Path $ProjectDir "build"
@@ -140,7 +141,7 @@ $lines += '<?xml version="1.0" encoding="utf-8"?>'
 $lines += "<Wix xmlns='http://wixtoolset.org/schemas/v4/wxs'>"
 $lines += "  <Fragment>"
 $lines += "    <ComponentGroup Id='CG_MAIN_BIN'>"
-foreach ($f in $buildFiles | Where-Object { $_.Name -ne 'historytracers-publisher.exe' }) {
+foreach ($f in $buildFiles | Where-Object { $_.Name -ne 'historytracers-publisher.exe' -and $_.Name -ne 'historytracers-editor.exe' }) {
     $ids = Get-FileId -rel $f.Name -prefix 'cmp_bin_'
     $wixSrc = '$(var.BuildDir)\' + $f.Name
     $lines += "      <Component Id='$($ids.cid)' Directory='INSTALLDIR' Guid='*'><File Id='$($ids.fid)' Source='$wixSrc'/></Component>"
@@ -159,6 +160,32 @@ $lines += '</Wix>'
 $lines -join "`r`n" | Set-Content $buildHarvest -NoNewline
 if (-not (Test-Path $buildHarvest)) {
     Write-Error "Failed to generate build-fragment.wxs"
+    exit 1
+}
+
+# ---- Step 0c: Generate editor-fragment.wxs (editor binary + editor.html → INSTALLDIR) ----
+Write-Host "Generating editor fragment..."
+$editorExe = $buildFiles | Where-Object { $_.Name -eq 'historytracers-editor.exe' }
+$editorHtml = Join-Path $ProjectDir "editor.html"
+if ($editorExe -and (Test-Path $editorHtml)) {
+    $lines = @()
+    $lines += '<?xml version="1.0" encoding="utf-8"?>'
+    $lines += "<Wix xmlns='http://wixtoolset.org/schemas/v4/wxs'>"
+    $lines += "  <Fragment>"
+    $lines += "    <ComponentGroup Id='CG_EDITOR_BIN'>"
+    $idsExe = Get-FileId -rel $editorExe.Name -prefix 'cmp_editor_'
+    $wixSrcExe = '$(var.BuildDir)\' + $editorExe.Name
+    $lines += "      <Component Id='$($idsExe.cid)' Directory='INSTALLDIR' Guid='*'><File Id='$($idsExe.fid)' Source='$wixSrcExe'/></Component>"
+    $idsHtml = Get-FileId -rel 'editor.html' -prefix 'cmp_editor_'
+    $wixSrcHtml = '$(var.ProjectDir)\editor.html'
+    $lines += "      <Component Id='$($idsHtml.cid)' Directory='INSTALLDIR' Guid='*'><File Id='$($idsHtml.fid)' Source='$wixSrcHtml'/></Component>"
+    $lines += "    </ComponentGroup>"
+    $lines += "  </Fragment>"
+    $lines += '</Wix>'
+    $lines -join "`r`n" | Set-Content $editorHarvest -NoNewline
+}
+if (-not (Test-Path $editorHarvest)) {
+    Write-Error "Failed to generate editor-fragment.wxs"
     exit 1
 }
 
@@ -309,12 +336,13 @@ if (-not (Test-Path $imgHarvest)) {
 
 # ---- Step 3: Build MSI with wix.exe build ----
 Write-Host "Building MSI..."
-& $wix build $WixDir\historytracers.wxs $wwwHarvest $imgHarvest $buildHarvest $optionsHarvest `
+& $wix build $WixDir\historytracers.wxs $wwwHarvest $imgHarvest $buildHarvest $optionsHarvest $editorHarvest `
     -o $msiOut `
     -arch x64 `
     -d BuildDir=$buildDir `
     -d WwwDir=$wwwSource `
-    -d ImagesDir=$imagesSource
+    -d ImagesDir=$imagesSource `
+    -d ProjectDir=$ProjectDir
 if ($LASTEXITCODE -ne 0) { Write-Error "wix build failed"; exit 1 }
 
 # ---- Cleanup ----
@@ -323,6 +351,7 @@ if (-not $KeepFragments) {
   Remove-Item $imgHarvest -Force -ErrorAction SilentlyContinue
   Remove-Item $buildHarvest -Force -ErrorAction SilentlyContinue
   Remove-Item $optionsHarvest -Force -ErrorAction SilentlyContinue
+  Remove-Item $editorHarvest -Force -ErrorAction SilentlyContinue
 }
 
 Write-Host "MSI built successfully: $msiOut"

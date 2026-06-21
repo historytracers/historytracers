@@ -18,9 +18,23 @@ select#langSelect option{color:#000;background:#fff}
 #toolbar .spacer{flex:1}
 #main{display:flex;flex:1;overflow:hidden}
 #sidebar{width:260px;min-width:200px;background:#2b3b45;border-right:1px solid #455a64;display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
+#sidebarTabs{display:flex;flex-shrink:0;border-bottom:1px solid #455a64}
+#sidebarTabs .st{flex:1;padding:6px 10px;font:13px/1.4 sans-serif;color:#b0bec5;background:#37474f;cursor:pointer;text-align:center;border-bottom:2px solid transparent}
+#sidebarTabs .st:hover{background:#455a64}
+#sidebarTabs .st.active{background:#2b3b45;color:#eceff1;border-bottom-color:#80cbc4}
 #sidebar h3{padding:8px 10px;font-size:13px;color:#b0bec5;border-bottom:1px solid #455a64;flex-shrink:0}
 #sidebar h3 button{float:right;background:none;border:none;color:#80cbc4;cursor:pointer;font-size:13px;padding:0 4px}
 #tree{flex:1;overflow-y:auto;padding:4px 0;font:13px/1.6 monospace}
+#gitPanel{flex:1;overflow-y:auto;padding:4px 0;font:13px/1.6 monospace}
+.git-item{display:flex;align-items:center;padding:2px 10px 2px 10px;cursor:pointer;white-space:nowrap;gap:4px;color:#eceff1}
+.git-item:hover{background:#374a55}
+.git-item .git-status{width:20px;font-weight:bold;flex-shrink:0;text-align:center}
+.git-item .git-status.M{color:#f48771}
+.git-item .git-status.A{color:#81c784}
+.git-item .git-status.D{color:#ef5350}
+.git-item .git-status.??{color:#ffb74d}
+.git-item .git-name{overflow:hidden;text-overflow:ellipsis}
+.git-item .git-staged{font-size:10px;margin-left:auto;padding:1px 4px;border-radius:3px;background:#2e7d32;color:#fff}
 .tree-item{display:flex;align-items:center;padding:2px 10px 2px 10px;cursor:pointer;white-space:nowrap;gap:4px}
 .tree-item:hover{background:#374a55}
 .tree-item.dir{color:#80cbc4}
@@ -47,13 +61,24 @@ select#langSelect option{color:#000;background:#fff}
 #editor .file-path .status{font-size:11px;padding:1px 6px;border-radius:3px}
 #editor .file-path .status.unsaved{background:#e65100;color:#fff}
 #editor .file-path .status.saved{background:#2e7d32;color:#fff}
-#editor textarea{flex:1;border:none;padding:12px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1e272e;color:#eceff1;resize:none;outline:none;tab-size:2}
+#editorBody{flex:1;display:flex;overflow:hidden}
+#lineNumbers{width:44px;flex-shrink:0;padding:12px 6px 12px 10px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1b262c;color:#546e7a;text-align:right;overflow:hidden;user-select:none;border-right:1px solid #2b3b45}
+#editor textarea{flex:1;border:none;padding:12px 12px 12px 8px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1e272e;color:#eceff1;resize:none;outline:none;tab-size:2}
 #editor textarea::placeholder{color:#546e7a}
 #editor .actions{display:flex;gap:4px;margin-left:auto}
 #editor .actions button{background:#455a64;border:none;color:#eceff1;cursor:pointer;padding:2px 8px;border-radius:3px;font:12px/1.4 sans-serif}
 #editor .actions button:hover{background:#546e7a}
 #editor .actions button.primary{background:#00897b;color:#fff}
 #editor .actions button.primary:hover{background:#26a69a}
+#searchBar{display:none;align-items:center;gap:6px;padding:4px 8px;background:#37474f;border-bottom:1px solid #455a64;flex-shrink:0;font:13px/1.4 sans-serif}
+#searchBar.open{display:flex}
+#searchBar input{flex:1;background:#1e272e;border:1px solid #546e7a;color:#eceff1;padding:3px 6px;border-radius:3px;font:13px/1.4 monospace;outline:none;min-width:100px}
+#searchBar input:focus{border-color:#80cbc4}
+#searchBar .scount{color:#78909c;font-size:12px;white-space:nowrap;min-width:50px;text-align:center}
+#searchBar button{background:#455a64;border:none;color:#eceff1;cursor:pointer;padding:2px 8px;border-radius:3px;font:12px/1.4 sans-serif;white-space:nowrap}
+#searchBar button:hover{background:#546e7a}
+#searchBar .sclose{font-size:16px;line-height:1;padding:0 4px;color:#78909c;cursor:pointer}
+#searchBar .sclose:hover{color:#f48771}
 #insertPanel{width:220px;min-width:180px;background:#2b3b45;border-left:1px solid #455a64;display:none;flex-direction:column;overflow:hidden;flex-shrink:0}
 #insertPanel.open{display:flex}
 #insertPanel h3,#newPanel h3{padding:8px 10px;font-size:13px;color:#b0bec5;border-bottom:1px solid #455a64;flex-shrink:0}
@@ -86,8 +111,13 @@ select#langSelect option{color:#000;background:#fff}
 </div>
 <div id="main">
 <div id="sidebar">
+<div id="sidebarTabs">
+<div class="st active" id="stFiles" onclick="switchSidebarTab('files')"><span id="stFilesLabel">Files</span></div>
+<div class="st" id="stGit" onclick="switchSidebarTab('git')"><span id="stGitLabel">Git</span></div>
+</div>
 <h3><span id="sidebarTitle">Files</span><button onclick="refreshTree()" id="refreshBtn">&#x21bb;</button></h3>
 <div id="tree"></div>
+<div id="gitPanel" style="display:none"></div>
 </div>
 <div id="editor">
 <div class="no-file" id="noFileMsg">Select a file to edit</div>
@@ -96,11 +126,21 @@ select#langSelect option{color:#000;background:#fff}
 <span class="fname" id="fileName">-</span>
 <span class="status" id="fileStatus"></span>
 <div class="actions">
-<button onclick="saveFile()" class="primary" id="saveBtn">Save</button>
+<button onclick="saveFile()" class="primary" id="saveBtn"><u>S</u>ave</button>
 <button onclick="revertFile()" id="revertBtn">Revert</button>
 </div>
 </div>
-<textarea id="editorArea" style="display:none" spellcheck="false" wrap="soft" placeholder="Open a file to start editing"></textarea>
+<div id="searchBar">
+<input type="text" id="searchInput" placeholder="Find..." oninput="doSearch()" onkeydown="searchKeydown(event)">
+<span class="scount" id="searchCount"></span>
+<button onclick="searchPrev()" id="searchPrevBtn">&uarr;</button>
+<button onclick="searchNext()" id="searchNextBtn">&darr;</button>
+<span class="sclose" onclick="closeSearch()">&times;</span>
+</div>
+<div id="editorBody" style="display:none">
+<div id="lineNumbers">1</div>
+<textarea id="editorArea" spellcheck="false" wrap="soft" placeholder="Open a file to start editing"></textarea>
+</div>
 </div>
 <div id="newPanel">
 <h3><span id="newPanelTitle">New</span></h3>
@@ -120,9 +160,9 @@ var currentTab=-1;
 var tabIdSeq=0;
 
 var L={
-'en-US':{files:'Files',selectFile:'Select a file to edit',save:'Save',revert:'Revert',saved:'Saved',unsaved:'Unsaved',saveSuccess:'File saved',saveError:'Failed to save file',readError:'Failed to read file',treeError:'Failed to load file tree',newT:'New',insert:'Insert',insertTitle:'Insert',insDone:'Template inserted',fileLocked:'File is already being edited by ',dev:'Dev',confirmRevert:'Discard unsaved changes?',confirmClose:' has unsaved changes. Close anyway?',loading:'Loading...',newFamily:'Family',familyCreated:'Family file created',newError:'Failed to create family',classCreated:'Class file created',newClass:'New Class',class_history:'History',class_indigenous_who:'Indigenous Who',class_first_steps:'First Steps',class_first_steps_volume2:'First Steps V2',class_literature:'Literature',class_biology:'Biology',class_chemistry:'Chemistry',class_physics:'Physics',class_historical_events:'Historical Events',class_philosophy:'Philosophy',class_first_steps_menu:'First Steps Menu',class_myths_believes:'Myths & Beliefs',class_math_games:'Math Games',class_atlas:'Atlas',inm_Date:'Date',inm_Text:'Text',inm_Source:'Source',inm_Event:'Event',inm_Parents:'Parents',inm_Marriage:'Marriage',inm_Child:'Child',inm_Haplogroup:'Haplogroup',inm_Person:'Person',insLbl_Date:'date/time',insLbl_Text:'content text',insLbl_Source:'source entry',insLbl_Event:'person event',insLbl_Parents:'person parents',insLbl_Marriage:'person marriage',insLbl_Child:'person child',insLbl_Haplogroup:'person haplogroup',insLbl_Person:'person'},
-'pt-BR':{files:'Arquivos',selectFile:'Selecione um arquivo para editar',save:'Salvar',revert:'Reverter',saved:'Salvo',unsaved:'N\u00e3o salvo',saveSuccess:'Arquivo salvo',saveError:'Erro ao salvar arquivo',readError:'Erro ao ler arquivo',treeError:'Erro ao carregar \u00e1rvore',newT:'Novo',insert:'Inserir',insertTitle:'Inserir',insDone:'Modelo inserido',fileLocked:'Arquivo j\u00e1 est\u00e1 sendo editado por ',dev:'Dev',confirmRevert:'Descartar altera\u00e7\u00f5es n\u00e3o salvas?',confirmClose:' tem altera\u00e7\u00f5es n\u00e3o salvas. Fechar mesmo assim?',loading:'Carregando...',newFamily:'Fam\u00edlia',familyCreated:'Arquivo de fam\u00edlia criado',newError:'Erro ao criar fam\u00edlia',classCreated:'Arquivo de aula criado',newClass:'Nova Aula',class_history:'Hist\u00f3ria',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeiros Passos',class_first_steps_volume2:'Primeiros Passos V2',class_literature:'Literatura',class_biology:'Biologia',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosofia',class_first_steps_menu:'Menu Inicial',class_myths_believes:'Mitos e Cren\u00e7as',class_math_games:'Jogos de Matem\u00e1tica',class_atlas:'Atlas',inm_Date:'Data',inm_Text:'Texto',inm_Source:'Fonte',inm_Event:'Evento',inm_Parents:'Pais',inm_Marriage:'Casamento',inm_Child:'Filho(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Pessoa',insLbl_Date:'data/hora',insLbl_Text:'texto do conte\u00fado',insLbl_Source:'entrada de fonte',insLbl_Event:'evento de pessoa',insLbl_Parents:'pais da pessoa',insLbl_Marriage:'casamento',insLbl_Child:'filho(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'pessoa'},
-'es-ES':{files:'Archivos',selectFile:'Seleccione un archivo para editar',save:'Guardar',revert:'Revertir',saved:'Guardado',unsaved:'No guardado',saveSuccess:'Archivo guardado',saveError:'Error al guardar archivo',readError:'Error al leer archivo',treeError:'Error al cargar \u00e1rbol',newT:'Nuevo',insert:'Insertar',insertTitle:'Insertar',insDone:'Plantilla insertada',fileLocked:'El archivo ya est\u00e1 siendo editado por ',dev:'Dev',confirmRevert:'\u00bfDescartar cambios no guardados?',confirmClose:' tiene cambios no guardados. \u00bfCerrar de todas formas?',loading:'Cargando...',newFamily:'Familia',familyCreated:'Archivo de familia creado',newError:'Error al crear familia',classCreated:'Archivo de clase creado',newClass:'Nueva Clase',class_history:'Historia',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeros Pasos',class_first_steps_volume2:'Primeros Pasos V2',class_literature:'Literatura',class_biology:'Biolog\u00eda',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosof\u00eda',class_first_steps_menu:'Men\u00fa Inicial',class_myths_believes:'Mitos y Creencias',class_math_games:'Juegos de Matem\u00e1ticas',class_atlas:'Atlas',inm_Date:'Fecha',inm_Text:'Texto',inm_Source:'Fuente',inm_Event:'Evento',inm_Parents:'Padres',inm_Marriage:'Matrimonio',inm_Child:'Hijo(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Persona',insLbl_Date:'fecha/hora',insLbl_Text:'texto del contenido',insLbl_Source:'entrada de fuente',insLbl_Event:'evento de persona',insLbl_Parents:'padres',insLbl_Marriage:'matrimonio',insLbl_Child:'hijo(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'persona'}
+'en-US':{files:'Files',git:'Git',selectFile:'Select a file to edit',save:'<u>S</u>ave',revert:'Revert',saved:'Saved',unsaved:'Unsaved',saveSuccess:'File saved',saveError:'Failed to save file',readError:'Failed to read file',treeError:'Failed to load file tree',newT:'New',insert:'Insert',insertTitle:'Insert',insDone:'Template inserted',fileLocked:'File is already being edited by ',dev:'Dev',confirmRevert:'Discard unsaved changes?',confirmClose:' has unsaved changes. Close anyway?',loading:'Loading...',newFamily:'Family',familyCreated:'Family file created',newError:'Failed to create family',classCreated:'Class file created',newClass:'New Class',class_history:'History',class_indigenous_who:'Indigenous Who',class_first_steps:'First Steps',class_first_steps_volume2:'First Steps V2',class_literature:'Literature',class_biology:'Biology',class_chemistry:'Chemistry',class_physics:'Physics',class_historical_events:'Historical Events',class_philosophy:'Philosophy',class_first_steps_menu:'First Steps Menu',class_myths_believes:'Myths & Beliefs',class_math_games:'Math Games',class_atlas:'Atlas',inm_Date:'Date',inm_Text:'Text',inm_Source:'Source',inm_Event:'Event',inm_Parents:'Parents',inm_Marriage:'Marriage',inm_Child:'Child',inm_Haplogroup:'Haplogroup',inm_Person:'Person',insLbl_Date:'date/time',insLbl_Text:'content text',insLbl_Source:'source entry',insLbl_Event:'person event',insLbl_Parents:'person parents',insLbl_Marriage:'person marriage',insLbl_Child:'person child',insLbl_Haplogroup:'person haplogroup',insLbl_Person:'person'},
+'pt-BR':{files:'Arquivos',git:'Git',selectFile:'Selecione um arquivo para editar',save:'<u>S</u>alvar',revert:'Reverter',saved:'Salvo',unsaved:'N\u00e3o salvo',saveSuccess:'Arquivo salvo',saveError:'Erro ao salvar arquivo',readError:'Erro ao ler arquivo',treeError:'Erro ao carregar \u00e1rvore',newT:'Novo',insert:'Inserir',insertTitle:'Inserir',insDone:'Modelo inserido',fileLocked:'Arquivo j\u00e1 est\u00e1 sendo editado por ',dev:'Dev',confirmRevert:'Descartar altera\u00e7\u00f5es n\u00e3o salvas?',confirmClose:' tem altera\u00e7\u00f5es n\u00e3o salvas. Fechar mesmo assim?',loading:'Carregando...',newFamily:'Fam\u00edlia',familyCreated:'Arquivo de fam\u00edlia criado',newError:'Erro ao criar fam\u00edlia',classCreated:'Arquivo de aula criado',newClass:'Nova Aula',class_history:'Hist\u00f3ria',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeiros Passos',class_first_steps_volume2:'Primeiros Passos V2',class_literature:'Literatura',class_biology:'Biologia',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosofia',class_first_steps_menu:'Menu Inicial',class_myths_believes:'Mitos e Cren\u00e7as',class_math_games:'Jogos de Matem\u00e1tica',class_atlas:'Atlas',inm_Date:'Data',inm_Text:'Texto',inm_Source:'Fonte',inm_Event:'Evento',inm_Parents:'Pais',inm_Marriage:'Casamento',inm_Child:'Filho(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Pessoa',insLbl_Date:'data/hora',insLbl_Text:'texto do conte\u00fado',insLbl_Source:'entrada de fonte',insLbl_Event:'evento de pessoa',insLbl_Parents:'pais da pessoa',insLbl_Marriage:'casamento',insLbl_Child:'filho(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'pessoa'},
+'es-ES':{files:'Archivos',git:'Git',selectFile:'Seleccione un archivo para editar',save:'Guardar (Ctrl+<u>S</u>)',revert:'Revertir',saved:'Guardado',unsaved:'No guardado',saveSuccess:'Archivo guardado',saveError:'Error al guardar archivo',readError:'Error al leer archivo',treeError:'Error al cargar \u00e1rbol',newT:'Nuevo',insert:'Insertar',insertTitle:'Insertar',insDone:'Plantilla insertada',fileLocked:'El archivo ya est\u00e1 siendo editado por ',dev:'Dev',confirmRevert:'\u00bfDescartar cambios no guardados?',confirmClose:' tiene cambios no guardados. \u00bfCerrar de todas formas?',loading:'Cargando...',newFamily:'Familia',familyCreated:'Archivo de familia creado',newError:'Error al crear familia',classCreated:'Archivo de clase creado',newClass:'Nueva Clase',class_history:'Historia',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeros Pasos',class_first_steps_volume2:'Primeros Pasos V2',class_literature:'Literatura',class_biology:'Biolog\u00eda',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosof\u00eda',class_first_steps_menu:'Men\u00fa Inicial',class_myths_believes:'Mitos y Creencias',class_math_games:'Juegos de Matem\u00e1ticas',class_atlas:'Atlas',inm_Date:'Fecha',inm_Text:'Texto',inm_Source:'Fuente',inm_Event:'Evento',inm_Parents:'Padres',inm_Marriage:'Matrimonio',inm_Child:'Hijo(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Persona',insLbl_Date:'fecha/hora',insLbl_Text:'texto del contenido',insLbl_Source:'entrada de fuente',insLbl_Event:'evento de persona',insLbl_Parents:'padres',insLbl_Marriage:'matrimonio',insLbl_Child:'hijo(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'persona'}
 };
 
 function tr(key){var l=L[LOC]||L['en-US'];return l[key]||L['en-US'][key]||key}
@@ -130,8 +170,10 @@ function tr(key){var l=L[LOC]||L['en-US'];return l[key]||L['en-US'][key]||key}
 function setLang(loc){
 	LOC=loc;
 	document.getElementById('sidebarTitle').textContent=tr('files');
+	document.getElementById('stFilesLabel').textContent=tr('files');
+	document.getElementById('stGitLabel').textContent=tr('git');
 	document.getElementById('noFileMsg').textContent=tr('selectFile');
-	document.getElementById('saveBtn').textContent=tr('save');
+	document.getElementById('saveBtn').innerHTML=tr('save');
 	document.getElementById('revertBtn').textContent=tr('revert');
 	document.getElementById('newBtn').textContent=tr('newT');
 	document.getElementById('newPanelTitle').textContent=tr('newT');
@@ -251,6 +293,58 @@ async function refreshTree(){
 	}
 }
 
+function switchSidebarTab(tab){
+	var isFiles=tab==='files';
+	document.getElementById('tree').style.display=isFiles?'':'none';
+	document.getElementById('gitPanel').style.display=isFiles?'none':'';
+	document.getElementById('stFiles').classList.toggle('active',isFiles);
+	document.getElementById('stGit').classList.toggle('active',!isFiles);
+	document.getElementById('sidebarTitle').textContent=isFiles?tr('files'):tr('git');
+	document.getElementById('refreshBtn').style.display=isFiles?'':'none';
+	if(!isFiles)fetchGitStatus();
+}
+
+async function fetchGitStatus(){
+	var el=document.getElementById('gitPanel');
+	el.innerHTML='<div class="git-item" style="color:#546e7a;padding:8px 10px">'+tr('loading')+'...</div>';
+	try{
+		var r=await fetch('/api/editor/git-status');
+		var data=await r.json();
+		el.innerHTML='';
+		if(data.error){
+			el.innerHTML='<div class="git-item" style="color:#f48771;padding:8px 10px">'+data.error+'</div>';
+			return
+		}
+		if(!data.files||data.files.length===0){
+			el.innerHTML='<div class="git-item" style="color:#546e7a;padding:8px 10px">No changes</div>';
+			return
+		}
+		for(var i=0;i<data.files.length;i++){
+			var f=data.files[i];
+			var d=document.createElement('div');
+			d.className='git-item';
+			var st=document.createElement('span');
+			st.className='git-status';
+			st.textContent=f.status;
+			d.appendChild(st);
+			var nm=document.createElement('span');
+			nm.className='git-name';
+			nm.textContent=f.path;
+			d.appendChild(nm);
+			if(f.staged){
+				var sg=document.createElement('span');
+				sg.className='git-staged';
+				sg.textContent='staged';
+				d.appendChild(sg);
+			}
+			d.onclick=function(){openFile(this.querySelector('.git-name').textContent)};
+			el.appendChild(d);
+		}
+	}catch(e){
+		el.innerHTML='<div class="git-item" style="color:#f48771;padding:8px 10px">Error loading git status</div>';
+	}
+}
+
 // --- Tabs ---
 
 function createTabId(){return ++tabIdSeq}
@@ -265,23 +359,42 @@ function saveEditorState(){
 	var area=document.getElementById('editorArea');
 	tabs[currentTab].content=area.value;
 	tabs[currentTab].modified=area.value!==tabs[currentTab].originalContent;
+	tabs[currentTab].cursorPos=area.selectionStart;
+	tabs[currentTab].scrollPos=area.scrollTop;
+}
+
+function updateLineNumbers(){
+	var area=document.getElementById('editorArea');
+	var gutter=document.getElementById('lineNumbers');
+	var lines=area.value.split('\n');
+	var html='';
+	for(var i=1;i<=lines.length;i++){
+		html+=i+'<br>';
+	}
+	gutter.innerHTML=html;
 }
 
 function loadEditorState(index){
 	if(index<0||index>=tabs.length){
+		document.getElementById('editorBody').style.display='none';
 		document.getElementById('editorArea').style.display='none';
 		document.getElementById('filePathBar').style.display='none';
 		document.getElementById('noFileMsg').style.display='flex';
 		return
 	}
+	closeSearch();
 	var t=tabs[index];
 	var area=document.getElementById('editorArea');
 	area.value=t.content;
+	area.selectionStart=area.selectionEnd=t.cursorPos||0;
+	area.scrollTop=t.scrollPos||0;
 	area.style.display='';
+	document.getElementById('editorBody').style.display='flex';
 	document.getElementById('noFileMsg').style.display='none';
 	document.getElementById('filePathBar').style.display='flex';
 	document.getElementById('fileName').textContent=t.path;
 	updateStatus(index);
+	updateLineNumbers();
 	area.focus();
 }
 
@@ -319,11 +432,44 @@ function switchTab(index){
 	currentTab=index;
 	loadEditorState(index);
 	refreshTabBar();
+	saveSession();
 }
 
 function unlockFile(path){
 	if(!path)return;
 	fetch('/api/editor/unlock',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(path)})
+}
+
+function saveSession(){
+	saveEditorState();
+	var data=[];
+	for(var i=0;i<tabs.length;i++){
+		var t=tabs[i];
+		data.push({path:t.path,cursorPos:t.cursorPos||0,scrollPos:t.scrollPos||0});
+	}
+	fetch('/api/editor/session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+}
+
+async function restoreSession(){
+	try{
+		var r=await fetch('/api/editor/session');
+		var data=await r.json();
+		if(!data||data.length===0)return;
+		for(var i=0;i<data.length;i++){
+			var s=data[i];
+			if(!s.path)continue;
+			try{
+				var rr=await fetch('/api/editor/read?file='+encodeURIComponent(s.path),{headers:{'X-HT-Session':window.__ht_session}});
+				var rd=await rr.json();
+				tabs.push({id:createTabId(),path:s.path,content:rd.content,originalContent:rd.content,modified:false,cursorPos:s.cursorPos,scrollPos:s.scrollPos});
+			}catch(e){}
+		}
+		if(tabs.length>0){
+			currentTab=0;
+			loadEditorState(0);
+			refreshTabBar();
+		}
+	}catch(e){}
 }
 
 function closeTab(index,force){
@@ -343,6 +489,7 @@ function closeTab(index,force){
 		currentTab--;
 	}
 	refreshTabBar();
+	saveSession();
 }
 
 async function openFile(path){
@@ -354,6 +501,7 @@ async function openFile(path){
 		currentTab=idx;
 		loadEditorState(idx);
 		refreshTabBar();
+		saveSession();
 		return
 	}
 	try{
@@ -364,6 +512,7 @@ async function openFile(path){
 		currentTab=tabs.length-1;
 		loadEditorState(currentTab);
 		refreshTabBar();
+		saveSession();
 		if(data.locked)toast(tr('fileLocked')+data.lockedBy,'error');
 		// highlight in tree
 		document.querySelectorAll('#tree .tree-item.selected').forEach(function(el){el.classList.remove('selected')});
@@ -413,6 +562,100 @@ function revertFile(){
 	t.modified=false;
 	updateStatus(currentTab);
 	refreshTabBar();
+}
+
+// --- Find ---
+
+var searchMatches=[];
+var searchIndex=-1;
+
+function openSearch(){
+	var sb=document.getElementById('searchBar');
+	sb.classList.add('open');
+	var inp=document.getElementById('searchInput');
+	inp.value='';
+	inp.focus();
+	searchMatches=[];
+	searchIndex=-1;
+	document.getElementById('searchCount').textContent='';
+}
+
+function closeSearch(){
+	document.getElementById('searchBar').classList.remove('open');
+	searchMatches=[];
+	searchIndex=-1;
+	document.getElementById('searchCount').textContent='';
+}
+
+function doSearch(){
+	var area=document.getElementById('editorArea');
+	var query=document.getElementById('searchInput').value;
+	if(!query){
+		searchMatches=[];
+		searchIndex=-1;
+		document.getElementById('searchCount').textContent='';
+		return
+	}
+	var val=area.value;
+	searchMatches=[];
+	var idx=0;
+	while(true){
+		var pos=val.indexOf(query,idx);
+		if(pos===-1)break;
+		searchMatches.push(pos);
+		idx=pos+query.length;
+	}
+	if(searchMatches.length>0){
+		// find nearest match at or after cursor
+		var cursor=area.selectionStart;
+		var best=0;
+		for(var i=0;i<searchMatches.length;i++){
+			if(searchMatches[i]>=cursor){best=i;break}
+		}
+		searchIndex=best;
+		selectSearchMatch(false);
+	}else{
+		searchIndex=-1;
+		document.getElementById('searchCount').textContent='0 matches';
+	}
+}
+
+function selectSearchMatch(focusArea){
+	var area=document.getElementById('editorArea');
+	var query=document.getElementById('searchInput').value;
+	if(searchIndex<0||searchIndex>=searchMatches.length){
+		document.getElementById('searchCount').textContent='0 matches';
+		return
+	}
+	var pos=searchMatches[searchIndex];
+	if(focusArea)area.focus();
+	area.setSelectionRange(pos,pos+query.length);
+	var textBefore=area.value.substring(0,pos);
+	var lines=textBefore.split('\n').length-1;
+	var lineHeight=parseFloat(getComputedStyle(area).lineHeight);
+	area.scrollTop=Math.max(0,lines*lineHeight-area.clientHeight/3);
+	document.getElementById('searchCount').textContent=(searchIndex+1)+' of '+searchMatches.length;
+}
+
+function searchNext(){
+	if(searchMatches.length===0)return;
+	searchIndex=(searchIndex+1)%searchMatches.length;
+	selectSearchMatch(true);
+}
+
+function searchPrev(){
+	if(searchMatches.length===0)return;
+	searchIndex=(searchIndex-1+searchMatches.length)%searchMatches.length;
+	selectSearchMatch(true);
+}
+
+function searchKeydown(e){
+	if(e.key==='Enter'){
+		e.preventDefault();
+		if(e.shiftKey)searchPrev();else searchNext();
+	}else if(e.key==='Escape'){
+		closeSearch();
+	}
 }
 
 // --- Insert templates ---
@@ -600,13 +843,23 @@ function openDevTools(){
 	refreshTree();
 	buildNewList();
 	buildInsertList();
+	restoreSession();
 	window.__ht_editor=true;
 	window.__ht_session='s'+Math.random().toString(36).substr(2)+Date.now().toString(36);
-	// listen for Ctrl+S
+	// listen for keyboard shortcuts
 	document.addEventListener('keydown',function(e){
 		if((e.ctrlKey||e.metaKey)&&e.key==='s'){
 			e.preventDefault();
 			saveFile();
+		}else if((e.ctrlKey||e.metaKey)&&e.key==='f'){
+			e.preventDefault();
+			openSearch();
+		}else if((e.ctrlKey||e.metaKey)&&e.key==='PageUp'){
+			e.preventDefault();
+			if(currentTab>0)switchTab(currentTab-1);
+		}else if((e.ctrlKey||e.metaKey)&&e.key==='PageDown'){
+			e.preventDefault();
+			if(currentTab<tabs.length-1)switchTab(currentTab+1);
 		}
 	});
 	// track content changes
@@ -617,6 +870,11 @@ function openDevTools(){
 			updateStatus(currentTab);
 			refreshTabBar();
 		}
+		updateLineNumbers();
+	});
+	// sync line numbers scroll with textarea
+	document.getElementById('editorArea').addEventListener('scroll',function(){
+		document.getElementById('lineNumbers').scrollTop=this.scrollTop;
 	});
 })();
 </script>
