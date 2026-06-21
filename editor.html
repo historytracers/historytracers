@@ -24,8 +24,8 @@ select#langSelect option{color:#000;background:#fff}
 #sidebarTabs .st.active{background:#2b3b45;color:#eceff1;border-bottom-color:#80cbc4}
 #sidebar h3{padding:8px 10px;font-size:13px;color:#b0bec5;border-bottom:1px solid #455a64;flex-shrink:0}
 #sidebar h3 button{float:right;background:none;border:none;color:#80cbc4;cursor:pointer;font-size:13px;padding:0 4px}
-#tree,#gitPanel{flex:1;overflow-y:auto;padding:4px 0;font:13px/1.6 monospace;display:none}
-#tree.active,#gitPanel.active{display:block}
+#tree{flex:1;overflow-y:auto;padding:4px 0;font:13px/1.6 monospace}
+#gitPanel{flex:1;overflow-y:auto;padding:4px 0;font:13px/1.6 monospace}
 .git-item{display:flex;align-items:center;padding:2px 10px 2px 10px;cursor:pointer;white-space:nowrap;gap:4px;color:#eceff1}
 .git-item:hover{background:#374a55}
 .git-item .git-status{width:20px;font-weight:bold;flex-shrink:0;text-align:center}
@@ -70,6 +70,15 @@ select#langSelect option{color:#000;background:#fff}
 #editor .actions button:hover{background:#546e7a}
 #editor .actions button.primary{background:#00897b;color:#fff}
 #editor .actions button.primary:hover{background:#26a69a}
+#searchBar{display:none;align-items:center;gap:6px;padding:4px 8px;background:#37474f;border-bottom:1px solid #455a64;flex-shrink:0;font:13px/1.4 sans-serif}
+#searchBar.open{display:flex}
+#searchBar input{flex:1;background:#1e272e;border:1px solid #546e7a;color:#eceff1;padding:3px 6px;border-radius:3px;font:13px/1.4 monospace;outline:none;min-width:100px}
+#searchBar input:focus{border-color:#80cbc4}
+#searchBar .scount{color:#78909c;font-size:12px;white-space:nowrap;min-width:50px;text-align:center}
+#searchBar button{background:#455a64;border:none;color:#eceff1;cursor:pointer;padding:2px 8px;border-radius:3px;font:12px/1.4 sans-serif;white-space:nowrap}
+#searchBar button:hover{background:#546e7a}
+#searchBar .sclose{font-size:16px;line-height:1;padding:0 4px;color:#78909c;cursor:pointer}
+#searchBar .sclose:hover{color:#f48771}
 #insertPanel{width:220px;min-width:180px;background:#2b3b45;border-left:1px solid #455a64;display:none;flex-direction:column;overflow:hidden;flex-shrink:0}
 #insertPanel.open{display:flex}
 #insertPanel h3,#newPanel h3{padding:8px 10px;font-size:13px;color:#b0bec5;border-bottom:1px solid #455a64;flex-shrink:0}
@@ -107,7 +116,7 @@ select#langSelect option{color:#000;background:#fff}
 <div class="st" id="stGit" onclick="switchSidebarTab('git')"><span id="stGitLabel">Git</span></div>
 </div>
 <h3><span id="sidebarTitle">Files</span><button onclick="refreshTree()" id="refreshBtn">&#x21bb;</button></h3>
-<div id="tree" class="active"></div>
+<div id="tree"></div>
 <div id="gitPanel"></div>
 </div>
 <div id="editor">
@@ -120,6 +129,13 @@ select#langSelect option{color:#000;background:#fff}
 <button onclick="saveFile()" class="primary" id="saveBtn">Save</button>
 <button onclick="revertFile()" id="revertBtn">Revert</button>
 </div>
+</div>
+<div id="searchBar">
+<input type="text" id="searchInput" placeholder="Find..." oninput="doSearch()" onkeydown="searchKeydown(event)">
+<span class="scount" id="searchCount"></span>
+<button onclick="searchPrev()" id="searchPrevBtn">&uarr;</button>
+<button onclick="searchNext()" id="searchNextBtn">&darr;</button>
+<span class="sclose" onclick="closeSearch()">&times;</span>
 </div>
 <div id="editorBody" style="display:none">
 <div id="lineNumbers">1</div>
@@ -278,13 +294,14 @@ async function refreshTree(){
 }
 
 function switchSidebarTab(tab){
-	document.getElementById('tree').classList.toggle('active',tab==='files');
-	document.getElementById('gitPanel').classList.toggle('active',tab==='git');
-	document.getElementById('stFiles').classList.toggle('active',tab==='files');
-	document.getElementById('stGit').classList.toggle('active',tab==='git');
-	document.getElementById('sidebarTitle').textContent=tab==='files'?tr('files'):tr('git');
-	document.getElementById('refreshBtn').style.display=tab==='files'?'':'none';
-	if(tab==='git')fetchGitStatus();
+	var isFiles=tab==='files';
+	document.getElementById('tree').style.display=isFiles?'':'none';
+	document.getElementById('gitPanel').style.display=isFiles?'none':'';
+	document.getElementById('stFiles').classList.toggle('active',isFiles);
+	document.getElementById('stGit').classList.toggle('active',!isFiles);
+	document.getElementById('sidebarTitle').textContent=isFiles?tr('files'):tr('git');
+	document.getElementById('refreshBtn').style.display=isFiles?'':'none';
+	if(!isFiles)fetchGitStatus();
 }
 
 async function fetchGitStatus(){
@@ -294,6 +311,10 @@ async function fetchGitStatus(){
 		var r=await fetch('/api/editor/git-status');
 		var data=await r.json();
 		el.innerHTML='';
+		if(data.error){
+			el.innerHTML='<div class="git-item" style="color:#f48771;padding:8px 10px">'+data.error+'</div>';
+			return
+		}
 		if(!data.files||data.files.length===0){
 			el.innerHTML='<div class="git-item" style="color:#546e7a;padding:8px 10px">No changes</div>';
 			return
@@ -359,6 +380,7 @@ function loadEditorState(index){
 		document.getElementById('noFileMsg').style.display='flex';
 		return
 	}
+	closeSearch();
 	var t=tabs[index];
 	var area=document.getElementById('editorArea');
 	area.value=t.content;
@@ -500,6 +522,100 @@ function revertFile(){
 	t.modified=false;
 	updateStatus(currentTab);
 	refreshTabBar();
+}
+
+// --- Find ---
+
+var searchMatches=[];
+var searchIndex=-1;
+
+function openSearch(){
+	var sb=document.getElementById('searchBar');
+	sb.classList.add('open');
+	var inp=document.getElementById('searchInput');
+	inp.value='';
+	inp.focus();
+	searchMatches=[];
+	searchIndex=-1;
+	document.getElementById('searchCount').textContent='';
+}
+
+function closeSearch(){
+	document.getElementById('searchBar').classList.remove('open');
+	searchMatches=[];
+	searchIndex=-1;
+	document.getElementById('searchCount').textContent='';
+}
+
+function doSearch(){
+	var area=document.getElementById('editorArea');
+	var query=document.getElementById('searchInput').value;
+	if(!query){
+		searchMatches=[];
+		searchIndex=-1;
+		document.getElementById('searchCount').textContent='';
+		return
+	}
+	var val=area.value;
+	searchMatches=[];
+	var idx=0;
+	while(true){
+		var pos=val.indexOf(query,idx);
+		if(pos===-1)break;
+		searchMatches.push(pos);
+		idx=pos+query.length;
+	}
+	if(searchMatches.length>0){
+		// find nearest match at or after cursor
+		var cursor=area.selectionStart;
+		var best=0;
+		for(var i=0;i<searchMatches.length;i++){
+			if(searchMatches[i]>=cursor){best=i;break}
+		}
+		searchIndex=best;
+		selectSearchMatch(false);
+	}else{
+		searchIndex=-1;
+		document.getElementById('searchCount').textContent='0 matches';
+	}
+}
+
+function selectSearchMatch(focusArea){
+	var area=document.getElementById('editorArea');
+	var query=document.getElementById('searchInput').value;
+	if(searchIndex<0||searchIndex>=searchMatches.length){
+		document.getElementById('searchCount').textContent='0 matches';
+		return
+	}
+	var pos=searchMatches[searchIndex];
+	if(focusArea)area.focus();
+	area.setSelectionRange(pos,pos+query.length);
+	var textBefore=area.value.substring(0,pos);
+	var lines=textBefore.split('\n').length-1;
+	var lineHeight=parseFloat(getComputedStyle(area).lineHeight);
+	area.scrollTop=Math.max(0,lines*lineHeight-area.clientHeight/3);
+	document.getElementById('searchCount').textContent=(searchIndex+1)+' of '+searchMatches.length;
+}
+
+function searchNext(){
+	if(searchMatches.length===0)return;
+	searchIndex=(searchIndex+1)%searchMatches.length;
+	selectSearchMatch(true);
+}
+
+function searchPrev(){
+	if(searchMatches.length===0)return;
+	searchIndex=(searchIndex-1+searchMatches.length)%searchMatches.length;
+	selectSearchMatch(true);
+}
+
+function searchKeydown(e){
+	if(e.key==='Enter'){
+		e.preventDefault();
+		if(e.shiftKey)searchPrev();else searchNext();
+	}else if(e.key==='Escape'){
+		closeSearch();
+	}
 }
 
 // --- Insert templates ---
@@ -689,11 +805,14 @@ function openDevTools(){
 	buildInsertList();
 	window.__ht_editor=true;
 	window.__ht_session='s'+Math.random().toString(36).substr(2)+Date.now().toString(36);
-	// listen for Ctrl+S
+	// listen for keyboard shortcuts
 	document.addEventListener('keydown',function(e){
 		if((e.ctrlKey||e.metaKey)&&e.key==='s'){
 			e.preventDefault();
 			saveFile();
+		}else if((e.ctrlKey||e.metaKey)&&e.key==='f'){
+			e.preventDefault();
+			openSearch();
 		}
 	});
 	// track content changes

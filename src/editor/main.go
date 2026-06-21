@@ -601,21 +601,20 @@ func gitStatusHandler(w http.ResponseWriter, r *http.Request) {
 	files := make([]changeEntry, 0)
 	repo, err := git.PlainOpen(rootDir)
 	if err != nil {
-		json.NewEncoder(w).Encode(map[string]interface{}{"files": files})
+		json.NewEncoder(w).Encode(map[string]interface{}{"files": files, "error": fmt.Sprintf("PlainOpen: %v", err)})
 		return
 	}
 	tree, err := repo.Worktree()
 	if err != nil {
-		json.NewEncoder(w).Encode(map[string]interface{}{"files": files})
+		json.NewEncoder(w).Encode(map[string]interface{}{"files": files, "error": fmt.Sprintf("Worktree: %v", err)})
 		return
 	}
 	status, err := tree.Status()
 	if err != nil {
-		json.NewEncoder(w).Encode(map[string]interface{}{"files": files})
+		json.NewEncoder(w).Encode(map[string]interface{}{"files": files, "error": fmt.Sprintf("Status: %v", err)})
 		return
 	}
 	for path, fs := range status {
-		// skip deleted files and non-editable extensions
 		if fs.Worktree == git.Deleted || fs.Staging == git.Deleted {
 			continue
 		}
