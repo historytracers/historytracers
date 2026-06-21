@@ -817,6 +817,12 @@ function openDevTools(){
 		}else if((e.ctrlKey||e.metaKey)&&e.key==='f'){
 			e.preventDefault();
 			openSearch();
+		}else if((e.ctrlKey||e.metaKey)&&e.key==='PageUp'){
+			e.preventDefault();
+			if(currentTab>0)switchTab(currentTab-1);
+		}else if((e.ctrlKey||e.metaKey)&&e.key==='PageDown'){
+			e.preventDefault();
+			if(currentTab<tabs.length-1)switchTab(currentTab+1);
 		}
 	});
 	// track content changes
