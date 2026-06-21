@@ -61,7 +61,9 @@ select#langSelect option{color:#000;background:#fff}
 #editor .file-path .status{font-size:11px;padding:1px 6px;border-radius:3px}
 #editor .file-path .status.unsaved{background:#e65100;color:#fff}
 #editor .file-path .status.saved{background:#2e7d32;color:#fff}
-#editor textarea{flex:1;border:none;padding:12px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1e272e;color:#eceff1;resize:none;outline:none;tab-size:2}
+#editorBody{flex:1;display:flex;overflow:hidden}
+#lineNumbers{width:44px;flex-shrink:0;padding:12px 6px 12px 10px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1b262c;color:#546e7a;text-align:right;overflow:hidden;user-select:none;border-right:1px solid #2b3b45}
+#editor textarea{flex:1;border:none;padding:12px 12px 12px 8px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1e272e;color:#eceff1;resize:none;outline:none;tab-size:2}
 #editor textarea::placeholder{color:#546e7a}
 #editor .actions{display:flex;gap:4px;margin-left:auto}
 #editor .actions button{background:#455a64;border:none;color:#eceff1;cursor:pointer;padding:2px 8px;border-radius:3px;font:12px/1.4 sans-serif}
@@ -119,7 +121,10 @@ select#langSelect option{color:#000;background:#fff}
 <button onclick="revertFile()" id="revertBtn">Revert</button>
 </div>
 </div>
-<textarea id="editorArea" style="display:none" spellcheck="false" wrap="soft" placeholder="Open a file to start editing"></textarea>
+<div id="editorBody" style="display:none">
+<div id="lineNumbers">1</div>
+<textarea id="editorArea" spellcheck="false" wrap="soft" placeholder="Open a file to start editing"></textarea>
+</div>
 </div>
 <div id="newPanel">
 <h3><span id="newPanelTitle">New</span></h3>
@@ -335,8 +340,20 @@ function saveEditorState(){
 	tabs[currentTab].modified=area.value!==tabs[currentTab].originalContent;
 }
 
+function updateLineNumbers(){
+	var area=document.getElementById('editorArea');
+	var gutter=document.getElementById('lineNumbers');
+	var lines=area.value.split('\n');
+	var html='';
+	for(var i=1;i<=lines.length;i++){
+		html+=i+'<br>';
+	}
+	gutter.innerHTML=html;
+}
+
 function loadEditorState(index){
 	if(index<0||index>=tabs.length){
+		document.getElementById('editorBody').style.display='none';
 		document.getElementById('editorArea').style.display='none';
 		document.getElementById('filePathBar').style.display='none';
 		document.getElementById('noFileMsg').style.display='flex';
@@ -346,10 +363,12 @@ function loadEditorState(index){
 	var area=document.getElementById('editorArea');
 	area.value=t.content;
 	area.style.display='';
+	document.getElementById('editorBody').style.display='flex';
 	document.getElementById('noFileMsg').style.display='none';
 	document.getElementById('filePathBar').style.display='flex';
 	document.getElementById('fileName').textContent=t.path;
 	updateStatus(index);
+	updateLineNumbers();
 	area.focus();
 }
 
@@ -685,6 +704,11 @@ function openDevTools(){
 			updateStatus(currentTab);
 			refreshTabBar();
 		}
+		updateLineNumbers();
+	});
+	// sync line numbers scroll with textarea
+	document.getElementById('editorArea').addEventListener('scroll',function(){
+		document.getElementById('lineNumbers').scrollTop=this.scrollTop;
 	});
 })();
 </script>
