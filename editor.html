@@ -384,6 +384,8 @@ function loadEditorState(index){
 	var t=tabs[index];
 	var area=document.getElementById('editorArea');
 	area.value=t.content;
+	area.selectionStart=area.selectionEnd=0;
+	area.scrollTop=0;
 	area.style.display='';
 	document.getElementById('editorBody').style.display='flex';
 	document.getElementById('noFileMsg').style.display='none';
