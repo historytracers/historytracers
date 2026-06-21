@@ -359,6 +359,8 @@ function saveEditorState(){
 	var area=document.getElementById('editorArea');
 	tabs[currentTab].content=area.value;
 	tabs[currentTab].modified=area.value!==tabs[currentTab].originalContent;
+	tabs[currentTab].cursorPos=area.selectionStart;
+	tabs[currentTab].scrollPos=area.scrollTop;
 }
 
 function updateLineNumbers(){
@@ -384,8 +386,8 @@ function loadEditorState(index){
 	var t=tabs[index];
 	var area=document.getElementById('editorArea');
 	area.value=t.content;
-	area.selectionStart=area.selectionEnd=0;
-	area.scrollTop=0;
+	area.selectionStart=area.selectionEnd=t.cursorPos||0;
+	area.scrollTop=t.scrollPos||0;
 	area.style.display='';
 	document.getElementById('editorBody').style.display='flex';
 	document.getElementById('noFileMsg').style.display='none';
