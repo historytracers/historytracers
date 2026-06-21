@@ -57,8 +57,11 @@ mkdir -p $PKG/var/lib/$PRGNAM
 chmod +x historytracers-installer.sh
 ./historytracers-installer.sh
 
-# Install the binary
+# Install the binaries
 install -m 755 build/historytracers $PKG/usr/bin/historytracers
+if [ -f build/historytracers-editor ]; then
+  install -m 755 build/historytracers-editor $PKG/usr/bin/historytracers-editor
+fi
 
 # Install script
 if [ -f packaging/sysvinit-script/rc.historytracers ]; then
@@ -77,6 +80,11 @@ fi
 # Install image options config
 if [ -f www/images/img_options.json ]; then
   install -m 644 www/images/img_options.json $PKG/usr/share/$PRGNAM/www/images/
+fi
+
+# Install editor.html alongside web content
+if [ -f editor.html ]; then
+  install -m 644 editor.html $PKG/usr/share/$PRGNAM/
 fi
 
 # Optionally install actual images from the images tarball
