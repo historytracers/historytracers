@@ -491,6 +491,45 @@
     }
 }
 
+.yupana-btn {
+  cursor: pointer;
+  background: ghostwhite;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-weight: bold;
+  font-size: 0.95em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.yupana-btn:hover {
+  background: #e8e8ff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.yupana-btn.active {
+  background: tan;
+  border-color: #a08050;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.yupana-btn i {
+  margin-right: 5px;
+}
+
+.yupana-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #eee;
+  box-shadow: none;
+}
+
+.yupana-btn:disabled:hover {
+  background: #eee;
+  box-shadow: none;
+}
+
 /* Medium screens (601px to 991px) */
 @media screen and (min-width: 601px) and (max-width: 991px) {
     .tawapukllay {

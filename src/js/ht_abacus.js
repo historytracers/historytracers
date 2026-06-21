@@ -689,7 +689,7 @@ function htSorobanInit() {
     htSorobanUpdateDisplay();
 }
 
-function htLoadContent() {
+function htSorobanLoadContent() {
     localSorobanController = {
         "abacusMode": "suanpan",
         "COLUMNS": 9,
