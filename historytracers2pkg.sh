@@ -168,17 +168,23 @@ ht_build_slackware() {
     tar -zcvf artifacts/historytracers.tar.gz historytracers
     rm -rf historytracers
 
-    # ===== Images SlackBuild tarball =====
-    mkdir historytracers-images
-    cp packaging/Slackware-images/* historytracers-images
-    tar -zcvf artifacts/historytracers-images.tar.gz historytracers-images
+    # ===== Images tarball =====
+    mkdir -p historytracers-images/images
+    for item in images/*; do
+        base=$(basename "$item")
+        [ "$base" = "img_options.json" ] && continue
+        cp -r "$item" historytracers-images/images/
+    done
+    tar -zcvf "artifacts/historytracers-images-${VERSION}.tar.gz" historytracers-images
     rm -rf historytracers-images
 
     # ===== Common source tarball used by both =====
     make clean
 
     mkdir -p "${DST}/www"
-    cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv gedcom ht2pkg.sh images index.html js lang packaging scripts src webfonts "${DST}"
+    cp -R ./*.md LICENSE Makefile.am README bodies configure.ac css csv gedcom historytracers-installer.sh historytracers2pkg.sh index.html js lang packaging scripts src webfonts "${DST}"
+    mkdir -p "${DST}/images"
+    cp images/img_options.json "${DST}/images/"
     tar -acvf "artifacts/historytracers-${VERSION}.tar.xz" "${DST}"
 
     rm -rf "${DST}"
@@ -189,6 +195,16 @@ ht_is_msys() {
         MINGW*|MSYS*|CYGWIN*) return 0 ;;
         *) return 1 ;;
     esac
+}
+
+ht_is_slackware() {
+    if [ -f /etc/slackware-version ]; then
+        return 0
+    fi
+    if [ -f /etc/os-release ] && grep -qi "slackware" /etc/os-release 2>/dev/null; then
+        return 0
+    fi
+    return 1
 }
 
 ht_msi_cleanup() {
@@ -585,7 +601,10 @@ done
 
 # Auto-detect: if on MSYS/MinGW/Cygwin and no builder flag was set, default to MSI
 if [ "${MAKERPM}" = "0" ] && [ "${MAKEDEB}" = "0" ] && [ "${MAKEMSI}" = "0" ] && [ "${MAKESLACKWARE}" = "0" ]; then
-    if ht_is_msys; then
+    if ht_is_slackware; then
+        echo "No package type specified; auto-selecting --slackbuild for Slackware environment."
+        MAKESLACKWARE="1"
+    elif ht_is_msys; then
         echo "No package type specified; auto-selecting --msi for MSYS/MinGW environment."
         MAKEMSI="1"
     fi

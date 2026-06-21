@@ -33,15 +33,15 @@ func hideConsole() {}
 func runWindow() {
 	w := webview.New(true)
 	defer w.Destroy()
-	w.SetTitle("HistoryTracers Viewer")
+	w.SetTitle("HistoryTracers Editor")
 	w.SetSize(1280, 800, webview.HintNone)
 
-	w.Init(addressBarJS)
+	w.Init(editorBarJS)
 	w.Bind("closeWindow", func() {
 		w.Terminate()
 	})
 
-	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
+	if _, err := os.Stat(filepath.Join(rootDir, "editor.html")); os.IsNotExist(err) {
 		w.SetHtml(welcomePage)
 		C.bringWindowToFront(w.Window())
 		w.Run()

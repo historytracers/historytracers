@@ -54,7 +54,7 @@ override_dh_install:
 	# ===== DEVEL SUBPACKAGE (historytracers-devel) =====
 
 	# Copy everything from source root except www/ and .git/
-	dest=debian/historytracers-devel/usr/src/historytracers-$(DEB_VERSION_UPSTREAM); \
+	dest=debian/historytracers-devel/usr/src/historytracers; \
 	install -d "$$dest"; \
 	for f in $(CURDIR)/* $(CURDIR)/.[!.]*; do \
 		[ -e "$$f" ] || continue; \

@@ -36,52 +36,70 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 
-cd $SRCDIR
+# Extract source tarball
+cd $TMP
+rm -rf $PRGNAM-$VERSION
+tar xf $CWD/$PRGNAM-$VERSION.tar.xz
+cd $PRGNAM-$VERSION
 
 # Create package directory structure
 mkdir -p $PKG/usr/bin
 mkdir -p $PKG/usr/share/$PRGNAM/www
 mkdir -p $PKG/usr/share/$PRGNAM/www/images
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+mkdir -p $PKG/usr/doc/$PRGNAM
 mkdir -p $PKG/install
+cp packaging/Slackware/doinst.sh $PKG/install/doinst.sh
+mkdir -p $PKG/etc/rc.d
 mkdir -p $PKG/etc/$PRGNAM
 mkdir -p $PKG/var/lib/$PRGNAM
 
-./ht2pkg
+# Build the project
+chmod +x historytracers-installer.sh
+./historytracers-installer.sh
 
 # Install the binary
-install -m 755 historytracers $PKG/usr/bin/historytracers
+install -m 755 build/historytracers $PKG/usr/bin/historytracers
 
 # Install script
 if [ -f packaging/sysvinit-script/rc.historytracers ]; then
   install -m 644 packaging/sysvinit-script/rc.historytracers $PKG/etc/rc.d/
 fi
 
-# Install web content: everything from www/ except image files
+# Install web content from www/ (images handled separately)
 if [ -d "www/" ]; then
   for item in www/*; do
     base=$(basename "$item")
     [ "$base" = "images" ] && continue
     cp -R "$item" $PKG/usr/share/$PRGNAM/www/
   done
-  # Only img_options.json from images/
+fi
+
+# Install image options config
+if [ -f www/images/img_options.json ]; then
   install -m 644 www/images/img_options.json $PKG/usr/share/$PRGNAM/www/images/
+fi
+
+# Optionally install actual images from the images tarball
+if [ -f $CWD/historytracers-images-${VERSION}.tar.gz ]; then
+  tar xf $CWD/historytracers-images-${VERSION}.tar.gz -C $TMP
+  mkdir -p $PKG/usr/share/$PRGNAM/www/images
+  cp -R $TMP/historytracers-images/images/* $PKG/usr/share/$PRGNAM/www/images/
 fi
 
 # Install documentation
 if [ -f LICENSE ]; then
-  install -m 644 LICENSE $PKG/usr/doc/$PRGNAM-$VERSION/
+  install -m 644 LICENSE $PKG/usr/doc/$PRGNAM/
 fi
 if [ -f README.md ]; then
-  install -m 644 README.md $PKG/usr/doc/$PRGNAM-$VERSION/
+  install -m 644 README.md $PKG/usr/doc/$PRGNAM/
 fi
 
 # Install source code (devel): everything except www/ and .git/
-mkdir -p $PKG/usr/src/$PRGNAM-$VERSION
+mkdir -p $PKG/usr/src/$PRGNAM
 for item in * .[!.]*; do
   [ -e "$item" ] || continue
   case "$(basename "$item")" in www|.git) continue;; esac
-  cp -R "$item" $PKG/usr/src/$PRGNAM-$VERSION/
+  cp -R "$item" $PKG/usr/src/$PRGNAM/
 done
 
 chmod 755 $PKG/install/doinst.sh

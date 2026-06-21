@@ -878,22 +878,11 @@ func htValidateGEDCOM() {
 	htUpdateAllFamilies(false)
 }
 
-// Create new family
-func htNewFamilySetDefaultValues(family *Family, lang string, fileName string) {
-	family.Title = ""
-	family.Header = ""
-	family.Sources[0] = fileName
-	family.Scripts[0] = fileName
-	family.LastUpdate[0] = HTUpdateTimestamp()
-	family.GEDCOM = "gedcom/" + fileName + "_" + lang + ".ged"
-	family.CSV = "csv/" + fileName + "_" + lang + ".csv"
-}
-
 func htCreateNewFamily(id string, family *Family) {
 	htAddNewSourceToDirectory(id)
 	htAddNewJSToDirectory(id)
 	for _, dir := range htLangPaths {
-		htNewFamilySetDefaultValues(family, dir, id)
+		HTNewFamilySetDefaultValues(family, dir, id)
 		pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, dir, id)
 
 		fp, err := os.Create(pathFile)
@@ -908,21 +897,6 @@ func htCreateNewFamily(id string, family *Family) {
 
 		fp.Close()
 	}
-}
-
-func htAddNewFamilyToIdx(index *IdxFamily, newFile string, lang string) {
-	lastContent := len(index.Contents) - 1
-	if lastContent < 0 {
-		return
-	}
-
-	content := &index.Contents[lastContent]
-
-	newValue := IdxFamilyValue{ID: newFile, GEDCOM: "gedcom/" + newFile + "_" + lang + ".ged", CSV: "csv/" + newFile + "_" + lang + ".csv"}
-
-	content.Value = append(content.Value, newValue)
-
-	index.LastUpdate[0] = HTUpdateTimestamp()
 }
 
 func htOpenFamilyIdx(fileName string, newFile string, lang string) error {
@@ -943,7 +917,7 @@ func htOpenFamilyIdx(fileName string, newFile string, lang string) error {
 		return err
 	}
 
-	htAddNewFamilyToIdx(&index, newFile, lang)
+	HTAddNewFamilyToIdx(&index, newFile, lang)
 	tmpName, err := htWriteFamilyIndexFile(lang, &index)
 	if err != nil {
 		return err

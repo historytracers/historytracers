@@ -20,8 +20,8 @@ var (
 )
 
 const (
-	_HWND_TOPMOST   = ^uintptr(0) // -1
-	_HWND_NOTOPMOST = ^uintptr(1) // -2
+	_HWND_TOPMOST   = ^uintptr(0)
+	_HWND_NOTOPMOST = ^uintptr(1)
 	_SWP_NOMOVE     = 0x0002
 	_SWP_NOSIZE     = 0x0001
 	_SWP_NOACTIVATE = 0x0010
@@ -29,11 +29,7 @@ const (
 
 func bringToFront(hwnd unsafe.Pointer) {
 	h := uintptr(hwnd)
-	// Step 1: briefly make the window topmost — this forces it to the front
-	// regardless of foreground lock restrictions.
 	procSetWindowPos.Call(h, _HWND_TOPMOST, 0, 0, 0, 0, _SWP_NOMOVE|_SWP_NOSIZE)
-	// Step 2: remove topmost so other windows can overlap during runtime,
-	// while keeping the window at the top of the normal Z-order.
 	procSetWindowPos.Call(h, _HWND_NOTOPMOST, 0, 0, 0, 0, _SWP_NOMOVE|_SWP_NOSIZE)
 	procSetForegroundWindow.Call(h)
 }
@@ -43,7 +39,7 @@ func runWindow() {
 		Debug:     true,
 		AutoFocus: true,
 		WindowOptions: webview2.WindowOptions{
-			Title:   "HistoryTracers Viewer",
+			Title:   "HistoryTracers Editor",
 			Width:   1280,
 			Height:  800,
 			Center:  true,
@@ -59,14 +55,14 @@ func runWindow() {
 	}
 	defer w.Destroy()
 
-	w.Init(addressBarJS)
+	w.Init(editorBarJS)
 	w.Bind("closeWindow", func() {
 		w.Destroy()
 	})
 
 	bringToFront(w.Window())
 
-	if _, err := os.Stat(filepath.Join(contentDir, "index.html")); os.IsNotExist(err) {
+	if _, err := os.Stat(filepath.Join(rootDir, "editor.html")); os.IsNotExist(err) {
 		w.SetHtml(welcomePage)
 		w.Run()
 		return

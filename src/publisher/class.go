@@ -13,34 +13,6 @@ import (
 
 var localClassIDXUpdate bool
 
-func htAddNewClassToIdx(index *ClassIdx, newFile string) {
-	lastContent := len(index.Content) - 1
-	if lastContent < 0 {
-		return
-	}
-
-	content := &index.Content[lastContent]
-
-	newValue := ClassContentValue{ID: newFile, Name: "", Desc: ""}
-
-	content.Value = append(content.Value, newValue)
-
-	index.LastUpdate[0] = HTUpdateTimestamp()
-}
-
-func htSetDefaultTemplateValues(fp *ClassTemplateFile, newFile string) {
-	fp.Title = ""
-	fp.Header = ""
-	fp.Sources[0] = newFile
-	fp.Scripts[0] = newFile
-	fp.Index[0] = classTemplate
-	fp.LastUpdate[0] = HTUpdateTimestamp()
-	fp.Authors[0] = ""
-	fp.Reviewers[0] = ""
-	fp.Type = "class"
-	fp.Version = 2
-}
-
 func htWriteTemplateFile(lang string, newFile string, template *ClassTemplateFile) error {
 	pathFile := fmt.Sprintf("%slang/%s/%s.json", CFG.SrcPath, lang, newFile)
 
@@ -74,7 +46,7 @@ func htAddNewClassTemplateToDirectory(newFile string, lang string) error {
 		return err
 	}
 
-	htSetDefaultTemplateValues(&localTemplateFile, newFile)
+	HTSetDefaultClassTemplateValues(&localTemplateFile, newFile, classTemplate)
 
 	err = htWriteTemplateFile(lang, newFile, &localTemplateFile)
 	if err != nil {
@@ -104,7 +76,7 @@ func htOpenClassIdx(fileName string, newFile string, lang string) error {
 	}
 
 	if localClassIDXUpdate {
-		htAddNewClassToIdx(&index, newFile)
+		HTAddNewClassToIdx(&index, newFile)
 	}
 
 	_, fileWasModified := htGitModifiedMap[fileName]

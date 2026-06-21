@@ -15,7 +15,7 @@ func htFillModifiedGit() {
 	cmd := exec.Command("git", "ls-files", "-m")
 	output, err := cmd.CombinedOutput()
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR: ", err)
+		fmt.Fprintln(os.Stderr, "WARNING (non-fatal): git VCS info unavailable, skipping modified-file tracking: ", err)
 		return
 	}
 
