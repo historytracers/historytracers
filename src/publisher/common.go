@@ -571,8 +571,49 @@ func htAdjustAudioStringBeforeWrite(str string, lang string) string {
 	ret = htConvertFunctionAbbreviation(ret, lang)
 	ret = htConvertTemperatures(ret, lang)
 	ret = htRemoveHTMLTags(ret)
+	ret = htReplaceSocialMediaUrls(ret)
 
 	return ret
+}
+
+func htReplaceSocialMediaUrls(text string) string {
+	socialPatterns := []struct {
+		re   *regexp.Regexp
+		name string
+	}{
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?(?:bsky\.app|bluesky\.social)/\S*`), "Blue Sky"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?patreon\.com/\S*`), "Patreon"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?paypal\.com/\S*`), "PayPal"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?(?:creators\.)?spotify\.com/\S*`), "Spotify"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?facebook\.com/\S*`), "Facebook"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?twitter\.com/\S*`), "Twitter"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?x\.com/\S*`), "X"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?instagram\.com/\S*`), "Instagram"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?youtube\.com/\S*`), "You Tube"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?threads\.net/\S*`), "Threads"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?github\.com/\S*`), "GitHub"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?linkedin\.com/\S*`), "LinkedIn"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?tiktok\.com/\S*`), "TikTok"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?pinterest\.com/\S*`), "Pinterest"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?t\.me/\S*`), "Telegram"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?whatsapp\.com/\S*`), "WhatsApp"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?reddit\.com/\S*`), "Reddit"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?discord\.(?:com|gg)/\S*`), "Discord"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?telegram\.(?:me|org)/\S*`), "Telegram"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?signal\.org/\S*`), "Signal"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?mastodon\.\w+/\S*`), "Mastodon"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?snapchat\.com/\S*`), "Snapchat"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?tumblr\.com/\S*`), "Tumblr"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?medium\.com/\S*`), "Medium"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?bitbucket\.org/\S*`), "Bitbucket"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?gitlab\.com/\S*`), "GitLab"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?wikipedia\.org/\S*`), "Wikipedia"},
+		{regexp.MustCompile(`\(?https?://(?:[a-z]+\.)?archive\.org/\S*`), "Archive"},
+	}
+	for _, sp := range socialPatterns {
+		text = sp.re.ReplaceAllString(text, sp.name)
+	}
+	return text
 }
 
 func htWriteAudioFile(fileName string, lang string, content string) error {
