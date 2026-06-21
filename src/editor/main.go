@@ -641,6 +641,103 @@ func gitStatusHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]interface{}{"files": files})
 }
 
+var (
+	sessionMu   sync.Mutex
+	sessionFile string
+	dataDir     string
+)
+
+func initDataDir() {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		log.Printf("Warning: cannot get home directory: %v", err)
+		dataDir = ""
+		return
+	}
+	switch runtime.GOOS {
+	case "windows":
+		dataDir = filepath.Join(home, "HistoryTracers")
+	default:
+		dataDir = filepath.Join(home, ".config", "HistoryTracers")
+	}
+	if err := os.MkdirAll(dataDir, 0755); err != nil {
+		log.Printf("Warning: cannot create data directory %s: %v", dataDir, err)
+		dataDir = ""
+	}
+	if dataDir != "" {
+		sessionFile = filepath.Join(dataDir, "session.json")
+	}
+}
+
+type sessionTab struct {
+	Path      string `json:"path"`
+	CursorPos int    `json:"cursorPos"`
+	ScrollPos int    `json:"scrollPos"`
+}
+
+func loadSession() []sessionTab {
+	if sessionFile == "" {
+		return nil
+	}
+	sessionMu.Lock()
+	defer sessionMu.Unlock()
+	b, err := os.ReadFile(sessionFile)
+	if err != nil {
+		return nil
+	}
+	var tabs []sessionTab
+	if err := json.Unmarshal(b, &tabs); err != nil {
+		log.Printf("Warning: corrupt session file: %v", err)
+		return nil
+	}
+	// Filter out tabs whose paths are no longer valid
+	valid := tabs[:0]
+	for _, t := range tabs {
+		if _, err := validateEditPath(t.Path); err == nil {
+			valid = append(valid, t)
+		}
+	}
+	return valid
+}
+
+func saveSession(tabs []sessionTab) {
+	if sessionFile == "" {
+		return
+	}
+	sessionMu.Lock()
+	defer sessionMu.Unlock()
+	b, err := json.Marshal(tabs)
+	if err != nil {
+		log.Printf("Warning: cannot marshal session: %v", err)
+		return
+	}
+	if err := os.WriteFile(sessionFile, b, 0644); err != nil {
+		log.Printf("Warning: cannot write session: %v", err)
+	}
+}
+
+func sessionHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+		w.Header().Set("Content-Type", "application/json")
+		tabs := loadSession()
+		if tabs == nil {
+			tabs = []sessionTab{}
+		}
+		json.NewEncoder(w).Encode(tabs)
+	case http.MethodPost:
+		var tabs []sessionTab
+		if err := json.NewDecoder(r.Body).Decode(&tabs); err != nil {
+			http.Error(w, "invalid JSON", http.StatusBadRequest)
+			return
+		}
+		saveSession(tabs)
+		w.WriteHeader(http.StatusNoContent)
+	default:
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	}
+}
+
 func init() {
 	fileLocks = make(map[string]string)
 }
@@ -728,6 +825,7 @@ func main() {
 		absContent, _ := filepath.Abs(contentDir)
 		rootDir = filepath.Dir(absContent)
 	}
+	initDataDir()
 	initProjectFiles()
 
 	if *logFile != "" {
@@ -760,6 +858,7 @@ func main() {
 	mux.HandleFunc("/api/editor/create-class", createClassHandler)
 	mux.HandleFunc("/api/editor/create-family", createFamilyHandler)
 	mux.HandleFunc("/api/editor/git-status", gitStatusHandler)
+	mux.HandleFunc("/api/editor/session", sessionHandler)
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)

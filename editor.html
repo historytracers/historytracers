@@ -117,7 +117,7 @@ select#langSelect option{color:#000;background:#fff}
 </div>
 <h3><span id="sidebarTitle">Files</span><button onclick="refreshTree()" id="refreshBtn">&#x21bb;</button></h3>
 <div id="tree"></div>
-<div id="gitPanel"></div>
+<div id="gitPanel" style="display:none"></div>
 </div>
 <div id="editor">
 <div class="no-file" id="noFileMsg">Select a file to edit</div>
@@ -432,11 +432,44 @@ function switchTab(index){
 	currentTab=index;
 	loadEditorState(index);
 	refreshTabBar();
+	saveSession();
 }
 
 function unlockFile(path){
 	if(!path)return;
 	fetch('/api/editor/unlock',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(path)})
+}
+
+function saveSession(){
+	saveEditorState();
+	var data=[];
+	for(var i=0;i<tabs.length;i++){
+		var t=tabs[i];
+		data.push({path:t.path,cursorPos:t.cursorPos||0,scrollPos:t.scrollPos||0});
+	}
+	fetch('/api/editor/session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+}
+
+async function restoreSession(){
+	try{
+		var r=await fetch('/api/editor/session');
+		var data=await r.json();
+		if(!data||data.length===0)return;
+		for(var i=0;i<data.length;i++){
+			var s=data[i];
+			if(!s.path)continue;
+			try{
+				var rr=await fetch('/api/editor/read?file='+encodeURIComponent(s.path),{headers:{'X-HT-Session':window.__ht_session}});
+				var rd=await rr.json();
+				tabs.push({id:createTabId(),path:s.path,content:rd.content,originalContent:rd.content,modified:false,cursorPos:s.cursorPos,scrollPos:s.scrollPos});
+			}catch(e){}
+		}
+		if(tabs.length>0){
+			currentTab=0;
+			loadEditorState(0);
+			refreshTabBar();
+		}
+	}catch(e){}
 }
 
 function closeTab(index,force){
@@ -456,6 +489,7 @@ function closeTab(index,force){
 		currentTab--;
 	}
 	refreshTabBar();
+	saveSession();
 }
 
 async function openFile(path){
@@ -467,6 +501,7 @@ async function openFile(path){
 		currentTab=idx;
 		loadEditorState(idx);
 		refreshTabBar();
+		saveSession();
 		return
 	}
 	try{
@@ -477,6 +512,7 @@ async function openFile(path){
 		currentTab=tabs.length-1;
 		loadEditorState(currentTab);
 		refreshTabBar();
+		saveSession();
 		if(data.locked)toast(tr('fileLocked')+data.lockedBy,'error');
 		// highlight in tree
 		document.querySelectorAll('#tree .tree-item.selected').forEach(function(el){el.classList.remove('selected')});
@@ -807,6 +843,7 @@ function openDevTools(){
 	refreshTree();
 	buildNewList();
 	buildInsertList();
+	restoreSession();
 	window.__ht_editor=true;
 	window.__ht_session='s'+Math.random().toString(36).substr(2)+Date.now().toString(36);
 	// listen for keyboard shortcuts
