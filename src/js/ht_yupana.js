@@ -327,6 +327,24 @@ function htYupanaAddRow(row)
     return "<tr id=\"tf"+row+"\"><td id=\"tc1f"+row+"\">"+htYupanaDrawFirstSquare()+"</td> <td id=\"tc2f"+row+"\">"+htYupanaDrawSecondSquare()+"</td> <td id=\"tc3f"+row+"\">"+htYupanaDrawThirdSquare()+"</td> <td id=\"tc4f"+row+"\">"+htYupanaDrawFourthSquare()+"</td></tr>";
 }
 
+function htCleanYupanaDecimalRow(tableID, row)
+{
+    for (let col = 1; col <= 4; col++) {
+        $(tableID + " #tc" + col + "f" + row).find(".circValues").remove();
+    }
+}
+
+function htFillYupanaDecimalRow(tableID, row, digit, dotClass)
+{
+    for (let sel = digit; sel < 30; sel += 10) {
+        if (yupanaSelectors[sel] < 0) {
+            continue;
+        }
+        var idx = yupanaSelectors[sel];
+        $(tableID + " #tc" + idx + "f" + row).append("<span class=\"dot circValues " + dotClass + "\"></span>");
+    }
+}
+
 function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
 {
     if (larr.length != rarr.length) {
@@ -335,44 +353,30 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
 
     var step = 0;
     var rarr_work = rarr.slice();
-    var totals = [];
+    var displayArr = [];
+    for (let i = 0; i < rows; i++) {
+        displayArr.push('');
+    }
 
     function processStep() {
         if (step >= larr.length) {
             return;
         }
 
+        var bottom2top = rows - step;
         var rawSum = parseInt(larr[step]) + parseInt(rarr_work[step]);
-        var carry = false;
         var resultDigit = rawSum;
         if (rawSum >= 10) {
             if (step + 1 < larr.length) {
                 rarr_work[step+1] += 1;
             }
             resultDigit -= 10;
-            carry = true;
-        }
-        totals.push(resultDigit);
-
-        var num = 0;
-        var mult = 1;
-        for (let i = 0; i < totals.length; i++) {
-            num += totals[i] * mult;
-            mult *= 10;
         }
 
-        htCleanYupanaDecimalValues(tableID, rows);
-        htFillYupanaDecimalValues(tableID, num, rows, 'red_dot_right_up');
+        htCleanYupanaDecimalRow(tableID, bottom2top);
+        htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'red_dot_right_up');
 
-        htCleanYupanaAdditionalColumn(tableID, rows, '#tc6f');
-        var displayArr = [];
-        for (let i = 0; i < rows; i++) {
-            if (i < totals.length) {
-                displayArr.push(totals[i]);
-            } else {
-                displayArr.push('');
-            }
-        }
+        displayArr[step] = resultDigit;
         htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, displayArr);
 
         var stepText = "";
@@ -383,15 +387,11 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         }
         stepText += rawSum + ":<br />";
         stepText += htWriteSumOnYupana(larr[step], rarr_work[step], rawSum);
-        $(tableID+" "+resultID).append(stepText);
+        $(tableID + " " + resultID).append(stepText);
 
         step++;
         setTimeout(processStep, 1500);
     }
-
-    htCleanYupanaDecimalValues(tableID, rows);
-    htCleanYupanaAdditionalColumn(tableID, rows, '#tc6f');
-    $(tableID+" "+resultID).html("");
 
     setTimeout(processStep, 1000);
 }
