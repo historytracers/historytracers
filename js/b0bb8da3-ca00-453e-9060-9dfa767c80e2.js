@@ -20,7 +20,7 @@ function htLoadContent() {
 
     $( "#ia2yupana0" ).bind( "keyup mouseup", function() {
         $(".yupana-btn").removeClass("active");
-        $(".yupana-btn[data-action='calcular']").prop("disabled", true);
+        $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", true);
         var value = $(this).val();
         if (value < 0) {
             $(this).val(0);
@@ -31,7 +31,7 @@ function htLoadContent() {
 
     $( "#ia2yupana1" ).bind( "keyup mouseup", function() {
         $(".yupana-btn").removeClass("active");
-        $(".yupana-btn[data-action='calcular']").prop("disabled", true);
+        $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", true);
         var value = $(this).val();
         if (value < 0) {
             $(this).val(0);
@@ -49,13 +49,13 @@ function htLoadContent() {
 
         htFillCurrentYupanaSum();
         if (value == "values") {
-            $(".yupana-btn[data-action='calcular']").prop("disabled", false);
+            $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", false);
             htCleanYupanaAdditionalColumn('#yupana1', 4, '#tc6f');
             $('#tc7f1').html("");
             htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', local.lvalues);
             htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', local.rvalues);
         } else if (value == "stepbystep") {
-            $(".yupana-btn[data-action='calcular']").prop("disabled", false);
+            $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", false);
             htCleanYupanaAdditionalColumn('#yupana1', 4, '#tc6f');
             $('#tc7f1').html("");
             htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', local.lvalues);

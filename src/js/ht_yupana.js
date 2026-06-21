@@ -281,7 +281,7 @@ function htWriteYupanaSumMovement(larr, rarr, tableID, rows, resultID)
         }
 
         text += larr[i] +" + ";
-        text +=  (rarr[i] == rarr_work[i]) ? rarr[i] : rarr[i] + " + 1" ;
+        text +=  (rarr[i] == rarr_work[i]) ? rarr[i] : rarr[i] + " + 1 (" + mathKeywords[67] + ")" ;
         text += " = "+result+":<br />";
         text += htWriteSumOnYupana(larr[i], rarr_work[i], result);
     }
@@ -377,7 +377,7 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
 
         var stepText = "";
         if (rarr[step] != rarr_work[step]) {
-            stepText = larr[step] + " + " + rarr[step] + " + 1 (carry) = ";
+            stepText = larr[step] + " + " + rarr[step] + " + 1 (" + mathKeywords[67] + ") = ";
         } else {
             stepText = larr[step] + " + " + rarr[step] + " = ";
         }
