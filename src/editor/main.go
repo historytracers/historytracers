@@ -296,15 +296,37 @@ func editorReadHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+	sessionID := r.Header.Get("X-HT-Session")
+	fileLocksMu.Lock()
+	existingLock, isLocked := fileLocks[fileParam]
+	if isLocked && existingLock != sessionID {
+		fileLocksMu.Unlock()
+		data, rerr := os.ReadFile(absPath)
+		if rerr != nil {
+			http.Error(w, rerr.Error(), http.StatusInternalServerError)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]interface{}{
+			"content":  string(data),
+			"path":     fileParam,
+			"locked":   true,
+			"lockedBy": existingLock[:8] + "...",
+		})
+		return
+	}
+	fileLocks[fileParam] = sessionID
+	fileLocksMu.Unlock()
 	data, err := os.ReadFile(absPath)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]string{
+	json.NewEncoder(w).Encode(map[string]interface{}{
 		"content": string(data),
 		"path":    fileParam,
+		"locked":  false,
 	})
 }
 
@@ -333,7 +355,35 @@ func editorSaveHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNoContent)
 }
 
+func editorUnlockHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	fileParam := r.FormValue("file")
+	sessionID := r.Header.Get("X-HT-Session")
+	if fileParam == "" || sessionID == "" {
+		w.WriteHeader(http.StatusNoContent)
+		return
+	}
+	fileLocksMu.Lock()
+	if fileLocks[fileParam] == sessionID {
+		delete(fileLocks, fileParam)
+	}
+	fileLocksMu.Unlock()
+	w.WriteHeader(http.StatusNoContent)
+}
+
 var projectFiles map[string]bool
+
+var (
+	fileLocks   map[string]string
+	fileLocksMu sync.Mutex
+)
+
+func init() {
+	fileLocks = make(map[string]string)
+}
 
 func initProjectFiles() {
 	projectFiles = make(map[string]bool)
@@ -446,6 +496,7 @@ func main() {
 	mux.HandleFunc("/api/editor/tree", editorTreeHandler)
 	mux.HandleFunc("/api/editor/read", editorReadHandler)
 	mux.HandleFunc("/api/editor/save", editorSaveHandler)
+	mux.HandleFunc("/api/editor/unlock", editorUnlockHandler)
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
