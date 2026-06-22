@@ -441,8 +441,6 @@ function loadEditorState(index){
 	var t=tabs[index];
 	var area=document.getElementById('editorArea');
 	area.value=t.content;
-	area.selectionStart=area.selectionEnd=t.cursorPos||0;
-	area.scrollTop=t.scrollPos||0;
 	area.style.display='';
 	document.getElementById('editorBody').style.display='flex';
 	document.getElementById('noFileMsg').style.display='none';
@@ -451,6 +449,8 @@ function loadEditorState(index){
 	updateStatus(index);
 	updateLineNumbers();
 	area.focus();
+	area.selectionStart=area.selectionEnd=t.cursorPos||0;
+	area.scrollTop=t.scrollPos||0;
 }
 
 function refreshTabBar(){
@@ -1044,6 +1044,16 @@ function openDevTools(){
 	// sync line numbers scroll with textarea
 	document.getElementById('editorArea').addEventListener('scroll',function(){
 		document.getElementById('lineNumbers').scrollTop=this.scrollTop;
+	});
+	// save session on window close
+	window.addEventListener('beforeunload',function(){
+		saveEditorState();
+		var data=[];
+		for(var i=0;i<tabs.length;i++){
+			var t=tabs[i];
+			data.push({path:t.path,cursorPos:t.cursorPos||0,scrollPos:t.scrollPos||0});
+		}
+		navigator.sendBeacon('/api/editor/session',new Blob([JSON.stringify(data)],{type:'application/json'}));
 	});
 })();
 </script>
