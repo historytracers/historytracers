@@ -16,6 +16,8 @@ select#langSelect option{color:#000;background:#fff}
 #toolbar button:hover{background:#546e7a}
 #toolbar button:active{background:#37474f}
 #toolbar .spacer{flex:1}
+#portDisplay{color:#80cbc4;font-size:12px;margin-right:8px;white-space:nowrap}
+#toolbar .sep{color:#555;margin:0 4px;user-select:none}
 .actions .sep{color:#555;margin:0 4px;user-select:none}
 #main{display:flex;flex:1;overflow:hidden}
 #sidebar{width:260px;min-width:200px;background:#2b3b45;border-right:1px solid #455a64;display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
@@ -106,6 +108,8 @@ select#langSelect option{color:#000;background:#fff}
 <option value="pt-BR">Portugu&ecirc;s</option>
 <option value="es-ES">Espa&ntilde;ol</option>
 </select>
+<span class="sep">|</span>
+<span id="portDisplay">Listening on 0</span>
 <div class="spacer"></div>
 <button onclick="toggleNewMenu()" id="newBtn">New</button>
 <button onclick="toggleInsert()" id="insBtn">Insert</button>
@@ -977,6 +981,7 @@ function openDevTools(){
 	restoreSession();
 	window.__ht_editor=true;
 	window.__ht_session='s'+Math.random().toString(36).substr(2)+Date.now().toString(36);
+	document.getElementById('portDisplay').textContent='Listening on '+window.location.port;
 	// listen for keyboard shortcuts
 	var treeEl=document.getElementById('tree');
 	var gitEl=document.getElementById('gitPanel');
