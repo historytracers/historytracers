@@ -915,7 +915,14 @@ func main() {
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
 	mux.HandleFunc("/metrics", metricsHandler)
-	mux.Handle("/", logMiddleware(http.FileServer(projectFS{})))
+	fs := http.FileServer(projectFS{})
+	mux.Handle("/", logMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/" {
+			http.Redirect(w, r, "/editor.html", http.StatusFound)
+			return
+		}
+		fs.ServeHTTP(w, r)
+	})))
 
 	srv = &http.Server{Addr: addr, Handler: metricsMiddleware(mux)}
 
