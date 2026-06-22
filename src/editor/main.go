@@ -862,9 +862,10 @@ func main() {
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
+	mux.HandleFunc("/metrics", metricsHandler)
 	mux.Handle("/", logMiddleware(http.FileServer(projectFS{})))
 
-	srv = &http.Server{Addr: addr, Handler: mux}
+	srv = &http.Server{Addr: addr, Handler: metricsMiddleware(mux)}
 
 	go func() {
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
