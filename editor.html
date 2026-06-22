@@ -93,11 +93,12 @@ select#langSelect option{color:#000;background:#fff}
 .ins-item .ins-label{color:#78909c;font-size:11px;margin-left:6px}
 #newPanel{width:220px;min-width:180px;background:#2b3b45;border-left:1px solid #455a64;display:none;flex-direction:column;overflow:hidden;flex-shrink:0}
 #newPanel.open{display:flex}
-#toast{position:fixed;bottom:20px;right:20px;padding:10px 20px;border-radius:6px;font:13px/1.4 sans-serif;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none;white-space:pre-line}
+#toast{position:fixed;bottom:20px;right:20px;padding:10px 20px;border-radius:6px;font:13px/1.4 sans-serif;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:auto;white-space:pre-line}
 #toast.show{opacity:1}
 #toast.success{background:#2e7d32;color:#fff}
 #toast.error{background:#c62828;color:#fff}
 #toast.info{background:#1565c0;color:#fff}
+#toast .toast-ok{background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.5);color:#fff;padding:2px 12px;border-radius:3px;cursor:pointer;margin-left:8px;font:inherit}
 </style>
 </head>
 <body>
@@ -194,12 +195,16 @@ function setLang(loc){
 	refreshTabBar();
 }
 
-function toast(msg,type){
+function toast(msg,type,persistent){
 	var el=document.getElementById('toast');
-	el.textContent=msg;
+	if(persistent){
+		el.innerHTML=msg+' <button onclick="this.parentElement.classList.remove(\'show\')" class="toast-ok">OK</button>';
+	}else{
+		el.textContent=msg;
+	}
 	el.className=type||'info';
 	el.classList.add('show');
-	setTimeout(function(){el.classList.remove('show')},2500);
+	if(!persistent)setTimeout(function(){el.classList.remove('show')},2500);
 }
 
 // --- Tree ---
@@ -521,6 +526,7 @@ async function restoreSession(){
 				var rr=await fetch('/api/editor/read?file='+encodeURIComponent(s.path),{headers:{'X-HT-Session':window.__ht_session}});
 				var rd=await rr.json();
 				tabs.push({id:createTabId(),path:s.path,content:rd.content,originalContent:rd.content,modified:false,cursorPos:s.cursorPos,scrollPos:s.scrollPos});
+				if(rd.locked)toast(tr('fileLocked')+rd.lockedBy,'error',true);
 			}catch(e){}
 		}
 		if(tabs.length>0){
@@ -572,7 +578,7 @@ async function openFile(path){
 		loadEditorState(currentTab);
 		refreshTabBar();
 		saveSession();
-		if(data.locked)toast(tr('fileLocked')+data.lockedBy,'error');
+		if(data.locked)toast(tr('fileLocked')+data.lockedBy,'error',true);
 		// highlight in tree
 		document.querySelectorAll('#tree .tree-item.selected').forEach(function(el){el.classList.remove('selected')});
 		document.querySelectorAll('#tree .tree-item').forEach(function(el){
