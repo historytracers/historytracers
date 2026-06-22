@@ -403,6 +403,56 @@ func copyFile(dst, src string) error {
 	return err
 }
 
+type indexContentItem struct {
+	ID        string `json:"id"`
+	Value     string `json:"value,omitempty"`
+	HTMLValue string `json:"html_value,omitempty"`
+}
+
+type indexFile struct {
+	Title   string             `json:"title"`
+	Header  string             `json:"header"`
+	Content []indexContentItem `json:"content"`
+}
+
+func updateFeedInAllLangs(pageType string, arg string, displayName string) {
+	link := fmt.Sprintf(`<a href="index.html?page=%s&arg=%s" onclick="htLoadPage('%s','html', '%s', false); return false;">%s</a>`, pageType, arg, pageType, arg, displayName)
+	for _, lang := range editorLangs {
+		idxPath := filepath.Join(rootDir, "lang", lang, "index.json")
+		data, err := os.ReadFile(idxPath)
+		if err != nil {
+			continue
+		}
+		var idx indexFile
+		if err := json.Unmarshal(data, &idx); err != nil {
+			continue
+		}
+		found := false
+		for i := range idx.Content {
+			if idx.Content[i].ID == "sbFeed" {
+				idx.Content[i].HTMLValue = link
+				found = true
+				break
+			}
+		}
+		if !found {
+			continue
+		}
+		tmpPath := filepath.Join(rootDir, "lang", lang, arg+"_idx.tmp")
+		fp, err := os.Create(tmpPath)
+		if err != nil {
+			continue
+		}
+		e := json.NewEncoder(fp)
+		e.SetEscapeHTML(false)
+		e.SetIndent("", "   ")
+		e.Encode(idx)
+		fp.Close()
+		copyFile(idxPath, tmpPath)
+		os.Remove(tmpPath)
+	}
+}
+
 func createClassHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -493,6 +543,7 @@ func createClassHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	updateFeedInAllLangs("class_content", strID, className)
 	rotateToken()
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-HT-Next-Token", viewerToken)
@@ -585,6 +636,7 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	updateFeedInAllLangs("tree", strID, strID)
 	rotateToken()
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-HT-Next-Token", viewerToken)
