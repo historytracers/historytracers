@@ -914,6 +914,16 @@ function openDevTools(){
 		}else if((e.ctrlKey||e.metaKey)&&e.key==='PageDown'){
 			e.preventDefault();
 			if(currentTab<tabs.length-1)switchTab(currentTab+1);
+		}else if((e.ctrlKey||e.metaKey)&&e.key==='z'&&!e.shiftKey){
+			if(document.activeElement===document.getElementById('editorArea')){
+				e.preventDefault();
+				document.execCommand('undo');
+			}
+		}else if((e.ctrlKey||e.metaKey)&&(e.key==='y'||(e.key==='z'&&e.shiftKey))){
+			if(document.activeElement===document.getElementById('editorArea')){
+				e.preventDefault();
+				document.execCommand('redo');
+			}
 		}
 	});
 	// track content changes
