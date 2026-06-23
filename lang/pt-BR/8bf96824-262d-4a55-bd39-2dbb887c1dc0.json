@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782181755"
+      "1782231674"
    ],
    "authors": [
       ""
@@ -229,6 +229,66 @@
             },
             {
                "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">Há coluna(s) com valores maiores que 9! Cada dígito deve permanecer entre 0 e 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_complement",
+         "text": [
+            {
+               "text": "### Complementando os complementos\n\nAo trabalharmos com o ábaco em qualquer uma de suas versões, o Soroban e o Suanpan (算盤), podemos visualizar o que ocorre com somas consecutivas de números:\n- Quando menor for o valor entre 1 e 9, ou seja, à medida que nos aproximamos de 1 (<htcite0>), executaremos menos somas que resultarão em valores que nos obrigam a trocar de ordem e, por consequência, precisaremos utilizar menos complementos para movimentar os números.\n- Ao realizarmos somas consecutivas do número 5, sempre atingiremos a próxima ordem numérica — em nossos exemplos, a dezena (<htcite1>)— quando somarmos 5 a outro valor que já possua uma unidade de cinco. Por exemplo: 15 + 5 = 20.\n- Sempre que estivermos somando números consecutivos, ou seja, quando estivermos multiplicando, ao avançarmos para a próxima ordem numérica moveremos de uma ordem para a outra o complemento do número que estamos somando.\n\nComo consequência dessas observações, podemos concluir que, ao trabalharmos com somas consecutivas de 4, quando necessário, também utilizaremos seu complemento, 6, conforme mostrado no **Cálculo 1**. Para reforçar esse entendimento, apresentamos novamente os cálculos que mostram os complementos necessários para se chegar a 10 (<htcite2>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Limites na Natureza",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Famílias numéricas (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "text": "History Tracers Team",
+                     "page": "Somando com Soroban e Suanpan (算盤) (Parte 2)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>valor</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>complemento</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 2</b>: Complementos de 10.</p></div></div></center>",
                "source": null,
                "date_time": null,
                "isTable": false,
