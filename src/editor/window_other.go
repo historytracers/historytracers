@@ -38,6 +38,9 @@ func runWindow() {
 
 	w.Init(editorBarJS)
 	w.Bind("closeWindow", func() {
+		w.Eval("onCloseRequested()")
+	})
+	w.Bind("finalizeClose", func() {
 		w.Terminate()
 	})
 

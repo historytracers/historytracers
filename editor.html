@@ -1173,6 +1173,54 @@ function openConfig(){
 	document.getElementById('editorArea').addEventListener('scroll',function(){
 		document.getElementById('lineNumbers').scrollTop=this.scrollTop;
 	});
+	// save a specific tab by index (without switching UI)
+	function saveTabByIndex(idx){
+		var t=tabs[idx];
+		if(!t||t.type==='config')return Promise.resolve();
+		var content=t.content;
+		var path=t.path;
+		return fetch('/api/editor/save',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(path)+'&content='+encodeURIComponent(content)}).then(function(r){
+			if(!r.ok)throw new Error('HTTP '+r.status);
+			t.originalContent=content;
+			t.modified=false;
+			refreshTabBar();
+		});
+	}
+	window.onCloseRequested=function(){
+		if(typeof tabs==='undefined'||tabs.length===0){finalizeClose();return}
+		processUnsavedBeforeClose();
+	}
+	function processUnsavedBeforeClose(){
+		var unsaved=[];
+		for(var i=0;i<tabs.length;i++){
+			if(tabs[i].modified&&tabs[i].type!=='config')unsaved.push(i);
+		}
+		function next(){
+			if(unsaved.length===0){saveEditorState();finalizeClose();return}
+			var idx=unsaved.shift();
+			showSaveDiscardDialog(tabs[idx].path,function(action){
+				if(action==='save'){
+					saveTabByIndex(idx).then(next).catch(function(e){toast(e.message,'error');next()});
+				}else if(action==='discard'){
+					next();
+				}
+			});
+		}
+		next();
+	}
+	// intercept Exit button click
+	function wireExitBtn(){
+		var exitBtn=document.getElementById('__ht_exit_item');
+		if(!exitBtn){setTimeout(wireExitBtn,50);return}
+		exitBtn.onclick=function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			var md=document.getElementById('__ht_menu_drop');
+			if(md)md.style.display='none';
+			processUnsavedBeforeClose()
+		};
+	}
+	wireExitBtn();
 	// save session on window close
 	window.addEventListener('beforeunload',function(e){
 		saveEditorState();

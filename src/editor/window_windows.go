@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"sync/atomic"
 	"syscall"
 	"unsafe"
 
@@ -17,6 +18,9 @@ var (
 	modUser32               = syscall.NewLazyDLL("user32.dll")
 	procSetWindowPos        = modUser32.NewProc("SetWindowPos")
 	procSetForegroundWindow = modUser32.NewProc("SetForegroundWindow")
+	procGetWindowLongPtrW   = modUser32.NewProc("GetWindowLongPtrW")
+	procSetWindowLongPtrW   = modUser32.NewProc("SetWindowLongPtrW")
+	procCallWindowProcW     = modUser32.NewProc("CallWindowProcW")
 )
 
 const (
@@ -25,6 +29,14 @@ const (
 	_SWP_NOMOVE     = 0x0002
 	_SWP_NOSIZE     = 0x0001
 	_SWP_NOACTIVATE = 0x0010
+	_WM_CLOSE       = 0x0010
+)
+
+var (
+	origWndProc    uintptr
+	theView        webview2.WebView
+	closeFinalized uintptr // atomic flag (0 = pending, 1 = finalized)
+	gwlWndproc     = -4
 )
 
 func bringToFront(hwnd unsafe.Pointer) {
@@ -55,10 +67,34 @@ func runWindow() {
 	}
 	defer w.Destroy()
 
+	theView = w
+
 	w.Init(editorBarJS)
 	w.Bind("closeWindow", func() {
+		w.Eval("onCloseRequested()")
+	})
+	w.Bind("finalizeClose", func() {
+		atomic.StoreUintptr(&closeFinalized, 1)
+		theView = nil
 		w.Destroy()
 	})
+
+	// Subclass the native window to intercept WM_CLOSE
+	hwnd := uintptr(w.Window())
+	origWndProc, _, _ = procGetWindowLongPtrW.Call(hwnd, uintptr(gwlWndproc))
+	subclassCB := syscall.NewCallback(func(h, msg, wp, lp uintptr) uintptr {
+		if msg == _WM_CLOSE {
+			if atomic.LoadUintptr(&closeFinalized) != 0 || theView == nil {
+				ret, _, _ := procCallWindowProcW.Call(origWndProc, h, msg, wp, lp)
+				return ret
+			}
+			theView.Eval("onCloseRequested()")
+			return 0
+		}
+		ret, _, _ := procCallWindowProcW.Call(origWndProc, h, msg, wp, lp)
+		return ret
+	})
+	procSetWindowLongPtrW.Call(hwnd, uintptr(gwlWndproc), subclassCB)
 
 	bringToFront(w.Window())
 
