@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782176690"
+      "1782181755"
    ],
    "authors": [
       ""
@@ -201,7 +201,7 @@
          "id": "SECTION_abacus",
          "text": [
             {
-               "text": "### Usando o ábaco\n\nNa sequência, realizaremos 10 somas consecutivas de diferentes números por meio de um dos ábacos, a fim de demonstrar melhor o que foi apresentado no texto.\n\nPrimeiramente, selecione o número que deseja repetir. Em seguida, clique no botão (<i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>) para iniciar as somas.",
+               "text": "### Usando o ábaco\n\nNa sequência, realizaremos 10 somas consecutivas de diferentes números utilizando um dos ábacos, a fim de demonstrar melhor o que foi apresentado no texto.\n\nPrimeiramente, selecione o número que deseja somar 10 vezes. Em seguida, clique no botão (<i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>) para iniciar as somas. Observe que o ábaco começará a exibir o resultado das somas, demonstrando os movimentos necessários para representar os números.\n\nCaso você considere a demonstração muito rápida, é possível executar as etapas passo a passo. Para isso, clique primeiro no botão **Reiniciar**, e, em seguida, clique no botão (<i class=\"fa-solid fa-person-running\" onclick=\"startJump()\" style=\"font-size:1em;color:#00f;\" ></i>) até que a soma seja repetida 10 vezes.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -210,7 +210,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"controls\"><label>Número que será repetido 10 vezes:</label> <select id=\"repeatNumbers\"></select>  <i class=\"fa-solid fa-play\" onclick=\"htMultiplicationTableAbacus('repeatNumbers')\" style=\"font-size:2em;color:#0f0;\" ></i>",
+               "text": "<div class=\"controls\"><label>Número que será repetido 10 vezes:</label> <select id=\"repeatNumbers\"></select>  <i class=\"fa-solid fa-play\" onclick=\"htMultiplicationTableAbacus('repeatNumbers')\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-person-running\" onclick=\"htMultiplicationTableAbacusStepByStep('repeatNumbers')\" style=\"font-size:2em;color:#00f;\" ></i>",
                "source": null,
                "date_time": null,
                "isTable": false,
