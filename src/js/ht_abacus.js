@@ -629,6 +629,10 @@ function htMultiplicationTableAbacus(selectId) {
 
     htSetAbacusValue(0);
 
+    sumCount++;
+    currentSum += repeatVal;
+    htSetAbacusValue(currentSum);
+
     localSorobanController._multTimer = setInterval(function() {
         if (sumCount >= 10) {
             clearInterval(localSorobanController._multTimer);
@@ -638,10 +642,43 @@ function htMultiplicationTableAbacus(selectId) {
         sumCount++;
         currentSum += repeatVal;
         htSetAbacusValue(currentSum);
-    }, 600);
+    }, 1500);
+}
+
+function htMultiplicationTableAbacusStepByStep(selectId) {
+    if (localSorobanController._multTimer) {
+        clearInterval(localSorobanController._multTimer);
+        localSorobanController._multTimer = null;
+    }
+
+    const repeatVal = parseInt(document.getElementById(selectId).value);
+
+    if (localSorobanController._multStepCount === undefined ||
+        localSorobanController._multStepCount >= 10 ||
+        localSorobanController._multRepeatVal !== repeatVal) {
+        localSorobanController._multStepCount = 0;
+        localSorobanController._multRepeatVal = repeatVal;
+        htSetAbacusValue(0);
+    }
+
+    localSorobanController._multStepCount++;
+    if (localSorobanController._multStepCount > 10) {
+        return;
+    }
+
+    const currentSum = repeatVal * localSorobanController._multStepCount;
+    htSetAbacusValue(currentSum);
 }
 
 function htSorobanResetSoroban() {
+    if (localSorobanController._multTimer) {
+        clearInterval(localSorobanController._multTimer);
+        localSorobanController._multTimer = null;
+    }
+    localSorobanController._multStepCount = undefined;
+    localSorobanController._multCurrentSum = undefined;
+    localSorobanController._multRepeatVal = undefined;
+
     for(let i=0;i<localSorobanController.COLUMNS;i++){
         localSorobanController.state[i].upper = 0;
         localSorobanController.state[i].lower = 0;
