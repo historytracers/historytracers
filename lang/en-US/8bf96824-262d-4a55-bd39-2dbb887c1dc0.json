@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782171452"
+      "1782176647"
    ],
    "authors": [
       ""
@@ -201,7 +201,7 @@
          "id": "SECTION_abacus",
          "text": [
             {
-                "text": "### Using the abacus\n\nNext, we will perform 10 consecutive sums of different numbers using one of the abacuses, in order to better demonstrate what was presented in the text.\n\nFirst, select the number you want to repeat. Then, click the button (<i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>) to start the sums.",
+               "text": "### Using the abacus\n\nNext, we will perform 10 consecutive sums of different numbers using one of the abacuses, in order to better demonstrate what was presented in the text.\n\nFirst, select the number you want to repeat. Then, click the button (<i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>) to start the sums.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -210,7 +210,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"controls\"><label>Number to be repeated 10 times:</label> <select id=\"repeatNumbers\"></select>  <i class=\"fa-solid fa-play\" onclick=\"htMultiplicationTableAbacus()\" style=\"font-size:2em;color:#0f0;\" ></i>",
+               "text": "<div class=\"controls\"><label>Number to be repeated 10 times:</label> <select id=\"repeatNumbers\"></select>  <i class=\"fa-solid fa-play\" onclick=\"htMultiplicationTableAbacus('repeatNumbers')\" style=\"font-size:2em;color:#0f0;\" ></i>",
                "source": null,
                "date_time": null,
                "isTable": false,

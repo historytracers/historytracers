@@ -29,7 +29,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782171464"
+      "1782176663"
    ],
    "authors": [
       ""
@@ -201,7 +201,7 @@
          "id": "SECTION_abacus",
          "text": [
             {
-                "text": "### Usando el ábaco\n\nA continuación, realizaremos 10 sumas consecutivas de diferentes números mediante uno de los ábacos, con el fin de demostrar mejor lo presentado en el texto.\n\nPrimeramente, seleccione el número que desea repetir. A continuación, haga clic en el botón (<i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>) para iniciar las sumas.",
+               "text": "### Usando el ábaco\n\nA continuación, realizaremos 10 sumas consecutivas de diferentes números mediante uno de los ábacos, con el fin de demostrar mejor lo presentado en el texto.\n\nPrimeramente, seleccione el número que desea repetir. A continuación, haga clic en el botón (<i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>) para iniciar las sumas.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -210,7 +210,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"controls\"><label>Número que se repetirá 10 veces:</label> <select id=\"repeatNumbers\"></select>  <i class=\"fa-solid fa-play\" onclick=\"htMultiplicationTableAbacus()\" style=\"font-size:2em;color:#0f0;\" ></i>",
+               "text": "<div class=\"controls\"><label>Número que se repetirá 10 veces:</label> <select id=\"repeatNumbers\"></select>  <i class=\"fa-solid fa-play\" onclick=\"htMultiplicationTableAbacus('repeatNumbers')\" style=\"font-size:2em;color:#0f0;\" ></i>",
                "source": null,
                "date_time": null,
                "isTable": false,
