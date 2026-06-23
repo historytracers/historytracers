@@ -201,7 +201,7 @@
          "id": "SECTION_abacus",
          "text": [
             {
-               "text": "### Usando o ábaco\n\nNa sequência, realizaremos 10 somas consecutivas de diferentes números por meio de um dos ábacos, a fim de demonstrar melhor o que foi apresentado no texto.\n\nPrimeiramente, selecione o número que deseja repetir. Em seguida, clique no botão (<i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>) para iniciar as somas.",
+                "text": "### Usando el ábaco\n\nA continuación, realizaremos 10 sumas consecutivas de diferentes números mediante uno de los ábacos, con el fin de demostrar mejor lo presentado en el texto.\n\nPrimeramente, seleccione el número que desea repetir. A continuación, haga clic en el botón (<i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>) para iniciar las sumas.",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -210,7 +210,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div class=\"controls\"><label>Número que será repetido 10 vezes:</label> <select id=\"repeatNumbers\"></select>  <i class=\"fa-solid fa-play\" onclick=\"htMultiplicationTableAbacus()\" style=\"font-size:2em;color:#0f0;\" ></i>",
+               "text": "<div class=\"controls\"><label>Número que se repetirá 10 veces:</label> <select id=\"repeatNumbers\"></select>  <i class=\"fa-solid fa-play\" onclick=\"htMultiplicationTableAbacus()\" style=\"font-size:2em;color:#0f0;\" ></i>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -228,7 +228,7 @@
                "PostMention": ""
             },
             {
-               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">Há coluna(s) com valores maiores que 9! Cada dígito deve permanecer entre 0 e 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">¡Hay columna(s) con valores mayores que 9! Cada dígito debe permanecer entre 0 y 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
                "source": null,
                "date_time": null,
                "isTable": false,
