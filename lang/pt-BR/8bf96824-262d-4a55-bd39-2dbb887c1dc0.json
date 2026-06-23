@@ -1,0 +1,319 @@
+{
+   "title": "Multiplicando com Soroban e Suanpan (算盤)",
+   "header": "Multiplicando com Soroban e Suanpan (算盤)",
+   "sources": [
+      "8bf96824-262d-4a55-bd39-2dbb887c1dc0"
+   ],
+   "scripts": [
+      "8bf96824-262d-4a55-bd39-2dbb887c1dc0",
+      "ht_abacus"
+   ],
+   "audio": [
+      {
+         "url": "https://www.historytracers.org/audios/8bf96824-262d-4a55-bd39-2dbb887c1dc0_pt-BR.ogg",
+         "external": true,
+         "spotify": false
+      },
+      {
+         "url": "https://open.spotify.com/episode/2raaS1yt598MfLYFdl0jht?si=CqAn0GpgRniNkSxaXXtdyw",
+         "external": true,
+         "spotify": true
+      }
+   ],
+   "index": [
+      "first_steps",
+      "math_games"
+   ],
+   "license": [
+      "SPDX-License-Identifier: GPL-3.0-or-later",
+      "CC BY-NC 4.0 DEED"
+   ],
+   "last_update": [
+      "1782242343"
+   ],
+   "authors": [
+      ""
+   ],
+   "reviewers": [
+      ""
+   ],
+   "type": "class",
+   "version": 2,
+   "editing": false,
+   "content": [
+      {
+         "id": "SECTION_prerequisites",
+         "text": [
+            {
+               "text": "<p><p style=\"font-style: italic;\" id=\"htChinaZhongguo\"></p><p style=\"font-style: italic;\" id=\"htJapanNipponNihonKoku\"></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "### Pré-requisitos\n\nEste texto explorará como realizar somas consecutivas — isto é, a multiplicação — utilizando o ábaco chinês (Zhōngguó, 中国), o Suanpan (算盤), e o ábaco japonês (Nihon-koku, 日本国), o Soroban. Dessa forma, recomendamos estudar os textos anteriores, nos quais explicamos a utilização desses instrumentos, antes de prosseguir:\n- **Somando com Soroban e Suanpan (算盤)**: ensinamos como realizar somas de uma única ordem utilizando o ábaco (<htcite0>).\n\n- **Exercitando soma com Soroban e Suanpan (算盤)**: dando continuidade ao conteúdo anterior, aprendemos a realizar somas que envolvem mais de uma ordem (<htcite1>).\n- **Exercitando soma com Soroban e Suanpan (算盤)**: neste texto, realizamos operações de soma utilizando os ábacos, com todas as etapas descritas passo a passo (<htcite2>).\n\nAlém dos textos anteriores sobre o uso dos ábacos, também sugerimos o estudo do texto em que explicamos a multiplicação por meio do método *Yupana Inka Tawa Pukllay*, desenvolvido por Dhavit Prem, que servirá de base para a abordagem apresentada neste texto (<htcite3>; <htcite4>; <htcite5>).",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "22edd35f-1746-447f-b147-36ff7c90478b",
+                     "text": "History Tracers Team",
+                     "page": "Somando com Soroban e Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "text": "History Tracers Team",
+                     "page": "Somando com Soroban e Suanpan (算盤) (Parte 2)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "20fe6243-9d1b-44bf-8357-e715cf88d820",
+                     "text": "History Tracers Team",
+                     "page": "Exercitando soma com Soroban e Suanpan (算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Dhavit Prem",
+                     "page": "pp. 360 - 361",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2d2ea4a5-506b-4dbf-aaa4-3a10a8fbbd9c",
+                     "text": "Dhavit Prem, Research Gate",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c4c2c00d-7878-42da-9cc4-060cd7f8d225",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (multiplicação)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_mix",
+         "text": [
+            {
+               "text": "### Somas repetidas\n\nAo estudarmos o método *Yupana Inka Tawa Pukllay* para realizarmos multiplicações com a *Yupana*, aprendemos que uma das etapas desse processo consistia em escrever um número a quantidade de vezes que desejávamos multiplicá-lo e, na sequência, reorganizar os números por meio de uma soma (<htcite0>; <htcite1>). Dessa forma, podemos compreender a multiplicação em sua essência como somas repetidas de uma mesma quantidade (<htcite2>).\n\n#### E nos ábacos?\n\nDe maneira semelhante, também podemos utilizar os ábacos para realizar somas consecutivas de uma mesma quantidade até atingirmos o resultado desejado. Ao realizar essas somas, precisaremos alternar entre somas consecutivas na mesma coluna, quando o valor não exceder 9, e o uso de complementos, quando o resultado da soma exceder 9.\n\n#### Um caso prático\n\nA melhor maneira de entendermos esse cenário é realizando, na prática, somas consecutivas. Escolhemos demonstrar o que ocorre nas somas sucessivas de 4. Nesse cenário, utilizaremos sempre o complemento de 6 quando o resultado da soma ultrapassar 9, pois **4 + 6 = 10**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "a62b520a-f443-4d83-ab51-b99c9a46dab8",
+                     "text": "Dhavit Prem",
+                     "page": "pp. 360 - 361",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2018",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c4c2c00d-7878-42da-9cc4-060cd7f8d225",
+                     "text": "History Tracers Team",
+                     "page": "Yupana (multiplicação)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "eaa59295-fb80-4c33-b1e4-bcdf3c11dabf",
+                     "text": "History Tracers Team",
+                     "page": "Somando o mesmo número",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2025",
+                        "month": "5",
+                        "day": "9"
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>4</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /><math mathsize=\"0.8em\" displaystyle=\"false\"><mo lspace=\"0.1667em\" rspace=\"0.1667em\">Retiramos 6 do 8 e complementamos o 4, fazendo: 2 + (4 + 6) = 12</mo></math><br /><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>12</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>16</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>16</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>20</mi></math><br /><math mathsize=\"0.8em\" displaystyle=\"false\"><mo lspace=\"0.1667em\" rspace=\"0.1667em\">Retiramos 6 do 16 e complementamos o 4, fazendo: 10 + (4 + 6) = 20</mo></math><br /><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>20</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>24</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>24</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>28</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>28</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>32</mi></math><br /><math mathsize=\"0.8em\" displaystyle=\"false\"><mo lspace=\"0.1667em\" rspace=\"0.1667em\">Retiramos 6 do 28 e complementamos o 4, fazendo: 22 + (4 + 6) = 32</mo></math><br /><br /><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>32</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>36</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>36</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>40</mi></math><br /><math mathsize=\"0.8em\" displaystyle=\"false\"><mo lspace=\"0.1667em\" rspace=\"0.1667em\">Retiramos 6 do 36 e complementamos o 4, fazendo: 30 + (4 + 6) = 40</mo></math>  </p><p class=\"desc\"><b>Cálculo 1</b>: Soma consecutiva do número 4 com comentários.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_abacus",
+         "text": [
+            {
+               "text": "### Usando o ábaco\n\nNa sequência, realizaremos 10 somas consecutivas de diferentes números utilizando um dos ábacos, a fim de demonstrar melhor o que foi apresentado no texto.\n\nPrimeiramente, selecione o número que deseja somar 10 vezes. Em seguida, clique no botão (<i class=\"fa-solid fa-play\" onclick=\"startClap()\" style=\"font-size:1em;color:#0f0;\" ></i>) para iniciar as somas. Observe que o ábaco começará a exibir o resultado das somas, demonstrando os movimentos necessários para representar os números.\n\nCaso você considere a demonstração muito rápida, é possível executar as etapas passo a passo. Para isso, clique primeiro no botão **Reiniciar**, e, em seguida, clique no botão (<i class=\"fa-solid fa-person-running\" onclick=\"startJump()\" style=\"font-size:1em;color:#00f;\" ></i>) até que a soma seja repetida 10 vezes.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<div class=\"controls\"><label>Número que será repetido 10 vezes:</label> <select id=\"repeatNumbers\"></select>  <i class=\"fa-solid fa-play\" onclick=\"htMultiplicationTableAbacus('repeatNumbers')\" style=\"font-size:2em;color:#0f0;\" ></i> <i class=\"fa-solid fa-person-running\" onclick=\"htMultiplicationTableAbacusStepByStep('repeatNumbers')\" style=\"font-size:2em;color:#00f;\" ></i>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<style>.soroban-container { background: #c4b896; border-radius: clamp(1.5rem, 5vw, 3.5rem); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: clamp(0.8rem, 3vw, 1.8rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem); width: 100%; max-width: 1100px; transition: all 0.2s ease; } .soroban-frame { background: #e9ddb0; border-radius: clamp(1rem, 3vw, 1.8rem); padding: clamp(8px, 2vw, 16px); box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; width: 100%; height: auto; aspect-ratio: 860 / 400; } .value-panel { margin-top: clamp(0.8rem, 4vw, 1.8rem); background: #2e241f; border-radius: 60px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);  display: flex; justify-content: space-between;  align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center;  gap: clamp(8px, 2vw, 18px); flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 0.4rem 1rem; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(1rem, 5vw, 1.9rem); letter-spacing: 1px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: clamp(0.7rem, 3.5vw, 1.2rem); font-weight: normal; background: #4a3929; color: #ffecb3; padding: 0.2rem 0.7rem; border-radius: 30px; margin-left: 8px;  white-space: nowrap; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.85rem, 4vw, 1.2rem); font-family: inherit; padding: 0.5rem 1.2rem; border-radius: 60px; cursor: pointer;  transition: 0.08s linear; box-shadow: 0 3px 0 #4f3822; white-space: nowrap; min-width: 100px; } .reset-btn:active { transform: translateY(2px);  box-shadow: 0 1px 0 #4f3822;  } .legend {  font-size: clamp(0.6rem, 2.8vw, 0.75rem); margin-top: 0; text-align: center;  color: #302419;  background: #ebdfbe; display: inline-block; width: auto;  padding: 0.3rem 0.9rem; border-radius: 60px; backdrop-filter: blur(2px); white-space: nowrap; } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 12px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 0.3rem 1rem; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; color: #302419; white-space: nowrap; } .mode-selector { background: #ebdfbe; border-radius: 60px;  padding: 0.3rem 1rem; display: flex;  gap: 12px; align-items: center; flex-wrap: wrap; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 3vw, 0.85rem); font-family: inherit; padding: 0.4rem 1rem; border-radius: 40px; cursor: pointer; transition: 0.08s linear; box-shadow: 0 2px 0 #4f3822; white-space: nowrap; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: clamp(0.65rem, 2.8vw, 0.75rem); } .warning-message { background: #ff9800; color: #2e241f; padding: 0.3rem 1rem; border-radius: 40px; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); animation: pulseWarning 1.5s ease-in-out infinite; white-space: normal; word-break: keep-all; } .warning-message.hidden { display: none; } @keyframes pulseWarning { 0%, 100% { opacity: 0.85; background: #ff9800; } 50% { opacity: 1; background: #ffb74d; box-shadow: 0 0 4px #ff9800; } } .warning-icon { font-size: 1rem; } .info-area { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; } @media (max-width: 720px) { .value-panel { flex-direction: column; align-items: stretch; border-radius: 32px; } .value-panel-left { justify-content: center; } .readout { text-align: center; white-space: normal; word-break: break-word; } .footer { flex-direction: column; align-items: stretch; } .mode-selector, .info-area, .decimal-control { justify-content: center; } .legend { white-space: normal; text-align: center; } .reset-btn { text-align: center; width: 100%; } } @media (max-width: 480px) { .readout span { margin-left: 4px; } .mode-selector { justify-content: center; gap: 8px; } }</style>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">Há coluna(s) com valores maiores que 9! Cada dígito deve permanecer entre 0 e 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_complement",
+         "text": [
+            {
+               "text": "### Complementando os complementos\n\nAo trabalharmos com o ábaco em qualquer uma de suas versões, o Soroban e o Suanpan (算盤), podemos visualizar o que ocorre com somas consecutivas de números:\n- Quando menor for o valor entre 1 e 9, ou seja, à medida que nos aproximamos de 1 (<htcite0>), executaremos menos somas que resultarão em valores que nos obrigam a trocar de ordem e, por consequência, precisaremos utilizar menos complementos para movimentar os números.\n- Ao realizarmos somas consecutivas do número 5, sempre atingiremos a próxima ordem numérica — em nossos exemplos, a dezena (<htcite1>)— quando somarmos 5 a outro valor que já possua uma unidade de cinco. Por exemplo: 15 + 5 = 20.\n- Sempre que estivermos somando números consecutivos, ou seja, quando estivermos multiplicando, ao avançarmos para a próxima ordem numérica moveremos de uma ordem para a outra o complemento do número que estamos somando.\n\nComo consequência dessas observações, podemos concluir que, ao trabalharmos com somas consecutivas de 4, quando necessário, também utilizaremos seu complemento, 6, conforme mostrado no **Cálculo 1**. Para reforçar esse entendimento, apresentamos novamente os cálculos que mostram os complementos necessários para se chegar a 10 (<htcite2>):",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "18a901e4-3da3-45d8-a239-fb551e78698e",
+                     "text": "History Tracers Team",
+                     "page": "Limites na Natureza",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "b1a262fc-0148-489b-8b70-5266a85c1e67",
+                     "text": "History Tracers Team",
+                     "page": "Famílias numéricas (Parte II)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "-1",
+                        "day": "-1"
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "text": "History Tracers Team",
+                     "page": "Somando com Soroban e Suanpan (算盤) (Parte 2)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>valor</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>complemento</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>10</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /></p><p class=\"desc\"><b>Cálculo 2</b>: Complementos de 10.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            }
+         ]
+      },
+      {
+         "id": "SECTION_conclusion",
+         "text": [
+            {
+               "text": "### Conclusão\n\nNeste texto, por meio dos ábacos (Soroban e Suanpan (算盤)), aprendemos que existe um padrão ao realizar somas de números repetidos, também conhecidas como multiplicação. Mas o assunto não termina aqui. Nos próximos textos, exploraremos com mais detalhes cada uma das somas repetidas dos números entre 0 e 9, aprendendo, entre outras coisas, onde essas somas repetidas são aplicadas em nossas vidas.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            }
+         ]
+      }
+   ],
+   "exercise_v2": null,
+   "game_v2": null,
+   "date_time": null
+}

@@ -2884,7 +2884,7 @@ function htFillWebPage(page, data)
 
     if (data?.scripts?.length) {
         const promises = data.scripts.map(script => {
-            return $.getScript(`js/${script}.js`);
+            return $.getScript(`js/${script}.js?v=${Date.now()}`);
         });
         $.when(...promises).done(() => {
             if (typeof htLoadContent !== "undefined") htLoadContent();

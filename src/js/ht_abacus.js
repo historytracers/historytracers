@@ -595,7 +595,90 @@ function htFillAbacoGameValue() {
     cmpobj.innerText = htGetRandomArbitrary(minVal, maxVal)+".0";
 }
 
+function htSetAbacusValue(value) {
+    for (let i = 0; i < localSorobanController.COLUMNS; i++) {
+        localSorobanController.state[i].upper = 0;
+        localSorobanController.state[i].lower = 0;
+    }
+
+    let numStr = Math.abs(value).toString();
+    let colIdx = localSorobanController.COLUMNS - 1;
+    for (let i = numStr.length - 1; i >= 0; i--) {
+        if (colIdx < 0) break;
+        const digit = parseInt(numStr[i]);
+        const upper = Math.floor(digit / 5);
+        const lower = digit % 5;
+        localSorobanController.state[colIdx].upper = Math.min(upper, localSorobanController.state[colIdx].upperMax);
+        localSorobanController.state[colIdx].lower = Math.min(lower, localSorobanController.state[colIdx].lowerMax);
+        colIdx--;
+    }
+
+    htSorobanRender();
+    htSorobanUpdateDisplay();
+}
+
+function htMultiplicationTableAbacus(selectId) {
+    if (localSorobanController._multTimer) {
+        clearInterval(localSorobanController._multTimer);
+        localSorobanController._multTimer = null;
+    }
+
+    const repeatVal = parseInt(document.getElementById(selectId).value);
+    let currentSum = 0;
+    let sumCount = 0;
+
+    htSetAbacusValue(0);
+
+    sumCount++;
+    currentSum += repeatVal;
+    htSetAbacusValue(currentSum);
+
+    localSorobanController._multTimer = setInterval(function() {
+        if (sumCount >= 10) {
+            clearInterval(localSorobanController._multTimer);
+            localSorobanController._multTimer = null;
+            return;
+        }
+        sumCount++;
+        currentSum += repeatVal;
+        htSetAbacusValue(currentSum);
+    }, 1500);
+}
+
+function htMultiplicationTableAbacusStepByStep(selectId) {
+    if (localSorobanController._multTimer) {
+        clearInterval(localSorobanController._multTimer);
+        localSorobanController._multTimer = null;
+    }
+
+    const repeatVal = parseInt(document.getElementById(selectId).value);
+
+    if (localSorobanController._multStepCount === undefined ||
+        localSorobanController._multStepCount >= 10 ||
+        localSorobanController._multRepeatVal !== repeatVal) {
+        localSorobanController._multStepCount = 0;
+        localSorobanController._multRepeatVal = repeatVal;
+        htSetAbacusValue(0);
+    }
+
+    localSorobanController._multStepCount++;
+    if (localSorobanController._multStepCount > 10) {
+        return;
+    }
+
+    const currentSum = repeatVal * localSorobanController._multStepCount;
+    htSetAbacusValue(currentSum);
+}
+
 function htSorobanResetSoroban() {
+    if (localSorobanController._multTimer) {
+        clearInterval(localSorobanController._multTimer);
+        localSorobanController._multTimer = null;
+    }
+    localSorobanController._multStepCount = undefined;
+    localSorobanController._multCurrentSum = undefined;
+    localSorobanController._multRepeatVal = undefined;
+
     for(let i=0;i<localSorobanController.COLUMNS;i++){
         localSorobanController.state[i].upper = 0;
         localSorobanController.state[i].lower = 0;
