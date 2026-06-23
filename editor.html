@@ -635,13 +635,9 @@ function goToLine(){
 	if(n>parts.length)n=parts.length;
 	var idx=0;
 	for(var i=0;i<n-1;i++)idx+=parts[i].length+1;
+	area.setSelectionRange(idx,idx);
 	area.focus();
-	area.selectionStart=idx;
-	area.selectionEnd=idx;
-	var t=area.value.substring(0,idx);
-	var l=t.split('\n').length-1;
-	var lh=parseFloat(getComputedStyle(area).lineHeight)||19.5;
-	area.scrollTop=Math.max(0,l*lh);
+	area.scrollTop=Math.max(0,(n-1)*parseFloat(getComputedStyle(area).lineHeight)||19.5);
 }
 
 function saveFile(){
