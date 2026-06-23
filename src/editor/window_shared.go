@@ -85,6 +85,7 @@ var editorBarJS = `
 		};
 	})();
 	if(window!==window.top)return;
+	window.onCloseRequested=window.onCloseRequested||function(){finalizeClose()};
 	function addBar(){
 		if(!document.documentElement||!document.body){setTimeout(addBar,1);return}
 		if(document.getElementById('__ht_addr'))return;
