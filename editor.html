@@ -635,20 +635,13 @@ function goToLine(){
 	if(n>parts.length)n=parts.length;
 	var idx=0;
 	for(var i=0;i<n-1;i++)idx+=parts[i].length+1;
-	var lh=parseFloat(getComputedStyle(area).lineHeight);
-	var span=document.createElement('span');
-	span.style.cssText='font:13px/1.5 monospace;visibility:hidden;position:absolute';
-	span.textContent='x';
-	document.body.appendChild(span);
-	var cw=span.offsetWidth;
-	document.body.removeChild(span);
-	var cpl=Math.max(1,Math.floor((area.clientWidth-20)/cw));
-	var vn=0;
-	for(var i=0;i<n-1;i++)vn+=Math.max(1,Math.ceil(parts[i].length/cpl));
 	area.focus();
-	area.scrollTop=Math.max(0,vn*lh-area.clientHeight/3);
 	area.selectionStart=idx;
 	area.selectionEnd=idx;
+	var t=area.value.substring(0,idx);
+	var l=t.split('\n').length-1;
+	var lh=parseFloat(getComputedStyle(area).lineHeight)||19.5;
+	area.scrollTop=Math.max(0,l*lh);
 }
 
 function saveFile(){
