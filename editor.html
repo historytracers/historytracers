@@ -900,6 +900,20 @@ function insertTemplate(name){
 	}
 	var tpl=templates[name];
 	if(!tpl)return;
+	var pos=area.selectionStart;
+	var val=area.value;
+	var lineStart=val.lastIndexOf('\n',pos-1)+1;
+	var lineEnd=val.indexOf('\n',pos);
+	if(lineEnd<0)lineEnd=val.length;
+	var lineContent=val.substring(lineStart,lineEnd).trim();
+	var indent='';
+	for(var i=lineStart;i<val.length&&(val[i]===' '||val[i]==='\t');i++)indent+=val[i];
+	if(indent){
+		tpl=indent+tpl.replace(/\n/g,'\n'+indent);
+	}
+	if(lineContent){
+		tpl='\n'+tpl;
+	}
 	area.focus();
 	document.execCommand('insertText',false,tpl);
 	toast(tr('insDone'),'success');
