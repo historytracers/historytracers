@@ -3,6 +3,7 @@ package main
 
 import (
 	"crypto/rand"
+	"encoding/gob"
 	"encoding/hex"
 	"encoding/json"
 	"flag"
@@ -303,23 +304,6 @@ func editorReadHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	sessionID := r.Header.Get("X-HT-Session")
 	fileLocksMu.Lock()
-	existingLock, isLocked := fileLocks[fileParam]
-	if isLocked && existingLock != sessionID {
-		fileLocksMu.Unlock()
-		data, rerr := os.ReadFile(absPath)
-		if rerr != nil {
-			http.Error(w, rerr.Error(), http.StatusInternalServerError)
-			return
-		}
-		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]interface{}{
-			"content":  string(data),
-			"path":     fileParam,
-			"locked":   true,
-			"lockedBy": existingLock[:8] + "...",
-		})
-		return
-	}
 	fileLocks[fileParam] = sessionID
 	fileLocksMu.Unlock()
 	data, err := os.ReadFile(absPath)
@@ -401,6 +385,56 @@ func copyFile(dst, src string) error {
 	defer out.Close()
 	_, err = io.Copy(out, in)
 	return err
+}
+
+type indexContentItem struct {
+	ID        string `json:"id"`
+	Value     string `json:"value,omitempty"`
+	HTMLValue string `json:"html_value,omitempty"`
+}
+
+type indexFile struct {
+	Title   string             `json:"title"`
+	Header  string             `json:"header"`
+	Content []indexContentItem `json:"content"`
+}
+
+func updateFeedInAllLangs(pageType string, arg string, displayName string) {
+	link := fmt.Sprintf(`<a href="index.html?page=%s&arg=%s" onclick="htLoadPage('%s','html', '%s', false); return false;">%s</a>`, pageType, arg, pageType, arg, displayName)
+	for _, lang := range editorLangs {
+		idxPath := filepath.Join(rootDir, "lang", lang, "index.json")
+		data, err := os.ReadFile(idxPath)
+		if err != nil {
+			continue
+		}
+		var idx indexFile
+		if err := json.Unmarshal(data, &idx); err != nil {
+			continue
+		}
+		found := false
+		for i := range idx.Content {
+			if idx.Content[i].ID == "sbFeed" {
+				idx.Content[i].HTMLValue = link
+				found = true
+				break
+			}
+		}
+		if !found {
+			continue
+		}
+		tmpPath := filepath.Join(rootDir, "lang", lang, arg+"_idx.tmp")
+		fp, err := os.Create(tmpPath)
+		if err != nil {
+			continue
+		}
+		e := json.NewEncoder(fp)
+		e.SetEscapeHTML(false)
+		e.SetIndent("", "   ")
+		e.Encode(idx)
+		fp.Close()
+		copyFile(idxPath, tmpPath)
+		os.Remove(tmpPath)
+	}
 }
 
 func createClassHandler(w http.ResponseWriter, r *http.Request) {
@@ -493,6 +527,7 @@ func createClassHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	updateFeedInAllLangs("class_content", strID, className)
 	rotateToken()
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-HT-Next-Token", viewerToken)
@@ -585,6 +620,7 @@ func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	updateFeedInAllLangs("tree", strID, strID)
 	rotateToken()
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-HT-Next-Token", viewerToken)
@@ -642,10 +678,17 @@ func gitStatusHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 var (
-	sessionMu   sync.Mutex
-	sessionFile string
-	dataDir     string
+	sessionMu    sync.Mutex
+	sessionFile  string
+	dataDir      string
+	optionsFile  string
+	savedOptions optionsData
 )
+
+type optionsData struct {
+	Lang string `json:"lang"`
+	Port string `json:"port"`
+}
 
 func initDataDir() {
 	home, err := os.UserHomeDir()
@@ -666,6 +709,48 @@ func initDataDir() {
 	}
 	if dataDir != "" {
 		sessionFile = filepath.Join(dataDir, "session.json")
+		optionsFile = filepath.Join(dataDir, "editor_options.json")
+	}
+}
+
+func readEditorOptions() optionsData {
+	if optionsFile == "" {
+		return optionsData{}
+	}
+	b, err := os.ReadFile(optionsFile)
+	if err != nil {
+		return optionsData{}
+	}
+	var data optionsData
+	if err := json.Unmarshal(b, &data); err != nil {
+		return optionsData{}
+	}
+	validateEditorOptions(&data)
+	return data
+}
+
+func writeEditorOptions(data optionsData) {
+	if optionsFile == "" {
+		return
+	}
+	validateEditorOptions(&data)
+	b, err := json.Marshal(data)
+	if err != nil {
+		return
+	}
+	os.WriteFile(optionsFile, b, 0644)
+}
+
+func validateEditorOptions(data *optionsData) {
+	if data.Lang != "en-US" && data.Lang != "pt-BR" && data.Lang != "es-ES" {
+		data.Lang = ""
+	}
+	if data.Port != "" {
+		p := 0
+		fmt.Sscanf(data.Port, "%d", &p)
+		if p < 1 || p > 65535 {
+			data.Port = ""
+		}
 	}
 }
 
@@ -736,6 +821,126 @@ func sessionHandler(w http.ResponseWriter, r *http.Request) {
 	default:
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 	}
+}
+
+func optionsHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(readEditorOptions())
+	case http.MethodPost:
+		lang := r.FormValue("lang")
+		port := r.FormValue("port")
+		data := optionsData{Lang: lang, Port: port}
+		writeEditorOptions(data)
+		rotateToken()
+		w.Header().Set("X-HT-Next-Token", viewerToken)
+		w.WriteHeader(http.StatusNoContent)
+	default:
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	}
+}
+
+func importViewerOptionsHandler(w http.ResponseWriter, r *http.Request) {
+	viewerFile := filepath.Join(dataDir, "options.bin")
+	var viewerLang, viewerPort string
+	f, err := os.Open(viewerFile)
+	if err == nil {
+		defer f.Close()
+		dec := gob.NewDecoder(f)
+		var v struct {
+			Lang string
+			Port string
+		}
+		if err := dec.Decode(&v); err == nil {
+			viewerLang = v.Lang
+			viewerPort = v.Port
+		}
+	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{"lang": viewerLang, "port": viewerPort})
+}
+
+func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
+	data := readEditorOptions()
+	curLang := data.Lang
+	if curLang == "" {
+		curLang = "en-US"
+	}
+	curPort := data.Port
+	token := r.URL.Query().Get("token")
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprintf(w, `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>HistoryTracers Editor Config</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:verdana,arial,helvetica;margin:20px;background:#f5f5f5;color:#333}
+h2{color:#333;margin-bottom:16px}
+.form-group{margin-bottom:14px}
+label{display:block;font-weight:bold;margin-bottom:3px;color:#555;font-size:13px}
+select,input[type=number]{width:280px;padding:5px 8px;border:1px solid #ccc;border-radius:3px;font:13px/1.4 sans-serif;background:#fff}
+select{height:30px}
+.btn{padding:7px 20px;background:#555;color:#fff;border:none;border-radius:3px;cursor:pointer;font:13px/1.4 sans-serif;margin-top:6px}
+.btn:hover{background:#333}
+.status{margin-top:10px;font-size:13px;color:#080}
+.error{color:#c00}
+.back{margin-top:20px;font-size:13px}
+.back a{color:#06c;text-decoration:none}
+.back a:hover{text-decoration:underline}
+</style></head><body>
+<script>
+var lang=%q;
+var portVal=%q;
+var token=%q;
+var L={};
+L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!'};
+L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!'};
+L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!'};
+var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
+document.title=l.title;
+
+var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Espa\u00f1ol (ES)'};
+var langs=['en-US','pt-BR','es-ES'];
+
+var html='<h2>'+l.title+'</h2>';
+html+='<div class="form-group"><label>'+l.langLabel+'</label><select id="opt_lang">';
+for(var i=0;i<langs.length;i++){html+='<option value="'+langs[i]+'"'+(langs[i]===lang?' selected':'')+'>'+(langNames[langs[i]]||langs[i])+'</option>'}
+html+='</select></div>';
+html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="0" value="'+portVal+'"></div>';
+html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
+html+='<button class="btn" id="opt_import" style="margin-left:8px;background:#00695c">'+l.importViewer+'</button>';
+html+='<div id="opt_status"></div>';
+html+='<div class="back"><a href="#" onclick="event.preventDefault();window.top.location.href=window.location.origin+\'/editor.html\'">'+l.back+'</a></div>';
+document.body.innerHTML=html;
+
+document.getElementById('opt_apply').onclick=function(){
+	var nl=document.getElementById('opt_lang').value;
+	var np=document.getElementById('opt_port').value;
+	var s=document.getElementById('opt_status');
+	s.className='';s.textContent='...';
+	var h={'Content-Type':'application/x-www-form-urlencoded'};
+	if(token)h['X-HT-Token']=token;
+	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)}).then(function(r){
+		if(!r.ok)throw new Error(r.status);
+		s.className='status';s.textContent=l.saved;
+	}).catch(function(e){
+		s.className='status error';s.textContent=l.err+e.message;
+	});
+};
+document.getElementById('opt_import').onclick=function(){
+	var s=document.getElementById('opt_status');
+	s.className='';s.textContent='...';
+	fetch('/api/editor/options/import-viewer').then(function(r){return r.json()}).then(function(d){
+		if(d.lang){document.getElementById('opt_lang').value=d.lang}
+		if(d.port){document.getElementById('opt_port').value=d.port}
+		s.className='status';s.textContent=l.imported;
+	}).catch(function(e){
+		s.className='status error';s.textContent=l.err+e.message;
+	});
+};
+</script>
+</body></html>`, curLang, curPort, token)
 }
 
 func init() {
@@ -827,6 +1032,10 @@ func main() {
 	}
 	initDataDir()
 	initProjectFiles()
+	savedOptions = readEditorOptions()
+	if *lang == "" && savedOptions.Lang != "" {
+		*lang = savedOptions.Lang
+	}
 
 	if *logFile != "" {
 		f, err := os.Create(*logFile)
@@ -847,6 +1056,14 @@ func main() {
 		}
 	}
 
+	if *listen == -1 && savedOptions.Port != "" && *port == 0 {
+		p := 0
+		fmt.Sscanf(savedOptions.Port, "%d", &p)
+		if p >= 1 && p <= 65535 {
+			*port = p
+		}
+	}
+
 	addr := resolveAddr(*port, *listen)
 	pageURL = buildPageURL(addr, *lang)
 
@@ -859,12 +1076,23 @@ func main() {
 	mux.HandleFunc("/api/editor/create-family", createFamilyHandler)
 	mux.HandleFunc("/api/editor/git-status", gitStatusHandler)
 	mux.HandleFunc("/api/editor/session", sessionHandler)
+	mux.HandleFunc("/api/editor/options", optionsHandler)
+	mux.HandleFunc("/api/editor/options/page", optionsPageHandler)
+	mux.HandleFunc("/api/editor/options/import-viewer", importViewerOptionsHandler)
 	mux.HandleFunc("/api/open/external", openExternalHandler)
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
-	mux.Handle("/", logMiddleware(http.FileServer(projectFS{})))
+	mux.HandleFunc("/metrics", metricsHandler)
+	fs := http.FileServer(projectFS{})
+	mux.Handle("/", logMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/" {
+			http.Redirect(w, r, "/editor.html", http.StatusFound)
+			return
+		}
+		fs.ServeHTTP(w, r)
+	})))
 
-	srv = &http.Server{Addr: addr, Handler: mux}
+	srv = &http.Server{Addr: addr, Handler: metricsMiddleware(mux)}
 
 	go func() {
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
