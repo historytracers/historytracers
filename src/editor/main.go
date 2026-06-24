@@ -893,6 +893,10 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	curPort := data.Port
 	curTLSCert := data.TLSCert
 	curTLSKey := data.TLSKey
+	defaultTLSDir := "/etc/historytracers/"
+	if runtime.GOOS == "windows" {
+		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
+	}
 	token := r.URL.Query().Get("token")
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
@@ -919,6 +923,7 @@ var lang=%q;
 var portVal=%q;
 var tlsCertVal=%q;
 var tlsKeyVal=%q;
+var certDir=%q;
 var token=%q;
 var L={};
 L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!'};
@@ -935,8 +940,8 @@ html+='<div class="form-group"><label>'+l.langLabel+'</label><select id="opt_lan
 for(var i=0;i<langs.length;i++){html+='<option value="'+langs[i]+'"'+(langs[i]===lang?' selected':'')+'>'+(langNames[langs[i]]||langs[i])+'</option>'}
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="0" value="'+portVal+'"></div>';
-html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="/etc/historytracers/cert.pem" value="'+tlsCertVal+'"></div>';
-html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="/etc/historytracers/key.pem" value="'+tlsKeyVal+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+certDir+'cert.pem" value="'+tlsCertVal+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<button class="btn" id="opt_import" style="margin-left:8px;background:#00695c">'+l.importViewer+'</button>';
@@ -972,7 +977,7 @@ document.getElementById('opt_import').onclick=function(){
 	});
 };
 </script>
-</body></html>`, curLang, curPort, curTLSCert, curTLSKey, token)
+</body></html>`, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, token)
 }
 
 func init() {

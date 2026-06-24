@@ -420,6 +420,11 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 		curHome = "/index.html"
 	}
 
+	defaultTLSDir := "/etc/historytracers/"
+	if runtime.GOOS == "windows" {
+		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
+	}
+
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>History Tracers</title>
@@ -457,6 +462,7 @@ var portVal=%q;
 var homeVal=%q;
 var tlsCertVal=%q;
 var tlsKeyVal=%q;
+var certDir=%q;
 
 var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Espa\u00f1ol (ES)'};
 var langs=['pt-BR','en-US','es-ES'];
@@ -479,8 +485,8 @@ for(var i=0;i<recreios.length;i++){html+='<option value="'+recreios[i]+'"'+(Stri
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+portVal+'"></div>';
 html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+homeVal+'"></div>';
-html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="/etc/historytracers/cert.pem" value="'+tlsCertVal+'"></div>';
-html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="/etc/historytracers/key.pem" value="'+tlsKeyVal+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+certDir+'cert.pem" value="'+tlsCertVal+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<div id="opt_status"></div>';
@@ -507,7 +513,7 @@ document.getElementById('opt_apply').onclick=function(){
 	});
 };
 </script>
-</body></html>`, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey)
+</body></html>`, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir)
 }
 
 func validateOptions(data *optionsData) {
