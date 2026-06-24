@@ -409,13 +409,21 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             if (mj === 0 && larr[step] < 10 && rarr_work[step] < 10) {
                 htFillYupanaDecimalRow(tableID, bottom2top, larr[step], 'red_dot_right_up');
                 htFillYupanaDecimalRow(tableID, bottom2top, rarr_work[step], 'blue_dot_right_bottom');
+            } else if (mj === 0) {
+                if (resultDigit > 0) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'blue_dot_right_bottom');
+                }
             } else {
-                var maxVal = Math.min(rawSum, 9);
-                var displayVal = filteredMovements.length < 2
-                    ? resultDigit
-                    : Math.round(maxVal - (maxVal - resultDigit) * mj / (filteredMovements.length - 1));
+                var displayVal = Math.round(resultDigit * mj / (filteredMovements.length - 1));
                 if (displayVal > 0) {
                     htFillYupanaDecimalRow(tableID, bottom2top, displayVal, 'red_dot_right_up');
+                }
+            }
+            if (rawSum >= 10 && step + 1 < larr.length) {
+                if (filteredMovements.length > 1 && mj === filteredMovements.length - 1) {
+                    htFillYupanaDecimalRow(tableID, bottom2top - 1, 1, 'blue_dot_right_bottom');
+                } else if (filteredMovements.length === 1) {
+                    htFillYupanaDecimalRow(tableID, bottom2top - 1, 1, 'blue_dot_right_bottom');
                 }
             }
             mj++;
