@@ -1083,6 +1083,7 @@ func main() {
 	mux.HandleFunc("/api/dev/log", devLogHandler)
 	mux.HandleFunc("/api/dev/page", devPageHandler)
 	mux.HandleFunc("/metrics", metricsHandler)
+	mux.HandleFunc("/api/editor/viewer", viewHandler)
 	fs := http.FileServer(projectFS{})
 	mux.Handle("/", logMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/" {
@@ -1106,6 +1107,20 @@ func main() {
 
 	srv.Close()
 	fmt.Println("Stopped.")
+}
+
+func viewHandler(w http.ResponseWriter, r *http.Request) {
+	path := filepath.Join(rootDir, "www", "index.html")
+	data, err := os.ReadFile(path)
+	if err != nil {
+		http.Error(w, "Viewer not available", http.StatusNotFound)
+		return
+	}
+	s := string(data)
+	s = strings.Replace(s, `<base href="./">`, `<base href="/">`, 1)
+	s = strings.Replace(s, `<base href=./>`, `<base href="/">`, 1)
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Write([]byte(s))
 }
 
 func buildPageURL(addr, lang string) string {

@@ -67,7 +67,8 @@ select#langSelect option{color:#000;background:#fff}
 #editor .file-path .status.unsaved{background:#e65100;color:#fff}
 #editor .file-path .status.saved{background:#2e7d32;color:#fff}
 #editorBody{flex:1;display:flex;overflow:hidden}
-#configFrame{flex:1;border:none;width:100%;background:#fff}
+#configFrame,#viewFrame{flex:1;border:none;width:100%;background:#fff}
+.tab.view{border-left:2px solid #80cbc4}
 #lineNumbers{width:44px;flex-shrink:0;padding:12px 6px 12px 10px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1b262c;color:#546e7a;text-align:right;overflow:hidden;user-select:none;border-right:1px solid #2b3b45}
 #editor textarea{flex:1;border:none;padding:12px 12px 12px 8px;font:13px/1.5 'Cascadia Code','Fira Code','Consolas','Courier New',monospace;background:#1e272e;color:#eceff1;resize:none;outline:none;tab-size:2}
 #editor textarea::placeholder{color:#546e7a}
@@ -136,6 +137,7 @@ select#langSelect option{color:#000;background:#fff}
 <span class="status" id="fileStatus"></span>
 <div class="actions">
 <button onclick="saveFile()" class="primary" id="saveBtn" title="Save (Ctrl+S)"><svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor"><path d="M2 2v16h16V6l-4-4H2zm2 2h9v5H4V4zm0 12v-4h12v4H4z"/></svg></button>
+<button onclick="viewFile()" id="viewBtn" title="View"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></button>
 <span class="sep">|</span>
 <button onclick="undoFile()" id="undoBtn" title="Undo (Ctrl+Z)"><svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor"><path d="M7 9l-4-3 4-3v2c4 0 7 3 7 7s-3 7-7 7v-2c3 0 5-2.5 5-5s-2-5-5-5v2z"/></svg></button>
 <span class="sep">|</span>
@@ -158,6 +160,7 @@ select#langSelect option{color:#000;background:#fff}
 <textarea id="editorArea" spellcheck="false" wrap="soft" placeholder="Open a file to start editing"></textarea>
 </div>
 <iframe id="configFrame" style="display:none;flex:1;border:none;width:100%;background:#fff"></iframe>
+<iframe id="viewFrame" style="display:none;flex:1;border:none;width:100%;background:#fff"></iframe>
 </div>
 <div id="newPanel">
 <h3><span id="newPanelTitle">New</span></h3>
@@ -177,9 +180,9 @@ var currentTab=-1;
 var tabIdSeq=0;
 
 var L={
-'en-US':{files:'Files',git:'Git',selectFile:'Select a file to edit',save:'<u>S</u>ave',revert:'Revert',undo:'Undo',saved:'Saved',unsaved:'Unsaved',saveSuccess:'File saved',saveError:'Failed to save file',readError:'Failed to read file',treeError:'Failed to load file tree',newT:'New',insert:'Insert',insertTitle:'Insert',insDone:'Template inserted',fileLocked:'File is already being edited by ',dev:'Dev',config:'Config',confirmRevert:'Discard unsaved changes?',confirmClose:' has unsaved changes.',confirmCloseSave:' has unsaved changes. Save before closing?',sdSave:'Save',sdDiscard:'Discard',sdCancel:'Cancel',goToLinePrompt:'Go to line number:',loading:'Loading...',newFamily:'Family',familyCreated:'Family file created',newError:'Failed to create family',classCreated:'Class file created',newClass:'New Class',class_history:'History',class_indigenous_who:'Indigenous Who',class_first_steps:'First Steps',class_first_steps_volume2:'First Steps V2',class_literature:'Literature',class_biology:'Biology',class_chemistry:'Chemistry',class_physics:'Physics',class_historical_events:'Historical Events',class_philosophy:'Philosophy',class_first_steps_menu:'First Steps Menu',class_myths_believes:'Myths & Beliefs',class_math_games:'Math Games',class_atlas:'Atlas',inm_Date:'Date',inm_Text:'Text',inm_Source:'Source',inm_Event:'Event',inm_Parents:'Parents',inm_Marriage:'Marriage',inm_Child:'Child',inm_Haplogroup:'Haplogroup',inm_Person:'Person',inm_ClassContent:'Class Content',insLbl_Date:'date/time',insLbl_Text:'content text',insLbl_Source:'source entry',insLbl_Event:'person event',insLbl_Parents:'person parents',insLbl_Marriage:'person marriage',insLbl_Child:'person child',insLbl_Haplogroup:'person haplogroup',insLbl_Person:'person',insLbl_ClassContent:'class content section',jsonError:'Invalid JSON',jsError:'Invalid JavaScript'},
-'pt-BR':{files:'Arquivos',git:'Git',selectFile:'Selecione um arquivo para editar',save:'<u>S</u>alvar',revert:'Reverter',undo:'Desfazer',saved:'Salvo',unsaved:'N\u00e3o salvo',saveSuccess:'Arquivo salvo',saveError:'Erro ao salvar arquivo',readError:'Erro ao ler arquivo',treeError:'Erro ao carregar \u00e1rvore',newT:'Novo',insert:'Inserir',insertTitle:'Inserir',insDone:'Modelo inserido',fileLocked:'Arquivo j\u00e1 est\u00e1 sendo editado por ',dev:'Dev',config:'Config',confirmRevert:'Descartar altera\u00e7\u00f5es n\u00e3o salvas?',confirmClose:' tem altera\u00e7\u00f5es n\u00e3o salvas.',confirmCloseSave:' tem altera\u00e7\u00f5es n\u00e3o salvas. Salvar antes de fechar?',sdSave:'Salvar',sdDiscard:'Descartar',sdCancel:'Cancelar',goToLinePrompt:'Ir para a linha:',loading:'Carregando...',newFamily:'Fam\u00edlia',familyCreated:'Arquivo de fam\u00edlia criado',newError:'Erro ao criar fam\u00edlia',classCreated:'Arquivo de aula criado',newClass:'Nova Aula',class_history:'Hist\u00f3ria',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeiros Passos',class_first_steps_volume2:'Primeiros Passos V2',class_literature:'Literatura',class_biology:'Biologia',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosofia',class_first_steps_menu:'Menu Inicial',class_myths_believes:'Mitos e Cren\u00e7as',class_math_games:'Jogos de Matem\u00e1tica',class_atlas:'Atlas',inm_Date:'Data',inm_Text:'Texto',inm_Source:'Fonte',inm_Event:'Evento',inm_Parents:'Pais',inm_Marriage:'Casamento',inm_Child:'Filho(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Pessoa',inm_ClassContent:'Conte\u00fado de Aula',insLbl_Date:'data/hora',insLbl_Text:'texto do conte\u00fado',insLbl_Source:'entrada de fonte',insLbl_Event:'evento de pessoa',insLbl_Parents:'pais da pessoa',insLbl_Marriage:'casamento',insLbl_Child:'filho(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'pessoa',insLbl_ClassContent:'se\u00e7\u00e3o de conte\u00fado da aula',jsonError:'JSON inv\u00e1lido',jsError:'JavaScript inv\u00e1lido'},
-'es-ES':{files:'Archivos',git:'Git',selectFile:'Seleccione un archivo para editar',save:'Guardar (Ctrl+<u>S</u>)',revert:'Revertir',undo:'Deshacer',saved:'Guardado',unsaved:'No guardado',saveSuccess:'Archivo guardado',saveError:'Error al guardar archivo',readError:'Error al leer archivo',treeError:'Error al cargar \u00e1rbol',newT:'Nuevo',insert:'Insertar',insertTitle:'Insertar',insDone:'Plantilla insertada',fileLocked:'El archivo ya est\u00e1 siendo editado por ',dev:'Dev',config:'Config',confirmRevert:'\u00bfDescartar cambios no guardados?',confirmClose:' tiene cambios no guardados.',confirmCloseSave:' tiene cambios no guardados. \u00bfGuardar antes de cerrar?',sdSave:'Guardar',sdDiscard:'Descartar',sdCancel:'Cancelar',goToLinePrompt:'Ir a la l\u00ednea:',loading:'Cargando...',newFamily:'Familia',familyCreated:'Archivo de familia creado',newError:'Error al crear familia',classCreated:'Archivo de clase creado',newClass:'Nueva Clase',class_history:'Historia',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeros Pasos',class_first_steps_volume2:'Primeros Pasos V2',class_literature:'Literatura',class_biology:'Biolog\u00eda',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosof\u00eda',class_first_steps_menu:'Men\u00fa Inicial',class_myths_believes:'Mitos y Creencias',class_math_games:'Juegos de Matem\u00e1ticas',class_atlas:'Atlas',inm_Date:'Fecha',inm_Text:'Texto',inm_Source:'Fuente',inm_Event:'Evento',inm_Parents:'Padres',inm_Marriage:'Matrimonio',inm_Child:'Hijo(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Persona',inm_ClassContent:'Contenido de Clase',insLbl_Date:'fecha/hora',insLbl_Text:'texto del contenido',insLbl_Source:'entrada de fuente',insLbl_Event:'evento de persona',insLbl_Parents:'padres',insLbl_Marriage:'matrimonio',insLbl_Child:'hijo(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'persona',insLbl_ClassContent:'secci\u00f3n de contenido de clase',jsonError:'JSON inv\u00e1lido',jsError:'JavaScript inv\u00e1lido'}
+'en-US':{files:'Files',git:'Git',selectFile:'Select a file to edit',save:'<u>S</u>ave',view:'View',revert:'Revert',undo:'Undo',saved:'Saved',unsaved:'Unsaved',saveSuccess:'File saved',saveError:'Failed to save file',readError:'Failed to read file',treeError:'Failed to load file tree',newT:'New',insert:'Insert',insertTitle:'Insert',insDone:'Template inserted',fileLocked:'File is already being edited by ',dev:'Dev',config:'Config',confirmRevert:'Discard unsaved changes?',confirmClose:' has unsaved changes.',confirmCloseSave:' has unsaved changes. Save before closing?',sdSave:'Save',sdDiscard:'Discard',sdCancel:'Cancel',goToLinePrompt:'Go to line number:',loading:'Loading...',newFamily:'Family',familyCreated:'Family file created',newError:'Failed to create family',classCreated:'Class file created',newClass:'New Class',class_history:'History',class_indigenous_who:'Indigenous Who',class_first_steps:'First Steps',class_first_steps_volume2:'First Steps V2',class_literature:'Literature',class_biology:'Biology',class_chemistry:'Chemistry',class_physics:'Physics',class_historical_events:'Historical Events',class_philosophy:'Philosophy',class_first_steps_menu:'First Steps Menu',class_myths_believes:'Myths & Beliefs',class_math_games:'Math Games',class_atlas:'Atlas',inm_Date:'Date',inm_Text:'Text',inm_Source:'Source',inm_Event:'Event',inm_Parents:'Parents',inm_Marriage:'Marriage',inm_Child:'Child',inm_Haplogroup:'Haplogroup',inm_Person:'Person',inm_ClassContent:'Class Content',insLbl_Date:'date/time',insLbl_Text:'content text',insLbl_Source:'source entry',insLbl_Event:'person event',insLbl_Parents:'person parents',insLbl_Marriage:'person marriage',insLbl_Child:'person child',insLbl_Haplogroup:'person haplogroup',insLbl_Person:'person',insLbl_ClassContent:'class content section',jsonError:'Invalid JSON',jsError:'Invalid JavaScript'},
+'pt-BR':{files:'Arquivos',git:'Git',selectFile:'Selecione um arquivo para editar',save:'<u>S</u>alvar',view:'Visualizar',revert:'Reverter',undo:'Desfazer',saved:'Salvo',unsaved:'N\u00e3o salvo',saveSuccess:'Arquivo salvo',saveError:'Erro ao salvar arquivo',readError:'Erro ao ler arquivo',treeError:'Erro ao carregar \u00e1rvore',newT:'Novo',insert:'Inserir',insertTitle:'Inserir',insDone:'Modelo inserido',fileLocked:'Arquivo j\u00e1 est\u00e1 sendo editado por ',dev:'Dev',config:'Config',confirmRevert:'Descartar altera\u00e7\u00f5es n\u00e3o salvas?',confirmClose:' tem altera\u00e7\u00f5es n\u00e3o salvas.',confirmCloseSave:' tem altera\u00e7\u00f5es n\u00e3o salvas. Salvar antes de fechar?',sdSave:'Salvar',sdDiscard:'Descartar',sdCancel:'Cancelar',goToLinePrompt:'Ir para a linha:',loading:'Carregando...',newFamily:'Fam\u00edlia',familyCreated:'Arquivo de fam\u00edlia criado',newError:'Erro ao criar fam\u00edlia',classCreated:'Arquivo de aula criado',newClass:'Nova Aula',class_history:'Hist\u00f3ria',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeiros Passos',class_first_steps_volume2:'Primeiros Passos V2',class_literature:'Literatura',class_biology:'Biologia',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosofia',class_first_steps_menu:'Menu Inicial',class_myths_believes:'Mitos e Cren\u00e7as',class_math_games:'Jogos de Matem\u00e1tica',class_atlas:'Atlas',inm_Date:'Data',inm_Text:'Texto',inm_Source:'Fonte',inm_Event:'Evento',inm_Parents:'Pais',inm_Marriage:'Casamento',inm_Child:'Filho(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Pessoa',inm_ClassContent:'Conte\u00fado de Aula',insLbl_Date:'data/hora',insLbl_Text:'texto do conte\u00fado',insLbl_Source:'entrada de fonte',insLbl_Event:'evento de pessoa',insLbl_Parents:'pais da pessoa',insLbl_Marriage:'casamento',insLbl_Child:'filho(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'pessoa',insLbl_ClassContent:'se\u00e7\u00e3o de conte\u00fado da aula',jsonError:'JSON inv\u00e1lido',jsError:'JavaScript inv\u00e1lido'},
+'es-ES':{files:'Archivos',git:'Git',selectFile:'Seleccione un archivo para editar',save:'Guardar (Ctrl+<u>S</u>)',view:'Ver',revert:'Revertir',undo:'Deshacer',saved:'Guardado',unsaved:'No guardado',saveSuccess:'Archivo guardado',saveError:'Error al guardar archivo',readError:'Error al leer archivo',treeError:'Error al cargar \u00e1rbol',newT:'Nuevo',insert:'Insertar',insertTitle:'Insertar',insDone:'Plantilla insertada',fileLocked:'El archivo ya est\u00e1 siendo editado por ',dev:'Dev',config:'Config',confirmRevert:'\u00bfDescartar cambios no guardados?',confirmClose:' tiene cambios no guardados.',confirmCloseSave:' tiene cambios no guardados. \u00bfGuardar antes de cerrar?',sdSave:'Guardar',sdDiscard:'Descartar',sdCancel:'Cancelar',goToLinePrompt:'Ir a la l\u00ednea:',loading:'Cargando...',newFamily:'Familia',familyCreated:'Archivo de familia creado',newError:'Error al crear familia',classCreated:'Archivo de clase creado',newClass:'Nueva Clase',class_history:'Historia',class_indigenous_who:'Ind\u00edgenas',class_first_steps:'Primeros Pasos',class_first_steps_volume2:'Primeros Pasos V2',class_literature:'Literatura',class_biology:'Biolog\u00eda',class_chemistry:'Qu\u00edmica',class_physics:'F\u00edsica',class_historical_events:'Eventos Hist\u00f3ricos',class_philosophy:'Filosof\u00eda',class_first_steps_menu:'Men\u00fa Inicial',class_myths_believes:'Mitos y Creencias',class_math_games:'Juegos de Matem\u00e1ticas',class_atlas:'Atlas',inm_Date:'Fecha',inm_Text:'Texto',inm_Source:'Fuente',inm_Event:'Evento',inm_Parents:'Padres',inm_Marriage:'Matrimonio',inm_Child:'Hijo(a)',inm_Haplogroup:'Haplogrupo',inm_Person:'Persona',inm_ClassContent:'Contenido de Clase',insLbl_Date:'fecha/hora',insLbl_Text:'texto del contenido',insLbl_Source:'entrada de fuente',insLbl_Event:'evento de persona',insLbl_Parents:'padres',insLbl_Marriage:'matrimonio',insLbl_Child:'hijo(a)',insLbl_Haplogroup:'haplogrupo',insLbl_Person:'persona',insLbl_ClassContent:'secci\u00f3n de contenido de clase',jsonError:'JSON inv\u00e1lido',jsError:'JavaScript inv\u00e1lido'}
 };
 
 function tr(key){var l=L[LOC]||L['en-US'];return l[key]||L['en-US'][key]||key}
@@ -197,6 +200,7 @@ function setLang(loc){
 	document.getElementById('insPanelTitle').textContent=tr('insertTitle');
 	document.getElementById('devBtn').textContent=tr('dev');
 	document.getElementById('cfgBtn').textContent=tr('config');
+	document.getElementById('viewBtn').title=tr('view');
 	buildInsertList();
 	refreshTabBar();
 }
@@ -451,6 +455,7 @@ function loadEditorState(index){
 		document.getElementById('editorArea').style.display='none';
 		document.getElementById('filePathBar').style.display='none';
 		document.getElementById('configFrame').style.display='none';
+		document.getElementById('viewFrame').style.display='none';
 		document.getElementById('noFileMsg').style.display='flex';
 		return
 	}
@@ -459,6 +464,7 @@ function loadEditorState(index){
 	if(t.type==='config'){
 		document.getElementById('editorArea').style.display='none';
 		document.getElementById('editorBody').style.display='none';
+		document.getElementById('viewFrame').style.display='none';
 		document.getElementById('filePathBar').style.display='flex';
 		document.getElementById('noFileMsg').style.display='none';
 		document.getElementById('fileName').textContent=t.path;
@@ -468,7 +474,22 @@ function loadEditorState(index){
 		updateStatus(index);
 		return
 	}
+	if(t.type==='view'){
+		document.getElementById('editorArea').style.display='none';
+		document.getElementById('editorBody').style.display='none';
+		document.getElementById('configFrame').style.display='none';
+		document.getElementById('filePathBar').style.display='flex';
+		document.getElementById('noFileMsg').style.display='none';
+		document.getElementById('fileName').textContent=t.path+' (View)';
+		var vf=document.getElementById('viewFrame');
+		vf.src=t.url;
+		vf.style.display='';
+		// show URL for debugging
+		document.getElementById('fileStatus').textContent='URL: '+t.url;
+		return
+	}
 	document.getElementById('configFrame').style.display='none';
+	document.getElementById('viewFrame').style.display='none';
 	var area=document.getElementById('editorArea');
 	area.value=t.content;
 	area.style.display='';
@@ -490,7 +511,7 @@ function refreshTabBar(){
 		(function(idx){
 			var t=tabs[idx];
 			var el=document.createElement('div');
-			el.className='tab'+(idx===currentTab?' active':'')+(t.modified?' unsaved':'');
+			el.className='tab'+(idx===currentTab?' active':'')+(t.modified?' unsaved':'')+(t.type==='view'?' view':'');
 			el.onclick=function(){switchTab(idx)};
 			var nm=document.createElement('span');
 			nm.className='tab-name';
@@ -530,7 +551,7 @@ function saveSession(){
 	var data=[];
 	for(var i=0;i<tabs.length;i++){
 		var t=tabs[i];
-		if(t.type==='config')continue;
+		if(t.type==='config'||t.type==='view')continue;
 		data.push({path:t.path,cursorPos:t.cursorPos||0,scrollPos:t.scrollPos||0});
 	}
 	fetch('/api/editor/session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
@@ -582,7 +603,7 @@ function closeTab(index,force){
 	}
 	doClose();
 	function doClose(){
-		if(t.type!=='config')unlockFile(t.path);
+		if(t.type!=='config'&&t.type!=='view')unlockFile(t.path);
 		var wasCurrent=index===currentTab;
 		tabs.splice(index,1);
 		if(tabs.length===0){
@@ -661,8 +682,9 @@ function goToLine(){
 }
 
 function saveFile(){
-	if(currentTab<0||currentTab>=tabs.length)return;
-	if(tabs[currentTab].type==='config')return;
+	if(currentTab<0||currentTab>=tabs.length)return Promise.resolve();
+	if(tabs[currentTab].type==='config')return Promise.resolve();
+	if(tabs[currentTab].type==='view')return Promise.resolve();
 	var area=document.getElementById('editorArea');
 	var content=area.value;
 	var path=tabs[currentTab].path;
@@ -678,7 +700,7 @@ function saveFile(){
 				msg='line '+lines.length+': '+e.message;
 			}
 			toast(tr('jsonError')+'\n'+msg,'error');
-			return
+			return Promise.resolve(false)
 		}
 	}else if(path.endsWith('.js')){
 		try{
@@ -689,7 +711,7 @@ function saveFile(){
 				var t=lines[i].trim();
 				if(t&&!/^(var|let|const|function|if|else|for|while|do|switch|case|break|continue|return|throw|try|catch|finally|new|delete|typeof|instanceof|void|this|super|class|import|export|default|extends|static|get|set|async|await|yield|from|of|in|true|false|null|undefined)$/.test(t)&&/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(t)){
 					toast(tr('jsError')+'\nline '+(i+1)+': unexpected identifier "'+t+'"','error');
-					return
+					return Promise.resolve(false)
 				}
 			}
 		}catch(e){
@@ -702,10 +724,10 @@ function saveFile(){
 				msg='line '+ln+': '+e.message;
 			}
 			toast(tr('jsError')+'\n'+msg,'error');
-			return
+			return Promise.resolve(false)
 		}
 	}
-	fetch('/api/editor/save',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(path)+'&content='+encodeURIComponent(content)}).then(function(r){
+	return fetch('/api/editor/save',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(path)+'&content='+encodeURIComponent(content)}).then(function(r){
 		if(!r.ok)throw new Error('HTTP '+r.status);
 		tabs[currentTab].originalContent=content;
 		tabs[currentTab].content=content;
@@ -713,9 +735,62 @@ function saveFile(){
 		updateStatus(currentTab);
 		refreshTabBar();
 		toast(tr('saveSuccess'),'success');
+		return true
 	}).catch(function(e){
 		toast(tr('saveError')+': '+e.message,'error');
+		return false
 	});
+}
+
+async function viewFile(){
+	if(currentTab<0||currentTab>=tabs.length)return;
+	var t=tabs[currentTab];
+	if(t.type==='config'||t.type==='view')return;
+	if(t.modified){
+		var saved=await saveFile();
+		if(!saved)return
+	}
+	var viewUrl=null;
+	var base=window.location.origin+'/api/editor/viewer';
+	// Normalize path: strip optional 'www/' prefix for pattern matching
+	var normPath=t.path;
+	if(normPath.startsWith('www/'))normPath=normPath.slice(4);
+	var parts=normPath.split('/');
+	if(parts.length===3&&parts[0]==='lang'&&parts[2].endsWith('.json')){
+		var lang=parts[1];
+		var name=parts[2].slice(0,-5);
+		if(/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(name)){
+			try{
+				var pp=t.path.split('/');
+				pp.pop();
+				pp.push('families.json');
+				var r=await fetch('/api/editor/read?file='+encodeURIComponent(pp.join('/')));
+				var d=await r.json();
+				var families=JSON.parse(d.content);
+				viewUrl=base+'?page='+(name in families?'tree':'class_content')+'&arg='+encodeURIComponent(name)+'&lang='+encodeURIComponent(lang);
+			}catch(e){
+				viewUrl=base+'?page=class_content&arg='+encodeURIComponent(name)+'&lang='+encodeURIComponent(lang);
+			}
+		}else if(!/^(index|language|calendars|theme|common_keywords|math_keywords|under_construction)$/.test(name)){
+			viewUrl=base+'?page='+encodeURIComponent(name)+'&lang='+encodeURIComponent(lang);
+		}
+	}
+	if(!viewUrl&&parts.length===2&&parts[0]==='bodies'&&parts[1].endsWith('.html')){
+		viewUrl=base+'?page='+encodeURIComponent(parts[1].slice(0,-5));
+	}
+	if(!viewUrl)viewUrl=window.location.origin+'/'+t.path;
+	for(var i=0;i<tabs.length;i++){
+		if(tabs[i].type==='view'&&tabs[i].path===t.path){
+			switchTab(i);
+			return;
+		}
+	}
+	saveEditorState();
+	tabs.splice(currentTab+1,0,{id:createTabId(),path:t.path,url:viewUrl,type:'view',modified:false});
+	currentTab=currentTab+1;
+	loadEditorState(currentTab);
+	refreshTabBar();
+	saveSession();
 }
 
 function undoFile(){
@@ -1097,7 +1172,7 @@ function openConfig(){
 	window.__ht_session='s'+Math.random().toString(36).substr(2)+Date.now().toString(36);
 	window.addEventListener('beforeunload',function(){
 		for(var i=0;i<tabs.length;i++){
-			if(tabs[i].type!=='config')unlockFile(tabs[i].path);
+			if(tabs[i].type!=='config'&&tabs[i].type!=='view')unlockFile(tabs[i].path);
 		}
 	});
 	document.getElementById('portDisplay').textContent='Listening on '+window.location.port;
@@ -1176,7 +1251,7 @@ function openConfig(){
 	// save a specific tab by index (without switching UI)
 	function saveTabByIndex(idx){
 		var t=tabs[idx];
-		if(!t||t.type==='config')return Promise.resolve();
+		if(!t||t.type==='config'||t.type==='view')return Promise.resolve();
 		var content=t.content;
 		var path=t.path;
 		return fetch('/api/editor/save',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','X-HT-Session':window.__ht_session},body:'file='+encodeURIComponent(path)+'&content='+encodeURIComponent(content)}).then(function(r){
@@ -1228,6 +1303,7 @@ function openConfig(){
 		var data=[];
 		for(var i=0;i<tabs.length;i++){
 			var t=tabs[i];
+			if(t.type==='config'||t.type==='view')continue;
 			if(t.modified)hasUnsaved=true;
 			data.push({path:t.path,cursorPos:t.cursorPos||0,scrollPos:t.scrollPos||0});
 		}
