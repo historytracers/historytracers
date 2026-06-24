@@ -430,7 +430,7 @@ function findTab(path){
 
 function saveEditorState(){
 	if(currentTab<0||currentTab>=tabs.length)return;
-	if(tabs[currentTab].type==='config')return;
+	if(tabs[currentTab].type==='config'||tabs[currentTab].type==='view')return;
 	var area=document.getElementById('editorArea');
 	tabs[currentTab].content=area.value;
 	tabs[currentTab].modified=area.value!==tabs[currentTab].originalContent;
