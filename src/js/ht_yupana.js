@@ -374,10 +374,6 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         }
 
         htCleanYupanaDecimalRow(tableID, bottom2top);
-        htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'red_dot_right_up');
-
-        displayArr[step] = resultDigit;
-        htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, displayArr);
 
         var stepText = "";
         if (rarr[step] != rarr_work[step]) {
@@ -386,11 +382,37 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             stepText = larr[step] + " + " + rarr[step] + " = ";
         }
         stepText += rawSum + ":<br />";
-        stepText += htWriteSumOnYupana(larr[step], rarr_work[step], rawSum);
         $(tableID + " " + resultID).append(stepText);
 
-        step++;
-        setTimeout(processStep, 1500);
+        var movementsStr = htWriteSumOnYupana(larr[step], rarr_work[step], rawSum);
+        var movements = movementsStr.split("<br />");
+        var filteredMovements = [];
+        for (var mi = 0; mi < movements.length; mi++) {
+            if (movements[mi].length > 0) {
+                filteredMovements.push(movements[mi]);
+            }
+        }
+
+        var mj = 0;
+        function showMovement() {
+            if (mj >= filteredMovements.length) {
+                htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'red_dot_right_up');
+                displayArr[step] = resultDigit;
+                htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, displayArr);
+                step++;
+                setTimeout(processStep, 1500);
+                return;
+            }
+            $(tableID + " " + resultID).append(filteredMovements[mj] + "<br />");
+            htCleanYupanaDecimalRow(tableID, bottom2top);
+            var progressiveDots = Math.round(resultDigit * (mj + 1) / filteredMovements.length);
+            if (progressiveDots > 0) {
+                htFillYupanaDecimalRow(tableID, bottom2top, progressiveDots, 'red_dot_right_up');
+            }
+            mj++;
+            setTimeout(showMovement, 1500);
+        }
+        setTimeout(showMovement, 1500);
     }
 
     setTimeout(processStep, 1000);
