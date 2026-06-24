@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $2 in
+POST-INSTALL)
+	chown -R historytracers:historytracers %%PREFIX%%/share/historytracers 2>/dev/null || true
+	chown historytracers:historytracers %%PREFIX%%/bin/historytracers 2>/dev/null || true
+	chown historytracers:historytracers %%PREFIX%%/bin/historytracers-publisher 2>/dev/null || true
+	chown -R historytracers:historytracers %%PREFIX%%/etc/historytracers 2>/dev/null || true
+	chown historytracers:historytracers /var/db/historytracers 2>/dev/null || true
+	chown historytracers:historytracers /var/log/historytracers 2>/dev/null || true
+	chown -R historytracers:historytracers /usr/src/historytracers 2>/dev/null || true
+	;;
+esac
