@@ -87,10 +87,13 @@ getent passwd historytracers >/dev/null || useradd -r -g historytracers -s /sbin
     -c "A teaching tool" historytracers
 
 %post
-if [ -d %{_datadir}/historytracers/www ]; then
-    chown -R historytracers:historytracers %{_datadir}/historytracers/www
-    chmod 755 -R %{_datadir}/historytracers/www
-fi
+chown -R historytracers:historytracers %{_datadir}/historytracers 2>/dev/null || true
+chown historytracers:historytracers %{_bindir}/historytracers 2>/dev/null || true
+chown historytracers:historytracers %{_bindir}/historytracers-editor 2>/dev/null || true
+chown -R historytracers:historytracers %{_sysconfdir}/historytracers 2>/dev/null || true
+chown historytracers:historytracers %{_localstatedir}/lib/historytracers 2>/dev/null || true
+[ -d %{_localstatedir}/log/historytracers ] && chown historytracers:historytracers %{_localstatedir}/log/historytracers 2>/dev/null || true
+[ -d /usr/src/historytracers ] && chown -R historytracers:historytracers /usr/src/historytracers 2>/dev/null || true
 %systemd_post historytracers.service
 
 %preun

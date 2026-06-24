@@ -30,6 +30,9 @@ var srv *http.Server
 var pageURL string
 var contentDir string
 var accessLog *log.Logger
+var tlsCertFile string
+var tlsKeyFile string
+var useTLS bool
 
 type historyEntry struct {
 	Page    string `json:"page"`
@@ -60,6 +63,8 @@ type optionsData struct {
 	Recreio string `json:"recreio"`
 	Port    string `json:"port"`
 	Home    string `json:"home"`
+	TLSCert string `json:"tls_cert"`
+	TLSKey  string `json:"tls_key"`
 }
 
 var validLangs = map[string]bool{
@@ -361,6 +366,16 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 				data.Port = v
 			}
 		}
+		if v := r.FormValue("tls_cert"); v != "" {
+			data.TLSCert = v
+		} else {
+			data.TLSCert = ""
+		}
+		if v := r.FormValue("tls_key"); v != "" {
+			data.TLSKey = v
+		} else {
+			data.TLSKey = ""
+		}
 		writeOptionsLocked(data)
 		rotateToken()
 		w.Header().Set("X-HT-Next-Token", viewerToken)
@@ -405,6 +420,11 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 		curHome = "/index.html"
 	}
 
+	defaultTLSDir := "/etc/historytracers/"
+	if runtime.GOOS == "windows" {
+		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
+	}
+
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>History Tracers</title>
@@ -428,11 +448,11 @@ select{height:30px}
 var lang=%q;
 var cal=%q;
 var L={};
-L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
+L['pt-BR']={title:'Op\u00e7\u00f5es',langLabel:'Idioma',calLabel:'Calend\u00e1rio',recreioLabel:'Recreio',recreioM:'min',listenLabel:'Porta',homeLabel:'P\u00e1gina inicial',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Op\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar'};
 L['pt']=L['pt-BR'];
-L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
+L['es-ES']={title:'Opciones',langLabel:'Idioma',calLabel:'Calendario',recreioLabel:'Recreo',recreioM:'min',listenLabel:'Puerto',homeLabel:'P\u00e1gina de inicio',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Opciones guardadas!',err:'Error al guardar: ',back:'\u00ab Volver'};
 L['es']=L['es-ES'];
-L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',listenLabel:'Listen port',homeLabel:'Home page',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
+L['en-US']={title:'Options',langLabel:'Language',calLabel:'Calendar',recreioLabel:'Break',recreioM:'min',listenLabel:'Listen port',homeLabel:'Home page',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Options saved!',err:'Error saving: ',back:'\u00ab Go back'};
 L['en']=L['en-US'];
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
@@ -440,6 +460,9 @@ document.title=l.title;
 var recVal=%q;
 var portVal=%q;
 var homeVal=%q;
+var tlsCertVal=%q;
+var tlsKeyVal=%q;
+var certDir=%q;
 
 var langNames={'en-US':'English (US)','pt-BR':'Portugu\u00eas (BR)','es-ES':'Espa\u00f1ol (ES)'};
 var langs=['pt-BR','en-US','es-ES'];
@@ -462,6 +485,9 @@ for(var i=0;i<recreios.length;i++){html+='<option value="'+recreios[i]+'"'+(Stri
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="-1" value="'+portVal+'"></div>';
 html+='<div class="form-group"><label>'+l.homeLabel+'</label><input type="text" id="opt_home" readonly value="'+homeVal+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+certDir+'cert.pem" value="'+tlsCertVal+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
+html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<div id="opt_status"></div>';
 html+='<div class="back"><a href="#" onclick="event.preventDefault();(parent.open||window.open)(window.location.origin+\'/index.html?page=\'+encodeURIComponent(parent.location.search.match(/[?&]page=([^&]*)/)?decodeURIComponent(RegExp.$1):\'main\')+\'&lang=\'+encodeURIComponent(lang)+\'&cal=\'+encodeURIComponent(cal))">'+l.back+'</a></div>';
@@ -476,7 +502,11 @@ document.getElementById('opt_apply').onclick=function(){
 	if(nh.indexOf('index.html')!==0&&nh.indexOf('/index.html')!==0){nh='/index.html'}
 	var s=document.getElementById('opt_status');
 	s.className='';s.textContent='...';
-	fetch('/api/options',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)}).then(function(r){
+	var tc=document.getElementById('opt_tls_cert').value;
+	var tk=document.getElementById('opt_tls_key').value;
+	var hdr={'Content-Type':'application/x-www-form-urlencoded'};
+	if(window.__ht_token)hdr['X-HT-Token']=window.__ht_token;
+	fetch('/api/options',{method:'POST',headers:hdr,body:'lang='+encodeURIComponent(nl)+'&cal='+encodeURIComponent(nc)+'&recreio='+encodeURIComponent(nr)+'&port='+encodeURIComponent(np)+'&home='+encodeURIComponent(nh)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)}).then(function(r){
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
 		try{var pu=new URL(parent.location.href);pu.searchParams.set('lang',nl);pu.searchParams.set('cal',nc);parent.location.href=pu.toString()}catch(e){}
@@ -485,7 +515,7 @@ document.getElementById('opt_apply').onclick=function(){
 	});
 };
 </script>
-</body></html>`, curLang, curCal, curRecreio, curPort, curHome)
+</body></html>`, curLang, curCal, curRecreio, curPort, curHome, data.TLSCert, data.TLSKey, defaultTLSDir)
 }
 
 func validateOptions(data *optionsData) {
@@ -508,6 +538,10 @@ func validateOptions(data *optionsData) {
 		if !strings.HasPrefix(trimmed, "index.html") {
 			data.Home = ""
 		}
+	}
+	if (data.TLSCert != "") != (data.TLSKey != "") {
+		data.TLSCert = ""
+		data.TLSKey = ""
 	}
 }
 
@@ -1001,6 +1035,8 @@ func main() {
 		"Initial calendar (e.g. gregory, julian, hebrew, islamic, persian, french, shaka, hispanic, mesoamerican, emesoamerican, aymara, mapuche, inca, chinese, javanese, japanese)")
 	class := flag.String("class", "", "Initial class content UUID (e.g. d290f1ee-6c54-4b01-90e6-d701748f0851)")
 	logFile := flag.String("log", "", "File to write access logs (default: no access log)")
+	tlsCert := flag.String("tls-cert", "", "TLS certificate file (enables HTTPS)")
+	tlsKey := flag.String("tls-key", "", "TLS key file (enables HTTPS)")
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "Usage: historytracers [options]\n\nOptions:\n")
 		flag.PrintDefaults()
@@ -1011,6 +1047,12 @@ func main() {
 	if *path != "" {
 		contentDir = *path
 	}
+	tlsCertFile = *tlsCert
+	tlsKeyFile = *tlsKey
+	if (tlsCertFile != "") != (tlsKeyFile != "") {
+		log.Fatalf("Both -tls-cert and -tls-key must be specified together")
+	}
+	useTLS = tlsCertFile != "" && tlsKeyFile != ""
 	initProjectFiles()
 
 	if *logFile != "" {
@@ -1027,6 +1069,15 @@ func main() {
 	initUUID()
 	initOptions()
 	savedOptions = readOptions()
+
+	// Apply saved TLS options if not overridden by CLI
+	if tlsCertFile == "" && savedOptions.TLSCert != "" {
+		tlsCertFile = savedOptions.TLSCert
+	}
+	if tlsKeyFile == "" && savedOptions.TLSKey != "" {
+		tlsKeyFile = savedOptions.TLSKey
+	}
+	useTLS = tlsCertFile != "" && tlsKeyFile != ""
 
 	if *lang == "" && savedOptions.Lang != "" {
 		*lang = savedOptions.Lang
@@ -1049,7 +1100,11 @@ func main() {
 		pageURL = buildPageURL(addr, *class, *lang, *cal)
 	} else if savedOptions.Home != "" && strings.HasPrefix(strings.TrimLeft(savedOptions.Home, "/"), "index.html") {
 		trimmed := strings.TrimLeft(savedOptions.Home, "/")
-		u := fmt.Sprintf("http://%s/%s", addr, trimmed)
+		scheme := "http"
+		if useTLS {
+			scheme = "https"
+		}
+		u := fmt.Sprintf("%s://%s/%s", scheme, addr, trimmed)
 		sep := "?"
 		if strings.Contains(trimmed, "?") {
 			sep = "&"
@@ -1114,7 +1169,13 @@ func main() {
 	srv = &http.Server{Addr: addr, Handler: mux}
 
 	go func() {
-		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		var err error
+		if tlsCertFile != "" && tlsKeyFile != "" {
+			err = srv.ListenAndServeTLS(tlsCertFile, tlsKeyFile)
+		} else {
+			err = srv.ListenAndServe()
+		}
+		if err != nil && err != http.ErrServerClosed {
 			log.Fatalf("Server error: %v", err)
 		}
 	}()
@@ -1128,7 +1189,11 @@ func main() {
 }
 
 func buildPageURL(addr, class, lang, cal string) string {
-	u := fmt.Sprintf("http://%s/index.html", addr)
+	scheme := "http"
+	if useTLS {
+		scheme = "https"
+	}
+	u := fmt.Sprintf("%s://%s/index.html", scheme, addr)
 	sep := "?"
 	if class != "" {
 		u += sep + "page=class_content&arg=" + url.QueryEscape(class)
