@@ -200,7 +200,7 @@ L['en']=L['en-US'];
 		}
 		var s=document.createElement('style');
 		s.id='__ht_style';
-		s.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important}';
+		s.textContent='.top-bar-right{top:'+(BAR_H+5)+'px!important;position:relative!important}.top-bar-left{margin-top:'+(BAR_H+5)+'px!important}.side-bar{top:'+BAR_H+'px!important}.hamburger{top:'+(BAR_H+5)+'px!important}.right-sources{top:'+(BAR_H+5-44)+'px!important;bottom:0!important;height:auto!important}';
 		document.documentElement.appendChild(s);
 		var b=document.createElement('div');
 		b.id='__ht_addr';

@@ -33,8 +33,14 @@ if ! grep -q "^historytracers:" /etc/passwd 2>/dev/null; then
   useradd -r -g historytracers -s /bin/false -d /usr/share/historytracers -c "History Tracers" historytracers 2>/dev/null || true
 fi
 
-# Set ownership on web directories
+# Set ownership on all installed files (outside home directories)
 chown -R historytracers:historytracers /usr/share/historytracers/ 2>/dev/null || true
+chown historytracers:historytracers /usr/bin/historytracers 2>/dev/null || true
+chown historytracers:historytracers /usr/bin/historytracers-editor 2>/dev/null || true
+chown -R historytracers:historytracers /etc/historytracers 2>/dev/null || true
+chown historytracers:historytracers /var/lib/historytracers 2>/dev/null || true
+chown historytracers:historytracers /var/log/historytracers 2>/dev/null || true
+chown -R historytracers:historytracers /usr/src/historytracers 2>/dev/null || true
 
 echo ""
 echo "History Tracers has been installed."

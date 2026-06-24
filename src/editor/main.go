@@ -34,6 +34,9 @@ var contentDir string
 var rootDir string
 var accessLog *log.Logger
 var viewerToken string
+var tlsCertFile string
+var tlsKeyFile string
+var useTLS bool
 
 func checkToken(r *http.Request) bool {
 	return r.Header.Get("X-HT-Token") == viewerToken
@@ -686,8 +689,10 @@ var (
 )
 
 type optionsData struct {
-	Lang string `json:"lang"`
-	Port string `json:"port"`
+	Lang    string `json:"lang"`
+	Port    string `json:"port"`
+	TLSCert string `json:"tls_cert"`
+	TLSKey  string `json:"tls_key"`
 }
 
 func initDataDir() {
@@ -751,6 +756,10 @@ func validateEditorOptions(data *optionsData) {
 		if p < 1 || p > 65535 {
 			data.Port = ""
 		}
+	}
+	if (data.TLSCert != "") != (data.TLSKey != "") {
+		data.TLSCert = ""
+		data.TLSKey = ""
 	}
 }
 
@@ -829,9 +838,23 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(readEditorOptions())
 	case http.MethodPost:
-		lang := r.FormValue("lang")
-		port := r.FormValue("port")
-		data := optionsData{Lang: lang, Port: port}
+		data := readEditorOptions()
+		if v := r.FormValue("lang"); v != "" {
+			data.Lang = v
+		}
+		if v := r.FormValue("port"); v != "" {
+			data.Port = v
+		}
+		if v := r.FormValue("tls_cert"); v != "" {
+			data.TLSCert = v
+		} else {
+			data.TLSCert = ""
+		}
+		if v := r.FormValue("tls_key"); v != "" {
+			data.TLSKey = v
+		} else {
+			data.TLSKey = ""
+		}
 		writeEditorOptions(data)
 		rotateToken()
 		w.Header().Set("X-HT-Next-Token", viewerToken)
@@ -868,6 +891,12 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 		curLang = "en-US"
 	}
 	curPort := data.Port
+	curTLSCert := data.TLSCert
+	curTLSKey := data.TLSKey
+	defaultTLSDir := "/etc/historytracers/"
+	if runtime.GOOS == "windows" {
+		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
+	}
 	token := r.URL.Query().Get("token")
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
@@ -892,11 +921,14 @@ select{height:30px}
 <script>
 var lang=%q;
 var portVal=%q;
+var tlsCertVal=%q;
+var tlsKeyVal=%q;
+var certDir=%q;
 var token=%q;
 var L={};
-L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!'};
-L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!'};
-L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!'};
+L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!'};
+L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!'};
+L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!'};
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
 
@@ -908,6 +940,9 @@ html+='<div class="form-group"><label>'+l.langLabel+'</label><select id="opt_lan
 for(var i=0;i<langs.length;i++){html+='<option value="'+langs[i]+'"'+(langs[i]===lang?' selected':'')+'>'+(langNames[langs[i]]||langs[i])+'</option>'}
 html+='</select></div>';
 html+='<div class="form-group"><label>'+l.listenLabel+'</label><input type="number" id="opt_port" min="1" max="65535" placeholder="0" value="'+portVal+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" id="opt_tls_cert" placeholder="'+certDir+'cert.pem" value="'+tlsCertVal+'"></div>';
+html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
+html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<button class="btn" id="opt_import" style="margin-left:8px;background:#00695c">'+l.importViewer+'</button>';
 html+='<div id="opt_status"></div>';
@@ -917,11 +952,13 @@ document.body.innerHTML=html;
 document.getElementById('opt_apply').onclick=function(){
 	var nl=document.getElementById('opt_lang').value;
 	var np=document.getElementById('opt_port').value;
+	var tc=document.getElementById('opt_tls_cert').value;
+	var tk=document.getElementById('opt_tls_key').value;
 	var s=document.getElementById('opt_status');
 	s.className='';s.textContent='...';
 	var h={'Content-Type':'application/x-www-form-urlencoded'};
 	if(token)h['X-HT-Token']=token;
-	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)}).then(function(r){
+	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)}).then(function(r){
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
 	}).catch(function(e){
@@ -940,7 +977,7 @@ document.getElementById('opt_import').onclick=function(){
 	});
 };
 </script>
-</body></html>`, curLang, curPort, token)
+</body></html>`, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, token)
 }
 
 func init() {
@@ -1022,6 +1059,8 @@ func main() {
 	root := flag.String("root", "", "Project root for editing (default: parent of content dir)")
 	lang := flag.String("lang", "", "Initial language (en-US, pt-BR, es-ES)")
 	logFile := flag.String("log", "", "Access log file")
+	tlsCert := flag.String("tls-cert", "", "TLS certificate file (enables HTTPS)")
+	tlsKey := flag.String("tls-key", "", "TLS key file (enables HTTPS)")
 	flag.Parse()
 
 	contentDir = *dir
@@ -1030,9 +1069,24 @@ func main() {
 		absContent, _ := filepath.Abs(contentDir)
 		rootDir = filepath.Dir(absContent)
 	}
+	tlsCertFile = *tlsCert
+	tlsKeyFile = *tlsKey
+	if (tlsCertFile != "") != (tlsKeyFile != "") {
+		log.Fatalf("Both -tls-cert and -tls-key must be specified together")
+	}
+	useTLS = tlsCertFile != "" && tlsKeyFile != ""
 	initDataDir()
 	initProjectFiles()
 	savedOptions = readEditorOptions()
+	// Apply saved TLS options if not overridden by CLI
+	if tlsCertFile == "" && savedOptions.TLSCert != "" {
+		tlsCertFile = savedOptions.TLSCert
+	}
+	if tlsKeyFile == "" && savedOptions.TLSKey != "" {
+		tlsKeyFile = savedOptions.TLSKey
+	}
+	useTLS = tlsCertFile != "" && tlsKeyFile != ""
+
 	if *lang == "" && savedOptions.Lang != "" {
 		*lang = savedOptions.Lang
 	}
@@ -1096,7 +1150,13 @@ func main() {
 	srv = &http.Server{Addr: addr, Handler: metricsMiddleware(mux)}
 
 	go func() {
-		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		var err error
+		if tlsCertFile != "" && tlsKeyFile != "" {
+			err = srv.ListenAndServeTLS(tlsCertFile, tlsKeyFile)
+		} else {
+			err = srv.ListenAndServe()
+		}
+		if err != nil && err != http.ErrServerClosed {
 			log.Fatalf("Server error: %v", err)
 		}
 	}()
@@ -1124,7 +1184,11 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func buildPageURL(addr, lang string) string {
-	u := fmt.Sprintf("http://%s/editor.html", addr)
+	scheme := "http"
+	if useTLS {
+		scheme = "https"
+	}
+	u := fmt.Sprintf("%s://%s/editor.html", scheme, addr)
 	if lang != "" {
 		u += "?lang=" + url.QueryEscape(lang)
 	}
