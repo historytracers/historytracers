@@ -396,6 +396,7 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         var mj = 0;
         function showMovement() {
             if (mj >= filteredMovements.length) {
+                htCleanYupanaDecimalRow(tableID, bottom2top);
                 htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'red_dot_right_up');
                 displayArr[step] = resultDigit;
                 htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, displayArr);
@@ -405,9 +406,22 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             }
             $(tableID + " " + resultID).append(filteredMovements[mj] + "<br />");
             htCleanYupanaDecimalRow(tableID, bottom2top);
-            var progressiveDots = Math.round(resultDigit * (mj + 1) / filteredMovements.length);
-            if (progressiveDots > 0) {
-                htFillYupanaDecimalRow(tableID, bottom2top, progressiveDots, 'red_dot_right_up');
+            if (mj === 0) {
+                if (larr[step] < 10 && rarr_work[step] < 10) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, larr[step], 'red_dot_right_up');
+                    htFillYupanaDecimalRow(tableID, bottom2top, rarr_work[step], 'blue_dot_right_bottom');
+                } else if (resultDigit > 0) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'blue_dot_right_bottom');
+                }
+            } else if (mj < filteredMovements.length - 1) {
+                var progressiveDots = Math.round(resultDigit * mj / (filteredMovements.length - 1));
+                if (progressiveDots > 0) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, progressiveDots, 'red_dot_right_up');
+                }
+            } else {
+                if (resultDigit > 0) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'red_dot_right_up');
+                }
             }
             mj++;
             setTimeout(showMovement, 1500);
