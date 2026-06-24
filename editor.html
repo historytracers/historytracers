@@ -115,7 +115,7 @@ select#langSelect option{color:#000;background:#fff}
 <span id="portDisplay">Listening on 0</span>
 <div class="spacer"></div>
 <button onclick="toggleNewMenu()" id="newBtn">New</button>
-<button onclick="toggleInsert()" id="insBtn">Insert</button>
+<button onclick="toggleInsert()" id="insBtn" style="display:none">Insert</button>
 <button onclick="openConfig()" id="cfgBtn">Config</button>
 <button onclick="openDevTools()" id="devBtn">Dev</button>
 </div>
@@ -451,6 +451,21 @@ function updateLineNumbers(){
 	gutter.innerHTML=html;
 }
 
+function updateInsertBtn(){
+	var show=false;
+	if(currentTab>=0&&currentTab<tabs.length){
+		var t=tabs[currentTab];
+		if(t.type!=='config'&&t.type!=='view'&&t.path.endsWith('.json'))show=true;
+	}
+	var btn=document.getElementById('insBtn');
+	if(show){
+		btn.style.display='';
+	}else{
+		btn.style.display='none';
+		document.getElementById('insertPanel').classList.remove('open');
+	}
+}
+
 function loadEditorState(index){
 	if(index<0||index>=tabs.length){
 		document.getElementById('editorBody').style.display='none';
@@ -459,6 +474,7 @@ function loadEditorState(index){
 		document.getElementById('configFrame').style.display='none';
 		document.getElementById('viewFrame').style.display='none';
 		document.getElementById('noFileMsg').style.display='flex';
+		updateInsertBtn();
 		return
 	}
 	closeSearch();
@@ -474,6 +490,7 @@ function loadEditorState(index){
 		cf.src=t.configUrl;
 		cf.style.display='';
 		updateStatus(index);
+		updateInsertBtn();
 		return
 	}
 	if(t.type==='view'){
@@ -488,6 +505,7 @@ function loadEditorState(index){
 		vf.style.display='';
 		// show URL for debugging
 		document.getElementById('fileStatus').textContent='URL: '+t.url;
+		updateInsertBtn();
 		return
 	}
 	document.getElementById('configFrame').style.display='none';
@@ -504,6 +522,7 @@ function loadEditorState(index){
 	area.focus();
 	area.selectionStart=area.selectionEnd=t.cursorPos||0;
 	area.scrollTop=t.scrollPos||0;
+	updateInsertBtn();
 }
 
 function refreshTabBar(){
