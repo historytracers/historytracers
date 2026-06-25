@@ -414,7 +414,10 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
                     htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'blue_dot_right_bottom');
                 }
             } else {
-                var displayVal = Math.round(resultDigit * mj / (filteredMovements.length - 1));
+                var maxStep = Math.min(rawSum, 9);
+                var displayVal = filteredMovements.length < 3
+                    ? resultDigit
+                    : Math.round(maxStep - (maxStep - resultDigit) * (mj - 1) / (filteredMovements.length - 2));
                 if (displayVal > 0) {
                     htFillYupanaDecimalRow(tableID, bottom2top, displayVal, 'red_dot_right_up');
                 }
