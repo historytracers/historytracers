@@ -372,6 +372,13 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         }
 
         var bottom2top = rows - step;
+        var valCell = tableID + " #tc5f" + bottom2top;
+        if (rarr[step] != rarr_work[step]) {
+            $(valCell).html("<span id=\"vl" + bottom2top + "\">" + larr[step] + "</span> + <span id=\"vr" + bottom2top + "\">" + rarr[step] + "</span> + 1 (" + mathKeywords[67] + ")");
+        } else {
+            $(tableID + " #vl" + bottom2top).html(larr[step]);
+            $(tableID + " #vr" + bottom2top).html(rarr_work[step]);
+        }
         var rawSum = parseInt(larr[step]) + parseInt(rarr_work[step]);
         var resultDigit = rawSum;
         if (rawSum >= 10) {
