@@ -284,6 +284,10 @@ function htWriteYupanaSumMovement(larr, rarr, tableID, rows, resultID)
             }
         }
 
+        if (result === 0 && larr[i] === 0 && rarr[i] === 0) {
+            continue;
+        }
+
         text += larr[i] +" + ";
         text +=  (rarr[i] == rarr_work[i]) ? rarr[i] : rarr[i] + " + 1 (" + mathKeywords[67] + ")" ;
         text += " = "+result+":<br />";
