@@ -427,17 +427,34 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             $(tableID + " " + resultID).append(filteredMovements[mj] + "<br />");
             htCleanYupanaDecimalRow(tableID, bottom2top);
             if (mj === 0 && larr[step] < 10 && rarr_work[step] < 10) {
-                htFillYupanaDecimalRow(tableID, bottom2top, larr[step], 'red_dot_right_up');
-                htFillYupanaDecimalRow(tableID, bottom2top, rarr_work[step], 'blue_dot_right_bottom');
+                if (larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10) {
+                    var leftRem = larr[step] - 5;
+                    var rightRem = rarr_work[step] - 5;
+                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
+                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
+                    if (leftRem > 0) {
+                        htFillYupanaDecimalRow(tableID, bottom2top, leftRem, 'red_dot_right_up');
+                    }
+                    if (rightRem > 0) {
+                        htFillYupanaDecimalRow(tableID, bottom2top, rightRem, 'blue_dot_right_bottom');
+                    }
+                } else {
+                    htFillYupanaDecimalRow(tableID, bottom2top, larr[step], 'red_dot_right_up');
+                    htFillYupanaDecimalRow(tableID, bottom2top, rarr_work[step], 'blue_dot_right_bottom');
+                }
             } else if (mj === 0) {
                 if (resultDigit > 0) {
                     htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'blue_dot_right_bottom');
                 }
             } else {
-                var maxStep = Math.min(rawSum, 9);
+                var useBase5 = larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10;
                 var displayVal = filteredMovements.length < 3
                     ? resultDigit
-                    : Math.round(maxStep - (maxStep - resultDigit) * (mj - 1) / (filteredMovements.length - 2));
+                    : Math.round(Math.min(rawSum, 9) - (Math.min(rawSum, 9) - resultDigit) * (mj - 1) / (filteredMovements.length - 2));
+                if (useBase5) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
+                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
+                }
                 if (displayVal > 0) {
                     htFillYupanaDecimalRow(tableID, bottom2top, displayVal, 'red_dot_right_up');
                 }
