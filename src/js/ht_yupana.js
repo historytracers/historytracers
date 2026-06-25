@@ -166,6 +166,10 @@ function htWriteSumOnYupana(lValue, rValue, result)
                 break;
         }
     } else if (lValue != 0 && rValue != 0) {
+        if (result > 10 && lValue >= 5 && rValue >= 5) {
+            text = "<i>"+mathKeywords[2]+"</i><br />";
+            return text;
+        }
         var bigger = false;
         if (result > 10) {
             text = "<i>"+mathKeywords[2]+"</i><br />";
@@ -373,6 +377,15 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             resultDigit -= 10;
         }
 
+        if (rawSum === 0 && larr[step] === 0 && rarr[step] === 0) {
+            htCleanYupanaDecimalRow(tableID, bottom2top);
+            displayArr[step] = 0;
+            htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, displayArr);
+            step++;
+            setTimeout(processStep, 1);
+            return;
+        }
+
         htCleanYupanaDecimalRow(tableID, bottom2top);
 
         var stepText = "";
@@ -398,6 +411,9 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             if (mj >= filteredMovements.length) {
                 htCleanYupanaDecimalRow(tableID, bottom2top);
                 htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'red_dot_right_up');
+                if (rawSum >= 10 && step + 1 < larr.length) {
+                    htFillYupanaDecimalRow(tableID, bottom2top - 1, 1, 'blue_dot_right_bottom');
+                }
                 displayArr[step] = resultDigit;
                 htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, displayArr);
                 step++;
@@ -420,13 +436,6 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
                     : Math.round(maxStep - (maxStep - resultDigit) * (mj - 1) / (filteredMovements.length - 2));
                 if (displayVal > 0) {
                     htFillYupanaDecimalRow(tableID, bottom2top, displayVal, 'red_dot_right_up');
-                }
-            }
-            if (rawSum >= 10 && step + 1 < larr.length) {
-                if (filteredMovements.length > 1 && mj === filteredMovements.length - 1) {
-                    htFillYupanaDecimalRow(tableID, bottom2top - 1, 1, 'blue_dot_right_bottom');
-                } else if (filteredMovements.length === 1) {
-                    htFillYupanaDecimalRow(tableID, bottom2top - 1, 1, 'blue_dot_right_bottom');
                 }
             }
             mj++;
