@@ -581,6 +581,50 @@ func createClassHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{"uuid": strID})
 }
 
+func generateGalleryHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	content := []common.ClassContent{
+		{
+			ID: "introduction", Target: "", Page: "", ValueType: "",
+			HTMLValue: "<p><hr /></p><p><h3>Gallery</h3>Images used throughout the project.</p>",
+			Value:     nil, DateTime: nil,
+		},
+	}
+	idx := common.ClassIdx{
+		Title: "Gallery", Header: "Gallery",
+		Audio:      []common.HTAudio{{URL: "https://www.historytracers.org/audios/", External: true, Spotify: false}, {URL: "https://open.spotify.com/episode/", External: true, Spotify: true}},
+		LastUpdate: []string{common.HTUpdateTimestamp()},
+		Sources:    nil, Scripts: nil,
+		License:  []string{"SPDX-License-Identifier: GPL-3.0-or-later", "CC BY-NC 4.0 DEED"},
+		Version:  2,
+		Type:     "index",
+		Content:  content,
+		DateTime: nil,
+	}
+	for _, lang := range editorLangs {
+		dst := filepath.Join(rootDir, "lang", lang, "gallery.json")
+		tmp := filepath.Join(rootDir, "lang", lang, "gallery.tmp")
+		fp, err := os.Create(tmp)
+		if err != nil {
+			continue
+		}
+		enc := json.NewEncoder(fp)
+		enc.SetEscapeHTML(false)
+		enc.SetIndent("", "   ")
+		enc.Encode(idx)
+		fp.Close()
+		copyFile(dst, tmp)
+		os.Remove(tmp)
+	}
+	rotateToken()
+	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("X-HT-Next-Token", viewerToken)
+	json.NewEncoder(w).Encode(map[string]string{"status": "ok"})
+}
+
 func createFamilyHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -1192,6 +1236,7 @@ func main() {
 	mux.HandleFunc("/api/editor/unlock", editorUnlockHandler)
 	mux.HandleFunc("/api/editor/create-class", createClassHandler)
 	mux.HandleFunc("/api/editor/create-family", createFamilyHandler)
+	mux.HandleFunc("/api/editor/generate-gallery", generateGalleryHandler)
 	mux.HandleFunc("/api/editor/git-status", gitStatusHandler)
 	mux.HandleFunc("/api/editor/session", sessionHandler)
 	mux.HandleFunc("/api/editor/options", optionsHandler)

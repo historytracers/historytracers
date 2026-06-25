@@ -137,6 +137,7 @@ function htParseIndexRequest() {
             case 'release':
             case 'literature':
             case 'atlas':
+            case 'gallery':
                 htLoadPage(page, 'html', '', false);
                 break;
             case 'tree':

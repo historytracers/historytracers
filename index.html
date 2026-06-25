@@ -52,6 +52,7 @@
                 <li class="menu"> <a href="index.html?page=contact" onclick="htLoadPage('contact','html', '', false); return false;" id="sbContact"></a></li>
                 <li class="menu"> <a href="index.html?page=license" onclick="htLoadPage('license','html', '', false); $(\"#header\").html(\"\"); return false;" id="sbLicense"></a></li>
                 <li class="menu"> <a href="index.html?page=release" onclick="htLoadPage('release','html', '', false); return false;" id="sbRelease"></a></li>
+                <li class="menu"> <a href="index.html?page=gallery" onclick="htLoadPage('gallery','html', '', false); return false;" id="sbGallery"></a></li>
             </ul>
         </li>
     </ul>
@@ -194,7 +195,6 @@
                 <option value="50">50 min</option>
                 <option value="60">60 min</option>
             </select>
-            <!-- button onclick="htToggleDesign()" id="designBtn" title="Toggle dark mode" style="padding:2px 8px;font-size:12px;cursor:pointer;border-radius:3px;border:1px solid #bbb;background:#fff9c4;vertical-align:top">&#127769;</button -->
         </div>
         <div class="top-bar-right-child">
         <div style="background:#fff9c4;padding:4px 6px;margin:0 0 4px;border-radius:3px;font-size:12px;line-height:1.4">
@@ -220,11 +220,9 @@
             <option value="persian">Persa</option>
             <option value="shaka">Shaka</option>
         </select><br />
-        <div style="display:none">
         <span id="index_theme">Numerals</span>: <br />
         <input type="radio" name="site_theme" id="ha" checked /> <span id="tNumericalSystem"></span>  <br />
-        <input type="radio" name="site_theme" id="nb" disabled /> <span id="bNumericalSystem"></span>
-        </div>
+        <input type="radio" name="site_theme" id="nb" disabled /> <span id="bNumericalSystem"></span> 
        </div>
     </div>
     </p>
@@ -286,24 +284,7 @@
 </div>
 
   <script type="text/javascript">
-      function htToggleDesign(){
-        var body=document.body;
-        var btn=document.getElementById('designBtn');
-        if(body.classList.contains('design-dark')){
-          body.classList.remove('design-dark');
-          btn.innerHTML='&#127769;';
-          localStorage.setItem('ht_viewer_design','light');
-        }else{
-          body.classList.add('design-dark');
-          btn.innerHTML='&#9728;';
-          localStorage.setItem('ht_viewer_design','dark');
-        }
-      }
       window.addEventListener('load', function() {
-            if(localStorage.getItem('ht_viewer_design')==='dark'){
-              document.body.classList.add('design-dark');
-              document.getElementById('designBtn').innerHTML='&#9728;';
-            }
             htParseIndexRequest();
       });
   </script>
