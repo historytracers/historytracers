@@ -2630,6 +2630,37 @@ function htFillStringOnPage(data, idx, page)
             : item.html_value)
         : "";
 
+    if (modifiedText && item.source && item.source.length > 0) {
+        var citeSources = " (";
+        for (const i in item.source) {
+            var searchFor = "<htcite" + i + ">";
+            var pos = modifiedText.search(searchFor);
+            var fcnt = htFillHistorySourcesSelectFunction(item.source[i].type);
+            var dateText = "";
+            if (item.source[i].date != undefined && item.source[i].date.year.length > 0) {
+                dateText = ", " + htMountSpecificDate(item.source[i].date, localLang, localCalendar);
+            } else if (item.source[i].date_time != undefined && item.source[i].date_time.year.length > 0) {
+                dateText = ", " + htMountSpecificDate(item.source[i].date_time, localLang, localCalendar);
+            }
+            var pageText = "";
+            if (item.source[i].page != undefined && item.source[i].page.length > 0) {
+                pageText = ", " + item.source[i].page;
+            }
+            var appendText = '<a href="#" onclick="htCleanSources(); ' + fcnt + "('" + item.source[i].uuid + "'); return false;\"><i>" + item.source[i].text + dateText + pageText + "</i></a>";
+            if (pos < 0) {
+                if (i != 0 && citeSources.length > 2) {
+                    citeSources += " ; ";
+                }
+                citeSources += appendText;
+            } else {
+                modifiedText = modifiedText.replace(searchFor, appendText);
+            }
+        }
+        if (citeSources.length > 2) {
+            modifiedText += citeSources + ")";
+        }
+    }
+
     // Handle special IDs
     if (item.id === "date_time") {
         htFillHTDate(item.text);
