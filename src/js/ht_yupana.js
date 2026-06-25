@@ -169,7 +169,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
         if (result > 10 && lValue >= 5 && rValue >= 5) {
             var leftRem = lValue - 5;
             var rightRem = rValue - 5;
-            if (leftRem > 0 && rightRem > 0 && leftRem + rightRem < 5) {
+            if (leftRem > 0 && rightRem > 0 && leftRem + rightRem < 5 && leftRem + rightRem !== 4) {
                 text = "<i>"+mathKeywords[4]+"</i><br /><i>"+mathKeywords[2]+"</i><br />";
             } else {
                 text = "<i>"+mathKeywords[2]+"</i><br />";
