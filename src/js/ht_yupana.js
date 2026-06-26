@@ -378,6 +378,7 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
 
     function processStep() {
         if (step >= larr.length) {
+            window.htYupanaCalculationInProgress = false;
             return;
         }
         if (window.htYupanaAnimationCancelled) {

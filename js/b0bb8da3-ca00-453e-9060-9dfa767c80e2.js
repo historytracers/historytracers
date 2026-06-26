@@ -25,6 +25,7 @@ function htLoadContent() {
     }
 
     function htResetSumOnInput() {
+        window.htYupanaCalculationInProgress = false;
         window.htYupanaAnimationCancelled = true;
         $(".yupana-btn").removeClass("active");
         $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", true);
@@ -60,6 +61,9 @@ function htLoadContent() {
     htFillCurrentYupanaSum();
 
     $(".yupana-btn").on("click", function() {
+        if (window.htYupanaCalculationInProgress) {
+            return;
+        }
         var value = $(this).data("action");
         $(".yupana-btn").removeClass("active");
         $(this).addClass("active");
@@ -79,6 +83,7 @@ function htLoadContent() {
             htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', local.lvalues);
             htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', local.rvalues);
             window.htYupanaAnimationCancelled = false;
+            window.htYupanaCalculationInProgress = true;
             setTimeout(function() {
                 htYupanaStepByStep(local.lvalues, local.rvalues, '#yupana1', 4, '#tc7f1');
             }, 1000);
