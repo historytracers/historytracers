@@ -380,6 +380,9 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         if (step >= larr.length) {
             return;
         }
+        if (window.htYupanaAnimationCancelled) {
+            return;
+        }
 
         var bottom2top = rows - step;
         var valCell = tableID + " #tc5f" + bottom2top;
@@ -472,6 +475,9 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         }
 
         function showMovement() {
+            if (window.htYupanaAnimationCancelled) {
+                return;
+            }
             if (mj >= filteredMovements.length) {
                 htDrawDecomposed(bottom2top, resultDigit, 0, false);
                 if (rawSum >= 10 && step + 1 < larr.length) {
