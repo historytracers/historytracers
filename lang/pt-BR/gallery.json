@@ -1,20 +1,9 @@
 {
    "title": "Imagens utilizadas pelo History Tracers",
    "header": "Imagens utilizadas pelo History Tracers",
-   "audio": [
-      {
-         "url": "https://www.historytracers.org/audios/",
-         "external": true,
-         "spotify": false
-      },
-      {
-         "url": "https://open.spotify.com/episode/",
-         "external": true,
-         "spotify": true
-      }
-   ],
+   "audio": null,
    "last_update": [
-      "1782506432"
+      "1782507070"
    ],
    "sources": [
       "gallery"
@@ -38,1071 +27,400 @@
          "date_time": null
       },
       {
-         "id": "ANTT",
-         "target": "",
+         "id": "gallery_header",
+         "target": "gallery",
          "page": "",
          "value_type": "",
-         "html_value": "<p><b>ANTT:</b> Contém imagens originais do Arquivo Nacional da Torre do Tombo (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "984444c4-ba29-45bf-987e-1bf4193748dc",
-               "text": "<i>Arquivo Nacional Torre do Tombo</i>",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2025",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "AntropologyPeru",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>AntropologyPeru:</b> Contém imagens originais do Museo Nacional de Arqueología y Antropología e Historia del Perú (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "1ba21f76-f018-4bd8-9c0a-7f6c34673cda",
-               "text": "Contains original images from the Museo Nacional de Arqueología y Antropología e Historia del Perú",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Archive",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Archive:</b> Contém imagens originais do Internet Archive (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "8dc919ee-97d0-4ae1-9880-4cfdc5837b5a",
-               "text": "Contains original images from the Internet Archive",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Ashmolean",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Ashmolean:</b> Contém imagens originais do Ashmolean Museum, Oxford (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "ac8dbd37-4809-47dc-928c-906517355ddd",
-               "text": "Contains original images from the Ashmolean Museum, Oxford",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Athens",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Athens:</b> Contém fotos tiradas durante uma viagem a Atenas, Grécia.</p>",
+         "html_value": "<h3>Image directories</h3>",
          "value": null,
          "source": null,
          "date_time": null
       },
       {
-         "id": "BibliotecaNacionalDigital",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>BibliotecaNacionalDigital:</b> Contém imagens originais da Biblioteca Nacional Digital (<htcite0>).</p>",
-         "value": null,
-         "source": [
+         "id": "groups_gallery",
+         "target": "gallery",
+         "page": "class_content",
+         "value_type": "group-list",
+         "html_value": "",
+         "value": [
             {
-               "type": 1,
-               "uuid": "3c3d26c6-4e5b-440a-a0f3-6b29424a6242",
-               "text": "<i>Biblioteca Nacional de Portugal - BNP</i>",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2025",
-                  "month": "",
-                  "day": ""
-               }
+               "family_id": "",
+               "person_id": "",
+               "id": "ANTT",
+               "name": "ANTT",
+               "desc": "Contém imagens originais do Arquivo Nacional da Torre do Tombo",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "AntropologyPeru",
+               "name": "AntropologyPeru",
+               "desc": "Contém imagens originais do Museo Nacional de Arqueología y Antropología e Historia del Perú",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Archive",
+               "name": "Archive",
+               "desc": "Contém imagens originais do Internet Archive",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Ashmolean",
+               "name": "Ashmolean",
+               "desc": "Contém imagens originais do Ashmolean Museum, Oxford",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Athens",
+               "name": "Athens",
+               "desc": "Contém fotos tiradas durante uma viagem a Atenas, Grécia",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "BibliotecaNacionalDigital",
+               "name": "BibliotecaNacionalDigital",
+               "desc": "Contém imagens originais da Biblioteca Nacional Digital",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "BingZhao",
+               "name": "BingZhao",
+               "desc": "Contém imagens originais do artigo da Dra. Bing Zhao Zhao, Bing (2015)",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "BritishMuseum",
+               "name": "BritishMuseum",
+               "desc": "Contém imagens originais do British Museum",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "CERN",
+               "name": "CERN",
+               "desc": "Contém imagens orignais da Organização Européia para Pesquisas Nucleares CERN",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "CahalPech",
+               "name": "CahalPech",
+               "desc": "Contém fotos tiradas durante uma viagem a CahalPech, Belize",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Caracol",
+               "name": "Caracol",
+               "desc": "Contém fotos tiradas durante uma viagem a Caracol, Belize",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Caral",
+               "name": "Caral",
+               "desc": "Contém fotos tiradas durante uma viagem a Caral, Peru",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Copan",
+               "name": "Copan",
+               "desc": "Contém fotos tiradas durante uma viagem a Copán, Honduras",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "CreativeCommons",
+               "name": "CreativeCommons",
+               "desc": "Contém imagens originais da Creative Commons",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Cuzco",
+               "name": "Cuzco",
+               "desc": "Contém fotos tiradas durante uma viagem a Cuzco, Peru",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "DonsMaps",
+               "name": "DonsMaps",
+               "desc": "Contém imagens originais de Don's maps",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "ESA",
+               "name": "ESA",
+               "desc": "Contém imagens orignais da Agência Espacial Européia ESA",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "ElSalvadorMuseo",
+               "name": "ElSalvadorMuseo",
+               "desc": "Contém fotos tiradas durante uma visita ao Museo Nacional de Antropología de El Salvador",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "GuatemalaAntropologia",
+               "name": "GuatemalaAntropologia",
+               "desc": "Contém fotos tiradas durante uma visita ao Museo Nacional de Arqueología y Etnología, Guatemala",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "GuatemalaKaminaljuyu",
+               "name": "GuatemalaKaminaljuyu",
+               "desc": "Contém fotos tiradas durante uma viagem a Kaminaljuyu, Guatemala",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "HistoryTracers",
+               "name": "HistoryTracers",
+               "desc": "Contém fotos criadas pela equipe do History Tracers",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "JoyaCeren",
+               "name": "JoyaCeren",
+               "desc": "Contém fotos tiradas durante uma viagem a Joya de Cerén, El Salvador",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Louvre",
+               "name": "Louvre",
+               "desc": "Contém imagens originais do Museu do Louvre",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "MachuPicchu",
+               "name": "MachuPicchu",
+               "desc": "Contém fotos tiradas durante uma viagem a Machu Picchu, Peru",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Mapswire",
+               "name": "Mapswire",
+               "desc": "Contém imagens originais ou modificadas do projeto Mapswire",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "MetropolitanMuseum",
+               "name": "MetropolitanMuseum",
+               "desc": "Contém imagens originais do Metropolitan Museum of Art",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "MexicoCityMuseo",
+               "name": "MexicoCityMuseo",
+               "desc": "Contém fotos tiradas durante uma viagem a Cidade do México, México",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "MiPueblito",
+               "name": "MiPueblito",
+               "desc": "Contém fotos tiradas durante uma viagem a  Mi Pueblito, Panamá",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Nature",
+               "name": "Nature",
+               "desc": "Contém imagens originais da Nature Open Access",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "PLOS",
+               "name": "PLOS",
+               "desc": "Contém imagens originais de PLOS",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "PeruPucllana",
+               "name": "PeruPucllana",
+               "desc": "Contém fotos tiradas durante uma visita a Sítio de Pucllana, Peru",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "ResearchGate",
+               "name": "ResearchGate",
+               "desc": "Contém imagens originais do ResearchGate",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Sadomba",
+               "name": "Sadomba",
+               "desc": "Contém imagens originais do artigo do Dr. Zvakanyorwa Wilbert Sadomba Zvakanyorwa Wilbert Sadomba (2024)",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "SanAndres",
+               "name": "SanAndres",
+               "desc": "Contém fotos tiradas durante uma visita a San Andrés, El Salvador",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "SanJoseCRJade",
+               "name": "SanJoseCRJade",
+               "desc": "Contém fotos tiradas durante uma visita ao Museo de Jade, Costa Rica",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "SanJoseCRMuseo",
+               "name": "SanJoseCRMuseo",
+               "desc": "Contém imagens originais do Museu de Antropologia de San José",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Science",
+               "name": "Science",
+               "desc": "Contém imagens originais de Science Magazine",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "TaiChimpanzeeProject",
+               "name": "TaiChimpanzeeProject",
+               "desc": "Contém imagens originais de Taï Chimpanzee Project",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Teotihuacan",
+               "name": "Teotihuacan",
+               "desc": "Contém fotos tiradas durante uma viagem a Teotihuacán, México",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Tikal",
+               "name": "Tikal",
+               "desc": "Contém fotos tiradas durante uma viagem a Tikal, Guatemala",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Tohoku",
+               "name": "Tohoku",
+               "desc": "Contém imagens originais da Universidade de Tohoku",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Tula",
+               "name": "Tula",
+               "desc": "Contém fotos tiradas durante uma viagem a Ciudad de Tula, México",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "UNESCO",
+               "name": "UNESCO",
+               "desc": "Contém imagens originais da UNESCO",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "USGS",
+               "name": "USGS",
+               "desc": "Contém imagens originais do Serviço Geológico dos Estados Unidos",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "UniversityJohannesburg",
+               "name": "UniversityJohannesburg",
+               "desc": "Contém imagens originais da Universidade de Johannesburg",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "Xunantunich",
+               "name": "Xunantunich",
+               "desc": "Contém fotos tiradas durante uma viagem a Xunantunich, Belice",
+               "date_time": null
+            },
+            {
+               "family_id": "",
+               "person_id": "",
+               "id": "eLife",
+               "name": "eLife",
+               "desc": "Contém imagens originais de Revista eLife",
+               "date_time": null
             }
          ],
-         "date_time": null
-      },
-      {
-         "id": "BingZhao",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>BingZhao:</b> Contém imagens originais do artigo da Dra. Bing Zhao Zhao, Bing (2015) (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "f7381734-81dc-4bef-8527-44317f40c4b4",
-               "text": "Zhao, B. (2015). Chinese-style ceramics in East Africa from the 9th to 16th century: A case of changing value and symbols in the multi-partner global trade. Afriques, 06.",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2025",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "BritishMuseum",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>BritishMuseum:</b> Contém imagens originais do British Museum (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "55eb5007-cd4f-422f-8775-b58dbdbd233c",
-               "text": "Contains original images from the British Museum",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "CERN",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>CERN:</b> Contém imagens orignais da Organização Européia para Pesquisas Nucleares CERN (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "d152832f-e142-492c-9f2d-6d6337901802",
-               "text": "Contains original images from European Organization for Nuclear Research CERN",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "CahalPech",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>CahalPech:</b> Contém fotos tiradas durante uma viagem a CahalPech, Belize (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "bdc3e24e-2029-4a4b-8fc3-116feed24586",
-               "text": "National Institute of Culture and History. Cahal Pech",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2025",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Caracol",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Caracol:</b> Contém fotos tiradas durante uma viagem a Caracol, Belize (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "d840b25c-814b-4798-bc71-0caa1ca42108",
-               "text": "Contains photos taken during a trip to Caracol, Belize",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Caral",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Caral:</b> Contém fotos tiradas durante uma viagem a Caral, Peru (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "f4b95fd1-7772-4098-8eaf-c242a1c757e1",
-               "text": "Contains photos taken during a trip to Caral, Peru",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Copan",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Copan:</b> Contém fotos tiradas durante uma viagem a Copán, Honduras (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "1e007481-9bd3-4a09-ad4d-6e812fe79641",
-               "text": "Instituto Hondureño de Antropologia e Historia (2024). Parque Arqueológico Copán",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2024",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "CreativeCommons",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>CreativeCommons:</b> Contém imagens originais da Creative Commons (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "fb00517d-498f-479b-a94e-8a99915c8264",
-               "text": "Contains original images from Creative Commons",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Cuzco",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Cuzco:</b> Contém fotos tiradas durante uma viagem a Cuzco, Peru (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "eb75ba7f-94a8-408f-985f-c1f29978f934",
-               "text": "Contains photos taken during a trip to Cuzco, Peru",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "DonsMaps",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>DonsMaps:</b> Contém imagens originais de Don's maps (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "ecee9160-5d52-4e54-9446-c590601dc0bb",
-               "text": "Don's Maps",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "ESA",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>ESA:</b> Contém imagens orignais da Agência Espacial Européia ESA (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "dbb82b7f-2950-4727-ba7a-89de1dd01231",
-               "text": "Contains original images from European Space Agency ESA",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "ElSalvadorMuseo",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>ElSalvadorMuseo:</b> Contém fotos tiradas durante uma visita ao Museo Nacional de Antropología de El Salvador (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "b6ffcac4-7379-4a21-ba3c-326e8cb39129",
-               "text": "Museo Nacional de Antropologia de San Salvador - El Salvador",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2024",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "GuatemalaAntropologia",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>GuatemalaAntropologia:</b> Contém fotos tiradas durante uma visita ao Museo Nacional de Arqueología y Etnología, Guatemala (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "a994054a-b530-47fe-bca1-259315f45684",
-               "text": "Contains photos taken during a visit to Museo Nacional de Arqueología y Etnología, Guatemala",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "GuatemalaKaminaljuyu",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>GuatemalaKaminaljuyu:</b> Contém fotos tiradas durante uma viagem a Kaminaljuyu, Guatemala (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "d67f9d43-3cf9-440f-9d8d-89d4b5be8a62",
-               "text": "Contains photos taken during a trip to Kaminaljuyu, Guatemala",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "HistoryTracers",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>HistoryTracers:</b> Contém fotos criadas pela equipe do History Tracers (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "d2e1d8d3-c177-4042-aed3-9498331ad3d3",
-               "text": "Contains photos created by the  History Tracers team",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "JoyaCeren",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>JoyaCeren:</b> Contém fotos tiradas durante uma viagem a Joya de Cerén, El Salvador (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "21315015-e589-486f-b0aa-3eba1d775b1d",
-               "text": "Ministerio de Cultura, El Salvador",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2024",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Louvre",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Louvre:</b> Contém imagens originais do Museu do Louvre (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "0894587e-20a1-471a-95b7-c7e7327aa90e",
-               "text": "Contains original images from the Louvre Museum",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "MachuPicchu",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>MachuPicchu:</b> Contém fotos tiradas durante uma viagem a Machu Picchu, Peru (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "a069c831-4360-4d25-ab30-5387b810655f",
-               "text": "Contains photos taken during a trip to Machu Picchu, Peru",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Mapswire",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Mapswire:</b> Contém imagens originais ou modificadas do projeto Mapswire (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "10cd855b-c2dc-4045-8a6c-f8486ef67cfa",
-               "text": "Contains original or modified images from the Mapswire project",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "MetropolitanMuseum",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>MetropolitanMuseum:</b> Contém imagens originais do Metropolitan Museum of Art (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "af4264a3-e1b0-49e4-8170-34625c3dee4d",
-               "text": "Contains original images from the Metropolitan Museum of Art",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "MexicoCityMuseo",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>MexicoCityMuseo:</b> Contém fotos tiradas durante uma viagem a Cidade do México, México (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "e55f2d48-823c-4f7c-bed1-49393af95cbf",
-               "text": "Contains photos taken during a trip to Mexico City, Mexico",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "MiPueblito",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>MiPueblito:</b> Contém fotos tiradas durante uma viagem a  Mi Pueblito, Panamá (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "6c2b3091-e291-4dcc-aec3-ab046f305c68",
-               "text": "Contains photos taken during a trip to Mi Pueblito, Panama",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Nature",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Nature:</b> Contém imagens originais da Nature Open Access (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "0a29c50b-b523-4ebc-8f13-ec1b3973c8a4",
-               "text": "Contains original images from Nature Open Access",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "PLOS",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>PLOS:</b> Contém imagens originais de PLOS (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "fe912d45-bef7-4403-95e4-4dc60e729318",
-               "text": "Contains original images from PLOS",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "PeruPucllana",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>PeruPucllana:</b> Contém fotos tiradas durante uma visita a Sítio de Pucllana, Peru (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "440dc5ee-9357-4f52-82f1-388a258552ec",
-               "text": "Contains photos taken during a trip to Sítio de Pucllana, Peru",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "ResearchGate",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>ResearchGate:</b> Contém imagens originais do ResearchGate (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "440dc5ee-9357-4f52-82f1-388a258552ec",
-               "text": "Contains photos taken during a trip to Sítio de Pucllana, Peru",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Sadomba",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Sadomba:</b> Contém imagens originais do artigo do Dr. Zvakanyorwa Wilbert Sadomba Zvakanyorwa Wilbert Sadomba (2024) (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "cc162709-bdc3-469b-a208-e900f4570842",
-               "text": "Sadomba, Zvakanyorwa Wilbert (2024). Shona mathematics of the kitchen hut: Gendered geometric application centering women in domestic politics and power. Journal of Mathematics and Culture Volume 18 Number 1",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2025",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "SanAndres",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>SanAndres:</b> Contém fotos tiradas durante uma visita a San Andrés, El Salvador (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "5b3930c2-afb5-4646-a58c-c47bd24be467",
-               "text": "Contains photos taken during a visit to San Andrés, El Salvador",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "SanJoseCRJade",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>SanJoseCRJade:</b> Contém fotos tiradas durante uma visita ao Museo de Jade, Costa Rica (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "99fec7c3-71d7-440d-8c78-d57b1445e88f",
-               "text": "Contains photos taken during a visit to Museo de Jade, Costa Rica",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "SanJoseCRMuseo",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>SanJoseCRMuseo:</b> Contém imagens originais do Museu de Antropologia de San José (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "3e4dc8f8-8c2b-491e-9e2b-0b3adb927c70",
-               "text": "Museo Nacional de Costa Rica",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2024",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Science",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Science:</b> Contém imagens originais de Science Magazine (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "ac107a0d-efb0-4340-bae4-efed50968f94",
-               "text": "Contains original images from Science Magazine",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "TaiChimpanzeeProject",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>TaiChimpanzeeProject:</b> Contém imagens originais de Taï Chimpanzee Project (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "abbf6d09-8755-46b6-b6fb-506c81549605",
-               "text": "Taï Chimpanzee Project",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Teotihuacan",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Teotihuacan:</b> Contém fotos tiradas durante uma viagem a Teotihuacán, México (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "0059a36e-b134-4859-bec0-c89e7239d07c",
-               "text": "INAH. Teotihuacan",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2025",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Tikal",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Tikal:</b> Contém fotos tiradas durante uma viagem a Tikal, Guatemala (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "7ee4e8f6-3f68-4dbc-ad17-3b39f9964ef2",
-               "text": "Tikal National Park",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2025",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Tohoku",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Tohoku:</b> Contém imagens originais da Universidade de Tohoku (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "c7c61814-3221-41c3-b7bd-23f2bb3ee8bb",
-               "text": "Contains original images from the Tohoku University",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Tula",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Tula:</b> Contém fotos tiradas durante uma viagem a Ciudad de Tula, México (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "3643a89d-2bc0-4704-8059-493ed0eeeac6",
-               "text": "Contains photos taken during a trip to Ciudad de Tula, Mexico",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "UNESCO",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>UNESCO:</b> Contém imagens originais da UNESCO (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "edb7ac1c-7204-4ba1-810d-11fb34a2845f",
-               "text": "Contains original images from UNESCO",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "USGS",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>USGS:</b> Contém imagens originais do Serviço Geológico dos Estados Unidos (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "490bc885-d393-4e26-a2c2-1ae2474b25f1",
-               "text": "The Water Cyrcle (PNG). <i>U.S. Geological Survey</i>",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2024",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "UniversityJohannesburg",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>UniversityJohannesburg:</b> Contém imagens originais da Universidade de Johannesburg (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "6e84c2bb-0545-456a-8bd2-5773ef1977c5",
-               "text": "Contains original images from the University of Johannesburg",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "Xunantunich",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>Xunantunich:</b> Contém fotos tiradas durante uma viagem a Xunantunich, Belice (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "10bd5cbc-0f72-4bf4-852a-f9b4bd1af866",
-               "text": "Contains photos taken during a trip to Xunantunich, Belize",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
-         "date_time": null
-      },
-      {
-         "id": "eLife",
-         "target": "",
-         "page": "",
-         "value_type": "",
-         "html_value": "<p><b>eLife:</b> Contém imagens originais de Revista eLife (<htcite0>).</p>",
-         "value": null,
-         "source": [
-            {
-               "type": 1,
-               "uuid": "371f2408-e27f-42c0-abc1-6876c80f62a7",
-               "text": "Contains original images from eLife magazine",
-               "page": "",
-               "date_time": {
-                  "type": "gregory",
-                  "year": "2026",
-                  "month": "",
-                  "day": ""
-               }
-            }
-         ],
+         "source": null,
          "date_time": null
       }
    ],
