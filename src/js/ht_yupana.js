@@ -497,7 +497,7 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             }
 
             if (mj === 0 && larr[step] < 10 && rarr_work[step] < 10) {
-                if (filteredMovements.length > 1 && rarr_work[step] >= 5 && larr[step] + rarr_work[step] - 5 === 5) {
+                if (filteredMovements.length > 1 && rarr_work[step] >= 5 && larr[step] + rarr_work[step] - 5 === 5 && !preHasTc4) {
                     htDrawDecomposed(bottom2top, 5, 5, false);
                 } else {
                     htDrawDecomposed(bottom2top, larr[step], rarr_work[step], true);
