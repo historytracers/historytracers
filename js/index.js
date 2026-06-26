@@ -131,6 +131,7 @@ function htParseIndexRequest() {
             case 'first_steps_menu':
             case 'first_steps':
             case 'first_steps_volume2':
+            case 'shapes':
             case 'indigenous_who':
             case 'indigenous_time':
             case 'math_games':

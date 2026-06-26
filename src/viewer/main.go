@@ -581,7 +581,7 @@ func allowedPage(name string) bool {
 		"sources", "genealogical_faq", "genealogical_first_steps",
 		"license", "contact", "physics", "philosophy", "historical_events",
 		"biology", "chemistry", "history", "families", "myths_believes",
-		"first_steps_menu", "first_steps", "first_steps_volume2",
+		"first_steps_menu", "first_steps", "first_steps_volume2", "shapes",
 		"indigenous_who", "indigenous_time", "math_games", "release",
 		"literature", "atlas", "tree", "class_content":
 		return true

@@ -23,7 +23,7 @@ import (
 
 var htLangPaths []string = []string{"en-US", "es-ES", "pt-BR"}
 
-var indexFiles []string = []string{"gallery", "first_steps_menu", "first_steps", "first_steps_volume2", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology", "history", "philosophy", "atlas"}
+var indexFiles []string = []string{"gallery", "first_steps_menu", "first_steps", "first_steps_volume2", "shapes", "literature", "indigenous_who", "myths_believes", "math_games", "historical_events", "physics", "chemistry", "biology", "history", "philosophy", "atlas"}
 
 var commonKeywords []string
 var mathKeywords []string

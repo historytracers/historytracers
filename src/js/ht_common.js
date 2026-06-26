@@ -34,6 +34,7 @@ var htHistoryIdx = new Map();
 var htLiteratureIdx = new Map();
 var htFirstStepsIdx = new Map();
 var htFirstStepsVolume2Idx = new Map();
+var htShapesIdx = new Map();
 var htMathGamesIdx = new Map();
 var htIndigenousWhoIdx = new Map();
 var htMythsBelievesIdx = new Map();
@@ -151,6 +152,7 @@ function htResetAllIndexes()
         htHistoryIdx,
         htFirstStepsIdx,
         htFirstStepsVolume2Idx,
+        htShapesIdx,
         htMathGamesIdx,
         htFamilyIdx,
         htIndigenousWhoIdx,
@@ -1687,6 +1689,7 @@ function htSelectIndexMap(index)
         literature: htLiteratureIdx,
         first_steps: htFirstStepsIdx,
         first_steps_volume2: htFirstStepsVolume2Idx,
+        shapes: htShapesIdx,
         math_games: htMathGamesIdx,
         families: htFamilyIdx,
         indigenous_who: htIndigenousWhoIdx,
@@ -1707,6 +1710,7 @@ function htSelectIndexName(index) {
         families: keywords[8],
         first_steps: keywords[121],
         first_steps_volume2: keywords[136],
+        shapes: keywords[142],
         atlas: "Atlas",
         literature: keywords[122],
         indigenous_who: keywords[123],
@@ -2695,7 +2699,7 @@ function htFillStringOnPage(data, idx, page)
         "first_steps_menu", "first_steps_volume2",
         "indigenous_who", "myths_believes", "math_games",
         "historical_events", "biology", "physics", "chemistry",
-        "philosophy", "atlas", "gallery"
+        "philosophy", "atlas", "gallery", "shapes"
     ];
 
     if (allowedPages.includes(page) && item.target) {
@@ -3092,7 +3096,8 @@ function htLoadIndex(data, arg, page)
         myths_believes: htMythsBelievesIdx,
         physics: htPhysicsIdx,
         philosophy: htPhilosophyIdx,
-        atlas: htAtlasIdx
+        atlas: htAtlasIdx,
+        shapes: htShapesIdx
     };
 
     if (page && pageConfig[page] && !pageConfig[page].has(page)) {

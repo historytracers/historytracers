@@ -60,7 +60,7 @@ func HTParseArg() {
 	flag.StringVar(&contentVal, "www", compileContentPath, "Directory for user-facing content.")
 	flag.StringVar(&confPath, "conf", compileConfPath, "Path to the configuration file.")
 	flag.StringVar(&logFileFlag, "logfile", "", "Path to log file (truncates on open). All output is redirected here.")
-	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (history, indigenous_who, first_steps, first_steps_volume2, literature, biology, chemistry, physics, historical_events, philosophy).")
+	flag.StringVar(&classTemplate, "class", classTemplate, "Create a foundation for a new class (history, indigenous_who, first_steps, first_steps_volume2, shapes, literature, biology, chemistry, physics, historical_events, philosophy).")
 	flag.StringVar(&smGameTemplate, "smgame", smGameTemplate, "Create a foundation for a new SM Game.")
 	flag.StringVar(&langTestFlag, "langtest", "", "Test a language file: 'lang:uuid' (e.g. en-US:03bb4b8e-...). Validates JSON, counts lines, and compares across languages.")
 	flag.BoolVar(&globalLangTestFlag, "globalangtest", false, "Test all UUID files in lang/??-??/. Validates JSON and compares line counts across all languages.")
