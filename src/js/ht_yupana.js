@@ -169,12 +169,14 @@ function htWriteSumOnYupana(lValue, rValue, result)
         if (result > 10 && lValue >= 5 && rValue >= 5) {
             var leftRem = lValue - 5;
             var rightRem = rValue - 5;
-            if (leftRem > 0 && rightRem > 0 && leftRem + rightRem < 5 && leftRem + rightRem !== 4) {
-                text = "<i>"+mathKeywords[4]+"</i><br /><i>"+mathKeywords[2]+"</i><br />";
-            } else {
-                text = "<i>"+mathKeywords[2]+"</i><br />";
+            if (leftRem + rightRem < 5) {
+                if (leftRem > 0 && rightRem > 0 && leftRem + rightRem !== 4) {
+                    text = "<i>"+mathKeywords[4]+"</i><br /><i>"+mathKeywords[2]+"</i><br />";
+                } else {
+                    text = "<i>"+mathKeywords[2]+"</i><br />";
+                }
+                return text;
             }
-            return text;
         }
         var bigger = false;
         if (result > 10) {
@@ -424,8 +426,22 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         }
 
         var mj = 0;
+        var useBase5Many = filteredMovements.length >= 3 && larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10;
         function showMovement() {
             if (mj >= filteredMovements.length) {
+                htCleanYupanaDecimalRow(tableID, bottom2top);
+                htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'red_dot_right_up');
+                if (rawSum >= 10 && step + 1 < larr.length) {
+                    htFillYupanaDecimalRow(tableID, bottom2top - 1, 1, 'blue_dot_right_bottom');
+                }
+                displayArr[step] = resultDigit;
+                htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, displayArr);
+                step++;
+                setTimeout(processStep, 1500);
+                return;
+            }
+            if (useBase5Many && mj == filteredMovements.length - 1) {
+                $(tableID + " " + resultID).append(filteredMovements[mj] + "<br />");
                 htCleanYupanaDecimalRow(tableID, bottom2top);
                 htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'red_dot_right_up');
                 if (rawSum >= 10 && step + 1 < larr.length) {
@@ -440,7 +456,12 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             $(tableID + " " + resultID).append(filteredMovements[mj] + "<br />");
             htCleanYupanaDecimalRow(tableID, bottom2top);
             if (mj === 0 && larr[step] < 10 && rarr_work[step] < 10) {
-                if (larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10) {
+                if (useBase5Many) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
+                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
+                    htFillYupanaDecimalRow(tableID, bottom2top, 2, 'red_dot_right_up');
+                    htFillYupanaDecimalRow(tableID, bottom2top, 3, 'red_dot_right_up');
+                } else if (larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10) {
                     var leftRem = larr[step] - 5;
                     var rightRem = rarr_work[step] - 5;
                     htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
@@ -461,19 +482,36 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
                 }
             } else {
                 var useBase5 = larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10;
-                var displayVal = filteredMovements.length < 3
-                    ? resultDigit
-                    : Math.round(Math.min(rawSum, 9) - (Math.min(rawSum, 9) - resultDigit) * (mj - 1) / (filteredMovements.length - 2));
                 if (useBase5) {
                     htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
                     htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
                 }
+                var displayVal;
+                if (useBase5 && filteredMovements.length >= 3) {
+                    displayVal = resultDigit;
+                } else {
+                    displayVal = filteredMovements.length < 3
+                        ? resultDigit
+                        : Math.round(Math.min(rawSum, 9) - (Math.min(rawSum, 9) - resultDigit) * (mj - 1) / (filteredMovements.length - 2));
+                }
                 if (displayVal > 0) {
-                    htFillYupanaDecimalRow(tableID, bottom2top, displayVal, 'red_dot_right_up');
+                    htFillYupanaDecimalRow(tableID, bottom2top, displayVal, useBase5 ? 'red_dot_right_up_1' : 'red_dot_right_up');
                 }
             }
             mj++;
             setTimeout(showMovement, 1500);
+        }
+        if (useBase5Many) {
+            var leftRem = larr[step] - 5;
+            var rightRem = rarr_work[step] - 5;
+            htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
+            htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
+            if (leftRem > 0) {
+                htFillYupanaDecimalRow(tableID, bottom2top, leftRem, 'red_dot_right_up');
+            }
+            if (rightRem > 0) {
+                htFillYupanaDecimalRow(tableID, bottom2top, rightRem, 'blue_dot_right_bottom');
+            }
         }
         setTimeout(showMovement, 1500);
     }
