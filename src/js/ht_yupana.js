@@ -228,7 +228,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
                     text = "<i>"+mathKeywords[4]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+text;
                 } else {
                     if (lValue == 4 || rValue == 4) {
-                        text = "<i>"+mathKeywords[4]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />";
+                        text = "<i>"+mathKeywords[4]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
                     }
                 }
                 break;
@@ -427,10 +427,51 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
 
         var mj = 0;
         var useBase5Many = filteredMovements.length >= 3 && larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10;
+
+        function htDrawDecomposed(row, leftVal, rightVal, applyTransfer) {
+            htCleanYupanaDecimalRow(tableID, row);
+            var leftPart = leftVal, rightPart = rightVal;
+            if (leftVal >= 5) {
+                htFillYupanaDecimalRow(tableID, row, 5, 'red_dot_right_up');
+                leftPart = leftVal - 5;
+            }
+            if (rightVal >= 5) {
+                htFillYupanaDecimalRow(tableID, row, 5, 'blue_dot_right_bottom');
+                rightPart = rightVal - 5;
+            }
+            if (applyTransfer && leftVal >= 5 && rightVal >= 5 && leftPart + rightPart === 5) {
+                htFillYupanaDecimalRow(tableID, row, 2, 'red_dot_right_up');
+                htFillYupanaDecimalRow(tableID, row, 3, 'red_dot_right_up');
+                return;
+            }
+            if (applyTransfer) {
+                if ((rightPart == 1 || rightPart == 4) && !(leftPart == 1 || leftPart == 4)) {
+                    leftPart += 1;
+                    rightPart -= 1;
+                } else if ((leftPart == 1 || leftPart == 4) && !(rightPart == 1 || rightPart == 4)) {
+                    leftPart -= 1;
+                    rightPart += 1;
+                } else if ((leftPart == 1 || leftPart == 4) && (rightPart == 1 || rightPart == 4)) {
+                    if (leftPart > rightPart) {
+                        leftPart -= 1;
+                        rightPart += 1;
+                    } else if (rightPart > leftPart) {
+                        leftPart += 1;
+                        rightPart -= 1;
+                    }
+                }
+            }
+            if (leftPart > 0) {
+                htFillYupanaDecimalRow(tableID, row, leftPart, 'red_dot_right_up');
+            }
+            if (rightPart > 0) {
+                htFillYupanaDecimalRow(tableID, row, rightPart, 'blue_dot_right_bottom');
+            }
+        }
+
         function showMovement() {
             if (mj >= filteredMovements.length) {
-                htCleanYupanaDecimalRow(tableID, bottom2top);
-                htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'red_dot_right_up');
+                htDrawDecomposed(bottom2top, resultDigit, 0, false);
                 if (rawSum >= 10 && step + 1 < larr.length) {
                     htFillYupanaDecimalRow(tableID, bottom2top - 1, 1, 'blue_dot_right_bottom');
                 }
@@ -440,102 +481,62 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
                 setTimeout(processStep, 1500);
                 return;
             }
-            if (useBase5Many && mj == filteredMovements.length - 1) {
-                $(tableID + " " + resultID).append(filteredMovements[mj] + "<br />");
-                htCleanYupanaDecimalRow(tableID, bottom2top);
-                htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'red_dot_right_up');
-                if (rawSum >= 10 && step + 1 < larr.length) {
-                    htFillYupanaDecimalRow(tableID, bottom2top - 1, 1, 'blue_dot_right_bottom');
-                }
-                displayArr[step] = resultDigit;
-                htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, displayArr);
-                step++;
-                setTimeout(processStep, 1500);
-                return;
-            }
+
             $(tableID + " " + resultID).append(filteredMovements[mj] + "<br />");
-            htCleanYupanaDecimalRow(tableID, bottom2top);
-            if (mj === 0 && larr[step] < 10 && rarr_work[step] < 10) {
-                if (useBase5Many) {
-                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
-                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
-                    var leftRem = larr[step] - 5;
-                    var rightRem = rarr_work[step] - 5;
-                    if (leftRem + rightRem === 5) {
-                        htFillYupanaDecimalRow(tableID, bottom2top, 2, 'red_dot_right_up');
-                        htFillYupanaDecimalRow(tableID, bottom2top, 3, 'red_dot_right_up');
-                    } else {
-                        if ((rightRem == 1 || rightRem == 4) && !(leftRem == 1 || leftRem == 4)) {
-                            leftRem += 1;
-                            rightRem -= 1;
-                        } else if ((leftRem == 1 || leftRem == 4) && !(rightRem == 1 || rightRem == 4)) {
-                            leftRem -= 1;
-                            rightRem += 1;
-                        }
-                        if (leftRem > 0) {
-                            htFillYupanaDecimalRow(tableID, bottom2top, leftRem, 'red_dot_right_up');
-                        }
-                        if (rightRem > 0) {
-                            htFillYupanaDecimalRow(tableID, bottom2top, rightRem, 'blue_dot_right_bottom');
-                        }
-                    }
-                } else if (larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10) {
-                    var leftRem = larr[step] - 5;
-                    var rightRem = rarr_work[step] - 5;
-                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
-                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
-                    if (leftRem > 0) {
-                        htFillYupanaDecimalRow(tableID, bottom2top, leftRem, 'red_dot_right_up');
-                    }
-                    if (rightRem > 0) {
-                        htFillYupanaDecimalRow(tableID, bottom2top, rightRem, 'blue_dot_right_bottom');
-                    }
-                } else {
-                    htFillYupanaDecimalRow(tableID, bottom2top, larr[step], 'red_dot_right_up');
-                    htFillYupanaDecimalRow(tableID, bottom2top, rarr_work[step], 'blue_dot_right_bottom');
+
+            if (useBase5Many && mj == filteredMovements.length - 1) {
+                htDrawDecomposed(bottom2top, resultDigit, 0, false);
+                if (rawSum >= 10 && step + 1 < larr.length) {
+                    htFillYupanaDecimalRow(tableID, bottom2top - 1, 1, 'blue_dot_right_bottom');
                 }
+                displayArr[step] = resultDigit;
+                htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, displayArr);
+                step++;
+                setTimeout(processStep, 1500);
+                return;
+            }
+
+            if (mj === 0 && larr[step] < 10 && rarr_work[step] < 10) {
+                htDrawDecomposed(bottom2top, larr[step], rarr_work[step], true);
             } else if (mj === 0) {
+                htCleanYupanaDecimalRow(tableID, bottom2top);
                 if (resultDigit > 0) {
                     htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'blue_dot_right_bottom');
                 }
             } else {
                 var useBase5 = larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10;
-                var showBoth5s = false;
-                if (useBase5) {
-                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
-                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
-                } else if (rawSum == 10 && (larr[step] >= 5) != (rarr_work[step] >= 5) && mj == filteredMovements.length - 1) {
-                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
-                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
-                    showBoth5s = true;
-                }
-                var displayVal;
-                if (useBase5 && filteredMovements.length >= 3) {
-                    displayVal = resultDigit;
+                var isPisqaStep = !useBase5 && mj == filteredMovements.length - 1 && larr[step] < 10 && rarr_work[step] < 10;
+                if (isPisqaStep) {
+                    htDrawDecomposed(bottom2top, resultDigit, 0, false);
                 } else {
-                    displayVal = filteredMovements.length < 3
-                        ? resultDigit
-                        : Math.round(Math.min(rawSum, 9) - (Math.min(rawSum, 9) - resultDigit) * (mj - 1) / (filteredMovements.length - 2));
-                }
-                if (displayVal > 0 && !showBoth5s) {
-                    htFillYupanaDecimalRow(tableID, bottom2top, displayVal, useBase5 ? 'red_dot_right_up_1' : 'red_dot_right_up');
+                    htCleanYupanaDecimalRow(tableID, bottom2top);
+                    var showBoth5s = false;
+                    if (useBase5) {
+                        htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
+                        htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
+                    } else if (rawSum == 10 && (larr[step] >= 5) != (rarr_work[step] >= 5) && mj == filteredMovements.length - 1) {
+                        htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
+                        htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
+                        showBoth5s = true;
+                    }
+                    var displayVal;
+                    if (useBase5 && filteredMovements.length >= 3) {
+                        displayVal = resultDigit;
+                    } else {
+                        displayVal = filteredMovements.length < 3
+                            ? resultDigit
+                            : Math.round(Math.min(rawSum, 9) - (Math.min(rawSum, 9) - resultDigit) * (mj - 1) / (filteredMovements.length - 2));
+                    }
+                    if (displayVal > 0 && !showBoth5s) {
+                        htFillYupanaDecimalRow(tableID, bottom2top, displayVal, useBase5 ? 'red_dot_right_up_1' : 'red_dot_right_up');
+                    }
                 }
             }
             mj++;
             setTimeout(showMovement, 1500);
         }
-        if (useBase5Many) {
-            var leftRem = larr[step] - 5;
-            var rightRem = rarr_work[step] - 5;
-            htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
-            htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
-            if (leftRem > 0) {
-                htFillYupanaDecimalRow(tableID, bottom2top, leftRem, 'red_dot_right_up');
-            }
-            if (rightRem > 0) {
-                htFillYupanaDecimalRow(tableID, bottom2top, rightRem, 'blue_dot_right_bottom');
-            }
-        }
+
+        htDrawDecomposed(bottom2top, larr[step], rarr_work[step], false);
         setTimeout(showMovement, 1500);
     }
 
