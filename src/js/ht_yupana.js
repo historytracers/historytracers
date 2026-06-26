@@ -138,8 +138,10 @@ function htWriteSumOnYupana(lValue, rValue, result)
                 text = "<i>"+mathKeywords[3]+"</i><br />";
                 break;
             case 4:
-                text = "<i>"+mathKeywords[1]+"</i><br />";
-                text += "<i>"+mathKeywords[3]+"</i><br />";
+                text = "<i>"+mathKeywords[3]+"</i><br />";
+                text += "<i>"+mathKeywords[1]+"</i><br />";
+                text += "<i>"+mathKeywords[2]+"</i><br />";
+                break;
             case 2:
                 text = "<i>"+mathKeywords[0]+"</i><br />";
                 break;
@@ -511,7 +513,16 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
                 var useBase5 = larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10;
                 var isPisqaStep = !useBase5 && mj == filteredMovements.length - 1 && larr[step] < 10 && rarr_work[step] < 10;
                 var isKimsaStep = !useBase5 && filteredMovements.length == 3 && mj == 1 && (rarr_work[step] >= 5 || larr[step] >= 5);
-                if (isKimsaStep) {
+                if (isBothTc4Equal && mj === 1) {
+                    htCleanYupanaDecimalRow(tableID, bottom2top);
+                    htFillYupanaDecimalRow(tableID, bottom2top, 3, 'red_dot_right_up');
+                    htFillYupanaDecimalRow(tableID, bottom2top, 3, 'blue_dot_right_bottom');
+                    htFillYupanaDecimalRow(tableID, bottom2top, 2, 'red_dot_right_up');
+                } else if (isBothTc4Equal && mj === 2) {
+                    htCleanYupanaDecimalRow(tableID, bottom2top);
+                    htFillYupanaDecimalRow(tableID, bottom2top, 3, 'red_dot_right_up');
+                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
+                } else if (isKimsaStep) {
                     var kLeft = larr[step];
                     var kRight = rarr_work[step];
                     if (kRight >= 5) {
@@ -559,7 +570,8 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         var preRightRem = rarr_work[step] >= 5 ? rarr_work[step] - 5 : rarr_work[step];
         var preHasTc4 = (preLeftRem == 1 || preLeftRem == 4 || preRightRem == 1 || preRightRem == 4);
         var preCombine = (rarr_work[step] >= 5 && larr[step] + rarr_work[step] - 5 === 5);
-        if (preHasTc4 || (larr[step] < 5 && rarr_work[step] < 5) || preCombine) {
+        var isBothTc4Equal = (larr[step] === rarr_work[step] && larr[step] < 5 && (larr[step] === 1 || larr[step] === 4));
+        if (!isBothTc4Equal && (preHasTc4 || (larr[step] < 5 && rarr_work[step] < 5) || preCombine)) {
             htDrawDecomposed(bottom2top, larr[step], rarr_work[step], false);
         }
         setTimeout(showMovement, 1500);
