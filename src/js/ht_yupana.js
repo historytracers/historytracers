@@ -242,7 +242,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
                     text += "<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />";
                 }
                 else if (lValue == 8 || rValue == 8) {
-                    text += "<i>"+mathKeywords[4]+"</i><br /><i>"+mathKeywords[1]+"</i><br />";
+                    text += "<i>"+mathKeywords[4]+"</i><br />";
                 }
                 else if (lValue == 7 || rValue == 7) {
                     text += "<i>"+mathKeywords[4]+"</i><br />";
@@ -497,7 +497,11 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             }
 
             if (mj === 0 && larr[step] < 10 && rarr_work[step] < 10) {
-                htDrawDecomposed(bottom2top, larr[step], rarr_work[step], true);
+                if (filteredMovements.length > 1 && rarr_work[step] >= 5 && larr[step] + rarr_work[step] - 5 === 5) {
+                    htDrawDecomposed(bottom2top, 5, 5, false);
+                } else {
+                    htDrawDecomposed(bottom2top, larr[step], rarr_work[step], true);
+                }
             } else if (mj === 0) {
                 htCleanYupanaDecimalRow(tableID, bottom2top);
                 if (resultDigit > 0) {
@@ -554,14 +558,9 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         var preLeftRem = larr[step] >= 5 ? larr[step] - 5 : larr[step];
         var preRightRem = rarr_work[step] >= 5 ? rarr_work[step] - 5 : rarr_work[step];
         var preHasTc4 = (preLeftRem == 1 || preLeftRem == 4 || preRightRem == 1 || preRightRem == 4);
-        if (preHasTc4 || (larr[step] < 5 && rarr_work[step] < 5)) {
-            htCleanYupanaDecimalRow(tableID, bottom2top);
-            if (larr[step] > 0) {
-                htFillYupanaDecimalRow(tableID, bottom2top, larr[step], 'red_dot_right_up');
-            }
-            if (rarr_work[step] > 0) {
-                htFillYupanaDecimalRow(tableID, bottom2top, rarr_work[step], 'blue_dot_right_bottom');
-            }
+        var preCombine = (rarr_work[step] >= 5 && larr[step] + rarr_work[step] - 5 === 5);
+        if (preHasTc4 || (larr[step] < 5 && rarr_work[step] < 5) || preCombine) {
+            htDrawDecomposed(bottom2top, larr[step], rarr_work[step], false);
         }
         setTimeout(showMovement, 1500);
     }
