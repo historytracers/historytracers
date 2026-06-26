@@ -18,14 +18,19 @@ function htLoadContent() {
 
     local = { "lvalues": [], "rvalues": [], "sumFirstTime": true, "counter": 0, "answerVector": undefined }; 
 
+    function htRebuildTc5fCells() {
+        for (let i = 1; i <= 4; i++) {
+            $('#yupana1 #tc5f' + i).html('<span id="vl' + i + '"></span> + <span id="vr' + i + '"></span>');
+        }
+    }
+
     function htResetSumOnInput() {
         window.htYupanaAnimationCancelled = true;
         $(".yupana-btn").removeClass("active");
         $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", true);
         htCleanYupanaDecimalValues('#yupana1');
         $('#yupana1').find('[id^="tc6f"]').html(' ');
-        $('#yupana1').find('[id^="vl"]').html(' ');
-        $('#yupana1').find('[id^="vr"]').html(' ');
+        htRebuildTc5fCells();
         $('#tc7f1').html("");
         local.lvalues = htFillYupanaDecimalValues('#yupana1', $('#ia2yupana0').val(), 4, 'red_dot_right_up');
         local.rvalues = htFillYupanaDecimalValues('#yupana1', $('#ia2yupana1').val(), 4, 'blue_dot_right_bottom');
@@ -63,8 +68,7 @@ function htLoadContent() {
 
         htFillCurrentYupanaSum();
         $('#yupana1').find('[id^="tc6f"]').html(' ');
-        $('#yupana1').find('[id^="vl"]').html(' ');
-        $('#yupana1').find('[id^="vr"]').html(' ');
+        htRebuildTc5fCells();
         $('#tc7f1').html("");
         if (value == "values") {
             $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", false);
@@ -83,6 +87,8 @@ function htLoadContent() {
             htCleanYupanaDecimalValues('#yupana1');
             htFillYupanaDecimalValues('#yupana1', totals, 4, 'red_dot_right_up');
             htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana1', totals);
+            htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', local.lvalues);
+            htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', local.rvalues);
             htWriteYupanaSumMovement(local.lvalues, local.rvalues, '#yupana1', 4, '#tc7f1');
         }
     });
