@@ -191,7 +191,13 @@ function htWriteSumOnYupana(lValue, rValue, result)
             case 2:
             case 3:
                 if (bigger == true) {
-                    text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
+                    var leftRem = lValue >= 5 ? lValue - 5 : lValue;
+                    var rightRem = rValue >= 5 ? rValue - 5 : rValue;
+                    if (leftRem == rightRem && (leftRem == 1 || leftRem == 4)) {
+                        text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
+                    } else {
+                        text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
+                    }
                 }
                 else if (bigger == false && result == 3) {
                     text = "<i>"+mathKeywords[4]+"</i><br />";
@@ -199,7 +205,13 @@ function htWriteSumOnYupana(lValue, rValue, result)
                 break;
             case 7:
                 if (bigger) {
-                    text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
+                    var leftRem7 = lValue >= 5 ? lValue - 5 : lValue;
+                    var rightRem7 = rValue >= 5 ? rValue - 5 : rValue;
+                    if (leftRem7 == rightRem7 && (leftRem7 == 1 || leftRem7 == 4)) {
+                        text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
+                    } else {
+                        text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
+                    }
                 } else {
                     if (lValue == 4 || rValue == 4) {
                         text += "<i>"+mathKeywords[1]+"</i><br />"
@@ -244,11 +256,9 @@ function htWriteSumOnYupana(lValue, rValue, result)
                     text += "<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />";
                 }
                 else if (lValue == 8 || rValue == 8) {
-                    text += "<i>"+mathKeywords[4]+"</i><br />";
                     text += "<i>"+mathKeywords[1]+"</i><br />";
                 }
                 else if (lValue == 7 || rValue == 7) {
-                    text += "<i>"+mathKeywords[4]+"</i><br />";
                     text += "<i>"+mathKeywords[1]+"</i><br />";
                 }
                 else if (lValue == 6 || rValue == 6) {
@@ -551,7 +561,7 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
                             htFillYupanaDecimalRow(tableID, bottom2top, rNonTc4, 'blue_dot_right_bottom');
                         }
                         htFillYupanaDecimalRow(tableID, bottom2top, 2, 'red_dot_right_up_1');
-                    } else if (filteredMovements.length > 1 && rarr_work[step] >= 5 && larr[step] + rarr_work[step] - 5 === 5 && !preHasTc4) {
+                    } else if (filteredMovements.length > 1 && larr[step] + rarr_work[step] === 10 && larr[step] !== rarr_work[step] && !preHasTc4) {
                         htDrawDecomposed(bottom2top, 5, 5, false);
                     } else {
                         htDrawDecomposed(bottom2top, larr[step], rarr_work[step], true);
