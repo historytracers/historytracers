@@ -245,9 +245,11 @@ function htWriteSumOnYupana(lValue, rValue, result)
                 }
                 else if (lValue == 8 || rValue == 8) {
                     text += "<i>"+mathKeywords[4]+"</i><br />";
+                    text += "<i>"+mathKeywords[1]+"</i><br />";
                 }
                 else if (lValue == 7 || rValue == 7) {
                     text += "<i>"+mathKeywords[4]+"</i><br />";
+                    text += "<i>"+mathKeywords[1]+"</i><br />";
                 }
                 else if (lValue == 6 || rValue == 6) {
                     text += "<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />";
@@ -620,7 +622,7 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         var preLeftRem = larr[step] >= 5 ? larr[step] - 5 : larr[step];
         var preRightRem = rarr_work[step] >= 5 ? rarr_work[step] - 5 : rarr_work[step];
         var preHasTc4 = (preLeftRem == 1 || preLeftRem == 4 || preRightRem == 1 || preRightRem == 4);
-        var preCombine = (rarr_work[step] >= 5 && larr[step] + rarr_work[step] - 5 === 5);
+        var preCombine = (larr[step] + rarr_work[step] === 10 && larr[step] !== rarr_work[step]);
         var isBothTc4Equal = (larr[step] === rarr_work[step] && larr[step] < 5 && (larr[step] === 1 || larr[step] === 4));
         if (!isBothTc4Equal && (preHasTc4 || (larr[step] < 5 && rarr_work[step] < 5) || preCombine)) {
             if (isCombineCase) {
