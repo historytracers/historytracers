@@ -191,7 +191,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
             case 2:
             case 3:
                 if (bigger == true) {
-                    text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+text;
+                    text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
                 }
                 else if (bigger == false && result == 3) {
                     text = "<i>"+mathKeywords[4]+"</i><br />";
@@ -199,7 +199,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
                 break;
             case 7:
                 if (bigger) {
-                    text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+text;
+                    text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
                 } else {
                     if (lValue == 4 || rValue == 4) {
                         text += "<i>"+mathKeywords[1]+"</i><br />"
@@ -431,6 +431,15 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             }
         }
 
+        var isCombineCase = false;
+        if (filteredMovements.length >= 3 && filteredMovements[0].indexOf(mathKeywords[3]) >= 0) {
+            var _preL = larr[step] >= 5 ? larr[step] - 5 : larr[step];
+            var _preR = rarr_work[step] >= 5 ? rarr_work[step] - 5 : rarr_work[step];
+            if (_preL == _preR && (_preL == 1 || _preL == 4) && (larr[step] >= 5) != (rarr_work[step] >= 5)) {
+                isCombineCase = true;
+            }
+        }
+
         var mj = 0;
         var useBase5Many = filteredMovements.length >= 3 && larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10;
 
@@ -506,10 +515,45 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             }
 
             if (mj === 0 && larr[step] < 10 && rarr_work[step] < 10) {
-                if (filteredMovements.length > 1 && rarr_work[step] >= 5 && larr[step] + rarr_work[step] - 5 === 5 && !preHasTc4) {
-                    htDrawDecomposed(bottom2top, 5, 5, false);
+                if (isCombineCase) {
+                    htCleanYupanaDecimalRow(tableID, bottom2top);
+                    if (larr[step] >= 5) {
+                        htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
+                    }
+                    if (rarr_work[step] >= 5) {
+                        htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
+                    }
+                    if (preLeftRem == 4) {
+                        htFillYupanaDecimalRow(tableID, bottom2top, 3, 'red_dot_right_up');
+                    }
+                    if (preRightRem == 4) {
+                        htFillYupanaDecimalRow(tableID, bottom2top, 3, 'blue_dot_right_bottom');
+                    }
+                    htFillYupanaDecimalRow(tableID, bottom2top, 2, 'red_dot_right_up_1');
                 } else {
-                    htDrawDecomposed(bottom2top, larr[step], rarr_work[step], true);
+                    var needTc4Combine = preLeftRem == preRightRem && (preLeftRem == 1 || preLeftRem == 4) && (larr[step] >= 5) != (rarr_work[step] >= 5) && filteredMovements[0].indexOf(mathKeywords[3]) >= 0;
+                    if (needTc4Combine) {
+                        htCleanYupanaDecimalRow(tableID, bottom2top);
+                        if (larr[step] >= 5) {
+                            htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
+                        }
+                        if (rarr_work[step] >= 5) {
+                            htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
+                        }
+                        var lNonTc4 = preLeftRem == 4 ? 3 : 0;
+                        var rNonTc4 = preRightRem == 4 ? 3 : 0;
+                        if (lNonTc4 > 0) {
+                            htFillYupanaDecimalRow(tableID, bottom2top, lNonTc4, 'red_dot_right_up');
+                        }
+                        if (rNonTc4 > 0) {
+                            htFillYupanaDecimalRow(tableID, bottom2top, rNonTc4, 'blue_dot_right_bottom');
+                        }
+                        htFillYupanaDecimalRow(tableID, bottom2top, 2, 'red_dot_right_up_1');
+                    } else if (filteredMovements.length > 1 && rarr_work[step] >= 5 && larr[step] + rarr_work[step] - 5 === 5 && !preHasTc4) {
+                        htDrawDecomposed(bottom2top, 5, 5, false);
+                    } else {
+                        htDrawDecomposed(bottom2top, larr[step], rarr_work[step], true);
+                    }
                 }
             } else if (mj === 0) {
                 htCleanYupanaDecimalRow(tableID, bottom2top);
@@ -519,7 +563,7 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
             } else {
                 var useBase5 = larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10;
                 var isPisqaStep = !useBase5 && mj == filteredMovements.length - 1 && larr[step] < 10 && rarr_work[step] < 10;
-                var isKimsaStep = !useBase5 && filteredMovements.length == 3 && mj == 1 && (rarr_work[step] >= 5 || larr[step] >= 5);
+                var isKimsaStep = !useBase5 && mj == filteredMovements.length - 2 && (rarr_work[step] >= 5 || larr[step] >= 5);
                 if (isBothTc4Equal && mj === 1) {
                     htCleanYupanaDecimalRow(tableID, bottom2top);
                     htFillYupanaDecimalRow(tableID, bottom2top, 3, 'red_dot_right_up');
@@ -579,7 +623,33 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         var preCombine = (rarr_work[step] >= 5 && larr[step] + rarr_work[step] - 5 === 5);
         var isBothTc4Equal = (larr[step] === rarr_work[step] && larr[step] < 5 && (larr[step] === 1 || larr[step] === 4));
         if (!isBothTc4Equal && (preHasTc4 || (larr[step] < 5 && rarr_work[step] < 5) || preCombine)) {
-            htDrawDecomposed(bottom2top, larr[step], rarr_work[step], false);
+            if (isCombineCase) {
+                htCleanYupanaDecimalRow(tableID, bottom2top);
+                if (larr[step] >= 5) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'red_dot_right_up');
+                }
+                if (rarr_work[step] >= 5) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, 5, 'blue_dot_right_bottom');
+                }
+                if (preLeftRem == 4) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, 3, 'red_dot_right_up');
+                    htFillYupanaDecimalRow(tableID, bottom2top, 2, 'red_dot_right_up_1');
+                } else if (preLeftRem == 1) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, 2, 'red_dot_right_up_1');
+                } else if (preLeftRem > 0) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, preLeftRem, 'red_dot_right_up');
+                }
+                if (preRightRem == 4) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, 3, 'blue_dot_right_bottom');
+                    htFillYupanaDecimalRow(tableID, bottom2top, 2, 'blue_dot_right_bottom_1');
+                } else if (preRightRem == 1) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, 2, 'blue_dot_right_bottom_1');
+                } else if (preRightRem > 0) {
+                    htFillYupanaDecimalRow(tableID, bottom2top, preRightRem, 'blue_dot_right_bottom');
+                }
+            } else {
+                htDrawDecomposed(bottom2top, larr[step], rarr_work[step], false);
+            }
         }
         setTimeout(showMovement, 1500);
     }
