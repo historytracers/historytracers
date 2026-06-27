@@ -74,6 +74,11 @@ func HTGenerateGalleryIndex() {
 		"pt-BR": "Imagens utilizadas pelo History Tracers",
 		"es-ES": "Im\u00e1genes utilizadas por History Tracers",
 	}
+	langHeaders := map[string]string{
+		"en-US": "Image directories",
+		"pt-BR": "Diret\u00f3rios de imagens",
+		"es-ES": "Directorios de im\u00e1genes",
+	}
 	langIntros := map[string]string{
 		"en-US": "<p><hr /></p><p><h3>Images used by History Tracers</h3>This chapter lists all image directories used throughout the project, organized by source.</p>",
 		"pt-BR": "<p><hr /></p><p><h3>Imagens utilizadas pelo History Tracers</h3>Este cap\u00edtulo lista todos os diret\u00f3rios de imagens usados no projeto, organizados por fonte.</p>",
@@ -106,7 +111,7 @@ func HTGenerateGalleryIndex() {
 				Target:    "gallery",
 				Page:      "",
 				ValueType: "",
-				HTMLValue: "<h3>Image directories</h3>",
+				HTMLValue: "<h3>" + langHeaders[lang] + "</h3>",
 				Value:     nil,
 				Source:    nil,
 				DateTime:  nil,
