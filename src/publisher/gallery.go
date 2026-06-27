@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"sort"
 	"strings"
 
 	"github.com/historytracers/common"
@@ -65,6 +66,9 @@ func parseGalleryReadme(lang string) ([]common.ClassContentValue, error) {
 	if err := scanner.Err(); err != nil {
 		return nil, err
 	}
+	sort.Slice(values, func(i, j int) bool {
+		return values[i].Name < values[j].Name
+	})
 	return values, nil
 }
 
