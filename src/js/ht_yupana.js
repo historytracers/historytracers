@@ -561,6 +561,8 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
                             htFillYupanaDecimalRow(tableID, bottom2top, rNonTc4, 'blue_dot_right_bottom');
                         }
                         htFillYupanaDecimalRow(tableID, bottom2top, 2, 'red_dot_right_up_1');
+                    } else if (filteredMovements[0].indexOf(mathKeywords[1]) >= 0 && preLeftRem >= 3 && preRightRem >= 3) {
+                        htDrawDecomposed(bottom2top, larr[step] + 3, rarr_work[step] - 3, false);
                     } else if (filteredMovements.length > 1 && larr[step] + rarr_work[step] === 10 && larr[step] !== rarr_work[step] && !preHasTc4) {
                         htDrawDecomposed(bottom2top, 5, 5, false);
                     } else {
@@ -573,7 +575,7 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
                     htFillYupanaDecimalRow(tableID, bottom2top, resultDigit, 'blue_dot_right_bottom');
                 }
             } else {
-                var useBase5 = larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10;
+                var useBase5 = larr[step] >= 5 && rarr_work[step] >= 5 && rawSum > 10 && resultDigit < 5;
                 var isPisqaStep = !useBase5 && mj == filteredMovements.length - 1 && larr[step] < 10 && rarr_work[step] < 10;
                 var isKimsaStep = !useBase5 && mj == filteredMovements.length - 2 && (rarr_work[step] >= 5 || larr[step] >= 5);
                 if (isBothTc4Equal && mj === 1) {
