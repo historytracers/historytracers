@@ -953,8 +953,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .imgGameSize {
-  max-width: 35vw;
-  max-height: 30vw;
+  max-width: 100%;
+  max-height: 80vh;
+  display : block;
+  margin : 0 auto;
 }
 
 .imgGameSizeWithOpacity {
@@ -1027,7 +1029,9 @@ input[type=number]::-webkit-outer-spin-button {
   position: relative;
   margin-left : auto;
   margin-right : auto;
-  width: 60%;
+  width: 100%;
+  padding : 0 8vw;
+  box-sizing : border-box;
 }
 
 .htSlide {
