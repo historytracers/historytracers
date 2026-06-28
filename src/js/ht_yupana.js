@@ -252,7 +252,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
             case 6:
                 if (bigger) {
                     var carryText16 = text;
-                    text = "<i>"+mathKeywords[1]+"</i><br />"+text;
+                    text = "<i>"+mathKeywords[4]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+text;
                     text += carryText16;
                 } else {
                     if (lValue == 4 || rValue == 4) {
