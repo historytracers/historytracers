@@ -583,7 +583,7 @@ func allowedPage(name string) bool {
 		"biology", "chemistry", "history", "families", "myths_believes",
 		"first_steps_menu", "first_steps", "first_steps_volume2", "shapes",
 		"indigenous_who", "indigenous_time", "math_games", "release",
-		"literature", "atlas", "tree", "class_content":
+		"literature", "atlas", "gallery", "tree", "class_content":
 		return true
 	}
 	return false
