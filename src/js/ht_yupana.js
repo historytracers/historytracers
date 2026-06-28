@@ -1296,14 +1296,15 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
             }
             var _rm = _tot % 5;
             if (_rm == 4) {
-                htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'red_dot_right_up');
-                htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'red_dot_right_up_1');
+                htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'blue_dot_right_bottom');
+                htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
             } else if (_rm == 3) {
-                htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'red_dot_right_up');
+                htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'blue_dot_right_bottom');
+                htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
             } else if (_rm == 2) {
-                htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'red_dot_right_up');
+                htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'blue_dot_right_bottom');
             } else if (_rm == 1) {
-                htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'red_dot_right_up_1');
+                htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
             }
         } else if (isPisqa) {
             htDrawDecomposed2(tableID, row.bottom2top, row.resultDigit, 0, false);
