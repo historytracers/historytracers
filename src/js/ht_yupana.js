@@ -1233,13 +1233,6 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
         }
     }
 
-    state.displayArr[state.step] = state.row.resultDigit;
-    for (var _i = state.step + 1; _i < state.larr.length; _i++) {
-        if (state.larr[_i] !== 0 || state.rarr_work[_i] !== 0) break;
-        state.displayArr[_i] = 0;
-    }
-    htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, state.displayArr);
-
     return state.step < state.larr.length;
 }
 
