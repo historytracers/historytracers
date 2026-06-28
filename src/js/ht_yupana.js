@@ -873,15 +873,22 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
         }
 
         if (rawSum === 0 && lValue === 0 && rValue === 0) {
-            htCleanYupanaDecimalRow(tableID, bottom2top);
-            state.displayArr[state.step] = 0;
+            while (state.step < state.larr.length) {
+                var _lz = state.larr[state.step];
+                var _rwz = state.rarr_work[state.step];
+                if (_lz !== 0 || _rwz !== 0) break;
+                var _row = rows - state.step;
+                htCleanYupanaDecimalRow(tableID, _row);
+                state.displayArr[state.step] = 0;
+                state.step++;
+            }
             htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, state.displayArr);
-            state.step++;
             if (state.step >= state.larr.length) {
                 window.htYupanaCalculationInProgress = false;
                 window.htStepByStepState = null;
                 return false;
             }
+            state.row = null;
             return true;
         }
 
@@ -957,6 +964,13 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
         state.row = null;
         state.mj = 0;
 
+        while (state.step < state.larr.length) {
+            if (state.larr[state.step] !== 0 || state.rarr_work[state.step] !== 0) break;
+            htCleanYupanaDecimalRow(tableID, rows - state.step);
+            state.displayArr[state.step] = 0;
+            state.step++;
+        }
+        htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, state.displayArr);
         if (state.step >= state.larr.length) {
             window.htYupanaCalculationInProgress = false;
             window.htStepByStepState = null;
@@ -975,7 +989,19 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
         state.step++;
         state.row = null;
         state.mj = 0;
-        return state.step < state.larr.length;
+        while (state.step < state.larr.length) {
+            if (state.larr[state.step] !== 0 || state.rarr_work[state.step] !== 0) break;
+            htCleanYupanaDecimalRow(tableID, rows - state.step);
+            state.displayArr[state.step] = 0;
+            state.step++;
+        }
+        htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, state.displayArr);
+        if (state.step >= state.larr.length) {
+            window.htYupanaCalculationInProgress = false;
+            window.htStepByStepState = null;
+            return false;
+        }
+        return true;
     }
 
     if (row.useBase5Many && movIdx == row.filteredMovements.length - 1) {
@@ -990,6 +1016,13 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
         state.row = null;
         state.mj = 0;
 
+        while (state.step < state.larr.length) {
+            if (state.larr[state.step] !== 0 || state.rarr_work[state.step] !== 0) break;
+            htCleanYupanaDecimalRow(tableID, rows - state.step);
+            state.displayArr[state.step] = 0;
+            state.step++;
+        }
+        htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, state.displayArr);
         if (state.step >= state.larr.length) {
             window.htYupanaCalculationInProgress = false;
             window.htStepByStepState = null;
