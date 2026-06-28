@@ -1146,17 +1146,34 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
                 htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'red_dot_right_up_1');
             } else if (row.filteredMovements[0].indexOf(mathKeywords[1]) >= 0 && row.preLeftRem >= 3 && row.preRightRem >= 3) {
                 htCleanYupanaDecimalRow(tableID, row.bottom2top);
-                htFillYupanaDecimalRow(tableID, row.bottom2top, 5, 'red_dot_right_up');
-                htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'red_dot_right_up');
-                var _kRem = (row.preLeftRem - 3) + (row.preRightRem - 3);
-                if (_kRem == 4) {
+                if (row.lValue >= 5) {
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 5, 'red_dot_right_up');
+                }
+                if (row.rWork >= 5) {
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 5, 'blue_dot_right_bottom');
+                }
+                var _lk = row.lValue >= 5 ? row.lValue - 5 : row.lValue;
+                var _rk = row.rWork >= 5 ? row.rWork - 5 : row.rWork;
+                var _tot = (_lk == 4 || _lk == 3 ? 3 : _lk == 2 ? 2 : 0)
+                         + (_rk == 4 || _rk == 3 ? 3 : _rk == 2 ? 2 : 0)
+                         + (_lk == 1 || _lk == 4 ? 1 : 0)
+                         + (_rk == 1 || _rk == 4 ? 1 : 0);
+                var _5idx = row.lValue >= 5 ? 1 : 0;
+                for (var _f = 0; _f < Math.floor(_tot / 5) && _5idx <= 4; _f++) {
+                    var _5cls = _5idx == 0 ? 'red_dot_right_up' : _5idx == 1 ? 'red_dot_right_up_1' : _5idx == 2 ? 'red_dot_right_up_2' : _5idx == 3 ? 'red_dot_right_up_3' : 'red_dot_right_up_4';
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 5, _5cls);
+                    _5idx++;
+                }
+                var _rm = _tot % 5;
+                if (_rm == 4) {
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'blue_dot_right_bottom');
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
-                } else if (_kRem == 3) {
-                    htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'blue_dot_right_bottom');
-                } else if (_kRem == 2) {
+                } else if (_rm == 3) {
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'blue_dot_right_bottom');
-                } else if (_kRem == 1) {
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
+                } else if (_rm == 2) {
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'blue_dot_right_bottom');
+                } else if (_rm == 1) {
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
                 }
             } else if (row.filteredMovements[0].indexOf(mathKeywords[3]) >= 0 && row.preLeftRem >= 1 && row.preRightRem >= 1) {
