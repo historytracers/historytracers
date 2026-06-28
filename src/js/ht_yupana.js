@@ -453,6 +453,9 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
         var filteredMovements = [];
         for (var mi = 0; mi < movements.length; mi++) {
             if (movements[mi].length > 0) {
+                if (filteredMovements.length > 0 && movements[mi] === filteredMovements[filteredMovements.length - 1]) {
+                    continue;
+                }
                 filteredMovements.push(movements[mi]);
             }
         }
@@ -906,6 +909,9 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
         var filteredMovements = [];
         for (var mi = 0; mi < movements.length; mi++) {
             if (movements[mi].length > 0) {
+                if (filteredMovements.length > 0 && movements[mi] === filteredMovements[filteredMovements.length - 1]) {
+                    continue;
+                }
                 filteredMovements.push(movements[mi]);
             }
         }
