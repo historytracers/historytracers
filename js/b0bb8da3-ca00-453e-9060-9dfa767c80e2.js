@@ -27,6 +27,7 @@ function htLoadContent() {
     function htResetSumOnInput() {
         window.htYupanaCalculationInProgress = false;
         window.htYupanaAnimationCancelled = true;
+        window.htStepByStepState = null;
         $(".yupana-btn").removeClass("active");
         $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", true);
         htCleanYupanaDecimalValues('#yupana1');
@@ -61,12 +62,19 @@ function htLoadContent() {
     htFillCurrentYupanaSum();
 
     $(".yupana-btn").on("click", function() {
-        if (window.htYupanaCalculationInProgress) {
+        var value = $(this).data("action");
+
+        if (window.htStepByStepState && value == "stepbystep") {
+            var hasMore = htYupanaStepByStepClick(local.lvalues, local.rvalues, '#yupana1', 4, '#tc7f1');
+            if (!hasMore) {
+                window.htStepByStepState = null;
+            }
             return;
         }
-        var value = $(this).data("action");
+
         $(".yupana-btn").removeClass("active");
         $(this).addClass("active");
+        window.htStepByStepState = null;
         window.htYupanaAnimationCancelled = true;
         htCleanYupanaDecimalValues('#yupana1');
 
@@ -82,11 +90,10 @@ function htLoadContent() {
             $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", false);
             htWriteYupanaValuesOnHTMLTable('#vl', '#yupana1', local.lvalues);
             htWriteYupanaValuesOnHTMLTable('#vr', '#yupana1', local.rvalues);
-            window.htYupanaAnimationCancelled = false;
-            window.htYupanaCalculationInProgress = true;
-            setTimeout(function() {
-                htYupanaStepByStep(local.lvalues, local.rvalues, '#yupana1', 4, '#tc7f1');
-            }, 1000);
+            var hasMore = htYupanaStepByStepClick(local.lvalues, local.rvalues, '#yupana1', 4, '#tc7f1');
+            if (!hasMore) {
+                window.htStepByStepState = null;
+            }
         } else {
             var totals = htSumYupanaVectors(local.lvalues, local.rvalues);
             htCleanYupanaDecimalValues('#yupana1');
