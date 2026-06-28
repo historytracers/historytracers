@@ -68,6 +68,8 @@ function htLoadContent() {
             var hasMore = htYupanaStepByStepClick(local.lvalues, local.rvalues, '#yupana1', 4, '#tc7f1');
             if (!hasMore) {
                 window.htStepByStepState = null;
+                var totals = htSumYupanaVectors(local.lvalues, local.rvalues);
+                htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana1', totals);
             }
             return;
         }
@@ -93,6 +95,8 @@ function htLoadContent() {
             var hasMore = htYupanaStepByStepClick(local.lvalues, local.rvalues, '#yupana1', 4, '#tc7f1');
             if (!hasMore) {
                 window.htStepByStepState = null;
+                var totals = htSumYupanaVectors(local.lvalues, local.rvalues);
+                htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana1', totals);
             }
         } else {
             var totals = htSumYupanaVectors(local.lvalues, local.rvalues);
