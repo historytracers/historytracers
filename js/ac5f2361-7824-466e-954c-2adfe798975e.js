@@ -4,6 +4,7 @@ var slideIndexac5f2361 = 0;
 
 function htPlusDivs(n) {
     var x = document.getElementsByClassName("htSlide");
+
     slideIndexac5f2361 += n;
     if (slideIndexac5f2361 == x.length) { slideIndexac5f2361 = 0; }
     else if (slideIndexac5f2361 < 0) { slideIndexac5f2361 = x.length - 1; }

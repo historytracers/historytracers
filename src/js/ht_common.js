@@ -1475,6 +1475,8 @@ function htFillClassContentV2(table, last_update, page_authors, page_reviewers, 
     }
     htFillDivAuthorsContent("#paper", last_update, page_authors, page_reviewers);
 
+    $(".htSlide, .htSlides").remove();
+
     var idx = 0;
     var navigationPage = "";
     if (index) {
