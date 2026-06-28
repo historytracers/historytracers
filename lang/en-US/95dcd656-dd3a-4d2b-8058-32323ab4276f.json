@@ -24,7 +24,7 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1782670804"
+      "1782676001"
    ],
    "authors": [
       ""
@@ -74,8 +74,33 @@
                "PostMention": ""
             },
             {
-               "text": "<p><div class=\"htSlides\"><div class=\"htSlide\"><div class=\"htSlideCounter\">1 / 2</div><img class=\"imgGameSize\" id=\"imgAtlatl\" onclick=\"htImageZoom('imgAtlatl', '0%')\"><div class=\"htSlideCaption\">Ornamental profile of a warrior. © The Metropolitan Museum of Art, New York (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('6a66114e-5e44-44d3-a2a5-6044735934cf'); return false;\"><i>The Metropolitan Museum of Art, 1986, Bequest of Jane Costello Goldberg, from the Collection of Arnold I</i></a> ).</div></div><div class=\"htSlide\"><div class=\"htSlideCounter\">2 / 2</div><img class=\"imgGameSize\" id=\"imgPottery2\" onclick=\"htImageZoom('imgPottery2', '0%')\"><div class=\"htSlideCaption\">Deep Vessel. © The Metropolitan Museum of Art, New York (<a href=\"#\" onclick=\"htCleanSources(); htFillPrimarySource('b8aaab3e-cee3-48e9-a2ff-5301eaa2ed1f'); return false;\"><i>The Metropolitan Museum of Art, New York, 1992, Gift of Florence and Herbert Irving</i></a> ).</div></div><i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i><i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i></div></p>",
-               "source": null,
+               "text": "<p><div class=\"htSlides\"><div class=\"htSlide\"><div class=\"htSlideCounter\">1 / 2</div><img class=\"imgGameSize\" id=\"imgAtlatl\" onclick=\"htImageZoom('imgAtlatl', '0%')\"><div class=\"htSlideCaption\">Ornamental profile of a warrior. © The Metropolitan Museum of Art, New York (<htcite0> ).</div></div><div class=\"htSlide\"><div class=\"htSlideCounter\">2 / 2</div><img class=\"imgGameSize\" id=\"imgPottery2\" onclick=\"htImageZoom('imgPottery2', '0%')\"><div class=\"htSlideCaption\">Deep Vessel. © The Metropolitan Museum of Art, New York (<htcite1> ).</div></div><i class=\"fa-solid fa-chevron-left htSlidePrev\" onclick=\"htPlusDivs(-1);\"></i><i class=\"fa-solid fa-chevron-right htSlideNext\" onclick=\"htPlusDivs(1);\"></i></div></p>",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "6a66114e-5e44-44d3-a2a5-6044735934cf",
+                     "text": "The Metropolitan Museum of Art, 1986, Bequest of Jane Costello Goldberg, from the Collection of Arnold I",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1986",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "b8aaab3e-cee3-48e9-a2ff-5301eaa2ed1f",
+                     "text": "The Metropolitan Museum of Art, New York, 1992, Gift of Florence and Herbert Irving",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1992",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
@@ -83,8 +108,33 @@
                "PostMention": ""
             },
             {
-               "text": "### Image Descriptions\n- **Slide 1 / 2**: Ornamental profile of a warrior. © The Metropolitan Museum of Art, New York (*The Metropolitan Museum of Art, 1986, Bequest of Jane Costello Goldberg, from the Collection of Arnold I* ).\n- **Slide 2 / 2**: Deep Vessel. © The Metropolitan Museum of Art, New York (*The Metropolitan Museum of Art, New York, 1992, Gift of Florence and Herbert Irving* ).",
-               "source": null,
+               "text": "### Image Descriptions\n- **Slide 1 / 2**: Ornamental profile of a warrior. © The Metropolitan Museum of Art, New York (<htcite0> ).\n- **Slide 2 / 2**: Deep Vessel. © The Metropolitan Museum of Art, New York (<htcite1> ).",
+               "source": [
+                  {
+                     "type": 0,
+                     "uuid": "6a66114e-5e44-44d3-a2a5-6044735934cf",
+                     "text": "The Metropolitan Museum of Art, 1986, Bequest of Jane Costello Goldberg, from the Collection of Arnold I",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1986",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 0,
+                     "uuid": "b8aaab3e-cee3-48e9-a2ff-5301eaa2ed1f",
+                     "text": "The Metropolitan Museum of Art, New York, 1992, Gift of Florence and Herbert Irving",
+                     "page": "",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "1992",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
                "date_time": null,
                "isTable": false,
                "imgdesc": "",
