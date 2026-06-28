@@ -1126,19 +1126,18 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
                 htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'red_dot_right_up_1');
             } else if (row.filteredMovements[0].indexOf(mathKeywords[1]) >= 0 && row.preLeftRem >= 3 && row.preRightRem >= 3) {
                 htCleanYupanaDecimalRow(tableID, row.bottom2top);
-                if (row.lValue >= 5) {
-                    htFillYupanaDecimalRow(tableID, row.bottom2top, 5, 'red_dot_right_up');
-                }
-                if (row.rWork >= 5) {
-                    htFillYupanaDecimalRow(tableID, row.bottom2top, 5, 'blue_dot_right_bottom');
-                }
                 htFillYupanaDecimalRow(tableID, row.bottom2top, 5, 'red_dot_right_up');
                 htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'red_dot_right_up');
-                if (row.preLeftRem - 3 > 0) {
-                    htFillYupanaDecimalRow(tableID, row.bottom2top, row.preLeftRem - 3, 'red_dot_right_up');
-                }
-                if (row.preRightRem - 3 > 0) {
-                    htFillYupanaDecimalRow(tableID, row.bottom2top, row.preRightRem - 3, 'blue_dot_right_bottom');
+                var _kRem = (row.preLeftRem - 3) + (row.preRightRem - 3);
+                if (_kRem == 4) {
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'blue_dot_right_bottom');
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
+                } else if (_kRem == 3) {
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'blue_dot_right_bottom');
+                } else if (_kRem == 2) {
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'blue_dot_right_bottom');
+                } else if (_kRem == 1) {
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
                 }
             } else if (row.filteredMovements[0].indexOf(mathKeywords[3]) >= 0 && row.preLeftRem >= 1 && row.preRightRem >= 1) {
                 var _lk = row.lValue >= 5 ? row.lValue - 5 : row.lValue;
