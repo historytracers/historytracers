@@ -967,6 +967,17 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
 
     $(tableID + " " + resultID).append(row.filteredMovements[movIdx] + "<br />");
 
+    if (row.filteredMovements.length === 1 && row.filteredMovements[0] === mathKeywords[5]) {
+        htCleanYupanaDecimalRow(tableID, row.bottom2top);
+        htFillYupanaDecimalRow(tableID, row.bottom2top, row.resultDigit, 'red_dot_right_up');
+        state.displayArr[state.step] = row.resultDigit;
+        htWriteYupanaValuesOnHTMLTable('#tc6f', tableID, state.displayArr);
+        state.step++;
+        state.row = null;
+        state.mj = 0;
+        return state.step < state.larr.length;
+    }
+
     if (row.useBase5Many && movIdx == row.filteredMovements.length - 1) {
         htCleanYupanaDecimalRow(tableID, row.bottom2top);
         htFillYupanaDecimalRow(tableID, row.bottom2top, row.resultDigit, 'red_dot_right_up');
