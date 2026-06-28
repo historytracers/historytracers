@@ -152,15 +152,18 @@ func HTGenerateGalleryIndex() {
 			if json.Unmarshal(raw, &existing) == nil {
 				for _, ec := range existing.Content {
 					if ec.ID == "groups_gallery" {
-						existingNames := map[string]string{}
+						existingByName := map[string]common.ClassContentValue{}
 						for _, ev := range ec.Value {
 							if ev.Name != "" {
-								existingNames[ev.Name] = ev.Name
+								existingByName[ev.Name] = ev
 							}
 						}
 						for i := range values {
-							if n, ok := existingNames[values[i].Name]; ok {
-								values[i].Name = n
+							if ev, ok := existingByName[values[i].Name]; ok {
+								values[i].Name = ev.Name
+								if ev.ID != "" {
+									values[i].ID = ev.ID
+								}
 							}
 						}
 						break
