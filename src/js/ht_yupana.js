@@ -1169,8 +1169,11 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'blue_dot_right_bottom');
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
                 } else if (_rm == 3) {
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'blue_dot_right_bottom');
+/*
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'blue_dot_right_bottom');
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
+*/
                 } else if (_rm == 2) {
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom');
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
@@ -1366,11 +1369,13 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
                 htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'blue_dot_right_bottom');
                 htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
             } else if (_rm == 3) {
+                htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'blue_dot_right_bottom');
+/*
                 htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'blue_dot_right_bottom');
                 htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
+*/
             } else if (_rm == 2) {
-                htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom');
-                htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
+                htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'blue_dot_right_bottom');
             } else if (_rm == 1) {
                 htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'blue_dot_right_bottom_1');
             }
