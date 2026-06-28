@@ -2,7 +2,7 @@
 
 var yupanaSelectors = [ -1,  4,  3,  2,  4,  1,  1,  1, 1,  1,
                         -1, -1, -1, -1,  2, -1,  4,  3, 2,  2,
-                        -1, -1, -1, -1, -1, -1,  4, -1, -1, 4];
+                        -1, -1, -1, -1, -1, -1, -1, -1, -1, 4];
 
 var yupanaClasses = [ "red_dot_right_up", "red_dot_right_up_1", "red_dot_right_up_2", "red_dot_right_up_3", "red_dot_right_up_4", "red_dot_right_bottom", "red_dot_right_bottom_1", "red_dot_right_bottom_2", "red_dot_right_bottom_3", "red_dot_right_bottom_4"];
 
@@ -191,13 +191,15 @@ function htWriteSumOnYupana(lValue, rValue, result)
             case 2:
             case 3:
                 if (bigger == true) {
-                    var leftRem = lValue >= 5 ? lValue - 5 : lValue;
-                    var rightRem = rValue >= 5 ? rValue - 5 : rValue;
-                    if (leftRem == 1 || leftRem == 4 || rightRem == 1 || rightRem == 4) {
+                    var carryText23 = text;
+                    var leftRem23 = lValue >= 5 ? lValue - 5 : lValue;
+                    var rightRem23 = rValue >= 5 ? rValue - 5 : rValue;
+                    if (leftRem23 == 1 || leftRem23 == 4 || rightRem23 == 1 || rightRem23 == 4) {
                         text = "<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
                     } else {
                         text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
                     }
+                    text += carryText23;
                 }
                 else if (bigger == false && result == 3) {
                     text = "<i>"+mathKeywords[4]+"</i><br />";
@@ -205,6 +207,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
                 break;
             case 7:
                 if (bigger) {
+                    var carryText7 = text;
                     var leftRem7 = lValue >= 5 ? lValue - 5 : lValue;
                     var rightRem7 = rValue >= 5 ? rValue - 5 : rValue;
                     if (leftRem7 == 1 || leftRem7 == 4 || rightRem7 == 1 || rightRem7 == 4) {
@@ -212,6 +215,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
                     } else {
                         text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
                     }
+                    text += carryText7;
                 } else {
                     if (lValue == 4 || rValue == 4) {
                         text += "<i>"+mathKeywords[1]+"</i><br />"
@@ -228,6 +232,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
                 break;
             case 5:
                 if (bigger) {
+                    var carryText5 = text;
                     var leftRem5 = lValue >= 5 ? lValue - 5 : lValue;
                     var rightRem5 = rValue >= 5 ? rValue - 5 : rValue;
                     if (leftRem5 == 1 || leftRem5 == 4 || rightRem5 == 1 || rightRem5 == 4) {
@@ -235,6 +240,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
                     } else {
                         text = "<i>"+mathKeywords[1]+"</i><br />"+"<i>"+mathKeywords[3]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
                     }
+                    text += carryText5;
                 } else {
                     if (lValue == 4 || rValue == 4) {
                         text = "<i>"+mathKeywords[3]+"</i><br />";
@@ -245,7 +251,9 @@ function htWriteSumOnYupana(lValue, rValue, result)
             case 1:
             case 6:
                 if (bigger) {
-                    text = "<i>"+mathKeywords[4]+"</i><br />"+"<i>"+mathKeywords[1]+"</i><br />"+text;
+                    var carryText16 = text;
+                    text = "<i>"+mathKeywords[1]+"</i><br />"+text;
+                    text += carryText16;
                 } else {
                     if (lValue == 4 || rValue == 4) {
                         text = "<i>"+mathKeywords[4]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
@@ -706,7 +714,7 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
                     }
                 } else if (isPisqa) {
                     htDrawDecomposed(bottom2top, resultDigit, 0, false);
-                    if (rawSum >= 10 && step + 1 < larr.length) {
+                    if (rawSum >= 10 && step + 1 < larr.length && mj == filteredMovements.length - 1) {
                         htFillYupanaDecimalRow(tableID, bottom2top - 1, 1, 'blue_dot_right_bottom');
                     }
                 } else {
