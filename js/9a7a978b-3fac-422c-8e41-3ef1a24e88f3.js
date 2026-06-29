@@ -4,7 +4,7 @@ var local = {};
 
 function htFillYupanaMultYupana0(value, times)
 {
-    local.lValues = htFillYupanaDecimalValuesWithRepetition("#yupana0", value, times, 3, yupanaClasses);
+    local.lValues = htFillYupanaDecimalValuesWithRepetition("#yupana0", value, times, 4, yupanaClasses);
     local.rValues = local.lValues.slice();
     htWriteYupanaValuesOnHTMLTable('#vl', '#yupana0', local.lValues);
     local.rValues[0] = times;
@@ -19,10 +19,10 @@ function htResetMultYupana0()
     window.htMultStepByStepState = null;
     $(".yupana-btn").removeClass("active");
     $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", true);
-    htCleanYupanaDecimalValues('#yupana0', 3);
-    htCleanYupanaAdditionalColumn('#yupana0', 3, '#tc6f');
+    htCleanYupanaDecimalValues('#yupana0', 4);
+    htCleanYupanaAdditionalColumn('#yupana0', 4, '#tc6f');
     $('#yupana0 #tc7f1').html("");
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 4; i++) {
         $('#yupana0 #tc5f' + i).html('<span id="vl' + i + '"></span> x <span id="vr' + i + '"></span>');
     }
 }
@@ -35,8 +35,8 @@ function htStepByStepMultClick()
         if (value < 0 || value > 9) value = 0;
         if (times < 0 || times > 9) times = 0;
         if (value === 0 || times === 0) {
-            htCleanYupanaDecimalValues('#yupana0', 3);
-            htCleanYupanaAdditionalColumn('#yupana0', 3, '#tc6f');
+            htCleanYupanaDecimalValues('#yupana0', 4);
+            htCleanYupanaAdditionalColumn('#yupana0', 4, '#tc6f');
             $('#yupana0 #tc7f1').html("0 x " + times + ":<br />" + mathKeywords[5] + "<br />");
             return;
         }
@@ -47,10 +47,10 @@ function htStepByStepMultClick()
             times: times
         };
 
-        htCleanYupanaDecimalValues('#yupana0', 3);
-        htCleanYupanaAdditionalColumn('#yupana0', 3, '#tc6f');
+        htCleanYupanaDecimalValues('#yupana0', 4);
+        htCleanYupanaAdditionalColumn('#yupana0', 4, '#tc6f');
         $('#yupana0 #tc7f1').html("");
-        for (let i = 1; i <= 3; i++) {
+        for (let i = 1; i <= 4; i++) {
             $('#yupana0 #tc5f' + i).html('<span id="vl' + i + '"></span> + <span id="vr' + i + '"></span>');
         }
     }
@@ -58,7 +58,7 @@ function htStepByStepMultClick()
     var ms = window.htMultStepByStepState;
 
     if (window.htStepByStepState) {
-        var stepDone = !htYupanaStepByStepClick([], [], '#yupana0', 3, '#tc7f1');
+        var stepDone = !htYupanaStepByStepClick([], [], '#yupana0', 4, '#tc7f1');
         if (stepDone) {
             ms.step++;
             if (ms.step > ms.times) {
@@ -72,7 +72,7 @@ function htStepByStepMultClick()
                 while (larr.length < 3) larr.push(0);
                 var rarr = [ms.value, 0, 0];
                 $('#yupana0 #tc7f1').append(ms.step + ") ");
-                htYupanaStepByStepClick(larr, rarr, '#yupana0', 3, '#tc7f1');
+                htYupanaStepByStepClick(larr, rarr, '#yupana0', 4, '#tc7f1');
             }
         }
         return;
@@ -93,7 +93,7 @@ function htStepByStepMultClick()
     var rarr = [ms.value, 0, 0];
 
     $('#yupana0 #tc7f1').append(ms.step + ") ");
-    htYupanaStepByStepClick(larr, rarr, '#yupana0', 3, '#tc7f1');
+    htYupanaStepByStepClick(larr, rarr, '#yupana0', 4, '#tc7f1');
 }
 
 function htLoadExercise() {
@@ -140,11 +140,11 @@ function htLoadContent() {
         window.htMultStepByStepState = null;
         window.htStepByStepState = null;
         window.htYupanaAnimationCancelled = true;
-        htCleanYupanaDecimalValues('#yupana0', 3);
+        htCleanYupanaDecimalValues('#yupana0', 4);
 
         $('#yupana0').find('[id^="tc6f"]').html(' ');
         $('#yupana0 #tc7f1').html("");
-        for (let i = 1; i <= 3; i++) {
+        for (let i = 1; i <= 4; i++) {
             $('#yupana0 #tc5f' + i).html('<span id="vl' + i + '"></span> x <span id="vr' + i + '"></span>');
         }
 
@@ -159,7 +159,7 @@ function htLoadContent() {
             htStepByStepMultClick();
         } else {
             var result = val * times;
-            var resultValues = htFillYupanaDecimalValues('#yupana0', result, 3, 'red_dot_right_up');
+            var resultValues = htFillYupanaDecimalValues('#yupana0', result, 4, 'red_dot_right_up');
             htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana0', resultValues);
             htMultMakeMultiplicationTableText(val, times, '#yupana0', '#tc7f1');
         }
