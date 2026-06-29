@@ -678,6 +678,8 @@ function htYupanaStepByStep(larr, rarr, tableID, rows, resultID)
                         if (_iskPaired == 4) {
                             htFillYupanaDecimalRow(tableID, bottom2top, 3, 'red_dot_right_up');
                             htFillYupanaDecimalRow(tableID, bottom2top, 1, 'red_dot_right_up_1');
+                        } else if (_iskPaired == 3) {
+                            htFillYupanaDecimalRow(tableID, bottom2top, 3, 'red_dot_right_up');
                         } else if (_iskPaired == 2) {
                             htFillYupanaDecimalRow(tableID, bottom2top, 2, 'red_dot_right_up');
                         } else if (_iskPaired == 1) {
@@ -1355,6 +1357,8 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
                 if (_iskPaired == 4) {
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'red_dot_right_up');
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 1, 'red_dot_right_up_1');
+                } else if (_iskPaired == 3) {
+                    htFillYupanaDecimalRow(tableID, row.bottom2top, 3, 'red_dot_right_up');
                 } else if (_iskPaired == 2) {
                     htFillYupanaDecimalRow(tableID, row.bottom2top, 2, 'red_dot_right_up');
                 } else if (_iskPaired == 1) {
