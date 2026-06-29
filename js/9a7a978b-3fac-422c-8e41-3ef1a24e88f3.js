@@ -91,8 +91,7 @@ function htStepByStepMultClick()
     ms.larr = larr;
     ms.rarr = rarr;
 
-    var stepText = ms.step + ") " + prevTotal + " + " + ms.value + " = " + total + ":<br />";
-    $('#yupana0 #tc7f1').append(stepText);
+    $('#yupana0 #tc7f1').append(ms.step + ") ");
 
     htCleanYupanaDecimalValues('#yupana0', 3);
     for (let i = 0; i < 3; i++) {
