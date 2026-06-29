@@ -44,9 +44,7 @@ function htStepByStepMultClick()
         window.htMultStepByStepState = {
             step: 0,
             value: value,
-            times: times,
-            larr: [],
-            rarr: []
+            times: times
         };
 
         htCleanYupanaDecimalValues('#yupana0', 3);
@@ -60,59 +58,31 @@ function htStepByStepMultClick()
     var ms = window.htMultStepByStepState;
 
     if (window.htStepByStepState) {
-        var hasMore = htYupanaStepByStepClick(ms.larr, ms.rarr, '#yupana0', 3, '#tc7f1');
-        if (hasMore) {
-            return;
+        var stepDone = !htYupanaStepByStepClick([], [], '#yupana0', 3, '#tc7f1');
+        if (stepDone && ms.step >= ms.times) {
+            window.htMultStepByStepState = null;
+            $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", true);
+            htMultMakeMultiplicationTableText(ms.value, ms.times, '#yupana0', '#tc7f1');
         }
-        window.htStepByStepState = null;
+        return;
     }
 
     ms.step++;
     if (ms.step > ms.times) {
         window.htMultStepByStepState = null;
-        var result = ms.value * ms.times;
-        htCleanYupanaDecimalValues('#yupana0', 3);
-        for (let i = 1; i <= 3; i++) {
-            $('#yupana0 #tc5f' + i).html('<span id="vl' + i + '"></span> x <span id="vr' + i + '"></span>');
-        }
-        var resultValues = htFillYupanaDecimalValues('#yupana0', result, 3, 'red_dot_right_up');
-        htWriteYupanaValuesOnHTMLTable('#tc6f', '#yupana0', resultValues);
-        htMultMakeMultiplicationTableText(ms.value, ms.times, '#yupana0', '#tc7f1');
         $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", true);
+        htMultMakeMultiplicationTableText(ms.value, ms.times, '#yupana0', '#tc7f1');
         return;
     }
 
     var prevTotal = (ms.step - 1) * ms.value;
-    var total = ms.step * ms.value;
     var larr = [], tmp = prevTotal;
     while (tmp > 0) { larr.push(tmp % 10); tmp = Math.trunc(tmp / 10); }
     while (larr.length < 3) larr.push(0);
     var rarr = [ms.value, 0, 0];
-    ms.larr = larr;
-    ms.rarr = rarr;
 
     $('#yupana0 #tc7f1').append(ms.step + ") ");
-
-    htCleanYupanaDecimalValues('#yupana0', 3);
-    for (let i = 0; i < 3; i++) {
-        var b2t = 3 - i;
-        if (larr[i] > 0) {
-            htFillYupanaDecimalRow('#yupana0', b2t, larr[i], 'red_dot_right_up');
-        }
-        if (rarr[i] > 0) {
-            htFillYupanaDecimalRow('#yupana0', b2t, rarr[i], 'blue_dot_right_bottom');
-        }
-    }
-
-    for (let i = 0; i < 3; i++) {
-        $('#yupana0 #vl' + (3 - i)).html(larr[i]);
-        $('#yupana0 #vr' + (3 - i)).html(rarr[i]);
-    }
-
-    var hasMore = htYupanaStepByStepClick(larr, rarr, '#yupana0', 3, '#tc7f1');
-    if (!hasMore) {
-        window.htStepByStepState = null;
-    }
+    htYupanaStepByStepClick(larr, rarr, '#yupana0', 3, '#tc7f1');
 }
 
 function htLoadExercise() {
@@ -149,7 +119,7 @@ function htLoadContent() {
     $(".yupana-btn").on("click", function() {
         var action = $(this).data("action");
 
-        if (action == "stepbystep" && (window.htStepByStepState || window.htMultStepByStepState)) {
+        if (action == "stepbystep" && window.htMultStepByStepState) {
             htStepByStepMultClick();
             return;
         }

@@ -140,7 +140,6 @@ function htWriteSumOnYupana(lValue, rValue, result)
             case 4:
                 text = "<i>"+mathKeywords[3]+"</i><br />";
                 text += "<i>"+mathKeywords[1]+"</i><br />";
-                text += "<i>"+mathKeywords[2]+"</i><br />";
                 break;
             case 2:
                 text = "<i>"+mathKeywords[0]+"</i><br />";
@@ -256,7 +255,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
                     text += carryText16;
                 } else {
                     if (lValue == 4 || rValue == 4) {
-                        text = "<i>"+mathKeywords[4]+"</i><br />"+"<i>"+mathKeywords[2]+"</i><br />";
+                        text = "<i>"+mathKeywords[4]+"</i><br />";
                     }
                 }
                 break;
@@ -278,7 +277,7 @@ function htWriteSumOnYupana(lValue, rValue, result)
                 else if (lValue == 6 || rValue == 6) {
                     text += "<i>"+mathKeywords[3]+"</i><br /><i>"+mathKeywords[4]+"</i><br />";
                 }
-                text += mathKeywords[2]+"</i><br />"
+                text += "<i>"+mathKeywords[2]+"</i><br />"
                 break;
             case 8:
                 if (bigger == false) {
@@ -925,8 +924,7 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
         if (rValue != rWork) {
             $(valCell).html("<span id=\"vl" + bottom2top + "\">" + lValue + "</span> + <span id=\"vr" + bottom2top + "\">" + rValue + "</span> + 1 (" + mathKeywords[67] + ")");
         } else {
-            $(tableID + " #vl" + bottom2top).html(lValue);
-            $(tableID + " #vr" + bottom2top).html(rWork);
+            $(valCell).html("<span id=\"vl" + bottom2top + "\">" + lValue + "</span> + <span id=\"vr" + bottom2top + "\">" + rWork + "</span>");
         }
 
         var rawSum = parseInt(lValue) + parseInt(rWork);
@@ -1026,6 +1024,8 @@ function htYupanaStepByStepClick(larr, rarr, tableID, rows, resultID)
     state.mj++;
 
     if (movIdx < 0) {
+        $(tableID + " #vl" + row.bottom2top).html(row.lValue);
+        $(tableID + " #vr" + row.bottom2top).html(row.rWork);
         var _effRPre = row.rWork >= 10 ? row.rWork - 10 : row.rWork;
         var _effRRemPre = _effRPre >= 5 ? _effRPre - 5 : _effRPre;
         htCleanYupanaDecimalRow(tableID, row.bottom2top);
