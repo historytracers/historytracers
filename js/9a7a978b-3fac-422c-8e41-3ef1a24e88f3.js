@@ -59,10 +59,21 @@ function htStepByStepMultClick()
 
     if (window.htStepByStepState) {
         var stepDone = !htYupanaStepByStepClick([], [], '#yupana0', 3, '#tc7f1');
-        if (stepDone && ms.step >= ms.times) {
-            window.htMultStepByStepState = null;
-            $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", true);
-            htMultMakeMultiplicationTableText(ms.value, ms.times, '#yupana0', '#tc7f1');
+        if (stepDone) {
+            ms.step++;
+            if (ms.step > ms.times) {
+                window.htMultStepByStepState = null;
+                $(".yupana-btn[data-action='calcular'], .yupana-btn[data-action='stepbystep']").prop("disabled", true);
+                htMultMakeMultiplicationTableText(ms.value, ms.times, '#yupana0', '#tc7f1');
+            } else {
+                var prevTotal = (ms.step - 1) * ms.value;
+                var larr = [], tmp = prevTotal;
+                while (tmp > 0) { larr.push(tmp % 10); tmp = Math.trunc(tmp / 10); }
+                while (larr.length < 3) larr.push(0);
+                var rarr = [ms.value, 0, 0];
+                $('#yupana0 #tc7f1').append(ms.step + ") ");
+                htYupanaStepByStepClick(larr, rarr, '#yupana0', 3, '#tc7f1');
+            }
         }
         return;
     }
