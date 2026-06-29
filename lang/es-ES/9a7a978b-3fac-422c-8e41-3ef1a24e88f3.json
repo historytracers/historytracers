@@ -29,9 +29,11 @@
       "CC BY-NC 4.0 DEED"
    ],
    "last_update": [
-      "1781892249"
+      "1782736133"
    ],
-   "authors": null,
+   "authors": [
+      ""
+   ],
    "reviewers": [
       "Dhavit Prem"
    ],
@@ -290,7 +292,7 @@
          "id": "SECTION_yupana",
          "text": [
             {
-               "text": "### Multiplicación con la Yupana\n\nA continuación, ilustramos la multiplicación de 7 por 8 utilizando la *Yupana*. Invitamos al lector a alternar entre los **Cálculos** y los **Valores** para comprender los pasos implicados. Después, puede experimentar modificando los valores del ejemplo, insertando números del 0 al 9",
+               "text": "### Multiplicación con la Yupana\n\nA continuación, ilustramos la multiplicación de 7 por 8 utilizando la *Yupana*. Invitamos al lector a alternar entre las tres opciones para comprender mejor la multiplicación:\n- **Valores**: muestra cómo se representa el multiplicador en la *Yupana*;\n- **Calcular**: muestra el resultado final de la multiplicación;\n- **Paso a Paso**: ejecuta la multiplicación paso a paso.\n\nDespués, puede experimentar modificando los valores del ejemplo, insertando números del 0 al 9",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -299,7 +301,7 @@
                "PostMention": "."
             },
             {
-               "text": "<p  style=\"margin: auto; with: 50%;\"><input type=\"number\" value=\"7\" min=\"0\" max=\"9\" id=\"ia2yupana0\" /> × <input type=\"number\" value=\"8\" min=\"0\" max=\"9\" id=\"ia2yupana1\" />:  <input type=\"radio\" value=\"values\" name=\"yupanaradio\" /> <b>Valores</b> <input type=\"radio\" value=\"calcular\" name=\"yupanaradio\" /> <b>Cálculos</b></p>",
+               "text": "<p style=\"margin: auto; with: 50%;\"><input type=\"number\" value=\"7\" min=\"0\" max=\"9\" id=\"ia2yupana0\" /> × <input type=\"number\" value=\"8\" min=\"0\" max=\"9\" id=\"ia2yupana1\" />:  <button type=\"button\" class=\"yupana-btn\" data-action=\"values\"><i class=\"fa-solid fa-eye\"></i> Valores</button> <button type=\"button\" class=\"yupana-btn\" data-action=\"calcular\"><i class=\"fa-solid fa-calculator\"></i> Calcular</button> <button type=\"button\" class=\"yupana-btn\" data-action=\"stepbystep\"><i class=\"fa-solid fa-list-ol\"></i> Paso a Paso</button></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
