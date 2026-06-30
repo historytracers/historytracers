@@ -47,13 +47,15 @@ function htMultMakeMultiplicationTableText(lValue, times, tableID, cellID)
                     continue;
                 }
 
-                text += larr[i] + " + ";
-                if (rarr[i] != rarr_work[i]) {
-                    text += rarr[i] + " + 1 (" + mathKeywords[67] + ")";
-                } else {
-                    text += rarr[i];
+                if (!(i === 0 && prevTotal < 10)) {
+                    text += larr[i] + " + ";
+                    if (rarr[i] != rarr_work[i]) {
+                        text += rarr[i] + " + 1 (" + mathKeywords[67] + ")";
+                    } else {
+                        text += rarr[i];
+                    }
+                    text += " = " + (parseInt(larr[i]) + parseInt(rarr_work[i])) + ":<br />";
                 }
-                text += " = " + (parseInt(larr[i]) + parseInt(rarr_work[i])) + ":<br />";
                 text += htWriteSumOnYupana(larr[i], rarr_work[i], parseInt(larr[i]) + parseInt(rarr_work[i]));
             }
         }

@@ -71,7 +71,7 @@ function htStepByStepMultClick()
                 while (tmp > 0) { larr.push(tmp % 10); tmp = Math.trunc(tmp / 10); }
                 while (larr.length < 3) larr.push(0);
                 var rarr = [ms.value, 0, 0];
-                $('#yupana0 #tc7f1').append(ms.step + ") ");
+                $('#yupana0 #tc7f1').append(ms.step + ") " + (prevTotal >= 10 ? prevTotal + " + " + ms.value + " = " + (ms.step * ms.value) + ":<br />" : ""));
                 htYupanaStepByStepClick(larr, rarr, '#yupana0', 4, '#tc7f1');
             }
         }
@@ -92,7 +92,7 @@ function htStepByStepMultClick()
     while (larr.length < 3) larr.push(0);
     var rarr = [ms.value, 0, 0];
 
-    $('#yupana0 #tc7f1').append(ms.step + ") ");
+    $('#yupana0 #tc7f1').append(ms.step + ") " + (prevTotal >= 10 ? prevTotal + " + " + ms.value + " = " + (ms.step * ms.value) + ":<br />" : ""));
     htYupanaStepByStepClick(larr, rarr, '#yupana0', 4, '#tc7f1');
 }
 
