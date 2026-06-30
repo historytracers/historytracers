@@ -426,6 +426,7 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprint(w, "<script>window.__ht_token='"+viewerToken+"';</script>\n")
 	fmt.Fprintf(w, `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>History Tracers</title>
 <style>
