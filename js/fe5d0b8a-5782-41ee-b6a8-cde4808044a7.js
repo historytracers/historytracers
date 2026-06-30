@@ -18,6 +18,9 @@ function htLoadContent() {
     htSetImageSrc("PDPFamilyTree", "images/ANTT/ANTT_PT-TT-TSO-CG-A-008-001-23165_m0062_derivada.jpg");
     htSetImageSrc("imgANTTINCOMPLETE", "images/ANTT/PT-TT-MCO-A-C-002-007-0006-00066_m0001_derivada.jpg");
     htSetImageSrc("RP", "images/ANTT/RomanusPontifex.jpg");
+    $("#ANTTPortugal1").html(keywords[89]);
+    $("#ANTTPortugal2").html(keywords[89]);
+    $("#ANTTPortugal3").html(keywords[89]);
     htPlusDivs(0);
 
     return false;
