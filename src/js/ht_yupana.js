@@ -279,17 +279,30 @@ function htWriteSumOnYupana(lValue, rValue, result)
                 }
                 text += "<i>"+mathKeywords[2]+"</i><br />"
                 break;
-            case 8:
+             case 8:
                 if (bigger == false) {
-                    if (lValue == 7 || rValue == 7) {
-                        text += "<i>"+mathKeywords[4]+"</i><br />";
-                    }
-                    else if (lValue == 6 || rValue == 6) {
-                        text += "<i>"+mathKeywords[4]+"</i><br />";
+                    if (lValue == 5 || rValue == 5) {
+                        text = mathKeywords[5] + "<br />";
+                        text += "<i>" + mathKeywords[1] + "</i><br />";
+                    } else if (lValue == 6 || rValue == 6 || lValue == 7 || rValue == 7) {
+                        var leftRem = lValue >= 5 ? lValue - 5 : lValue;
+                        var rightRem = rValue >= 5 ? rValue - 5 : rValue;
+                        text = "<i>" + mathKeywords[2] + "</i><br />";
+                        var rems = [leftRem, rightRem];
+                        for (var ri = 0; ri < rems.length; ri++) {
+                            if (rems[ri] == 1) {
+                                text += "<i>" + mathKeywords[4] + "</i><br />";
+                            } else if (rems[ri] == 2) {
+                                text += "<i>" + mathKeywords[0] + "</i><br />";
+                            }
+                        }
+                        text += "<i>" + mathKeywords[2] + "</i><br />";
+                        text += "<i>" + mathKeywords[1] + "</i><br />";
                     } else {
-                        text = mathKeywords[5]+"<br />";
+                        text = mathKeywords[5] + "<br />";
                     }
                 }
+                break;
             default:
                 break;
         }
