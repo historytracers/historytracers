@@ -433,9 +433,16 @@ func updateFeedInAllLangs(pageType string, arg string, displayName string) {
 		e := json.NewEncoder(fp)
 		e.SetEscapeHTML(false)
 		e.SetIndent("", "   ")
-		e.Encode(idx)
+		if err := e.Encode(idx); err != nil {
+			fp.Close()
+			os.Remove(tmpPath)
+			continue
+		}
 		fp.Close()
-		copyFile(idxPath, tmpPath)
+		if err := copyFile(idxPath, tmpPath); err != nil {
+			os.Remove(tmpPath)
+			continue
+		}
 		os.Remove(tmpPath)
 	}
 }
@@ -456,11 +463,13 @@ func createClassHandler(w http.ResponseWriter, r *http.Request) {
 	tplPath := filepath.Join(rootDir, "src", "json", "class_template.json")
 	data, err := os.ReadFile(tplPath)
 	if err != nil {
+		log.Printf("ERROR createClass: cannot read template %s: %v", tplPath, err)
 		http.Error(w, fmt.Sprintf("cannot read template: %v", err), http.StatusInternalServerError)
 		return
 	}
 	var tpl common.ClassTemplateFile
 	if err := json.Unmarshal(data, &tpl); err != nil {
+		log.Printf("ERROR createClass: invalid template %s: %v", tplPath, err)
 		http.Error(w, fmt.Sprintf("invalid template: %v", err), http.StatusInternalServerError)
 		return
 	}
@@ -468,46 +477,71 @@ func createClassHandler(w http.ResponseWriter, r *http.Request) {
 
 	for _, lang := range editorLangs {
 		langPath := filepath.Join(rootDir, "lang", lang)
-		os.MkdirAll(langPath, 0755)
+		if err := os.MkdirAll(langPath, 0755); err != nil {
+			log.Printf("ERROR createClass: mkdir %s: %v", langPath, err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		tplFile := filepath.Join(langPath, strID+".json")
 		fp, err := os.Create(tplFile)
 		if err != nil {
+			log.Printf("ERROR createClass: create %s: %v", tplFile, err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		e := json.NewEncoder(fp)
 		e.SetEscapeHTML(false)
 		e.SetIndent("", "   ")
-		e.Encode(tpl)
+		if err := e.Encode(tpl); err != nil {
+			fp.Close()
+			os.Remove(tplFile)
+			log.Printf("ERROR createClass: encode %s: %v", tplFile, err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		fp.Close()
 
 		idxPath := filepath.Join(rootDir, "lang", lang, className+".json")
 		idxData, err := os.ReadFile(idxPath)
 		if err != nil {
+			log.Printf("ERROR createClass: cannot read index %s: %v", idxPath, err)
 			http.Error(w, fmt.Sprintf("cannot read index %s: %v", idxPath, err), http.StatusInternalServerError)
 			return
 		}
 		var idx common.ClassIdx
 		if err := json.Unmarshal(idxData, &idx); err != nil {
+			log.Printf("ERROR createClass: invalid index %s: %v", idxPath, err)
 			http.Error(w, fmt.Sprintf("invalid index: %v", err), http.StatusInternalServerError)
 			return
 		}
 		common.HTAddNewClassToIdx(&idx, strID)
-		idx.LastUpdate[0] = common.HTUpdateTimestamp()
+		if len(idx.LastUpdate) == 0 {
+			idx.LastUpdate = []string{common.HTUpdateTimestamp()}
+		} else {
+			idx.LastUpdate[0] = common.HTUpdateTimestamp()
+		}
 
 		tmpPath := filepath.Join(rootDir, "lang", lang, strID+"_idx.tmp")
 		fp2, err := os.Create(tmpPath)
 		if err != nil {
+			log.Printf("ERROR createClass: create tmp %s: %v", tmpPath, err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		e2 := json.NewEncoder(fp2)
 		e2.SetEscapeHTML(false)
 		e2.SetIndent("", "   ")
-		e2.Encode(idx)
+		if err := e2.Encode(idx); err != nil {
+			fp2.Close()
+			os.Remove(tmpPath)
+			log.Printf("ERROR createClass: encode tmp %s: %v", tmpPath, err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		fp2.Close()
 		if err := copyFile(idxPath, tmpPath); err != nil {
 			os.Remove(tmpPath)
+			log.Printf("ERROR createClass: copy %s <- %s: %v", idxPath, tmpPath, err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
@@ -516,16 +550,26 @@ func createClassHandler(w http.ResponseWriter, r *http.Request) {
 
 	srcTpl := filepath.Join(rootDir, "src", "json", "sources_template.json")
 	srcDst := filepath.Join(rootDir, "lang", "sources", strID+".json")
-	os.MkdirAll(filepath.Join(rootDir, "lang", "sources"), 0755)
+	if err := os.MkdirAll(filepath.Join(rootDir, "lang", "sources"), 0755); err != nil {
+		log.Printf("ERROR createClass: mkdir lang/sources: %v", err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	if err := copyFile(srcDst, srcTpl); err != nil {
+		log.Printf("ERROR createClass: copy sources %s <- %s: %v", srcDst, srcTpl, err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	jsSrc := filepath.Join(rootDir, "src", "js", "ht_classes.js")
 	jsDst := filepath.Join(rootDir, "js", strID+".js")
-	os.MkdirAll(filepath.Join(rootDir, "js"), 0755)
+	if err := os.MkdirAll(filepath.Join(rootDir, "js"), 0755); err != nil {
+		log.Printf("ERROR createClass: mkdir js: %v", err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	if err := copyFile(jsDst, jsSrc); err != nil {
+		log.Printf("ERROR createClass: copy js %s <- %s: %v", jsDst, jsSrc, err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
