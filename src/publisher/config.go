@@ -110,7 +110,7 @@ func init() {
 }
 
 func htPrintOptions() {
-	fmt.Println("History Tracers was compiled with the following options:\n\nConfig Dir:", strings.TrimSpace(compileConfPath), "\nSource Path:", strings.TrimSpace(compileSrcPath), "\nContent Path:", strings.TrimSpace(compileContentPath), "\nLog Path:", strings.TrimSpace(compileLogPath), "\n\n")
+	fmt.Println("History Tracers was compiled with the following options:\n\nConfig Dir:", strings.TrimSpace(compileConfPath), "\nSource Path:", strings.TrimSpace(compileSrcPath), "\nContent Path:", strings.TrimSpace(compileContentPath), "\nLog Path:", strings.TrimSpace(compileLogPath))
 }
 
 func HTLoadConfig() {

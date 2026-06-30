@@ -20,13 +20,44 @@ function htMultMakeMultiplicationTableText(lValue, times, tableID, cellID)
     if (lValue == 0 || times == 0) {
         text = lValue + " x "+times+": <br />"+mathKeywords[5]+"<br />";
     } else {
-        var ret = [];
-        var cValue = parseInt(0);
-        for (let i = 1; i <= times; i++) {
-            var result = lValue * i;
-            text += i+") "+cValue +" + "+lValue+" = "+result+":<br />";
-            text += htWriteSumOnYupana(cValue, lValue, result);
-            cValue += parseInt(lValue);
+        var rows = 3;
+        for (let step = 1; step <= times; step++) {
+            var prevTotal = (step - 1) * lValue;
+            var result = step * lValue;
+            text += step+") "+prevTotal +" + "+lValue+" = "+result+":<br />";
+
+            var larr = [], tmp = prevTotal;
+            while (tmp > 0) { larr.push(tmp % 10); tmp = Math.trunc(tmp / 10); }
+            while (larr.length < rows) larr.push(0);
+
+            var rarr = [lValue, 0, 0];
+            while (rarr.length < rows) rarr.push(0);
+
+            var rarr_work = rarr.slice();
+            for (let i = 0; i < rows; i++) {
+                var rawSum = parseInt(larr[i]) + parseInt(rarr_work[i]);
+                if (rawSum >= 10) {
+                    if (i + 1 < rows) {
+                        rarr_work[i + 1] += 1;
+                    }
+                    rawSum -= 10;
+                }
+
+                if (rawSum === 0 && larr[i] === 0 && rarr[i] === 0) {
+                    continue;
+                }
+
+                if (!(i === 0 && prevTotal < 10)) {
+                    text += larr[i] + " + ";
+                    if (rarr[i] != rarr_work[i]) {
+                        text += rarr[i] + " + 1 (" + mathKeywords[67] + ")";
+                    } else {
+                        text += rarr[i];
+                    }
+                    text += " = " + (parseInt(larr[i]) + parseInt(rarr_work[i])) + ":<br />";
+                }
+                text += htWriteSumOnYupana(larr[i], rarr_work[i], parseInt(larr[i]) + parseInt(rarr_work[i]));
+            }
         }
     }
 

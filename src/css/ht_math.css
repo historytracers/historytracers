@@ -131,6 +131,7 @@
 .tawapukllay td:nth-child(7){
   text-align: center;
   font-weight: bold;
+  font-size: 0.8em;
   background: white;
   width: 11.66em;
   border-radius: 8px;
@@ -233,6 +234,13 @@
 .blue_dot_right_bottom {
   position: absolute;
   right: 5%;
+  top: 80%;
+  background-color: blue;
+}
+
+.blue_dot_right_bottom_1 {
+  position: absolute;
+  right: 25%;
   top: 80%;
   background-color: blue;
 }
