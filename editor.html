@@ -66,6 +66,8 @@ select#langSelect option{color:#000;background:#fff}
 #editor .file-path .status{font-size:11px;padding:1px 6px;border-radius:3px}
 #editor .file-path .status.unsaved{background:#e65100;color:#fff}
 #editor .file-path .status.saved{background:#2e7d32;color:#fff}
+#editor .file-path select{background:#37474f;color:#b0bec5;border:1px solid #546e7a;border-radius:3px;font:11px/1.4 monospace;padding:1px 4px;outline:none;max-width:240px;cursor:pointer}
+#editor .file-path select:hover{border-color:#80cbc4}
 #editorBody{flex:1;display:flex;overflow:hidden}
 #configFrame,#viewFrame{flex:1;border:none;width:100%;background:#fff}
 .tab.view{border-left:2px solid #80cbc4}
@@ -123,6 +125,7 @@ select#langSelect option{color:#000;background:#fff}
 .design-light .tab .tab-close{color:#999!important}
 .design-light #editor .file-path{background:#e0e0e0!important;border-bottom-color:#ccc!important}
 .design-light #editor .file-path .fname{color:#333!important}
+.design-light #editor .file-path select{background:#fff!important;color:#333!important;border-color:#ccc!important}
 .design-light #searchBar{background:#e0e0e0!important;border-bottom-color:#ccc!important}
 .design-light #searchBar input{background:#fff!important;color:#000!important;border-color:#ccc!important}
 .design-light #insertPanel,.design-light #newPanel{background:#f5f5f5!important;border-left-color:#ddd!important}
@@ -168,6 +171,8 @@ select#langSelect option{color:#000;background:#fff}
 <div class="file-path" id="filePathBar">
 <span class="fname" id="fileName">-</span>
 <span class="status" id="fileStatus"></span>
+<span class="sep">|</span>
+<select id="relatedFiles" onchange="switchRelatedFile(this.value)"><option value="">Related...</option></select>
 <div class="actions">
 <button onclick="saveFile()" class="primary" id="saveBtn" title="Save (Ctrl+S)"><svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor"><path d="M2 2v16h16V6l-4-4H2zm2 2h9v5H4V4zm0 12v-4h12v4H4z"/></svg></button>
 <button onclick="viewFile()" id="viewBtn" title="View"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></button>
@@ -523,6 +528,7 @@ function loadEditorState(index){
 		document.getElementById('viewFrame').style.display='none';
 		document.getElementById('noFileMsg').style.display='flex';
 		updateInsertBtn();
+		updateRelatedFiles();
 		return
 	}
 	closeSearch();
@@ -539,6 +545,7 @@ function loadEditorState(index){
 		cf.style.display='';
 		updateStatus(index);
 		updateInsertBtn();
+		updateRelatedFiles();
 		return
 	}
 	if(t.type==='view'){
@@ -554,6 +561,7 @@ function loadEditorState(index){
 		// show URL for debugging
 		document.getElementById('fileStatus').textContent='URL: '+t.url;
 		updateInsertBtn();
+		updateRelatedFiles();
 		return
 	}
 	document.getElementById('configFrame').style.display='none';
@@ -566,6 +574,7 @@ function loadEditorState(index){
 	document.getElementById('filePathBar').style.display='flex';
 	document.getElementById('fileName').textContent=t.path;
 	updateStatus(index);
+	updateRelatedFiles();
 	updateLineNumbers();
 	area.focus();
 	area.selectionStart=area.selectionEnd=t.cursorPos||0;
@@ -608,6 +617,38 @@ function switchTab(index){
 	loadEditorState(index);
 	refreshTabBar();
 	saveSession();
+}
+
+var htRelatedLangs=['en-US','pt-BR','es-ES'];
+
+function updateRelatedFiles(){
+	var sel=document.getElementById('relatedFiles');
+	sel.innerHTML='<option value="">Related...</option>';
+	if(currentTab<0||currentTab>=tabs.length)return;
+	var t=tabs[currentTab];
+	if(t.type==='config'||t.type==='view')return;
+	var parts=t.path.split('/');
+	var name=parts[parts.length-1];
+	var base=name.replace(/\.(json|js)$/,'');
+	if(!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(base))return;
+	var candidates=[];
+	htRelatedLangs.forEach(function(l){candidates.push('lang/'+l+'/'+base+'.json')});
+	candidates.push('lang/sources/'+base+'.json','js/'+base+'.js');
+	candidates.forEach(function(p){
+		if(p===t.path)return;
+		var opt=document.createElement('option');
+		opt.value=p;
+		opt.textContent=p;
+		sel.appendChild(opt);
+	});
+}
+
+function switchRelatedFile(path){
+	if(!path)return;
+	var idx=findTab(path);
+	if(idx>=0)switchTab(idx);
+	else openFile(path);
+	document.getElementById('relatedFiles').value='';
 }
 
 function unlockFile(path){
