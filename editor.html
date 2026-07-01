@@ -998,14 +998,8 @@ function doSearch(){
 		idx=pos+query.length;
 	}
 	if(searchMatches.length>0){
-		// find nearest match at or after cursor
-		var cursor=area.selectionStart;
-		var best=0;
-		for(var i=0;i<searchMatches.length;i++){
-			if(searchMatches[i]>=cursor){best=i;break}
-		}
-		searchIndex=best;
-		selectSearchMatch(false);
+		searchIndex=0;
+		document.getElementById('searchCount').textContent=searchMatches.length+' matches';
 	}else{
 		searchIndex=-1;
 		document.getElementById('searchCount').textContent='0 matches';
