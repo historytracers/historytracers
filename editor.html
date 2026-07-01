@@ -66,6 +66,8 @@ select#langSelect option{color:#000;background:#fff}
 #editor .file-path .status{font-size:11px;padding:1px 6px;border-radius:3px}
 #editor .file-path .status.unsaved{background:#e65100;color:#fff}
 #editor .file-path .status.saved{background:#2e7d32;color:#fff}
+#editor .file-path select{background:#37474f;color:#b0bec5;border:1px solid #546e7a;border-radius:3px;font:11px/1.4 monospace;padding:1px 4px;outline:none;max-width:240px;cursor:pointer}
+#editor .file-path select:hover{border-color:#80cbc4}
 #editorBody{flex:1;display:flex;overflow:hidden}
 #configFrame,#viewFrame{flex:1;border:none;width:100%;background:#fff}
 .tab.view{border-left:2px solid #80cbc4}
@@ -101,6 +103,39 @@ select#langSelect option{color:#000;background:#fff}
 #toast.error{background:#c62828;color:#fff}
 #toast.info{background:#1565c0;color:#fff}
 #toast .toast-ok{background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.5);color:#fff;padding:2px 12px;border-radius:3px;cursor:pointer;margin-left:8px;font:inherit}
+#editor textarea::selection{background:#e65100!important;color:#fff!important}
+.design-light #editor textarea::selection{background:#e65100!important;color:#fff!important}
+#designBtn{font-size:1.1em;line-height:1;padding:2px 8px}
+.design-light, .design-light #root, .design-light #sidebar, .design-light #editor, .design-light #newPanel, .design-light #insertPanel{background:#fff!important;color:#000!important}
+.design-light #toolbar{background:#e0e0e0!important;border-bottom:1px solid #ccc!important}
+.design-light #toolbar select, .design-light #toolbar button{background:#f5f5f5!important;color:#000!important;border-color:#ccc!important}
+.design-light #sidebar{background:#f5f5f5!important;border-right:1px solid #ddd!important}
+.design-light #sidebarTabs .st{background:#e0e0e0!important;color:#555!important}
+.design-light #sidebarTabs .st.active{background:#f5f5f5!important;color:#000!important;border-bottom-color:#00897b!important}
+.design-light #sidebar h3{color:#555!important;border-bottom-color:#ddd!important}
+.design-light .tree-item{color:#333!important}
+.design-light .tree-item.dir{color:#00695c!important}
+.design-light .tree-item:hover,.design-light .tree-item.focused{background:#e8e8e8!important}
+.design-light .tree-item.selected{background:#00897b!important;color:#fff!important}
+.design-light .git-item{color:#333!important}
+.design-light .git-item:hover{background:#e8e8e8!important}
+.design-light #tabBar{background:#e0e0e0!important;border-bottom-color:#ccc!important}
+.design-light .tab{color:#555!important;border-right-color:#ddd!important}
+.design-light .tab.active{background:#f5f5f5!important;color:#000!important;border-bottom-color:#00897b!important}
+.design-light .tab .tab-close{color:#999!important}
+.design-light #editor .file-path{background:#e0e0e0!important;border-bottom-color:#ccc!important}
+.design-light #editor .file-path .fname{color:#333!important}
+.design-light #editor .file-path select{background:#fff!important;color:#333!important;border-color:#ccc!important}
+.design-light #searchBar{background:#e0e0e0!important;border-bottom-color:#ccc!important}
+.design-light #searchBar input{background:#fff!important;color:#000!important;border-color:#ccc!important}
+.design-light #insertPanel,.design-light #newPanel{background:#f5f5f5!important;border-left-color:#ddd!important}
+.design-light #insertPanel h3,.design-light #newPanel h3{color:#555!important;border-bottom-color:#ddd!important}
+.design-light .ins-item{color:#00695c!important}
+.design-light .ins-item:hover{background:#e8e8e8!important;color:#000!important}
+.design-light #lineNumbers{background:#f0f0f0!important;color:#999!important;border-right-color:#ddd!important}
+.design-light #editor textarea{background:#fff!important;color:#000!important}
+.design-light #portDisplay{color:#00695c!important}
+.design-light #configFrame{background:#fff!important}
 </style>
 </head>
 <body>
@@ -118,6 +153,7 @@ select#langSelect option{color:#000;background:#fff}
 <button onclick="toggleInsert()" id="insBtn" style="display:none">Insert</button>
 <button onclick="openConfig()" id="cfgBtn">Config</button>
 <button onclick="openDevTools()" id="devBtn">Dev</button>
+<button onclick="toggleDesign()" id="designBtn" title="Toggle design">&#127769;</button>
 </div>
 <div id="main">
 <div id="sidebar">
@@ -135,6 +171,8 @@ select#langSelect option{color:#000;background:#fff}
 <div class="file-path" id="filePathBar">
 <span class="fname" id="fileName">-</span>
 <span class="status" id="fileStatus"></span>
+<span class="sep">|</span>
+<select id="relatedFiles" onchange="switchRelatedFile(this.value)"><option value="">Related...</option></select>
 <div class="actions">
 <button onclick="saveFile()" class="primary" id="saveBtn" title="Save (Ctrl+S)"><svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor"><path d="M2 2v16h16V6l-4-4H2zm2 2h9v5H4V4zm0 12v-4h12v4H4z"/></svg></button>
 <button onclick="viewFile()" id="viewBtn" title="View"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></button>
@@ -188,6 +226,21 @@ var L={
 };
 
 function tr(key){var l=L[LOC]||L['en-US'];return l[key]||L['en-US'][key]||key}
+
+function htApplyDesign(val){
+	if(val==='light'){
+		document.body.classList.add('design-light');
+		document.getElementById('designBtn').innerHTML='&#9728;';
+	}else{
+		document.body.classList.remove('design-light');
+		document.getElementById('designBtn').innerHTML='&#127769;';
+	}
+	localStorage.setItem('ht_design',val);
+}
+function toggleDesign(){
+	var cur=localStorage.getItem('ht_design');
+	htApplyDesign(cur==='light'?'default':'light');
+}
 
 function setLang(loc){
 	LOC=loc;
@@ -475,6 +528,7 @@ function loadEditorState(index){
 		document.getElementById('viewFrame').style.display='none';
 		document.getElementById('noFileMsg').style.display='flex';
 		updateInsertBtn();
+		updateRelatedFiles();
 		return
 	}
 	closeSearch();
@@ -491,6 +545,7 @@ function loadEditorState(index){
 		cf.style.display='';
 		updateStatus(index);
 		updateInsertBtn();
+		updateRelatedFiles();
 		return
 	}
 	if(t.type==='view'){
@@ -506,6 +561,7 @@ function loadEditorState(index){
 		// show URL for debugging
 		document.getElementById('fileStatus').textContent='URL: '+t.url;
 		updateInsertBtn();
+		updateRelatedFiles();
 		return
 	}
 	document.getElementById('configFrame').style.display='none';
@@ -518,6 +574,7 @@ function loadEditorState(index){
 	document.getElementById('filePathBar').style.display='flex';
 	document.getElementById('fileName').textContent=t.path;
 	updateStatus(index);
+	updateRelatedFiles();
 	updateLineNumbers();
 	area.focus();
 	area.selectionStart=area.selectionEnd=t.cursorPos||0;
@@ -560,6 +617,38 @@ function switchTab(index){
 	loadEditorState(index);
 	refreshTabBar();
 	saveSession();
+}
+
+var htRelatedLangs=['en-US','pt-BR','es-ES'];
+
+function updateRelatedFiles(){
+	var sel=document.getElementById('relatedFiles');
+	sel.innerHTML='<option value="">Related...</option>';
+	if(currentTab<0||currentTab>=tabs.length)return;
+	var t=tabs[currentTab];
+	if(t.type==='config'||t.type==='view')return;
+	var parts=t.path.split('/');
+	var name=parts[parts.length-1];
+	var base=name.replace(/\.(json|js)$/,'');
+	if(!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(base))return;
+	var candidates=[];
+	htRelatedLangs.forEach(function(l){candidates.push('lang/'+l+'/'+base+'.json')});
+	candidates.push('lang/sources/'+base+'.json','js/'+base+'.js');
+	candidates.forEach(function(p){
+		if(p===t.path)return;
+		var opt=document.createElement('option');
+		opt.value=p;
+		opt.textContent=p;
+		sel.appendChild(opt);
+	});
+}
+
+function switchRelatedFile(path){
+	if(!path)return;
+	var idx=findTab(path);
+	if(idx>=0)switchTab(idx);
+	else openFile(path);
+	document.getElementById('relatedFiles').value='';
 }
 
 function unlockFile(path){
@@ -952,14 +1041,8 @@ function doSearch(){
 		idx=pos+query.length;
 	}
 	if(searchMatches.length>0){
-		// find nearest match at or after cursor
-		var cursor=area.selectionStart;
-		var best=0;
-		for(var i=0;i<searchMatches.length;i++){
-			if(searchMatches[i]>=cursor){best=i;break}
-		}
-		searchIndex=best;
-		selectSearchMatch(false);
+		searchIndex=0;
+		document.getElementById('searchCount').textContent=searchMatches.length+' matches';
 	}else{
 		searchIndex=-1;
 		document.getElementById('searchCount').textContent='0 matches';
@@ -1008,7 +1091,7 @@ function searchKeydown(e){
 
 var templates={
 	Date:'{\n  "type": "???",\n  "year": "???",\n  "month": "???",\n  "day": "???"\n}',
-	Text:'{\n  "text": "???",\n  "source": [],\n  "date_time": [],\n  "isTable": false,\n  "imgdesc": "",\n  "format": "",\n  "PostMention": ""\n}',
+	Text:'{\n  "text": "",\n  "source": [],\n  "date_time": [],\n  "isTable": false,\n  "imgdesc": "",\n  "format": "",\n  "PostMention": ""\n}',
 	Source:'{\n  "type": 0,\n  "uuid": "???",\n  "text": "???",\n  "page": "???",\n  "date_time": {\n    "type": "???",\n    "year": "???",\n    "month": "???",\n    "day": "???"\n  }\n}',
 	Event:'{\n  "date": [],\n  "address": "???",\n  "city_id": "???",\n  "city": "???",\n  "state_id": "???",\n  "state": "???",\n  "pc": "???",\n  "country_id": "???",\n  "country": "???",\n  "sources": []\n}',
 	Parents:'{\n  "type": "???",\n  "father_external_family_file": false,\n  "father_family": "???",\n  "father_id": "???",\n  "father_name": "???",\n  "mother_external_family_file": false,\n  "mother_family": "???",\n  "mother_id": "???",\n  "mother_name": "???"\n}',
@@ -1154,6 +1237,7 @@ async function createFamily(){
 		toast(tr('familyCreated')+': '+data.uuid,'success');
 		refreshTree();
 		document.getElementById('newPanel').classList.remove('open');
+		if(window.__ht_editor_opts.open_new_files!==false)openFile('lang/'+LOC+'/'+data.uuid+'.json');
 	}catch(e){
 		toast(tr('newError')+': '+e.message,'error');
 	}
@@ -1169,6 +1253,7 @@ async function createClass(className){
 		toast(tr('classCreated')+': '+data.uuid,'success');
 		refreshTree();
 		document.getElementById('newPanel').classList.remove('open');
+		if(window.__ht_editor_opts.open_new_files!==false)openFile('lang/'+LOC+'/'+data.uuid+'.json');
 	}catch(e){
 		toast(tr('newError')+': '+e.message,'error');
 	}
@@ -1229,18 +1314,23 @@ function openConfig(){
 (function(){
 	var loc=new URL(window.location.href).searchParams.get('lang');
 	var ls=document.getElementById('langSelect');
+	window.__ht_editor_opts={open_new_files:true};
 	// fetch saved options to override language if no URL param
 	fetch('/api/editor/options').then(function(r){return r.json()}).then(function(opts){
+		window.__ht_editor_opts=opts;
 		if(!loc&&opts.lang){loc=opts.lang}
 		LOC=loc||navigator.language||'en-US';
 		ls.value=LOC;
 		if(!ls.value){ls.value='en-US';LOC='en-US'}
 		setLang(LOC);
+		// apply design from server options, overridden by localStorage if present
+		htApplyDesign(localStorage.getItem('ht_design')||opts.design||'default');
 	}).catch(function(){
 		LOC=loc||navigator.language||'en-US';
 		ls.value=LOC;
 		if(!ls.value){ls.value='en-US';LOC='en-US'}
 		setLang(LOC);
+		htApplyDesign(localStorage.getItem('ht_design')||'default');
 	});
 	refreshTree();
 	buildNewList();

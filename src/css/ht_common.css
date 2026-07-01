@@ -200,6 +200,7 @@ div.left-tree {
 div.righttext {
   position: relative;
   float: left;
+  padding-top: 10px;
 }
 
 div.right-tree {
@@ -415,7 +416,7 @@ div.twomenu div {
     width: 100%;
     font-size: 1.3em;
     font-weight: bold;
-    overflow: hidden;
+  overflow: hidden auto;
     overflow-wrap: break-word;
     word-break: break-word;
 }
@@ -1671,11 +1672,61 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 
+/* --- Dark theme (mirrors editor dark design) --- */
+.design-dark, .design-dark body{background:#1e272e;color:#eceff1}
+.design-dark a:link,.design-dark a:active,.design-dark a:hover,.design-dark a:visited{color:#80cbc4}
+.design-dark .side-bar{background:#263238}
+.design-dark .hamburger{background:#37474f;color:#eceff1}
+.design-dark .top-bar-inside-left{color:#eceff1}
+.design-dark #messages{background:#37474f;color:#eceff1}
+.design-dark .right-sources{background:#1e272e;color:#b0bec5}
+.design-dark .right-sources div{background:transparent!important}
+.design-dark .right-sources .top-bar-right-child>div{background:#37474f!important;color:#eceff1!important}
+.design-dark .right-sources .top-bar-right-child>div strong{color:#80cbc4}
+.design-dark select{background:#37474f;color:#eceff1;border-color:#546e7a}
+.design-dark select option{background:#263238;color:#eceff1}
+.design-dark .selSize{background:#37474f;color:#eceff1;border-color:#546e7a}
+.design-dark #site_language{background:#37474f;color:#eceff1;border-color:#546e7a}
+.design-dark #designBtn{background:#37474f!important;color:#eceff1!important;border-color:#546e7a!important}
+.design-dark .menuht{color:#eceff1}
+.design-dark .cited-text{color:#b0bec5}
+.design-dark .righttext{color:#b0bec5}
+.design-dark h1,.design-dark h2,.design-dark h3,.design-dark h4{color:#eceff1}
+.design-dark li.menu a{color:#80cbc4}
+.design-dark .three_table_bg{background:#263238;border-color:#455a64}
+.design-dark .three_table_bg td{border-color:#455a64;color:#eceff1}
+.design-dark .three_table_bg th{background:#37474f;color:#eceff1}
+.design-dark .three_table_bg td:nth-child(1){background:#37474f;color:#eceff1}
+.design-dark .indigenous_period{background:#263238;border-color:#455a64}
+.design-dark .indigenous_period td{border-color:#455a64;color:#eceff1}
+.design-dark .indigenous_period tr:nth-child(1){background:#37474f;color:#eceff1}
+.design-dark .indigenous_period td:nth-child(1){background:#37474f;color:#eceff1}
+.design-dark .comparison_3D{background:#263238;border-color:#455a64}
+.design-dark .comparison_3D td{border-color:#455a64;color:#eceff1}
+.design-dark .comparison_3D tr:nth-child(1){background:#37474f;color:#eceff1}
+.design-dark .comparison_3D td:nth-child(1){background:#37474f;color:#eceff1}
+.design-dark .comparison_3D td:nth-child(n+2){background:#1e272e;color:#eceff1}
+.design-dark .taxonomy{background:#263238;border-color:#455a64}
+.design-dark .taxonomy tr:nth-child(1){background:#37474f;color:#eceff1}
+.design-dark .taxonomy td:nth-child(1){background:#37474f;color:#eceff1}
+.design-dark .lab{background:#37474f;color:#eceff1;box-shadow:0 8px 16px 0 rgba(0,0,0,0.6)}
+.design-dark .reflection{background:#37474f;color:#eceff1;box-shadow:0 8px 16px 0 rgba(0,0,0,0.6)}
+.design-dark .first_steps_reflection_parent{background:#37474f!important;color:#eceff1}
+.design-dark .first_steps_reflection{background:#37474f!important;color:#eceff1}
+.design-dark .first_steps_lab_parent{background:#37474f!important;color:#eceff1}
+.design-dark .first_steps_lab{background:#37474f!important;color:#eceff1}
+.design-dark .personal_events_class{background:#37474f;color:#eceff1}
+.design-dark .no_personal_events_class{background:#37474f;color:#eceff1}
+.design-dark .circle2{background-color:#263238;border-color:#455a64}
+.design-dark .htSlideGameTextBottom{background:#37474f;color:#eceff1}
+.design-dark .book_navigation,.design-dark .book_navigation th,.design-dark .book_navigation tr,.design-dark .book_navigation td{background:#37474f!important;color:#eceff1!important}
+.design-dark .numbers td,.design-dark .numbers th{color:#eceff1}
+
 @media screen and (max-width: 767px) {
     .side-bar { width: 55%; left: -55%; z-index: 1000; transition: left 0.3s ease; }
     .side-bar.active { left: 0; }
     .main { left: 0; width: 100%; }
-    div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 30px; z-index: 999; overflow: hidden; }
+    div.right-sources { position: fixed; left: auto; right: 0; width: 30%; top: 30px; z-index: 999; overflow: hidden auto; }
     .top-bar { height: auto; min-height: 50px; }
     .top-bar-inside-left { font-size: 1.2em; width: 60%; margin-left: 40px; }
     .menuht { font-size: 1.3em; font-weight: bold; width: 100%; }

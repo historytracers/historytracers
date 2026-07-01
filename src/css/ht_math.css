@@ -533,10 +533,27 @@
   box-shadow: none;
 }
 
-.yupana-btn:disabled:hover {
-  background: #eee;
-  box-shadow: none;
-}
+/* --- Dark theme overrides --- */
+.design-dark .mathexample{background:#263238;border-color:#455a64;color:#eceff1}
+.design-dark .mathexample td{color:#eceff1}
+.design-dark .mathexample tr:nth-child(1){background:#37474f;color:#eceff1}
+.design-dark .mathexample td:nth-child(1){background:#37474f;color:#eceff1}
+.design-dark .tawapukllay{background:#37474f;color:#eceff1;box-shadow:0 4px 8px rgba(0,0,0,0.4)}
+.design-dark .tawapukllay th{background:#263238;color:#eceff1}
+.design-dark .tawapukllay td:nth-child(5),
+.design-dark .tawapukllay td:nth-child(6),
+.design-dark .tawapukllay td:nth-child(7),
+.design-dark .tawapukllay td:nth-child(8){background:#1e272e;color:#eceff1}
+.design-dark .tableTen{color:#eceff1}
+.design-dark .tableTen th{background:#37474f;color:#eceff1;border-color:#546e7a}
+.design-dark .tableTen td{border-color:#546e7a;color:#eceff1}
+.design-dark .tableTenBgBlue{background:#2b3b45;color:#eceff1}
+.design-dark .yupana-btn{background:#37474f;color:#eceff1;border-color:#546e7a}
+.design-dark .yupana-btn:hover{background:#455a64;box-shadow:0 2px 6px rgba(0,0,0,0.4)}
+.design-dark .yupana-btn.active{background:#546e7a;border-color:#80cbc4}
+.design-dark .yupana-btn:disabled,
+.design-dark .yupana-btn:disabled:hover{background:#263238;color:#78909c}
+
 
 /* Medium screens (601px to 991px) */
 @media screen and (min-width: 601px) and (max-width: 991px) {
