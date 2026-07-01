@@ -1154,6 +1154,7 @@ async function createFamily(){
 		toast(tr('familyCreated')+': '+data.uuid,'success');
 		refreshTree();
 		document.getElementById('newPanel').classList.remove('open');
+		if(window.__ht_editor_opts.open_new_files!==false)openFile('lang/'+LOC+'/'+data.uuid+'.json');
 	}catch(e){
 		toast(tr('newError')+': '+e.message,'error');
 	}
@@ -1169,6 +1170,7 @@ async function createClass(className){
 		toast(tr('classCreated')+': '+data.uuid,'success');
 		refreshTree();
 		document.getElementById('newPanel').classList.remove('open');
+		if(window.__ht_editor_opts.open_new_files!==false)openFile('lang/'+LOC+'/'+data.uuid+'.json');
 	}catch(e){
 		toast(tr('newError')+': '+e.message,'error');
 	}
@@ -1229,8 +1231,10 @@ function openConfig(){
 (function(){
 	var loc=new URL(window.location.href).searchParams.get('lang');
 	var ls=document.getElementById('langSelect');
+	window.__ht_editor_opts={open_new_files:true};
 	// fetch saved options to override language if no URL param
 	fetch('/api/editor/options').then(function(r){return r.json()}).then(function(opts){
+		window.__ht_editor_opts=opts;
 		if(!loc&&opts.lang){loc=opts.lang}
 		LOC=loc||navigator.language||'en-US';
 		ls.value=LOC;
