@@ -141,7 +141,7 @@
          "id": "SECTION_limots",
          "text": [
             {
-               "text": "### Os limites nas somas\n\nAté este momento na seção *Primeiros Passos (<htcite0>) temos estudado os números e como nos movimentarmos entre eles seja somando ou multiplicando.\n\nNós também já observamos que estas duas operações estão conectadas com a multiplicação sendo interpretada como somos repetidas de um mesmo número (<htcite1>).\n\nEntretanto, estes não são os únicos conceitos estudados até o momento. Nós também estudamos o conceito inicial de límites da natureza (<htcite2>) que esteve sempre presente nestas operações apesas de não termos falado dele ainda.\n\nLogo, antes de prosseguirmos, reflita:",
+               "text": "### Os limites e os complementos nas somas\n\nAté este momento, na seção *Primeiros Passos (<htcite0>), temos estudado os números e como nos movimentamos entre eles, seja somando, seja multiplicando.\n\nTambém já observamos que essas duas operações estão conectadas, sendo a multiplicação interpretada como a soma repetida de um mesmo número (<htcite1>).\n\nEntretanto, esses não são os únicos conceitos estudados até o momento. Também estudamos o conceito inicial de limites na natureza (<htcite2>), que esteve sempre presente nessas operações, apesar de ainda não termos falado dele diretamente.\n\nLogo, antes de prosseguirmos, reflita:",
                "source": [
                   {
                      "type": 1,
@@ -187,7 +187,7 @@
                "PostMention": ""
             },
             {
-               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: O límite de uma soma</b><br /><br />Como o conceito de límite que vimos poderia nos ajudar a verificar o resultado de um cálculo?</div></div></center></p>",
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 2: O limite de uma soma</b><br /><br />Como o conceito de limite que vimos poderia nos ajudar a verificar o resultado de um cálculo?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
@@ -196,13 +196,13 @@
                "PostMention": ""
             },
             {
-              "text": "#### Limites na soma\n\nPara melhor visualizarmos o conceito de limite nas operações estudadas, iremos inicialmente utilizar ferramentas desenvolvidas na China (Zhongguo 中國) e no Japão (Nippon koku or Nihon koku, 日本国) que são geralmente conhecidas pelo nome ábacus.\n\nObserve-os abaixo clicando em **Suanpan (2x5)** e **Soroban (1x4)**.",
-              "source": [],
-              "date_time": [],
-              "isTable": false,
-              "imgdesc": "",
-              "format": "",
-              "PostMention": ""
+               "text": "#### Limites na soma (máximos e mínimos)\n\nPara visualizar melhor o conceito de limite nas operações estudadas, utilizaremos inicialmente ferramentas desenvolvidas na China (Zhongguo 中國) e no Japão (Nippon koku or Nihon koku, 日本国), conhecidas, em geral, como ábacos.\n\nComeçaremos utilizando a versão japonesa, o **Soroban (1×4)**. Portanto, clique nele para prosseguirmos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
             },
             {
                "text": "<style>.soroban-container { background: #c4b896; border-radius: clamp(1.5rem, 5vw, 3.5rem); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.6); padding: clamp(0.8rem, 3vw, 1.8rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem); width: 100%; max-width: 1100px; transition: all 0.2s ease; } .soroban-frame { background: #e9ddb0; border-radius: clamp(1rem, 3vw, 1.8rem); padding: clamp(8px, 2vw, 16px); box-shadow: inset 0 0 0 2px #fcf3cf, inset 0 0 0 6px #b49b6e, 0 8px 18px rgba(0,0,0,0.2); position: relative; } canvas { display: block; margin: 0 auto; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer; background-color: #fef7e0; width: 100%; height: auto; aspect-ratio: 860 / 400; } .value-panel { margin-top: clamp(0.8rem, 4vw, 1.8rem); background: #2e241f; border-radius: 60px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);  display: flex; justify-content: space-between;  align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 3px 6px rgba(255,245,190,0.3); } .value-panel-left { display: flex; align-items: center;  gap: clamp(8px, 2vw, 18px); flex-wrap: wrap; flex: 1; } .readout { background: #f2ecd8; padding: 0.4rem 1rem; border-radius: 40px; font-family: 'Courier New', 'SF Mono', monospace; font-weight: bold; font-size: clamp(1rem, 5vw, 1.9rem); letter-spacing: 1px; color: #1f2a0e; box-shadow: inset 0 1px 4px rgba(0,0,0,0.1), 0 1px 2px white; white-space: nowrap; } .readout span { font-size: clamp(0.7rem, 3.5vw, 1.2rem); font-weight: normal; background: #4a3929; color: #ffecb3; padding: 0.2rem 0.7rem; border-radius: 30px; margin-left: 8px;  white-space: nowrap; } .reset-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.85rem, 4vw, 1.2rem); font-family: inherit; padding: 0.5rem 1.2rem; border-radius: 60px; cursor: pointer;  transition: 0.08s linear; box-shadow: 0 3px 0 #4f3822; white-space: nowrap; min-width: 100px; } .reset-btn:active { transform: translateY(2px);  box-shadow: 0 1px 0 #4f3822;  } .legend {  font-size: clamp(0.6rem, 2.8vw, 0.75rem); margin-top: 0; text-align: center;  color: #302419;  background: #ebdfbe; display: inline-block; width: auto;  padding: 0.3rem 0.9rem; border-radius: 60px; backdrop-filter: blur(2px); white-space: nowrap; } .footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 12px; } .decimal-control { background: #ebdfbe; border-radius: 60px; padding: 0.3rem 1rem; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; color: #302419; white-space: nowrap; } .mode-selector { background: #ebdfbe; border-radius: 60px;  padding: 0.3rem 1rem; display: flex;  gap: 12px; align-items: center; flex-wrap: wrap; } .mode-btn { background: #846b4e; border: none; color: #ffefcf; font-weight: bold; font-size: clamp(0.7rem, 3vw, 0.85rem); font-family: inherit; padding: 0.4rem 1rem; border-radius: 40px; cursor: pointer; transition: 0.08s linear; box-shadow: 0 2px 0 #4f3822; white-space: nowrap; } .mode-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 #4f3822; } .mode-btn.active { background: #f7d98c; color: #2e241f; box-shadow: inset 0 1px 2px white, 0 1px 2px black; } .mode-label { font-weight: bold; color: #2e241f; font-size: clamp(0.65rem, 2.8vw, 0.75rem); } .warning-message { background: #ff9800; color: #2e241f; padding: 0.3rem 1rem; border-radius: 40px; font-size: clamp(0.6rem, 2.8vw, 0.75rem); font-weight: bold; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); animation: pulseWarning 1.5s ease-in-out infinite; white-space: normal; word-break: keep-all; } .warning-message.hidden { display: none; } @keyframes pulseWarning { 0%, 100% { opacity: 0.85; background: #ff9800; } 50% { opacity: 1; background: #ffb74d; box-shadow: 0 0 4px #ff9800; } } .warning-icon { font-size: 1rem; } .info-area { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; } @media (max-width: 720px) { .value-panel { flex-direction: column; align-items: stretch; border-radius: 32px; } .value-panel-left { justify-content: center; } .readout { text-align: center; white-space: normal; word-break: break-word; } .footer { flex-direction: column; align-items: stretch; } .mode-selector, .info-area, .decimal-control { justify-content: center; } .legend { white-space: normal; text-align: center; } .reset-btn { text-align: center; width: 100%; } } @media (max-width: 480px) { .readout span { margin-left: 4px; } .mode-selector { justify-content: center; gap: 8px; } }</style>",
@@ -215,6 +215,107 @@
             },
             {
                "text": "<div><div class=\"soroban-container\"><div class=\"soroban-frame\"><canvas id=\"sorobanCanvas\" width=\"860\" height=\"400\" style=\"width:100%; height:auto; max-width:860px; aspect-ratio:860/400\"></canvas></div><div class=\"value-panel\"><div class=\"value-panel-left\"><div class=\"readout\">Valor: <span id=\"numericValue\">0</span></div><div id=\"suanpanWarning\" class=\"warning-message hidden\"><span class=\"warning-icon\">⚠️</span><span id=\"warningText\">Há coluna(s) com valores maiores que 9! Cada dígito deve permanecer entre 0 e 9.</span></div></div><button id=\"resetButton\" class=\"reset-btn\">⟳ Reiniciar</button></div><div class=\"footer\"> <div class=\"mode-selector\"><span class=\"mode-label\">🧮 Ábaco:</span><button id=\"btnSorobanMode\" class=\"mode-btn\">Soroban (1x4)</button><button id=\"btnSuanpanMode\" class=\"mode-btn active\">Suanpan (2x5)</button></div><div class=\"info-area\"></div><div class=\"decimal-control\">⚫ Marcador decimal</div></div></div></div>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "No **Soroban (1x4)**, cada coluna pode representar apenas os valores entre 0 e 9, que correspondem ao menor e ao maior valor possível em uma única ordem do sistema decimal utilizado atualmente (<htcite0>).\n\nEsses grupos dos marcadores também revela outra informação importante. O marcador superior — também conhecido como (<htcite1>) — possui valor 5, um valor que não pode ser obtido apenas pela soma dos marcadores inferiores, que, quando todos estão encostados na barra de contagem, totalizam 4. Dessa forma, a combinação dos marcadores permite representar todos os valores de 0 a 9 sem a necessidade de avançar para a próxima ordem.\n\n#### Avançando uma ordem\n\nAlém de interpretarmos as posições superior e inferior do ábaco como nossas mãos, também podemos entendê-las como dois números que estamos somando. Enquanto a soma puder ser representada na mesma coluna (até o valor 9), não haverá mudança de ordem, ou seja, não precisaremos utilizar mais de uma coluna do ábaco.\n\nPor outro lado, se estivermos somando dois números cuja soma seja maior ou igual a 10, obrigatoriamente precisaremos utilizar a próxima coluna. Esse procedimento é conhecido popularmente como \"vai um\". Observe alguns exemplos no **Cálculo 1**:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "648fb7b4-ba73-452e-980b-6d68d57d16b9",
+                     "text": "History Tracers Team",
+                     "page": "Nossos números atuais",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2024",
+                        "month": "",
+                        "day": ""
+                     }
+                  },
+                  {
+                     "type": 1,
+                     "uuid": "c3c69877-a92b-493c-b98a-5c1c6d5875f4",
+                     "text": "History Tracers Team",
+                     "page": "Construindo para contar (Suanpan, 算盤)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <p class=\"desc\"><b>Cálculo 1</b>: Adição de dois números cujos resultados são maiores ou iguais a 10.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 3: E o complemento?</b><br /><br />A partir do momento em que temos todos os dedos das mãos erguidos (dez dedos), ou, se preferir, a partir do momento em que precisamos utilizar mais marcadores do que existem em uma coluna do Soroban (算盤), sabemos que nossos cálculos obrigatoriamente excederão a ordem das unidades e, portanto, precisarão de uma nova ordem (ou mais mãos, ou ainda mais colunas).<br /><br />Isso quer dizer que o limite para permanecermos sem o \"vai um\" é somar um número menor que o complemento do outro número?</div></div></center></p>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "#### O complemento como limite\n\nAo estudarmos os complementos numéricos e sua utilização para realizar somas (<htcite0>), vimos que podemos atingir um determinado resultado somando o complemento a um número. Por exemplo, se queremos chegar a 10 e temos 6, basta somarmos seu complemento, 4, pois 6 + 4 = 10.\n\nAgora, utilizando novamente os complementos, podemos ir além. Podemos entender o complemento como o limite máximo antes da mudança para uma nova ordem. Em outras palavras, sempre que somarmos um número menor que o complemento, permaneceremos na mesma ordem. Quando somarmos o complemento ou um valor maior, será necessário avançar para a ordem seguinte (ou para a próxima coluna).\n\nFaçamos o exemplo dos complementos de 6 para tornar essa ideia mais clara:",
+               "source": [
+                  {
+                     "type": 1,
+                     "uuid": "2ae0993a-4338-42f6-982e-14ebd64209d3",
+                     "text": "History Tracers Team",
+                     "page": "Somando com Soroban e Suanpan (算盤) (Parte 2)",
+                     "date_time": {
+                        "type": "gregory",
+                        "year": "2026",
+                        "month": "",
+                        "day": ""
+                     }
+                  }
+               ],
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<center><div class=\"first_steps_reflection_parent\" style=\"background-color: #FFFFFF;\"><div class=\"first_steps_reflection\" style=\"background-color: #FFFFFF;\"><p class=\"center_notation\"><math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>0</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>6</mi></math><br />  <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>1</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>7</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>2</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>8</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>3</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>9</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>4</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>10</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>5</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>11</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>12</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>7</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>13</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>8</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>14</mi></math><br /> <math mathsize=\"1.5em\" displaystyle=\"false\"><mi>6</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">+</mo><mi>9</mi><mo lspace=\"0.1667em\" rspace=\"0.1667em\">=</mo><mi>15</mi></math><br /><p class=\"desc\"><b>Cálculo 6</b>: Soma dos números de 0 a 9 ao número 6.</p></div></div></center>",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "html",
+               "PostMention": ""
+            },
+            {
+               "text": "Se desejar, poderá alterar o ábaco acima para o modo **Suapan (2x5)** e executar o **Cálculo 2** nele.\n\nNo **Cálculo 2**, podemos observar que:\n- até atingirmos o complemento de 6, que é 4, todas as somas permanecem na ordem das unidades;\n- a partir do momento em que atingimos o complemento, todas as somas passam a envolver também a ordem das dezenas.\n\nDiante desse cenário, podemos chegar a importantes conclusões sobre como os complementos e os limites nos ajudam a verificar se nossos cálculos poderiam conter algum erro:\n- ao somarmos um número menor que o complemento, não é possível obter um resultado que alcance a ordem das dezenas;\n- a partir do momento em que somamos o complemento ou um número maior, o resultado obrigatoriamente passa a envolver uma nova ordem.\n\nCom essas conclusões sobre a adição, podemos refletir sobre nossos próximos passos.",
+               "source": null,
+               "date_time": null,
+               "isTable": false,
+               "imgdesc": "",
+               "format": "markdown",
+               "PostMention": ""
+            },
+            {
+               "text": "<p><center><div class=\"first_steps_reflection_parent\"><div class=\"first_steps_reflection question_mark\"><i class=\"fa-solid fa-brain\"></i></div><div class=\"first_steps_reflection\"><b>Reflexão 4: E a multiplicação?</b><br /><br />Com o que vimos até o momento nesta página, como poderíamos verificar se os resultados de uma multiplicação estão no caminho correto?</div></div></center></p>",
                "source": null,
                "date_time": null,
                "isTable": false,
