@@ -101,6 +101,36 @@ select#langSelect option{color:#000;background:#fff}
 #toast.error{background:#c62828;color:#fff}
 #toast.info{background:#1565c0;color:#fff}
 #toast .toast-ok{background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.5);color:#fff;padding:2px 12px;border-radius:3px;cursor:pointer;margin-left:8px;font:inherit}
+#designBtn{font-size:1.1em;line-height:1;padding:2px 8px}
+.design-light, .design-light #root, .design-light #sidebar, .design-light #editor, .design-light #newPanel, .design-light #insertPanel{background:#fff!important;color:#000!important}
+.design-light #toolbar{background:#e0e0e0!important;border-bottom:1px solid #ccc!important}
+.design-light #toolbar select, .design-light #toolbar button{background:#f5f5f5!important;color:#000!important;border-color:#ccc!important}
+.design-light #sidebar{background:#f5f5f5!important;border-right:1px solid #ddd!important}
+.design-light #sidebarTabs .st{background:#e0e0e0!important;color:#555!important}
+.design-light #sidebarTabs .st.active{background:#f5f5f5!important;color:#000!important;border-bottom-color:#00897b!important}
+.design-light #sidebar h3{color:#555!important;border-bottom-color:#ddd!important}
+.design-light .tree-item{color:#333!important}
+.design-light .tree-item.dir{color:#00695c!important}
+.design-light .tree-item:hover,.design-light .tree-item.focused{background:#e8e8e8!important}
+.design-light .tree-item.selected{background:#00897b!important;color:#fff!important}
+.design-light .git-item{color:#333!important}
+.design-light .git-item:hover{background:#e8e8e8!important}
+.design-light #tabBar{background:#e0e0e0!important;border-bottom-color:#ccc!important}
+.design-light .tab{color:#555!important;border-right-color:#ddd!important}
+.design-light .tab.active{background:#f5f5f5!important;color:#000!important;border-bottom-color:#00897b!important}
+.design-light .tab .tab-close{color:#999!important}
+.design-light #editor .file-path{background:#e0e0e0!important;border-bottom-color:#ccc!important}
+.design-light #editor .file-path .fname{color:#333!important}
+.design-light #searchBar{background:#e0e0e0!important;border-bottom-color:#ccc!important}
+.design-light #searchBar input{background:#fff!important;color:#000!important;border-color:#ccc!important}
+.design-light #insertPanel,.design-light #newPanel{background:#f5f5f5!important;border-left-color:#ddd!important}
+.design-light #insertPanel h3,.design-light #newPanel h3{color:#555!important;border-bottom-color:#ddd!important}
+.design-light .ins-item{color:#00695c!important}
+.design-light .ins-item:hover{background:#e8e8e8!important;color:#000!important}
+.design-light #lineNumbers{background:#f0f0f0!important;color:#999!important;border-right-color:#ddd!important}
+.design-light #editor textarea{background:#fff!important;color:#000!important}
+.design-light #portDisplay{color:#00695c!important}
+.design-light #configFrame{background:#fff!important}
 </style>
 </head>
 <body>
@@ -118,6 +148,7 @@ select#langSelect option{color:#000;background:#fff}
 <button onclick="toggleInsert()" id="insBtn" style="display:none">Insert</button>
 <button onclick="openConfig()" id="cfgBtn">Config</button>
 <button onclick="openDevTools()" id="devBtn">Dev</button>
+<button onclick="toggleDesign()" id="designBtn" title="Toggle design">&#127769;</button>
 </div>
 <div id="main">
 <div id="sidebar">
@@ -188,6 +219,21 @@ var L={
 };
 
 function tr(key){var l=L[LOC]||L['en-US'];return l[key]||L['en-US'][key]||key}
+
+function htApplyDesign(val){
+	if(val==='light'){
+		document.body.classList.add('design-light');
+		document.getElementById('designBtn').innerHTML='&#9728;';
+	}else{
+		document.body.classList.remove('design-light');
+		document.getElementById('designBtn').innerHTML='&#127769;';
+	}
+	localStorage.setItem('ht_design',val);
+}
+function toggleDesign(){
+	var cur=localStorage.getItem('ht_design');
+	htApplyDesign(cur==='light'?'default':'light');
+}
 
 function setLang(loc){
 	LOC=loc;
@@ -1232,6 +1278,7 @@ function openConfig(){
 	var loc=new URL(window.location.href).searchParams.get('lang');
 	var ls=document.getElementById('langSelect');
 	window.__ht_editor_opts={open_new_files:true};
+	htApplyDesign(localStorage.getItem('ht_design')||'default');
 	// fetch saved options to override language if no URL param
 	fetch('/api/editor/options').then(function(r){return r.json()}).then(function(opts){
 		window.__ht_editor_opts=opts;
