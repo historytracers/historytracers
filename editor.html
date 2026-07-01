@@ -1278,7 +1278,6 @@ function openConfig(){
 	var loc=new URL(window.location.href).searchParams.get('lang');
 	var ls=document.getElementById('langSelect');
 	window.__ht_editor_opts={open_new_files:true};
-	htApplyDesign(localStorage.getItem('ht_design')||'default');
 	// fetch saved options to override language if no URL param
 	fetch('/api/editor/options').then(function(r){return r.json()}).then(function(opts){
 		window.__ht_editor_opts=opts;
@@ -1287,11 +1286,14 @@ function openConfig(){
 		ls.value=LOC;
 		if(!ls.value){ls.value='en-US';LOC='en-US'}
 		setLang(LOC);
+		// apply design from server options, overridden by localStorage if present
+		htApplyDesign(localStorage.getItem('ht_design')||opts.design||'default');
 	}).catch(function(){
 		LOC=loc||navigator.language||'en-US';
 		ls.value=LOC;
 		if(!ls.value){ls.value='en-US';LOC='en-US'}
 		setLang(LOC);
+		htApplyDesign(localStorage.getItem('ht_design')||'default');
 	});
 	refreshTree();
 	buildNewList();

@@ -738,6 +738,7 @@ type optionsData struct {
 	TLSCert      string `json:"tls_cert"`
 	TLSKey       string `json:"tls_key"`
 	OpenNewFiles bool   `json:"open_new_files"`
+	Design       string `json:"design"`
 }
 
 func initDataDir() {
@@ -903,6 +904,9 @@ func optionsHandler(w http.ResponseWriter, r *http.Request) {
 		if v := r.FormValue("open_new_files"); v != "" {
 			data.OpenNewFiles = v == "true" || v == "on" || v == "1"
 		}
+		if v := r.FormValue("design"); v != "" {
+			data.Design = v
+		}
 		writeEditorOptions(data)
 		rotateToken()
 		w.Header().Set("X-HT-Next-Token", viewerToken)
@@ -942,6 +946,10 @@ func optionsPageHandler(w http.ResponseWriter, r *http.Request) {
 	curTLSCert := data.TLSCert
 	curTLSKey := data.TLSKey
 	openNewFiles := data.OpenNewFiles
+	curDesign := data.Design
+	if curDesign == "" {
+		curDesign = "default"
+	}
 	defaultTLSDir := "/etc/historytracers/"
 	if runtime.GOOS == "windows" {
 		defaultTLSDir = "C:\\ProgramData\\historytracers\\"
@@ -975,10 +983,11 @@ var tlsKeyVal=%q;
 var certDir=%q;
 var token=%q;
 var openNewFiles=%q;
+var curDesign=%q;
 var L={};
-L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos'};
-L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos'};
-L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!',openNewFilesLabel:'Open new files'};
+L['pt-BR']={title:'Configura\u00e7\u00e3o',langLabel:'Idioma',listenLabel:'Porta',tlsLabel:'Certificado TLS',tlsKeyLabel:'Chave TLS',tlsNote:'Rein\u00edcio necess\u00e1rio para aplicar',apply:'Aplicar',saved:'Configura\u00e7\u00f5es salvas!',err:'Erro ao salvar: ',back:'\u00ab Voltar',importViewer:'Importar do Viewer',imported:'Prefer\u00eancias importadas!',openNewFilesLabel:'Abrir novos arquivos',designLabel:'Design',designDefault:'Padr\u00e3o',designLight:'Claro'};
+L['es-ES']={title:'Configuraci\u00f3n',langLabel:'Idioma',listenLabel:'Puerto',tlsLabel:'Certificado TLS',tlsKeyLabel:'Clave TLS',tlsNote:'Reinicio necesario para aplicar',apply:'Aplicar',saved:'\u00a1Configuraci\u00f3n guardada!',err:'Error al guardar: ',back:'\u00ab Volver',importViewer:'Importar del Viewer',imported:'\u00a1Preferencias importadas!',openNewFilesLabel:'Abrir nuevos archivos',designLabel:'Dise\u00f1o',designDefault:'Predeterminado',designLight:'Claro'};
+L['en-US']={title:'Configuration',langLabel:'Language',listenLabel:'Listen port',tlsLabel:'TLS Certificate',tlsKeyLabel:'TLS Key',tlsNote:'Restart required to apply',apply:'Apply',saved:'Configuration saved!',err:'Error saving: ',back:'\u00ab Go back',importViewer:'Import from Viewer',imported:'Preferences imported!',openNewFilesLabel:'Open new files',designLabel:'Design',designDefault:'Default',designLight:'Light'};
 var l=L[lang]||L[lang.substring(0,2)]||L['en-US'];
 document.title=l.title;
 
@@ -994,6 +1003,7 @@ html+='<div class="form-group"><label>'+l.tlsLabel+'</label><input type="text" i
 html+='<div class="form-group"><label>'+l.tlsKeyLabel+'</label><input type="text" id="opt_tls_key" placeholder="'+certDir+'key.pem" value="'+tlsKeyVal+'"></div>';
 html+='<div style="font-size:12px;color:#999;margin:-8px 0 14px 0">'+l.tlsNote+'</div>';
 html+='<div class="form-group"><label><input type="checkbox" id="opt_open_new_files"'+(openNewFiles==='true'?' checked':'')+'> '+l.openNewFilesLabel+'</label></div>';
+html+='<div class="form-group"><label>'+l.designLabel+'</label><select id="opt_design"><option value="default"'+(curDesign==='default'?' selected':'')+'>'+l.designDefault+'</option><option value="light"'+(curDesign==='light'?' selected':'')+'>'+l.designLight+'</option></select></div>';
 html+='<button class="btn" id="opt_apply">'+l.apply+'</button>';
 html+='<button class="btn" id="opt_import" style="margin-left:8px;background:#00695c">'+l.importViewer+'</button>';
 html+='<div id="opt_status"></div>';
@@ -1010,7 +1020,9 @@ document.getElementById('opt_apply').onclick=function(){
 	var h={'Content-Type':'application/x-www-form-urlencoded'};
 	if(token)h['X-HT-Token']=token;
 	var nof=document.getElementById('opt_open_new_files').checked?'true':'false';
-	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)}).then(function(r){
+	var nd=document.getElementById('opt_design').value;
+	fetch('/api/editor/options',{method:'POST',headers:h,body:'lang='+encodeURIComponent(nl)+'&port='+encodeURIComponent(np)+'&tls_cert='+encodeURIComponent(tc)+'&tls_key='+encodeURIComponent(tk)+'&open_new_files='+encodeURIComponent(nof)+'&design='+encodeURIComponent(nd)}).then(function(r){
+		if(r.ok&&window.parent&&window.parent.htApplyDesign)window.parent.htApplyDesign(nd);
 		if(!r.ok)throw new Error(r.status);
 		s.className='status';s.textContent=l.saved;
 	}).catch(function(e){
@@ -1029,7 +1041,7 @@ document.getElementById('opt_import').onclick=function(){
 	});
 };
 </script>
-</body></html>`, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, token, fmt.Sprint(openNewFiles))
+</body></html>`, curLang, curPort, curTLSCert, curTLSKey, defaultTLSDir, token, fmt.Sprint(openNewFiles), curDesign)
 }
 
 func init() {
