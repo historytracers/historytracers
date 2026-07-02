@@ -638,7 +638,11 @@ function updateRelatedFiles(){
 		if(p===t.path)return;
 		var opt=document.createElement('option');
 		opt.value=p;
-		opt.textContent=p;
+		var m=p.match(/^lang\/([a-z]{2}-[A-Z]{2})\//);
+		if(m)opt.textContent=m[1];
+		else if(p.indexOf('js/')===0)opt.textContent='JavaScript';
+		else if(p.indexOf('lang/sources/')===0)opt.textContent='Source';
+		else opt.textContent=p;
 		sel.appendChild(opt);
 	});
 }
