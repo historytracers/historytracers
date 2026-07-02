@@ -27,6 +27,12 @@ case "$(uname -s)" in
         ;;
 esac
 
+update_submodules() {
+    echo "=== Updating submodules ==="
+    git submodule update --init --recursive
+    echo "=== Submodules updated ==="
+}
+
 compile() {
     echo "=== Platform: $PLATFORM ==="
 
@@ -68,5 +74,18 @@ compile() {
     ./build/$PUBLISHER_BIN -minify -audiofiles -gedcom -verbose >> historytracers.log 2> >(tee -a historytracers.log >&2)
     echo "=== publisher run complete (see historytracers.log) ==="
 }
+
+for arg in "$@"; do
+    case "$arg" in
+        --update-submodules|-u)
+            update_submodules
+            ;;
+        *)
+            echo "Unknown option: $arg"
+            echo "Usage: $0 [--update-submodules|-u]"
+            exit 1
+            ;;
+    esac
+done
 
 compile

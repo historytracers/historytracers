@@ -6,7 +6,7 @@ require (
 	github.com/Krakinsight/go-webview2 v0.4.2
 	github.com/go-git/go-git/v5 v5.19.1
 	github.com/google/uuid v1.6.0
-	github.com/historytracers/common v0.0.0
+	github.com/historytracers/common v0.0.0-20260702181604-c40f654376d7
 	github.com/webview/webview_go v0.0.0-20240831120633-6173450d4dd6
 )
 
@@ -36,6 +36,6 @@ require (
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 )
 
-replace github.com/historytracers/common => ../common
+replace github.com/historytracers/common => ../common/src/go
 
 replace github.com/webview/webview_go => ../viewer/webview_patch
