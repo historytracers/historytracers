@@ -76,7 +76,13 @@ The `lang/sources/` directory contains JSON files with the sources referenced in
 
 ### Initial Setup (first time only)
 
-If this is a fresh clone, you need to generate the build system files:
+If this is a fresh clone, first initialize the project submodule:
+
+```sh
+git submodule update --init
+```
+
+Then generate the build system files:
 
 ```sh
 ./bootstrap

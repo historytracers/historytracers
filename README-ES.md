@@ -83,7 +83,13 @@ El directorio `lang/sources/` contiene archivos JSON con las fuentes referenciad
 
 ### Configuración inicial (primera vez)
 
-Si es un clon fresco, necesita generar los archivos del sistema de compilación:
+Si es un clon fresco, primero inicialice el submódulo del proyecto:
+
+```sh
+git submodule update --init
+```
+
+Luego genere los archivos del sistema de compilación:
 
 ```sh
 ./bootstrap

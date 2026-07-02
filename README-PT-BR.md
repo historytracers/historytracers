@@ -83,7 +83,13 @@ O *History Tracers* utiliza o **GNU Make** como sistema de compilação.
 
 ### Configuração inicial (primeira vez)
 
-Se for um clone fresco, você precisa gerar os arquivos do sistema de compilação:
+Se for um clone fresco, primeiro inicialize o submódulo do projeto:
+
+```sh
+git submodule update --init
+```
+
+Em seguida, gere os arquivos do sistema de compilação:
 
 ```sh
 ./bootstrap
