@@ -12,6 +12,6 @@ require (
 
 replace github.com/historytracers/common => ../common
 
-require github.com/historytracers/common v0.0.0
+require github.com/historytracers/common v0.0.0-20260702181604-c40f654376d7
 
 require github.com/tdewolff/parse/v2 v2.8.12 // indirect
